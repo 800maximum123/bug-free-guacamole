@@ -1,61 +1,62 @@
 /datum/trader/ship/gunshop
-	name = "Работник военспеца"
+	name = "Gun Shop Employee"
 	name_language = TRADER_DEFAULT_NAME
-	origin = "Военспец"
-	skill_req = SKILL_WEAPONS
-	possible_origins = list("Пиф-Паф Ой-ёй-Ой", "Бомбический", "Дикий-дикий Запад", "Келешников", "Охотничье Депо", "Большие хищники")
-	speech = list(TRADER_HAIL_GENERIC    = "Привет-привет! Надеюсь, у тебя есть лицензия на использование этого оружия! Ох, да кого я пытаюсь наебать? Милости прошу!",
-				TRADER_HAIL_DENY         = "Наша политика предписывает послать тебя НАХУЙ.",
+	origin = "Gun Shop"
+	possible_origins = list("Rooty Tootie's Point-n-Shooties", "Bang-Bang Shop", "Wild Wild West Shop", "Keleshnikov", "Hunting Depot", "Big Game Hunters")
+	speech = list(TRADER_HAIL_GENERIC    = "Hello, hello! I hope you have your permit. Oh, who are we kidding, you're welcome anyway!",
+				TRADER_HAIL_DENY         = "Store policy dictates that you can fuck off.",
 
-				TRADER_TRADE_COMPLETE    = "Спасибо за покупку в военспеце ORIGIN!",
-				TRADER_NO_BLACKLISTED   = "Слушай, мы может и продаём пушки, но это ещё не значит, что мы повязаны с нелегалом...",
-				TRADER_NO_GOODS    = "Пушки за деньги. Вот и вся маза.",
-				TRADER_NOT_ENOUGH  = "Слушай, мы продаём здесь РЕАЛЬНЫЕ пушки! Так что дай нам РЕАЛЬНЫЕ деньги!",
-				TRADER_HOW_MUCH          = "Что же, думаю эта красотка обойдётся тебе в VALUE.",
+				TRADER_TRADE_COMPLETE    = "Thanks for buying your guns from ORIGIN!",
+				TRADER_NO_BLACKLISTED   = "We may deal in guns, but that doesn't mean we'll trade for illegal goods...",
+				TRADER_NO_GOODS    = "Cash for guns, thats the deal.",
+				TRADER_NOT_ENOUGH  = "Guns are expensive! Give us more if you REALLY want it.",
+				TRADER_HOW_MUCH          = "Well, I'd love to give this little beauty to you for VALUE.",
 
-				TRADER_COMPLEMENT_FAILURE   = "Будь мы в одной комнате - я б точно тебя ударил.",
-				TRADER_COMPLEMENT_SUCCESS = "Ха! А неплохо!",
-				TRADER_INSULT_GOOD       = "Я ожидал лучшего от тебя. Видимо, я ошибся.",
-				TRADER_INSULT_BAD        = "Пристрелил бы тебя прямо здесь! Если бы мы не продали наши корабельные орудия чтобы покрыть долги..."
+				TRADER_COMPLEMENT_FAILURE   = "If we were in the same room right now, I'd probably punch you.",
+				TRADER_COMPLEMENT_SUCCESS = "Ha! Good one!",
+				TRADER_INSULT_GOOD       = "I expected better from you. I suppose in that, I was wrong.",
+				TRADER_INSULT_BAD        = "If I had my gun I'd shoot you!"
 				)
 
-	possible_trading_items = list(/obj/item/gun/projectile/pistol/holdout    = TRADER_ALL,
-								/obj/item/gun/projectile/pistol/magnum_pistol= TRADER_ALL,
-								/obj/item/gun/projectile/pistol/sec         = TRADER_ALL,
-								/obj/item/gun/projectile/heavysniper/boltaction	= TRADER_ALL,
-								/obj/item/gun/projectile/pistol/sec/MK      = TRADER_BLACKLIST,
-								/obj/item/gun/projectile/shotgun/pump= TRADER_SUBTYPES_ONLY,
-								/obj/item/ammo_magazine                     = TRADER_SUBTYPES_ONLY,
-								/obj/item/ammo_magazine/pistol/empty         = TRADER_BLACKLIST,
-								/obj/item/ammo_magazine/gyrojet/empty           = TRADER_BLACKLIST,
-								/obj/item/ammo_magazine/pistol/small/empty         = TRADER_BLACKLIST,
-								/obj/item/ammo_magazine/pistol/empty         = TRADER_BLACKLIST,
-								/obj/item/ammo_magazine/box/pistol/empty       = TRADER_BLACKLIST,
-								/obj/item/ammo_magazine/box/machinegun/empty      = TRADER_BLACKLIST,
-								/obj/item/ammo_magazine/machine_pistol/empty        = TRADER_BLACKLIST,
-								/obj/item/ammo_magazine/smg_top/empty        = TRADER_BLACKLIST,
-								/obj/item/ammo_magazine/magnum/empty           = TRADER_BLACKLIST,
-								/obj/item/clothing/accessory/storage/holster        = TRADER_ALL)
+	possible_trading_items = list(
+		/obj/item/gun/projectile/pistol/holdout = TRADER_ALL,
+		/obj/item/gun/projectile/pistol/magnum_pistol = TRADER_ALL,
+		/obj/item/gun/projectile/pistol/sec = TRADER_ALL,
+		/obj/item/gun/projectile/boltloader/boltaction	= TRADER_ALL,
+		/obj/item/gun/projectile/pistol/sec/MK = TRADER_BLACKLIST,
+		/obj/item/gun/projectile/shotgun/pump = TRADER_SUBTYPES_ONLY,
+		/obj/item/ammo_magazine = TRADER_SUBTYPES_ONLY,
+		/obj/item/ammo_magazine/pistol/empty = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/mil_rifle/heavy/empty = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/gyrojet/empty = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/pistol/small/empty = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/pistol/empty = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/box/pistol/empty = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/box/machinegun/empty = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/machine_pistol/empty = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/smg_top/empty = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/magnum/empty = TRADER_BLACKLIST,
+		/obj/item/clothing/accessory/storage/holster = TRADER_ALL
+	)
 
 /datum/trader/ship/egunshop
-	name = "Работник"
+	name = "Energy Gun Shop Employee"
 	name_language = TRADER_DEFAULT_NAME
-	origin = "Магазин ЕГанов"
-	skill_req = SKILL_WEAPONS
-	possible_origins = list("Императорский Лазган", "Оружие будущего", "Солнечная Армия", "Электрические руковицы Кёрфера", "Е-Ган")
-	speech = list(TRADER_HAIL_GENERIC    = "Добро пожаловать в войну будущего, в ORIGIN! Самое передовое вооружение! Только у нас!",
-				TRADER_HAIL_DENY         = "...",
+	origin = "EGun Shop"
+	possible_origins = list("The Emperor's Lasgun Shop", "Future Guns", "Solar Army", "Kiefer's Dependable Electric Arms", "Olympus Kingsport")
+	speech = list(TRADER_HAIL_GENERIC    = "Welcome to the future of warfare! ORIGIN, your one-stop shop for energy weaponry!",
+				TRADER_HAIL_DENY         = "I'm sorry, your communication channel has been blacklisted.",
 
-				TRADER_TRADE_COMPLETE    = "Благодарю вас за покупку. Надеюсь, вы прожжёте этой крошкой не мало сердец!",
-				TRADER_NO_BLACKLISTED   = "Простите, это какая-то шутка?",
-				TRADER_NO_GOODS    = "Деньги.",
-				TRADER_NOT_ENOUGH  = "Произведение технологического искусства стоит больше, нежели эти копейки.",
-				TRADER_HOW_MUCH          = "Наши самородки военной индустрии считаются бесценными, но я бы мог продать вам конкретно этот за VALUE.",
+				TRADER_TRADE_COMPLETE    = "Thank you, your purchase has been logged and you have automatically liked our Spacebook page.",
+				TRADER_NO_BLACKLISTED   = "I'm sorry, is that a joke?",
+				TRADER_NO_GOODS    = "We deal in cash.",
+				TRADER_NOT_ENOUGH  = "State of the art weaponry costs more than that.",
+				TRADER_HOW_MUCH          = "All our quality weapons are priceless, but I'd give that to you for VALUE.",
 
-				TRADER_COMPLEMENT_FAILURE   = "Будь я тупее, може, я бы и поверил вам.",
-				TRADER_COMPLEMENT_SUCCESS = "Да, я определённо умён.",
-				TRADER_INSULT_GOOD       = "Энергетическое оружие - это будущее ведения войны! Ваша кинетика - это просто бруталистский пережиток истории!",
-				TRADER_INSULT_BAD        = "Это...очень грубо. Если вы не прекратите - то мне придётся заблокировать данный канал связи."
+				TRADER_COMPLEMENT_FAILURE   = "If I was dumber I probably would have believed you.",
+				TRADER_COMPLEMENT_SUCCESS = "Yes, I am very smart.",
+				TRADER_INSULT_GOOD       = "Energy weapons are TWICE the gun kinetic guns are!",
+				TRADER_INSULT_BAD        = "That's... very mean. I won't think twice about blacklisting your channel, so stop."
 				)
 
 	possible_trading_items = list(/obj/item/gun/energy/taser                      = TRADER_THIS_TYPE,
@@ -71,29 +72,28 @@
 								/obj/item/clothing/accessory/storage/holster             = TRADER_ALL)
 
 /datum/trader/dogan
-	name = "Дуган"
-	origin = "Торговый маяк Дугана"
-	skill_req = SKILL_WEAPONS
-	speech = list(TRADER_HAIL_GENERIC    = "Привет! Это Дуган и ты слушаешь предзаписанный мной диалог! Надеюсь, тебе приглянётся что-нибудь из нашего ассортимента!",
-				TRADER_HAIL_DENY         = "Я предлагаю вам больше...НЕ...посещать наш магазин!",
+	name = "Dogan"
+	origin = "Dogan's Gun Beacon"
+	speech = list(TRADER_HAIL_GENERIC    = "Hello! This is an automatic recording of me, Mr. Dogan! I hope you like the... GUNS... I've got in store for you today.",
+				TRADER_HAIL_DENY         = "I formally welcome you to... NOT... visit our store!",
 
-				TRADER_TRADE_COMPLETE    = "Спасибо тебе за...ПОКУПКУ...ЭТОГО КАЧЕСТВЕННОГО...ПРЕДМЕТА...у меня!",
-				TRADER_NO_BLACKLISTED   = "Спасибо тебе за предложение...ЭТОГО КАЧЕСТВЕННОГО...НЕЛЕГАЛЬНОГО ПРЕДМЕТА ОТ КОТОРОГО Я ОТКАЖУСЬ...мне!",
-				TRADER_NO_GOODS    = "Спасибо тебе за предложение...ЭТОГО КАЧЕСТВЕННОГО...НЕПОДХОДЯЩЕГО ПО КРИТЕРИЯМ КУПЛЕПРОДАЖИ ПРЕДМЕТА...мне!",
-				TRADER_NOT_ENOUGH  = "Спасибо тебе за предложение...ЭТОГО КАЧЕСТВЕННОГО...СЛИШКОМ ДЕШЁВОГО ПРЕДМЕТА...мне!",
-				TRADER_HOW_MUCH          = "Спасибо тебе за...ИНТЕРЕС К ЦЕНЕ...ЭТОГО КАЧЕСТВЕННОГО...ПРЕДМЕТА...КОТОРЫЙ СТОИТ VALUE...у меня!",
+				TRADER_TRADE_COMPLETE    = "Thank you for... PURCHASING... that quality... ITEM... from me!",
+				TRADER_NO_BLACKLISTED   = "Thank you for... that quality... ILLEGAL OFFER THAT I WILL REFUSE... from me!",
+				TRADER_NO_GOODS    = "Thank you for... that quality... OFFER THAT ISN'T MONEY THAT I WILL REFUSE... from me!",
+				TRADER_NOT_ENOUGH  = "Thank you for... that quality... OFFER THAT IS NOT ENOUGH... from me!",
+				TRADER_HOW_MUCH          = "Thank you for... ASKING ME ABOUT MY PRICES... that quality... ITEM is worth VALUE... from me!",
 
-				TRADER_COMPLEMENT_FAILURE   = "Спасибо тебе за предложение...ЭТОГО КАЧЕСТВЕННОГО...КОМПЛИМЕНТА...для меня!",
-				TRADER_COMPLEMENT_SUCCESS = "Спасибо тебе за предложение...ЭТОГО КАЧЕСТВЕННОГО...КОМПЛИМЕНТА...для меня!",
-				TRADER_INSULT_GOOD       = "Спасибо тебе за предложение...ЭТОГО КАЧЕСТВЕННОГО...ОСКОРБЛЕНИЯ...для меня!",
-				TRADER_INSULT_BAD        = "Спасибо тебе за предложение...ЭТОГО КАЧЕСТВЕННОГО...ОСКОРБЛЕНИЯ...для меня!"
+				TRADER_COMPLEMENT_FAILURE   = "Thank you for... that quality... COMPLIMENT... from me!",
+				TRADER_COMPLEMENT_SUCCESS = "Thank you for... that quality... COMPLIMENT... from me!",
+				TRADER_INSULT_GOOD       = "Thank you for... that quality... INSULT... from me!",
+				TRADER_INSULT_BAD        = "Thank you for... that quality... INSULT... from me!"
 				)
 	compliment_increase = 0
 	insult_drop = 0
 
 	possible_trading_items = list(/obj/item/gun/projectile/pirate                = TRADER_THIS_TYPE,
 								/obj/item/gun/projectile/pistol/sec/MK                  = TRADER_THIS_TYPE,
-								/obj/item/gun/projectile/heavysniper/ant         = TRADER_THIS_TYPE,
+								/obj/item/gun/projectile/boltloader/heavysniper/ant         = TRADER_THIS_TYPE,
 								/obj/item/gun/energy/laser/dogan                 = TRADER_THIS_TYPE,
-								/obj/item/gun/projectile/automatic/machine_pistol/usi  = TRADER_THIS_TYPE,
+								/obj/item/gun/projectile/automatic/smg/machine_pistol/usi  = TRADER_THIS_TYPE,
 								/obj/item/clothing/accessory/storage/holster                    = TRADER_ALL)

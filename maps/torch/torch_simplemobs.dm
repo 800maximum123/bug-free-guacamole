@@ -1,18 +1,18 @@
 /obj/landmark/corpse/fleet
 	name = "Fleet Armsman"
-	//corpse_outfits = list(/singleton/hierarchy/outfit/job/torch/ert/hostile) ГАЙЯ
+	corpse_outfits = list(/singleton/hierarchy/outfit/job/torch/ert/hostile)
 	spawn_flags = CORPSE_SPAWNER_RANDOM_NAMELESS | CORPSE_SPAWNER_ALL_SKIPS
 
 /obj/landmark/corpse/fleet/leader
 	name = "Fleet Team Leader"
-	//corpse_outfits = list(/singleton/hierarchy/outfit/job/torch/ert/hostile/leader) ГАЙЯ
+	corpse_outfits = list(/singleton/hierarchy/outfit/job/torch/ert/hostile/leader)
 
 /obj/landmark/corpse/fleet/space
 	name = "Fleet Assault Armsman"
-	//corpse_outfits = list(/singleton/hierarchy/outfit/job/torch/ert/hostile/suit) ГАЙЯ
+	corpse_outfits = list(/singleton/hierarchy/outfit/job/torch/ert/hostile/suit)
 
 /obj/item/clothing/suit/armor/bulletproof/armsman
-	valid_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA, ACCESSORY_SLOT_ARMOR_A, ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)
+	valid_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA, ACCESSORY_SLOT_ARMOR_ARMS, ACCESSORY_SLOT_ARMOR_LEGS, ACCESSORY_SLOT_ARMOR_STORAGE)
 	accessories = list(
 		/obj/item/clothing/accessory/arm_guards/riot,
 		/obj/item/clothing/accessory/leg_guards/riot,
@@ -82,11 +82,11 @@
 	projectiletype = /obj/item/projectile/bullet/pistol
 	natural_weapon = /obj/item/gun/projectile/pistol/m22f
 	weapon1 = /obj/item/gun/projectile/pistol/m22f
-	status_flags = EMPTY_BITFIELD
+	status_flags = FLAGS_OFF
 
 /mob/living/simple_animal/hostile/human/fleet/ranged/neutral
 	say_list_type = /datum/say_list/fleet/friendly
-	faction = MOB_FACTION_SCG
+	faction = MOB_FACTION_CREW
 
 //////////////Bullpup////////////////
 
@@ -98,11 +98,11 @@
 	projectiletype = /obj/item/projectile/bullet/rifle
 	natural_weapon = /obj/item/gun/projectile/automatic/bullpup_rifle/light
 	weapon1 = /obj/item/gun/projectile/automatic/bullpup_rifle/light
-	status_flags = EMPTY_BITFIELD
+	status_flags = FLAGS_OFF
 
 /mob/living/simple_animal/hostile/human/fleet/ranged/bullpup/neutral
 	say_list_type = /datum/say_list/fleet/friendly
-	faction = MOB_FACTION_SCG
+	faction = MOB_FACTION_CREW
 
 //////////////Team Leader////////////////
 
@@ -115,9 +115,9 @@
 	health = 150
 	casingtype = /obj/item/ammo_casing/pistol
 	projectiletype = /obj/item/projectile/bullet/pistol
-	natural_weapon = /obj/item/gun/projectile/automatic/machine_pistol
-	weapon1 = /obj/item/gun/projectile/automatic/machine_pistol
-	status_flags = EMPTY_BITFIELD
+	natural_weapon = /obj/item/gun/projectile/automatic/smg/machine_pistol
+	weapon1 = /obj/item/gun/projectile/automatic/smg/machine_pistol
+	status_flags = FLAGS_OFF
 
 	corpse = /obj/landmark/corpse/fleet/leader
 
@@ -126,7 +126,7 @@
 
 /mob/living/simple_animal/hostile/human/fleet/ranged/leader/neutral
 	say_list_type = /datum/say_list/fleet/friendly
-	faction = MOB_FACTION_SCG
+	faction = MOB_FACTION_CREW
 
 // These guys are chonky. Use them for BIG fights. Or sparingly.
 
@@ -156,20 +156,20 @@
 	ai_holder = /datum/ai_holder/simple_animal/humanoid/hostile/fleet/ranged/space
 
 
-/*/mob/living/simple_animal/hostile/human/fleet/space/emp_act(severity)
+/mob/living/simple_animal/hostile/human/fleet/space/emp_act(severity)
 	if (status_flags & GODMODE)
 		return
 	. = ..()
-	stun()*/
+	stun()
 
-/*/mob/living/simple_animal/hostile/human/fleet/space/proc/stun()
+/mob/living/simple_animal/hostile/human/fleet/space/proc/stun()
 	if (deactivated)
 		return
 	set_AI_busy(TRUE)
 	deactivated = TRUE
 	visible_message(SPAN_MFAUNA("\The [src]'s rigsuit flashes hastily, locking into place!"))
 	update_icon()
-	addtimer(new Callback(src, TYPE_PROC_REF(reactivate)), 6 SECONDS)*/
+	addtimer(new Callback(src, PROC_REF(reactivate)), 6 SECONDS)
 
 /mob/living/simple_animal/hostile/human/fleet/space/proc/reactivate()
 	set_AI_busy(FALSE)
@@ -179,10 +179,10 @@
 
 /mob/living/simple_animal/hostile/human/fleet/space/neutral
 	say_list_type = /datum/say_list/fleet/friendly
-	faction = MOB_FACTION_SCG
+	faction = MOB_FACTION_CREW
 
-/mob/living/simple_animal/hostile/human/fleet/space/Process_Spacemove()
-	return 1
+/mob/living/simple_animal/hostile/human/fleet/space/Process_Spacemove(allow_movement)
+	return TRUE
 
 //////////////Rigsuit - Bullpup////////////////
 
@@ -205,7 +205,7 @@
 
 /mob/living/simple_animal/hostile/human/fleet/space/ranged/neutral
 	say_list_type = /datum/say_list/fleet/friendly
-	faction = MOB_FACTION_SCG
+	faction = MOB_FACTION_CREW
 
 //////////////Rigsuit - Heavy////////////////
 /* Has a special, telegraphed rig-mounted laser cannon */
@@ -297,7 +297,7 @@
 
 /mob/living/simple_animal/hostile/human/fleet/space/ranged/heavy/neutral
 	say_list_type = /datum/say_list/fleet/friendly
-	faction = MOB_FACTION_SCG
+	faction = MOB_FACTION_CREW
 
 /* AI */
 
