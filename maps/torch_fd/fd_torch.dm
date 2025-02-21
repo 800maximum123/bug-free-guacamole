@@ -316,8 +316,6 @@
 	#include "../../mods/_fd/_maps/new_year_house/_new_year_house.dme"
 	#include "../../mods/_fd/_maps/tartakan/_tartakan.dme"
 
-	#include "../../mods/_fd/_maps/tartakan/maps/tartakan.dmm"
-
 
 
 		// ~EXOPLANET RUINS~ //
