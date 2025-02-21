@@ -283,6 +283,8 @@
 	#include "../../mods/_fd/random_rooms/_random_rooms.dme"
 	#include "../../mods/_fd/resomi_fd/_resomi.dme"
 	#include "../../mods/_fd/tartakans/_tartakans.dme"
+	#include "../../mods/_fd/marines_explosion/_marines_explosion.dme"
+	#include "../../mods/_fd/roll_dice/_roll_dice.dme"
 
 	#include "../../mods/_fd/_maps/airfield/_airfield.dme"
 	#include "../../mods/_fd/_maps/ares/_ares.dme"
