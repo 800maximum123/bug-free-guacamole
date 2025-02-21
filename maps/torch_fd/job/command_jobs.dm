@@ -294,13 +294,16 @@
 	allowed_branches = list(
 		/datum/mil_branch/expeditionary_corps,
 		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/torch/crew/command/cos/fleet,
-		/datum/mil_branch/scga
+		/datum/mil_branch/scga,
+		/datum/mil_branch/civilian
 	)
 	allowed_ranks = list(
 		/datum/mil_rank/ec/o3,
 		/datum/mil_rank/fleet/o2,
 		/datum/mil_rank/fleet/o3,
-		/datum/mil_rank/scga/e6
+		/datum/mil_rank/scga/e6,
+		/datum/mil_rank/civ/civ
+
 	)
 	max_skill = list(
 		SKILL_BUREAUCRACY = SKILL_MAX,
