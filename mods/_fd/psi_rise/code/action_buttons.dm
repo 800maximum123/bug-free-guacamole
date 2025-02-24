@@ -11,7 +11,7 @@
 
 /datum/action/psi
 	name = "Psi Action"
-	button_icon = 'psi-reimagined/psi_rise/icons/psionics_overhaul.dmi'
+	button_icon = 'mods/_fd/psi_rise/icons/psionics_overhaul.dmi'
 	background_icon_state = "slot_standart"
 	button_icon_state = "none"
 	action_type = AB_GENERIC

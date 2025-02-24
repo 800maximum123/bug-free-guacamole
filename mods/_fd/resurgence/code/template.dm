@@ -2,7 +2,7 @@ GLOBAL_VAR(resurgence_map)
 
 /datum/map_template/resurgence
 	name = "Long Forgotten Place"
-	mappaths = list("psi-reimagined/resurgence/maps/resurgence.dmm")
+	mappaths = list("mods/_fd/resurgence/maps/resurgence.dmm")
 	var/turf/center
 
 	var/mob/living/carbon/human/omega

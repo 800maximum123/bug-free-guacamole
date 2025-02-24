@@ -13,7 +13,7 @@
 
 /obj/effect/eyes
 	name = "eyes"
-	icon = 'psi-reimagined/resurgence/icons/eyes.dmi'
+	icon = 'mods/_fd/resurgence/icons/eyes.dmi'
 	icon_state = "eyes_s"
 	color = COLOR_ORANGE
 	appearance_flags = TILE_BOUND | PIXEL_SCALE | LONG_GLIDE | KEEP_TOGETHER
