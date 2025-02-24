@@ -19,7 +19,7 @@
 	var/datum/map_template/resurgence/map_data = GLOB.resurgence_map
 	map_data.previous_body = target
 
-	map_data.astral_body = create_duplicate(target, map_data.center, client)
+	map_data.astral_body = duplicate_character(target, map_data.center, client)
 	map_data.astral_body.set_dir(NORTH)
 	map_data.astral_body.ckey = ckey //Manually transfer the key to log them in
 
@@ -52,7 +52,7 @@
 
 	return TRUE
 
-/proc/create_duplicate(mob/body_to_copy, turf/spawn_loc, client/client)
+/proc/duplicate_character(mob/body_to_copy, turf/spawn_loc, client/client)
 	RETURN_TYPE(/mob/living/carbon/human)
 
 	var/datum/preferences/prefs = client.prefs
