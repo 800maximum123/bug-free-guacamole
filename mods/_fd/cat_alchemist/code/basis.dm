@@ -7,6 +7,13 @@ GLOBAL_LIST_INIT(potion_recipes, list("Potion of Affection" = "3 Lux, 5 Unum, 8 
 	icon = 'mods/_fd/cat_alchemist/icons/alchemy.dmi'
 	icon_state = "cauldron0"
 
+/obj/item/catalchemy/spoon
+	name = "wooden spoon"
+	desc = "Simple eating spoon!"
+	icon = 'mods/_fd/cat_alchemist/icons/cooking.dmi'
+	icon_state = "spoon"
+	w_class = ITEM_SIZE_TINY
+
 /obj/item/catalchemy/ingredient
 	name = "ingredient"
 	desc = "Simple ingredient!"
@@ -29,6 +36,30 @@ GLOBAL_LIST_INIT(potion_recipes, list("Potion of Affection" = "3 Lux, 5 Unum, 8 
 	var/stability_buff = 0
 	var/time_reducer = 0
 	var/time_increaser = 0
+
+/obj/effect/alchemy_cloud
+	name = "cloud"
+	desc = "cloud"
+	icon = 'mods/_fd/cat_alchemist/icons/alchemy_effects.dmi'
+	icon_state = "cloud_1"
+	color = "#43cfc4"
+	layer = ABOVE_HUMAN_LAYER
+
+/obj/effect/alchemy_splash
+	name = "splash"
+	desc = "splash"
+	icon = 'mods/_fd/cat_alchemist/icons/alchemy_effects.dmi'
+	icon_state = "splash"
+	color = "#43cfc4"
+	layer = ABOVE_HUMAN_LAYER
+
+/obj/effect/alchemy_brewing
+	name = "brew"
+	desc = "brew"
+	icon = 'mods/_fd/cat_alchemist/icons/alchemy_effects.dmi'
+	icon_state = "dazed"
+	color = "#8ad6d0"
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/effect/recipe_overlay
 	name = "Potion"
@@ -71,7 +102,7 @@ GLOBAL_LIST_INIT(potion_recipes, list("Potion of Affection" = "3 Lux, 5 Unum, 8 
 	name = "Cauldron"
 	desc = "An big alchemist pot."
 	icon = 'mods/_fd/cat_alchemist/icons/alchemy.dmi'
-	icon_state = "cauldron0"
+	icon_state = "cauldron_small"
 
 	var/cooking = "Nothing"
 
@@ -82,6 +113,7 @@ GLOBAL_LIST_INIT(potion_recipes, list("Potion of Affection" = "3 Lux, 5 Unum, 8 
 	var/low = 0
 
 // Стандартное время варки. Увеличивается или уменьшается в зависимости от добавляемых ингредиентов
+	var/brewing = FALSE
 	var/brewing_time = 100
 // Шанс появлений QTE, понижающего стабильность/увеличивающего время
 	var/difficulty = 10
@@ -92,13 +124,40 @@ GLOBAL_LIST_INIT(potion_recipes, list("Potion of Affection" = "3 Lux, 5 Unum, 8 
 	var/ready = FALSE
 
 	anchored = TRUE
-	density = TRUE
 
 /obj/structure/catalchemy/cauldron/use_tool(obj/item/I, mob/living/user, list/click_params)
 	. = ..()
+
+	if(istype(I, /obj/item/catalchemy/spoon))
+		to_chat(user, SPAN_NOTICE("You starting to stir the contents of cauldron with a spoon!"))
+		if(do_after(user, 3 SECOND))
+			for(var/obj/effect/recipe_overlay/recipe in loc)
+				qdel(recipe)
+			brewing = TRUE
+			var/obj/effect/alchemy_brewing/brew = new /obj/effect/alchemy_brewing(loc)
+			brew.pixel_y = pixel_y + 8
+			START_PROCESSING(SSobj, src)
+			return 1
+
 	if(istype(I, /obj/item/catalchemy/ingredient))
 		var/obj/item/catalchemy/ingredient/part = I
+		if(part.pure)
+			to_chat(user, SPAN_DANGER("You can't add [part] to the cauldron in it's current state!"))
+			return 0
 		if(do_after(user, 1 SECOND))
+			var/cloud_sprite = rand(1,5)
+			var/obj/effect/alchemy_cloud/cloud = new /obj/effect/alchemy_cloud(loc)
+			cloud.pixel_y = pixel_y + 20
+			cloud.icon_state = "cloud_[cloud_sprite]"
+			var/obj/effect/alchemy_splash/splash = new /obj/effect/alchemy_splash(loc)
+			splash.pixel_y = pixel_y + 10
+			animate(splash, 1 SECONDS, alpha = 0)
+			animate(cloud, 2 SECONDS, alpha = 0)
+			var/adjust = cloud.pixel_y + 10
+			animate(cloud, pixel_y = adjust, time = 2 SECONDS, easing = LINEAR_EASING | EASE_IN)
+			spawn(3 SECONDS)
+				qdel(cloud)
+				qdel(splash)
 
 			high += part.high
 			medium += part.medium
@@ -118,6 +177,7 @@ GLOBAL_LIST_INIT(potion_recipes, list("Potion of Affection" = "3 Lux, 5 Unum, 8 
 				stability += part.stability_buff
 
 			qdel(part)
+			return 1
 
 
 /obj/structure/catalchemy/cauldron/AltClick(mob/living/user)
