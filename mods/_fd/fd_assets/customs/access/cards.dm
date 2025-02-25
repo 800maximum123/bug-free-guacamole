@@ -18,3 +18,9 @@
 	assignment = "Roboticist"
 	registered_name = "Wind in the Void"
 	name = "identification card"
+
+/obj/item/card/id/all_access/dark_mac
+
+	assignment = "Chief Science Officer"
+	registered_name = "Joseph Fiddler"
+	name = "identification card"

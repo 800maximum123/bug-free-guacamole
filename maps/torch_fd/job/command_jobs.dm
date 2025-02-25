@@ -4,20 +4,23 @@
 	minimal_player_age = 0
 	economic_power = 16
 	minimum_character_age = 0
-	total_positions = 0
-	spawn_positions = 0
+	total_positions = 1
+	spawn_positions = 1
 	ideal_character_age = 50
 	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/command/CO
 	allowed_branches = list(
+		/datum/mil_branch/civilian,
 		/datum/mil_branch/expeditionary_corps,
 		/datum/mil_branch/fleet
 	)
 	allowed_ranks = list(
+		/datum/mil_rank/civ/civ,
 		/datum/mil_rank/ec/o6,
 		/datum/mil_rank/fleet/o6 = /singleton/hierarchy/outfit/job/torch/crew/command/CO/fleet,
 		/datum/mil_rank/fleet/o7 = /singleton/hierarchy/outfit/job/torch/crew/command/CO/fleet
 	)
-
+	min_skill = list(   SKILL_BUREAUCRACY = SKILL_TRAINED,
+	                    SKILL_PILOT       = SKILL_MAX)
 	max_skill = list(
 		SKILL_BUREAUCRACY = SKILL_MAX,
 		SKILL_FINANCE = SKILL_MAX,
@@ -40,7 +43,7 @@
 		SKILL_ANATOMY = SKILL_MAX,
 		SKILL_CHEMISTRY = SKILL_MAX
 	)
-	skill_points = 52
+	skill_points = 56
 
 	software_on_spawn = list(/datum/computer_file/program/comm,
 							 /datum/computer_file/program/card_mod,
