@@ -316,6 +316,9 @@
 	#include "../../mods/_fd/_maps/new_year_house/_new_year_house.dme"
 	#include "../../mods/_fd/_maps/tartakan/_tartakan.dme"
 
+		// ~VOID'S MINI-GAMES~ //
+
+	#include "../../mods/_fd/cat_alchemist/_cat_alchemist.dme"
 
 
 		// ~EXOPLANET RUINS~ //
@@ -331,10 +334,6 @@
 	#include "../random_ruins/exoplanet_ruins/warehouse/warehouse.dm"
 
 	#include "../../mods/_fd/_maps/lab_campaign/_lab_campaign.dme"
-
-//УДАЛИТЬ ПОСЛЕ ЗАПУСКА
-	#include "../../mods/_fd/_maps/perci_nightmare/_perci_nightmare.dme"
-//УДАЛИТЬ ПОСЛЕ ЗАПУСКА
 
 	#define using_map_DATUM /datum/map/torch
 
