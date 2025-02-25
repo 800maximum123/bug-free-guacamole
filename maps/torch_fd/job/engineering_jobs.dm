@@ -198,10 +198,9 @@
 	department = "Engineering"
 	department_flag = ENG|ROB
 
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 3
+	spawn_positions = 3
 	minimal_player_age = 0
-	minimum_character_age = list(SPECIES_HUMAN = 25)
 	supervisors = "the Chief Engineer."
 	selection_color = "#5b4d20"
 	economic_power = 6

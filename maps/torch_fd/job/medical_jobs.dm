@@ -203,28 +203,52 @@
 	title = "Pharmacist"
 	department = "Medical"
 	department_flag = MED
-	total_positions = 0
-	spawn_positions = 0
+	total_positions = 1
+	spawn_positions = 1
 	supervisors = "medical personnel, and the Chief Medical Officer"
 	selection_color = "#013d3b"
 	economic_power = 4
-	minimum_character_age = list(SPECIES_HUMAN = 25)
 	ideal_character_age = 30
-	minimal_player_age = 7
+	minimal_player_age = 0
 	alt_titles = list(
 		"Chemist"
 	)
 	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/medical/contractor/chemist
-	allowed_branches = list(/datum/mil_branch/civilian)
-	allowed_ranks = list(/datum/mil_rank/civ/contractor)
-	min_skill = list(   SKILL_MEDICAL   = SKILL_BASIC,
-	                    SKILL_CHEMISTRY = SKILL_TRAINED)
+	allowed_ranks = list(
+		/datum/mil_rank/ec/e3,
+		/datum/mil_rank/ec/e5,
+		/datum/mil_rank/fleet/e3,
+		/datum/mil_rank/fleet/e4,
+		/datum/mil_rank/fleet/e5,
+		/datum/mil_rank/fleet/e6,
+		/datum/mil_rank/civ/contractor,
+		/datum/mil_rank/civ/civ
+	)
 
-	max_skill = list(   SKILL_MEDICAL     = SKILL_BASIC,
-						SKILL_ANATOMY	  = SKILL_BASIC,
-	                    SKILL_CHEMISTRY   = SKILL_MAX)
-	skill_points = 16
+	max_skill = list(
+		SKILL_BUREAUCRACY = SKILL_MAX,
+		SKILL_FINANCE = SKILL_MAX,
+		SKILL_EVA = SKILL_MAX,
+		SKILL_PILOT = SKILL_MAX,
+		SKILL_HAULING = SKILL_MAX,
+		SKILL_COMPUTER = SKILL_MAX,
+		SKILL_BOTANY = SKILL_MAX,
+		SKILL_COOKING = SKILL_MAX,
+		SKILL_COMBAT = SKILL_MAX,
+		SKILL_WEAPONS = SKILL_MAX,
+		SKILL_FORENSICS = SKILL_MAX,
+		SKILL_CONSTRUCTION = SKILL_MAX,
+		SKILL_ELECTRICAL = SKILL_MAX,
+		SKILL_ATMOS = SKILL_MAX,
+		SKILL_ENGINES = SKILL_MAX,
+		SKILL_DEVICES = SKILL_MAX,
+		SKILL_SCIENCE = SKILL_MAX,
+		SKILL_MEDICAL = SKILL_MAX,
+		SKILL_ANATOMY = SKILL_MAX,
+		SKILL_CHEMISTRY = SKILL_MAX
+	)
 
+	skill_points = 52
 	access = list(
 		access_medical, access_maint_tunnels, access_emergency_storage,
 		access_medical_equip, access_solgov_crew, access_chemistry,
