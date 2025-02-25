@@ -7,7 +7,6 @@ GLOBAL_LIST_INIT(potion_recipes, list("Potion of Affection" = "3 Lux, 5 Unum, 8 
 	icon = 'mods/_fd/cat_alchemist/icons/alchemy.dmi'
 	icon_state = "cauldron0"
 
-
 /obj/item/catalchemy/ingredient
 	name = "ingredient"
 	desc = "Simple ingredient!"
@@ -18,10 +17,18 @@ GLOBAL_LIST_INIT(potion_recipes, list("Potion of Affection" = "3 Lux, 5 Unum, 8 
 // Если это смесь - может ли она использоваться в ещё каких-либо манипуляциях?
 	var/manufactured = FALSE
 
-//Состав
+// Состав
 	var/high = 0
 	var/medium = 0
 	var/low = 0
+
+// Модификаторы ингредиента
+	var/increasing_difficulty = 0
+	var/decreasing_difficulty = 0
+
+	var/stability_buff = 0
+	var/time_reducer = 0
+	var/time_increaser = 0
 
 /obj/effect/recipe_overlay
 	name = "Potion"
@@ -34,7 +41,10 @@ GLOBAL_LIST_INIT(potion_recipes, list("Potion of Affection" = "3 Lux, 5 Unum, 8 
 	var/do_animation = TRUE
 	var/delay = 0
 
-/obj/effect/recipe_overlay/attack_hand(mob/living/user)
+/obj/effect/recipe_overlay/Click(location, control, params)
+	. = ..()
+	var/mob/living/user = usr
+
 	if(do_after(user, 1 SECOND))
 		to_chat(user, SPAN_GOOD("For [name] you will need: [GLOB.potion_recipes[name]]."))
 		return 1
@@ -55,7 +65,7 @@ GLOBAL_LIST_INIT(potion_recipes, list("Potion of Affection" = "3 Lux, 5 Unum, 8 
 	if(do_animation && delay == 0)
 		animate(src, pixel_y = 26, time = 1 SECOND, easing = LINEAR_EASING | EASE_IN)
 		do_animation = FALSE
-		delay += 5
+		delay += 3
 
 /obj/structure/catalchemy/cauldron
 	name = "Cauldron"
@@ -72,7 +82,7 @@ GLOBAL_LIST_INIT(potion_recipes, list("Potion of Affection" = "3 Lux, 5 Unum, 8 
 	var/low = 0
 
 // Стандартное время варки. Увеличивается или уменьшается в зависимости от добавляемых ингредиентов
-	var/brewing_time = 10 SECONDS
+	var/brewing_time = 100
 // Шанс появлений QTE, понижающего стабильность/увеличивающего время
 	var/difficulty = 10
 // Здоровье зелья. Если стабильность опустится до нуля - зелье испортится!
@@ -83,6 +93,32 @@ GLOBAL_LIST_INIT(potion_recipes, list("Potion of Affection" = "3 Lux, 5 Unum, 8 
 
 	anchored = TRUE
 	density = TRUE
+
+/obj/structure/catalchemy/cauldron/use_tool(obj/item/I, mob/living/user, list/click_params)
+	. = ..()
+	if(istype(I, /obj/item/catalchemy/ingredient))
+		var/obj/item/catalchemy/ingredient/part = I
+		if(do_after(user, 1 SECOND))
+
+			high += part.high
+			medium += part.medium
+			low += part.low
+
+			if(part.increasing_difficulty > 0)
+				difficulty += part.increasing_difficulty
+			if(part.decreasing_difficulty > 0)
+				difficulty -= part.decreasing_difficulty
+
+			if(part.time_increaser > 0)
+				brewing_time += part.time_increaser
+			if(part.time_reducer > 0)
+				brewing_time -= part.time_reducer
+
+			if(part.stability_buff > 0)
+				stability += part.stability_buff
+
+			qdel(part)
+
 
 /obj/structure/catalchemy/cauldron/AltClick(mob/living/user)
 // Список зелий позволяет просмотреть ингредиенты, необходимые для того или иного зелья. К сожалению, я не могу вынести его в переменные самого котла!
