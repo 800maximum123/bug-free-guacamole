@@ -77,7 +77,7 @@ GLOBAL_LIST_INIT(potion_recipes, list("Potion of Affection" = "3 Lux, 5 Unum, 8 
 	var/mob/living/user = usr
 
 	if(do_after(user, 1 SECOND))
-		to_chat(user, SPAN_GOOD("For [name] you will need: [GLOB.potion_recipes[name]]."))
+		to_chat(user, SPAN_GOOD("For [SPAN_COLOR("#5fffca", "[name]")] you will need: [SPAN_COLOR("#5fffca", "[GLOB.potion_recipes[name]]")]."))
 		return 1
 
 /obj/effect/recipe_overlay/proc/reset_animation()
@@ -125,10 +125,18 @@ GLOBAL_LIST_INIT(potion_recipes, list("Potion of Affection" = "3 Lux, 5 Unum, 8 
 
 	anchored = TRUE
 
+/obj/structure/catalchemy/cauldron/examine(mob/user)
+	. = ..()
+	to_chat(user, SPAN_NOTICE("There is currently [SPAN_COLOR("#ffc933", "[high] Lux")], [SPAN_COLOR("#adadad", "[medium] Unum")], and [SPAN_COLOR("#503075", "[low] Nox")]!"))
+	if(brewing)
+		to_chat(user, SPAN_NOTICE("Potion will be ready in [SPAN_COLOR("#27f0f7", "[brewing_time] seconds")]!"))
+	if(stability <= 20)
+		to_chat(user, SPAN_NOTICE("This brew [SPAN_COLOR("#b40505", "doesn't look promising")]..."))
+
 /obj/structure/catalchemy/cauldron/use_tool(obj/item/I, mob/living/user, list/click_params)
 	. = ..()
 
-	if(istype(I, /obj/item/catalchemy/spoon))
+	if(istype(I, /obj/item/catalchemy/spoon) && !brewing && !ready)
 		to_chat(user, SPAN_NOTICE("You starting to stir the contents of cauldron with a spoon!"))
 		if(do_after(user, 3 SECOND))
 			for(var/obj/effect/recipe_overlay/recipe in loc)
@@ -141,6 +149,8 @@ GLOBAL_LIST_INIT(potion_recipes, list("Potion of Affection" = "3 Lux, 5 Unum, 8 
 
 	if(istype(I, /obj/item/catalchemy/ingredient))
 		var/obj/item/catalchemy/ingredient/part = I
+		if(ready)
+			to_chat(user, SPAN_DANGER("Firstly clear the pot!"))
 		if(part.pure)
 			to_chat(user, SPAN_DANGER("You can't add [part] to the cauldron in it's current state!"))
 			return 0
@@ -201,14 +211,14 @@ GLOBAL_LIST_INIT(potion_recipes, list("Potion of Affection" = "3 Lux, 5 Unum, 8 
 
 	cooking = chosen_potion
 	if(do_after(user, 1 SECOND))
-		to_chat(user, SPAN_GOOD("For [cooking] you will need: [GLOB.potion_recipes[cooking]]."))
+		to_chat(user, SPAN_GOOD("For [SPAN_COLOR("#5fffca", "[cooking]")] you will need: [SPAN_COLOR("#5fffca", "[GLOB.potion_recipes[cooking]]")]."))
 		for(var/obj/effect/recipe_overlay/old_recipe in loc)
 			qdel(old_recipe)
 		var/obj/effect/recipe_overlay/recipe = new /obj/effect/recipe_overlay(loc)
 		recipe.alpha = 0
 		recipe.icon_state = "[cooking]"
 		recipe.name = "[cooking]"
-		recipe.desc = "For [cooking] you will need: [GLOB.potion_recipes[cooking]]."
+		recipe.desc = "For [SPAN_COLOR("#5fffca", "[cooking]")] you will need: [SPAN_COLOR("#5fffca", "[GLOB.potion_recipes[cooking]]")]."
 		animate(recipe, 3 SECONDS, alpha = 150)
 		animate(recipe, pixel_y = 22, time = 3 SECONDS, easing = LINEAR_EASING | EASE_IN)
 		START_PROCESSING(SSobj, recipe)
