@@ -87,7 +87,7 @@
 	var/obj/overmap/projectile/overmap_projectile
 	var/obj/overmap/origin
 
-	var/shoot_range = 3 // how far will we go on the overmap
+	var/shoot_range = 10 // how far will we go on the overmap
 
 	// Насколько большой будет разброс в тайлах при попадании на овермап судна-цели.
 	// Пример: при pew_spread = 50 снаряд будет спавниться с разбросом от -25 до 25 тайлов на нужном краю карты цели.
