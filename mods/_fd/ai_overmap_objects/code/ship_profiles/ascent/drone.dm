@@ -1,0 +1,29 @@
+/obj/overmap/simulated_ship/ascent/drone
+    name = "unknown drone"
+    desc = "unknown drone"
+    icon = 'mods/_fd/ai_overmap_objects/icons/ascent_ships.dmi'
+    icon_state = "shuttle"
+    moving_state = "shuttle_moving"
+    characteristic = new /datum/ship_characteristic/ascent/drone()
+
+/datum/ship_characteristic/ascent/drone
+    max_health = 500
+    max_shield = 0
+    vessel_mass = 5000
+    vessel_size = SHIP_SIZE_TINY
+    max_speed = 22 *(1 SECOND)                        // Change first number, "Speed of light" for the ship, in turfs/second
+    min_targeted_distance_to_target = 1                // 1 - Right on target, 2 - turf next to target, etc
+    max_targeted_distance_to_target = 2                // 1 - Right on target, 2 - turf next to target, etc
+    sensors_range = 6
+
+/datum/ship_characteristic/ascent/drone/New()
+    cannons = list(
+        "hmg_1" = list("type" = /obj/machinery/computer/ship/ship_weapon/hmg, "accurace" = 95, "damage" = 0),
+        "hmg_2" = list("type" = /obj/machinery/computer/ship/ship_weapon/hmg, "accurace" = 95, "damage" = 0)
+    )
+
+    ammo = list(
+        "hmg_ammo" = list("type" = /obj/item/ammo_magazine/ammobox/hmg, "ammount" = 4)
+    )
+
+    ..()

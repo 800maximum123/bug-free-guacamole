@@ -1,0 +1,15 @@
+#ifndef AI_OVERMAP_OBJECTS
+#define AI_OVERMAP_OBJECTS
+
+#include "code/ship_characteristics.dm"
+#include "code/ai_holder.dm"
+#include "code/simulated_ship.dm"
+#include "code/ship_wreck.dm"
+
+#include "code/ship_profiles/_bases/ascent.dm"
+#include "code/ship_profiles/ascent/drone.dm"
+
+//DELETE AFTER TESTING
+#include "code/ship_profiles/ascent/hacked_drone.dm"
+//DELETE AFTER TESTING
+#endif
