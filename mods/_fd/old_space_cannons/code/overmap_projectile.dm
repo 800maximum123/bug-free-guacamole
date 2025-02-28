@@ -55,7 +55,7 @@
 
 /obj/overmap/projectile/Process()
 	actual_projectile.process_thingies()
-	if(!actual_projectile || z != 12)
+	if(!actual_projectile || z != GLOB.using_map.overmap_z)
 		return
 
 	if(walk_timer >= walk_delay)

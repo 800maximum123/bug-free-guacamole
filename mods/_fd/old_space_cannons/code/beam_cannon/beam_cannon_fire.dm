@@ -56,7 +56,7 @@
 					return TRUE
 
 	var/turf/target_turf
-	if(linked.z == 12)
+	if(linked.z == GLOB.using_map.overmap_z)
 		target_turf = get_turf(linked)
 		for(var/i = 1 to shoot_range)
 			target_turf = get_step(target_turf, overmapdir)
@@ -344,7 +344,7 @@
 	if(missed)
 		beam_dir = turn(overmapdir,pick(45,-45))
 
-	if(linked.z == 12)
+	if(linked.z == GLOB.using_map.overmap_z)
 		target_turf = get_turf(linked)
 		for(var/i = 1 to shoot_range)
 			target_turf = get_step(target_turf, beam_dir)
