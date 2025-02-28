@@ -73,6 +73,9 @@
 
     sleep(450)
 
+    for(var/mob/living/C in GLOB.player_list)
+        shake_camera(C, 100, 1)
+
     world << explosion
     sleep(8)
     world << explosion
@@ -156,6 +159,9 @@
     var/sound/sound_field = 'mods/_fd/fd_assets/sounds/field_siren.ogg'
     var/sound/boom = 'mods/_fd/fd_assets/sounds/boom.ogg'
     world << sound_field
+
+    for(var/mob/living/C in GLOB.player_list)
+        shake_camera(C, 520, 1)
 
     spawn(20)
         var/message1_1 = "<span style='color:cyan; font-size: 20px;'> | TRANSMISSION SOURCE: TRK17 |</span>"
