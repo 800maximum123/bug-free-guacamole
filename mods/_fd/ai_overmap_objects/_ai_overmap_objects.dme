@@ -6,10 +6,14 @@
 #include "code/simulated_ship.dm"
 #include "code/ship_wreck.dm"
 
+// Ascents
 #include "code/ship_profiles/_bases/ascent.dm"
 #include "code/ship_profiles/ascent/drone.dm"
+#include "code/ship_profiles/ascent/fighter.dm"
+#include "code/ship_profiles/ascent/corvette.dm"
+#include "code/ship_profiles/ascent/frigate.dm"
+#include "code/ship_profiles/ascent/destroyer.dm"
+#include "code/ship_profiles/ascent/battleship.dm"
+#include "code/ship_profiles/ascent/supercarrier.dm"
 
-//DELETE AFTER TESTING
-#include "code/ship_profiles/ascent/hacked_drone.dm"
-//DELETE AFTER TESTING
 #endif

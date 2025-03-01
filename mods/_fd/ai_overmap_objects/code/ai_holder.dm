@@ -67,7 +67,7 @@
 /obj/overmap/ai_holder/Process()
 	// If it wasn't connected - delete it
 	if(linked_object == null)
-		src.Destroy()
+		qdel(src)
 
 	process_ship()
 	//for(var/obj/O in detected_hostile_objects)
@@ -82,6 +82,9 @@
 
 	var/obj/overmap/simulated_ship/ship = linked_object
 	linked_object_settings = ship.characteristic
+
+	if(linked_object_settings == null)
+		qdel(src)
 
 	if(linked_object_settings.ai_enabled == FALSE)
 		return

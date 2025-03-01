@@ -1,16 +1,16 @@
 /obj/overmap/simulated_ship/ascent/drone
     name = "unknown drone"
-    desc = "unknown drone"
+    desc = ""
     icon_state = "shuttle"
     moving_state = "shuttle_moving"
     characteristic = new /datum/ship_characteristic/ascent/drone()
 
 /datum/ship_characteristic/ascent/drone
-    max_health = 500
+    max_health = 12500
     max_shield = 0
     vessel_mass = 5000
     vessel_size = SHIP_SIZE_TINY
-    max_speed = 22 *(1 SECOND)                        // Change first number, "Speed of light" for the ship, in turfs/second
+    max_speed = 8 *(1 SECOND)                        // Change first number, "Speed of light" for the ship, in turfs/second
     min_targeted_distance_to_target = 1                // 1 - Right on target, 2 - turf next to target, etc
     max_targeted_distance_to_target = 2                // 1 - Right on target, 2 - turf next to target, etc
     sensors_range = 6

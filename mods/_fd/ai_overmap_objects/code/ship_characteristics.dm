@@ -36,6 +36,9 @@
 	var/reactor_damage = 0
 	var/engine_damage = 0
 	var/shield_damage = 0
+	var/list/valid_internal_systems = list()
+	var/list/valid_outer_systems = list()
+	var/should_die = FALSE
 
 	// You should not probably change this, but you can if you want to do something wacky (Space-mines anyone?)
 	var/ai_enabled = TRUE
@@ -51,27 +54,21 @@
 	for(var/key in ammo)
 		var/list/entry = ammo[key]
 		entry["ammount"] = get_ammo_max_ammo(entry["type"]) * entry["ammount"]
+	valid_internal_systems += "reactor"
+	valid_internal_systems += "shield"
+	valid_outer_systems += "engine"
+	for(var/key in cannons)
+		valid_outer_systems += key
 	create_shield_timer()
 
 /datum/ship_characteristic/Destroy()
-	//TODO: is this neccesasy?
-	for(var/name in cannons)
-		var/list/cannon_data = cannons[name]
-		QDEL_NULL_ASSOC_LIST(cannon_data)
-	QDEL_NULL_LIST(cannons)
-	for(var/name in ammo)
-		var/list/ammo_data = ammo[name]
-		QDEL_NULL_ASSOC_LIST(ammo_data)
-	QDEL_NULL_LIST(ammo)
+	cannons.Cut()
+	ammo.Cut()
 
+	QDEL_NULL_LIST(valid_internal_systems)
+	QDEL_NULL_LIST(valid_outer_systems)
 	deltimer(shield_timer)
 	..()
-
-/datum/ship_characteristic/proc/set_health(ammount)
-	health = ammount
-
-/datum/ship_characteristic/proc/set_shield(ammount)
-	shield = ammount
 
 /datum/ship_characteristic/proc/get_wreck_type()
 	switch(vessel_size)
@@ -84,11 +81,56 @@
 		else
 			return null
 
-/datum/ship_characteristic/proc/damage_random_system(damage, is_internal)
-	//if(is_internal)
+/datum/ship_characteristic/proc/damage_system(damage, system)
+	switch(system)
+		if("reactor")
+			reactor_damage = min(reactor_damage + damage, 100)
+			if(reactor_damage == 100)
+				health = 0
+				should_die = TRUE
+				// Logic in ship obj
+				valid_internal_systems -= "reactor" // You're dead but lmao
+		if("shield")
+			shield_damage = min(shield_damage + damage, 100)
+			// Logic in ship_characteristic/proc/recharge_shield proc
+			if(shield_damage == 100)
+				valid_internal_systems -= "shield"
+		if("engine")
+			engine_damage = min(engine_damage + damage, 100)
+			// Logic in ai_handler object
+			if(engine_damage == 100)
+				valid_outer_systems -= "engine"
+		else // Weapons but also other shinenigans
+			if(system in cannons)
+				cannons[system]["damage"] = min(cannons[system]["damage"] + damage, 100)
+				// Logic in ai_handler object (TODO: move it to the ship obj)
+				if(engine_damage == 100)
+					valid_outer_systems -= cannons[system]
+			else // Null or something errored
+				return
 
-/datum/ship_characteristic/proc/apply_damage(hull_damage, shield_damage, internal_systems_damage, internal_systems_damaged_count)
+/datum/ship_characteristic/proc/apply_damage(hull_damage, shield_damage, internal_systems_damage, internal_systems_damaged_count, outer_systems_damage, outer_systems_damaged_count)
+	if(health == 0)
+		should_die = TRUE
+		return // We need no logic after that because simulated ship will suicide soon
 
+	if(shield > 0)
+		shield = max(shield - shield_damage, 0)
+		if(shield != 0)
+			return
+		handle_shield_discharge()
+
+	// Shield is broken, damage everything else
+	health = max(health - hull_damage, 0)
+	if(health == 0)
+		should_die = TRUE
+		return
+
+	for(var/i in internal_systems_damaged_count)
+		damage_system(internal_systems_damage, pick(valid_internal_systems))
+
+	for(var/i in outer_systems_damaged_count)
+		damage_system(outer_systems_damage, pick(valid_outer_systems))
 
 /datum/ship_characteristic/proc/calculate_damage(damage, damage_type, agony, temperature, explosion_radius, explosion_type, armor_penetration, penetrating, penetration_modifier, proximity_detonation)
 	// All needed damage:
@@ -125,7 +167,7 @@
 
 	if(damage_type == DAMAGE_BRUTE)
 		hull_damage += damage
-		shield_damage += damage * 0.75
+		shield_damage += damage * 0.75 //75%
 	else if(damage_type == DAMAGE_BURN)
 		hull_damage += damage * 0.3
 		shield_damage += damage * 1.5
@@ -174,11 +216,14 @@
 		shield_timer = addtimer(new Callback(src, PROC_REF(recharge_shield)), 5 SECONDS, TIMER_LOOP | TIMER_STOPPABLE)
 
 /datum/ship_characteristic/proc/recharge_shield()
-	if(shield < max_shield)
-		if(shield + shield_regen_speed <= max_shield)
+	var/shield_real_max = round(max_shield - (max_shield * (shield_damage / 100))) // I.E. 1000 - (1000 * (20 / 100))
+	if(shield < shield_real_max)
+		if(shield + shield_regen_speed <= shield_real_max)
 			shield += shield_regen_speed
 		else
-			shield = max_shield
+			shield = shield_real_max
+	if(shield > shield_real_max) // If we were damaged in the systems but not the shields somehow
+		shield = shield_real_max
 
 /datum/ship_characteristic/proc/handle_shield_discharge()
 	if(shield == 0)
@@ -186,6 +231,23 @@
 		sleep(shield_discharched_regen_speed)
 		create_shield_timer()
 
+/datum/ship_characteristic/proc/get_additional_info()
+	var/list/info
+	info += "<br>Hull:<br> [health]"
+	info += "<br>Shield:<br> [shield]"
+	info += ""
+	info += "<br>Systems:"
+	info += "<br>Reactor condition:<br> [reactor_damage]%"
+	info += "<br>Engines condition ':<br> [engine_damage]%"
+	info += "<br>Shield condition:<br> [shield_damage]%"
+
+	info += list("Detected cannons:<ul>")
+	for(var/key in cannons)
+		var/list/cannon_information = cannons[key]
+		var/obj/machinery/computer/ship/ship_weapon/type = cannon_information["type"]
+		info += ("<li>" + type.gun_name + " - " + cannon_information["damage"] + "% damage")
+	info += "</ul>"
+	return JOINTEXT(info)
 
 /datum/ship_characteristic/proc/get_ammo_max_ammo(obj/item/ammo_magazine/ammobox/O)
 	return O.max_ammo
