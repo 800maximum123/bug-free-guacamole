@@ -23,12 +23,12 @@
 	if(should_explode && severity > 100)
 		if(stored_ammo.len > max_ammo/3)
 			should_explode = FALSE
-			explosion(get_turf(src), 6, EX_ACT_DEVASTATING)
+			cell_explosion(get_turf(src), 6, EX_ACT_DEVASTATING)
 			if(src)
 				qdel(src)
 		else if(stored_ammo.len > 0)
 			should_explode = FALSE
-			explosion(get_turf(src), 3, EX_ACT_DEVASTATING)
+			cell_explosion(get_turf(src), 3, EX_ACT_DEVASTATING)
 			if(src)
 				qdel(src)
 	return
@@ -73,7 +73,7 @@
 	life_span = 250
 
 	var/explosion_radius
-	var/explosion_max_power = EX_ACT_DEVASTATING
+	var/explosion_max_power = 150
 
 	var/proximity_detonation = TRUE //should we explode near our target, and not inside of it?
 	var/exploded = FALSE
@@ -211,9 +211,9 @@
 		exploded = TRUE
 		if(proximity_detonation)
 			var/backwards = turn(dir, 180)
-			explosion(get_step(A, backwards), explosion_radius, explosion_max_power)
+			cell_explosion(get_step(A, backwards), explosion_max_power, explosion_radius)
 		else
-			explosion(get_turf(A), explosion_radius, explosion_max_power)
+			cell_explosion(get_turf(A), explosion_max_power, explosion_radius)
 		qdel(src)
 
 ///////////////////////////MUZZLE///////////////////////////

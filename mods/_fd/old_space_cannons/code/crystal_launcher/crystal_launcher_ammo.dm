@@ -42,13 +42,13 @@
 
 /obj/item/ammo_magazine/ammobox/crystal/high_explosive
 	name = "Mobile B-type crystal growth chamber"
-	icon_state = "ammocrate_autocannon_he"
+	icon_state = "ammocrate_autocannon"
 	max_ammo = 24
 	ammo_type = /obj/item/ammo_casing/huge_caliber/crystal/high_explosive
 
 /obj/item/ammo_magazine/ammobox/crystal/shrapnel
 	name = "Mobile X-type crystal growth chamber"
-	icon_state = "ammocrate_autocannon_ap"
+	icon_state = "ammocrate_autocannon"
 	max_ammo = 24
 	ammo_type = /obj/item/ammo_casing/huge_caliber/crystal/shrapnel
 
@@ -70,15 +70,15 @@
 
 /obj/item/projectile/bullet/huge_caliber/crystal
 	name ="crystal shard"
-	icon_state= "Needler Shot"
+	icon_state= "dark_pellet"
 	damage = 350
 	pew_spread = 10
 	armor_penetration = 100
 	penetration_modifier = 1.1
 	muzzle_type = null
 	fire_sound = null
-	explosion_radius = 6
-	explosion_max_power = EX_ACT_DEVASTATING
+	explosion_radius = 50
+	explosion_max_power = 150
 
 /obj/item/projectile/bullet/huge_caliber/crystal/Bump(atom/A as mob|obj|turf|area, forced=0)
 	if(!exploded)
@@ -97,12 +97,11 @@
 	if(!exploded)
 		exploded = TRUE
 		playsound(get_turf(src),pick(SOUNDS_CRYSTAL_METAL),150)
-		explosion(get_step(get_turf(A), backwards), explosion_radius, explosion_max_power)
+		cell_explosion(get_step(get_turf(A), backwards), 200, 100, direction = dir, shrapnel = FALSE)
 		qdel(src)
 
-
 /obj/item/projectile/bullet/huge_caliber/crystal/shrapnel
-	armor_penetration = 50
+	armor_penetration = 80
 
 /obj/item/projectile/bullet/huge_caliber/crystal/shrapnel/Bump(atom/A as mob|obj|turf|area, forced=0)
 	if(!exploded)
@@ -120,8 +119,8 @@
 
 /obj/item/projectile/bullet/pellet/fragment/crystal
 	name = "crystal fragment"
-	damage = 45
-	icon_state= "needle"
+	damage = 65
+	icon_state= "dark_pellet"
 
 /obj/item/projectile/bullet/pellet/fragment/crystal/Bump(atom/A as mob|obj|turf|area, forced=0)
 	if(src)

@@ -75,7 +75,7 @@
 	penetrating = 5
 	penetration_modifier = 2
 	proximity_detonation = FALSE
-	explosion_radius = 4
+	explosion_radius = 50
 	pew_spread = 16
 	var/explosion_power_first = 100
 	var/exploded_inwall = FALSE
@@ -88,15 +88,15 @@
 
 	exploded = TRUE
 	if(istype(A,/obj/shield))
-		explosion(get_turf(A), explosion_radius, explosion_max_power)
+		cell_explosion(get_turf(A), explosion_max_power, explosion_radius)
 		qdel(src)
 		return
 	explosion_power_first = explosion_radius / 2
 	if(src && !exploded_inwall)
-		explosion(get_turf(src), explosion_power_first, explosion_max_power)
+		cell_explosion(get_turf(src), explosion_power_first, explosion_radius)
 	sleep(delay)
 	if(src && !exploded_inwall)
-		explosion(get_turf(src), explosion_radius, explosion_max_power)
+		cell_explosion(get_turf(src), explosion_max_power, explosion_radius)
 		qdel(src)
 
 #undef CALIBER_SHIP_ROCKET
