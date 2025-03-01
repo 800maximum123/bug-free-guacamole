@@ -91,6 +91,11 @@
 
 	//src.set_invisibility(50)
 
+	for(var/key in linked_object_settings.cannons)
+		var/list/entry = linked_object_settings.cannons[key]
+		if(entry["cooldown"] != 0)
+			entry["cooldown"] -= 1
+
 	switch(linked_object_settings.ai_mode)
 		if(AI_MODE_DEFEND)
 			log_and_message_admins("Думаю")
@@ -98,7 +103,8 @@
 				log_and_message_admins("Найдена цель")
 
 				if(linked_object_settings.ai_attack_enabled == TRUE)
-					command_shoot()
+					if(linked_object_settings.get_random_ready_to_fire_cannon() != null)
+						command_shoot()
 
 				if(linked_object_settings.ai_move_enabled == TRUE)
 					if(linked_object_settings.ai_flee_enabled == TRUE)
@@ -147,22 +153,42 @@
 		walk(linked_object, 0)
 
 /obj/overmap/ai_holder/proc/command_shoot()
+	var/list/all_ready_cannons = linked_object_settings.get_all_ready_to_fire_cannon()
+	if(all_ready_cannons.len == 0)
+		return
 
-	var/obj/item/projectile/bullet/huge_caliber/projectile_type = linked_object_settings.get_projectile_type(/obj/item/ammo_magazine/ammobox/hmg/high_explosive)
-	var/obj/item/projectile/bullet/huge_caliber/pew = new projectile_type(linked_object.loc)
-	pew.starting = linked_object.loc
-	pew.origin = linked_object
-	pew.cal_accuracy = 75
-	pew.overmapdir = get_dir(linked_object, targeted_object)
-	//pew.launch(get_step(linked_object.loc, get_dir(linked_object, targeted_object)), pick(BP_ALL_LIMBS))
-	pew.entered_overmap = TRUE
+	var/selected_cannon = pick(all_ready_cannons)
 
-	//var/obj/overmap/source = map_sectors["[z]"]
-	pew.overmap_projectile = new /obj/overmap/projectile(null, linked_object.x, linked_object.y)
-	pew.overmap_projectile.SetName("[linked_object.name+"'s"] [pew.name]")
-	pew.overmap_projectile.set_projectile(pew, pew.cal_accuracy)
+	// TODO
+	if(linked_object_settings.cannons[selected_cannon]["type"] == /obj/machinery/computer/ship/ship_weapon/harpoon_gun)
+		return
 
-	//overmap_projectile.color = overmap_color
+	// TODO
+	if(	linked_object_settings.cannons[selected_cannon]["type"] == /obj/machinery/computer/ship/ship_weapon/beam_cannon/particle_lance || \
+		linked_object_settings.cannons[selected_cannon]["type"] == /obj/machinery/computer/ship/ship_weapon/beam_cannon
+	)
+		return
+
+	//for(var/i = 1; i <= linked_object_settings.get_weapon_burst_size(linked_object_settings.cannons[selected_cannon]["type"]); i++)
+	for(var/i in 1 to linked_object_settings.get_weapon_burst_size(linked_object_settings.cannons[selected_cannon]["type"]))
+		// Fuck this, gonna do it right now. TODO: change fucking everything
+		var/list/random_ammo_box_key = pick(linked_object_settings.ammo)
+		var/obj/item/ammo_magazine/ammobox/random_ammo_box_entry = linked_object_settings.ammo[random_ammo_box_key]["type"]
+
+		var/obj/item/ammo_casing/huge_caliber/projectile_type = linked_object_settings.get_projectile_type(random_ammo_box_entry)
+		var/obj/item/projectile/bullet/huge_caliber/pew = new projectile_type(linked_object.loc)
+		pew.starting = linked_object.loc
+		pew.origin = linked_object
+		pew.cal_accuracy = linked_object_settings.cannons[selected_cannon]["accurace"]
+		pew.overmapdir = get_dir(linked_object, targeted_object)
+		//pew.launch(get_step(linked_object.loc, get_dir(linked_object, targeted_object)), pick(BP_ALL_LIMBS))
+		pew.entered_overmap = TRUE
+		//var/obj/overmap/source = map_sectors["[z]"]
+		pew.overmap_projectile = new /obj/overmap/projectile(null, linked_object.x, linked_object.y)
+		pew.overmap_projectile.SetName("[linked_object.name+"'s"] [pew.name]")
+		pew.overmap_projectile.set_projectile(pew, pew.cal_accuracy)
+		//overmap_projectile.color = overmap_color
+	linked_object_settings.cannons[selected_cannon]["cooldown"] = linked_object_settings.cannons[selected_cannon]["max_cooldown"]
 
 /obj/overmap/ai_holder/proc/update_linked_ship_icon(moved, dir)
 	if(moved)

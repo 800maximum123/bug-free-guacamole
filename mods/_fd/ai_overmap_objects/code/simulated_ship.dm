@@ -50,22 +50,23 @@
 		var/obj/overmap/projectile/OO = O
 		var/obj/item/projectile/bullet/huge_caliber/incoming_pew = OO.actual_projectile
 		if(incoming_pew)
-			var/damage = incoming_pew.damage
-			var/damage_type = incoming_pew.damage_type
-			var/agony = incoming_pew.agony
-			var/temperature = incoming_pew.temperature
-			var/explosion_radius = incoming_pew.explosion_radius
-			var/explosion_type = incoming_pew.explosion_max_power // Another name? WTF
-			var/armor_penetration = incoming_pew.armor_penetration
-			var/penetrating = incoming_pew.penetrating
-			var/penetration_modifier = incoming_pew.penetration_modifier
-			var/proximity_detonation = incoming_pew.proximity_detonation
-			var/list/applied_damage = characteristic.calculate_damage(damage, damage_type, agony, temperature, explosion_radius, explosion_type, armor_penetration, penetrating, penetration_modifier, proximity_detonation)
-			characteristic.apply_damage(arglist(applied_damage))
-			for(var/key in applied_damage)
-				log_and_message_admins(applied_damage[key])
-			//qdel(incoming_pew)
-			//OO.actual_projectile = null
+			if(incoming_pew.origin != src)
+				var/damage = incoming_pew.damage
+				var/damage_type = incoming_pew.damage_type
+				var/agony = incoming_pew.agony
+				var/temperature = incoming_pew.temperature
+				var/explosion_radius = incoming_pew.explosion_radius
+				var/explosion_type = incoming_pew.explosion_max_power // Another name? WTF
+				var/armor_penetration = incoming_pew.armor_penetration
+				var/penetrating = incoming_pew.penetrating
+				var/penetration_modifier = incoming_pew.penetration_modifier
+				var/proximity_detonation = incoming_pew.proximity_detonation
+				var/list/applied_damage = characteristic.calculate_damage(damage, damage_type, agony, temperature, explosion_radius, explosion_type, armor_penetration, penetrating, penetration_modifier, proximity_detonation)
+				characteristic.apply_damage(arglist(applied_damage))
+				for(var/key in applied_damage)
+					log_and_message_admins(applied_damage[key])
+				//qdel(incoming_pew)
+				//OO.actual_projectile = null
 		else
 			log_and_message_admins(SPAN_WARNING("<b> \[Simulated ship\] Корабль по координатам [x]-[y] получил пулю без содержимого. Хуйня, проверить почему!</i></b>"))
 		qdel(O)

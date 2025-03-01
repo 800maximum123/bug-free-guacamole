@@ -40,6 +40,10 @@
 	var/list/valid_outer_systems = list()
 	var/should_die = FALSE
 
+	// Fuck it. We should do cooldowns here BUT I DON'T CARE. I just want to sleep. I want to see anything but my IDE theme
+	// I truly promise that I will change that in the future. I PROMISE
+	//var/cannons_in_cooldown = list()
+
 	// You should not probably change this, but you can if you want to do something wacky (Space-mines anyone?)
 	var/ai_enabled = TRUE
 	var/ai_move_enabled = TRUE
@@ -54,9 +58,12 @@
 	for(var/key in ammo)
 		var/list/entry = ammo[key]
 		entry["ammount"] = get_ammo_max_ammo(entry["type"]) * entry["ammount"]
-	for(var/key in ammo)
-		var/list/entry = ammo[key]
-		entry["cooldown"] = get_weapon_coolinterval(entry["type"])
+	for(var/key in cannons)
+		var/list/entry = cannons[key]
+		entry["max_cooldown"] = get_weapon_coolinterval(entry["type"])
+		entry["cooldown"] = 0
+		entry["ammo_per_shot"] = get_weapon_ammo_per_shot(entry["type"])
+		entry["burst_size"] = get_weapon_burst_size(entry["type"])
 	valid_internal_systems += "reactor"
 	valid_internal_systems += "shield"
 	valid_outer_systems += "engine"
@@ -67,6 +74,7 @@
 /datum/ship_characteristic/Destroy()
 	cannons.Cut()
 	ammo.Cut()
+	//cannons_in_cooldown.Cut()
 
 	QDEL_NULL_LIST(valid_internal_systems)
 	QDEL_NULL_LIST(valid_outer_systems)
@@ -129,10 +137,10 @@
 		should_die = TRUE
 		return
 
-	for(var/i in internal_systems_damaged_count)
+	for(var/i in 0 to internal_systems_damaged_count)
 		damage_system(internal_systems_damage, pick(valid_internal_systems))
 
-	for(var/i in outer_systems_damaged_count)
+	for(var/i in 0 to outer_systems_damaged_count)
 		damage_system(outer_systems_damage, pick(valid_outer_systems))
 
 /datum/ship_characteristic/proc/calculate_damage(damage, damage_type, agony, temperature, explosion_radius, explosion_type, armor_penetration, penetrating, penetration_modifier, proximity_detonation)
@@ -225,7 +233,6 @@
 			shield = shield_real_max
 	if(shield > shield_real_max) // If we were damaged in the systems but not the shields somehow
 		shield = shield_real_max
-
 /datum/ship_characteristic/proc/handle_shield_discharge()
 	if(shield == 0)
 		deltimer(shield_timer)
@@ -250,6 +257,19 @@
 	info += "</ul>"
 	return JOINTEXT(info)
 
+/datum/ship_characteristic/proc/get_random_ready_to_fire_cannon()
+	for(var/key in cannons)
+		var/list/entry = cannons[key]
+		if(entry["cooldown"] == 0)
+			return key
+	return null
+/datum/ship_characteristic/proc/get_all_ready_to_fire_cannon()
+	var/list/result = list()
+	for(var/key in cannons)
+		var/list/entry = cannons[key]
+		if(entry["cooldown"] == 0)
+			result += key
+	return result
 /datum/ship_characteristic/proc/get_ammo_max_ammo(obj/item/ammo_magazine/ammobox/O)
 	return O.max_ammo
 /datum/ship_characteristic/proc/get_ammo_ammo_type(obj/item/ammo_magazine/ammobox/O)
