@@ -263,7 +263,7 @@
 	if(front)
 		front.layer = initial(front.layer)
 
-/obj/machinery/computer/ship/ship_weapon/beam_cannon/proc/handle_beam_damage(turf/s, d, killing_floor = TRUE)
+/obj/machinery/computer/ship/ship_weapon/beam_cannon/proc/handle_beam_damage(turf/s, d, killing_floor = FALSE)
 	set waitfor = FALSE
 	for(var/turf/T in getline(s,get_edge_turf(s, d)))
 		if(istype(T,/turf/simulated/planet_edge))
@@ -285,7 +285,7 @@
 				cell_explosion(T, 300, 50, shrapnel = FALSE)
 				if(T)
 					T.ex_act(1,TRUE)
-		else if(killing_floor && !istype(T, /turf/space) && !istype(T, /turf/simulated/floor/reinforced))
+		else if(killing_floor && !istype(T, /turf/space))
 			sleep(beam_speed)
 			cell_explosion(T, 300, 50, shrapnel = FALSE)
 			if(T)

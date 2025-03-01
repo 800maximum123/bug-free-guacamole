@@ -6,7 +6,7 @@
 	scannable = FALSE
 	requires_contact = FALSE
 	//visible = FALSE
-	//invisibility = 50
+	invisibility = 50
 
 	var/obj/overmap/simulated_ship/linked_object = null
 	var/datum/ship_characteristic/linked_object_settings = null
@@ -98,9 +98,9 @@
 
 	switch(linked_object_settings.ai_mode)
 		if(AI_MODE_DEFEND)
-			log_and_message_admins("Думаю")
+//			log_and_message_admins("Думаю")
 			if(targeted_object)
-				log_and_message_admins("Найдена цель")
+//				log_and_message_admins("Найдена цель")
 
 				if(linked_object_settings.ai_attack_enabled == TRUE)
 					if(linked_object_settings.get_random_ready_to_fire_cannon() != null)
@@ -171,6 +171,14 @@
 			selected_lance.linked = linked_object
 			selected_lance.front = new_front_part
 			var/obj/overmap/visitable/ship/O = targeted_object
+
+		// Doctor Alex: It's probably the worst idea i've got, replace it in future
+			var/obj/effect/projectile_lance/lance = new /obj/effect/projectile_lance(loc)
+			lance.transform = matrix().Update(rotation = dir2angle(get_dir(linked_object, O)) + 15)
+			animate(lance, transform = matrix(dir2angle(get_dir(linked_object, O)) - 15, MATRIX_ROTATE), time = 1 SECONDS, easing = SINE_EASING | EASE_OUT)
+			spawn(0.8 SECOND)
+				animate(lance, 0.5 SECOND, alpha = 0)
+
 			selected_lance.fire_at_sector(pick(O.map_z), O.fore_dir, O, FALSE)
 			selected_lance.linked = null
 			qdel(selected_lance)
