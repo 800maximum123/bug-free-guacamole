@@ -5,6 +5,9 @@
 	ai_holder = null
 	possession_candidate = FALSE
 
+	universal_speak = 1
+	universal_understand = 1
+
 	languages = list(
 		LANGUAGE_ROOTGLOBAL,
 		LANGUAGE_ROOTLOCAL,
