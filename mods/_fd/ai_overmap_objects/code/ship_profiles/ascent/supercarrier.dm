@@ -12,7 +12,7 @@
     vessel_mass = 6000000
     vessel_size = SHIP_SIZE_LARGE
     max_speed = 60 *(1 SECOND)                        // Change first number, "Speed of light" for the ship, in turfs/second
-    min_targeted_distance_to_target = 2                // 1 - Right on target, 2 - turf next to target, etc
+    min_targeted_distance_to_target = 6                // 1 - Right on target, 2 - turf next to target, etc
     max_targeted_distance_to_target = 8                // 1 - Right on target, 2 - turf next to target, etc
     sensors_range = 32
 

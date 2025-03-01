@@ -163,10 +163,31 @@
 	if(linked_object_settings.cannons[selected_cannon]["type"] == /obj/machinery/computer/ship/ship_weapon/harpoon_gun)
 		return
 
+	if(linked_object_settings.cannons[selected_cannon]["type"] == /obj/machinery/computer/ship/ship_weapon/beam_cannon/particle_lance)
+		if(get_dist(get_turf(linked_object), get_turf(targeted_object)) < 3) // Must be 2 tiles of empty space beetwen us and target
+			var/obj/machinery/computer/ship/ship_weapon/beam_cannon/particle_lance/selected_lance = new /obj/machinery/computer/ship/ship_weapon/beam_cannon/particle_lance()
+			var/obj/machinery/ship_weapon/front_part/new_front_part = new /obj/machinery/ship_weapon/front_part()
+			//linked_object_settings.cannons[selected_cannon]["type"]
+			selected_lance.linked = linked_object
+			selected_lance.front = new_front_part
+			var/obj/overmap/visitable/ship/O = targeted_object
+			selected_lance.fire_at_sector(pick(O.map_z), O.fore_dir, O, FALSE)
+			selected_lance.linked = null
+			qdel(selected_lance)
+			//var/list/relevant_z = GetConnectedZlevels(z_level)
+			//for(var/mob/M in GLOB.player_list)
+			//	var/turf/T = get_turf(M)
+			//	if(!T || !(T.z in relevant_z))
+			//		continue
+			//	if(!isdeaf(M))
+			//		sound_to(M, sound(fire_sound, volume=5))
+			//handle_beam_on_enemy(start, heading)
+			//handle_beam_damage(start, heading, TRUE)
+			linked_object_settings.cannons[selected_cannon]["cooldown"] = linked_object_settings.cannons[selected_cannon]["max_cooldown"]
+		return
+
 	// TODO
-	if(	linked_object_settings.cannons[selected_cannon]["type"] == /obj/machinery/computer/ship/ship_weapon/beam_cannon/particle_lance || \
-		linked_object_settings.cannons[selected_cannon]["type"] == /obj/machinery/computer/ship/ship_weapon/beam_cannon
-	)
+	if(linked_object_settings.cannons[selected_cannon]["type"] == /obj/machinery/computer/ship/ship_weapon/beam_cannon)
 		return
 
 	//for(var/i = 1; i <= linked_object_settings.get_weapon_burst_size(linked_object_settings.cannons[selected_cannon]["type"]); i++)
