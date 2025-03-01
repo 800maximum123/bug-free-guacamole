@@ -86,7 +86,7 @@
 	if(linked_object_settings.ai_enabled == FALSE)
 		return
 
-	src.set_invisibility(50)
+	//src.set_invisibility(50)
 
 	switch(linked_object_settings.ai_mode)
 		if(AI_MODE_DEFEND)

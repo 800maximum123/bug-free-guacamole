@@ -16,7 +16,7 @@
 	var/max_health = 5000
 	var/max_shield = 10000
 	var/shield_regen_speed = 10 *(1 SECOND)				// Change first number, shield recharge speed
-	var/shield_discharched_regen_speed = 60 *(1 SECOND)	// Change first number, how many seconds it takes to start regenerating shield after full deplition
+	var/shield_discharched_regen_speed = 120 *(1 SECOND)	// Change first number, how many seconds it takes to start regenerating shield after full deplition
 	var/vessel_mass = 10000								// Tonnes
 	var/vessel_size = SHIP_SIZE_LARGE
 	var/max_speed = 1 *(1 SECOND)						// Change first number, "Speed of light" for the ship, in turfs/second
@@ -87,9 +87,10 @@
 /datum/ship_characteristic/proc/damage_random_system(damage, is_internal)
 	//if(is_internal)
 
-/datum/ship_characteristic/proc/apply_damage()
+/datum/ship_characteristic/proc/apply_damage(hull_damage, shield_damage, internal_systems_damage, internal_systems_damaged_count)
 
-/datum/ship_characteristic/proc/calculate_damage()
+
+/datum/ship_characteristic/proc/calculate_damage(damage, damage_type, agony, temperature, explosion_radius, explosion_type, armor_penetration, penetrating, penetration_modifier, proximity_detonation)
 	// All needed damage:
 	// hull_damage
 	// shield_damage
@@ -99,21 +100,74 @@
 	// outer_systems_damaged_count
 
 	// Damage modifiers from projectiles:
-	// damage, damage_type, agony, temperature
-	// explosion_radius, explosion_type
-	// armor_penetration, penetrating, penetration_modifier
-	// proximity_detonation
+	// damage - 450 autocannon
+	// damage_type - DAMAGE_BRUTE, DAMAGE_BURN, SHIELD_DAMTYPE_EM/SHIELD_DAMTYPE_HEAT
+	// agony - 20 disruptor cannon
+	// temperature - T0C + 300 disruptor cannon
 
-	// Damage_types:
-	// DAMAGE_BRUTE
-	// DAMAGE_BURN
-	// SHIELD_DAMTYPE_EM
-	// SHIELD_DAMTYPE_HEAT
+	// explosion_radius - 8 autocanon HE
+	// explosion_type - (EX_ACT_LIGHT), EX_ACT_HEAVY (HMG and minigun HE), EX_ACT_DEVASTATING (autocannon HE/AH, beam, crystal, lance)
+	// proximity_detonation = true
 
-	// Explosion_types:
-	// EX_ACT_LIGHT
-	// EX_ACT_HEAVY
-	// EX_ACT_DEVASTATING
+	// armor_penetration - 60 autocannon AH - Has no description but is /obj's var and is literally armor penetration
+	// penetrating - 6 autocannon AP //If greater than zero, the projectile will pass through dense objects as specified by on_penetrate()
+	// penetration_modifier - 1.1 autocannon AP  //How likely this projectile is to embed or rupture artery
+
+
+	var/explosion_modifier = 4 - explosion_type // 4 because the lightest is 3, so it would be 1 if light, 2 if medium, 3 if devastating
+
+	var/hull_damage = 0
+	var/shield_damage = 0
+	var/internal_systems_damage = 0
+	var/internal_systems_damaged_count = 0
+	var/outer_systems_damage = 0
+	var/outer_systems_damaged_count = 0
+
+	if(damage_type == DAMAGE_BRUTE)
+		hull_damage += damage
+		shield_damage += damage * 0.75
+	else if(damage_type == DAMAGE_BURN)
+		hull_damage += damage * 0.3
+		shield_damage += damage * 1.5
+	else if(damage_type == SHIELD_DAMTYPE_EM || damage_type == SHIELD_DAMTYPE_HEAT)
+		shield_damage += damage * 25
+	else
+		hull_damage += damage
+		shield_damage += damage
+
+	if(explosion_type && explosion_radius)
+		var/explosion_damage_calculated = damage * explosion_radius * explosion_modifier
+
+		if(proximity_detonation)
+			if(proximity_detonation == TRUE)
+				hull_damage += explosion_damage_calculated
+				//shield_damage += explosion_damage_calculated / 2
+				outer_systems_damage += explosion_damage_calculated
+				outer_systems_damaged_count += rand(0, explosion_radius)
+			else if (proximity_detonation == FALSE)
+				hull_damage += explosion_damage_calculated / 4
+				//shield_damage += explosion_damage_calculated / 2
+				internal_systems_damage += explosion_damage_calculated
+				internal_systems_damaged_count += rand(0, explosion_radius)
+
+
+	if(armor_penetration)
+		hull_damage *= armor_penetration * 0.5
+
+	if(penetrating && penetration_modifier)
+		var/armor_modifier_calculated = penetrating * penetration_modifier
+		hull_damage *= armor_modifier_calculated
+		internal_systems_damaged_count += rand(1, armor_modifier_calculated)
+
+	return list(
+		"hull_damage" = round(hull_damage),\
+		"shield_damage" = round(shield_damage),\
+		"internal_systems_damage" = round(internal_systems_damage),\
+		"internal_systems_damaged_count" = round(internal_systems_damaged_count),\
+		"outer_systems_damage" = round(outer_systems_damage),\
+		"outer_systems_damaged_count" = round(outer_systems_damaged_count)
+	)
+
 
 /datum/ship_characteristic/proc/create_shield_timer()
 	if(max_shield > 0)
