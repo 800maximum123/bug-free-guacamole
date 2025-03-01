@@ -259,7 +259,7 @@
 
 /obj/machinery/computer/ship/ship_weapon/beam_cannon/proc/handle_beam(turf/s, d)
 	set waitfor = FALSE
-	s.Beam(get_edge_turf(s, d), beam_icon, time = beam_time, maxdistance = world.maxx)
+	s.Beam(get_edge_turf(s, d), beam_icon, icon = 'mods/_fd/old_space_cannons/icons/beam.dmi', time = beam_time, maxdistance = world.maxx)
 	if(front)
 		front.layer = initial(front.layer)
 
@@ -348,12 +348,12 @@
 		target_turf = get_turf(linked)
 		for(var/i = 1 to shoot_range)
 			target_turf = get_step(target_turf, beam_dir)
-		linked.Beam(target_turf, overmap_icon, time = beam_time, maxdistance = world.maxx)
+		linked.Beam(target_turf, overmap_icon, icon = 'mods/_fd/old_space_cannons/icons/beam.dmi', time = beam_time, maxdistance = world.maxx)
 	else
 		target_turf = get_turf(linked.loc)
 		for(var/i = 1 to shoot_range)
 			target_turf = get_step(target_turf, beam_dir)
-		linked.loc.Beam(target_turf, overmap_icon, time = beam_time, maxdistance = world.maxx)
+		linked.loc.Beam(target_turf, overmap_icon, icon = 'mods/_fd/old_space_cannons/icons/beam.dmi', time = beam_time, maxdistance = world.maxx)
 
 /obj/machinery/computer/ship/ship_weapon/beam_cannon/handle_muzzle()
 	set waitfor = FALSE
