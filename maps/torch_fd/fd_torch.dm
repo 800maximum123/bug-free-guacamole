@@ -285,6 +285,7 @@
 	#include "../../mods/_fd/tartakans/_tartakans.dme"
 	#include "../../mods/_fd/marines_explosion/_marines_explosion.dme"
 	#include "../../mods/_fd/roll_dice/_roll_dice.dme"
+	#include "../../mods/_fd/ai_overmap_objects/_ai_overmap_objects.dme"
 
 	#include "../../mods/_fd/_maps/airfield/_airfield.dme"
 	#include "../../mods/_fd/_maps/ares/_ares.dme"
