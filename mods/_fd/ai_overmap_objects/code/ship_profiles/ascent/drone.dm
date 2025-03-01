@@ -6,23 +6,23 @@
     characteristic = new /datum/ship_characteristic/ascent/drone()
 
 /datum/ship_characteristic/ascent/drone
-    max_health = 12500
+    max_health = 62500
     max_shield = 0
     vessel_mass = 5000
     vessel_size = SHIP_SIZE_TINY
     max_speed = 8 *(1 SECOND)                        // Change first number, "Speed of light" for the ship, in turfs/second
-    min_targeted_distance_to_target = 1                // 1 - Right on target, 2 - turf next to target, etc
+    min_targeted_distance_to_target = 2                // 1 - Right on target, 2 - turf next to target, etc
     max_targeted_distance_to_target = 2                // 1 - Right on target, 2 - turf next to target, etc
     sensors_range = 6
 
 /datum/ship_characteristic/ascent/drone/New()
     cannons = list(
-        "hmg_1" = list("type" = /obj/machinery/computer/ship/ship_weapon/hmg, "accurace" = 95, "damage" = 0),
-        "hmg_2" = list("type" = /obj/machinery/computer/ship/ship_weapon/hmg, "accurace" = 95, "damage" = 0)
+        "crystal_1" = list("type" = /obj/machinery/computer/ship/ship_weapon/crystal_launcher, "accurace" = 95, "damage" = 0),
+        "crystal_2" = list("type" = /obj/machinery/computer/ship/ship_weapon/crystal_launcher, "accurace" = 95, "damage" = 0)
     )
 
     ammo = list(
-        "hmg_ammo" = list("type" = /obj/item/ammo_magazine/ammobox/hmg, "ammount" = 4)
+        "crystall_ammo" = list("type" = /obj/item/ammo_magazine/ammobox/crystal, "ammount" = 4)
     )
 
     ..()

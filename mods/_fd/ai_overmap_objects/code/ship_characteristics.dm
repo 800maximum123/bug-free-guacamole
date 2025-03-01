@@ -54,6 +54,9 @@
 	for(var/key in ammo)
 		var/list/entry = ammo[key]
 		entry["ammount"] = get_ammo_max_ammo(entry["type"]) * entry["ammount"]
+	for(var/key in ammo)
+		var/list/entry = ammo[key]
+		entry["cooldown"] = get_weapon_coolinterval(entry["type"])
 	valid_internal_systems += "reactor"
 	valid_internal_systems += "shield"
 	valid_outer_systems += "engine"
@@ -155,7 +158,6 @@
 	// penetrating - 6 autocannon AP //If greater than zero, the projectile will pass through dense objects as specified by on_penetrate()
 	// penetration_modifier - 1.1 autocannon AP  //How likely this projectile is to embed or rupture artery
 
-
 	var/explosion_modifier = 4 - explosion_type // 4 because the lightest is 3, so it would be 1 if light, 2 if medium, 3 if devastating
 
 	var/hull_damage = 0
@@ -191,7 +193,6 @@
 				//shield_damage += explosion_damage_calculated / 2
 				internal_systems_damage += explosion_damage_calculated
 				internal_systems_damaged_count += rand(0, explosion_radius)
-
 
 	if(armor_penetration)
 		hull_damage *= armor_penetration * 0.5

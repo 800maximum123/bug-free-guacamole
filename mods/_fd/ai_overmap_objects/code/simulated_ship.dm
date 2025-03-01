@@ -5,6 +5,7 @@
 	icon_state = "unkn"
 	var/moving_state = "unkn_r"
 	requires_contact = TRUE
+	scannable = TRUE
 
 	var/datum/ship_characteristic/characteristic = null
 
@@ -69,9 +70,90 @@
 			log_and_message_admins(SPAN_WARNING("<b> \[Simulated ship\] Корабль по координатам [x]-[y] получил пулю без содержимого. Хуйня, проверить почему!</i></b>"))
 		qdel(O)
 	else if(istype(O, /obj/overmap/missile))
+		log_and_message_admins("Was crossed by missle [O.name]")
 		var/obj/overmap/missile/OO = O
 		var/obj/structure/missile/incoming_boom = OO.actual_missile
-		log_and_message_admins("Was crossed by missle [O.name]")
+		for(var/obj/item/missile_equipment/E in incoming_boom.equipment)
+			switch(E)
+				if(/obj/item/missile_equipment/payload/diffuser)
+					var/list/applied_damage = characteristic.calculate_damage(\
+					damage = 600,
+					damage_type = SHIELD_DAMTYPE_EM,
+					agony = 0,
+					temperature = 0,
+					explosion_radius = 0,
+					explosion_type = EX_ACT_LIGHT,
+					armor_penetration = 0,
+					penetrating = 0,
+					penetration_modifier = 0,
+					proximity_detonation = FALSE)
+					characteristic.apply_damage(arglist(applied_damage))
+					qdel(OO)
+				if(/obj/item/missile_equipment/payload/emp)
+					var/list/applied_damage = characteristic.calculate_damage(\
+					damage = 600,
+					damage_type = DAMAGE_BURN,
+					agony = 0,
+					temperature = 0,
+					explosion_radius = 5,
+					explosion_type = EX_ACT_DEVASTATING,
+					armor_penetration = 0,
+					penetrating = 10,
+					penetration_modifier = 1.5,
+					proximity_detonation = TRUE)
+					characteristic.apply_damage(arglist(applied_damage))
+					qdel(OO)
+				if(/obj/item/missile_equipment/payload/explosive)
+					var/list/applied_damage = characteristic.calculate_damage(\
+					damage = 400,
+					damage_type = DAMAGE_BRUTE,
+					agony = 0,
+					temperature = 0,
+					explosion_radius = 4,
+					explosion_type = EX_ACT_DEVASTATING,
+					armor_penetration = 0,
+					penetrating = 5,
+					penetration_modifier = 1.5,
+					proximity_detonation = TRUE)
+					characteristic.apply_damage(arglist(applied_damage))
+					qdel(OO)
+				if(/obj/item/missile_equipment/payload/nuclear)
+					var/list/applied_damage = characteristic.calculate_damage(\
+					damage = 1000,
+					damage_type = DAMAGE_BRUTE,
+					agony = 0,
+					temperature = 0,
+					explosion_radius = 96,
+					explosion_type = EX_ACT_DEVASTATING,
+					armor_penetration = 0,
+					penetrating = 0,
+					penetration_modifier = 0,
+					proximity_detonation = TRUE)
+					characteristic.apply_damage(arglist(applied_damage))
+					qdel(OO)
+				if(/obj/item/missile_equipment/payload/big_nuclear)
+					var/list/applied_damage = characteristic.calculate_damage(\
+					damage = 100000,
+					damage_type = DAMAGE_BRUTE,
+					agony = 0,
+					temperature = 0,
+					explosion_radius = 192,
+					explosion_type = EX_ACT_DEVASTATING,
+					armor_penetration = 0,
+					penetrating = 0,
+					penetration_modifier = 0,
+					proximity_detonation = TRUE)
+					characteristic.apply_damage(arglist(applied_damage))
+					qdel(OO)
+				//if(/obj/item/missile_equipment/autoarm)
+				//if(/obj/item/missile_equipment/thruster)
+				//if(/obj/item/missile_equipment/thruster/hunter)
+				//if(/obj/item/missile_equipment/thruster/point)
+				//if(/obj/item/missile_equipment/thruster/planet)
+				if(/obj/item/missile_equipment/passenger)
+					if(characteristic.vessel_size != SHIP_SIZE_LARGE)
+						qdel(src)
+						qdel(OO)
 
 /obj/overmap/simulated_ship/get_scan_data(mob/user)
 	. = ..()

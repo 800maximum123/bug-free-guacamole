@@ -7,12 +7,12 @@
     characteristic = new /datum/ship_characteristic/ascent/battleship()
 
 /datum/ship_characteristic/ascent/battleship
-    max_health = 2000000
-    max_shield = 250000
+    max_health = 10000000
+    max_shield = 1250000
     vessel_mass = 900000
     vessel_size = SHIP_SIZE_LARGE
     max_speed = 24 *(1 SECOND)                        // Change first number, "Speed of light" for the ship, in turfs/second
-    min_targeted_distance_to_target = 1                // 1 - Right on target, 2 - turf next to target, etc
+    min_targeted_distance_to_target = 2                // 1 - Right on target, 2 - turf next to target, etc
     max_targeted_distance_to_target = 6                // 1 - Right on target, 2 - turf next to target, etc
     sensors_range = 24
 

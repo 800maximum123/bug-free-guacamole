@@ -97,8 +97,8 @@
 			if(targeted_object)
 				log_and_message_admins("Найдена цель")
 
-				//if(linked_object_settings.ai_attack_enabled == TRUE)
-				//	command_shoot()
+				if(linked_object_settings.ai_attack_enabled == TRUE)
+					command_shoot()
 
 				if(linked_object_settings.ai_move_enabled == TRUE)
 					if(linked_object_settings.ai_flee_enabled == TRUE)
