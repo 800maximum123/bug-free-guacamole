@@ -363,7 +363,9 @@ GLOBAL_LIST_INIT(potions, list("3, 5, 8" = /obj/item/catalchemy/potion/affection
 		in_danger = FALSE
 		danger_time = 10
 		stability = 50
-		destroyed = FALSE
+		if(destroyed)
+			destroyed = FALSE
+			icon_state = "cauldron_small"
 		ready = FALSE
 
 /obj/structure/catalchemy/cauldron/use_tool(obj/item/I, mob/living/user, list/click_params)
