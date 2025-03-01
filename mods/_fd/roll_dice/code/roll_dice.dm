@@ -27,7 +27,7 @@
         overlays -= dice_overlay
         qdel(dice_overlay)
 
-proc/get_roll_color(roll)
+/proc/get_roll_color(roll)
     var/r, g, b
     if(roll <= 10)
         r = 255
