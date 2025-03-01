@@ -36,7 +36,7 @@
 	colors = list("#8e52b9")
 	color = "#8e52b9"
 	icon = 'mods/_fd/immersive_overmap/icons/new_overmap.dmi'
-	icon_state = "ascent"
+	event_icon_states = list("ascent")
 	name = "ascent beacon"
 	desc = "Better not to interfere with these..."
 

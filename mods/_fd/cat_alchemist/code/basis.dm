@@ -5,7 +5,9 @@ GLOBAL_LIST_INIT(potion_recipes, list("Potion of Affection" = "3 Lux, 5 Unum, 8 
 									"Potion of Foreshadowing" = "2 Lux, 2 Unum, 6 Nox",))
 
 GLOBAL_LIST_INIT(potions, list("3, 5, 8" = /obj/item/catalchemy/potion/affection,
-							"10, 4, 2" = /obj/item/catalchemy/potion/reconstruction))
+							"10, 4, 2" = /obj/item/catalchemy/potion/reconstruction,
+							"5, 5, 5" = /obj/item/catalchemy/potion/change,
+							"2, 2, 6" = /obj/item/catalchemy/potion/foreshadowing))
 
 /obj/item/catalchemy/potion
 	name = "potion bottle"
@@ -73,6 +75,53 @@ GLOBAL_LIST_INIT(potions, list("3, 5, 8" = /obj/item/catalchemy/potion/affection
 	var/time_reducer = 0
 	var/time_increaser = 0
 
+	w_class = ITEM_SIZE_TINY
+
+/obj/item/catalchemy/pestle
+	name = "pestle"
+	desc = "Simple steel pestle!"
+	icon = 'mods/_fd/cat_alchemist/icons/alchemy.dmi'
+	icon_state = "pestle"
+
+//.unEquip(tool, src)
+
+/obj/item/catalchemy/mortar
+	name = "mortar"
+	desc = "Simple steel mortar!"
+	icon = 'mods/_fd/cat_alchemist/icons/alchemy.dmi'
+	icon_state = "mortar"
+
+// В ступе может быть только два ингредиента. Если оба ингредиента помещены внутрь - вместо того чтобы растолочь их в труху, мы попытаемся смешать их
+// в одну субстанцию, чтобы получить полностью новый ингредиент
+	var/obj/item/catalchemy/ingredient/inside_one = null
+	var/obj/item/catalchemy/ingredient/inside_two = null
+	var/combination = "Nothing, Nothing"
+
+/obj/item/catalchemy/mortar/use_tool(obj/item/I, mob/living/user, list/click_params)
+	. = ..()
+
+	if(istype(I, /obj/item/catalchemy/ingredient))
+		if(isnull(inside_one))
+			user.unEquip(I, src)
+			inside_one = I
+			return 1
+		if(!isnull(inside_one))
+			if(isnull(inside_two))
+				user.unEquip(I, src)
+				inside_two = I
+				return 1
+
+	if(istype(I, /obj/item/catalchemy/pestle))
+		if(do_after(src, 5 SECOND))
+			if(!isnull(inside_one) && isnull(inside_two))
+				inside_one.pure = FALSE
+				inside_one.icon_state = "[initial(icon_state)]_dusted"
+				return 1
+			if(!isnull(inside_one) && !isnull(inside_two))
+				combination = "[inside_one.name], [inside_two.name]"
+				//Тут должен быть очередной лист с определением предмета, который мы хотим создать согласно содержащимся тут материалам
+
+
 /obj/effect/alchemy_cloud
 	name = "cloud"
 	desc = "cloud"
@@ -109,6 +158,13 @@ GLOBAL_LIST_INIT(potions, list("3, 5, 8" = /obj/item/catalchemy/potion/affection
 	icon = 'mods/_fd/cat_alchemist/icons/alchemy_effects.dmi'
 	icon_state = "dazed"
 	color = "#8ad6d0"
+	layer = ABOVE_HUMAN_LAYER
+
+/obj/effect/alchemy_explosion
+	name = "smoke"
+	desc = "smoke"
+	icon = 'mods/_fd/cat_alchemist/icons/alchemy_effects.dmi'
+	icon_state = "smoke"
 	layer = ABOVE_HUMAN_LAYER
 
 /obj/effect/recipe_overlay
@@ -246,6 +302,11 @@ GLOBAL_LIST_INIT(potions, list("3, 5, 8" = /obj/item/catalchemy/potion/affection
 			qdel(bubbles)
 
 		audible_message(SPAN_NOTICE("In one moment, [FONT_LARGE("[icon2html(src, viewers(get_turf(src)))]")] [SPAN_COLOR("#b40505", "EXPLODES")], sending various liquid flying!"))
+		var/obj/effect/alchemy_explosion/explosion = new /obj/effect/alchemy_explosion(loc)
+		explosion.pixel_y = pixel_y + 15
+		explosion.pixel_x = pixel_x
+		spawn(8)
+			qdel(explosion)
 		STOP_PROCESSING(SSobj, src)
 
 // Если время варки дошло до нуля и мы не взорвались - останавливаем варку и отмечаем смесь как готовую к употреблению!
@@ -253,7 +314,12 @@ GLOBAL_LIST_INIT(potions, list("3, 5, 8" = /obj/item/catalchemy/potion/affection
 		ready = TRUE
 		brewing = FALSE
 		in_danger = FALSE
+
 		danger_time = 10
+		brewing_time = 100
+		qte_timer = 30
+		stability = 50
+
 		for(var/obj/effect/alchemy_brewing/bubbles in loc)
 			animate(bubbles, 1 SECOND, alpha = 0)
 			spawn(2 SECONDS)
@@ -277,6 +343,28 @@ GLOBAL_LIST_INIT(potions, list("3, 5, 8" = /obj/item/catalchemy/potion/affection
 		qte.pixel_x = pixel_x
 		animate(qte, 1 SECONDS, alpha = 255)
 		danger_time -= 1
+
+/obj/structure/catalchemy/cauldron/attack_hand(mob/living/user)
+	. = ..()
+	to_chat(user, SPAN_DANGER("You starting clearing cauldron insides!"))
+	if(do_after(user, 3 SECOND))
+		audible_message(SPAN_NOTICE("In one moment, [FONT_LARGE("[icon2html(src, viewers(get_turf(src)))]")] [SPAN_COLOR("#b40505", "EXPLODES")], sending various liquid flying!"))
+		var/obj/effect/alchemy_explosion/explosion = new /obj/effect/alchemy_explosion(loc)
+		explosion.pixel_y = pixel_y + 15
+		explosion.pixel_x = pixel_x
+		spawn(4)
+			qdel(explosion)
+		high = 0
+		medium = 0
+		low = 0
+		brewing = FALSE
+		brewing_time = 100
+		qte_timer = 30
+		in_danger = FALSE
+		danger_time = 10
+		stability = 50
+		destroyed = FALSE
+		ready = FALSE
 
 /obj/structure/catalchemy/cauldron/use_tool(obj/item/I, mob/living/user, list/click_params)
 	. = ..()
