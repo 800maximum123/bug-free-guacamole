@@ -11,7 +11,7 @@
 /obj/item/ammo_magazine/ammobox/minigun/high_explosive
 	name = "HE ammo box"
 	desc = "Ammo box that contains 75mm rocket-propelled high explosive rounds."
-	ammo_type = /obj/item/projectile/bullet/huge_caliber/minigun/high_explosive
+	ammo_type = /obj/item/ammo_casing/huge_caliber/minigun/high_explosive
 
 /obj/item/ammo_casing/huge_caliber/minigun
 	name = "heavy machine gun casing"
