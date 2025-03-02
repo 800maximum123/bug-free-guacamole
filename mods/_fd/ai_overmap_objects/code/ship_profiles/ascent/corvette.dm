@@ -7,14 +7,15 @@
     characteristic = new /datum/ship_characteristic/ascent/corvette()
 
 /datum/ship_characteristic/ascent/corvette
-    max_health = 312500
-    max_shield = 62500
+    max_health = 60000
+    max_shield = 12000
+    shield_regen_speed = 3 *(1 SECOND)
     vessel_mass = 65000
     vessel_size = SHIP_SIZE_SMALL
-    max_speed = 10 *(1 SECOND)                        // Change first number, "Speed of light" for the ship, in turfs/second
-    min_targeted_distance_to_target = 2                // 1 - Right on target, 2 - turf next to target, etc
-    max_targeted_distance_to_target = 5                // 1 - Right on target, 2 - turf next to target, etc
-    sensors_range = 9
+    max_speed = 10 *(1 SECOND)
+    min_targeted_distance_to_target = 4
+    max_targeted_distance_to_target = 4
+    sensors_range = 15
 
 /datum/ship_characteristic/ascent/corvette/New()
     cannons = list(

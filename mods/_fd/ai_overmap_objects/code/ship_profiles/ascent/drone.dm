@@ -6,14 +6,15 @@
     characteristic = new /datum/ship_characteristic/ascent/drone()
 
 /datum/ship_characteristic/ascent/drone
-    max_health = 62500
+    max_health = 12000
     max_shield = 0
+    shield_regen_speed = 3 *(1 SECOND)
     vessel_mass = 5000
     vessel_size = SHIP_SIZE_TINY
-    max_speed = 8 *(1 SECOND)                        // Change first number, "Speed of light" for the ship, in turfs/second
-    min_targeted_distance_to_target = 2                // 1 - Right on target, 2 - turf next to target, etc
-    max_targeted_distance_to_target = 2                // 1 - Right on target, 2 - turf next to target, etc
-    sensors_range = 6
+    max_speed = 8 *(1 SECOND)
+    min_targeted_distance_to_target = 1
+    max_targeted_distance_to_target = 1
+    sensors_range = 10
 
 /datum/ship_characteristic/ascent/drone/New()
     cannons = list(

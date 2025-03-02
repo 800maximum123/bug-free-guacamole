@@ -9,14 +9,15 @@
     characteristic = new /datum/ship_characteristic/ascent/supercarrier()
 
 /datum/ship_characteristic/ascent/supercarrier
-    max_health = 437500000
-    max_shield = 62500000
+    max_health = 8000000
+    max_shield = 1500000
+    shield_regen_speed = 3 *(1 SECOND)
     vessel_mass = 6000000
     vessel_size = SHIP_SIZE_LARGE
-    max_speed = 60 *(1 SECOND)                        // Change first number, "Speed of light" for the ship, in turfs/second
-    min_targeted_distance_to_target = 6                // 1 - Right on target, 2 - turf next to target, etc
-    max_targeted_distance_to_target = 8                // 1 - Right on target, 2 - turf next to target, etc
-    sensors_range = 32
+    max_speed = 50 *(1 SECOND)                        // Change first number, "Speed of light" for the ship, in turfs/second
+    min_targeted_distance_to_target = 5                // 1 - Right on target, 2 - turf next to target, etc
+    max_targeted_distance_to_target = 5                // 1 - Right on target, 2 - turf next to target, etc
+    sensors_range = 48
 
 /datum/ship_characteristic/ascent/supercarrier/New()
     cannons = list()

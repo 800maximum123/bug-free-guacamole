@@ -7,14 +7,15 @@
     characteristic = new /datum/ship_characteristic/ascent/destroyer()
 
 /datum/ship_characteristic/ascent/destroyer
-    max_health = 875000
-    max_shield = 250000
+    max_health = 175000
+    max_shield = 35000
+    shield_regen_speed = 3 *(1 SECOND)
     vessel_mass = 210000
     vessel_size = SHIP_SIZE_SMALL
-    max_speed = 14 *(1 SECOND)                        // Change first number, "Speed of light" for the ship, in turfs/second
-    min_targeted_distance_to_target = 2                // 1 - Right on target, 2 - turf next to target, etc
-    max_targeted_distance_to_target = 3                // 1 - Right on target, 2 - turf next to target, etc
-    sensors_range = 16
+    max_speed = 14 *(1 SECOND)
+    min_targeted_distance_to_target = 2
+    max_targeted_distance_to_target = 2
+    sensors_range = 15
 
 /datum/ship_characteristic/ascent/destroyer/New()
     cannons = list(
