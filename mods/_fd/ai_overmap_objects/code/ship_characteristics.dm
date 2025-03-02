@@ -16,7 +16,7 @@
 	var/max_health = 5000
 	var/max_shield = 10000
 	var/shield_regen_speed = 10 *(1 SECOND)				// Change first number, shield recharge speed
-	var/shield_discharched_regen_speed = 120 *(1 SECOND)	// Change first number, how many seconds it takes to start regenerating shield after full deplition
+	var/shield_discharched_regen_speed = 120 *(1 SECOND)// Change first number, how many seconds it takes to start regenerating shield after full deplition
 	var/vessel_mass = 10000								// Tonnes
 	var/vessel_size = SHIP_SIZE_LARGE
 	var/max_speed = 1 *(1 SECOND)						// Change first number, "Speed of light" for the ship, in turfs/second
@@ -31,6 +31,7 @@
 	var/shield_timer = null
 	var/health = null
 	var/shield = null
+	var/shield_regen_strength = null		// Shield recharge rate (During regen this number is added to shields)
 	//var/speed = null
 	// In %
 	var/reactor_damage = 0
@@ -55,6 +56,7 @@
 /datum/ship_characteristic/New()
 	health = max_health
 	shield = max_shield
+	shield_regen_strength = max_shield * 0.01
 	for(var/key in ammo)
 		var/list/entry = ammo[key]
 		entry["ammount"] = get_ammo_max_ammo(entry["type"]) * entry["ammount"]
@@ -222,13 +224,13 @@
 
 /datum/ship_characteristic/proc/create_shield_timer()
 	if(max_shield > 0)
-		shield_timer = addtimer(new Callback(src, PROC_REF(recharge_shield)), 5 SECONDS, TIMER_LOOP | TIMER_STOPPABLE)
+		shield_timer = addtimer(new Callback(src, PROC_REF(recharge_shield)), shield_regen_speed, TIMER_LOOP | TIMER_STOPPABLE)
 
 /datum/ship_characteristic/proc/recharge_shield()
 	var/shield_real_max = round(max_shield - (max_shield * (shield_damage / 100))) // I.E. 1000 - (1000 * (20 / 100))
 	if(shield < shield_real_max)
-		if(shield + shield_regen_speed <= shield_real_max)
-			shield += shield_regen_speed
+		if(shield + 1 <= shield_real_max)
+			shield += 1
 		else
 			shield = shield_real_max
 	if(shield > shield_real_max) // If we were damaged in the systems but not the shields somehow
