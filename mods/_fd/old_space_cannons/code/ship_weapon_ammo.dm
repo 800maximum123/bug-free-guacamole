@@ -23,12 +23,12 @@
 	if(should_explode && severity > 100)
 		if(stored_ammo.len > max_ammo/3)
 			should_explode = FALSE
-			cell_explosion(get_turf(src), 6, EX_ACT_DEVASTATING)
+			cell_explosion(get_turf(src), 200, 50)
 			if(src)
 				qdel(src)
 		else if(stored_ammo.len > 0)
 			should_explode = FALSE
-			cell_explosion(get_turf(src), 3, EX_ACT_DEVASTATING)
+			cell_explosion(get_turf(src), 200, 100)
 			if(src)
 				qdel(src)
 	return
@@ -64,7 +64,7 @@
 /obj/item/projectile/bullet/huge_caliber
 	name = "round"
 	icon_state= "bolter"
-	damage = 100
+	damage = CANNON_DMG_MEDIUM
 	damage_flags = DAMAGE_FLAG_BULLET | DAMAGE_FLAG_SHARP | DAMAGE_FLAG_EDGE
 	armor_penetration = 10
 	muzzle_type = null
@@ -72,8 +72,8 @@
 	distance_falloff = 0.1
 	life_span = 250
 
-	var/explosion_radius
-	var/explosion_max_power = 150
+	var/explosion_radius = EXPLOSION_FALLOFF_MEDIUM
+	var/explosion_max_power = EXPLOSION_POWER_LOW
 
 	var/proximity_detonation = TRUE //should we explode near our target, and not inside of it?
 	var/exploded = FALSE

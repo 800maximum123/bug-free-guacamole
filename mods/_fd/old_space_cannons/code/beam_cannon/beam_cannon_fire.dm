@@ -131,7 +131,7 @@
 
 	//Success, but we missed.
 	if(prob(100 - cal_accuracy()) && !istype(finaltarget, /obj/overmap/visitable/sector/exoplanet))
-		log_and_message_admins("Âûñòðåë îò [linked.name] èç [gun_name] åáàíóë [finaltarget.name], íî êàëèáðîâêà áûëà ãîâíîì (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[linked.x];Y=[linked.y];Z=[linked.z]'>MAP</a>)", location=get_turf(front))
+		log_and_message_admins("Ебать мой хуй! [linked.name] ебанул из [gun_name] по [finaltarget.name], но промазал как последний лошпед! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[linked.x];Y=[linked.y];Z=[linked.z]'>MAP</a>)", location=get_turf(front))
 		handle_overbeam(TRUE)
 		return TRUE
 
@@ -240,7 +240,7 @@
 
 	var/turf/start = locate(start_x, start_y, z_level)
 
-	log_and_message_admins("Луч от [linked.name], выпущенный из [gun_name] - успешно попал в [target.name] на Z [z_level] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[start_x];Y=[start_y];Z=[z_level]'>JMP</a>) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[linked.x];Y=[linked.y];Z=[linked.z]'>MAP</a>)")
+	log_and_message_admins("[linked.name] снова жахнул из [gun_name] и приголубил [target.name] на ZZZ-лвле [z_level] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[start_x];Y=[start_y];Z=[z_level]'>JMP</a>) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[linked.x];Y=[linked.y];Z=[linked.z]'>MAP</a>)")
 
 	var/list/relevant_z = GetConnectedZlevels(z_level)
 	for(var/mob/M in GLOB.player_list)
@@ -277,17 +277,17 @@
 			var/def_angle = pick(90,-90,0)
 			handle_beam_damage(get_step(T, turn(d, 180)), turn(d,180 + def_angle), TRUE)
 			handle_beam_on_enemy(get_step(T, turn(d, 180)), turn(d,180 + def_angle))
-			log_and_message_admins("Луч [gun_name] смешно отрикошетил от щита.")
+			log_and_message_admins("Ахуеть! Луч [gun_name] отскочил от щита в обратку!")
 			break
 		if(T.density && !killing_floor)
 			sleep(beam_speed)
 			if(T && T.density)
-				cell_explosion(T, 300, 50, shrapnel = FALSE)
+				cell_explosion(T, EXPLOSION_POWER_HIGH, EXPLOSION_FALLOFF_VERYHIGH, shrapnel = FALSE)
 				if(T)
 					T.ex_act(1,TRUE)
 		else if(killing_floor && !istype(T, /turf/space))
 			sleep(beam_speed)
-			cell_explosion(T, 300, 50, shrapnel = FALSE)
+			cell_explosion(T, EXPLOSION_POWER_HIGH, EXPLOSION_FALLOFF_VERYHIGH, shrapnel = FALSE)
 			if(T)
 				T.ex_act(1,TRUE)
 			var/list/relevant_z = GetConnectedZlevels(s.z)
@@ -310,7 +310,7 @@
 			U.gib()
 		for(var/atom/A in T)
 			if(A.density && !istype(A,/obj/shield))
-				cell_explosion(T, 300, 50, shrapnel = FALSE)
+				cell_explosion(T, EXPLOSION_POWER_HIGH, EXPLOSION_FALLOFF_VERYHIGH, shrapnel = FALSE)
 				if(A && A.density)
 					A.ex_act(1,TRUE)
 

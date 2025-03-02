@@ -21,7 +21,7 @@
 	name = "giant steel rod"
 	icon_state = "rod"
 	transform_scale = 4
-	damage = 450
+	damage = CANNON_DMG_HIGH
 	armor_penetration = 50
 	penetrating = 4
 	penetration_modifier = 1.1
@@ -33,6 +33,12 @@
 	var/beam_icon = "n_beam_alt" // icons\effects\beam.dmi
 	var/beam_icon_pull = "n_beam" // icons\effects\beam.dmi
 	var/harpoon_wall_type = /turf/simulated/wall
+
+/obj/item/projectile/bullet/huge_caliber/harpoon_cannon/Bump(atom/A as mob|obj|turf|area, forced=0)
+	if(!exploded)
+		exploded = TRUE
+
+	..()
 
 /obj/item/projectile/bullet/huge_caliber/harpoon_cannon/process_thingies()
 	if(origin && entered_overmap)
@@ -154,7 +160,7 @@
 			if(!istype(A, /obj/item/projectile) && (!istype(A, /obj/effect) || istype(A, /obj/shield)))
 				A.ex_act(1)
 		if(T.density)
-			cell_explosion(T, 50, 10, shrapnel = FALSE)
+			cell_explosion(T, EXPLOSION_POWER_LOW, EXPLOSION_FALLOFF_HIGH, shrapnel = FALSE)
 			new harpoon_wall_type(T)
 			new harpoon_wall_type(get_step(T,heading))
 			new harpoon_wall_type(get_step(T,turn(heading,180)))

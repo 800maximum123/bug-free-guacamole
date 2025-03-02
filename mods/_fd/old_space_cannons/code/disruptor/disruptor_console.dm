@@ -1,6 +1,6 @@
 /obj/machinery/computer/ship/ship_weapon/disruptor
 	name = "EWW-01 disruptor control"
-	coolinterval = 16 SECONDS
+	coolinterval = 10 SECONDS
 	gun_name = "Disruptor"
 
 	front_type = /obj/machinery/ship_weapon/front_part/disruptor

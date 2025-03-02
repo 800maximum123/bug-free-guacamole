@@ -25,13 +25,23 @@
 /obj/item/projectile/bullet/huge_caliber/minigun
 	name = "minigun bullet"
 	icon_state= "bolter"
-	damage = 300
+	damage = CANNON_DMG_SLIGHTLYHIGH
 	armor_penetration = 30
 	pew_spread = 20
 
+	var/should_explode = FALSE
+
+/obj/item/projectile/bullet/huge_caliber/minigun/Bump(atom/A as mob|obj|turf|area, forced=0)
+
+	if(!exploded && !should_explode)
+		exploded = TRUE
+	..()
+
 /obj/item/projectile/bullet/huge_caliber/minigun/high_explosive
-	damage = 150
-	explosion_radius = 5
-	explosion_max_power = EX_ACT_HEAVY
+	should_explode = TRUE
+
+	damage = CANNON_DMG_SLIGHTLYHIGH
+	explosion_radius = EXPLOSION_FALLOFF_VERYHIGH
+	explosion_max_power = EXPLOSION_POWER_SLIGHTLYHIGH
 
 #undef CALIBER_SHIP_MINIGUN
