@@ -46,7 +46,7 @@
 /obj/overmap/simulated_ship/proc/process_projectile(atom/movable/O)
 	// Bullets, rockets,
 	if(istype(O, /obj/overmap/projectile))
-		log_and_message_admins("Was crossed by projectile [O.name]")
+//		log_and_message_admins("Was crossed by projectile [O.name]")
 		var/obj/overmap/projectile/OO = O
 		var/obj/item/projectile/bullet/huge_caliber/incoming_pew = OO.actual_projectile
 		if(incoming_pew)
@@ -62,6 +62,17 @@
 				var/penetration_modifier = incoming_pew.penetration_modifier
 				var/proximity_detonation = incoming_pew.proximity_detonation
 				var/list/applied_damage = characteristic.calculate_damage(damage, damage_type, agony, temperature, explosion_radius, explosion_type, armor_penetration, penetrating, penetration_modifier, proximity_detonation)
+
+				if(damage >= 2 && characteristic.shield)
+					var/obj/effect/impact_shield/shield = new /obj/effect/impact_shield(loc)
+					animate(shield, 1 SECOND, alpha = 0)
+					spawn(1 SECOND)
+						qdel(shield)
+				else
+					animate(src, color = COLOR_RED, time = 1 SECOND, easing = CUBIC_EASING | EASE_IN)
+					spawn(1 SECOND)
+						animate(src, color = initial(color), time = 1 SECOND, easing = CUBIC_EASING | EASE_OUT)
+
 				characteristic.apply_damage(arglist(applied_damage))
 				for(var/key in applied_damage)
 					log_and_message_admins(applied_damage[key])

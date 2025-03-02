@@ -22,7 +22,7 @@
     )
 
     ammo = list(
-        "crystall_ammo" = list("type" = /obj/item/ammo_magazine/ammobox/crystal, "ammount" = 4)
+        "crystall_ammo" = list("type" = /obj/item/ammo_magazine/ammobox/crystal/shrapnel, "ammount" = 6)
     )
 
     ..()

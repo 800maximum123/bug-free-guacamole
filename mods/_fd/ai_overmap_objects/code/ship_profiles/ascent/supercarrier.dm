@@ -4,6 +4,8 @@
     icon = 'mods/_fd/ai_overmap_objects/icons/ascent_ships.dmi'
     icon_state = "supercarrier"
     moving_state = "supercarrier_moving"
+    pixel_x = -16
+    pixel_y = -16
     characteristic = new /datum/ship_characteristic/ascent/supercarrier()
 
 /datum/ship_characteristic/ascent/supercarrier

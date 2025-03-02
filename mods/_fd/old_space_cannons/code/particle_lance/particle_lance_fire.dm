@@ -1,4 +1,4 @@
-/obj/machinery/computer/ship/ship_weapon/beam_cannon/particle_lance/handle_beam_damage(turf/s, d, killing_floor = TRUE)
+/obj/machinery/computer/ship/ship_weapon/beam_cannon/particle_lance/handle_beam_damage(turf/s, d, killing_floor = FALSE)
 	set waitfor = FALSE
 	for(var/turf/T in getline(s,get_edge_turf(s, d)))
 		if(istype(T,/turf/simulated/planet_edge))
