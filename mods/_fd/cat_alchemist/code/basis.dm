@@ -72,6 +72,7 @@ GLOBAL_LIST_INIT(potions, list("3, 5, 8" = /obj/item/catalchemy/potion/affection
 	var/decreasing_difficulty = 0
 
 	var/stability_buff = 0
+	var/stability_debuff = 0
 	var/time_reducer = 0
 	var/time_increaser = 0
 
@@ -112,7 +113,7 @@ GLOBAL_LIST_INIT(potions, list("3, 5, 8" = /obj/item/catalchemy/potion/affection
 				return 1
 
 	if(istype(I, /obj/item/catalchemy/pestle))
-		if(do_after(src, 5 SECOND))
+		if(do_after(user, 5 SECOND))
 			if(!isnull(inside_one) && isnull(inside_two))
 				inside_one.pure = FALSE
 				inside_one.icon_state = "[initial(icon_state)]_dusted"
@@ -453,6 +454,9 @@ GLOBAL_LIST_INIT(potions, list("3, 5, 8" = /obj/item/catalchemy/potion/affection
 
 			if(part.stability_buff > 0)
 				stability += part.stability_buff
+
+			if(part.stability_debuff > 0)
+				stability -= part.stability_debuff
 
 			qdel(part)
 			return 1
