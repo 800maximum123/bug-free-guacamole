@@ -29,13 +29,7 @@
 	armor_penetration = 30
 	pew_spread = 20
 
-	var/should_explode = FALSE
-
-/obj/item/projectile/bullet/huge_caliber/hmg_ship/Bump(atom/A as mob|obj|turf|area, forced=0)
-
-	if(!exploded && !should_explode)
-		exploded = TRUE
-	..()
+	should_explode = FALSE
 
 /obj/item/projectile/bullet/huge_caliber/hmg_ship/high_explosive // А нужны нам вообще ХЕшки на пулемёт?...Может что-то другое добавить?
 	should_explode = TRUE

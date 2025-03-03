@@ -45,13 +45,13 @@
 /obj/item/ammo_magazine/ammobox/crystal/high_explosive
 	name = "Mobile B-type crystal growth chamber"
 	icon_state = "ammocrate_autocannon"
-	max_ammo = 24
+	max_ammo = 40
 	ammo_type = /obj/item/ammo_casing/huge_caliber/crystal/high_explosive
 
 /obj/item/ammo_magazine/ammobox/crystal/shrapnel
 	name = "Mobile X-type crystal growth chamber"
 	icon_state = "ammocrate_autocannon"
-	max_ammo = 24
+	max_ammo = 40
 	ammo_type = /obj/item/ammo_casing/huge_caliber/crystal/shrapnel
 
 ///////////////////////////CASING///////////////////////////
@@ -85,6 +85,68 @@
 	fire_sound = null
 
 	should_fragmentate = FALSE
+	var/destroy_self = TRUE
+
+// В итоге пришлось копипиздить код самих пеллетов. СУКА
+	var/pellets = 4
+	var/range_step = 2
+	var/base_spread = 90
+	var/spread_step = 10
+	is_pellet = TRUE
+
+/obj/item/projectile/bullet/huge_caliber/crystal/fragment/Bump(atom/A as mob|obj|turf|area, forced=0)
+	if(!exploded && destroy_self)
+		exploded = TRUE
+		playsound(get_turf(src),pick(SOUNDS_CRYSTAL_METAL))
+
+	..()
+
+/obj/item/projectile/bullet/huge_caliber/crystal/fragment/Bumped()
+	. = ..()
+	bumped = 0
+
+/obj/item/projectile/bullet/huge_caliber/crystal/fragment/proc/get_pellets(distance)
+	var/pellet_loss = round(max(distance - 1, 0)/range_step)
+	return max(pellets - pellet_loss, 1)
+
+/obj/item/projectile/bullet/huge_caliber/crystal/fragment/attack_mob(mob/living/target_mob, distance, miss_modifier)
+	if (pellets < 0) return 1
+
+	var/total_pellets = get_pellets(distance)
+	var/spread = max(base_spread - (spread_step*distance), 0)
+
+	var/prone_chance = 0
+	if(!base_spread)
+		prone_chance = max(spread_step*(distance - 2), 0)
+
+	var/hits = 0
+	for (var/i in 1 to total_pellets)
+		if(target_mob.lying && target_mob != original && prob(prone_chance))
+			continue
+
+		var/old_zone = def_zone
+		def_zone = ran_zone(def_zone, spread)
+		if (..())
+			hits++
+		def_zone = old_zone
+
+	pellets -= hits
+	if (hits >= total_pellets || pellets <= 0)
+		return 1
+	return 0
+
+/obj/item/projectile/bullet/huge_caliber/crystal/fragment/get_structure_damage()
+	var/distance = get_dist(loc, starting)
+	return ..() * get_pellets(distance)
+
+/obj/item/projectile/bullet/huge_caliber/crystal/fragment/Move()
+	. = ..()
+
+	if(. && !base_spread && isturf(loc))
+		for(var/mob/living/M in loc)
+			if(M.lying || !M.CanPass(src, loc, 0.5, 0))
+				if(Bump(M))
+					return
 
 /obj/item/projectile/bullet/huge_caliber/crystal
 	name ="crystal shard"
@@ -93,27 +155,29 @@
 	pew_spread = 10
 	armor_penetration = 100
 	penetration_modifier = 1.1
+	penetrating = 20
 	muzzle_type = null
 	fire_sound = null
 
 	var/should_fragmentate = TRUE
+	should_explode = FALSE
 
 /obj/item/projectile/bullet/huge_caliber/crystal/Bump(atom/A as mob|obj|turf|area, forced=0)
 
 	if(!exploded && should_fragmentate)
 		exploded = TRUE
-		fragmentate(get_turf(src), rand(3,5), 7, list(/obj/item/projectile/bullet/huge_caliber/crystal/fragment), name)
+		fragmentate(get_turf(src), rand(2,3), 1, list(/obj/item/projectile/bullet/huge_caliber/crystal/fragment), name)
 		playsound(get_turf(src),pick(SOUNDS_CRYSTAL_METAL),150)
+
 	..()
 
 /obj/item/projectile/bullet/huge_caliber/crystal/Destroy()
 	if(src)
-		if(should_fragmentate)
-			fragmentate(get_turf(src), rand(3,5), 7, list(/obj/item/projectile/bullet/huge_caliber/crystal/fragment), name)
 		playsound(get_turf(src),pick(SOUNDS_CRYSTAL_METAL))
 	..()
 
 /obj/item/projectile/bullet/huge_caliber/crystal/high_explosive
+	should_explode = TRUE
 	explosion_radius = EXPLOSION_FALLOFF_VERYHIGH
 	explosion_max_power = EXPLOSION_POWER_HIGH
 
@@ -128,7 +192,7 @@
 /obj/item/projectile/bullet/huge_caliber/crystal/shrapnel
 	should_fragmentate = FALSE
 	armor_penetration = 80
-	penetrating = 12
+	penetrating = 20
 	proximity_detonation = FALSE
 
 	var/exploded_inwall = FALSE
@@ -142,7 +206,7 @@
 	exploded = TRUE
 	if(istype(A,/obj/shield))
 		playsound(get_turf(src),pick(SOUNDS_CRYSTAL_METAL),150)
-		fragmentate(get_turf(src), rand(40,60), 7, list(/obj/item/projectile/bullet/pellet/fragment/crystal), name)
+		fragmentate(get_turf(src), rand(20,30), 7, list(/obj/item/projectile/bullet/pellet/fragment/crystal), name)
 		qdel(src)
 		return
 
@@ -150,15 +214,15 @@
 
 	if(src && !exploded_inwall)
 		playsound(get_turf(src),pick(SOUNDS_CRYSTAL_METAL),150)
-		fragmentate(get_turf(src), rand(40,60), 7, list(/obj/item/projectile/bullet/pellet/fragment/crystal), name)
+		fragmentate(get_turf(src), rand(20,30), 7, list(/obj/item/projectile/bullet/pellet/fragment/crystal), name)
 		qdel(src)
 
 /obj/item/projectile/bullet/huge_caliber/crystal/shrapnel/Destroy()
 	if(src && !exploded_inwall && !istype(loc,/atom/movable))
 		exploded = TRUE
 		exploded_inwall = TRUE
+		fragmentate(get_turf(src), rand(20,30), 7, list(/obj/item/projectile/bullet/pellet/fragment/crystal), name)
 		playsound(get_turf(src),pick(SOUNDS_CRYSTAL_METAL),150)
-		fragmentate(get_turf(src), rand(40,60), 7, list(/obj/item/projectile/bullet/pellet/fragment/crystal), name)
 	..()
 
 /obj/item/projectile/bullet/pellet/fragment/crystal

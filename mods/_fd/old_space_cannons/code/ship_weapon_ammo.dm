@@ -105,6 +105,8 @@
 	var/overmap_color = null
 	var/enter_sound = null
 
+	var/should_explode = TRUE
+
 /obj/item/projectile/bullet/huge_caliber/Initialize()
 	. = ..()
 	origin = map_sectors["[z]"]
@@ -203,7 +205,7 @@
 	if(entered_overmap)
 		return
 
-	if(!explosion_radius)
+	if(!should_explode)
 		..()
 		return
 

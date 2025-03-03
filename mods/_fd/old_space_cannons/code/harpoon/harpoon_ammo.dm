@@ -34,11 +34,7 @@
 	var/beam_icon_pull = "n_beam" // icons\effects\beam.dmi
 	var/harpoon_wall_type = /turf/simulated/wall
 
-/obj/item/projectile/bullet/huge_caliber/harpoon_cannon/Bump(atom/A as mob|obj|turf|area, forced=0)
-	if(!exploded)
-		exploded = TRUE
-
-	..()
+	should_explode = FALSE
 
 /obj/item/projectile/bullet/huge_caliber/harpoon_cannon/process_thingies()
 	if(origin && entered_overmap)

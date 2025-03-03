@@ -60,6 +60,7 @@
 	damage = CANNON_DMGS_VERYHIGH
 	pew_spread = 10
 	var/destroying_walls = TRUE
+	should_explode = FALSE
 
 /obj/item/projectile/bullet/huge_caliber/autocannon/Bump(atom/A as mob|obj|turf|area, forced=0)
 
@@ -69,19 +70,22 @@
 // Если стена имеет меньше 600 хп - сносим её нахуй, ещё и шрапнельки накидываем
 			if(!exploded)
 				exploded = TRUE
-				fragmentate(get_turf(src), rand(10,20), 7, list(/obj/item/projectile/bullet/pellet/fragment), name)
-				qdel(T)
-				qdel(src)
+				fragmentate(get_turf(src), rand(10,20), 3, list(/obj/item/projectile/bullet/pellet/fragment), name)
+				T.ChangeTurf(/turf/simulated/floor/plating)
+				spawn(1 SECOND)
+					qdel(src)
 
 	..()
 
 /obj/item/projectile/bullet/huge_caliber/autocannon/high_explosive
+	should_explode = TRUE
 	destroying_walls = FALSE
 
 	explosion_radius = EXPLOSION_FALLOFF_VERYHIGH
 	explosion_max_power = EXPLOSION_POWER_HIGH
 
 /obj/item/projectile/bullet/huge_caliber/autocannon/anti_hull
+	should_explode = TRUE
 	destroying_walls = FALSE
 
 	armor_penetration = 60
@@ -105,21 +109,23 @@
 // Если стена имеет меньше 900 хп - сносим её нахуй, ещё и шрапнельки накидываем
 			if(!exploded)
 				exploded = TRUE
-				fragmentate(get_turf(src), rand(20,30), 7, list(/obj/item/projectile/bullet/pellet/fragment), name)
-				qdel(T)
-				qdel(src)
+				fragmentate(get_turf(src), rand(10,20), 3, list(/obj/item/projectile/bullet/pellet/fragment), name)
+				T.ChangeTurf(/turf/simulated/floor/plating)
+				spawn(1 SECOND)
+					qdel(src)
 
 	..()
 
 /obj/item/projectile/bullet/huge_caliber/autocannon/aphe
 	damage = CANNON_DMG_HIGH
 	armor_penetration = 100
-	penetrating = 2
+	penetrating = 10
 	penetration_modifier = 1.1
 	proximity_detonation = FALSE
 	explosion_radius = EXPLOSION_FALLOFF_LOW
 	explosion_max_power = EXPLOSION_POWER_SLIGHTLYHIGH
 
+	should_explode = TRUE
 	destroying_walls = FALSE
 
 	var/exploded_inwall = FALSE

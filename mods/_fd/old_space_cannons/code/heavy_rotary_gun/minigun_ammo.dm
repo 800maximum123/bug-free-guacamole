@@ -29,13 +29,7 @@
 	armor_penetration = 30
 	pew_spread = 20
 
-	var/should_explode = FALSE
-
-/obj/item/projectile/bullet/huge_caliber/minigun/Bump(atom/A as mob|obj|turf|area, forced=0)
-
-	if(!exploded && !should_explode)
-		exploded = TRUE
-	..()
+	should_explode = FALSE
 
 /obj/item/projectile/bullet/huge_caliber/minigun/high_explosive
 	should_explode = TRUE

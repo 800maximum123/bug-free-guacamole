@@ -30,11 +30,7 @@
 
 	overmap_color = COLOR_YELLOW
 
-/obj/item/projectile/bullet/huge_caliber/disruptor/Bump(atom/A as mob|obj|turf|area, forced=0)
-	if(!exploded)
-		exploded = TRUE
-
-	..()
+	should_explode = FALSE
 
 /obj/item/projectile/bullet/huge_caliber/disruptor/on_impact(atom/A)
 	empulse(A, heavy_effect_range, light_effect_range)
