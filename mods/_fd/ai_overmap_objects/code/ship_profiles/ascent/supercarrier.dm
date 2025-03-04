@@ -11,7 +11,7 @@
 /datum/ship_characteristic/ascent/supercarrier
     max_health = 8000000
     max_shield = 1500000
-    shield_regen_speed = 3 *(1 SECOND)
+    shield_regen_speed = 7 *(1 SECOND)
     vessel_mass = 6000000
     vessel_size = SHIP_SIZE_LARGE
     max_speed = 50 *(1 SECOND)                        // Change first number, "Speed of light" for the ship, in turfs/second

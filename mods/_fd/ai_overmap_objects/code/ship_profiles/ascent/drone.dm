@@ -8,7 +8,7 @@
 /datum/ship_characteristic/ascent/drone
     max_health = 12000
     max_shield = 0
-    shield_regen_speed = 3 *(1 SECOND)
+    shield_regen_speed = 7 *(1 SECOND)
     vessel_mass = 5000
     vessel_size = SHIP_SIZE_TINY
     max_speed = 8 *(1 SECOND)

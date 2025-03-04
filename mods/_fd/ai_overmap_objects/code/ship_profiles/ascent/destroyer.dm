@@ -9,7 +9,7 @@
 /datum/ship_characteristic/ascent/destroyer
     max_health = 175000
     max_shield = 35000
-    shield_regen_speed = 3 *(1 SECOND)
+    shield_regen_speed = 7 *(1 SECOND)
     vessel_mass = 210000
     vessel_size = SHIP_SIZE_SMALL
     max_speed = 14 *(1 SECOND)

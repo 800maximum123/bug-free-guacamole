@@ -9,7 +9,7 @@
 /datum/ship_characteristic/ascent/corvette
     max_health = 60000
     max_shield = 12000
-    shield_regen_speed = 3 *(1 SECOND)
+    shield_regen_speed = 7 *(1 SECOND)
     vessel_mass = 65000
     vessel_size = SHIP_SIZE_SMALL
     max_speed = 10 *(1 SECOND)

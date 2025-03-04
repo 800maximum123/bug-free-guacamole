@@ -8,8 +8,8 @@
 
 /datum/ship_characteristic/ascent/fighter
     max_health = 30000
-    max_shield = 5000
-    shield_regen_speed = 3 *(1 SECOND)
+    max_shield = 2500
+    shield_regen_speed = 7 *(1 SECOND)
     vessel_mass = 15000
     vessel_size = SHIP_SIZE_TINY
     max_speed = 6 *(1 SECOND)

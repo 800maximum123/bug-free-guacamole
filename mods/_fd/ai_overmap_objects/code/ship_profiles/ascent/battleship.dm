@@ -11,7 +11,7 @@
 /datum/ship_characteristic/ascent/battleship
     max_health = 2000000
     max_shield = 250000
-    shield_regen_speed = 3 *(1 SECOND)
+    shield_regen_speed = 7 *(1 SECOND)
     vessel_mass = 900000
     vessel_size = SHIP_SIZE_LARGE
     max_speed = 24 *(1 SECOND)

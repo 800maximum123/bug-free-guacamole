@@ -23,7 +23,7 @@
 	path = /obj/item/missile_equipment/payload/nuclear
 
 /datum/fabricator_recipe/payload/big_nuclear
-	name = "nuclear warhead"
+	name = "big nuclear warhead"
 	path = /obj/item/missile_equipment/payload/big_nuclear
 
 //datum/fabricator_recipe/payload/void
@@ -57,6 +57,11 @@
 	path = /obj/item/missile_equipment/autoarm
 	category = "Utility"
 	fabricator_types = list(FABRICATOR_CLASS_MISSILE)
+
+/datum/fabricator_recipe/utility/breacher
+	name = "automatic missile activator (breacher)"
+	path = /obj/item/missile_equipment/autoarm
+	category = "Utility"
 
 /datum/fabricator_recipe/utility/passenger
 	name = "COMFMASTER Mk3 passenger compartments"

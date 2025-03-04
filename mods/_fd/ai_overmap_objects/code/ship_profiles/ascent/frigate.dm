@@ -9,7 +9,7 @@
 /datum/ship_characteristic/ascent/frigate
 	max_health = 100000
 	max_shield = 30000
-	shield_regen_speed = 3 *(1 SECOND)
+	shield_regen_speed = 7 *(1 SECOND)
 	vessel_mass = 100000
 	vessel_size = SHIP_SIZE_SMALL
 	max_speed = 10 *(1 SECOND)
