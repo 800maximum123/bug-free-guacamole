@@ -443,20 +443,26 @@ GLOBAL_LIST_INIT(potions, list("3, 5, 8" = /obj/item/catalchemy/potion/affection
 			low += part.low
 
 			if(part.increasing_difficulty > 0)
-				qte_timer -= part.increasing_difficulty
+				if(brewing) // Убираем потенциальный абуз. Никакого опускания времени до нуля до начала варки
+					qte_timer -= part.increasing_difficulty
 			if(part.decreasing_difficulty > 0)
-				qte_timer += part.decreasing_difficulty
+				if(brewing)
+					qte_timer += part.decreasing_difficulty
 
 			if(part.time_increaser > 0)
-				brewing_time += part.time_increaser
+				if(brewing)
+					brewing_time += part.time_increaser
 			if(part.time_reducer > 0)
-				brewing_time -= part.time_reducer
+				if(brewing)
+					brewing_time -= part.time_reducer
 
 			if(part.stability_buff > 0)
-				stability += part.stability_buff
+				if(brewing)
+					stability += part.stability_buff
 
 			if(part.stability_debuff > 0)
-				stability -= part.stability_debuff
+				if(brewing)
+					stability -= part.stability_debuff
 
 			qdel(part)
 			return 1
