@@ -166,7 +166,7 @@
 
 	if(!exploded && should_fragmentate)
 		exploded = TRUE
-		fragmentate(get_turf(src), rand(2,3), 1, list(/obj/item/projectile/bullet/huge_caliber/crystal/fragment), name)
+		fragmentate(get_turf(src), rand(2,3), 2, list(/obj/item/projectile/bullet/huge_caliber/crystal/fragment), name)
 		playsound(get_turf(src),pick(SOUNDS_CRYSTAL_METAL),150)
 
 	..()
@@ -199,14 +199,13 @@
 	var/delay = 4
 
 /obj/item/projectile/bullet/huge_caliber/crystal/shrapnel/Bump(atom/A as mob|obj|turf|area, forced=0)
-	..()
 	if(exploded)
 		return
 
 	exploded = TRUE
 	if(istype(A,/obj/shield))
 		playsound(get_turf(src),pick(SOUNDS_CRYSTAL_METAL),150)
-		fragmentate(get_turf(src), rand(20,30), 7, list(/obj/item/projectile/bullet/pellet/fragment/crystal), name)
+		fragmentate(get_turf(src), rand(10,20), 5, list(/obj/item/projectile/bullet/pellet/fragment/crystal), name)
 		qdel(src)
 		return
 
@@ -214,14 +213,16 @@
 
 	if(src && !exploded_inwall)
 		playsound(get_turf(src),pick(SOUNDS_CRYSTAL_METAL),150)
-		fragmentate(get_turf(src), rand(20,30), 7, list(/obj/item/projectile/bullet/pellet/fragment/crystal), name)
+		fragmentate(get_turf(src), rand(10,20), 5, list(/obj/item/projectile/bullet/pellet/fragment/crystal), name)
 		qdel(src)
+
+	..()
 
 /obj/item/projectile/bullet/huge_caliber/crystal/shrapnel/Destroy()
 	if(src && !exploded_inwall && !istype(loc,/atom/movable))
 		exploded = TRUE
 		exploded_inwall = TRUE
-		fragmentate(get_turf(src), rand(20,30), 7, list(/obj/item/projectile/bullet/pellet/fragment/crystal), name)
+		fragmentate(get_turf(src), rand(10,20), 5, list(/obj/item/projectile/bullet/pellet/fragment/crystal), name)
 		playsound(get_turf(src),pick(SOUNDS_CRYSTAL_METAL),150)
 	..()
 

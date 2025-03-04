@@ -132,7 +132,7 @@
 	var/delay = 4
 
 /obj/item/projectile/bullet/huge_caliber/autocannon/aphe/Bump(atom/A as mob|obj|turf|area, forced=0)
-	..()
+//	..() // Интересно, почему мы взрываемся прежде чем пенетрейтить стену? НАВЕРНОЕ ПОТОМУ ЧТО ПРОВЕРКА НА ВЗРЫВ ПРОИСХОДИТ РАНЬШЕ?????
 
 	if(exploded)
 		return
@@ -149,6 +149,7 @@
 		cell_explosion(get_turf(src), explosion_max_power, explosion_radius)
 		qdel(src)
 
+	..()
 
 /obj/item/projectile/bullet/huge_caliber/autocannon/aphe/Destroy()
 	if(src && !exploded_inwall && !istype(loc,/atom/movable))
