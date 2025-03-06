@@ -106,7 +106,7 @@
 	if(istype(A, /turf/simulated/wall))
 		var/turf/simulated/wall/T = A
 		if(T.health_current <= 900)
-// Если стена имеет меньше 900 хп - сносим её нахуй, ещё и шрапнельки накидываем
+			// Если стена имеет меньше 900 хп - сносим её нахуй, ещё и шрапнельки накидываем
 			if(!exploded)
 				exploded = TRUE
 				fragmentate(get_turf(src), rand(10,20), 3, list(/obj/item/projectile/bullet/pellet/fragment), name)

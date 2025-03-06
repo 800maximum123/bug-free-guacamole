@@ -173,7 +173,8 @@
 
 /obj/item/projectile/bullet/huge_caliber/crystal/Destroy()
 	if(src)
-		playsound(get_turf(src),pick(SOUNDS_CRYSTAL_METAL))
+		if(src.z != GLOB.using_map.overmap_z)
+			playsound(get_turf(src),pick(SOUNDS_CRYSTAL_METAL))
 	..()
 
 /obj/item/projectile/bullet/huge_caliber/crystal/high_explosive
@@ -219,11 +220,13 @@
 	..()
 
 /obj/item/projectile/bullet/huge_caliber/crystal/shrapnel/Destroy()
-	if(src && !exploded_inwall && !istype(loc,/atom/movable))
-		exploded = TRUE
-		exploded_inwall = TRUE
-		fragmentate(get_turf(src), rand(10,20), 5, list(/obj/item/projectile/bullet/pellet/fragment/crystal), name)
-		playsound(get_turf(src),pick(SOUNDS_CRYSTAL_METAL),150)
+	if(src)
+		if(src.z != GLOB.using_map.overmap_z)
+			if(!exploded_inwall && !istype(loc,/atom/movable))
+				exploded = TRUE
+				exploded_inwall = TRUE
+				fragmentate(get_turf(src), rand(10,20), 5, list(/obj/item/projectile/bullet/pellet/fragment/crystal), name)
+				playsound(get_turf(src),pick(SOUNDS_CRYSTAL_METAL),150)
 	..()
 
 /obj/item/projectile/bullet/pellet/fragment/crystal
