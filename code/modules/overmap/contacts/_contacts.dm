@@ -73,7 +73,8 @@
 
 /datum/overmap_contact/proc/show()
 	if (!owner)
-		return
+		if (!istype(effect, /obj/overmap/simulated_ship))
+			return
 	var/list/showing = owner.linked?.navigation_viewers
 	if (length(showing))
 		for(var/weakref/W in showing)

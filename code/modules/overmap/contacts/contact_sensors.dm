@@ -108,6 +108,12 @@
 				objects_in_view[tracked_effect] = 100
 
 	var/obj/overmap/overmap_obj = linked
+
+// Интересно, возможно ли потом вынести это в мод? - Dr. Alex
+	for (var/obj/overmap/simulated_ship/npc in view(sensor_range, overmap_obj))
+		objects_in_current_view.Add(npc)
+		objects_in_view[npc] = 100
+
 	if (istype(linked.loc, /obj/overmap/visitable))
 		overmap_obj = linked.loc
 

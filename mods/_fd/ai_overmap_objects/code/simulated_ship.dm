@@ -30,6 +30,12 @@
 		QDEL_NULL(characteristic)
 	..()
 
+/obj/overmap/simulated_ship/MouseEntered(location, control, params)
+	var/scan_health = round((characteristic.health / characteristic.max_health) * 100)
+	var/scan_shield = round((characteristic.shield / characteristic.max_shield) * 100)
+	openToolTip(user = usr, tip_src = src, params = params, title = name, content = "[SPAN_COLOR("#4ae08e", "[scan_health]")]/[SPAN_COLOR("#4ae08e", "100")], [SPAN_COLOR("#2bd2f0", "[scan_shield]")]/[SPAN_COLOR("#2bd2f0", "100")]")
+	..()
+
 /obj/overmap/simulated_ship/Process()
 	..()
 	if(characteristic.should_die == TRUE || characteristic.health == 0) // Just for safety
@@ -170,7 +176,7 @@
 /obj/overmap/simulated_ship/get_scan_data(mob/user)
 	. = ..()
 	. += "<br>"
-	. += "<br>Additional information:<br>[get_additional_info()]"
+	. += "<br>Additional information:<br>[characteristic.get_additional_info()]"
 
 /obj/overmap/simulated_ship/proc/get_additional_info()
 	if(characteristic)

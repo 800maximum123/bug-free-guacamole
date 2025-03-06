@@ -150,6 +150,18 @@
 					"progress" = sensors.objects_in_view[contact]
 				)))
 
+		for (var/obj/overmap/simulated_ship/npc in sensors.objects_in_view)
+			if (npc in sensors.contact_datums)
+				potential_contacts |= npc
+			else
+				var/bearing_variability = round(300/sensors.sensor_strength, 5)
+				unknown_contacts.Add(list(list(
+					"name" = npc.unknown_id,
+					"bearing" = inaccurate_bearing(get_bearing(linked, npc), bearing_variability),
+					"variability" = bearing_variability,
+					"progress" = sensors.objects_in_view[npc]
+				)))
+
 		for (var/obj/overmap/contact in potential_contacts)
 			if (linked == contact)
 				continue
