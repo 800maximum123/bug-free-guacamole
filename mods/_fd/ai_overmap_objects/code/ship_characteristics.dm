@@ -141,18 +141,44 @@
 		return
 
 	if(internal_systems_damaged_count > 0)
-		var/list/chosen_systems = pick(valid_internal_systems, internal_systems_damaged_count)
+		var/list/chosen_systems = list()
+		if(internal_systems_damaged_count < length(valid_internal_systems))
+			chosen_systems = pick(valid_internal_systems, internal_systems_damaged_count)
+		else
+			chosen_systems = valid_internal_systems
 		var/total_applied_damage = 0
-		for(var/i in 1 to length(chosen_systems))
-			var/applied_damage = rand(0, internal_systems_damage - total_applied_damage)
-			damage_system(applied_damage, chosen_systems)
+		var/i = 1
+		//for(var/i in 1 to length(chosen_systems))
+		while(total_applied_damage < internal_systems_damage)
+			var/applied_damage = rand(1, internal_systems_damage - total_applied_damage)
+			damage_system(applied_damage, chosen_systems[i])
 			total_applied_damage += applied_damage
+			i += 1
+			if(i >= length(chosen_systems) + 1)
+				i = 1
 		// Randomness God has blessed this ship so it has total damage applied reduced. NOT IN MY WATCH
-		var/list/first_and_last_systems = list(chosen_systems[1], chosen_systems[length(chosen_systems)])
-		damage_system(internal_systems_damage - total_applied_damage, pick(first_and_last_systems))
-
+		//var/list/first_and_last_systems = list(chosen_systems[1], chosen_systems[length(chosen_systems)])
+		//damage_system(internal_systems_damage - total_applied_damage, pick(valid_internal_systems))
 
 	if(outer_systems_damaged_count > 0)
+		var/list/chosen_systems = list()
+		if(outer_systems_damaged_count < length(valid_outer_systems))
+			chosen_systems = pick(valid_outer_systems, outer_systems_damaged_count)
+		else
+			chosen_systems = valid_outer_systems
+		var/total_applied_damage = 0
+		var/i = 1
+		//for(var/i in 1 to length(chosen_systems))
+		while(total_applied_damage < outer_systems_damage)
+			var/applied_damage = rand(1, outer_systems_damage - total_applied_damage)
+			damage_system(applied_damage, chosen_systems[i])
+			total_applied_damage += applied_damage
+			i += 1
+			if(i >= length(chosen_systems) + 1)
+				i = 1
+
+	// Saved in case somthing will go VERY wrong
+	/*if(outer_systems_damaged_count > 0)
 		var/list/chosen_systems = pick(valid_internal_systems, outer_systems_damaged_count)
 		var/total_applied_damage = 0
 		for(var/i in 1 to length(chosen_systems))
@@ -160,7 +186,7 @@
 			damage_system(applied_damage, chosen_systems)
 			total_applied_damage += applied_damage
 		var/list/first_and_last_systems = list(chosen_systems[1], chosen_systems[length(chosen_systems)])
-		damage_system(outer_systems_damage - total_applied_damage, pick(first_and_last_systems))
+		damage_system(outer_systems_damage - total_applied_damage, pick(first_and_last_systems))*/
 
 /datum/ship_characteristic/proc/calculate_damage(damage, damage_type, agony, temperature, explosion_radius, explosion_max_power, armor_penetration, penetrating, penetration_modifier, proximity_detonation)
 	// All needed damage:
@@ -217,19 +243,21 @@
 				//shield_damage += explosion_damage_calculated / 2
 				outer_systems_damage += system_damage_calculated
 				outer_systems_damaged_count += rand(0, round(explosion_radius / 100))
-			else if (proximity_detonation == FALSE)
+			else
 				//hull_damage += explosion_damage_calculated / 4
 				//shield_damage += explosion_damage_calculated / 2
 				internal_systems_damage += system_damage_calculated
 				internal_systems_damaged_count += rand(0, round(explosion_radius / 100))
 
 	if(armor_penetration)
-		hull_damage *= armor_penetration * 0.5
+		// If 100 then damage is doubled
+		hull_damage += hull_damage * (armor_penetration / 100)
 
 	if(penetrating && penetration_modifier)
-		var/armor_modifier_calculated = penetrating * penetration_modifier
-		hull_damage *= armor_modifier_calculated
-		internal_systems_damaged_count += rand(1, armor_modifier_calculated)
+		hull_damage *= penetration_modifier
+		hull_damage += hull_damage * (penetration_modifier / 100)
+		internal_systems_damage *= penetration_modifier
+		internal_systems_damaged_count += rand(1, (100 * penetration_modifier / 10))
 
 	return list(
 		"hull_damage" = round(hull_damage),\
@@ -288,10 +316,12 @@
 	info += STYLE_SMALLFONTS(hull_percent, PIXELS_FOR_SHIP_STATS, get_damage_color_string(100 - hull_percent))
 	info += FONT_NORMAL("%")
 
-	info += FONT_NORMAL("<li>Shield: ")
-	var/shield_percent = round((shield / max_shield) * 100)
-	info += STYLE_SMALLFONTS(shield_percent, PIXELS_FOR_SHIP_STATS, get_damage_color_string(100 - shield_percent))
-	info += FONT_NORMAL("%")
+	if(max_shield > 0)
+		info += FONT_NORMAL("<li>Shield: ")
+		var/shield_percent = round((shield / max_shield) * 100)
+		info += STYLE_SMALLFONTS(shield_percent, PIXELS_FOR_SHIP_STATS, get_damage_color_string(100 - shield_percent))
+		info += FONT_NORMAL("%")
+
 	info += FONT_NORMAL("<br>")
 	info += FONT_SMALL("Systems:<ul>")
 
@@ -307,15 +337,17 @@
 	info += STYLE_SMALLFONTS(100 - shield_damage, PIXELS_FOR_SHIP_SYSTEM_DAMAGE, get_damage_color_string(shield_damage))
 	info += FONT_SMALL("%</li>")
 
-	info += FONT_NORMAL("<br>")
-	info += FONT_SMALL("Detected cannons:<ul>")
-	for(var/key in cannons)
-		var/list/cannon_information = cannons[key]
-		var/obj/machinery/computer/ship/ship_weapon/type = cannon_information["type"]
-		info += FONT_SMALL("<li>[capitalize(type.gun_name)] - ")
-		info += STYLE_SMALLFONTS(100 - cannon_information["damage"], PIXELS_FOR_SHIP_SYSTEM_DAMAGE, get_damage_color_string(cannon_information["damage"]))
-		info += FONT_SMALL("%</li>")
-	info += FONT_SMALL("</ul></ul>") // ?
+	if(length(cannons) > 0)
+		info += FONT_NORMAL("<br>")
+		info += FONT_SMALL("Detected cannons:<ul>")
+		for(var/key in cannons)
+			var/list/cannon_information = cannons[key]
+			var/obj/machinery/computer/ship/ship_weapon/type = cannon_information["type"]
+			info += FONT_SMALL("<li>[capitalize(type.gun_name)] - ")
+			info += STYLE_SMALLFONTS(100 - cannon_information["damage"], PIXELS_FOR_SHIP_SYSTEM_DAMAGE, get_damage_color_string(cannon_information["damage"]))
+			info += FONT_SMALL("%</li>")
+		info += FONT_SMALL("</ul>")
+	info += FONT_SMALL("</ul>")
 	return jointext(info, "")
 	#undef PIXELS_FOR_SHIP_STATS
 	#undef PIXELS_FOR_SHIP_SYSTEM_DAMAGE

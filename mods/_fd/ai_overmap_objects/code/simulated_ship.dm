@@ -71,37 +71,55 @@
 		//log_and_message_admins("Was crossed by projectile [O.name]")
 		var/obj/overmap/projectile/OO = O
 		var/obj/item/projectile/bullet/huge_caliber/incoming_pew = OO.actual_projectile
-		if(incoming_pew)
-			if(incoming_pew.origin != src)
-				var/damage = incoming_pew.damage
-				var/damage_type = incoming_pew.damage_type
-				var/agony = incoming_pew.agony
-				var/temperature = incoming_pew.temperature
-				var/explosion_radius = incoming_pew.explosion_radius
-				var/explosion_max_power = incoming_pew.explosion_max_power // Another name? WTF
-				var/armor_penetration = incoming_pew.armor_penetration
-				var/penetrating = incoming_pew.penetrating
-				var/penetration_modifier = incoming_pew.penetration_modifier
-				var/proximity_detonation = incoming_pew.proximity_detonation
-				var/list/applied_damage = characteristic.calculate_damage(damage, damage_type, agony, temperature, explosion_radius, explosion_max_power, armor_penetration, penetrating, penetration_modifier, proximity_detonation)
-
-				characteristic.apply_damage(arglist(applied_damage))
-				src.animate_damage()
-				for(var/key in applied_damage)
-					log_and_message_admins(applied_damage[key])
-				//qdel(incoming_pew)
-				//OO.actual_projectile = null
-		else
+		if(!incoming_pew)
 			log_and_message_admins(SPAN_WARNING("<b> \[Simulated ship\] Корабль по координатам [x]-[y] получил пулю без содержимого. Хуйня, проверить почему!</i></b>"))
-		qdel(O)
+			qdel(OO)
+			return
+
+		if(incoming_pew.origin == src)
+			return
+
+		if(istype(incoming_pew.origin, /obj/overmap/simulated_ship))
+			var/obj/overmap/simulated_ship/owner = incoming_pew.origin
+			if(owner.characteristic)
+				if(owner.characteristic.team == src.characteristic.team)
+					return
+
+		var/damage = incoming_pew.damage
+		var/damage_type = incoming_pew.damage_type
+		var/agony = incoming_pew.agony
+		var/temperature = incoming_pew.temperature
+		var/explosion_radius = incoming_pew.explosion_radius
+		var/explosion_max_power = incoming_pew.explosion_max_power // Another name? WTF
+		var/armor_penetration = incoming_pew.armor_penetration
+		var/penetrating = incoming_pew.penetrating
+		var/penetration_modifier = incoming_pew.penetration_modifier
+		var/proximity_detonation = incoming_pew.proximity_detonation
+		var/list/applied_damage = characteristic.calculate_damage(damage, damage_type, agony, temperature, explosion_radius, explosion_max_power, armor_penetration, penetrating, penetration_modifier, proximity_detonation)
+
+		characteristic.apply_damage(arglist(applied_damage))
+		src.animate_damage()
+		for(var/key in applied_damage)
+			log_and_message_admins(applied_damage[key])
+		//qdel(incoming_pew)
+		QDEL_NULL(OO.actual_projectile)
+		qdel(OO)
 	else if(istype(O, /obj/overmap/missile))
 		//log_and_message_admins("Was crossed by missle [O.name]")
 		var/obj/overmap/missile/OO = O
 		var/obj/structure/missile/incoming_boom = OO.actual_missile
+
+		if(!incoming_boom)
+			log_and_message_admins(SPAN_WARNING("<b> \[Simulated ship\] Корабль по координатам [x]-[y] получил ракету без ракеты. Хуйня, проверить почему!</i></b>"))
+			qdel(OO)
+			return
+
+		var/list/applied_damage = null
+		// Multiple equipments? TODO
 		for(var/obj/item/missile_equipment/E in incoming_boom.equipment)
 			switch(E)
 				if(/obj/item/missile_equipment/payload/diffuser)
-					var/list/applied_damage = characteristic.calculate_damage(\
+					applied_damage = characteristic.calculate_damage(\
 					damage = 600,
 					damage_type = SHIELD_DAMTYPE_EM,
 					agony = 0,
@@ -112,11 +130,8 @@
 					penetrating = 0,
 					penetration_modifier = 0,
 					proximity_detonation = FALSE)
-					characteristic.apply_damage(arglist(applied_damage))
-					src.animate_damage()
-					qdel(OO)
 				if(/obj/item/missile_equipment/payload/emp)
-					var/list/applied_damage = characteristic.calculate_damage(\
+					applied_damage = characteristic.calculate_damage(\
 					damage = 600,
 					damage_type = DAMAGE_BURN,
 					agony = 0,
@@ -127,11 +142,8 @@
 					penetrating = 10,
 					penetration_modifier = 1.5,
 					proximity_detonation = TRUE)
-					characteristic.apply_damage(arglist(applied_damage))
-					src.animate_damage()
-					qdel(OO)
 				if(/obj/item/missile_equipment/payload/explosive)
-					var/list/applied_damage = characteristic.calculate_damage(\
+					applied_damage = characteristic.calculate_damage(\
 					damage = 400,
 					damage_type = DAMAGE_BRUTE,
 					agony = 0,
@@ -142,11 +154,8 @@
 					penetrating = 5,
 					penetration_modifier = 1.5,
 					proximity_detonation = TRUE)
-					characteristic.apply_damage(arglist(applied_damage))
-					src.animate_damage()
-					qdel(OO)
 				if(/obj/item/missile_equipment/payload/nuclear)
-					var/list/applied_damage = characteristic.calculate_damage(\
+					applied_damage = characteristic.calculate_damage(\
 					damage = 1000,
 					damage_type = DAMAGE_BRUTE,
 					agony = 0,
@@ -157,11 +166,8 @@
 					penetrating = 0,
 					penetration_modifier = 0,
 					proximity_detonation = TRUE)
-					characteristic.apply_damage(arglist(applied_damage))
-					src.animate_damage()
-					qdel(OO)
 				if(/obj/item/missile_equipment/payload/big_nuclear)
-					var/list/applied_damage = characteristic.calculate_damage(\
+					applied_damage = characteristic.calculate_damage(\
 					damage = 100000,
 					damage_type = DAMAGE_BRUTE,
 					agony = 0,
@@ -172,9 +178,6 @@
 					penetrating = 0,
 					penetration_modifier = 0,
 					proximity_detonation = TRUE)
-					characteristic.apply_damage(arglist(applied_damage))
-					src.animate_damage()
-					qdel(OO)
 				//if(/obj/item/missile_equipment/autoarm)
 				//if(/obj/item/missile_equipment/thruster)
 				//if(/obj/item/missile_equipment/thruster/hunter)
@@ -184,16 +187,25 @@
 					if(characteristic.vessel_size != SHIP_SIZE_LARGE)
 						qdel(src)
 						qdel(OO)
+						return
 
-/obj/overmap/simulated_ship/get_scan_data(mob/user)
-	. = ..()
-	. += "<br>"
-	. += "<br>Additional information:<br>[characteristic.get_additional_info()]"
+		if(applied_damage)
+			characteristic.apply_damage(arglist(applied_damage))
+			src.animate_damage()
+		else
+			log_and_message_admins(SPAN_WARNING("<b> \[Simulated ship\] Корабль по координатам [x]-[y] получил ракету без компонентов. Хуйня, проверить почему!</i></b>"))
+		qdel(OO)
 
-/obj/overmap/simulated_ship/proc/get_additional_info()
-	if(characteristic)
-		return characteristic.get_additional_info()
-	return "N/A"
+// Does not work. Idk why, gonna search for it later
+///obj/overmap/simulated_ship/get_scan_data(mob/user)
+//	. = ..()
+//	. += "<br>"
+//	. += "<br>Additional information:<br>[characteristic.get_additional_info()]"
+//
+///obj/overmap/simulated_ship/proc/get_additional_info()
+//	if(characteristic)
+//		return characteristic.get_additional_info()
+//	return "N/A"
 
 // Ship goes into event or something
 ///obj/overmap/simulated_ship/Entered(atom/movable/O, oldloc)

@@ -231,7 +231,7 @@
 		return
 	if(targeted_object == null)
 		return
-	//var/turf/obstacle = /turf/unsimulated/map/with_events
+	//var/turf/obstacle = /turf/unsimulated/map/blocked_for_astar
 	memorised_path = AStar(
 		start = linked_object.loc,\
 		end = targeted_object.loc,\
@@ -312,51 +312,3 @@
 //	return ((O.sector_flags & OVERMAP_SECTOR_IN_SPACE) && !(O.sector_flags & OVERMAP_SECTOR_UNTARGETABLE) && LAZYLEN(O.map_z))
 
 ///turf/unsimulated/map
-
-
-// God please I'm sorry
-// Used for A*
-/turf/unsimulated/map/with_events
-
-//TODO: change this abomination to something more adequate, like checking objs of overmap events on tile
-// Original from AdjacentTurfs
-/turf/proc/AdjacentTurfsWithOvermap(check_blockage = TRUE)
-	. = list()
-	for(var/turf/t in (trange(1,src) - src))
-		if(istype(t, /turf/unsimulated/map/with_events))
-			continue
-		if(check_blockage)
-			if(!t.density)
-				if(!LinkBlocked(src, t) && !TurfBlockedNonWindow(t))
-					. += t
-		else
-			. += t
-
-/obj/overmap/event/Initialize()
-	. = ..()
-	var/turf/T = get_turf(loc)
-	T.ChangeTurf(/turf/unsimulated/map/with_events)
-
-/obj/overmap/event/Move()
-	var/turf/old_loc = loc
-	. = ..()
-	if(.)
-		var/turf/T = get_turf(old_loc)
-		T.ChangeTurf(/turf/unsimulated/map)
-		T = get_turf(loc)
-		T.ChangeTurf(/turf/unsimulated/map/with_events)
-
-/obj/overmap/event/forceMove(atom/destination)
-	var/old_loc = loc
-	. = ..()
-	if(.)
-		var/turf/T = get_turf(old_loc)
-		T.ChangeTurf(/turf/unsimulated/map)
-		T = get_turf(loc)
-		T.ChangeTurf(/turf/unsimulated/map/with_events)
-
-/obj/overmap/event/Destroy()//takes a look at this one as well, make sure everything is A-OK
-	var/turf/old_loc = loc
-	. = ..()
-	var/turf/T = get_turf(old_loc)
-	T.ChangeTurf(/turf/unsimulated/map)
