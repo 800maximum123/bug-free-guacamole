@@ -4,7 +4,7 @@
 	icon = 'mods/_fd/fd_assets/icons/overmap_eris.dmi'
 	icon_state = "unkn"
 	var/moving_state = "unkn_r"
-	requires_contact = TRUE
+	requires_contact = FALSE
 	scannable = TRUE
 
 	var/datum/ship_characteristic/characteristic = null
@@ -18,22 +18,27 @@
 /obj/overmap/simulated_ship/Initialize()
 	..()
 	//characteristic = new()
+	if(!characteristic)
+		qdel(src) // lmao
 	START_PROCESSING(SSobj, src)
 
 /obj/overmap/simulated_ship/Destroy()
-	var/obj/overmap/event/ship_wreck/type_of_wreck = characteristic.get_wreck_type()
-	if(type_of_wreck)
-		var/obj/overmap/event/ship_wreck/new_wreck = new type_of_wreck(get_turf(src))
-		new_wreck.color = src.color
-	//O.Initialize()
-	if(!QDELETED(characteristic))
-		QDEL_NULL(characteristic)
+	if(characteristic)
+		var/obj/overmap/event/ship_wreck/type_of_wreck = characteristic.get_wreck_type()
+		if(type_of_wreck)
+			var/obj/overmap/event/ship_wreck/new_wreck = new type_of_wreck(get_turf(src))
+			new_wreck.color = src.color
+		//O.Initialize()
+		if(!QDELETED(characteristic))
+			QDEL_NULL(characteristic)
 	..()
 
 /obj/overmap/simulated_ship/MouseEntered(location, control, params)
-	var/scan_health = round((characteristic.health / characteristic.max_health) * 100)
-	var/scan_shield = round((characteristic.shield / characteristic.max_shield) * 100)
-	openToolTip(user = usr, tip_src = src, params = params, title = name, content = "[SPAN_COLOR("#4ae08e", "[scan_health]")]/[SPAN_COLOR("#4ae08e", "100")], [SPAN_COLOR("#2bd2f0", "[scan_shield]")]/[SPAN_COLOR("#2bd2f0", "100")]")
+	//var/scan_health = round((characteristic.health / characteristic.max_health) * 100)
+	//var/scan_shield = round((characteristic.shield / characteristic.max_shield) * 100)
+	//var/content_of_tooltip = "[SPAN_COLOR("#4ae08e", "[scan_health]%")]/[SPAN_COLOR("#4ae08e", "100")], [SPAN_COLOR("#2bd2f0", "[scan_shield]")]/[SPAN_COLOR("#2bd2f0", "100")]"
+	var/content_of_tooltip = characteristic.get_additional_info()
+	openToolTip(user = usr, tip_src = src, params = params, title = name, content = content_of_tooltip)
 	..()
 
 /obj/overmap/simulated_ship/Process()
@@ -49,10 +54,21 @@
 	. = ..()
 	process_projectile(O)
 
+/obj/overmap/simulated_ship/proc/animate_damage()
+	if(characteristic.shield)
+		var/obj/effect/impact_shield/shield = new /obj/effect/impact_shield(loc)
+		animate(shield, 1 SECOND, alpha = 0)
+		spawn(1 SECOND)
+			qdel(shield)
+	else
+		animate(src, color = COLOR_RED, time = 1 SECOND, easing = CUBIC_EASING | EASE_IN)
+		spawn(1 SECOND)
+			animate(src, color = initial(color), time = 1 SECOND, easing = CUBIC_EASING | EASE_OUT)
+
 /obj/overmap/simulated_ship/proc/process_projectile(atom/movable/O)
 	// Bullets, rockets,
 	if(istype(O, /obj/overmap/projectile))
-//		log_and_message_admins("Was crossed by projectile [O.name]")
+		//log_and_message_admins("Was crossed by projectile [O.name]")
 		var/obj/overmap/projectile/OO = O
 		var/obj/item/projectile/bullet/huge_caliber/incoming_pew = OO.actual_projectile
 		if(incoming_pew)
@@ -62,24 +78,15 @@
 				var/agony = incoming_pew.agony
 				var/temperature = incoming_pew.temperature
 				var/explosion_radius = incoming_pew.explosion_radius
-				var/explosion_type = incoming_pew.explosion_max_power // Another name? WTF
+				var/explosion_max_power = incoming_pew.explosion_max_power // Another name? WTF
 				var/armor_penetration = incoming_pew.armor_penetration
 				var/penetrating = incoming_pew.penetrating
 				var/penetration_modifier = incoming_pew.penetration_modifier
 				var/proximity_detonation = incoming_pew.proximity_detonation
-				var/list/applied_damage = characteristic.calculate_damage(damage, damage_type, agony, temperature, explosion_radius, explosion_type, armor_penetration, penetrating, penetration_modifier, proximity_detonation)
-
-				if(damage >= 2 && characteristic.shield)
-					var/obj/effect/impact_shield/shield = new /obj/effect/impact_shield(loc)
-					animate(shield, 1 SECOND, alpha = 0)
-					spawn(1 SECOND)
-						qdel(shield)
-				else
-					animate(src, color = COLOR_RED, time = 1 SECOND, easing = CUBIC_EASING | EASE_IN)
-					spawn(1 SECOND)
-						animate(src, color = initial(color), time = 1 SECOND, easing = CUBIC_EASING | EASE_OUT)
+				var/list/applied_damage = characteristic.calculate_damage(damage, damage_type, agony, temperature, explosion_radius, explosion_max_power, armor_penetration, penetrating, penetration_modifier, proximity_detonation)
 
 				characteristic.apply_damage(arglist(applied_damage))
+				src.animate_damage()
 				for(var/key in applied_damage)
 					log_and_message_admins(applied_damage[key])
 				//qdel(incoming_pew)
@@ -88,7 +95,7 @@
 			log_and_message_admins(SPAN_WARNING("<b> \[Simulated ship\] Корабль по координатам [x]-[y] получил пулю без содержимого. Хуйня, проверить почему!</i></b>"))
 		qdel(O)
 	else if(istype(O, /obj/overmap/missile))
-		log_and_message_admins("Was crossed by missle [O.name]")
+		//log_and_message_admins("Was crossed by missle [O.name]")
 		var/obj/overmap/missile/OO = O
 		var/obj/structure/missile/incoming_boom = OO.actual_missile
 		for(var/obj/item/missile_equipment/E in incoming_boom.equipment)
@@ -100,12 +107,13 @@
 					agony = 0,
 					temperature = 0,
 					explosion_radius = 0,
-					explosion_type = EX_ACT_LIGHT,
+					explosion_max_power = EXPLOSION_POWER_SLIGHTLYHIGH,
 					armor_penetration = 0,
 					penetrating = 0,
 					penetration_modifier = 0,
 					proximity_detonation = FALSE)
 					characteristic.apply_damage(arglist(applied_damage))
+					src.animate_damage()
 					qdel(OO)
 				if(/obj/item/missile_equipment/payload/emp)
 					var/list/applied_damage = characteristic.calculate_damage(\
@@ -114,12 +122,13 @@
 					agony = 0,
 					temperature = 0,
 					explosion_radius = 5,
-					explosion_type = EX_ACT_DEVASTATING,
+					explosion_max_power = EXPLOSION_POWER_SLIGHTLYHIGH,
 					armor_penetration = 0,
 					penetrating = 10,
 					penetration_modifier = 1.5,
 					proximity_detonation = TRUE)
 					characteristic.apply_damage(arglist(applied_damage))
+					src.animate_damage()
 					qdel(OO)
 				if(/obj/item/missile_equipment/payload/explosive)
 					var/list/applied_damage = characteristic.calculate_damage(\
@@ -128,12 +137,13 @@
 					agony = 0,
 					temperature = 0,
 					explosion_radius = 4,
-					explosion_type = EX_ACT_DEVASTATING,
+					explosion_max_power = EXPLOSION_POWER_HIGH,
 					armor_penetration = 0,
 					penetrating = 5,
 					penetration_modifier = 1.5,
 					proximity_detonation = TRUE)
 					characteristic.apply_damage(arglist(applied_damage))
+					src.animate_damage()
 					qdel(OO)
 				if(/obj/item/missile_equipment/payload/nuclear)
 					var/list/applied_damage = characteristic.calculate_damage(\
@@ -142,12 +152,13 @@
 					agony = 0,
 					temperature = 0,
 					explosion_radius = 96,
-					explosion_type = EX_ACT_DEVASTATING,
+					explosion_max_power = EXPLOSION_POWER_HIGH * 3,
 					armor_penetration = 0,
 					penetrating = 0,
 					penetration_modifier = 0,
 					proximity_detonation = TRUE)
 					characteristic.apply_damage(arglist(applied_damage))
+					src.animate_damage()
 					qdel(OO)
 				if(/obj/item/missile_equipment/payload/big_nuclear)
 					var/list/applied_damage = characteristic.calculate_damage(\
@@ -156,12 +167,13 @@
 					agony = 0,
 					temperature = 0,
 					explosion_radius = 192,
-					explosion_type = EX_ACT_DEVASTATING,
+					explosion_max_power = EXPLOSION_POWER_HIGH * 5,
 					armor_penetration = 0,
 					penetrating = 0,
 					penetration_modifier = 0,
 					proximity_detonation = TRUE)
 					characteristic.apply_damage(arglist(applied_damage))
+					src.animate_damage()
 					qdel(OO)
 				//if(/obj/item/missile_equipment/autoarm)
 				//if(/obj/item/missile_equipment/thruster)

@@ -95,32 +95,33 @@
 			return null
 
 /datum/ship_characteristic/proc/damage_system(damage, system)
-	switch(system)
-		if("reactor")
-			reactor_damage = min(reactor_damage + damage, 100)
-			if(reactor_damage == 100)
-				health = 0
-				should_die = TRUE
-				// Logic in ship obj
-				valid_internal_systems -= "reactor" // You're dead but lmao
-		if("shield")
-			shield_damage = min(shield_damage + damage, 100)
-			// Logic in ship_characteristic/proc/recharge_shield proc
-			if(shield_damage == 100)
-				valid_internal_systems -= "shield"
-		if("engine")
-			engine_damage = min(engine_damage + damage, 100)
-			// Logic in ai_handler object
-			if(engine_damage == 100)
-				valid_outer_systems -= "engine"
-		else // Weapons but also other shinenigans
-			if(system in cannons)
-				cannons[system]["damage"] = min(cannons[system]["damage"] + damage, 100)
-				// Logic in ai_handler object (TODO: move it to the ship obj)
+	if(damage > 0)
+		switch(system)
+			if("reactor")
+				reactor_damage = min(reactor_damage + damage, 100)
+				if(reactor_damage == 100)
+					health = 0
+					should_die = TRUE
+					// Logic in ship obj
+					valid_internal_systems -= "reactor" // You're dead but lmao
+			if("shield")
+				shield_damage = min(shield_damage + damage, 100)
+				// Logic in ship_characteristic/proc/recharge_shield proc
+				if(shield_damage == 100)
+					valid_internal_systems -= "shield"
+			if("engine")
+				engine_damage = min(engine_damage + damage, 100)
+				// Logic in ai_handler object
 				if(engine_damage == 100)
-					valid_outer_systems -= cannons[system]
-			else // Null or something errored
-				return
+					valid_outer_systems -= "engine"
+			else // Weapons but also other shinenigans
+				if(system in cannons)
+					cannons[system]["damage"] = min(cannons[system]["damage"] + damage, 100)
+					// Logic in ai_handler object (TODO: move it to the ship obj)
+					if(engine_damage == 100)
+						valid_outer_systems -= cannons[system]
+				else // Null or something errored
+					return
 
 /datum/ship_characteristic/proc/apply_damage(hull_damage, shield_damage, internal_systems_damage, internal_systems_damaged_count, outer_systems_damage, outer_systems_damaged_count)
 	if(health == 0)
@@ -139,13 +140,29 @@
 		should_die = TRUE
 		return
 
-	for(var/i in 0 to internal_systems_damaged_count)
-		damage_system(internal_systems_damage, pick(valid_internal_systems))
+	if(internal_systems_damaged_count > 0)
+		var/list/chosen_systems = pick(valid_internal_systems, internal_systems_damaged_count)
+		var/total_applied_damage = 0
+		for(var/i in 1 to length(chosen_systems))
+			var/applied_damage = rand(0, internal_systems_damage - total_applied_damage)
+			damage_system(applied_damage, chosen_systems)
+			total_applied_damage += applied_damage
+		// Randomness God has blessed this ship so it has total damage applied reduced. NOT IN MY WATCH
+		var/list/first_and_last_systems = list(chosen_systems[1], chosen_systems[length(chosen_systems)])
+		damage_system(internal_systems_damage - total_applied_damage, pick(first_and_last_systems))
 
-	for(var/i in 0 to outer_systems_damaged_count)
-		damage_system(outer_systems_damage, pick(valid_outer_systems))
 
-/datum/ship_characteristic/proc/calculate_damage(damage, damage_type, agony, temperature, explosion_radius, explosion_type, armor_penetration, penetrating, penetration_modifier, proximity_detonation)
+	if(outer_systems_damaged_count > 0)
+		var/list/chosen_systems = pick(valid_internal_systems, outer_systems_damaged_count)
+		var/total_applied_damage = 0
+		for(var/i in 1 to length(chosen_systems))
+			var/applied_damage = rand(0, outer_systems_damage - total_applied_damage)
+			damage_system(applied_damage, chosen_systems)
+			total_applied_damage += applied_damage
+		var/list/first_and_last_systems = list(chosen_systems[1], chosen_systems[length(chosen_systems)])
+		damage_system(outer_systems_damage - total_applied_damage, pick(first_and_last_systems))
+
+/datum/ship_characteristic/proc/calculate_damage(damage, damage_type, agony, temperature, explosion_radius, explosion_max_power, armor_penetration, penetrating, penetration_modifier, proximity_detonation)
 	// All needed damage:
 	// hull_damage
 	// shield_damage
@@ -160,15 +177,13 @@
 	// agony - 20 disruptor cannon
 	// temperature - T0C + 300 disruptor cannon
 
-	// explosion_radius - 8 autocanon HE
-	// explosion_type - (EX_ACT_LIGHT), EX_ACT_HEAVY (HMG and minigun HE), EX_ACT_DEVASTATING (autocannon HE/AH, beam, crystal, lance)
+	// explosion_radius - 20-200, 200 autocanon HE
+	// explosion_max_power - 150-500, 500 autocannon HE (???)
 	// proximity_detonation = true
 
 	// armor_penetration - 60 autocannon AH - Has no description but is /obj's var and is literally armor penetration
 	// penetrating - 6 autocannon AP //If greater than zero, the projectile will pass through dense objects as specified by on_penetrate()
 	// penetration_modifier - 1.1 autocannon AP  //How likely this projectile is to embed or rupture artery
-
-	var/explosion_modifier = 4 - explosion_type // 4 because the lightest is 3, so it would be 1 if light, 2 if medium, 3 if devastating
 
 	var/hull_damage = 0
 	var/shield_damage = 0
@@ -182,27 +197,31 @@
 		shield_damage += damage * 0.75 //75%
 	else if(damage_type == DAMAGE_BURN)
 		hull_damage += damage * 0.3
-		shield_damage += damage * 1.5
+		shield_damage += damage * 10
 	else if(damage_type == SHIELD_DAMTYPE_EM || damage_type == SHIELD_DAMTYPE_HEAT)
 		shield_damage += damage * 25
 	else
 		hull_damage += damage
 		shield_damage += damage
 
-	if(explosion_type && explosion_radius)
-		var/explosion_damage_calculated = damage * explosion_radius * explosion_modifier
+	// Let's make it so explosion is effective vs systems
+	// Radius is how many systems were affected (CAN BE 0), while max_power is damage to this systems
+	// Balanced around autocannon's 200 rad and 500 power, so it would damage (IN SUMMARY) 0-2 systems for 50 damage
+	// Do note that this 50 damage is not applied to EACH affected system, but instead is randomly distributed to all affected systems (!)
+	if(explosion_max_power && explosion_radius)
+		var/system_damage_calculated = explosion_max_power / 10
 
 		if(proximity_detonation)
 			if(proximity_detonation == TRUE)
-				hull_damage += explosion_damage_calculated
+				//hull_damage += explosion_damage_calculated
 				//shield_damage += explosion_damage_calculated / 2
-				outer_systems_damage += explosion_damage_calculated
-				outer_systems_damaged_count += rand(0, explosion_radius)
+				outer_systems_damage += system_damage_calculated
+				outer_systems_damaged_count += rand(0, round(explosion_radius / 100))
 			else if (proximity_detonation == FALSE)
-				hull_damage += explosion_damage_calculated / 4
+				//hull_damage += explosion_damage_calculated / 4
 				//shield_damage += explosion_damage_calculated / 2
-				internal_systems_damage += explosion_damage_calculated
-				internal_systems_damaged_count += rand(0, explosion_radius)
+				internal_systems_damage += system_damage_calculated
+				internal_systems_damaged_count += rand(0, round(explosion_radius / 100))
 
 	if(armor_penetration)
 		hull_damage *= armor_penetration * 0.5
@@ -241,23 +260,65 @@
 		sleep(shield_discharched_regen_speed)
 		create_shield_timer()
 
-/datum/ship_characteristic/proc/get_additional_info()
-	var/list/info
-	info += "<br>Hull:<br> [health]"
-	info += "<br>Shield:<br> [shield]"
-	info += ""
-	info += "<br>Systems:"
-	info += "<br>Reactor condition:<br> [reactor_damage]%"
-	info += "<br>Engines condition ':<br> [engine_damage]%"
-	info += "<br>Shield condition:<br> [shield_damage]%"
+/datum/ship_characteristic/proc/get_damage_color_string(damage)
+	var/damage_color = "#ffffff"
+	if(damage == 100)
+		damage_color = "#ff0000"
+	else if (damage >= 75)
+		damage_color = "#db7800"
+	else if (damage >= 50)
+		damage_color = "#ada700"
+	else if (damage >= 25)
+		damage_color = "#7bc835"
+	else
+		damage_color = "#48e08c"
+	return damage_color
 
-	info += list("Detected cannons:<ul>")
+/datum/ship_characteristic/proc/get_additional_info()
+	#define PIXELS_FOR_SHIP_STATS 13
+	#define PIXELS_FOR_SHIP_SYSTEM_DAMAGE 10
+	var/list/info = list()
+	//info += SPAN_INFO("Hull: ")
+	//info += SPAN_INFO(SPAN_COLOR("#4ae08e", "[round((health / max_health) * 100)]%<p>"))
+	//info += SPAN_INFO("Shield: ")
+	//info += SPAN_INFO(SPAN_COLOR("#2bd2f0", "[round((shield / max_shield) * 100)]%<p>"))
+
+	info += FONT_NORMAL("Hull: ")
+	var/hull_percent = round((health / max_health) * 100)
+	info += STYLE_SMALLFONTS(hull_percent, PIXELS_FOR_SHIP_STATS, get_damage_color_string(100 - hull_percent))
+	info += FONT_NORMAL("%")
+
+	info += FONT_NORMAL("<li>Shield: ")
+	var/shield_percent = round((shield / max_shield) * 100)
+	info += STYLE_SMALLFONTS(shield_percent, PIXELS_FOR_SHIP_STATS, get_damage_color_string(100 - shield_percent))
+	info += FONT_NORMAL("%")
+	info += FONT_NORMAL("<br>")
+	info += FONT_SMALL("Systems:<ul>")
+
+	info += FONT_SMALL("<li>Reactor condition: ")
+	info += STYLE_SMALLFONTS(100 - reactor_damage, PIXELS_FOR_SHIP_SYSTEM_DAMAGE, get_damage_color_string(reactor_damage))
+	info += FONT_SMALL("%</li>")
+
+	info += FONT_SMALL("<li>Engine condition: ")
+	info += STYLE_SMALLFONTS(100 - engine_damage, PIXELS_FOR_SHIP_SYSTEM_DAMAGE, get_damage_color_string(engine_damage))
+	info += FONT_SMALL("%</li>")
+
+	info += FONT_SMALL("<li>Shield condition: ")
+	info += STYLE_SMALLFONTS(100 - shield_damage, PIXELS_FOR_SHIP_SYSTEM_DAMAGE, get_damage_color_string(shield_damage))
+	info += FONT_SMALL("%</li>")
+
+	info += FONT_NORMAL("<br>")
+	info += FONT_SMALL("Detected cannons:<ul>")
 	for(var/key in cannons)
 		var/list/cannon_information = cannons[key]
 		var/obj/machinery/computer/ship/ship_weapon/type = cannon_information["type"]
-		info += ("<li>" + type.gun_name + " - " + cannon_information["damage"] + "% damage")
-	info += "</ul>"
-	return JOINTEXT(info)
+		info += FONT_SMALL("<li>[capitalize(type.gun_name)] - ")
+		info += STYLE_SMALLFONTS(100 - cannon_information["damage"], PIXELS_FOR_SHIP_SYSTEM_DAMAGE, get_damage_color_string(cannon_information["damage"]))
+		info += FONT_SMALL("%</li>")
+	info += FONT_SMALL("</ul></ul>") // ?
+	return jointext(info, "")
+	#undef PIXELS_FOR_SHIP_STATS
+	#undef PIXELS_FOR_SHIP_SYSTEM_DAMAGE
 
 /datum/ship_characteristic/proc/get_random_ready_to_fire_cannon()
 	for(var/key in cannons)
