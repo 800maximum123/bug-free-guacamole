@@ -6,7 +6,7 @@
 	color = "#7500bd"
 	fore_dir = WEST
 	vessel_mass = 100000
-	burn_delay = 2 SECONDS
+	burn_delay = 1 SECONDS
 	sector_flags = OVERMAP_SECTOR_KNOWN|OVERMAP_SECTOR_IN_SPACE|OVERMAP_SECTOR_BASE
 	known_ships = list(
 		/obj/overmap/visitable/ship/landable/exploration_shuttle,
