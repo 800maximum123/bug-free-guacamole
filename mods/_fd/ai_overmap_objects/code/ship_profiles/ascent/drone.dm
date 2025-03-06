@@ -1,5 +1,5 @@
 /obj/overmap/simulated_ship/ascent/drone
-    name = "unknown drone"
+    name = "Unknown drone"
     desc = ""
     icon_state = "shuttle"
     moving_state = "shuttle_moving"
@@ -18,8 +18,8 @@
 
 /datum/ship_characteristic/ascent/drone/New()
     cannons = list(
-        "crystal_1" = list("type" = /obj/machinery/computer/ship/ship_weapon/crystal_launcher, "accurace" = 95, "damage" = 0),
-        "crystal_2" = list("type" = /obj/machinery/computer/ship/ship_weapon/crystal_launcher, "accurace" = 95, "damage" = 0)
+        "crystal_1" = list("type" = /obj/machinery/computer/ship/ship_weapon/crystal_launcher, "accurace" = 80, "damage" = 0),
+        "crystal_2" = list("type" = /obj/machinery/computer/ship/ship_weapon/crystal_launcher, "accurace" = 80, "damage" = 0)
     )
 
     ammo = list(

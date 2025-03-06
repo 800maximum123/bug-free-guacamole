@@ -1,5 +1,5 @@
 /obj/overmap/simulated_ship/ascent/destroyer
-    name = "unknown destroyer"
+    name = "Unknown destroyer"
     desc = ""
     icon = 'mods/_fd/_maps/a_destroyer/icons/a_destroyer.dmi'
     icon_state = "ship"

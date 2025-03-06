@@ -1,5 +1,5 @@
 /obj/overmap/simulated_ship/ascent/supercarrier
-    name = "unknown supercarrier"
+    name = "Unknown supercarrier"
     desc = ""
     icon = 'mods/_fd/ai_overmap_objects/icons/ascent_ships.dmi'
     icon_state = "supercarrier"

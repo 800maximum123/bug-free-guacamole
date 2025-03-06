@@ -1,5 +1,5 @@
 /obj/overmap/simulated_ship/ascent/frigate
-	name = "unknown frigate"
+	name = "Unknown frigate"
 	desc = ""
 	icon = 'mods/_fd/fd_assets/icons/overmap.dmi'
 	icon_state = "sfv-spear"

@@ -1,5 +1,5 @@
 /obj/overmap/simulated_ship/ascent/fighter
-    name = "unknown fighter"
+    name = "Unknown fighter"
     desc = ""
     icon = 'mods/_fd/fd_assets/icons/overmap.dmi'
     icon_state = "sfv-bull"
@@ -19,8 +19,8 @@
 
 /datum/ship_characteristic/ascent/fighter/New()
     cannons = list(
-        "crystal_1" = list("type" = /obj/machinery/computer/ship/ship_weapon/crystal_launcher, "accurace" = 95, "damage" = 0),
-        "crystal_2" = list("type" = /obj/machinery/computer/ship/ship_weapon/crystal_launcher, "accurace" = 95, "damage" = 0)
+        "crystal_1" = list("type" = /obj/machinery/computer/ship/ship_weapon/crystal_launcher, "accurace" = 80, "damage" = 0),
+        "crystal_2" = list("type" = /obj/machinery/computer/ship/ship_weapon/crystal_launcher, "accurace" = 80, "damage" = 0)
     )
 
     ammo = list(
