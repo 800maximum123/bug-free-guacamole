@@ -1,4 +1,4 @@
-/obj/npc_ship_spawneer
+/obj/npc_ship_spawner
 	name = "ТЫ НЕ ДОЛЖЕН ЭТОГО ВИДЕТЬ"
 	desc = "Не, серьёзно, это баг!"
 	icon = 'mods/_fd/event_tools/icons/landmarks_static.dmi'
@@ -8,7 +8,7 @@
 	var/time_of_appearance = 20
 	invisibility = 50
 
-/obj/npc_ship_spawneer/proc/appear()
+/obj/npc_ship_spawner/proc/appear()
 	var/obj/overmap/simulated_ship/target = new ship(get_turf(src))
 	target.alpha = 0
 	target.mouse_opacity = FALSE

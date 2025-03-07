@@ -68,7 +68,7 @@
 
 	var/list/map_turfs = block(locate(2,2,GLOB.using_map.overmap_z),locate(GLOB.using_map.overmap_size-2,GLOB.using_map.overmap_size-2,GLOB.using_map.overmap_z))
 	for(var/turf/T in map_turfs)
-		for(var/obj/npc_ship_spawneer/npc in T)
+		for(var/obj/npc_ship_spawner/npc in T)
 			if(npc)
 				npc.appear()
 
