@@ -17,13 +17,13 @@
 	can_block_lasers = TRUE
 	slowdown_general = 0.5
 
-/obj/item/organ/internal/augment/active/item/shieldimlant
+/obj/item/organ/internal/augment/active/item/shield_imlant
     name = "shield implant"
     desc = "A deployable shield impant."
     action_button_name = "Deploy shield"
     icon_state = "metal"
     augment_slots = AUGMENT_ARM
-    item = /obj/item/shield/riot/metal
+    item = /obj/item/shield/riot/metal/shield_imlant
     origin_tech = list(TECH_COMBAT = 3, TECH_ESOTERIC = 4)
     deploy_sound = 'sound/effects/holster/sheathout.ogg'
     retract_sound = 'sound/effects/holster/sheathin.ogg'
