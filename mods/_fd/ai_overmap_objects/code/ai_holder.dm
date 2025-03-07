@@ -134,24 +134,30 @@
 						//	command_move(use_astar_movement=TRUE)
 						//else
 						//	command_move(use_astar_movement=FALSE)
-					if(get_dist(get_turf(linked_object), get_turf(targeted_object)) < linked_object_settings.min_targeted_distance_to_target)
+					else if(get_dist(get_turf(linked_object), get_turf(targeted_object)) < linked_object_settings.min_targeted_distance_to_target)
 						command_flee()
-
+					else
+						command_stop()
 		else
 			log_and_message_admins(SPAN_WARNING("<b> \[AI holder\] ИИ по координатам [x]-[y] имеет неправильно заданный паттерн поведения!</i></b>"))
-
 	return
 
 /obj/overmap/ai_holder/proc/command_move(use_astar_movement)
-	if(!use_astar_movement || memorised_path == null || memorised_path.len == 0)
-		linked_object.move(targeted_object.loc)
+	if(use_astar_movement)
+		if(memorised_path == null || memorised_path.len == 0)
+			linked_object.stop()
+		else
+			linked_object.move(memorised_path[1])
+			if(get_turf(linked_object) == memorised_path[1])
+				memorised_path -= memorised_path[1]
 	else
-		linked_object.move(memorised_path[1])
-		if(get_turf(linked_object) == memorised_path[1])
-			memorised_path -= memorised_path[1]
+		linked_object.move(targeted_object.loc)
 
 /obj/overmap/ai_holder/proc/command_flee()
 	linked_object.flee(targeted_object.loc)
+
+/obj/overmap/ai_holder/proc/command_stop()
+	linked_object.stop()
 
 /obj/overmap/ai_holder/proc/command_shoot()
 	linked_object.shoot(targeted_object)

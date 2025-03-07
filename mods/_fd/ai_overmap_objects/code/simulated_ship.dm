@@ -423,13 +423,19 @@
 	// All other cases, move toward direction
 	else if (speed + acceleration <= characteristic.max_speed)
 		src.accelerate(direction, accellimit)
-	//src.accelerate(get_dir(src, targeted_turf), 0.01) // 10 in helm
+	//src.accelerate(get_dir(src, targeted_turf), 0.01)
 	//walk_towards(src, targeted_turf, characteristic.characteristic.max_speed, characteristic.characteristic.max_speed)
 
+/obj/overmap/simulated_ship/proc/stop()
+	var/accellimit = 0.01 // 10 in helm
+	src.decelerate(accellimit)
+
+
 /obj/overmap/simulated_ship/proc/flee(turf/unsimulated/map/targeted_turf)
+	var/accellimit = 0.01
 	src.dx = targeted_turf.x
 	src.dy = targeted_turf.y
-	src.accelerate(reverse_direction(get_dir(src, targeted_turf)), 0.01) // 10 in helm
+	src.accelerate(reverse_direction(get_dir(src, targeted_turf)), accellimit)
 	//walk_away(src, targeted_turf, characteristic.sensors_range, characteristic.characteristic.max_speed, characteristic.characteristic.max_speed)
 
 /obj/overmap/simulated_ship/proc/shoot(obj/overmap/targeted_object)
