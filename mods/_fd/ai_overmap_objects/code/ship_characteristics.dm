@@ -79,8 +79,8 @@
 	ammo.Cut()
 	//cannons_in_cooldown.Cut()
 
-	QDEL_NULL_LIST(valid_internal_systems)
-	QDEL_NULL_LIST(valid_outer_systems)
+	valid_internal_systems.Cut()
+	valid_outer_systems.Cut()
 	deltimer(shield_timer)
 	..()
 
@@ -147,19 +147,17 @@
 			chosen_systems = pick(valid_internal_systems, internal_systems_damaged_count)
 		else
 			chosen_systems = valid_internal_systems
-		var/total_applied_damage = 0
-		var/i = 1
-		//for(var/i in 1 to length(chosen_systems))
-		while(total_applied_damage < internal_systems_damage)
-			var/applied_damage = rand(1, internal_systems_damage - total_applied_damage)
-			damage_system(applied_damage, chosen_systems[i])
-			total_applied_damage += applied_damage
-			i += 1
-			if(i >= length(chosen_systems) + 1)
-				i = 1
-		// Randomness God has blessed this ship so it has total damage applied reduced. NOT IN MY WATCH
-		//var/list/first_and_last_systems = list(chosen_systems[1], chosen_systems[length(chosen_systems)])
-		//damage_system(internal_systems_damage - total_applied_damage, pick(valid_internal_systems))
+		if(length(chosen_systems) > 0)
+			var/total_applied_damage = 0
+			var/i = 1
+			//for(var/i in 1 to length(chosen_systems))
+			while(total_applied_damage < internal_systems_damage)
+				var/applied_damage = rand(1, internal_systems_damage - total_applied_damage)
+				damage_system(applied_damage, chosen_systems[i])
+				total_applied_damage += applied_damage
+				i += 1
+				if(i >= length(chosen_systems) + 1)
+					i = 1
 
 	if(outer_systems_damaged_count > 0)
 		var/list/chosen_systems = list()
@@ -167,16 +165,18 @@
 			chosen_systems = pick(valid_outer_systems, outer_systems_damaged_count)
 		else
 			chosen_systems = valid_outer_systems
-		var/total_applied_damage = 0
-		var/i = 1
-		//for(var/i in 1 to length(chosen_systems))
-		while(total_applied_damage < outer_systems_damage)
-			var/applied_damage = rand(1, outer_systems_damage - total_applied_damage)
-			damage_system(applied_damage, chosen_systems[i])
-			total_applied_damage += applied_damage
-			i += 1
-			if(i >= length(chosen_systems) + 1)
-				i = 1
+
+		if(length(chosen_systems) > 0)
+			var/total_applied_damage = 0
+			var/i = 1
+			//for(var/i in 1 to length(chosen_systems))
+			while(total_applied_damage < outer_systems_damage)
+				var/applied_damage = rand(1, outer_systems_damage - total_applied_damage)
+				damage_system(applied_damage, chosen_systems[i])
+				total_applied_damage += applied_damage
+				i += 1
+				if(i >= length(chosen_systems) + 1)
+					i = 1
 
 	// Saved in case somthing will go VERY wrong
 	/*if(outer_systems_damaged_count > 0)

@@ -55,7 +55,8 @@
 	detected_hostile_objects.Cut()
 	detected_neutral_objects.Cut()
 	detected_friendly_objects.Cut()
-	memorised_path.Cut()
+	if(memorised_path) //???
+		memorised_path.Cut()
 	deltimer(target_clear_timer)
 	deltimer(targets_refresh_timer)
 	deltimer(path_refresh_timer)
@@ -109,35 +110,38 @@
 	switch(linked_object_settings.ai_mode)
 		if(AI_MODE_DEFEND)
 //			log_and_message_admins("Думаю")
-			if(targeted_object)
-//				log_and_message_admins("Найдена цель")
-
-				if(linked_object_settings.ai_attack_enabled == TRUE)
-					if(linked_object_settings.get_random_ready_to_fire_cannon() != null)
-						command_shoot()
-
+			if(!targeted_object)
 				if(linked_object_settings.ai_move_enabled == TRUE)
-					if(linked_object_settings.ai_flee_enabled == TRUE)
-						if(linked_object_settings.health <= (linked_object_settings.max_health * 0.25))
-							command_flee()
+					command_stop()
+				return
+//			log_and_message_admins("Найдена цель")
 
-					if(get_dist(get_turf(linked_object), get_turf(targeted_object)) > linked_object_settings.max_targeted_distance_to_target)
-						//if(get_dist(get_turf(linked_object), get_turf(targeted_object)) < path_longrange_aim)
-						//	log_and_message_admins("Цель слишком далеко, перегенерирую путь")
-						//	refresh_path()
-						//else
-						refresh_path()
-						command_move(use_astar_movement=TRUE)
-						//if(memorised_path)
-						//	if(get_dist(get_turf(memorised_path[memorised_path.len]), get_turf(targeted_object)) > path_refresh_distance)
-						//		refresh_path()
-						//	command_move(use_astar_movement=TRUE)
-						//else
-						//	command_move(use_astar_movement=FALSE)
-					else if(get_dist(get_turf(linked_object), get_turf(targeted_object)) < linked_object_settings.min_targeted_distance_to_target)
+			if(linked_object_settings.ai_attack_enabled == TRUE)
+				if(linked_object_settings.get_random_ready_to_fire_cannon() != null)
+					command_shoot()
+
+			if(linked_object_settings.ai_move_enabled == TRUE)
+				if(linked_object_settings.ai_flee_enabled == TRUE)
+					if(linked_object_settings.health <= (linked_object_settings.max_health * 0.25))
 						command_flee()
-					else
-						command_stop()
+
+				if(get_dist(get_turf(linked_object), get_turf(targeted_object)) > linked_object_settings.max_targeted_distance_to_target)
+					//if(get_dist(get_turf(linked_object), get_turf(targeted_object)) < path_longrange_aim)
+					//	log_and_message_admins("Цель слишком далеко, перегенерирую путь")
+					//	refresh_path()
+					//else
+					refresh_path()
+					command_move(use_astar_movement=TRUE)
+					//if(memorised_path)
+					//	if(get_dist(get_turf(memorised_path[memorised_path.len]), get_turf(targeted_object)) > path_refresh_distance)
+					//		refresh_path()
+					//	command_move(use_astar_movement=TRUE)
+					//else
+					//	command_move(use_astar_movement=FALSE)
+				else if(get_dist(get_turf(linked_object), get_turf(targeted_object)) < linked_object_settings.min_targeted_distance_to_target)
+					command_flee()
+				else
+					command_stop()
 		else
 			log_and_message_admins(SPAN_WARNING("<b> \[AI holder\] ИИ по координатам [x]-[y] имеет неправильно заданный паттерн поведения!</i></b>"))
 	return
@@ -262,6 +266,10 @@
 				if(istype(O, /obj/overmap/visitable))
 					should_include_turf = FALSE
 				if(istype(O, /obj/overmap/event))
+					should_include_turf = FALSE
+				if(istype(O, /obj/overmap/projectile))
+					should_include_turf = FALSE
+				if(istype(O, /obj/overmap/missile))
 					should_include_turf = FALSE
 			if(!should_include_turf)
 				continue

@@ -243,15 +243,16 @@
 	process_projectile(O)
 
 /obj/overmap/simulated_ship/proc/animate_damage()
-	if(characteristic.shield)
-		var/obj/effect/impact_shield/shield = new /obj/effect/impact_shield(loc)
-		animate(shield, 1 SECOND, alpha = 0)
-		spawn(1 SECOND)
-			qdel(shield)
-	else
-		animate(src, color = COLOR_RED, time = 1 SECOND, easing = CUBIC_EASING | EASE_IN)
-		spawn(1 SECOND)
-			animate(src, color = initial(color), time = 1 SECOND, easing = CUBIC_EASING | EASE_OUT)
+	if(characteristic)
+		if(characteristic.shield)
+			var/obj/effect/impact_shield/shield = new /obj/effect/impact_shield(loc)
+			animate(shield, 1 SECOND, alpha = 0)
+			spawn(1 SECOND)
+				qdel(shield)
+		else
+			animate(src, color = COLOR_RED, time = 1 SECOND, easing = CUBIC_EASING | EASE_IN)
+			spawn(1 SECOND)
+				animate(src, color = initial(color), time = 1 SECOND, easing = CUBIC_EASING | EASE_OUT)
 
 /obj/overmap/simulated_ship/proc/process_projectile(atom/movable/O)
 	// Bullets, rockets,
@@ -287,8 +288,8 @@
 
 		characteristic.apply_damage(arglist(applied_damage))
 		src.animate_damage()
-		for(var/key in applied_damage)
-			log_and_message_admins(applied_damage[key])
+		//for(var/key in applied_damage)
+		//	log_and_message_admins(applied_damage[key])
 		//qdel(incoming_pew)
 		QDEL_NULL(OO.actual_projectile)
 		qdel(OO)
@@ -305,7 +306,7 @@
 		var/list/applied_damage = null
 		// Multiple equipments? TODO
 		for(var/obj/item/missile_equipment/E in incoming_boom.equipment)
-			switch(E)
+			switch(E.type)
 				if(/obj/item/missile_equipment/payload/diffuser)
 					applied_damage = characteristic.calculate_damage(\
 					damage = 600,
@@ -344,24 +345,24 @@
 					proximity_detonation = TRUE)
 				if(/obj/item/missile_equipment/payload/nuclear)
 					applied_damage = characteristic.calculate_damage(\
-					damage = 1000,
+					damage = 50000,
 					damage_type = DAMAGE_BRUTE,
 					agony = 0,
 					temperature = 0,
-					explosion_radius = 96,
-					explosion_max_power = EXPLOSION_POWER_HIGH * 3,
+					explosion_radius = EXPLOSION_FALLOFF_VERYHIGH * 3,
+					explosion_max_power = EXPLOSION_POWER_HIGH,
 					armor_penetration = 0,
 					penetrating = 0,
 					penetration_modifier = 0,
 					proximity_detonation = TRUE)
 				if(/obj/item/missile_equipment/payload/big_nuclear)
 					applied_damage = characteristic.calculate_damage(\
-					damage = 100000,
+					damage = 500000,
 					damage_type = DAMAGE_BRUTE,
 					agony = 0,
 					temperature = 0,
-					explosion_radius = 192,
-					explosion_max_power = EXPLOSION_POWER_HIGH * 5,
+					explosion_radius = EXPLOSION_FALLOFF_VERYHIGH * 5,
+					explosion_max_power = EXPLOSION_POWER_HIGH * 3,
 					armor_penetration = 0,
 					penetrating = 0,
 					penetration_modifier = 0,
@@ -378,6 +379,8 @@
 						return
 
 		if(applied_damage)
+			//for(var/key in applied_damage)
+			//	log_and_message_admins(applied_damage[key])
 			characteristic.apply_damage(arglist(applied_damage))
 			src.animate_damage()
 		else
@@ -429,7 +432,6 @@
 /obj/overmap/simulated_ship/proc/stop()
 	var/accellimit = 0.01 // 10 in helm
 	src.decelerate(accellimit)
-
 
 /obj/overmap/simulated_ship/proc/flee(turf/unsimulated/map/targeted_turf)
 	var/accellimit = 0.01
