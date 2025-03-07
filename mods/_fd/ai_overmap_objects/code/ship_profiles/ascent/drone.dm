@@ -1,5 +1,5 @@
 /obj/overmap/simulated_ship/ascent/drone
-    name = "Unknown drone"
+    name = "Unknown Drone"
     desc = ""
     icon_state = "shuttle"
     moving_state = "shuttle_moving"

@@ -326,7 +326,7 @@
 		info += FONT_NORMAL("%")
 
 	info += FONT_NORMAL("<br>")
-	info += FONT_SMALL("Systems:<ul>")
+	info += FONT_NORMAL("Systems:<ul style='margin-top: 0;'>")
 
 	info += FONT_SMALL("<li>Reactor condition: ")
 	info += STYLE_SMALLFONTS(100 - reactor_damage, PIXELS_FOR_SHIP_SYSTEM_DAMAGE, get_damage_color_string(reactor_damage))
@@ -341,15 +341,15 @@
 	info += FONT_SMALL("%</li>")
 
 	if(length(cannons) > 0)
-		info += FONT_NORMAL("<br>")
-		info += FONT_SMALL("Detected cannons:<ul>")
+		//info += FONT_NORMAL("<br>")
+		info += FONT_SMALL("<li>Detected cannons:<ul>")
 		for(var/key in cannons)
 			var/list/cannon_information = cannons[key]
 			var/obj/machinery/computer/ship/ship_weapon/type = cannon_information["type"]
 			info += FONT_SMALL("<li>[capitalize(type.gun_name)] - ")
 			info += STYLE_SMALLFONTS(100 - cannon_information["damage"], PIXELS_FOR_SHIP_SYSTEM_DAMAGE, get_damage_color_string(cannon_information["damage"]))
 			info += FONT_SMALL("%</li>")
-		info += FONT_SMALL("</ul>")
+		info += FONT_SMALL("</ul></li>")
 	info += FONT_SMALL("</ul>")
 	return jointext(info, "")
 	#undef PIXELS_FOR_SHIP_STATS

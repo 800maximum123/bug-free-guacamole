@@ -1,5 +1,5 @@
 /obj/overmap/simulated_ship/ascent/corvette
-    name = "Unknown corvette"
+    name = "Unknown Corvette"
     desc = ""
     icon = 'mods/_fd/fd_assets/icons/overmap.dmi'
     icon_state = "sfv-star"

@@ -1,5 +1,5 @@
 /obj/overmap/simulated_ship/ascent/fighter
-    name = "Unknown fighter"
+    name = "Unknown Fighter"
     desc = ""
     icon = 'mods/_fd/fd_assets/icons/overmap.dmi'
     icon_state = "sfv-bull"
