@@ -55,6 +55,7 @@
 	detected_hostile_objects.Cut()
 	detected_neutral_objects.Cut()
 	detected_friendly_objects.Cut()
+	memorised_path.Cut()
 	deltimer(target_clear_timer)
 	deltimer(targets_refresh_timer)
 	deltimer(path_refresh_timer)
@@ -66,12 +67,18 @@
 
 /obj/overmap/ai_holder/Process()
 	// If it wasn't connected - delete it
-	if(linked_object == null)
+	if(!linked_object)
 		qdel(src)
+		return
 
 	process_ship()
 	//for(var/obj/O in detected_hostile_objects)
 	//	log_and_message_admins(SPAN_WARNING("<b> [O]!</i></b>"))
+
+	// Was deleted during command phase? Strange but okay
+	if(!linked_object)
+		qdel(src)
+		return
 
 	src.forceMove(linked_object.loc)
 
@@ -85,6 +92,9 @@
 
 	if(linked_object_settings == null)
 		qdel(src)
+
+	if(!linked_object)
+		return
 
 	if(linked_object_settings.ai_enabled == FALSE)
 		return
@@ -131,100 +141,25 @@
 	return
 
 /obj/overmap/ai_holder/proc/command_move(use_astar_movement)
-	if(prob(100 - linked_object_settings.engine_damage))
-		if(!use_astar_movement || memorised_path == null || memorised_path.len == 0)
-			update_linked_ship_icon(moved=TRUE, dir=get_dir(linked_object.loc, targeted_object.loc))
-			walk_towards(linked_object, targeted_object, linked_object_settings.max_speed, linked_object_settings.max_speed)
-		else
-			update_linked_ship_icon(moved=TRUE, dir=get_dir(linked_object.loc, locate(memorised_path[1])))
-			walk_towards(linked_object, memorised_path[1], linked_object_settings.max_speed, linked_object_settings.max_speed)
-			if(get_turf(linked_object) == memorised_path[1])
-				memorised_path -= memorised_path[1]
+	if(!use_astar_movement || memorised_path == null || memorised_path.len == 0)
+		linked_object.move(targeted_object.loc)
 	else
-		update_linked_ship_icon(moved=FALSE)
-		walk(linked_object, 0)
-
+		linked_object.move(memorised_path[1])
+		if(get_turf(linked_object) == memorised_path[1])
+			memorised_path -= memorised_path[1]
 
 /obj/overmap/ai_holder/proc/command_flee()
-	if(prob(100 - linked_object_settings.engine_damage))
-		update_linked_ship_icon(moved=TRUE, dir=reverse_direction(get_dir(linked_object.loc, targeted_object.loc)))
-		walk_away(linked_object, targeted_object, linked_object_settings.sensors_range, linked_object_settings.max_speed, linked_object_settings.max_speed)
-	else
-		walk(linked_object, 0)
+	linked_object.flee(targeted_object.loc)
 
 /obj/overmap/ai_holder/proc/command_shoot()
-	var/list/all_ready_cannons = linked_object_settings.get_all_ready_to_fire_cannon()
-	if(all_ready_cannons.len == 0)
-		return
+	linked_object.shoot()
 
-	var/selected_cannon = pick(all_ready_cannons)
-
-	// TODO
-	if(linked_object_settings.cannons[selected_cannon]["type"] == /obj/machinery/computer/ship/ship_weapon/harpoon_gun)
-		return
-
-	if(linked_object_settings.cannons[selected_cannon]["type"] == /obj/machinery/computer/ship/ship_weapon/beam_cannon/particle_lance)
-		if(get_dist(get_turf(linked_object), get_turf(targeted_object)) < 3) // Must be 2 tiles of empty space beetwen us and target
-			var/obj/machinery/computer/ship/ship_weapon/beam_cannon/particle_lance/selected_lance = new /obj/machinery/computer/ship/ship_weapon/beam_cannon/particle_lance()
-			var/obj/machinery/ship_weapon/front_part/new_front_part = new /obj/machinery/ship_weapon/front_part()
-			//linked_object_settings.cannons[selected_cannon]["type"]
-			selected_lance.linked = linked_object
-			selected_lance.front = new_front_part
-			var/obj/overmap/visitable/ship/O = targeted_object
-
-		// Doctor Alex: It's probably the worst idea i've got, replace it in future
-			var/obj/effect/projectile_lance/lance = new /obj/effect/projectile_lance(loc)
-			lance.transform = matrix().Update(rotation = dir2angle(get_dir(linked_object, O)) + 15)
-			animate(lance, transform = matrix(dir2angle(get_dir(linked_object, O)) - 15, MATRIX_ROTATE), time = 1 SECONDS, easing = SINE_EASING | EASE_OUT)
-			spawn(0.8 SECOND)
-				animate(lance, 0.5 SECOND, alpha = 0)
-
-			selected_lance.fire_at_sector(pick(O.map_z), O.fore_dir, O, FALSE)
-			selected_lance.linked = null
-			qdel(selected_lance)
-			//var/list/relevant_z = GetConnectedZlevels(z_level)
-			//for(var/mob/M in GLOB.player_list)
-			//	var/turf/T = get_turf(M)
-			//	if(!T || !(T.z in relevant_z))
-			//		continue
-			//	if(!isdeaf(M))
-			//		sound_to(M, sound(fire_sound, volume=5))
-			//handle_beam_on_enemy(start, heading)
-			//handle_beam_damage(start, heading, TRUE)
-			linked_object_settings.cannons[selected_cannon]["cooldown"] = linked_object_settings.cannons[selected_cannon]["max_cooldown"]
-		return
-
-	// TODO
-	if(linked_object_settings.cannons[selected_cannon]["type"] == /obj/machinery/computer/ship/ship_weapon/beam_cannon)
-		return
-
-	//for(var/i = 1; i <= linked_object_settings.get_weapon_burst_size(linked_object_settings.cannons[selected_cannon]["type"]); i++)
-	for(var/i in 1 to linked_object_settings.get_weapon_burst_size(linked_object_settings.cannons[selected_cannon]["type"]))
-		// Fuck this, gonna do it right now. TODO: change fucking everything
-		var/list/random_ammo_box_key = pick(linked_object_settings.ammo)
-		var/obj/item/ammo_magazine/ammobox/random_ammo_box_entry = linked_object_settings.ammo[random_ammo_box_key]["type"]
-
-		var/obj/item/ammo_casing/huge_caliber/projectile_type = linked_object_settings.get_projectile_type(random_ammo_box_entry)
-		var/obj/item/projectile/bullet/huge_caliber/pew = new projectile_type(linked_object.loc)
-		pew.starting = linked_object.loc
-		pew.origin = linked_object
-		pew.cal_accuracy = linked_object_settings.cannons[selected_cannon]["accurace"]
-		pew.overmapdir = get_dir(linked_object, targeted_object)
-		//pew.launch(get_step(linked_object.loc, get_dir(linked_object, targeted_object)), pick(BP_ALL_LIMBS))
-		pew.entered_overmap = TRUE
-		//var/obj/overmap/source = map_sectors["[z]"]
-		pew.overmap_projectile = new /obj/overmap/projectile(null, linked_object.x, linked_object.y)
-		pew.overmap_projectile.SetName("[linked_object.name+"'s"] [pew.name]")
-		pew.overmap_projectile.set_projectile(pew, pew.cal_accuracy)
-		//overmap_projectile.color = overmap_color
-	linked_object_settings.cannons[selected_cannon]["cooldown"] = linked_object_settings.cannons[selected_cannon]["max_cooldown"]
-
-/obj/overmap/ai_holder/proc/update_linked_ship_icon(moved, dir)
+/* /obj/overmap/ai_holder/proc/update_linked_ship_icon(moved, dir)
 	if(moved)
 		linked_object.icon_state = linked_object.moving_state
 		linked_object.dir = dir
 	else
-		linked_object.icon_state = initial(linked_object.icon_state)
+		linked_object.icon_state = initial(linked_object.icon_state) */
 
 /obj/overmap/ai_holder/proc/refresh_path()
 	if(linked_object == null)

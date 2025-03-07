@@ -21,17 +21,18 @@
 	var/vessel_size = SHIP_SIZE_LARGE
 	var/max_speed = 1 *(1 SECOND)						// Change first number, "Speed of light" for the ship, in turfs/second
 	var/sensors_range = 10								// In turfs
+	var/cooldown_beetween_shots = 2.5 SECOND
 	// These two - the AI will try to stay in this range while attacking/escorting/etc the ship. Min should be < max, obv
 	var/max_targeted_distance_to_target = 2				// 1 - Right on target, 2 - turf next to target, etc
 	var/min_targeted_distance_to_target = 2				// 1 - Right on target, 2 - turf next to target, etc
-	var/list/cannons = list() 							// Cannon: accuracy
-	var/list/ammo = list()								// Ammo: count
 
 	// DO NOT CHANGE, used in code, changed constantly in game process
 	var/shield_timer = null
 	var/health = null
 	var/shield = null
 	var/shield_regen_strength = null		// Shield recharge rate (During regen this number is added to shields)
+	var/list/cannons = list() 				// Cannon: accuracy
+	var/list/ammo = list()					// Ammo: count
 	//var/speed = null
 	// In %
 	var/reactor_damage = 0
