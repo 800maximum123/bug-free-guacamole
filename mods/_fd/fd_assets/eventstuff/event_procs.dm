@@ -183,13 +183,17 @@
 
 // Вот тут мы в теории должны открывать всем игрокам овермапу относительно текущего положения Факела
 
+	everyone_look_at_torch()
+
+	sleep(120)
+
 	var/list/map_turfs = block(locate(2,2,GLOB.using_map.overmap_z),locate(GLOB.using_map.overmap_size-2,GLOB.using_map.overmap_size-2,GLOB.using_map.overmap_z))
 	for(var/turf/T in map_turfs)
 		for(var/obj/npc_ship_spawner/npc in T)
 			if(npc)
 				npc.appear()
 
-	sleep(40)
+	sleep(130)
 
 	for(var/obj/holo_spawner/spawner in world)
 		if (spawner.character_id == "gyne")

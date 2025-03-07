@@ -1,4 +1,6 @@
 /proc/everyone_look_at_torch(anim_time = 10 SECONDS, reset_delay = 20 SECONDS, anim_distance = 150)
+	set waitfor = FALSE
+
 	anim_distance *= 32
 
 	for(var/obj/overmap/known_ship as() in GLOB.known_overmap_sectors)
