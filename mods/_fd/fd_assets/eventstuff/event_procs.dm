@@ -64,6 +64,14 @@
 	for(var/mob/M in GLOB.player_list)
 		to_chat(M, message_ascent3)
 
+// Вот тут мы в теории должны открывать всем игрокам овермапу относительно текущего положения Факела
+
+	var/list/map_turfs = block(locate(2,2,GLOB.using_map.overmap_z),locate(GLOB.using_map.overmap_size-2,GLOB.using_map.overmap_size-2,GLOB.using_map.overmap_z))
+	for(var/turf/T in map_turfs)
+		for(var/obj/npc_ship_spawneer/npc in T)
+			if(npc)
+				npc.appear()
+
 	sleep(30)
 
 	for(var/obj/holo_spawner/spawner in world)
