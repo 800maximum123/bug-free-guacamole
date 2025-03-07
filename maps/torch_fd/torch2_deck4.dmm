@@ -592,7 +592,7 @@
 "mg" = (/obj/structure/disposalpipe/segment,/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/manifold/hidden{dir = 4},/turf/simulated/floor/tiled,/area/hallway/primary/fourthdeck/fore)
 "mh" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9},/obj/floor_decal/corner/red{dir = 4},/obj/floor_decal/corner/white,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled,/area/hallway/primary/fourthdeck/fore)
 "mi" = (/obj/machinery/papershredder{pixel_x = -5},/obj/floor_decal/corner/black/half{dir = 8},/obj/machinery/light{dir = 8},/turf/simulated/floor/tiled/dark/monotile,/area/command/pathfinder)
-"mj" = (/obj/machinery/hologram/holopad/longrange,/obj/floor_decal/industrial/outline/yellow,/obj/holo_spawner{character_id = "gyne"; character_to_spawn = /mob/living/simple_animal/holo_npc/gyne},/turf/simulated/floor/tiled/dark,/area/command/pathfinder)
+"mj" = (/obj/machinery/hologram/holopad/longrange,/obj/floor_decal/industrial/outline/yellow,/obj/holo_spawner{character_id = "gyne"; character_to_spawn = /mob/living/simple_animal/holo_npc/gyne},/obj/holo_spawner{character_id = "gyne_taunt"; character_to_spawn = /mob/living/simple_animal/holo_npc/gyne_taunt},/turf/simulated/floor/tiled/dark,/area/command/pathfinder)
 "mk" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 4},/turf/simulated/floor/plating,/area/command/pathfinder)
 "ml" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 10},/turf/simulated/floor/plating,/area/command/pathfinder)
 "mm" = (/obj/floor_decal/corner/mauve{dir = 6},/obj/structure/table/steel,/turf/simulated/floor/tiled/dark,/area/command/pathfinder)
