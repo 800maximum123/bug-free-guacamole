@@ -25,20 +25,73 @@
 		animate(src, 5 SECONDS, alpha = 150)
 
 	spawn(10 SECONDS)
-		ISay("||𝙹⚍ ⍑⚍ᒲᔑリᓭ ʖᒷᓵᔑᒲᒷ ᔑリ ᔑリリ𝙹||ᔑリᓵᒷ")
+		ISay("Примитивные мешки с мясом...")
 		playsound(src.loc, 'sound/voice/ascent1.ogg', 100, 1)
 	spawn(15 SECONDS)
-		ISay("||𝙹⚍ ⍑ᔑ⍊ᒷ ⊣𝙹リᒷ ⎓ᔑ∷ ᒷリ𝙹⚍⊣⍑ ⚍ᓭᒷꖎᒷᓭᓭ ᒲᒷᔑℸ ̣ ᓭ")
+		ISay("Ваш железоголовый капитанишка привёл вас на жалкую и мучительную смерть")
 		playsound(src.loc, 'sound/voice/ascent2.ogg', 100, 1)
 	spawn(20 SECONDS)
-		ISay("ʖ⚍ℸ ̣  リ𝙹∴ ||𝙹⚍∷ ᒷリ↸ ╎ᓭ ╎ᒲᒲ╎リᒷリℸ ̣")
+		ISay("Вы окружены, Факелу никогда не покинуть этой звезды")
 		playsound(src.loc, 'sound/voice/ascent3.ogg', 100, 1)
 	spawn(25 SECONDS)
 		playsound(src.loc, 'sound/voice/ascent4.ogg', 100, 1)
-		ISay("||𝙹⚍ ∴╎ꖎꖎ ʖᒷ ⍑ᔑ∷⍊ᒷᓭℸ ̣ ᒷ↸ ⋮⚍ᓭℸ ̣  ꖎ╎ꖌᒷ ℸ ̣ ⍑ᒷ ∷ᒷᓭℸ ̣")
+		ISay("На своей ржавой рухляти далеко вам не уйти")
 	spawn(30 SECONDS)
-		ISay("∴ᒷ ᔑ∷ᒷ ᓵ𝙹ᒲ╎リ⊣")
+		ISay("Сдавайтесь и, ВОЗМОЖНО, ваши никчёмные жизни будут сохранены")
+		playsound(src.loc, 'sound/voice/ascent1.ogg', 100, 1)
+	spawn(35 SECONDS)
+		ISay("Нет?..")
 		playsound(src.loc, 'sound/voice/ascent5.ogg', 100, 1)
+	spawn(40 SECONDS)
+		ISay("Чтож... Ваши похороны, мясо")
+		playsound(src.loc, 'sound/voice/ascent2.ogg', 100, 1)
+	spawn(45 SECONDS)
+		qdel(src)
+
+/mob/living/simple_animal/holo_npc/gyne_taunt
+	name = "ascent gyne hologram"
+	desc = ""
+	icon = 'mods/_fd/fd_assets/icons/gyne.dmi'
+	icon_state = "gyne"
+	icon_living = "gyne"
+	icon_dead = "gyne"
+	color = "#c45fff"
+	pixel_x = -5
+
+/mob/living/simple_animal/holo_npc/gyne_taunt/Life()
+	if(!seen)
+		animate(src, 3 SECONDS, alpha = 150)
+		seen = TRUE
+		start_thinking()
+
+	..()
+
+/mob/living/simple_animal/holo_npc/gyne_taunt/start_thinking()
+	alpha = 0
+	invisibility = 50
+
+	spawn(5 SECOND)
+		invisibility = 0
+		animate(src, 5 SECONDS, alpha = 150)
+
+	spawn(10 SECONDS)
+		ISay("Вы всё ещё пытаетесь?..")
+		playsound(src.loc, 'sound/voice/ascent1.ogg', 100, 1)
+	spawn(15 SECONDS)
+		ISay("Жалкое зрелище... Вы лишь оттягиваете неизбежное. Бежать НЕКУДА")
+		playsound(src.loc, 'sound/voice/ascent2.ogg', 100, 1)
+	spawn(20 SECONDS)
+		ISay("Рано или поздно, снаряды закончатся. Топливные баки опустеют. Щиты падут.")
+		playsound(src.loc, 'sound/voice/ascent3.ogg', 100, 1)
+	spawn(25 SECONDS)
+		playsound(src.loc, 'sound/voice/ascent4.ogg', 100, 1)
+		ISay("Вы не сможете убегать вечно, у вас нет ни шанса")
+	spawn(30 SECONDS)
+		ISay("...")
+	spawn(37 SECONDS)
+		ISay("Ваш выбор. Через час от вас останутся лишь горелые ошмётки")
+		playsound(src.loc, 'sound/voice/ascent5.ogg', 100, 1)
+	spawn(43 SECONDS)
 		qdel(src)
 
 /proc/event_phase_1()
@@ -48,21 +101,85 @@
 
 	world << chatter
 
+	sleep(10)
+
 	var/message_ascent1 = "<span style='color:purple; font-size: 22px;'>/// ⎓𝙹∷ᓵᒷ↸ ᓵ𝙹ᒲᒲ⚍リ╎ᓵᔑℸ ̣ ╎𝙹リ ᓭᒷᓭᓭ╎𝙹リ ╎リ╎ℸ ̣ ╎ᔑℸ ̣ ᒷ↸ ///</span>"
 	for(var/mob/M in GLOB.player_list)
 		to_chat(M, message_ascent1)
 
-	sleep(30)
+	sleep(20)
 
 	var/message_ascent2 = "<span style='color:purple; font-size: 22px;'>/// ╎リℸ ̣ ᒷ∷リᔑꖎ ᓭ||ᓭℸ ̣ ᒷᒲᓭ ⍑ᔑᓭ ʖᒷᒷリ ᓵ𝙹ᒲ!¡∷𝙹ᒲ╎ᓭᒷ↸ ///</span>"
 	for(var/mob/M in GLOB.player_list)
 		to_chat(M, message_ascent2)
 
-	sleep(30)
+	sleep(20)
 
 	var/message_ascent3 = "<span style='color:purple; font-size: 22px;'>/// ⍊ᒷᓭᓭᒷꖎ ⎓╎∷ᒷ∴ᔑꖎꖎ ᓭ⍑⚍ℸ ̣ ℸ ̣ ╎リ⊣ ↸𝙹∴リ !¡∷𝙹ᓵᒷᒷᓭ ⍑ᔑᓭ ʖᒷ⊣⚍リ ///</span>"
 	for(var/mob/M in GLOB.player_list)
 		to_chat(M, message_ascent3)
+
+	sleep(10)
+
+	var/message_ascent4 = "<span style='color:purple; font-size: 22px;'>/// !¡∷𝙹⊣∷ᒷᓭᓭ ᓭℸ ̣ ᔑℸ ̣ ᒷ: ℸ ̣ ᒷリ !¡ᒷ∷ᓵᒷリℸ ̣///</span>"
+	for(var/mob/M in GLOB.player_list)
+		to_chat(M, message_ascent4)
+
+	sleep(5)
+
+	var/message_ascent5 = "<span style='color:purple; font-size: 22px;'>/// ℸ ̣ ∴ᒷリℸ ̣ || !¡ᒷ∷ᓵᒷリℸ ̣ ///</span>"
+	for(var/mob/M in GLOB.player_list)
+		to_chat(M, message_ascent5)
+
+	sleep(10)
+
+	var/message_ascent6 = "<span style='color:purple; font-size: 22px;'>/// ℸ ̣ ⍑╎∷ℸ ̣  ///</span>"
+	for(var/mob/M in GLOB.player_list)
+		to_chat(M, message_ascent6)
+
+	sleep(5)
+
+	var/message_ascent7 = "<span style='color:purple; font-size: 22px;'>/// ⎓𝙹∷ℸ ̣ || ///</span>"
+	for(var/mob/M in GLOB.player_list)
+		to_chat(M, message_ascent7)
+
+	sleep(5)
+
+	var/message_ascent8 = "<span style='color:purple; font-size: 22px;'>/// ⎓╎⎓ℸ ̣  ///</span>"
+	for(var/mob/M in GLOB.player_list)
+		to_chat(M, message_ascent8)
+
+	sleep(10)
+
+	var/message_ascent9 = "<span style='color:purple; font-size: 22px;'>/// ᓭ╎ ̇/ℸ ̣ || ///</span>"
+	for(var/mob/M in GLOB.player_list)
+		to_chat(M, message_ascent9)
+
+	sleep(5)
+
+	var/message_ascent10 = "<span style='color:purple; font-size: 22px;'>/// ᓭᒷ⍊ᒷリℸ ̣  ///</span>"
+	for(var/mob/M in GLOB.player_list)
+		to_chat(M, message_ascent10)
+
+	sleep(5)
+
+	var/message_ascent11 = "<span style='color:purple; font-size: 22px;'>/// ᒷ╎⊣⍑ℸ ̣ || ///</span>"
+	for(var/mob/M in GLOB.player_list)
+		to_chat(M, message_ascent11)
+
+	sleep(10)
+
+	var/message_ascent12 = "<span style='color:purple; font-size: 22px;'>/// リ╎リ⊣⍑ℸ ̣ ///</span>"
+	for(var/mob/M in GLOB.player_list)
+		to_chat(M, message_ascent12)
+
+	sleep(30)
+
+	var/message_ascent13 = "<span style='color:purple; font-size: 22px;'>/// 𝙹リᒷ ⍑⚍リ↸∷ᒷ↸ !¡ᒷ∷ᓵᒷリℸ ̣. ᓭ⚍ᓵᓵᒷᓭᓭ ///</span>"
+	for(var/mob/M in GLOB.player_list)
+		to_chat(M, message_ascent13)
+
+	sleep(30)
 
 // Вот тут мы в теории должны открывать всем игрокам овермапу относительно текущего положения Факела
 
@@ -72,14 +189,14 @@
 			if(npc)
 				npc.appear()
 
-	sleep(30)
+	sleep(40)
 
 	for(var/obj/holo_spawner/spawner in world)
 		if (spawner.character_id == "gyne")
 			spawner.start_scene()
 			qdel(spawner)
 
-	sleep(450)
+	sleep(550)
 
 	for(var/mob/living/C in GLOB.player_list)
 		shake_camera(C, 100, 1)
@@ -105,7 +222,7 @@
 	for(var/area/A in world)
 		A.set_emergency_lighting(TRUE)
 
-	var/message = "<span style='color:red; font-size: 20px;'>ATTENTION ALL CREW! IFF WARFARE HAS BEEN DEACTIVATED! BLUESPACE DRIVE STATUS: OFFLINE!</span>"
+	var/message = "<span style='color:red; font-size: 27px;'>ATTENTION ALL CREW! IFF WARFARE HAS BEEN DEACTIVATED! BLUESPACE DRIVE STATUS: OFFLINE!</span>"
 	for(var/mob/M in GLOB.player_list)
 		to_chat(M, message)
 
@@ -115,6 +232,22 @@
 	world << siren
 
 /proc/event_phase_2()
+	var/sound/chatter_small = 'mods/_fd/fd_assets/sounds/chatter_small.ogg'
+
+	world << chatter_small
+	var/message = "<span style='color:red; font-size: 24px;'>ATTENTION ᓵ∷ᒷ∴! COMMUN╎ᓵᔑℸ ̣ ╎𝙹リ ᓭᒷᓭᓭ╎𝙹リ EN⎓𝙹∷CED! </span>"
+	for(var/mob/M in GLOB.player_list)
+		to_chat(M, message)
+
+	sleep(30)
+
+	for(var/obj/holo_spawner/spawner in world)
+		if (spawner.character_id == "gyne_taunt")
+			spawner.start_scene()
+			qdel(spawner)
+
+	sleep(4000)
+
 	var/sound/sound_notice = 'sound/ambience/bsd_alarm.ogg'
 	world << sound_notice
 
