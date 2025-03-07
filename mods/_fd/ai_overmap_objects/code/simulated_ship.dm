@@ -188,7 +188,7 @@
 		return 0
 	if (world.time < last_burn + burn_delay)
 		return 0
-	if(prob(prob(100 - characteristic.engine_damage)))
+	if(prob(characteristic.reactor_damage) || prob(characteristic.engine_damage))
 		return 0
 	return 1
 
@@ -443,7 +443,7 @@
 
 	last_shot_time = world.time
 
-	if(prob(100 - characteristic.cannons[selected_cannon]["damage"]))
+	if(prob(characteristic.reactor_damage) || prob(characteristic.cannons[selected_cannon]["damage"]))
 		return
 
 	// TODO

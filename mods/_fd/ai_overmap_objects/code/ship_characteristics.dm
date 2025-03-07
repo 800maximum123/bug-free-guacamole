@@ -275,6 +275,8 @@
 		shield_timer = addtimer(new Callback(src, PROC_REF(recharge_shield)), shield_regen_speed, TIMER_LOOP | TIMER_STOPPABLE)
 
 /datum/ship_characteristic/proc/recharge_shield()
+	if(prob(reactor_damage))
+		return
 	var/shield_real_max = round(max_shield - (max_shield * (shield_damage / 100))) // I.E. 1000 - (1000 * (20 / 100))
 	if(shield < shield_real_max)
 		if(shield + 1 <= shield_real_max)

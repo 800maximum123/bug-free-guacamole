@@ -126,12 +126,14 @@
 						//	log_and_message_admins("Цель слишком далеко, перегенерирую путь")
 						//	refresh_path()
 						//else
-						if(memorised_path)
-							if(get_dist(get_turf(memorised_path[memorised_path.len]), get_turf(targeted_object)) > path_refresh_distance)
-								refresh_path()
-							command_move(use_astar_movement=TRUE)
-						else
-							command_move(use_astar_movement=FALSE)
+						refresh_path()
+						command_move(use_astar_movement=TRUE)
+						//if(memorised_path)
+						//	if(get_dist(get_turf(memorised_path[memorised_path.len]), get_turf(targeted_object)) > path_refresh_distance)
+						//		refresh_path()
+						//	command_move(use_astar_movement=TRUE)
+						//else
+						//	command_move(use_astar_movement=FALSE)
 					if(get_dist(get_turf(linked_object), get_turf(targeted_object)) < linked_object_settings.min_targeted_distance_to_target)
 						command_flee()
 
@@ -152,7 +154,7 @@
 	linked_object.flee(targeted_object.loc)
 
 /obj/overmap/ai_holder/proc/command_shoot()
-	linked_object.shoot()
+	linked_object.shoot(targeted_object)
 
 /* /obj/overmap/ai_holder/proc/update_linked_ship_icon(moved, dir)
 	if(moved)
@@ -241,6 +243,28 @@
 		if(get_dist(get_turf(linked_object), get_turf(O)) < get_dist(get_turf(linked_object), get_turf(closest)))
 			closest = O
 	return closest
+
+// Original from AdjacentTurfs
+/turf/proc/AdjacentTurfsWithOvermap(check_blockage = TRUE)
+	. = list()
+	for(var/turf/t in (trange(1,src) - src))
+		if(istype(t, /turf/unsimulated/map))
+			var/should_include_turf = TRUE
+			for(var/obj/overmap/O in t)
+				if(istype(O, /obj/overmap/simulated_ship))
+					should_include_turf = FALSE
+				if(istype(O, /obj/overmap/visitable))
+					should_include_turf = FALSE
+				if(istype(O, /obj/overmap/event))
+					should_include_turf = FALSE
+			if(!should_include_turf)
+				continue
+		if(check_blockage)
+			if(!t.density)
+				if(!LinkBlocked(src, t) && !TurfBlockedNonWindow(t))
+					. += t
+		else
+			. += t
 
 
 ///obj/overmap/ai_holder/proc/is_target_valid(obj/overmap/visitable/O)
