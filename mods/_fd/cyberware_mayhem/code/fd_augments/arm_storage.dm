@@ -1,12 +1,21 @@
 /obj/item/organ/internal/augment/active/arm_storage
-	name = "Arm storage augment"
+	name = "arm storage augment"
 	desc = "An augment installed in a prosthetic arm, capable of storing one small item."
 	action_button_name = "Store/Retrieve Item"
-	icon = 'mods/_fd/fd_assets/customs/lozari/arm_storage.dmi'
+	icon = 'mods/_fd/cyberware_mayhem/icons/arm_storage.dmi'
 	icon_state = "storage_augment"
+	default_action_type = /datum/action/item_action/organ/augment/fd
 	augment_slots = AUGMENT_ARM
 	augment_flags = AUGMENT_MECHANICAL
 	var/obj/item/stored_item
+
+/datum/design/item/mechfab/augment/arm_storage
+	name = "Arm storage"
+	build_path = /obj/item/organ/internal/augment/active/arm_storage
+	build_type = MECHFAB
+	materials = list(MATERIAL_STEEL = 5000, MATERIAL_GLASS = 1000)
+	req_tech = list(TECH_MATERIAL = 2, TECH_MAGNET = 3, TECH_ENGINEERING = 2)
+	id = "augment_storage"
 
 /obj/item/organ/internal/augment/active/arm_storage/activate()
 	if (!can_activate())
