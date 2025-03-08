@@ -1,9 +1,9 @@
 /obj/overmap/simulated_ship/ascent/frigate
 	name = "Unknown Frigate"
 	desc = ""
-	icon = 'mods/_fd/fd_assets/icons/overmap.dmi'
-	icon_state = "sfv-spear"
-	moving_state = "sfv-spear_moving"
+	icon = 'mods/_fd/ai_overmap_objects/icons/ascent_ships.dmi'
+	icon_state = ""
+	moving_state = "frigate_moving"
 	characteristic = new /datum/ship_characteristic/ascent/frigate()
 
 /datum/ship_characteristic/ascent/frigate
@@ -12,7 +12,7 @@
 	shield_regen_speed = 7 *(1 SECOND)
 	vessel_mass = 100000
 	vessel_size = SHIP_SIZE_SMALL
-	max_speed = 10 *(1 SECOND)
+	max_speed = 9 *(1 SECOND)
 	min_targeted_distance_to_target = 2
 	max_targeted_distance_to_target = 2
 	sensors_range = 15

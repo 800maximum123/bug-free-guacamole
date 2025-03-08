@@ -1,7 +1,7 @@
 /obj/overmap/simulated_ship/ascent/battleship
     name = "Unknown Battleship"
     desc = ""
-    icon = 'mods/_fd/ai_overmap_objects/icons/ascent_ships.dmi'
+    icon = 'mods/_fd/ai_overmap_objects/icons/large_ships.dmi'
     icon_state = "battleship"
     moving_state = "battleship_moving"
     pixel_x = -16
@@ -14,7 +14,7 @@
     shield_regen_speed = 7 *(1 SECOND)
     vessel_mass = 900000
     vessel_size = SHIP_SIZE_LARGE
-    max_speed = 24 *(1 SECOND)
+    max_speed = 18 *(1 SECOND)
     min_targeted_distance_to_target = 2
     max_targeted_distance_to_target = 2
     sensors_range = 32

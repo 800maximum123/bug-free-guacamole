@@ -1,9 +1,9 @@
 /obj/overmap/simulated_ship/ascent/fighter
     name = "Unknown Fighter"
     desc = ""
-    icon = 'mods/_fd/fd_assets/icons/overmap.dmi'
-    icon_state = "sfv-bull"
-    moving_state = "sfv-bull_moving"
+    icon = 'mods/_fd/ai_overmap_objects/icons/ascent_ships.dmi'
+    icon_state = "fighter"
+    moving_state = "fighter_moving"
     characteristic = new /datum/ship_characteristic/ascent/fighter()
 
 /datum/ship_characteristic/ascent/fighter
@@ -12,7 +12,7 @@
     shield_regen_speed = 7 *(1 SECOND)
     vessel_mass = 15000
     vessel_size = SHIP_SIZE_TINY
-    max_speed = 6 *(1 SECOND)
+    max_speed = 5 *(1 SECOND)
     min_targeted_distance_to_target = 1
     max_targeted_distance_to_target = 1
     sensors_range = 10

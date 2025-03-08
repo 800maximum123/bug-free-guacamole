@@ -1,8 +1,9 @@
 /obj/overmap/simulated_ship/ascent/drone
     name = "Unknown Drone"
     desc = ""
-    icon_state = "shuttle"
-    moving_state = "shuttle_moving"
+    icon = 'mods/_fd/ai_overmap_objects/icons/ascent_ships.dmi'
+    icon_state = "drone"
+    moving_state = "drone_moving"
     characteristic = new /datum/ship_characteristic/ascent/drone()
 
 /datum/ship_characteristic/ascent/drone
@@ -11,7 +12,7 @@
     shield_regen_speed = 7 *(1 SECOND)
     vessel_mass = 5000
     vessel_size = SHIP_SIZE_TINY
-    max_speed = 8 *(1 SECOND)
+    max_speed = 7 *(1 SECOND)
     min_targeted_distance_to_target = 1
     max_targeted_distance_to_target = 1
     sensors_range = 10
