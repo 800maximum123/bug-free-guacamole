@@ -12,9 +12,9 @@
     shield_regen_speed = 7 *(1 SECOND)
     vessel_mass = 65000
     vessel_size = SHIP_SIZE_SMALL
-    max_speed = 9 *(1 SECOND)
-    min_targeted_distance_to_target = 4
-    max_targeted_distance_to_target = 4
+    max_speed = 20*(3 SECOND) //600
+    min_targeted_distance_to_target = 3
+    max_targeted_distance_to_target = 3
     sensors_range = 15
 
 /datum/ship_characteristic/ascent/corvette/New()

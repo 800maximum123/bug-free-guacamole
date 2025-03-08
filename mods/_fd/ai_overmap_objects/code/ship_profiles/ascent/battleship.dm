@@ -14,7 +14,7 @@
     shield_regen_speed = 7 *(1 SECOND)
     vessel_mass = 900000
     vessel_size = SHIP_SIZE_LARGE
-    max_speed = 18 *(1 SECOND)
+    max_speed = 8*(5 SECOND) //400
     min_targeted_distance_to_target = 2
     max_targeted_distance_to_target = 2
     sensors_range = 32

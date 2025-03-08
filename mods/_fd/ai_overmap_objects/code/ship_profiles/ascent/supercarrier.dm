@@ -14,7 +14,7 @@
     shield_regen_speed = 7 *(1 SECOND)
     vessel_mass = 6000000
     vessel_size = SHIP_SIZE_LARGE
-    max_speed = 36 *(1 SECOND)                        // Change first number, "Speed of light" for the ship, in turfs/second
+    max_speed = 10*(10 SECOND) //1000                       // Change first number, "Speed of light" for the ship, in turfs/second
     min_targeted_distance_to_target = 5                // 1 - Right on target, 2 - turf next to target, etc
     max_targeted_distance_to_target = 5                // 1 - Right on target, 2 - turf next to target, etc
     sensors_range = 48

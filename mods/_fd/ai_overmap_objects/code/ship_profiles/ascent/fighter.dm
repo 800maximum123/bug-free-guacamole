@@ -10,9 +10,9 @@
     max_health = 30000
     max_shield = 2500
     shield_regen_speed = 7 *(1 SECOND)
-    vessel_mass = 15000
+    vessel_mass = 10000
     vessel_size = SHIP_SIZE_TINY
-    max_speed = 5 *(1 SECOND)
+    max_speed = 8*(3 SECOND) //240
     min_targeted_distance_to_target = 1
     max_targeted_distance_to_target = 1
     sensors_range = 10
