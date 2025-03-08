@@ -1,6 +1,6 @@
 /obj/machinery/computer/ship/ship_weapon/crystal_launcher
 	name = "Crystal cannon control"
-	coolinterval = 10 SECONDS
+	coolinterval = 15 SECONDS
 
 	icon_state = "ascent"
 	icon_keyboard = "mining_key"

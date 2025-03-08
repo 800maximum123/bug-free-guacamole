@@ -1,7 +1,7 @@
 /obj/machinery/computer/ship/ship_weapon/hmg
 	name = "IW-12 heavy machine gun control"
 	caldigit = 2
-	coolinterval = 10 SECONDS
+	coolinterval = 15 SECONDS
 	gun_name = "Heavy machine gun"
 
 	front_type = /obj/machinery/ship_weapon/front_part/hmg

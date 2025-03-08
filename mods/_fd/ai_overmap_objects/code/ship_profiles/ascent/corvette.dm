@@ -20,9 +20,7 @@
 /datum/ship_characteristic/ascent/corvette/New()
     cannons = list(
         "crystal_1" = list("type" = /obj/machinery/computer/ship/ship_weapon/crystal_launcher, "accurace" = 75, "damage" = 0),
-        "crystal_2" = list("type" = /obj/machinery/computer/ship/ship_weapon/crystal_launcher, "accurace" = 75, "damage" = 0),
-        "crystal_3" = list("type" = /obj/machinery/computer/ship/ship_weapon/crystal_launcher, "accurace" = 75, "damage" = 0),
-        "crystal_4" = list("type" = /obj/machinery/computer/ship/ship_weapon/crystal_launcher, "accurace" = 75, "damage" = 0)
+        "crystal_2" = list("type" = /obj/machinery/computer/ship/ship_weapon/crystal_launcher, "accurace" = 75, "damage" = 0)
     )
 
     ammo = list(
