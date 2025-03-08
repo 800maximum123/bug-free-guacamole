@@ -250,9 +250,9 @@
 			spawn(1 SECOND)
 				qdel(shield)
 		else
-			animate(src, color = COLOR_RED, time = 1 SECOND, easing = CUBIC_EASING | EASE_IN)
-			spawn(1 SECOND)
-				animate(src, color = initial(color), time = 1 SECOND, easing = CUBIC_EASING | EASE_OUT)
+			animate(src, color = COLOR_RED, time = 0.5 SECOND, easing = CUBIC_EASING | EASE_IN)
+			spawn(0.6 SECOND)
+				animate(src, color = initial(color), time = 0.5 SECOND, easing = CUBIC_EASING | EASE_OUT)
 
 /obj/overmap/simulated_ship/proc/process_projectile(atom/movable/O)
 	// Bullets, rockets,
@@ -522,6 +522,31 @@
 		pew.overmap_projectile.set_projectile(pew, pew.cal_accuracy)
 		//overmap_projectile.color = overmap_color
 	characteristic.cannons[selected_cannon]["cooldown"] = characteristic.cannons[selected_cannon]["max_cooldown"]
+
+// ebeam compatibility(kind of)
+// this is junk, literally and physically
+
+/obj/overmap/simulated_ship/proc/handle_ebeam()
+// should we even calculate damage, if this thing basically one-tap's ships lower than destroyer? i mean, maybe?
+	if(characteristic.max_health <= 100000) // frigate health
+		animate_damage()
+		spawn(2 SECOND)
+			qdel(src)
+	var/damage = 5000 //idk this thing just cost too much, so it would be fair if it will have some actual damage, fully deleted destroyer shields on tests
+	var/damage_type = DAMAGE_BURN
+
+	var/armor_penetration = 100
+	var/penetrating = TRUE
+	var/penetration_modifier = 1.5
+
+// we do not need this here, but proc does and i dunno if i can simply remove 'em
+	var/agony = 0
+	var/explosion_radius = 0
+	var/explosion_max_power = 0
+	var/proximity_detonation = FALSE
+
+	var/list/applied_damage = characteristic.calculate_damage(damage, damage_type, agony, temperature, explosion_radius, explosion_max_power, armor_penetration, penetrating, penetration_modifier, proximity_detonation)
+	characteristic.apply_damage(arglist(applied_damage))
 
 #undef MOVING
 #undef SANITIZE_SPEED

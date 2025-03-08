@@ -92,6 +92,11 @@
 //		for(var/obj/overmap/trading/T in overmaptarget) TODO: OVERMAP_TRADERS
 //			candidates += T
 
+// adding npc's to the list - Doctor Alex
+	if(!length(candidates))
+		for(var/obj/overmap/simulated_ship/npc in overmaptarget)
+			candidates += npc
+
 	if(!length(candidates) && destroy_event_flags)
 		for(var/obj/overmap/event/E in overmaptarget)
 			candidates += E
@@ -124,6 +129,14 @@
 		if(prob(100 - cal_accuracy() / 2))
 			target.Destroy()
 		handle_overbeam()
+		return TRUE
+
+// actually doing something to it
+	if(istype(target, /obj/overmap/simulated_ship))
+		var/obj/overmap/simulated_ship/npc = target
+		npc.animate_damage()
+		handle_overbeam()
+		npc.handle_ebeam()
 		return TRUE
 
 	var/obj/overmap/visitable/finaltarget = target
