@@ -267,8 +267,8 @@
 					should_include_turf = FALSE
 				if(istype(O, /obj/overmap/event))
 					should_include_turf = FALSE
-				if(istype(O, /obj/overmap/projectile))
-					should_include_turf = FALSE
+				//if(istype(O, /obj/overmap/projectile))
+				//	should_include_turf = FALSE
 				if(istype(O, /obj/overmap/missile))
 					should_include_turf = FALSE
 			if(!should_include_turf)
