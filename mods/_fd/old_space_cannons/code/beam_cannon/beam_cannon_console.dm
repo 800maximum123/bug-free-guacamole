@@ -15,7 +15,7 @@
 
 	shake_camera_force = 50
 
-	var/shoot_range = 1
+	var/shoot_range = 2
 
 	var/destroy_event_flags = OVERMAP_WEAKNESS_EXPLOSIVE
 
