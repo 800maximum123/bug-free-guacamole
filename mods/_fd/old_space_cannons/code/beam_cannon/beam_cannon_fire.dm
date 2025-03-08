@@ -89,10 +89,10 @@
 				continue
 			candidates += O
 
-//		for(var/obj/overmap/trading/T in overmaptarget) TODO: OVERMAP_TRADERS
-//			candidates += T
+	//		for(var/obj/overmap/trading/T in overmaptarget) TODO: OVERMAP_TRADERS
+	//			candidates += T
 
-// adding npc's to the list - Doctor Alex
+	// adding npc's to the list - Doctor Alex
 	if(!length(candidates))
 		for(var/obj/overmap/simulated_ship/npc in overmaptarget)
 			candidates += npc
@@ -112,9 +112,9 @@
 
 	var/obj/overmap/target = pick(candidates)
 
-//	if(istype(target, /obj/overmap/trading)) TODO: OVERMAP_TRADERS
-//		qdel(target)
-//		return TRUE
+	//	if(istype(target, /obj/overmap/trading)) TODO: OVERMAP_TRADERS
+	//		qdel(target)
+	//		return TRUE
 
 	if(istype(target, /obj/overmap/event))
 		var/obj/overmap/event/E = target
@@ -131,7 +131,7 @@
 		handle_overbeam()
 		return TRUE
 
-// actually doing something to it
+	// actually doing something to it
 	if(istype(target, /obj/overmap/simulated_ship))
 		var/obj/overmap/simulated_ship/npc = target
 		npc.animate_damage()
@@ -263,7 +263,7 @@
 		if(!isdeaf(M))
 			sound_to(M, sound(fire_sound, volume=5))
 
-//	handle_beam(start, heading)				ебаная параша на beam() без каких либо причин не хочет проводить лучик через судно врага, ни рантаймов ни ошибок - по этому меняем на костыль
+	//	handle_beam(start, heading)				ебаная параша на beam() без каких либо причин не хочет проводить лучик через судно врага, ни рантаймов ни ошибок - по этому меняем на костыль
 	handle_beam_on_enemy(start, heading)//	хоть и костыль но выглядит очень модно :P
 	handle_beam_damage(start, heading, TRUE)
 

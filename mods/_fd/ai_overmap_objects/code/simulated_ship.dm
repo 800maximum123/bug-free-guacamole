@@ -474,7 +474,17 @@
 			spawn(0.8 SECOND)
 				animate(lance, 0.5 SECOND, alpha = 0)
 
-			selected_fake_lance.fire_at_sector(pick(O.map_z), O.fore_dir, O, FALSE)
+			var/picked_level = pick(O.map_z)
+
+			log_and_message_admins(picked_level)
+			log_and_message_admins(O.fore_dir)
+			log_and_message_admins(O)
+
+			for(var/mob/M in GLOB.player_list)
+				if(M.z == picked_level)
+					to_chat(M, "<span style='color:red; font-size: 20px;'>Вы чувствуете, как пол под вами начинает дрожать...</span>")
+			sleep(1 SECOND)
+			selected_fake_lance.fire_at_sector(picked_level, O.fore_dir, O, FALSE)
 			selected_fake_lance.linked = null
 			qdel(selected_fake_lance)
 			characteristic.cannons[selected_cannon]["cooldown"] = characteristic.cannons[selected_cannon]["max_cooldown"]

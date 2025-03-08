@@ -105,7 +105,7 @@
 	for(var/key in linked_object_settings.cannons)
 		var/list/entry = linked_object_settings.cannons[key]
 		if(entry["cooldown"] != 0)
-			entry["cooldown"] -= 1
+			entry["cooldown"] = max(0, entry["cooldown"] - 10)
 
 	switch(linked_object_settings.ai_mode)
 		if(AI_MODE_DEFEND)
