@@ -2,7 +2,7 @@
 	name = "Unknown Frigate"
 	desc = ""
 	icon = 'mods/_fd/ai_overmap_objects/icons/ascent_ships.dmi'
-	icon_state = ""
+	icon_state = "frigate"
 	moving_state = "frigate_moving"
 	characteristic = new /datum/ship_characteristic/ascent/frigate()
 
