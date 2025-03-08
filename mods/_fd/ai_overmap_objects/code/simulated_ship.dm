@@ -373,10 +373,14 @@
 				//if(/obj/item/missile_equipment/thruster/point)
 				//if(/obj/item/missile_equipment/thruster/planet)
 				if(/obj/item/missile_equipment/passenger)
+					var/obj/item/missile_equipment/passenger/deadly_psionic_missile = OO
 					if(characteristic.vessel_size != SHIP_SIZE_LARGE)
-						qdel(src)
-						qdel(OO)
-						return
+						var/mob/content = deadly_psionic_missile.get_passenger()
+						if(content)
+							if(content.type == /mob/living/carbon/human)
+								qdel(src)
+								qdel(OO)
+								return
 
 		if(applied_damage)
 			//for(var/key in applied_damage)
