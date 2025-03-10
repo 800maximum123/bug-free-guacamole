@@ -30,6 +30,7 @@
 	options["nerve dampeners"] = /obj/item/organ/internal/augment/active/nerve_dampeners
 	options["tesla spine"] = /obj/item/organ/internal/augment/tesla
 	options["subdermal armor"] = /obj/item/organ/internal/augment/armor
+	options["sandevistan"] = /obj/item/organ/internal/augment/active/sandevistan
 	gear_tweaks += new /datum/gear_tweak/path (options)
 
 /datum/gear/augment/head_fluff
