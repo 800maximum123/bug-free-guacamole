@@ -116,12 +116,21 @@ GLOBAL_LIST_INIT(potions, list("3, 5, 8" = /obj/item/catalchemy/potion/affection
 		if(do_after(user, 5 SECOND))
 			if(!isnull(inside_one) && isnull(inside_two))
 				inside_one.pure = FALSE
-				inside_one.icon_state = "[initial(icon_state)]_dusted"
+				inside_one.icon_state = "[initial(inside_one.icon_state)]_dusted"
 				return 1
 			if(!isnull(inside_one) && !isnull(inside_two))
 				combination = "[inside_one.name], [inside_two.name]"
 				//Тут должен быть очередной лист с определением предмета, который мы хотим создать согласно содержащимся тут материалам
 
+/obj/item/catalchemy/mortar/attack_hand(mob/living/user)
+	if(!isnull(inside_two))
+		inside_two.dropInto(get_turf(user.loc))
+		inside_two = null
+	if(!isnull(inside_one))
+		inside_one.dropInto(get_turf(user.loc))
+		inside_one = null
+
+	. = ..()
 
 /obj/effect/alchemy_cloud
 	name = "cloud"
