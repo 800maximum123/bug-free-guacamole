@@ -316,6 +316,7 @@
 	#include "../../mods/_fd/_maps/cascade/_cascade.dme"
 	#include "../../mods/_fd/_maps/new_year_house/_new_year_house.dme"
 	#include "../../mods/_fd/_maps/tartakan/_tartakan.dme"
+	#include "../../mods/_fd/_maps/sfv_manticore/_manticore.dme"
 
 		// ~VOID'S MINI-GAMES~ //
 
