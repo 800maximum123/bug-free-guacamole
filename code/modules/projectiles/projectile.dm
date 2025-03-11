@@ -218,7 +218,7 @@
 	setup_trajectory(starting_loc, new_target)
 
 //Called when the projectile intercepts a mob. Returns 1 if the projectile hit the mob, 0 if it missed and should keep flying.
-/obj/item/projectile/proc/attack_mob(mob/living/target_mob, distance, special_miss_modifier=0, atom/newloc)
+/obj/item/projectile/proc/attack_mob(mob/living/target_mob, distance, special_miss_modifier=0)
 	if(!istype(target_mob))
 		return
 
@@ -246,31 +246,17 @@
 	var/hit_zone = get_zone_with_miss_chance(def_zone, target_mob, miss_modifier, ranged_attack=(distance > 1 || original != target_mob)) //if the projectile hits a target we weren't originally aiming at then retain the chance to miss
 
 	var/result = PROJECTILE_FORCE_MISS
-	if(istype(target_mob, /mob/living/carbon/human)) // Cyberware Mayhem Addition!!!
-		var/mob/living/carbon/human/H = target_mob
-		if(H.speedboost == FALSE)
-			if(hit_zone)
-				def_zone = hit_zone //set def_zone, so if the projectile ends up hitting someone else later (to be implemented), it is more likely to hit the same part
-				if(!target_mob.aura_check(AURA_TYPE_BULLET, src,def_zone))
-					return 1
-				result = target_mob.bullet_act(src, def_zone)
-	else
-		if(hit_zone)
-			def_zone = hit_zone //set def_zone, so if the projectile ends up hitting someone else later (to be implemented), it is more likely to hit the same part
-			if(!target_mob.aura_check(AURA_TYPE_BULLET, src,def_zone))
-				return 1
-			result = target_mob.bullet_act(src, def_zone)
+	if(hit_zone)
+		def_zone = hit_zone //set def_zone, so if the projectile ends up hitting someone else later (to be implemented), it is more likely to hit the same part
+		if(!target_mob.aura_check(AURA_TYPE_BULLET, src,def_zone))
+			return 1
+		result = target_mob.bullet_act(src, def_zone)
 
 	if(result == PROJECTILE_FORCE_MISS)
 		if(!silenced)
 			target_mob.visible_message(SPAN_NOTICE("\The [src] misses [target_mob] narrowly!"))
 			if(LAZYLEN(miss_sounds))
 				playsound(target_mob.loc, pick(miss_sounds), 60, 1)
-		if(istype(target_mob, /mob/living/carbon/human))
-			var/mob/living/carbon/human/H = target_mob
-			if(H.speedboost == TRUE)
-				H.sandevistan_dodge(newloc,dir)
-				H.adjustBrainLoss(5)
 		return 0
 
 	//hit messages
@@ -319,7 +305,18 @@
 				grab.affecting.visible_message(SPAN_DANGER("\The [atom] uses \the [grab.affecting] as a shield!"))
 				if (Bump(grab.affecting, TRUE))
 					return
-			passthrough = !attack_mob(atom, distance)
+			if(istype(atom, /mob/living/carbon/human))
+				var/mob/living/carbon/human/H = atom
+				if(H.speedboost == TRUE)
+					H.adjustBrainLoss(5)
+					forceMove(H)
+					permutated += H
+					bumped = FALSE
+					return FALSE
+				else
+					passthrough = !attack_mob(atom, distance)
+			else
+				passthrough = !attack_mob(atom, distance)
 	else
 		passthrough = atom.bullet_act(src, def_zone) == PROJECTILE_CONTINUE
 		if (isturf(atom))

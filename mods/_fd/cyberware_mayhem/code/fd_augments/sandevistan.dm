@@ -34,7 +34,7 @@
 		speedboost_debuff -= 1
 
 	if(speedboost && speedboost_debuff == 0)
-		adjustBrainLoss(10)
+		adjustBrainLoss(20)
 		speedboost_debuff = 30
 	..()
 
@@ -74,6 +74,16 @@
 	order = 199
 	ignore_blood = TRUE
 
+
+/mob/living/simple_animal/UnarmedAttack(atom/A, proximity, atom/newloc)
+	if (istype(A, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = A
+		if (H.speedboost == TRUE)
+			H.sandevistan_dodge(newloc,dir)
+			H.adjustBrainLoss(5)
+			return
+	..()
+
 //we dodging all bullets and punches in activated mod
 /mob/living/carbon/human/attack_hand(mob/living/carbon/M, atom/newloc)
 	if(speedboost)
@@ -82,9 +92,16 @@
 		return
 	..()
 
+/mob/living/carbon/human/use_weapon(obj/item/weapon, mob/living/user, list/click_params, atom/newloc)
+	if(speedboost)
+		adjustBrainLoss(5)
+		sandevistan_dodge(newloc,dir)
+		return
+	..()
+
 //and also melee
 /mob/living/carbon/human/use_tool(obj/item/tool, mob/user, list/click_params, atom/newloc)
-	if(speedboost && tool.force > 5)
+	if(speedboost)
 		adjustBrainLoss(5)
 		sandevistan_dodge(newloc,dir)
 		return
