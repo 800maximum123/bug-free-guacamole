@@ -34,7 +34,12 @@
 		speedboost_debuff -= 1
 
 	if(speedboost && speedboost_debuff == 0)
-		adjustBrainLoss(20)
+		var/obj/item/organ/internal/cell/E = src.internal_organs_by_name[BP_CELL]
+		if(!E || E.cell.charge == 0)
+			adjustBrainLoss(20)
+		else
+			if (E.cell.charge > 0)
+				E.cell.charge -= 100
 		speedboost_debuff = 30
 	..()
 
@@ -79,22 +84,37 @@
 	if (istype(A, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = A
 		if (H.speedboost == TRUE)
+			var/obj/item/organ/internal/cell/E = H.internal_organs_by_name[BP_CELL]
+			if(!E || E.cell.charge == 0)
+				H.adjustBrainLoss(5)
+			else
+				if (E.cell.charge > 0)
+					E.cell.charge -= 20
 			H.sandevistan_dodge(newloc,dir)
-			H.adjustBrainLoss(5)
 			return
 	..()
 
 //we dodging all bullets and punches in activated mod
 /mob/living/carbon/human/attack_hand(mob/living/carbon/M, atom/newloc)
 	if(speedboost)
-		adjustBrainLoss(5)
+		var/obj/item/organ/internal/cell/E = src.internal_organs_by_name[BP_CELL]
+		if(!E || E.cell.charge == 0)
+			adjustBrainLoss(5)
+		else
+			if (E.cell.charge > 0)
+				E.cell.charge -= 20
 		sandevistan_dodge(newloc,dir)
 		return
 	..()
 
 /mob/living/carbon/human/use_weapon(obj/item/weapon, mob/living/user, list/click_params, atom/newloc)
 	if(speedboost)
-		adjustBrainLoss(5)
+		var/obj/item/organ/internal/cell/E = src.internal_organs_by_name[BP_CELL]
+		if(!E || E.cell.charge == 0)
+			adjustBrainLoss(5)
+		else
+			if (E.cell.charge > 0)
+				E.cell.charge -= 20
 		sandevistan_dodge(newloc,dir)
 		return
 	..()
@@ -102,7 +122,12 @@
 //and also melee
 /mob/living/carbon/human/use_tool(obj/item/tool, mob/user, list/click_params, atom/newloc)
 	if(speedboost)
-		adjustBrainLoss(5)
+		var/obj/item/organ/internal/cell/E = src.internal_organs_by_name[BP_CELL]
+		if(!E || E.cell.charge == 0)
+			adjustBrainLoss(5)
+		else
+			if (E.cell.charge > 0)
+				E.cell.charge -= 20
 		sandevistan_dodge(newloc,dir)
 		return
 	..()
