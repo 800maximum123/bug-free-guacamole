@@ -308,12 +308,7 @@
 			if(istype(atom, /mob/living/carbon/human))
 				var/mob/living/carbon/human/H = atom
 				if(H.speedboost == TRUE)
-					var/obj/item/organ/internal/cell/E = H.internal_organs_by_name[BP_CELL]
-					if(!E || E.cell.charge == 0)
-						H.adjustBrainLoss(5)
-					else
-						if (E.cell.charge > 0)
-							E.cell.charge -= 50
+					H.do_math()
 					forceMove(H)
 					permutated += H
 					bumped = FALSE

@@ -82,6 +82,7 @@ the HUD updates properly! */
 	GLOB.med_hud_users -= src
 	GLOB.sec_hud_users -= src
 	GLOB.jani_hud_users -= src
+	GLOB.assist_hud_users -= src
 
 /mob/proc/in_view(turf/T)
 	RETURN_TYPE(/list)
