@@ -45,7 +45,8 @@
 #define  STATUS_HUD_OOC 9 // STATUS_HUD without virus DB check for someone being ill.
 #define 	  LIFE_HUD 10 // STATUS_HUD that only reports dead or alive
 
-#define  ASSIST_HUD 11
+#define  ASSIST_HUD    11
+#define  TARGET_HUD    12
 
 // Shuttle moving status.
 #define SHUTTLE_IDLE      0

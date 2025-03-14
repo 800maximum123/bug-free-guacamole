@@ -5,7 +5,7 @@
 	icon = 'icons/mob/human.dmi'
 	icon_state = "body_m_s"
 
-	var/list/hud_list[11]
+	var/list/hud_list[12]
 	var/embedded_flag	  //To check if we've need to roll for damage on movement while an item is imbedded in us.
 	var/obj/item/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
 	var/list/stance_limbs
@@ -46,6 +46,7 @@
 	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
 	hud_list[STATUS_HUD_OOC]  = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudhealthy")
 
+	hud_list[TARGET_HUD]  = new /image/hud_overlay/target('mods/_fd/cyberware_mayhem/icons/effects.dmi', src, icon_state = "static")
 	hud_list[ASSIST_HUD]  = new /image/hud_overlay/assist('mods/_fd/cyberware_mayhem/icons/screen_bci.dmi', src, icon_state = "hud_triangle_red")
 
 	GLOB.human_mobs |= src

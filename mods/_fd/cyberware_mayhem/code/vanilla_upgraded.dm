@@ -140,6 +140,7 @@
 	icon = 'mods/_fd/cyberware_mayhem/icons/tools.dmi'
 
 GLOBAL_LIST_EMPTY(assist_hud_users)
+GLOBAL_LIST_EMPTY(target_hud_users)
 
 /proc/process_assist_hud(mob/M, mob/Alt)
 	var/datum/arranged_hud_process/P = arrange_hud_process(M, Alt, GLOB.assist_hud_users)
@@ -155,6 +156,21 @@ GLOBAL_LIST_EMPTY(assist_hud_users)
 		if(P.Client)
 			if(R.stat != DEAD)
 				P.Client.images += R.hud_list[ASSIST_HUD]
+
+/proc/process_target_hud(mob/M, mob/Alt)
+	var/datum/arranged_hud_process/P = arrange_hud_process(M, Alt, GLOB.target_hud_users)
+	for (var/mob/living/simple_animal/S in orange(5, P.Mob))
+		if(P.Client)
+			if(S.stat != DEAD)
+				P.Client.images += S.hud_list[TARGET_HUD]
+	for (var/mob/living/carbon/human/L in orange(5, P.Mob))
+		if(P.Client)
+			if(L.stat != DEAD)
+				P.Client.images += L.hud_list[TARGET_HUD]
+	for (var/mob/living/silicon/R in orange(5, P.Mob))
+		if(P.Client)
+			if(R.stat != DEAD)
+				P.Client.images += R.hud_list[TARGET_HUD]
 
 //to-do: ADD SKILLBUFF
 
@@ -193,9 +209,15 @@ GLOBAL_LIST_EMPTY(assist_hud_users)
 /obj/item/organ/internal/augment/active/shooting/Process()
 	. = ..()
 	if(active)
+		process_target_hud(owner)
 		process_assist_hud(owner)
 
 /image/hud_overlay/assist
 	appearance_flags = DEFAULT_APPEARANCE_FLAGS | NO_CLIENT_COLOR | RESET_TRANSFORM | KEEP_APART
 	layer = HUD_BASE_LAYER
 	plane = HUD_PLANE
+
+/image/hud_overlay/target
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS | NO_CLIENT_COLOR | RESET_TRANSFORM | KEEP_APART
+	layer = UNDER_HUD_LAYER
+	plane = 4
