@@ -1,7 +1,7 @@
 /obj/overmap/simulated_ship/ascent/frigate
 	name = "Unknown Frigate"
 	desc = ""
-	icon = 'mods/_fd/ai_overmap_objects/icons/ascent_ships.dmi'
+	icon = 'mods/_fd/ai_overmap_objects/icons/ascent/ascent_ships.dmi'
 	icon_state = "frigate"
 	moving_state = "frigate_moving"
 	characteristic = new /datum/ship_characteristic/ascent/frigate()
@@ -15,7 +15,7 @@
 	max_speed = 10*(3 SECOND) //300
 	min_targeted_distance_to_target = 2
 	max_targeted_distance_to_target = 2
-	sensors_range = 15
+	sensors_range = 20
 
 /datum/ship_characteristic/ascent/frigate/New()
 	cannons = list(

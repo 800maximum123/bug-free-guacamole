@@ -8,6 +8,7 @@
 #include "code/ship_wreck.dm"
 
 // Ascents
+
 #include "code/ship_profiles/_bases/ascent.dm"
 #include "code/ship_profiles/ascent/drone.dm"
 #include "code/ship_profiles/ascent/fighter.dm"
@@ -16,5 +17,29 @@
 #include "code/ship_profiles/ascent/destroyer.dm"
 #include "code/ship_profiles/ascent/battleship.dm"
 #include "code/ship_profiles/ascent/supercarrier.dm"
+
+// SCG
+
+#include "code/ship_profiles/_bases/scg.dm"
+#include "code/ship_profiles/scg/battlecruiser_charles_de_gaulle.dm"
+#include "code/ship_profiles/scg/battlecruiser_midway.dm"
+#include "code/ship_profiles/scg/carrier_nefertari.dm"
+#include "code/ship_profiles/scg/carrier_orca.dm"
+#include "code/ship_profiles/scg/carrier_scorpio.dm"
+#include "code/ship_profiles/scg/corvette_cartwheel.dm"
+#include "code/ship_profiles/scg/corvette_lexington.dm"
+#include "code/ship_profiles/scg/corvette_mako.dm"
+#include "code/ship_profiles/scg/cruiser_waterloo.dm"
+#include "code/ship_profiles/scg/destroyer_antietam.dm"
+#include "code/ship_profiles/scg/destroyer_yari.dm"
+#include "code/ship_profiles/scg/fighter_bull.dm"
+#include "code/ship_profiles/scg/fighter_nightbat.dm"
+#include "code/ship_profiles/scg/fighter_shikra.dm"
+#include "code/ship_profiles/scg/fighter_spear.dm"
+#include "code/ship_profiles/scg/frigate_nuum.dm"
+#include "code/ship_profiles/scg/frigate_somme.dm"
+#include "code/ship_profiles/scg/supercarrier_terra.dm"
+#include "code/ship_profiles/scg/supercarrier_aldrin.dm"
+#include "code/ship_profiles/scg/drone_hmg.dm"
 
 #endif

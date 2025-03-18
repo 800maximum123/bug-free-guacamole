@@ -1,7 +1,7 @@
 /obj/overmap/simulated_ship/ascent/battleship
     name = "Unknown Battleship"
     desc = ""
-    icon = 'mods/_fd/ai_overmap_objects/icons/large_ships.dmi'
+    icon = 'mods/_fd/ai_overmap_objects/icons/ascent/large_ships.dmi'
     icon_state = "battleship"
     moving_state = "battleship_moving"
     pixel_x = -16

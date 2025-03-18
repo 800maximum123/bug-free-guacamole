@@ -1,7 +1,7 @@
 /obj/overmap/simulated_ship/ascent/corvette
     name = "Unknown Corvette"
     desc = ""
-    icon = 'mods/_fd/ai_overmap_objects/icons/ascent_ships.dmi'
+    icon = 'mods/_fd/ai_overmap_objects/icons/ascent/ascent_ships.dmi'
     icon_state = "corvette"
     moving_state = "corvette_moving"
     characteristic = new /datum/ship_characteristic/ascent/corvette()
