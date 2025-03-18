@@ -1,7 +1,7 @@
 /obj/overmap/simulated_ship/ascent/destroyer
     name = "Unknown Destroyer"
     desc = ""
-    icon = 'mods/_fd/ai_overmap_objects/icons/ascent_ships.dmi'
+    icon = 'mods/_fd/ai_overmap_objects/icons/ascent/ascent_ships.dmi'
     icon_state = "destroyer"
     moving_state = "destroyer_moving"
     characteristic = new /datum/ship_characteristic/ascent/destroyer()
@@ -15,7 +15,7 @@
     max_speed = 9*(3 SECOND) //270
     min_targeted_distance_to_target = 2
     max_targeted_distance_to_target = 2
-    sensors_range = 15
+    sensors_range = 24
 
 /datum/ship_characteristic/ascent/destroyer/New()
     cannons = list(
