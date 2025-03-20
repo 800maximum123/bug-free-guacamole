@@ -39,7 +39,7 @@
 	warmup_time = 10
 	move_time = 20
 	range = 0
-	shuttle_area = list(/area/ship/hound_1,/area/ship/hound_1/hull,/area/ship/hound_1/cockpit,/area/ship/hound_1/ammunition,/area/ship/hound_1/engineering,/area/ship/hound_1/reactor)
+	shuttle_area = list(/area/ship/hound_1/hull,/area/ship/hound_1/cockpit,/area/ship/hound_1/ammunition,/area/ship/hound_1/engineering,/area/ship/hound_1/reactor)
 	defer_initialisation = TRUE
 	skill_needed = SKILL_BASIC
 	ceiling_type = /turf/simulated/floor/shuttle_ceiling
@@ -65,6 +65,7 @@
 
 /area/ship/hound_1/ammunition
 	name = "\improper Hound-1 Ammunition Section"
+	has_gravity = 1
 
 /area/ship/hound_1/engineering
 	name = "\improper Hound-1 Engineering"
