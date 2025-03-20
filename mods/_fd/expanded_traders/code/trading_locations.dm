@@ -2,7 +2,7 @@
 	name = "station"
 	desc = "A trading station."
 	icon = 'mods/_fd/fd_assets/icons/overmap.dmi'
-	icon_state = "trading_sector"
+	icon_state = "object"
 	scannable = TRUE
 	requires_contact = TRUE	// Whether or not the effect must be identified by ship sensors before being seen.
 	instant_contact  = TRUE	// Do we instantly identify ourselves to any ship in sensors range?
