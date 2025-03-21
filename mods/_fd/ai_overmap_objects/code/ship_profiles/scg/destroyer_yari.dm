@@ -2,8 +2,8 @@
 	name = "Yari-class Destroyer"
 	desc = "Specifically designed as a capital ship killer, built around an enormous mass driver, designed to fire both conventional and nuclear projectiles. Lacking in armor and other armament, the Yari has only speed and the defenses of other vessels to protect it as it closes to accurate firing range. It is broadcasting SCGSV codes."
 	icon = 'mods/_fd/ai_overmap_objects/icons/scg/sfv32.dmi'
-	icon_state = ""
-	moving_state = ""
+	icon_state = "yari"
+	moving_state = "yari_moving"
 	characteristic = new /datum/ship_characteristic/scg/destroyer_yari()
 
 /datum/ship_characteristic/scg/destroyer_yari

@@ -2,8 +2,8 @@
 	name = "Mako-class Corvette"
 	desc = "A small-size assault battlecraft, designed for vast suppressive fire, broadcasting SCGSV codes."
 	icon = 'mods/_fd/ai_overmap_objects/icons/scg/sfv32.dmi'
-	icon_state = ""
-	moving_state = ""
+	icon_state = "mako"
+	moving_state = "mako_moving"
 	characteristic = new /datum/ship_characteristic/scg/corvette_mako()
 
 /datum/ship_characteristic/scg/corvette_mako

@@ -2,8 +2,8 @@
 	name = "Somme-class Frigate"
 	desc = "Support class vessel with drone carrying capabilities and light weaponary, broadcasting SCGSV codes."
 	icon = 'mods/_fd/ai_overmap_objects/icons/scg/sfv32.dmi'
-	icon_state = ""
-	moving_state = ""
+	icon_state = "somme"
+	moving_state = "somme_moving"
 	characteristic = new /datum/ship_characteristic/scg/frigate_somme()
 
 /datum/ship_characteristic/scg/frigate_somme

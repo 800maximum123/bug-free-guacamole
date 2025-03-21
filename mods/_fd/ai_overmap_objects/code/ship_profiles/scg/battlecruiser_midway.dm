@@ -1,9 +1,9 @@
 /obj/overmap/simulated_ship/scg/battlecruiser_midway
 	name = "Midway-class Battleruiser"
 	desc = "The main combat vessel of the Fleet, this ship has big guns and tons of armor, made to take enemy ships head-on. A preponderance of forward-facing armor and weaponry necessitates that Midway-class vessels travel with escorts. It is broadcasting SCGSV codes."
-	icon = 'mods/_fd/ai_overmap_objects/icons/scg/sfv32.dmi'
-	icon_state = ""
-	moving_state = ""
+	icon = 'mods/_fd/ai_overmap_objects/icons/scg/sfv64.dmi'
+	icon_state = "midway"
+	moving_state = "midway_moving"
 	characteristic = new /datum/ship_characteristic/scg/battlecruiser_midway()
 
 /datum/ship_characteristic/scg/battlecruiser_midway

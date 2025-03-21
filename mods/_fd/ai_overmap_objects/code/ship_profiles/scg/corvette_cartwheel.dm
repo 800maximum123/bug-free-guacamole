@@ -2,8 +2,8 @@
 	name = "Cartwheel-class Corvette"
 	desc = "A small-size well-armored fire-support corvette, broadcasting SCGSV codes."
 	icon = 'mods/_fd/ai_overmap_objects/icons/scg/sfv32.dmi'
-	icon_state = ""
-	moving_state = ""
+	icon_state = "cartwheel"
+	moving_state = "cartwheel_moving"
 	characteristic = new /datum/ship_characteristic/scg/corvette_cartwheel()
 
 /datum/ship_characteristic/scg/corvette_cartwheel
