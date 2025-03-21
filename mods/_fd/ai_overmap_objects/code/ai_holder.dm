@@ -233,13 +233,19 @@
 				detected_friendly_objects += O
 			else if(
 			linked_object_settings.team == AI_TEAM_FFA ||\
-			linked_object_settings.team == AI_TEAM_ASCENTS && detected_object_settings.team == AI_TEAM_HUMANS\
+			linked_object_settings.team == AI_TEAM_ASCENTS && detected_object_settings.team == AI_TEAM_HUMANS ||\
+			linked_object_settings.team == AI_TEAM_HUMANS && detected_object_settings.team == AI_TEAM_ASCENTS\
 			)
 				detected_hostile_objects += O
 			else
 				detected_neutral_objects += O
 		if(istype(O, /obj/overmap/visitable/ship))
-			detected_hostile_objects += O
+			if(linked_object_settings.team == AI_TEAM_HUMANS)
+				detected_friendly_objects += O
+			else if(linked_object_settings.team == AI_TEAM_ASCENTS)
+				detected_hostile_objects += O
+			else
+				detected_neutral_objects += O
 
 /obj/overmap/ai_holder/proc/choose_closest_target(list/object_list)
 	if(linked_object == null)

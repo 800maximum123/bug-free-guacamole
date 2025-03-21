@@ -2,8 +2,8 @@
 	name = "Antietam-class Destroyer"
 	desc = "The combat support vessel of the Fleet, this class has an average amount of both weaponry and armor, designed to screen larger craft and swarm larger enemies, broadcasting SCGSV codes."
 	icon = 'mods/_fd/ai_overmap_objects/icons/scg/sfv32.dmi'
-	icon_state = ""
-	moving_state = ""
+	icon_state = "antietam"
+	moving_state = "antietam_moving"
 	characteristic = new /datum/ship_characteristic/scg/destroyer_antietam()
 
 /datum/ship_characteristic/scg/destroyer_antietam

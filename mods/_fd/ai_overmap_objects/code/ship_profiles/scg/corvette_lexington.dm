@@ -1,12 +1,12 @@
-/obj/overmap/simulated_ship/scg/corvette_cartwheel
+/obj/overmap/simulated_ship/scg/corvette_lexington
 	name = "Lexington-class Corvette"
 	desc = "A small-size speedy vessel used to hunt down smaller enemies, broadcasting SCGSV codes."
 	icon = 'mods/_fd/ai_overmap_objects/icons/scg/sfv32.dmi'
-	icon_state = ""
-	moving_state = ""
-	characteristic = new /datum/ship_characteristic/scg/corvette_cartwheel()
+	icon_state = "lexington"
+	moving_state = "lexington_moving"
+	characteristic = new /datum/ship_characteristic/scg/corvette_lexington()
 
-/datum/ship_characteristic/scg/corvette_cartwheel
+/datum/ship_characteristic/scg/corvette_lexington
 	max_health = 51000
 	max_shield = 9000
 	shield_regen_speed = 4 *(1 SECOND)
@@ -17,7 +17,7 @@
 	max_targeted_distance_to_target = 2
 	sensors_range = 15
 
-/datum/ship_characteristic/scg/corvette_cartwheel/New()
+/datum/ship_characteristic/scg/corvette_lexington/New()
 	cannons = list(
 		"minigun_1" = list("type" = /obj/machinery/computer/ship/ship_weapon/minigun, "accurace" = 80, "damage" = 0),
 		"minigun_2" = list("type" = /obj/machinery/computer/ship/ship_weapon/minigun, "accurace" = 80, "damage" = 0),

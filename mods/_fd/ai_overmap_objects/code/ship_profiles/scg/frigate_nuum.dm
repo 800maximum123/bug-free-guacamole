@@ -2,8 +2,8 @@
 	name = "Nuum-class Frigate"
 	desc = "Heavy torpedo-carrier designed to act as a main soucre of damage in assault fleet squadrons, broadcasting SCGSV codes."
 	icon = 'mods/_fd/ai_overmap_objects/icons/scg/sfv32.dmi'
-	icon_state = ""
-	moving_state = ""
+	icon_state = "nuum"
+	moving_state = "nuum_moving"
 	characteristic = new /datum/ship_characteristic/scg/frigate_nuum()
 
 /datum/ship_characteristic/scg/frigate_nuum

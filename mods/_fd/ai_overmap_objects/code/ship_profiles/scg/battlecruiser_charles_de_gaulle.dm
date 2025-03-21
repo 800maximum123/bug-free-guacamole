@@ -1,9 +1,9 @@
 /obj/overmap/simulated_ship/scg/battlecruiser_charles_de_gaulle
 	name = "Cherles De Gaulle-class Battleruiser"
 	desc = "An older battlecruiser, the De Gaulle-class has some advantages over the Midway in armor and support capabilities, most importantly: a large storage bay containing dropships, landing craft, and vehicles for leading landing operations.It is broadcasting SCGSV codes."
-	icon = 'mods/_fd/ai_overmap_objects/icons/scg/sfv32.dmi'
-	icon_state = ""
-	moving_state = ""
+	icon = 'mods/_fd/ai_overmap_objects/icons/scg/sfv64.dmi'
+	icon_state = "charles"
+	moving_state = "charles_moving"
 	characteristic = new /datum/ship_characteristic/scg/battlecruiser_charles_de_gaulle()
 
 /datum/ship_characteristic/scg/battlecruiser_charles_de_gaulle

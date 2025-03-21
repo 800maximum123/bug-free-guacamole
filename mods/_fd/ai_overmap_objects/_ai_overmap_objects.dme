@@ -21,6 +21,7 @@
 // SCG
 
 #include "code/ship_profiles/_bases/scg.dm"
+#include "code/ship_profiles/scg/flagship_resolution.dm"
 #include "code/ship_profiles/scg/battlecruiser_charles_de_gaulle.dm"
 #include "code/ship_profiles/scg/battlecruiser_midway.dm"
 #include "code/ship_profiles/scg/carrier_nefertari.dm"
@@ -41,5 +42,6 @@
 #include "code/ship_profiles/scg/supercarrier_terra.dm"
 #include "code/ship_profiles/scg/supercarrier_aldrin.dm"
 #include "code/ship_profiles/scg/drone_hmg.dm"
+#include "code/ship_profiles/scg/sfv_tigris.dm"
 
 #endif
