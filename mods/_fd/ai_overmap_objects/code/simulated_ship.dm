@@ -86,6 +86,11 @@
 	if(characteristic.should_die == TRUE || characteristic.health == 0) // Just for safety
 		qdel(src)
 
+	for(var/key in characteristic.cannons)
+		var/list/entry = characteristic.cannons[key]
+		if(entry["cooldown"] != 0)
+			entry["cooldown"] = max(0, entry["cooldown"] - 10)
+
 /obj/overmap/simulated_ship/MouseEntered(location, control, params)
 	//var/scan_health = round((characteristic.health / characteristic.max_health) * 100)
 	//var/scan_shield = round((characteristic.shield / characteristic.max_shield) * 100)
@@ -445,6 +450,7 @@
 	//walk_away(src, targeted_turf, characteristic.sensors_range, characteristic.characteristic.max_speed, characteristic.characteristic.max_speed)
 
 /obj/overmap/simulated_ship/proc/shoot(obj/overmap/targeted_object)
+	//TODO: rewrite everything in this proc from scratch
 	if(world.time < last_shot_time + characteristic.cooldown_beetween_shots)
 		return
 	var/list/all_ready_cannons = characteristic.get_all_ready_to_fire_cannon()
@@ -464,78 +470,117 @@
 
 	if(characteristic.cannons[selected_cannon]["type"] == /obj/machinery/computer/ship/ship_weapon/beam_cannon/particle_lance)
 		if(get_dist(get_turf(src), get_turf(targeted_object)) < 3) // Must be 2 tiles of empty space beetwen us and target
-			var/obj/machinery/computer/ship/ship_weapon/beam_cannon/particle_lance/selected_fake_lance = new /obj/machinery/computer/ship/ship_weapon/beam_cannon/particle_lance()
-			var/obj/machinery/ship_weapon/front_part/new_front_part = new /obj/machinery/ship_weapon/front_part()
-			//characteristic.cannons[selected_cannon]["type"]
-			selected_fake_lance.linked = src
-			selected_fake_lance.front = new_front_part
-			var/obj/overmap/visitable/ship/O = targeted_object
-
 			// Doctor Alex: It's probably the worst idea i've got, replace it in future
-			var/obj/effect/projectile_lance/lance = new /obj/effect/projectile_lance(loc)
-			lance.transform = matrix().Update(rotation = dir2angle(get_dir(src, O)) + 15)
-			animate(lance, transform = matrix(dir2angle(get_dir(src, O)) - 15, MATRIX_ROTATE), time = 1 SECONDS, easing = SINE_EASING | EASE_OUT)
-			spawn(0.8 SECOND)
-				animate(lance, 0.5 SECOND, alpha = 0)
+			//var/obj/effect/projectile_lance/lance = new /obj/effect/projectile_lance(loc)
+			//lance.transform = matrix().Update(rotation = dir2angle(get_dir(src, O)) + 15)
+			//animate(lance, transform = matrix(dir2angle(get_dir(src, O)) - 15, MATRIX_ROTATE), time = 1 SECONDS, easing = SINE_EASING | EASE_OUT)
+			//spawn(0.8 SECOND)
+			//	animate(lance, 0.5 SECOND, alpha = 0)
+			var/saved_beam = src.Beam(get_turf(targeted_object), "3-full", icon = 'mods/_fd/old_space_cannons/icons/beam.dmi', time = 1.0 SECOND, maxdistance = world.maxx)
+			spawn(10 SECOND) // Basic GC
+				qdel(saved_beam)
+			if(istype(targeted_object, /obj/overmap/simulated_ship))
+				var/obj/overmap/simulated_ship/targeted_npc = targeted_object
+				targeted_npc.animate_damage()
+				//src.Beam(get_turf(targeted_object), "ion_beam", icon = 'mods/_fd/old_space_cannons/icons/beam.dmi', time = 70, maxdistance = world.maxx)
+				targeted_npc.handle_ebeam()
+				characteristic.cannons[selected_cannon]["cooldown"] = characteristic.cannons[selected_cannon]["max_cooldown"]
+			else
+				var/obj/machinery/computer/ship/ship_weapon/beam_cannon/particle_lance/selected_fake_lance = new /obj/machinery/computer/ship/ship_weapon/beam_cannon/particle_lance()
+				var/obj/machinery/ship_weapon/front_part/new_front_part = new /obj/machinery/ship_weapon/front_part()
+				//characteristic.cannons[selected_cannon]["type"]
+				selected_fake_lance.linked = src
+				selected_fake_lance.front = new_front_part
+				var/obj/overmap/visitable/ship/O = targeted_object
 
-			var/picked_level = pick(O.map_z)
+				var/picked_level = pick(O.map_z)
 
-			log_and_message_admins(picked_level)
-			log_and_message_admins(O.fore_dir)
-			log_and_message_admins(O)
+				log_and_message_admins(picked_level)
+				log_and_message_admins(O.fore_dir)
+				log_and_message_admins(O)
 
-			for(var/mob/M in GLOB.player_list)
-				if(M.z == picked_level)
-					to_chat(M, "<span style='color:red; font-size: 20px;'>Вы чувствуете, как пол под вами начинает дрожать...</span>")
-			sleep(1 SECOND)
-			selected_fake_lance.fire_at_sector(picked_level, O.fore_dir, O, FALSE)
-			selected_fake_lance.linked = null
-			qdel(selected_fake_lance)
+				for(var/mob/M in GLOB.player_list)
+					if(M.z == picked_level)
+						to_chat(M, "<span style='color:red; font-size: 20px;'>Вы чувствуете, как пол под вами начинает дрожать...</span>")
+				sleep(1 SECOND)
+				selected_fake_lance.fire_at_sector(picked_level, O.fore_dir, O, FALSE)
+				selected_fake_lance.linked = null
+				qdel(selected_fake_lance)
 			characteristic.cannons[selected_cannon]["cooldown"] = characteristic.cannons[selected_cannon]["max_cooldown"]
 		return
 
 	if(characteristic.cannons[selected_cannon]["type"] == /obj/machinery/computer/ship/ship_weapon/beam_cannon)
 		if(get_dist(get_turf(src), get_turf(targeted_object)) < 3) // Must be 2 tiles of empty space beetwen us and target
-			var/obj/machinery/computer/ship/ship_weapon/beam_cannon/selected_fake_beam = new /obj/machinery/computer/ship/ship_weapon/beam_cannon()
-			var/obj/machinery/ship_weapon/front_part/new_front_part = new /obj/machinery/ship_weapon/front_part()
-			//characteristic.cannons[selected_cannon]["type"]
-			selected_fake_beam.linked = src
-			selected_fake_beam.front = new_front_part
-			var/obj/overmap/visitable/ship/O = targeted_object
+			//var/obj/effect/projectile_lance/lance = new /obj/effect/projectile_lance(loc)
+			//lance.transform = matrix().Update(rotation = dir2angle(get_dir(src, O)) + 15)
+			//animate(lance, transform = matrix(dir2angle(get_dir(src, O)) - 15, MATRIX_ROTATE), time = 1 SECONDS, easing = SINE_EASING | EASE_OUT)
+			//spawn(0.8 SECOND)
+			//	animate(lance, 0.5 SECOND, alpha = 0)
+			var/saved_beam = src.Beam(get_turf(targeted_object), "3-full", icon = 'mods/_fd/old_space_cannons/icons/beam.dmi', time = 1.0 SECOND, maxdistance = world.maxx)
+			spawn(10 SECOND) // Basic GC
+				qdel(saved_beam)
+			if(istype(targeted_object, /obj/overmap/simulated_ship))
+				var/obj/overmap/simulated_ship/targeted_npc = targeted_object
+				targeted_npc.animate_damage()
+				targeted_npc.handle_ebeam()
+			else
+				var/obj/machinery/computer/ship/ship_weapon/beam_cannon/selected_fake_beam = new /obj/machinery/computer/ship/ship_weapon/beam_cannon()
+				var/obj/machinery/ship_weapon/front_part/new_front_part = new /obj/machinery/ship_weapon/front_part()
+				//characteristic.cannons[selected_cannon]["type"]
+				selected_fake_beam.linked = src
+				selected_fake_beam.front = new_front_part
+				var/obj/overmap/visitable/ship/O = targeted_object
 
-			// TODO: change to beam texture
-			var/obj/effect/projectile_lance/lance = new /obj/effect/projectile_lance(loc)
-			lance.transform = matrix().Update(rotation = dir2angle(get_dir(src, O)) + 15)
-			animate(lance, transform = matrix(dir2angle(get_dir(src, O)) - 15, MATRIX_ROTATE), time = 1 SECONDS, easing = SINE_EASING | EASE_OUT)
-			spawn(0.8 SECOND)
-				animate(lance, 0.5 SECOND, alpha = 0)
+				// TODO: change to beam texture
 
-			selected_fake_beam.fire_at_sector(pick(O.map_z), O.fore_dir, O, FALSE)
-			selected_fake_beam.linked = null
-			qdel(selected_fake_beam)
+				selected_fake_beam.fire_at_sector(pick(O.map_z), O.fore_dir, O, FALSE)
+				selected_fake_beam.linked = null
+				qdel(selected_fake_beam)
 			characteristic.cannons[selected_cannon]["cooldown"] = characteristic.cannons[selected_cannon]["max_cooldown"]
 		return
 
-	//for(var/i = 1; i <= characteristic.get_weapon_burst_size(characteristic.cannons[selected_cannon]["type"]); i++)
-	for(var/i in 1 to characteristic.get_weapon_burst_size(characteristic.cannons[selected_cannon]["type"]))
-		// Fuck this, gonna do it right now. TODO: change fucking everything
-		var/list/random_ammo_box_key = pick(characteristic.ammo)
-		var/obj/item/ammo_magazine/ammobox/random_ammo_box_entry = characteristic.ammo[random_ammo_box_key]["type"]
+	if(length(characteristic.ammo) > 0)
+		if(characteristic.cannons[selected_cannon]["type"] == /obj/machinery/computer/ship/missiles)
+			var/selected_missle = null
 
-		var/obj/item/ammo_casing/huge_caliber/projectile_type = characteristic.get_projectile_type(random_ammo_box_entry)
-		var/obj/item/projectile/bullet/huge_caliber/pew = new projectile_type(src.loc)
-		pew.starting = src.loc
-		pew.origin = src
-		pew.cal_accuracy = characteristic.cannons[selected_cannon]["accurace"]
-		pew.overmapdir = get_dir(src, targeted_object)
-		//pew.launch(get_step(src.loc, get_dir(src, targeted_object)), pick(BP_ALL_LIMBS))
-		pew.entered_overmap = TRUE
-		//var/obj/overmap/source = map_sectors["[z]"]
-		pew.overmap_projectile = new /obj/overmap/projectile(null, src.x, src.y)
-		pew.overmap_projectile.SetName("[src.name+"'s"] [pew.name]")
-		pew.overmap_projectile.set_projectile(pew, pew.cal_accuracy)
-		//overmap_projectile.color = overmap_color
-	characteristic.cannons[selected_cannon]["cooldown"] = characteristic.cannons[selected_cannon]["max_cooldown"]
+			var/total_weight = 0
+			for(var/item in characteristic.ammo)
+				total_weight += characteristic.ammo[item]["weight"]
+			var/rand_pick = rand(1, total_weight)
+			var/current_weight = 0
+
+			for(var/item in characteristic.ammo)
+				current_weight += characteristic.ammo[item]["weight"]
+				if(rand_pick <= current_weight)
+					selected_missle = item
+
+			if(selected_missle == null)
+				return
+
+			var/obj/structure/missile/missile_type = characteristic.ammo[selected_missle]["type"]
+
+			return
+		//for(var/i = 1; i <= characteristic.get_weapon_burst_size(characteristic.cannons[selected_cannon]["type"]); i++)
+		else
+			for(var/i in 1 to characteristic.get_weapon_burst_size(characteristic.cannons[selected_cannon]["type"]))
+				// Fuck this, gonna do it right now. TODO: change fucking everything
+				var/list/random_ammo_box_key = pick(characteristic.ammo)
+				var/obj/item/ammo_magazine/ammobox/random_ammo_box_entry = characteristic.ammo[random_ammo_box_key]["type"]
+
+				var/obj/item/ammo_casing/huge_caliber/projectile_type = characteristic.get_projectile_type(random_ammo_box_entry)
+				var/obj/item/projectile/bullet/huge_caliber/pew = new projectile_type(src.loc)
+				pew.starting = src.loc
+				pew.origin = src
+				pew.cal_accuracy = characteristic.cannons[selected_cannon]["accurace"]
+				pew.overmapdir = get_dir(src, targeted_object)
+				//pew.launch(get_step(src.loc, get_dir(src, targeted_object)), pick(BP_ALL_LIMBS))
+				pew.entered_overmap = TRUE
+				//var/obj/overmap/source = map_sectors["[z]"]
+				pew.overmap_projectile = new /obj/overmap/projectile(null, src.x, src.y)
+				pew.overmap_projectile.SetName("[src.name+"'s"] [pew.name]")
+				pew.overmap_projectile.set_projectile(pew, pew.cal_accuracy)
+				//overmap_projectile.color = overmap_color
+			characteristic.cannons[selected_cannon]["cooldown"] = characteristic.cannons[selected_cannon]["max_cooldown"]
 
 // ebeam compatibility(kind of)
 // this is junk, literally and physically
@@ -555,8 +600,8 @@
 
 // we do not need this here, but proc does and i dunno if i can simply remove 'em
 	var/agony = 0
-	var/explosion_radius = 0
-	var/explosion_max_power = 0
+	var/explosion_radius = 200
+	var/explosion_max_power = 250
 	var/proximity_detonation = FALSE
 
 	var/list/applied_damage = characteristic.calculate_damage(damage, damage_type, agony, temperature, explosion_radius, explosion_max_power, armor_penetration, penetrating, penetration_modifier, proximity_detonation)

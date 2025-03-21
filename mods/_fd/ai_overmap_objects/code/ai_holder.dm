@@ -34,8 +34,14 @@
 		var/turf/T = get_turf(src)
 		for(var/obj/overmap/O in T)
 			if(istype(O, /obj/overmap/simulated_ship))
-				linked_object = O
-				break
+				var/some_ai_already_dominate_this_ship = FALSE
+				for(var/obj/overmap/ai_holder/OO in T)
+					if(OO.linked_object == O)
+						some_ai_already_dominate_this_ship = TRUE
+						break
+				if(some_ai_already_dominate_this_ship == FALSE)
+					linked_object = O
+					break
 			//if(istype(O, /obj/overmap/visitable/ship))
 			//	linked_object = O
 			//	break
@@ -101,11 +107,6 @@
 		return
 
 	//src.set_invisibility(50)
-
-	for(var/key in linked_object_settings.cannons)
-		var/list/entry = linked_object_settings.cannons[key]
-		if(entry["cooldown"] != 0)
-			entry["cooldown"] = max(0, entry["cooldown"] - 10)
 
 	switch(linked_object_settings.ai_mode)
 		if(AI_MODE_DEFEND)
