@@ -4,6 +4,7 @@
 	icon = 'mods/_fd/ai_overmap_objects/icons/scg/sfv64.dmi'
 	icon_state = "tigris"
 	moving_state = "tigri_moving"
+	icon_shifting = 32
 	characteristic = new /datum/ship_characteristic/scg/sfv_tigris()
 
 /datum/ship_characteristic/scg/sfv_tigris
