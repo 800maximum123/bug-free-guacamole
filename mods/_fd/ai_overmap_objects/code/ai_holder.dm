@@ -233,7 +233,8 @@
 				detected_friendly_objects += O
 			else if(
 			linked_object_settings.team == AI_TEAM_FFA ||\
-			linked_object_settings.team == AI_TEAM_ASCENTS && detected_object_settings.team == AI_TEAM_HUMANS\
+			linked_object_settings.team == AI_TEAM_ASCENTS && detected_object_settings.team == AI_TEAM_HUMANS ||\
+			linked_object_settings.team == AI_TEAM_HUMANS && detected_object_settings.team == AI_TEAM_ASCENTS\
 			)
 				detected_hostile_objects += O
 			else
