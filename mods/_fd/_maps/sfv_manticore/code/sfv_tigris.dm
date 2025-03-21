@@ -1,5 +1,14 @@
 // MAP
 
+/obj/overmap/visitable/ship/sfv_tigris
+	name = "SFV Tigris"
+	desc = ""
+	vessel_mass = 500000
+	free_landing = FALSE
+	icon_state = "object"
+	color = "#669ac5"
+	fore_dir = NORTH
+
 /obj/submap_landmark/joinable_submap/sfv_tigris/scg
 	name = "SFV Tigris"
 	archetype = /singleton/submap_archetype/sfv_tigris/scg
@@ -132,6 +141,8 @@
 	total_positions = 1
 	spawn_positions = 1
 	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg
+	branch = /datum/mil_branch/fleet
+	rank = /datum/mil_branch/fleet
 	allowed_branches = list(
 		/datum/mil_branch/fleet,
 	)
@@ -165,8 +176,8 @@
 	total_positions = 3
 	spawn_positions = 3
 	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg
-	branch = list(/datum/mil_branch/fleet)
-	rank = list(/datum/mil_rank/fleet/e6)
+	branch = /datum/mil_branch/fleet
+	rank = /datum/mil_rank/fleet/e6
 	allowed_branches = list(
 		/datum/mil_branch/fleet,
 	)
@@ -202,7 +213,8 @@
 	total_positions = 1
 	spawn_positions = 1
 	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg
-	rank = list(/datum/mil_rank/fleet/o2)
+	branch = /datum/mil_branch/fleet
+	rank = /datum/mil_rank/fleet/o2
 	allowed_branches = list(
 		/datum/mil_branch/fleet
 	)
@@ -237,13 +249,9 @@
 	total_positions = 6
 	spawn_positions = 6
 	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg
-	branch = list(/datum/mil_branch/fleet)
-	rank = list(
-		/datum/mil_rank/fleet/e5,
-		/datum/mil_rank/fleet/e6,
-		/datum/mil_rank/fleet/e7,
-		/datum/mil_rank/fleet/e8,
-	)
+	branch = /datum/mil_branch/fleet
+	rank = /datum/mil_rank/fleet/e5
+
 	allowed_branches = list(
 		/datum/mil_branch/fleet,
 	)
@@ -279,8 +287,8 @@
 	total_positions = 1
 	spawn_positions = 1
 	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg
-	branch = list(/datum/mil_branch/fleet,/datum/mil_branch/civilian)
-	rank = list(/datum/mil_rank/fleet/o3,/datum/mil_branch/civilian)
+	branch = /datum/mil_branch/fleet
+	rank = /datum/mil_rank/fleet/o3
 	allowed_branches = list(
 		/datum/mil_branch/fleet,
 		/datum/mil_branch/civilian
@@ -315,14 +323,9 @@
 	total_positions = 16
 	spawn_positions = 16
 	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg
-	branch = list(/datum/mil_branch/fleet, /datum/mil_branch/civilian)
-	rank = list(
-		/datum/mil_rank/fleet/e5,
-		/datum/mil_rank/fleet/e6,
-		/datum/mil_rank/fleet/e7,
-		/datum/mil_rank/fleet/e8,
-		/datum/mil_rank/civ/contractor
-	)
+	branch = /datum/mil_branch/fleet
+	rank = /datum/mil_rank/fleet/e5
+
 	allowed_branches = list(
 		/datum/mil_branch/fleet,
 		/datum/mil_branch/civilian
@@ -366,6 +369,8 @@
 	total_positions = 1
 	spawn_positions = 1
 	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/iccgn
+	branch = /datum/mil_branch/iccgn
+	rank = /datum/mil_rank/iccgn/of3
 	allowed_branches = list(
 		/datum/mil_branch/iccgn,
 	)
@@ -399,8 +404,8 @@
 	total_positions = 3
 	spawn_positions = 3
 	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/iccgn
-	branch = list(/datum/mil_branch/iccgn)
-	rank = list(/datum/mil_rank/iccgn/or6)
+	branch = /datum/mil_branch/iccgn
+	rank = /datum/mil_rank/iccgn/or6
 	allowed_branches = list(
 		/datum/mil_branch/iccgn,
 	)
@@ -436,7 +441,8 @@
 	total_positions = 1
 	spawn_positions = 1
 	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/iccgn
-	rank = list(/datum/mil_rank/iccgn/of2)
+	branch = /datum/mil_branch/iccgn
+	rank = /datum/mil_rank/iccgn/of2
 	allowed_branches = list(
 		/datum/mil_branch/iccgn
 	)
@@ -471,13 +477,9 @@
 	total_positions = 6
 	spawn_positions = 6
 	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/iccgn
-	branch = list(/datum/mil_branch/iccgn)
-	rank = list(
-		/datum/mil_rank/iccgn/or5,
-		/datum/mil_rank/iccgn/or6,
-		/datum/mil_rank/iccgn/or7,
-		/datum/mil_rank/iccgn/or8,
-	)
+	branch = /datum/mil_branch/iccgn
+	rank = /datum/mil_rank/iccgn/or5
+
 	allowed_branches = list(
 		/datum/mil_branch/iccgn,
 	)
@@ -513,8 +515,8 @@
 	total_positions = 1
 	spawn_positions = 1
 	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/iccgn
-	branch = list(/datum/mil_branch/iccgn,/datum/mil_branch/civilian)
-	rank = list(/datum/mil_rank/iccgn/of3,/datum/mil_branch/civilian)
+	branch = /datum/mil_branch/iccgn
+	rank = /datum/mil_rank/iccgn/of3
 	allowed_branches = list(
 		/datum/mil_branch/iccgn,
 		/datum/mil_branch/civilian
@@ -549,16 +551,11 @@
 	total_positions = 16
 	spawn_positions = 16
 	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/iccgn
-	branch = list(/datum/mil_branch/iccgn, /datum/mil_branch/civilian)
-	rank = list(
-		/datum/mil_rank/iccgn/or5,
-		/datum/mil_rank/iccgn/or6,
-		/datum/mil_rank/iccgn/or7,
-		/datum/mil_rank/iccgn/or8,
-		/datum/mil_rank/civ/contractor
-	)
+	branch = /datum/mil_branch/iccgn
+	rank = /datum/mil_rank/iccgn/or5
+
 	allowed_branches = list(
-		/datum/mil_branch/fleet,
+		/datum/mil_branch/iccgn,
 		/datum/mil_branch/civilian
 	)
 	allowed_ranks = list(
