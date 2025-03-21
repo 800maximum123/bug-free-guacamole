@@ -171,6 +171,6 @@
 		spawn(1 SECOND)
 			qdel(after_image)
 
-	..()
+	. = ..()
 
 //to-do: delete all spaces when character trying to say something
