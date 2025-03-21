@@ -12,6 +12,7 @@
 	desc = "unknown ship"
 	icon = 'mods/_fd/fd_assets/icons/overmap_eris.dmi'
 	icon_state = "unkn"
+	var/icon_shifting = 0
 	var/moving_state = "unkn_r"
 	requires_contact = FALSE
 	scannable = TRUE
@@ -176,8 +177,8 @@
 	adjust_speed(delta * dx, delta * dy)
 
 /obj/overmap/simulated_ship/on_update_icon()
-	pixel_x = position[1] * (world.icon_size/2)
-	pixel_y = position[2] * (world.icon_size/2)
+	pixel_x = (position[1] * (world.icon_size/2)) - (icon_shifting / 2)
+	pixel_y = (position[2] * (world.icon_size/2)) - (icon_shifting / 2)
 	if(!is_still())
 		icon_state = moving_state
 		dir = get_heading()

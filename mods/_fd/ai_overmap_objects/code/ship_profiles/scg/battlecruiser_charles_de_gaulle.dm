@@ -4,6 +4,7 @@
 	icon = 'mods/_fd/ai_overmap_objects/icons/scg/sfv64.dmi'
 	icon_state = "charles"
 	moving_state = "charles_moving"
+	icon_shifting = 32
 	characteristic = new /datum/ship_characteristic/scg/battlecruiser_charles_de_gaulle()
 
 /datum/ship_characteristic/scg/battlecruiser_charles_de_gaulle
