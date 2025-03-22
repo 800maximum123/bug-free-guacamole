@@ -3,7 +3,7 @@
 /obj/item/drone_cell
 
 	name = "salvage drone fuel cell"
-	desc = "A fuel cell for an onboard salvage drone. ONE CELL is used per ONE extraction operation."
+	desc = "A fuel cell for an onboard salvage drone. ONE CELL is used per ONE extraction operation. DO NOT PLACE MORE THAN ONE!"
 	icon = 'mods/_fd/fd_assets/icons/obj/items/oddities.dmi'
 	icon_state = "techno_part6"
 
