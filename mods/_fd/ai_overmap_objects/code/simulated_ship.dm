@@ -542,23 +542,37 @@
 
 	if(length(characteristic.ammo) > 0)
 		if(characteristic.cannons[selected_cannon]["type"] == /obj/machinery/computer/ship/missiles)
-			var/selected_missle = null
+			var/selected_missile = null
 
-			var/total_weight = 0
-			for(var/item in characteristic.ammo)
-				total_weight += characteristic.ammo[item]["weight"]
-			var/rand_pick = rand(1, total_weight)
-			var/current_weight = 0
+			if(if(length(characteristic.ammo) > 1))
+				var/total_weight = 0
+				for(var/item in characteristic.ammo)
+					total_weight += characteristic.ammo[item]["weight"]
+				var/rand_pick = rand(1, total_weight)
+				var/current_weight = 0
 
-			for(var/item in characteristic.ammo)
-				current_weight += characteristic.ammo[item]["weight"]
-				if(rand_pick <= current_weight)
-					selected_missle = item
+				for(var/item in characteristic.ammo)
+					current_weight += characteristic.ammo[item]["weight"]
+					if(rand_pick <= current_weight)
+						selected_missile = item
 
-			if(selected_missle == null)
-				return
+				if(selected_missile == null) // ???
+					return
 
-			var/obj/structure/missile/missile_type = characteristic.ammo[selected_missle]["type"]
+				selected_missilevar = characteristic.ammo[selected_missile]
+			else
+				selected_missile = characteristic.ammo[1]
+
+			var/obj/overmap/missile/overmap_missile = new /obj/overmap/missile(src.loc)
+			var/obj/structure/missile/caboom = new characteristic.ammo[selected_missile]["type"]
+
+			// WHAT THE FUCK???
+			overmap_missile.actual_missile = caboom
+			caboom.overmap_missile = overmap_missile
+
+			
+
+
 
 			return
 		//for(var/i = 1; i <= characteristic.get_weapon_burst_size(characteristic.cannons[selected_cannon]["type"]); i++)

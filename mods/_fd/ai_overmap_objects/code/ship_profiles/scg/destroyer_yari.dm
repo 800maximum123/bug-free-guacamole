@@ -21,12 +21,13 @@
 	cannons = list(
 		"beam_cannon_1" = list("type" = /obj/machinery/computer/ship/ship_weapon/beam_cannon, "accurace" = 90, "damage" = 0),
 		"beam_cannon_2" = list("type" = /obj/machinery/computer/ship/ship_weapon/beam_cannon, "accurace" = 90, "damage" = 0),
-		// Раз в 10 секунд, стреляет рандомной ракетой из ammo, с учётом веса (при выборе)
-		"missle_launcher_1" = list("type" = /obj/machinery/computer/ship/missiles, "max_cooldown" = 100, "damage" = 0)
+		"missile_launcher_1" = list("type" = /obj/machinery/computer/ship/missiles, "max_cooldown" = 100, "damage" = 0) // Раз в 10 секунд, стреляет рандомной ракетой из ammo, с учётом веса (при выборе)
 ) // дописать одну пусковую установку с ядерными торпедами
 
 	ammo = list(
-		"missle_" = list("type" = /obj/structure/missile/locked/nuke, "ammount" = 3),
+		"missile_nuke" = list("type" = /obj/structure/missile/locked/nuke, "weight" = 1, "ammount" = 1),
+		"missile_diffusive" = list("type" = /obj/structure/missile/diffusive, "weight" = 3, "ammount" = 5),
+		"missile_he" = list("type" = /obj/structure/missile/he, "weight" = 5, "ammount" = 10),
 	)
 
 	..()
