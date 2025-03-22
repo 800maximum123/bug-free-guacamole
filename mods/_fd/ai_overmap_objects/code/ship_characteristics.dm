@@ -60,7 +60,8 @@
 	shield_regen_strength = max_shield * 0.01
 	for(var/key in ammo)
 		var/list/entry = ammo[key]
-		entry["ammount"] = get_ammo_max_ammo(entry["type"]) * entry["ammount"]
+		if(ispath(entry["type"], /obj/item/ammo_magazine))
+			entry["ammount"] = get_ammo_max_ammo(entry["type"]) * entry["ammount"]
 	for(var/key in cannons)
 		var/list/entry = cannons[key]
 		entry["max_cooldown"] = get_weapon_coolinterval(entry["type"])
@@ -71,6 +72,7 @@
 	valid_internal_systems += "shield"
 	valid_outer_systems += "engine"
 	for(var/key in cannons)
+		valid_internal_systems += key
 		valid_outer_systems += key
 	create_shield_timer()
 
@@ -120,6 +122,7 @@
 					cannons[system]["damage"] = min(cannons[system]["damage"] + damage, 100)
 					// Logic in ai_handler object (TODO: move it to the ship obj)
 					if(engine_damage == 100)
+						valid_internal_systems -= cannons[system]
 						valid_outer_systems -= cannons[system]
 				else // Null or something errored
 					return
@@ -235,30 +238,28 @@
 	// Radius is how many systems were affected (CAN BE 0), while max_power is damage to this systems
 	// Balanced around autocannon's 200 rad and 500 power, so it would damage (IN SUMMARY) 0-2 systems for 50 damage
 	// Do note that this 50 damage is not applied to EACH affected system, but instead is randomly distributed to all affected systems (!)
-	if(explosion_max_power && explosion_radius)
-		var/system_damage_calculated = explosion_max_power / 10
+	//if(explosion_max_power != null && explosion_radius != null)
+	var/system_damage_calculated = explosion_max_power / 10
 
-		if(proximity_detonation)
-			if(proximity_detonation == TRUE)
-				//hull_damage += explosion_damage_calculated
-				//shield_damage += explosion_damage_calculated / 2
-				outer_systems_damage += system_damage_calculated
-				outer_systems_damaged_count += rand(0, round(explosion_radius / 100))
-			else
-				//hull_damage += explosion_damage_calculated / 4
-				//shield_damage += explosion_damage_calculated / 2
-				internal_systems_damage += system_damage_calculated
-				internal_systems_damaged_count += rand(0, round(explosion_radius / 100))
+	if(proximity_detonation == TRUE)
+		//hull_damage += explosion_damage_calculated
+		//shield_damage += explosion_damage_calculated / 2
+		outer_systems_damage += system_damage_calculated
+		outer_systems_damaged_count += rand(0, round(explosion_radius / 100))
+	else if (proximity_detonation == FALSE)
+		//hull_damage += explosion_damage_calculated / 4
+		//shield_damage += explosion_damage_calculated / 2
+		internal_systems_damage += system_damage_calculated
+		internal_systems_damaged_count += rand(0, round(explosion_radius / 100))
+	//if(armor_penetration != null)
+	// If 100 then damage is doubled
+	hull_damage += hull_damage * (armor_penetration / 100)
 
-	if(armor_penetration)
-		// If 100 then damage is doubled
-		hull_damage += hull_damage * (armor_penetration / 100)
-
-	if(penetrating && penetration_modifier)
-		hull_damage *= penetration_modifier
-		hull_damage += hull_damage * (penetration_modifier / 100)
-		internal_systems_damage *= penetration_modifier
-		internal_systems_damaged_count += rand(1, (100 * penetration_modifier / 10))
+	//if(penetrating != null && penetration_modifier != null)
+	hull_damage *= penetration_modifier
+	hull_damage += hull_damage * (penetration_modifier / 100)
+	internal_systems_damage *= penetration_modifier
+	internal_systems_damaged_count += rand(1, (100 * penetration_modifier / 10))
 
 	return list(
 		"hull_damage" = round(hull_damage),\
@@ -345,8 +346,11 @@
 		info += FONT_SMALL("<li>Detected cannons:<ul>")
 		for(var/key in cannons)
 			var/list/cannon_information = cannons[key]
-			var/obj/machinery/computer/ship/ship_weapon/type = cannon_information["type"]
-			info += FONT_SMALL("<li>[capitalize(type.gun_name)] - ")
+			if(ispath(cannon_information["type"], /obj/machinery/computer/ship/missiles))
+				info += FONT_SMALL("<li>Missile Launcher - ")
+			else if(ispath(cannon_information["type"], /obj/machinery/computer/ship/ship_weapon))
+				var/obj/machinery/computer/ship/ship_weapon/type = cannon_information["type"]
+				info += FONT_SMALL("<li>[capitalize(type.gun_name)] - ")
 			info += STYLE_SMALLFONTS(100 - cannon_information["damage"], PIXELS_FOR_SHIP_SYSTEM_DAMAGE, get_damage_color_string(cannon_information["damage"]))
 			info += FONT_SMALL("%</li>")
 		info += FONT_SMALL("</ul></li>")
@@ -391,6 +395,9 @@
 /datum/ship_characteristic/proc/get_weapon_fire_interval(obj/machinery/computer/ship/ship_weapon/O)
 	return O.fire_interval
 
+/datum/ship_characteristic/proc/get_missile_type(obj/item/ammo_magazine/ammobox/O)
+	var/obj/item/ammo_casing/huge_caliber/OO = O.ammo_type
+	return OO.projectile_type
 //	return O.gun_name
 //	return O.munition_type
 //	return O.coolinterval

@@ -261,7 +261,7 @@
 				animate(src, color = initial(color), time = 0.5 SECOND, easing = CUBIC_EASING | EASE_OUT)
 
 /obj/overmap/simulated_ship/proc/process_projectile(atom/movable/O)
-	// Bullets, rockets,
+	// "Bullets"
 	if(istype(O, /obj/overmap/projectile))
 		//log_and_message_admins("Was crossed by projectile [O.name]")
 		var/obj/overmap/projectile/OO = O
@@ -308,6 +308,12 @@
 			log_and_message_admins(SPAN_WARNING("<b> \[Simulated ship\] Корабль по координатам [x]-[y] получил ракету без ракеты. Хуйня, проверить почему!</i></b>"))
 			qdel(OO)
 			return
+
+		for(var/obj/item/missile_equipment/E in incoming_boom.equipment)
+			if (istype(E, /obj/item/missile_equipment/thruster))
+				var/obj/item/missile_equipment/thruster/missile_thruster = E
+				if(missile_thruster.target != src)
+					return
 
 		var/list/applied_damage = null
 		// Multiple equipments? TODO
@@ -477,7 +483,7 @@
 			//animate(lance, transform = matrix(dir2angle(get_dir(src, O)) - 15, MATRIX_ROTATE), time = 1 SECONDS, easing = SINE_EASING | EASE_OUT)
 			//spawn(0.8 SECOND)
 			//	animate(lance, 0.5 SECOND, alpha = 0)
-			var/saved_beam = src.Beam(get_turf(targeted_object), "3-full", icon = 'mods/_fd/old_space_cannons/icons/beam.dmi', time = 1.0 SECOND, maxdistance = world.maxx)
+			var/saved_beam = src.Beam(get_turf(targeted_object), "3-full-particle-beam", icon = 'mods/_fd/old_space_cannons/icons/beam.dmi', time = 1.0 SECOND, maxdistance = world.maxx)
 			spawn(10 SECOND) // Basic GC
 				qdel(saved_beam)
 			if(istype(targeted_object, /obj/overmap/simulated_ship))
@@ -485,7 +491,7 @@
 				targeted_npc.animate_damage()
 				//src.Beam(get_turf(targeted_object), "ion_beam", icon = 'mods/_fd/old_space_cannons/icons/beam.dmi', time = 70, maxdistance = world.maxx)
 				targeted_npc.handle_ebeam()
-				characteristic.cannons[selected_cannon]["cooldown"] = characteristic.cannons[selected_cannon]["max_cooldown"]
+				//characteristic.cannons[selected_cannon]["cooldown"] = characteristic.cannons[selected_cannon]["max_cooldown"]
 			else
 				var/obj/machinery/computer/ship/ship_weapon/beam_cannon/particle_lance/selected_fake_lance = new /obj/machinery/computer/ship/ship_weapon/beam_cannon/particle_lance()
 				var/obj/machinery/ship_weapon/front_part/new_front_part = new /obj/machinery/ship_weapon/front_part()
@@ -503,10 +509,10 @@
 				for(var/mob/M in GLOB.player_list)
 					if(M.z == picked_level)
 						to_chat(M, "<span style='color:red; font-size: 20px;'>Вы чувствуете, как пол под вами начинает дрожать...</span>")
-				sleep(1 SECOND)
-				selected_fake_lance.fire_at_sector(picked_level, O.fore_dir, O, FALSE)
-				selected_fake_lance.linked = null
-				qdel(selected_fake_lance)
+				spawn(1 SECOND)
+					selected_fake_lance.fire_at_sector(picked_level, O.fore_dir, O, FALSE)
+					selected_fake_lance.linked = null
+					qdel(selected_fake_lance)
 			characteristic.cannons[selected_cannon]["cooldown"] = characteristic.cannons[selected_cannon]["max_cooldown"]
 		return
 
@@ -517,7 +523,7 @@
 			//animate(lance, transform = matrix(dir2angle(get_dir(src, O)) - 15, MATRIX_ROTATE), time = 1 SECONDS, easing = SINE_EASING | EASE_OUT)
 			//spawn(0.8 SECOND)
 			//	animate(lance, 0.5 SECOND, alpha = 0)
-			var/saved_beam = src.Beam(get_turf(targeted_object), "3-full", icon = 'mods/_fd/old_space_cannons/icons/beam.dmi', time = 1.0 SECOND, maxdistance = world.maxx)
+			var/saved_beam = src.Beam(get_turf(targeted_object), "3-full-ion-beam", icon = 'mods/_fd/old_space_cannons/icons/beam.dmi', time = 1.0 SECOND, maxdistance = world.maxx)
 			spawn(10 SECOND) // Basic GC
 				qdel(saved_beam)
 			if(istype(targeted_object, /obj/overmap/simulated_ship))
@@ -532,55 +538,127 @@
 				selected_fake_beam.front = new_front_part
 				var/obj/overmap/visitable/ship/O = targeted_object
 
-				// TODO: change to beam texture
+				var/picked_level = pick(O.map_z)
 
-				selected_fake_beam.fire_at_sector(pick(O.map_z), O.fore_dir, O, FALSE)
-				selected_fake_beam.linked = null
-				qdel(selected_fake_beam)
+				for(var/mob/M in GLOB.player_list)
+					if(M.z == picked_level)
+						to_chat(M, "<span style='color:red; font-size: 20px;'>Вы чувствуете, как пол под вами начинает дрожать...</span>")
+				spawn(1 SECOND)
+					selected_fake_beam.fire_at_sector(pick(O.map_z), O.fore_dir, O, FALSE)
+					selected_fake_beam.linked = null
+					qdel(selected_fake_beam)
 			characteristic.cannons[selected_cannon]["cooldown"] = characteristic.cannons[selected_cannon]["max_cooldown"]
 		return
 
 	if(length(characteristic.ammo) > 0)
 		if(characteristic.cannons[selected_cannon]["type"] == /obj/machinery/computer/ship/missiles)
+
+			var/list/ammo_missiles = list()
+			for(var/key in characteristic.ammo)
+				var/list/missile_entry = characteristic.ammo[key]
+				if(ispath(missile_entry["type"], /obj/structure/missile) && missile_entry["ammount"] > 0)
+					ammo_missiles[key] = missile_entry
+
+			if(length(ammo_missiles) <= 0)
+				return
+
 			var/selected_missile = null
 
-			if(if(length(characteristic.ammo) > 1))
+			if(length(ammo_missiles) == 1)
+				selected_missile = ammo_missiles[1]
+			else
 				var/total_weight = 0
-				for(var/item in characteristic.ammo)
-					total_weight += characteristic.ammo[item]["weight"]
+				for(var/item in ammo_missiles)
+					total_weight += ammo_missiles[item]["weight"]
 				var/rand_pick = rand(1, total_weight)
 				var/current_weight = 0
 
-				for(var/item in characteristic.ammo)
-					current_weight += characteristic.ammo[item]["weight"]
+				for(var/item in ammo_missiles)
+					current_weight += ammo_missiles[item]["weight"]
 					if(rand_pick <= current_weight)
 						selected_missile = item
+						break
 
 				if(selected_missile == null) // ???
 					return
 
-				selected_missilevar = characteristic.ammo[selected_missile]
-			else
-				selected_missile = characteristic.ammo[1]
+				//selected_missile = ammo_missiles[selected_missile]
 
-			var/obj/overmap/missile/overmap_missile = new /obj/overmap/missile(src.loc)
-			var/obj/structure/missile/caboom = new characteristic.ammo[selected_missile]["type"]
-
-			// WHAT THE FUCK???
-			overmap_missile.actual_missile = caboom
-			caboom.overmap_missile = overmap_missile
-
-			
+			//var/obj/overmap/missile/overmap_missile = new /obj/overmap/missile(null, src.x, src.y)
+			//var/obj/overmap/missile/overmap_missile = null
+			var/obj/structure/missile/missile_type = ammo_missiles[selected_missile]["type"]
+			log_and_message_admins(missile_type)
+			var/obj/structure/missile/caboom = new missile_type(null, src.x, src.y)
 
 
+			addtimer(new Callback(caboom, /obj/structure/missile/proc/expire), caboom.lifetime)
+
+			if(caboom.overmap_missile != null)
+				if(caboom.loc == caboom.overmap_missile)
+					return
+
+			for(var/obj/item/missile_equipment/E in caboom.equipment)
+				if(istype(E, /obj/item/missile_equipment/thruster/hunter))
+					log_and_message_admins("НИКАКИХ НАХУЙ ХАНТЕР МИССАЙЛОВ. Пожалуйста. Спасибо. Запуск был на коорах [loc.x]-[loc.y]")
+					qdel(caboom)
+					qdel(caboom.overmap_missile)
+					return
+				else if (istype(E, /obj/item/missile_equipment/thruster))
+					var/obj/item/missile_equipment/thruster/missile_thruster = E
+					missile_thruster.target = targeted_object
+				else if (istype(E, /obj/item/missile_equipment/autoarm))
+					if(caboom.primed)
+						continue
+
+					caboom.primed = TRUE
+
+					var/obj/overmap/start_object = src//waypoint_sector(src)
+					if(!start_object)
+						log_and_message_admins("Нет хозяина ракеты у корабля на [src.x]-[src.y]")
+
+					caboom.active = TRUE
+
+					caboom.overmap_missile = new /obj/overmap/missile(null, start_object.x, start_object.y)
+					caboom.overmap_missile.set_missile(caboom)
+
+					for(var/obj/item/missile_equipment/EE in caboom.equipment)
+						EE.on_missile_activated(caboom.overmap_missile)
+				else
+					E.on_touch_map_edge(caboom.overmap_missile)
+
+			if(!caboom.active)
+				qdel(caboom)
+				return
+
+			if(caboom.overmap_missile.dangerous)
+				log_and_message_admins("A dangerous [caboom.overmap_missile.name] has entered the overmap (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[caboom.overmap_missile.x];Y=[caboom.overmap_missile.y];Z=[caboom.overmap_missile.z]'>JMP</a>)")
+
+			caboom.overmap_missile.SetName("[src.name + "'s:"] [caboom.overmap_missile.name]")
+
+			caboom.forceMove(caboom.overmap_missile)
+			caboom.overmap_missile.set_moving(TRUE)
+
+
+			ammo_missiles[selected_missile]["ammount"] = ammo_missiles[selected_missile]["ammount"] - 1
+			characteristic.cannons[selected_cannon]["cooldown"] = characteristic.cannons[selected_cannon]["max_cooldown"]
 
 			return
-		//for(var/i = 1; i <= characteristic.get_weapon_burst_size(characteristic.cannons[selected_cannon]["type"]); i++)
+
 		else
+			var/list/ammo_ammo = list()
+			for(var/key in characteristic.ammo)
+				var/list/ammo_entry = characteristic.ammo[key]
+				var/obj/machinery/computer/ship/ship_weapon/cannon_type = characteristic.cannons[selected_cannon]["type"]
+				if(ispath(ammo_entry["type"], characteristic.get_weapon_munition_type(cannon_type)) && ammo_entry["ammount"] > 0)
+					ammo_ammo[key] = ammo_entry
+
+			if(length(ammo_ammo) <= 0)
+				return
+
 			for(var/i in 1 to characteristic.get_weapon_burst_size(characteristic.cannons[selected_cannon]["type"]))
 				// Fuck this, gonna do it right now. TODO: change fucking everything
-				var/list/random_ammo_box_key = pick(characteristic.ammo)
-				var/obj/item/ammo_magazine/ammobox/random_ammo_box_entry = characteristic.ammo[random_ammo_box_key]["type"]
+				var/random_ammo_box_key = pick(ammo_ammo)
+				var/obj/item/ammo_magazine/ammobox/random_ammo_box_entry = ammo_ammo[random_ammo_box_key]["type"]
 
 				var/obj/item/ammo_casing/huge_caliber/projectile_type = characteristic.get_projectile_type(random_ammo_box_entry)
 				var/obj/item/projectile/bullet/huge_caliber/pew = new projectile_type(src.loc)
@@ -595,6 +673,10 @@
 				pew.overmap_projectile.SetName("[src.name+"'s"] [pew.name]")
 				pew.overmap_projectile.set_projectile(pew, pew.cal_accuracy)
 				//overmap_projectile.color = overmap_color
+				if(!ispath(ammo_ammo[random_ammo_box_key]["type"], /obj/item/ammo_magazine/ammobox/crystal))
+					ammo_ammo[random_ammo_box_key]["ammount"] = ammo_ammo[random_ammo_box_key]["ammount"] - 1
+					if(ammo_ammo[random_ammo_box_key]["ammount"] <= 0)
+						break
 			characteristic.cannons[selected_cannon]["cooldown"] = characteristic.cannons[selected_cannon]["max_cooldown"]
 
 // ebeam compatibility(kind of)
@@ -602,24 +684,23 @@
 
 /obj/overmap/simulated_ship/proc/handle_ebeam()
 // should we even calculate damage, if this thing basically one-tap's ships lower than destroyer? i mean, maybe?
-	if(characteristic.max_health <= 100000) // frigate health
+	if(characteristic.max_health <= 100000) // ascent frigate health
 		animate_damage()
 		spawn(2 SECOND)
 			qdel(src)
-	var/damage = 5000 //idk this thing just cost too much, so it would be fair if it will have some actual damage, fully deleted destroyer shields on tests
-	var/damage_type = DAMAGE_BURN
 
-	var/armor_penetration = 100
-	var/penetrating = TRUE
-	var/penetration_modifier = 1.5
+	var/list/applied_damage = characteristic.calculate_damage(\
+		damage = 5000,
+		damage_type = DAMAGE_BURN,
+		agony = 0,
+		temperature = 0,
+		explosion_radius = 200,
+		explosion_max_power = 800,
+		armor_penetration = 100,
+		penetrating = 10,
+		penetration_modifier = 1.5,
+		proximity_detonation = FALSE)
 
-// we do not need this here, but proc does and i dunno if i can simply remove 'em
-	var/agony = 0
-	var/explosion_radius = 200
-	var/explosion_max_power = 250
-	var/proximity_detonation = FALSE
-
-	var/list/applied_damage = characteristic.calculate_damage(damage, damage_type, agony, temperature, explosion_radius, explosion_max_power, armor_penetration, penetrating, penetration_modifier, proximity_detonation)
 	characteristic.apply_damage(arglist(applied_damage))
 
 #undef MOVING
