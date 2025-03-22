@@ -16,10 +16,10 @@
 		occupant.SetStasis(20)
 		timer -= 1 SECOND
 		occupant.bodytemperature = 261
-		if(owner.getBruteLoss() || owner.getFireLoss() || owner.getOxyLoss())
-			owner.adjustBruteLoss(-(50))
-			owner.adjustFireLoss(-(50))
-			owner.adjustOxyLoss(-(50))
+		if(occupant.getBruteLoss() || occupant.getFireLoss() || occupant.getOxyLoss())
+			occupant.adjustBruteLoss(-(50))
+			occupant.adjustFireLoss(-(50))
+			occupant.adjustOxyLoss(-(50))
 
 		if (occupant.stat == UNCONSCIOUS && prob(2))
 			to_chat(occupant, SPAN_NOTICE(SPAN_BOLD("... [pick("comfy", "feels slow", "warm")] ...")))
@@ -37,7 +37,7 @@
 		visible_message(usr, SPAN_NOTICE("ERROR: You can't eject from autodoc midsurgery"))
 		return FALSE
 
-	heal_overall_damage(getBruteLoss(), getFireLoss())
+	occupant.heal_overall_damage(occupant.getBruteLoss(), occupant.getFireLoss())
 	occupant.restore_blood()
 	occupant.dropInto(loc)
 	set_occupant(null)
