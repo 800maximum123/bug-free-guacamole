@@ -20,9 +20,13 @@
 /datum/ship_characteristic/scg/destroyer_yari/New()
 	cannons = list(
 		"beam_cannon_1" = list("type" = /obj/machinery/computer/ship/ship_weapon/beam_cannon, "accurace" = 90, "damage" = 0),
-		"beam_cannon_2" = list("type" = /obj/machinery/computer/ship/ship_weapon/beam_cannon, "accurace" = 90, "damage" = 0)
-) // дописать одну пусковую установку с ядерными торпедами
+		"beam_cannon_2" = list("type" = /obj/machinery/computer/ship/ship_weapon/beam_cannon, "accurace" = 90, "damage" = 0),
+		"missile_launcher_1" = list("type" = /obj/machinery/computer/ship/missiles, "max_cooldown" = 12000, "damage" = 0)
+	)
 
-	ammo = list()
+	ammo = list(
+		"missile_nuke" = list("type" = /obj/structure/missile/locked/nuke, "weight" = 4, "ammount" = 15),
+		"missile_he" = list("type" = /obj/structure/missile/he, "weight" = 5, "ammount" = 20)
+	)
 
 	..()

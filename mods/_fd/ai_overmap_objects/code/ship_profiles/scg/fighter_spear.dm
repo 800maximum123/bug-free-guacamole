@@ -24,7 +24,7 @@
 	)
 
 	ammo = list(
-		"minigun_ammo" = list("type" = /obj/item/ammo_magazine/ammobox/minigun, "ammount" = 6),
+		"minigun_ammo" = list("type" = /obj/item/ammo_magazine/ammobox/minigun, "ammount" = 12),
 	)
 
 	..()

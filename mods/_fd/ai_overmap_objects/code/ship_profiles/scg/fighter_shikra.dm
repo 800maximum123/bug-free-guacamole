@@ -20,11 +20,13 @@
 /datum/ship_characteristic/scg/fighter_shikra/New()
 	cannons = list(
 		"hmg_1" = list("type" = /obj/machinery/computer/ship/ship_weapon/hmg, "accurace" = 85, "damage" = 0),
-		"hmg_2" = list("type" = /obj/machinery/computer/ship/ship_weapon/hmg, "accurace" = 85, "damage" = 0)
-	) // одна пусковая установка торпед
+		"hmg_2" = list("type" = /obj/machinery/computer/ship/ship_weapon/hmg, "accurace" = 85, "damage" = 0),
+		"missile_launcher_1" = list("type" = /obj/machinery/computer/ship/missiles, "max_cooldown" = 4000, "damage" = 0)
+	)
 
 	ammo = list(
-		"hmg_ammo" = list("type" = /obj/item/ammo_magazine/ammobox/hmg, "ammount" = 12),
+		"hmg_ammo" = list("type" = /obj/item/ammo_magazine/ammobox/hmg, "ammount" = 16),
+		"missile_he" = list("type" = /obj/structure/missile/he, "weight" = 1, "ammount" = 14),
 	)
 
 	..()

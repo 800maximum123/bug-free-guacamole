@@ -13,19 +13,22 @@
 	vessel_mass = 320000
 	vessel_size = SHIP_SIZE_LARGE
 	max_speed = 20*(3 SECOND) //600
-	min_targeted_distance_to_target = 2
-	max_targeted_distance_to_target = 2
+	min_targeted_distance_to_target = 4
+	max_targeted_distance_to_target = 4
 	sensors_range = 24
 
 /datum/ship_characteristic/scg/cruiser_waterloo/New()
 	cannons = list(
 		"disruptor_1" = list("type" = /obj/machinery/computer/ship/ship_weapon/disruptor, "accurace" = 90, "damage" = 0),
 		"disruptor_2" = list("type" = /obj/machinery/computer/ship/ship_weapon/disruptor, "accurace" = 90, "damage" = 0),
-		"disruptor_3" = list("type" = /obj/machinery/computer/ship/ship_weapon/disruptor, "accurace" = 90, "damage" = 0),
-		"beam_cannon_1" = list("type" = /obj/machinery/computer/ship/ship_weapon/beam_cannon, "accurace" = 90, "damage" = 0)
-	) // две торпедные установки
+		"missile_launcher_1" = list("type" = /obj/machinery/computer/ship/missiles, "max_cooldown" = 6000, "damage" = 0),
+		"missile_launcher_2" = list("type" = /obj/machinery/computer/ship/missiles, "max_cooldown" = 6000, "damage" = 0),
+		"missile_launcher_3" = list("type" = /obj/machinery/computer/ship/missiles, "max_cooldown" = 6000, "damage" = 0)
+)
 
 	ammo = list(
+		"missile_nuke" = list("type" = /obj/structure/missile/locked/nuke, "weight" = 1, "ammount" = 8),
+		"missile_he" = list("type" = /obj/structure/missile/he, "weight" = 6, "ammount" = 45),
 		"disruptor_ammo" = list("type" = /obj/item/ammo_magazine/ammobox/disruptor, "ammount" = 40)
 	)
 

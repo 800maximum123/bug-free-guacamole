@@ -24,14 +24,15 @@
 		"autocannon_2" = list("type" = /obj/machinery/computer/ship/ship_weapon/autocannon, "accurace" = 70, "damage" = 0),
 		"autocannon_3" = list("type" = /obj/machinery/computer/ship/ship_weapon/autocannon, "accurace" = 70, "damage" = 0),
 		"autocannon_4" = list("type" = /obj/machinery/computer/ship/ship_weapon/autocannon, "accurace" = 70, "damage" = 0),
-		"autocannon_5" = list("type" = /obj/machinery/computer/ship/ship_weapon/autocannon, "accurace" = 70, "damage" = 0),
-		"autocannon_6" = list("type" = /obj/machinery/computer/ship/ship_weapon/autocannon, "accurace" = 70, "damage" = 0),
-		"autocannon_7" = list("type" = /obj/machinery/computer/ship/ship_weapon/autocannon, "accurace" = 70, "damage" = 0),
-		"autocannon_8" = list("type" = /obj/machinery/computer/ship/ship_weapon/autocannon, "accurace" = 70, "damage" = 0),
+		"missile_launcher_1" = list("type" = /obj/machinery/computer/ship/missiles, "max_cooldown" = 8000, "damage" = 0),
+		"missile_launcher_2" = list("type" = /obj/machinery/computer/ship/missiles, "max_cooldown" = 9000, "damage" = 0),
+		"missile_launcher_3" = list("type" = /obj/machinery/computer/ship/missiles, "max_cooldown" = 8000, "damage" = 0),
+		"missile_launcher_4" = list("type" = /obj/machinery/computer/ship/missiles, "max_cooldown" = 9000, "damage" = 0)
 	)
-
 	ammo = list(
 		"autocannon_ammo" = list("type" = /obj/item/ammo_magazine/ammobox/autocannon, "ammount" = 100),
+		"missile_nuke" = list("type" = /obj/structure/missile/locked/nuke, "weight" = 1, "ammount" = 30),
+		"missile_he" = list("type" = /obj/structure/missile/he, "weight" = 7, "ammount" = 120)
 	)
 
 	..()

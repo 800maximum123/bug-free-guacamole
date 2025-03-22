@@ -23,11 +23,16 @@
 		"disruptor_1" = list("type" = /obj/machinery/computer/ship/ship_weapon/disruptor, "accurace" = 90, "damage" = 0),
 		"disruptor_2" = list("type" = /obj/machinery/computer/ship/ship_weapon/disruptor, "accurace" = 90, "damage" = 0),
 		"disruptor_3" = list("type" = /obj/machinery/computer/ship/ship_weapon/disruptor, "accurace" = 90, "damage" = 0),
+		"missile_launcher_1" = list("type" = /obj/machinery/computer/ship/missiles, "max_cooldown" = 7000, "damage" = 0),
+		"missile_launcher_2" = list("type" = /obj/machinery/computer/ship/missiles, "max_cooldown" = 7000, "damage" = 0),
 		"beam_cannon_1" = list("type" = /obj/machinery/computer/ship/ship_weapon/beam_cannon, "accurace" = 90, "damage" = 0)
-	) // две торпедные установки
+	)
 
 	ammo = list(
-		"disruptor_ammo" = list("type" = /obj/item/ammo_magazine/ammobox/disruptor, "ammount" = 40)
+		"disruptor_ammo" = list("type" = /obj/item/ammo_magazine/ammobox/disruptor, "ammount" = 40),
+		"missile_nuke" = list("type" = /obj/structure/missile/locked/nuke, "weight" = 1, "ammount" = 10),
+		"missile_diffusive" = list("type" = /obj/structure/missile/diffusive, "weight" = 2, "ammount" = 25),
+		"missile_he" = list("type" = /obj/structure/missile/he, "weight" = 5, "ammount" = 80)
 	)
 
 	..()

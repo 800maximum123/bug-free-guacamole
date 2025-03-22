@@ -18,8 +18,17 @@
 	sensors_range = 20
 
 /datum/ship_characteristic/scg/frigate_nuum/New()
-	cannons = list() //нужны торпеды, 4 установки
+	cannons = list(
+		"missile_launcher_1" = list("type" = /obj/machinery/computer/ship/missiles, "max_cooldown" = 8000, "damage" = 0),
+		"missile_launcher_2" = list("type" = /obj/machinery/computer/ship/missiles, "max_cooldown" = 9000, "damage" = 0),
+		"missile_launcher_3" = list("type" = /obj/machinery/computer/ship/missiles, "max_cooldown" = 8000, "damage" = 0),
+		"missile_launcher_4" = list("type" = /obj/machinery/computer/ship/missiles, "max_cooldown" = 9000, "damage" = 0)
+	)
 
-	ammo = list()
+	ammo = list(
+		"missile_nuke" = list("type" = /obj/structure/missile/locked/nuke, "weight" = 1, "ammount" = 9),
+		"missile_diffusive" = list("type" = /obj/structure/missile/diffusive, "weight" = 2, "ammount" = 20),
+		"missile_he" = list("type" = /obj/structure/missile/he, "weight" = 5, "ammount" = 60)
+	)
 
 	..()
