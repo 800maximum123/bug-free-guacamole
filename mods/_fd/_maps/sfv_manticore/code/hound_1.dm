@@ -2,6 +2,9 @@
 	name = "SFV PM-47 Hound-1"
 	shuttle = "SFV PM-47 Hound-1"
 	desc = "Sensor array is detecting a heavy Sol fighter transmitting Sol Fleet codes \"SFV-PM47-01\""
+	icon = 'mods/_fd/_maps/sfv_manticore/icons/hound.dmi'
+	icon_state = "hound"
+	moving_state = "hound_moving"
 	color = "#609fd2"
 	fore_dir = NORTH
 	dir = NORTH

@@ -558,3 +558,8 @@
 /obj/structure/flora/tropic/cactus/alt/New()
 	..()
 	icon_state = "cacti_[rand(1, 4)]"
+
+/obj/structure/railing/mapped/indestructable
+
+	health_max = 9999999
+	//всё равно сбрасывается, бред... Оставлю, чтоб просто масс-модифить этот подтип
