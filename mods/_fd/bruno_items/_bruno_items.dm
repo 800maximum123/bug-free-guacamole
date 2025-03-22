@@ -1,4 +1,4 @@
 /singleton/modpack/bruno_items
-	name = "Айтемы Бруно"
+	name = "Мазня Бруно"
 	desc = "Мод, добавляющий различные новые лодаут предметы."
 	author = "Chaplain Maximum"
