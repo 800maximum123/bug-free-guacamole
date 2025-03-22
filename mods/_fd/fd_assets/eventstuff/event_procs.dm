@@ -28,7 +28,85 @@
     for(var/list/item in sequence)
         var/text = item[1]
         var/duration = item[2]
-        text_display.maptext = "<center><font color='#FF8C00' size='3'>[html_encode(text)]</font></center>"
+        text_display.maptext = "<center><font color='#9e0101' size='3'>[html_encode(text)]</font></center>"
+        sleep(duration * 10)
+
+    // Remove objects from all clients' screens
+    for(var/client/C)
+        C.screen -= background
+        C.screen -= text_display
+
+    qdel(background)
+    qdel(text_display)
+
+/proc/titles_blue(list/sequence)
+    // Проверяем, что список sequence не пустой и существует
+    if(!sequence || !length(sequence))
+        return
+
+    var/obj/screen/background = new /obj/screen
+    background.icon = 'mods/_fd/fd_assets/icons/hud.dmi'
+    background.icon_state = "background"
+    background.screen_loc = "WEST,SOUTH"
+    background.plane = 7
+    background.layer = 6
+
+    var/obj/screen/text_display = new /obj/screen
+    text_display.screen_loc = "WEST,CENTER"
+    text_display.icon_state = "black"
+    text_display.maptext_width = 400
+    text_display.maptext_height = 100
+    text_display.maptext_x = 48
+    text_display.plane = 7
+    text_display.layer = 6
+    // Add objects to all clients' screens
+    for(var/client/C)
+        C.screen += background
+        C.screen += text_display
+
+    for(var/list/item in sequence)
+        var/text = item[1]
+        var/duration = item[2]
+        text_display.maptext = "<center><font color='#1dccc3' size='3'>[html_encode(text)]</font></center>"
+        sleep(duration * 10)
+
+    // Remove objects from all clients' screens
+    for(var/client/C)
+        C.screen -= background
+        C.screen -= text_display
+
+    qdel(background)
+    qdel(text_display)
+
+/proc/titles_white(list/sequence)
+    // Проверяем, что список sequence не пустой и существует
+    if(!sequence || !length(sequence))
+        return
+
+    var/obj/screen/background = new /obj/screen
+    background.icon = 'mods/_fd/fd_assets/icons/hud.dmi'
+    background.icon_state = "background"
+    background.screen_loc = "WEST,SOUTH"
+    background.plane = 7
+    background.layer = 6
+
+    var/obj/screen/text_display = new /obj/screen
+    text_display.screen_loc = "WEST,CENTER"
+    text_display.icon_state = "black"
+    text_display.maptext_width = 400
+    text_display.maptext_height = 100
+    text_display.maptext_x = 48
+    text_display.plane = 7
+    text_display.layer = 6
+    // Add objects to all clients' screens
+    for(var/client/C)
+        C.screen += background
+        C.screen += text_display
+
+    for(var/list/item in sequence)
+        var/text = item[1]
+        var/duration = item[2]
+        text_display.maptext = "<center><font color='#c4c4c4' size='3'>[html_encode(text)]</font></center>"
         sleep(duration * 10)
 
     // Remove objects from all clients' screens
@@ -45,13 +123,62 @@
 
     world << title_1
     titles(list(
+        list("|Конец этой войны увидят только мёртвые| - цитата Адмирала Достоевского", 5),
+        list("", 17),
+        list("Июнь 2317-го года", 10),
+        list("", 8),
+        list("Конфликт продолжается уже три года", 10),
+        list("", 15),
+        list("Человечество находится на грани поражения", 10),
         list("", 5),
-        list("2317", 5),
-        list("", 13),
-        list("Человечество находится на грани вымирания...", 6),
-        list("", 5)
+        list("Мантикора - это последняя надежда переломить исход противостояния", 10),
     ))
 
+    captain_transmission()
+
+/proc/title_2()
+
+    titles_white(list(
+        list("Какое-то время спустя...", 10)
+    ))
+
+    var/message = "<span style='color:red; font-size: 20px;'>Вы ощущаете себя просто отвратительно...словно все ваши внутренности вывернуло наизнанку...</span>"
+    for(var/mob/M in GLOB.player_list)
+        to_chat(M, message)
+
+/proc/bad_ending()
+
+    var/sound/bad = 'mods/_fd/fd_assets/sounds/music/ending_bad.ogg'
+
+    world << bad
+
+    titles(list(
+        list("Несмотря на все приложенные усилия...", 10),
+        list("", 5),
+        list("...в конечном счёте мы оказались слишком слабы", 10),
+        list("", 10),
+        list("Можно ли сказать, было ли это чем-то вне нашей лиги?", 15),
+        list("", 10),
+        list("В любом случае, что ещё нам оставалось?...", 10)
+    ))
+
+/proc/good_ending()
+
+    var/sound/good = 'mods/_fd/fd_assets/sounds/music/ending_good.ogg'
+
+    world << good
+
+    titles_blue(list(
+        list("Новая разработка была успешно доставлена на борт Старой Риги", 15),
+        list("", 10),
+        list("Пускай в войне нам уже не победить...", 10),
+        list("", 10),
+        list("Мы внесли огромный вклад в выживание всей человеческой расы", 15),
+        list("", 10),
+        list("Наверняка, мы даже не застанем того момента, когда Земля вновь поднимется из пепла", 15),
+        list("", 10),
+        list("Но по крайней мере умрём зная о том, что это ещё не конец...", 10),
+    ))
 
 
 

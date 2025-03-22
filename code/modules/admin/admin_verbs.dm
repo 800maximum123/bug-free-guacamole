@@ -117,7 +117,8 @@ var/global/list/admin_verbs_ban = list(
 var/global/list/admin_verbs_sounds = list(
 	/client/proc/play_local_sound,
 	/client/proc/play_sound,
-	/client/proc/play_server_sound
+	/client/proc/play_server_sound,
+	/client/proc/play_server_sound_fd
 	)
 
 var/global/list/admin_verbs_fun = list(
@@ -258,6 +259,7 @@ var/global/list/admin_verbs_hideable = list(
 	/client/proc/play_local_sound,
 	/client/proc/play_sound,
 	/client/proc/play_server_sound,
+	/client/proc/play_server_sound_fd,
 	/client/proc/object_talk,
 	/datum/admins/proc/cmd_admin_dress,
 	/client/proc/cmd_admin_gib_self,
