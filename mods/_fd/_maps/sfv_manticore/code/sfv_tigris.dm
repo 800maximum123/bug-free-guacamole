@@ -58,7 +58,18 @@
 
 // JOBS
 
+/datum/job/submap/sfv_tigris/equip(mob/living/carbon/human/H)
+    . = ..()
+    // We need to STUN them
+    H.sleeping = 100000
+    to_chat(H, SPAN_DANGER(FONT_LARGE("Вы успешно заспавнились и парализованы! Ожидайте начала запуска, а пока - можете общаться в ООС.")))
+    log_and_message_admins("заспавнился как [title] и парализован! Не забудьте снять ему парализ, после спавна!", H)
+
+/mob/living/carbon/human/needs_wheelchair()
+    return FALSE
+
 // SCGF
+
 /datum/job/submap/sfv_tigris/scg/command/captain
 	title = "SCGF | SFV Manticore Captain"
 	info = "You are a commander of an SFV Manticore. Complete your mission."
@@ -250,7 +261,7 @@
 	spawn_positions = 6
 	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg
 	branch = /datum/mil_branch/fleet
-	rank = /datum/mil_rank/fleet/e5
+	rank = /datum/mil_rank/fleet/e8
 
 	allowed_branches = list(
 		/datum/mil_branch/fleet,
@@ -324,7 +335,7 @@
 	spawn_positions = 16
 	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg
 	branch = /datum/mil_branch/fleet
-	rank = /datum/mil_rank/fleet/e5
+	rank = /datum/mil_rank/fleet/e8
 
 	allowed_branches = list(
 		/datum/mil_branch/fleet,
@@ -478,7 +489,7 @@
 	spawn_positions = 6
 	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/iccgn
 	branch = /datum/mil_branch/iccgn
-	rank = /datum/mil_rank/iccgn/or5
+	rank = /datum/mil_rank/iccgn/or8
 
 	allowed_branches = list(
 		/datum/mil_branch/iccgn,
@@ -552,7 +563,7 @@
 	spawn_positions = 16
 	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/iccgn
 	branch = /datum/mil_branch/iccgn
-	rank = /datum/mil_rank/iccgn/or5
+	rank = /datum/mil_rank/iccgn/or8
 
 	allowed_branches = list(
 		/datum/mil_branch/iccgn,
