@@ -17,9 +17,9 @@
 		timer -= 1 SECOND
 		occupant.bodytemperature = 143
 		if(occupant.getBruteLoss() || occupant.getFireLoss() || occupant.getOxyLoss())
-			occupant.adjustBruteLoss(-(50))
-			occupant.adjustFireLoss(-(50))
-			occupant.adjustOxyLoss(-(50))
+			occupant.adjustBruteLoss(-(7))
+			occupant.adjustFireLoss(-(7))
+			occupant.adjustOxyLoss(-(7))
 
 		if (occupant.stat == UNCONSCIOUS && prob(2))
 			to_chat(occupant, SPAN_NOTICE(SPAN_BOLD("... [pick("comfy", "feels slow", "warm")] ...")))
