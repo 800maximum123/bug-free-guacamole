@@ -15,7 +15,7 @@
 	if(iscarbon(occupant))
 		occupant.SetStasis(20)
 		timer -= 1 SECOND
-		occupant.bodytemperature = 261
+		occupant.bodytemperature = 143
 		if(occupant.getBruteLoss() || occupant.getFireLoss() || occupant.getOxyLoss())
 			occupant.adjustBruteLoss(-(50))
 			occupant.adjustFireLoss(-(50))
