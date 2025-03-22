@@ -1,3 +1,66 @@
+// BOMBER EVENT
+
+/proc/titles(list/sequence)
+    // Проверяем, что список sequence не пустой и существует
+    if(!sequence || !length(sequence))
+        return
+
+    var/obj/screen/background = new /obj/screen
+    background.icon = 'mods/_fd/fd_assets/icons/hud.dmi'
+    background.icon_state = "background"
+    background.screen_loc = "WEST,SOUTH"
+    background.plane = 7
+    background.layer = 6
+
+    var/obj/screen/text_display = new /obj/screen
+    text_display.screen_loc = "WEST,CENTER"
+    text_display.icon_state = "black"
+    text_display.maptext_width = 400
+    text_display.maptext_height = 100
+    text_display.maptext_x = 48
+    text_display.plane = 7
+    text_display.layer = 6
+    // Add objects to all clients' screens
+    for(var/client/C)
+        C.screen += background
+        C.screen += text_display
+
+    for(var/list/item in sequence)
+        var/text = item[1]
+        var/duration = item[2]
+        text_display.maptext = "<center><font color='#FF8C00' size='3'>[html_encode(text)]</font></center>"
+        sleep(duration * 10)
+
+    // Remove objects from all clients' screens
+    for(var/client/C)
+        C.screen -= background
+        C.screen -= text_display
+
+    qdel(background)
+    qdel(text_display)
+
+/proc/title_1()
+
+    var/sound/title_1 = 'mods/_fd/fd_assets/sounds/title_1.ogg'
+
+    world << title_1
+    titles(list(
+        list("", 5),
+        list("2317", 5),
+        list("", 13),
+        list("Человечество находится на грани вымирания...", 6),
+        list("", 5)
+    ))
+
+
+
+
+
+
+
+
+// TORCH EVENT
+
 /mob/living/simple_animal/holo_npc/gyne
 	name = "ascent gyne hologram"
 	desc = ""
