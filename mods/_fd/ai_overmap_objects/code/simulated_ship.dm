@@ -631,7 +631,7 @@
 				return
 
 			if(caboom.overmap_missile.dangerous)
-				log_and_message_admins("A dangerous [caboom.overmap_missile.name] has entered the overmap (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[caboom.overmap_missile.x];Y=[caboom.overmap_missile.y];Z=[caboom.overmap_missile.z]'>JMP</a>)")
+				log_and_message_admins("A dangerous [caboom.overmap_missile.name] has entered the overmap (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[caboom.overmap_missile.x];Y=[caboom.overmap_missile.y];Z=[caboom.overmap_missile.z]'>JMP</a>)")
 
 			caboom.overmap_missile.SetName("[src.name + "'s:"] [caboom.overmap_missile.name]")
 

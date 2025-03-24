@@ -40,19 +40,19 @@
 		if(job)
 			uniforms = find_uniforms(ID.military_rank, ID.military_branch, job.department_flag)
 		for(var/T in uniforms)
-			dat += "<b>[T]</b> <a href='byond://byond://?src=\ref[src];get_all=[T]'>Select All</a>"
+			dat += "<b>[T]</b> <a href='byond://?src=\ref[src];get_all=[T]'>Select All</a>"
 			var/list/uniform = uniforms[T]
 			for(var/piece in uniform)
 				if(piece)
 					var/obj/item/clothing/C = piece
 					if(piece in selected_outfit)
-						dat += "[SPAN_CLASS("linkOn", "[sanitize(initial(C.name))]")]<a href='byond://byond://?src=\ref[src];rem=\ref[piece]'>X</a>"
+						dat += "[SPAN_CLASS("linkOn", "[sanitize(initial(C.name))]")]<a href='byond://?src=\ref[src];rem=\ref[piece]'>X</a>"
 					else if (can_issue(C))
-						dat += "<a href='byond://byond://?src=\ref[src];add=\ref[piece]'>[sanitize(initial(C.name))]</a>"
+						dat += "<a href='byond://?src=\ref[src];add=\ref[piece]'>[sanitize(initial(C.name))]</a>"
 					else
 						dat += "[sanitize(initial(C.name))] (ISSUED)"
 			dat += "<hr>"
-		dat += "<a href='byond://byond://?src=\ref[src];vend=[1]'>Dispense</a>"
+		dat += "<a href='byond://?src=\ref[src];vend=[1]'>Dispense</a>"
 	dat = jointext(dat,"<br>")
 	var/datum/browser/popup = new(user, "Uniform Dispenser","Uniform Dispenser", 300, 700, src)
 	popup.set_content(dat)

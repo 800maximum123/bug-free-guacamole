@@ -74,9 +74,9 @@
 
 		dat += "<br><tt>Maintainence Functions:</tt><br>"
 		if(gravity_generator.on)
-			dat += "<a href='byond://byond://?src=\ref[src];gentoggle=1'>[SPAN_COLOR("red", " TURN GRAVITY GENERATOR OFF. ")]</a>"
+			dat += "<a href='byond://?src=\ref[src];gentoggle=1'>[SPAN_COLOR("red", " TURN GRAVITY GENERATOR OFF. ")]</a>"
 		else
-			dat += "<a href='byond://byond://?src=\ref[src];gentoggle=1'>[SPAN_COLOR("green", " TURN GRAVITY GENERATOR ON. ")]</a>"
+			dat += "<a href='byond://?src=\ref[src];gentoggle=1'>[SPAN_COLOR("green", " TURN GRAVITY GENERATOR ON. ")]</a>"
 
 	else
 		dat += "No local gravity generator detected!"
