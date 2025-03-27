@@ -44,8 +44,8 @@
 	timer = 120 SECONDS // bringing dat shit back
 
 /obj/machinery/sleeper/autodoc/go_in(mob/target, mob/user)
-	if(!ishuman(occupant))
-		return
+//	if(!ishuman(occupant))
+//		return
 	. = ..()
 	heal_procedure()
 
