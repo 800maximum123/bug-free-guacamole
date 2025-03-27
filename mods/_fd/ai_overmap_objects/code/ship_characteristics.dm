@@ -4,10 +4,15 @@
 #define AI_TEAM_HUMANS 1
 #define AI_TEAM_ASCENTS 2
 
-#define AI_MODE_DEFEND "defend" // Stay and wait for targets, then engage
-#define AI_MODE_HUNT "hunt" // Randomly walk at max speed/3 and wait for targets, then engage
-#define AI_MODE_ESCORT "escort" // Follow closest friendlt and wait for target, then engage. After that return to following
-#define AI_MODE_PATROL "patrol" // Choose point, go back and forth until target, then engage. After that return to patroling
+// Engage = follow and attack (Using guns/missiles) enemy until there are none. (!!!) Engage != attack (!!!)
+// PnP, Plug-and-play - you can spawn ai holder on ship and it will automaticly do everything the mode supposes to do
+#define AI_MODE_DEFEND "defend" // Stay and wait for targets, then engage. 																PnP
+#define AI_MODE_HOLD "hold" // Stay and wait for targets, then engage. Return to position if there are no targets. 						PnP, position to hold is determined in ai holder spawn
+#define AI_MODE_HUNT "hunt" // Fly at random location, engage enemies if there are any. 												PnP
+#define AI_MODE_ESCORT "escort" // Follow chosen friendly and wait for enemies, then engage. If no targets then return to following. 	NOT PnP, use procs to change follow target
+#define AI_MODE_CONVOY "convoy" // Follow chosen friendly and attack enemies in range. 													NOT PnP, use procs to change follow target
+#define AI_MODE_HELP "help" // Follow closest friendly (In sensor's range) and wait for enemies, then engage. 							PnP
+#define AI_MODE_PATROL "patrol" // Choose points, go in loop until target, then engage. After that return to patroling.			NOT PnP, use procs to add or remove points from patrol path
 
 /datum/ship_characteristic
 	// Permanents, change in code via inheritance
@@ -94,6 +99,8 @@
 			return null
 
 /datum/ship_characteristic/proc/damage_system(damage, system)
+	if(ai_break_mechanic_enable == FALSE)
+		return
 	if(damage > 0)
 		switch(system)
 			if("reactor")
