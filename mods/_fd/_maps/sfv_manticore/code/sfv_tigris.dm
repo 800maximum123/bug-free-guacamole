@@ -15,7 +15,7 @@
 
 /singleton/submap_archetype/sfv_tigris/scg
 	descriptor = "SCGF"
-	map = "SFV Tigris"
+	map = "SFV Manticore"
 	crew_jobs = list(
 		/datum/job/submap/sfv_tigris/scg/command/captain,
 		/datum/job/submap/sfv_tigris/scg/command/navigator,
@@ -23,24 +23,24 @@
 		/datum/job/submap/sfv_tigris/scg/fleet/engineer,
 		/datum/job/submap/sfv_tigris/scg/fleet/medic,
 		/datum/job/submap/sfv_tigris/scg/fleet/gunner,
-		/datum/job/submap/sfv_tigris/scg/fleet/bluespace_specialist,
-		/datum/job/submap/sfv_tigris/scg/fleet/crew
+		///datum/job/submap/sfv_tigris/scg/fleet/bluespace_specialist,
+		/datum/job/submap/sfv_tigris/scg/fleet/hound_pilot
 	)
 
 /obj/submap_landmark/joinable_submap/sfv_tigris/iccgn
-	name = "SFV Tigris"
+	name = "SFV Manticore"
 	archetype = /singleton/submap_archetype/sfv_tigris/iccgn
 
 /singleton/submap_archetype/sfv_tigris/iccgn
 	descriptor = "ICCGN"
-	map = "SFV Tigris"
+	map = "SFV Manticore"
 	crew_jobs = list(
 		/datum/job/submap/sfv_tigris/iccgn/command/pilot,
 		/datum/job/submap/sfv_tigris/iccgn/fleet/engineer,
 		/datum/job/submap/sfv_tigris/iccgn/fleet/medic,
 		/datum/job/submap/sfv_tigris/iccgn/fleet/gunner,
-		/datum/job/submap/sfv_tigris/iccgn/fleet/bluespace_specialist,
-		/datum/job/submap/sfv_tigris/iccgn/fleet/crew
+		///datum/job/submap/sfv_tigris/iccgn/fleet/bluespace_specialist,
+		/datum/job/submap/sfv_tigris/iccgn/fleet/hound_pilot
 	)
 
 /datum/map_template/ruin/away_site/sfv_tigris
@@ -76,7 +76,7 @@
 	supervisors = "Fleet Command, Senior Officers"
 	total_positions = 1
 	spawn_positions = 1
-	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg
+	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg/command
 	branch = /datum/mil_branch/fleet
 	rank = /datum/mil_rank/fleet/o6
 	allowed_branches = list(
@@ -113,7 +113,7 @@
 	supervisors = "Fleet Command, Senior Officers, your Captain."
 	total_positions = 1
 	spawn_positions = 1
-	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg
+	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg/command
 	branch = /datum/mil_branch/fleet
 	rank = /datum/mil_rank/fleet/o3
 	allowed_branches = list(
@@ -151,7 +151,7 @@
 	supervisors = "Fleet Command, Senior Officers, Captain."
 	total_positions = 1
 	spawn_positions = 1
-	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg
+	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg/command
 	branch = /datum/mil_branch/fleet
 	rank = /datum/mil_branch/fleet
 	allowed_branches = list(
@@ -327,12 +327,12 @@
 	                    SKILL_EVA          = SKILL_MAX)
 	skill_points = 24
 
-/datum/job/submap/sfv_tigris/scg/fleet/crew
-	title = "SCGF | SFV Manticore Crewman"
+/datum/job/submap/sfv_tigris/scg/fleet/hound_pilot
+	title = "SCGF | SFV Hound Pilot"
 	info = ""
 	supervisors = "Fleet Command, Senior Officers"
-	total_positions = 16
-	spawn_positions = 16
+	total_positions = 2
+	spawn_positions = 2
 	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg
 	branch = /datum/mil_branch/fleet
 	rank = /datum/mil_rank/fleet/e8
@@ -379,7 +379,7 @@
 	supervisors = "Fleet Command, Senior Officers, Captain."
 	total_positions = 1
 	spawn_positions = 1
-	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/iccgn
+	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg/command
 	branch = /datum/mil_branch/iccgn
 	rank = /datum/mil_rank/iccgn/of3
 	allowed_branches = list(
@@ -555,12 +555,12 @@
 	                    SKILL_EVA          = SKILL_MAX)
 	skill_points = 24
 
-/datum/job/submap/sfv_tigris/iccgn/fleet/crew
-	title = "ICCGN | SFV Manticore Crewman"
+/datum/job/submap/sfv_tigris/iccgn/fleet/hound_pilot
+	title = "ICCGN | SFV Hound Pilot"
 	info = ""
 	supervisors = "Fleet Command, Senior Officers"
-	total_positions = 16
-	spawn_positions = 16
+	total_positions = 2
+	spawn_positions = 2
 	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/iccgn
 	branch = /datum/mil_branch/iccgn
 	rank = /datum/mil_rank/iccgn/or8
@@ -625,8 +625,8 @@
 	name = "SCGF | SFV Manticore Bluespace Specialist"
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
-/obj/submap_landmark/spawnpoint/sfv_tigris/scg/fleet/crew
-	name = "SCGF | SFV Manticore Crewman"
+/obj/submap_landmark/spawnpoint/sfv_tigris/scg/fleet/hound_pilot
+	name = "SCGF | SFV Hound Pilot"
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/submap_landmark/spawnpoint/sfv_tigris/iccgn/command/pilot
@@ -649,23 +649,41 @@
 	name = "ICCGN | SFV Manticore Bluespace Specialist"
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
-/obj/submap_landmark/spawnpoint/sfv_tigris/iccgn/fleet/crew
-	name = "ICCGN | SFV Manticore Crewman"
+/obj/submap_landmark/spawnpoint/sfv_tigris/iccgn/fleet/hound_pilot
+	name = "ICCGN | SFV Hound Pilot"
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg
 	name = OUTFIT_JOB_NAME("SFV Manticore Crew | SCG")
-	uniform = /obj/item/clothing/under/solgov/utility/fleet
-	shoes = /obj/item/clothing/shoes/dutyboots
-	l_pocket = /obj/item/device/radio
-	l_ear = null
-	pda_type = /obj/item/modular_computer/pda
 	head = /obj/item/clothing/head/beret/solgov/fleet/branch/fifth
+	uniform = /obj/item/clothing/under/solgov/utility/fleet
+	suit = /obj/item/clothing/suit/space/void/pilot/scgf/prepared
+	shoes = /obj/item/clothing/shoes/dutyboots
+	l_pocket = /obj/item/tank/oxygen_emergency_extended
+	r_pocket = /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline
+	l_ear = /obj/item/device/radio/headset/syndicate/alt
+	pda_type = /obj/item/modular_computer/pda
+	belt = /obj/item/storage/belt/utility/full
+
+/singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg/command
+	name = OUTFIT_JOB_NAME("SFV Manticore Command | SCG")
+	head = /obj/item/clothing/head/beret/solgov/fleet/command
+	uniform = /obj/item/clothing/under/solgov/utility/fleet
+	suit = /obj/item/clothing/suit/space/void/pilot/scgf/command/prepared
+	shoes = /obj/item/clothing/shoes/dutyboots
+	l_pocket = /obj/item/tank/oxygen_emergency_extended
+	r_pocket = /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline
+	l_ear = /obj/item/device/radio/headset/syndicate/alt
+	pda_type = /obj/item/modular_computer/pda
+	belt = /obj/item/storage/belt/utility/full
 
 /singleton/hierarchy/outfit/job/sfv_tigris/fleet/iccgn
 	name = OUTFIT_JOB_NAME("SFV Manticore Crew | ICCG")
 	uniform = /obj/item/clothing/under/iccgn/utility
+	suit = /obj/item/clothing/suit/space/void/pilot/scgf/prepared
 	shoes = /obj/item/clothing/shoes/dutyboots
-	l_pocket = /obj/item/device/radio
-	l_ear = null
+	l_pocket = /obj/item/tank/oxygen_emergency_extended
+	r_pocket = /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline
+	l_ear = /obj/item/device/radio/headset/syndicate/alt
 	pda_type = /obj/item/modular_computer/pda
+	belt = /obj/item/storage/belt/utility/full
