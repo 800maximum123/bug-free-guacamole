@@ -1,10 +1,12 @@
 /obj/overmap/visitable/ship/bomber
 	name = "SFV Manticore"
 	desc = "Sensor array detects a large vessel, identifying itself as 'SFV Manticore'. It's an literal flying fortress. In space."
-	vessel_mass = 20000
+	icon = 'mods/_fd/_maps/sfv_manticore/icons/manticore.dmi'
+	icon_state = "manticore"
+	moving_state = "manticore_moving"
+	vessel_mass = 55000
 	color = "#8ebecc"
-	max_speed = 1/(5 SECONDS)
-	burn_delay = 5 SECONDS
+	burn_delay = 2 SECONDS
 	fore_dir = NORTH
 	initial_restricted_waypoints = list()
 	initial_generic_waypoints = list()
