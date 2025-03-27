@@ -120,10 +120,9 @@ var/global/list/wireColours = list("red", "blue", "green", "darkred", "orange", 
 		html += "<tr>"
 		html += "<td[row_options1]>[SPAN_COLOR(colour, "&#9724;")][capitalize(colour)]</td>"
 		html += "<td[row_options2]>"
-		html += "<A href='?src=\ref[src];action=1;cut=[colour]'>[IsColourCut(colour) ? "Mend" :  "Cut"]</A>"
-		html += " <A href='?src=\ref[src];action=1;pulse=[colour]'>Pulse</A>"
-		html += " <A href='?src=\ref[src];action=1;attach=[colour]'>[IsAttached(colour) ? "Detach" : "Attach"] Signaller</A>"
-		html += " <A href='?src=\ref[src];action=1;examine=[colour]'>Examine</A></td></tr>"
+		html += "<a href='byond://?src=\ref[src];action=1;cut=[colour]'>[IsColourCut(colour) ? "Mend" :  "Cut"]</A>"
+		html += " <a href='byond://?src=\ref[src];action=1;pulse=[colour]'>Pulse</A>"
+		html += " <a href='byond://?src=\ref[src];action=1;attach=[colour]'>[IsAttached(colour) ? "Detach" : "Attach"] Signaller</A>"
 	html += "</table>"
 	html += "</div>"
 

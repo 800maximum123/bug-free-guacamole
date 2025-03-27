@@ -64,8 +64,8 @@
 			species_name += "[species.cyborg_noun] [species.get_bodytype(src)]"
 		else
 			species_name += "[species.name]"
-		//msg += ", <b>[SPAN_COLOR(species.get_flesh_colour(src), "\a [species_name]!")]</b>[(user.can_use_codex() && SScodex.get_codex_entry(get_codex_value())) ?  SPAN_NOTICE(" \[<a href='?src=\ref[SScodex];show_examined_info=\ref[src];show_to=\ref[user]'>?</a>\]") : ""]"
-		msg += ", <b>[SPAN_COLOR(s_flesh_colour, "\a [species_name]!")]</b>[(user.can_use_codex() && SScodex.get_codex_entry(get_codex_value())) ?  SPAN_NOTICE(" \[<a href='?src=\ref[SScodex];show_examined_info=\ref[src];show_to=\ref[user]'>?</a>\]") : ""]"
+		//msg += ", <b>[SPAN_COLOR(species.get_flesh_colour(src), "\a [species_name]!")]</b>[(user.can_use_codex() && SScodex.get_codex_entry(get_codex_value())) ?  SPAN_NOTICE(" \[<a href='byond://?src=\ref[SScodex];show_examined_info=\ref[src];show_to=\ref[user]'>?</a>\]") : ""]"
+		msg += ", <b>[SPAN_COLOR(s_flesh_colour, "\a [species_name]!")]</b>[(user.can_use_codex() && SScodex.get_codex_entry(get_codex_value())) ?  SPAN_NOTICE(" \[<a href='byond://?src=\ref[SScodex];show_examined_info=\ref[src];show_to=\ref[user]'>?</a>\]") : ""]"
 		// [/FD-EDIT]
 
 	var/extra_species_text = species.get_additional_examine_text(src)
@@ -315,8 +315,8 @@
 			if(R)
 				criminal = R.get_criminalStatus()
 
-			msg += "[SPAN_CLASS("deptradio", "Criminal status:")] <a href='?src=\ref[src];criminal=1'>\[[criminal]\]</a>\n"
-			msg += "[SPAN_CLASS("deptradio", "Security records:")] <a href='?src=\ref[src];secrecord=`'>\[View\]</a>\n"
+			msg += "[SPAN_CLASS("deptradio", "Criminal status:")] <a href='byond://?src=\ref[src];criminal=1'>\[[criminal]\]</a>\n"
+			msg += "[SPAN_CLASS("deptradio", "Security records:")] <a href='byond://?src=\ref[src];secrecord=`'>\[View\]</a>\n"
 
 	if(hasHUD(user, HUD_MEDICAL))
 		var/perpname = "wot"
@@ -335,8 +335,8 @@
 		if(R)
 			medical = R.get_status()
 
-		msg += "[SPAN_CLASS("deptradio", "Physical status:")] <a href='?src=\ref[src];medical=1'>\[[medical]\]</a>\n"
-		msg += "[SPAN_CLASS("deptradio", "Medical records:")] <a href='?src=\ref[src];medrecord=`'>\[View\]</a>\n"
+		msg += "[SPAN_CLASS("deptradio", "Physical status:")] <a href='byond://?src=\ref[src];medical=1'>\[[medical]\]</a>\n"
+		msg += "[SPAN_CLASS("deptradio", "Medical records:")] <a href='byond://?src=\ref[src];medrecord=`'>\[View\]</a>\n"
 
 
 	if(print_flavor_text()) msg += "[print_flavor_text()]\n"
@@ -431,6 +431,6 @@
 	HTML += TextPreview(flavor_texts["feet"])
 	HTML += "<br>"
 	HTML += "<hr />"
-	HTML +="<a href='?src=\ref[src];flavor_change=done'>\[Done\]</a>"
+	HTML +="<a href='byond://?src=\ref[src];flavor_change=done'>\[Done\]</a>"
 	HTML += "<tt>"
 	show_browser(src, jointext(HTML,null), "window=flavor_changes;size=430x300")

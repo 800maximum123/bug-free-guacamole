@@ -4,7 +4,7 @@ var/global/list/admin_verbs_default = list(
 	/client/proc/getserverlog,
 	// [/SIERRA-ADD],
 	/datum/admins/proc/show_player_panel, //shows an interface for individual players, with various links (links require additional flags), right-click player panel,
-	/client/proc/player_panel,
+	/client/proc/player_list,
 	/client/proc/secrets,
 	/client/proc/deadmin_self,			//destroys our own admin datum so we can play as a regular player,
 	/client/proc/hide_verbs,			//hides all our adminverbs,
@@ -216,7 +216,8 @@ var/global/list/admin_verbs_debug = list(
 	/client/proc/reload_webhooks,
 	/client/proc/toggle_planet_repopulating,
 	/client/proc/spawn_exoplanet,
-	/client/proc/profiler_start
+	/client/proc/profiler_start,
+	/datum/admins/proc/EnableDevtools
 	)
 
 var/global/list/admin_verbs_paranoid_debug = list(
@@ -435,11 +436,11 @@ var/global/list/admin_verbs_mod = list(
 			mob.alpha = max(mob.alpha - 100, 0)
 
 
-/client/proc/player_panel()
-	set name = "Player Panel"
+/client/proc/player_list()
+	set name = "Player List"
 	set category = "Admin"
 	if(holder)
-		holder.player_panel()
+		holder.player_list()
 	return
 
 /client/proc/check_antagonists()
