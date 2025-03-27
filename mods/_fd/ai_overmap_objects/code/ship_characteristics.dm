@@ -42,17 +42,13 @@
 	var/list/valid_outer_systems = list()
 	var/should_die = FALSE
 
-	// Fuck it. We should do cooldowns here BUT I DON'T CARE. I just want to sleep. I want to see anything but my IDE theme
-	// I truly promise that I will change that in the future. I PROMISE
-	//var/cannons_in_cooldown = list()
-
 	// You should not probably change this, but you can if you want to do something wacky (Space-mines anyone?)
 	var/ai_enabled = TRUE
 	var/ai_move_enabled = TRUE
 	var/ai_attack_enabled = TRUE
 	var/ai_flee_enabled = TRUE
 	var/ai_break_mechanic_enable = TRUE // Breaking of engines, guns, reactor, etc
-	var/ai_ammo_enable = TRUE // Infinite or finite ammo for guns (Electrical is always infinite)
+	var/ai_ammo_enable = TRUE // Infinite or finite ammo for guns (Electrical and crystall are always infinite)
 
 /datum/ship_characteristic/New()
 	health = max_health

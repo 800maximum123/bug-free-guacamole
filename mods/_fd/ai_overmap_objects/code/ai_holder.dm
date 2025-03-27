@@ -6,7 +6,7 @@
 	scannable = FALSE
 	requires_contact = FALSE
 	//visible = FALSE
-	invisibility = 50
+	invisibility = INVISIBILITY_OBSERVER
 
 	var/obj/overmap/simulated_ship/linked_object = null
 	var/datum/ship_characteristic/linked_object_settings = null
@@ -46,15 +46,15 @@
 			//	linked_object = O
 			//	break
 		if(linked_object == null)
-			log_and_message_admins(SPAN_WARNING("<b> \[AI holder\] ИИ по координатам [x]-[y] не смог найти объект привязки!</i></b>"))
+			log_and_message_admins(SPAN_WARNING("<b> \[AI holder\] Провал. ИИ по координатам [x]-[y] не смог найти объект привязки!</i></b>"))
 		else
 			if(istype(linked_object, /obj/overmap/simulated_ship))
-				log_and_message_admins(SPAN_WARNING("<b> \[AI holder\] ИИ по координатам [x]-[y] успешно был привязан к симулируемому объекту [linked_object.name]!</i></b>"))
+				log_and_message_admins(SPAN_WARNING("<b> \[AI holder\] Успех! ИИ по координатам [x]-[y] успешно был привязан к симулируемому объекту [linked_object.name]!</i></b>"))
 			//if(istype(linked_object, /obj/overmap/visitable/ship))
 			//	log_and_message_admins(SPAN_WARNING("<b> \[AI holder\] ИИ по координатам [x]-[y] успешно был привязан к реальному объекту!</i></b>"))
 	target_clear_timer = addtimer(new Callback(src, PROC_REF(clear_target)), target_forgeting_speed, TIMER_LOOP | TIMER_STOPPABLE)
 	targets_refresh_timer = addtimer(new Callback(src, PROC_REF(refresh_target)), target_refresh_timer_cooldown, TIMER_LOOP | TIMER_STOPPABLE)
-	path_refresh_timer = addtimer(new Callback(src, PROC_REF(refresh_path)), path_refresh_timer_cooldown, TIMER_LOOP | TIMER_STOPPABLE)
+	path_refresh_timer = addtimer(new Callback(src, PROC_REF(refresh_path_to_target)), path_refresh_timer_cooldown, TIMER_LOOP | TIMER_STOPPABLE)
 	START_PROCESSING(SSobj, src)
 
 /obj/overmap/ai_holder/Destroy()
@@ -78,7 +78,7 @@
 		qdel(src)
 		return
 
-	process_ship()
+	process_ship_logic()
 	//for(var/obj/O in detected_hostile_objects)
 	//	log_and_message_admins(SPAN_WARNING("<b> [O]!</i></b>"))
 
@@ -89,7 +89,7 @@
 
 	src.forceMove(linked_object.loc)
 
-/obj/overmap/ai_holder/proc/process_ship()
+/obj/overmap/ai_holder/proc/process_ship_logic()
 	// wtf?
 	if(!istype(linked_object, /obj/overmap/simulated_ship))
 		return
@@ -110,12 +110,10 @@
 
 	switch(linked_object_settings.ai_mode)
 		if(AI_MODE_DEFEND)
-//			log_and_message_admins("Думаю")
 			if(!targeted_object)
 				if(linked_object_settings.ai_move_enabled == TRUE)
 					command_stop()
 				return
-//			log_and_message_admins("Найдена цель")
 
 			if(linked_object_settings.ai_attack_enabled == TRUE)
 				if(linked_object_settings.get_random_ready_to_fire_cannon() != null)
@@ -131,7 +129,7 @@
 					//	log_and_message_admins("Цель слишком далеко, перегенерирую путь")
 					//	refresh_path()
 					//else
-					refresh_path()
+					refresh_path_to_target()
 					command_move(use_astar_movement=TRUE)
 					//if(memorised_path)
 					//	if(get_dist(get_turf(memorised_path[memorised_path.len]), get_turf(targeted_object)) > path_refresh_distance)
@@ -152,9 +150,9 @@
 		if(memorised_path == null || memorised_path.len == 0)
 			linked_object.stop()
 		else
-			linked_object.move(memorised_path[1])
 			if(get_turf(linked_object) == memorised_path[1])
 				memorised_path -= memorised_path[1]
+			linked_object.move(memorised_path[1])
 	else
 		linked_object.move(targeted_object.loc)
 
@@ -167,14 +165,7 @@
 /obj/overmap/ai_holder/proc/command_shoot()
 	linked_object.shoot(targeted_object)
 
-/* /obj/overmap/ai_holder/proc/update_linked_ship_icon(moved, dir)
-	if(moved)
-		linked_object.icon_state = linked_object.moving_state
-		linked_object.dir = dir
-	else
-		linked_object.icon_state = initial(linked_object.icon_state) */
-
-/obj/overmap/ai_holder/proc/refresh_path()
+/obj/overmap/ai_holder/proc/refresh_path_to_target(min_distance_to_target = 1)
 	if(linked_object == null)
 		return
 	if(targeted_object == null)
@@ -187,7 +178,7 @@
 		dist = TYPE_PROC_REF(/turf, Distance),\
 		max_nodes = 20,\
 		max_node_depth = 20,\
-		min_target_dist = 1,\
+		min_target_dist = min_distance_to_target,\
 		min_node_dist = 0)//,
 		//id = null,
 		//exclude = obstacle)
@@ -203,11 +194,17 @@
 
 	get_all_targets()
 
-	if(detected_hostile_objects.len == 0)
-		return
 
-	targeted_object = choose_closest_target(detected_hostile_objects)
-	refresh_path()
+
+	switch(linked_object_settings.ai_mode)
+		if(AI_MODE_DEFEND)
+			if(detected_hostile_objects.len == 0)
+				return
+
+			targeted_object = choose_closest_target(detected_hostile_objects)
+		else
+			targeted_object = null
+	//refresh_path()
 
 /obj/overmap/ai_holder/proc/clear_target()
 	if(linked_object == null || linked_object_settings == null)
@@ -218,9 +215,9 @@
 		targeted_object = null
 
 /obj/overmap/ai_holder/proc/get_all_targets()
-	detected_hostile_objects.Cut() //TODO, replace with macros?
-	detected_neutral_objects.Cut() //TODO, same as above
-	detected_friendly_objects.Cut() //TODO, same as above
+	detected_hostile_objects.Cut()
+	detected_neutral_objects.Cut()
+	detected_friendly_objects.Cut()
 	for(var/obj/overmap/O in range(linked_object, linked_object_settings.sensors_range))
 		if(O == src)
 			continue

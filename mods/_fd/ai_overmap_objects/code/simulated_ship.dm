@@ -12,6 +12,7 @@
 	desc = "unknown ship"
 	icon = 'mods/_fd/fd_assets/icons/overmap_eris.dmi'
 	icon_state = "unkn"
+	color = "#ff0000"
 	var/icon_shifting = 0
 	var/moving_state = "unkn_r"
 	requires_contact = FALSE
@@ -54,15 +55,28 @@
 
 /obj/overmap/simulated_ship/Destroy()
 	STOP_PROCESSING(SSobj, src)
-	if(characteristic)
-		var/obj/overmap/event/ship_wreck/type_of_wreck = characteristic.get_wreck_type()
-		if(type_of_wreck)
-			var/obj/overmap/event/ship_wreck/new_wreck = new type_of_wreck(get_turf(src))
-			new_wreck.color = src.color
-		//O.Initialize()
-		if(!QDELETED(characteristic))
-			QDEL_NULL(characteristic)
-	..()
+	var/death_animation_damage_time = 0.5 SECOND
+	var/death_animation_disappearance_time = 0.25 SECOND
+	var/death_time = death_animation_damage_time + death_animation_disappearance_time
+	animate(src, color = COLOR_RED, time = death_animation_damage_time/2, easing = QUAD_EASING | EASE_IN)
+	spawn(death_animation_damage_time/2)
+		animate(src, color = COLOR_YELLOW, time = death_animation_damage_time/2, easing = LINEAR_EASING | EASE_OUT)
+	spawn(death_animation_damage_time)
+		animate(src, transform = matrix()*0, time = death_animation_disappearance_time, easing = BACK_EASING)
+	spawn(death_time)
+		if(characteristic)
+			var/obj/overmap/event/ship_wreck/type_of_wreck = characteristic.get_wreck_type()
+			if(type_of_wreck)
+				var/obj/overmap/event/ship_wreck/new_wreck = new type_of_wreck(get_turf(src))
+				new_wreck.color = initial(src.color)
+				var/matrix/matrix_none = matrix()
+				matrix_none.Scale(0)
+				new_wreck.transform = matrix_none
+				animate(new_wreck, transform = matrix(), time = death_animation_disappearance_time, easing = CUBIC_EASING | EASE_OUT)
+			//O.Initialize()
+			if(!QDELETED(characteristic))
+				QDEL_NULL(characteristic)
+		..()
 
 /obj/overmap/simulated_ship/Process()
 	if(!halted && !is_still())
@@ -93,9 +107,6 @@
 			entry["cooldown"] = max(0, entry["cooldown"] - 10)
 
 /obj/overmap/simulated_ship/MouseEntered(location, control, params)
-	//var/scan_health = round((characteristic.health / characteristic.max_health) * 100)
-	//var/scan_shield = round((characteristic.shield / characteristic.max_shield) * 100)
-	//var/content_of_tooltip = "[SPAN_COLOR("#4ae08e", "[scan_health]%")]/[SPAN_COLOR("#4ae08e", "100")], [SPAN_COLOR("#2bd2f0", "[scan_shield]")]/[SPAN_COLOR("#2bd2f0", "100")]"
 	var/content_of_tooltip = characteristic.get_additional_info()
 	openToolTip(user = usr, tip_src = src, params = params, title = name, content = content_of_tooltip)
 	..()
@@ -550,7 +561,7 @@
 			characteristic.cannons[selected_cannon]["cooldown"] = characteristic.cannons[selected_cannon]["max_cooldown"]
 		return
 
-	if(length(characteristic.ammo) > 0)
+	if(length(characteristic.ammo) > 0 || characteristic.ai_ammo_enable == FALSE)
 		if(characteristic.cannons[selected_cannon]["type"] == /obj/machinery/computer/ship/missiles)
 
 			var/list/ammo_missiles = list()
@@ -639,7 +650,8 @@
 			caboom.overmap_missile.set_moving(TRUE)
 
 
-			ammo_missiles[selected_missile]["ammount"] = ammo_missiles[selected_missile]["ammount"] - 1
+			if(characteristic.ai_ammo_enable == TRUE)
+				ammo_missiles[selected_missile]["ammount"] = ammo_missiles[selected_missile]["ammount"] - 1
 			characteristic.cannons[selected_cannon]["cooldown"] = characteristic.cannons[selected_cannon]["max_cooldown"]
 
 			return
@@ -673,17 +685,18 @@
 				pew.overmap_projectile.SetName("[src.name+"'s"] [pew.name]")
 				pew.overmap_projectile.set_projectile(pew, pew.cal_accuracy)
 				//overmap_projectile.color = overmap_color
-				if(!ispath(ammo_ammo[random_ammo_box_key]["type"], /obj/item/ammo_magazine/ammobox/crystal))
-					ammo_ammo[random_ammo_box_key]["ammount"] = ammo_ammo[random_ammo_box_key]["ammount"] - 1
-					if(ammo_ammo[random_ammo_box_key]["ammount"] <= 0)
-						break
+				if(characteristic.ai_ammo_enable == TRUE)
+					if(!ispath(ammo_ammo[random_ammo_box_key]["type"], /obj/item/ammo_magazine/ammobox/crystal))
+						ammo_ammo[random_ammo_box_key]["ammount"] = ammo_ammo[random_ammo_box_key]["ammount"] - 1
+						if(ammo_ammo[random_ammo_box_key]["ammount"] <= 0)
+							break
 			characteristic.cannons[selected_cannon]["cooldown"] = characteristic.cannons[selected_cannon]["max_cooldown"]
 
 // ebeam compatibility(kind of)
 // this is junk, literally and physically
 
 /obj/overmap/simulated_ship/proc/handle_ebeam()
-// should we even calculate damage, if this thing basically one-tap's ships lower than destroyer? i mean, maybe?
+	// should we even calculate damage, if this thing basically one-tap's ships lower than destroyer? i mean, maybe?
 	if(characteristic.max_health <= 100000) // ascent frigate health
 		animate_damage()
 		spawn(2 SECOND)

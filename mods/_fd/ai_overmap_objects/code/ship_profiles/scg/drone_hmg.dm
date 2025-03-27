@@ -1,12 +1,12 @@
-/obj/overmap/simulated_ship/scg/hmg_drone
+/obj/overmap/simulated_ship/scg/drone_hmg
 	name = "RBD-6 drone"
 	desc = "Tiny close-combat automated battle drone. Weak, but fast - effective solution to swarm enemies down with high quantity of these."
 	icon = 'mods/_fd/ai_overmap_objects/icons/scg/sfv32.dmi'
 	icon_state = "drone"
 	moving_state = "drone_moving"
-	characteristic = new /datum/ship_characteristic/scg/hmg_drone()
+	characteristic = new /datum/ship_characteristic/scg/drone_hmg()
 
-/datum/ship_characteristic/scg/hmg_drone
+/datum/ship_characteristic/scg/drone_hmg
 	max_health = 8000
 	max_shield = 0
 	shield_regen_speed = 7 *(1 SECOND)
@@ -17,7 +17,7 @@
 	max_targeted_distance_to_target = 1
 	sensors_range = 10
 
-/datum/ship_characteristic/scg/hmg_drone/New()
+/datum/ship_characteristic/scg/drone_hmg/New()
 	cannons = list(
 		"hmg_1" = list("type" = /obj/machinery/computer/ship/ship_weapon/hmg, "accurace" = 90, "damage" = 0),
 	)
