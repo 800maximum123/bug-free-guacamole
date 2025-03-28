@@ -26,6 +26,7 @@
 	desc = "These gloves will protect the wearer from electric shocks. This ones are darker than normal counterparts."
 	icon = 'mods/_fd/fd_assets/customs/lozari/icons/dark_robotist_gloves.dmi'
 	icon_state = "dark_robotist"
+	body_parts_covered = NONE
 	item_icons = list(
 		slot_gloves_str = 'mods/_fd/fd_assets/customs/lozari/onmob/dark_robotist_gloves.dmi',
 		slot_l_hand_str = 'icons/mob/onmob/items/lefthand.dmi',
