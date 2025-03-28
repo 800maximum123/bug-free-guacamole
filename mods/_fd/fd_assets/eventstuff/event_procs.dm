@@ -1,4 +1,4 @@
-// BOMBER EVENT
+// BOMBER EVENT 1
 
 /proc/titles(list/sequence)
     // Проверяем, что список sequence не пустой и существует
@@ -37,6 +37,34 @@
         C.screen -= text_display
 
     qdel(background)
+    qdel(text_display)
+
+/proc/titles_no_back(list/sequence)
+    // Проверяем, что список sequence не пустой и существует
+    if(!sequence || !length(sequence))
+        return
+    var/obj/screen/text_display = new /obj/screen
+    text_display.screen_loc = "WEST,CENTER"
+    text_display.icon_state = "blank"
+    text_display.maptext_width = 400
+    text_display.maptext_height = 100
+    text_display.maptext_x = 48
+    text_display.plane = 7
+    text_display.layer = 6
+    // Add objects to all clients' screens
+    for(var/client/C)
+        C.screen += text_display
+
+    for(var/list/item in sequence)
+        var/text = item[1]
+        var/duration = item[2]
+        text_display.maptext = "<center><font color='#9e0101' size='3'>[html_encode(text)]</font></center>"
+        sleep(duration * 10)
+
+    // Remove objects from all clients' screens
+    for(var/client/C)
+        C.screen -= text_display
+
     qdel(text_display)
 
 /proc/titles_blue(list/sequence)
@@ -183,8 +211,236 @@
 
 
 
+// BOMBER EVENT 2
+
+// Достоевский
+
+/mob/living/simple_animal/holo_npc/dostoevsky
+	name = "Alexey Dostoevsky"
+	desc = "Старый адмирал Экспедиционного Корпуса и текущий глава ЦПСС и ОСЧ. Этот человек готов на всё, чтобы победить."
+	icon = 'mods/_fd/event_tools/icons/holo_npc.dmi'
+	icon_state = "alexey"
+	icon_living = "alexey"
+	icon_dead = "alexey"
+/mob/living/simple_animal/holo_npc/dostoevsky/Life()
+	if(!seen)
+		animate(src, 3 SECONDS, alpha = 150)
+		seen = TRUE
+		start_thinking()
+
+	..()
 
 
+/mob/living/simple_animal/holo_npc/dostoevsky/start_thinking()
+	alpha = 0
+	invisibility = 50
+
+	spawn(5 SECOND)
+		invisibility = 0
+		animate(src, 5 SECONDS, alpha = 150)
+	spawn(10 SECONDS)
+		ISay("Так... Эта штуковина пишет? К-хм...")
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+	spawn(15 SECONDS)
+		ISay("Здравия желаю, экипаж Мантикоры")
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+	spawn(22 SECONDS)
+		ISay("Это сообщение вы должны посмотреть, когда прибудете к месту назначения")
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+	spawn(28 SECONDS)
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+		ISay("Как вы уже знаете, сегодня вы - отправляетесь в тыл врага")
+	spawn(35 SECONDS)
+		ISay("А именно - в пояс Агассиза, где, по нашим данным, расположен важный узел снабжения Восхождения")
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+	spawn(47 SECONDS)
+		ISay("Именно от него зависит успех наступления 3-ого Кристального флота по направлению к Тейе")
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+	spawn(55 SECONDS)
+		ISay("Задержки в поставках противника обеспечат нашему флоту время на перегруппировку и возможность контратаки")
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+	spawn(60 SECONDS)
+		ISay("Ваша задача - обнаружение и уничтожение объекта")
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+	spawn(65 SECONDS)
+		ISay("Для этого, по моему приказу, вы были снабжены ядерным боезапасом")
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+	spawn(70 SECONDS)
+		ISay("Используйте его с умом...")
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+	spawn(74 SECONDS)
+		ISay("В пояс Агассиза ведут блюспейс-врата, которые, вероятно, ещё не были скомпроментированы противником")
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+	spawn(82 SECONDS)
+		ISay("Они находятся в слоях космической пыли, потому соблюдайте бдительность")
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+	spawn(86 SECONDS)
+		ISay("У вас будет лишь один шанс: войти в сектор, обнаружить и уничтожить, а после - покинуть сектор")
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+	spawn(92 SECONDS)
+		ISay("Вопросы есть?")
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+	spawn(95 SECONDS)
+		ISay("...")
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+	spawn(100 SECONDS)
+		ISay("Впрочем, какие вопросы могут быть голограмме, правда? Она вам вряд ли ответит...")
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+	spawn(108 SECONDS)
+		ISay("И да, запомните: как только вы пройдёте внутрь врат - вы обязаны соблюдать режим полного радиомолчания")
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+	spawn(103 SECONDS)
+		ISay("На этом всё, Мантикора")
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+	spawn(108 SECONDS)
+		ISay("Готовьтесь к миссии... И удачи вам")
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+	spawn(114 SECONDS)
+		ISay("Всё, вырубай запи-")
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+	spawn(116 SECONDS)
+		qdel(src)
+
+// Пилот группы Ворона
+
+/mob/living/simple_animal/holo_npc/voron
+	name = "Henry Tacker"
+	desc = "Пилот разведчика, одетый в стандартный войдсьют Флота ЦПСС."
+	icon = 'mods/_fd/event_tools/icons/holo_npc.dmi'
+	icon_state = "voron"
+	icon_living = "voron"
+	icon_dead = "voron"
+/mob/living/simple_animal/holo_npc/voron/Life()
+	if(!seen)
+		animate(src, 3 SECONDS, alpha = 150)
+		seen = TRUE
+		start_thinking()
+
+	..()
+
+/mob/living/simple_animal/holo_npc/voron/start_thinking()
+	alpha = 0
+	invisibility = 50
+
+	spawn(5 SECOND)
+		invisibility = 0
+		animate(src, 5 SECONDS, alpha = 150)
+	spawn(10 SECONDS)
+		ISay("Объект обнаружен. Размеры комплекса превышают расчётные. Активность минимальна, но следы свежие. Что-то не так.")
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+	spawn(17 SECONDS)
+		ISay("База не просто пуста — её специально оставили. Нестабильность магнитных полей астероидов маскирует энергетические сигнатуры.")
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+	spawn(24 SECONDS)
+		ISay("Перехватил грузовой манифест. Эвакуировали 48 часов назад, но не всё успели. Координаты следующей точки доставки загружены в навигатор.")
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+	spawn(31 SECONDS)
+		ISay("Они могли оставить здесь ловушки. Рекомендую исследовать каждый сектор.")
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+	spawn(35 SECONDS)
+		ISay("Повторяю: база была разводным мостом. Настоящий узел уже перемещен. Координаты нового местоположения в приложенных данных.")
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+	spawn(42 SECONDS)
+		ISay("Приказ: молчать. Младший лейтенант Генри Такер, отбой.")
+		playsound(src.loc, 'sound/effects/radio_chatter.ogg', 100, 1)
+	spawn(46 SECONDS)
+		qdel(src)
+
+/proc/start_title()
+
+    var/sound/start_title = 'mods/_fd/fd_assets/sounds/start_title.ogg'
+
+    world << start_title
+
+    titles(list(
+        list("", 16),
+        list("Июль 2316", 5),
+        list("", 4),
+        list("Флотилии ЦПСС и ГКК отчаянно держат оборону", 4),
+        list("", 3),
+        list("Фронтовые линии человечества - двигаются назад", 4),
+        list("", 5),
+        list("Если так продолжится, то наше поражение - это лишь вопрос времени", 4),
+        list("", 3),
+        list("Нам необходим другой подход", 4),
+        list("", 3),
+        list("И по этой причине, командование 5-ого флота ЦПСС решилось на смелый шаг", 5),
+        list("", 3),
+        list("Для обеспечения передышки нашим силам, был отправлен бомбардировщик нового образца: SFV Manticore", 5),
+        list("", 3),
+        list("Согласно данным разведки, в глубинах Пояса Агассиза скрывается база снабжения противника", 5),
+        list("", 3),
+        list("Нас отправили унчитожить её", 3),
+        list("", 3),
+        list("Но разведданные — как тени: они могут скрывать больше, чем кажется...", 4),
+        list("", 3),
+        list("«Тени над Поясом Агассиза»", 10),
+        list("", 5),
+    ))
+
+/proc/dostoevsky_message()
+
+	var/message_dostoevsky = "<span style='color:blue; font-size: 22px;'>Вы слышите мягкий звон, исходящий от голопадов. Следует взглянуть, что это...</span>"
+	for(var/mob/M in GLOB.player_list)
+		to_chat(M, message_dostoevsky)
+
+	sleep(25)
+
+	var/sound/dostoevsky = 'mods/_fd/fd_assets/sounds/dostoevsky_message.ogg'
+	world << dostoevsky
+
+	sleep(60)
+
+	for(var/obj/holo_spawner/spawner in world)
+		if (spawner.character_id == "dostoevsky")
+			spawner.start_scene()
+			qdel(spawner)
+
+	sleep(1200)
+	var/lets_do_it = "<span style='color:blue; font-size: 20px;'>Чтож, у нас есть лишь один путь: вперёд! Ко вратам!</span>"
+	for(var/mob/M in GLOB.player_list)
+		to_chat(M, lets_do_it)
+
+/proc/ambush()
+
+	var/message_ambush = "<span style='color:red; font-size: 20px;'>На сенсорах происходит странная активность...</span>"
+	for(var/mob/M in GLOB.player_list)
+		to_chat(M, message_ambush)
+
+	sleep(50)
+
+	everyone_look_at_manta()
+
+	sleep(120)
+
+	var/list/map_turfs = block(locate(2,2,GLOB.using_map.overmap_z),locate(GLOB.using_map.overmap_size-2,GLOB.using_map.overmap_size-2,GLOB.using_map.overmap_z))
+	for(var/turf/T in map_turfs)
+		for(var/obj/npc_ship_spawner/npc in T)
+			if(npc)
+				npc.appear()
+
+	sleep(90)
+
+	var/sound/ambush_music = 'mods/_fd/fd_assets/sounds/music/ambush.ogg'
+	world << ambush_music
+
+	titles_no_back(list(
+		list("ЗАСАДА!", 1),
+		list("", 1),
+		list("ЗАСАДА!", 1),
+		list("", 1),
+		list("ЗАСАДА!", 1),
+		list("", 1),
+		list("ЗАСАДА!", 1),
+		list("", 1),
+		list("ЗАСАДА!", 1)
+	))
+
+	sleep(150)
+
+	var/message_gate_off = "<span style='color:red; font-size: 18px;'>ВНИМАНИЕ ВСЕМ КОРАБЛЯМ: Автоматическая трансляция Контрольного узла «Моностринг». Гейтвей нестабилен. Обнаружена преднамеренная дестабилизация гейтвея в зоне Контрольного узла. Избегайте транзита до стабилизации. Аварийный протокол активирован.</span>"
+	for(var/mob/M in GLOB.player_list)
+		to_chat(M, message_gate_off)
 
 // TORCH EVENT
 

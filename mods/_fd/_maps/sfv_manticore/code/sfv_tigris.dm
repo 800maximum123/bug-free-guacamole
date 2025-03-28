@@ -76,7 +76,7 @@
 	supervisors = "Fleet Command, Senior Officers"
 	total_positions = 1
 	spawn_positions = 1
-	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg/command
+	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg
 	branch = /datum/mil_branch/fleet
 	rank = /datum/mil_rank/fleet/o6
 	allowed_branches = list(
@@ -113,7 +113,7 @@
 	supervisors = "Fleet Command, Senior Officers, your Captain."
 	total_positions = 1
 	spawn_positions = 1
-	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg/command
+	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg
 	branch = /datum/mil_branch/fleet
 	rank = /datum/mil_rank/fleet/o3
 	allowed_branches = list(
@@ -151,7 +151,7 @@
 	supervisors = "Fleet Command, Senior Officers, Captain."
 	total_positions = 1
 	spawn_positions = 1
-	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg/command
+	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg
 	branch = /datum/mil_branch/fleet
 	rank = /datum/mil_branch/fleet
 	allowed_branches = list(
@@ -261,16 +261,13 @@
 	spawn_positions = 6
 	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg
 	branch = /datum/mil_branch/fleet
-	rank = /datum/mil_rank/fleet/e8
+	rank = /datum/mil_rank/fleet/e6
 
 	allowed_branches = list(
 		/datum/mil_branch/fleet,
 	)
 	allowed_ranks = list(
-		/datum/mil_rank/fleet/e5,
-		/datum/mil_rank/fleet/e6,
-		/datum/mil_rank/fleet/e7,
-		/datum/mil_rank/fleet/e8
+		/datum/mil_rank/fleet/e6
 	)
 	whitelisted_species = list(SPECIES_HUMAN,SPECIES_SPACER,SPECIES_GRAVWORLDER,SPECIES_VATGROWN,SPECIES_IPC)
 	required_language = LANGUAGE_HUMAN_EURO
@@ -338,15 +335,10 @@
 	rank = /datum/mil_rank/fleet/e8
 
 	allowed_branches = list(
-		/datum/mil_branch/fleet,
-		/datum/mil_branch/civilian
+		/datum/mil_branch/fleet
 	)
 	allowed_ranks = list(
-		/datum/mil_rank/fleet/e5,
-		/datum/mil_rank/fleet/e6,
-		/datum/mil_rank/fleet/e7,
-		/datum/mil_rank/fleet/e8,
-		/datum/mil_rank/civ/contractor
+		/datum/mil_rank/fleet/e8
 	)
 	whitelisted_species = list(SPECIES_HUMAN,SPECIES_SPACER,SPECIES_GRAVWORLDER,SPECIES_VATGROWN,SPECIES_IPC)
 	required_language = LANGUAGE_HUMAN_EURO
@@ -379,8 +371,7 @@
 	supervisors = "Fleet Command, Senior Officers, Captain."
 	total_positions = 1
 	spawn_positions = 1
-	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg/command
-	branch = /datum/mil_branch/iccgn
+	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/iccgn
 	rank = /datum/mil_rank/iccgn/of3
 	allowed_branches = list(
 		/datum/mil_branch/iccgn,
@@ -489,16 +480,13 @@
 	spawn_positions = 6
 	outfit_type = /singleton/hierarchy/outfit/job/sfv_tigris/fleet/iccgn
 	branch = /datum/mil_branch/iccgn
-	rank = /datum/mil_rank/iccgn/or8
+	rank = /datum/mil_rank/iccgn/or6
 
 	allowed_branches = list(
 		/datum/mil_branch/iccgn,
 	)
 	allowed_ranks = list(
-		/datum/mil_rank/iccgn/or5,
-		/datum/mil_rank/iccgn/or6,
-		/datum/mil_rank/iccgn/or7,
-		/datum/mil_rank/iccgn/or8,
+		/datum/mil_rank/iccgn/or6
 	)
 	whitelisted_species = list(SPECIES_HUMAN,SPECIES_SPACER,SPECIES_GRAVWORLDER,SPECIES_VATGROWN,SPECIES_IPC)
 	required_language = LANGUAGE_HUMAN_EURO
@@ -566,15 +554,10 @@
 	rank = /datum/mil_rank/iccgn/or8
 
 	allowed_branches = list(
-		/datum/mil_branch/iccgn,
-		/datum/mil_branch/civilian
+		/datum/mil_branch/iccgn
 	)
 	allowed_ranks = list(
-		/datum/mil_rank/iccgn/or5,
-		/datum/mil_rank/iccgn/or6,
-		/datum/mil_rank/iccgn/or7,
-		/datum/mil_rank/iccgn/or8,
-		/datum/mil_rank/civ/contractor
+		/datum/mil_rank/iccgn/or8
 	)
 	whitelisted_species = list(SPECIES_HUMAN,SPECIES_SPACER,SPECIES_GRAVWORLDER,SPECIES_VATGROWN,SPECIES_IPC)
 	required_language = LANGUAGE_HUMAN_EURO
@@ -656,34 +639,46 @@
 /singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg
 	name = OUTFIT_JOB_NAME("SFV Manticore Crew | SCG")
 	head = /obj/item/clothing/head/beret/solgov/fleet/branch/fifth
+	mask = /obj/item/clothing/mask/gas
 	uniform = /obj/item/clothing/under/solgov/utility/fleet
-	suit = /obj/item/clothing/suit/space/void/pilot/scgf/prepared
+	suit = /obj/item/clothing/suit/space/void/pilot/scgf/prepared/no_helm
 	shoes = /obj/item/clothing/shoes/dutyboots
+	r_hand = /obj/item/clothing/head/helmet/space/void/pilot/scgf
+	l_hand = null
 	l_pocket = /obj/item/tank/oxygen_emergency_extended
 	r_pocket = /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline
 	l_ear = /obj/item/device/radio/headset/syndicate/alt
 	pda_type = /obj/item/modular_computer/pda
 	belt = /obj/item/storage/belt/utility/full
-
-/singleton/hierarchy/outfit/job/sfv_tigris/fleet/scg/command
-	name = OUTFIT_JOB_NAME("SFV Manticore Command | SCG")
-	head = /obj/item/clothing/head/beret/solgov/fleet/command
-	uniform = /obj/item/clothing/under/solgov/utility/fleet
-	suit = /obj/item/clothing/suit/space/void/pilot/scgf/command/prepared
-	shoes = /obj/item/clothing/shoes/dutyboots
-	l_pocket = /obj/item/tank/oxygen_emergency_extended
-	r_pocket = /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline
-	l_ear = /obj/item/device/radio/headset/syndicate/alt
-	pda_type = /obj/item/modular_computer/pda
-	belt = /obj/item/storage/belt/utility/full
+	back = /obj/item/storage/backpack/rucksack/navy
+	backpack_contents = list(/obj/item/storage/firstaid/combat = 1,
+							/obj/item/clothing/gloves/thick/duty/solgov/fleet = 1,
+							/obj/item/device/radio = 1,
+							/obj/item/storage/mre/random = 1,
+							/obj/item/reagent_containers/food/drinks/cans/waterbottle = 1,
+							/obj/item/grenade/chem_grenade/metalfoam = 1,
+							/obj/item/device/flashlight/upgraded = 1
+	)
 
 /singleton/hierarchy/outfit/job/sfv_tigris/fleet/iccgn
 	name = OUTFIT_JOB_NAME("SFV Manticore Crew | ICCG")
+	mask = /obj/item/clothing/mask/gas
 	uniform = /obj/item/clothing/under/iccgn/utility
-	suit = /obj/item/clothing/suit/space/void/pilot/scgf/prepared
+	suit = /obj/item/clothing/suit/space/void/pilot/scgf/prepared/no_helm
 	shoes = /obj/item/clothing/shoes/dutyboots
+	r_hand = /obj/item/clothing/head/helmet/space/void/pilot/scgf
+	l_hand = null
 	l_pocket = /obj/item/tank/oxygen_emergency_extended
 	r_pocket = /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline
 	l_ear = /obj/item/device/radio/headset/syndicate/alt
 	pda_type = /obj/item/modular_computer/pda
 	belt = /obj/item/storage/belt/utility/full
+	back = /obj/item/storage/backpack/rucksack/navy
+	backpack_contents = list(/obj/item/storage/firstaid/combat/iccg = 1,
+							/obj/item/clothing/gloves/thick/duty/solgov/fleet = 1,
+							/obj/item/device/radio = 1,
+							/obj/item/storage/mre/random = 1,
+							/obj/item/reagent_containers/food/drinks/cans/waterbottle = 1,
+							/obj/item/grenade/chem_grenade/metalfoam = 1,
+							/obj/item/device/flashlight/upgraded = 1
+	)
