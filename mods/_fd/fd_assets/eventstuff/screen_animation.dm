@@ -49,6 +49,7 @@
 	sleep(anim_time/2)
 
 	for(var/mob/mob as() in affected_mobs)
+		DEL_TRANSFORMATION_MOVEMENT_HANDLER(mob)
 		var/obj/overmap/current_ship = map_sectors["[mob.loc.z]"]
 		current_ship.invisibility = INVISIBILITY_OVERMAP
 		// in theory, if someone flies off the ship during the animation - we can accidentially leave it visible for the rest of the round, but gah who cares
