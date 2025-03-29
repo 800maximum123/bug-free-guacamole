@@ -53,3 +53,7 @@
 		var/obj/overmap/current_ship = map_sectors["[mob.loc.z]"]
 		current_ship.invisibility = INVISIBILITY_OVERMAP
 		// in theory, if someone flies off the ship during the animation - we can accidentially leave it visible for the rest of the round, but gah who cares
+
+/proc/unstuck_anim()
+	for(var/mob/mob in GLOB.player_list)
+		DEL_TRANSFORMATION_MOVEMENT_HANDLER(mob)
