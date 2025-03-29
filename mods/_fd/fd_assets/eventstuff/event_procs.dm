@@ -465,7 +465,7 @@
 
 	sleep(50)
 
-	everyone_look_at_manta()
+	everyone_look_at_overmap()
 
 	sleep(120)
 
@@ -769,7 +769,7 @@
 
 // Вот тут мы в теории должны открывать всем игрокам овермапу относительно текущего положения Факела
 
-	everyone_look_at_torch()
+	everyone_look_at_overmap()
 
 	sleep(120)
 
