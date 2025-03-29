@@ -1,6 +1,6 @@
 /obj/overmap/simulated_ship/ascent/disruptor
 	name = "stationary disruptor"
-	desc = ""
+	desc = "This is what caused bluespace gate to shut down. DESTROY IT!"
 	icon = 'mods/_fd/immersive_overmap/icons/new_overmap.dmi'
 	icon_state = "ascent"
 	moving_state = "ascent"
@@ -8,7 +8,7 @@
 
 /datum/ship_characteristic/ascent/disruptor
 	max_health = 20000
-	max_shield = 10000
+	max_shield = 5000
 	shield_regen_speed = 7 *(1 SECOND)
 	vessel_mass = 25000
 	vessel_size = SHIP_SIZE_TINY
