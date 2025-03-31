@@ -286,7 +286,6 @@
 	#include "../../mods/_fd/structure_storage/_structure_storage.dme"
 	#include "../../mods/_fd/tartakans/_tartakans.dme"
 	#include "../../mods/_fd/v_posters/_v_posters.dme"
-	#include "../../mods/_fd/whitespace/_whitespace.dme"
 
 	#include "../../mods/_fd/_maps/a_destroyer/_a_destroyer.dme"
 	#include "../../mods/_fd/_maps/airfield/_airfield.dme"
