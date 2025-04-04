@@ -20,12 +20,12 @@
 /datum/ship_characteristic/ascent/frigate/New()
 	cannons = list(
 		"particle_lance" = list("type" = /obj/machinery/computer/ship/ship_weapon/beam_cannon/particle_lance, "accurace" = 75, "damage" = 0),
-		"disruptor" = list("type" = /obj/machinery/computer/ship/ship_weapon/disruptor, "accurace" = 75, "damage" = 0),
-		"disruptor" = list("type" = /obj/machinery/computer/ship/ship_weapon/disruptor, "accurace" = 75, "damage" = 0),
+		"disruptor_1" = list("type" = /obj/machinery/computer/ship/ship_weapon/disruptor, "accurace" = 75, "damage" = 0),
+		"disruptor_2" = list("type" = /obj/machinery/computer/ship/ship_weapon/disruptor, "accurace" = 75, "damage" = 0),
 	)
 
 	ammo = list(
-		"disruptor_ammo" = list("type" = /obj/item/ammo_magazine/ammobox/disruptor, "ammount" = 2)
+		"disruptor_ammo" = list("type" = /obj/item/ammo_magazine/ammobox/disruptor, "ammount" = 10)
 		)
 
 	..()
