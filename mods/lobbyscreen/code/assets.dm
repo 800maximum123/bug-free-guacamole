@@ -8,7 +8,8 @@
 		"light_left.png"  = 'mods/lobbyscreen/html/assets/light_left.png',
 		"light_right.png" = 'mods/lobbyscreen/html/assets/light_right.png',
 		"smallbutton.png" = 'mods/lobbyscreen/html/assets/smallbutton.png',
-		"buttons.mp4"     = 'mods/lobbyscreen/html/assets/buttons.mp4'
+		"buttons.mp4"     = 'mods/lobbyscreen/html/assets/buttons.mp4',
+		"buttons_loop.mp4"= 'mods/lobbyscreen/html/assets/buttons_loop.mp4'
 	)
 
 /datum/asset/simple/mod_lobby_loop

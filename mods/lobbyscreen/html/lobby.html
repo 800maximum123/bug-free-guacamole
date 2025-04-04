@@ -58,11 +58,11 @@
 
     #character {
       position: absolute;
-      bottom: 20%;
-      left: 50%;
+      bottom: 35%;
+      left: 20%;
       transform: translate(-50%, 0);
 
-      width: 50%;
+      width: 35%;
 
       font-family: "Courier Prime Code", Verdana, sans-serif;
       font-weight: normal;
@@ -166,7 +166,7 @@
       width: 9.5238vmin; /* 114.2857px (200px of 1200px) */
     }
 
-    .bottom-menu__item::before {
+    .__item::before {
       content: "";
       display: block;
       position: absolute;
@@ -206,7 +206,7 @@
       color: #85bab6;
 
       font-family: "Round Control", Verdana, sans-serif;
-      text-align: center;
+      text-align: left;
       font-weight: normal;
       font-size: 2vmin;
       line-height: 2vmin;
@@ -240,31 +240,31 @@
     }
 
     .center-menu__item--tl span, .center-menu__item--bl span { left: 0; }
-    .center-menu__item--tr span, .center-menu__item--br span { right: 0; }
+    .center-menu__item--tr span, .center-menu__item--br span { left: 0; }
 
     /* X - same. Y - not */
     .center-menu__item--tl {
-      left: 10.7691vmin; /* 129.23px */
-      top: 42.1133vmin;  /* 505.36px */
+      left: 2.7691vmin; /* 129.23px */
+      top: 26.8vmin;  /* 505.36px */
     }
 
     .center-menu__item--bl {
-      left: 10.7691vmin; /* 129.23px */
-      top: 51.4vmin;  /* 616.8px */
+      left: 2.7691vmin; /* 129.23px */
+      top: 43vmin;  /* 616.8px */
     }
 
     .center-menu__item--tr {
-      left: 65.7766vmin; /* 789.32px */
-      top: 41.8541vmin;  /* 502.25px */
+      left: 2.7691vmin; /* 789.32px */
+      top: 34.8vmin;  /* 502.25px */
     }
 
     .center-menu__item--br {
-      left: 65.7766vmin; /* 789.32px */
+      left: 2.7691vmin; /* 789.32px */
       top: 51.1416vmin;  /* 613.7px */
     }
 
     .center-menu__item--tl::before, .center-menu__item--bl::before { background-image: url("light_left.png"); }
-    .center-menu__item--tr::before, .center-menu__item--br::before { background-image: url("light_right.png"); }
+    .center-menu__item--tr::before, .center-menu__item--br::before { background-image: url("light_left.png"); }
 
     .center-menu__item::before {
       content: "";
@@ -293,9 +293,10 @@
     .center-menu__item:hover::before { opacity: 1;  }
     .bottom-menu__item:hover::before { opacity: .8; }
 
-    #back-buttons   { z-index: 1; }
-    #back-loop      { z-index: 2; }
-    #container      { z-index: 3; }
+    #back-buttons-loop{ z-index: 1; }
+    #back-buttons     { z-index: 1; }
+    #back-loop        { z-index: 2; }
+    #container        { z-index: 3; }
     #character { z-index: 4; }
 
     #center-menu { z-index: 1; }
@@ -315,6 +316,7 @@
 <body>
   <video class="video" style="display: none;" id="back-loop" src="loop.mp4" loop></video>
   <video class="video" style="display: none;" id="back-buttons" src="buttons.mp4"></video>
+  <video class="video" style="display: none;" id="back-buttons-loop" src="buttons_loop.mp4" loop></video>
   <div id="container">
     <div id="center-menu" style="display: none;">
         <a class="center-menu__item center-menu__item--horizontal center-menu__item--tr" href='?src=[player-ref];lobby_ready=1' id="ready"><span id="ready-text">Ready</span></a>
@@ -324,7 +326,7 @@
         <a class="center-menu__item center-menu__item--br" href='?src=[player-ref];observe=1' id="observe"><span>Observe</span></a>
     </div>
     <div id="bottom-menu">
-      <a class="bottom-menu__item" href='?src=[player-ref];lobby_changelog=1' id="changelog"><span>Changelog</span><i class="far fa-list-alt"></i></a>
+      <!-- <a class="bottom-menu__item" href='?src=[player-ref];lobby_changelog=1' id="changelog"><span>Changelog</span><i class="far fa-list-alt"></i></a> -->
       <a class="bottom-menu__item" href='?src=[player-ref];lobby_discord=1' id="discord"><span>Discord</span><i class="fab fa-discord"></i></a>
       <a class="bottom-menu__item" href='?src=[player-ref];lobby_wiki=1' id="wiki"><span>Wiki</span><i class="fas fa-book"></i></a>
     </div>
@@ -337,6 +339,7 @@
 
     var loopVideo = document.getElementById("back-loop");
     var buttonsVideo = document.getElementById("back-buttons");
+    var buttonsLoopVideo = document.getElementById("back-buttons-loop");
 
     var containerEl = document.getElementById("container");
     var centerMenuEl = document.getElementById("center-menu");
@@ -387,6 +390,7 @@
 
     var VIDEO_LOOP = 1;
     var VIDEO_BUTTONS = 2;
+    var VIDEO_BUTTONS_LOOP = 2;
     function showVideo(video_type) {
       if (video_type == VIDEO_BUTTONS) {
         if (loopVideo.paused && !buttonsVideo.paused)
@@ -395,12 +399,20 @@
           return;
 
         show(buttonsVideo);
+        // buttonsLoopVideo.classList.add("transparent");
         loopVideo.classList.add("transparent");
         buttonsVideo.play();
         setTimeout(function () {
           loopVideo.pause();
           hide(loopVideo);
         }, 1000);
+
+        setTimeout(function () {
+        hide(buttonsVideo);
+        show(buttonsLoopVideo);
+        buttonsLoopVideo.classList.remove("transparent");
+        buttonsLoopVideo.play();
+        }, 5000);
       }
 
       if (video_type == VIDEO_LOOP) {
