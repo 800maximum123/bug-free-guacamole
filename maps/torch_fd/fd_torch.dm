@@ -321,6 +321,7 @@
 		// ~VOID'S MINI-GAMES~ //
 
 	#include "../../mods/_fd/cat_alchemist/_cat_alchemist.dme"
+	#include "../../mods/_fd/fd_tbs/_fd_tbs.dme"
 
 
 		// ~EXOPLANET RUINS~ //
