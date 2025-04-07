@@ -253,17 +253,6 @@
 		if("Move")
 			if(unit_move_actions <= 0)
 				return 0
-/*			for(var/turf/inzone in orange(src, unit_speed))
-				if(inzone.density == TRUE)
-					continue
-				var/obj/cover = locate() in get_turf(inzone)
-				if(cover && cover.density == TRUE)
-					continue
-				var/mob/unit = locate() in get_turf(inzone)
-				if(unit)
-					continue
-				walkable_zone += inzone
-				new /obj/walkable_zone(get_turf(inzone))*/
 			commander.selected = src
 			return 1
 		if("Attack")

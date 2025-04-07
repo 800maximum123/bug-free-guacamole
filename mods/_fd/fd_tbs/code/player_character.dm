@@ -27,7 +27,6 @@
 			if("Да")
 				vision.density = FALSE
 				vision.mob_size = MOB_MINISCULE
-				vision.owner = null
 				walk_to(user.selected, vision.endgoal, 0, 3)
 				user.selected.chosen_action = null
 				user.selected.unit_move_actions -= 1
@@ -36,26 +35,11 @@
 					qdel(vision)
 				return 1
 			else
-				vision.owner = null
 				spawn(3 SECONDS)
 					qdel(vision)
 				user.selected.chosen_action = null
 				user.selected = null
 				return 1
-
-
-/*		if(src in user.selected.walkable_zone)
-			walk_to(user.selected, src, 0, 3)
-			user.selected.chosen_action = null
-			for(var/turf/inzone in user.selected.walkable_zone)
-				var/turf/covered = get_turf(inzone)
-				var/obj/walkable_zone/overlay = locate() in covered
-				if(overlay)
-					qdel(overlay)
-			user.selected.walkable_zone.Cut()
-			user.selected.unit_move_actions -= 1
-			user.selected = null
-			return 1*/
 
 /mob/living/simple_animal/fd/player
 	name = "player mob"
