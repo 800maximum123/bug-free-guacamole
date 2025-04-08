@@ -1,45 +1,9 @@
-/obj/walkable_zone
+/obj/tbs_zone
 	mouse_opacity = FALSE
 	alpha = 50
 
 	icon = 'mods/_fd/fd_tbs/icons/blueprints.dmi'
 	icon_state = "valid"
-
-/turf/DblClick(location, control, params)
-	var/mob/living/simple_animal/fd/player/user = usr
-	if(!user)
-		return 0
-	if(!user.selected)
-		return 0
-
-	if(user.selected.chosen_action == "Move")
-		var/mob/living/simple_animal/fd/walk_simulation/vision = new /mob/living/simple_animal/fd/walk_simulation(get_turf(user.selected))
-		vision.owner = user.selected
-		vision.endgoal = src
-		vision.owner_speed = user.selected.unit_speed
-		vision.icon = user.selected.icon
-		vision.icon_state = user.selected.icon_state
-		animate(vision, 1 SECOND, color = "#4e807dff")
-		animate(vision, 1 SECOND, alpha = 50)
-		walk_to(vision, src, 0, 3)
-		var/question = alert(user, "Вас устраивает этот маршрут?", "Подтверждение", "Да", "Нет")
-		switch(question)
-			if("Да")
-				vision.density = FALSE
-				vision.mob_size = MOB_MINISCULE
-				walk_to(user.selected, vision.endgoal, 0, 3)
-				user.selected.chosen_action = null
-				user.selected.unit_move_actions -= 1
-				user.selected = null
-				spawn(3 SECONDS)
-					qdel(vision)
-				return 1
-			else
-				spawn(3 SECONDS)
-					qdel(vision)
-				user.selected.chosen_action = null
-				user.selected = null
-				return 1
 
 /mob/living/simple_animal/fd/player
 	name = "player mob"

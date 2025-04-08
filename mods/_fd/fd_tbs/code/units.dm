@@ -1,8 +1,8 @@
 /obj/healthbar
 	mouse_opacity = FALSE
-	icon = 'mods/_fd/fd_tbs/icons/overlays.dmi'
+	icon = 'mods/_fd/fd_tbs/icons/tbs_ui.dmi'
 	icon_state = "health_3"
-	pixel_y = 10
+	pixel_y = 15
 	var/mob/living/simple_animal/fd/unit/linked_character
 
 	layer = HUD_ABOVE_HUD_LAYER
@@ -30,18 +30,14 @@
 	src.forceMove(linked_character.loc)
 
 /obj/healthbar/on_update_icon()
-	if(linked_character.unit_health == 0)
-		pixel_y = 0
-		icon_state = "dead"
-		return 1
-	pixel_y = 10
+	pixel_y = 15
 	icon_state = "health_[linked_character.unit_health]"
 
 /obj/armorbar
 	mouse_opacity = FALSE
-	icon = 'mods/_fd/fd_tbs/icons/overlays.dmi'
+	icon = 'mods/_fd/fd_tbs/icons/tbs_ui.dmi'
 	icon_state = "armor_1"
-	pixel_x = 10
+	pixel_x = 32
 	var/mob/living/simple_animal/fd/unit/linked_character
 
 	layer = HUD_ABOVE_HUD_LAYER
@@ -68,13 +64,7 @@
 	src.forceMove(linked_character.loc)
 
 /obj/armorbar/on_update_icon()
-	if(linked_character.unit_armor == 0)
-		pixel_x = 0
-		pixel_y = 10
-		icon_state = "armor_broken"
-		return 1
-	pixel_x = 10
-	pixel_y = 0
+	pixel_x = 32
 	icon_state = "armor_[linked_character.unit_armor]"
 
 /mob/living/simple_animal/fd/walk_simulation
@@ -117,33 +107,61 @@
 	anchored = TRUE
 
 	var/kia = FALSE // Юнит вообще жив?
+	var/poisoned = FALSE // Таймед дамаг
+	var/poison_strenght = 0 // Длительность отравления
 
 	var/unit_health = 3 // 3 - базовое значение для большинства. 10 - возможный максимум
 	// Армор - это НЕ дополнительное ХП. При попадании по юниту - он снижает входящий урон на указанное число, затем уменьшаясь на один.
 	// Если армор и урон будут равны единице - урон полностью аннулируется, значение армора опускается к нулю.
 	// Если армор равен трём, а урон двум - юнит не получит урона и его значение армора уменьшится на один
+	var/has_armor = FALSE // У нас броня в принципе существует???
+	var/armor_broken = FALSE // Сломана ли наша броня?
 	var/unit_armor = 0
 	var/healthbar_color = "#ffffffff"
 
 	var/side // Фракция
 	var/chosen_action // Выбранное действие
+	var/chosen_attack // Если мы атакуем, то чем?
 	var/unit_actions_amount = 1 // Количество действий(помимо движения), которое игрок может совершить этим юнитом за ход
 
 	var/unit_speed = 6 // Как далеко этот юнит может ходить
 	var/unit_move_actions = 1 // У большинства юнитов лишь одно действие мувмента на ход
-	var/list/walkable_zone = list() // Все турфы, к которым юнит может передвинуться
 
 	var/has_special = FALSE // Есть ли у нашего юнита особые умения?
 
+	var/list/possible_targets = list()
+	var/mob/living/simple_animal/fd/unit/actual_target
+
 /mob/living/simple_animal/fd/unit/Life()
 	. = ..()
-	if(unit_health <= 0)
+	if(unit_health <= 0 && !kia)
+		overlays += image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "dead")
 		kia = TRUE
+
+	if(unit_health > 0 && kia)
+		overlays -= image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "dead")
+		kia = FALSE
+
+	if(!poisoned && poison_strenght > 0)
+		poisoned = TRUE
+		overlays += image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "poison")
+
+	if(poisoned && poison_strenght <= 0)
+		poisoned = FALSE
+		overlays -= image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "poison")
+
+	if(unit_armor <= 0 && has_armor && !armor_broken)
+		overlays += image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "broken")
+		armor_broken = TRUE
+
+	if(unit_armor > 0 && has_armor && armor_broken)
+		overlays -= image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "broken")
+		armor_broken = FALSE
 
 /mob/living/simple_animal/fd/unit/Initialize()
 	. = ..()
 	new /obj/healthbar(get_turf(src))
-	if(unit_armor > 0)
+	if(has_armor)
 		new /obj/armorbar(get_turf(src))
 
 /mob/living/simple_animal/fd/unit/proc/armor_block(amount)
@@ -180,6 +198,8 @@
 	if(unit_armor > 0 && !ignore_armor)
 		amount -= unit_armor
 		armor_block(1)
+	if(amount < 0)
+		amount = 0
 	unit_health -= amount
 
 	var/turf/T = get_turf(src)
@@ -197,11 +217,12 @@
 		health.update_icon()
 
 /mob/living/simple_animal/fd/unit/proc/specials(mob/user) // Индивидуально для каждого юнита, поэтому здесь я оставлю лишь пример того, как данный прок должен выглядеть и работать!
+	var/mob/living/simple_animal/fd/player/commander = user
 	var/list/abilities = list(
-		"Ability 1" = image('mods/_fd/fd_tbs/icons/actions.dmi', "mech_lights_off"),
-		"Ability 2" = image('mods/_fd/fd_tbs/icons/actions.dmi', "mech_lights_off")
+		"Ability 1" = image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "Ability"),
+		"Ability 2" = image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "Ability")
 	)
-	var/chosen_special = show_radial_menu(user, src, abilities, radius = 60, require_near = FALSE)
+	var/chosen_special = show_radial_menu(commander, src, abilities, radius = 60, require_near = FALSE)
 	if (!chosen_special)
 		return 0
 
@@ -213,12 +234,16 @@
 
 	return 0
 
+/mob/living/simple_animal/fd/unit/proc/resolve_attack() // Индивидуально для каждого юнита
+	return
+
 /mob/living/simple_animal/fd/unit/proc/attack_options(mob/user) // Индивидуально для каждого юнита, поэтому здесь я оставлю лишь пример того, как данный прок должен выглядеть и работать!
+	var/mob/living/simple_animal/fd/player/commander = user
 	var/list/attacks = list(
-		"Attack 1" = image('mods/_fd/fd_tbs/icons/actions.dmi', "mech_zoom_off"),
-		"Attack 2" = image('mods/_fd/fd_tbs/icons/actions.dmi', "mech_zoom_off")
+		"Attack 1" = image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "Attack"),
+		"Attack 2" = image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "Attack")
 	)
-	var/chosen_attack = show_radial_menu(user, src, attacks, radius = 60, require_near = FALSE)
+	chosen_attack = show_radial_menu(commander, src, attacks, radius = 60, require_near = FALSE)
 	if (!chosen_attack)
 		return 0
 
@@ -240,9 +265,10 @@
 		return 0
 
 	var/list/unit_actions = list(
-		"Move" = image('mods/_fd/fd_tbs/icons/actions.dmi', "mech_overload_off"),
-		"Attack" = image('mods/_fd/fd_tbs/icons/actions.dmi', "mech_zoom_off"),
-		"Special" = image('mods/_fd/fd_tbs/icons/actions.dmi', "mech_lights_off")
+		"Move" = image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "Move"),
+		"Attack" = image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "Attack"),
+		"Special" = image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "Ability"),
+		"Activate" = image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "Use")
 	)
 
 	chosen_action = show_radial_menu(commander, src, unit_actions, radius = 60, require_near = FALSE)
@@ -252,15 +278,24 @@
 	switch(chosen_action)
 		if("Move")
 			if(unit_move_actions <= 0)
+				chosen_action = null
 				return 0
+			overlays += image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_friendly")
+			commander.selected = src
+			return 1
+		if("Activate") // Most of the stuff can be activated for free
+
 			commander.selected = src
 			return 1
 		if("Attack")
+			commander.selected = src
+			overlays += image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_hostile")
 			attack_options(commander)
 			return 1
 		if("Special")
 			if(!has_special)
 				return 0
+			commander.selected = src
 			specials(commander)
 			return 1
 
@@ -268,6 +303,7 @@
 	icon_state = "Advanced Mobility Combat Suit"
 	side = "Red"
 	healthbar_color = "#db0000ff"
+	has_armor = TRUE
 	unit_health = 5
 	unit_armor = 2
 
@@ -275,5 +311,6 @@
 	icon_state = "Stealth Suit"
 	side = "Blue"
 	healthbar_color = "#0061bdff"
+	has_armor = TRUE
 	unit_health = 5
 	unit_armor = 2
