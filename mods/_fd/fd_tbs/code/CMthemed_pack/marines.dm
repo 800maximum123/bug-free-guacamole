@@ -1,13 +1,12 @@
 /mob/living/simple_animal/fd/unit/cmpack/marines
 	side = "Marines"
+	icon = 'mods/_fd/fd_tbs/icons/tbs_units_marines.dmi'
 	var/max_ammo = 0
 	var/ammo = 0 // Боезапас. У фракции морпехов он тратится на применение практически всех атак и способностей.
 	// Восстанавливается по единице в начале каждого раунда или рассходниками, если меньше максимального значения.
 
 /mob/living/simple_animal/fd/unit/cmpack/marines/alex_smith
 	name = "Alex Smith"
-
-	icon = 'mods/_fd/fd_tbs/icons/tbs_units_marines.dmi'
 	icon_state = "Alex Smith"
 
 	unit_health = 6
@@ -26,8 +25,67 @@
 	max_ammo = 8
 	ammo = 8
 
+	var/list/ability_zone = list()
+
+/mob/living/simple_animal/fd/unit/cmpack/marines/alex_smith/resolve_special(atom/target) // Индивидуально для каждого юнита
+	if(chosen_special == "Place Sentry")
+		if(!(target in ability_zone))
+			decline_special()
+			return 1
+		for(var/turf/inzone in ability_zone)
+			var/turf/covered = get_turf(inzone)
+			var/obj/tbs_zone/overlay = locate() in covered
+			if(overlay)
+				qdel(overlay)
+		ability_zone.Cut()
+
+		chosen_special = null
+
+		ammo -= 4
+		unit_actions_amount -= 1
+		new /mob/living/simple_animal/fd/unit/cmpack/marines/sentry(get_turf(target))
+		return 1
+	if(chosen_special == "Repair Armor")
+		var/mob/living/simple_animal/fd/unit/damaged = target
+		if(!(damaged in possible_targets))
+			decline_special()
+			return 1
+
+		for(var/mob/living/simple_animal/fd/unit/targets in possible_targets)
+			targets.remove_filter("target")
+
+		damaged.repair_armor(2)
+		possible_targets.Cut()
+
+		chosen_special = null
+
+		ammo -= 2
+		unit_actions_amount -= 1
+		return 1
+
+
+/mob/living/simple_animal/fd/unit/cmpack/marines/alex_smith/decline_special()
+	if(chosen_special == "Place Sentry")
+		for(var/turf/inzone in ability_zone)
+			var/turf/covered = get_turf(inzone)
+			var/obj/tbs_zone/overlay = locate() in covered
+			if(overlay)
+				qdel(overlay)
+		ability_zone.Cut()
+		return 1
+	if(chosen_special == "Repair Armor")
+		for(var/mob/living/simple_animal/fd/unit/targets in possible_targets)
+			targets.remove_filter("target")
+		return 1
+
+/mob/living/simple_animal/fd/unit/cmpack/marines/alex_smith/decline_attack()
+	for(var/mob/living/simple_animal/fd/unit/targets in possible_targets)
+		targets.remove_filter("target")
+
 /mob/living/simple_animal/fd/unit/cmpack/marines/alex_smith/resolve_attack()
 	if(chosen_attack == "Shotgun Blast")
+		for(var/mob/living/simple_animal/fd/unit/targets in possible_targets)
+			targets.remove_filter("target")
 		face_atom(actual_target)
 		ISay("Получай!")
 
@@ -55,11 +113,11 @@
 			actual_target = null
 		return 1
 
-/mob/living/simple_animal/fd/unit/cmpack/marines/alex_smith/attack_options(mob/user) // Индивидуально для каждого юнита, поэтому здесь я оставлю лишь пример того, как данный прок должен выглядеть и работать!
+/mob/living/simple_animal/fd/unit/cmpack/marines/alex_smith/attack_options(mob/user)
 	var/mob/living/simple_animal/fd/player/commander = user
 	var/list/attacks = list(
-		"Shotgun Blast" = image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "Attack"),
-		"Boot-Punch" = image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "Attack")
+		"Shotgun Blast" = image('mods/_fd/fd_tbs/icons/tbs_units_marines.dmi', "Alex Shotgun"),
+		"Boot-Punch" = image('mods/_fd/fd_tbs/icons/tbs_units_marines.dmi', "Alex Punch")
 	)
 	chosen_attack = show_radial_menu(commander, src, attacks, radius = 60, require_near = FALSE)
 	if (!chosen_attack)
@@ -90,7 +148,7 @@
 					continue
 				if(target.kia)
 					continue
-				target.add_filter("target", 1, list("type" = "outline", , "size" = 2, "color" = COLOR_RED))
+				target.add_filter("target", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_RED))
 				possible_targets += target
 
 			return 1
@@ -144,3 +202,217 @@
 					return 1
 
 	return 0
+
+/mob/living/simple_animal/fd/unit/cmpack/marines/alex_smith/specials(mob/user)
+	var/mob/living/simple_animal/fd/player/commander = user
+	var/list/abilities = list(
+		"Place Sentry" = image('mods/_fd/fd_tbs/icons/tbs_units_marines.dmi', "Alex Sentry"),
+		"Repair Armor" = image('mods/_fd/fd_tbs/icons/tbs_units_marines.dmi', "Alex Repair")
+	)
+	chosen_special = show_radial_menu(commander, src, abilities, radius = 60, require_near = FALSE)
+	if (!chosen_special)
+		commander.selected.chosen_action = null
+		commander.selected = null
+		overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_friendly")
+		return 0
+
+	switch(chosen_special)
+		if("Place Sentry")
+			if(unit_actions_amount <= 0)
+				chosen_special = null
+				commander.selected.chosen_action = null
+				commander.selected = null
+				overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_friendly")
+				return 0
+			if(ammo < 4)
+				chosen_special = null
+				commander.selected.chosen_action = null
+				commander.selected = null
+				overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_friendly")
+				return 0
+			should_be_used_on = "Turf"
+			for(var/turf/inzone in oview(1, src))
+				if(inzone.density == TRUE)
+					continue
+				var/obj/cover = locate() in get_turf(inzone)
+				if(cover && cover.density == TRUE)
+					continue
+				var/mob/living/simple_animal/fd/unit/other = locate() in get_turf(inzone)
+				if(other)
+					continue
+				ability_zone += inzone
+				new /obj/tbs_zone(get_turf(inzone))
+			return 1
+		if("Repair Armor")
+			should_be_used_on = "Unit"
+			if(unit_actions_amount <= 0)
+				chosen_attack = null
+				commander.selected.chosen_action = null
+				commander.selected = null
+				overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_friendly")
+				return 0
+			if(ammo < 2)
+				chosen_attack = null
+				commander.selected.chosen_action = null
+				commander.selected = null
+				overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_friendly")
+				return 0
+
+			ISay("Синяя изолента всё исправит...")
+
+			for(var/mob/living/simple_animal/fd/unit/target in oview(1,src))
+				if(target.side != side)
+					continue
+				if(target.has_armor == FALSE)
+					continue
+				if(target.kia)
+					continue
+				target.add_filter("target", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_BLUE))
+				possible_targets += target
+
+			return 1
+
+	return 0
+
+/mob/living/simple_animal/fd/unit/cmpack/marines/sentry
+	name = "Sentry Gun"
+	icon_state = "Sentry"
+
+	unit_health = 2
+	healthbar_color = "#2eaf07ff"
+	has_armor = TRUE
+
+	unit_armor = 8
+
+	unit_actions_amount = 1
+
+	unit_speed = 0
+	unit_move_actions = 0
+
+	max_ammo = 12
+	ammo = 12
+
+/mob/living/simple_animal/fd/unit/cmpack/marines/sentry/attack_options(mob/user)
+	var/mob/living/simple_animal/fd/player/commander = user
+	var/list/attacks = list(
+		"Shoot" = image('mods/_fd/fd_tbs/icons/tbs_units_marines.dmi', "Sentry Fire")
+	)
+	chosen_attack = show_radial_menu(commander, src, attacks, radius = 60, require_near = FALSE)
+	if (!chosen_attack)
+		commander.selected.chosen_action = null
+		commander.selected = null
+		overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_hostile")
+		return 0
+
+	switch(chosen_attack)
+		if("Shoot")
+			if(unit_actions_amount <= 0)
+				chosen_attack = null
+				commander.selected.chosen_action = null
+				commander.selected = null
+				overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_hostile")
+				return 0
+			if(ammo <= 0)
+				chosen_attack = null
+				commander.selected.chosen_action = null
+				commander.selected = null
+				overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_hostile")
+				return 0
+
+			var/question = alert(user, "Вас устраивает выбранное действие?", "Подтверждение", "Да", "Нет")
+			switch(question)
+				if("Да")
+
+					for(var/mob/living/simple_animal/fd/unit/target in oview(6,src))
+						if(target.side == side)
+							continue
+						if(target.kia)
+							continue
+						possible_targets += target
+					ISay("ЦЕЛЬ. ОБНАРУЖЕНА.")
+					unit_actions_amount -= 1
+
+					overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_hostile")
+					spawn(1 SECOND)
+						var/mob/living/simple_animal/fd/unit/victim = pick(possible_targets)
+						ISay("ПРИСТУПИТЬ. К. ЛИКВИДАЦИИ.")
+						face_atom(victim)
+						victim.process_damage(2)
+						possible_targets -= victim
+						ammo -= 1
+
+						playsound(src.loc, 'sound/weapons/gunshot/gunshot_smg.ogg', 20, 1)
+						new /obj/temporary(get_turf(src), 3, 'mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_danger")
+
+						animate(victim, color = COLOR_RED, time = 0.2 SECOND, easing = CUBIC_EASING | EASE_IN)
+						spawn(0.3 SECOND)
+							animate(victim, color = COLOR_WHITE, time = 0.2 SECOND, easing = CUBIC_EASING | EASE_OUT)
+					if(ammo > 0)
+						spawn(2 SECOND)
+							var/mob/living/simple_animal/fd/unit/victim = pick(possible_targets)
+							face_atom(victim)
+							victim.process_damage(2)
+							possible_targets -= victim
+							ammo -= 1
+
+							playsound(src.loc, 'sound/weapons/gunshot/gunshot_smg.ogg', 20, 1)
+							new /obj/temporary(get_turf(src), 3, 'mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_danger")
+
+							animate(victim, color = COLOR_RED, time = 0.2 SECOND, easing = CUBIC_EASING | EASE_IN)
+							spawn(0.3 SECOND)
+								animate(victim, color = COLOR_WHITE, time = 0.2 SECOND, easing = CUBIC_EASING | EASE_OUT)
+					if(ammo > 0)
+						spawn(3 SECOND)
+							var/mob/living/simple_animal/fd/unit/victim = pick(possible_targets)
+							face_atom(victim)
+							victim.process_damage(2)
+							possible_targets -= victim
+							ammo -= 1
+
+							playsound(src.loc, 'sound/weapons/gunshot/gunshot_smg.ogg', 20, 1)
+							new /obj/temporary(get_turf(src), 3, 'mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_danger")
+
+							animate(victim, color = COLOR_RED, time = 0.2 SECOND, easing = CUBIC_EASING | EASE_IN)
+							spawn(0.3 SECOND)
+								animate(victim, color = COLOR_WHITE, time = 0.2 SECOND, easing = CUBIC_EASING | EASE_OUT)
+
+					if(ammo <= 0)
+						ISay("БОЕЗАПАС. ПУСТ.")
+
+					chosen_attack = null
+					commander.selected.chosen_action = null
+					commander.selected = null
+					spawn(5 SECONDS)
+						possible_targets.Cut()
+					return 1
+				else
+					chosen_attack = null
+					commander.selected.chosen_action = null
+					commander.selected = null
+					overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_hostile")
+					return 1
+	return 0
+
+/mob/living/simple_animal/fd/unit/cmpack/marines/sentry/AltClick(mob/user)
+	var/mob/living/simple_animal/fd/player/commander = user
+	if(commander.side != side)
+		return 0
+	if(!commander.active_turn)
+		return 0
+	if(kia)
+		return 0
+
+	var/list/unit_actions = list(
+		"Attack" = image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "Attack")
+	)
+
+	chosen_action = show_radial_menu(commander, src, unit_actions, radius = 60, require_near = FALSE)
+	if (!chosen_action)
+		return 0
+
+	switch(chosen_action)
+		if("Attack")
+			commander.selected = src
+			overlays += image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_hostile")
+			attack_options(commander)
+			return 1

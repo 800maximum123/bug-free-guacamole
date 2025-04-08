@@ -21,3 +21,15 @@
 	icon = 'mods/_fd/fd_tbs/icons/AI.dmi'
 	icon_state = "ai-redoctober"
 	side = "Red"
+
+/mob/living/simple_animal/fd/player/marine
+	icon = 'mods/_fd/fd_tbs/icons/AI.dmi'
+	icon_state = "ai-lonestar"
+	side = "Marines"
+	active_turn = TRUE
+
+/mob/living/simple_animal/fd/player/alien
+	icon = 'mods/_fd/fd_tbs/icons/AI.dmi'
+	icon_state = "ai-glitchman_dead"
+	side = "Xenos"
+	active_turn = TRUE

@@ -39,6 +39,25 @@
 				user.selected = null
 				return 1
 
+	if(user.selected.chosen_action == "Special")
+		if(user.selected.should_be_used_on == "Turf")
+			var/question = alert(user, "Вас устраивает выбранная цель?", "Подтверждение", "Да", "Нет")
+			switch(question)
+				if("Да")
+					user.selected.overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_friendly")
+					user.selected.resolve_special(src)
+
+					user.selected.chosen_action = null
+					user.selected = null
+					return 1
+				else
+					user.selected.overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_friendly")
+					user.selected.decline_special()
+					user.selected.chosen_special = null
+					user.selected.chosen_action = null
+					user.selected = null
+					return 1
+
 // ЮНИТЫ
 
 /mob/living/simple_animal/fd/unit/DblClick(location, control, params)
@@ -62,8 +81,6 @@
 				new /obj/temporary(get_turf(user.selected), 3, 'mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_danger")
 
 				user.selected.chosen_action = null
-				for(var/mob/living/simple_animal/fd/unit/targets in user.selected.possible_targets)
-					targets.remove_filter("target")
 				user.selected.possible_targets.Cut()
 				user.selected = null
 				return 1
@@ -71,11 +88,29 @@
 				user.selected.overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_hostile")
 				user.selected.chosen_attack = null
 				user.selected.chosen_action = null
-				for(var/mob/living/simple_animal/fd/unit/targets in user.selected.possible_targets)
-					targets.remove_filter("target")
+				user.selected.decline_attack()
 				user.selected.possible_targets.Cut()
 				user.selected = null
 				return 1
+
+	if(user.selected.chosen_action == "Special")
+		if(user.selected.should_be_used_on == "Unit")
+			var/question = alert(user, "Вас устраивает выбранная цель?", "Подтверждение", "Да", "Нет")
+			switch(question)
+				if("Да")
+					user.selected.overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_friendly")
+					user.selected.resolve_special(src)
+
+					user.selected.chosen_action = null
+					user.selected = null
+					return 1
+				else
+					user.selected.overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_friendly")
+					user.selected.decline_special()
+					user.selected.chosen_special = null
+					user.selected.chosen_action = null
+					user.selected = null
+					return 1
 
 // АКТИВНОСТИ
 
