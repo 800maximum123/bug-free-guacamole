@@ -128,15 +128,34 @@
 	var/unit_move_actions = 1 // У большинства юнитов лишь одно действие мувмента на ход
 
 	var/has_special = FALSE // Есть ли у нашего юнита особые умения?
+	var/chosen_special
+	var/should_be_used_on = "Nothing"
 
 	var/list/possible_targets = list()
 	var/mob/living/simple_animal/fd/unit/actual_target
 
+/mob/living/simple_animal/fd/unit/proc/special_death() // Индивидуально для каждого юнита
+	return
+
 /mob/living/simple_animal/fd/unit/Life()
 	. = ..()
+
+	if(unit_health < 0)
+		unit_health = 0
+		var/turf/T = get_turf(src)
+		for(var/obj/healthbar/health in T)
+			health.update_icon()
+
+	if(unit_armor < 0)
+		unit_armor = 0
+		var/turf/T = get_turf(src)
+		for(var/obj/armorbar/armor in T)
+			armor.update_icon()
+
 	if(unit_health <= 0 && !kia)
 		overlays += image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "dead")
 		kia = TRUE
+		special_death() // Если, вдруг, с юнитом что-то происходит при смерти
 
 	if(unit_health > 0 && kia)
 		overlays -= image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "dead")
@@ -216,13 +235,19 @@
 
 		health.update_icon()
 
+/mob/living/simple_animal/fd/unit/proc/resolve_special() // Индивидуально для каждого юнита
+	return
+
+/mob/living/simple_animal/fd/unit/proc/decline_special() // Индивидуально для каждого юнита
+	return
+
 /mob/living/simple_animal/fd/unit/proc/specials(mob/user) // Индивидуально для каждого юнита, поэтому здесь я оставлю лишь пример того, как данный прок должен выглядеть и работать!
 	var/mob/living/simple_animal/fd/player/commander = user
 	var/list/abilities = list(
 		"Ability 1" = image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "Ability"),
 		"Ability 2" = image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "Ability")
 	)
-	var/chosen_special = show_radial_menu(commander, src, abilities, radius = 60, require_near = FALSE)
+	chosen_special = show_radial_menu(commander, src, abilities, radius = 60, require_near = FALSE)
 	if (!chosen_special)
 		return 0
 
@@ -233,6 +258,9 @@
 			return 1
 
 	return 0
+
+/mob/living/simple_animal/fd/unit/proc/decline_attack() // Индивидуально для каждого юнита
+	return
 
 /mob/living/simple_animal/fd/unit/proc/resolve_attack() // Индивидуально для каждого юнита
 	return
@@ -295,6 +323,7 @@
 		if("Special")
 			if(!has_special)
 				return 0
+			overlays += image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_friendly")
 			commander.selected = src
 			specials(commander)
 			return 1
