@@ -270,6 +270,7 @@
 	#include "../../mods/_fd/cyberware_mayhem/_cyberware_mayhem.dme"
 	#include "../../mods/_fd/event_tools/_event_tools.dme"
 	#include "../../mods/_fd/expanded_traders/_expanded_traders.dme"
+	#include "../../mods/_fd/export_to_dmi/_export_to_dmi.dme"
 	#include "../../mods/_fd/hestia_missiles/_hestia_missiles.dme"
 	#include "../../mods/_fd/immersive_overmap/_immersive_overmap.dme"
 	#include "../../mods/_fd/immersive_sounds/_immersive_sounds.dme"
