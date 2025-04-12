@@ -12,16 +12,38 @@ GLOBAL_LIST_EMPTY(match_names)
 	invisibility = 50
 	var/controller_id = "Test Match"//Если нам вдруг понадобится больше одной арены или одновременных игр
 	var/list/players_in = list() //Игроки в очереди
-	var/list/payers_done = list() //Те, что уже походили
+	var/list/players_done = list() //Те, что уже походили
 	var/list/teams = list() //Список команд
 	var/mob/living/simple_animal/fd/player/active_gamer //Чья сейчас очередь?
 	var/round_ended = FALSE //Все ли игроки сделали ход?
 	var/team_vs_team = FALSE
 
+	var/player_token = 1
+	var/current_token = 1
+
 /obj/match_controller/Initialize()
 	. = ..()
 	GLOB.match_names += controller_id
 	GLOB.match_controllers += src
+
+/obj/match_controller/proc/start_the_game()
+	START_PROCESSING(SSobj, src)
+
+/obj/match_controller/Process()
+	if(!round_ended && players_in == players_done)
+		current_token = 1
+		round_ended = TRUE
+		active_gamer = null
+		players_done.Cut()
+
+	if(round_ended)
+
+
+	if(!active_gamer)
+		for(var/mob/living/simple_animal/fd/player/chosen in players_in)
+			if(chosen.token == current_token)
+				active_gamer = chosen
+				active_gamer.active_turn = TRUE
 
 /mob/join_match()
 	var/pick_match = input(src, "Выберите ЛОББИ!","Присоединение") as null|anything in GLOB.match_names
@@ -49,4 +71,11 @@ GLOBAL_LIST_EMPTY(match_names)
 		gamer.team_vs_team = TRUE
 
 	picked_lobby.players_in += gamer
+	if(picked_lobby.player_token == 1)
+		gamer.token = 1
+		picked_lobby.player_token += 1
+	else
+		picked_lobby.player_token += 1
+		gamer.token = picked_lobby.player_token
+
 	return TRUE

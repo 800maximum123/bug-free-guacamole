@@ -20,6 +20,7 @@
 	var/mob/previous_client
 	movement_handlers = list(/datum/movement_handler/mob/multiz_connected, /datum/movement_handler/mob/incorporeal)
 	var/team_vs_team = FALSE // Если у нас больше одного игрока за сторону
+	var/token
 
 /mob/living/simple_animal/fd/player/two
 	icon = 'mods/_fd/fd_tbs/icons/AI.dmi'
