@@ -183,6 +183,10 @@
 	if(has_armor)
 		new /obj/armorbar(get_turf(src))
 
+	for(var/mob/living/simple_animal/fd/player/gamer in world)
+		if(gamer.side == side)
+			gamer.unit_list += src
+
 /mob/living/simple_animal/fd/unit/proc/armor_block(amount)
 	unit_armor -= amount
 

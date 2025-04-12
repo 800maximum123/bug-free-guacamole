@@ -166,6 +166,9 @@
 				var/obj/cover = locate() in get_turf(inzone)
 				if(cover && cover.density == TRUE)
 					continue
+				var/mob/living/simple_animal/fd/unit/other = locate() in get_turf(inzone)
+				if(other)
+					continue
 				ability_zone += inzone
 				new /obj/tbs_zone(get_turf(inzone))
 			return 1
