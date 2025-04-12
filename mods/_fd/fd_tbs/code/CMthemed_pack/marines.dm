@@ -146,6 +146,8 @@
 			for(var/mob/living/simple_animal/fd/unit/target in oview(3,src))
 				if(target.side == side)
 					continue
+				if(target.side in friends_list)
+					continue
 				if(target.kia)
 					continue
 				target.add_filter("target", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_RED))
@@ -261,7 +263,7 @@
 			ISay("Синяя изолента всё исправит...")
 
 			for(var/mob/living/simple_animal/fd/unit/target in oview(1,src))
-				if(target.side != side)
+				if(target.side != side && !(target.side in friends_list))
 					continue
 				if(target.has_armor == FALSE)
 					continue
@@ -325,6 +327,8 @@
 
 					for(var/mob/living/simple_animal/fd/unit/target in oview(6,src))
 						if(target.side == side)
+							continue
+						if(target.side in friends_list)
 							continue
 						if(target.kia)
 							continue

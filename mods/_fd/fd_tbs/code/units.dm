@@ -120,6 +120,7 @@
 	var/healthbar_color = "#ffffffff"
 
 	var/side // Фракция
+	var/list/friends_list = list() // Список фракций, которые можно считать дружественными и применять на них положительные абилки
 	var/chosen_action // Выбранное действие
 	var/chosen_attack // Если мы атакуем, то чем?
 	var/unit_actions_amount = 1 // Количество действий(помимо движения), которое игрок может совершить этим юнитом за ход
@@ -140,6 +141,11 @@
 /mob/living/simple_animal/fd/unit/Life()
 	. = ..()
 
+	if(unit_actions_amount <= 0 && unit_move_actions <= 0)
+		for(var/mob/living/simple_animal/fd/player/commander in world)
+			if(commander.side == side)
+				commander.unit_used += src
+
 	if(unit_health < 0)
 		unit_health = 0
 		var/turf/T = get_turf(src)
@@ -155,11 +161,20 @@
 	if(unit_health <= 0 && !kia)
 		overlays += image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "dead")
 		kia = TRUE
+
+		for(var/mob/living/simple_animal/fd/player/commander in world)
+			if(commander.side == side)
+				commander.unit_list -= src
+
 		special_death() // Если, вдруг, с юнитом что-то происходит при смерти
 
 	if(unit_health > 0 && kia)
 		overlays -= image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "dead")
 		kia = FALSE
+
+		for(var/mob/living/simple_animal/fd/player/commander in world)
+			if(commander.side == side)
+				commander.unit_list += src
 
 	if(!poisoned && poison_strenght > 0)
 		poisoned = TRUE

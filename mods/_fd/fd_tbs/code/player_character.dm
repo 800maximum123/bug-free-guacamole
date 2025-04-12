@@ -15,11 +15,11 @@
 	var/side // Фракция
 
 	var/list/unit_list = list() // Юниты в нашем распоряжении
+	var/list/unit_used = list() // Юниты, что уже сделали ход
 
 	var/mob/living/simple_animal/fd/unit/selected // Кого мы выбрали для нашей активации?
 	var/mob/previous_client
 	movement_handlers = list(/datum/movement_handler/mob/multiz_connected, /datum/movement_handler/mob/incorporeal)
-	var/team_vs_team = FALSE // Если у нас больше одного игрока за сторону
 	var/token
 
 /mob/living/simple_animal/fd/player/two
