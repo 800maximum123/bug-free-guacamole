@@ -33,6 +33,11 @@ GLOBAL_LIST_EMPTY(match_names)
 		if(U.poison_strenght > 0)
 			U.process_damage(1)
 			U.poison_strenght -= 1
+	for(var/mob/living/simple_animal/fd/unit/psi/P in world) // Юниты с псионикой
+		if(P.psi_current > 0)
+			P.psi_current -= 1
+		if(P.drawback)
+			P.drawback_period -= 1
 
 /obj/match_controller/Process()
 	if(!round_ended && players_in == players_done) // Если раунд ещё не закончен, но все игроки в нём получили право активации
