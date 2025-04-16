@@ -135,6 +135,35 @@
 	var/list/possible_targets = list()
 	var/mob/living/simple_animal/fd/unit/actual_target
 
+/mob/living/simple_animal/fd/unit/proc/get_additional_info() // Полностью оверрайдим на юните
+	var/list/info = list()
+
+	if(chosen_action == "Attack") // Если мы собираемся чистить кому-то рожу - нам нужна информация об атаках
+		return
+	if(chosen_action == "Special") // Если мы хотим сделать что-то необычное, нам нужна информация об способностях
+		return
+	else // А иначе - выводим базовую информацию
+		info += FONT_LARGE("Параметры: ")
+		info += FONT_NORMAL("<li>[SPAN_COLOR("#ecebeb","[initial(unit_actions_amount)]")] AP</li>")
+		info += FONT_NORMAL("<li>[SPAN_COLOR("#76cc5c","[initial(unit_move_actions)]")] MP</li>")
+		info += FONT_NORMAL("<br>")
+		info += FONT_NORMAL("<li>[SPAN_COLOR("#ff2525","[unit_health]/[initial(unit_health)]")] HEALTH</li>")
+		if(has_armor)
+			info += FONT_NORMAL("<li>[SPAN_COLOR("#17e7ee","[unit_armor]/[initial(unit_armor)]")] ARMOR</li>")
+		info += FONT_NORMAL("<li>[SPAN_COLOR("#f7d621","[initial(unit_speed)]")] SPD</li>")
+
+		// Тут все наши основные статы ^
+
+		info += FONT_LARGE("История: ")
+		info += FONT_NORMAL("Никому неинтересна!") // Сюда индивидуально можете вписывать ваши плаксивые истории и лор-факты
+
+	return jointext(info, "")
+
+// Нагло спизженно из ИИ-шипов
+/mob/living/simple_animal/fd/unit/MouseEntered(location, control, params)
+	var/tooltip_text = get_additional_info()
+	openToolTip(user = usr, tip_src = src, params = params, title = name, content = tooltip_text)
+
 /mob/living/simple_animal/fd/unit/proc/special_death() // Индивидуально для каждого юнита
 	return
 

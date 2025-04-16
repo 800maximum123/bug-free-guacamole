@@ -28,6 +28,14 @@
 		drawback_period = 2
 		repair_armor(initial(unit_armor))
 
+/mob/living/simple_animal/fd/unit/psi/resolve_aftereffects()
+	. = ..()
+
+	if(psi_current > 0)
+		psi_current -= 1
+	if(drawback)
+		drawback_period -= 1
+
 /mob/living/simple_animal/fd/unit/psi/ardent
 	name = "Ardent Mayer"
 	desc = "Ardent Mayer"

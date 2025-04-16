@@ -28,16 +28,10 @@ GLOBAL_LIST_EMPTY(match_names)
 /obj/match_controller/proc/start_the_game()
 	START_PROCESSING(SSobj, src)
 
-/obj/match_controller/proc/resolve_aftereffects()
-	for(var/mob/living/simple_animal/fd/unit/U in world)
-		if(U.poison_strenght > 0)
-			U.process_damage(1)
-			U.poison_strenght -= 1
-	for(var/mob/living/simple_animal/fd/unit/psi/P in world) // Юниты с псионикой
-		if(P.psi_current > 0)
-			P.psi_current -= 1
-		if(P.drawback)
-			P.drawback_period -= 1
+/mob/living/simple_animal/fd/unit/proc/resolve_aftereffects()
+	if(poison_strenght > 0)
+		process_damage(1)
+		poison_strenght -= 1
 
 /obj/match_controller/Process()
 	if(!round_ended && players_in == players_done) // Если раунд ещё не закончен, но все игроки в нём получили право активации
@@ -47,7 +41,8 @@ GLOBAL_LIST_EMPTY(match_names)
 		players_done.Cut() // И чистим список игроков, которые свою активацию закончили
 
 	if(round_ended) // Если раунд завершён
-		resolve_aftereffects() // Мы резолвим эффекты вроде отравления и подобного
+		for(var/mob/living/simple_animal/fd/unit/U in world)
+			U.resolve_aftereffects() // Мы резолвим эффекты вроде отравления и подобного
 
 		for(var/mob/living/simple_animal/fd/player/P in players_in)
 			for(var/mob/living/simple_animal/fd/unit/U in P.unit_used)
