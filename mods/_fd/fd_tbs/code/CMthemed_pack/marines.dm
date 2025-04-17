@@ -27,6 +27,47 @@
 
 	var/list/ability_zone = list()
 
+/mob/living/simple_animal/fd/unit/cmpack/marines/alex_smith/get_additional_info()
+	var/list/info = list()
+
+	if(chosen_action == "Attack")
+		info += FONT_LARGE("Перечень атак: ")
+		info += FONT_NORMAL("<br>")
+		info += FONT_NORMAL("<li>[SPAN_COLOR("#ececec","Дробный залп")] - Смит эпически вскидывает свой дробовик, \
+		разряжая мощное скопление 12-го калибра в лицо врага. Если цель стоит практически в упор - наносит дополнительный урон.<ul>")
+		info += FONT_SMALL("<li>COST: 1 [SPAN_COLOR("#ececec","ACTION")], 1 [SPAN_COLOR("#f7d621","AMMO")]</li>")
+		info += FONT_SMALL("<li>DIST: [SPAN_COLOR("#f7d621","3")]</li>")
+		info += FONT_SMALL("<li>DMG: [SPAN_COLOR("#ff2525","3-5")]</li>")
+		info += FONT_SMALL("</ul></li>")
+		info += FONT_NORMAL("<br>")
+		info += FONT_NORMAL("<li>[SPAN_COLOR("#ececec","Удар ногой")] - Алекс выдаёт стоящим рядом врагам мощную вертушку, \
+		отбрасывающую их назад.<ul>")
+		info += FONT_SMALL("<li>COST: 1 [SPAN_COLOR("#ececec","ACTION")]</li>")
+		info += FONT_SMALL("<li>DIST: [SPAN_COLOR("#f7d621","1")]</li>")
+		info += FONT_SMALL("<li>DMG: [SPAN_COLOR("#ff2525","1")]</li>")
+		info += FONT_SMALL("</ul></li>")
+	if(chosen_action == "Special")
+		return
+	if(isnull(chosen_action))
+		info += FONT_LARGE("Параметры: ")
+		info += FONT_NORMAL("<li>[SPAN_COLOR("#ecebeb","[initial(unit_actions_amount)]")] AP</li>")
+		info += FONT_NORMAL("<li>[SPAN_COLOR("#76cc5c","[initial(unit_move_actions)]")] MP</li>")
+		info += FONT_NORMAL("<br>")
+		info += FONT_NORMAL("<li>[SPAN_COLOR("#ff2525","[unit_health]/[initial(unit_health)]")] HEALTH</li>")
+		if(has_armor)
+			info += FONT_NORMAL("<li>[SPAN_COLOR("#17e7ee","[unit_armor]/[initial(unit_armor)]")] ARMOR</li>")
+		info += FONT_NORMAL("<li>[SPAN_COLOR("#f7d621","[initial(unit_speed)]")] SPD</li>")
+		info += FONT_NORMAL("<br>")
+		info += FONT_LARGE("Особое: ")
+		info += FONT_NORMAL("<li>[SPAN_COLOR("#f7d621","[ammo]/[max_ammo]")] AMMO</li>")
+		info += FONT_NORMAL("<br>")
+		info += FONT_LARGE("История: ")
+		info += FONT_NORMAL("<li>[SPAN_COLOR("#eeeeee","Смит")] - специалист во всём, что касается лени. Если ему нужно решить некую проблему - куда вероятнее то, \
+		что он соберёт для этого робота, что сделает всю работу за него. Его любимое оружие - это [SPAN_COLOR("#eeeeee","М37 Итака")], \
+		а лучшие друзья - [SPAN_COLOR("#eeeeee","пиво")] и [SPAN_COLOR("#eeeeee","гитара")].</li>")
+
+	return jointext(info, "")
+
 /mob/living/simple_animal/fd/unit/cmpack/marines/alex_smith/resolve_special(atom/target) // Индивидуально для каждого юнита
 	if(chosen_special == "Place Sentry")
 		if(!(target in ability_zone))

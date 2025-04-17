@@ -236,9 +236,9 @@
 
 	var/turf/T = get_turf(src)
 	for(var/obj/armorbar/armor in T)
-		var/adjust_one = pixel_x + 2
-		var/adjust_two = pixel_x - 4
-		var/adjust_three = pixel_x + 2
+		var/adjust_one = armor.pixel_x + 2
+		var/adjust_two = armor.pixel_x - 4
+		var/adjust_three = armor.pixel_x + 2
 		animate(armor, pixel_x = adjust_one, time = 2, easing = LINEAR_EASING | EASE_IN)
 		spawn(2)
 			animate(armor, pixel_x = adjust_two, time = 2, easing = LINEAR_EASING | EASE_OUT)
@@ -272,9 +272,9 @@
 	var/turf/T = get_turf(src)
 	for(var/obj/healthbar/health in T)
 
-		var/adjust_one = pixel_x + 2
-		var/adjust_two = pixel_x - 4
-		var/adjust_three = pixel_x + 2
+		var/adjust_one = health.pixel_x + 2
+		var/adjust_two = health.pixel_x - 4
+		var/adjust_three = health.pixel_x + 2
 		animate(health, pixel_x = adjust_one, time = 2, easing = LINEAR_EASING | EASE_IN)
 		spawn(2)
 			animate(health, pixel_x = adjust_two, time = 2, easing = LINEAR_EASING | EASE_OUT)
