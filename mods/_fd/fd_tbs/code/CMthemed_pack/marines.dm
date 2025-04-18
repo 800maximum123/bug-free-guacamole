@@ -1,9 +1,6 @@
 /mob/living/simple_animal/fd/unit/cmpack/marines
 	side = "Marines"
 	icon = 'mods/_fd/fd_tbs/icons/tbs_units_marines.dmi'
-	var/max_ammo = 0
-	var/ammo = 0 // Боезапас. У фракции морпехов он тратится на применение практически всех атак и способностей.
-	// Восстанавливается по единице в начале каждого раунда или рассходниками, если меньше максимального значения.
 
 /mob/living/simple_animal/fd/unit/cmpack/marines/alex_smith
 	name = "Alex Smith"

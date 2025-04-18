@@ -135,6 +135,29 @@
 	var/list/possible_targets = list()
 	var/mob/living/simple_animal/fd/unit/actual_target
 
+// MARINES EXCLUSIVE
+
+	var/max_ammo = 0
+	var/ammo = 0 // Боезапас. У фракции морпехов он тратится на применение практически всех атак и способностей.
+	// Восстанавливается по единице в начале каждого раунда или рассходниками, если меньше максимального значения.
+
+	var/max_plasma = 0
+	var/plasma = 0 // Внутренние запасы. У фракции чужих они тратятся на применение практически всех особых атак и способностей.
+	// Восстанавливается по единице в начале каждого раунда или рассходниками, если меньше максимального значения.
+
+// PSIONICS EXCLUSIVE
+
+	var/psi_limit = 14
+	var/psi_overcharge = 8
+	var/psi_current = 0
+
+	var/overcharged = FALSE
+	var/drawback = FALSE
+	var/drawback_period = 2
+
+	var/unit_stunned = FALSE
+	var/unit_stunned_for
+
 /mob/living/simple_animal/fd/unit/proc/get_additional_info() // Полностью оверрайдим на юните
 	var/list/info = list()
 

@@ -1,9 +1,6 @@
 /mob/living/simple_animal/fd/unit/cmpack/aliens
 	side = "Xenos"
 	icon = 'mods/_fd/fd_tbs/icons/tbs_units_xenos.dmi'
-	var/max_plasma = 0
-	var/plasma = 0 // Внутренние запасы. У фракции чужих они тратятся на применение практически всех особых атак и способностей.
-	// Восстанавливается по единице в начале каждого раунда или рассходниками, если меньше максимального значения.
 
 /mob/living/simple_animal/fd/unit/cmpack/aliens/special_death()
 	for(var/mob/living/simple_animal/fd/unit/victim in oview(1,src))

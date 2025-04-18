@@ -1,16 +1,6 @@
 /mob/living/simple_animal/fd/unit/psi
 	side = "Meta-Users"
 	icon = 'mods/_fd/_maps/new_year_house/icons/psi_trailer.dmi'
-	var/psi_limit = 14
-	var/psi_overcharge = 8
-	var/psi_current = 0
-
-	var/overcharged = FALSE
-	var/drawback = FALSE
-	var/drawback_period = 2
-
-	var/unit_stunned = FALSE
-	var/unit_stunned_for
 
 /mob/living/simple_animal/fd/unit/psi/Life()
 	. = ..()
