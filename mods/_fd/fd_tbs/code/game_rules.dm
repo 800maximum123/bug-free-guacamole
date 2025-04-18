@@ -41,14 +41,14 @@ GLOBAL_LIST_EMPTY(match_names)
 		players_done.Cut() // И чистим список игроков, которые свою активацию закончили
 
 	if(round_ended) // Если раунд завершён
-		for(var/mob/living/simple_animal/fd/unit/U in world)
-			U.resolve_aftereffects() // Мы резолвим эффекты вроде отравления и подобного
-
 		for(var/mob/living/simple_animal/fd/player/P in players_in)
 			for(var/mob/living/simple_animal/fd/unit/U in P.unit_used)
 				U.unit_actions_amount = initial(U.unit_actions_amount)
 				U.unit_move_actions = initial(U.unit_move_actions)
 			P.unit_used.Cut()
+
+		for(var/mob/living/simple_animal/fd/unit/U in world)
+			U.resolve_aftereffects() // Мы резолвим эффекты вроде отравления и подобного
 
 		round_ended = FALSE // И начинаем цикл по новой
 

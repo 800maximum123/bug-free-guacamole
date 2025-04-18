@@ -1,7 +1,7 @@
 /mob/living/simple_animal/fd/unit/psi
 	side = "Meta-Users"
 	icon = 'mods/_fd/_maps/new_year_house/icons/psi_trailer.dmi'
-	var/psi_limit = 12
+	var/psi_limit = 14
 	var/psi_overcharge = 8
 	var/psi_current = 0
 
@@ -9,14 +9,17 @@
 	var/drawback = FALSE
 	var/drawback_period = 2
 
+	var/unit_stunned = FALSE
+	var/unit_stunned_for
+
 /mob/living/simple_animal/fd/unit/psi/Life()
 	. = ..()
 
-	if(psi_current >= 8 && !overcharged)
+	if(psi_current >= psi_overcharge && !overcharged)
 		overcharged = TRUE
 		poison_strenght += 4
 
-	if(overcharged && psi_current < 8)
+	if(overcharged && psi_current < psi_overcharge)
 		overcharged = FALSE
 
 	if(psi_current == psi_limit && !drawback)
@@ -28,6 +31,14 @@
 		drawback_period = 2
 		repair_armor(initial(unit_armor))
 
+	if(unit_stunned_for > 0 && !unit_stunned)
+		unit_stunned = TRUE
+		unit_speed -= 4
+
+	if(unit_stunned && unit_stunned_for <= 0)
+		unit_stunned = FALSE
+		unit_speed = initial(unit_speed)
+
 /mob/living/simple_animal/fd/unit/psi/resolve_aftereffects()
 	. = ..()
 
@@ -35,6 +46,9 @@
 		psi_current -= 1
 	if(drawback)
 		drawback_period -= 1
+
+	if(unit_stunned)
+		unit_stunned_for -= 1
 
 /mob/living/simple_animal/fd/unit/psi/ardent
 	name = "Ardent Mayer"
@@ -75,11 +89,26 @@
 	)
 	chosen_special = show_radial_menu(commander, src, abilities, radius = 60, require_near = FALSE)
 	if (!chosen_special)
+		commander.selected.chosen_action = null
+		commander.selected = null
+		overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_friendly")
 		return 0
 
 	switch(chosen_special)
-		if("Ability 1")
-			return 1
+		if("Electric Chain")
+			if(unit_actions_amount <= 0)
+				chosen_special = null
+				commander.selected.chosen_action = null
+				commander.selected = null
+				overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_friendly")
+				return 0
+			if(drawback)
+				chosen_special = null
+				commander.selected.chosen_action = null
+				commander.selected = null
+				overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_friendly")
+				return 0
+			should_be_used_on = "Unit"
 		if("Ability 2")
 			return 1
 
@@ -112,7 +141,10 @@
 			animate(src, color = COLOR_WHITE, time = 0.2 SECOND, easing = CUBIC_EASING | EASE_OUT)
 
 		unit_actions_amount -= 1
-		actual_target.unit_move_actions = 0 // Нас оглушили. Теперь мы точно не побегаем до конца раунда
+		if(actual_target.unit_move_actions > 0)
+			actual_target.unit_move_actions = 0 // Нас оглушили. Теперь мы точно не побегаем до конца раунда
+		if(actual_target.unit_stunned == FALSE)
+			actual_target.unit_stunned_for = 2 // В следующем раунде мы всё ещё будем отходить от этого состояния
 
 		chosen_attack = null
 
