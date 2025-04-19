@@ -1,7 +1,7 @@
 
 #### Список PRов:
 
-- https://github.com/SierraBay/SierraBay12/pull/#####
+- https://github.com/Underground-Front-PROJ/UF-FD/pull/2
 <!--
   Ссылки на PRы, связанные с модом:
   - Создание
@@ -75,7 +75,8 @@ ID мода: TAJARAN_STUFF
 
 ### Авторы:
 
-Твой никнейм
+- Darksovet (Спрайты)
+- ChaplainMaximum (Код)
 <!--
   Здесь находится твой никнейм
   Если работал совместно - никнеймы тех, кто помогал.
