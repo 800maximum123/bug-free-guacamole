@@ -23,7 +23,7 @@
 	item_icons = list(
 		slot_w_uniform_str = 'mods/_fd/fd_assets/customs/tech/icons/onmob/baroness.dmi')
 	worn_state = "baroness"
-	//flags_inv = HIDESHOES
+	flags_inv = HIDESHOES
 
 /*
 /obj/item/clothing/mask/gas/half/modified
