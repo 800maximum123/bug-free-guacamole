@@ -18,7 +18,7 @@
 	name = "energy bolt"
 	icon_state = "spark_green"
 	temperature = T0C + 300
-	damage = 20
+	damage = CANNON_DMG_VERYLOW
 	agony = 20
 	damage_type = DAMAGE_BURN
 	damage_flags = 0
@@ -29,6 +29,8 @@
 	pew_spread = 10
 
 	overmap_color = COLOR_YELLOW
+
+	should_explode = FALSE
 
 /obj/item/projectile/bullet/huge_caliber/disruptor/on_impact(atom/A)
 	empulse(A, heavy_effect_range, light_effect_range)

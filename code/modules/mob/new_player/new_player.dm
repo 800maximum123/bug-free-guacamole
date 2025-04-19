@@ -234,9 +234,17 @@
 	if(GAME_STATE != RUNLEVEL_GAME)
 		to_chat(usr, SPAN_WARNING("The round is either not ready, or has already finished..."))
 		return 0
+//	[FD-EDIT]
+	if(!config.enter_allowed)
+		if(!check_rights(, show_msg = FALSE) && !usr.client.enter_lock_bypass)
+			to_chat(usr, SPAN_NOTICE("There is an administrative lock on entering the game!"))
+			return 0
+/*
 	if(!config.enter_allowed)
 		to_chat(usr, SPAN_NOTICE("There is an administrative lock on entering the game!"))
 		return 0
+*/
+//	[/FD-EDIT]
 
 	if(!job || !job.is_available(client))
 		alert("[job.title] is not available. Please try another.")

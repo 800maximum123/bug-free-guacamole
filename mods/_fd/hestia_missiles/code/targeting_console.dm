@@ -35,6 +35,9 @@
 			if(istype(O, /obj/overmap/visitable/ship))
 				contacts_ships.Add(list(list("name"=O.name, "ref"="\ref[O]", "bearing"=bearing)))
 
+			else if(istype(O, /obj/overmap/simulated_ship))
+				contacts_ships.Add(list(list("name"=O.name, "ref"="\ref[O]", "bearing"=bearing)))
+
 			else if(istype(O, /obj/overmap/visitable/sector/exoplanet))
 				contacts_planets.Add(list(list("name"=O.name, "ref"="\ref[O]", "bearing"=bearing)))
 

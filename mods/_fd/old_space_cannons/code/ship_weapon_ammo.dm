@@ -23,12 +23,12 @@
 	if(should_explode && severity > 100)
 		if(stored_ammo.len > max_ammo/3)
 			should_explode = FALSE
-			explosion(get_turf(src), 6, EX_ACT_DEVASTATING)
+			cell_explosion(get_turf(src), 200, 50)
 			if(src)
 				qdel(src)
 		else if(stored_ammo.len > 0)
 			should_explode = FALSE
-			explosion(get_turf(src), 3, EX_ACT_DEVASTATING)
+			cell_explosion(get_turf(src), 200, 100)
 			if(src)
 				qdel(src)
 	return
@@ -64,7 +64,7 @@
 /obj/item/projectile/bullet/huge_caliber
 	name = "round"
 	icon_state= "bolter"
-	damage = 100
+	damage = CANNON_DMG_MEDIUM
 	damage_flags = DAMAGE_FLAG_BULLET | DAMAGE_FLAG_SHARP | DAMAGE_FLAG_EDGE
 	armor_penetration = 10
 	muzzle_type = null
@@ -72,8 +72,8 @@
 	distance_falloff = 0.1
 	life_span = 250
 
-	var/explosion_radius
-	var/explosion_max_power = EX_ACT_DEVASTATING
+	var/explosion_radius = EXPLOSION_FALLOFF_MEDIUM
+	var/explosion_max_power = EXPLOSION_POWER_LOW
 
 	var/proximity_detonation = TRUE //should we explode near our target, and not inside of it?
 	var/exploded = FALSE
@@ -87,7 +87,7 @@
 	var/obj/overmap/projectile/overmap_projectile
 	var/obj/overmap/origin
 
-	var/shoot_range = 3 // how far will we go on the overmap
+	var/shoot_range = 10 // how far will we go on the overmap
 
 	// Насколько большой будет разброс в тайлах при попадании на овермап судна-цели.
 	// Пример: при pew_spread = 50 снаряд будет спавниться с разбросом от -25 до 25 тайлов на нужном краю карты цели.
@@ -104,6 +104,8 @@
 
 	var/overmap_color = null
 	var/enter_sound = null
+
+	var/should_explode = TRUE
 
 /obj/item/projectile/bullet/huge_caliber/Initialize()
 	. = ..()
@@ -203,7 +205,7 @@
 	if(entered_overmap)
 		return
 
-	if(!explosion_radius)
+	if(!should_explode)
 		..()
 		return
 
@@ -211,9 +213,9 @@
 		exploded = TRUE
 		if(proximity_detonation)
 			var/backwards = turn(dir, 180)
-			explosion(get_step(A, backwards), explosion_radius, explosion_max_power)
+			cell_explosion(get_step(A, backwards), explosion_max_power, explosion_radius)
 		else
-			explosion(get_turf(A), explosion_radius, explosion_max_power)
+			cell_explosion(get_turf(A), explosion_max_power, explosion_radius)
 		qdel(src)
 
 ///////////////////////////MUZZLE///////////////////////////

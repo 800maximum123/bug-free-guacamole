@@ -29,7 +29,7 @@
 		icon_state = "tele_off"
 		set_light(0)
 	else
-		icon_state = "tele_nav"
+		icon_state = "tele_sensors"
 		set_light(light_range_on, light_power_on, light_color)
 
 /obj/item/stock_parts/circuitboard/sensors/tele

@@ -1,0 +1,13 @@
+#ifndef MODPACK_POLARIS_PORTALS
+#define MODPACK_POLARIS_PORTALS
+
+#define ABOVE_AO_LAYER 		2.141
+
+#include "_polaris_portals.dm"
+
+#include "code/map_effect.dm"
+#include "code/portal.dm"
+
+#include "example/portal_showcase.dm"
+
+#endif

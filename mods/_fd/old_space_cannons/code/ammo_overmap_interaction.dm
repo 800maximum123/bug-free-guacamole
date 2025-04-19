@@ -186,7 +186,7 @@
 
 	var/turf/start = locate(start_x, start_y, z_level)
 
-	log_and_message_admins("[name] ����� � [target.name] �� Z [z_level] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>MAP</a>)", location=start)
+	log_and_message_admins("[name] ����� � [target.name] �� Z [z_level] (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>MAP</a>)", location=start)
 
 	entered_overmap = FALSE
 	forceMove(start)
@@ -217,7 +217,7 @@
 				else
 					to_chat(M, SPAN_DANGER("The sky overhead roars as bullets slice through exoplanet's atmosphere from orbit!"))
 
-	log_and_message_admins("[name] ����� � {[start.x];[start.y]} �� [target] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>MAP</a>)", location=start)
+	log_and_message_admins("[name] ����� � {[start.x];[start.y]} �� [target] (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>MAP</a>)", location=start)
 
 	entered_overmap = FALSE
 	forceMove(start)

@@ -228,8 +228,8 @@
 				return TOPIC_REFRESH
 		if(prob(cool_failchance())) //Some moron disregarded the cooldown warning. Let's blow in their face.
 			log_and_message_admins("[gun_name] ������ �����������", location=get_turf(middle))
-			explosion(middle, rand(7, 12))
-			explosion(front, rand(5, 9))
+			cell_explosion(middle, pick(100, 200), 50)
+			cell_explosion(front, pick(100, 200), 50)
 			if(front)
 				front.set_broken()
 			next_shot = coolinterval + world.time

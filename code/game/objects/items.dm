@@ -808,8 +808,12 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 	if(!user.client)
 		return
-
+// [FD-EDIT]
+	user.client.view = 7
+/*
 	user.client.view = user.get_preference_value(/datum/client_preference/client_view)
+	[/FD-EDIT]
+*/
 	if(!user.hud_used.hud_shown)
 		user.toggle_zoom_hud()
 
@@ -886,9 +890,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		. = "[icon2html(src, viewers(get_turf(src)))] \a [src]"
 	var/ID = GetIdCard()
 	if(ID)
-		. += "  <a href='?src=\ref[ID];look_at_id=1'>\[Look at ID\]</a>"
+		. += "  <a href='byond://?src=\ref[ID];look_at_id=1'>\[Look at ID\]</a>"
 	else
-		. += "  <a href='?src=\ref[src];examine=1'>\[?\]</a>"
+		. += "  <a href='byond://?src=\ref[src];examine=1'>\[?\]</a>"
 
 /obj/item/proc/on_active_hand(mob/M)
 

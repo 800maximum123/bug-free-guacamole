@@ -39,7 +39,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 /obj/machinery/computer/ship/proc/display_reconnect_dialog(mob/user, flavor)
 	if (!reconnect_popup)
 		reconnect_popup = new (user, "[src]", "[src]")
-		reconnect_popup.set_content("<center><strong>[SPAN_COLOR("red", "Error</strong>")]<br>Unable to connect to [flavor].<br><a href='?src=\ref[src];sync=1'>Reconnect</a></center>")
+		reconnect_popup.set_content("<center><strong>[SPAN_COLOR("red", "Error</strong>")]<br>Unable to connect to [flavor].<br><a href='byond://?src=\ref[src];sync=1'>Reconnect</a></center>")
 	reconnect_popup.open()
 
 /obj/machinery/computer/ship/interface_interact(mob/user)
@@ -82,7 +82,12 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 /obj/machinery/computer/ship/proc/unlook(mob/user)
 	user.reset_view(null, FALSE)
 	if(user.client)
+//	[FD-EDIT]
+		user.client.view = 7
+/*
 		user.client.view = user.get_preference_value(/datum/client_preference/client_view)
+	[/FD-EDIT]
+*/
 	if(linked)
 		for(var/obj/machinery/shipsensors/sensor in linked.sensors)
 			sensor.hide_contacts(user)

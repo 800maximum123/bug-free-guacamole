@@ -1,8 +1,8 @@
-var/const/NETWORK_EXPLO		= "Exploration"
-var/const/NETWORK_PETROV	= "Petrov"
-var/const/NETWORK_GUPS		= "General Utility Pods" // 2 for the price of 1! :p
-var/const/NETWORK_SUPPLY	= "Supply"
-var/const/NETWORK_YACHT		= "Private Catamaran"
+var/global/const/NETWORK_EXPLO		= "Exploration"
+var/global/const/NETWORK_PETROV	= "Petrov"
+var/global/const/NETWORK_GUPS		= "General Utility Pods" // 2 for the price of 1! :p
+var/global/const/NETWORK_SUPPLY	= "Supply"
+var/global/const/NETWORK_YACHT		= "Private Catamaran"
 
 /datum/map/torch/get_network_access(network)
 	switch(network)

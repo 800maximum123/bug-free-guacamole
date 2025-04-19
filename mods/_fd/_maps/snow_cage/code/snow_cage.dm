@@ -32,7 +32,7 @@
 	description = "An arctic planet with a small number of signatures on the surface. Scans indicate artificial structures under the planet's surface."
 	prefix = "mods/_fd/_maps/snow_cage/maps/"
 	suffixes = list("snow_cage-1.dmm","snow_cage-2.dmm","snow_cage-3.dmm","snow_cage-4.dmm")
-	area_usage_test_exempted_root_areas = list(/area/splanet/)
+	area_usage_test_exempted_root_areas = list(/area/splanet)
 	apc_test_exempt_areas = list(
 		/area/splanet/outdoors = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/splanet/underground = NO_SCRUBBER|NO_VENT|NO_APC

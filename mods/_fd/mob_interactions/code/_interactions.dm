@@ -70,7 +70,7 @@
 		if(!isnull(i))
 			content_data += {"<font size=3><B>[i]:</B></font><BR>"}
 		for(var/I in data[i])
-			content_data += {"• <A href='?src=\ref[src];interaction=[I]</A><BR>"}
+			content_data += {"• <a href='byond://?src=\ref[src];interaction=[I]</A><BR>"}
 
 	var/datum/browser/popup = new(usr, "interactions", "Взаимодействия - [src]", 380, 480)
 	popup.set_content(content_data)

@@ -20,10 +20,10 @@
 						is_multikeying = 1
 					if(matches)
 						if(M.client)
-							message_admins("[SPAN_DANGER("<B>Notice:</B>")] [SPAN_INFO("<A href='?src=\ref[usr];priv_msg=\ref[src]'>[key_name_admin(src)]</A> has the same [matches] as <A href='?src=\ref[usr];priv_msg=\ref[M]'>[key_name_admin(M)]</A>.")]", 1)
+							message_admins("[SPAN_DANGER("<B>Notice:</B>")] [SPAN_INFO("<a href='byond://?src=\ref[usr];priv_msg=\ref[src]'>[key_name_admin(src)]</A> has the same [matches] as <a href='byond://?src=\ref[usr];priv_msg=\ref[M]'>[key_name_admin(M)]</A>.")]", 1)
 							log_access("Notice: [key_name(src)] has the same [matches] as [key_name(M)].")
 						else
-							message_admins("[SPAN_DANGER("<B>Notice:</B>")] [SPAN_INFO("<A href='?src=\ref[usr];priv_msg=\ref[src]'>[key_name_admin(src)]</A> has the same [matches] as [key_name_admin(M)] (no longer logged in).")]", 1)
+							message_admins("[SPAN_DANGER("<B>Notice:</B>")] [SPAN_INFO("<a href='byond://?src=\ref[usr];priv_msg=\ref[src]'>[key_name_admin(src)]</A> has the same [matches] as [key_name_admin(M)] (no longer logged in).")]", 1)
 							log_access("Notice: [key_name(src)] has the same [matches] as [key_name(M)] (no longer logged in).")
 		if(is_multikeying && !client.warned_about_multikeying)
 			client.warned_about_multikeying = 1
@@ -83,7 +83,12 @@
 
 	maybe_send_staffwarns("joined the round")
 
+//	[FD-EDIT]
+	client.view = 7
+/*
 	client.view = get_preference_value(/datum/client_preference/client_view)
+	[/FD-EDIT]
+*/
 	client.images = null				//remove the images such as AIs being unable to see runes
 	client.screen = list()				//remove hud items just in case
 	InitializeHud()

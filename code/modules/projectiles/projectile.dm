@@ -305,7 +305,18 @@
 				grab.affecting.visible_message(SPAN_DANGER("\The [atom] uses \the [grab.affecting] as a shield!"))
 				if (Bump(grab.affecting, TRUE))
 					return
-			passthrough = !attack_mob(atom, distance)
+			if(istype(atom, /mob/living/carbon/human))
+				var/mob/living/carbon/human/H = atom
+				if(H.speedboost == TRUE)
+					H.do_math()
+					forceMove(H)
+					permutated += H
+					bumped = FALSE
+					return FALSE
+				else
+					passthrough = !attack_mob(atom, distance)
+			else
+				passthrough = !attack_mob(atom, distance)
 	else
 		passthrough = atom.bullet_act(src, def_zone) == PROJECTILE_CONTINUE
 		if (isturf(atom))

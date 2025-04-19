@@ -1,5 +1,5 @@
 /// Access
-var/const/access_research_security = "ACCESS_RESEARCH_SECURITY" //97
+var/global/const/access_research_security = "ACCESS_RESEARCH_SECURITY" //97
 /datum/access/rnd_guard
 	id = access_research_security
 	desc = "Research Checkpoint"

@@ -5,7 +5,8 @@
 	shuttle = "PM-55-L Star #1"
 	desc = "An small Sol fighter, designed for double-piloting, broadcasting SCGSV codes and the callsign \"Hitman #1\"."
 	fore_dir = NORTH
-	color = "#0751f3"
+	icon = 'mods/_fd/fd_assets/icons/overmap.dmi'
+	color = "#4682B4"
 	icon_state = "sfv-star"
 	moving_state = "sfv-star_moving"
 	skill_needed = SKILL_TRAINED
@@ -53,7 +54,8 @@
 	shuttle = "PM-55-L Star #2"
 	desc = "An small Sol fighter, designed for double-piloting, broadcasting SCGSV codes and the callsign \"Hitman #2\"."
 	fore_dir = NORTH
-	color = "#0751f3"
+	color = "#4682B4"
+	icon = 'mods/_fd/fd_assets/icons/overmap.dmi'
 	icon_state = "sfv-star"
 	moving_state = "sfv-star_moving"
 	skill_needed = SKILL_TRAINED
@@ -101,7 +103,8 @@
 	shuttle = "PM-55-L Star #3"
 	desc = "An small Sol fighter, designed for double-piloting, broadcasting SCGSV codes and the callsign \"Hitman #3\"."
 	fore_dir = NORTH
-	color = "#0751f3"
+	color = "#4682B4"
+	icon = 'mods/_fd/fd_assets/icons/overmap.dmi'
 	icon_state = "sfv-star"
 	moving_state = "sfv-star_moving"
 	skill_needed = SKILL_TRAINED
@@ -149,7 +152,8 @@
 	shuttle = "PM-55-L Star #4"
 	desc = "An small Sol fighter, designed for double-piloting, broadcasting SCGSV codes and the callsign \"Hitman #4\"."
 	fore_dir = NORTH
-	color = "#0751f3"
+	color = "#4682B4"
+	icon = 'mods/_fd/fd_assets/icons/overmap.dmi'
 	icon_state = "sfv-star"
 	moving_state = "sfv-star_moving"
 	skill_needed = SKILL_TRAINED
@@ -197,7 +201,8 @@
 	shuttle = "PM-08 Bull #1"
 	desc = "Sol light-weighted interceptor, designed to take down enemy rockets and heavy armored ships, broadcasting SCGSV codes and the callsign \"Diplomat #1\"."
 	fore_dir = NORTH
-	color = "#0751f3"
+	color = "#4682B4"
+	icon = 'mods/_fd/fd_assets/icons/overmap.dmi'
 	icon_state = "sfv-bull"
 	moving_state = "sfv-bull_moving"
 	skill_needed = SKILL_BASIC
@@ -245,7 +250,8 @@
 	shuttle = "PM-08 Bull #2"
 	desc = "Sol light-weighted interceptor, designed to take down enemy rockets and heavy armored ships, broadcasting SCGSV codes and the callsign \"Diplomat #2\"."
 	fore_dir = NORTH
-	color = "#0751f3"
+	color = "#4682B4"
+	icon = 'mods/_fd/fd_assets/icons/overmap.dmi'
 	icon_state = "sfv-bull"
 	moving_state = "sfv-bull_moving"
 	skill_needed = SKILL_BASIC
@@ -286,6 +292,55 @@
 	name = "In transit"
 	landmark_tag = "nav_transit_bull_2"
 
+// BULL #3
+
+/obj/overmap/visitable/ship/landable/airfield/bull3
+	name = "PM-08 Bull #3"
+	shuttle = "PM-08 Bull #3"
+	desc = "Sol light-weighted interceptor, designed to take down enemy rockets and heavy armored ships, broadcasting SCGSV codes and the callsign \"Diplomat #3\"."
+	fore_dir = NORTH
+	color = "#4682B4"
+	icon = 'mods/_fd/fd_assets/icons/overmap.dmi'
+	icon_state = "sfv-bull"
+	moving_state = "sfv-bull_moving"
+	skill_needed = SKILL_BASIC
+	vessel_mass = 4500
+	vessel_size = SHIP_SIZE_SMALL
+	free_landing = FALSE
+	max_speed = 1/(2 SECONDS) //same stats as charon
+	burn_delay = 2 SECONDS
+	hide_from_reports = TRUE
+
+/obj/machinery/computer/shuttle_control/explore/airfield/bull3
+	name = "landing control console"
+	shuttle_tag = "PM-08 Bull #3"
+
+/datum/shuttle/autodock/overmap/airfield7
+	name = "PM-08 Bull #3"
+	move_time = 20
+	shuttle_area = list(/area/ship/airfield/bull3)
+	current_location = "nav_airfield_bull_3"
+	landmark_transition = "nav_transit_bull_3"
+	dock_target = "bull_3_shuttle_dock_airlock"
+	range = 1
+	fuel_consumption = 1
+	ceiling_type = /turf/simulated/floor/shuttle_ceiling/merc
+	flags = SHUTTLE_FLAGS_PROCESS
+	defer_initialisation = TRUE
+
+/area/ship/airfield/bull3
+	name = "\improper PM-08 Bull #3"
+
+/obj/shuttle_landmark/airfield/bull3
+	name = "Bull #3 Position"
+	landmark_tag = "nav_airfield_bull_3"
+	docking_controller = "bull_3_shuttle_dock_airlock"
+	base_area = /area/ship/airfield/outdoors
+
+/obj/shuttle_landmark/transit/airfield/bull3
+	name = "In transit"
+	landmark_tag = "nav_transit_bull_3"
+
 // NIGHTBAT #1
 
 /obj/overmap/visitable/ship/landable/airfield/nightbat1
@@ -293,7 +348,10 @@
 	shuttle = "PM-15 Nightbat #1"
 	desc = "An small Sol EW-Craft, designed for disrupting work of enemy systems, broadcasting SCGSV codes and the callsign \"Mosquito #1\"."
 	fore_dir = NORTH
-	color = "#0751f3"
+	color = "#4682B4"
+	icon = 'mods/_fd/fd_assets/icons/overmap.dmi'
+	icon_state = "sfv-nightbat"
+	moving_state = "sfv-nightbat_moving"
 	skill_needed = SKILL_TRAINED
 	vessel_mass = 3500
 	vessel_size = SHIP_SIZE_SMALL
@@ -306,7 +364,7 @@
 	name = "landing control console"
 	shuttle_tag = "PM-15 Nightbat #1"
 
-/datum/shuttle/autodock/overmap/airfield7
+/datum/shuttle/autodock/overmap/airfield8
 	name = "PM-15 Nightbat #1"
 	move_time = 20
 	shuttle_area = list(/area/ship/airfield/nightbat1)
@@ -339,7 +397,10 @@
 	shuttle = "PM-15 Nightbat #2"
 	desc = "An small Sol EW-Craft, designed for disrupting work of enemy systems, broadcasting SCGSV codes and the callsign \"Mosquito #2\"."
 	fore_dir = NORTH
-	color = "#0751f3"
+	color = "#4682B4"
+	icon = 'mods/_fd/fd_assets/icons/overmap.dmi'
+	icon_state = "sfv-nightbat"
+	moving_state = "sfv-nightbat_moving"
 	skill_needed = SKILL_TRAINED
 	vessel_mass = 3500
 	vessel_size = SHIP_SIZE_SMALL
@@ -352,7 +413,7 @@
 	name = "landing control console"
 	shuttle_tag = "PM-15 Nightbat #2"
 
-/datum/shuttle/autodock/overmap/airfield8
+/datum/shuttle/autodock/overmap/airfield9
 	name = "PM-15 Nightbat #2"
 	move_time = 20
 	shuttle_area = list(/area/ship/airfield/nightbat2)
@@ -378,6 +439,56 @@
 	name = "In transit"
 	landmark_tag = "nav_transit_nightbat_2"
 
+// NIGHTBAT #3
+
+/obj/overmap/visitable/ship/landable/airfield/nightbat3
+	name = "PM-15 Nightbat #3"
+	shuttle = "PM-15 Nightbat #3"
+	desc = "An small Sol EW-Craft, designed for disrupting work of enemy systems, broadcasting SCGSV codes and the callsign \"Mosquito #3\"."
+	fore_dir = NORTH
+	color = "#4682B4"
+	icon = 'mods/_fd/fd_assets/icons/overmap.dmi'
+	icon_state = "sfv-nightbat"
+	moving_state = "sfv-nightbat_moving"
+	skill_needed = SKILL_TRAINED
+	vessel_mass = 3500
+	vessel_size = SHIP_SIZE_SMALL
+	free_landing = FALSE
+	max_speed = 0.4/(2 SECONDS)
+	burn_delay = 0.3 SECONDS
+	hide_from_reports = TRUE
+
+/obj/machinery/computer/shuttle_control/explore/airfield/nightbat3
+	name = "landing control console"
+	shuttle_tag = "PM-15 Nightbat #3"
+
+/datum/shuttle/autodock/overmap/airfield10
+	name = "PM-15 Nightbat #3"
+	move_time = 20
+	shuttle_area = list(/area/ship/airfield/nightbat3)
+	current_location = "nav_airfield_nightbat_3"
+	landmark_transition = "nav_transit_nightbat_3"
+	dock_target = "nightbat_3_shuttle_dock_airlock"
+	range = 1
+	fuel_consumption = 1
+	ceiling_type = /turf/simulated/floor/shuttle_ceiling/merc
+	flags = SHUTTLE_FLAGS_PROCESS
+	defer_initialisation = TRUE
+
+/area/ship/airfield/nightbat3
+	name = "\improper PM-15 Nightbat #3"
+
+/obj/shuttle_landmark/airfield/nightbat3
+	name = "Nightbat #3 Position"
+	landmark_tag = "nav_airfield_nightbat_3"
+	docking_controller = "nightbat_3_shuttle_dock_airlock"
+	base_area = /area/ship/airfield/outdoors
+
+/obj/shuttle_landmark/transit/airfield/nightbat3
+	name = "In transit"
+	landmark_tag = "nav_transit_nightbat_3"
+
+
 // SPEAR #1
 
 /obj/overmap/visitable/ship/landable/airfield/spear1
@@ -385,7 +496,8 @@
 	shuttle = "PM-57 Spear #1"
 	desc = "An small Sol fighter, designed for close-space combat and armed with massive boarding harpoon, broadcasting SCGSV codes and the callsign \"Wasp #1\"."
 	fore_dir = NORTH
-	color = "#0751f3"
+	color = "#4682B4"
+	icon = 'mods/_fd/fd_assets/icons/overmap.dmi'
 	icon_state = "sfv-spear"
 	moving_state = "sfv-spear_moving"
 	skill_needed = SKILL_BASIC
@@ -400,7 +512,7 @@
 	name = "landing control console"
 	shuttle_tag = "PM-57 Spear #1"
 
-/datum/shuttle/autodock/overmap/airfield9
+/datum/shuttle/autodock/overmap/airfield11
 	name = "PM-57 Spear #1"
 	move_time = 20
 	shuttle_area = list(/area/ship/airfield/spear1)
@@ -433,7 +545,8 @@
 	shuttle = "PM-57 Spear #2"
 	desc = "An small Sol fighter, designed for close-space combat and armed with massive boarding harpoon, broadcasting SCGSV codes and the callsign \"Wasp #2\"."
 	fore_dir = NORTH
-	color = "#0751f3"
+	color = "#4682B4"
+	icon = 'mods/_fd/fd_assets/icons/overmap.dmi'
 	icon_state = "sfv-spear"
 	moving_state = "sfv-spear_moving"
 	skill_needed = SKILL_BASIC
@@ -448,7 +561,7 @@
 	name = "landing control console"
 	shuttle_tag = "PM-57 Spear #2"
 
-/datum/shuttle/autodock/overmap/airfield10
+/datum/shuttle/autodock/overmap/airfield12
 	name = "PM-57 Spear #2"
 	move_time = 20
 	shuttle_area = list(/area/ship/airfield/spear2)
@@ -481,7 +594,9 @@
 	shuttle = "PM-100 Scarab"
 	desc = "An small Sol fighter, designed for close-space combat and armed with massive boarding harpoon, broadcasting SCGSV codes and the callsign \"Monarch\"."
 	fore_dir = NORTH
-	color = "#0751f3"
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
+	color = "#4682B4"
 	skill_needed = SKILL_BASIC
 	vessel_mass = 4000
 	vessel_size = SHIP_SIZE_SMALL
@@ -494,7 +609,7 @@
 	name = "landing control console"
 	shuttle_tag = "PM-100 Scarab"
 
-/datum/shuttle/autodock/overmap/airfield11
+/datum/shuttle/autodock/overmap/airfield13
 	name = "PM-100 Scarab"
 	move_time = 20
 	shuttle_area = list(/area/ship/airfield/scarab)

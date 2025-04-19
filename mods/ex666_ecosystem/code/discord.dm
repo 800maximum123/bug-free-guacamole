@@ -16,6 +16,7 @@
 		discord_id = sanitize_text(query.item[1])
 		discord_name = sanitize_text(query.item[2])
 
+/*
 /client/verb/link_discord_account()
 	set name = "Привязка Discord"
 	set category = "Special Verbs"
@@ -46,3 +47,4 @@
 
 		to_chat(usr, SPAN_CLASS("darkmblue", "Для завершения используйте команду [SPAN_CLASS("boldannounce", "!привязать_аккаунт [token]")] в канале <b>#дом-бота</b> в Discord-сообществе!"))
 		load_player_discord(usr)
+*/

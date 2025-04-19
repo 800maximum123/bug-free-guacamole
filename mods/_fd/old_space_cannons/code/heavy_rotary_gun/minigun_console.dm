@@ -1,6 +1,6 @@
 /obj/machinery/computer/ship/ship_weapon/minigun
 	name = "АК2057-Р rotary railgun cannon control"
-	coolinterval = 25 SECONDS
+	coolinterval = 50 SECONDS
 	gun_name = "Heavy rotary gun"
 
 	front_type = /obj/machinery/ship_weapon/front_part/minigun
@@ -9,8 +9,8 @@
 	munition_type = /obj/item/ammo_magazine/ammobox/minigun
 
 	ammo_per_shot = 1
-	burst_size = 60
-	fire_interval = 1.5
+	burst_size = 80
+	fire_interval = 1
 
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 

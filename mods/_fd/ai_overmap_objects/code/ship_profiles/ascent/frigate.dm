@@ -1,0 +1,31 @@
+/obj/overmap/simulated_ship/ascent/frigate
+	name = "Unknown Frigate"
+	desc = ""
+	icon = 'mods/_fd/ai_overmap_objects/icons/ascent/ascent_ships.dmi'
+	icon_state = "frigate"
+	moving_state = "frigate_moving"
+	characteristic = new /datum/ship_characteristic/ascent/frigate()
+
+/datum/ship_characteristic/ascent/frigate
+	max_health = 100000
+	max_shield = 30000
+	shield_regen_speed = 7 *(1 SECOND)
+	vessel_mass = 100000
+	vessel_size = SHIP_SIZE_SMALL
+	max_speed = 10*(3 SECOND) //300
+	min_targeted_distance_to_target = 2
+	max_targeted_distance_to_target = 2
+	sensors_range = 20
+
+/datum/ship_characteristic/ascent/frigate/New()
+	cannons = list(
+		"particle_lance" = list("type" = /obj/machinery/computer/ship/ship_weapon/beam_cannon/particle_lance, "accurace" = 75, "damage" = 0),
+		"disruptor_1" = list("type" = /obj/machinery/computer/ship/ship_weapon/disruptor, "accurace" = 75, "damage" = 0),
+		"disruptor_2" = list("type" = /obj/machinery/computer/ship/ship_weapon/disruptor, "accurace" = 75, "damage" = 0),
+	)
+
+	ammo = list(
+		"disruptor_ammo" = list("type" = /obj/item/ammo_magazine/ammobox/disruptor, "ammount" = 10)
+		)
+
+	..()

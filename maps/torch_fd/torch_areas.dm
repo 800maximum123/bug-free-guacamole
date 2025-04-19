@@ -120,6 +120,12 @@
 	requires_power = 0
 	dynamic_lighting = 1
 
+/area/command/electronic_warfare
+	name = "\improper Electronic Warfare Room"
+	icon_state = "disperser"
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
+	req_access = list(access_bridge)
+
 /area/centcom
 	name = "\improper SCG Observatory"
 	base_turf = /turf/unsimulated/floor/plating
@@ -204,3 +210,23 @@
 
 /area/centcom/test
 	name = "\improper Observatory Testing Facility"
+
+/area/mekubal/crew
+	name = "\improper Crew Area"
+
+/area/mekubal/airlock
+	name = "\improper Dock"
+
+/area/mekubal/hall
+	name = "\improper Hallway"
+
+/area/mekubal/power
+	name = "\improper Engineering"
+/area/mekubal/battery_right
+	name = "\improper Right Cannon Battery"
+
+/area/mekubal/battery_left
+	name = "\improper Left Cannon Battery"
+
+/area/mekubal/cockpit
+	name = "\improper Cockpit"

@@ -1,0 +1,26 @@
+/obj/overmap/simulated_ship/ascent/supercarrier
+	name = "Unknown Supercarrier"
+	desc = ""
+	icon = 'mods/_fd/ai_overmap_objects/icons/ascent/large_ships.dmi'
+	icon_state = "supercarrier"
+	moving_state = "supercarrier_moving"
+	icon_shifting = 32
+	characteristic = new /datum/ship_characteristic/ascent/supercarrier()
+
+/datum/ship_characteristic/ascent/supercarrier
+	max_health = 8000000
+	max_shield = 1500000
+	shield_regen_speed = 7 *(1 SECOND)
+	vessel_mass = 6000000
+	vessel_size = SHIP_SIZE_LARGE
+	max_speed = 10*(10 SECOND) //1000					   // Change first number, "Speed of light" for the ship, in turfs/second
+	min_targeted_distance_to_target = 5				// 1 - Right on target, 2 - turf next to target, etc
+	max_targeted_distance_to_target = 5				// 1 - Right on target, 2 - turf next to target, etc
+	sensors_range = 48
+
+/datum/ship_characteristic/ascent/supercarrier/New()
+	cannons = list()
+
+	ammo = list()
+
+	..()

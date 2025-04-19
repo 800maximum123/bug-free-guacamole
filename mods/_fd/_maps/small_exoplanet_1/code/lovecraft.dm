@@ -1,6 +1,6 @@
 /obj/overmap/visitable/sector/lovecraft
-	name = "NOTHING FOR NOW"
-	desc = "NOTHING FOR NOW."
+	name = "Innsmouth"
+	desc = "Old city in the mist."
 	sector_flags = OVERMAP_SECTOR_KNOWN
 	color = COLOR_DARK_GREEN_GRAY
 	icon_state = "globe"
@@ -29,11 +29,11 @@
 		T.set_light(1, light, l_color = light_color_m)
 
 /datum/map_template/ruin/away_site/lovecraft
-	name = "NOTHING FOR NOW"
+	name = "Innsmouth"
 	id = "awaysite_lovecraft"
 	spawn_cost = INFINITY
 	player_cost = 2
-	description = "NOTHING FOR NOW."
+	description = "Old city in the mist."
 	prefix = "mods/_fd/_maps/small_exoplanet_1/map/"
 	suffixes = list("lovecraft.dmm")
 	area_usage_test_exempted_root_areas = list(/area/lovecraft/)
@@ -43,9 +43,13 @@
 
 /area/lovecraft
 	var/add_overlay = FALSE
+	requires_power = FALSE
 
 /area/lovecraft/indoors/main
 	base_turf = /turf/simulated/floor/exoplanet/grim_dirt
+	ambience =  list(
+		'mods/_fd/_maps/small_exoplanet_1/sounds/various/TitleRollRain.wav'
+	)
 
 /area/lovecraft/indoors/main/adm
 	name = "Innsmouth Admiralty (MAIN)"
@@ -91,8 +95,30 @@
 /area/lovecraft/indoors/main/ship_lower
 	name = "Ship Lower Deck (MAIN)"
 
+/area/lovecraft/indoors/main/cave
+	name = "Innsmouth Mineshaft (MAIN)"
+
+/area/lovecraft/indoors/main/fisherman
+	name = "Fisherman House (MAIN)"
+
+/area/lovecraft/indoors/main/fisherman/balcony
+	add_overlay = TRUE
+
+/area/lovecraft/indoors/main/fisherman/balcony/Entered(mob/living/L)
+	..()
+	if(istype(L) && add_overlay)
+		L.overlay_fullscreen("mist", /obj/screen/fullscreen/mist)
+
+/area/lovecraft/indoors/main/fisherman/balcony/Exited(mob/living/L)
+	..()
+	if(istype(L) && add_overlay)
+		L.clear_fullscreen("mist")
+
 /area/lovecraft/indoors/second
 	base_turf = /turf/simulated/open
+	ambience =  list(
+		'mods/_fd/_maps/small_exoplanet_1/sounds/various/TitleRollRain.wav'
+	)
 
 /area/lovecraft/indoors/second/adm
 	name = "Innsmouth Admiralty (ABOVE)"
@@ -132,10 +158,18 @@
 	name = "Ship First Deck (ABOVE)"
 
 /area/lovecraft/main_level
-	name = "NOTHING FOR NOW (MAIN)"
+	name = "Innsmouth (MAIN)"
 	dynamic_lighting = 1
 	add_overlay = TRUE
 	base_turf = /turf/simulated/open
+	ambience =  list(
+		'mods/_fd/_maps/small_exoplanet_1/sounds/AAA_HP_1.ogg',
+		'mods/_fd/_maps/small_exoplanet_1/sounds/AAA_HP_3.ogg',
+		'mods/_fd/_maps/small_exoplanet_1/sounds/AAA_HP_4.ogg',
+		'mods/_fd/_maps/small_exoplanet_1/sounds/various/Docks.ogg',
+		'mods/_fd/_maps/small_exoplanet_1/sounds/various/Rain_and_waves.ogg',
+		'mods/_fd/_maps/small_exoplanet_1/sounds/AAA_HP_2.ogg'
+	)
 
 /area/lovecraft/main_level/Entered(mob/living/L)
 	..()
@@ -150,10 +184,18 @@
 		L.clear_fullscreen("mist")
 
 /area/lovecraft/upper_level
-	name = "NOTHING FOR NOW (ABOVE)"
+	name = "Innsmouth (ABOVE)"
 	dynamic_lighting = 1
 	add_overlay = TRUE
 	base_turf = /turf/simulated/open
+	ambience =  list(
+		'mods/_fd/_maps/small_exoplanet_1/sounds/AAA_HP_1.ogg',
+		'mods/_fd/_maps/small_exoplanet_1/sounds/AAA_HP_3.ogg',
+		'mods/_fd/_maps/small_exoplanet_1/sounds/AAA_HP_4.ogg',
+		'mods/_fd/_maps/small_exoplanet_1/sounds/various/Docks.ogg',
+		'mods/_fd/_maps/small_exoplanet_1/sounds/various/Rain_and_waves.ogg',
+		'mods/_fd/_maps/small_exoplanet_1/sounds/AAA_HP_2.ogg'
+	)
 
 /area/lovecraft/upper_level/Entered(mob/living/L)
 	..()
@@ -168,7 +210,7 @@
 		L.clear_fullscreen("mist")
 
 /area/lovecraft/below_level
-	name = "NOTHING FOR NOW (BELOW)"
+	name = "Innsmouth Sea (BELOW)"
 	dynamic_lighting = 1
 	add_overlay = TRUE
 	base_turf = /turf/simulated/ocean
@@ -182,3 +224,13 @@
 	..()
 	if(istype(L) && add_overlay)
 		L.clear_fullscreen("underwater")
+
+/area/lovecraft/below_level/cave
+	name = "Innsmouth Mineshaft (BELOW)"
+	add_overlay = FALSE
+	ambience =  list(
+		'mods/_fd/_maps/small_exoplanet_1/sounds/various/Cave.ogg',
+		'mods/_fd/_maps/small_exoplanet_1/sounds/various/cavewater_1.ogg',
+		'mods/_fd/_maps/small_exoplanet_1/sounds/various/cavewater_2.ogg',
+		'mods/_fd/_maps/small_exoplanet_1/sounds/various/cavewater_3.ogg'
+	)

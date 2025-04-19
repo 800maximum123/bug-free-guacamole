@@ -2,7 +2,7 @@
 
 /obj/item/clothing/accessory/cloakspace/willheim
 	name = "cloak"
-	desc = "."
+	desc = "Durable cloak from SpaceFashion. Resistant to environmental hazards and physical impact. Pleasant to the touch."
 	icon = 'mods/_fd/fd_assets/customs/kanaris/willheim.dmi'
 	icon_state = "kanarys_cloak"
 
@@ -56,9 +56,9 @@
 		slot_r_hand_str = "syndicate-black-green"
 	)
 	equip_delay = 4 SECONDS
-	flags_inv = HIDEGLOVES | HIDESHOES | HIDEJUMPSUIT | HIDETAIL | CLOTHING_BULKY
+	flags_inv = HIDESHOES | HIDETAIL | CLOTHING_BULKY | HIDEJUMPSUIT
 //	slowdown = 1
-
+	valid_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA)
 	body_parts_covered = ARMS | FULL_TORSO | FULL_LEGS
 	cold_protection = ARMS | FULL_TORSO | FULL_LEGS
 	heat_protection = ARMS | FULL_TORSO | FULL_LEGS
@@ -69,3 +69,15 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_MINOR
 		)
+
+/obj/item/storage/box/willheim
+	name = "box"
+	desc = "It's just an ordinary box."
+
+/obj/item/storage/box/willheim/New()
+	..()
+	new /obj/item/clothing/suit/armor/willheim(src)
+	new /obj/item/clothing/head/helmet/willheim(src)
+	new /obj/item/gun/energy/laser/lasgun/kanarys(src)
+	new /obj/item/cell/guncell/lasgun(src)
+	new /obj/item/cell/guncell/lasgun(src)

@@ -6,22 +6,31 @@
 #include "code/_defines.dm"
 
 #include "code/clothing/badges.dm"
+#include "code/clothing/battlewizards.dm"
 #include "code/clothing/clothing_under.dm"
 #include "code/clothing/ftu_voidsuits.dm"
+#include "code/clothing/scgf_voidsuits.dm"
 
 #include "code/machinery/ai_slipper.dm"
 #include "code/machinery/autoaccess_machinery.dm"
 #include "code/machinery/big_engine.dm"
 #include "code/machinery/light_types.dm"
+#include "code/machinery/lighting.dm"
+#include "code/machinery/supply_console.dm"
 #include "code/machinery/telescreen_consoles.dm"
-#include "code/machinery/turrets.dm"
+#include "code/machinery/turret.dm"
 
+#include "code/mobs/big_nymph.dm"
+#include "code/mobs/Defiler.dm"
 #include "code/mobs/mobs.dm"
+#include "code/mobs/psi_spiders.dm"
+#include "code/mobs/pureevil.dm"
 
 #include "code/obj/items/encryption_key_boxes.dm"
 #include "code/obj/items/firstaid_indiv.dm"
 #include "code/obj/items/grown_food.dm"
 #include "code/obj/items/items.dm"
+#include "code/obj/items/music_tape.dm"
 #include "code/obj/items/storage_backpacks.dm"
 #include "code/obj/items/tile_types.dm"
 
@@ -33,6 +42,7 @@
 #include "code/structures/secure_lockers.dm"
 #include "code/structures/shooting_range.dm"
 #include "code/structures/wallframe_types.dm"
+#include "code/structures/tent.dm"
 
 #include "code/turfs/turfs.dm"
 #include "code/turfs/wall_paint.dm"
@@ -43,16 +53,59 @@
 #include "code/weapons/rsh21.dm"
 #include "code/weapons/sledgehammer.dm"
 
+#include "code/accessory.dm"
 #include "code/fd_sofa_override.dm"
 #include "code/floor_decals.dm"
 #include "code/fullscreen.dm"
 #include "code/loadout.dm"
 #include "code/added_branch_outfits.dm"
-#include "code/added_branches.dm"
+// #include "code/added_branches.dm"
+#include "code/diona_mech_light_fix.dm"
+#include "code/dionae.dm"
+#include "code/psistuff.dm"
 #include "code/skills.dm"
+#include "code/ssinput_vent_fix.dm"
 #include "code/~TO_MAKE.dm"
 
+#include "customs/doctoralex/memes.dm"
 #include "customs/kanaris/item.dm"
 #include "customs/kanaris/weapon.dm"
+#include "customs/lobster/null-clock.dm"
+#include "customs/zakterar/leather_folder.dm"
+#include "customs/zakterar/oversizejacket.dm"
+#include "customs/gero/shothammer.dm"
+#include "customs/helpmeee/gestalt_procs.dm"
+#include "customs/nest/psi_items.dm"
+#include "customs/protossdelta/birthday_bottle.dm"
+#include "customs/tech/tech_box.dm"
+#include "customs/tech/tech_aura.dm"
+#include "customs/vipo/dice.dm"
+#include "customs/access/cards.dm"
+#include "customs/evil/evil_box.dm"
+#include "customs/lozari/custom_exosuit.dm"
+#include "customs/lozari/clothing.dm"
+#include "customs/colonel/mantle.dm"
+
+
+#include "eventstuff/admintools.dm"
+#include "eventstuff/cutscene_spawners.dm"
+#include "eventstuff/discuss.dm"
+#include "eventstuff/em_field.dm"
+#include "eventstuff/event_procs.dm"
+#include "eventstuff/screen_animation.dm"
+#include "eventstuff/black_box.dm"
+
+#include "code/trauma/code.dm"
+#include "code/awards/awards2024.dm"
+#include "code/autodoc.dm"
 
 #endif
+// BEGIN_INTERNALS
+// END_INTERNALS
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+// END_FILE_DIR
+// BEGIN_PREFERENCES
+// END_PREFERENCES
+// BEGIN_INCLUDE
+// END_INCLUDE

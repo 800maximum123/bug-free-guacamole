@@ -30,24 +30,21 @@
 	icon_state = "water_deep"
 	alpha = 200
 
-
-/turf/simulated/ocean/grim
+/turf/simulated/floor/exoplanet/ocean
 	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/dirt.dmi'
 	icon_state = "shale0"
+	name = "sea floor"
+	desc = "Silty."
 
-/turf/simulated/ocean/grim/add_decal()
-	return 0
-
-/turf/simulated/ocean/grim/New()
+/turf/simulated/floor/exoplanet/ocean/New()
 	..()
 	icon_state = "shale[rand(0, 4)]"
 
-/turf/simulated/ocean/grim_windswept
+/turf/simulated/floor/exoplanet/windswept
 	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/dirt.dmi'
 	icon_state = "shale_windswept"
-
-/turf/simulated/ocean/grim_windswept/add_decal()
-	return 0
+	name = "sea floor"
+	desc = "Silty."
 
 /turf/simulated/floor/exoplanet/grim_seaport
 	name = "mossy bricks"
@@ -137,9 +134,9 @@
 	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/turf_floor_grim.dmi'
 	icon_state = "dirt"
 
-/turf/simulated/floor/exoplanet/grim_dirt/New()
+/*/turf/simulated/floor/exoplanet/grim_dirt/New()
 	..()
-	icon_state = "dirt_[rand(1, 16)]"
+	icon_state = "dirt_[rand(1, 16)]"*/
 
 /turf/simulated/floor/exoplanet/wet_stone
 	name = "wet stone pile"
@@ -300,10 +297,6 @@
 	desc = "Just an old, molded bricky plate."
 	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/turf_floor_grim.dmi'
 	icon_state = "ceramic_cross"
-
-/turf/simulated/floor/exoplanet/grim_ceramic_indoor/New()
-	..()
-	icon_state = "ceramic_cross_[rand(1, 4)]"
 
 /turf/simulated/floor/exoplanet/grim_ceramic_indoor2
 	name = "ceramic tile"

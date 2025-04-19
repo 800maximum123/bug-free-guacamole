@@ -138,3 +138,86 @@
 /obj/item/device/multitool/finger
 	icon_state = "engimplant"
 	icon = 'mods/_fd/cyberware_mayhem/icons/tools.dmi'
+
+GLOBAL_LIST_EMPTY(assist_hud_users)
+GLOBAL_LIST_EMPTY(target_hud_users)
+
+/proc/process_assist_hud(mob/M, mob/Alt)
+	var/datum/arranged_hud_process/P = arrange_hud_process(M, Alt, GLOB.assist_hud_users)
+	for (var/mob/living/simple_animal/S in orange(5, P.Mob))
+		if(P.Client)
+			if(S.stat != DEAD)
+				P.Client.images += S.hud_list[ASSIST_HUD]
+	for (var/mob/living/carbon/human/L in orange(5, P.Mob))
+		if(P.Client)
+			if(L.stat != DEAD)
+				P.Client.images += L.hud_list[ASSIST_HUD]
+	for (var/mob/living/silicon/R in orange(5, P.Mob))
+		if(P.Client)
+			if(R.stat != DEAD)
+				P.Client.images += R.hud_list[ASSIST_HUD]
+
+/proc/process_target_hud(mob/M, mob/Alt)
+	var/datum/arranged_hud_process/P = arrange_hud_process(M, Alt, GLOB.target_hud_users)
+	for (var/mob/living/simple_animal/S in orange(5, P.Mob))
+		if(P.Client)
+			if(S.stat != DEAD)
+				P.Client.images += S.hud_list[TARGET_HUD]
+	for (var/mob/living/carbon/human/L in orange(5, P.Mob))
+		if(P.Client)
+			if(L.stat != DEAD)
+				P.Client.images += L.hud_list[TARGET_HUD]
+	for (var/mob/living/silicon/R in orange(5, P.Mob))
+		if(P.Client)
+			if(R.stat != DEAD)
+				P.Client.images += R.hud_list[TARGET_HUD]
+
+//to-do: ADD SKILLBUFF
+
+/obj/item/organ/internal/augment/active/shooting
+	name = "gunnery booster"
+	desc = "Hephaestus Industries' AIM-4 model improves gun accuracy by filtering unnecessary nerve signals."
+	augment_slots = AUGMENT_FLUFF
+	augment_flags = AUGMENT_BIOLOGICAL | AUGMENT_MECHANICAL
+	var/active = FALSE
+
+	icon = 'mods/_fd/cyberware_mayhem/icons/rig_modules.dmi' // PLACEHOLDER
+	icon_state = "teleporter" // PLACEHOLDER
+	default_action_type = /datum/action/item_action/organ/augment/fd
+
+	action_button_name = "Activate Boosters"
+
+/obj/item/organ/internal/augment/active/shooting/activate()
+	. = ..()
+
+	active = !active
+	if (active)
+		START_PROCESSING(SSobj, src)
+	else
+		STOP_PROCESSING(SSobj, src)
+
+/obj/item/organ/internal/augment/active/shooting/emp_act(severity)
+	if (istype(src.loc, /mob/living/carbon/human))
+		var/mob/living/carbon/human/M = src.loc
+		to_chat(M, SPAN_DANGER("Your [name] malfunctions, blinding you!"))
+		M.eye_blind = 4
+		M.eye_blurry = 8
+		if (active)
+			active = FALSE
+	..()
+
+/obj/item/organ/internal/augment/active/shooting/Process()
+	. = ..()
+	if(active)
+		process_target_hud(owner)
+		process_assist_hud(owner)
+
+/image/hud_overlay/assist
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS | NO_CLIENT_COLOR | RESET_TRANSFORM | KEEP_APART
+	layer = HUD_BASE_LAYER
+	plane = HUD_PLANE
+
+/image/hud_overlay/target
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS | NO_CLIENT_COLOR | RESET_TRANSFORM | KEEP_APART
+	layer = UNDER_HUD_LAYER
+	plane = 4

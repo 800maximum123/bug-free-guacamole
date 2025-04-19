@@ -156,20 +156,20 @@
 	ai_holder = /datum/ai_holder/simple_animal/humanoid/hostile/fleet/ranged/space
 
 
-/mob/living/simple_animal/hostile/human/fleet/space/emp_act(severity)
+/*/mob/living/simple_animal/hostile/human/fleet/space/emp_act(severity)
 	if (status_flags & GODMODE)
 		return
 	. = ..()
-	stun()
+	stun()*/
 
-/mob/living/simple_animal/hostile/human/fleet/space/proc/stun()
+/*/mob/living/simple_animal/hostile/human/fleet/space/proc/stun()
 	if (deactivated)
 		return
 	set_AI_busy(TRUE)
 	deactivated = TRUE
 	visible_message(SPAN_MFAUNA("\The [src]'s rigsuit flashes hastily, locking into place!"))
 	update_icon()
-	addtimer(new Callback(src, PROC_REF(reactivate)), 6 SECONDS)
+	addtimer(new Callback(src, TYPE_PROC_REF(reactivate)), 6 SECONDS)*/
 
 /mob/living/simple_animal/hostile/human/fleet/space/proc/reactivate()
 	set_AI_busy(FALSE)
@@ -266,7 +266,7 @@
 			num_shots = 10
 			fire_desc = "fires a burst"
 			time_last_used_ability = base_attack_cooldown + world.time
-			visible_message(SPAN_MFAUNA("\The [src] pulls up \the machinegun to bear!"))
+			visible_message(SPAN_MFAUNA("\The [src] pulls up a machinegun to bear!"))
 
 	update_icon()
 

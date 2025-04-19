@@ -1,5 +1,6 @@
 /obj/overmap/projectile
 	name = "projectile"
+	icon = 'mods/_fd/fd_assets/icons/overmap.dmi'
 	icon_state = "projectile_danger"
 	scannable = FALSE
 
@@ -54,7 +55,7 @@
 
 /obj/overmap/projectile/Process()
 	actual_projectile.process_thingies()
-	if(!actual_projectile || z != 12)
+	if(!actual_projectile || z != GLOB.using_map.overmap_z)
 		return
 
 	if(walk_timer >= walk_delay)

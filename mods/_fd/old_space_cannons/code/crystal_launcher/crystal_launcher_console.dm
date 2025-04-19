@@ -1,6 +1,6 @@
 /obj/machinery/computer/ship/ship_weapon/crystal_launcher
 	name = "Crystal cannon control"
-	coolinterval = 12 SECONDS
+	coolinterval = 15 SECONDS
 
 	icon_state = "ascent"
 	icon_keyboard = "mining_key"
@@ -15,5 +15,5 @@
 	back_type = /obj/machinery/ship_weapon/back_part/crystal_launcher
 	munition_type = /obj/item/ammo_magazine/ammobox/crystal
 
-	burst_size = 3
-	fire_interval = 4
+	burst_size = 10
+	fire_interval = 2

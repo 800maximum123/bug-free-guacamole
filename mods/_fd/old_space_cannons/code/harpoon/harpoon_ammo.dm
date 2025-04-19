@@ -21,7 +21,7 @@
 	name = "giant steel rod"
 	icon_state = "rod"
 	transform_scale = 4
-	damage = 450
+	damage = CANNON_DMG_HIGH
 	armor_penetration = 50
 	penetrating = 4
 	penetration_modifier = 1.1
@@ -34,9 +34,11 @@
 	var/beam_icon_pull = "n_beam" // icons\effects\beam.dmi
 	var/harpoon_wall_type = /turf/simulated/wall
 
+	should_explode = FALSE
+
 /obj/item/projectile/bullet/huge_caliber/harpoon_cannon/process_thingies()
 	if(origin && entered_overmap)
-		if(overmap_projectile.z == 12)
+		if(overmap_projectile.z == GLOB.using_map.overmap_z)
 			handle_overbeam(overmap_projectile)
 		else
 			handle_overbeam(overmap_projectile.loc)
@@ -45,7 +47,7 @@
 	set waitfor = FALSE
 	if(get_dist(origin, target) > 5) return TRUE
 
-	if(origin.z == 12) origin.Beam(target, beam_icon, time = 30, maxdistance = world.maxx)
+	if(origin.z == GLOB.using_map.overmap_z) origin.Beam(target, beam_icon, time = 30, maxdistance = world.maxx)
 	else origin.loc.Beam(target, beam_icon, time = 30, maxdistance = world.maxx)
 
 /obj/item/projectile/bullet/huge_caliber/harpoon_cannon/enter_sector(z_level, target_fore_dir, obj/overmap/target)
@@ -154,7 +156,7 @@
 			if(!istype(A, /obj/item/projectile) && (!istype(A, /obj/effect) || istype(A, /obj/shield)))
 				A.ex_act(1)
 		if(T.density)
-			explosion(T,9)
+			cell_explosion(T, EXPLOSION_POWER_LOW, EXPLOSION_FALLOFF_HIGH, shrapnel = FALSE)
 			new harpoon_wall_type(T)
 			new harpoon_wall_type(get_step(T,heading))
 			new harpoon_wall_type(get_step(T,turn(heading,180)))
@@ -213,7 +215,7 @@
 		return INFINITY // exoplanet/station = very chunky boi
 
 	var/obj/overmap/visitable/ship/us = src
-	if(istype(us,/obj/overmap/visitable/ship/landable) && us.z != 12)
+	if(istype(us,/obj/overmap/visitable/ship/landable) && us.z != GLOB.using_map.overmap_z)
 		us = pick(us.locs) // If we are docked to something - use our mothership weight numbers instead
 
 	if(istype(compare_to))

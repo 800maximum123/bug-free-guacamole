@@ -1,7 +1,7 @@
 /obj/machinery/computer/ship/ship_weapon/hmg
 	name = "IW-12 heavy machine gun control"
 	caldigit = 2
-	coolinterval = 8 SECONDS
+	coolinterval = 15 SECONDS
 	gun_name = "Heavy machine gun"
 
 	front_type = /obj/machinery/ship_weapon/front_part/hmg
@@ -9,8 +9,8 @@
 	back_type = /obj/machinery/ship_weapon/back_part/hmg
 	munition_type = /obj/item/ammo_magazine/ammobox/hmg
 
-	burst_size = 10
-	fire_interval = 3
+	burst_size = 20
+	fire_interval = 2
 
 /obj/machinery/computer/ship/ship_weapon/hmg/telescreen	//little hacky but it's only used on one ship so it should be okay
 	icon = 'mods/_fd/old_space_cannons/icons/telescreen_consoles.dmi'

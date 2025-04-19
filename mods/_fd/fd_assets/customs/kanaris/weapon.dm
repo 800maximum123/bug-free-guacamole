@@ -1,7 +1,7 @@
 
 /obj/item/gun/energy/laser/lasgun/kanarys
-	name = "Lasgun"
-	desc = "Lasgun series D-99 designed specifically for the Fleet. Known for its devastating power, almost unique for lasers."
+	name = "SLR-98"
+	desc = "The SLR-98 (Sniper Laser Rifle) is an old, somewhat outdated, laser rifle that is heavily used by pirates and bounty hunters on Kabul. It has a shabby appearance, as well as desert camouflage, which is perfect for working on a desolate and godforsaken planet in the Pirx system. s."
 	icon = 'mods/_fd/fd_assets/customs/kanaris/willheim.dmi'
 	icon_state = "energy-rifle-s"
 	item_state = "rifle-scope"
@@ -28,3 +28,6 @@
 			list(mode_name = "semiauto", burst=1, fire_delay=2, move_delay=2, accuracy=0, charge_cost=200, projectile_type = /obj/item/projectile/lasbolt),
 			list(mode_name = "overcharge", burst=1, fire_delay=4, move_delay=6, accuracy=0, charge_cost=800, projectile_type = /obj/item/projectile/lasbolt/overcharge)
 		)
+
+/obj/item/gun/energy/laser/lasgun/kanarys/on_update_icon()
+	..()

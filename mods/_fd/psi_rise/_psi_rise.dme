@@ -1,0 +1,19 @@
+#ifndef MODPACK_PSI_RISE
+#define MODPACK_PSI_RISE
+
+#include "_psi_rise.dm"
+
+#include "code/_define.dm"
+#include "code/action_buttons.dm"
+#include "code/psi_ui.dm"
+
+#include "code/complexus/complexus_process.dm"
+#include "code/complexus/complexus.dm"
+
+#include "code/mob/mob_interactions.dm"
+
+#include "code/psi_abilities/_psi_ability.dm"
+#include "code/psi_abilities/ligma.dm"
+#include "code/psi_abilities/sigma.dm"
+
+#endif

@@ -717,6 +717,13 @@
 
 
 
+
+/obj/structure/table/ul_plasteel
+	icon_state = "reinf_preview"
+	color = COLOR_GRAY40
+	material = MATERIAL_PLASTEEL
+	reinforced = MATERIAL_PLASTEEL
+
 /obj/machinery/rotating_alarm/door // like SM Alarm, but MY :3
 	name = "door alarm"
 	desc = "An industrial rotating alarm light. This one is used to monitor door state."
@@ -1160,16 +1167,17 @@
 
 /obj/floor_decal/corner/blood_red/bordercee
 	icon_state = "bordercolorcee"
-
+/*
 /obj/floor_decal/hull
 	name = "hull edges"
 	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi'
 	icon_state = "hull_edges"
+	layer = 2.04
 
 /obj/floor_decal/hull/corner
 	name = "hull corner"
 	icon_state = "hull_corners"
-
+*/
 /obj/floor_decal/techfloor/blood_red
 	name = "techfloor edges"
 	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi'
@@ -1183,6 +1191,38 @@
 	name = "watch your step"
 	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk2.dmi'
 	icon_state = "wys"
+	layer = 2.04
+
+/obj/floor_decal/ul_decals
+	name = "ulyanovsk decal"
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi'
+	icon_state = "decal"
+
+/obj/floor_decal/ul_decals/main_line
+	name = "main line"
+	icon_state = "main_line"
+
+/obj/floor_decal/ul_decals/arrow
+	name = "arrow"
+	icon_state = "arrow"
+
+/obj/floor_decal/ul_decals/iccg_floor
+	name = "iccg spray"
+	icon_state = "iccg_floor"
+	layer = 2.04
+
+/obj/floor_decal/ul_decals/outline
+	name = "outline"
+	icon_state = "outline"
+	layer = 2.04
+
+/obj/floor_decal/ul_decals/outline/yellow
+	name = "yellow outline"
+	color = "#cfcf55"
+
+/obj/floor_decal/ul_decals/outline/blood_red
+	name = "blood red outline"
+	color = "#940004"
 
 /obj/floor_decal/step
 	name = "step"

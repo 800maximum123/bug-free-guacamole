@@ -56,7 +56,7 @@
 					return TRUE
 
 	var/turf/target_turf
-	if(linked.z == 12)
+	if(linked.z == GLOB.using_map.overmap_z)
 		target_turf = get_turf(linked)
 		for(var/i = 1 to shoot_range)
 			target_turf = get_step(target_turf, overmapdir)
@@ -89,8 +89,13 @@
 				continue
 			candidates += O
 
-//		for(var/obj/overmap/trading/T in overmaptarget) TODO: OVERMAP_TRADERS
-//			candidates += T
+	//		for(var/obj/overmap/trading/T in overmaptarget) TODO: OVERMAP_TRADERS
+	//			candidates += T
+
+	// adding npc's to the list - Doctor Alex
+	if(!length(candidates))
+		for(var/obj/overmap/simulated_ship/npc in overmaptarget)
+			candidates += npc
 
 	if(!length(candidates) && destroy_event_flags)
 		for(var/obj/overmap/event/E in overmaptarget)
@@ -107,9 +112,9 @@
 
 	var/obj/overmap/target = pick(candidates)
 
-//	if(istype(target, /obj/overmap/trading)) TODO: OVERMAP_TRADERS
-//		qdel(target)
-//		return TRUE
+	//	if(istype(target, /obj/overmap/trading)) TODO: OVERMAP_TRADERS
+	//		qdel(target)
+	//		return TRUE
 
 	if(istype(target, /obj/overmap/event))
 		var/obj/overmap/event/E = target
@@ -126,12 +131,20 @@
 		handle_overbeam()
 		return TRUE
 
+	// actually doing something to it
+	if(istype(target, /obj/overmap/simulated_ship))
+		var/obj/overmap/simulated_ship/npc = target
+		npc.animate_damage()
+		handle_overbeam()
+		npc.handle_ebeam()
+		return TRUE
+
 	var/obj/overmap/visitable/finaltarget = target
 	var/z_level = pick(finaltarget.map_z)
 
 	//Success, but we missed.
 	if(prob(100 - cal_accuracy()) && !istype(finaltarget, /obj/overmap/visitable/sector/exoplanet))
-		log_and_message_admins("Âûñòðåë îò [linked.name] èç [gun_name] åáàíóë [finaltarget.name], íî êàëèáðîâêà áûëà ãîâíîì (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[linked.x];Y=[linked.y];Z=[linked.z]'>MAP</a>)", location=get_turf(front))
+		log_and_message_admins("Ебать мой хуй! [linked.name] ебанул из [gun_name] по [finaltarget.name], но промазал как последний лошпед! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[linked.x];Y=[linked.y];Z=[linked.z]'>MAP</a>)", location=get_turf(front))
 		handle_overbeam(TRUE)
 		return TRUE
 
@@ -240,7 +253,7 @@
 
 	var/turf/start = locate(start_x, start_y, z_level)
 
-	log_and_message_admins("Луч от [linked.name], выпущенный из [gun_name] - успешно попал в [target.name] на Z [z_level] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[start_x];Y=[start_y];Z=[z_level]'>JMP</a>) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[linked.x];Y=[linked.y];Z=[linked.z]'>MAP</a>)")
+	log_and_message_admins("[linked.name] снова жахнул из [gun_name] и приголубил [target.name] на ZZZ-лвле [z_level] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[start_x];Y=[start_y];Z=[z_level]'>JMP</a>) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[linked.x];Y=[linked.y];Z=[linked.z]'>MAP</a>)")
 
 	var/list/relevant_z = GetConnectedZlevels(z_level)
 	for(var/mob/M in GLOB.player_list)
@@ -250,7 +263,7 @@
 		if(!isdeaf(M))
 			sound_to(M, sound(fire_sound, volume=5))
 
-//	handle_beam(start, heading)				ебаная параша на beam() без каких либо причин не хочет проводить лучик через судно врага, ни рантаймов ни ошибок - по этому меняем на костыль
+	//	handle_beam(start, heading)				ебаная параша на beam() без каких либо причин не хочет проводить лучик через судно врага, ни рантаймов ни ошибок - по этому меняем на костыль
 	handle_beam_on_enemy(start, heading)//	хоть и костыль но выглядит очень модно :P
 	handle_beam_damage(start, heading, TRUE)
 
@@ -259,7 +272,7 @@
 
 /obj/machinery/computer/ship/ship_weapon/beam_cannon/proc/handle_beam(turf/s, d)
 	set waitfor = FALSE
-	s.Beam(get_edge_turf(s, d), beam_icon, time = beam_time, maxdistance = world.maxx)
+	s.Beam(get_edge_turf(s, d), beam_icon, icon = 'mods/_fd/old_space_cannons/icons/beam.dmi', time = beam_time, maxdistance = world.maxx)
 	if(front)
 		front.layer = initial(front.layer)
 
@@ -277,17 +290,17 @@
 			var/def_angle = pick(90,-90,0)
 			handle_beam_damage(get_step(T, turn(d, 180)), turn(d,180 + def_angle), TRUE)
 			handle_beam_on_enemy(get_step(T, turn(d, 180)), turn(d,180 + def_angle))
-			log_and_message_admins("Луч [gun_name] смешно отрикошетил от щита.")
+			log_and_message_admins("Ахуеть! Луч [gun_name] отскочил от щита в обратку!")
 			break
 		if(T.density && !killing_floor)
 			sleep(beam_speed)
 			if(T && T.density)
-				explosion(T, 4, EX_ACT_DEVASTATING, adminlog = 0)
+				cell_explosion(T, EXPLOSION_POWER_HIGH, EXPLOSION_FALLOFF_VERYHIGH, shrapnel = FALSE)
 				if(T)
 					T.ex_act(1,TRUE)
 		else if(killing_floor && !istype(T, /turf/space))
 			sleep(beam_speed)
-			explosion(T, 4, EX_ACT_DEVASTATING, adminlog = 0)
+			cell_explosion(T, EXPLOSION_POWER_HIGH, EXPLOSION_FALLOFF_VERYHIGH, shrapnel = FALSE)
 			if(T)
 				T.ex_act(1,TRUE)
 			var/list/relevant_z = GetConnectedZlevels(s.z)
@@ -299,18 +312,18 @@
 			var/turf/right = get_step(T,turn(d,90))
 			var/turf/left = get_step(T,turn(d,-90))
 			if(!right.density && !istype(right, /turf/space))
-				new /obj/turf_fire/inferno(right)
+				new /obj/turf_fire/inferno(get_turf(right))
 			if(!left.density && !istype(left, /turf/space))
-				new /obj/turf_fire/inferno(left)
+				new /obj/turf_fire/inferno(get_turf(left))
 			if(!T.density && !istype(T, /turf/space))
-				new /obj/turf_fire/inferno(T)
+				new /obj/turf_fire/inferno(get_turf(T))
 		else
 			sleep(beam_speed)
 		for(var/mob/living/U in T)
 			U.gib()
 		for(var/atom/A in T)
 			if(A.density && !istype(A,/obj/shield))
-				explosion(T, 4, EX_ACT_DEVASTATING, adminlog = 0)
+				cell_explosion(T, EXPLOSION_POWER_HIGH, EXPLOSION_FALLOFF_VERYHIGH, shrapnel = FALSE)
 				if(A && A.density)
 					A.ex_act(1,TRUE)
 
@@ -344,16 +357,16 @@
 	if(missed)
 		beam_dir = turn(overmapdir,pick(45,-45))
 
-	if(linked.z == 12)
+	if(linked.z == GLOB.using_map.overmap_z)
 		target_turf = get_turf(linked)
 		for(var/i = 1 to shoot_range)
 			target_turf = get_step(target_turf, beam_dir)
-		linked.Beam(target_turf, overmap_icon, time = beam_time, maxdistance = world.maxx)
+		linked.Beam(target_turf, overmap_icon, icon = 'mods/_fd/old_space_cannons/icons/beam.dmi', time = beam_time, maxdistance = world.maxx)
 	else
 		target_turf = get_turf(linked.loc)
 		for(var/i = 1 to shoot_range)
 			target_turf = get_step(target_turf, beam_dir)
-		linked.loc.Beam(target_turf, overmap_icon, time = beam_time, maxdistance = world.maxx)
+		linked.loc.Beam(target_turf, overmap_icon, icon = 'mods/_fd/old_space_cannons/icons/beam.dmi', time = beam_time, maxdistance = world.maxx)
 
 /obj/machinery/computer/ship/ship_weapon/beam_cannon/handle_muzzle()
 	set waitfor = FALSE

@@ -60,7 +60,7 @@
 
 /obj/structure/intel_console/use_tool(obj/item/I, mob/living/user)
 	SHOULD_CALL_PARENT(FALSE)
-	if(state == 3 && istype(I, /obj/item/stack/material/glass/))
+	if(state == 3 && istype(I, /obj/item/stack/material/glass))
 		var/obj/item/stack/material/glass/guass = I
 		if(guass.amount <= 5)
 			to_chat(user, "<span class='warning'>У вас недостаточно материалов! Для починки экрана понадобится минимум 5 единиц стекла!</span>")
@@ -82,7 +82,7 @@
 			state = 1
 			update_icon()
 	if(state == 1)
-		if(powerless == TRUE && istype(I, /obj/item/cell/))
+		if(powerless == TRUE && istype(I, /obj/item/cell))
 			if(do_after(user, 30))
 				powerless = FALSE
 				to_chat(user, "<span class='notice'>Вы аккуратно вставляете внутрь батарею...</span>")

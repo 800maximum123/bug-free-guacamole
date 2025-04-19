@@ -2342,16 +2342,15 @@
 
 /datum/chemical_reaction/deuterium
 	name = "Deuterium"
-	result = null
-	required_reagents = list(/datum/reagent/water = 10)
-	catalysts = list(/datum/reagent/toxin/phoron/oxygen = 5)
-	result_amount = 1
+	result = /datum/reagent/toxin/phoron/oxygen
+	required_reagents = list(/datum/reagent/water = 10, /datum/reagent/toxin/phoron = 5)
+	result_amount = 5
 	mix_message = "The solution makes a loud cracking sound as it crystalizes."
 
 /datum/chemical_reaction/deuterium/on_reaction(datum/reagents/holder, created_volume, reaction_flags)
 	..()
 	var/turf/T = get_turf(holder.my_atom)
-	if(istype(T)) new /obj/item/stack/material/deuterium(T, created_volume)
+	if(istype(T)) new /obj/item/stack/material/deuterium(T, (created_volume/5))
 	return
 
 /datum/chemical_reaction/antidexafen

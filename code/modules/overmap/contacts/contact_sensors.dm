@@ -44,7 +44,7 @@
 	if (user && user.client)
 		for (var/key in contact_datums)
 			var/datum/overmap_contact/record = contact_datums[key]
-			if (record)
+			if (record && !istype(record.effect, /obj/overmap/simulated_ship)) // сунь цзы искусство кода за пять минут
 				user.client.images |= record.marker
 
 /obj/machinery/shipsensors/proc/hide_contacts(mob/user)
@@ -108,6 +108,13 @@
 				objects_in_view[tracked_effect] = 100
 
 	var/obj/overmap/overmap_obj = linked
+
+// Интересно, возможно ли потом вынести это в мод? - Dr. Alex
+// нет нельяз - Danilcus
+	for (var/obj/overmap/simulated_ship/npc in view(sensor_range, overmap_obj))
+		objects_in_current_view.Add(npc)
+		objects_in_view[npc] = 100
+
 	if (istype(linked.loc, /obj/overmap/visitable))
 		overmap_obj = linked.loc
 

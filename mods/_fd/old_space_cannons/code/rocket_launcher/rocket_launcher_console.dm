@@ -1,6 +1,6 @@
 /obj/machinery/computer/ship/ship_weapon/rocket
 	name = "RLS-85 'Baneblade' control"
-	coolinterval = 8 SECONDS
+	coolinterval = 20 SECONDS
 	gun_name = "RLS"
 
 	front_type = /obj/machinery/ship_weapon/front_part/rocket
@@ -10,7 +10,7 @@
 
 	burst_size = 4
 	fire_interval = 3
-	caldigit = 3
+	caldigit = 4
 	shake_camera_force = 1
 
 //	fire_sound = 'sound/machines/rocket_fire.ogg'

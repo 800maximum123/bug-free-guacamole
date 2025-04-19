@@ -394,7 +394,7 @@
 
 // PARTS
 
-/datum/fabricator_recipe/parts/igniter
+/datum/fabricator_recipe/parts
 	path = /obj/item/device/assembly/igniter
 	category = "Parts"
 	fabricator_types = list(FABRICATOR_CLASS_PRECISION)
