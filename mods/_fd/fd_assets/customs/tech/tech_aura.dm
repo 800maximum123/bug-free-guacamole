@@ -8,11 +8,11 @@
 					//aura_color = "#7E191B"
 					var/image/aura_image = get_aura_image()
 					aura_image.blend_mode = BLEND_OVERLAY
-					aura_image.icon = 'mods/_fd/fd_assets/customs/tech/Naia.dmi'
-					aura_image.icon_state = "Fox"
-					aura_image.layer = MOB_LAYER + 0.5
+					aura_image.icon = 'mods/_fd/fd_assets/customs/tech/BIG_fox_aura.dmi'
+					aura_image.icon_state = "fox"
+					aura_image.layer = MOB_LAYER - 0.1
 					aura_image.alpha = 128
-					aura_image.pixel_x = owner.default_pixel_x
+					aura_image.pixel_x = owner.default_pixel_x - 32
 					aura_image.pixel_y = owner.default_pixel_y
 
 // It works but sadly animate in original code ruins it all. Gotta overide the original method fully
