@@ -217,6 +217,9 @@ var/global/list/admin_verbs_debug = list(
 	/client/proc/toggle_planet_repopulating,
 	/client/proc/spawn_exoplanet,
 	/client/proc/profiler_start,
+	// [FD-ADD]
+	/client/proc/spawn_quantum_mechanic,
+	// [/FD-ADD]
 	/datum/admins/proc/EnableDevtools
 	)
 
