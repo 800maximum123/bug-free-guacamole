@@ -1,6 +1,6 @@
 /obj/item/clothing/head/taj_skull
-	name = "tajaran nune"
-	desc = "Your freaking desc - here!!!"
+	name = "eluali skull"
+	desc =  "Eluali is the Assashite name for the Midnight Stalkers—terrifying predators that drain their prey dry during the night hunting seasons. The skull of one of these beasts is worth a fortune to smugglers and strikes fear into Assashites who grew up in the wild jungles of Pyrx, still haunted by the horrors of the night..."
 	icon = 'mods/_fd/tajaran_stuff/icons/clothes/head.dmi'
 	icon_state = "eluailskull"
 	item_state = "eluailskull"

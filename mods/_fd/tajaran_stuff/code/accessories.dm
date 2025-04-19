@@ -1,6 +1,6 @@
 /obj/item/clothing/accessory/tajaran
-	name = "sheet cape"
-	desc = "A cloak made from sheet gathered on the Tajara homeworld."
+	name = "assashite leafy raincoat"
+	desc = "A raincoat, woven from durable leaves, which protects from heavy rains on the Pirx."
 	icon_state = "sheet_cape"
 	item_state = "sheet_cape"
 	icon = 'mods/_fd/tajaran_stuff/icons/clothes/suit.dmi'
@@ -11,8 +11,8 @@
 	item_flags = ITEM_FLAG_IS_BELT
 
 /obj/item/clothing/accessory/tajaran/tradition
-	name = "tradition cape"
-	desc = "A cloak made according to ancient traditions. Each such cloak is unique and extremely important for the owner.."
+	name = "assashite traditional cloak"
+	desc = "A beautiful tribal cloak made of leather and pieces of cloth. The assashite use it for rituals and daily wear."
 	icon_state = "trad_cape"
 	item_state = "trad_cape"
 	item_icons = list(slot_wear_suit_str = 'mods/_fd/tajaran_stuff/icons/onmob/onmob_suit.dmi')
