@@ -184,8 +184,10 @@
 
 // Нагло спизженно из ИИ-шипов
 /mob/living/simple_animal/fd/unit/MouseEntered(location, control, params)
-	var/tooltip_text = get_additional_info()
-	openToolTip(user = usr, tip_src = src, params = params, title = name, content = tooltip_text)
+	var/mob/living/simple_animal/fd/player/P = usr
+	if(P.side == side)
+		var/tooltip_text = get_additional_info()
+		openToolTip(P, tip_src = src, params = params, title = name, content = tooltip_text)
 
 /mob/living/simple_animal/fd/unit/proc/special_death() // Индивидуально для каждого юнита
 	return

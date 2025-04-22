@@ -1,6 +1,7 @@
 /mob/living/simple_animal/fd/unit/psi
 	side = "Meta-Users"
 	icon = 'mods/_fd/_maps/new_year_house/icons/psi_trailer.dmi'
+	icon_state = "minions"
 
 /mob/living/simple_animal/fd/unit/psi/Life()
 	. = ..()
@@ -63,11 +64,126 @@
 
 // АБИЛКИ АРДЕНТА
 
-/mob/living/simple_animal/fd/unit/psi/ardent/resolve_special()
-	return
+/mob/living/simple_animal/fd/unit/psi/ardent/resolve_special(atom/target)
+	if(chosen_special == "Electric Chain")
+		var/mob/living/simple_animal/fd/unit/current_target = target
+
+		if(!(current_target in possible_targets))
+			decline_special()
+			return 1
+
+		for(var/mob/living/simple_animal/fd/unit/targets in possible_targets)
+			targets.remove_filter("target")
+
+		var/list/next_victims = list()
+		var/beam_1 = src.Beam(get_turf(current_target), "disperser_beam", icon = 'icons/effects/beam.dmi', time = 1.0 SECOND, maxdistance = world.maxx)
+		current_target.process_damage(2)
+
+		psi_current += 1
+
+		animate(current_target, color = COLOR_RED, time = 0.2 SECOND, easing = CUBIC_EASING | EASE_IN)
+		spawn(0.3 SECOND)
+			animate(current_target, color = COLOR_WHITE, time = 0.2 SECOND, easing = CUBIC_EASING | EASE_OUT)
+
+		var/beam_2
+		var/beam_3
+		var/beam_4
+		var/beam_5
+
+		spawn(2 SECONDS)
+			for(var/mob/living/simple_animal/fd/unit/next_target in oview(5,current_target))
+				if(next_target == current_target)
+					continue
+				if(next_target == src)
+					continue
+				if(next_target.side in friends_list)
+					continue
+				if(next_target.kia)
+					continue
+				next_victims += next_target
+			var/mob/living/simple_animal/fd/unit/new_target = pick(next_victims)
+			beam_2 = current_target.Beam(get_turf(new_target), "disperser_beam", icon = 'icons/effects/beam.dmi', time = 1.0 SECOND, maxdistance = world.maxx)
+			current_target = new_target
+			current_target.process_damage(2)
+
+			animate(current_target, color = COLOR_RED, time = 0.2 SECOND, easing = CUBIC_EASING | EASE_IN)
+			spawn(0.3 SECOND)
+				animate(current_target, color = COLOR_WHITE, time = 0.2 SECOND, easing = CUBIC_EASING | EASE_OUT)
+
+			psi_current += 1
+			next_victims.Cut()
+
+		spawn(3 SECONDS)
+			for(var/mob/living/simple_animal/fd/unit/next_target in oview(5,current_target))
+				if(next_target == current_target)
+					continue
+				if(next_target == src)
+					continue
+				if(next_target.side in friends_list)
+					continue
+				if(next_target.kia)
+					continue
+				next_victims += next_target
+			var/mob/living/simple_animal/fd/unit/new_target = pick(next_victims)
+			beam_3 = current_target.Beam(get_turf(new_target), "disperser_beam", icon = 'icons/effects/beam.dmi', time = 1.0 SECOND, maxdistance = world.maxx)
+			current_target = new_target
+			current_target.process_damage(2)
+
+			animate(current_target, color = COLOR_RED, time = 0.2 SECOND, easing = CUBIC_EASING | EASE_IN)
+			spawn(0.3 SECOND)
+				animate(current_target, color = COLOR_WHITE, time = 0.2 SECOND, easing = CUBIC_EASING | EASE_OUT)
+
+			psi_current += 1
+			next_victims.Cut()
+
+		if(overcharged)
+
+			spawn(4 SECONDS)
+				for(var/mob/living/simple_animal/fd/unit/next_target in oview(5,current_target))
+					if(next_target == current_target)
+						continue
+					if(next_target == src)
+						continue
+					if(next_target.side in friends_list)
+						continue
+					if(next_target.kia)
+						continue
+					next_victims += next_target
+				var/mob/living/simple_animal/fd/unit/extra_target = pick(next_victims)
+				beam_4 = current_target.Beam(get_turf(extra_target), "redstun", icon = 'icons/effects/projectiles.dmi', time = 1.0 SECOND, maxdistance = world.maxx)
+				extra_target.process_damage(2)
+
+				animate(extra_target, color = COLOR_RED, time = 0.2 SECOND, easing = CUBIC_EASING | EASE_IN)
+				spawn(0.3 SECOND)
+					animate(extra_target, color = COLOR_WHITE, time = 0.2 SECOND, easing = CUBIC_EASING | EASE_OUT)
+
+				extra_target = pick(next_victims)
+				beam_5 = current_target.Beam(get_turf(extra_target), "redstun", icon = 'icons/effects/projectiles.dmi', time = 1.0 SECOND, maxdistance = world.maxx)
+				extra_target.process_damage(2)
+
+				animate(extra_target, color = COLOR_RED, time = 0.2 SECOND, easing = CUBIC_EASING | EASE_IN)
+				spawn(0.3 SECOND)
+					animate(extra_target, color = COLOR_WHITE, time = 0.2 SECOND, easing = CUBIC_EASING | EASE_OUT)
+
+				psi_current += 2
+				next_victims.Cut()
+
+		spawn(6 SECONDS)
+			qdel(beam_1)
+			qdel(beam_2)
+			qdel(beam_3)
+			qdel(beam_4)
+			qdel(beam_5)
+
+			possible_targets.Cut()
+			chosen_special = null
+			unit_actions_amount -= 1
 
 /mob/living/simple_animal/fd/unit/psi/ardent/decline_special()
-	return
+	if(chosen_special == "Electric Chain")
+		for(var/mob/living/simple_animal/fd/unit/targets in possible_targets)
+			targets.remove_filter("target")
+		return 1
 
 /mob/living/simple_animal/fd/unit/psi/ardent/specials(mob/user)
 	var/mob/living/simple_animal/fd/player/commander = user
@@ -99,6 +215,16 @@
 				overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_friendly")
 				return 0
 			should_be_used_on = "Unit"
+
+			for(var/mob/living/simple_animal/fd/unit/target in oview(5,src))
+				if(target.side in friends_list)
+					continue
+				if(target.kia)
+					continue
+				target.add_filter("target", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_RED))
+				possible_targets += target
+
+			return 1
 		if("Ability 2")
 			return 1
 
