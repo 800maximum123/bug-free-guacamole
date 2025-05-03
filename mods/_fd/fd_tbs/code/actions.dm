@@ -167,3 +167,23 @@
 
 /obj/structure/fd/tbs_activity/proc/activate() // индивидуально для каждой активности
 	return
+
+/obj/turf_fire_fd
+	icon = 'icons/effects/turf_fire.dmi'
+	icon_state = "big"
+	layer = BELOW_DOOR_LAYER
+	anchored = TRUE
+
+	color = COLOR_MEDICAL_BURN
+
+/obj/turf_fire_fd/proc/get_additional_info() // Полностью оверрайдим на юните
+	var/list/info = list()
+
+	info += FONT_LARGE("[SPAN_COLOR("#ff2525","Поджигает юнитов, которые проходят через данную клетку.")] Также наносит доп-урон всем, кто стоит на этой клетке в начале раунда!")
+
+	return jointext(info, "")
+
+/obj/turf_fire_fd/MouseEntered(location, control, params)
+	var/mob/living/simple_animal/fd/player/P = usr
+	var/tooltip_text = get_additional_info()
+	openToolTip(P, tip_src = src, params = params, title = name, content = tooltip_text)

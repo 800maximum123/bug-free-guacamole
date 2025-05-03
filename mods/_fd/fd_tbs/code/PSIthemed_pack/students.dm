@@ -225,7 +225,36 @@
 				possible_targets += target
 
 			return 1
-		if("Ability 2")
+		if("Wall of Fire")
+			if(unit_actions_amount <= 0)
+				chosen_special = null
+				commander.selected.chosen_action = null
+				commander.selected = null
+				overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_friendly")
+				return 0
+			if(drawback)
+				chosen_special = null
+				commander.selected.chosen_action = null
+				commander.selected = null
+				overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_friendly")
+				return 0
+
+			choose_direction(commander)
+
+			var/turf/targ_turf = get_step(src,src.dir)
+			var/list/turfs_search = list(targ_turf)
+			var/attack_dir = get_dir(src,targ_turf)
+			turfs_search += list( get_step(targ_turf,turn(attack_dir,90)),get_step(targ_turf,turn(attack_dir,-90)) )
+			for(var/turf/search in turfs_search)
+				new /obj/turf_fire_fd(get_turf(search))
+
+			var/turf/targ_turf_second = get_step(targ_turf,src.dir)
+			var/list/turfs_search_new = list(targ_turf_second)
+			var/new_attack_dir = get_dir(src,targ_turf_second)
+			turfs_search_new += list( get_step(targ_turf_second,turn(new_attack_dir,90)),get_step(targ_turf_second,turn(new_attack_dir,-90)) )
+			for(var/turf/search_second in turfs_search_new)
+				new /obj/turf_fire_fd(get_turf(search_second))
+
 			return 1
 
 	return 0

@@ -356,6 +356,30 @@
 
 	return 0
 
+/mob/living/simple_animal/fd/unit/proc/choose_direction(mob/user)
+	var/mob/living/simple_animal/fd/player/commander = user
+	var/list/directions_list = list(
+		"North" = image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "North"),
+		"West" = image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "West"),
+		"South" = image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "South"),
+		"East" = image('mods/_fd/fd_tbs/icons/tbs_ui.dmi', "East")
+	)
+	var/character_direction = show_radial_menu(commander, src, directions_list, radius = 60, require_near = FALSE)
+	switch(character_direction)
+		if("North")
+			src.dir = NORTH
+			return 1
+		if("South")
+			src.dir = SOUTH
+			return 1
+		if("West")
+			src.dir = WEST
+			return 1
+		if("East")
+			src.dir = EAST
+			return 1
+
+
 /mob/living/simple_animal/fd/unit/AltClick(mob/user)
 	var/mob/living/simple_animal/fd/player/commander = user
 	if(commander.side != side)
@@ -385,7 +409,6 @@
 			commander.selected = src
 			return 1
 		if("Activate") // Most of the stuff can be activated for free
-
 			commander.selected = src
 			return 1
 		if("Attack")
