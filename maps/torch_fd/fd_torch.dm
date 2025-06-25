@@ -284,6 +284,7 @@
 	#include "../../mods/_fd/resomi_fd/_resomi.dme"
 	#include "../../mods/_fd/roll_dice/_roll_dice.dme"
 	#include "../../mods/_fd/skrell_resprite/_skrell_resprite.dme"
+	#include "../../mods/_fd/small_holopad/_small_holopad.dme"
 	#include "../../mods/_fd/structure_storage/_structure_storage.dme"
 	#include "../../mods/_fd/tajaran_stuff/_tajaran_stuff.dme"
 	#include "../../mods/_fd/tartakans/_tartakans.dme"
