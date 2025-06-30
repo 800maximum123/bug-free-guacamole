@@ -251,6 +251,7 @@
 		// ~NON-UPSTREAM MODS~ //
 
 	#include "../../mods/_fd/fd_assets/_fd_assets.dme"
+	#include "../../mods/_fd/fd_customs/_fd_customs.dme"
 	#include "../../mods/_fd/fd_guns/_fd_guns.dme"
 	#include "../../mods/_fd/fd_lore/_fd_lore.dme"
 	#include "../../mods/_fd/fd_species/_fd_species.dme"

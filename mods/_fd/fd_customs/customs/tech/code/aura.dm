@@ -8,7 +8,7 @@
 					//aura_color = "#7E191B"
 					var/image/aura_image = get_aura_image()
 					aura_image.blend_mode = BLEND_OVERLAY
-					aura_image.icon = 'mods/_fd/fd_assets/customs/tech/icons/fox_aura.dmi'
+					aura_image.icon = 'mods/_fd/fd_customs/customs/tech/icons/fox_aura.dmi'
 					aura_image.icon_state = "fox"
 					aura_image.layer = MOB_LAYER - 0.1
 					aura_image.alpha = 128

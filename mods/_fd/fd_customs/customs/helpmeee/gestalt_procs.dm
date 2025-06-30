@@ -1,20 +1,20 @@
 /obj/effect/gestalt_targeting
 	name = "cracks"
 	desc = "cracks"
-	icon = 'mods/_fd/fd_assets/customs/helpmeee/gestalt_structures.dmi'
+	icon = 'mods/_fd/fd_customs/customs/helpmeee/gestalt_structures.dmi'
 	icon_state = "cracks_dark"
 
 /obj/effect/gestalt_spike
 	name = "spike"
 	desc = "spike"
-	icon = 'mods/_fd/fd_assets/customs/helpmeee/gestalt_structures.dmi'
+	icon = 'mods/_fd/fd_customs/customs/helpmeee/gestalt_structures.dmi'
 	icon_state = "vinespike"
 	pixel_y = 16
 
 /obj/structure/gestalt_prison
 	name = "vines"
 	desc = "Very strong vines!"
-	icon = 'mods/_fd/fd_assets/customs/helpmeee/gestalt_structures.dmi'
+	icon = 'mods/_fd/fd_customs/customs/helpmeee/gestalt_structures.dmi'
 	icon_state = "vinehedge"
 	layer = ABOVE_HUMAN_LAYER
 	anchored = TRUE
@@ -45,7 +45,7 @@
 /obj/structure/gestalt_wall
 	name = "vines"
 	desc = "Very strong vines!"
-	icon = 'mods/_fd/fd_assets/customs/helpmeee/gestalt_structures.dmi'
+	icon = 'mods/_fd/fd_customs/customs/helpmeee/gestalt_structures.dmi'
 	icon_state = "thornbush_lowering"
 	layer = ABOVE_HUMAN_LAYER
 	anchored = TRUE

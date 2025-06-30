@@ -1,5 +1,5 @@
 /obj/item/reagent_containers/food/drinks/bottle/cognac/clover
-	icon = 'mods/_fd/fd_assets/customs/protossdelta/birthday_bottle.dmi'
+	icon = 'mods/_fd/fd_customs/customs/protossdelta/birthday_bottle.dmi'
 	icon_state = "cognacbottle"
 	center_of_mass = "x=16;y=6"
 	volume = 250

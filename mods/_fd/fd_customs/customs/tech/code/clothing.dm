@@ -1,12 +1,12 @@
 /obj/item/clothing/suit/storage/hoscoat/modified
 	name = "modified armored trenchcoat"
 	desc = "A trenchcoat augmented with a special alloy for some protection and style. Thos one was modified by it's user to reassemble cape."
-	icon = 'mods/_fd/fd_assets/customs/tech/icons/onmob/hos_cloak.dmi'
+	icon = 'mods/_fd/fd_customs/customs/tech/icons/onmob/hos_cloak.dmi'
 	icon_state = "hoscloak"
-	item_icons = list(slot_wear_suit_str = 'mods/_fd/fd_assets/customs/tech/icons/onmob/hos_cloak.dmi')
+	item_icons = list(slot_wear_suit_str = 'mods/_fd/fd_customs/customs/tech/icons/onmob/hos_cloak.dmi')
 	item_state = "hoscloak"
 	//item_icons = list(
-	//	slot_wear_suit_str = 'mods/_fd/fd_assets/customs/lozari/onmob/dark_robotist_labcoat.dmi',
+	//	slot_wear_suit_str = 'mods/_fd/fd_customs/customs/lozari/onmob/dark_robotist_labcoat.dmi',
 	//	slot_l_hand_str = 'icons/mob/onmob/items/lefthand_uniforms.dmi',
 	//	slot_r_hand_str = 'icons/mob/onmob/items/righthand_uniforms.dmi')
 	//item_state_slots = list(
@@ -18,10 +18,10 @@
 /obj/item/clothing/under/baronessdress
 	name = "baroness red dress"
 	desc = "An elite blood-colored dress."
-	icon = 'mods/_fd/fd_assets/customs/tech/icons/onmob/baroness.dmi'
+	icon = 'mods/_fd/fd_customs/customs/tech/icons/onmob/baroness.dmi'
 	icon_state = "baroness_s"
 	item_icons = list(
-		slot_w_uniform_str = 'mods/_fd/fd_assets/customs/tech/icons/onmob/baroness.dmi')
+		slot_w_uniform_str = 'mods/_fd/fd_customs/customs/tech/icons/onmob/baroness.dmi')
 	worn_state = "baroness"
 	flags_inv = HIDESHOES
 

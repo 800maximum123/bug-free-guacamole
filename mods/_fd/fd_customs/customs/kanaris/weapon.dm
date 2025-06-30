@@ -2,12 +2,12 @@
 /obj/item/gun/energy/laser/lasgun/kanarys
 	name = "SLR-98"
 	desc = "The SLR-98 (Sniper Laser Rifle) is an old, somewhat outdated, laser rifle that is heavily used by pirates and bounty hunters on Kabul. It has a shabby appearance, as well as desert camouflage, which is perfect for working on a desolate and godforsaken planet in the Pirx system. s."
-	icon = 'mods/_fd/fd_assets/customs/kanaris/willheim.dmi'
+	icon = 'mods/_fd/fd_customs/customs/kanaris/willheim.dmi'
 	icon_state = "energy-rifle-s"
 	item_state = "rifle-scope"
 	item_icons = list(
-		slot_l_hand_str = 'mods/_fd/fd_assets/customs/kanaris/onmob/lefthand.dmi',
-		slot_r_hand_str = 'mods/_fd/fd_assets/customs/kanaris/onmob/righthand.dmi',
+		slot_l_hand_str = 'mods/_fd/fd_customs/customs/kanaris/onmob/lefthand.dmi',
+		slot_r_hand_str = 'mods/_fd/fd_customs/customs/kanaris/onmob/righthand.dmi',
 		slot_back_str = 'mods/_fd/fd_guns/icons/onmob/weapon_cpss_back.dmi'
 		)
 	slot_flags = SLOT_BACK
