@@ -889,7 +889,7 @@
 /obj/effect/pebbles_particles
 	name = "particles"
 	desc = "particles"
-	icon = 'mods/_fd/fd_assets/eventstuff/pebbles.dmi'
+	icon = 'mods/_fd/event_tools/icons/pebbles.dmi'
 	icon_state = "pebbles_1"
 	alpha = 100
 	layer = ABOVE_HUMAN_LAYER

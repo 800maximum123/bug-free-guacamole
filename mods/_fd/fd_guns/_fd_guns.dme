@@ -14,12 +14,17 @@
 #include "code/ammo/boxes.dm"
 #include "code/ammo/bullets.dm"
 
+#include "code/guns/automatic_shotgun.dm"
 #include "code/guns/automatic.dm"
 #include "code/guns/energy.dm"
-#include "code/guns/pistol.dm"
-#include "code/guns/shotgun.dm"
-#include "code/guns/sniper.dm"
 #include "code/guns/k342.dm"
+#include "code/guns/mech_mounted.dm"
+#include "code/guns/pistol.dm"
+#include "code/guns/rsh21.dm"
+#include "code/guns/shotgun.dm"
+#include "code/guns/sledgehammer.dm"
+#include "code/guns/sniper.dm"
+
 
 #undef CALIBER_BOLTER
 
