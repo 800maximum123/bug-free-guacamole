@@ -5,8 +5,8 @@
 	minimal_player_age = 2
 	minimum_character_age = list(SPECIES_HUMAN = 29)
 	ideal_character_age = 45
-	total_positions = 0
-	spawn_positions = 0
+	total_positions = 2
+	spawn_positions = 2
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#013d3b"
 	economic_power = 10
@@ -16,12 +16,15 @@
 	allowed_branches = list(
 		/datum/mil_branch/expeditionary_corps,
 		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/torch/crew/medical/senior/fleet,
+		/datum/mil_branch/scga = /singleton/hierarchy/outfit/job/torch/crew/medical/senior/army,
 		/datum/mil_branch/civilian = /singleton/hierarchy/outfit/job/torch/crew/medical/contractor/senior
 	)
 	allowed_ranks = list(
 		/datum/mil_rank/ec/o1,
 		/datum/mil_rank/fleet/o1,
 		/datum/mil_rank/fleet/o2,
+		/datum/mil_rank/scga/o1,
+		/datum/mil_rank/scga/o2,
 		/datum/mil_rank/civ/contractor
 	)
 	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
@@ -51,8 +54,8 @@
 	minimal_player_age = 2
 	minimum_character_age = list(SPECIES_HUMAN = 24)
 	ideal_character_age = 45
-	total_positions = 0
-	spawn_positions = 0
+	total_positions = 1
+	spawn_positions = 1
 	supervisors = "physicians and the Chief Medical Officer"
 	selection_color = "#013d3b"
 	economic_power = 6
@@ -60,11 +63,13 @@
 	allowed_branches = list(
 		/datum/mil_branch/expeditionary_corps,
 		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/torch/crew/medical/senior/fleet,
+		/datum/mil_branch/scga = /singleton/hierarchy/outfit/job/torch/crew/medical/senior/army,
 		/datum/mil_branch/civilian = /singleton/hierarchy/outfit/job/torch/crew/medical/contractor/senior
 	)
 	allowed_ranks = list(
 		/datum/mil_rank/ec/o1,
 		/datum/mil_rank/fleet/o1,
+		/datum/mil_rank/scga/o1,
 		/datum/mil_rank/civ/contractor
 	)
 	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
@@ -89,11 +94,11 @@
 
 /datum/job/doctor
 	title = "Medical Technician"
-	total_positions = 5
-	spawn_positions = 5
+	total_positions = 3
+	spawn_positions = 3
 	supervisors = "physicians and the Chief Medical Officer"
 	economic_power = 7
-	minimum_character_age = 0
+	minimum_character_age = list(SPECIES_HUMAN = 19)
 	ideal_character_age = 40
 	minimal_player_age = 0
 	alt_titles = list(
@@ -104,6 +109,7 @@
 	allowed_branches = list(
 		/datum/mil_branch/expeditionary_corps,
 		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/torch/crew/medical/doctor/fleet,
+		/datum/mil_branch/scga = /singleton/hierarchy/outfit/job/torch/crew/medical/doctor/army,
 		/datum/mil_branch/civilian = /singleton/hierarchy/outfit/job/torch/crew/medical/contractor
 	)
 	allowed_ranks = list(
@@ -113,32 +119,18 @@
 		/datum/mil_rank/fleet/e4,
 		/datum/mil_rank/fleet/e5,
 		/datum/mil_rank/fleet/e6,
-		/datum/mil_rank/civ/contractor,
-		/datum/mil_rank/civ/civ
+		/datum/mil_rank/scga/e3,
+		/datum/mil_rank/scga/e4,
+		/datum/mil_rank/scga/e5,
+		/datum/mil_rank/scga/e6,
+		/datum/mil_rank/civ/contractor
 	)
+	min_skill = list(   SKILL_EVA     = SKILL_BASIC,
+	                    SKILL_MEDICAL = SKILL_BASIC,
+	                    SKILL_ANATOMY = SKILL_BASIC)
 
-	max_skill = list(
-		SKILL_BUREAUCRACY = SKILL_MAX,
-		SKILL_FINANCE = SKILL_MAX,
-		SKILL_EVA = SKILL_MAX,
-		SKILL_PILOT = SKILL_MAX,
-		SKILL_HAULING = SKILL_MAX,
-		SKILL_COMPUTER = SKILL_MAX,
-		SKILL_BOTANY = SKILL_MAX,
-		SKILL_COOKING = SKILL_MAX,
-		SKILL_COMBAT = SKILL_MAX,
-		SKILL_WEAPONS = SKILL_MAX,
-		SKILL_FORENSICS = SKILL_MAX,
-		SKILL_CONSTRUCTION = SKILL_MAX,
-		SKILL_ELECTRICAL = SKILL_MAX,
-		SKILL_ATMOS = SKILL_MAX,
-		SKILL_ENGINES = SKILL_MAX,
-		SKILL_DEVICES = SKILL_MAX,
-		SKILL_SCIENCE = SKILL_MAX,
-		SKILL_MEDICAL = SKILL_MAX,
-		SKILL_ANATOMY = SKILL_MAX,
-		SKILL_CHEMISTRY = SKILL_MAX
-	)
+	max_skill = list(   SKILL_MEDICAL     = SKILL_MAX,
+	                    SKILL_CHEMISTRY   = SKILL_MAX)
 
 	access = list(
 		access_medical, access_morgue, access_maint_tunnels,
@@ -149,14 +141,14 @@
 
 	software_on_spawn = list(/datum/computer_file/program/suit_sensors,
 							 /datum/computer_file/program/camera_monitor)
-	skill_points = 52 //36
+	skill_points = 22
 
 /datum/job/medical_trainee
 	title = "Trainee Medical Technician"
 	department = "Medical"
 	department_flag = MED
-	total_positions = 0
-	spawn_positions = 0
+	total_positions = 1
+	spawn_positions = 1
 	supervisors = "medical personnel and the Chief Medical Officer"
 	selection_color = "#013d3b"
 	minimum_character_age = list(SPECIES_HUMAN = 18)
@@ -164,14 +156,15 @@
 	alt_titles = list(
 		"Corpsman Trainee")
 
-	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/medical/doctor
 	allowed_branches = list(
 		/datum/mil_branch/expeditionary_corps,
-		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/torch/crew/medical/doctor/fleet
+		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/torch/crew/medical/doctor/fleet,
+		/datum/mil_branch/scga = /singleton/hierarchy/outfit/job/torch/crew/medical/doctor/army
 	)
 	allowed_ranks = list(
 		/datum/mil_rank/ec/e3,
-		/datum/mil_rank/fleet/e2
+		/datum/mil_rank/fleet/e2,
+		/datum/mil_rank/scga/e2
 	)
 
 	skill_points = 4
@@ -208,47 +201,29 @@
 	supervisors = "medical personnel, and the Chief Medical Officer"
 	selection_color = "#013d3b"
 	economic_power = 4
+	minimum_character_age = list(SPECIES_HUMAN = 25)
 	ideal_character_age = 30
-	minimal_player_age = 0
+	minimal_player_age = 7
 	alt_titles = list(
 		"Chemist"
 	)
 	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/medical/contractor/chemist
+	allowed_branches = list(
+		/datum/mil_branch/civilian,
+		/datum/mil_branch/expeditionary_corps = /singleton/hierarchy/outfit/job/torch/crew/medical/doctor
+		)
 	allowed_ranks = list(
-		/datum/mil_rank/ec/e3,
-		/datum/mil_rank/ec/e5,
-		/datum/mil_rank/fleet/e3,
-		/datum/mil_rank/fleet/e4,
-		/datum/mil_rank/fleet/e5,
-		/datum/mil_rank/fleet/e6,
-		/datum/mil_rank/civ/contractor,
-		/datum/mil_rank/civ/civ
-	)
+		/datum/mil_rank/ec/o1,
+		/datum/mil_rank/civ/contractor
+		)
+	min_skill = list(   SKILL_MEDICAL   = SKILL_BASIC,
+	                    SKILL_CHEMISTRY = SKILL_TRAINED)
 
-	max_skill = list(
-		SKILL_BUREAUCRACY = SKILL_MAX,
-		SKILL_FINANCE = SKILL_MAX,
-		SKILL_EVA = SKILL_MAX,
-		SKILL_PILOT = SKILL_MAX,
-		SKILL_HAULING = SKILL_MAX,
-		SKILL_COMPUTER = SKILL_MAX,
-		SKILL_BOTANY = SKILL_MAX,
-		SKILL_COOKING = SKILL_MAX,
-		SKILL_COMBAT = SKILL_MAX,
-		SKILL_WEAPONS = SKILL_MAX,
-		SKILL_FORENSICS = SKILL_MAX,
-		SKILL_CONSTRUCTION = SKILL_MAX,
-		SKILL_ELECTRICAL = SKILL_MAX,
-		SKILL_ATMOS = SKILL_MAX,
-		SKILL_ENGINES = SKILL_MAX,
-		SKILL_DEVICES = SKILL_MAX,
-		SKILL_SCIENCE = SKILL_MAX,
-		SKILL_MEDICAL = SKILL_MAX,
-		SKILL_ANATOMY = SKILL_MAX,
-		SKILL_CHEMISTRY = SKILL_MAX
-	)
+	max_skill = list(   SKILL_MEDICAL     = SKILL_BASIC,
+						SKILL_ANATOMY	  = SKILL_BASIC,
+	                    SKILL_CHEMISTRY   = SKILL_MAX)
+	skill_points = 16
 
-	skill_points = 52
 	access = list(
 		access_medical, access_maint_tunnels, access_emergency_storage,
 		access_medical_equip, access_solgov_crew, access_chemistry,
@@ -260,8 +235,8 @@
 
 /datum/job/psychiatrist
 	title = "Counselor"
-	total_positions = 0
-	spawn_positions = 0
+	total_positions = 1
+	spawn_positions = 1
 	ideal_character_age = 40
 	economic_power = 5
 	minimum_character_age = list(SPECIES_HUMAN = 24)

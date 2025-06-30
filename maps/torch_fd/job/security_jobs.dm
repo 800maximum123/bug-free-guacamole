@@ -1,7 +1,7 @@
 /datum/job/warden
 	title = "Brig Chief"
-	total_positions = 0
-	spawn_positions = 0
+	total_positions = 1
+	spawn_positions = 1
 	supervisors = "the Chief of Security"
 	economic_power = 5
 	minimal_player_age = 7
@@ -10,13 +10,17 @@
 	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/security/brig_chief
 	allowed_branches = list(
 		/datum/mil_branch/expeditionary_corps,
-		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/torch/crew/security/brig_chief/fleet
+		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/torch/crew/security/brig_chief/fleet,
+		/datum/mil_branch/scga = /singleton/hierarchy/outfit/job/torch/crew/security/brig_chief/army
 	)
 	allowed_ranks = list(
 		/datum/mil_rank/ec/e7,
 		/datum/mil_rank/fleet/e6,
 		/datum/mil_rank/fleet/e7,
 		/datum/mil_rank/fleet/e8,
+		/datum/mil_rank/scga/e6,
+		/datum/mil_rank/scga/e7,
+		/datum/mil_rank/scga/e8
 	)
 	min_skill = list(   SKILL_BUREAUCRACY = SKILL_TRAINED,
 	                    SKILL_EVA         = SKILL_BASIC,
@@ -41,8 +45,8 @@
 
 /datum/job/detective
 	title = "Forensic Technician"
-	total_positions = 0
-	spawn_positions = 0
+	total_positions = 1
+	spawn_positions = 1
 	supervisors = "the Chief of Security"
 	economic_power = 5
 	minimal_player_age = 7
@@ -91,51 +95,40 @@
 							 /datum/computer_file/program/camera_monitor)
 
 /datum/job/officer
-	title = "Armsman"
-	total_positions = 10
-	spawn_positions = 10
+	title = "Master at Arms"
+	total_positions = 4
+	spawn_positions = 4
 	supervisors = "the Chief of Security"
 	economic_power = 4
 	minimal_player_age = 7
-	minimum_character_age = 0
+	minimum_character_age = list(SPECIES_HUMAN = 18)
 	ideal_character_age = 25
-	alt_titles = list("Gunner") // This is a hack. Overriding a list var with null does not actually override it due to the particulars of dm list init. Do not "clean up" without testing.
+	alt_titles = list() // This is a hack. Overriding a list var with null does not actually override it due to the particulars of dm list init. Do not "clean up" without testing.
 	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/security/maa
 	allowed_branches = list(
 		/datum/mil_branch/expeditionary_corps,
 		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/torch/crew/security/maa/fleet,
-		/datum/mil_branch/civilian
+		/datum/mil_branch/scga = /singleton/hierarchy/outfit/job/torch/crew/security/maa/army
 	)
 	allowed_ranks = list(
-		/datum/mil_rank/civ/civ,
 		/datum/mil_rank/ec/e3,
 		/datum/mil_rank/fleet/e3,
 		/datum/mil_rank/fleet/e4,
-		/datum/mil_rank/fleet/e5
-	)
+		/datum/mil_rank/fleet/e5,
+		/datum/mil_rank/scga/e3,
+		/datum/mil_rank/scga/e4,
+		/datum/mil_rank/scga/e5
 
-	max_skill = list(
-		SKILL_BUREAUCRACY = SKILL_MAX,
-		SKILL_FINANCE = SKILL_MAX,
-		SKILL_EVA = SKILL_MAX,
-		SKILL_PILOT = SKILL_MAX,
-		SKILL_HAULING = SKILL_MAX,
-		SKILL_COMPUTER = SKILL_MAX,
-		SKILL_BOTANY = SKILL_MAX,
-		SKILL_COOKING = SKILL_MAX,
-		SKILL_COMBAT = SKILL_MAX,
-		SKILL_WEAPONS = SKILL_MAX,
-		SKILL_FORENSICS = SKILL_MAX,
-		SKILL_CONSTRUCTION = SKILL_MAX,
-		SKILL_ELECTRICAL = SKILL_MAX,
-		SKILL_ATMOS = SKILL_MAX,
-		SKILL_ENGINES = SKILL_MAX,
-		SKILL_DEVICES = SKILL_MAX,
-		SKILL_SCIENCE = SKILL_MAX,
-		SKILL_MEDICAL = SKILL_MAX,
-		SKILL_ANATOMY = SKILL_MAX,
-		SKILL_CHEMISTRY = SKILL_MAX
 	)
+	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
+	                    SKILL_EVA         = SKILL_BASIC,
+	                    SKILL_COMBAT      = SKILL_BASIC,
+	                    SKILL_WEAPONS     = SKILL_TRAINED,
+	                    SKILL_FORENSICS   = SKILL_BASIC)
+
+	max_skill = list(   SKILL_COMBAT      = SKILL_MAX,
+	                    SKILL_WEAPONS     = SKILL_MAX,
+	                    SKILL_FORENSICS   = SKILL_EXPERIENCED)
 
 	access = list(
 		access_security, access_brig, access_maint_tunnels,
@@ -146,4 +139,3 @@
 
 	software_on_spawn = list(/datum/computer_file/program/digitalwarrant,
 							 /datum/computer_file/program/camera_monitor)
-	skill_points = 52
