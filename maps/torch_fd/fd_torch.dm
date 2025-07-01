@@ -77,6 +77,7 @@
 	#include "../torch/language/human/misc/spacer.dm"
 
 	// --- ITEMS --- //
+	#include "../torch_fd/items/agencylogo.dm"
 	#include "../torch/items/cards_ids.dm"
 	#include "../torch/items/coins.dm"
 	#include "../torch/items/encryption_keys.dm"
