@@ -8,47 +8,31 @@
 	selection_color = "#5b4d20"
 	economic_power = 7
 	minimal_player_age = 3
-	minimum_character_age = 0
+	minimum_character_age = list(SPECIES_HUMAN = 27)
 	ideal_character_age = 40
 	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/engineering/senior_engineer
 	allowed_branches = list(
 		/datum/mil_branch/expeditionary_corps,
-		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/torch/crew/engineering/engineer/fleet,
-		/datum/mil_branch/civilian = /singleton/hierarchy/outfit/job/torch/crew/engineering/contractor
+		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/torch/crew/engineering/senior_engineer/fleet
 	)
 	allowed_ranks = list(
-		/datum/mil_rank/fleet/e3,
-		/datum/mil_rank/fleet/e4,
-		/datum/mil_rank/fleet/e5,
-		/datum/mil_rank/ec/e3,
-		/datum/mil_rank/ec/e5,
-		/datum/mil_rank/civ/contractor,
-		/datum/mil_rank/civ/civ
+		/datum/mil_rank/ec/e7,
+		/datum/mil_rank/fleet/e6,
+		/datum/mil_rank/fleet/e7,
+		/datum/mil_rank/fleet/e8,
 	)
+	min_skill = list(   SKILL_COMPUTER     = SKILL_TRAINED,
+						SKILL_EVA          = SKILL_TRAINED,
+						SKILL_CONSTRUCTION = SKILL_TRAINED,
+						SKILL_ELECTRICAL   = SKILL_TRAINED,
+						SKILL_ATMOS        = SKILL_TRAINED,
+						SKILL_ENGINES      = SKILL_TRAINED)
 
-	max_skill = list(
-		SKILL_BUREAUCRACY = SKILL_MAX,
-		SKILL_FINANCE = SKILL_MAX,
-		SKILL_EVA = SKILL_MAX,
-		SKILL_PILOT = SKILL_MAX,
-		SKILL_HAULING = SKILL_MAX,
-		SKILL_COMPUTER = SKILL_MAX,
-		SKILL_BOTANY = SKILL_MAX,
-		SKILL_COOKING = SKILL_MAX,
-		SKILL_COMBAT = SKILL_MAX,
-		SKILL_WEAPONS = SKILL_MAX,
-		SKILL_FORENSICS = SKILL_MAX,
-		SKILL_CONSTRUCTION = SKILL_MAX,
-		SKILL_ELECTRICAL = SKILL_MAX,
-		SKILL_ATMOS = SKILL_MAX,
-		SKILL_ENGINES = SKILL_MAX,
-		SKILL_DEVICES = SKILL_MAX,
-		SKILL_SCIENCE = SKILL_MAX,
-		SKILL_MEDICAL = SKILL_MAX,
-		SKILL_ANATOMY = SKILL_MAX,
-		SKILL_CHEMISTRY = SKILL_MAX
-	)
-	skill_points = 52 // 34
+	max_skill = list(   SKILL_CONSTRUCTION = SKILL_MAX,
+						SKILL_ELECTRICAL   = SKILL_MAX,
+						SKILL_ATMOS        = SKILL_MAX,
+						SKILL_ENGINES      = SKILL_MAX)
+	skill_points = 20
 
 	access = list(
 		access_engine, access_engine_equip, access_maint_tunnels, access_external_airlocks, access_emergency_storage,
@@ -69,8 +53,8 @@
 
 /datum/job/engineer
 	title = "Engineer"
-	total_positions = 8
-	spawn_positions = 8
+	total_positions = 6
+	spawn_positions = 6
 	supervisors = "the Chief Engineer"
 	economic_power = 5
 	minimal_player_age = 0
@@ -86,6 +70,7 @@
 	allowed_branches = list(
 		/datum/mil_branch/expeditionary_corps,
 		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/torch/crew/engineering/engineer/fleet,
+		/datum/mil_branch/scga = /singleton/hierarchy/outfit/job/torch/crew/engineering/engineer/army,
 		/datum/mil_branch/civilian = /singleton/hierarchy/outfit/job/torch/crew/engineering/contractor
 	)
 	allowed_ranks = list(
@@ -94,33 +79,23 @@
 		/datum/mil_rank/fleet/e5,
 		/datum/mil_rank/ec/e3,
 		/datum/mil_rank/ec/e5,
-		/datum/mil_rank/civ/contractor,
-		/datum/mil_rank/civ/civ
+		/datum/mil_rank/scga/e3,
+		/datum/mil_rank/scga/e4,
+		/datum/mil_rank/scga/e5,
+		/datum/mil_rank/civ/contractor
 	)
+	min_skill = list(   SKILL_COMPUTER     = SKILL_BASIC,
+	                    SKILL_EVA          = SKILL_BASIC,
+	                    SKILL_CONSTRUCTION = SKILL_TRAINED,
+	                    SKILL_ELECTRICAL   = SKILL_BASIC,
+	                    SKILL_ATMOS        = SKILL_BASIC,
+	                    SKILL_ENGINES      = SKILL_BASIC)
 
-	max_skill = list(
-		SKILL_BUREAUCRACY = SKILL_MAX,
-		SKILL_FINANCE = SKILL_MAX,
-		SKILL_EVA = SKILL_MAX,
-		SKILL_PILOT = SKILL_MAX,
-		SKILL_HAULING = SKILL_MAX,
-		SKILL_COMPUTER = SKILL_MAX,
-		SKILL_BOTANY = SKILL_MAX,
-		SKILL_COOKING = SKILL_MAX,
-		SKILL_COMBAT = SKILL_MAX,
-		SKILL_WEAPONS = SKILL_MAX,
-		SKILL_FORENSICS = SKILL_MAX,
-		SKILL_CONSTRUCTION = SKILL_MAX,
-		SKILL_ELECTRICAL = SKILL_MAX,
-		SKILL_ATMOS = SKILL_MAX,
-		SKILL_ENGINES = SKILL_MAX,
-		SKILL_DEVICES = SKILL_MAX,
-		SKILL_SCIENCE = SKILL_MAX,
-		SKILL_MEDICAL = SKILL_MAX,
-		SKILL_ANATOMY = SKILL_MAX,
-		SKILL_CHEMISTRY = SKILL_MAX
-	)
-	skill_points = 52 // 34
+	max_skill = list(   SKILL_CONSTRUCTION = SKILL_MAX,
+	                    SKILL_ELECTRICAL   = SKILL_MAX,
+	                    SKILL_ATMOS        = SKILL_MAX,
+	                    SKILL_ENGINES      = SKILL_MAX)
+	skill_points = 20
 
 	access = list(
 		access_engine, access_engine_equip, access_maint_tunnels, access_external_airlocks, access_emergency_storage,
@@ -143,8 +118,8 @@
 	title = "Engineer Trainee"
 	department = "Engineering"
 	department_flag = ENG
-	total_positions = 0
-	spawn_positions = 0
+	total_positions = 2
+	spawn_positions = 2
 	supervisors = "the Chief Engineer and Engineering Personnel"
 	selection_color = "#5b4d20"
 	minimum_character_age = list(SPECIES_HUMAN = 18)
@@ -153,11 +128,13 @@
 	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/engineering/engineer
 	allowed_branches = list(
 		/datum/mil_branch/expeditionary_corps,
-		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/torch/crew/engineering/engineer/fleet
+		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/torch/crew/engineering/engineer/fleet,
+		/datum/mil_branch/scga = /singleton/hierarchy/outfit/job/torch/crew/engineering/engineer/army
 	)
 	allowed_ranks = list(
 		/datum/mil_rank/ec/e3,
-		/datum/mil_rank/fleet/e2
+		/datum/mil_rank/fleet/e2,
+		/datum/mil_rank/scga/e2
 	)
 
 	skill_points = 4
@@ -198,9 +175,10 @@
 	department = "Engineering"
 	department_flag = ENG|ROB
 
-	total_positions = 3
-	spawn_positions = 3
+	total_positions = 2
+	spawn_positions = 2
 	minimal_player_age = 0
+	minimum_character_age = list(SPECIES_HUMAN = 25)
 	supervisors = "the Chief Engineer."
 	selection_color = "#5b4d20"
 	economic_power = 6
@@ -210,39 +188,32 @@
 	allowed_branches = list(
 		/datum/mil_branch/expeditionary_corps = /singleton/hierarchy/outfit/job/torch/crew/engineering/roboticistec,
 		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/torch/crew/engineering/roboticistfleet,
+		/datum/mil_branch/scga = /singleton/hierarchy/outfit/job/torch/crew/engineering/roboticistarmy,
 		/datum/mil_branch/civilian = /singleton/hierarchy/outfit/job/torch/crew/engineering/roboticist
 	)
 	allowed_ranks = list(
 		/datum/mil_rank/fleet/e5,
 		/datum/mil_rank/ec/e5,
-		/datum/mil_rank/civ/contractor,
-		/datum/mil_rank/civ/civ
+		/datum/mil_rank/scga/e4,
+		/datum/mil_rank/scga/e5,
+		/datum/mil_rank/civ/contractor
 	)
-	min_skill = list( SKILL_MECH = HAS_PERK)
+	min_skill = list(   SKILL_COMPUTER		= SKILL_TRAINED,
+	                    SKILL_DEVICES		= SKILL_EXPERIENCED,
+	                    SKILL_EVA           = SKILL_TRAINED,
+	                    SKILL_ANATOMY       = SKILL_TRAINED,
+						SKILL_CONSTRUCTION  = SKILL_BASIC,
+						SKILL_ELECTRICAL    = SKILL_BASIC,
+	                    SKILL_MECH          = HAS_PERK)
 
-	max_skill = list(
-		SKILL_BUREAUCRACY = SKILL_MAX,
-		SKILL_FINANCE = SKILL_MAX,
-		SKILL_EVA = SKILL_MAX,
-		SKILL_PILOT = SKILL_MAX,
-		SKILL_HAULING = SKILL_MAX,
-		SKILL_COMPUTER = SKILL_MAX,
-		SKILL_BOTANY = SKILL_MAX,
-		SKILL_COOKING = SKILL_MAX,
-		SKILL_COMBAT = SKILL_MAX,
-		SKILL_WEAPONS = SKILL_MAX,
-		SKILL_FORENSICS = SKILL_MAX,
-		SKILL_CONSTRUCTION = SKILL_MAX,
-		SKILL_ELECTRICAL = SKILL_MAX,
-		SKILL_ATMOS = SKILL_MAX,
-		SKILL_ENGINES = SKILL_MAX,
-		SKILL_DEVICES = SKILL_MAX,
-		SKILL_SCIENCE = SKILL_MAX,
-		SKILL_MEDICAL = SKILL_MAX,
-		SKILL_ANATOMY = SKILL_MAX,
-		SKILL_CHEMISTRY = SKILL_MAX
-	)
-	skill_points = 52
+	max_skill = list(   SKILL_CONSTRUCTION = SKILL_MAX,
+	                    SKILL_ELECTRICAL   = SKILL_MAX,
+	                    SKILL_ATMOS        = SKILL_EXPERIENCED,
+	                    SKILL_ENGINES      = SKILL_EXPERIENCED,
+	                    SKILL_DEVICES      = SKILL_MAX,
+	                    SKILL_MEDICAL      = SKILL_EXPERIENCED,
+	                    SKILL_ANATOMY      = SKILL_EXPERIENCED)
+	skill_points = 20
 
 	access = list(
 		access_robotics, access_engine, access_solgov_crew, access_network, access_radio_eng

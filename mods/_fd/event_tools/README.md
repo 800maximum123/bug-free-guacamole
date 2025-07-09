@@ -13,11 +13,11 @@ ID мода: EVENT_TOOLS
 
 ### Изменения *кор кода*
 
-- Отсутствуют
+- `/mob/new_player`: `proc/AttemptLateSpawn`
 
 ### Оверрайды
 
-- Отсутствуют
+- `/datum/controller/subsystem/jobs`: `proc/check_general_join_blockers`
 
 ### Дефайны
 
@@ -29,4 +29,4 @@ ID мода: EVENT_TOOLS
 
 ### Авторы:
 
-Doctor Alex
+Doctor Alex, Maximum123, Danilcus, Tech, Swift

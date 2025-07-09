@@ -77,6 +77,7 @@
 	#include "../torch/language/human/misc/spacer.dm"
 
 	// --- ITEMS --- //
+	#include "../torch_fd/items/agencylogo.dm"
 	#include "../torch/items/cards_ids.dm"
 	#include "../torch/items/coins.dm"
 	#include "../torch/items/encryption_keys.dm"
@@ -251,6 +252,7 @@
 		// ~NON-UPSTREAM MODS~ //
 
 	#include "../../mods/_fd/fd_assets/_fd_assets.dme"
+	#include "../../mods/_fd/fd_customs/_fd_customs.dme"
 	#include "../../mods/_fd/fd_guns/_fd_guns.dme"
 	#include "../../mods/_fd/fd_lore/_fd_lore.dme"
 	#include "../../mods/_fd/fd_species/_fd_species.dme"
@@ -290,6 +292,13 @@
 	#include "../../mods/_fd/tartakans/_tartakans.dme"
 	#include "../../mods/_fd/v_posters/_v_posters.dme"
 
+		// ~VOID'S MINI-GAMES~ //
+
+	#include "../../mods/_fd/cat_alchemist/_cat_alchemist.dme"
+//	#include "../../mods/_fd/fd_tbs/_fd_tbs.dme"
+
+		// ~FD-MAPS All in one ~ \\
+
 	#include "../../mods/_fd/_maps/a_destroyer/_a_destroyer.dme"
 	#include "../../mods/_fd/_maps/airfield/_airfield.dme"
 	#include "../../mods/_fd/_maps/ares/_ares.dme"
@@ -320,12 +329,6 @@
 	#include "../../mods/_fd/_maps/tartakan/_tartakan.dme"
 	#include "../../mods/_fd/_maps/trader_ship/_trader_ship.dme"
 	#include "../../mods/_fd/_maps/yacht/_yacht.dme"
-
-		// ~VOID'S MINI-GAMES~ //
-
-	#include "../../mods/_fd/cat_alchemist/_cat_alchemist.dme"
-//	#include "../../mods/_fd/fd_tbs/_fd_tbs.dme"
-
 
 		// ~EXOPLANET RUINS~ //
 
