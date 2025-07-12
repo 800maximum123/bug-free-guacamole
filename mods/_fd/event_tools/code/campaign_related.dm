@@ -23,7 +23,10 @@
 	invisibility = 50
 
 // Фуллскрины
-/obj/screen/fullscreen/blackout/fd
+/obj/screen/fullscreen/fd/blackout
+	icon = 'mods/_fd/fd_assets/icons/screen_full.dmi'
+	icon_state = "fullblack"
+	allstate = 1
 	plane = HUD_PLANE
 	layer = HUD_ABOVE_HUD_LAYER
 
@@ -41,7 +44,7 @@
 
 	spawn(0.2 SECOND)
 		for(var/mob/all in world)
-			all.overlay_fullscreen("blackscreen", /obj/screen/fullscreen/blackout/fd)
+			all.overlay_fullscreen("blackscreen", /obj/screen/fullscreen/fd/blackout)
 			all.overlay_fullscreen("fishbed", /obj/screen/fullscreen/fishbed/fd)
 			all.Stun(99999)
 

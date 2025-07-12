@@ -170,3 +170,17 @@
 	for(var/obj/item/I in contents)
 		remove_from_storage(I, T, 1)
 	finish_bulk_removal()
+
+/obj/structure/storage/cargo
+	name = "cargo container"
+	icon = 'mods/_fd/fd_assets/icons/cargo.dmi'
+	icon_state = "container"
+	desc = "A large cargo container for storing various goods."
+	slots = 20
+	storage_space = 40
+	bound_width = 64
+	layer = ABOVE_HUMAN_LAYER
+	density = TRUE
+	anchored = FALSE
+	max_w_class = ITEM_SIZE_HUGE
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
