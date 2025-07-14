@@ -1,4 +1,7 @@
-/client/drop_bomb() // Some admin dickery that can probably be done better -- TLE
+/client/proc/drop_bomb_marine() // Some admin dickery that can probably be done better -- TLE
+	set category = "Special Verbs"
+	set name = "Drop Bomb"
+	set desc = "Cause an explosion of varying strength at your location."
 
 	var/turf/epicenter = get_turf(mob)
 	var/custom_limit = 10000

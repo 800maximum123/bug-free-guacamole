@@ -21,12 +21,11 @@
 	return 0
 
 /turf/simulated/get_explosion_resistance()
-	if(get_damage_resistance(DAMAGE_EXPLODE) == 0)
-		return 1000000
 	if(density)
 // 		return health_current / get_damage_resistance(DAMAGE_EXPLODE)
 		return (get_current_health() / 10) * explosion_resistance
-	. = ..()
+	else
+		return 20
 
 /turf/simulated/wall/get_explosion_resistance()
 	if(get_damage_resistance(DAMAGE_EXPLODE) == 0)
