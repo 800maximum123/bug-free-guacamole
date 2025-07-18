@@ -92,7 +92,7 @@
 				qdel(messages)
 
 /proc/torch_past()
-	for(var/mob/all in world)
+	for(var/mob/all in GLOB.player_list)
 		all.overlay_fullscreen("blackscreen", /obj/screen/fullscreen/fd/blackout)
 		all.overlay_fullscreen("fishbed", /obj/screen/fullscreen/fishbed/fd)
 		all.Stun(99999)
