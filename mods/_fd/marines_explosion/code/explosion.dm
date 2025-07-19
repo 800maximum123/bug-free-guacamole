@@ -283,6 +283,9 @@ as having entered the turf.
 	if(QDELETED(E))
 		return
 
+	if(power >= 150)
+		new /obj/effect/shockwave(epicenter)
+
 	E.power = power
 	E.power_falloff = falloff
 	E.falloff_shape = falloff_shape
@@ -367,8 +370,26 @@ as having entered the turf.
 	icon_state = "smoke"
 	anchored = TRUE
 	mouse_opacity = 0
+	density = TRUE
 	layer = FLY_LAYER
 
+/obj/effect/shockwave
+	icon = 'mods/_fd/marines_explosion/icons/shockwave.dmi'
+	icon_state = "shockwave"
+	pixel_x = -496
+	pixel_y = -496
+
+/obj/effect/shockwave/Initialize(mapload, radius, speed, easing_type = LINEAR_EASING, y_offset, x_offset)
+	. = ..()
+	if(!speed)
+		speed = 1
+	if(y_offset)
+		pixel_y += y_offset
+	if(x_offset)
+		pixel_x += x_offset
+	QDEL_IN(src, 0.5 * radius * speed)
+	transform = matrix().Scale(32 / 1024, 32 / 1024)
+	animate(src, time = 0.5 * radius * speed, transform=matrix().Scale((32 / 1024) * radius * 1.5, (32 / 1024) * radius * 1.5), easing = easing_type)
 
 /proc/fragmentate(turf/T, fragment_number = 30, spreading_range = 5, list/fragtypes=list(/obj/item/projectile/bullet/pellet/fragment), shoot_from)
 	set waitfor = 0
