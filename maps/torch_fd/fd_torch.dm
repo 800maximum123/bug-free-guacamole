@@ -313,6 +313,7 @@
 	#include "../../mods/_fd/_maps/farfleet_fd/_map_farfleet.dme"
 	#include "../../mods/_fd/_maps/fluffy_biscuit/_fluffy_biscuit.dme"
 	#include "../../mods/_fd/_maps/gccv_ulyanovsk/_ulyanovsk.dme"
+	#include "../../mods/_fd/_maps/iccgn_samosbor/_samosbor.dme"
 	#include "../../mods/_fd/_maps/khizriel/_khizriel.dme"
 	#include "../../mods/_fd/_maps/kitsune/_kitsune.dme"
 	#include "../../mods/_fd/_maps/lighthouse/_lighthouse.dme"
