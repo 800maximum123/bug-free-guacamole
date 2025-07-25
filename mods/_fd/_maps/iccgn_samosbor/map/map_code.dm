@@ -317,6 +317,14 @@
 	anchored = TRUE
 	opacity = FALSE
 
+	var/range_of = 5
+	var/power_of = 0.8
+	var/color_of = "#e45b1b"
+
+/obj/structure/fd/samosbor/fire/Initialize()
+	. = ..()
+	set_light(range_of, power_of, l_color = color_of)
+
 /obj/structure/fd/samosbor/furniture1
 	name = "furniture"
 	desc = "Simple decor for well-being."
