@@ -5,6 +5,21 @@
 	icon_state = "event"
 	initial_generic_waypoints = list()
 
+	var/list/lightmain
+
+/obj/overmap/visitable/sector/gigahrusch/Initialize()
+	..()
+
+	lightmain = block(locate(world.maxx, world.maxy, max(map_z)), locate(1, 1, min(map_z)))
+	for(var/atom/A as anything in lightmain)
+		if(!istype(A.loc, /area/gigahrusch/outer) || A.density)
+			lightmain -= A
+	update_daynight()
+
+/obj/overmap/visitable/sector/gigahrusch/proc/update_daynight(light = 2, light_color_m = "#e7bf74")
+	for(var/turf/T as anything in lightmain)
+		T.set_light(1, light, l_color = light_color_m)
+
 /datum/map_template/ruin/away_site/gigahrusch
 	name = "ICCGN Apartment Building"
 	id = "awaysite_gigahrusch"
@@ -20,6 +35,15 @@
 /area/gigahrusch
 	name = "bluespace endless corridor"
 	requires_power = FALSE
+
+/area/gigahrusch/outer
+	name = "building yard"
+
+/area/gigahrusch/inner
+	name = "building insides"
+
+/area/gigahrusch/lift
+	name = "building lift"
 
 // various assets
 
@@ -101,6 +125,7 @@
 	density = TRUE
 	anchored = TRUE
 	opacity = TRUE
+	layer = 2
 
 /obj/structure/fd/topdown_walls/concrete
 	name = "concrete wall"
@@ -141,3 +166,690 @@
 	density = TRUE
 	anchored = TRUE
 	opacity = FALSE
+
+/obj/structure/fd/samosbor/carpet_wall
+	name = "big carpet"
+	desc = "A house carpet with special pattern, usually seen on walls."
+	icon = 'mods/_fd/fd_assets/icons/structures/COVER_BIG.dmi'
+	icon_state = "covrina"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+
+/obj/structure/fd/samosbor/graffity
+	name = "wall painting"
+	desc = "An modern way to show you are different."
+	icon = 'mods/_fd/fd_assets/icons/structures/graffiti.dmi'
+	icon_state = "gangtag15"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+
+/obj/structure/fd/samosbor/dark_signs1
+	name = "wall decor"
+	desc = "An modern way to show you are different."
+	icon = 'mods/_fd/fd_assets/icons/structures/signs/sign.dmi'
+	icon_state = "logo_trinet"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+
+/obj/structure/fd/samosbor/dark_signs2
+	name = "wall decor"
+	desc = "An modern way to show you are different."
+	icon = 'mods/_fd/fd_assets/icons/structures/signs/sign_poster.dmi'
+	icon_state = "investigator"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+
+/obj/structure/fd/samosbor/dark_signs3
+	name = "wall decor"
+	desc = "An modern way to show you are different."
+	icon = 'mods/_fd/fd_assets/icons/structures/signs/sign_portrait.dmi'
+	icon_state = "investor"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+
+/obj/structure/fd/samosbor/outer_railings
+	name = "railings"
+	desc = "For safety."
+	icon = 'mods/_fd/fd_assets/icons/structures/constructed/construct_dir.dmi'
+	icon_state = "railing_green"
+	density = TRUE
+	anchored = TRUE
+	opacity = FALSE
+
+/obj/machinery/jukebox/samosbor1
+	icon = 'mods/_fd/fd_assets/icons/structures/jukebox.dmi'
+	icon_state = "record"
+
+/obj/machinery/jukebox/samosbor2
+	icon = 'mods/_fd/fd_assets/icons/structures/jukebox.dmi'
+	icon_state = "jukebox"
+
+/obj/structure/fd/samosbor/neon_signs
+	name = "neon decor"
+	desc = "An modern way to show you are different."
+	icon = 'mods/_fd/fd_assets/icons/structures/signs.dmi'
+	icon_state = "cray"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+
+	var/range_of = 3
+	var/power_of = 0.8
+	var/color_of = "#ffffff"
+
+/obj/structure/fd/samosbor/neon_signs/Initialize()
+	. = ..()
+	set_light(range_of, power_of, l_color = color_of)
+
+/obj/structure/fd/samosbor/neon_signs/large
+	name = "neon decor"
+	desc = "An modern way to show you are different."
+	icon = 'mods/_fd/fd_assets/icons/structures/signs_large.dmi'
+	icon_state = "startech"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+
+/obj/structure/fd/samosbor/neon_signs/even_larger
+	name = "neon decor"
+	desc = "An modern way to show you are different."
+	icon = 'mods/_fd/fd_assets/icons/structures/signs_verylarge.dmi'
+	icon_state = "trianglebig"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+
+/obj/structure/fd/samosbor/machinery1
+	name = "machinery"
+	desc = "Some complex stuff."
+	icon = 'mods/_fd/fd_assets/icons/structures/structure_junk.dmi'
+	icon_state = "j_antenna_alt"
+	density = TRUE
+	anchored = TRUE
+	opacity = FALSE
+
+/obj/structure/fd/samosbor/machinery2
+	name = "machinery"
+	desc = "Some complex stuff."
+	icon = 'mods/_fd/fd_assets/icons/structures/furniture/furniture_machinery.dmi'
+	icon_state = "telephone"
+	density = TRUE
+	anchored = TRUE
+	opacity = FALSE
+
+/obj/structure/fd/samosbor/machinery3
+	name = "machinery"
+	desc = "Some complex stuff."
+	icon = 'mods/_fd/fd_assets/icons/structures/computer.dmi'
+	icon_state = "old0"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+
+/obj/structure/fd/samosbor/light
+	name = "light source"
+	desc = "Simple decor for well-being."
+	icon = 'mods/_fd/fd_assets/icons/machinery/lighting/lighting.dmi'
+	icon_state = "stand"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+
+	var/range_of = 3
+	var/power_of = 0.8
+	var/color_of = "#ffffff"
+
+/obj/structure/fd/samosbor/light/Initialize()
+	. = ..()
+	set_light(range_of, power_of, l_color = color_of)
+
+/obj/structure/fd/samosbor/fire
+	name = "campfire"
+	desc = "For shashlik and warming up in cold Gilgamesh winters."
+	icon = 'mods/_fd/fd_assets/icons/structures/fires.dmi'
+	icon_state = "campfire_lit"
+	density = TRUE
+	anchored = TRUE
+	opacity = FALSE
+
+/obj/structure/fd/samosbor/furniture1
+	name = "furniture"
+	desc = "Simple decor for well-being."
+	icon = 'mods/_fd/fd_assets/icons/structures/furniture/furniture.dmi'
+	icon_state = "bed_covered"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+
+/obj/structure/fd/samosbor/furniture3
+	name = "furniture"
+	desc = "Simple decor for well-being."
+	icon = 'mods/_fd/fd_assets/icons/structures/furniture/furniture_chair_mod.dmi'
+	icon_state = "sofa_r_start"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+
+/obj/structure/fd/samosbor/furniture2
+	name = "furniture"
+	desc = "Simple decor for well-being."
+	icon = 'mods/_fd/fd_assets/icons/machinery/machinery_kitchen.dmi'
+	icon_state = "dish_washer"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+	mouse_opacity = FALSE
+
+/obj/structure/fd/samosbor/table_decor1
+	name = "stuff"
+	desc = "stuff."
+	icon = 'mods/_fd/fd_assets/icons/small_items/backpack_world.dmi'
+	icon_state = "sack"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+	mouse_opacity = FALSE
+
+/obj/structure/fd/samosbor/table_decor2
+	name = "stuff"
+	desc = "stuff."
+	icon = 'mods/_fd/fd_assets/icons/small_items/clutter_world.dmi'
+	icon_state = "calendar_unused"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+	mouse_opacity = FALSE
+
+/obj/structure/fd/samosbor/table_decor3
+	name = "stuff"
+	desc = "stuff."
+	icon = 'mods/_fd/fd_assets/icons/small_items/condiments.dmi'
+	icon_state = "condiment"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+	mouse_opacity = FALSE
+
+/obj/structure/fd/samosbor/table_decor4
+	name = "stuff"
+	desc = "stuff."
+	icon = 'mods/_fd/fd_assets/icons/small_items/device.dmi'
+	icon_state = "taperecorderidle_world"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+	mouse_opacity = FALSE
+
+/obj/structure/fd/samosbor/table_decor5
+	name = "stuff"
+	desc = "stuff."
+	icon = 'mods/_fd/fd_assets/icons/small_items/disks.dmi'
+	icon_state = "nucleardisk_world"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+	mouse_opacity = FALSE
+
+/obj/structure/fd/samosbor/table_decor6
+	name = "stuff"
+	desc = "stuff."
+	icon = 'mods/_fd/fd_assets/icons/small_items/dogtags_world.dmi'
+	icon_state = "passport_blank"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+	mouse_opacity = FALSE
+
+/obj/structure/fd/samosbor/table_decor7
+	name = "stuff"
+	desc = "stuff."
+	icon = 'mods/_fd/fd_assets/icons/small_items/drink_containers_world.dmi'
+	icon_state = "sake"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+	mouse_opacity = FALSE
+
+/obj/structure/fd/samosbor/table_decor8
+	name = "stuff"
+	desc = "stuff."
+	icon = 'mods/_fd/fd_assets/icons/small_items/drinks.dmi'
+	icon_state = "energy_drink"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+	mouse_opacity = FALSE
+
+/obj/structure/fd/samosbor/table_decor9
+	name = "stuff"
+	desc = "stuff."
+	icon = 'mods/_fd/fd_assets/icons/small_items/items.dmi'
+	icon_state = "globe_yargon4"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+	mouse_opacity = FALSE
+
+/obj/structure/fd/samosbor/table_decor10
+	name = "stuff"
+	desc = "stuff."
+	icon = 'mods/_fd/fd_assets/icons/small_items/library.dmi'
+	icon_state = "book_world"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+	mouse_opacity = FALSE
+
+/obj/structure/fd/samosbor/table_decor11
+	name = "stuff"
+	desc = "stuff."
+	icon = 'mods/_fd/fd_assets/icons/small_items/medical_world.dmi'
+	icon_state = "medicalkit"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+	mouse_opacity = FALSE
+
+/obj/structure/fd/samosbor/table_decor12
+	name = "stuff"
+	desc = "stuff."
+	icon = 'mods/_fd/fd_assets/icons/small_items/ms_scrap.dmi'
+	icon_state = "5,1"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+	mouse_opacity = FALSE
+
+/obj/structure/fd/samosbor/table_decor13
+	name = "stuff"
+	desc = "stuff."
+	icon = 'mods/_fd/fd_assets/icons/small_items/tools_world.dmi'
+	icon_state = "bucket"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+	mouse_opacity = FALSE
+
+/obj/machinery/cooker/fryer/samosbor
+	icon = 'mods/_fd/fd_assets/icons/machinery/machinery_kitchen.dmi'
+
+/obj/machinery/cooker/oven/samosbor
+	icon = 'mods/_fd/fd_assets/icons/machinery/machinery_kitchen.dmi'
+
+/obj/machinery/cooker/oven/samosbor2
+	icon_state = "oven2"
+	icon = 'mods/_fd/fd_assets/icons/machinery/machinery_kitchen.dmi'
+
+/obj/machinery/cooker/oven/samosbor3
+	icon_state = "oven3"
+	icon = 'mods/_fd/fd_assets/icons/machinery/machinery_kitchen.dmi'
+
+/obj/structure/fd/samosbor/flora
+	name = "flora"
+	desc = "Some grassy things."
+	icon = 'mods/_fd/fd_assets/icons/structures/flora/flora.dmi'
+	icon_state = "gplant_5"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+
+/obj/structure/fd/samosbor/floor_cable
+	name = "cable"
+	desc = "cable."
+	icon = 'mods/_fd/fd_assets/icons/machinery/machinery_cable.dmi'
+	icon_state = "1"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+	mouse_opacity = FALSE
+
+/obj/item/storage/mirror/samosbor
+	name = "mirror"
+	icon = 'mods/_fd/fd_assets/icons/structures/furniture/furniture.dmi'
+
+/obj/item/storage/mirror/samosbor/MouseDrop(obj/over)
+	return
+
+/obj/item/storage/mirror/samosbor/shatter()
+	if (shattered)
+		playsound(src, 'sound/effects/hit_on_shattered_glass.ogg', 70, 1)
+		return
+	shattered = TRUE
+	icon_state = "[icon_state]_broke"
+	playsound(src, "shatter", 70, 1)
+	desc = "Oh no, seven years of bad luck!"
+
+/obj/item/storage/mirror/samosbor/use_tool(obj/item/I, mob/living/user, list/click_params)
+	. = ..()
+	if (!.)
+		return
+	if (prob(I.force) && user.a_intent == I_HURT)
+		user.visible_message(SPAN_WARNING("\The [user] smashes \the [src] with \the [I]!"))
+		shatter()
+
+/obj/structure/table/rack/samosbor
+	name = "furniture"
+	icon = 'mods/_fd/fd_assets/icons/structures/furniture/furniture_table.dmi'
+	icon_state = "table"
+
+/obj/structure/table/rack/samosbor/Initialize()
+	SHOULD_CALL_PARENT(FALSE)
+
+	// reset color/alpha, since they're set for nice map previews
+	color = "#ffffff"
+	alpha = 255
+	update_connections(1)
+	update_icon()
+	update_desc()
+	update_material()
+
+/obj/structure/table/rack/samosbor/use_tool(obj/item/tool, mob/user, list/click_params)
+	SHOULD_CALL_PARENT(FALSE)
+
+	// Unfinished table - Construction stuff
+	if (can_plate && !material)
+		// Material - Plate table
+		if (istype(tool, /obj/item/stack/material))
+			material = common_material_add(tool, user, "plat")
+			if (material)
+				update_connections(TRUE)
+				update_icon()
+				update_desc()
+				update_material()
+			return TRUE
+
+		// Wrench - Dismantle
+		if (isWrench(tool))
+			dismantle(tool, user)
+			return TRUE
+
+		// Anything else - Can't put it on an unfinished table
+		USE_FEEDBACK_FAILURE("\The [src] needs to be plated before you can put \the [tool] on it.")
+		return TRUE
+
+	// Put things on table
+	if (!user.unEquip(tool, loc))
+		FEEDBACK_UNEQUIP_FAILURE(user, tool)
+		return TRUE
+	return TRUE
+
+/obj/structure/table/rack/samosbor/mod
+	icon = 'mods/_fd/fd_assets/icons/structures/furniture/furniture_table_mod.dmi'
+	icon_state = "table"
+
+/obj/machinery/door/unpowered/simple/samosbor/on_update_icon()
+	if(density)
+		icon_state = "[icon_base]"
+	else
+		icon_state = "[icon_base]open"
+	return
+
+/obj/machinery/door/unpowered/simple/samosbor/wood
+	icon = 'mods/_fd/fd_assets/icons/structures/doors/door.dmi'
+	icon_state = "wood"
+	icon_base = "wood"
+	opacity = 1
+	density = 1
+	color = null
+
+/obj/machinery/door/unpowered/simple/samosbor/wood/New(newloc,material_name,complexity)
+	..(newloc, "wood", complexity)
+	color = null
+
+/obj/machinery/door/unpowered/simple/samosbor/wood2
+	icon = 'mods/_fd/fd_assets/icons/structures/doors/door.dmi'
+	icon_state = "wood_alt"
+	icon_base = "wood_alt"
+	opacity = 1
+	density = 1
+	color = null
+
+/obj/machinery/door/unpowered/simple/samosbor/wood2/New(newloc,material_name,complexity)
+	..(newloc, "wood", complexity)
+	color = null
+
+/obj/machinery/door/unpowered/simple/samosbor/wood3
+	icon = 'mods/_fd/fd_assets/icons/structures/doors/door.dmi'
+	icon_state = "old"
+	icon_base = "old"
+	opacity = 1
+	density = 1
+	color = null
+
+/obj/machinery/door/unpowered/simple/samosbor/wood3/New(newloc,material_name,complexity)
+	..(newloc, "wood", complexity)
+	color = null
+
+/obj/machinery/door/unpowered/simple/samosbor/wood4
+	icon = 'mods/_fd/fd_assets/icons/structures/doors/door.dmi'
+	icon_state = "bold"
+	icon_base = "bold"
+	opacity = 1
+	density = 1
+	color = null
+
+/obj/machinery/door/unpowered/simple/samosbor/wood4/New(newloc,material_name,complexity)
+	..(newloc, "wood", complexity)
+	color = null
+
+/obj/machinery/door/unpowered/simple/samosbor/wood5
+	icon = 'mods/_fd/fd_assets/icons/structures/doors/door.dmi'
+	icon_state = "fancy"
+	icon_base = "fancy"
+	opacity = 1
+	density = 1
+	color = null
+
+/obj/machinery/door/unpowered/simple/samosbor/wood5/New(newloc,material_name,complexity)
+	..(newloc, "wood", complexity)
+	color = null
+
+/obj/machinery/door/unpowered/simple/samosbor/wood6
+	icon = 'mods/_fd/fd_assets/icons/structures/doors/door.dmi'
+	icon_state = "fancy_alt"
+	icon_base = "fancy_alt"
+	opacity = 1
+	density = 1
+	color = null
+
+/obj/machinery/door/unpowered/simple/samosbor/wood6/New(newloc,material_name,complexity)
+	..(newloc, "wood", complexity)
+	color = null
+
+/obj/machinery/door/unpowered/simple/samosbor/metal
+	icon = 'mods/_fd/fd_assets/icons/structures/doors/door.dmi'
+	icon_state = "exterior"
+	icon_base = "exterior"
+	opacity = 1
+	density = 1
+	color = null
+
+/obj/machinery/door/unpowered/simple/samosbor/metal2
+	icon = 'mods/_fd/fd_assets/icons/structures/doors/door.dmi'
+	icon_state = "metal"
+	icon_base = "metal"
+	opacity = 1
+	density = 1
+	color = null
+
+/obj/machinery/door/unpowered/simple/samosbor/metal3
+	icon = 'mods/_fd/fd_assets/icons/structures/doors/door.dmi'
+	icon_state = "metal_glass"
+	icon_base = "metal_glass"
+	opacity = 1
+	density = 1
+	color = null
+
+/obj/machinery/door/unpowered/simple/samosbor/metal4
+	icon = 'mods/_fd/fd_assets/icons/structures/doors/door.dmi'
+	icon_state = "metal_train"
+	icon_base = "metal_train"
+	opacity = 1
+	density = 1
+	color = null
+
+/obj/machinery/door/unpowered/simple/samosbor/metal5
+	icon = 'mods/_fd/fd_assets/icons/structures/doors/shutter/shutter.dmi'
+	icon_state = "rblast"
+	icon_base = "rblast"
+	opacity = 1
+	density = 1
+	color = null
+
+/obj/machinery/door/unpowered/simple/samosbor/metal6
+	icon = 'mods/_fd/fd_assets/icons/structures/doors/shutter/shutter.dmi'
+	icon_state = "door"
+	icon_base = "door"
+	opacity = 1
+	density = 1
+	color = null
+
+/obj/machinery/door/unpowered/simple/samosbor/metal7
+	icon = 'mods/_fd/fd_assets/icons/structures/doors/shutter/shutter.dmi'
+	icon_state = "kdoor"
+	icon_base = "kdoor"
+	opacity = 1
+	density = 1
+	color = null
+
+/obj/machinery/washing_machine/samosbor
+	icon = 'mods/_fd/fd_assets/icons/machinery/washing_machine.dmi'
+
+/obj/structure/fake_zlvl/unalive/attack_hand(mob/user as mob)
+	var/option = alert(user, "Вы хотите умереть?", "Решение", "Очень", "Ещё в раздумиях")
+	switch(option)
+		if("Очень")
+			user.visible_message(SPAN_WARNING("[user] собирается спрыгнуть!"))
+			if(do_after(user, 5 SECONDS))
+
+				if(user.dir == WEST)
+					animate(user, pixel_x = -64, time = 1 SECONDS, easing = ELASTIC_EASING | EASE_OUT)
+					animate(user, transform = matrix(0.01, MATRIX_SCALE), time = 1 SECOND, easing = BOUNCE_EASING)
+					spawn(2 SECONDS)
+						qdel(user)
+				if(user.dir == EAST)
+					animate(user, pixel_x = 64, time = 1 SECONDS, easing = ELASTIC_EASING | EASE_OUT)
+					animate(user, transform = matrix(0.01, MATRIX_SCALE), time = 1 SECOND, easing = BOUNCE_EASING)
+					spawn(2 SECONDS)
+						qdel(user)
+				if(user.dir == SOUTH)
+					animate(user, pixel_y = -64, time = 1 SECONDS, easing = ELASTIC_EASING | EASE_OUT)
+					animate(user, transform = matrix(0.01, MATRIX_SCALE), time = 1 SECOND, easing = BOUNCE_EASING)
+					spawn(2 SECONDS)
+						qdel(user)
+				if(user.dir == NORTH)
+					animate(user, pixel_y = 64, time = 1 SECONDS, easing = ELASTIC_EASING | EASE_OUT)
+					animate(user, transform = matrix(0.01, MATRIX_SCALE), time = 1 SECOND, easing = BOUNCE_EASING)
+					spawn(2 SECONDS)
+						qdel(user)
+
+				var/area/gigahrusch/outer/area
+				for(var/mob/living/hearers in area)
+					to_chat(hearers, SPAN_DANGER("<b>Вы видите как вашего соседа, [user], только что размазало по асфальту. Помянем!</b>"))
+		if("Ещё в раздумиях")
+			return FALSE
+
+
+// lift
+
+/obj/machinery/computer/shuttle_control/lift/samosbor
+	name = "lift controls"
+	shuttle_tag = "Building lift"
+	ui_template = "shuttle_control_console_lift.tmpl"
+	icon_state = "tiny"
+	icon_keyboard = "tiny_keyboard"
+	icon_screen = "lift"
+	density = FALSE
+
+/datum/shuttle/autodock/ferry/samosbor
+	name = "Building lift"
+	shuttle_area = /area/gigahrusch/lift
+	warmup_time = 3
+	waypoint_station = "nav_samosbor_top"
+	waypoint_offsite = "nav_samosbor_bottom"
+	sound_takeoff = 'sound/effects/lift_heavy_start.ogg'
+	sound_landing = 'sound/effects/lift_heavy_stop.ogg'
+	ceiling_type = null
+	knockdown = 0
+	defer_initialisation = TRUE
+
+/obj/shuttle_landmark/lift/samosbor/top
+	name = "Top Level"
+	landmark_tag = "nav_samosbor_top"
+	base_area = /area/gigahrusch/inner
+	base_turf = /turf/simulated/floor/plating
+
+/obj/shuttle_landmark/lift/samosbor/bottom
+	name = "Lower Level"
+	landmark_tag = "nav_samosbor_bottom"
+	flags = SLANDMARK_FLAG_AUTOSET
+	base_area = /area/gigahrusch/inner
+	base_turf = /turf/simulated/floor/plating
+
+// zavod
+
+/obj/item/fd/ammunition
+	name = "shell"
+	desc = "Ammunition shell."
+	icon = 'mods/_fd/fd_assets/icons/structures/ammo.dmi'
+	icon_state = "custom_rocket_unlocked"
+	w_class = ITEM_SIZE_HUGE
+
+/obj/structure/fd/samosbor/quota
+	name = "quota harvester"
+	desc = "For storing your work."
+	icon = 'mods/_fd/_maps/tartakan/icons/ms_conveyormachinery32.dmi'
+	icon_state = "conv1"
+	density = TRUE
+	anchored = TRUE
+	opacity = FALSE
+
+	var/needed = 20
+	var/current = 0
+
+/obj/structure/fd/samosbor/lathe
+	name = "working machinery"
+	desc = "For creating your money."
+	icon = 'mods/_fd/_maps/tartakan/icons/ms_conveyormachinery64.dmi'
+	icon_state = "conv1"
+	density = TRUE
+	anchored = TRUE
+	opacity = FALSE
+
+	bound_width = 64
+	var/busy = FALSE
+
+/obj/structure/fd/samosbor/lathe/attack_hand(mob/user as mob)
+	busy = TRUE
+	if(do_after(user, 60 SECONDS))
+		new /obj/item/fd/ammunition(get_turf(src))
+		busy = FALSE
+
+// event electricity
+
+/obj/structure/fd/fuse_box/samosbor/attack_hand(mob/living/user as mob)
+	if(do_after(user, 30 SECONDS))
+		if(user.skill_check(SKILL_ELECTRICAL, SKILL_HARD))
+			restore_light()
+			return TRUE
+		else
+			user.electrocute_act(30, src, def_zone = BP_R_ARM)
+			restore_light()
+			return TRUE
+
+/proc/restore_light()
+	var/area/gigahrusch/area
+
+	for(var/obj/structure/fd/samosbor/light/L in area)
+		L.set_light(L.range_of, L.power_of, l_color = L.color_of)
+
+/proc/remove_light()
+	var/area/gigahrusch/area
+
+	for(var/obj/structure/fd/samosbor/light/L in area)
+		L.set_light(0, 0, l_color = L.color_of)
