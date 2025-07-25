@@ -31,7 +31,7 @@
 
 /obj/machinery/uniform_vendor/interact(mob/user)
 	var/dat = list()
-	dat += "User ID: <a href='byond://byond://?src=\ref[src];ID=1'>[ID ? "[ID.registered_name], [ID.military_rank], [ID.military_branch]" : "--------"]</a>"
+	dat += "User ID: <a href='byond://?src=\ref[src];ID=1'>[ID ? "[ID.registered_name], [ID.military_rank], [ID.military_branch]" : "--------"]</a>"
 	dat += "<hr>"
 	if(!ID)
 		dat += "Insert your ID card to proceed."
