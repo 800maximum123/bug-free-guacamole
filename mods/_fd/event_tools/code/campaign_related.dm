@@ -14,6 +14,56 @@
 	icon = 'mods/_fd/ai_overmap_objects/icons/ascent/ascent_ships.dmi'
 	icon_state = "fighter"
 
+// Задний фон
+
+/obj/structure/fd/planet_sea
+	name = "sea"
+	desc = "sea"
+	mouse_opacity = FALSE
+	anchored = TRUE
+	density = FALSE
+	layer = DECAL_LAYER
+	bound_height = 480
+	bound_width = 480
+	icon = 'mods/_fd/fd_assets/icons/parallax.dmi'
+	icon_state = "layer1-water"
+	var/id_background = 1
+
+/obj/structure/fd/planet_sky
+	name = "clouds"
+	desc = "clouds"
+	mouse_opacity = FALSE
+	anchored = TRUE
+	density = FALSE
+	layer = ABOVE_TILE_LAYER
+	bound_height = 480
+	bound_width = 480
+	icon = 'mods/_fd/fd_assets/icons/parallax.dmi'
+	icon_state = "layer2-water"
+	var/id_background = 1
+
+/proc/change_background()
+	for(var/obj/structure/fd/planet_sea/PS in world)
+		var/pixel_switch = PS.pixel_x - 480
+		animate(PS, pixel_x = pixel_switch, time = 10 SECONDS, easing = LINEAR_EASING | EASE_IN)
+	for(var/obj/structure/fd/planet_sky/PSK in world)
+		var/pixel_switch = PSK.pixel_x - 480
+		animate(PSK, pixel_x = pixel_switch, time = 10 SECONDS, easing = LINEAR_EASING | EASE_IN)
+
+/proc/reset_background()
+	for(var/obj/structure/fd/planet_sea/PS in world)
+		var/obj/structure/fd/background_controller/BS = locate(/obj/structure/fd/background_controller) in world
+		if(BS.id_background == PS.id_background)
+			var/turf/relocate_to = get_turf(BS)
+			PS.forceMove(relocate_to)
+			PS.pixel_x = 0
+	for(var/obj/structure/fd/planet_sky/PSK in world)
+		var/obj/structure/fd/background_controller/BS = locate(/obj/structure/fd/background_controller) in world
+		if(BS.id_background == PSK.id_background)
+			var/turf/relocate_to = get_turf(BS)
+			PSK.forceMove(relocate_to)
+			PSK.pixel_x = 0
+
 //Контроллер, в который мы позже запихнём камеру наших игроков. Вот бы только понять, как её потом обратно вернуть пиздец
 
 /obj/structure/fd/camera_controller
@@ -21,6 +71,13 @@
 	icon_state = "generic_event"
 
 	invisibility = 50
+
+/obj/structure/fd/background_controller
+	icon = 'mods/_fd/event_tools/icons/landmarks_static.dmi'
+	icon_state = "generic_event"
+
+	invisibility = 50
+	var/id_background = 1
 
 // Фуллскрины
 /obj/screen/fullscreen/fd/blackout
@@ -42,17 +99,17 @@
 	for(var/obj/structure/fd/camera_controller/searching in world)
 		controller = searching
 
-	spawn(0.2 SECOND)
-		for(var/mob/all in world)
-			all.overlay_fullscreen("blackscreen", /obj/screen/fullscreen/fd/blackout)
-			all.overlay_fullscreen("fishbed", /obj/screen/fullscreen/fishbed/fd)
-			all.Stun(99999)
+	for(var/mob/all in GLOB.player_list)
+		all.overlay_fullscreen("blackscreen", /obj/screen/fullscreen/fd/blackout)
+		all.overlay_fullscreen("fishbed", /obj/screen/fullscreen/fishbed/fd)
+		all.Stun(99999)
 
-			spawn(20 SECONDS)
-				all.clear_fullscreen("blackscreen")
-				all.clear_fullscreen("fishbed")
+		spawn(20 SECONDS)
+			all.clear_fullscreen("blackscreen")
+			all.clear_fullscreen("fishbed")
 
-			all.reset_view(controller)
+		all.alpha = 0
+		all.forceMove(controller)
 
 	spawn(1 SECOND)
 		blackbox_pt1()
@@ -62,11 +119,21 @@
 		blackbox_pt3()
 
 	spawn(22 SECOND)
-		for(var/obj/structure/fd/fake_torch/FT in world)
-			animate(FT, pixel_x = 150, time = 20 SECONDS, easing = LINEAR_EASING | EASE_IN)
+		change_background()
+
+	spawn(32 SECONDS)
+		reset_background()
+
+	spawn(33 SECONDS)
+		change_background()
+
+	spawn(42 SECONDS)
+		reset_background()
 
 	spawn(23 SECONDS)
 		bridge_scene_pt1()
+
+
 
 // Новельные реплики
 
@@ -91,7 +158,7 @@
 	var/colored = "#4ec908"
 
 	var/obj/screen/novel_message/first = new /obj/screen/novel_message()
-	first.maptext_y = -160
+	first.maptext_y = -170
 	for(var/client/M in GLOB.clients)
 		M.screen += first
 		first.set_text(novel_message, colored)
@@ -107,7 +174,7 @@
 	var/colored = "#4ec908"
 
 	var/obj/screen/novel_message/first = new /obj/screen/novel_message()
-	first.maptext_y = -180
+	first.maptext_y = -190
 	for(var/client/M in GLOB.clients)
 		M.screen += first
 		first.set_text(novel_message, colored)
