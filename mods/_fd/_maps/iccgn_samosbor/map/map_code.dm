@@ -32,6 +32,77 @@
 		/area/gigahrusch/ = NO_SCRUBBER|NO_VENT|NO_APC
 	)
 
+/singleton/submap_archetype/gigahrusch
+	descriptor = "ICCGN Apartment Building"
+	map = "ICCGN Apartment Building"
+	crew_jobs = list(
+		/datum/job/submap/gigahrusch,
+		/datum/job/submap/gigahrusch/radio,
+		/datum/job/submap/gigahrusch/kiosk,
+		/datum/job/submap/gigahrusch/kapterka
+	)
+
+/obj/submap_landmark/joinable_submap/gigahrusch
+	name = "ICCGN Apartment Building"
+	archetype = /singleton/submap_archetype/gigahrusch
+
+/datum/job/submap/gigahrusch
+	title = "Grazhdanin"
+	total_positions = -1
+	create_record = TRUE
+	skill_points = 52
+	no_skill_buffs = TRUE
+	max_skill = list(
+		SKILL_BUREAUCRACY = SKILL_MAX,
+		SKILL_FINANCE = SKILL_MAX,
+		SKILL_EVA = SKILL_MAX,
+		SKILL_MECH = SKILL_MAX,
+		SKILL_PILOT = SKILL_MAX,
+		SKILL_HAULING = SKILL_MAX,
+		SKILL_COMPUTER = SKILL_MAX,
+		SKILL_BOTANY = SKILL_MAX,
+		SKILL_COOKING = SKILL_MAX,
+		SKILL_COMBAT = SKILL_MAX,
+		SKILL_WEAPONS = SKILL_MAX,
+		SKILL_FORENSICS = SKILL_MAX,
+		SKILL_CONSTRUCTION = SKILL_MAX,
+		SKILL_ELECTRICAL = SKILL_MAX,
+		SKILL_ATMOS = SKILL_MAX,
+		SKILL_ENGINES = SKILL_MAX,
+		SKILL_DEVICES = SKILL_MAX,
+		SKILL_SCIENCE = SKILL_MAX,
+		SKILL_MEDICAL = SKILL_MAX,
+		SKILL_ANATOMY = SKILL_MAX,
+		SKILL_CHEMISTRY = SKILL_MAX
+	)
+
+/datum/job/submap/gigahrusch/radio
+	title = "Radio Chief"
+	supervisors = "Big Boss"
+	selection_color = "#01882e"
+	total_positions = 1
+
+/datum/job/submap/gigahrusch/kiosk
+	title = "Kiosk Cashier"
+	supervisors = "Big Boss"
+	selection_color = "#01882e"
+	total_positions = 1
+
+/datum/job/submap/gigahrusch/kapterka
+	title = "Building Guard"
+	supervisors = "Big Boss"
+	selection_color = "#01882e"
+	total_positions = 1
+
+/obj/submap_landmark/spawnpoint/gigahrusch
+	name = "Grazhdanin"
+/obj/submap_landmark/spawnpoint/gigahrusch/radio
+	name = "Radio Chief"
+/obj/submap_landmark/spawnpoint/gigahrusch/kiosk
+	name = "Kiosk Cashier"
+/obj/submap_landmark/spawnpoint/gigahrusch/kapterka
+	name = "Building Guard"
+
 /area/gigahrusch
 	name = "bluespace endless corridor"
 	requires_power = FALSE
@@ -756,12 +827,12 @@
 					spawn(2 SECONDS)
 						qdel(user)
 
-				var/area/gigahrusch/outer/area
+				var/area/area = get_area(src)
+
 				for(var/mob/living/hearers in area)
 					to_chat(hearers, SPAN_DANGER("<b>Вы видите как вашего соседа, [user], только что размазало по асфальту. Помянем!</b>"))
 		if("Ещё в раздумиях")
 			return FALSE
-
 
 // lift
 
@@ -851,13 +922,9 @@
 			return TRUE
 
 /proc/restore_light()
-	var/area/gigahrusch/area
-
-	for(var/obj/structure/fd/samosbor/light/L in area)
+	for(var/obj/structure/fd/samosbor/light/L in world)
 		L.set_light(L.range_of, L.power_of, l_color = L.color_of)
 
 /proc/remove_light()
-	var/area/gigahrusch/area
-
-	for(var/obj/structure/fd/samosbor/light/L in area)
+	for(var/obj/structure/fd/samosbor/light/L in world)
 		L.set_light(0, 0, l_color = L.color_of)
