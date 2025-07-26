@@ -31,6 +31,9 @@
 	apc_test_exempt_areas = list(
 		/area/gigahrusch/ = NO_SCRUBBER|NO_VENT|NO_APC
 	)
+	shuttles_to_initialise = list(
+		/datum/shuttle/autodock/ferry/samosbor
+	)
 
 /singleton/submap_archetype/gigahrusch
 	descriptor = "ICCGN Apartment Building"
@@ -46,12 +49,22 @@
 	name = "ICCGN Apartment Building"
 	archetype = /singleton/submap_archetype/gigahrusch
 
+/singleton/hierarchy/outfit/job/assistant/samosbor
+	l_ear = null
+	r_ear = null
+	back = null
+
 /datum/job/submap/gigahrusch
 	title = "Grazhdanin"
+	department = "Service"
+	department_flag = SRV
 	total_positions = -1
 	create_record = TRUE
 	skill_points = 52
 	no_skill_buffs = TRUE
+	minimum_character_age = 0
+	outfit_type = /singleton/hierarchy/outfit/job/assistant/samosbor
+	whitelisted_species = list(SPECIES_HUMAN,SPECIES_DIONA,SPECIES_IPC,SPECIES_UNATHI,SPECIES_SKRELL,SPECIES_ADHERENT,SPECIES_YEOSA,SPECIES_VATGROWN,SPECIES_SPACER,SPECIES_TRITONIAN,SPECIES_GRAVWORLDER,SPECIES_MULE,SPECIES_NABBER,SPECIES_FBP,SPECIES_TAJARA,SPECIES_UNATHI)
 	max_skill = list(
 		SKILL_BUREAUCRACY = SKILL_MAX,
 		SKILL_FINANCE = SKILL_MAX,
@@ -74,6 +87,13 @@
 		SKILL_MEDICAL = SKILL_MAX,
 		SKILL_ANATOMY = SKILL_MAX,
 		SKILL_CHEMISTRY = SKILL_MAX
+	)
+
+	allowed_branches = list(
+		/datum/mil_branch/civilian
+	)
+	allowed_ranks = list(
+		/datum/mil_rank/civ/civ
 	)
 
 /datum/job/submap/gigahrusch/radio
@@ -985,7 +1005,6 @@
 		stop_working_soundloop()
 	return TRUE
 
-
 // event electricity
 
 /obj/structure/fd/fuse_box/samosbor/attack_hand(mob/living/user as mob)
@@ -1014,8 +1033,6 @@
 	bound_width = 64
 	layer = ABOVE_HUMAN_LAYER
 
-	destination = /turf/simulated/floor/exoplanet/samosbor/metal/teleport_point
-
 /turf/simulated/floor/exoplanet/samosbor/metal/teleport_point
 
 /obj/structure/fd/portal/samosbor/from_zavod
@@ -1023,6 +1040,119 @@
 	icon = 'mods/_fd/fd_assets/icons/structures/doors/door.dmi'
 	icon_state = "exterior"
 
-	destination = /turf/simulated/floor/exoplanet/grim_asphalt2/teleport_point
+/obj/structure/fd/portal/samosbor/stairs
+	name = "CLICK ME"
+	icon_state = "blurry"
+	alpha = 50
+	color = "#63ce00"
 
 /turf/simulated/floor/exoplanet/grim_asphalt2/teleport_point
+
+// intro
+
+/proc/samosbor_intro()
+	for(var/mob/all in GLOB.player_list)
+		all.overlay_fullscreen("blackscreen", /obj/screen/fullscreen/fd/blackout)
+		all.overlay_fullscreen("fishbed", /obj/screen/fullscreen/fishbed/fd)
+		all.Stun(99999)
+
+		spawn(36 SECONDS)
+			all.clear_fullscreen("blackscreen")
+			all.clear_fullscreen("fishbed")
+
+	spawn(1 SECOND)
+		samosbor_pt1()
+	spawn(5 SECONDS)
+		samosbor_pt2()
+	spawn(7 SECONDS)
+		samosbor_pt3()
+	spawn(9 SECONDS)
+		samosbor_pt4()
+
+	spawn(18 SECONDS)
+		samosbor_pt5()
+
+	spawn(36 SECONDS)
+		for(var/mob/all in world)
+			all.stunned = 0
+
+
+/proc/samosbor_pt1()
+	var/novel_message = "2315 год. Где-то далеко-далеко объединённые силы человечества уже несколько лет ведут войну с силами инопланетных захватчиков."
+	var/colored = "#4ec908"
+
+	var/obj/screen/novel_message/first = new /obj/screen/novel_message()
+	first.maptext_y = -140
+	for(var/client/M in GLOB.clients)
+		M.screen += first
+		first.set_text(novel_message, colored)
+
+	spawn(12 SECONDS)
+		for(var/obj/screen/novel_message/messages in world)
+			animate(messages, 1 SECOND, alpha = 0)
+			spawn(1 SECOND)
+				qdel(messages)
+
+/proc/samosbor_pt2()
+	var/novel_message = "Конец этой истории вам прекрасно известен, но на этот раз вы не являетесь её частью."
+	var/colored = "#4ec908"
+
+	var/obj/screen/novel_message/first = new /obj/screen/novel_message()
+	first.maptext_y = -190
+	for(var/client/M in GLOB.clients)
+		M.screen += first
+		first.set_text(novel_message, colored)
+
+	spawn(10 SECONDS)
+		for(var/obj/screen/novel_message/messages in world)
+			animate(messages, 1 SECOND, alpha = 0)
+			spawn(1 SECOND)
+				qdel(messages)
+
+/proc/samosbor_pt3()
+	var/novel_message = "Сегодня, вы обычный гражданин посёлка Прометьево. Терранской глубинки далеко в тылу."
+	var/colored = "#4ec908"
+
+	var/obj/screen/novel_message/first = new /obj/screen/novel_message()
+	first.maptext_y = -220
+	for(var/client/M in GLOB.clients)
+		M.screen += first
+		first.set_text(novel_message, colored)
+
+	spawn(8 SECONDS)
+		for(var/obj/screen/novel_message/messages in world)
+			animate(messages, 1 SECOND, alpha = 0)
+			spawn(1 SECOND)
+				qdel(messages)
+
+/proc/samosbor_pt4()
+	var/novel_message = "Вдали...уже слышится гул стальных машин."
+	var/colored = "#4ec908"
+
+	var/obj/screen/novel_message/first = new /obj/screen/novel_message()
+	first.maptext_y = -260
+	for(var/client/M in GLOB.clients)
+		M.screen += first
+		first.set_text(novel_message, colored)
+
+	spawn(6 SECONDS)
+		for(var/obj/screen/novel_message/messages in world)
+			animate(messages, 1 SECOND, alpha = 0)
+			spawn(1 SECOND)
+				qdel(messages)
+
+/proc/samosbor_pt5()
+	var/novel_message = "ВАЖНО: Позиционируйте этот запуск как посещение музея. Большую часть экспонатов вы сможете лишь осмотреть, но не потрогать. Если вы хотите сделать что-то, что не предполагается технически - оповестите мастера в ахелп. Мы всегда рады вам подыграть."
+	var/colored = "#c90808"
+
+	var/obj/screen/novel_message/first = new /obj/screen/novel_message()
+	first.maptext_y = -160
+	for(var/client/M in GLOB.clients)
+		M.screen += first
+		first.set_text(novel_message, colored)
+
+	spawn(16 SECONDS)
+		for(var/obj/screen/novel_message/messages in world)
+			animate(messages, 1 SECOND, alpha = 0)
+			spawn(1 SECOND)
+				qdel(messages)
