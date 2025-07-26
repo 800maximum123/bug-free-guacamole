@@ -14,6 +14,7 @@ ID мода: EVENT_TOOLS
 ### Изменения *кор кода*
 
 - `/mob/new_player`: `proc/AttemptLateSpawn`
+- `/world`: `proc/IsBanned`
 
 ### Оверрайды
 
@@ -22,6 +23,9 @@ ID мода: EVENT_TOOLS
 ### Дефайны
 
 - `isquantum(X)`
+- `CONFIG_SERVER_WHITELIST_FILE`
+- `GLOB.server_whitelist`
+- `GLOB.fdserver_connect_whitelist`
 
 ### Используемые файлы, не содержащиеся в модпаке
 
