@@ -928,3 +928,24 @@
 /proc/remove_light()
 	for(var/obj/structure/fd/samosbor/light/L in world)
 		L.set_light(0, 0, l_color = L.color_of)
+
+// teleports
+/obj/structure/fd/portal/samosbor/to_zavod
+	name = "Bus"
+	icon = 'mods/_fd/fd_assets/icons/structures/armored_truck_white.dmi'
+	icon_state = "armored_truck_white"
+	bound_width = 64
+	layer = ABOVE_HUMAN_LAYER
+
+	destination = /turf/simulated/floor/exoplanet/samosbor/metal/teleport_point
+
+/turf/simulated/floor/exoplanet/samosbor/metal/teleport_point
+
+/obj/structure/fd/portal/samosbor/from_zavod
+	name = "Door"
+	icon = 'mods/_fd/fd_assets/icons/structures/doors/door.dmi'
+	icon_state = "exterior"
+
+	destination = /turf/simulated/floor/exoplanet/grim_asphalt2/teleport_point
+
+/turf/simulated/floor/exoplanet/grim_asphalt2/teleport_point
