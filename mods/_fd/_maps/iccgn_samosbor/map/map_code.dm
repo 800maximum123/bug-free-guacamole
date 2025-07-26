@@ -941,7 +941,7 @@
 			src.current = src.current + 1
 
 		if(src.current == src.needed)
-			for(var/mob/living/M in orange(1,src))
+			for(var/mob/living/M in orange(20,src))
 				to_chat(M, "<b>Товарищи! Квота была выполнена! Смена окончена. Всем спасибо за работу.</b>")
 			src.full = TRUE
 
