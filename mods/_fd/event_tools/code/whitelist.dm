@@ -4,7 +4,7 @@
 #define CONFIG_SERVER_CONNECT_WHITELIST FLAG(2)*/
 #define CONFIG_SERVER_WHITELIST_FILE "config/server_whitelist.txt"
 
-GLOBAL_VAR(server_whitelist)
+GLOBAL_LIST(fdserver_whitelist)
 GLOBAL_VAR_INIT(fdserver_connect_whitelist, FALSE)
 
 /*
@@ -37,6 +37,10 @@ GLOBAL_VAR_INIT(fdserver_connect_whitelist, FALSE)
 		return
 	GLOB.fdserver_connect_whitelist = !GLOB.fdserver_connect_whitelist
 	var/outcome = GLOB.fdserver_connect_whitelist ? "enabled" : "disabled"
+
+	if(!GLOB.fdserver_whitelist)
+		GLOB.fdserver_whitelist = file2list(CONFIG_SERVER_WHITELIST_FILE) || list() //refreshing whitelist
+
 	log_and_message_admins("[key_name(usr)] [outcome] server whitelist.")
 
 /datum/admins/proc/addserverwhitelist(ckey as text)
@@ -51,7 +55,7 @@ GLOBAL_VAR_INIT(fdserver_connect_whitelist, FALSE)
 	else if(check_server_whitelist(ckey) && GLOB.fdserver_connect_whitelist) // This will also preload the server whitelist.
 		to_chat(usr, SPAN_WARNING("That ckey is already server whitelisted."))
 	else
-		GLOB.server_whitelist |= ckey
+		GLOB.fdserver_whitelist |= ckey
 		save_server_whitelist()
 		log_and_message_admins("has added [ckey] to the server whitelist.", usr)
 
@@ -66,11 +70,13 @@ GLOBAL_VAR_INIT(fdserver_connect_whitelist, FALSE)
 	else if(!check_server_whitelist(ckey)) // This will also preload the server whitelist.
 		to_chat(usr, SPAN_WARNING("That ckey is not server whitelisted."))
 	else
-		GLOB.server_whitelist -= ckey
+		GLOB.fdserver_whitelist -= ckey
 		save_server_whitelist()
 		log_and_message_admins("has removed [ckey] from the server whitelist.", usr)
 
 /proc/check_server_whitelist(ckey)
+	if(!GLOB.fdserver_whitelist)
+		GLOB.fdserver_whitelist = file2list(CONFIG_SERVER_WHITELIST_FILE) || list()
 	if(!GLOB.fdserver_connect_whitelist)
 		return TRUE
 	if(ismob(ckey))
@@ -78,24 +84,51 @@ GLOBAL_VAR_INIT(fdserver_connect_whitelist, FALSE)
 		ckey = checking.ckey
 	if(!istext(ckey))
 		return FALSE
-	if(!GLOB.server_whitelist)
-		GLOB.server_whitelist = file2list(CONFIG_SERVER_WHITELIST_FILE) || list()
-	return (ckey in GLOB.server_whitelist)
+	return (ckey in GLOB.fdserver_whitelist)
 
 /proc/save_server_whitelist()
 	// Ensure we have the server whitelist loaded regardless of config or prior call.
-	if(!GLOB.server_whitelist)
-		GLOB.server_whitelist = file2list(CONFIG_SERVER_WHITELIST_FILE) || list()
+	if(!GLOB.fdserver_whitelist)
+		GLOB.fdserver_whitelist = file2list(CONFIG_SERVER_WHITELIST_FILE) || list()
 
 	// Clear blank rows.
-	while(null in GLOB.server_whitelist)
-		GLOB.server_whitelist -= null
-	while("" in GLOB.server_whitelist)
-		GLOB.server_whitelist -= ""
+	while(null in GLOB.fdserver_whitelist)
+		GLOB.fdserver_whitelist -= null
+	while("" in GLOB.fdserver_whitelist)
+		GLOB.fdserver_whitelist -= ""
 
 	// Remove old list rather than append.
 	if(fexists(CONFIG_SERVER_WHITELIST_FILE))
 		fdel(CONFIG_SERVER_WHITELIST_FILE)
 	// Write our list out.
 	var/write_file = file(CONFIG_SERVER_WHITELIST_FILE)
-	to_file(write_file, jointext(GLOB.server_whitelist, "\n"))
+	to_file(write_file, jointext(GLOB.fdserver_whitelist, "\n"))
+
+
+/proc/add_all_in_whitelist()
+
+	switch(alert("You totally sure that you wanna add ALL peoples in Whitelist?",, "Yes", "No"))
+		if("No") return
+
+	switch(alert("You don't understand? You will add ALL PEOPLES IN FREAKING WHITELIST, BRO",, "Yes", "No"))
+		if("No") return
+
+	switch(alert("You a freaking bot?",, "No", "Yes"))
+		if("Yes") return
+
+	alert("I tried, at least",, "Yes", "Yes")
+
+	var/sound/uploaded_sound = sound('mods/_fd/event_tools/sounds/whitelist_all.ogg', repeat = 0, wait = 1, channel = GLOB.admin_sound_channel, volume = 50)
+	uploaded_sound.priority = 250
+
+	sounds_cache += 'mods/_fd/event_tools/sounds/whitelist_all.ogg'
+
+	for(var/client/everyone in GLOB.clients)
+		var/ckey = ckey(everyone.ckey)
+		sound_to(everyone, uploaded_sound)
+		check_server_whitelist(ckey)
+		GLOB.fdserver_whitelist |= ckey
+		save_server_whitelist()
+		log_and_message_admins("has added [everyone.ckey] to the server whitelist.", usr)
+
+	alert("Sorry, World")
