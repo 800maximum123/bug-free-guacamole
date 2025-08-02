@@ -13,10 +13,10 @@
 
 // Thanks, Danilcus-W - Tech-priest-34
 /obj/structure/fd/portal/proc/teleport(atom/movable/UNIT)
+	SHOULD_CALL_PARENT(FALSE)
 	if(should_animate_transition)
 		if(istype(UNIT, /mob))
 			var/mob/living/carbon/human/user = UNIT
-			SHOULD_CALL_PARENT(FALSE)
 			set waitfor = FALSE
 			if(destination)
 
