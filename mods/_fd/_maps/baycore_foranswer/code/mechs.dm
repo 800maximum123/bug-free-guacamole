@@ -89,6 +89,13 @@
 		if("Standart Rifle")
 			weapon_equiped = "Standart Rifle"
 
+/mob/living/simple_animal/hostile/fd/mech/verb/change_view()
+	set name = "Change View"
+	set category = "Mech"
+	set desc = "This will let you change your scope size."
+
+	src.client.view = input("Select view range:", "FUCK YE", 7) in list(7,8,10,12)
+
 /mob/living/simple_animal/hostile/fd/mech/Life()
 
 	if(damaged && repairs_left <= 0)
@@ -247,13 +254,13 @@
 /mob/living/simple_animal/hostile/fd/mech/drake
 	name = "H-APU Drake"
 	desc = "The Drake was the first, and most resilient APU ever designed by ''Shield''."
-	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mech_size2.dmi'
-	icon_state = "drake"
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/drake_size2.dmi'
+	icon_state = "Drake"
 
-	pixel_x = -48
-	pixel_y = -16
-	default_pixel_x = -48
-	default_pixel_y = -16
+	pixel_x = -125
+	default_pixel_x = -125
+	pixel_y = -40
+	default_pixel_y = -40
 
 	speed = 3
 
