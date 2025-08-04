@@ -38,8 +38,9 @@
 /mob/living/simple_animal/hostile/fd/mech
 	name = "Armored Personal Unit (APU)"
 	desc = "An special experimental vehicle."
-	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mech_size1.dmi'
-	icon_state = "blackbeard"
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/breacher_def.dmi'
+	icon_state = "breacher"
+	icon_living = "breacher"
 
 	health = 9999999
 	maxHealth = 9999999
@@ -62,7 +63,29 @@
 	var/damaged = FALSE // Мы в "крите"?
 
 	var/can_shoot = TRUE
+	var/has_ammo = FALSE
+	var/spare_magazines = 0
 	var/shot_delay = 0
+
+	var/death_states = 4
+
+	var/death_hitbox_x = 0
+	var/death_hitbox_y = 0
+
+/mob/living/simple_animal/hostile/fd/mech/death()
+	..(FALSE, "suddenly breaks apart.", "You have been destroyed.")
+	var/state_number = rand(1, death_states)
+	icon_dead = "[icon_living]_death_[state_number]"
+
+	pixel_x = 0
+	pixel_y = 0
+	default_pixel_x = 0
+	default_pixel_y = 0
+
+	density = TRUE
+
+	bound_width = death_hitbox_x
+	bound_height = death_hitbox_y
 
 /mob/living/simple_animal/hostile/fd/mech/proc/damage_animation(amount, ignore_armor = FALSE)
 	if(damaged)
@@ -99,7 +122,7 @@
 /mob/living/simple_animal/hostile/fd/mech/Life()
 
 	if(damaged && repairs_left <= 0)
-		qdel(src)
+		death()
 
 	if(integrity_stat <= 0)
 		damaged = TRUE
@@ -231,8 +254,7 @@
 
 
 
-// DRAKE - LL3
-//// Tank
+// HEAVY
 //// Siege mode is OP
 //// Minigun as main and only weapon, holds it ONE-HANDEDLY
 
@@ -254,30 +276,38 @@
 /mob/living/simple_animal/hostile/fd/mech/drake
 	name = "H-APU Drake"
 	desc = "The Drake was the first, and most resilient APU ever designed by ''Shield''."
-	icon = 'mods/_fd/_maps/baycore_foranswer/icons/drake_size2.dmi'
-	icon_state = "Drake"
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/heavy_def.dmi'
+	icon_state = "heavy"
+	icon_living = "heavy"
 
-	pixel_x = -125
-	default_pixel_x = -125
-	pixel_y = -40
-	default_pixel_y = -40
+	pixel_x = -110
+	default_pixel_x = -110
+	pixel_y = -30
+	default_pixel_y = -30
 
 	speed = 3
 
 	armor_stat = 5
-	integrity_stat = 500
-	integrity_stat_max = 500
+	integrity_stat = 1000
+	integrity_stat_max = 1000
 
 	heat_overflow = 10
 	weapon_equiped = "Assault Cannon"
 	repairs_left = 2
+
+	death_states = 7
+
+	death_hitbox_x = 256
+	death_hitbox_y = 64
+
+	has_ammo = TRUE
+	spare_magazines = 1
 
 	var/speed_buff = 0 // Разгон ствола за счёт перегрева
 	var/start_counting = FALSE
 	var/buff_timer = 30 SECONDS
 
 	var/cannon_ammo = 600
-	var/spare_magazines = 1
 
 	var/bunkermode = FALSE
 
@@ -417,14 +447,215 @@
 
 				pew = new /obj/item/projectile/bullet/mech(get_turf(src))
 				pew.real_damage = 10
-				pew_sound = 'sound/weapons/guns/ricochet4.ogg'
+				pew.icon_state = "bolter"
+				pew_sound = 'sound/weapons/gunshot/minigun.ogg'
 
 				spawn(fire_delay)
 					if(istype(pew))
-						playsound(pew.loc, pew_sound, 25, 1)
+						playsound(pew.loc, pew_sound, 10, 1)
 						pew.original = A
 						pew.current = A
 						pew.starting = get_turf(src)
 						pew.shot_from = src
 						pew.launch(A, BP_CHEST, (A.x-src.x), (A.y-src.y))
 			shot_delay = world.time + 4 SECONDS - speed_buff
+
+
+
+
+// SUPPORT
+//// GET HEALED GET HEALED GET HEALED
+
+/mob/living/simple_animal/hostile/fd/mech/lancaster
+	name = "SUPP-APU Lancaster"
+	desc = "Special engineering machine, manufactured to bring fast aid to the other personal units on the battlefield."
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/engineer_def.dmi'
+	icon_state = "engineer"
+	icon_living = "engineer"
+
+	pixel_x = -105
+	default_pixel_x = -105
+	pixel_y = -55
+	default_pixel_y = -55
+
+	speed = 0
+
+	armor_stat = 2
+	integrity_stat = 500
+	integrity_stat_max = 500
+	death_states = 1
+
+	heat_overflow = 10
+	overheat_timer = 10
+
+	weapon_equiped = "Plasma Cutter"
+
+	death_hitbox_x = 256
+	death_hitbox_y = 64
+
+	repairs_left = 4
+	var/restock_charges = 12
+
+	var/cooling_process = 30 SECONDS
+	var/start_counting = FALSE
+
+	var/mob/living/simple_animal/hostile/fd/mech/passenger = null
+	var/mutable_appearance/passenger_overlay
+
+/mob/living/simple_animal/hostile/fd/mech/lancaster/Life()
+	if(heat > 0 && !start_counting)
+		start_counting = TRUE
+		cooling_process += world.time
+
+	if(world.time >= cooling_process && start_counting)
+		heat -= 1
+		cooling_process = initial(cooling_process)
+		start_counting = FALSE
+
+	. = ..()
+
+/mob/living/simple_animal/hostile/fd/mech/lancaster/proc/choose_resupp()
+	var/list/mechs_in_radius = list()
+
+	var/list/options = list(
+		"Reboot Self" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "34"),
+		"Patch Allie/Self" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "36"),
+		"Restock Allie" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "30")
+	)
+	var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE)
+	switch(chosen_option)
+		if("Reboot Self")
+			if(!damaged)
+				return FALSE
+			if(!do_after(src, 60 SECONDS))
+				return FALSE
+			damaged = FALSE
+			integrity_stat = integrity_stat_max / 2
+			repairs_left -= 1
+			remove_filter("down")
+			return TRUE
+
+		if("Patch Allie/Self")
+			if(restock_charges <= 0)
+				return FALSE
+			for(var/mob/living/simple_animal/hostile/fd/mech/M in view(2,src))
+				if(M.stat != DEAD)
+					mechs_in_radius += M
+			var/mob/living/simple_animal/hostile/fd/mech/target_choice = show_radial_menu(src, src, mechs_in_radius, radius = 100, require_near = TRUE)
+			if(!target_choice)
+				return FALSE
+			if(!do_after(src, 10 SECONDS))
+				return FALSE
+			if(target_choice.damaged && target_choice.stat != DEAD)
+				target_choice.damaged = FALSE
+			target_choice.integrity_stat += 100
+			target_choice.heat = 0
+			if(target_choice.integrity_stat > target_choice.integrity_stat_max)
+				target_choice.integrity_stat = target_choice.integrity_stat_max
+			restock_charges -= 1
+			return TRUE
+
+		if("Restock Allie")
+			if(restock_charges <= 0)
+				return FALSE
+			for(var/mob/living/simple_animal/hostile/fd/mech/M in oview(1,src))
+				if(M.stat != DEAD && M.has_ammo)
+					mechs_in_radius += M
+			var/mob/living/simple_animal/hostile/fd/mech/target_choice = show_radial_menu(src, src, mechs_in_radius, radius = 100, require_near = TRUE)
+			if(!target_choice)
+				return FALSE
+			if(!do_after(src, 10 SECONDS))
+				return FALSE
+			target_choice.spare_magazines += 2
+			restock_charges -= 1
+			return TRUE
+
+/mob/living/simple_animal/hostile/fd/mech/lancaster/ClickOn(atom/A, params)
+	if(A == src && stat != DEAD)
+		var/list/options = list(
+			"Toggle Fire" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "6"),
+			"Resupply Mech" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "17"),
+			"Unattach Passenger" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "20"),
+		)
+
+		var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE)
+		if(!chosen_option)
+			return FALSE
+		switch(chosen_option)
+
+			if("Toggle Fire")
+				if(can_shoot)
+					can_shoot = FALSE
+					return TRUE
+				if(!can_shoot)
+					can_shoot = TRUE
+					return TRUE
+
+			if("Resupply Mech")
+				choose_resupp()
+				return TRUE
+
+			if("Unattach Passenger")
+				if(!isnull(passenger))
+					passenger.forceMove(get_turf(src))
+					passenger = null
+					speed = 0
+					CutOverlays(passenger_overlay)
+					return TRUE
+
+				return FALSE
+
+	var/modifiers = params2list(params)
+
+	if(modifiers["alt"])
+		if(!isnull(passenger))
+			return FALSE
+		if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
+			var/mob/living/simple_animal/hostile/fd/mech/M = A
+			if(M == src)
+				return FALSE
+			if(!do_after(src, 5 SECONDS))
+				return FALSE
+			M.forceMove(src)
+			passenger = M
+			passenger_overlay = mutable_appearance(M.icon, M.icon_state)
+			passenger_overlay.pixel_y = M.pixel_y + 100
+			passenger_overlay.mouse_opacity = FALSE
+			speed = 6
+
+			AddOverlays(passenger_overlay)
+			return TRUE
+
+	. = ..()
+
+	if(weapon_equiped == "Plasma Cutter")
+		if(!can_shoot)
+			return FALSE
+		if(damaged)
+			return FALSE
+		if(world.time <= shot_delay)
+			return FALSE
+		else
+			var/obj/item/projectile/bullet/mech/pew
+			var/pew_sound
+			var/fire_delay
+
+			for(var/bullet, bullet<2, bullet++)
+				fire_delay += 1
+
+				pew = new /obj/item/projectile/bullet/mech(get_turf(src))
+				pew.real_damage = 3
+				pew.piercing = TRUE
+				pew.icon_state = "pulse0"
+				pew.life_span = 16
+				pew_sound = 'sound/weapons/plasma_cutter.ogg'
+
+				spawn(fire_delay)
+					if(istype(pew))
+						playsound(pew.loc, pew_sound, 10, 1)
+						pew.original = A
+						pew.current = A
+						pew.starting = get_turf(src)
+						pew.shot_from = src
+						pew.launch(A, BP_CHEST, (A.x-src.x), (A.y-src.y))
+			shot_delay = world.time + 1 SECONDS
