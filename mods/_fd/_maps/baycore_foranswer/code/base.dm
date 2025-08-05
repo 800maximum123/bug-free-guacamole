@@ -89,9 +89,6 @@
 
 	var/death_states = 4
 
-	var/death_hitbox_x = 0
-	var/death_hitbox_y = 0
-
 /mob/living/simple_animal/hostile/fd/mech/death()
 	..(FALSE, "suddenly breaks apart.", "You have been destroyed.")
 	var/state_number = rand(1, death_states)
@@ -104,9 +101,6 @@
 	default_pixel_y = 0
 
 	density = TRUE
-
-	bound_width = death_hitbox_x
-	bound_height = death_hitbox_y
 
 /mob/living/simple_animal/hostile/fd/mech/proc/damage_animation(amount, ignore_armor = FALSE)
 	if(damaged)

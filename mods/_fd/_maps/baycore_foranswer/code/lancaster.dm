@@ -22,9 +22,6 @@
 
 	weapon_equiped = "Plasma Cutter"
 
-	death_hitbox_x = 256
-	death_hitbox_y = 64
-
 	repairs_left = 4
 	var/restock_charges = 12
 

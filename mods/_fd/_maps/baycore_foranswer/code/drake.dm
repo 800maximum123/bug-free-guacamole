@@ -37,9 +37,6 @@
 
 	death_states = 7
 
-	death_hitbox_x = 256
-	death_hitbox_y = 64
-
 	has_ammo = TRUE
 	spare_magazines = 1
 
