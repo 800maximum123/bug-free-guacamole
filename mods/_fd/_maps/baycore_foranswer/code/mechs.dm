@@ -28,12 +28,28 @@
 					D.damage_animation(final_damage)
 					return TRUE
 
+		if(M.overprotected)
+			for(var/mob/living/simple_animal/hostile/fd/mech/saladin/D in range(12,src))
+				if(D.protected == M)
+					D.shield_integrity -= final_damage
+					D.heat += final_damage
+					D.damage_animation(0)
+					return TRUE
+
 		if(!M.damaged)
 			M.integrity_stat -= final_damage
 		if(piercing)
 			M.damage_animation(final_damage, ignore_armor = TRUE)
 		else
 			M.damage_animation(final_damage)
+
+/obj/item/projectile/bullet/mech/experimental/on_hit(atom/target, blocked = 0)
+	. = ..()
+
+	if(istype(target, /mob/living/simple_animal/hostile/fd/mech))
+		var/mob/living/simple_animal/hostile/fd/mech/M = target
+
+		M.heat += 2
 
 /mob/living/simple_animal/hostile/fd/mech
 	name = "Armored Personal Unit (APU)"
@@ -47,6 +63,8 @@
 
 	var/armor_stat = 0 // Снижает урона на [X]
 	var/shielded = FALSE // Дрейк способен перетягивать входящий урон на себя
+	var/overprotected = FALSE // Саладин накидывает оверхп
+	var/mutable_appearance/field_overlay
 
 	var/integrity_stat = 100 // Текущее ХП
 	var/integrity_stat_max = 100 // Максимальное ХП
@@ -76,6 +94,7 @@
 	..(FALSE, "suddenly breaks apart.", "You have been destroyed.")
 	var/state_number = rand(1, death_states)
 	icon_dead = "[icon_living]_death_[state_number]"
+	icon_state = icon_dead
 
 	pixel_x = 0
 	pixel_y = 0
@@ -485,7 +504,7 @@
 	integrity_stat_max = 500
 	death_states = 1
 
-	heat_overflow = 10
+	heat_overflow = 5
 	overheat_timer = 10
 
 	weapon_equiped = "Plasma Cutter"
@@ -599,6 +618,7 @@
 				if(!isnull(passenger))
 					passenger.forceMove(get_turf(src))
 					passenger = null
+					contents -= passenger
 					speed = 0
 					CutOverlays(passenger_overlay)
 					return TRUE
@@ -646,8 +666,8 @@
 				pew = new /obj/item/projectile/bullet/mech(get_turf(src))
 				pew.real_damage = 3
 				pew.piercing = TRUE
-				pew.icon_state = "pulse0"
-				pew.life_span = 16
+				pew.icon_state = "pulse0_bl"
+				pew.life_span = 5
 				pew_sound = 'sound/weapons/plasma_cutter.ogg'
 
 				spawn(fire_delay)
@@ -659,3 +679,151 @@
 						pew.shot_from = src
 						pew.launch(A, BP_CHEST, (A.x-src.x), (A.y-src.y))
 			shot_delay = world.time + 1 SECONDS
+
+
+
+// EXPERIMENTAL
+// BUUUUUUUUUUUUUUURN
+
+/mob/living/simple_animal/hostile/fd/mech/saladin
+	name = "SUPP-APU Saladin"
+	desc = "An special experimental mech, utilizing some of the stolen enemy tech."
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/experimental_def.dmi'
+	icon_state = "experimental"
+	icon_living = "experimental"
+
+	pixel_x = -115
+	default_pixel_x = -115
+	pixel_y = -25
+	default_pixel_y = -25
+
+	integrity_stat = 300
+	integrity_stat_max = 300
+
+	heat_overflow = 40
+	overheat_timer = 60
+
+	weapon_equiped = "Thermal Release"
+
+	repairs_left = 2
+	death_states = 2
+
+	var/jump_counter = FALSE
+	var/jump_cooldown = 10 SECONDS
+
+	var/mob/living/simple_animal/hostile/fd/mech/protected = null
+	var/shield_integrity = 20
+	var/shield_cooldown = 0
+
+/mob/living/simple_animal/hostile/fd/mech/saladin/Life()
+
+	if(shield_integrity <= 0)
+		if(!isnull(protected))
+			protected.CutOverlays(field_overlay)
+			protected.overprotected = FALSE
+
+			shield_integrity = initial(shield_integrity)
+			protected = null
+			shield_cooldown = world.time + 10 SECONDS
+
+	if(!isnull(protected))
+		for(protected in range(12,src))
+			if(!protected)
+				protected.CutOverlays(field_overlay)
+				protected.overprotected = FALSE
+
+				shield_integrity = initial(shield_integrity)
+				protected = null
+				shield_cooldown = world.time + 5 SECONDS
+
+	. = ..()
+
+/mob/living/simple_animal/hostile/fd/mech/saladin/ClickOn(atom/A, params)
+	var/modifiers = params2list(params)
+
+	if(modifiers["shift"])
+		if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
+			var/mob/living/simple_animal/hostile/fd/mech/M = A
+			if(world.time <= shield_cooldown)
+				return FALSE
+			if(M == protected)
+				protected.overprotected = FALSE
+				protected.CutOverlays(field_overlay)
+				shield_integrity = initial(shield_integrity)
+				protected = null
+
+				shield_cooldown = world.time + 5 SECONDS
+				return TRUE
+			if(!do_after(src, 2 SECONDS))
+				return FALSE
+
+			protected = M
+			field_overlay = mutable_appearance('mods/_fd/_maps/baycore_foranswer/icons/mechs/experimental_def.dmi', "shield")
+			field_overlay.pixel_x = M.pixel_x + 100
+			field_overlay.mouse_opacity = FALSE
+
+			protected.overprotected = TRUE
+			protected.AddOverlays(field_overlay)
+			return TRUE
+
+	if(A == src)
+		var/list/options = list(
+			"Toggle Fire" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "6"),
+			"Reboot" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "34"),
+		)
+
+		var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE)
+		if(!chosen_option)
+			return FALSE
+		switch(chosen_option)
+
+			if("Toggle Fire")
+				if(can_shoot)
+					can_shoot = FALSE
+					return TRUE
+				if(!can_shoot)
+					can_shoot = TRUE
+					return TRUE
+
+			if("Reboot")
+				if(!damaged)
+					return FALSE
+				if(!do_after(src, 60 SECONDS))
+					return FALSE
+				damaged = FALSE
+				integrity_stat = integrity_stat_max / 2
+				repairs_left -= 1
+				remove_filter("down")
+				return TRUE
+
+	. = ..()
+
+	switch(weapon_equiped)
+		if("Thermal Release")
+			if(!can_shoot)
+				return FALSE
+			if(damaged)
+				return FALSE
+			if(heat <= 0)
+				return FALSE
+			if(world.time <= shot_delay)
+				return FALSE
+			else
+				var/obj/item/projectile/bullet/mech/experimental/pew
+				var/pew_sound
+
+				pew = new /obj/item/projectile/bullet/mech/experimental(get_turf(src))
+				pew.real_damage = 5
+				pew.icon = 'mods/_fd/fd_assets/icons/projectiles.dmi'
+				pew.icon_state = "heavylaser"
+				pew_sound = 'sound/weapons/laser3.ogg'
+
+				if(istype(pew))
+					heat -= 1
+					playsound(pew.loc, pew_sound, 25, 1)
+					pew.original = A
+					pew.current = A
+					pew.starting = get_turf(src)
+					pew.shot_from = src
+					pew.launch(A)
+					shot_delay = world.time + 2 SECONDS
