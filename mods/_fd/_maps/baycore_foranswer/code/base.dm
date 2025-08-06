@@ -52,6 +52,18 @@
 
 		M.heat += 2
 
+/obj/structure/fd/mech_wreckage
+	name = "Wreckage"
+	desc = "Giant pile of scrap"
+
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/breacher_def.dmi'
+	icon_state = "breacher_death_1"
+
+	pixel_y = 0
+	pixel_x = 0
+	bound_width = 1
+	bound_height = 1
+
 /mob/living/simple_animal/hostile/fd/mech
 	name = "Armored Personal Unit (APU)"
 	desc = "An special experimental vehicle."
@@ -87,14 +99,14 @@
 	var/spare_magazines = 0
 	var/shot_delay = 0
 
-	var/death_states = 4
-
 	var/hacking_qte = 0
 	var/hacked = FALSE
 	var/chained = FALSE
 	var/chained_for = 0
 	var/malfunction = FALSE
 	var/malf_for = 0
+
+	var/wreck_type = /obj/structure/fd/mech_wreckage
 
 /mob/living/simple_animal/hostile/fd/mech/Stat()
 	if(statpanel("Status"))
@@ -103,17 +115,9 @@
 		stat(null, SPAN_BOLD("Repairs Left: [repairs_left]"))
 
 /mob/living/simple_animal/hostile/fd/mech/death()
+	new wreck_type (get_turf(src))
 	..(FALSE, "suddenly breaks apart.", "You have been destroyed.")
-	var/state_number = rand(1, death_states)
-	icon_dead = "[icon_living]_death_[state_number]"
-	icon_state = icon_dead
-
-	pixel_x = 0
-	pixel_y = 0
-	default_pixel_x = 0
-	default_pixel_y = 0
-
-	density = TRUE
+	qdel(src)
 
 /mob/living/simple_animal/hostile/fd/mech/proc/damage_animation(amount, ignore_armor = FALSE)
 	if(damaged)

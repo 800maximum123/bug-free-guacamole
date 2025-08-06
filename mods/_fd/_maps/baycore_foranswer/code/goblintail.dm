@@ -20,8 +20,8 @@
 				return TRUE
 
 /mob/living/simple_animal/hostile/fd/mech/goblintail
-	name = "L-APU"
-	desc = "An special experimental vehicle."
+	name = "L-APU Goblintail"
+	desc = "An spec-ops lightweight APU model with installed stealth-tech."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/scout_def.dmi'
 	icon_state = "scout"
 	icon_living = "scout"
@@ -32,13 +32,13 @@
 	heat_overflow = 10
 	repairs_left = 2
 
+	movement_cooldown = 2
+
 	weapon_equiped = "Submachine Gun"
 
 	has_ammo = TRUE
 	spare_magazines = 4
 	var/gun_ammo = 80
-
-	death_states = 4
 
 	pixel_x = -105
 	default_pixel_x = -105
@@ -149,7 +149,7 @@
 					if(world.time <= next_cloak_in)
 						return FALSE
 					icon_state = "[icon_living]_cloak"
-					animate(src, 1 SECOND, alpha = 50)
+					animate(src, 1 SECOND, alpha = 30)
 					set_light(3, 2, l_color = cloak_color)
 					cloaked = TRUE
 					return TRUE
@@ -178,7 +178,9 @@
 			if(!do_after(src, 5 SECONDS))
 				return FALSE
 			M.hacked()
-			hack_charges -= 1
+			if(!overheated)
+				hack_charges -= 1
+				heat += 2
 			return TRUE
 
 	. = ..()

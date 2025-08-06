@@ -25,7 +25,7 @@
 	pixel_y = -30
 	default_pixel_y = -30
 
-	speed = 4
+	movement_cooldown = 6
 
 	armor_stat = 5
 	integrity_stat = 1000
@@ -34,8 +34,6 @@
 	heat_overflow = 10
 	weapon_equiped = "Assault Cannon"
 	repairs_left = 2
-
-	death_states = 7
 
 	has_ammo = TRUE
 	spare_magazines = 1
@@ -47,6 +45,7 @@
 	var/cannon_ammo = 600
 
 	var/bunkermode = FALSE
+	var/next_shield_bump = 0
 
 /mob/living/simple_animal/hostile/fd/mech/drake/Move()
 	if(bunkermode)
@@ -81,11 +80,9 @@
 	switch(chosen_option)
 		if("Assault Cannon")
 			weapon_equiped = "Assault Cannon"
-			natural_weapon = /obj/item/natural_weapon
 			return TRUE
 		if("Shield")
 			weapon_equiped = "Shield"
-			natural_weapon = /obj/item/shield/riot/mech
 			return TRUE
 
 /mob/living/simple_animal/hostile/fd/mech/drake/ClickOn(atom/A, params)
@@ -171,40 +168,60 @@
 
 	. = ..()
 
-	if(weapon_equiped == "Assault Cannon")
-		if(!can_shoot)
-			return FALSE
-		if(malfunction)
-			return FALSE
-		if(cannon_ammo <= 0)
-			return FALSE
-		if(damaged)
-			return FALSE
-		if(world.time <= shot_delay)
-			return FALSE
-		else
-			var/obj/item/projectile/bullet/mech/pew
-			var/pew_sound
-			var/fire_delay
+	switch(weapon_equiped)
+		if("Assault Cannon")
+			if(!can_shoot)
+				return FALSE
+			if(malfunction)
+				return FALSE
+			if(cannon_ammo <= 0)
+				return FALSE
+			if(damaged)
+				return FALSE
+			if(world.time <= shot_delay)
+				return FALSE
+			else
+				var/obj/item/projectile/bullet/mech/pew
+				var/pew_sound
+				var/fire_delay
 
-			for(var/bullet, bullet<6, bullet++)
-				cannon_ammo -= 1
-				fire_delay += 1
+				for(var/bullet, bullet<6, bullet++)
+					cannon_ammo -= 1
+					fire_delay += 1
 
-				if(cannon_ammo <= 0)
-					continue
+					if(cannon_ammo <= 0)
+						continue
 
-				pew = new /obj/item/projectile/bullet/mech(get_turf(src))
-				pew.real_damage = 10
-				pew.icon_state = "bolter"
-				pew_sound = 'sound/weapons/gunshot/minigun.ogg'
+					pew = new /obj/item/projectile/bullet/mech(get_turf(src))
+					pew.real_damage = 10
+					pew.icon_state = "bolter"
+					pew_sound = 'sound/weapons/gunshot/minigun.ogg'
+					pew.SetTransform(2)
 
-				spawn(fire_delay)
-					if(istype(pew))
-						playsound(pew.loc, pew_sound, 10, 1)
-						pew.original = A
-						pew.current = A
-						pew.starting = get_turf(src)
-						pew.shot_from = src
-						pew.launch(A, BP_CHEST, (A.x-src.x), (A.y-src.y))
-			shot_delay = world.time + 4 SECONDS - speed_buff
+					spawn(fire_delay)
+						if(istype(pew))
+							playsound(pew.loc, pew_sound, 10, 1)
+							pew.original = A
+							pew.current = A
+							pew.starting = get_turf(src)
+							pew.shot_from = src
+							pew.launch(A, BP_CHEST, (A.x-src.x), (A.y-src.y))
+				shot_delay = world.time + 4 SECONDS - speed_buff
+		if("Shield")
+			if(damaged)
+				return FALSE
+			if(get_dist(A, src) > 1)
+				return FALSE
+			if(world.time <= next_shield_bump)
+				return FALSE
+
+			do_attack_animation(A)
+			if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
+				var/mob/living/simple_animal/hostile/fd/mech/M = A
+				var/damage_incoming = 10
+				damage_incoming -= M.armor_stat
+				if(!M.damaged)
+					M.integrity_stat -= damage_incoming
+					M.damage_animation(damage_incoming)
+					M.throw_at(get_edge_target_turf(M, get_dir(src, M)), 5, 3, src)
+			next_shield_bump = world.time + 1 SECONDS

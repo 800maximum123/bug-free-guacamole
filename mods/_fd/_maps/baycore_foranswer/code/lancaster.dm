@@ -10,12 +10,11 @@
 	pixel_y = -55
 	default_pixel_y = -55
 
-	speed = 2
+	movement_cooldown = 2
 
-	armor_stat = 2
+	armor_stat = 4
 	integrity_stat = 500
 	integrity_stat_max = 500
-	death_states = 1
 
 	heat_overflow = 5
 	overheat_timer = 10
@@ -138,7 +137,7 @@
 					passenger.forceMove(get_turf(src))
 					passenger = null
 					contents -= passenger
-					speed = 0
+					movement_cooldown = 2
 					CutOverlays(passenger_overlay)
 					return TRUE
 
@@ -162,7 +161,7 @@
 			passenger_overlay = mutable_appearance(M.icon, M.icon_state)
 			passenger_overlay.pixel_y = M.pixel_y + 100
 			passenger_overlay.mouse_opacity = FALSE
-			speed = 6
+			movement_cooldown = 4
 
 			AddOverlays(passenger_overlay)
 			return TRUE

@@ -20,9 +20,8 @@
 	weapon_equiped = "Thermal Release"
 
 	repairs_left = 2
-	death_states = 2
 
-	speed = 0
+	movement_cooldown = 2
 
 	var/jump_cooldown = 0
 
