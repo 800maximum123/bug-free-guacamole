@@ -1,3 +1,17 @@
+/obj/structure/fd/mech_wreckage/small/nelson
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/breacher_def.dmi'
+	icon_state = "breacher_death_1"
+
+	pixel_y = 0
+	pixel_x = 0
+	bound_width = 160
+	bound_height = 64
+
+/obj/structure/fd/mech_wreckage/small/nelson/Initialize()
+	. = ..()
+	var/state = rand(1,4)
+	icon_state = "breacher_death_[state]"
+
 /mob/living/simple_animal/hostile/fd/mech/nelson
 	name = "APU Nelson"
 	desc = "One of the most used breaching units."
@@ -31,6 +45,8 @@
 	var/momentum = FALSE
 	var/momentum_timer = 1 SECOND
 	var/momentum_stacks = 0
+
+	wreck_type = /obj/structure/fd/mech_wreckage/small/nelson
 
 /mob/living/simple_animal/hostile/fd/mech/nelson/Stat()
 	. = ..()

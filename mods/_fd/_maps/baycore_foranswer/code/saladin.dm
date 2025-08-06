@@ -1,3 +1,20 @@
+/obj/structure/fd/mech_wreckage/small/saladin
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/experimental_def.dmi'
+	icon_state = "experimental_death_1"
+	density = FALSE
+
+	layer = DECAL_LAYER
+
+	pixel_y = 0
+	pixel_x = 0
+	bound_width = 96
+	bound_height = 96
+
+/obj/structure/fd/mech_wreckage/small/saladin/Initialize()
+	. = ..()
+	var/state = rand(1,2)
+	icon_state = "experimental_death_[state]"
+
 /mob/living/simple_animal/hostile/fd/mech/saladin
 	name = "SUPP-APU Saladin"
 	desc = "An special experimental mech, utilizing some of the stolen enemy tech."
@@ -28,6 +45,8 @@
 	var/mob/living/simple_animal/hostile/fd/mech/protected = null
 	var/shield_integrity = 200
 	var/shield_cooldown = 0
+
+	wreck_type = /obj/structure/fd/mech_wreckage/small/saladin
 
 /mob/living/simple_animal/hostile/fd/mech/saladin/Stat()
 	. = ..()

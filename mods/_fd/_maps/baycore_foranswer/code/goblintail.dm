@@ -19,6 +19,20 @@
 				malfunction = TRUE
 				return TRUE
 
+/obj/structure/fd/mech_wreckage/small/goblin
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/scout_def.dmi'
+	icon_state = "scout_death_1"
+
+	pixel_y = 0
+	pixel_x = 0
+	bound_width = 160
+	bound_height = 64
+
+/obj/structure/fd/mech_wreckage/small/goblin/Initialize()
+	. = ..()
+	var/state = rand(1,4)
+	icon_state = "scout_death_[state]"
+
 /mob/living/simple_animal/hostile/fd/mech/goblintail
 	name = "L-APU Goblintail"
 	desc = "An spec-ops lightweight APU model with installed stealth-tech."
@@ -55,6 +69,8 @@
 	var/hack_charges = 6
 	var/recharging = FALSE
 	var/recharge_in = 60 SECONDS
+
+	wreck_type = /obj/structure/fd/mech_wreckage/small/goblin
 
 /mob/living/simple_animal/hostile/fd/mech/goblintail/Stat()
 	. = ..()

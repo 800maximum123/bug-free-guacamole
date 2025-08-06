@@ -1,17 +1,16 @@
-/obj/item/shield/riot/mech
-	var/real_damage = 10
-	var/throw_distance = 3
+/obj/structure/fd/mech_wreckage/big
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/heavy_def.dmi'
+	icon_state = "heavy_death_1"
 
-/obj/item/shield/riot/mech/resolve_attackby(atom/atom, mob/living/user, click_params)
-	if(istype(atom, /mob/living/simple_animal/hostile/fd/mech))
-		var/mob/living/simple_animal/hostile/fd/mech/M = atom
-		M.throw_at(get_edge_target_turf(M, get_dir(user, M)), throw_distance, 2, user)
+	pixel_y = 0
+	pixel_x = 0
+	bound_width = 256
+	bound_height = 64
 
-		var/final_damage = real_damage
-		final_damage -= M.armor_stat
-		if(!M.damaged)
-			M.integrity_stat -= final_damage
-			M.damage_animation(final_damage)
+/obj/structure/fd/mech_wreckage/big/Initialize()
+	. = ..()
+	var/state = rand(1,7)
+	icon_state = "heavy_death_[state]"
 
 /mob/living/simple_animal/hostile/fd/mech/drake
 	name = "H-APU Drake"
@@ -46,6 +45,8 @@
 
 	var/bunkermode = FALSE
 	var/next_shield_bump = 0
+
+	wreck_type = /obj/structure/fd/mech_wreckage/big
 
 /mob/living/simple_animal/hostile/fd/mech/drake/Move()
 	if(bunkermode)

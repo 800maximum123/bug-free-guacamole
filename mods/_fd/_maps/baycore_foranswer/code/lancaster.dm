@@ -1,3 +1,12 @@
+/obj/structure/fd/mech_wreckage/small/lancaster
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/engineer_def.dmi'
+	icon_state = "engineer_death_1"
+
+	pixel_y = 0
+	pixel_x = 0
+	bound_width = 256
+	bound_height = 64
+
 /mob/living/simple_animal/hostile/fd/mech/lancaster
 	name = "SUPP-APU Lancaster"
 	desc = "Special engineering machine, manufactured to bring fast aid to the other personal units on the battlefield."
@@ -29,6 +38,8 @@
 
 	var/mob/living/simple_animal/hostile/fd/mech/passenger = null
 	var/mutable_appearance/passenger_overlay
+
+	wreck_type = /obj/structure/fd/mech_wreckage/small/lancaster
 
 /mob/living/simple_animal/hostile/fd/mech/lancaster/Stat()
 	. = ..()
