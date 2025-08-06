@@ -107,7 +107,13 @@
 			return TRUE
 
 /mob/living/simple_animal/hostile/fd/mech/lancaster/ClickOn(atom/A, params)
-	if(A == src && stat != DEAD)
+	if(A == src && hacked)
+		if(!do_after(src, 2 SECONDS))
+			return FALSE
+		hacked = FALSE
+		return TRUE
+
+	if(A == src)
 		var/list/options = list(
 			"Toggle Fire" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "6"),
 			"Resupply Mech" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "17"),

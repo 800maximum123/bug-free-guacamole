@@ -113,6 +113,12 @@
 			protected.AddOverlays(field_overlay)
 			return TRUE
 
+	if(A == src && hacked)
+		if(!do_after(src, 2 SECONDS))
+			return FALSE
+		hacked = FALSE
+		return TRUE
+
 	if(A == src)
 		var/list/options = list(
 			"Toggle Fire" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "6"),

@@ -80,11 +80,19 @@
 		if("Assault Cannon")
 			weapon_equiped = "Assault Cannon"
 			natural_weapon = /obj/item/natural_weapon
+			return TRUE
 		if("Shield")
 			weapon_equiped = "Shield"
 			natural_weapon = /obj/item/shield/riot/mech
+			return TRUE
 
 /mob/living/simple_animal/hostile/fd/mech/drake/ClickOn(atom/A, params)
+	if(A == src && hacked)
+		if(!do_after(src, 2 SECONDS))
+			return FALSE
+		hacked = FALSE
+		return TRUE
+
 	if(A == src)
 		var/list/options = list(
 			"Change Weapon" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),

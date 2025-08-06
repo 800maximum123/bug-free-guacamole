@@ -89,6 +89,11 @@
 
 	var/death_states = 4
 
+	var/hacking_qte = 0
+	var/hacked = FALSE
+	var/chained = FALSE
+	var/chained_for = 0
+
 /mob/living/simple_animal/hostile/fd/mech/Stat()
 	if(statpanel("Status"))
 		stat(null, "Integrity: [integrity_stat] / [integrity_stat_max] ([round((integrity_stat / integrity_stat_max) * 100)]%)")
@@ -142,6 +147,9 @@
 
 /mob/living/simple_animal/hostile/fd/mech/Life()
 
+	if(world.time >= chained_for && chained)
+		chained = FALSE
+
 	if(damaged && repairs_left <= 0)
 		death()
 
@@ -181,9 +189,19 @@
 	if(damaged)
 		return 0
 
+	if(chained)
+		return FALSE
+
 	. = ..()
 
 /mob/living/simple_animal/hostile/fd/mech/ClickOn(atom/A, params)
+
+	if(A == src && hacked)
+		if(!do_after(src, 2 SECONDS))
+			return FALSE
+		hacked = FALSE
+		return TRUE
+
 	if(A == src)
 		var/list/options = list(
 			"Change Weapon" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),
