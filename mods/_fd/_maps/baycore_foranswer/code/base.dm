@@ -6,8 +6,9 @@
 	damage_type = DAMAGE_BRUTE
 	damage_flags = DAMAGE_FLAG_BULLET
 	embed = FALSE
+	fire_sound = 'sound/weapons/guns/ricochet4.ogg'
 
-	var/real_damage = 1 // Реальный дамаг по мехам
+	var/real_damage = 10 // Реальный дамаг по мехам
 	var/piercing = FALSE // Игнорирует армор?
 
 /obj/item/projectile/bullet/mech/on_hit(atom/target, blocked = 0)
@@ -43,14 +44,6 @@
 			M.damage_animation(final_damage, ignore_armor = TRUE)
 		else
 			M.damage_animation(final_damage)
-
-/obj/item/projectile/bullet/mech/experimental/on_hit(atom/target, blocked = 0)
-	. = ..()
-
-	if(istype(target, /mob/living/simple_animal/hostile/fd/mech))
-		var/mob/living/simple_animal/hostile/fd/mech/M = target
-
-		M.heat += 2
 
 /obj/structure/fd/mech_wreckage
 	name = "Wreckage"
@@ -97,7 +90,7 @@
 	var/can_shoot = TRUE
 	var/has_ammo = FALSE
 	var/spare_magazines = 0
-	var/shot_delay = 0
+	var/next_fire = 0
 
 	var/hacking_qte = 0
 	var/hacked = FALSE
@@ -107,17 +100,28 @@
 	var/malf_for = 0
 
 	var/wreck_type = /obj/structure/fd/mech_wreckage
+	var/dead = FALSE
 
 /mob/living/simple_animal/hostile/fd/mech/Stat()
-	if(statpanel("Status"))
-		stat(null, "Integrity: [integrity_stat] / [integrity_stat_max] ([round((integrity_stat / integrity_stat_max) * 100)]%)")
-		stat(null, SPAN_COLOR("#ff8800", "Heat: [round((heat / heat_overflow) * 100)]% ([heat] / [heat_overflow])"))
-		stat(null, SPAN_BOLD("Repairs Left: [repairs_left]"))
+	. = ..()
+	if(statpanel("Mech"))
+		stat(null, "Структуры: [integrity_stat] / [integrity_stat_max] ([round((integrity_stat / integrity_stat_max) * 100)]%)")
+		stat(null, SPAN_COLOR("#ff8800", "Перегрева: [round((heat / heat_overflow) * 100)]% ([heat] / [heat_overflow])"))
+		if(has_ammo)
+			stat(null, "Запасных Магазинов: [spare_magazines]")
+		stat(null, SPAN_BOLD("Комплектов Починки: [repairs_left]"))
 
 /mob/living/simple_animal/hostile/fd/mech/death()
-	new wreck_type (get_turf(src))
-	..(FALSE, "suddenly breaks apart.", "You have been destroyed.")
-	qdel(src)
+	dead = TRUE
+	playsound(get_turf(src),'sound/mecha/internaldmgalarm.ogg',80)
+	playsound(get_turf(src),'sound/mecha/mech-shutdown.ogg',80)
+	playsound(get_turf(src),'sound/mecha/hydraulic.ogg',40)
+	playsound(get_turf(src),'sound/mecha/weapdestr.ogg',80)
+	spawn(rand(3 SECONDS, 4 SECONDS))
+		playsound(get_turf(src),'sound/mecha/Explosion_02.mp3',80)
+		new wreck_type (get_turf(src))
+		..(FALSE, "suddenly breaks apart.", "You have been destroyed.")
+		qdel(src)
 
 /mob/living/simple_animal/hostile/fd/mech/proc/damage_animation(amount, ignore_armor = FALSE)
 	if(damaged)
@@ -161,12 +165,15 @@
 	if(world.time >= malf_for && malfunction)
 		malfunction = FALSE
 
-	if(damaged && repairs_left <= 0)
+	if(damaged && repairs_left <= 0 && !dead)
 		death()
 
 	if(!damaged && integrity_stat <= 0)
 		damaged = TRUE
 		add_filter("down", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_RED))
+		playsound(get_turf(src),'sound/mecha/internaldmgalarm.ogg',80)
+		playsound(get_turf(src),'sound/mecha/mech-shutdown.ogg',80)
+		playsound(get_turf(src),'sound/mecha/critdestr.ogg',80)
 
 	if(overheated && overheat_timer > 0 && !damaged)
 		integrity_stat -= 1
@@ -205,6 +212,53 @@
 
 	. = ..()
 
+/mob/living/simple_animal/hostile/fd/mech/proc/consume_ammo()
+	return TRUE
+
+/mob/living/simple_animal/hostile/fd/mech/proc/mech_shoot(atom/target, bullet_type = /obj/item/projectile/bullet/mech, cooldown, amount = 1, interval = 0, damage_bonus, bullet_icon, sound)
+	set waitfor = FALSE
+
+	if(world.time < next_fire)
+		return FALSE
+
+	next_fire = cooldown
+	var/obj/item/projectile/bullet/mech/pew
+
+	for(var/shot, shot<amount, shot++)
+		if(!can_shoot)
+			return FALSE
+		if(malfunction)
+			return FALSE
+		if(damaged)
+			return FALSE
+		if(!consume_ammo())
+			playsound(get_turf(src),'sound/weapons/empty.ogg', 80, 1)
+			return FALSE
+
+		pew = new bullet_type(get_turf(src))
+
+		if(sound)
+			pew.fire_sound = sound
+		playsound(pew.loc, pew.fire_sound, 15, 1)
+
+		if(damage_bonus)
+			pew.real_damage += damage_bonus
+		if(bullet_icon)
+			pew.icon_state = bullet_icon
+
+		pew.SetTransform(2)
+
+		pew.original = target
+		pew.current = target
+		pew.starting = get_turf(src)
+		pew.shot_from = src
+
+		pew.launch(target, BP_CHEST)
+		spawn(rand(0.5 SECONDS, 1 SECONDS))
+			playsound(get_turf(src), pick(list('sound/weapons/guns/casingfall1.ogg','sound/weapons/guns/casingfall2.ogg','sound/weapons/guns/casingfall3.ogg')), 80, 1)
+
+		sleep(interval)
+
 /mob/living/simple_animal/hostile/fd/mech/ClickOn(atom/A, params)
 
 	if(A == src && hacked)
@@ -216,7 +270,7 @@
 	if(A == src)
 		var/list/options = list(
 			"Change Weapon" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),
-			"Toggle Fire" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "6"),
+			"Toggle Safety" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "6"),
 			"Reboot" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "34"),
 		)
 
@@ -225,7 +279,7 @@
 			return FALSE
 		switch(chosen_option)
 
-			if("Toggle Fire")
+			if("Toggle Safety")
 				if(can_shoot)
 					can_shoot = FALSE
 					return TRUE
@@ -252,58 +306,10 @@
 
 	switch(weapon_equiped)
 		if("Standart Pistol")
-			if(!can_shoot)
-				return FALSE
-			if(malfunction)
-				return FALSE
-			if(damaged)
-				return FALSE
-			if(world.time <= shot_delay)
-				return FALSE
-			else
-				var/obj/item/projectile/bullet/mech/pew
-				var/pew_sound
-
-				pew = new /obj/item/projectile/bullet/mech(get_turf(src))
-				pew.real_damage = 10
-				pew_sound = 'sound/weapons/guns/ricochet4.ogg'
-
-				if(istype(pew))
-					playsound(pew.loc, pew_sound, 25, 1)
-					pew.original = A
-					pew.current = A
-					pew.starting = get_turf(src)
-					pew.shot_from = src
-					pew.launch(A)
-					shot_delay = world.time + 1 SECONDS
+			mech_shoot(A, /obj/item/projectile/bullet/mech/pistol, (world.time + 1 SECONDS))
 
 		if("Standart Rifle")
-			if(!can_shoot)
-				return FALSE
-			if(malfunction)
-				return FALSE
-			if(damaged)
-				return FALSE
-			if(world.time <= shot_delay)
-				return FALSE
-			else
-				var/obj/item/projectile/bullet/mech/pew
-				var/pew_sound
-				var/fire_delay
+			mech_shoot(A, FALSE, (world.time + 1 SECONDS), 3, 2)
 
-				for(var/bullet, bullet<3, bullet++)
-					fire_delay += 2
-
-					pew = new /obj/item/projectile/bullet/mech(get_turf(src))
-					pew.real_damage = 5
-					pew_sound = 'sound/weapons/guns/ricochet4.ogg'
-
-					spawn(fire_delay)
-						if(istype(pew))
-							playsound(pew.loc, pew_sound, 25, 1)
-							pew.original = A
-							pew.current = A
-							pew.starting = get_turf(src)
-							pew.shot_from = src
-							pew.launch(A, BP_CHEST, (A.x-src.x), (A.y-src.y))
-				shot_delay = world.time + 2 SECONDS
+/obj/item/projectile/bullet/mech/pistol
+	real_damage = 5

@@ -35,14 +35,14 @@
 	weapon_equiped = "Assault Cannon"
 	repairs_left = 2
 
-	has_ammo = TRUE
 	spare_magazines = 1
+	has_ammo = TRUE
+
+	var/cannon_ammo = 600
 
 	var/speed_buff = 0 // Разгон ствола за счёт перегрева
 	var/start_counting = FALSE
 	var/buff_timer = 30 SECONDS
-
-	var/cannon_ammo = 600
 
 	var/bunkermode = FALSE
 	var/next_shield_bump = 0
@@ -85,6 +85,12 @@
 			weapon_equiped = "Shield"
 			return TRUE
 
+/mob/living/simple_animal/hostile/fd/mech/drake/consume_ammo()
+	if(cannon_ammo <= 0)
+		return FALSE
+	cannon_ammo--
+	return TRUE
+
 /mob/living/simple_animal/hostile/fd/mech/drake/ClickOn(atom/A, params)
 	if(A == src && hacked)
 		if(!do_after(src, 2 SECONDS))
@@ -96,9 +102,9 @@
 		var/list/options = list(
 			"Change Weapon" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),
 			"Reload Weapon" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "17"),
-			"Spin Cannon" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "22"),
-			"Setup Bunker" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "18"),
-			"Toggle Fire" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "6"),
+			"Accelerate Cannon" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "22"),
+			"Bunker On/Off" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "18"),
+			"Toggle Safety" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "6"),
 			"Reboot" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "34"),
 		)
 
@@ -107,7 +113,7 @@
 			return FALSE
 		switch(chosen_option)
 
-			if("Toggle Fire")
+			if("Toggle Safety")
 				if(can_shoot)
 					can_shoot = FALSE
 					return TRUE
@@ -126,7 +132,7 @@
 					spare_magazines -= 1
 					return TRUE
 
-			if("Setup Bunker")
+			if("Bunker On/Off")
 				if(bunkermode)
 					bunkermode = FALSE
 					armor_stat = initial(armor_stat)
@@ -136,7 +142,7 @@
 					armor_stat = 15
 					return TRUE
 
-			if("Spin Cannon")
+			if("Accelerate Cannon")
 				if(damaged)
 					return FALSE
 				if(speed_buff >= 4 SECONDS)
@@ -170,43 +176,7 @@
 
 	switch(weapon_equiped)
 		if("Assault Cannon")
-			if(!can_shoot)
-				return FALSE
-			if(malfunction)
-				return FALSE
-			if(cannon_ammo <= 0)
-				return FALSE
-			if(damaged)
-				return FALSE
-			if(world.time <= shot_delay)
-				return FALSE
-			else
-				var/obj/item/projectile/bullet/mech/pew
-				var/pew_sound
-				var/fire_delay
-
-				for(var/bullet, bullet<6, bullet++)
-					cannon_ammo -= 1
-					fire_delay += 1
-
-					if(cannon_ammo <= 0)
-						continue
-
-					pew = new /obj/item/projectile/bullet/mech(get_turf(src))
-					pew.real_damage = 10
-					pew.icon_state = "bolter"
-					pew_sound = 'sound/weapons/gunshot/minigun.ogg'
-					pew.SetTransform(2)
-
-					spawn(fire_delay)
-						if(istype(pew))
-							playsound(pew.loc, pew_sound, 10, 1)
-							pew.original = A
-							pew.current = A
-							pew.starting = get_turf(src)
-							pew.shot_from = src
-							pew.launch(A, BP_CHEST, (A.x-src.x), (A.y-src.y))
-				shot_delay = world.time + 4 SECONDS - speed_buff
+			mech_shoot(A, /obj/item/projectile/bullet/mech/drake, (world.time + 4 SECONDS - speed_buff), 6, 1)
 		if("Shield")
 			if(damaged)
 				return FALSE
@@ -225,3 +195,7 @@
 					M.damage_animation(damage_incoming)
 					M.throw_at(get_edge_target_turf(M, get_dir(src, M)), 5, 3, src)
 			next_shield_bump = world.time + 1 SECONDS
+
+/obj/item/projectile/bullet/mech/drake
+	icon_state = "bolter"
+	fire_sound = 'sound/weapons/gunshot/minigun.ogg'

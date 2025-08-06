@@ -30,6 +30,11 @@
 	var/mob/living/simple_animal/hostile/fd/mech/passenger = null
 	var/mutable_appearance/passenger_overlay
 
+/mob/living/simple_animal/hostile/fd/mech/lancaster/Stat()
+	. = ..()
+	if(statpanel("Mech"))
+		stat(null, SPAN_BOLD(SPAN_COLOR("#aac256", "Зарядов Пополнения: [restock_charges]")))
+
 /mob/living/simple_animal/hostile/fd/mech/lancaster/Life()
 	if(heat > 0 && !start_counting)
 		start_counting = TRUE
@@ -95,7 +100,7 @@
 			var/mob/living/simple_animal/hostile/fd/mech/target_choice = show_radial_menu(src, src, mechs_in_radius, radius = 100, require_near = TRUE, offset_x = 105, offset_y = 90)
 			if(!target_choice)
 				return FALSE
-			if(!do_after(src, 10 SECONDS))
+			if(!do_after(src, 10 SECONDS, target_choice))
 				return FALSE
 			target_choice.spare_magazines += 2
 			restock_charges -= 1
@@ -110,7 +115,7 @@
 
 	if(A == src)
 		var/list/options = list(
-			"Toggle Fire" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "6"),
+			"Toggle Safety" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "6"),
 			"Resupply Mech" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "17"),
 			"Unattach Passenger" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "20"),
 		)
@@ -120,7 +125,7 @@
 			return FALSE
 		switch(chosen_option)
 
-			if("Toggle Fire")
+			if("Toggle Safety")
 				if(can_shoot)
 					can_shoot = FALSE
 					return TRUE
@@ -169,35 +174,11 @@
 	. = ..()
 
 	if(weapon_equiped == "Plasma Cutter")
-		if(!can_shoot)
-			return FALSE
-		if(malfunction)
-			return FALSE
-		if(damaged)
-			return FALSE
-		if(world.time <= shot_delay)
-			return FALSE
-		else
-			var/obj/item/projectile/bullet/mech/pew
-			var/pew_sound
-			var/fire_delay
+		mech_shoot(A, /obj/item/projectile/bullet/mech/lancaster, (world.time + 1 SECONDS), 2, 1)
 
-			for(var/bullet, bullet<2, bullet++)
-				fire_delay += 1
-
-				pew = new /obj/item/projectile/bullet/mech(get_turf(src))
-				pew.real_damage = 3
-				pew.piercing = TRUE
-				pew.icon_state = "pulse0_bl"
-				pew.life_span = 5
-				pew_sound = 'sound/weapons/plasma_cutter.ogg'
-
-				spawn(fire_delay)
-					if(istype(pew))
-						playsound(pew.loc, pew_sound, 10, 1)
-						pew.original = A
-						pew.current = A
-						pew.starting = get_turf(src)
-						pew.shot_from = src
-						pew.launch(A, BP_CHEST, (A.x-src.x), (A.y-src.y))
-			shot_delay = world.time + 1 SECONDS
+/obj/item/projectile/bullet/mech/lancaster
+	real_damage = 3
+	life_span = 5
+	piercing = TRUE
+	icon_state = "pulse0_bl"
+	fire_sound = 'sound/weapons/plasma_cutter.ogg'

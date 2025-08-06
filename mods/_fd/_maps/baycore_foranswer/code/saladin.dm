@@ -29,8 +29,15 @@
 	var/shield_integrity = 200
 	var/shield_cooldown = 0
 
-/mob/living/simple_animal/hostile/fd/mech/saladin/Life()
+/mob/living/simple_animal/hostile/fd/mech/saladin/Stat()
+	. = ..()
+	if(statpanel("Mech"))
+		if(jump_cooldown > world.time)
+			stat(null, SPAN_COLOR("#67d7eb", "Следующий Прыжок: [jump_cooldown - world.time / 10] Секунд"))
+		if(protected)
+			stat(null, SPAN_BOLD(SPAN_COLOR("#6dc5ff", "Барьера [protected.name]: [shield_integrity]")))
 
+/mob/living/simple_animal/hostile/fd/mech/saladin/Life()
 	if(overheated && overheat_timer > 0 && !damaged)
 		for(var/mob/living/simple_animal/hostile/fd/mech/M in orange(5,src))
 			M.integrity_stat -= 5
@@ -61,7 +68,7 @@
 	if(modifiers["alt"])
 		if(world.time <= jump_cooldown)
 			return FALSE
-		var/turf/target_turf = get_step(get_turf(A), pick(GLOB.alldirs))
+		var/turf/target_turf = get_turf(A)
 		if(heat < 10 && A.density != FALSE)
 			return FALSE
 
@@ -120,7 +127,7 @@
 
 	if(A == src)
 		var/list/options = list(
-			"Toggle Fire" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "6"),
+			"Toggle Safety" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "6"),
 			"Reboot" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "34"),
 		)
 
@@ -129,7 +136,7 @@
 			return FALSE
 		switch(chosen_option)
 
-			if("Toggle Fire")
+			if("Toggle Safety")
 				if(can_shoot)
 					can_shoot = FALSE
 					return TRUE
@@ -152,32 +159,24 @@
 
 	switch(weapon_equiped)
 		if("Thermal Release")
-			if(!can_shoot)
-				return FALSE
-			if(malfunction)
-				return FALSE
-			if(damaged)
-				return FALSE
-			if(heat <= 0)
-				return FALSE
-			if(world.time <= shot_delay)
-				return FALSE
-			else
-				var/obj/item/projectile/bullet/mech/experimental/pew
-				var/pew_sound
+			mech_shoot(A, /obj/item/projectile/bullet/mech/saladin, (world.time + 2 SECONDS))
 
-				pew = new /obj/item/projectile/bullet/mech/experimental(get_turf(src))
-				pew.real_damage = 5
-				pew.icon = 'mods/_fd/fd_assets/icons/projectiles.dmi'
-				pew.icon_state = "heavylaser"
-				pew_sound = 'sound/weapons/laser3.ogg'
+/mob/living/simple_animal/hostile/fd/mech/saladin/consume_ammo()
+	if(heat <= 0)
+		return FALSE
+	heat -= 1
+	return TRUE
 
-				if(istype(pew))
-					heat -= 1
-					playsound(pew.loc, pew_sound, 25, 1)
-					pew.original = A
-					pew.current = A
-					pew.starting = get_turf(src)
-					pew.shot_from = src
-					pew.launch(A)
-					shot_delay = world.time + 2 SECONDS
+/obj/item/projectile/bullet/mech/saladin
+	real_damage = 5
+	icon = 'mods/_fd/fd_assets/icons/projectiles.dmi'
+	icon_state = "heavylaser"
+	fire_sound = 'sound/weapons/laser3.ogg'
+
+/obj/item/projectile/bullet/mech/saladin/on_hit(atom/target, blocked = 0)
+	. = ..()
+
+	if(istype(target, /mob/living/simple_animal/hostile/fd/mech))
+		var/mob/living/simple_animal/hostile/fd/mech/M = target
+
+		M.heat += 2

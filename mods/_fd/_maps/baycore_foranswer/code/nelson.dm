@@ -32,6 +32,12 @@
 	var/momentum_timer = 1 SECOND
 	var/momentum_stacks = 0
 
+/mob/living/simple_animal/hostile/fd/mech/nelson/Stat()
+	. = ..()
+	if(statpanel("Mech"))
+		if(pointblank)
+			stat(null, FONT_HUGE(SPAN_COLOR("#ff4800", "| ПРОТКНУТЬ И ЗАСТРЕЛИТЬ |")))
+
 /mob/living/simple_animal/hostile/fd/mech/nelson/set_dir()
 	..()
 	switch(dir)
@@ -141,30 +147,8 @@
 
 	if(modifiers["alt"])
 		if(pointblank)
-			if(malfunction)
-				return FALSE
-			if(damaged)
-				return FALSE
-			else
-				var/obj/item/projectile/bullet/mech/pew
-				var/pew_sound
-
-				pew = new /obj/item/projectile/bullet/mech(get_turf(src))
-				pew.real_damage = 50
-				pew.hitchance_mod = 5
-				pew.icon_state = "bolter"
-				pew_sound = 'sound/weapons/gunshot/sniper.ogg'
-				pew.SetTransform(2)
-
-				if(istype(pew))
-					playsound(pew.loc, pew_sound, 25, 1)
-					pew.original = A
-					pew.current = A
-					pew.starting = get_turf(src)
-					pew.shot_from = src
-					pew.launch(A)
-					pointblank = FALSE
-				return TRUE
+			mech_shoot(A, /obj/item/projectile/bullet/mech/nelson)
+			pointblank = FALSE
 
 	. = ..()
 
@@ -205,3 +189,9 @@
 					M.integrity_stat -= damage_incoming
 					M.damage_animation(damage_incoming, ignore_armor = TRUE)
 			next_shield_bump = world.time + 3 SECONDS
+
+/obj/item/projectile/bullet/mech/nelson
+	real_damage = 50
+	hitchance_mod = 5
+	fire_sound = 'sound/weapons/gunshot/sniper.ogg'
+	icon_state = "bolter"
