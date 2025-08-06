@@ -93,6 +93,8 @@
 	var/hacked = FALSE
 	var/chained = FALSE
 	var/chained_for = 0
+	var/malfunction = FALSE
+	var/malf_for = 0
 
 /mob/living/simple_animal/hostile/fd/mech/Stat()
 	if(statpanel("Status"))
@@ -131,7 +133,9 @@
 		"Standart Pistol" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),
 		"Standart Rifle" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24")
 	)
-	var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE)
+	var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 125, offset_y = 125)
+	if(!chosen_option)
+		return FALSE
 	switch(chosen_option)
 		if("Standart Pistol")
 			weapon_equiped = "Standart Pistol"
@@ -149,6 +153,9 @@
 
 	if(world.time >= chained_for && chained)
 		chained = FALSE
+
+	if(world.time >= malf_for && malfunction)
+		malfunction = FALSE
 
 	if(damaged && repairs_left <= 0)
 		death()
@@ -243,6 +250,8 @@
 		if("Standart Pistol")
 			if(!can_shoot)
 				return FALSE
+			if(malfunction)
+				return FALSE
 			if(damaged)
 				return FALSE
 			if(world.time <= shot_delay)
@@ -266,6 +275,8 @@
 
 		if("Standart Rifle")
 			if(!can_shoot)
+				return FALSE
+			if(malfunction)
 				return FALSE
 			if(damaged)
 				return FALSE

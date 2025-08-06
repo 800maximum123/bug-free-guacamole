@@ -52,7 +52,7 @@
 		"Restock Allie" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "30")
 	)
 
-	var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 125, offset_y = 125)
+	var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
 	if(!chosen_option)
 		return FALSE
 	switch(chosen_option)
@@ -73,7 +73,7 @@
 			for(var/mob/living/simple_animal/hostile/fd/mech/M in view(2,src))
 				if(M.stat != DEAD)
 					mechs_in_radius += M
-			var/mob/living/simple_animal/hostile/fd/mech/target_choice = show_radial_menu(src, src, mechs_in_radius, radius = 100, require_near = TRUE)
+			var/mob/living/simple_animal/hostile/fd/mech/target_choice = show_radial_menu(src, src, mechs_in_radius, radius = 100, require_near = TRUE, offset_x = 105, offset_y = 90)
 			if(!target_choice)
 				return FALSE
 			if(!do_after(src, 10 SECONDS))
@@ -93,7 +93,7 @@
 			for(var/mob/living/simple_animal/hostile/fd/mech/M in oview(1,src))
 				if(M.stat != DEAD && M.has_ammo)
 					mechs_in_radius += M
-			var/mob/living/simple_animal/hostile/fd/mech/target_choice = show_radial_menu(src, src, mechs_in_radius, radius = 100, require_near = TRUE)
+			var/mob/living/simple_animal/hostile/fd/mech/target_choice = show_radial_menu(src, src, mechs_in_radius, radius = 100, require_near = TRUE, offset_x = 105, offset_y = 90)
 			if(!target_choice)
 				return FALSE
 			if(!do_after(src, 10 SECONDS))
@@ -116,7 +116,7 @@
 			"Unattach Passenger" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "20"),
 		)
 
-		var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 125, offset_y = 125)
+		var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
 		if(!chosen_option)
 			return FALSE
 		switch(chosen_option)
@@ -171,6 +171,8 @@
 
 	if(weapon_equiped == "Plasma Cutter")
 		if(!can_shoot)
+			return FALSE
+		if(malfunction)
 			return FALSE
 		if(damaged)
 			return FALSE

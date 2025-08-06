@@ -75,7 +75,9 @@
 		"Assault Cannon" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),
 		"Shield" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24")
 	)
-	var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE)
+	var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
+	if(!chosen_option)
+		return FALSE
 	switch(chosen_option)
 		if("Assault Cannon")
 			weapon_equiped = "Assault Cannon"
@@ -103,7 +105,9 @@
 			"Reboot" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "34"),
 		)
 
-		var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 125, offset_y = 125)
+		var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
+		if(!chosen_option)
+			return FALSE
 		switch(chosen_option)
 
 			if("Toggle Fire")
@@ -169,6 +173,8 @@
 
 	if(weapon_equiped == "Assault Cannon")
 		if(!can_shoot)
+			return FALSE
+		if(malfunction)
 			return FALSE
 		if(cannon_ammo <= 0)
 			return FALSE

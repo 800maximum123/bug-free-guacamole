@@ -5,7 +5,7 @@
 	hacking_qte = world.time + 5 SECONDS
 	if(world.time >= hacking_qte && hacked)
 		clear_fullscreen("scanlines")
-		var/debuff = pick("Overheated","Stunned")
+		var/debuff = pick("Overheated","Stunned","Broken")
 		switch(debuff)
 			if("Overheated")
 				overheated = TRUE
@@ -13,6 +13,10 @@
 			if("Stunned")
 				chained_for = world.time + 10 SECONDS
 				chained = TRUE
+				return TRUE
+			if("Broken")
+				malf_for = world.time + 10 SECONDS
+				malfunction = TRUE
 				return TRUE
 
 /mob/living/simple_animal/hostile/fd/mech/goblintail
@@ -80,7 +84,7 @@
 		"Submachine Gun" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),
 		"Whip" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24")
 	)
-	var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE)
+	var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
 	switch(chosen_option)
 		if("Submachine Gun")
 			weapon_equiped = "Submachine Gun"
@@ -105,7 +109,7 @@
 			"Reboot" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "34"),
 		)
 
-		var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 125, offset_y = 125)
+		var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
 		if(!chosen_option)
 			return FALSE
 		switch(chosen_option)
@@ -164,6 +168,8 @@
 	var/modifiers = params2list(params)
 
 	if(modifiers["alt"])
+		if(!cloaked)
+			return FALSE
 
 		if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
 			var/mob/living/simple_animal/hostile/fd/mech/M = A
@@ -180,6 +186,8 @@
 	switch(weapon_equiped)
 		if("Submachine Gun")
 			if(!can_shoot)
+				return FALSE
+			if(malfunction)
 				return FALSE
 			if(gun_ammo <= 0)
 				return FALSE
