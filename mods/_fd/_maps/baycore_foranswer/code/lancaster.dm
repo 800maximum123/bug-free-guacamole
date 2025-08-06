@@ -52,11 +52,7 @@
 		"Restock Allie" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "30")
 	)
 
-	var/list/modifiers = params2list(params)
-	var/chosen_option
-
-	if(modifiers["icon-x"] && modifiers["icon-y"])
-		chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = modifiers["icon-x"], offset_y = modifiers["icon-y"])
+	var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 125, offset_y = 125)
 	if(!chosen_option)
 		return FALSE
 	switch(chosen_option)
@@ -120,11 +116,7 @@
 			"Unattach Passenger" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "20"),
 		)
 
-		var/list/modifiers = params2list(params)
-		var/chosen_option
-
-		if(modifiers["vis-x"] && modifiers["vis-y"])
-			chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = text2num(modifiers["vis-x"]), offset_y = text2num(modifiers["vix-y"]))
+		var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 125, offset_y = 125)
 		if(!chosen_option)
 			return FALSE
 		switch(chosen_option)
