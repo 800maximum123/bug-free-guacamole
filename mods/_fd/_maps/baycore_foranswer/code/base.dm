@@ -89,6 +89,12 @@
 
 	var/death_states = 4
 
+/mob/living/simple_animal/hostile/fd/mech/Stat()
+	if(statpanel("Status"))
+		stat(null, "Integrity: [integrity_stat] / [integrity_stat_max] ([round((integrity_stat / integrity_stat_max) * 100)]%)")
+		stat(null, SPAN_COLOR("#ff8800", "Heat: [round((heat / heat_overflow) * 100)]% ([heat] / [heat_overflow])"))
+		stat(null, SPAN_BOLD("Repairs Left: [repairs_left]"))
+
 /mob/living/simple_animal/hostile/fd/mech/death()
 	..(FALSE, "suddenly breaks apart.", "You have been destroyed.")
 	var/state_number = rand(1, death_states)
@@ -139,7 +145,7 @@
 	if(damaged && repairs_left <= 0)
 		death()
 
-	if(integrity_stat <= 0)
+	if(!damaged && integrity_stat <= 0)
 		damaged = TRUE
 		add_filter("down", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_RED))
 
@@ -185,7 +191,11 @@
 			"Reboot" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "34"),
 		)
 
-		var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE)
+		var/list/modifiers = params2list(params)
+		var/chosen_option
+
+		if(modifiers["vis-x"] && modifiers["vis-y"])
+			chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = text2num(modifiers["vis-x"]), offset_y = text2num(modifiers["vix-y"]))
 		if(!chosen_option)
 			return FALSE
 		switch(chosen_option)

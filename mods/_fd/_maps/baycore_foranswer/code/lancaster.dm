@@ -43,7 +43,7 @@
 
 	. = ..()
 
-/mob/living/simple_animal/hostile/fd/mech/lancaster/proc/choose_resupp()
+/mob/living/simple_animal/hostile/fd/mech/lancaster/proc/choose_resupp(params)
 	var/list/mechs_in_radius = list()
 
 	var/list/options = list(
@@ -51,7 +51,14 @@
 		"Patch Allie/Self" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "36"),
 		"Restock Allie" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "30")
 	)
-	var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE)
+
+	var/list/modifiers = params2list(params)
+	var/chosen_option
+
+	if(modifiers["icon-x"] && modifiers["icon-y"])
+		chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = modifiers["icon-x"], offset_y = modifiers["icon-y"])
+	if(!chosen_option)
+		return FALSE
 	switch(chosen_option)
 		if("Reboot Self")
 			if(!damaged)
@@ -107,7 +114,11 @@
 			"Unattach Passenger" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "20"),
 		)
 
-		var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE)
+		var/list/modifiers = params2list(params)
+		var/chosen_option
+
+		if(modifiers["vis-x"] && modifiers["vis-y"])
+			chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = text2num(modifiers["vis-x"]), offset_y = text2num(modifiers["vix-y"]))
 		if(!chosen_option)
 			return FALSE
 		switch(chosen_option)
@@ -121,7 +132,7 @@
 					return TRUE
 
 			if("Resupply Mech")
-				choose_resupp()
+				choose_resupp(params)
 				return TRUE
 
 			if("Unattach Passenger")
