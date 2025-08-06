@@ -108,7 +108,7 @@
 
 /mob/living/simple_animal/hostile/fd/mech/Stat()
 	. = ..()
-	if(statpanel("Mech"))
+	if(statpanel("Status"))
 		stat(null, "Структуры: [integrity_stat] / [integrity_stat_max] ([round((integrity_stat / integrity_stat_max) * 100)]%)")
 		stat(null, SPAN_COLOR("#ff8800", "Перегрева: [round((heat / heat_overflow) * 100)]% ([heat] / [heat_overflow])"))
 		if(has_ammo)

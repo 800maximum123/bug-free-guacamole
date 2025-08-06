@@ -50,7 +50,7 @@
 
 /mob/living/simple_animal/hostile/fd/mech/saladin/Stat()
 	. = ..()
-	if(statpanel("Mech"))
+	if(statpanel("Status"))
 		if(jump_cooldown > world.time)
 			stat(null, SPAN_COLOR("#67d7eb", "Следующий Прыжок: [jump_cooldown - world.time / 10] Секунд"))
 		if(protected)

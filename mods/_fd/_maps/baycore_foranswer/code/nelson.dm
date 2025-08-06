@@ -50,7 +50,7 @@
 
 /mob/living/simple_animal/hostile/fd/mech/nelson/Stat()
 	. = ..()
-	if(statpanel("Mech"))
+	if(statpanel("Status"))
 		if(pointblank)
 			stat(null, FONT_HUGE(SPAN_COLOR("#ff4800", "| ПРОТКНУТЬ И ЗАСТРЕЛИТЬ |")))
 

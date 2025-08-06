@@ -43,7 +43,7 @@
 
 /mob/living/simple_animal/hostile/fd/mech/lancaster/Stat()
 	. = ..()
-	if(statpanel("Mech"))
+	if(statpanel("Status"))
 		stat(null, SPAN_BOLD(SPAN_COLOR("#aac256", "Зарядов Пополнения: [restock_charges]")))
 
 /mob/living/simple_animal/hostile/fd/mech/lancaster/Life()

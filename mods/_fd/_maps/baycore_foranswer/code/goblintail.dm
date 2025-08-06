@@ -74,7 +74,7 @@
 
 /mob/living/simple_animal/hostile/fd/mech/goblintail/Stat()
 	. = ..()
-	if(statpanel("Mech"))
+	if(statpanel("Status"))
 		stat(null, SPAN_BOLD(SPAN_COLOR("#c675fc", "Зарядов Взлома: [hack_charges]")))
 		if(recharging)
 			stat(null, SPAN_COLOR("#ec75fc", "Следующий Заряд: [recharge_in - world.time / 10] Секунд"))
