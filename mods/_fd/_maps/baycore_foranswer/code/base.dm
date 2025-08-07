@@ -30,7 +30,6 @@
 					return TRUE
 
 		if(M.overprotected)
-			var/mob/living/simple_animal/hostile/fd/mech/saladin/D
 			for(var/mob/living/simple_animal/hostile/fd/mech/saladin/D in range(13, get_turf(src)))
 				if(D.protected != M)
 					continue
