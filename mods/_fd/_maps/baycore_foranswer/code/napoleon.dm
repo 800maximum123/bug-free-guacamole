@@ -21,8 +21,8 @@
 
 	armor_stat = 2
 
-	integrity_stat = 500
-	integrity_stat_max = 500
+	integrity = 500
+	integrity_max = 500
 	repairs_left = 2
 
 	heat_overflow = 10
