@@ -27,8 +27,8 @@
 	movement_cooldown = 6
 
 	armor_stat = 5
-	integrity_stat = 1000
-	integrity_stat_max = 1000
+	integrity = 1000
+	integrity_max = 1000
 
 	heat_overflow = 10
 	weapon_equipped = "Assault Cannon"
@@ -140,7 +140,7 @@
 						return FALSE
 					speed_buff += 1 SECOND
 					if(overheated)
-						integrity_stat -= 10
+						integrity -= 10
 						damage_animation(10, ignore_armor = TRUE)
 					else
 						heat += 1
@@ -156,6 +156,8 @@
 	else if(modifiers["middle"])
 
 	else if(modifiers["shift"])
+		if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
+			scan(A, params)
 
 	else if(modifiers["alt"])
 
@@ -180,7 +182,7 @@
 					var/damage_incoming = 10
 					damage_incoming -= M.armor_stat
 					if(!M.damaged)
-						M.integrity_stat -= damage_incoming
+						M.integrity -= damage_incoming
 						M.damage_animation(damage_incoming)
 						M.throw_at(get_edge_target_turf(M, get_dir(src, M)), 5, 3, src)
 				next_shield_bump = world.time + 1 SECONDS
