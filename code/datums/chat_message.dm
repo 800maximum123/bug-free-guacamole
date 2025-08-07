@@ -205,9 +205,6 @@ GLOBAL_LIST_EMPTY(runechat_image_cache)
 	var/rough_time = world.timeofday
 	approx_lines = max(1, mheight / CHAT_MESSAGE_APPROX_LHEIGHT)
 
-	message.pixel_x = owner.pixel_x
-	message.pixel_y = owner.pixel_y + owner.runechat_y_offset
-
 	// Translate any existing messages upwards, apply exponential decay factors to timers
 	message_loc = isturf(target) ? target : get_atom_on_turf(target)
 	if (owned_by.seen_messages)
@@ -239,6 +236,8 @@ GLOBAL_LIST_EMPTY(runechat_image_cache)
 				animate(alpha = 0, time = CHAT_MESSAGE_EOL_FADE)
 			// We run this after the alpha animate, because we don't want to interrup it, but also don't want to block it by running first
 			// Sooo instead we do this. bit messy but it fuckin works
+			m.message.pixel_x = owner.pixel_x
+			m.message.pixel_y = owner.pixel_y + owner.runechat_y_offset
 			animate(m.message, pixel_y = m.message.pixel_y + mheight, time = CHAT_MESSAGE_SPAWN_TIME, flags = ANIMATION_PARALLEL)
 
 	// Build message image
