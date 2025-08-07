@@ -31,12 +31,13 @@
 
 		if(M.overprotected)
 			var/mob/living/simple_animal/hostile/fd/mech/saladin/D
-			if(get_dist(D, src) < 13)
-				if(D.protected == M)
-					D.shield_integrity -= final_damage
-					D.heat += 1
-					D.damage_animation(0, ignore_armor = FALSE)
-					return TRUE
+			for(var/mob/living/simple_animal/hostile/fd/mech/saladin/D in range(13, get_turf(src)))
+				if(D.protected != M)
+					continue
+				D.shield_integrity -= final_damage
+				D.heat += 1
+				D.damage_animation(0, ignore_armor = FALSE)
+				return TRUE
 
 		if(!M.damaged)
 			M.integrity -= final_damage
