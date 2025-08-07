@@ -25,8 +25,8 @@
 	default_pixel_y = -60
 
 	armor_stat = 10
-	integrity_stat = 500
-	integrity_stat_max = 500
+	integrity = 500
+	integrity_max = 500
 	repairs_left = 2
 
 	heat_overflow = 10
@@ -52,7 +52,7 @@
 	. = ..()
 	if(statpanel("Mech"))
 		if(pointblank)
-			stat(null, FONT_HUGE(SPAN_COLOR("#ff4800", "| ПРОТКНУТЬ И ЗАСТРЕЛИТЬ |")))
+			stat(SPAN_COLOR("#ff4800", "ПРОТКНУТЬ И ЗАСТРЕЛИТЬ:"), FONT_HUGE(SPAN_COLOR("#ff0000", "ВРЕМЯ ДЕЙСТВОВАТЬ.")))
 
 /mob/living/simple_animal/hostile/fd/mech/nelson/set_dir()
 	..()
@@ -160,6 +160,8 @@
 	else if(modifiers["middle"])
 
 	else if(modifiers["shift"])
+		if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
+			scan(A, params)
 
 	else if(modifiers["alt"])
 		if(pointblank)
@@ -184,7 +186,7 @@
 					var/damage_incoming = 10
 					damage_incoming -= M.armor_stat
 					if(!M.damaged)
-						M.integrity_stat -= damage_incoming
+						M.integrity -= damage_incoming
 						M.damage_animation(damage_incoming)
 						M.throw_at(get_edge_target_turf(M, get_dir(src, M)), 5, 3, src)
 				next_shield_bump = world.time + 1 SECONDS
@@ -202,7 +204,7 @@
 					var/mob/living/simple_animal/hostile/fd/mech/M = A
 					var/damage_incoming = 5
 					if(!M.damaged)
-						M.integrity_stat -= damage_incoming
+						M.integrity -= damage_incoming
 						M.damage_animation(damage_incoming, ignore_armor = TRUE)
 				next_shield_bump = world.time + 3 SECONDS
 
