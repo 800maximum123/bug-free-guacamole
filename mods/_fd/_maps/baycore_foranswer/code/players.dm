@@ -1,5 +1,5 @@
 /mob/living/simple_animal/hostile/fd/mech/goblintail/beer
-	name = "L-APU Beer&Sake"
+	name = "L-APU Beer-Sake"
 	desc = "This one belongs to Takeda."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/scout_beer.dmi'
 	icon_state = "beer"
