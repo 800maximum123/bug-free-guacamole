@@ -71,7 +71,8 @@
 	health = 9999999
 	maxHealth = 9999999
 
-	runechat_y_offset = 64
+	runechat_x_offset = 125
+	runechat_y_offset = 125
 	bleed_colour = "#000000"
 
 	var/armor_stat = 0 // Снижает урон на [X]

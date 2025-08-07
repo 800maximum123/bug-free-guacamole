@@ -197,6 +197,7 @@ GLOBAL_LIST_EMPTY(runechat_image_cache)
 	invoke_async(src, PROC_REF(finish_image_generation), mheight, target, owner, complete_text, lifespan)
 
 /mob
+	var/runechat_x_offset = 0
 	var/runechat_y_offset = 0
 
 /// Finishes the image generation after the MeasureText() call in generate_image().
@@ -236,8 +237,6 @@ GLOBAL_LIST_EMPTY(runechat_image_cache)
 				animate(alpha = 0, time = CHAT_MESSAGE_EOL_FADE)
 			// We run this after the alpha animate, because we don't want to interrup it, but also don't want to block it by running first
 			// Sooo instead we do this. bit messy but it fuckin works
-			m.message.pixel_x = owner.pixel_x
-			m.message.pixel_y = owner.pixel_y + owner.runechat_y_offset
 			animate(m.message, pixel_y = m.message.pixel_y + mheight, time = CHAT_MESSAGE_SPAWN_TIME, flags = ANIMATION_PARALLEL)
 
 	// Build message image
@@ -250,6 +249,8 @@ GLOBAL_LIST_EMPTY(runechat_image_cache)
 	message.maptext_height = mheight * 1.25
 	message.maptext_x = (CHAT_MESSAGE_WIDTH - owner.bound_width) * -0.5
 	message.maptext = complete_text
+	message.pixel_x += owner.runechat_x_offset
+	message.pixel_y += owner.runechat_y_offset
 
 	// View the message
 	LAZYADDASSOCLIST(owned_by.seen_messages, message_loc, src)
@@ -265,7 +266,7 @@ GLOBAL_LIST_EMPTY(runechat_image_cache)
 	// Fade out
 	animate(alpha = 0, time = CHAT_MESSAGE_EOL_FADE)
 
-	// Desctruct yourself
+	// Destruct yourself
 	addtimer(new Callback(src, PROC_REF(unregister_and_qdel_self)), lifespan + CHAT_MESSAGE_GRACE_PERIOD, TIMER_UNIQUE|TIMER_OVERRIDE)
 
 /datum/chatmessage/proc/get_current_alpha(time_spent)
