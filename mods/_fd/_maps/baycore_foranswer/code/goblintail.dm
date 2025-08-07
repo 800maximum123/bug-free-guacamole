@@ -82,6 +82,11 @@
 /mob/living/simple_animal/hostile/fd/mech/goblintail/damage_animation(amount, ignore_armor = FALSE)
 	. = ..()
 
+	if(cloaked)
+		cloaked = FALSE
+
+/mob/living/simple_animal/hostile/fd/mech/goblintail/Life()
+
 	if(hack_charges < initial(hack_charges) && !recharging)
 		recharging = TRUE
 		recharge_in += world.time
@@ -91,10 +96,6 @@
 		recharge_in = initial(recharge_in)
 		recharging = FALSE
 
-	if(cloaked)
-		cloaked = FALSE
-
-/mob/living/simple_animal/hostile/fd/mech/goblintail/Life()
 	if(!cloaked && alpha != 255)
 		icon_state = icon_living
 		animate(src, 1 SECOND, alpha = 255)
