@@ -27,8 +27,8 @@
 	pixel_y = -25
 	default_pixel_y = -25
 
-	integrity_stat = 300
-	integrity_stat_max = 300
+	integrity = 300
+	integrity_max = 300
 
 	heat_overflow = 40
 	overheat_timer = 60
@@ -52,14 +52,14 @@
 	. = ..()
 	if(statpanel("Mech"))
 		if(jump_cooldown > world.time)
-			stat(null, SPAN_COLOR("#67d7eb", "Следующий Прыжок: [jump_cooldown - world.time / 10] Секунд"))
+			stat(SPAN_COLOR("#67d7eb", "Следующий Прыжок:"), SPAN_COLOR("#67d7eb", "[jump_cooldown - world.time / 10] Секунд"))
 		if(protected)
-			stat(null, SPAN_BOLD(SPAN_COLOR("#6dc5ff", "Барьера [protected.name]: [shield_integrity]")))
+			stat(SPAN_COLOR("#6dc5ff", "Барьера ") + protected.name + SPAN_COLOR("#6dc5ff", ":"), SPAN_COLOR("#6dc5ff", "[shield_integrity]"))
 
 /mob/living/simple_animal/hostile/fd/mech/saladin/Life()
 	if(overheated && overheat_timer > 0 && !damaged)
 		for(var/mob/living/simple_animal/hostile/fd/mech/M in orange(5,src))
-			M.integrity_stat -= 5
+			M.integrity -= 5
 			M.damage_animation(5, ignore_armor = TRUE)
 
 	. = ..()
@@ -141,6 +141,8 @@
 			return TRUE
 
 	else if(modifiers["shift"])
+		if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
+			scan(A, params)
 
 	else if(modifiers["alt"])
 		if(world.time <= jump_cooldown)
