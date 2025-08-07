@@ -40,8 +40,8 @@
 	icon_state = "scout"
 	icon_living = "scout"
 
-	integrity_stat = 300
-	integrity_stat_max = 300
+	integrity = 300
+	integrity_max = 300
 
 	heat_overflow = 10
 	repairs_left = 2
@@ -75,9 +75,9 @@
 /mob/living/simple_animal/hostile/fd/mech/goblintail/Stat()
 	. = ..()
 	if(statpanel("Mech"))
-		stat(null, SPAN_BOLD(SPAN_COLOR("#c675fc", "Зарядов Взлома: [hack_charges]")))
+		stat(SPAN_COLOR("#c675fc", "Зарядов Взлома:"), SPAN_COLOR("#c675fc", "[hack_charges]"))
 		if(recharging)
-			stat(null, SPAN_COLOR("#ec75fc", "Следующий Заряд: [recharge_in - world.time / 10] Секунд"))
+			stat(SPAN_COLOR("#ec75fc", "Следующий Заряд:"), SPAN_COLOR("#ec75fc","[recharge_in - world.time / 10] Секунд"))
 
 /mob/living/simple_animal/hostile/fd/mech/goblintail/damage_animation(amount, ignore_armor = FALSE)
 	. = ..()
@@ -185,6 +185,8 @@
 	else if(modifiers["middle"])
 
 	else if(modifiers["shift"])
+		if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
+			scan(A, params)
 
 	else if(modifiers["alt"])
 		if(!cloaked)
@@ -231,7 +233,7 @@
 						cloaked = FALSE
 					damage_incoming -= M.armor_stat
 					if(!M.damaged)
-						M.integrity_stat -= damage_incoming
+						M.integrity -= damage_incoming
 						M.damage_animation(damage_incoming)
 				next_slap = world.time + 5 SECONDS
 
