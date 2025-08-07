@@ -34,7 +34,7 @@
 	overheat_timer = 60
 	has_overheated_state = TRUE
 
-	weapon_equiped = "Thermal Release"
+	weapon_equipped = "Thermal Release"
 
 	repairs_left = 2
 
@@ -50,7 +50,7 @@
 
 /mob/living/simple_animal/hostile/fd/mech/saladin/Stat()
 	. = ..()
-	if(statpanel("Status"))
+	if(statpanel("Mech"))
 		if(jump_cooldown > world.time)
 			stat(null, SPAN_COLOR("#67d7eb", "Следующий Прыжок: [jump_cooldown - world.time / 10] Секунд"))
 		if(protected)
@@ -84,30 +84,32 @@
 /mob/living/simple_animal/hostile/fd/mech/saladin/ClickOn(atom/A, params)
 	var/modifiers = params2list(params)
 
-	if(modifiers["alt"])
-		if(world.time <= jump_cooldown)
+	if(A == src)
+		if(hacked)
+			if(!do_after(src, 2 SECONDS))
+				return FALSE
+			hacked = FALSE
+			return TRUE
+
+		if(modifiers["left"])
+			var/list/options = list(
+				"Toggle Safety" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "6"),
+				"Reboot" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "34"),
+			)
+
+			var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
+			if(!chosen_option)
+				return FALSE
+			switch(chosen_option)
+				if("Toggle Safety")
+					weapon_safety = !weapon_safety
+
+				if("Reboot")
+					mech_reboot()
+
 			return FALSE
-		var/turf/target_turf = get_turf(A)
-		if(heat < 10 && A.density != FALSE)
-			return FALSE
 
-		animate(src, transform = matrix(0.01, MATRIX_SCALE), time = 1 SECOND, easing = BOUNCE_EASING)
-
-		sleep(1 SECOND)
-		alpha = 0
-
-		sleep(1 SECONDS)
-
-		alpha = 255
-		forceMove(target_turf)
-
-		sleep(2 SECONDS)
-
-		animate(src, transform = matrix(), time = 1 SECOND, easing = BOUNCE_EASING)
-		heat -= 10
-		return TRUE
-
-	if(modifiers["shift"])
+	else if(modifiers["middle"])
 		if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
 			var/mob/living/simple_animal/hostile/fd/mech/M = A
 			if(world.time <= shield_cooldown)
@@ -138,47 +140,40 @@
 			protected.AddOverlays(field_overlay)
 			return TRUE
 
-	if(A == src && hacked)
-		if(!do_after(src, 2 SECONDS))
+	else if(modifiers["shift"])
+
+	else if(modifiers["alt"])
+		if(world.time <= jump_cooldown)
 			return FALSE
-		hacked = FALSE
+		var/turf/target_turf = get_turf(A)
+		if(heat < 10 && A.density != FALSE)
+			return FALSE
+
+		animate(src, transform = matrix(0.01, MATRIX_SCALE), time = 1 SECOND, easing = BOUNCE_EASING)
+
+		sleep(1 SECOND)
+		alpha = 0
+
+		sleep(1 SECONDS)
+
+		alpha = 255
+		forceMove(target_turf)
+
+		sleep(2 SECONDS)
+
+		animate(src, transform = matrix(), time = 1 SECOND, easing = BOUNCE_EASING)
+		heat -= 10
 		return TRUE
 
-	if(A == src)
-		var/list/options = list(
-			"Toggle Safety" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "6"),
-			"Reboot" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "34"),
-		)
+	else if(modifiers["ctrl"])
 
-		var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
-		if(!chosen_option)
-			return FALSE
-		switch(chosen_option)
+	else if(modifiers["left"] && !weapon_safety)
+		switch(weapon_equipped)
+			if("Thermal Release")
+				mech_shoot(A, /obj/item/projectile/bullet/mech/saladin, (world.time + 2 SECONDS))
 
-			if("Toggle Safety")
-				if(can_shoot)
-					can_shoot = FALSE
-					return TRUE
-				if(!can_shoot)
-					can_shoot = TRUE
-					return TRUE
-
-			if("Reboot")
-				if(!damaged)
-					return FALSE
-				if(!do_after(src, 60 SECONDS))
-					return FALSE
-				damaged = FALSE
-				integrity_stat = integrity_stat_max / 2
-				repairs_left -= 1
-				remove_filter("down")
-				return TRUE
-
-	. = ..()
-
-	switch(weapon_equiped)
-		if("Thermal Release")
-			mech_shoot(A, /obj/item/projectile/bullet/mech/saladin, (world.time + 2 SECONDS))
+	else
+		. = ..()
 
 /mob/living/simple_animal/hostile/fd/mech/saladin/consume_ammo()
 	if(heat <= 0)

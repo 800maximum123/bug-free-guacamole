@@ -48,7 +48,7 @@
 
 	movement_cooldown = 2
 
-	weapon_equiped = "Submachine Gun"
+	weapon_equipped = "Submachine Gun"
 
 	spare_magazines = 4
 	has_ammo = TRUE
@@ -74,7 +74,7 @@
 
 /mob/living/simple_animal/hostile/fd/mech/goblintail/Stat()
 	. = ..()
-	if(statpanel("Status"))
+	if(statpanel("Mech"))
 		stat(null, SPAN_BOLD(SPAN_COLOR("#c675fc", "Зарядов Взлома: [hack_charges]")))
 		if(recharging)
 			stat(null, SPAN_COLOR("#ec75fc", "Следующий Заряд: [recharge_in - world.time / 10] Секунд"))
@@ -111,10 +111,10 @@
 	var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
 	switch(chosen_option)
 		if("Submachine Gun")
-			weapon_equiped = "Submachine Gun"
+			weapon_equipped = "Submachine Gun"
 			return TRUE
 		if("Whip")
-			weapon_equiped = "Whip"
+			weapon_equipped = "Whip"
 			return TRUE
 
 /mob/living/simple_animal/hostile/fd/mech/goblintail/consume_ammo()
@@ -124,80 +124,69 @@
 	return TRUE
 
 /mob/living/simple_animal/hostile/fd/mech/goblintail/ClickOn(atom/A, params)
-	if(A == src && hacked)
-		if(!do_after(src, 2 SECONDS))
-			return FALSE
-		hacked = FALSE
-		return TRUE
-
-	if(A == src)
-		var/list/options = list(
-			"Change Weapon" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),
-			"Reload Weapon" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "17"),
-			"Toggle Safety" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "6"),
-			"Cloak On/Off" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "19"),
-			"Reboot" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "34"),
-		)
-
-		var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
-		if(!chosen_option)
-			return FALSE
-		switch(chosen_option)
-
-			if("Reload Weapon")
-				if(weapon_equiped == "Submachine Gun")
-					if(spare_magazines <= 0)
-						return FALSE
-					if(!do_after(src, 10 SECONDS))
-						return FALSE
-
-					gun_ammo = initial(gun_ammo)
-					spare_magazines -= 1
-					return TRUE
-
-			if("Toggle Safety")
-				if(can_shoot)
-					can_shoot = FALSE
-					return TRUE
-				if(!can_shoot)
-					can_shoot = TRUE
-					return TRUE
-
-			if("Change Weapon")
-				choose_weapon()
-				return TRUE
-
-			if("Cloak On/Off")
-				if(cloaked)
-					icon_state = icon_living
-					cloaked = FALSE
-					animate(src, 1 SECOND, alpha = 255)
-					set_light(0)
-					next_cloak_in = world.time + 5 SECONDS
-					return TRUE
-				if(!cloaked)
-					if(world.time <= next_cloak_in)
-						return FALSE
-					icon_state = "[icon_living]_cloak"
-					animate(src, 1 SECOND, alpha = 30)
-					set_light(3, 2, l_color = cloak_color)
-					cloaked = TRUE
-					return TRUE
-
-			if("Reboot")
-				if(!damaged)
-					return FALSE
-				if(!do_after(src, 60 SECONDS))
-					return FALSE
-				damaged = FALSE
-				integrity_stat = integrity_stat_max / 2
-				repairs_left -= 1
-				remove_filter("down")
-				return TRUE
-
 	var/modifiers = params2list(params)
 
-	if(modifiers["alt"])
+	if(A == src)
+		if(hacked)
+			if(!do_after(src, 2 SECONDS))
+				return FALSE
+			hacked = FALSE
+			return TRUE
+
+		if(modifiers["left"])
+			var/list/options = list(
+				"Change Weapon" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),
+				"Reload Weapon" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "17"),
+				"Toggle Safety" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "6"),
+				"Cloak On/Off" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "19"),
+				"Reboot" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "34"),
+			)
+
+			var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
+			if(!chosen_option)
+				return FALSE
+			switch(chosen_option)
+				if("Reload Weapon")
+					if(weapon_equipped == "Submachine Gun")
+						if(spare_magazines <= 0)
+							return FALSE
+						if(!do_after(src, 10 SECONDS))
+							return FALSE
+
+						gun_ammo = initial(gun_ammo)
+						spare_magazines -= 1
+
+				if("Toggle Safety")
+					weapon_safety = !weapon_safety
+
+				if("Change Weapon")
+					choose_weapon()
+
+				if("Cloak On/Off")
+					if(cloaked)
+						icon_state = icon_living
+						cloaked = FALSE
+						animate(src, 1 SECOND, alpha = 255)
+						set_light(0)
+						next_cloak_in = world.time + 5 SECONDS
+					else
+						if(world.time <= next_cloak_in)
+							return FALSE
+						icon_state = "[icon_living]_cloak"
+						animate(src, 1 SECOND, alpha = 30)
+						set_light(3, 2, l_color = cloak_color)
+						cloaked = TRUE
+
+				if("Reboot")
+					mech_reboot()
+
+			return FALSE
+
+	else if(modifiers["middle"])
+
+	else if(modifiers["shift"])
+
+	else if(modifiers["alt"])
 		if(!cloaked)
 			return FALSE
 
@@ -213,36 +202,41 @@
 				heat += 2
 			return TRUE
 
-	. = ..()
+	else if(modifiers["ctrl"])
 
-	switch(weapon_equiped)
-		if("Submachine Gun")
-			var/damage_bonus = 0
-			if(cloaked)
-				damage_bonus += 20
-				cloaked = FALSE
-			mech_shoot(A, /obj/item/projectile/bullet/mech/goblintail, (next_fire = world.time + 1 SECONDS), 3, 2, damage_bonus)
-
-		if("Whip")
-			if(damaged)
-				return FALSE
-			if(get_dist(A, src) > 3)
-				return FALSE
-			if(world.time <= next_slap)
-				return FALSE
-
-			do_attack_animation(A)
-			if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
-				var/mob/living/simple_animal/hostile/fd/mech/M = A
-				var/damage_incoming = 50
+	else if(modifiers["left"] && !weapon_safety)
+		switch(weapon_equipped)
+			if("Submachine Gun")
+				var/damage_bonus = 0
 				if(cloaked)
-					damage_incoming += 50
+					damage_bonus += 20
 					cloaked = FALSE
-				damage_incoming -= M.armor_stat
-				if(!M.damaged)
-					M.integrity_stat -= damage_incoming
-					M.damage_animation(damage_incoming)
-			next_slap = world.time + 5 SECONDS
+					next_cloak_in = world.time + 10 SECONDS
+				mech_shoot(A, /obj/item/projectile/bullet/mech/goblintail, (world.time + 1 SECONDS), 3, 2, damage_bonus)
+
+			if("Whip")
+				if(damaged)
+					return FALSE
+				if(get_dist(A, src) > 3)
+					return FALSE
+				if(world.time <= next_slap)
+					return FALSE
+
+				do_attack_animation(A)
+				if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
+					var/mob/living/simple_animal/hostile/fd/mech/M = A
+					var/damage_incoming = 50
+					if(cloaked)
+						damage_incoming += 50
+						cloaked = FALSE
+					damage_incoming -= M.armor_stat
+					if(!M.damaged)
+						M.integrity_stat -= damage_incoming
+						M.damage_animation(damage_incoming)
+				next_slap = world.time + 5 SECONDS
+
+	else
+		. = ..()
 
 /obj/item/projectile/bullet/mech/goblintail
 	real_damage = 5

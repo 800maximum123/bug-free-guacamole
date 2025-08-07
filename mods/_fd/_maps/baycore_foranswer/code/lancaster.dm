@@ -28,7 +28,7 @@
 	heat_overflow = 5
 	overheat_timer = 10
 
-	weapon_equiped = "Plasma Cutter"
+	weapon_equipped = "Plasma Cutter"
 
 	repairs_left = 4
 	var/restock_charges = 12
@@ -43,7 +43,7 @@
 
 /mob/living/simple_animal/hostile/fd/mech/lancaster/Stat()
 	. = ..()
-	if(statpanel("Status"))
+	if(statpanel("Mech"))
 		stat(null, SPAN_BOLD(SPAN_COLOR("#aac256", "Зарядов Пополнения: [restock_charges]")))
 
 /mob/living/simple_animal/hostile/fd/mech/lancaster/Life()
@@ -88,18 +88,13 @@
 			for(var/mob/living/simple_animal/hostile/fd/mech/M in view(2,src))
 				if(M.stat != DEAD)
 					mechs_in_radius += M
-			var/mob/living/simple_animal/hostile/fd/mech/target_choice = show_radial_menu(src, src, mechs_in_radius, radius = 100, require_near = TRUE, offset_x = 105, offset_y = 90)
+			var/mob/living/simple_animal/hostile/fd/mech/target_choice = show_radial_menu(src, src, mechs_in_radius, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
 			if(!target_choice)
 				return FALSE
 			if(!do_after(src, 10 SECONDS))
 				return FALSE
-			if(target_choice.damaged && target_choice.stat != DEAD)
-				target_choice.damaged = FALSE
-			target_choice.integrity_stat += 100
-			target_choice.heat = 0
-			if(target_choice.integrity_stat > target_choice.integrity_stat_max)
-				target_choice.integrity_stat = target_choice.integrity_stat_max
-			restock_charges -= 1
+			target_choice.mech_reboot(FALSE)
+			target_choice.integrity_stat = min(target_choice.integrity_stat + 100, target_choice.integrity_stat_max)
 			return TRUE
 
 		if("Restock Allie")
@@ -118,50 +113,47 @@
 			return TRUE
 
 /mob/living/simple_animal/hostile/fd/mech/lancaster/ClickOn(atom/A, params)
-	if(A == src && hacked)
-		if(!do_after(src, 2 SECONDS))
-			return FALSE
-		hacked = FALSE
-		return TRUE
-
-	if(A == src)
-		var/list/options = list(
-			"Toggle Safety" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "6"),
-			"Resupply Mech" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "17"),
-			"Unattach Passenger" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "20"),
-		)
-
-		var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
-		if(!chosen_option)
-			return FALSE
-		switch(chosen_option)
-
-			if("Toggle Safety")
-				if(can_shoot)
-					can_shoot = FALSE
-					return TRUE
-				if(!can_shoot)
-					can_shoot = TRUE
-					return TRUE
-
-			if("Resupply Mech")
-				choose_resupp(params)
-				return TRUE
-
-			if("Unattach Passenger")
-				if(!isnull(passenger))
-					passenger.forceMove(get_turf(src))
-					passenger = null
-					contents -= passenger
-					movement_cooldown = 2
-					CutOverlays(passenger_overlay)
-					return TRUE
-
-				return FALSE
-
 	var/modifiers = params2list(params)
 
-	if(modifiers["alt"])
+	if(A == src)
+		if(hacked)
+			if(!do_after(src, 2 SECONDS))
+				return FALSE
+			hacked = FALSE
+			return TRUE
+
+		if(modifiers["left"])
+			var/list/options = list(
+				"Toggle Safety" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "6"),
+				"Resupply Mech" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "17"),
+				"Unattach Passenger" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "20"),
+			)
+
+			var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
+			if(!chosen_option)
+				return FALSE
+			switch(chosen_option)
+				if("Toggle Safety")
+					weapon_safety = !weapon_safety
+
+				if("Resupply Mech")
+					choose_resupp(params)
+
+				if("Unattach Passenger")
+					if(!isnull(passenger))
+						passenger.forceMove(get_turf(src))
+						passenger = null
+						contents -= passenger
+						movement_cooldown = 2
+						CutOverlays(passenger_overlay)
+
+			return FALSE
+
+	else if(modifiers["middle"])
+
+	else if(modifiers["shift"])
+
+	else if(modifiers["alt"])
 		if(get_dist(A, src) > 2)
 			return FALSE
 		if(!isnull(passenger))
@@ -182,10 +174,15 @@
 			AddOverlays(passenger_overlay)
 			return TRUE
 
-	. = ..()
+	else if(modifiers["ctrl"])
 
-	if(weapon_equiped == "Plasma Cutter")
-		mech_shoot(A, /obj/item/projectile/bullet/mech/lancaster, (world.time + 1 SECONDS), 2, 1)
+	else if(modifiers["left"] && !weapon_safety)
+		switch(weapon_equipped)
+			if("Plasma Cutter")
+				mech_shoot(A, /obj/item/projectile/bullet/mech/lancaster, (world.time + 1 SECONDS), 2, 1)
+
+	else
+		. = ..()
 
 /obj/item/projectile/bullet/mech/lancaster
 	real_damage = 3

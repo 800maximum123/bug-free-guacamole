@@ -31,7 +31,7 @@
 
 	heat_overflow = 10
 
-	weapon_equiped = "Shield"
+	weapon_equipped = "Shield"
 
 	movement_cooldown = 4
 
@@ -50,7 +50,7 @@
 
 /mob/living/simple_animal/hostile/fd/mech/nelson/Stat()
 	. = ..()
-	if(statpanel("Status"))
+	if(statpanel("Mech"))
 		if(pointblank)
 			stat(null, FONT_HUGE(SPAN_COLOR("#ff4800", "| ПРОТКНУТЬ И ЗАСТРЕЛИТЬ |")))
 
@@ -116,95 +116,98 @@
 	var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
 	switch(chosen_option)
 		if("Shield")
-			weapon_equiped = "Shield"
+			weapon_equipped = "Shield"
 			armor_stat = 10
 			movement_cooldown = 4
 			return TRUE
 		if("Spear")
-			weapon_equiped = "Spear"
+			weapon_equipped = "Spear"
 			armor_stat = 0
 			movement_cooldown = 2
 			return TRUE
 
 /mob/living/simple_animal/hostile/fd/mech/nelson/ClickOn(atom/A, params)
-	if(A == src && hacked)
-		if(!do_after(src, 2 SECONDS))
-			return FALSE
-		hacked = FALSE
-		return TRUE
-
-	if(A == src)
-		var/list/options = list(
-			"Change Weapon" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),
-			"Reboot" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "34"),
-		)
-
-		var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
-		if(!chosen_option)
-			return FALSE
-		switch(chosen_option)
-
-			if("Change Weapon")
-				choose_weapon()
-				return TRUE
-
-			if("Reboot")
-				if(!damaged)
-					return FALSE
-				if(!do_after(src, 60 SECONDS))
-					return FALSE
-				damaged = FALSE
-				integrity_stat = integrity_stat_max / 2
-				repairs_left -= 1
-				remove_filter("down")
-				return TRUE
-
 	var/modifiers = params2list(params)
 
-	if(modifiers["alt"])
+	if(A == src)
+		if(hacked)
+			if(!do_after(src, 2 SECONDS))
+				return FALSE
+			hacked = FALSE
+			return TRUE
+
+		if(modifiers["left"])
+			var/list/options = list(
+				"Change Weapon" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),
+				"Reboot" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "34"),
+			)
+
+			var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
+			if(!chosen_option)
+				return FALSE
+			switch(chosen_option)
+				if("Toggle Safety")
+					weapon_safety = !weapon_safety
+
+				if("Change Weapon")
+					choose_weapon()
+
+				if("Reboot")
+					mech_reboot()
+
+			return FALSE
+
+	else if(modifiers["middle"])
+
+	else if(modifiers["shift"])
+
+	else if(modifiers["alt"])
 		if(pointblank)
 			mech_shoot(A, /obj/item/projectile/bullet/mech/nelson)
 			pointblank = FALSE
 
-	. = ..()
+	else if(modifiers["ctrl"])
 
-	switch(weapon_equiped)
+	else if(modifiers["left"] && !weapon_safety)
+		switch(weapon_equipped)
+			if("Shield")
+				if(damaged)
+					return FALSE
+				if(get_dist(A, src) > 1)
+					return FALSE
+				if(world.time <= next_shield_bump)
+					return FALSE
 
-		if("Shield")
-			if(damaged)
-				return FALSE
-			if(get_dist(A, src) > 1)
-				return FALSE
-			if(world.time <= next_shield_bump)
-				return FALSE
+				do_attack_animation(A)
+				if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
+					var/mob/living/simple_animal/hostile/fd/mech/M = A
+					var/damage_incoming = 10
+					damage_incoming -= M.armor_stat
+					if(!M.damaged)
+						M.integrity_stat -= damage_incoming
+						M.damage_animation(damage_incoming)
+						M.throw_at(get_edge_target_turf(M, get_dir(src, M)), 5, 3, src)
+				next_shield_bump = world.time + 1 SECONDS
 
-			do_attack_animation(A)
-			if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
-				var/mob/living/simple_animal/hostile/fd/mech/M = A
-				var/damage_incoming = 10
-				damage_incoming -= M.armor_stat
-				if(!M.damaged)
-					M.integrity_stat -= damage_incoming
-					M.damage_animation(damage_incoming)
-					M.throw_at(get_edge_target_turf(M, get_dir(src, M)), 5, 3, src)
-			next_shield_bump = world.time + 1 SECONDS
+			if("Spear")
+				if(damaged)
+					return FALSE
+				if(get_dist(A, src) > 4)
+					return FALSE
+				if(world.time <= next_spear_poke)
+					return FALSE
 
-		if("Spear")
-			if(damaged)
-				return FALSE
-			if(get_dist(A, src) > 4)
-				return FALSE
-			if(world.time <= next_spear_poke)
-				return FALSE
+				do_attack_animation(A)
+				if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
+					var/mob/living/simple_animal/hostile/fd/mech/M = A
+					var/damage_incoming = 5
+					if(!M.damaged)
+						M.integrity_stat -= damage_incoming
+						M.damage_animation(damage_incoming, ignore_armor = TRUE)
+				next_shield_bump = world.time + 3 SECONDS
 
-			do_attack_animation(A)
-			if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
-				var/mob/living/simple_animal/hostile/fd/mech/M = A
-				var/damage_incoming = 5
-				if(!M.damaged)
-					M.integrity_stat -= damage_incoming
-					M.damage_animation(damage_incoming, ignore_armor = TRUE)
-			next_shield_bump = world.time + 3 SECONDS
+	else
+		. = ..()
 
 /obj/item/projectile/bullet/mech/nelson
 	real_damage = 50

@@ -27,6 +27,6 @@
 
 	heat_overflow = 10
 
-	weapon_equiped = "Riot Shotgun"
+	weapon_equipped = "Riot Shotgun"
 
 	wreck_type = /obj/structure/fd/mech_wreckage/medium/napoleon

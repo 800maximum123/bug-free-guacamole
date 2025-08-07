@@ -58,8 +58,6 @@
 
 	pixel_y = 0
 	pixel_x = 0
-	bound_width = 1
-	bound_height = 1
 
 /mob/living/simple_animal/hostile/fd/mech
 	name = "Armored Personal Unit (APU)"
@@ -68,10 +66,14 @@
 	icon_state = "breacher"
 	icon_living = "breacher"
 
+	ai_holder = null
+
 	health = 9999999
 	maxHealth = 9999999
 
-	var/armor_stat = 0 // Снижает урона на [X]
+	runechat_y_offset = 64
+
+	var/armor_stat = 0 // Снижает урон на [X]
 	var/shielded = FALSE // Дрейк способен перетягивать входящий урон на себя
 	var/overprotected = FALSE // Саладин накидывает оверхп
 	var/mutable_appearance/field_overlay
@@ -86,12 +88,12 @@
 	var/overheat_timer = 30 // Остужение через [X]
 	var/has_overheated_state = FALSE
 
-	var/weapon_equiped = "Standart Pistol"
+	var/weapon_equipped = "Standart Pistol"
 
 	var/repairs_left = 1 // Сколько раз мы сможем подниматься из мёртвых?
 	var/damaged = FALSE // Мы в "крите"?
 
-	var/can_shoot = TRUE
+	var/weapon_safety = FALSE
 	var/has_ammo = FALSE
 	var/spare_magazines = 0
 	var/next_fire = 0
@@ -106,23 +108,44 @@
 	var/wreck_type = /obj/structure/fd/mech_wreckage
 	var/dead = FALSE
 
+/mob/living/simple_animal/hostile/fd/mech/proc/mech_reboot(heal = TRUE)
+	if(!damaged)
+		return FALSE
+	if(!do_after(src, 60 SECONDS))
+		return FALSE
+
+	damaged = FALSE
+	anchored = FALSE
+	heat = 0
+	repairs_left -= 1
+	if(heal)
+		integrity_stat = integrity_stat_max / 2
+
+	playsound(get_turf(src),'sound/mecha/powerup.ogg',60)
+	spawn(4 SECONDS)
+		playsound(get_turf(src),'sound/mecha/nominal.ogg',60)
+
+	animate(get_filter("down"), time = 2 SECONDS, size = 0.01)
+	animate(src, time = 2 SECONDS, color = COLOR_GRAY, transform = matrix(), easing = SINE_EASING)
+	remove_filter("down")
+
 /mob/living/simple_animal/hostile/fd/mech/Stat()
 	. = ..()
-	if(statpanel("Status"))
+	if(statpanel("Mech"))
 		stat(null, "Структуры: [integrity_stat] / [integrity_stat_max] ([round((integrity_stat / integrity_stat_max) * 100)]%)")
-		stat(null, SPAN_COLOR("#ff8800", "Перегрева: [round((heat / heat_overflow) * 100)]% ([heat] / [heat_overflow])"))
 		if(has_ammo)
 			stat(null, "Запасных Магазинов: [spare_magazines]")
 		stat(null, SPAN_BOLD("Комплектов Починки: [repairs_left]"))
+		stat(null, SPAN_COLOR("#ff8800", "Перегрева: [round((heat / heat_overflow) * 100)]% ([heat] / [heat_overflow])"))
 
 /mob/living/simple_animal/hostile/fd/mech/death()
 	dead = TRUE
-	playsound(get_turf(src),'sound/mecha/internaldmgalarm.ogg',80)
-	playsound(get_turf(src),'sound/mecha/mech-shutdown.ogg',80)
+	playsound(get_turf(src),'sound/mecha/internaldmgalarm.ogg',60)
+	playsound(get_turf(src),'sound/mecha/mech-shutdown.ogg',100)
 	playsound(get_turf(src),'sound/mecha/hydraulic.ogg',40)
-	playsound(get_turf(src),'sound/mecha/weapdestr.ogg',80)
+	playsound(get_turf(src),'sound/mecha/weapdestr.ogg',60)
 	spawn(rand(3 SECONDS, 4 SECONDS))
-		playsound(get_turf(src),'sound/mecha/Explosion_02.mp3',80)
+		playsound(get_turf(src),'sound/mecha/Explosion_02.mp3',60)
 		new wreck_type (get_turf(src))
 		..(FALSE, "suddenly breaks apart.", "You have been destroyed.")
 		qdel(src)
@@ -132,13 +155,13 @@
 		return FALSE
 
 	if(armor_stat >= amount && !ignore_armor)
-		animate(src, color = COLOR_DEEP_SKY_BLUE, time = 0.5 SECOND, easing = CUBIC_EASING | EASE_IN)
-		spawn(0.6 SECOND)
-			animate(src, color = initial(color), time = 0.5 SECOND, easing = CUBIC_EASING | EASE_OUT)
+		animate(src, color = COLOR_DEEP_SKY_BLUE, time = 0.2 SECOND, easing = CUBIC_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
+		spawn(0.4 SECOND)
+			animate(src, color = initial(color), time = 0.2 SECOND, easing = CUBIC_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
 	else
-		animate(src, color = COLOR_RED, time = 0.5 SECOND, easing = CUBIC_EASING | EASE_IN)
-		spawn(0.6 SECOND)
-			animate(src, color = initial(color), time = 0.5 SECOND, easing = CUBIC_EASING | EASE_OUT)
+		animate(src, color = COLOR_RED, time = 0.2 SECOND, easing = CUBIC_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
+		spawn(0.4 SECOND)
+			animate(src, color = initial(color), time = 0.2 SECOND, easing = CUBIC_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
 
 /mob/living/simple_animal/hostile/fd/mech/proc/choose_weapon()
 	var/list/options = list(
@@ -148,18 +171,14 @@
 	var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 125, offset_y = 125)
 	if(!chosen_option)
 		return FALSE
-	switch(chosen_option)
-		if("Standart Pistol")
-			weapon_equiped = "Standart Pistol"
-		if("Standart Rifle")
-			weapon_equiped = "Standart Rifle"
+	weapon_equipped = chosen_option
 
 /mob/living/simple_animal/hostile/fd/mech/verb/change_view()
-	set name = "Change View"
-	set category = "Mech"
-	set desc = "This will let you change your scope size."
+	set name = "Mech - Change View"
+	set category = "IC"
+	set desc = "This will let you change your view range."
 
-	src.client.view = input("Select view range:", "FUCK YE", 7) in list(7,8,10,12)
+	src.client.view = input("Select view range:", "FUCK YEAH", 7) in list(7,8,9,10,11,12)
 
 /mob/living/simple_animal/hostile/fd/mech/Life()
 
@@ -168,16 +187,6 @@
 
 	if(world.time >= malf_for && malfunction)
 		malfunction = FALSE
-
-	if(damaged && repairs_left <= 0 && !dead)
-		death()
-
-	if(!damaged && integrity_stat <= 0)
-		damaged = TRUE
-		add_filter("down", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_RED))
-		playsound(get_turf(src),'sound/mecha/internaldmgalarm.ogg',80)
-		playsound(get_turf(src),'sound/mecha/mech-shutdown.ogg',80)
-		playsound(get_turf(src),'sound/mecha/critdestr.ogg',80)
 
 	if(overheated && overheat_timer > 0 && !damaged)
 		integrity_stat -= 1
@@ -191,12 +200,26 @@
 		overheat_timer = initial(overheat_timer)
 		remove_filter("heated")
 
-	if(heat == heat_overflow)
+	if(damaged && repairs_left <= 0 && !dead)
+		death()
+		return ..()
+
+	if(!damaged && integrity_stat <= 0)
+		damaged = TRUE
+		playsound(get_turf(src),'sound/mecha/internaldmgalarm.ogg',60)
+		playsound(get_turf(src),'sound/mecha/mech-shutdown.ogg',100)
+		playsound(get_turf(src),'sound/mecha/critdestr.ogg',60)
+		add_filter("down", 1, list("type" = "outline", , "size" = 0.01, "color" = COLOR_RED))
+		animate(get_filter("down"), time = 4 SECONDS, size = 1)
+		animate(src, time = 2 SECONDS, color = COLOR_GRAY, transform = matrix(-30, MATRIX_ROTATE), easing = SINE_EASING)
+		anchored = TRUE
+
+	if(heat >= heat_overflow)
 		heat = 0
 		overheated = TRUE
 		if(has_overheated_state)
 			icon_state = "[icon_living]_charged"
-		add_filter("heated", 1, list("type" = "outline", , "size" = 2, "color" = COLOR_ORANGE))
+		add_filter("heated", 4, list("type" = "outline", , "size" = 2, "color" = COLOR_ORANGE))
 
 	if(shielded)
 		for(var/mob/living/simple_animal/hostile/fd/mech/drake/M in view(2,src))
@@ -225,11 +248,8 @@
 	if(world.time < next_fire)
 		return FALSE
 
-	next_fire = cooldown
-	var/obj/item/projectile/bullet/mech/pew
-
 	for(var/shot, shot<amount, shot++)
-		if(!can_shoot)
+		if(weapon_safety)
 			return FALSE
 		if(malfunction)
 			return FALSE
@@ -239,7 +259,8 @@
 			playsound(get_turf(src),'sound/weapons/empty.ogg', 80, 1)
 			return FALSE
 
-		pew = new bullet_type(get_turf(src))
+		next_fire = cooldown
+		var/obj/item/projectile/bullet/mech/pew = new bullet_type(get_turf(src))
 
 		if(sound)
 			pew.fire_sound = sound
@@ -256,64 +277,65 @@
 		pew.current = target
 		pew.starting = get_turf(src)
 		pew.shot_from = src
+		pew.permutated += src
 
 		pew.launch(target, BP_CHEST)
 		spawn(rand(0.5 SECONDS, 1 SECONDS))
-			playsound(get_turf(src), pick(list('sound/weapons/guns/casingfall1.ogg','sound/weapons/guns/casingfall2.ogg','sound/weapons/guns/casingfall3.ogg')), 80, 1)
+			playsound(get_turf(src), pick(list('sound/weapons/guns/casingfall1.ogg','sound/weapons/guns/casingfall2.ogg','sound/weapons/guns/casingfall3.ogg')), 25, 1)
 
 		sleep(interval)
 
 /mob/living/simple_animal/hostile/fd/mech/ClickOn(atom/A, params)
-
-	if(A == src && hacked)
-		if(!do_after(src, 2 SECONDS))
-			return FALSE
-		hacked = FALSE
-		return TRUE
+	var/modifiers = params2list(params)
 
 	if(A == src)
-		var/list/options = list(
-			"Change Weapon" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),
-			"Toggle Safety" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "6"),
-			"Reboot" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "34"),
-		)
+		if(hacked)
+			if(!do_after(src, 2 SECONDS))
+				return FALSE
+			hacked = FALSE
+			return TRUE
 
-		var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 125, offset_y = 125)
-		if(!chosen_option)
+		if(modifiers["left"])
+			var/list/options = list(
+				"Change Weapon" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),
+				"Toggle Safety" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "6"),
+				"Reboot" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "34"),
+			)
+
+			var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 125, offset_y = 125)
+			if(!chosen_option)
+				return FALSE
+
+			switch(chosen_option)
+				if("Toggle Safety")
+					weapon_safety = !weapon_safety
+
+				if("Change Weapon")
+					choose_weapon()
+
+				if("Reboot")
+					mech_reboot()
+
 			return FALSE
-		switch(chosen_option)
 
-			if("Toggle Safety")
-				if(can_shoot)
-					can_shoot = FALSE
-					return TRUE
-				if(!can_shoot)
-					can_shoot = TRUE
-					return TRUE
+	else if(modifiers["middle"])
 
-			if("Change Weapon")
-				choose_weapon()
-				return TRUE
+	else if(modifiers["shift"])
 
-			if("Reboot")
-				if(!damaged)
-					return FALSE
-				if(!do_after(src, 60 SECONDS))
-					return FALSE
-				damaged = FALSE
-				integrity_stat = integrity_stat_max / 2
-				repairs_left -= 1
-				remove_filter("down")
-				return TRUE
+	else if(modifiers["alt"])
 
-	. = ..()
+	else if(modifiers["ctrl"])
 
-	switch(weapon_equiped)
-		if("Standart Pistol")
-			mech_shoot(A, /obj/item/projectile/bullet/mech/pistol, (world.time + 1 SECONDS))
+	else if(modifiers["left"] && !weapon_safety)
+		switch(weapon_equipped)
+			if("Standart Pistol")
+				mech_shoot(A, /obj/item/projectile/bullet/mech/pistol, (world.time + 1 SECONDS))
 
-		if("Standart Rifle")
-			mech_shoot(A, FALSE, (world.time + 1 SECONDS), 3, 2)
+			if("Standart Rifle")
+				mech_shoot(A, /obj/item/projectile/bullet/mech, (world.time + 1 SECONDS), 3, 2)
+
+	else
+		. = ..()
 
 /obj/item/projectile/bullet/mech/pistol
 	real_damage = 5
