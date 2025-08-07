@@ -22,8 +22,8 @@
 	movement_cooldown = 2
 
 	armor_stat = 4
-	integrity_stat = 500
-	integrity_stat_max = 500
+	integrity = 500
+	integrity_max = 500
 
 	heat_overflow = 5
 	overheat_timer = 10
@@ -44,7 +44,7 @@
 /mob/living/simple_animal/hostile/fd/mech/lancaster/Stat()
 	. = ..()
 	if(statpanel("Mech"))
-		stat(null, SPAN_BOLD(SPAN_COLOR("#aac256", "Зарядов Пополнения: [restock_charges]")))
+		stat(SPAN_COLOR("#aac256", "Зарядов Пополнения:"), SPAN_COLOR("#aac256", "[restock_charges]"))
 
 /mob/living/simple_animal/hostile/fd/mech/lancaster/Life()
 	if(heat > 0 && !start_counting)
@@ -77,7 +77,7 @@
 			if(!do_after(src, 60 SECONDS))
 				return FALSE
 			damaged = FALSE
-			integrity_stat = integrity_stat_max / 2
+			integrity = integrity_max / 2
 			repairs_left -= 1
 			remove_filter("down")
 			return TRUE
@@ -86,22 +86,22 @@
 			if(restock_charges <= 0)
 				return FALSE
 			for(var/mob/living/simple_animal/hostile/fd/mech/M in view(2,src))
-				if(M.stat != DEAD)
+				if(!M.dead)
 					mechs_in_radius += M
 			var/mob/living/simple_animal/hostile/fd/mech/target_choice = show_radial_menu(src, src, mechs_in_radius, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
 			if(!target_choice)
 				return FALSE
 			if(!do_after(src, 10 SECONDS))
 				return FALSE
-			target_choice.mech_reboot(FALSE)
-			target_choice.integrity_stat = min(target_choice.integrity_stat + 100, target_choice.integrity_stat_max)
+			target_choice.mech_reboot(FALSE, FALSE)
+			target_choice.integrity = min(target_choice.integrity + 100, target_choice.integrity_max)
 			return TRUE
 
 		if("Restock Allie")
 			if(restock_charges <= 0)
 				return FALSE
 			for(var/mob/living/simple_animal/hostile/fd/mech/M in oview(1,src))
-				if(M.stat != DEAD && M.has_ammo)
+				if(!M.dead && M.has_ammo)
 					mechs_in_radius += M
 			var/mob/living/simple_animal/hostile/fd/mech/target_choice = show_radial_menu(src, src, mechs_in_radius, radius = 100, require_near = TRUE, offset_x = 105, offset_y = 90)
 			if(!target_choice)
@@ -152,6 +152,8 @@
 	else if(modifiers["middle"])
 
 	else if(modifiers["shift"])
+		if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
+			scan(A, params)
 
 	else if(modifiers["alt"])
 		if(get_dist(A, src) > 2)
