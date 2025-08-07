@@ -205,6 +205,9 @@ GLOBAL_LIST_EMPTY(runechat_image_cache)
 	var/rough_time = world.timeofday
 	approx_lines = max(1, mheight / CHAT_MESSAGE_APPROX_LHEIGHT)
 
+	message.pixel_x = owner.pixel_x
+	message.pixel_y = owner.pixel_y + owner.runechat_y_offset
+
 	// Translate any existing messages upwards, apply exponential decay factors to timers
 	message_loc = isturf(target) ? target : get_atom_on_turf(target)
 	if (owned_by.seen_messages)
@@ -248,8 +251,6 @@ GLOBAL_LIST_EMPTY(runechat_image_cache)
 	message.maptext_height = mheight * 1.25
 	message.maptext_x = (CHAT_MESSAGE_WIDTH - owner.bound_width) * -0.5
 	message.maptext = complete_text
-	message.pixel_x = owner.pixel_x
-	message.pixel_y = owner.pixel_y + owner.runechat_y_offset
 
 	// View the message
 	LAZYADDASSOCLIST(owned_by.seen_messages, message_loc, src)
