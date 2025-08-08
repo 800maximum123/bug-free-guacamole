@@ -74,18 +74,12 @@
 		return FALSE
 	switch(chosen_option)
 		if("Reboot Self")
-			if(!damaged)
-				return FALSE
-			if(!do_after(src, 60 SECONDS))
-				return FALSE
-			damaged = FALSE
-			integrity = integrity_max / 2
-			repairs_left -= 1
-			remove_filter("down")
+			mech_reboot()
 			return TRUE
 
 		if("Patch Allie/Self")
 			if(restock_charges <= 0)
+				to_chat(src, SPAN_WARNING("Для этого действия вам нужен как минимум 1 Заряд Пополнения!"))
 				return FALSE
 			for(var/mob/living/simple_animal/hostile/fd/mech/M in view(2,src))
 				if(!M.dead)
@@ -93,14 +87,30 @@
 			var/mob/living/simple_animal/hostile/fd/mech/target_choice = show_radial_menu(src, src, mechs_in_radius, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
 			if(!target_choice)
 				return FALSE
-			if(!do_after(src, 10 SECONDS))
+			if(target_choice.integrity >= target_choice.integrity_max)
+				to_chat(src, SPAN_WARNING("[target_choice.name] полностью цел."))
 				return FALSE
+			visible_message(SPAN_NOTICE("[src] начинает ремонтировать повреждённые части [target_choice]."), SPAN_INFO("Ты начинаешь ремонт [target_choice]."))
+			playsound(get_turf(src), 'sound/items/welderactivate.ogg', 80)
+			spawn(1 SECONDS)
+				playsound(get_turf(src), 'sound/items/Welder2.ogg', 80)
+			var/obj/particle_emitter/sparks/EM = new(get_turf(target_choice), 10 SECONDS)
+			EM.set_dir(get_dir(target_choice, src))
+			EM.pixel_y = 80
+			if(!do_after(src, 10 SECONDS))
+				qdel(EM)
+				return FALSE
+			if(!QDELETED(EM))
+				qdel(EM)
+			playsound(get_turf(src), 'sound/items/welderdeactivate.ogg', 80)
 			target_choice.mech_reboot(FALSE, FALSE)
 			target_choice.integrity = min(target_choice.integrity + 100, target_choice.integrity_max)
+			visible_message(SPAN_NOTICE("[src] отремонтировал повреждённые части [target_choice]."), SPAN_INFO("Ты отремонтировал повреждённые части [target_choice]."))
 			return TRUE
 
 		if("Restock Allie")
 			if(restock_charges <= 0)
+				to_chat(src, SPAN_WARNING("Для этого действия вам нужен как минимум 1 Заряд Пополнения!"))
 				return FALSE
 			for(var/mob/living/simple_animal/hostile/fd/mech/M in oview(1,src))
 				if(!M.dead && M.has_ammo)
@@ -108,10 +118,15 @@
 			var/mob/living/simple_animal/hostile/fd/mech/target_choice = show_radial_menu(src, src, mechs_in_radius, radius = 100, require_near = TRUE, offset_x = 105, offset_y = 90)
 			if(!target_choice)
 				return FALSE
+			visible_message(SPAN_NOTICE("[src] начинает погружать припасы на борт [target_choice]."), SPAN_INFO("Ты начал погружать припасы на борт [target_choice]."))
+			playsound(get_turf(src), 'sound/effects/lift_heavy_start.ogg', 100)
+			spawn(5 SECONDS)
+				playsound(get_turf(target_choice), 'sound/effects/lift_heavy_stop.ogg', 100)
 			if(!do_after(src, 10 SECONDS, target_choice))
 				return FALSE
 			target_choice.spare_magazines += 2
 			restock_charges -= 1
+			visible_message(SPAN_NOTICE("[src] восполнил часть припасов [target_choice]."), SPAN_INFO("Ты восполнил часть припасов [target_choice]."))
 			return TRUE
 
 /mob/living/simple_animal/hostile/fd/mech/lancaster/ClickOn(atom/A, params)
@@ -135,9 +150,11 @@
 			var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
 			if(!chosen_option)
 				return FALSE
+
 			switch(chosen_option)
 				if("Toggle Safety")
 					weapon_safety = !weapon_safety
+					playsound(get_turf(src), 'packs/infinity/sound/effects/using/switch/small2.ogg', 100, TRUE)
 
 				if("Resupply Mech")
 					choose_resupp(params)
@@ -160,6 +177,7 @@
 						contents -= passenger
 						movement_cooldown = 2
 						CutOverlays(passenger_overlay)
+						return TRUE
 
 			return FALSE
 

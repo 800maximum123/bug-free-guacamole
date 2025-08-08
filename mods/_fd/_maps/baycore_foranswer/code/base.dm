@@ -123,7 +123,7 @@
 /mob/living/simple_animal/hostile/fd/mech/proc/scan(mob/living/simple_animal/hostile/fd/mech/mech_target, params)
 	set waitfor = FALSE
 
-	to_chat(src, SPAN_SUBTLE("Вы пытаетесь просканировать сигнатуру [mech_target]..."))
+	to_chat(src, SPAN_NOTICE("Вы пытаетесь просканировать сигнатуру [mech_target]..."))
 	openToolTip(src, mech_target, params, "? ? ?", FONT_GIANT("Анализ . . ."))
 
 	if(!do_after(src, scan_delay, do_flags = DO_DEFAULT|DO_BOTH_CAN_MOVE))
@@ -131,10 +131,10 @@
 		return
 
 	openToolTip(src, mech_target, params, FONT_LARGE(mech_target.name), mech_target.get_information())
-	playsound(loc, 'sound/effects/scanbeep.ogg', 30)
+	playsound(get_turf(src), 'sound/effects/scanbeep.ogg', 30)
 
 	to_chat(src, SPAN_NOTICE("Сканирование завершено."))
-	to_chat(mech_target, SPAN_SUBTLE("Ваша сигнатура была просканирована."))
+	to_chat(mech_target, SPAN_WARNING("Ваша сигнатура была просканирована."))
 
 /mob/living/simple_animal/hostile/fd/mech/proc/get_information()
 	. = ""
@@ -151,24 +151,26 @@
 	if(!damaged)
 		return FALSE
 
+	visible_message(SPAN_NOTICE("[src] тихо жужжит, начиная процесс экстренного ремонта."), SPAN_INFO("Ты запускаешь протокол экстренного ремонта [src]."))
 	if(delay && !do_after(src, 60 SECONDS))
 		return FALSE
 
 	if(heal)
 		integrity = integrity_max / 2
+
 	damaged = FALSE
 	anchored = FALSE
 	heat = 0
 	repairs_left -= 1
 
+	visible_message(SPAN_DANGER("[src] вновь начинается двигатся, медленно поднимаясь с земли!"), SPAN_INFO("[src] вновь начинается двигатся, медленно поднимаясь с земли."))
+
 	playsound(get_turf(src),'sound/mecha/powerup.ogg',60)
 	spawn(3 SECONDS)
 		playsound(get_turf(src),'sound/mecha/nominal.ogg',60)
 
-	animate(get_filter("down"), time = 1 SECONDS, size = 0.01, flags = ANIMATION_PARALLEL)
+	animate(get_filter("down"), time = 1 SECONDS, size = 0, flags = ANIMATION_PARALLEL)
 	animate(src, time = 2 SECONDS, color = initial(color), transform = matrix(), easing = SINE_EASING, flags = ANIMATION_PARALLEL)
-	spawn(2 SECONDS)
-		remove_filter("down")
 	return TRUE
 
 /mob/living/simple_animal/hostile/fd/mech/Stat()
@@ -195,11 +197,10 @@
 	playsound(get_turf(src),'sound/mecha/mech-shutdown.ogg',150)
 	playsound(get_turf(src),'sound/mecha/hydraulic.ogg',40)
 	playsound(get_turf(src),'sound/mecha/weapdestr.ogg',60)
-	//playsound(get_turf(src),'sound/effects/rocket_backwards.ogg',25) Нужно найти звук "перегрева" получше
-	var/anim_time = rand(3 SECONDS, 4 SECONDS)
-	animate(src, time = anim_time, color = COLOR_RED_LIGHT, transform = matrix(30, MATRIX_ROTATE), easing = SINE_EASING|EASE_OUT)
+	playsound(get_turf(src),'sound/effects/iron_sizzle.ogg',100,TRUE)
+	animate(src, time = 4 SECONDS, color = COLOR_RED_LIGHT, transform = matrix(30, MATRIX_ROTATE), easing = CUBIC_EASING|EASE_OUT)
 	// Добавить сюда анимацию тряски перед уничтожением
-	spawn(anim_time)
+	spawn(rand(3 SECONDS, 4 SECONDS))
 		playsound(get_turf(src),'sound/mecha/Explosion_02.mp3',60)
 		new wreck_type (get_turf(src))
 		..(FALSE, "suddenly breaks apart.", "You have been destroyed.")
@@ -227,6 +228,7 @@
 	if(!chosen_option)
 		return FALSE
 	weapon_equipped = chosen_option
+	playsound(get_turf(src), 'packs/infinity/sound/items/change_jaws.ogg', 80, TRUE)
 
 /mob/living/simple_animal/hostile/fd/mech/verb/change_view()
 	set name = "Mech - Change View"
@@ -249,15 +251,18 @@
 	if(overheated && overheat_timer > 0 && !damaged)
 		integrity -= 1
 		overheat_timer -= 1
-		damage_animation(1, ignore_armor = TRUE)
+		// Попробуем заменить анимацию урона на звук шипения, посмотрим лучше ли будет выглядеть
+		//damage_animation(1, ignore_armor = TRUE)
+		playsound(get_turf(src),'sound/effects/razorweb_hiss.ogg',80,TRUE)
 
 	if(overheated && overheat_timer <= 0)
 		overheated = FALSE
 		movement_cooldown += 1
 		if(has_overheated_state && !dead)
 			icon_state = initial(icon_state)
-		overheat_timer = initial(overheat_timer)
-		remove_filter("heated")
+		animate(get_filter("heated"), time = 10 SECONDS, size = 0, flags = ANIMATION_PARALLEL)
+		animate(get_filter("heated_blur"), time = 10 SECONDS, size = 0, flags = ANIMATION_PARALLEL)
+		animate(src, time = 15 SECONDS, color = initial(color), transform = matrix(), flags = ANIMATION_PARALLEL)
 
 	if(integrity <= 0)
 		playsound(get_turf(src),'sound/mecha/internaldmgalarm.ogg',20)
@@ -268,18 +273,23 @@
 				return ..()
 			playsound(get_turf(src),'sound/mecha/mech-shutdown.ogg',100)
 			playsound(get_turf(src),'sound/mecha/critdestr.ogg',60)
-			add_filter("down", 1, list("type" = "outline", , "size" = 0.01, "color" = COLOR_RED))
+			add_filter("down", 10, list("type" = "outline", , "size" = 0, "color" = COLOR_RED))
 			animate(get_filter("down"), time = 4 SECONDS, size = 1, flags = ANIMATION_PARALLEL)
 			animate(src, time = 2 SECONDS, color = COLOR_GRAY, transform = matrix(-30, MATRIX_ROTATE), easing = SINE_EASING, flags = ANIMATION_PARALLEL)
 			anchored = TRUE
 
-	if(heat >= heat_overflow)
+	if(heat >= heat_overflow && !overheated)
 		heat = 0
 		overheated = TRUE
 		movement_cooldown -= 1
 		if(has_overheated_state)
 			icon_state = "[icon_living]_charged"
-		add_filter("heated", 4, list("type" = "outline", , "size" = 2, "color" = COLOR_ORANGE))
+		add_filter("heated", 5, list("type" = "outline", , "size" = 0, "color" = COLOR_AMBER))
+		add_filter("heated_blur", 5, list("type" = "blur", , "size" = 0))
+		playsound(get_turf(src),'sound/effects/iron_sizzle.ogg',100,TRUE)
+		animate(get_filter("heated"), time = 15 SECONDS, size = 1, flags = ANIMATION_PARALLEL)
+		animate(get_filter("heated_blur"), time = 10 SECONDS, size = 0.2, flags = ANIMATION_PARALLEL)
+		animate(src, time = 10 SECONDS, color = "#ffa175", flags = ANIMATION_PARALLEL)
 
 	if(shielded)
 		for(var/mob/living/simple_animal/hostile/fd/mech/drake/M in view(2,src))
@@ -316,7 +326,7 @@
 		if(damaged)
 			return FALSE
 		if(!consume_ammo())
-			playsound(get_turf(src),'sound/weapons/empty.ogg', 80, 1)
+			playsound(get_turf(src),'sound/weapons/empty.ogg', 80, TRUE)
 			return FALSE
 
 		next_fire = cooldown
@@ -324,7 +334,7 @@
 
 		if(sound)
 			pew.fire_sound = sound
-		playsound(pew.loc, pew.fire_sound, 15, 1)
+		playsound(pew.loc, pew.fire_sound, 30, 1)
 
 		if(damage_bonus)
 			pew.real_damage += damage_bonus
@@ -341,7 +351,7 @@
 
 		pew.launch(target, BP_CHEST)
 		spawn(rand(0.5 SECONDS, 1 SECONDS))
-			playsound(get_turf(src), pick(list('sound/weapons/guns/casingfall1.ogg','sound/weapons/guns/casingfall2.ogg','sound/weapons/guns/casingfall3.ogg')), 25, 1)
+			playsound(get_turf(src), pick(list('sound/weapons/guns/casingfall1.ogg','sound/weapons/guns/casingfall2.ogg','sound/weapons/guns/casingfall3.ogg')), 25, TRUE)
 
 		sleep(interval)
 
@@ -369,6 +379,7 @@
 			switch(chosen_option)
 				if("Toggle Safety")
 					weapon_safety = !weapon_safety
+					playsound(get_turf(src), 'packs/infinity/sound/effects/using/switch/small2.ogg', 100, TRUE)
 
 				if("Change Weapon")
 					choose_weapon()
