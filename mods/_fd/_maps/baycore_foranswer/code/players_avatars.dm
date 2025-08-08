@@ -90,9 +90,46 @@
 
 /mob/living/carbon/human/pilot/emmy
 	setup_name = "Emmy Rein"
-	setup_desc = "wawawawawawawawawawa"
+	setup_desc = "Марсианка с любовью к Мехам."
 	see_in_dark = 8
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/pilots/pilots_list.dmi'
 	icon_state = "emmy"
 
 	icon_state_setup = "emmy"
+
+/mob/living/carbon/human/pilot/john
+	setup_name = "John Mc'Cormak"
+	setup_desc = "Светловолосый мужчина в возрасте около 25 лет, Он никогда не расстаётся со своей верной ковбойской шляпой."
+	see_in_dark = 8
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/pilots/pilots_list.dmi'
+	icon_state = "john"
+
+	icon_state_setup = "john"
+
+/mob/living/carbon/human/pilot/bernard
+	setup_name = "Bernard 'Viking' Erling"
+	setup_desc = "Высокий мужчина крепкого телосложения, со светлыми волосами и пышной бородой."
+	see_in_dark = 8
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/pilots/pilots_list.dmi'
+	icon_state = "bernard"
+
+	icon_state_setup = "bernard"
+
+/mob/living/carbon/human/pilot/amaryllis
+	setup_name = "Amaryllis"
+	setup_desc = "Робот, что некогда был ландшафтным дизайнером. После начала войны, \
+	был передан вооруженным силам ЦПСС для полного форматирования сознания и перепрограммирования под пилотирование боевым шагоходом."
+	see_in_dark = 8
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/pilots/pilots_list.dmi'
+	icon_state = "amaryllis"
+
+	icon_state_setup = "amaryllis"
+
+/mob/living/carbon/human/pilot/kazi
+	setup_name = "Kazi 'Binak' Reisner"
+	setup_desc = "..."
+	see_in_dark = 8
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/pilots/wide_pilots_list.dmi'
+	icon_state = "kazi"
+
+	icon_state_setup = "kazi"

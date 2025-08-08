@@ -43,6 +43,20 @@
 
 
 
+/mob/living/simple_animal/hostile/fd/mech/goblintail/binak
+	name = "L-APU 'Binak'"
+	desc = "..."
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/scout_binak.dmi'
+	icon_state = "binak"
+	icon_living = "binak"
+
+	pixel_x = -108
+	default_pixel_x = -108
+	pixel_y = -82
+	default_pixel_y = -82
+
+
+
 /mob/living/simple_animal/hostile/fd/mech/drake/vladimir
 	name = "H-APU 'Vladimir'"
 	desc = "Стандартная модель. Но выкрашенная в цвета флага ГКК."
@@ -88,6 +102,21 @@
 
 
 
+/mob/living/simple_animal/hostile/fd/mech/lancaster/amaryllis
+	name = "SUPP-APU 'Marrot'"
+	desc = "Фактически, данный шагоход делит сознание с пилотом. \
+	Взамен позитроник-пилот потерял способность производить практически всю остальную деятельность."
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/engineer_amaryllis.dmi'
+	icon_state = "amaryllis"
+	icon_living = "amaryllis"
+
+	pixel_x = -105
+	default_pixel_x = -105
+	pixel_y = -55
+	default_pixel_y = -55
+
+
+
 /mob/living/simple_animal/hostile/fd/mech/saladin/enchanter
 	name = "SUPP-APU 'Enchanter'"
 	desc = "Эсперементальная модель меха, которая только жжёт и телепортируется. Нет, серьёзно - это буквально ВСЁ."
@@ -103,8 +132,8 @@
 
 
 /mob/living/simple_animal/hostile/fd/mech/nelson/jotunbreaker
-	name = "APU Nelson"
-	desc = "One of the most used breaching units."
+	name = "APU 'Jotunbreaker'"
+	desc = "Крушитель ледяных(кристаллических) великанов."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/breacher_jotunbreaker.dmi'
 	icon_state = "jotunbreaker"
 	icon_living = "jotunbreaker"
@@ -139,6 +168,8 @@
 	pixel_y = -66
 	default_pixel_y = -66
 
+
+
 /mob/living/simple_animal/hostile/fd/mech/napoleon/oven
 	name = "APU 'Oven'"
 	desc = "Небрежно перекрашенный зачастую неподходящей, и от того порой сыпящейся, жёлтой краской монстр Франкенштейна. \
@@ -154,9 +185,25 @@
 
 
 
+/mob/living/simple_animal/hostile/fd/mech/napoleon/wanderer
+	name = "APU 'Wanderer'"
+	desc = "'Скиталец' представитель мехов класса 'Страж', которые усилены дополнительными листами брони и ракетной установкой для оказания огневой поддержки штурмовым группам. \
+	Данная единица выглядит потрёпанной, имеет множество следов небрежного ремонта и боевых отметин, кое-где слезла краска, а кое-где оплавилась."
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/trooper_wanderer.dmi'
+	icon_state = "wanderer"
+	icon_living = "wanderer"
+
+	pixel_x = -111
+	default_pixel_x = -111
+	pixel_y = -66
+	default_pixel_y = -66
+
+
+
 /mob/living/simple_animal/hostile/fd/mech/napoleon/siren
 	name = "APU 'Lilac Siren'"
-	desc = "An standart personal unit for general purposes and combat situations."
+	desc = "'Сирена' представляет из себя прототип класса 'Калибан', расчитанный на устранение наземной техники и авиации противника. \
+	К удивлению, но он хорошо зарекомендовал себя и в устранении своих старших братьев, благодаря мощи 155-мм двухствольного дробовика."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/trooper_siren.dmi'
 	icon_state = "siren"
 	icon_living = "siren"
