@@ -57,8 +57,8 @@
 
 	pixel_x = -105
 	default_pixel_x = -105
-	pixel_y = -50
-	default_pixel_y = -50
+	pixel_y = -76
+	default_pixel_y = -76
 
 	var/cloaked = FALSE
 	var/cloak_color = "#27d6a2"
@@ -99,6 +99,12 @@
 	if(!cloaked && alpha != 255)
 		icon_state = icon_living
 		animate(src, 1 SECOND, alpha = 255)
+		set_light(0)
+
+	// Для абилки Наполеона. В клоаке у нас по определению не должно быть 255 альфы, так что по-идее всё должно быть ок
+	if(cloaked && alpha == 255)
+		icon_state = icon_living
+		cloaked = FALSE
 		set_light(0)
 
 	. = ..()
@@ -150,7 +156,7 @@
 					if(weapon_equipped == "Submachine Gun")
 						if(spare_magazines <= 0)
 							return FALSE
-						if(!do_after(src, 10 SECONDS))
+						if(!do_after(src, 10 SECONDS, do_flags = DO_BOTH_CAN_MOVE))
 							return FALSE
 
 						gun_ammo = initial(gun_ammo)
@@ -196,7 +202,7 @@
 			var/mob/living/simple_animal/hostile/fd/mech/M = A
 			if(hack_charges <= 0)
 				return FALSE
-			if(!do_after(src, 5 SECONDS))
+			if(!do_after(src, 5 SECONDS, do_flags = DO_BOTH_CAN_MOVE))
 				return FALSE
 			M.hacked()
 			if(!overheated)
@@ -231,6 +237,8 @@
 					if(cloaked)
 						damage_incoming += 50
 						cloaked = FALSE
+					if(M.leader_target)
+						damage_incoming *= 2
 					damage_incoming -= M.armor_stat
 					if(!M.damaged)
 						M.integrity -= damage_incoming

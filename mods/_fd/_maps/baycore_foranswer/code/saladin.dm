@@ -24,8 +24,8 @@
 
 	pixel_x = -115
 	default_pixel_x = -115
-	pixel_y = -25
-	default_pixel_y = -25
+	pixel_y = -46
+	default_pixel_y = -46
 
 	integrity = 300
 	integrity_max = 300
@@ -145,9 +145,17 @@
 			scan(A, params)
 
 	else if(modifiers["alt"])
+		var/turf/target_turf
 		if(world.time <= jump_cooldown)
-			return FALSE
-		var/turf/target_turf = get_turf(A)
+			var/list/random_turfs = list()
+			if(prob(50))
+				for(var/turf/T in orange(12,src))
+					if(T.density)
+						continue
+					random_turfs += T
+				target_turf = pick(random_turfs)
+		else
+			target_turf = get_turf(A)
 		if(heat < 10 && A.density != FALSE)
 			return FALSE
 

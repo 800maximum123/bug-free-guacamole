@@ -3,7 +3,7 @@
 
 /datum/species/pilot
 	name = SPECIES_PILOT
-	name_plural = "Tartakan"
+	name_plural = "Pilot"
 
 	darksight_range = 8
 	darksight_tint = DARKTINT_GOOD
@@ -15,8 +15,10 @@
 	species_flags = SPECIES_FLAG_NO_MINOR_CUT | SPECIES_FLAG_NO_SLIP | SPECIES_FLAG_NO_POISON | SPECIES_FLAG_NO_EMBED | SPECIES_FLAG_NO_TANGLE | SPECIES_FLAG_NO_PAIN
 	spawn_flags = SPECIES_IS_RESTRICTED
 	genders = list(MALE,FEMALE)
-	icobase = null
-	deform = null
+	icobase = 'mods/_fd/_maps/baycore_foranswer/icons/pilots/body.dmi'
+	deform = 'mods/_fd/_maps/baycore_foranswer/icons/pilots/body.dmi'
+	preview_icon = 'mods/_fd/_maps/baycore_foranswer/icons/pilots/pilots_list.dmi'
+
 	damage_overlays = null
 	damage_mask = null
 	blood_mask = null
@@ -58,42 +60,54 @@
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/pilots/pilots_list.dmi'
 	icon_state = "scg_standart"
 
-/obj/sprite_helper/pilot
-	icon = 'mods/_fd/_maps/baycore_foranswer/icons/pilots/pilots_list.dmi'
-	icon_state = "scg_standart"
+	var/icon_setup = 'mods/_fd/_maps/baycore_foranswer/icons/pilots/pilots_list.dmi'
+	var/icon_state_setup = "scg_standart"
+	var/setup_name = "Pilot"
+	var/setup_desc = "Just a Man."
 
-/mob/living/carbon/human/pilot/New()
+/mob/living/carbon/human/pilot/Initialize(mapload)
+	. = ..(mapload, SPECIES_PILOT)
+	return INITIALIZE_HINT_LATELOAD
+
+/mob/living/carbon/human/pilot/LateInitialize(mapload)
+	setup_pilot()
+
+/mob/living/carbon/human/pilot/proc/setup_pilot()
+	overlays += image(icon_setup, icon_state_setup)
+	name = setup_name
+	real_name = setup_name
+	desc = setup_desc
+
+/mob/living/carbon/human/pilot/update_icons()
+	lying_prev = lying	//so we don't update overlays for lying/standing unless our stance changes again
+	update_hud()		//TODO: remove the need for this
+
+	var/list/scale = get_scale()
+	animate(
+		src,
+		transform = matrix().Update(
+			scale_x = scale[1],
+			scale_y = scale[2],
+			rotation = lying ? 90 : 0,
+			offset_y = lying ? -6 - default_pixel_z : 16 * (scale[2] - 1)
+		),
+		time = ANIM_LYING_TIME
+	)
+
+/obj/landmark/mech_pilot
+	name = "Pilot spawn"
+	icon_state = "x"
+	var/mob_to_spawn = /mob/living/carbon/human/pilot
+
+/obj/landmark/mech_pilot/Initialize()
 	..()
-	spawn (20)
-		fix_icons()
-	set_species(SPECIES_PILOT)
-	add_language(LANGUAGE_PILOT)
+	return INITIALIZE_HINT_LATELOAD
 
-/mob/living/carbon/human/pilot/Move()
-	..()
-	update_stuff()
+/obj/landmark/mech_pilot/LateInitialize(mapload, ...)
+	. = ..()
+	new mob_to_spawn(loc)
 
-/mob/living/carbon/human/pilot/forceMove(destination)
-	. = ..(destination)
-	update_stuff()
-
-/mob/living/carbon/human/pilot/proc/update_stuff()
-	fix_icons()
-
-/mob/living/carbon/human/pilot/proc/fix_icons()
-	icon = null
-	icon_state = null
-	stand_icon = null
-	lying_icon = null
-	update_icon = FALSE
-	if (!vis_contents.len)
-		vis_contents += new /obj/sprite_helper/pilot
-	var/obj/sprite_helper/pilot/SH = vis_contents[vis_contents.len]
-	if (lying || resting)
-		SH.icon = turn(icon('mods/_fd/_maps/baycore_foranswer/icons/pilots/pilots_list.dmi'), 90)
-	else
-		SH.icon = 'mods/_fd/_maps/baycore_foranswer/icons/pilots/pilots_list.dmi'
-	SH.dir = dir
+	qdel(src)
 
 /datum/language/pilot
 	name = LANGUAGE_PILOT

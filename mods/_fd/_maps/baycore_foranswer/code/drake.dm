@@ -180,6 +180,8 @@
 				if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
 					var/mob/living/simple_animal/hostile/fd/mech/M = A
 					var/damage_incoming = 10
+					if(M.leader_target)
+						damage_incoming *= 2
 					damage_incoming -= M.armor_stat
 					if(!M.damaged)
 						M.integrity -= damage_incoming

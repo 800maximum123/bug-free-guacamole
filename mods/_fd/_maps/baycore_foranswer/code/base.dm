@@ -15,6 +15,9 @@
 	if(istype(target, /mob/living/simple_animal/hostile/fd/mech))
 		var/mob/living/simple_animal/hostile/fd/mech/M = target
 		var/final_damage = real_damage
+		if(M.leader_target)
+			final_damage += 10
+
 		if(!piercing)
 			final_damage -= M.armor_stat
 
@@ -66,6 +69,8 @@
 	icon_state = "breacher"
 	icon_living = "breacher"
 
+	faction = "Players"
+
 	ai_holder = null
 
 	health = 9999999
@@ -111,6 +116,9 @@
 
 	var/wreck_type = /obj/structure/fd/mech_wreckage
 	var/dead = FALSE
+
+	var/leader_target = FALSE
+	var/target_for = 0
 
 /mob/living/simple_animal/hostile/fd/mech/proc/scan(mob/living/simple_animal/hostile/fd/mech/mech_target, params)
 	set waitfor = FALSE
@@ -235,6 +243,9 @@
 	if(world.time >= malf_for && malfunction)
 		malfunction = FALSE
 
+	if(world.time >= target_for && leader_target)
+		leader_target = FALSE
+
 	if(overheated && overheat_timer > 0 && !damaged)
 		integrity -= 1
 		overheat_timer -= 1
@@ -242,6 +253,7 @@
 
 	if(overheated && overheat_timer <= 0)
 		overheated = FALSE
+		movement_cooldown += 1
 		if(has_overheated_state && !dead)
 			icon_state = initial(icon_state)
 		overheat_timer = initial(overheat_timer)
@@ -264,6 +276,7 @@
 	if(heat >= heat_overflow)
 		heat = 0
 		overheated = TRUE
+		movement_cooldown -= 1
 		if(has_overheated_state)
 			icon_state = "[icon_living]_charged"
 		add_filter("heated", 4, list("type" = "outline", , "size" = 2, "color" = COLOR_ORANGE))

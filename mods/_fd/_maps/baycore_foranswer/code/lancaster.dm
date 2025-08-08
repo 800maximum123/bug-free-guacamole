@@ -33,6 +33,8 @@
 	repairs_left = 4
 	var/restock_charges = 12
 
+	var/ping_cooldown = 0
+
 	var/cooling_process = 30 SECONDS
 	var/start_counting = FALSE
 
@@ -126,6 +128,7 @@
 			var/list/options = list(
 				"Toggle Safety" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "6"),
 				"Resupply Mech" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "17"),
+				"Ping Area" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "28"),
 				"Unattach Passenger" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "20"),
 			)
 
@@ -138,6 +141,17 @@
 
 				if("Resupply Mech")
 					choose_resupp(params)
+
+				if("Ping Area")
+					if(world.time <= ping_cooldown)
+						heat += 1
+					if(!do_after(src, 2 SECONDS, do_flags = DO_BOTH_CAN_MOVE))
+						return FALSE
+					for(var/mob/living/simple_animal/hostile/fd/mech/M in oview(6,src))
+						if(M.faction != faction && alpha < 255)
+							animate(M, 1 SECOND, alpha = 255)
+					ping_cooldown = world.time + 5 SECONDS
+					heat += 1
 
 				if("Unattach Passenger")
 					if(!isnull(passenger))
