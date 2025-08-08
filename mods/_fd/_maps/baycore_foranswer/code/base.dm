@@ -282,14 +282,15 @@
 		heat = 0
 		overheated = TRUE
 		movement_cooldown -= 1
+		overheat_timer = initial(overheat_timer)
 		if(has_overheated_state)
 			icon_state = "[icon_living]_charged"
 		add_filter("heated", 5, list("type" = "outline", , "size" = 0, "color" = COLOR_AMBER))
-		add_filter("heated_blur", 5, list("type" = "blur", , "size" = 0))
+		add_filter("heated_blur", 4, list("type" = "blur", , "size" = 0))
 		playsound(get_turf(src),'sound/effects/iron_sizzle.ogg',100,TRUE)
-		animate(get_filter("heated"), time = 15 SECONDS, size = 1, flags = ANIMATION_PARALLEL)
-		animate(get_filter("heated_blur"), time = 10 SECONDS, size = 0.2, flags = ANIMATION_PARALLEL)
-		animate(src, time = 10 SECONDS, color = "#ffa175", flags = ANIMATION_PARALLEL)
+		animate(get_filter("heated"), time = 15 SECONDS, size = 0.5, flags = ANIMATION_PARALLEL)
+		animate(get_filter("heated_blur"), time = 10 SECONDS, size = 0.75, flags = ANIMATION_PARALLEL)
+		animate(src, time = 10 SECONDS, color = "#fc987a", flags = ANIMATION_PARALLEL)
 
 	if(shielded)
 		for(var/mob/living/simple_animal/hostile/fd/mech/drake/M in view(2,src))
