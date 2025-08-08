@@ -154,7 +154,7 @@
 	repairs_left -= 1
 
 	playsound(get_turf(src),'sound/mecha/powerup.ogg',60)
-	spawn(4 SECONDS)
+	spawn(3 SECONDS)
 		playsound(get_turf(src),'sound/mecha/nominal.ogg',60)
 
 	animate(get_filter("down"), time = 1 SECONDS, size = 0.01, flags = ANIMATION_PARALLEL)
