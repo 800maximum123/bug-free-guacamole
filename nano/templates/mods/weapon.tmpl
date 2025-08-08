@@ -1,0 +1,64 @@
+<div style="float:left;width:50%">
+	{{for data.linked_weapons}}
+		<div class='block' style="border: 1px solid {{:value.color}};">
+			<div class='item'>
+				{{if value.control}}
+					<h3>
+						{{:helper.link('', value.ignore ? 'square' : 'check-square', { 'toggled_gun' : value.ref }, null, value.ignore ? null : 'selected')}}
+						{{:value.name}}
+					</h3>
+					<h4>
+						COOLDOWN: {{:value.cd_message}}<br>
+						HEAT: {{:value.heat}}%
+					</h4>
+				{{else}}
+					<h3>
+						{{:helper.link('', 'square', null, 'disabled', null)}}
+						{{:value.name}}
+					</h3>
+				{{/if}}
+			</div>
+		</div>
+	{{/for}}
+</div>
+<div style="float:right;width:50%">
+	<div class='block'>
+		<div class='item'>
+			<div class='item'>
+				{{:helper.link('', 'triangle-1-nw', { 'direction' : 9 }, data.shooting_dir == 9 ? 'selected' : null, null)}}
+				{{:helper.link('', 'triangle-1-n', { 'direction' : 1 }, data.shooting_dir == 1 ? 'selected' : null, null)}}
+				{{:helper.link('', 'triangle-1-ne', { 'direction' : 5 }, data.shooting_dir == 5 ? 'selected' : null, null)}}
+			</div>
+			<div class='item'>
+				{{:helper.link('', 'triangle-1-w', { 'direction' : 8 }, data.shooting_dir == 8 ? 'selected' : null, null)}}
+				{{:helper.link('', 'circle-close', { 'direction' : 0 }, data.shooting_dir == 0 ? 'selected' : null, null)}}
+				{{:helper.link('', 'triangle-1-e', { 'direction' : 4 }, data.shooting_dir == 4 ? 'selected' : null, null)}}
+			</div>
+			<div class='item'>
+				{{:helper.link('', 'triangle-1-sw', { 'direction' : 10 }, data.shooting_dir == 10 ? 'selected' : null, null)}}
+				{{:helper.link('', 'triangle-1-s', { 'direction' : 2 }, data.shooting_dir == 2 ? 'selected' : null, null)}}
+				{{:helper.link('', 'triangle-1-se', { 'direction' : 6 }, data.shooting_dir == 6 ? 'selected' : null, null)}}
+			</div>
+		</div>
+	</div>
+	<div class='block'>
+		<div class='item'>
+			{{:helper.link("Fire", 'alert', data.loop_fire ? { 'toggle_loop' : 1 } : { 'fire' : 1 }, null, data.loop_fire ? 'selected' : 'redButton')}}
+			{{:helper.link('', data.loop_fire ? 'pause' : 'refresh', { 'toggle_loop' : 1 }, null, data.loop_fire ? 'selected' : 'redButton')}}
+		</div>
+		<div class = 'item'>
+			{{if data.coordinates}}
+				<div class = 'itemContent'>
+					{{:helper.link(data.coords_x, 'arrowthick-2-e-w', { 'setx' : 1 }, null, null)}}
+				</div>
+				<div class = 'itemContent'>
+					{{:helper.link(data.coords_y, 'arrowthick-2-n-s', { 'sety' : 1 }, null, null)}}
+				</div>
+					{{:helper.link('Reset Coordinates', 'trash', { 'reset' : 1 }, null, null)}}
+			{{else}}
+				{{:helper.link('Set Coordinates', 'arrow-4', { 'sety' : 1, 'setx' : 1 }, null, null)}}
+			{{/if}}
+		</div>
+	</div>
+</div>
+<hr>

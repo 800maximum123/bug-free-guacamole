@@ -259,7 +259,7 @@ var/global/list/radial_menus = list()
 		current_page = Wrap(current_page + 1,1,pages+1)
 		update_screen_objects()
 
-/datum/radial_menu/proc/show_to(mob/M)
+/datum/radial_menu/proc/show_to(mob/M, offset_x = 0, offset_y = 0)
 	if(current_user)
 		hide()
 	if(!M.client || !anchor)
@@ -267,6 +267,8 @@ var/global/list/radial_menus = list()
 	current_user = M.client
 	//Blank
 	menu_holder = image(icon = 'icons/effects/effects.dmi', loc = anchor, icon_state = "nothing", layer = HUD_ABOVE_ITEM_LAYER)
+	menu_holder.pixel_x = offset_x
+	menu_holder.pixel_y = offset_y
 	menu_holder.appearance_flags |= KEEP_APART
 	menu_holder.vis_contents |= (elements + close_button)
 	current_user.images += menu_holder
@@ -304,7 +306,7 @@ var/global/list/radial_menus = list()
 	Choices should be a list where list keys are movables or text used for element names and return value
 	and list values are movables/icons/images used for element icons
 */
-/proc/show_radial_menu(mob/user, atom/anchor, list/choices, uniqueid, radius, datum/callback/custom_check, require_near = FALSE, tooltips = FALSE, no_repeat_close = FALSE, list/check_locs, use_labels = FALSE)
+/proc/show_radial_menu(mob/user, atom/anchor, list/choices, uniqueid, radius, datum/callback/custom_check, require_near = FALSE, tooltips = FALSE, no_repeat_close = FALSE, list/check_locs, use_labels = FALSE, offset_x, offset_y)
 	if(!user || !anchor || !length(choices))
 		return
 	if (istype(user.loc, /mob/living/exosuit))
@@ -331,7 +333,7 @@ var/global/list/radial_menus = list()
 	menu.anchor = anchor
 	menu.check_screen_border(user) //Do what's needed to make it look good near borders or on hud
 	menu.set_choices(choices, tooltips, use_labels)
-	menu.show_to(user)
+	menu.show_to(user, offset_x, offset_y)
 	menu.wait(user, anchor, require_near, check_locs)
 	var/answer = menu.selected_choice
 	qdel(menu)
