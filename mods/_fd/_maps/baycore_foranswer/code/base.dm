@@ -41,9 +41,9 @@
 		if(!M.damaged)
 			M.integrity -= final_damage
 		if(piercing)
-			M.damage_animation(final_damage, ignore_armor = TRUE)
+			M.damage_animation(real_damage, ignore_armor = TRUE)
 		else
-			M.damage_animation(final_damage)
+			M.damage_animation(real_damage)
 
 /obj/structure/fd/mech_wreckage
 	name = "Wreckage"
