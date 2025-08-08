@@ -151,10 +151,10 @@
 	icon_state = "blastwave"
 
 /obj/item/projectile/bullet/mech/napoleon_shotgun/on_hit(atom/target, blocked = 0)
-	. = ..()
-
 	if((initial(life_span) - life_span) < 3)
 		real_damage += 10
+
+	. = ..()
 
 /obj/item/projectile/bullet/mech/napoleon_grenade
 	real_damage = 0
