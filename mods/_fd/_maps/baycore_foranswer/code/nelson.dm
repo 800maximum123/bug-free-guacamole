@@ -114,17 +114,18 @@
 		"Spear" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24")
 	)
 	var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
+	if(!chosen_option)
+		return FALSE
 	switch(chosen_option)
 		if("Shield")
 			weapon_equipped = "Shield"
 			armor_stat = 10
 			movement_cooldown = 4
-			return TRUE
 		if("Spear")
 			weapon_equipped = "Spear"
 			armor_stat = 0
 			movement_cooldown = 2
-			return TRUE
+	playsound(get_turf(src), 'packs/infinity/sound/items/change_jaws.ogg', 80, TRUE)
 
 /mob/living/simple_animal/hostile/fd/mech/nelson/ClickOn(atom/A, params)
 	var/modifiers = params2list(params)
@@ -145,9 +146,11 @@
 			var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
 			if(!chosen_option)
 				return FALSE
+
 			switch(chosen_option)
 				if("Toggle Safety")
 					weapon_safety = !weapon_safety
+					playsound(get_turf(src), 'packs/infinity/sound/effects/using/switch/small2.ogg', 100, TRUE)
 
 				if("Change Weapon")
 					choose_weapon()

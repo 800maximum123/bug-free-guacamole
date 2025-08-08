@@ -42,12 +42,24 @@
 	var/chambered_rounds = 12
 	var/command_cooldown = 0
 
+/mob/living/simple_animal/hostile/fd/mech/napoleon/choose_weapon()
+	var/list/options = list(
+		"Riot Shotgun" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),
+		"Heavy Pistol" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24")
+	)
+	var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
+	if(!chosen_option)
+		return FALSE
+	weapon_equipped = chosen_option
+	playsound(get_turf(src), 'packs/infinity/sound/items/change_jaws.ogg', 80, TRUE)
+
 /mob/living/simple_animal/hostile/fd/mech/napoleon/consume_ammo()
 	if(weapon_equipped == "Heavy Pistol")
 		return TRUE
 
 	if(chambered_rounds <= 0)
 		return FALSE
+
 	chambered_rounds--
 	return TRUE
 
@@ -72,19 +84,26 @@
 			var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
 			if(!chosen_option)
 				return FALSE
+
 			switch(chosen_option)
 				if("Reload Weapon")
 					if(weapon_equipped == "Riot Shotgun")
 						if(spare_magazines <= 0)
 							return FALSE
+
+						visible_message(SPAN_NOTICE("[src] начинает перезаряжать своё орудие."), SPAN_INFO("Ты начинаешь перезаряжать своё орудие."))
 						if(!do_after(src, 10 SECONDS))
 							return FALSE
+
+						playsound(get_turf(src), 'mods/_fd/immersive_sounds/sounds/SOMA/server_lever_reset_01.ogg', 80)
+						visible_message(SPAN_NOTICE("[src] загружает новую порцию патрон в систему."), SPAN_INFO("Ты загружаешь новую порцию патрон в систему."))
 
 						chambered_rounds = initial(chambered_rounds)
 						spare_magazines -= 1
 
 				if("Toggle Safety")
 					weapon_safety = !weapon_safety
+					playsound(get_turf(src), 'packs/infinity/sound/effects/using/switch/small2.ogg', 100, TRUE)
 
 				if("Change Weapon")
 					choose_weapon()

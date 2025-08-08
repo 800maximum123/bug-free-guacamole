@@ -37,6 +37,8 @@
 	spare_magazines = 1
 	has_ammo = TRUE
 
+	wreck_type = /obj/structure/fd/mech_wreckage/big
+
 	var/cannon_ammo = 600
 
 	var/speed_buff = 0 // Разгон ствола за счёт перегрева
@@ -44,9 +46,10 @@
 	var/buff_timer = 30 SECONDS
 
 	var/bunkermode = FALSE
-	var/next_shield_bump = 0
+	var/bunker_radius = 3
+	var/list/protected_turfs = list()
 
-	wreck_type = /obj/structure/fd/mech_wreckage/big
+	var/next_shield_bump = 0
 
 /mob/living/simple_animal/hostile/fd/mech/drake/Move()
 	if(bunkermode)
@@ -79,12 +82,32 @@
 	if(!chosen_option)
 		return FALSE
 	weapon_equipped = chosen_option
+	playsound(get_turf(src), 'packs/infinity/sound/items/change_jaws.ogg', 80, TRUE)
 
 /mob/living/simple_animal/hostile/fd/mech/drake/consume_ammo()
 	if(cannon_ammo <= 0)
 		return FALSE
 	cannon_ammo--
 	return TRUE
+
+/mob/living/simple_animal/hostile/fd/mech/drake/proc/toggle_bunker()
+	bunkermode = !bunkermode
+	to_chat(src, SPAN_NOTICE("Ты [bunkermode ? "разложил" : "втянул"] пластины своего мобильного бункера."))
+	if(bunkermode)
+		armor_stat = initial(armor_stat)
+		playsound(get_turf(src),'packs/infinity/sound/mecha/bigmech_rstep.ogg',100)
+		add_filter("bunker", 1, list("type" = "outline", , "size" = 0, "color" = COLOR_BLACK))
+		animate(get_filter("bunker"), time = 1 SECONDS, size = 2, easing = SINE_EASING, flags = ANIMATION_PARALLEL)
+		for(var/turf/floor in block(x-bunker_radius, y-bunker_radius, z, x+bunker_radius, y+bunker_radius, z))
+			protected_turfs[floor] = floor.color
+			animate(floor, time = 1 SECONDS, color = COLOR_DARK_GRAY, easing = SINE_EASING, flags = ANIMATION_PARALLEL)
+	else
+		armor_stat = 15
+		playsound(get_turf(src),'packs/infinity/sound/mecha/bigmech_rturn.ogg',100)
+		animate(get_filter("bunker"), time = 1.5 SECONDS, size = 0, easing = SINE_EASING, flags = ANIMATION_PARALLEL)
+		for(var/turf/floor in protected_turfs.Copy())
+			animate(floor, time = 1.5 SECONDS, color = protected_turfs[floor], easing = SINE_EASING, flags = ANIMATION_PARALLEL)
+		protected_turfs.Cut()
 
 /mob/living/simple_animal/hostile/fd/mech/drake/ClickOn(atom/A, params)
 	var/modifiers = params2list(params)
@@ -109,34 +132,42 @@
 			var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
 			if(!chosen_option)
 				return FALSE
+
 			switch(chosen_option)
 				if("Toggle Safety")
 					weapon_safety = !weapon_safety
+					playsound(get_turf(src), 'packs/infinity/sound/effects/using/switch/small2.ogg', 100, TRUE)
 
 				if("Reload Weapon")
 					if(weapon_equipped == "Assault Cannon")
 						if(spare_magazines <= 0)
 							return FALSE
+
+						visible_message(SPAN_NOTICE("[src] начинает перезаряжать своё орудие."), SPAN_INFO("Ты начинаешь перезаряжать своё орудие."))
 						if(!do_after(src, 10 SECONDS))
 							return FALSE
+
+						playsound(get_turf(src), 'mods/_fd/immersive_sounds/sounds/SOMA/server_lever_reset_01.ogg', 80)
+						visible_message(SPAN_NOTICE("[src] загружает новую порцию патрон в систему."), SPAN_INFO("Ты загружаешь новую порцию патрон в систему."))
 
 						cannon_ammo = initial(cannon_ammo)
 						spare_magazines -= 1
 
 				if("Bunker On/Off")
-					if(bunkermode)
-						bunkermode = FALSE
-						armor_stat = initial(armor_stat)
-					else
-						bunkermode = TRUE
-						armor_stat = 15
+					if(!damaged)
+						toggle_bunker()
 
 				if("Accelerate Cannon")
 					if(damaged)
 						return FALSE
+					if(speed_buff >= 4 SECONDS)
+						to_chat(src, SPAN_WARNING("Пушка уже раскручена до максимума!"))
+						return FALSE
+					visible_message(SPAN_DANGER("[src] разгоняет свою роторную пушку, повышая нагрев!"))
 					if(!do_after(src, 2 SECONDS))
 						return FALSE
 					if(speed_buff >= 4 SECONDS)
+						to_chat(src, SPAN_WARNING("Пушка уже раскручена до максимума!"))
 						return FALSE
 					speed_buff += 1 SECOND
 					if(overheated)
@@ -144,6 +175,7 @@
 						damage_animation(10, ignore_armor = TRUE)
 					else
 						heat += 1
+					playsound(get_turf(src),'mods/_fd/immersive_sounds/sounds/SOMA/computer_fan_turn_on.ogg',100)
 
 				if("Change Weapon")
 					choose_weapon()

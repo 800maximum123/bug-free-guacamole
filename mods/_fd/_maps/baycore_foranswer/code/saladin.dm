@@ -84,36 +84,13 @@
 /mob/living/simple_animal/hostile/fd/mech/saladin/ClickOn(atom/A, params)
 	var/modifiers = params2list(params)
 
-	if(A == src)
-		if(hacked)
-			if(!do_after(src, 2 SECONDS))
-				return FALSE
-			hacked = FALSE
-			return TRUE
-
-		if(modifiers["left"])
-			var/list/options = list(
-				"Toggle Safety" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "6"),
-				"Reboot" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "34"),
-			)
-
-			var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
-			if(!chosen_option)
-				return FALSE
-			switch(chosen_option)
-				if("Toggle Safety")
-					weapon_safety = !weapon_safety
-
-				if("Reboot")
-					mech_reboot()
-
-			return FALSE
-
-	else if(modifiers["middle"])
+	// Выше приоритетом, что бы щит можно было наложить на себя
+	if(modifiers["middle"])
 		if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
 			var/mob/living/simple_animal/hostile/fd/mech/M = A
 			if(world.time <= shield_cooldown)
 				return FALSE
+
 			if(M == protected)
 				protected.overprotected = FALSE
 				protected.CutOverlays(field_overlay)
@@ -122,6 +99,7 @@
 
 				shield_cooldown = world.time + 5 SECONDS
 				return TRUE
+
 			if(!do_after(src, 2 SECONDS))
 				return FALSE
 
@@ -139,6 +117,33 @@
 			protected.overprotected = TRUE
 			protected.AddOverlays(field_overlay)
 			return TRUE
+
+	else if(A == src)
+		if(hacked)
+			if(!do_after(src, 2 SECONDS))
+				return FALSE
+			hacked = FALSE
+			return TRUE
+
+		if(modifiers["left"])
+			var/list/options = list(
+				"Toggle Safety" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "6"),
+				"Reboot" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "34"),
+			)
+
+			var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
+			if(!chosen_option)
+				return FALSE
+
+			switch(chosen_option)
+				if("Toggle Safety")
+					weapon_safety = !weapon_safety
+					playsound(get_turf(src), 'packs/infinity/sound/effects/using/switch/small2.ogg', 100, TRUE)
+
+				if("Reboot")
+					mech_reboot()
+
+			return FALSE
 
 	else if(modifiers["shift"])
 		if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
@@ -204,3 +209,4 @@
 		var/mob/living/simple_animal/hostile/fd/mech/M = target
 
 		M.heat += 2
+		to_chat(M, SPAN_DANGER("Твой мех начинает перегреватся после попадания плазмы!"))
