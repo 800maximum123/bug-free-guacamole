@@ -57,7 +57,7 @@
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/pilots/pilots_list.dmi'
 	icon_state = "scg_standart"
 
-	no_sleep = TRUE
+	no_ssd = TRUE
 
 	var/icon_setup = 'mods/_fd/_maps/baycore_foranswer/icons/pilots/pilots_list.dmi'
 	var/icon_state_setup = "scg_standart"
@@ -75,7 +75,7 @@
 	overlays += image(icon_setup, icon_state_setup)
 	name = setup_name
 	real_name = setup_name
-	desc = setup_desc
+	flavor_texts["general"] = setup_desc
 	add_language(LANGUAGE_PILOT)
 
 /mob/living/carbon/human/pilot/update_icons()

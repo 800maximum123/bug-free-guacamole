@@ -3,7 +3,7 @@
 	icon_state = "experimental_death_1"
 	density = FALSE
 
-	layer = DECAL_LAYER
+	layer = 3.99
 
 	pixel_y = 0
 	pixel_x = 0

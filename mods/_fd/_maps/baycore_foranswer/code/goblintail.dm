@@ -1,5 +1,5 @@
 /mob/living/simple_animal/hostile/fd/mech/proc/hacked()
-// НИКОГО НИЧЕГО НИКОМУ НИКОГДА
+// 1984 ЗДЕСЬ НИКОМУ НИХЕРА НИЧЕГО
 	overlay_fullscreen("scanlines",/obj/screen/fullscreen/scanline)
 	hacked = TRUE
 	hacking_qte = world.time + 5 SECONDS

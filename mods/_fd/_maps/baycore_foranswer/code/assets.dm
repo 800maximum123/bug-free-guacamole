@@ -7,6 +7,8 @@
 	anchored = TRUE
 	opacity = FALSE
 
+	var/uses = 20
+
 /obj/structure/fd/baycore/resupply/Initialize()
 	. = ..()
 	SetTransform(3)
@@ -16,10 +18,13 @@
 		return
 	if(!istype(user, /mob/living/simple_animal/hostile/fd/mech))
 		return
+	if(!uses)
+		to_chat(user, SPAN_WARNING("У станции ремонта больше не осталось использований!"))
 	var/mob/living/simple_animal/hostile/fd/mech/mech_user = user
 	playsound(get_turf(src), 'sound/effects/lift_heavy_start.ogg', 100)
-	if(!do_after(src, 4 SECONDS, user, DO_PUBLIC_UNIQUE))
+	if(!do_after(user, 4 SECONDS, src, DO_PUBLIC_UNIQUE))
 		return
+	uses--
 	mech_user.resupply()
 	mech_user.visible_message(SPAN_INFO("[mech_user] пополняет припасы из станции ремонта."))
 

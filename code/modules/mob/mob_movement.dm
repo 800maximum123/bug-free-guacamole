@@ -3,6 +3,7 @@
 
 /mob/proc/SelfMove(direction)
 	if(DoMove(direction, src) & MOVEMENT_HANDLED)
+		src.last_move = direction
 		return TRUE // Doesn't necessarily mean the mob physically moved
 
 /mob/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)

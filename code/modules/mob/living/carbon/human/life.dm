@@ -579,7 +579,8 @@
 
 	//SSD check, if a logged player is awake put them back to sleep!
 	if(ssd_check() && species.get_ssd(src) || player_triggered_sleeping)
-		Sleeping(2)
+		if(!no_ssd)
+			Sleeping(2)
 	if(stat == DEAD)	//DEAD. BROWN BREAD. SWIMMING WITH THE SPESS CARP
 		blinded = 1
 		silent = 0
@@ -603,7 +604,7 @@
 				src.visible_message("<B>[src]</B> [species.halloss_message]")
 			Paralyse(10)
 
-		if((paralysis || sleeping) && !no_sleep)
+		if((paralysis || sleeping))
 			blinded = 1
 			set_stat(UNCONSCIOUS)
 			animate_tail_reset()

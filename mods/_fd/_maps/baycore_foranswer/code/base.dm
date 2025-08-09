@@ -380,6 +380,7 @@
 		if(weapon_safety)
 			return FALSE
 		if(malfunction)
+			playsound(get_turf(src),'sound/weapons/empty.ogg', 80, TRUE)
 			return FALSE
 		if(damaged)
 			return FALSE

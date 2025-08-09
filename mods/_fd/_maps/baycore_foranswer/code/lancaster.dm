@@ -124,12 +124,13 @@
 				return FALSE
 			visible_message(SPAN_NOTICE("[src] начал погружать припасы на борт [target_choice]."), SPAN_INFO("Ты начал погружать припасы на борт [target_choice]."))
 			playsound(get_turf(src), 'sound/effects/lift_heavy_start.ogg', 100)
+			var/finished = FALSE
 			spawn(5 SECONDS)
-				if(!.)
+				if(!finished)
 					playsound(get_turf(target_choice), 'sound/effects/lift_heavy_stop.ogg', 100)
 			if(!do_after(src, 10 SECONDS, target_choice))
-				. = FALSE
-				return .
+				return FALSE
+			finished = TRUE
 			target_choice.spare_magazines += 2
 			restock_charges -= 1
 			visible_message(SPAN_NOTICE("[src] восполнил часть припасов у [target_choice]."), SPAN_INFO("Ты восполнил часть припасов у [target_choice]."))
