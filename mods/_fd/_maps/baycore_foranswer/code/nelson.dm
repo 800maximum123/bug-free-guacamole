@@ -46,6 +46,8 @@
 	var/momentum_timer = 0
 	var/momentum_stacks = 0
 
+	var/moved_diagonally = FALSE
+
 	wreck_type = /obj/structure/fd/mech_wreckage/small/nelson
 
 /mob/living/simple_animal/hostile/fd/mech/nelson/Stat()
@@ -65,27 +67,30 @@
 			default_pixel_x = -150
 
 /proc/get_nearby_directions(direction)
-	if(direction == NORTH) return list(NORTHWEST, NORTH, NORTHEAST)
-	else if(direction == NORTHEAST) return list(NORTH, NORTHEAST, EAST)
-	else if(direction == EAST) return list(NORTHEAST, EAST, SOUTHEAST)
+	RETURN_TYPE(/list)
+	if(direction == NORTHEAST) return list(NORTH, NORTHEAST, EAST)
 	else if(direction == SOUTHEAST) return list(EAST, SOUTHEAST, SOUTH)
-	else if(direction == SOUTH) return list(SOUTHEAST, SOUTH, SOUTHWEST)
 	else if(direction == SOUTHWEST) return list(SOUTH, SOUTHWEST, WEST)
-	else if(direction == WEST) return list(SOUTHWEST, WEST, NORTHWEST)
 	else if(direction == NORTHWEST) return list(WEST, NORTHWEST, NORTH)
+	else if(direction == NORTH) return list(NORTHWEST, NORTH, NORTHEAST)
+	else if(direction == EAST) return list(NORTHEAST, EAST, SOUTHEAST)
+	else if(direction == SOUTH) return list(SOUTHEAST, SOUTH, SOUTHWEST)
+	else if(direction == WEST) return list(SOUTHWEST, WEST, NORTHWEST)
 	else return list()
 
-/mob/living/simple_animal/hostile/fd/mech/nelson/Move(new_loc, dir)
+/mob/living/simple_animal/hostile/fd/mech/nelson/SelfMove(move_dir)
 	var/turf/old_loc = get_turf(src)
+	var/old_dir = dir
 
 	. = ..()
-	if(!. || old_loc == loc) // Если мы не смогли подвигатся - никакого разгона
+	if(!. || old_loc == loc) // 1984 никакого разгона без мува
 		return
 
-	var/move_direction = get_dir(old_loc, loc)
-	var/list/allowed_dirs = get_nearby_directions(move_direction)
-	message_admins("[move_direction] in [list2params(allowed_dirs)] = ![(move_direction in allowed_dirs)]")
-	if(!(move_direction in allowed_dirs))
+	if(facing_dir)
+		return
+
+	/// я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума я сошёл с ума
+	if(!(last_move in get_nearby_directions(old_dir)))
 		momentum = FALSE
 		pointblank = FALSE
 		pre_run = 0
@@ -97,10 +102,10 @@
 			movement_cooldown = 5
 		return
 
-	if(pre_run < 3 && !momentum)
+	if(pre_run < 2 && !momentum)
 		pre_run += 1
 
-	if(!momentum && pre_run >= 3)
+	if(!momentum && pre_run >= 2)
 		momentum = TRUE
 		pre_run = 0
 
@@ -258,7 +263,7 @@
 					if(!M.damaged)
 						M.integrity -= damage_incoming
 						M.damage_animation(damage_incoming, ignore_armor = TRUE)
-				next_shield_bump = world.time + 3 SECONDS
+				next_spear_poke = world.time + 3 SECONDS
 
 	else
 		. = ..()

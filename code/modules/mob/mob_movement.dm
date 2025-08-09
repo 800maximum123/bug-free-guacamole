@@ -153,7 +153,7 @@
 							if (step(src, WEST))
 								step(src, SOUTH)
 	else
-		var/atom/A = src.loc
+		//var/atom/A = src.loc
 
 		var/olddir = dir //we can't override this without sacrificing the rest of movable/New()
 		. = ..()
@@ -164,8 +164,9 @@
 		src.move_speed = world.time - src.l_move_time
 		src.l_move_time = world.time
 		src.m_flag = 1
-		if ((A != src.loc && A && A.z == src.z))
-			src.last_move = get_dir(A, src.loc)
+		//if ((A != src.loc && A && A.z == src.z))
+			//src.last_move = direct
+			//говно для мехов
 
 	if(!inertia_moving)
 		inertia_next_move = world.time + inertia_move_delay

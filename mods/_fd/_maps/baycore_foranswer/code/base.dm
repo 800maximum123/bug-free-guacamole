@@ -361,7 +361,7 @@
 
 	. = ..()
 
-/mob/living/simple_animal/hostile/fd/mech/Move(loc, dir)
+/mob/living/simple_animal/hostile/fd/mech/SelfMove(dir)
 	if(damaged)
 		return 0
 
