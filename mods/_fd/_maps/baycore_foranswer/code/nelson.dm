@@ -65,14 +65,14 @@
 			default_pixel_x = -150
 
 /proc/get_nearby_directions(direction)
-	if(NORTH) return list(NORTHWEST, NORTH, NORTHEAST)
-	else if(NORTHEAST) return list(NORTH, NORTHEAST, EAST)
-	else if(EAST) return list(NORTHEAST, EAST, SOUTHEAST)
-	else if(SOUTHEAST) return list(EAST, SOUTHEAST, SOUTH)
-	else if(SOUTH) return list(SOUTHEAST, SOUTH, SOUTHWEST)
-	else if(SOUTHWEST) return list(SOUTH, SOUTHWEST, WEST)
-	else if(WEST) return list(SOUTHWEST, WEST, NORTHWEST)
-	else if(NORTHWEST) return list(WEST, NORTHWEST, NORTH)
+	if(direction == NORTH) return list(NORTHWEST, NORTH, NORTHEAST)
+	else if(direction == NORTHEAST) return list(NORTH, NORTHEAST, EAST)
+	else if(direction == EAST) return list(NORTHEAST, EAST, SOUTHEAST)
+	else if(direction == SOUTHEAST) return list(EAST, SOUTHEAST, SOUTH)
+	else if(direction == SOUTH) return list(SOUTHEAST, SOUTH, SOUTHWEST)
+	else if(direction == SOUTHWEST) return list(SOUTH, SOUTHWEST, WEST)
+	else if(direction == WEST) return list(SOUTHWEST, WEST, NORTHWEST)
+	else if(direction == NORTHWEST) return list(WEST, NORTHWEST, NORTH)
 	else return list()
 
 /mob/living/simple_animal/hostile/fd/mech/nelson/Move(loc, dir)
@@ -83,6 +83,7 @@
 	if(!(dir in get_nearby_directions(last_move)))
 		momentum = FALSE
 		pointblank = FALSE
+		pre_run = 0
 		momentum_timer = 0
 		momentum_stacks = 0
 		if(weapon_equipped == "Shield")
@@ -97,7 +98,6 @@
 	if(!momentum && pre_run >= 3)
 		momentum = TRUE
 		pre_run = 0
-
 
 	if(momentum)
 		momentum_timer = world.time + 0.7 SECONDS
@@ -118,6 +118,7 @@
 			M.chained = TRUE
 			pointblank = TRUE
 			momentum = FALSE
+			pre_run = 0
 			momentum_stacks = 0
 			if(weapon_equipped == "Shield")
 				movement_cooldown = 6
@@ -131,6 +132,7 @@
 	if(momentum && world.time >= momentum_timer)
 		momentum = FALSE
 		pointblank = FALSE
+		pre_run = 0
 		momentum_timer = 0
 		momentum_stacks = 0
 		if(weapon_equipped == "Shield")
