@@ -80,6 +80,17 @@
 	if(!.) // Если мы не смогли подвигатся - никакого разгона
 		return
 
+	if(!(dir in get_nearby_directions(last_move)))
+		momentum = FALSE
+		pointblank = FALSE
+		momentum_timer = 0
+		momentum_stacks = 0
+		if(weapon_equipped == "Shield")
+			movement_cooldown = 6
+		else
+			movement_cooldown = 5
+		return
+
 	if(pre_run < 3 && !momentum)
 		pre_run += 1
 
@@ -87,7 +98,8 @@
 		momentum = TRUE
 		pre_run = 0
 
-	if(momentum && !(dir in get_nearby_directions(last_move)))
+
+	if(momentum)
 		momentum_timer = world.time + 0.7 SECONDS
 		if(momentum_stacks < 10)
 			momentum_stacks += 1
@@ -117,11 +129,15 @@
 /mob/living/simple_animal/hostile/fd/mech/nelson/Life()
 
 	if(momentum && world.time >= momentum_timer)
-		momentum_stacks = 0
-		momentum_timer = initial(momentum_timer)
-		movement_cooldown = initial(movement_cooldown)
 		momentum = FALSE
 		pointblank = FALSE
+		momentum_timer = 0
+		momentum_stacks = 0
+		if(weapon_equipped == "Shield")
+			movement_cooldown = 6
+		else
+			movement_cooldown = 5
+		return
 
 	. = ..()
 
