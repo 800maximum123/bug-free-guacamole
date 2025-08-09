@@ -203,7 +203,7 @@
 	heat_overflow = 3
 
 /mob/living/simple_animal/hostile/fd/mech/lancaster/holo/mech_shoot(atom/target, bullet_type, cooldown, amount, interval, damage_bonus, bullet_icon, sound)
-	. = ..(damage_bonus = -2)
+	. = ..(damage_bonus = -1)
 
 
 /mob/living/simple_animal/hostile/fd/mech/saladin/holo
