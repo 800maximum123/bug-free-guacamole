@@ -1,23 +1,41 @@
 /mob/living/simple_animal/hostile/fd/mech/proc/hacked()
 // 1984 ЗДЕСЬ НИКОМУ НИХЕРА НИЧЕГО
-	overlay_fullscreen("scanlines",/obj/screen/fullscreen/scanline)
+	set waitfor = FALSE
+
 	hacked = TRUE
-	hacking_qte = world.time + 5 SECONDS
-	if(world.time >= hacking_qte && hacked)
-		clear_fullscreen("scanlines")
+	overlay_fullscreen("scanlines", /obj/screen/fullscreen/scanline)
+	for(var/stage in 1 to 5)
+		var/list/options = list()
+		options["DEBUG"] = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "31")
+		for(var/difficulty in 1 to (stage * 2) + 1)
+			options["[difficulty]"] = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "38")
+
+		var/qte_timer = world.time + 3 SECONDS
+
+		playsound(src, 'packs/infinity/sound/mecha/UI_SCI-FI_Tone_10_stereo.ogg', 60, TRUE)
+		var/chosen_option = show_radial_menu(src, src, shuffle(options), radius = 60, require_near = TRUE, offset_x = 125, offset_y = 125)
+		if((chosen_option != "DEBUG") || (world.time > qte_timer))
+			playsound(src, 'packs/infinity/sound/mecha/UI_SCI-FI_Tone_Deep_Wet_15_stereo_error.ogg', 60, TRUE)
+			break
+
+		if(stage == 5)
+			playsound(src, 'packs/infinity/sound/mecha/UI_SCI-FI_Tone_Deep_Wet_22_stereo_complite.ogg', 60)
+			hacked = FALSE
+
+	if(hacked)
 		var/debuff = pick("Overheated","Stunned","Broken")
 		switch(debuff)
 			if("Overheated")
 				overheated = TRUE
-				return TRUE
 			if("Stunned")
 				chained_for = world.time + 10 SECONDS
 				chained = TRUE
-				return TRUE
 			if("Broken")
 				malf_for = world.time + 10 SECONDS
 				malfunction = TRUE
-				return TRUE
+
+	clear_fullscreen("scanlines")
+	hacked = FALSE
 
 /obj/structure/fd/mech_wreckage/small/goblin
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/scout_def.dmi'
@@ -134,12 +152,6 @@
 	var/modifiers = params2list(params)
 
 	if(A == src)
-		if(hacked)
-			if(!do_after(src, 2 SECONDS))
-				return FALSE
-			hacked = FALSE
-			return TRUE
-
 		if(modifiers["left"])
 			var/list/options = list(
 				"Change Weapon" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),

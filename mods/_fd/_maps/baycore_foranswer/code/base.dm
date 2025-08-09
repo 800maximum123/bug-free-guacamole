@@ -111,7 +111,6 @@
 
 	var/scan_delay = 1.5 SECONDS // Задержка перед показом результатов сканирования
 
-	var/hacking_qte = 0
 	var/hacked = FALSE
 	var/chained = FALSE
 	var/chained_for = 0
@@ -308,7 +307,7 @@
 		visible_message(SPAN_WARNING("[src] теряет статус приоритетной цели!"))
 
 	if(overheated && overheat_timer > 0 && !damaged)
-		integrity -= 1
+		integrity -= 2
 		overheat_timer -= 1
 		// Попробуем заменить анимацию урона на звук шипения, посмотрим лучше ли будет выглядеть
 		//damage_animation(1, ignore_armor = TRUE)
@@ -367,13 +366,14 @@
 
 	if(chained)
 		return FALSE
-
+/* тухедо пофикси и затесть своё говно
 	if(!second_step)
 		var/singleton/footsteps/FS = GET_SINGLETON(footstep_sound)
 		playsound(get_turf(src), pick(FS.footstep_sounds), 70, TRUE)
 		second_step = TRUE
 	else
 		second_step = FALSE
+*/
 	. = ..()
 
 /mob/living/simple_animal/hostile/fd/mech/proc/consume_ammo()
@@ -390,6 +390,7 @@
 			return FALSE
 		if(malfunction)
 			playsound(get_turf(src),'sound/weapons/empty.ogg', 80, TRUE)
+			to_chat(src, SPAN_WARNING("Оружие заклинило!"))
 			return FALSE
 		if(damaged)
 			return FALSE
@@ -427,12 +428,6 @@
 	var/modifiers = params2list(params)
 
 	if(A == src)
-		if(hacked)
-			if(!do_after(src, 2 SECONDS))
-				return FALSE
-			hacked = FALSE
-			return TRUE
-
 		if(modifiers["left"])
 			var/list/options = list(
 				"Change Weapon" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),
