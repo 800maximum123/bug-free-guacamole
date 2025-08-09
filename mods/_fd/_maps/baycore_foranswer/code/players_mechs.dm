@@ -242,3 +242,29 @@
 		if(EAST, NORTH)
 			pixel_x = -50
 			default_pixel_x = -50
+
+/mob/living/simple_animal/hostile/fd/mech/napoleon/barracuda
+	name = "HI APU 'Goblin'"
+	desc = "\"Барракуда\" от Гефеста - простой в эксплуатации и обслуживании, резвый и, главное, массовый. \
+	 Этот экземпляр - представитель ранней модели, местами проржавевший. На крашеном наспех корпусе \
+	 виднеется стёртая маркировка \"HI-BRC-827\"."
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/trooper_barracuda2.dmi'
+	icon_state = "barracuda"
+	icon_living = "barracuda"
+
+	pixel_x = -140
+	default_pixel_x = -140
+	pixel_y = -46
+	default_pixel_y = -46
+
+	wreck_type = /obj/structure/fd/mech_wreckage/medium/napoleon
+
+/mob/living/simple_animal/hostile/fd/mech/napoleon/barracuda/set_dir()
+	..()
+	switch(dir)
+		if(WEST, SOUTH)
+			pixel_x = -140
+			default_pixel_x = -140
+		if(EAST, NORTH)
+			pixel_x = -70
+			default_pixel_x = -70
