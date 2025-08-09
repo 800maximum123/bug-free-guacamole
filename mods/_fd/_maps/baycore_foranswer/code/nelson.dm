@@ -75,12 +75,17 @@
 	else if(direction == NORTHWEST) return list(WEST, NORTHWEST, NORTH)
 	else return list()
 
-/mob/living/simple_animal/hostile/fd/mech/nelson/Move(loc, dir)
+/mob/living/simple_animal/hostile/fd/mech/nelson/Move(new_loc, dir)
+	var/turf/old_loc = get_turf(src)
+
 	. = ..()
-	if(!.) // Если мы не смогли подвигатся - никакого разгона
+	if(!. || old_loc == loc) // Если мы не смогли подвигатся - никакого разгона
 		return
 
-	if(!(dir in get_nearby_directions(last_move)))
+	var/move_direction = get_dir(old_loc, loc)
+	var/list/allowed_dirs = get_nearby_directions(move_direction)
+	message_admins("[move_direction] in [list2params(allowed_dirs)] = ![(move_direction in allowed_dirs)]")
+	if(!(move_direction in allowed_dirs))
 		momentum = FALSE
 		pointblank = FALSE
 		pre_run = 0
@@ -206,6 +211,12 @@
 			pointblank = FALSE
 
 	else if(modifiers["ctrl"])
+
+	else if(modifiers["left"] && istype(A, /obj/structure/fd/baycore/resupply))
+		A.attack_animal(src)
+
+	else if(modifiers["left"] && istype(A, /obj/structure/fd/baycore/resupply))
+		A.attack_animal(src)
 
 	else if(modifiers["left"] && !weapon_safety)
 		switch(weapon_equipped)

@@ -1,3 +1,28 @@
+/obj/structure/fd/baycore/resupply
+	name = "станция ремонта"
+	desc = "То место, где можно пополнить припасы и залатать свою верную кабылу между битвами."
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/assets.dmi'
+	icon_state = "building2"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
+
+/obj/structure/fd/baycore/resupply/Initialize()
+	. = ..()
+	SetTransform(3)
+
+/obj/structure/fd/baycore/resupply/attack_animal(mob/user)
+	if(get_dist(src, user) > 2)
+		return
+	if(!istype(user, /mob/living/simple_animal/hostile/fd/mech))
+		return
+	var/mob/living/simple_animal/hostile/fd/mech/mech_user = user
+	playsound(get_turf(src), 'sound/effects/lift_heavy_start.ogg', 100)
+	if(!do_after(src, 4 SECONDS, user, DO_PUBLIC_UNIQUE))
+		return
+	mech_user.resupply()
+	mech_user.visible_message(SPAN_INFO("[mech_user] пополняет припасы из станции ремонта."))
+
 /obj/structure/fd/baycore/fake_overmap
 	name = "overmap"
 	desc = "overmap."

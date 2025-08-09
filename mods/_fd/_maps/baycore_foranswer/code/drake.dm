@@ -12,6 +12,10 @@
 	var/state = rand(1,7)
 	icon_state = "heavy_death_[state]"
 
+/mob/living/simple_animal/hostile/fd/mech/drake/resupply()
+	. = ..()
+	cannon_ammo = initial(cannon_ammo)
+
 /mob/living/simple_animal/hostile/fd/mech/drake
 	name = "H-APU Drake"
 	desc = "The Drake was the first, and most resilient APU ever designed by ''Shield''."
@@ -193,6 +197,9 @@
 	else if(modifiers["alt"])
 
 	else if(modifiers["ctrl"])
+
+	else if(modifiers["left"] && istype(A, /obj/structure/fd/baycore/resupply))
+		A.attack_animal(src)
 
 	else if(modifiers["left"] && !weapon_safety)
 		switch(weapon_equipped)

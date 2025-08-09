@@ -12,6 +12,10 @@
 	var/state = rand(1,9)
 	icon_state = "trooper_death_[state]"
 
+/mob/living/simple_animal/hostile/fd/mech/napoleon/resupply()
+	. = ..()
+	chambered_rounds = initial(chambered_rounds)
+
 /mob/living/simple_animal/hostile/fd/mech/napoleon
 	name = "APU Napoleon"
 	desc = "An standart personal unit for general purposes and combat situations."
@@ -136,6 +140,9 @@
 			visible_message(SPAN_DANGER("[src] помечает [M] в качестве приоритетной цели!"), SPAN_INFO("Ты помечаешь [M] в качестве приоритетной цели."))
 
 	else if(modifiers["ctrl"])
+
+	else if(modifiers["left"] && istype(A, /obj/structure/fd/baycore/resupply))
+		A.attack_animal(src)
 
 	else if(modifiers["left"] && !weapon_safety)
 		switch(weapon_equipped)

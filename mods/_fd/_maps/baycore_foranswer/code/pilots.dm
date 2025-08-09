@@ -1,6 +1,3 @@
-#define SPECIES_PILOT       "Pilot"
-#define LANGUAGE_PILOT "Secret Channel"
-
 /datum/species/pilot
 	name = SPECIES_PILOT
 	name_plural = "Pilot"
@@ -60,6 +57,8 @@
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/pilots/pilots_list.dmi'
 	icon_state = "scg_standart"
 
+	no_sleep = TRUE
+
 	var/icon_setup = 'mods/_fd/_maps/baycore_foranswer/icons/pilots/pilots_list.dmi'
 	var/icon_state_setup = "scg_standart"
 	var/setup_name = "Pilot"
@@ -77,6 +76,7 @@
 	name = setup_name
 	real_name = setup_name
 	desc = setup_desc
+	add_language(LANGUAGE_PILOT)
 
 /mob/living/carbon/human/pilot/update_icons()
 	lying_prev = lying	//so we don't update overlays for lying/standing unless our stance changes again
