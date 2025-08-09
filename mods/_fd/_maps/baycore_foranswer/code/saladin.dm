@@ -119,6 +119,9 @@
 			return TRUE
 
 	else if(A == src)
+		if(hacked)
+			return FALSE
+
 		if(modifiers["left"])
 			var/list/options = list(
 				"Toggle Safety" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "6"),

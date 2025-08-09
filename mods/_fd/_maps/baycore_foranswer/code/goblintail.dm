@@ -152,6 +152,9 @@
 	var/modifiers = params2list(params)
 
 	if(A == src)
+		if(hacked)
+			return FALSE
+
 		if(modifiers["left"])
 			var/list/options = list(
 				"Change Weapon" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),
