@@ -161,7 +161,7 @@
 				target_turf = pick(random_turfs)
 		else
 			target_turf = get_turf(A)
-		if(heat < 10 && A.density != FALSE)
+		if(heat < 10 || target_turf.density)
 			return FALSE
 
 		animate(src, transform = matrix(0.01, MATRIX_SCALE), time = 1 SECOND, easing = BOUNCE_EASING)
