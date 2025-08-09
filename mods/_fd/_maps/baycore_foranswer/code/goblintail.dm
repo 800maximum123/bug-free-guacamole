@@ -33,6 +33,10 @@
 	var/state = rand(1,4)
 	icon_state = "scout_death_[state]"
 
+/mob/living/simple_animal/hostile/fd/mech/goblintail/resupply()
+	. = ..()
+	gun_ammo = initial(gun_ammo)
+
 /mob/living/simple_animal/hostile/fd/mech/goblintail
 	name = "L-APU Goblintail"
 	desc = "An spec-ops lightweight APU model with installed stealth-tech."
@@ -214,6 +218,9 @@
 			return TRUE
 
 	else if(modifiers["ctrl"])
+
+	else if(modifiers["left"] && istype(A, /obj/structure/fd/baycore/resupply))
+		A.attack_animal(src)
 
 	else if(modifiers["left"] && !weapon_safety)
 		switch(weapon_equipped)

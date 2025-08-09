@@ -80,6 +80,8 @@
 	runechat_y_offset = 125
 	bleed_colour = "#000000"
 
+	see_in_dark = 30
+
 	var/mob/living/carbon/human/pilot/pilot // Текущий пилот меха
 
 	var/armor_stat = 0 // Снижает урон на [X]
@@ -122,6 +124,30 @@
 	var/leader_target = FALSE
 	var/target_for = 0
 
+/mob/living/simple_animal/hostile/fd/mech/Initialize()
+	. = ..()
+	add_language(LANGUAGE_PILOT)
+
+/mob/living/simple_animal/hostile/fd/mech/proc/resupply()
+	SHOULD_CALL_PARENT(TRUE)
+
+	mech_reboot(FALSE, FALSE)
+
+	integrity = integrity_max
+	heat = 0
+	overheated = FALSE
+	repairs_left = initial(repairs_left)
+	damaged = FALSE
+	overheat_timer = initial(overheat_timer)
+	spare_magazines = initial(spare_magazines)
+	hacked = FALSE
+	chained = FALSE
+	chained_for = 0
+	malfunction = FALSE
+	malf_for = 0
+	leader_target = FALSE
+	target_for = 0
+
 /mob/living/simple_animal/hostile/fd/mech/can_pull()
 	return FALSE
 
@@ -156,9 +182,10 @@
 	if(!damaged)
 		return FALSE
 
-	visible_message(SPAN_NOTICE("[src] тихо жужжит, начиная процесс экстренного ремонта."), SPAN_INFO("Ты запускаешь протокол экстренного ремонта [src]."))
-	if(delay && !do_after(src, 60 SECONDS))
-		return FALSE
+	if(delay)
+		visible_message(SPAN_NOTICE("[src] тихо жужжит, начиная процесс экстренного ремонта."), SPAN_INFO("Ты запускаешь протокол экстренного ремонта [src]."))
+		if(!do_after(src, 60 SECONDS))
+			return FALSE
 
 	if(heal)
 		integrity = integrity_max / 2
@@ -247,6 +274,10 @@
 	set name = "Мех - Покинуть"
 	set category = "IC"
 	set desc = "Позволяет покинуть боевую машину."
+
+	if(!pilot)
+		to_chat(src, SPAN_DEBUG("Ты ебанутый? Ты кем вылезать собрался?"))
+		return
 
 	if(alert(src, "Вы точно хотите покинуть мех?", "Покинуть мех", "Да", "Нет") == "Нет")
 		return
@@ -424,6 +455,9 @@
 	else if(modifiers["alt"])
 
 	else if(modifiers["ctrl"])
+
+	else if(modifiers["left"] && istype(A, /obj/structure/fd/baycore/resupply))
+		A.attack_animal(src)
 
 	else if(modifiers["left"] && !weapon_safety)
 		switch(weapon_equipped)

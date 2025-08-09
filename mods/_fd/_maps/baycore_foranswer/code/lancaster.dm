@@ -7,6 +7,10 @@
 	bound_width = 256
 	bound_height = 64
 
+/mob/living/simple_animal/hostile/fd/mech/lancaster/resupply()
+	. = ..()
+	restock_charges = initial(restock_charges)
+
 /mob/living/simple_animal/hostile/fd/mech/lancaster
 	name = "SUPP-APU Lancaster"
 	desc = "Special engineering machine, manufactured to bring fast aid to the other personal units on the battlefield."
@@ -210,6 +214,9 @@
 			return TRUE
 
 	else if(modifiers["ctrl"])
+
+	else if(modifiers["left"] && istype(A, /obj/structure/fd/baycore/resupply))
+		A.attack_animal(src)
 
 	else if(modifiers["left"] && !weapon_safety)
 		switch(weapon_equipped)

@@ -182,6 +182,9 @@
 
 	else if(modifiers["ctrl"])
 
+	else if(modifiers["left"] && istype(A, /obj/structure/fd/baycore/resupply))
+		A.attack_animal(src)
+
 	else if(modifiers["left"] && !weapon_safety)
 		switch(weapon_equipped)
 			if("Thermal Release")

@@ -603,7 +603,7 @@
 				src.visible_message("<B>[src]</B> [species.halloss_message]")
 			Paralyse(10)
 
-		if(paralysis || sleeping)
+		if((paralysis || sleeping) && !no_sleep)
 			blinded = 1
 			set_stat(UNCONSCIOUS)
 			animate_tail_reset()
