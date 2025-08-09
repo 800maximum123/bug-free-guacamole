@@ -152,3 +152,91 @@
 		all.overlay_fullscreen("bernard", /obj/screen/fullscreen/mech/document_bernard)
 		all.overlay_fullscreen("kazi", /obj/screen/fullscreen/mech/document_kazi)
 		all.Stun(99999)
+
+////// МЕХИ СИМУЛЯКРЫ //////
+
+/mob/living/simple_animal/hostile/fd/mech/napoleon/holo
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/heavy_def.dmi'
+	icon_state = ""
+	icon_living = ""
+
+	wreck_type = null
+
+	integrity = 250
+	integrity_max = 250
+	repairs_left = 0
+
+	heat_overflow = 5
+
+/mob/living/simple_animal/hostile/fd/mech/napoleon/holo/mech_shoot(atom/target, bullet_type, cooldown, amount, interval, damage_bonus, bullet_icon, sound)
+	. = ..(damage_bonus = -2)
+
+
+/mob/living/simple_animal/hostile/fd/mech/drake/holo
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/heavy_def.dmi'
+	icon_state = ""
+	icon_living = ""
+
+	wreck_type = null
+
+	integrity = 500
+	integrity_max = 500
+	repairs_left = 0
+
+	heat_overflow = 5
+
+/mob/living/simple_animal/hostile/fd/mech/drake/holo/mech_shoot(atom/target, bullet_type, cooldown, amount, interval, damage_bonus, bullet_icon, sound)
+	. = ..(damage_bonus = -2)
+
+
+/mob/living/simple_animal/hostile/fd/mech/lancaster/holo
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/heavy_def.dmi'
+	icon_state = ""
+	icon_living = ""
+
+	wreck_type = null
+
+	integrity = 250
+	integrity_max = 250
+	repairs_left = 0
+
+	heat_overflow = 3
+
+/mob/living/simple_animal/hostile/fd/mech/lancaster/holo/mech_shoot(atom/target, bullet_type, cooldown, amount, interval, damage_bonus, bullet_icon, sound)
+	. = ..(damage_bonus = -2)
+
+
+/mob/living/simple_animal/hostile/fd/mech/saladin/holo
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/heavy_def.dmi'
+	icon_state = ""
+	icon_living = ""
+
+	wreck_type = null
+
+	integrity = 150
+	integrity_max = 150
+	repairs_left = 0
+
+	heat_overflow = 20
+
+/mob/living/simple_animal/hostile/fd/mech/saladin/holo/mech_shoot(atom/target, bullet_type, cooldown, amount, interval, damage_bonus, bullet_icon, sound)
+	. = ..(damage_bonus = -2)
+
+
+/mob/living/simple_animal/hostile/fd/mech/goblintail/holo
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/heavy_def.dmi'
+	icon_state = ""
+	icon_living = ""
+
+	wreck_type = null
+
+	integrity = 150
+	integrity_max = 150
+	repairs_left = 0
+
+	heat_overflow = 5
+
+/mob/living/simple_animal/hostile/fd/mech/goblintail/holo/mech_shoot(atom/target, bullet_type, cooldown, amount, interval, damage_bonus, bullet_icon, sound)
+	. = ..(damage_bonus = -2)
+
+/// Без нельсона куз он очень опасный даже с дебаффами, а ещё мне лень снижать урон милишки :P

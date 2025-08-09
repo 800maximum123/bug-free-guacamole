@@ -24,6 +24,8 @@
 	pixel_y = -50
 	default_pixel_y = -50
 
+	movement_cooldown = 4
+
 	armor_stat = 2
 
 	integrity = 500
@@ -114,31 +116,34 @@
 			return FALSE
 
 	else if(modifiers["middle"])
-		mech_shoot(A, /obj/item/projectile/bullet/mech/napoleon_grenade, (world.time + 10 SECONDS), 1, 0)
+		mech_shoot(A, /obj/item/projectile/bullet/mech/napoleon_grenade, 10 SECONDS)
 
-	else if(modifiers["shift"])
-		if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
-			scan(A, params)
+	else if(modifiers["shift"] && istype(A, /mob/living/simple_animal/hostile/fd/mech))
+		scan(A, params)
 
 	else if(modifiers["alt"])
 		if(world.time <= command_cooldown)
+			to_chat(src, SPAN_WARNING("Новая метка ещё не готова!"))
 			return FALSE
 		if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
-			var/mob/living/simple_animal/hostile/fd/mech/M
+			var/mob/living/simple_animal/hostile/fd/mech/M = A
 			if(M.leader_target)
+				to_chat(src, SPAN_WARNING("Эта цель уже отмечена!"))
 				return FALSE
+			command_cooldown = world.time + 15 SECONDS
 			M.leader_target = TRUE
 			M.target_for = world.time + 10 SECONDS
+			visible_message(SPAN_DANGER("[src] помечает [M] в качестве приоритетной цели!"), SPAN_INFO("Ты помечаешь [M] в качестве приоритетной цели."))
 
 	else if(modifiers["ctrl"])
 
 	else if(modifiers["left"] && !weapon_safety)
 		switch(weapon_equipped)
 			if("Riot Shotgun")
-				mech_shoot(A, /obj/item/projectile/bullet/mech/napoleon_shotgun, (world.time + 3 SECONDS), 3, 0)
+				mech_shoot(A, /obj/item/projectile/bullet/mech/napoleon_shotgun, 3 SECONDS, 3)
 
 			if("Heavy Pistol")
-				mech_shoot(A, /obj/item/projectile/bullet/mech/napoleon_pistol, (world.time + 1 SECONDS), 1, 0)
+				mech_shoot(A, /obj/item/projectile/bullet/mech/napoleon_pistol, 2 SECONDS)
 
 	else
 		. = ..()
@@ -158,7 +163,7 @@
 
 /obj/item/projectile/bullet/mech/napoleon_grenade
 	real_damage = 0
-	life_span = 20
+	life_span = 12
 	fire_sound = 'sound/weapons/bombwhine.ogg'
 	icon_state = "spark_green"
 
@@ -171,14 +176,21 @@
 	activate()
 
 /obj/structure/fd/gravity_mine/proc/activate()
-	for(var/turf/T in view(5,src))
-		animate(T, color = COLOR_RED, time = 1 SECOND, easing = CUBIC_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
-		spawn(1 SECOND)
-			for(var/mob/living/simple_animal/hostile/fd/mech/M in T)
-				M.throw_at(src, 3, 2)
-			animate(T, color = initial(color), time = 0.2 SECOND, easing = CUBIC_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
-	spawn(2.5 SECONDS)
-		qdel(src)
+	set waitfor = FALSE
+
+	var/list/affected_turfs = list()
+	for(var/turf/floor in block(x-5, y-5, z, x+5, y+5, z))
+		affected_turfs[floor] = floor.color
+		animate(floor, time = 1 SECONDS, color = COLOR_RED, easing = CUBIC_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
+
+	sleep(1 SECONDS)
+
+	for(var/turf/floor in affected_turfs.Copy())
+		animate(floor, time = 0.2 SECONDS, color = affected_turfs[floor], easing = SINE_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
+		for(var/mob/living/mobik in floor)
+			mobik.throw_at(src, 3, 1)
+	affected_turfs.Cut()
+	qdel(src)
 
 /obj/item/projectile/bullet/mech/napoleon_pistol
 	real_damage = 15

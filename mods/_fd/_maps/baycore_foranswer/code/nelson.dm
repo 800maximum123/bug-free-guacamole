@@ -33,7 +33,7 @@
 
 	weapon_equipped = "Shield"
 
-	movement_cooldown = 4
+	movement_cooldown = 5
 
 	var/next_shield_bump = 0
 	var/next_spear_poke = 0
@@ -71,14 +71,14 @@
 	if(!momentum && pre_run >= 3)
 		momentum = TRUE
 		pre_run = 0
-		momentum_timer += world.time
+		momentum_timer = world.time + 1 SECONDS
 
 	if(momentum)
 		if(momentum_stacks < 10)
 			momentum_timer += 1 SECONDS
 			momentum_stacks += 1
-		if(movement_cooldown > -1)
-			movement_cooldown -= 0.5
+		if(movement_cooldown > 2)
+			movement_cooldown -= 0.25
 
 	. = ..()
 
@@ -93,6 +93,7 @@
 			M.chained_for = world.time + 10 SECONDS
 			M.chained = TRUE
 			pointblank = TRUE
+			momentum = FALSE
 			momentum_stacks = 0
 
 	. = ..()
@@ -162,13 +163,12 @@
 
 	else if(modifiers["middle"])
 
-	else if(modifiers["shift"])
-		if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
-			scan(A, params)
+	else if(modifiers["shift"] && istype(A, /mob/living/simple_animal/hostile/fd/mech))
+		scan(A, params)
 
 	else if(modifiers["alt"])
 		if(pointblank)
-			mech_shoot(A, /obj/item/projectile/bullet/mech/nelson)
+			mech_shoot(A, /obj/item/projectile/bullet/mech/nelson, 5 SECONDS)
 			pointblank = FALSE
 
 	else if(modifiers["ctrl"])

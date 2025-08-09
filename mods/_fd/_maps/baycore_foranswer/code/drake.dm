@@ -24,7 +24,7 @@
 	pixel_y = -30
 	default_pixel_y = -30
 
-	movement_cooldown = 6
+	movement_cooldown = 7
 
 	armor_stat = 5
 	integrity = 1000
@@ -187,9 +187,8 @@
 
 	else if(modifiers["middle"])
 
-	else if(modifiers["shift"])
-		if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
-			scan(A, params)
+	else if(modifiers["shift"] && istype(A, /mob/living/simple_animal/hostile/fd/mech))
+		scan(A, params)
 
 	else if(modifiers["alt"])
 
@@ -198,7 +197,7 @@
 	else if(modifiers["left"] && !weapon_safety)
 		switch(weapon_equipped)
 			if("Assault Cannon")
-				mech_shoot(A, /obj/item/projectile/bullet/mech/drake, (world.time + 4 SECONDS - speed_buff), 6, 1)
+				mech_shoot(A, /obj/item/projectile/bullet/mech/drake, 4 SECONDS - speed_buff, 6, 1)
 
 			if("Shield")
 				if(damaged)

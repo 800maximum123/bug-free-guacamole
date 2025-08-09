@@ -74,6 +74,10 @@ default behaviour is:
 		return
 	// End boilerplate.
 
+	if(istype(AM, /mob/living/simple_animal/hostile/fd/mech))
+		now_pushing = 0
+		return
+
 	spawn(0)
 		if ((!( yes ) || now_pushing) || !loc)
 			return

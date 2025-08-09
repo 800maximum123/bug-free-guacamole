@@ -19,7 +19,7 @@
 	pixel_y = -55
 	default_pixel_y = -55
 
-	movement_cooldown = 2
+	movement_cooldown = 4
 
 	armor_stat = 4
 	integrity = 500
@@ -79,7 +79,7 @@
 
 		if("Patch Allie/Self")
 			if(restock_charges <= 0)
-				to_chat(src, SPAN_WARNING("Для этого действия вам нужен как минимум 1 Заряд Пополнения!"))
+				to_chat(src, SPAN_WARNING("Для этого действия нужен как минимум 1 Заряд Пополнения!"))
 				return FALSE
 			for(var/mob/living/simple_animal/hostile/fd/mech/M in view(2,src))
 				if(!M.dead)
@@ -90,9 +90,9 @@
 			if(target_choice.integrity >= target_choice.integrity_max)
 				to_chat(src, SPAN_WARNING("[target_choice.name] полностью цел."))
 				return FALSE
-			visible_message(SPAN_NOTICE("[src] начинает ремонтировать повреждённые части [target_choice]."), SPAN_INFO("Ты начинаешь ремонт [target_choice]."))
+			visible_message(SPAN_NOTICE("[src] начал ремонтировать корпус [target_choice]."), SPAN_INFO("Ты начал ремонтировать корпус [target_choice]."))
 			playsound(get_turf(src), 'sound/items/welderactivate.ogg', 80)
-			spawn(1 SECONDS)
+			spawn(0.5 SECONDS)
 				playsound(get_turf(src), 'sound/items/Welder2.ogg', 80)
 			var/obj/particle_emitter/sparks/EM = new(get_turf(target_choice), 10 SECONDS)
 			EM.set_dir(get_dir(target_choice, src))
@@ -105,28 +105,30 @@
 			playsound(get_turf(src), 'sound/items/welderdeactivate.ogg', 80)
 			target_choice.mech_reboot(FALSE, FALSE)
 			target_choice.integrity = min(target_choice.integrity + 100, target_choice.integrity_max)
-			visible_message(SPAN_NOTICE("[src] отремонтировал повреждённые части [target_choice]."), SPAN_INFO("Ты отремонтировал повреждённые части [target_choice]."))
+			visible_message(SPAN_NOTICE("[src] закончил ремонтировать повреждения у [target_choice]."), SPAN_INFO("Ты закончил ремонтировать повреждения у [target_choice]."))
 			return TRUE
 
 		if("Restock Allie")
 			if(restock_charges <= 0)
-				to_chat(src, SPAN_WARNING("Для этого действия вам нужен как минимум 1 Заряд Пополнения!"))
+				to_chat(src, SPAN_WARNING("Для этого действия нужен как минимум 1 Заряд Пополнения!"))
 				return FALSE
 			for(var/mob/living/simple_animal/hostile/fd/mech/M in oview(1,src))
 				if(!M.dead && M.has_ammo)
 					mechs_in_radius += M
-			var/mob/living/simple_animal/hostile/fd/mech/target_choice = show_radial_menu(src, src, mechs_in_radius, radius = 100, require_near = TRUE, offset_x = 105, offset_y = 90)
+			var/mob/living/simple_animal/hostile/fd/mech/target_choice = show_radial_menu(src, src, mechs_in_radius, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
 			if(!target_choice)
 				return FALSE
-			visible_message(SPAN_NOTICE("[src] начинает погружать припасы на борт [target_choice]."), SPAN_INFO("Ты начал погружать припасы на борт [target_choice]."))
+			visible_message(SPAN_NOTICE("[src] начал погружать припасы на борт [target_choice]."), SPAN_INFO("Ты начал погружать припасы на борт [target_choice]."))
 			playsound(get_turf(src), 'sound/effects/lift_heavy_start.ogg', 100)
 			spawn(5 SECONDS)
-				playsound(get_turf(target_choice), 'sound/effects/lift_heavy_stop.ogg', 100)
+				if(!.)
+					playsound(get_turf(target_choice), 'sound/effects/lift_heavy_stop.ogg', 100)
 			if(!do_after(src, 10 SECONDS, target_choice))
-				return FALSE
+				. = FALSE
+				return .
 			target_choice.spare_magazines += 2
 			restock_charges -= 1
-			visible_message(SPAN_NOTICE("[src] восполнил часть припасов [target_choice]."), SPAN_INFO("Ты восполнил часть припасов [target_choice]."))
+			visible_message(SPAN_NOTICE("[src] восполнил часть припасов у [target_choice]."), SPAN_INFO("Ты восполнил часть припасов у [target_choice]."))
 			return TRUE
 
 /mob/living/simple_animal/hostile/fd/mech/lancaster/ClickOn(atom/A, params)
@@ -183,9 +185,8 @@
 
 	else if(modifiers["middle"])
 
-	else if(modifiers["shift"])
-		if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
-			scan(A, params)
+	else if(modifiers["shift"] && istype(A, /mob/living/simple_animal/hostile/fd/mech))
+		scan(A, params)
 
 	else if(modifiers["alt"])
 		if(get_dist(A, src) > 2)
@@ -213,7 +214,7 @@
 	else if(modifiers["left"] && !weapon_safety)
 		switch(weapon_equipped)
 			if("Plasma Cutter")
-				mech_shoot(A, /obj/item/projectile/bullet/mech/lancaster, (world.time + 1 SECONDS), 2, 1)
+				mech_shoot(A, /obj/item/projectile/bullet/mech/lancaster, 1 SECONDS, 2, 1)
 
 	else
 		. = ..()

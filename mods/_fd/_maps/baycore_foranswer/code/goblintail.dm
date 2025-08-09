@@ -46,7 +46,7 @@
 	heat_overflow = 10
 	repairs_left = 2
 
-	movement_cooldown = 2
+	movement_cooldown = 3
 
 	weapon_equipped = "Submachine Gun"
 
@@ -194,9 +194,8 @@
 
 	else if(modifiers["middle"])
 
-	else if(modifiers["shift"])
-		if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
-			scan(A, params)
+	else if(modifiers["shift"] && istype(A, /mob/living/simple_animal/hostile/fd/mech))
+		scan(A, params)
 
 	else if(modifiers["alt"])
 		if(!cloaked)
@@ -224,7 +223,7 @@
 					damage_bonus += 20
 					cloaked = FALSE
 					next_cloak_in = world.time + 10 SECONDS
-				mech_shoot(A, /obj/item/projectile/bullet/mech/goblintail, (world.time + 1 SECONDS), 3, 2, damage_bonus)
+				mech_shoot(A, /obj/item/projectile/bullet/mech/goblintail, 1 SECONDS, 3, 2, damage_bonus)
 
 			if("Whip")
 				if(damaged)

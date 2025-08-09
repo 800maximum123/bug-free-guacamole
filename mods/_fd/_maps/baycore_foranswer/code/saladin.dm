@@ -38,7 +38,7 @@
 
 	repairs_left = 2
 
-	movement_cooldown = 2
+	movement_cooldown = 4
 
 	var/jump_cooldown = 0
 
@@ -185,7 +185,7 @@
 	else if(modifiers["left"] && !weapon_safety)
 		switch(weapon_equipped)
 			if("Thermal Release")
-				mech_shoot(A, /obj/item/projectile/bullet/mech/saladin, (world.time + 2 SECONDS))
+				mech_shoot(A, /obj/item/projectile/bullet/mech/saladin, 2 SECONDS)
 
 	else
 		. = ..()

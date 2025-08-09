@@ -16,7 +16,7 @@
 		var/mob/living/simple_animal/hostile/fd/mech/M = target
 		var/final_damage = real_damage
 		if(M.leader_target)
-			final_damage += 10
+			final_damage *= 2
 
 		if(!piercing)
 			final_damage -= M.armor_stat
@@ -80,6 +80,8 @@
 	runechat_y_offset = 125
 	bleed_colour = "#000000"
 
+	var/mob/living/carbon/human/pilot/pilot // Текущий пилот меха
+
 	var/armor_stat = 0 // Снижает урон на [X]
 	var/shielded = FALSE // Дрейк способен перетягивать входящий урон на себя
 	var/overprotected = FALSE // Саладин накидывает оверхп
@@ -100,12 +102,12 @@
 	var/repairs_left = 1 // Сколько раз мы сможем подниматься из мёртвых?
 	var/damaged = FALSE // Мы в "крите"?
 
-	var/weapon_safety = FALSE
-	var/has_ammo = FALSE
-	var/spare_magazines = 0
-	var/next_fire = 0
+	var/weapon_safety = FALSE // На предохранителе ли оружие?
+	var/has_ammo = FALSE // Есть ли у нас запас патронов?
+	var/spare_magazines = 0 // Запасные магазины для пополнения патрон
+	var/next_fire = 0 // Время после которого можно будет вновь выстрелить
 
-	var/scan_delay = 1.5 SECONDS
+	var/scan_delay = 1.5 SECONDS // Задержка перед показом результатов сканирования
 
 	var/hacking_qte = 0
 	var/hacked = FALSE
@@ -119,6 +121,32 @@
 
 	var/leader_target = FALSE
 	var/target_for = 0
+
+/mob/living/simple_animal/hostile/fd/mech/MouseDrop_T(mob/target, mob/user)
+	. = ..()
+	if(!Adjacent(target) || Adjacent(user))
+		return
+
+	if(!istype(target, /mob/living/carbon/human/pilot))
+		return
+
+	if(!QDELETED(pilot))
+		to_chat(user, SPAN_WARNING("Кресло пилота [src] уже занято!"))
+		return
+
+	user.dir = get_dir(target, src)
+	user.visible_message(SPAN_DANGER("[user] начинает помещать [target] внутрь [src]!"))
+
+	if(!do_after(target, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
+		return
+
+	pilot = target
+	target.forceMove(src)
+	src.ckey = pilot.ckey
+	user.visible_message(SPAN_INFO("[target] усаживается внутрь [src]."))
+
+/mob/living/simple_animal/hostile/fd/mech/can_pull()
+	return FALSE
 
 /mob/living/simple_animal/hostile/fd/mech/proc/scan(mob/living/simple_animal/hostile/fd/mech/mech_target, params)
 	set waitfor = FALSE
@@ -201,8 +229,9 @@
 	animate(src, time = 4 SECONDS, color = COLOR_RED_LIGHT, transform = matrix(30, MATRIX_ROTATE), easing = CUBIC_EASING|EASE_OUT)
 	// Добавить сюда анимацию тряски перед уничтожением
 	spawn(rand(3 SECONDS, 4 SECONDS))
-		playsound(get_turf(src),'sound/mecha/Explosion_02.mp3',60)
-		new wreck_type (get_turf(src))
+		if(wreck_type)
+			new wreck_type (get_turf(src))
+			playsound(get_turf(src),'sound/mecha/Explosion_02.mp3', 60)
 		..(FALSE, "suddenly breaks apart.", "You have been destroyed.")
 		qdel(src)
 
@@ -231,22 +260,37 @@
 	playsound(get_turf(src), 'packs/infinity/sound/items/change_jaws.ogg', 80, TRUE)
 
 /mob/living/simple_animal/hostile/fd/mech/verb/change_view()
-	set name = "Mech - Change View"
+	set name = "Мех - Сменить радиус зрения"
 	set category = "IC"
 	set desc = "This will let you change your view range."
 
 	src.client.view = input("Select view range:", "FUCK YEAH", 7) in list(7,8,9,10,11,12)
 
+/mob/living/simple_animal/hostile/fd/mech/verb/exit_mech()
+	set name = "Мех - Покинуть"
+	set category = "IC"
+	set desc = "Позволяет покинуть боевую машину."
+
+	if(alert(src, "Вы точно хотите покинуть мех?", "Покинуть мех", "Да", "Нет") == "Нет")
+		return
+
+	pilot.forceMove(get_step(get_turf(src), dir))
+	pilot.ckey = ckey
+	pilot = null
+
 /mob/living/simple_animal/hostile/fd/mech/Life()
 
 	if(world.time >= chained_for && chained)
 		chained = FALSE
+		visible_message(SPAN_WARNING("[src] начинает исправно двигатся."))
 
 	if(world.time >= malf_for && malfunction)
 		malfunction = FALSE
+		visible_message(SPAN_WARNING("[src] начинает исправно функционировать."))
 
 	if(world.time >= target_for && leader_target)
 		leader_target = FALSE
+		visible_message(SPAN_WARNING("[src] теряет статус приоритетной цели."))
 
 	if(overheated && overheat_timer > 0 && !damaged)
 		integrity -= 1
@@ -287,10 +331,11 @@
 			icon_state = "[icon_living]_charged"
 		add_filter("heated", 5, list("type" = "outline", , "size" = 0, "color" = COLOR_AMBER))
 		add_filter("heated_blur", 4, list("type" = "blur", , "size" = 0))
-		playsound(get_turf(src),'sound/effects/iron_sizzle.ogg',100,TRUE)
-		animate(get_filter("heated"), time = 15 SECONDS, size = 0.5, flags = ANIMATION_PARALLEL)
-		animate(get_filter("heated_blur"), time = 10 SECONDS, size = 0.75, flags = ANIMATION_PARALLEL)
+		animate(get_filter("heated"), time = 15 SECONDS, size = 1, flags = ANIMATION_PARALLEL)
+		animate(get_filter("heated_blur"), time = 10 SECONDS, size = 1, flags = ANIMATION_PARALLEL)
 		animate(src, time = 10 SECONDS, color = "#fc987a", flags = ANIMATION_PARALLEL)
+		playsound(get_turf(src),'sound/mecha/internaldmgalarm.ogg',20)
+		playsound(get_turf(src),'sound/effects/iron_sizzle.ogg',100,TRUE)
 
 	if(shielded)
 		for(var/mob/living/simple_animal/hostile/fd/mech/drake/M in view(2,src))
@@ -330,7 +375,7 @@
 			playsound(get_turf(src),'sound/weapons/empty.ogg', 80, TRUE)
 			return FALSE
 
-		next_fire = cooldown
+		next_fire = world.time + cooldown
 		var/obj/item/projectile/bullet/mech/pew = new bullet_type(get_turf(src))
 
 		if(sound)
@@ -392,9 +437,8 @@
 
 	else if(modifiers["middle"])
 
-	else if(modifiers["shift"])
-		if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
-			scan(A, params)
+	else if(modifiers["shift"] && istype(A, /mob/living/simple_animal/hostile/fd/mech))
+		scan(A, params)
 
 	else if(modifiers["alt"])
 
@@ -403,10 +447,10 @@
 	else if(modifiers["left"] && !weapon_safety)
 		switch(weapon_equipped)
 			if("Standart Pistol")
-				mech_shoot(A, /obj/item/projectile/bullet/mech/pistol, (world.time + 1 SECONDS))
+				mech_shoot(A, /obj/item/projectile/bullet/mech/pistol, 1 SECONDS)
 
 			if("Standart Rifle")
-				mech_shoot(A, /obj/item/projectile/bullet/mech, (world.time + 1 SECONDS), 3, 2)
+				mech_shoot(A, /obj/item/projectile/bullet/mech, 1 SECONDS, 3, 2)
 
 	else
 		. = ..()
