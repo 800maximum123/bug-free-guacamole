@@ -87,6 +87,10 @@
 	plane = HUD_PLANE
 	layer = HUD_ABOVE_HUD_LAYER
 
+/obj/screen/fullscreen/fd/blackout/alt
+	layer = UNDER_HUD_LAYER
+
+
 /obj/screen/fullscreen/fishbed/fd
 	plane = HUD_PLANE
 	layer = 7

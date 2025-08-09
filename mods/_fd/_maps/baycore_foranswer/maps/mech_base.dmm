@@ -330,6 +330,7 @@
 "qx" = (/obj/structure/table/glass,/obj/floor_decal/corner/grey/full,/turf/simulated/floor/tiled/old_tile,/area/bc6/interior)
 "qy" = (/obj/floor_decal/corner/darkblue/half{dir = 8},/obj/floor_decal/spline/plain/black{dir = 4},/turf/simulated/floor/tiled/techfloor,/area/bc6/interior)
 "qB" = (/obj/floor_decal/industrial/warning/corner,/obj/floor_decal/industrial/warning/corner{dir = 4},/obj/floor_decal/corner/green/border,/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/turf/simulated/floor/tiled/white,/area/bc6/interior)
+"qD" = (/obj/overmap/visitable/sector/ship_bc6,/turf/space,/area/space)
 "qF" = (/obj/floor_decal/corner/grey/bordercee{dir = 1},/obj/decal/cleanable/dirt,/obj/machinery/recharge_station,/turf/simulated/floor/tiled/old_cargo,/area/bc6/interior)
 "qG" = (/obj/floor_decal/corner/brown/bordercorner{dir = 1},/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor,/area/bc6/interior)
 "qI" = (/obj/floor_decal/corner/blue/border{dir = 8},/turf/simulated/floor/tiled/techfloor/grid,/area/bc6/bridge)
@@ -639,7 +640,7 @@
 "Dd" = (/obj/structure/bed/chair/comfy/black{dir = 1},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor/grid,/area/bc6/bridge)
 "Df" = (/obj/structure/table/standard{name = "plastic table frame"},/obj/floor_decal/corner/blue/border{dir = 9},/obj/random/mre,/turf/simulated/floor/tiled/dark/monotile,/area/bc6/interior)
 "Dg" = (/obj/floor_decal/spline/plain/black,/obj/floor_decal/corner/blue/border{dir = 1},/turf/simulated/floor/tiled/dark/monotile,/area/bc6/bridge)
-"Dh" = (/obj/machinery/power/terminal{dir = 1},/obj/structure/cable/cyan{d2 = 2; icon_state = "0-2"},/turf/simulated/floor/tiled/techfloor/grid,/area/bc6/interior)
+"Dh" = (/obj/machinery/power/terminal{dir = 1},/obj/structure/cable/cyan{d2 = 2; icon_state = "0-2"},/obj/structure/cable/cyan,/turf/simulated/floor/tiled/techfloor/grid,/area/bc6/interior)
 "Dm" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/floor_decal/corner/darkblue/diagonal{dir = 4},/obj/decal/cleanable/dirt,/mob/living/carbon/human/pilot/krass,/turf/simulated/floor/tiled/dark,/area/bc6/hangar)
 "Do" = (/obj/catwalk_plated,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/bc6/bridge)
 "Dp" = (/obj/decal/cleanable/dirt,/obj/structure/closet/crate/large,/turf/simulated/floor/tiled/techfloor,/area/bc6/hangar)
@@ -787,7 +788,7 @@
 "Kw" = (/obj/floor_decal/borderfloor/corner{dir = 1},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/bc6/bridge)
 "Kx" = (/obj/item/reagent_containers/food/drinks/cans/rootbeer{pixel_y = 6; pixel_x = -6},/obj/item/reagent_containers/food/drinks/cans/rootbeer{pixel_y = -3},/obj/item/reagent_containers/food/drinks/cans/rootbeer{pixel_x = 8},/turf/simulated/floor/tiled/techfloor,/area/bc6/hangar)
 "Kz" = (/obj/floor_decal/corner/brown/border{dir = 4},/turf/simulated/floor/tiled/dark,/area/bc6/bridge)
-"KJ" = (/obj/machinery/power/smes/buildable/preset/admin,/turf/simulated/floor/tiled/techfloor/grid,/area/bc6/interior)
+"KJ" = (/obj/machinery/power/smes/buildable/preset/admin,/obj/structure/cable/cyan{d2 = 2; icon_state = "0-2"},/turf/simulated/floor/tiled/techfloor/grid,/area/bc6/interior)
 "KK" = (/obj/floor_decal/borderfloor,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/bc6/bridge)
 "KL" = (/obj/structure/fake_zlvl,/obj/floor_decal/corner/brown/border{dir = 8},/obj/structure/rearm_repair_station/human,/turf/simulated/floor/plating,/area/bc6/hangar)
 "KM" = (/obj/floor_decal/corner/darkblue/diagonal,/obj/item/material/ashtray/plastic{pixel_y = 10},/obj/item/reagent_containers/food/drinks/cans/dr_gibb{pixel_y = 2; pixel_x = 6},/obj/structure/table/glass,/turf/simulated/floor/tiled/dark,/area/bc6/bridge)
@@ -915,7 +916,7 @@
 "Qj" = (/obj/structure/catwalk,/obj/decal/cleanable/dirt,/mob/living/simple_animal/hostile/fd/mech/saladin/enchanter,/turf/simulated/floor/plating,/area/bc6/hangar)
 "Qk" = (/obj/floor_decal/corner/blood_red{dir = 8},/obj/floor_decal/corner/darkblue{dir = 1},/obj/floor_decal/spline/plain/black{dir = 4},/turf/simulated/floor/tiled/techfloor,/area/bc6/interior)
 "Qq" = (/obj/structure/railing/mapped{dir = 8; icon_state = "railing0-1"},/obj/structure/railing/mapped{dir = 1; icon_state = "railing0-1"},/obj/floor_decal/spline/plain/blue{dir = 8},/obj/floor_decal/spline/plain/blue{dir = 1},/obj/structure/table/steel_reinforced,/turf/simulated/floor/tiled/techfloor,/area/bc6/interior)
-"Qr" = (/obj/decal/cleanable/dirt,/obj/machinery/atmospherics/pipe/manifold/visible/supply{dir = 4},/turf/simulated/floor/tiled/dark,/area/bc6/hangar)
+"Qr" = (/obj/decal/cleanable/dirt,/obj/machinery/atmospherics/pipe/manifold/hidden/supply{dir = 4},/turf/simulated/floor/tiled/dark,/area/bc6/hangar)
 "Qs" = (/obj/decal/cleanable/dirt,/obj/machinery/light{dir = 1; icon_state = "tube1"},/turf/simulated/floor/tiled/dark/monotile,/area/bc6/hangar)
 "Qu" = (/obj/structure/bed/chair/comfy/blue{dir = 4},/obj/floor_decal/corner/darkblue/diagonal{dir = 4},/turf/simulated/floor/tiled/techfloor/grid,/area/bc6/interior)
 "Qx" = (/obj/floor_decal/corner/brown/bordercorner{dir = 1},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/catwalk_plated,/turf/simulated/floor/plating,/area/bc6/interior)
@@ -1322,5 +1323,5 @@ KTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKT
 KTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKT
 KTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKT
 KTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKT
-KTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKT
+qDKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKT
 "}

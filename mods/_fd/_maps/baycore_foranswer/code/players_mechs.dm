@@ -244,10 +244,10 @@
 			default_pixel_x = -50
 
 /mob/living/simple_animal/hostile/fd/mech/napoleon/barracuda
-	name = "HI APU 'Goblin'"
+	name = "APU 'Goblin'"
 	desc = "\"Барракуда\" от Гефеста - простой в эксплуатации и обслуживании, резвый и, главное, массовый. \
-	 Этот экземпляр - представитель ранней модели, местами проржавевший. На крашеном наспех корпусе \
-	 виднеется стёртая маркировка \"HI-BRC-827\"."
+	Этот экземпляр - представитель ранней модели, местами проржавевший. На крашеном наспех корпусе \
+	виднеется стёртая маркировка \"HI-BRC-827\"."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/trooper_barracuda2.dmi'
 	icon_state = "barracuda"
 	icon_living = "barracuda"
