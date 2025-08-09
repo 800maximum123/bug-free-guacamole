@@ -197,7 +197,7 @@
 	heat = 0
 	repairs_left -= 1
 
-	visible_message(SPAN_DANGER("[src] вновь начинается двигатся, медленно поднимаясь с земли!"), SPAN_INFO("[src] вновь начинается двигатся, медленно поднимаясь с земли."))
+	visible_message(SPAN_DANGER("[src] вновь начинается двигаться, медленно поднимаясь с земли!"), SPAN_INFO("[src] вновь начинается двигатся, медленно поднимаясь с земли."))
 
 	playsound(get_turf(src),'sound/mecha/powerup.ogg',60)
 	spawn(3 SECONDS)
