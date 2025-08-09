@@ -55,6 +55,17 @@
 
 	icon_state_setup = "vladimir"
 
+/mob/living/carbon/human/pilot/magdaleena
+	setup_name = "Magdaleena 'Pinta' Rojola"
+	setup_desc = "Девушка-призывник, \
+	которая как-то совсем не любит показывать кому-либо своё лицо и постоянно носит скаф со шлемом или маску. \
+	Зато любит выпить - оттуда и погоняло."
+	see_in_dark = 8
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/pilots/pilots_list.dmi'
+	icon_state = "scg_standart"
+
+	icon_state_setup = "scg_standart"
+
 /mob/living/carbon/human/pilot/coil
 	setup_name = "Coil 'Baker' Kubo"
 	setup_desc = "Мужчина тридцати с лишним лет с волосами цвета меди. Выглядит достаточно вызывающе и оторвано, \
@@ -76,6 +87,7 @@
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/pilots/wide_pilots_list.dmi'
 	icon_state = "krass"
 
+	icon_setup = 'mods/_fd/_maps/baycore_foranswer/icons/pilots/wide_pilots_list.dmi'
 	icon_state_setup = "krass"
 
 /mob/living/carbon/human/pilot/stella
@@ -132,4 +144,5 @@
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/pilots/wide_pilots_list.dmi'
 	icon_state = "kazi"
 
+	icon_setup = 'mods/_fd/_maps/baycore_foranswer/icons/pilots/wide_pilots_list.dmi'
 	icon_state_setup = "kazi"
