@@ -221,7 +221,7 @@
 
 /obj/item/projectile/bullet/mech/lancaster
 	real_damage = 3
-	life_span = 5
+	life_span = 6
 	piercing = TRUE
 	icon_state = "pulse0_bl"
 	fire_sound = 'sound/weapons/plasma_cutter.ogg'
