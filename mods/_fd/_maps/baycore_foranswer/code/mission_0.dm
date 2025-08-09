@@ -156,9 +156,9 @@
 ////// МЕХИ СИМУЛЯКРЫ //////
 
 /mob/living/simple_animal/hostile/fd/mech/napoleon/holo
-	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/heavy_def.dmi'
-	icon_state = ""
-	icon_living = ""
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/mechs_sim.dmi'
+	icon_state = "TROOPER"
+	icon_living = "TROOPER"
 
 	wreck_type = null
 
@@ -173,9 +173,9 @@
 
 
 /mob/living/simple_animal/hostile/fd/mech/drake/holo
-	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/heavy_def.dmi'
-	icon_state = ""
-	icon_living = ""
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/mechs_sim.dmi'
+	icon_state = "HEAVY"
+	icon_living = "HEAVY"
 
 	wreck_type = null
 
@@ -190,9 +190,9 @@
 
 
 /mob/living/simple_animal/hostile/fd/mech/lancaster/holo
-	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/heavy_def.dmi'
-	icon_state = ""
-	icon_living = ""
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/mechs_sim.dmi'
+	icon_state = "ENGINEER"
+	icon_living = "ENGINEER"
 
 	wreck_type = null
 
@@ -207,9 +207,9 @@
 
 
 /mob/living/simple_animal/hostile/fd/mech/saladin/holo
-	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/heavy_def.dmi'
-	icon_state = ""
-	icon_living = ""
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/mechs_sim.dmi'
+	icon_state = "EXPERIMENTAL"
+	icon_living = "EXPERIMENTAL"
 
 	wreck_type = null
 
@@ -224,9 +224,9 @@
 
 
 /mob/living/simple_animal/hostile/fd/mech/goblintail/holo
-	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/heavy_def.dmi'
-	icon_state = ""
-	icon_living = ""
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/mechs_sim.dmi'
+	icon_state = "SCOUT"
+	icon_living = "SCOUT"
 
 	wreck_type = null
 
