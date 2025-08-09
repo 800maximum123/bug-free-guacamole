@@ -94,6 +94,31 @@
 		time = ANIM_LYING_TIME
 	)
 
+/mob/living/carbon/human/pilot/MouseDrop(mob/target)
+	if(!istype(target, /mob/living/simple_animal/hostile/fd/mech))
+		return ..()
+
+	if(!CanMouseDrop(target, usr) || !istype(usr, /mob/living/carbon))
+		return
+
+	var/mob/living/simple_animal/hostile/fd/mech/mech_target = target
+	if(!QDELETED(mech_target.pilot))
+		to_chat(usr, SPAN_WARNING("Кресло пилота [mech_target] уже занято!"))
+		return
+
+	usr.dir = get_dir(src, mech_target)
+	usr.visible_message(SPAN_DANGER("[usr] начинает помещать [src] внутрь [mech_target]!"))
+
+	if(!do_after(usr, 5 SECONDS, mech_target, DO_PUBLIC_UNIQUE))
+		return
+
+	if(client)
+		client.view = 12
+	mech_target.pilot = src
+	forceMove(mech_target)
+	mech_target.ckey = ckey
+	mech_target.visible_message(SPAN_INFO("[src] усаживается внутрь [mech_target]."))
+
 /obj/landmark/mech_pilot
 	name = "Pilot spawn"
 	icon_state = "x"

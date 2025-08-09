@@ -122,29 +122,6 @@
 	var/leader_target = FALSE
 	var/target_for = 0
 
-/mob/living/simple_animal/hostile/fd/mech/MouseDrop_T(mob/target, mob/user)
-	. = ..()
-	if(!Adjacent(target) || Adjacent(user))
-		return
-
-	if(!istype(target, /mob/living/carbon/human/pilot))
-		return
-
-	if(!QDELETED(pilot))
-		to_chat(user, SPAN_WARNING("Кресло пилота [src] уже занято!"))
-		return
-
-	user.dir = get_dir(target, src)
-	user.visible_message(SPAN_DANGER("[user] начинает помещать [target] внутрь [src]!"))
-
-	if(!do_after(target, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
-		return
-
-	pilot = target
-	target.forceMove(src)
-	src.ckey = pilot.ckey
-	user.visible_message(SPAN_INFO("[target] усаживается внутрь [src]."))
-
 /mob/living/simple_animal/hostile/fd/mech/can_pull()
 	return FALSE
 
@@ -264,7 +241,7 @@
 	set category = "IC"
 	set desc = "This will let you change your view range."
 
-	src.client.view = input("Select view range:", "FUCK YEAH", 7) in list(7,8,9,10,11,12)
+	src.client.view = input("Select view range:", "FUCK YEAH", 12) in list(7,8,9,10,11,12)
 
 /mob/living/simple_animal/hostile/fd/mech/verb/exit_mech()
 	set name = "Мех - Покинуть"
@@ -274,23 +251,27 @@
 	if(alert(src, "Вы точно хотите покинуть мех?", "Покинуть мех", "Да", "Нет") == "Нет")
 		return
 
+	if(!do_after(src, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
+		return
+
 	pilot.forceMove(get_step(get_turf(src), dir))
 	pilot.ckey = ckey
+	pilot.client.view = 7
 	pilot = null
 
 /mob/living/simple_animal/hostile/fd/mech/Life()
 
 	if(world.time >= chained_for && chained)
 		chained = FALSE
-		visible_message(SPAN_WARNING("[src] начинает исправно двигатся."))
+		visible_message(SPAN_WARNING("[src] вновь начал исправно двигатся!"))
 
 	if(world.time >= malf_for && malfunction)
 		malfunction = FALSE
-		visible_message(SPAN_WARNING("[src] начинает исправно функционировать."))
+		visible_message(SPAN_WARNING("[src] вновь начал исправно функционировать!"))
 
 	if(world.time >= target_for && leader_target)
 		leader_target = FALSE
-		visible_message(SPAN_WARNING("[src] теряет статус приоритетной цели."))
+		visible_message(SPAN_WARNING("[src] теряет статус приоритетной цели!"))
 
 	if(overheated && overheat_timer > 0 && !damaged)
 		integrity -= 1
@@ -346,7 +327,7 @@
 
 	. = ..()
 
-/mob/living/simple_animal/hostile/fd/mech/Move()
+/mob/living/simple_animal/hostile/fd/mech/Move(loc, dir)
 	if(damaged)
 		return 0
 

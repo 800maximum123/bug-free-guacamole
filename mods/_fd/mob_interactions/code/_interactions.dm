@@ -14,7 +14,7 @@
 
 	target.get_interactions(src)
 
-/mob/living/carbon/human/MouseDrop(atom/target)
+/mob/living/carbon/human/MouseDrop(mob/target, mob/user)
 	. = ..()
 
 	if(target == src)
