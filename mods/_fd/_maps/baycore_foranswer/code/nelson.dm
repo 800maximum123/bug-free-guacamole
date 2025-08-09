@@ -43,7 +43,7 @@
 	var/pre_run = 0
 
 	var/momentum = FALSE
-	var/momentum_timer = 1 SECOND
+	var/momentum_timer = 0
 	var/momentum_stacks = 0
 
 	wreck_type = /obj/structure/fd/mech_wreckage/small/nelson
@@ -64,23 +64,35 @@
 			pixel_x = -150
 			default_pixel_x = -150
 
-/mob/living/simple_animal/hostile/fd/mech/nelson/Move()
+/proc/get_nearby_directions(direction)
+	if(NORTH) return list(NORTHWEST, NORTH, NORTHEAST)
+	else if(NORTHEAST) return list(NORTH, NORTHEAST, EAST)
+	else if(EAST) return list(NORTHEAST, EAST, SOUTHEAST)
+	else if(SOUTHEAST) return list(EAST, SOUTHEAST, SOUTH)
+	else if(SOUTH) return list(SOUTHEAST, SOUTH, SOUTHWEST)
+	else if(SOUTHWEST) return list(SOUTH, SOUTHWEST, WEST)
+	else if(WEST) return list(SOUTHWEST, WEST, NORTHWEST)
+	else if(NORTHWEST) return list(WEST, NORTHWEST, NORTH)
+	else return list()
+
+/mob/living/simple_animal/hostile/fd/mech/nelson/Move(loc, dir)
+	. = ..()
+	if(!.) // Если мы не смогли подвигатся - никакого разгона
+		return
+
 	if(pre_run < 3 && !momentum)
 		pre_run += 1
 
 	if(!momentum && pre_run >= 3)
 		momentum = TRUE
 		pre_run = 0
-		momentum_timer = world.time + 1 SECONDS
 
-	if(momentum)
+	if(momentum && !(dir in get_nearby_directions(last_move)))
+		momentum_timer = world.time + 0.7 SECONDS
 		if(momentum_stacks < 10)
-			momentum_timer += 1 SECONDS
 			momentum_stacks += 1
-		if(movement_cooldown > 2)
-			movement_cooldown -= 0.25
-
-	. = ..()
+		if(movement_cooldown > 1)
+			movement_cooldown -= 0.5
 
 /mob/living/simple_animal/hostile/fd/mech/nelson/Bump(atom/A)
 
@@ -88,13 +100,17 @@
 		if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
 			var/mob/living/simple_animal/hostile/fd/mech/M = A
 			shake_camera(src, 1, 1)
-			throw_at(get_edge_target_turf(src, get_dir(M, src)), 1, 3, M)
-			M.throw_at(get_edge_target_turf(M, get_dir(src, M)), 1, 3, src)
+			throw_at(get_edge_target_turf(src, get_dir(M, src)), 1, 2, M, FALSE)
+			M.throw_at(get_edge_target_turf(M, get_dir(src, M)), 1, 2, src)
 			M.chained_for = world.time + 10 SECONDS
 			M.chained = TRUE
 			pointblank = TRUE
 			momentum = FALSE
 			momentum_stacks = 0
+			if(weapon_equipped == "Shield")
+				movement_cooldown = 6
+			else
+				movement_cooldown = 5
 
 	. = ..()
 
@@ -121,11 +137,11 @@
 		if("Shield")
 			weapon_equipped = "Shield"
 			armor_stat = 10
-			movement_cooldown = 4
+			movement_cooldown = 6
 		if("Spear")
 			weapon_equipped = "Spear"
 			armor_stat = 0
-			movement_cooldown = 2
+			movement_cooldown = 5
 	playsound(get_turf(src), 'packs/infinity/sound/items/change_jaws.ogg', 80, TRUE)
 
 /mob/living/simple_animal/hostile/fd/mech/nelson/ClickOn(atom/A, params)
