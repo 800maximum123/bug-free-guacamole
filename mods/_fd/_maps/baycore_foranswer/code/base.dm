@@ -124,7 +124,6 @@
 	var/target_for = 0
 
 	var/footstep_sound = /singleton/footsteps/hull // Звук шагов
-	var/second_step = 0 // Если это "второй" шаг, то мы не будем издавать звук
 
 /mob/living/simple_animal/hostile/fd/mech/Initialize()
 	. = ..()
@@ -366,14 +365,11 @@
 
 	if(chained)
 		return FALSE
-/* тухедо пофикси и затесть своё говно
-	if(!second_step)
+
+	if(prob(50))
 		var/singleton/footsteps/FS = GET_SINGLETON(footstep_sound)
 		playsound(get_turf(src), pick(FS.footstep_sounds), 70, TRUE)
-		second_step = TRUE
-	else
-		second_step = FALSE
-*/
+
 	. = ..()
 
 /mob/living/simple_animal/hostile/fd/mech/proc/consume_ammo()
