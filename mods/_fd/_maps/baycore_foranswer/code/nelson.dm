@@ -262,6 +262,8 @@
 						M.damage_animation(damage_incoming, ignore_armor = TRUE)
 				next_spear_poke = world.time + 3 SECONDS
 
+	else if(modifiers["drag"])
+
 	else
 		. = ..()
 

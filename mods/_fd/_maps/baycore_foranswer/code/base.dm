@@ -191,11 +191,11 @@
 
 	if(heal)
 		integrity = integrity_max / 2
+		repairs_left -= 1
 
 	damaged = FALSE
 	anchored = FALSE
 	heat = 0
-	repairs_left -= 1
 
 	visible_message(SPAN_DANGER("[src] вновь начинается двигаться, медленно поднимаясь с земли!"), SPAN_INFO("[src] вновь начинается двигатся, медленно поднимаясь с земли."))
 
@@ -270,7 +270,7 @@
 	set category = "IC"
 	set desc = "This will let you change your view range."
 
-	src.client.view = input("Select view range:", "FUCK YEAH", 12) in list(7,8,9,10,11,12)
+	src.client.view = input("Select view range:", "FUCK YEAH", 12) in list(7,8,9,10,11,12,13,14)
 
 /mob/living/simple_animal/hostile/fd/mech/verb/exit_mech()
 	set name = "Мех - Покинуть"
@@ -385,6 +385,8 @@
 	if(world.time < next_fire)
 		return FALSE
 
+	next_fire = world.time + cooldown
+
 	for(var/shot, shot<amount, shot++)
 		if(weapon_safety)
 			return FALSE
@@ -398,7 +400,6 @@
 			playsound(get_turf(src),'sound/weapons/empty.ogg', 80, TRUE)
 			return FALSE
 
-		next_fire = world.time + cooldown
 		var/obj/item/projectile/bullet/mech/pew = new bullet_type(get_turf(src))
 
 		if(sound)
@@ -471,6 +472,8 @@
 
 			if("Standart Rifle")
 				mech_shoot(A, /obj/item/projectile/bullet/mech, 1 SECONDS, 3, 2)
+
+	else if(modifiers["drag"])
 
 	else
 		. = ..()

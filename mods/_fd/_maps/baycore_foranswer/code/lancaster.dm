@@ -109,6 +109,8 @@
 			playsound(get_turf(src), 'sound/items/welderdeactivate.ogg', 80)
 			target_choice.mech_reboot(FALSE, FALSE)
 			target_choice.integrity = min(target_choice.integrity + 100, target_choice.integrity_max)
+			target_choice.heat = 0
+			restock_charges -= 1
 			visible_message(SPAN_NOTICE("[src] закончил ремонтировать повреждения у [target_choice]."), SPAN_INFO("Ты закончил ремонтировать повреждения у [target_choice]."))
 			return TRUE
 
@@ -125,10 +127,10 @@
 			visible_message(SPAN_NOTICE("[src] начал погружать припасы на борт [target_choice]."), SPAN_INFO("Ты начал погружать припасы на борт [target_choice]."))
 			playsound(get_turf(src), 'sound/effects/lift_heavy_start.ogg', 100)
 			var/finished = FALSE
-			spawn(5 SECONDS)
+			spawn(4 SECONDS)
 				if(!finished)
 					playsound(get_turf(target_choice), 'sound/effects/lift_heavy_stop.ogg', 100)
-			if(!do_after(src, 10 SECONDS, target_choice))
+			if(!do_after(src, 8 SECONDS, target_choice))
 				return FALSE
 			finished = TRUE
 			target_choice.spare_magazines += 2
@@ -179,7 +181,7 @@
 						passenger.forceMove(get_turf(src))
 						passenger = null
 						contents -= passenger
-						movement_cooldown = 2
+						movement_cooldown = initial(movement_cooldown)
 						CutOverlays(passenger_overlay)
 						return TRUE
 
@@ -220,6 +222,8 @@
 		switch(weapon_equipped)
 			if("Plasma Cutter")
 				mech_shoot(A, /obj/item/projectile/bullet/mech/lancaster, 1 SECONDS, 2, 1)
+
+	else if(modifiers["drag"])
 
 	else
 		. = ..()

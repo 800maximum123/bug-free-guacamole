@@ -187,6 +187,8 @@
 			if("Thermal Release")
 				mech_shoot(A, /obj/item/projectile/bullet/mech/saladin, 2 SECONDS)
 
+	else if(modifiers["drag"])
+
 	else
 		. = ..()
 

@@ -27,6 +27,17 @@
 		switch(debuff)
 			if("Overheated")
 				overheated = TRUE
+				overheat_timer = initial(overheat_timer)
+				heat = 0
+				if(has_overheated_state)
+					icon_state = "[icon_living]_charged"
+				add_filter("heated", 5, list("type" = "outline", , "size" = 0, "color" = COLOR_AMBER))
+				add_filter("heated_blur", 4, list("type" = "blur", , "size" = 0))
+				animate(get_filter("heated"), time = 15 SECONDS, size = 1, flags = ANIMATION_PARALLEL)
+				animate(get_filter("heated_blur"), time = 10 SECONDS, size = 1, flags = ANIMATION_PARALLEL)
+				animate(src, time = 10 SECONDS, color = "#fc987a", flags = ANIMATION_PARALLEL)
+				playsound(get_turf(src),'sound/mecha/internaldmgalarm.ogg',20)
+				playsound(get_turf(src),'sound/effects/iron_sizzle.ogg',100,TRUE)
 			if("Stunned")
 				chained_for = world.time + 10 SECONDS
 				chained = TRUE
@@ -269,6 +280,8 @@
 						M.integrity -= damage_incoming
 						M.damage_animation(damage_incoming)
 				next_slap = world.time + 5 SECONDS
+
+	else if(modifiers["drag"])
 
 	else
 		. = ..()

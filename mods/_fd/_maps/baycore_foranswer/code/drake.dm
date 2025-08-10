@@ -208,7 +208,7 @@
 					return FALSE
 				if(get_dist(A, src) > 1)
 					return FALSE
-				if(world.time <= next_shield_bump)
+				if(world.time < next_shield_bump)
 					return FALSE
 
 				do_attack_animation(A)
@@ -223,6 +223,8 @@
 						M.damage_animation(damage_incoming)
 						M.throw_at(get_edge_target_turf(M, get_dir(src, M)), 5, 3, src)
 				next_shield_bump = world.time + 1 SECONDS
+
+	else if(modifiers["drag"])
 
 	else
 		. = ..()

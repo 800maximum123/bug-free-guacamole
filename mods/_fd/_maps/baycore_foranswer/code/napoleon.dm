@@ -149,6 +149,8 @@
 			if("Heavy Pistol")
 				mech_shoot(A, /obj/item/projectile/bullet/mech/napoleon_pistol, 2 SECONDS)
 
+	else if(modifiers["drag"])
+
 	else
 		. = ..()
 
