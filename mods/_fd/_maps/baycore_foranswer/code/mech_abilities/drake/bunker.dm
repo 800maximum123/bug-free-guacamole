@@ -1,12 +1,3 @@
-/mob/living/simple_animal/hostile/fd/lancer
-	var/can_move = TRUE
-
-/mob/living/simple_animal/hostile/fd/lancer/SelfMove(dir)
-	if(!can_move)
-		return FALSE
-
-	. = ..()
-
 /datum/mech_ability/action/drake/bunker
 	name = "Оборонительный режим"
 	action_state = "18"
@@ -47,8 +38,9 @@
 		check_direction(current_direction)
 
 		playsound(get_turf(owner),'packs/infinity/sound/mecha/bigmech_rstep.ogg',100)
-		animate(owner, pixel_y = pixel_y_adjust, time = 1 SECONDS, easing = LINEAR_EASING | EASE_IN)
-		animate(owner, pixel_y = owner.default_pixel_y, time = 0.5 SECONDS, easing = JUMP_EASING)
+		animate(owner, pixel_y = pixel_y_adjust, time = 1 SECONDS, easing = LINEAR_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
+		spawn(1 SECONDS)
+			animate(owner, pixel_y = owner.default_pixel_y, time = 0.5 SECONDS, easing = JUMP_EASING, flags = ANIMATION_PARALLEL)
 
 		owner.add_filter("bunker", 1, list("type" = "outline", , "size" = 0, "color" = COLOR_BLACK))
 		animate(owner.get_filter("bunker"), time = 1 SECONDS, size = 2, easing = SINE_EASING, flags = ANIMATION_PARALLEL)
@@ -57,7 +49,7 @@
 			shielded_turfs[floor] = floor.color
 			animate(floor, time = 1 SECONDS, color = COLOR_DARK_GRAY, easing = SINE_EASING, flags = ANIMATION_PARALLEL)
 		owner.armor_stat += 10
-		owner.can_move = FALSE
+		owner.chained = FALSE
 		START_PROCESSING(SSprocessing, src)
 
 	else
@@ -68,12 +60,18 @@
 			animate(floor, time = 1.5 SECONDS, color = shielded_turfs[floor], easing = SINE_EASING, flags = ANIMATION_PARALLEL)
 		shielded_turfs.Cut()
 		owner.armor_stat -= 10
-		owner.can_move = TRUE
+		owner.chained = TRUE
 		STOP_PROCESSING(SSprocessing, src)
+
+		zonestart_by_x = initial(zonestart_by_x)
+		zonestart_by_y = initial(zonestart_by_y)
+		zoneend_by_x = initial(zoneend_by_x)
+		zoneend_by_y = initial(zoneend_by_y)
 
 	return handle_use(target, params)
 
 /datum/mech_ability/action/drake/bunker/Process()
+	..()
 
 	shielded_mechs.Cut()
 
@@ -82,3 +80,5 @@
 			if(L in shielded_mechs)
 				continue
 			shielded_mechs += L
+
+	return TRUE

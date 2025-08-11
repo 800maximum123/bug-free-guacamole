@@ -51,8 +51,21 @@
 /datum/mech_weapon/Process()
 	. = ..()
 
-/datum/mech_weapon/proc/shoot(atom/target, params, burst_count)
-	/// Сюда внутри подтипов вставлять сам код выстрелов
+/// В идеале, модифицировать параметры пули зависимые от меха - тут
+/datum/mech_weapon/proc/shoot(atom/target, params, obj/item/projectile/bullet/mech/projectile, burst_count)
+	projectile.original = target
+	projectile.current = target
+
+	projectile.starting = get_turf(owner)
+	projectile.shot_from = owner
+	projectile.permutated += owner
+
+	projectile.launch(target, BP_CHEST)
+
+	//owner.visible_message(SPAN_DANGER("[owner.name] делает выстрел из [src.name]!")) Предположительно будет слишком засорять чат
+
+	playsound(get_turf(owner), projectile.fire_sound, 30, TRUE)
+	projectile.SetTransform(2)
 
 /datum/mech_weapon/proc/fire(atom/target, params)
 	. = handle_fire(target, params)
@@ -64,7 +77,9 @@
 			playsound(get_turf(owner), 'sound/weapons/empty.ogg', 80, TRUE)
 			break
 
-		shoot(target, params, burst_count)
+		var/projectile = new bullet_type(get_turf(owner))
+
+		shoot(target, params, projectile, burst_count)
 		sleep(burst_interval)
 
 	return .
@@ -87,6 +102,7 @@
 		return FALSE
 
 	next_fire = world.time + cooldown
+	owner.face_atom(target)
 
 	return TRUE  // В идеале не переписывать этот прок, за исключением моментов, где эти базовые проверки будут мешать(
 
@@ -102,24 +118,6 @@
 			return FALSE
 
 		ammo--
-
-	var/obj/item/projectile/bullet/mech/projectile = new bullet_type(get_turf(owner))
-
-	projectile.original = target
-	projectile.current = target
-
-	projectile.starting = get_turf(owner)
-	projectile.shot_from = owner
-	projectile.permutated += owner
-
-	projectile.launch(target, BP_CHEST)
-
-	projectile.SetTransform(2)
-
-	//owner.dir =
-
-	owner.visible_message(SPAN_DANGER("[owner.name] ведёт огонь из [src.name]!"))
-	playsound(get_turf(owner), projectile.fire_sound, 30, TRUE)
 
 	return TRUE
 

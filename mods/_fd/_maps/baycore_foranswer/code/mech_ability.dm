@@ -41,7 +41,7 @@
 
 /// НАПОМИНАНИЕ: что бы ввести процесс - нужно ретурнуть TRUE и прописать START_PROCESSING() в new()
 /datum/mech_ability/Process()
-	. = ..()
+	..()
 
 /// Активация/переключение способности, возвращает результат использования
 /datum/mech_ability/proc/use(atom/target, params)

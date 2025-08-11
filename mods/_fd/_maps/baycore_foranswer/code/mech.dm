@@ -38,7 +38,7 @@
 	)
 
 	var/armor_stat = 0 // Снижает урон на [X]
-	var/shielded = FALSE // Дрейк способен перетягивать входящий урон на себя
+	var/shielded = // Дрейк способен перетягивать входящий урон на себя
 	var/overprotected = FALSE // Саладин накидывает оверхп
 	var/mutable_appearance/field_overlay
 
@@ -100,12 +100,37 @@
 	if(length(weapons))
 		selected_weapon = weapons[1]
 
+/mob/living/simple_animal/hostile/fd/lancer/proc/Effect(type, time = 1 SECONDS)
+	switch()
+
+/mob/living/simple_animal/hostile/fd/lancer/proc/SetEffect(type, time = 1 SECONDS)
+
+/mob/living/simple_animal/hostile/fd/lancer/proc/AdjustEffect(type, time = 1 SECONDS)
+
+/mob/proc/Stun(amount)
+	if(status_flags & CANSTUN)
+		facing_dir = null
+		stunned = max(max(stunned,amount),0) //can't go below 0, getting a low amount of stun doesn't lower your current stun
+		UpdateLyingBuckledAndVerbStatus()
+	return
+
+/mob/proc/SetStunned(amount) //if you REALLY need to set stun to a set amount without the whole "can't go below current stunned"
+	if(status_flags & CANSTUN)
+		stunned = max(amount,0)
+		UpdateLyingBuckledAndVerbStatus()
+	return
+
+/mob/proc/AdjustStunned(amount)
+	if(status_flags & CANSTUN)
+		stunned = max(stunned + amount,0)
+		UpdateLyingBuckledAndVerbStatus()
+	return
+
 /mob/living/simple_animal/hostile/fd/lancer/proc/add_ability(ability_type)
 	abilities += new ability_type(src)
 
 /mob/living/simple_animal/hostile/fd/lancer/proc/resupply()
 	SHOULD_CALL_PARENT(TRUE)
-
 	mech_reboot(FALSE, FALSE)
 
 	integrity = integrity_max
