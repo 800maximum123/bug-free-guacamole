@@ -1,0 +1,1 @@
+/datum/mech_weapon
