@@ -57,7 +57,7 @@
 /obj/item/clothing/accessory/scarf/shouldercape/get_mob_overlay(mob/user_mob, slot)
 	. = ..()
 
-	if(istype(loc, /obj/item/clothing/suit/space/void/exploration) || istype(loc, /obj/item/clothing/suit/space/void/atmos/alt/sol/expo) )
+	if(istype(loc, /obj/item/clothing/suit/space/void/exploration) /*!ВРЕМЕННОЕ РЕШЕНИЕ!|| istype(loc, /obj/item/clothing/suit/space/void/atmos/alt/sol/expo)*/ )
 		return overlay_image(accessory_icons[slot], "shoulder_cape_fat", color, RESET_COLOR)
 
 
@@ -76,5 +76,5 @@
 /obj/item/clothing/accessory/scarf/shouldercape/old_cloak/get_mob_overlay(mob/user_mob, slot)
 	. = ..()
 
-	if(istype(loc, /obj/item/clothing/suit/space/void/exploration) || istype(loc, /obj/item/clothing/suit/space/void/atmos/alt/sol/expo) )
+	if(istype(loc, /obj/item/clothing/suit/space/void/exploration) /*!ВРЕМЕННОЕ РЕШЕНИЕ!|| istype(loc, /obj/item/clothing/suit/space/void/atmos/alt/sol/expo)*/ )
 		return overlay_image(accessory_icons[slot], "onmob_old_cloak", color, RESET_COLOR)

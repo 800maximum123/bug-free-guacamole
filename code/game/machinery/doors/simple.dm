@@ -11,6 +11,13 @@
 	autoset_access = FALSE // Doesn't even use access
 	pry_mod = 0.1
 
+/obj/machinery/door/unpowered/simple/Initialize(mapload)
+	. = ..()
+	if(initial_lock_value)
+		locked = initial_lock_value
+	if(locked)
+		lock = new(src,locked)
+
 /obj/machinery/door/unpowered/simple/New(newloc, material_name, locked)
 	..()
 	if(!material_name)
@@ -24,10 +31,6 @@
 	damage_hitsound = material.hitsound
 	name = "[material.display_name] door"
 	color = material.icon_colour
-	if(initial_lock_value)
-		locked = initial_lock_value
-	if(locked)
-		lock = new(src,locked)
 	if(material.luminescence)
 		set_light(material.luminescence, 0.5, l_color = material.icon_colour)
 
@@ -111,8 +114,9 @@
 /obj/machinery/door/unpowered/simple/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if(istype(I, /obj/item/key) && lock)
 		var/obj/item/key/K = I
-		if(!lock.toggle(I))
+		if(!lock.toggle(I, user))
 			to_chat(user, SPAN_WARNING("\The [K] does not fit in the lock!"))
+			playsound(src, 'sound/weapons/Genhit.ogg', 20, 1)
 		return TRUE
 
 	if(lock && lock.pick_lock(I,user))

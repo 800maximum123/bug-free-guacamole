@@ -60,6 +60,14 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	var/company_short = "BM"
 	var/system_name = "Uncharted System"
 
+	// These are used if map has two opposing sides, such as in Gaia
+	var/evil_station_name  = "Even Badder Station"
+	var/evil_station_short = "Baddiest"
+	var/evil_boss_name     = "Mr Bad Guy"
+	var/evil_boss_short    = "MrBad"
+	var/evil_company_name  = "Evil Incorporated"
+	var/evil_company_short = "Evil Inc."
+
 	var/list/map_admin_faxes = list()
 
 	var/shuttle_docked_message

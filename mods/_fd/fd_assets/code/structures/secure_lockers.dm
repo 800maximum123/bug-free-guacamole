@@ -1,6 +1,6 @@
 /obj/structure/closet/secure_closet/research_guard
 	name = "Research Guard's locker"
-	req_access = list(access_research_security)
+	//!ВРЕМЕННОЕ РЕШЕНИЕ! req_access = list(access_research_security)
 	closet_appearance = /singleton/closet_appearance/secure_closet/torch/science
 
 /obj/structure/closet/secure_closet/guncabinet/sidearm/small
