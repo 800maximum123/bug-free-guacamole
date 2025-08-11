@@ -42,14 +42,15 @@
 		spawn(1 SECONDS)
 			animate(owner, pixel_y = owner.default_pixel_y, time = 0.5 SECONDS, easing = JUMP_EASING, flags = ANIMATION_PARALLEL)
 
-		owner.add_filter("bunker", 1, list("type" = "outline", , "size" = 0, "color" = COLOR_BLACK))
-		animate(owner.get_filter("bunker"), time = 1 SECONDS, size = 2, easing = SINE_EASING, flags = ANIMATION_PARALLEL)
+		spawn(1.5 SECONDS)
+			owner.add_filter("bunker", 1, list("type" = "outline", , "size" = 0, "color" = COLOR_BLACK))
+			animate(owner.get_filter("bunker"), time = 1 SECONDS, size = 2, easing = SINE_EASING, flags = ANIMATION_PARALLEL)
 
-		for(var/turf/floor in block(owner.x-zonestart_by_x, owner.y-zonestart_by_y, owner.z, owner.x+zoneend_by_x, owner.y+zoneend_by_y, owner.z))
-			shielded_turfs[floor] = floor.color
-			animate(floor, time = 1 SECONDS, color = COLOR_DARK_GRAY, easing = SINE_EASING, flags = ANIMATION_PARALLEL)
+			for(var/turf/floor in block(owner.x-zonestart_by_x, owner.y-zonestart_by_y, owner.z, owner.x+zoneend_by_x, owner.y+zoneend_by_y, owner.z))
+				shielded_turfs[floor] = floor.color
+				animate(floor, time = 1 SECONDS, color = COLOR_DARK_GRAY, easing = SINE_EASING, flags = ANIMATION_PARALLEL)
 		owner.armor_stat += 10
-		owner.chained = FALSE
+		owner.chained = TRUE
 		START_PROCESSING(SSprocessing, src)
 
 	else
@@ -60,7 +61,7 @@
 			animate(floor, time = 1.5 SECONDS, color = shielded_turfs[floor], easing = SINE_EASING, flags = ANIMATION_PARALLEL)
 		shielded_turfs.Cut()
 		owner.armor_stat -= 10
-		owner.chained = TRUE
+		owner.chained = FALSE
 		STOP_PROCESSING(SSprocessing, src)
 
 		zonestart_by_x = initial(zonestart_by_x)

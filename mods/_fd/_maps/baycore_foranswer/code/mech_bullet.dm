@@ -9,23 +9,22 @@
 	fire_sound = 'sound/weapons/guns/ricochet4.ogg'
 
 	var/bullet_size = 2 // Множитель размера пули
-	var/mech_damage = 10 // Реальный дамаг по мехам
-	var/piercing = FALSE // Игнорирует армор?
+	var/integrity_damage = 10 // Реальный дамаг по мехам
+	var/hull_damage = 10 // Относительный урон броне
+	var/shredding = FALSE // Игнорирует армор?
 
 /obj/item/projectile/bullet/mech/pistol
-	mech_damage = 5
+	integrity_damage = 5
 
 /obj/item/projectile/bullet/mech/on_hit(atom/target, blocked = 0)
 	if(istype(target, /mob/living/simple_animal/hostile/fd/lancer))
 		var/mob/living/simple_animal/hostile/fd/lancer/M = target
-		var/final_damage = mech_damage
 		if(M.leader_target)
-			final_damage *= 2
+			integrity_damage *= 2
 
-		if(!piercing)
-			final_damage = max(final_damage - M.armor_stat, 0)
+		M.do_damage(integrity_damage, hull_damage, shredding, do_animation = TRUE)
 
-		if(M.shielded)
+/*		if(M.shielded)
 			for(var/mob/living/simple_animal/hostile/fd/lancer/drake/D in view(2,src))
 				if(!D.damaged)
 					D.integrity -= final_damage
@@ -34,23 +33,16 @@
 					return TRUE
 				else
 					D.damage_animation(final_damage)
-					return TRUE
+					return TRUE*/
 
-		if(M.overprotected)
+/*		if(M.overprotected)
 			for(var/mob/living/simple_animal/hostile/fd/lancer/saladin/D in range(13, get_turf(src)))
 				if(D.protected != M)
 					continue
 				D.shield_integrity -= final_damage
 				D.heat += 1
 				D.damage_animation(0, ignore_armor = FALSE)
-				return TRUE
-
-		if(!M.damaged)
-			M.integrity -= final_damage
-		if(piercing)
-			M.damage_animation(mech_damage, ignore_armor = TRUE)
-		else
-			M.damage_animation(mech_damage)
+				return TRUE*/
 
 /obj/item/projectile/bullet/mech/launch(atom/target, target_zone, x_offset, y_offset, angle_offset)
 	. = ..()

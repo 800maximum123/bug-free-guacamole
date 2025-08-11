@@ -38,7 +38,8 @@
 	)
 
 	var/armor_stat = 0 // Снижает урон на [X]
-	var/shielded = // Дрейк способен перетягивать входящий урон на себя
+	var/armor_durability = 100 // Износ брони
+	var/shielded = 0// Дрейк способен перетягивать входящий урон на себя
 	var/overprotected = FALSE // Саладин накидывает оверхп
 	var/mutable_appearance/field_overlay
 
@@ -100,14 +101,14 @@
 	if(length(weapons))
 		selected_weapon = weapons[1]
 
-/mob/living/simple_animal/hostile/fd/lancer/proc/Effect(type, time = 1 SECONDS)
+/*/mob/living/simple_animal/hostile/fd/lancer/proc/Effect(type, time = 1 SECONDS)
 	switch()
 
 /mob/living/simple_animal/hostile/fd/lancer/proc/SetEffect(type, time = 1 SECONDS)
 
-/mob/living/simple_animal/hostile/fd/lancer/proc/AdjustEffect(type, time = 1 SECONDS)
+/mob/living/simple_animal/hostile/fd/lancer/proc/AdjustEffect(type, time = 1 SECONDS)*/
 
-/mob/proc/Stun(amount)
+/*/mob/proc/Stun(amount)
 	if(status_flags & CANSTUN)
 		facing_dir = null
 		stunned = max(max(stunned,amount),0) //can't go below 0, getting a low amount of stun doesn't lower your current stun
@@ -124,7 +125,39 @@
 	if(status_flags & CANSTUN)
 		stunned = max(stunned + amount,0)
 		UpdateLyingBuckledAndVerbStatus()
-	return
+	return*/
+
+/mob/living/simple_animal/hostile/fd/lancer/proc/do_damage(integrity_damage, hull_damage, shredding = FALSE, do_animation = TRUE)
+	var/final_damage = 0
+	var/nullified = TRUE
+
+	if(damaged)
+		return FALSE
+
+	if(!shredding && prob(armor_durability))
+		final_damage = integrity_damage - armor_stat
+
+	if(final_damage > 0)
+		integrity -= final_damage
+		nullified = FALSE
+
+	armor_durability -= rand(1,hull_damage)
+
+	if(do_animation && !damaged)
+		damage_animation(nullified)
+
+	return TRUE
+
+/mob/living/simple_animal/hostile/fd/lancer/proc/damage_animation(damage_blocked = FALSE)
+	if(damage_blocked)
+		animate(src, color = COLOR_DEEP_SKY_BLUE, time = 0.2 SECOND, easing = CUBIC_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
+		spawn(0.4 SECOND)
+			animate(src, color = initial(color), time = 0.2 SECOND, easing = CUBIC_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
+	else
+		animate(src, color = COLOR_RED, time = 0.2 SECOND, easing = CUBIC_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
+		spawn(0.4 SECOND)
+			animate(src, color = initial(color), time = 0.2 SECOND, easing = CUBIC_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
+
 
 /mob/living/simple_animal/hostile/fd/lancer/proc/add_ability(ability_type)
 	abilities += new ability_type(src)
@@ -256,19 +289,6 @@
 		..(FALSE, "suddenly breaks apart.", "You have been destroyed.")
 		qdel(src)
 
-/mob/living/simple_animal/hostile/fd/lancer/proc/damage_animation(amount, ignore_armor = FALSE)
-	if(damaged)
-		return FALSE
-
-	if(armor_stat >= amount && !ignore_armor)
-		animate(src, color = COLOR_DEEP_SKY_BLUE, time = 0.2 SECOND, easing = CUBIC_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
-		spawn(0.4 SECOND)
-			animate(src, color = initial(color), time = 0.2 SECOND, easing = CUBIC_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
-	else
-		animate(src, color = COLOR_RED, time = 0.2 SECOND, easing = CUBIC_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
-		spawn(0.4 SECOND)
-			animate(src, color = initial(color), time = 0.2 SECOND, easing = CUBIC_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
-
 /mob/living/simple_animal/hostile/fd/lancer/proc/choose_weapon()
 	var/list/options = list(
 		"Standart Pistol" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),
@@ -366,12 +386,12 @@
 		playsound(get_turf(src),'sound/mecha/internaldmgalarm.ogg',20)
 		playsound(get_turf(src),'sound/effects/iron_sizzle.ogg',100,TRUE)
 
-	if(shielded)
+/*	if(shielded)
 		for(var/mob/living/simple_animal/hostile/fd/lancer/drake/M in view(2,src))
 			if(!M)
 				shielded = FALSE
 			if(M.damaged)
-				shielded = FALSE
+				shielded = FALSE*/
 
 	. = ..()
 
@@ -415,7 +435,7 @@
 		playsound(pew.loc, pew.fire_sound, 30, 1)
 
 		if(damage_bonus)
-			pew.mech_damage += damage_bonus
+			pew.integrity_damage += damage_bonus
 		if(bullet_icon)
 			pew.icon_state = bullet_icon
 
