@@ -12,16 +12,15 @@
 	var/state = rand(1,9)
 	icon_state = "trooper_death_[state]"
 
-/mob/living/simple_animal/hostile/fd/mech/napoleon/resupply()
+/mob/living/simple_animal/hostile/fd/lancer/napoleon/resupply()
 	. = ..()
 	chambered_rounds = initial(chambered_rounds)
 
-/mob/living/simple_animal/hostile/fd/mech/napoleon
+/mob/living/simple_animal/hostile/fd/lancer/napoleon
 	name = "APU Napoleon"
 	desc = "An standart personal unit for general purposes and combat situations."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/trooper_def.dmi'
 	icon_state = "trooper"
-	icon_living = "trooper"
 
 	pixel_x = -111
 	default_pixel_x = -111
@@ -48,7 +47,7 @@
 	var/chambered_rounds = 12
 	var/command_cooldown = 0
 
-/mob/living/simple_animal/hostile/fd/mech/napoleon/choose_weapon()
+/mob/living/simple_animal/hostile/fd/lancer/napoleon/choose_weapon()
 	var/list/options = list(
 		"Riot Shotgun" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),
 		"Heavy Pistol" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24")
@@ -59,7 +58,7 @@
 	weapon_equipped = chosen_option
 	playsound(get_turf(src), 'packs/infinity/sound/items/change_jaws.ogg', 80, TRUE)
 
-/mob/living/simple_animal/hostile/fd/mech/napoleon/consume_ammo()
+/mob/living/simple_animal/hostile/fd/lancer/napoleon/consume_ammo()
 	if(weapon_equipped == "Heavy Pistol")
 		return TRUE
 
@@ -69,7 +68,7 @@
 	chambered_rounds--
 	return TRUE
 
-/mob/living/simple_animal/hostile/fd/mech/napoleon/ClickOn(atom/A, params)
+/mob/living/simple_animal/hostile/fd/lancer/napoleon/ClickOn(atom/A, params)
 	var/modifiers = params2list(params)
 
 	if(A == src)
@@ -119,15 +118,15 @@
 	else if(modifiers["middle"])
 		mech_shoot(A, /obj/item/projectile/bullet/mech/napoleon_grenade, 10 SECONDS)
 
-	else if(modifiers["shift"] && istype(A, /mob/living/simple_animal/hostile/fd/mech))
+	else if(modifiers["shift"] && istype(A, /mob/living/simple_animal/hostile/fd/lancer))
 		scan(A, params)
 
 	else if(modifiers["alt"])
 		if(world.time <= command_cooldown)
 			to_chat(src, SPAN_WARNING("Новая метка ещё не готова!"))
 			return FALSE
-		if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
-			var/mob/living/simple_animal/hostile/fd/mech/M = A
+		if(istype(A, /mob/living/simple_animal/hostile/fd/lancer))
+			var/mob/living/simple_animal/hostile/fd/lancer/M = A
 			if(M.leader_target)
 				to_chat(src, SPAN_WARNING("Эта цель уже отмечена!"))
 				return FALSE
@@ -155,7 +154,7 @@
 		. = ..()
 
 /obj/item/projectile/bullet/mech/napoleon_shotgun
-	real_damage = 3
+	mech_damage = 3
 	life_span = 10
 	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
 	icon = 'mods/_fd/fd_assets/icons/projectiles.dmi'
@@ -163,12 +162,12 @@
 
 /obj/item/projectile/bullet/mech/napoleon_shotgun/on_hit(atom/target, blocked = 0)
 	if((initial(life_span) - life_span) < 3)
-		real_damage += 10
+		mech_damage += 10
 
 	. = ..()
 
 /obj/item/projectile/bullet/mech/napoleon_grenade
-	real_damage = 0
+	mech_damage = 0
 	life_span = 12
 	fire_sound = 'sound/weapons/bombwhine.ogg'
 	icon_state = "spark_green"
@@ -199,5 +198,5 @@
 	qdel(src)
 
 /obj/item/projectile/bullet/mech/napoleon_pistol
-	real_damage = 15
+	mech_damage = 15
 	fire_sound = 'sound/weapons/gunshot/sniper.ogg'

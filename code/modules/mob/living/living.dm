@@ -74,7 +74,7 @@ default behaviour is:
 		return
 	// End boilerplate.
 
-	if(istype(AM, /mob/living/simple_animal/hostile/fd/mech))
+	if(istype(AM, /mob/living/simple_animal/hostile/fd/lancer))
 		now_pushing = 0
 		return
 

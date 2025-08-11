@@ -1228,10 +1228,9 @@
 
 ////// МЕХИ СИМУЛЯКРЫ //////
 
-/mob/living/simple_animal/hostile/fd/mech/napoleon/holo
+/mob/living/simple_animal/hostile/fd/lancer/napoleon/holo
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/mechs_sim.dmi'
 	icon_state = "TROOPER"
-	icon_living = "TROOPER"
 
 	wreck_type = null
 
@@ -1241,10 +1240,9 @@
 
 	heat_overflow = 5
 
-/mob/living/simple_animal/hostile/fd/mech/drake/holo
+/mob/living/simple_animal/hostile/fd/lancer/drake/holo
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/mechs_sim.dmi'
 	icon_state = "HEAVY"
-	icon_living = "HEAVY"
 
 	wreck_type = null
 
@@ -1257,10 +1255,9 @@
 	pixel_x = -125
 	default_pixel_x = -125
 
-/mob/living/simple_animal/hostile/fd/mech/lancaster/holo
+/mob/living/simple_animal/hostile/fd/lancer/lancaster/holo
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/mechs_sim.dmi'
 	icon_state = "ENGINEER"
-	icon_living = "ENGINEER"
 
 	wreck_type = null
 
@@ -1270,10 +1267,9 @@
 
 	heat_overflow = 3
 
-/mob/living/simple_animal/hostile/fd/mech/saladin/holo
+/mob/living/simple_animal/hostile/fd/lancer/saladin/holo
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/mechs_sim.dmi'
 	icon_state = "EXPERIMENTAL"
-	icon_living = "EXPERIMENTAL"
 
 	wreck_type = null
 	has_overheated_state = FALSE
@@ -1284,10 +1280,9 @@
 
 	heat_overflow = 20
 
-/mob/living/simple_animal/hostile/fd/mech/goblintail/holo
+/mob/living/simple_animal/hostile/fd/lancer/goblintail/holo
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/mechs_sim.dmi'
 	icon_state = "SCOUT"
-	icon_living = "SCOUT"
 
 	wreck_type = null
 

@@ -12,16 +12,15 @@
 	var/state = rand(1,7)
 	icon_state = "heavy_death_[state]"
 
-/mob/living/simple_animal/hostile/fd/mech/drake/resupply()
+/mob/living/simple_animal/hostile/fd/lancer/drake/resupply()
 	. = ..()
 	cannon_ammo = initial(cannon_ammo)
 
-/mob/living/simple_animal/hostile/fd/mech/drake
+/mob/living/simple_animal/hostile/fd/lancer/drake
 	name = "H-APU Drake"
 	desc = "The Drake was the first, and most resilient APU ever designed by ''Shield''."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/heavy_def.dmi'
 	icon_state = "heavy"
-	icon_living = "heavy"
 
 	pixel_x = -110
 	default_pixel_x = -110
@@ -55,13 +54,13 @@
 
 	var/next_shield_bump = 0
 
-/mob/living/simple_animal/hostile/fd/mech/drake/Move()
+/mob/living/simple_animal/hostile/fd/lancer/drake/Move()
 	if(bunkermode)
 		return 0
 
 	. = ..()
 
-/mob/living/simple_animal/hostile/fd/mech/drake/Life()
+/mob/living/simple_animal/hostile/fd/lancer/drake/Life()
 	if(speed_buff > 0 && !start_counting)
 		start_counting = TRUE
 		buff_timer += world.time
@@ -72,12 +71,12 @@
 		start_counting = FALSE
 
 	if(bunkermode && !damaged)
-		for(var/mob/living/simple_animal/hostile/fd/mech/M in oview(2,src))
+		for(var/mob/living/simple_animal/hostile/fd/lancer/M in oview(2,src))
 			M.shielded = TRUE
 
 	. = ..()
 
-/mob/living/simple_animal/hostile/fd/mech/drake/choose_weapon()
+/mob/living/simple_animal/hostile/fd/lancer/drake/choose_weapon()
 	var/list/options = list(
 		"Assault Cannon" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),
 		"Shield" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24")
@@ -88,13 +87,13 @@
 	weapon_equipped = chosen_option
 	playsound(get_turf(src), 'packs/infinity/sound/items/change_jaws.ogg', 80, TRUE)
 
-/mob/living/simple_animal/hostile/fd/mech/drake/consume_ammo()
+/mob/living/simple_animal/hostile/fd/lancer/drake/consume_ammo()
 	if(cannon_ammo <= 0)
 		return FALSE
 	cannon_ammo--
 	return TRUE
 
-/mob/living/simple_animal/hostile/fd/mech/drake/proc/toggle_bunker()
+/mob/living/simple_animal/hostile/fd/lancer/drake/proc/toggle_bunker()
 	bunkermode = !bunkermode
 	to_chat(src, SPAN_NOTICE("Ты [bunkermode ? "разложил" : "втянул"] пластины своего мобильного бункера."))
 	if(bunkermode)
@@ -113,7 +112,7 @@
 			animate(floor, time = 1.5 SECONDS, color = protected_turfs[floor], easing = SINE_EASING, flags = ANIMATION_PARALLEL)
 		protected_turfs.Cut()
 
-/mob/living/simple_animal/hostile/fd/mech/drake/ClickOn(atom/A, params)
+/mob/living/simple_animal/hostile/fd/lancer/drake/ClickOn(atom/A, params)
 	var/modifiers = params2list(params)
 
 	if(A == src)
@@ -188,7 +187,7 @@
 
 	else if(modifiers["middle"])
 
-	else if(modifiers["shift"] && istype(A, /mob/living/simple_animal/hostile/fd/mech))
+	else if(modifiers["shift"] && istype(A, /mob/living/simple_animal/hostile/fd/lancer))
 		scan(A, params)
 
 	else if(modifiers["alt"])
@@ -212,8 +211,8 @@
 					return FALSE
 
 				do_attack_animation(A)
-				if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
-					var/mob/living/simple_animal/hostile/fd/mech/M = A
+				if(istype(A, /mob/living/simple_animal/hostile/fd/lancer))
+					var/mob/living/simple_animal/hostile/fd/lancer/M = A
 					var/damage_incoming = 10
 					if(M.leader_target)
 						damage_incoming *= 2

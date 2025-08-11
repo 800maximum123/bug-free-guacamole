@@ -1,9 +1,8 @@
-/mob/living/simple_animal/hostile/fd/mech
+/mob/living/simple_animal/hostile/fd/lancer
 	name = "Armored Personal Unit (APU)"
 	desc = "An special experimental vehicle."
-	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/breacher_def.dmi'
-	icon_state = "breacher"
-	icon_living = "breacher"
+	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/trooper_def.dmi'
+	icon_state = "trooper"
 
 	faction = "Players"
 
@@ -12,8 +11,14 @@
 	health = 9999999
 	maxHealth = 9999999
 
+	pixel_x = -111
+	default_pixel_x = -111
+	pixel_y = -50
+	default_pixel_y = -50
+
 	runechat_x_offset = 125
 	runechat_y_offset = 125
+
 	bleed_colour = "#000000"
 
 	see_in_dark = 30
@@ -25,12 +30,12 @@
 		/datum/mech_ability/action/toggle_safety,
 	)
 
-	/// Список оружия меха
-	var/list/weapons = list(
-
-	)
 	/// Выбранный тип оружия
 	var/datum/mech_weapon/selected_weapon = null
+	/// Список оружия меха
+	var/list/weapons = list(
+		/datum/mech_weapon,
+	)
 
 	var/armor_stat = 0 // Снижает урон на [X]
 	var/shielded = FALSE // Дрейк способен перетягивать входящий урон на себя
@@ -52,7 +57,9 @@
 	var/repairs_left = 1 // Сколько раз мы сможем подниматься из мёртвых?
 	var/damaged = FALSE // Мы в "крите"?
 
-	var/weapon_safety = FALSE // На предохранителе ли оружие?
+	/// На предохранителе ли всё оружие?
+	var/weapon_safety = TRUE
+
 	var/has_ammo = FALSE // Есть ли у нас запас патронов?
 	var/spare_magazines = 0 // Запасные магазины для пополнения патрон
 	var/next_fire = 0 // Время после которого можно будет вновь выстрелить
@@ -73,8 +80,11 @@
 
 	var/mob/living/carbon/human/pilot/pilot // Текущий пилот меха
 
-/mob/living/simple_animal/hostile/fd/mech/Initialize()
+/mob/living/simple_animal/hostile/fd/lancer/Initialize()
+	icon_living = icon_state
+
 	. = ..()
+
 	add_language(LANGUAGE_PILOT)
 
 	var/list/ability_datums = list()
@@ -90,10 +100,10 @@
 	if(length(weapons))
 		selected_weapon = weapons[1]
 
-/mob/living/simple_animal/hostile/fd/mech/proc/add_ability(ability_type)
+/mob/living/simple_animal/hostile/fd/lancer/proc/add_ability(ability_type)
 	abilities += new ability_type(src)
 
-/mob/living/simple_animal/hostile/fd/mech/proc/resupply()
+/mob/living/simple_animal/hostile/fd/lancer/proc/resupply()
 	SHOULD_CALL_PARENT(TRUE)
 
 	mech_reboot(FALSE, FALSE)
@@ -113,10 +123,10 @@
 	leader_target = FALSE
 	target_for = 0
 
-/mob/living/simple_animal/hostile/fd/mech/can_pull()
+/mob/living/simple_animal/hostile/fd/lancer/can_pull()
 	return FALSE
 
-/mob/living/simple_animal/hostile/fd/mech/proc/scan(mob/living/simple_animal/hostile/fd/mech/mech_target, params)
+/mob/living/simple_animal/hostile/fd/lancer/proc/scan(mob/living/simple_animal/hostile/fd/lancer/mech_target, params)
 	set waitfor = FALSE
 
 	to_chat(src, SPAN_NOTICE("Вы пытаетесь просканировать сигнатуру [mech_target]..."))
@@ -132,19 +142,18 @@
 	to_chat(src, SPAN_NOTICE("Сканирование завершено."))
 	to_chat(mech_target, SPAN_WARNING("Ваша сигнатура была просканирована."))
 
-/mob/living/simple_animal/hostile/fd/mech/proc/get_scan_info()
+/mob/living/simple_animal/hostile/fd/lancer/proc/get_scan_info()
 	. = ""
 	var/integrity_color = gradient(COLOR_RED, COLOR_DARKMODE_TEXT, (integrity*1.4)/integrity_max)
 	. += FONT_NORMAL("<li>[SPAN_COLOR(integrity_color, "Структуры: [Percent(integrity,integrity_max,1)]%")]")
 	var/heat_color = gradient("#ff8800", COLOR_RED, heat/heat_overflow)
 	. += FONT_NORMAL("<li>[SPAN_COLOR(heat_color, "Перегрева: [Percent(heat,heat_overflow,1)]%")]")
 	. += FONT_NORMAL("</li>")
-	. += FONT_NORMAL(SPAN_COLOR(COLOR_DARKMODE_TEXT, desc))
 
 	for(var/datum/mech_ability/ability as anything in abilities)
 		. += ability.get_scan_info(src)
 
-/mob/living/simple_animal/hostile/fd/mech/proc/mech_reboot(delay = TRUE, heal = TRUE)
+/mob/living/simple_animal/hostile/fd/lancer/proc/mech_reboot(delay = TRUE, heal = TRUE)
 	set waitfor = FALSE
 
 	if(!damaged)
@@ -173,35 +182,40 @@
 	animate(src, time = 2 SECONDS, color = initial(color), transform = matrix(), easing = SINE_EASING, flags = ANIMATION_PARALLEL)
 	return TRUE
 
-/mob/living/simple_animal/hostile/fd/mech/Stat()
+/mob/living/simple_animal/hostile/fd/lancer/Stat()
 	. = ..()
-	if(!statpanel("Mech"))
+	if(!statpanel("Mech Status"))
 		return
 
-	stat(name, null)
+	stat(FONT_LARGE(name), null)
 
 	if(has_ammo)
 		var/ammo_color = gradient(COLOR_RED, COLOR_DARKMODE_TEXT, spare_magazines/initial(spare_magazines))
-		stat(FONT_LARGE(SPAN_COLOR(ammo_color, "Запасных Магазинов:")), FONT_LARGE(SPAN_COLOR(ammo_color, "[spare_magazines]")))
+		stat(FONT_NORMAL(SPAN_COLOR(ammo_color, "Запасных Магазинов:")), FONT_NORMAL(SPAN_COLOR(ammo_color, "[spare_magazines]")))
 
 	if(initial(repairs_left)) // ноль на ноль делить нельзя
 		var/repairs_color = gradient(COLOR_RED, COLOR_DARKMODE_TEXT, repairs_left/initial(repairs_left))
-		stat(FONT_LARGE(SPAN_COLOR(repairs_color, "Комплектов Починки:")), FONT_LARGE(SPAN_COLOR(repairs_color, "[repairs_left]")))
+		stat(FONT_NORMAL(SPAN_COLOR(repairs_color, "Комплектов Починки:")), FONT_NORMAL(SPAN_COLOR(repairs_color, "[repairs_left]")))
 
 	if(integrity_max)
 		var/integrity_color = gradient(COLOR_RED, COLOR_DARKMODE_TEXT, (integrity*1.4)/integrity_max)
-		stat(FONT_LARGE(SPAN_COLOR(integrity_color, "Структуры:")), FONT_LARGE(SPAN_COLOR(integrity_color, "[integrity]/[integrity_max] ([Percent(integrity,integrity_max,1)]%)")))
+		stat(FONT_NORMAL(SPAN_COLOR(integrity_color, "Структуры:")), FONT_NORMAL(SPAN_COLOR(integrity_color, "[integrity]/[integrity_max] ([Percent(integrity,integrity_max,1)]%)")))
 
 	if(heat_overflow)
 		var/heat_color = gradient("#ff8800", COLOR_RED, heat/heat_overflow)
-		stat(FONT_LARGE(SPAN_COLOR(heat_color, "Перегрева:")), FONT_LARGE(SPAN_COLOR(heat_color, "[heat]/[heat_overflow] ([Percent(heat,heat_overflow,1)]%)")))
+		stat(FONT_NORMAL(SPAN_COLOR(heat_color, "Перегрева:")), FONT_NORMAL(SPAN_COLOR(heat_color, "[heat]/[heat_overflow] ([Percent(heat,heat_overflow,1)]%)")))
 
 	for(var/datum/mech_ability/ability as anything in abilities)
 		var/data_set = ability.get_stat_info(src)
 		for(var/list/data as anything in data_set)
 			stat(data["title"], data["desc"])
 
-/mob/living/simple_animal/hostile/fd/mech/death()
+	for(var/datum/mech_weapon/weapon as anything in weapons)
+		var/data_set = weapon.get_stat_info(src)
+		for(var/list/data as anything in data_set)
+			stat(data["title"], data["desc"])
+
+/mob/living/simple_animal/hostile/fd/lancer/death()
 	dead = TRUE
 	anchored = TRUE
 	playsound(get_turf(src),'sound/mecha/mech-shutdown.ogg',150)
@@ -217,7 +231,7 @@
 		..(FALSE, "suddenly breaks apart.", "You have been destroyed.")
 		qdel(src)
 
-/mob/living/simple_animal/hostile/fd/mech/proc/damage_animation(amount, ignore_armor = FALSE)
+/mob/living/simple_animal/hostile/fd/lancer/proc/damage_animation(amount, ignore_armor = FALSE)
 	if(damaged)
 		return FALSE
 
@@ -230,7 +244,7 @@
 		spawn(0.4 SECOND)
 			animate(src, color = initial(color), time = 0.2 SECOND, easing = CUBIC_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
 
-/mob/living/simple_animal/hostile/fd/mech/proc/choose_weapon()
+/mob/living/simple_animal/hostile/fd/lancer/proc/choose_weapon()
 	var/list/options = list(
 		"Standart Pistol" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),
 		"Standart Rifle" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24")
@@ -241,14 +255,14 @@
 	weapon_equipped = chosen_option
 	playsound(get_turf(src), 'packs/infinity/sound/items/change_jaws.ogg', 80, TRUE)
 
-/mob/living/simple_animal/hostile/fd/mech/verb/change_view()
+/mob/living/simple_animal/hostile/fd/lancer/verb/change_view()
 	set name = "Мех - Сменить радиус зрения"
 	set category = "IC"
 	set desc = "This will let you change your view range."
 
 	src.client.view = input("Select view range:", "FUCK YEAH", 12) in list(7,8,9,10,11,12,13,14)
 
-/mob/living/simple_animal/hostile/fd/mech/verb/exit_mech()
+/mob/living/simple_animal/hostile/fd/lancer/verb/exit_mech()
 	set name = "Мех - Покинуть"
 	set category = "IC"
 	set desc = "Позволяет покинуть боевую машину."
@@ -268,7 +282,7 @@
 	pilot.client.view = 7
 	pilot = null
 
-/mob/living/simple_animal/hostile/fd/mech/Life()
+/mob/living/simple_animal/hostile/fd/lancer/Life()
 
 	if(world.time >= chained_for && chained)
 		chained = FALSE
@@ -328,7 +342,7 @@
 		playsound(get_turf(src),'sound/effects/iron_sizzle.ogg',100,TRUE)
 
 	if(shielded)
-		for(var/mob/living/simple_animal/hostile/fd/mech/drake/M in view(2,src))
+		for(var/mob/living/simple_animal/hostile/fd/lancer/drake/M in view(2,src))
 			if(!M)
 				shielded = FALSE
 			if(M.damaged)
@@ -336,7 +350,7 @@
 
 	. = ..()
 
-/mob/living/simple_animal/hostile/fd/mech/SelfMove(dir)
+/mob/living/simple_animal/hostile/fd/lancer/SelfMove(dir)
 	if(damaged)
 		return 0
 
@@ -345,10 +359,10 @@
 
 	. = ..()
 
-/mob/living/simple_animal/hostile/fd/mech/proc/consume_ammo()
+/mob/living/simple_animal/hostile/fd/lancer/proc/consume_ammo()
 	return TRUE
 
-/mob/living/simple_animal/hostile/fd/mech/proc/mech_shoot(atom/target, bullet_type = /obj/item/projectile/bullet/mech, cooldown, amount = 1, interval = 0, damage_bonus, bullet_icon, sound)
+/mob/living/simple_animal/hostile/fd/lancer/proc/mech_shoot(atom/target, bullet_type = /obj/item/projectile/bullet/mech, cooldown, amount = 1, interval = 0, damage_bonus, bullet_icon, sound)
 	set waitfor = FALSE
 
 	if(world.time < next_fire)
@@ -376,7 +390,7 @@
 		playsound(pew.loc, pew.fire_sound, 30, 1)
 
 		if(damage_bonus)
-			pew.real_damage += damage_bonus
+			pew.mech_damage += damage_bonus
 		if(bullet_icon)
 			pew.icon_state = bullet_icon
 
@@ -394,23 +408,29 @@
 
 		sleep(interval)
 
-/mob/living/simple_animal/hostile/fd/mech/ClickOn(atom/A, params)
-	if(world.time <= next_click) // Hard check, before anything else, to avoid crashing
+/mob/living/simple_animal/hostile/fd/lancer/ClickOn(atom/A, params)
+	if(next_click > world.time) // Hard check, before anything else, to avoid crashing
 		return FALSE
 
 	if(damaged)
 		return FALSE
+
+	var/params_list = params2list(params)
 
 	next_click = world.time + 1
 
 	if(!handle_abilities(A, params))
 		handle_weapons(A, params)
 
+	if(params_list["shift"] && params_list["left"])
+		if(istype(A, /mob/living/simple_animal/hostile/fd/lancer))
+			var/mob/living/simple_animal/hostile/fd/lancer/scan_target = A
+			scan_target.scan(A, params)
+		A.ShiftClick(src)
+
 	return TRUE
 
-/mob/living/simple_animal/hostile/fd/mech/proc/handle_abilities(atom/A, params)
-	set waitfor = FALSE
-
+/mob/living/simple_animal/hostile/fd/lancer/proc/handle_abilities(atom/A, params)
 	if(hacked)
 		playsound(get_turf(src), 'sound/machines/buzz-two.ogg', 25, TRUE)
 		return FALSE
@@ -419,6 +439,8 @@
 
 	/// Генерируем и активируем список действий при клике на себя
 	if(A == src && params_list["left"])
+		. = TRUE
+
 		var/list/options = list()
 		var/list/actions = list()
 		for(var/datum/mech_ability/ability as anything in abilities)
@@ -430,12 +452,11 @@
 
 		var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 125, offset_y = 125)
 		if(!chosen_option)
-			return FALSE
+			return .
 
 		var/datum/mech_ability/action = actions[chosen_option]
 		if(!action.use(null, params))
 			playsound(get_turf(src), 'sound/machines/buzz-two.ogg', 25, TRUE)
-		. = TRUE
 
 	/// Далее смотрим, есть ли у нас способности с парамс-триггерами
 	for(var/datum/mech_ability/ability as anything in abilities)
@@ -444,44 +465,14 @@
 				ability.use(A, params)
 				. = TRUE
 
-/*
-		switch(chosen_option)
-			if("Toggle Safety")
-				weapon_safety = !weapon_safety
-				playsound(get_turf(src), 'packs/infinity/sound/effects/using/switch/small2.ogg', 100, TRUE)
+	return .
 
-			if("Change Weapon")
-				choose_weapon()
+/mob/living/simple_animal/hostile/fd/lancer/proc/handle_weapons(atom/A, params)
+	var/params_list = params2list(params)
+	if(!params_list["left"])
+		return
 
-			if("Reboot")
-				mech_reboot()
+	if(!selected_weapon)
+		return
 
-		return FALSE
-
-	else if(params_list["middle"])
-
-	else if(params_list["shift"] && istype(A, /mob/living/simple_animal/hostile/fd/mech))
-		scan(A, params)
-
-	else if(params_list["alt"])
-
-	else if(params_list["ctrl"])
-
-	else if(params_list["left"] && istype(A, /obj/structure/fd/baycore/resupply))
-		A.attack_animal(src)
-
-	else if(params_list["left"] && !weapon_safety)
-		switch(weapon_equipped)
-			if("Standart Pistol")
-				mech_shoot(A, /obj/item/projectile/bullet/mech/pistol, 1 SECONDS)
-
-			if("Standart Rifle")
-				mech_shoot(A, /obj/item/projectile/bullet/mech, 1 SECONDS, 3, 2)
-
-	else if(params_list["drag"])
-
-	else
-		. = ..()
-*/
-
-/mob/living/simple_animal/hostile/fd/mech/proc/handle_weapons(atom/A, params)
+	return selected_weapon.fire(A, params)

@@ -95,13 +95,13 @@
 	)
 
 /mob/living/carbon/human/pilot/MouseDrop(mob/target)
-	if(!istype(target, /mob/living/simple_animal/hostile/fd/mech))
+	if(!istype(target, /mob/living/simple_animal/hostile/fd/lancer))
 		return ..()
 
 	if(!CanMouseDrop(target, usr) || !istype(usr, /mob/living/carbon))
 		return
 
-	var/mob/living/simple_animal/hostile/fd/mech/mech_target = target
+	var/mob/living/simple_animal/hostile/fd/lancer/mech_target = target
 	if(!QDELETED(mech_target.pilot))
 		to_chat(usr, SPAN_WARNING("Кресло пилота [mech_target] уже занято!"))
 		return

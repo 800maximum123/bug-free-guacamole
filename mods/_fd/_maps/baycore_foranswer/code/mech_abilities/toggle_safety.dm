@@ -16,6 +16,6 @@
 /datum/mech_ability/action/toggle_safety/get_stat_info()
 	var/color = owner.weapon_safety ? stat_color : second_color
 	. = list(list(
-		"title" = SPAN_ABILITY_STAT("Предохранитель -", color),
+		"title" = SPAN_ABILITY_STAT("Предохранитель:", color),
 		"desc" = SPAN_ABILITY_STAT(owner.weapon_safety ? "АКТИВЕН" : "НЕАКТИВЕН", color),
 		))

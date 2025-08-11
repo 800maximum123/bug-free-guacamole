@@ -16,11 +16,11 @@
 /obj/structure/fd/baycore/resupply/attack_animal(mob/user)
 	if(get_dist(src, user) > 2)
 		return
-	if(!istype(user, /mob/living/simple_animal/hostile/fd/mech))
+	if(!istype(user, /mob/living/simple_animal/hostile/fd/lancer))
 		return
 	if(!uses)
 		to_chat(user, SPAN_WARNING("У станции ремонта больше не осталось использований!"))
-	var/mob/living/simple_animal/hostile/fd/mech/mech_user = user
+	var/mob/living/simple_animal/hostile/fd/lancer/mech_user = user
 	playsound(get_turf(src), 'sound/effects/lift_heavy_start.ogg', 100)
 	if(!do_after(user, 4 SECONDS, src, DO_PUBLIC_UNIQUE))
 		return

@@ -1,5 +1,5 @@
 /datum/mech_weapon
-	var/name = ""
+	var/name = "pistol"
 
 	/// Путь к иконке в радиальном меню
 	var/action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/ui.dmi'
@@ -33,12 +33,14 @@
 	var/next_fire = 0
 
 	/// Референс к владельцу
-	var/mob/living/simple_animal/hostile/fd/mech/owner
+	var/mob/living/simple_animal/hostile/fd/lancer/owner
 
-/datum/mech_ability/New(mob/living/simple_animal/hostile/fd/mech/new_owner)
+/datum/mech_weapon/New(mob/living/simple_animal/hostile/fd/lancer/new_owner)
 	. = ..()
 	owner = new_owner
 	new_owner.weapons += src
+
+	ammo = max_ammo
 
 /datum/mech_weapon/Destroy()
 	owner.weapons -= src
@@ -55,7 +57,7 @@
 /datum/mech_weapon/proc/fire(atom/target, params)
 	. = handle_fire(target, params)
 	if(!.)
-		return
+		return .
 
 	for(var/burst_count in 1 to burst_size)
 		if(!handle_shoot(target, params, burst_count))
@@ -64,6 +66,8 @@
 
 		shoot(target, params, burst_count)
 		sleep(burst_interval)
+
+	return .
 
 /datum/mech_weapon/proc/handle_fire(atom/target, params)
 	if(owner.damaged)
@@ -75,7 +79,7 @@
 		return FALSE
 
 	if(owner.weapon_safety)
-		to_chat(target, SPAN_WARNING("Включенный предохранитель не позволяет выстрелить с [name]!"))
+		to_chat(target, SPAN_WARNING("Включенный предохранитель не позволяет выстрелить с <[name]>!"))
 		return FALSE
 
 	if(world.time < next_fire)
@@ -111,4 +115,27 @@
 	projectile.launch(target, BP_CHEST)
 
 	projectile.SetTransform(2)
+
+	//owner.dir =
+
+	owner.visible_message(SPAN_DANGER("[owner.name] ведёт огонь из [src.name]!"))
 	playsound(get_turf(owner), projectile.fire_sound, 30, TRUE)
+
+	return TRUE
+
+/// Информация, которая пойдёт от абилки в стат панель игрока
+/// ПРИМЕЧАНИЕ: += list(list( требуется для того, что бы список из тайтла и описания правильно добавился :3
+/datum/mech_weapon/proc/get_stat_info(mob/living/simple_animal/hostile/fd/lancer/user)
+	RETURN_TYPE(/list)
+	. = list()
+	if(max_ammo <= 0)
+		. += list(list(
+			"title" = SPAN_ABILITY_GRADIENT("<[name]> Боезапаса:", ammo/max_ammo),
+			"desc" = SPAN_ABILITY_GRADIENT("[ammo]/[max_ammo]", ammo/max_ammo),
+			))
+	return .
+
+/// Дополнительная информация после скана владельца, диктуемая этой способностью (ПОКА НЕ ГОТОВО)
+/datum/mech_weapon/proc/get_scan_info(mob/living/simple_animal/hostile/fd/lancer/user)
+	. = ""
+	return .

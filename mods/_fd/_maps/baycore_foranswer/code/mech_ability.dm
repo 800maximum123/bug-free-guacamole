@@ -27,9 +27,9 @@
 	var/next_use = 0
 
 	/// Референс к владельцу
-	var/mob/living/simple_animal/hostile/fd/mech/owner
+	var/mob/living/simple_animal/hostile/fd/lancer/owner
 
-/datum/mech_ability/New(mob/living/simple_animal/hostile/fd/mech/new_owner)
+/datum/mech_ability/New(mob/living/simple_animal/hostile/fd/lancer/new_owner)
 	. = ..()
 	owner = new_owner
 	new_owner.abilities += src
@@ -70,24 +70,24 @@
 
 /// Информация, которая пойдёт от абилки в стат панель игрока
 /// ПРИМЕЧАНИЕ: += list(list( требуется для того, что бы список из тайтла и описания правильно добавился :3
-/datum/mech_ability/proc/get_stat_info(mob/living/simple_animal/hostile/fd/mech/user)
+/datum/mech_ability/proc/get_stat_info(mob/living/simple_animal/hostile/fd/lancer/user)
 	RETURN_TYPE(/list)
 	. = list()
 	var/time = world.time
 	if(next_use > time)
 		. += list(list(
-			"title" = SPAN_ABILITY_STAT("[name]: Готов через -", stat_color),
+			"title" = SPAN_ABILITY_STAT("<[name]> Готов Через:", stat_color),
 			"desc" = SPAN_ABILITY_STAT("[SECONDS_LEFT(next_use, time)] секунд", stat_color),
 			))
 	if(max_charges)
 		. += list(list(
-			"title" = SPAN_ABILITY_GRADIENT("[name]: Осталось зарядов -", charges/max_charges),
+			"title" = SPAN_ABILITY_GRADIENT("<[name]> Осталось Зарядов:", charges/max_charges),
 			"desc" = SPAN_ABILITY_GRADIENT("[charges]/[max_charges]", charges/max_charges),
 			))
 	return .
 
 /// Дополнительная информация после скана владельца, диктуемая этой способностью (ПОКА НЕ ГОТОВО)
-/datum/mech_ability/proc/get_scan_info(mob/living/simple_animal/hostile/fd/mech/user)
+/datum/mech_ability/proc/get_scan_info(mob/living/simple_animal/hostile/fd/lancer/user)
 	. = ""
 	return .
 

@@ -1,9 +1,8 @@
-/mob/living/simple_animal/hostile/fd/mech/drake/redguard
+/mob/living/simple_animal/hostile/fd/lancer/drake/redguard
 	name = "H-APU 'Krasnogvardeec'"
 	desc = "Стена. Ваш верный щит, стена что не рухнет."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/heavy_redguard.dmi'
 	icon_state = "redguard"
-	icon_living = "redguard"
 
 	pixel_x = -110
 	default_pixel_x = -110
@@ -27,12 +26,11 @@
 
 
 
-/mob/living/simple_animal/hostile/fd/mech/goblintail/beer
+/mob/living/simple_animal/hostile/fd/lancer/goblintail/beer
 	name = "L-APU 'Beer-Sake'"
 	desc = "Модифицированный 'Atlas' от AzureDominion, имеет чуть ли не наименьший размер среди разведывательных APU. Даже в лёгкой категории!"
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/scout_beer.dmi'
 	icon_state = "beer"
-	icon_living = "beer"
 
 	pixel_x = -108
 	default_pixel_x = -108
@@ -43,12 +41,11 @@
 
 
 
-/mob/living/simple_animal/hostile/fd/mech/goblintail/binak
+/mob/living/simple_animal/hostile/fd/lancer/goblintail/binak
 	name = "L-APU 'Binak'"
 	desc = "..."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/scout_binak.dmi'
 	icon_state = "binak"
-	icon_living = "binak"
 
 	pixel_x = -108
 	default_pixel_x = -108
@@ -57,12 +54,11 @@
 
 
 
-/mob/living/simple_animal/hostile/fd/mech/drake/vladimir
+/mob/living/simple_animal/hostile/fd/lancer/drake/vladimir
 	name = "H-APU 'Vladimir'"
 	desc = "Стандартная модель. Но выкрашенная в цвета флага ГКК."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/heavy_vladimir.dmi'
 	icon_state = "vladimir"
-	icon_living = "vladimir"
 
 	pixel_x = -110
 	default_pixel_x = -110
@@ -86,14 +82,13 @@
 
 
 
-/mob/living/simple_animal/hostile/fd/mech/lancaster/marrot
+/mob/living/simple_animal/hostile/fd/lancer/lancaster/marrot
 	name = "SUPP-APU 'Marrot'"
 	desc = "Грубоватый, но надёжный шестиногий тяжеловоз, переделанный из шахтёрского ремонтника. \
 	Потрёпанная обшивка, небрежно окрашенная в тусклый серо-оранжевый с пятнами нагара и следами старых ремонтных заплат, \
 	скрывает мощный плазменный резак и грузовую спину, способную нести даже искорёженных товарищей."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/engineer_marrot.dmi'
 	icon_state = "marrot"
-	icon_living = "marrot"
 
 	pixel_x = -105
 	default_pixel_x = -105
@@ -102,13 +97,12 @@
 
 
 
-/mob/living/simple_animal/hostile/fd/mech/lancaster/amaryllis
+/mob/living/simple_animal/hostile/fd/lancer/lancaster/amaryllis
 	name = "SUPP-APU 'Marrot'"
 	desc = "Фактически, данный шагоход делит сознание с пилотом. \
 	Взамен позитроник-пилот потерял способность производить практически всю остальную деятельность."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/engineer_amaryllis.dmi'
 	icon_state = "amaryllis"
-	icon_living = "amaryllis"
 
 	pixel_x = -105
 	default_pixel_x = -105
@@ -117,12 +111,11 @@
 
 
 
-/mob/living/simple_animal/hostile/fd/mech/saladin/enchanter
+/mob/living/simple_animal/hostile/fd/lancer/saladin/enchanter
 	name = "SUPP-APU 'Enchanter'"
 	desc = "Эсперементальная модель меха, которая только жжёт и телепортируется. Нет, серьёзно - это буквально ВСЁ."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/experimental_enchanter.dmi'
 	icon_state = "enchanter"
-	icon_living = "enchanter"
 
 	pixel_x = -115
 	default_pixel_x = -115
@@ -131,19 +124,18 @@
 
 
 
-/mob/living/simple_animal/hostile/fd/mech/nelson/jotunbreaker
+/mob/living/simple_animal/hostile/fd/lancer/nelson/jotunbreaker
 	name = "APU 'Jotunbreaker'"
 	desc = "Крушитель ледяных(кристаллических) великанов."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/breacher_jotunbreaker.dmi'
 	icon_state = "jotunbreaker"
-	icon_living = "jotunbreaker"
 
 	pixel_x = -111
 	default_pixel_x = -111
 	pixel_y = -75
 	default_pixel_y = -75
 
-/mob/living/simple_animal/hostile/fd/mech/nelson/jotunbreaker/set_dir()
+/mob/living/simple_animal/hostile/fd/lancer/nelson/jotunbreaker/set_dir()
 	..()
 	switch(dir)
 		if(WEST, SOUTH)
@@ -155,13 +147,12 @@
 
 
 
-/mob/living/simple_animal/hostile/fd/mech/napoleon/peacekeeper
+/mob/living/simple_animal/hostile/fd/lancer/napoleon/peacekeeper
 	name = "APU 'Peacekeeper'"
 	desc = "'Миротворец' - специальная модификация стандартных APU вооруженных сил ЦПСС, предназначенная для лидеров огневых групп. \
 	Блок связи на его спине позволяет оперативно получать новую информацию и делиться ей с остальными."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/trooper_peacekeeper.dmi'
 	icon_state = "peacekeeper"
-	icon_living = "peacekeeper"
 
 	pixel_x = -111
 	default_pixel_x = -111
@@ -170,13 +161,12 @@
 
 
 
-/mob/living/simple_animal/hostile/fd/mech/napoleon/oven
+/mob/living/simple_animal/hostile/fd/lancer/napoleon/oven
 	name = "APU 'Oven'"
 	desc = "Небрежно перекрашенный зачастую неподходящей, и от того порой сыпящейся, жёлтой краской монстр Франкенштейна. \
 	Собран из относительно целых и подходящих запчастей с разных мехов."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/trooper_oven.dmi'
 	icon_state = "oven"
-	icon_living = "oven"
 
 	pixel_x = -111
 	default_pixel_x = -111
@@ -185,13 +175,12 @@
 
 
 
-/mob/living/simple_animal/hostile/fd/mech/napoleon/wanderer
+/mob/living/simple_animal/hostile/fd/lancer/napoleon/wanderer
 	name = "APU 'Wanderer'"
 	desc = "'Скиталец' представитель мехов класса 'Страж', которые усилены дополнительными листами брони и ракетной установкой для оказания огневой поддержки штурмовым группам. \
 	Данная единица выглядит потрёпанной, имеет множество следов небрежного ремонта и боевых отметин, кое-где слезла краска, а кое-где оплавилась."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/trooper_wanderer.dmi'
 	icon_state = "wanderer"
-	icon_living = "wanderer"
 
 	pixel_x = -111
 	default_pixel_x = -111
@@ -200,13 +189,12 @@
 
 
 
-/mob/living/simple_animal/hostile/fd/mech/napoleon/siren
+/mob/living/simple_animal/hostile/fd/lancer/napoleon/siren
 	name = "APU 'Lilac Siren'"
 	desc = "'Сирена' представляет из себя прототип класса 'Калибан', расчитанный на устранение наземной техники и авиации противника. \
 	К удивлению, но он хорошо зарекомендовал себя и в устранении своих старших братьев, благодаря мощи 155-мм двухствольного дробовика."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/trooper_siren.dmi'
 	icon_state = "siren"
-	icon_living = "siren"
 
 	pixel_x = -111
 	default_pixel_x = -111
@@ -215,7 +203,7 @@
 
 
 
-/mob/living/simple_animal/hostile/fd/mech/goblintail/inquisitor
+/mob/living/simple_animal/hostile/fd/lancer/goblintail/inquisitor
 	name = "L-APU 'Inquisitor'"
 	desc = "Модифицированная модель разведывательного меха класса 'Каратель', \
 	который является стандартом для агентов отдела специальных операций кампании SAARE. \
@@ -224,7 +212,6 @@
 	но на деле состоит из множества эластичных пластинок, позволяющие меху скрывать себя за счёт создания оптических иллюзий."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/scout_inquisitor.dmi'
 	icon_state = "inquisitor"
-	icon_living = "inquisitor"
 
 	pixel_x = -220
 	default_pixel_x = -220
@@ -233,7 +220,7 @@
 
 	wreck_type = /obj/structure/fd/mech_wreckage/medium/napoleon
 
-/mob/living/simple_animal/hostile/fd/mech/goblintail/inquisitor/set_dir()
+/mob/living/simple_animal/hostile/fd/lancer/goblintail/inquisitor/set_dir()
 	..()
 	switch(dir)
 		if(WEST, SOUTH)
@@ -243,14 +230,13 @@
 			pixel_x = -50
 			default_pixel_x = -50
 
-/mob/living/simple_animal/hostile/fd/mech/napoleon/barracuda
+/mob/living/simple_animal/hostile/fd/lancer/napoleon/barracuda
 	name = "APU 'Goblin'"
 	desc = "\"Барракуда\" от Гефеста - простой в эксплуатации и обслуживании, резвый и, главное, массовый. \
 	Этот экземпляр - представитель ранней модели, местами проржавевший. На крашеном наспех корпусе \
 	виднеется стёртая маркировка \"HI-BRC-827\"."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/trooper_barracuda2.dmi'
 	icon_state = "barracuda"
-	icon_living = "barracuda"
 
 	pixel_x = -140
 	default_pixel_x = -140
@@ -259,7 +245,7 @@
 
 	wreck_type = /obj/structure/fd/mech_wreckage/medium/napoleon
 
-/mob/living/simple_animal/hostile/fd/mech/napoleon/barracuda/set_dir()
+/mob/living/simple_animal/hostile/fd/lancer/napoleon/barracuda/set_dir()
 	..()
 	switch(dir)
 		if(WEST, SOUTH)

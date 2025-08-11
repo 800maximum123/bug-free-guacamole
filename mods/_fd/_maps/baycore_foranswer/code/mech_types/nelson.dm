@@ -12,12 +12,11 @@
 	var/state = rand(1,4)
 	icon_state = "breacher_death_[state]"
 
-/mob/living/simple_animal/hostile/fd/mech/nelson
+/mob/living/simple_animal/hostile/fd/lancer/nelson
 	name = "APU Nelson"
 	desc = "One of the most used breaching units."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/breacher_def.dmi'
 	icon_state = "breacher"
-	icon_living = "breacher"
 
 	pixel_x = -70
 	default_pixel_x = -70
@@ -50,13 +49,13 @@
 
 	wreck_type = /obj/structure/fd/mech_wreckage/small/nelson
 
-/mob/living/simple_animal/hostile/fd/mech/nelson/Stat()
+/mob/living/simple_animal/hostile/fd/lancer/nelson/Stat()
 	. = ..()
-	if(statpanel("Mech"))
+	if(statpanel("Mech Status"))
 		if(pointblank)
 			stat(SPAN_COLOR("#ff4800", "ПРОТКНУТЬ И ЗАСТРЕЛИТЬ:"), FONT_HUGE(SPAN_COLOR("#ff0000", "ВРЕМЯ ДЕЙСТВОВАТЬ.")))
 
-/mob/living/simple_animal/hostile/fd/mech/nelson/set_dir()
+/mob/living/simple_animal/hostile/fd/lancer/nelson/set_dir()
 	..()
 	switch(dir)
 		if(WEST, SOUTH)
@@ -78,7 +77,7 @@
 	else if(direction == WEST) return list(SOUTHWEST, WEST, NORTHWEST)
 	else return list()
 
-/mob/living/simple_animal/hostile/fd/mech/nelson/SelfMove(move_dir)
+/mob/living/simple_animal/hostile/fd/lancer/nelson/SelfMove(move_dir)
 	var/turf/old_loc = get_turf(src)
 	var/old_dir = dir
 
@@ -116,11 +115,11 @@
 		if(movement_cooldown > 1)
 			movement_cooldown -= 0.5
 
-/mob/living/simple_animal/hostile/fd/mech/nelson/Bump(atom/A)
+/mob/living/simple_animal/hostile/fd/lancer/nelson/Bump(atom/A)
 
 	if(momentum_stacks >= 10)
-		if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
-			var/mob/living/simple_animal/hostile/fd/mech/M = A
+		if(istype(A, /mob/living/simple_animal/hostile/fd/lancer))
+			var/mob/living/simple_animal/hostile/fd/lancer/M = A
 			shake_camera(src, 1, 1)
 			throw_at(get_edge_target_turf(src, get_dir(M, src)), 1, 2, M, FALSE)
 			M.throw_at(get_edge_target_turf(M, get_dir(src, M)), 1, 2, src)
@@ -137,7 +136,7 @@
 
 	. = ..()
 
-/mob/living/simple_animal/hostile/fd/mech/nelson/Life()
+/mob/living/simple_animal/hostile/fd/lancer/nelson/Life()
 
 	if(momentum && world.time >= momentum_timer)
 		momentum = FALSE
@@ -153,7 +152,7 @@
 
 	. = ..()
 
-/mob/living/simple_animal/hostile/fd/mech/nelson/choose_weapon()
+/mob/living/simple_animal/hostile/fd/lancer/nelson/choose_weapon()
 	var/list/options = list(
 		"Shield" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),
 		"Spear" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24")
@@ -172,7 +171,7 @@
 			movement_cooldown = 5
 	playsound(get_turf(src), 'packs/infinity/sound/items/change_jaws.ogg', 80, TRUE)
 
-/mob/living/simple_animal/hostile/fd/mech/nelson/ClickOn(atom/A, params)
+/mob/living/simple_animal/hostile/fd/lancer/nelson/ClickOn(atom/A, params)
 	var/modifiers = params2list(params)
 
 	if(A == src)
@@ -204,7 +203,7 @@
 
 	else if(modifiers["middle"])
 
-	else if(modifiers["shift"] && istype(A, /mob/living/simple_animal/hostile/fd/mech))
+	else if(modifiers["shift"] && istype(A, /mob/living/simple_animal/hostile/fd/lancer))
 		scan(A, params)
 
 	else if(modifiers["alt"])
@@ -231,8 +230,8 @@
 					return FALSE
 
 				do_attack_animation(A)
-				if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
-					var/mob/living/simple_animal/hostile/fd/mech/M = A
+				if(istype(A, /mob/living/simple_animal/hostile/fd/lancer))
+					var/mob/living/simple_animal/hostile/fd/lancer/M = A
 					var/damage_incoming = 10
 					if(M.leader_target)
 						damage_incoming *= 2
@@ -252,8 +251,8 @@
 					return FALSE
 
 				do_attack_animation(A)
-				if(istype(A, /mob/living/simple_animal/hostile/fd/mech))
-					var/mob/living/simple_animal/hostile/fd/mech/M = A
+				if(istype(A, /mob/living/simple_animal/hostile/fd/lancer))
+					var/mob/living/simple_animal/hostile/fd/lancer/M = A
 					var/damage_incoming = 5
 					if(M.leader_target)
 						damage_incoming *= 2
@@ -268,7 +267,7 @@
 		. = ..()
 
 /obj/item/projectile/bullet/mech/nelson
-	real_damage = 50
+	mech_damage = 50
 	hitchance_mod = 5
 	fire_sound = 'sound/weapons/gunshot/sniper.ogg'
 	icon_state = "bolter"

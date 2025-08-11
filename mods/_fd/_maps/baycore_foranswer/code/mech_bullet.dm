@@ -9,24 +9,24 @@
 	fire_sound = 'sound/weapons/guns/ricochet4.ogg'
 
 	var/bullet_size = 2 // Множитель размера пули
-	var/real_damage = 10 // Реальный дамаг по мехам
+	var/mech_damage = 10 // Реальный дамаг по мехам
 	var/piercing = FALSE // Игнорирует армор?
 
 /obj/item/projectile/bullet/mech/pistol
-	real_damage = 5
+	mech_damage = 5
 
 /obj/item/projectile/bullet/mech/on_hit(atom/target, blocked = 0)
-	if(istype(target, /mob/living/simple_animal/hostile/fd/mech))
-		var/mob/living/simple_animal/hostile/fd/mech/M = target
-		var/final_damage = real_damage
+	if(istype(target, /mob/living/simple_animal/hostile/fd/lancer))
+		var/mob/living/simple_animal/hostile/fd/lancer/M = target
+		var/final_damage = mech_damage
 		if(M.leader_target)
 			final_damage *= 2
 
 		if(!piercing)
-			final_damage -= M.armor_stat
+			final_damage = max(final_damage - M.armor_stat, 0)
 
 		if(M.shielded)
-			for(var/mob/living/simple_animal/hostile/fd/mech/drake/D in view(2,src))
+			for(var/mob/living/simple_animal/hostile/fd/lancer/drake/D in view(2,src))
 				if(!D.damaged)
 					D.integrity -= final_damage
 				if(piercing)
@@ -37,7 +37,7 @@
 					return TRUE
 
 		if(M.overprotected)
-			for(var/mob/living/simple_animal/hostile/fd/mech/saladin/D in range(13, get_turf(src)))
+			for(var/mob/living/simple_animal/hostile/fd/lancer/saladin/D in range(13, get_turf(src)))
 				if(D.protected != M)
 					continue
 				D.shield_integrity -= final_damage
@@ -48,9 +48,9 @@
 		if(!M.damaged)
 			M.integrity -= final_damage
 		if(piercing)
-			M.damage_animation(real_damage, ignore_armor = TRUE)
+			M.damage_animation(mech_damage, ignore_armor = TRUE)
 		else
-			M.damage_animation(real_damage)
+			M.damage_animation(mech_damage)
 
 /obj/item/projectile/bullet/mech/launch(atom/target, target_zone, x_offset, y_offset, angle_offset)
 	. = ..()
