@@ -117,8 +117,6 @@
 	var/leader_target = FALSE
 	var/target_for = 0
 
-	var/footstep_sound = /singleton/footsteps/hull // Звук шагов
-
 /mob/living/simple_animal/hostile/fd/mech/Initialize()
 	. = ..()
 	add_language(LANGUAGE_PILOT)
@@ -379,10 +377,6 @@
 
 	if(chained)
 		return FALSE
-
-	if(prob(50))
-		var/singleton/footsteps/FS = GET_SINGLETON(footstep_sound)
-		playsound(get_turf(src), pick(FS.footstep_sounds), 70, TRUE)
 
 	. = ..()
 
