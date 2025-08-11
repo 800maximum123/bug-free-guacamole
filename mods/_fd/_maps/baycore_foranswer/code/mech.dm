@@ -1,54 +1,3 @@
-/obj/item/projectile/bullet/mech/on_hit(atom/target, blocked = 0)
-	if(istype(target, /mob/living/simple_animal/hostile/fd/mech))
-		var/mob/living/simple_animal/hostile/fd/mech/M = target
-		var/final_damage = real_damage
-		if(M.leader_target)
-			final_damage *= 2
-
-		if(!piercing)
-			final_damage -= M.armor_stat
-
-		if(M.shielded)
-			for(var/mob/living/simple_animal/hostile/fd/mech/drake/D in view(2,src))
-				if(!D.damaged)
-					D.integrity -= final_damage
-				if(piercing)
-					D.damage_animation(final_damage, ignore_armor = TRUE)
-					return TRUE
-				else
-					D.damage_animation(final_damage)
-					return TRUE
-
-		if(M.overprotected)
-			for(var/mob/living/simple_animal/hostile/fd/mech/saladin/D in range(13, get_turf(src)))
-				if(D.protected != M)
-					continue
-				D.shield_integrity -= final_damage
-				D.heat += 1
-				D.damage_animation(0, ignore_armor = FALSE)
-				return TRUE
-
-		if(!M.damaged)
-			M.integrity -= final_damage
-		if(piercing)
-			M.damage_animation(real_damage, ignore_armor = TRUE)
-		else
-			M.damage_animation(real_damage)
-
-/obj/structure/fd/mech_wreckage
-	name = "Wreckage"
-	desc = "Giant pile of scrap"
-
-	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/breacher_def.dmi'
-	icon_state = "breacher_death_1"
-	density = TRUE
-	anchor_fall = TRUE
-
-	layer = ABOVE_HUMAN_LAYER
-
-	pixel_y = 0
-	pixel_x = 0
-
 /mob/living/simple_animal/hostile/fd/mech
 	name = "Armored Personal Unit (APU)"
 	desc = "An special experimental vehicle."
@@ -69,14 +18,19 @@
 
 	see_in_dark = 30
 
-	var/mob/living/carbon/human/pilot/pilot // Текущий пилот меха
-
 	/// Список способностей меха
 	var/list/abilities = list(
 		/datum/mech_ability/action/change_weapon,
 		/datum/mech_ability/action/reboot,
 		/datum/mech_ability/action/toggle_safety,
 	)
+
+	/// Список оружия меха
+	var/list/weapons = list(
+
+	)
+	/// Выбранный тип оружия
+	var/datum/mech_weapon/selected_weapon = null
 
 	var/armor_stat = 0 // Снижает урон на [X]
 	var/shielded = FALSE // Дрейк способен перетягивать входящий урон на себя
@@ -117,13 +71,24 @@
 	var/leader_target = FALSE
 	var/target_for = 0
 
+	var/mob/living/carbon/human/pilot/pilot // Текущий пилот меха
+
 /mob/living/simple_animal/hostile/fd/mech/Initialize()
 	. = ..()
 	add_language(LANGUAGE_PILOT)
+
 	var/list/ability_datums = list()
 	for(var/ability_type in abilities)
 		ability_datums += new ability_type(src)
 	abilities = ability_datums
+
+	var/list/weapon_datums = list()
+	for(var/weapon_type in weapons)
+		weapon_datums += new weapon_type(src)
+	weapons = weapon_datums
+
+	if(length(weapons))
+		selected_weapon = weapons[1]
 
 /mob/living/simple_animal/hostile/fd/mech/proc/add_ability(ability_type)
 	abilities += new ability_type(src)
@@ -431,11 +396,16 @@
 
 /mob/living/simple_animal/hostile/fd/mech/ClickOn(atom/A, params)
 	if(world.time <= next_click) // Hard check, before anything else, to avoid crashing
-		return
+		return FALSE
+
+	if(damaged)
+		return FALSE
 
 	next_click = world.time + 1
 
-	handle_abilities(A, params)
+	if(!handle_abilities(A, params))
+		handle_weapons(A, params)
+
 	return TRUE
 
 /mob/living/simple_animal/hostile/fd/mech/proc/handle_abilities(atom/A, params)
@@ -465,12 +435,14 @@
 		var/datum/mech_ability/action = actions[chosen_option]
 		if(!action.use(null, params))
 			playsound(get_turf(src), 'sound/machines/buzz-two.ogg', 25, TRUE)
+		. = TRUE
 
 	/// Далее смотрим, есть ли у нас способности с парамс-триггерами
 	for(var/datum/mech_ability/ability as anything in abilities)
 		for(var/click_param in ability.required_params)
 			if(click_param in params_list)
 				ability.use(A, params)
+				. = TRUE
 
 /*
 		switch(chosen_option)
@@ -511,5 +483,5 @@
 	else
 		. = ..()
 */
-/obj/item/projectile/bullet/mech/pistol
-	real_damage = 5
+
+/mob/living/simple_animal/hostile/fd/mech/proc/handle_weapons(atom/A, params)

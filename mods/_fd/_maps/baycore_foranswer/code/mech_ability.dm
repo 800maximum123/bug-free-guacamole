@@ -1,15 +1,14 @@
 /datum/mech_ability
 	var/name = ""
-
-	/// Список параметров клика мышкой, при котором будет применяться способность
-	var/list/required_params = list()
-
-	/// Будет ли наше действие появляться как кнопка в радиальном меню?
-	var/is_action = FALSE
 	/// Путь к иконке в радиальном меню
 	var/action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/ui.dmi'
 	/// Иконка в радиальном меню
 	var/action_state = "1"
+
+	/// Список параметров клика мышкой, при котором будет применяться способность
+	var/list/required_params = list()
+	/// Будет ли наше действие появляться как кнопка в радиальном меню?
+	var/is_action = FALSE
 
 	/// Цвет информации об абилке в стат панели
 	var/stat_color = COLOR_DARKMODE_TEXT
@@ -44,6 +43,14 @@
 /datum/mech_ability/Process()
 	. = ..()
 
+/// Активация/переключение способности, возвращает результат использования
+/datum/mech_ability/proc/use(atom/target, params)
+	SHOULD_CALL_PARENT(TRUE)
+
+	/// Сюда внутри подтипов вставлять код самих способностей
+
+	return handle_use(target, params)
+
 /// Хэндлер для активации способности, содержит все базовые проверки для использования
 /datum/mech_ability/proc/handle_use(atom/target, params)
 	if(max_charges && charges <= 0)
@@ -60,14 +67,6 @@
 		charges--
 
 	return TRUE // В идеале не переписывать этот прок, за исключением моментов, где эти базовые проверки будут мешать(
-
-/// Активация/переключение способности, возвращает результат использования
-/datum/mech_ability/proc/use(atom/target, params)
-	SHOULD_CALL_PARENT(TRUE)
-
-	/// Сюда внутри подтипов вставлять код самих способностей
-
-	return handle_use(target, params)
 
 /// Информация, которая пойдёт от абилки в стат панель игрока
 /// ПРИМЕЧАНИЕ: += list(list( требуется для того, что бы список из тайтла и описания правильно добавился :3
@@ -87,7 +86,7 @@
 			))
 	return .
 
-/// Дополнительная информация после скана владельца, диктуемая этой способностью
+/// Дополнительная информация после скана владельца, диктуемая этой способностью (ПОКА НЕ ГОТОВО)
 /datum/mech_ability/proc/get_scan_info(mob/living/simple_animal/hostile/fd/mech/user)
 	. = ""
 	return .
