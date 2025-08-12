@@ -170,7 +170,7 @@
 						to_chat(src, SPAN_WARNING("Пушка уже раскручена до максимума!"))
 						return FALSE
 					speed_buff += 1 SECOND
-					if(overheated)
+					if(overheat)
 						integrity -= 10
 						damage_animation(10, ignore_armor = TRUE)
 					else

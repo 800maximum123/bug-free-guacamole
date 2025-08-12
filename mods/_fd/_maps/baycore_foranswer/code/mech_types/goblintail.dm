@@ -23,13 +23,13 @@
 			hacked = FALSE
 
 	if(hacked)
-		var/debuff = pick("Overheated","Stunned","Broken")
+		var/debuff = pick("overheat","Stunned","Broken")
 		switch(debuff)
-			if("Overheated")
-				overheated = TRUE
+			if("overheat")
+				overheat = TRUE
 				overheat_timer = initial(overheat_timer)
 				heat = 0
-				if(has_overheated_state)
+				if(has_overheat_state)
 					icon_state = "[icon_living]_charged"
 				add_filter("heated", 5, list("type" = "outline", , "size" = 0, "color" = COLOR_AMBER))
 				add_filter("heated_blur", 4, list("type" = "blur", , "size" = 0))
@@ -43,7 +43,7 @@
 				chained = TRUE
 			if("Broken")
 				malf_for = world.time + 10 SECONDS
-				malfunction = TRUE
+				malfunctioned = TRUE
 
 	clear_fullscreen("scanlines")
 	hacked = FALSE
@@ -237,7 +237,7 @@
 			if(!do_after(src, 5 SECONDS, do_flags = DO_BOTH_CAN_MOVE))
 				return FALSE
 			M.hacked()
-			if(!overheated)
+			if(!overheat)
 				hack_charges -= 1
 				heat += 2
 			return TRUE

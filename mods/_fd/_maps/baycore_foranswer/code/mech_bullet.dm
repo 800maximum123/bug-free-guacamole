@@ -22,7 +22,7 @@
 		if(M.leader_target)
 			integrity_damage *= 2
 
-		M.do_damage(integrity_damage, hull_damage, shredding, do_animation = TRUE)
+		M.take_damage(integrity_damage, hull_damage, shredding, do_animation = TRUE)
 
 /*		if(M.shielded)
 			for(var/mob/living/simple_animal/hostile/fd/lancer/drake/D in view(2,src))

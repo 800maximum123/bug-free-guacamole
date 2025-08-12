@@ -53,11 +53,11 @@
 
 /// Хэндлер для активации способности, содержит все базовые проверки для использования
 /datum/mech_ability/proc/handle_use(atom/target, params)
-	if(max_charges && charges <= 0)
+	if(max_charges && (charges <= 0))
 		to_chat(owner, SPAN_WARNING("Способность <[name]> не имеет зарядов!"))
 		return FALSE
 
-	if(cooldown && next_use > world.time)
+	if(cooldown && (next_use > world.time))
 		to_chat(owner, SPAN_WARNING("Способность <[name]> ещё не готова!"))
 		return FALSE
 

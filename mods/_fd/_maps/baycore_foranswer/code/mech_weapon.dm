@@ -39,7 +39,6 @@
 	. = ..()
 	owner = new_owner
 	new_owner.weapons += src
-
 	ammo = max_ammo
 
 /datum/mech_weapon/Destroy()
@@ -88,7 +87,7 @@
 	if(owner.damaged)
 		return FALSE
 
-	if(owner.malfunction)
+	if(owner.malfunctioned)
 		playsound(get_turf(src), 'sound/weapons/empty.ogg', 80, TRUE) // В идеале найти другой звук
 		to_chat(src, SPAN_WARNING("Оружие заклинило!"))
 		return FALSE
@@ -110,7 +109,7 @@
 	if(owner.damaged)
 		return FALSE
 
-	if(owner.malfunction)
+	if(owner.malfunctioned)
 		return FALSE
 
 	if(max_ammo <= 0)

@@ -49,9 +49,9 @@
 	var/heat = 0 // Перегрев. Сбрасывается до нуля, когда достигает [heat_overflow]
 	var/heat_overflow = 5 // Максимальное количество перегрева, после достижения которого мы перегреваемся
 
-	var/overheated = FALSE // Мы перегрелись. Мы получаем урон, но также можем бесплатно использовать любые абилки пока таймер не кончится
+	var/overheat = FALSE // Мы перегрелись. Мы получаем урон, но также можем бесплатно использовать любые абилки пока таймер не кончится
 	var/overheat_timer = 30 // Остужение через [X]
-	var/has_overheated_state = FALSE
+	var/has_overheat_state = FALSE
 
 	var/weapon_equipped = "Standart Pistol"
 
@@ -70,7 +70,7 @@
 	var/hacked = FALSE
 	var/chained = FALSE
 	var/chained_for = 0
-	var/malfunction = FALSE
+	var/malfunctioned = FALSE
 	var/malf_for = 0
 
 	var/wreck_type = /obj/structure/fd/mech_wreckage
@@ -90,44 +90,53 @@
 
 	var/list/ability_datums = list()
 	for(var/ability_type in abilities)
-		ability_datums += new ability_type(src)
+		new ability_type(src)
 	abilities = ability_datums
 
 	var/list/weapon_datums = list()
 	for(var/weapon_type in weapons)
-		weapon_datums += new weapon_type(src)
+		new weapon_type(src)
 	weapons = weapon_datums
 
 	if(length(weapons))
 		selected_weapon = weapons[1]
 
-/*/mob/living/simple_animal/hostile/fd/lancer/proc/Effect(type, time = 1 SECONDS)
-	switch()
+/// Can't go below 0, getting a low amount of effect doesn't lower your current effect time
+/mob/living/simple_animal/hostile/fd/lancer/proc/Effect(type, time = 1 SECONDS)
+	switch(type)
+		if(EFFECT_OVERHEAT)
+			overheat = max(max(overheat,time), 0)
+		if(EFFECT_CHAINED)
+			chained = max(max(chained,time), 0)
+		if(EFFECT_MALFUNCTIONED)
+			malfunctioned = max(max(malfunctioned,time), 0)
+		if(EFFECT_HACKED)
+			hacked = max(max(hacked,time), 0)
 
+/// If you REALLY need to set some effect to a set amount without the whole "can't go below than current time"
 /mob/living/simple_animal/hostile/fd/lancer/proc/SetEffect(type, time = 1 SECONDS)
+	switch(type)
+		if(EFFECT_OVERHEAT)
+			overheat = max(time, 0)
+		if(EFFECT_CHAINED)
+			chained = max(time, 0)
+		if(EFFECT_MALFUNCTIONED)
+			malfunctioned = max(time, 0)
+		if(EFFECT_HACKED)
+			hacked = max(time, 0)
 
-/mob/living/simple_animal/hostile/fd/lancer/proc/AdjustEffect(type, time = 1 SECONDS)*/
+/mob/living/simple_animal/hostile/fd/lancer/proc/AdjustEffect(type, time = 1 SECONDS)
+	switch(type)
+		if(EFFECT_OVERHEAT)
+			overheat = max(overheat+time, 0)
+		if(EFFECT_CHAINED)
+			chained = max(chained+time, 0)
+		if(EFFECT_MALFUNCTIONED)
+			malfunctioned = max(malfunctioned+time, 0)
+		if(EFFECT_HACKED)
+			hacked = max(hacked+time, 0)
 
-/*/mob/proc/Stun(amount)
-	if(status_flags & CANSTUN)
-		facing_dir = null
-		stunned = max(max(stunned,amount),0) //can't go below 0, getting a low amount of stun doesn't lower your current stun
-		UpdateLyingBuckledAndVerbStatus()
-	return
-
-/mob/proc/SetStunned(amount) //if you REALLY need to set stun to a set amount without the whole "can't go below current stunned"
-	if(status_flags & CANSTUN)
-		stunned = max(amount,0)
-		UpdateLyingBuckledAndVerbStatus()
-	return
-
-/mob/proc/AdjustStunned(amount)
-	if(status_flags & CANSTUN)
-		stunned = max(stunned + amount,0)
-		UpdateLyingBuckledAndVerbStatus()
-	return*/
-
-/mob/living/simple_animal/hostile/fd/lancer/proc/do_damage(integrity_damage, hull_damage, shredding = FALSE, do_animation = TRUE)
+/mob/living/simple_animal/hostile/fd/lancer/proc/take_damage(integrity_damage, hull_damage, shredding = FALSE, do_animation = TRUE)
 	var/final_damage = 0
 	var/nullified = TRUE
 
@@ -158,9 +167,11 @@
 		spawn(0.4 SECOND)
 			animate(src, color = initial(color), time = 0.2 SECOND, easing = CUBIC_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
 
-
 /mob/living/simple_animal/hostile/fd/lancer/proc/add_ability(ability_type)
-	abilities += new ability_type(src)
+	new ability_type(src)
+
+/mob/living/simple_animal/hostile/fd/lancer/proc/add_weapon(weapon_type)
+	new weapon_type(src)
 
 /mob/living/simple_animal/hostile/fd/lancer/proc/resupply()
 	SHOULD_CALL_PARENT(TRUE)
@@ -168,7 +179,7 @@
 
 	integrity = integrity_max
 	heat = 0
-	overheated = FALSE
+	overheat = FALSE
 	repairs_left = initial(repairs_left)
 	damaged = FALSE
 	overheat_timer = initial(overheat_timer)
@@ -176,7 +187,7 @@
 	hacked = FALSE
 	chained = FALSE
 	chained_for = 0
-	malfunction = FALSE
+	malfunctioned = FALSE
 	malf_for = 0
 	leader_target = FALSE
 	target_for = 0
@@ -284,7 +295,7 @@
 	// Добавить сюда анимацию тряски перед уничтожением
 	spawn(rand(3 SECONDS, 4 SECONDS))
 		if(wreck_type)
-			new wreck_type (get_turf(src))
+			new wreck_type(get_turf(src))
 			playsound(get_turf(src),'sound/mecha/Explosion_02.mp3', 60)
 		..(FALSE, "suddenly breaks apart.", "You have been destroyed.")
 		qdel(src)
@@ -333,25 +344,25 @@
 		chained = FALSE
 		visible_message(SPAN_WARNING("[src] вновь начал исправно двигатся!"))
 
-	if(world.time >= malf_for && malfunction)
-		malfunction = FALSE
+	if(world.time >= malf_for && malfunctioned)
+		malfunctioned = FALSE
 		visible_message(SPAN_WARNING("[src] вновь начал исправно функционировать!"))
 
 	if(world.time >= target_for && leader_target)
 		leader_target = FALSE
 		visible_message(SPAN_WARNING("[src] теряет статус приоритетной цели!"))
 
-	if(overheated && overheat_timer > 0 && !damaged)
+	if(overheat && overheat_timer > 0 && !damaged)
 		integrity -= 2
 		overheat_timer -= 1
 		// Попробуем заменить анимацию урона на звук шипения, посмотрим лучше ли будет выглядеть
 		//damage_animation(1, ignore_armor = TRUE)
 		playsound(get_turf(src),'sound/effects/razorweb_hiss.ogg',80,TRUE)
 
-	if(overheated && overheat_timer <= 0)
-		overheated = FALSE
+	if(overheat && overheat_timer <= 0)
+		overheat = FALSE
 		movement_cooldown += 1
-		if(has_overheated_state && !dead)
+		if(has_overheat_state && !dead)
 			icon_state = initial(icon_state)
 		animate(get_filter("heated"), time = 10 SECONDS, size = 0, flags = ANIMATION_PARALLEL)
 		animate(get_filter("heated_blur"), time = 10 SECONDS, size = 0, flags = ANIMATION_PARALLEL)
@@ -371,12 +382,12 @@
 			animate(src, time = 2 SECONDS, color = COLOR_GRAY, transform = matrix(-30, MATRIX_ROTATE), easing = SINE_EASING, flags = ANIMATION_PARALLEL)
 			anchored = TRUE
 
-	if(heat >= heat_overflow && !overheated)
+	if(heat >= heat_overflow && !overheat)
 		heat = 0
-		overheated = TRUE
+		overheat = TRUE
 		movement_cooldown -= 1
 		overheat_timer = initial(overheat_timer)
-		if(has_overheated_state)
+		if(has_overheat_state)
 			icon_state = "[icon_living]_charged"
 		add_filter("heated", 5, list("type" = "outline", , "size" = 0, "color" = COLOR_AMBER))
 		add_filter("heated_blur", 4, list("type" = "blur", , "size" = 0))
@@ -418,7 +429,7 @@
 	for(var/shot, shot<amount, shot++)
 		if(weapon_safety)
 			return FALSE
-		if(malfunction)
+		if(malfunctioned)
 			playsound(get_turf(src),'sound/weapons/empty.ogg', 80, TRUE)
 			to_chat(src, SPAN_WARNING("Оружие заклинило!"))
 			return FALSE
