@@ -16,12 +16,24 @@
 	switch(dir)
 		if(NORTH)
 			zonestart_by_y += 2
+			zoneend_by_y -= 2
+			zoneend_by_x -= 1
+			zonestart_by_x -= 1
 		if(SOUTH)
 			zoneend_by_y += 2
+			zonestart_by_y -= 2
+			zoneend_by_x -= 1
+			zonestart_by_x -= 1
 		if(WEST)
 			zoneend_by_x += 2
+			zonestart_by_x -= 2
+			zonestart_by_y -= 1
+			zoneend_by_y -= 1
 		if(EAST)
 			zonestart_by_x += 2
+			zoneend_by_x -= 2
+			zonestart_by_y -= 1
+			zoneend_by_y -= 1
 
 /datum/mech_ability/action/drake/bunker/use(atom/target, params)
 	. = ..()
@@ -38,11 +50,11 @@
 		check_direction(current_direction)
 
 		playsound(get_turf(owner),'packs/infinity/sound/mecha/bigmech_rstep.ogg',100)
-		animate(owner, pixel_y = pixel_y_adjust, time = 1 SECONDS, easing = LINEAR_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
-		spawn(1 SECONDS)
-			animate(owner, pixel_y = owner.default_pixel_y, time = 0.5 SECONDS, easing = JUMP_EASING, flags = ANIMATION_PARALLEL)
+		animate(owner, pixel_y = pixel_y_adjust, time = 0.5 SECONDS, easing = LINEAR_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
+		spawn(0.5 SECONDS)
+			animate(owner, pixel_y = owner.default_pixel_y, time = 0.2 SECONDS, easing = ELASTIC_EASING)
 
-		spawn(1.5 SECONDS)
+		spawn(1 SECONDS)
 			owner.add_filter("bunker", 1, list("type" = "outline", , "size" = 0, "color" = COLOR_BLACK))
 			animate(owner.get_filter("bunker"), time = 1 SECONDS, size = 2, easing = SINE_EASING, flags = ANIMATION_PARALLEL)
 
@@ -51,6 +63,7 @@
 				animate(floor, time = 1 SECONDS, color = COLOR_DARK_GRAY, easing = SINE_EASING, flags = ANIMATION_PARALLEL)
 		owner.armor_stat += 10
 		owner.chained = TRUE
+		owner.chained_for = world.time + 3 DAYS // ВОТ ПОЧЕМУ НАМ НУЖЕН БЫЛ CAN_MOVE
 		START_PROCESSING(SSprocessing, src)
 
 	else
@@ -74,12 +87,21 @@
 /datum/mech_ability/action/drake/bunker/Process()
 	..()
 
+	for(var/mob/living/simple_animal/hostile/fd/lancer/L in shielded_mechs)
+		L.protected_by = null
+
 	shielded_mechs.Cut()
 
 	for(var/turf/F as anything in shielded_turfs)
 		for(var/mob/living/simple_animal/hostile/fd/lancer/L as anything in F)
 			if(L in shielded_mechs)
 				continue
+			if(L == owner)
+				continue
 			shielded_mechs += L
+
+	for(var/mob/living/simple_animal/hostile/fd/lancer/L in shielded_mechs)
+		if(isnull(L.protected_by))
+			L.protected_by = owner
 
 	return TRUE

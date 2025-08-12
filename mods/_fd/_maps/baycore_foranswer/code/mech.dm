@@ -39,7 +39,6 @@
 
 	var/armor_stat = 0 // Снижает урон на [X]
 	var/armor_durability = 100 // Износ брони
-	var/shielded = 0// Дрейк способен перетягивать входящий урон на себя
 	var/overprotected = FALSE // Саладин накидывает оверхп
 	var/mutable_appearance/field_overlay
 
@@ -80,6 +79,7 @@
 	var/target_for = 0
 
 	var/mob/living/carbon/human/pilot/pilot // Текущий пилот меха
+	var/mob/living/simple_animal/hostile/fd/lancer/protected_by // Защищающий нас мех
 
 /mob/living/simple_animal/hostile/fd/lancer/Initialize()
 	icon_living = icon_state
@@ -136,18 +136,24 @@
 		if(EFFECT_HACKED)
 			hacked = max(hacked+time, 0)
 
-/mob/living/simple_animal/hostile/fd/lancer/proc/take_damage(integrity_damage, hull_damage, shredding = FALSE, do_animation = TRUE)
+/mob/living/simple_animal/hostile/fd/lancer/proc/recieve_damage(integrity_damage = 0, hull_damage = 1, shredding = FALSE, do_animation = TRUE)
 	var/final_damage = 0
 	var/nullified = TRUE
 
 	if(damaged)
 		return FALSE
 
+	if(!isnull(protected_by))
+		redirect_damage(protected_by, integrity_damage, hull_damage, shredding, do_animation)
+		log_and_message_admins(SPAN_WARNING("<b> [src] только что передел [protected_by] урон в размере [integrity_damage] INTEG!</i></b>"))
+		return TRUE
+
 	if(!shredding && prob(armor_durability))
 		final_damage = integrity_damage - armor_stat
 
 	if(final_damage > 0)
 		integrity -= final_damage
+		log_and_message_admins(SPAN_WARNING("<b> [src] только что получил урон в размере [final_damage] INTEG!</i></b>"))
 		nullified = FALSE
 
 	armor_durability -= rand(1,hull_damage)
@@ -156,6 +162,10 @@
 		damage_animation(nullified)
 
 	return TRUE
+
+/mob/living/simple_animal/hostile/fd/lancer/proc/redirect_damage(mob/living/simple_animal/hostile/fd/lancer/target, real_damage = 0, armor_damage = 1, ap = FALSE, animation = TRUE)
+	log_and_message_admins(SPAN_WARNING("<b> [src] получил перенаправленный урон на [real_damage] INTEG!</i></b>"))
+	target.recieve_damage(integrity_damage = real_damage, hull_damage = armor_damage, shredding = ap, do_animation = animation)
 
 /mob/living/simple_animal/hostile/fd/lancer/proc/damage_animation(damage_blocked = FALSE)
 	if(damage_blocked)
@@ -339,6 +349,10 @@
 	pilot = null
 
 /mob/living/simple_animal/hostile/fd/lancer/Life()
+
+	if(!chained && chained_for > 0)
+		chained_for = 0
+		visible_message(SPAN_WARNING("[src] вновь начал исправно двигатся!"))
 
 	if(world.time >= chained_for && chained)
 		chained = FALSE
