@@ -34,7 +34,8 @@
 	var/datum/mech_equipment/selected_equipment = null
 	/// Список оружия меха
 	var/list/equipment = list(
-		/datum/mech_equipment,
+		/datum/mech_equipment/firearm,
+		/datum/mech_equipment/weapon,
 	)
 
 	var/armor_stat = 0 // Снижает урон на [X]
@@ -421,20 +422,22 @@
 	var/params_list = params2list(params)
 
 	if(!handle_abilities(A, params))
-		handle_weapons(A, params)
+		if(params_list["shift"] && params_list["left"])
+			if(istype(A, /mob/living/simple_animal/hostile/fd/lancer))
+				var/mob/living/simple_animal/hostile/fd/lancer/scan_target = A
+				scan_target.scan(A, params)
+			return A.ShiftClick(src)
 
-	if(params_list["shift"] && params_list["left"])
-		if(istype(A, /mob/living/simple_animal/hostile/fd/lancer))
-			var/mob/living/simple_animal/hostile/fd/lancer/scan_target = A
-			scan_target.scan(A, params)
-		A.ShiftClick(src)
+		handle_weapons(A, params)
 
 	return TRUE
 
 /mob/living/simple_animal/hostile/fd/lancer/proc/handle_abilities(atom/A, params)
+	. = FALSE
+
 	if(hacked)
 		playsound(get_turf(src), 'sound/machines/buzz-two.ogg', 25, TRUE)
-		return FALSE
+		return .
 
 	var/params_list = params2list(params)
 
@@ -462,7 +465,7 @@
 	/// Далее смотрим, есть ли у нас способности с парамс-триггерами
 	for(var/datum/mech_ability/ability as anything in abilities)
 		for(var/click_param in ability.required_params)
-			if(click_param in params_list)
+			if(params_list[click_param])
 				ability.use(A, params)
 				. = TRUE
 

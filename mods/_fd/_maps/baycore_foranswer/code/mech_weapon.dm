@@ -1,5 +1,7 @@
 /datum/mech_equipment/weapon
 	name = "Лезвие"
+	action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/ui.dmi'
+	action_state = "15"
 
 	/// Реальный дамаг по мехам
 	var/integrity_damage = 10
@@ -7,11 +9,14 @@
 	/// Относительный урон броне
 	var/hull_damage = 10
 
+	/// Насколько далеко мы можем бить этим оружием?
+	var/attack_distance = 1
+
 	/// Игнорирует армор?
 	var/shredding = FALSE
 
 	/// Насколько далеко мы можем бить этим оружием?
-	var/attack_distance = 1
+	var/attack_sound = 'sound/weapons/rapidslice.ogg'
 
 /datum/mech_equipment/weapon/use(atom/target, params)
 	. = ..()
@@ -23,8 +28,10 @@
 
 	var/mob/living/simple_animal/hostile/fd/lancer/mech = target
 
-	owner.do_attack_animation(mech)
 	mech.recieve_damage(integrity_damage, hull_damage, shredding)
+
+	owner.do_attack_animation(mech)
+	playsound(get_turf(owner), attack_sound, 100, TRUE)
 
 	return .
 

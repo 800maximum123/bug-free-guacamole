@@ -4,7 +4,7 @@
 	/// Путь к иконке в радиальном меню
 	var/action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/ui.dmi'
 	/// Иконка в радиальном меню
-	var/action_state = "24"
+	var/action_state = "2"
 
 	/// Цвет информации об оружии в стат панели
 	var/stat_color = COLOR_DARKMODE_TEXT
