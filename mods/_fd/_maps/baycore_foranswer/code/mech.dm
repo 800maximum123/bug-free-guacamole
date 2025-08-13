@@ -122,9 +122,9 @@
 				icon_state = "[icon_living]_charged"
 			add_filter("heated", 5, list("type" = "outline", , "size" = 0, "color" = COLOR_AMBER))
 			add_filter("heated_blur", 4, list("type" = "blur", , "size" = 0))
-			animate(get_filter("heated"), time = 15 SECONDS, size = 1, flags = ANIMATION_PARALLEL)
-			animate(get_filter("heated_blur"), time = 10 SECONDS, size = 1, flags = ANIMATION_PARALLEL)
-			animate(src, time = 10 SECONDS, color = "#fc987a", flags = ANIMATION_PARALLEL)
+			animate(get_filter("heated"), time = 5 SECONDS, size = 1, flags = ANIMATION_PARALLEL)
+			animate(get_filter("heated_blur"), time = 5 SECONDS, size = 1, flags = ANIMATION_PARALLEL)
+			animate(src, time = 5 SECONDS, color = "#fc987a", flags = ANIMATION_PARALLEL)
 			playsound(get_turf(src),'sound/mecha/internaldmgalarm.ogg',20)
 			playsound(get_turf(src),'sound/effects/iron_sizzle.ogg',100,TRUE)
 
@@ -242,7 +242,7 @@
 	anchored = FALSE
 	heat = 0
 
-	visible_message(SPAN_DANGER("[src] вновь начинается двигаться, медленно поднимаясь с земли!"), SPAN_INFO("[src] вновь начинается двигатся, медленно поднимаясь с земли."))
+	visible_message(SPAN_DANGER("[src] вновь начинается двигаться, медленно поднимаясь с земли!"), SPAN_INFO("[src] вновь начинается двигаться, медленно поднимаясь с земли."))
 
 	playsound(get_turf(src),'sound/mecha/powerup.ogg',60)
 	spawn(3 SECONDS)
@@ -342,7 +342,7 @@
 /mob/living/simple_animal/hostile/fd/lancer/proc/handle_mech_speed()
 	. = base_movement_cooldown
 	if(overheated)
-		. += 1
+		. -= 1
 	if(selected_equipment)
 		. += selected_equipment.speed_debuff
 	movement_cooldown = .
@@ -353,16 +353,22 @@
 		heat = 0
 		AdjustEffect(MECH_OVERHEATED, 30 SECONDS)
 
+	if(overheated)
+		integrity -= 2
+		/// Попробуем заменить анимацию урона на звук шипения, посмотрим лучше ли будет выглядеть
+		//damage_animation(1, ignore_armor = TRUE)
+		playsound(get_turf(src),'sound/effects/razorweb_hiss.ogg',80,TRUE)
+
 	if(overheated && (AdjustEffect(MECH_OVERHEATED, -2 SECONDS) <= 0))
 		visible_message(SPAN_WARNING("[src] прекратил плавиться от перегрева!"))
-		animate(get_filter("heated"), time = 10 SECONDS, size = 0, flags = ANIMATION_PARALLEL)
-		animate(get_filter("heated_blur"), time = 10 SECONDS, size = 0, flags = ANIMATION_PARALLEL)
-		animate(src, time = 15 SECONDS, color = initial(color), transform = matrix(), flags = ANIMATION_PARALLEL)
+		animate(get_filter("heated"), time = 5 SECONDS, size = 0, flags = ANIMATION_PARALLEL)
+		animate(get_filter("heated_blur"), time = 5 SECONDS, size = 0, flags = ANIMATION_PARALLEL)
+		animate(src, time = 5 SECONDS, color = initial(color), transform = matrix(), flags = ANIMATION_PARALLEL)
 		if(has_overheated_state && !dead)
 			icon_state = initial(icon_state)
 
 	if(chained && (AdjustEffect(MECH_CHAINED, -2 SECONDS) <= 0))
-		visible_message(SPAN_WARNING("[src] вновь начал исправно двигатся!"))
+		visible_message(SPAN_WARNING("[src] вновь начал исправно двигаться!"))
 
 	if(malfunctioned && (AdjustEffect(MECH_MALFUNCTIONED, -2 SECONDS) <= 0))
 		visible_message(SPAN_WARNING("[src] вновь начал исправно функционировать!"))
@@ -372,13 +378,6 @@
 
 	if(vulnerable && (AdjustEffect(MECH_VULNERABLE, -2 SECONDS) <= 0))
 		visible_message(SPAN_WARNING("[src] перестал быть уязвимым!"))
-
-	if(overheated)
-		integrity -= 2
-		handle_mech_speed()
-		/// Попробуем заменить анимацию урона на звук шипения, посмотрим лучше ли будет выглядеть
-		//damage_animation(1, ignore_armor = TRUE)
-		playsound(get_turf(src),'sound/effects/razorweb_hiss.ogg',80,TRUE)
 
 	if(integrity <= 0)
 		playsound(get_turf(src),'sound/mecha/internaldmgalarm.ogg',20)
