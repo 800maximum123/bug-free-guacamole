@@ -30,14 +30,14 @@
 	integrity_max = 300
 
 	heat_overflow = 40
-	overheat_timer = 60
-	has_overheat_state = TRUE
+	overheated_timer = 60
+	has_overheated_state = TRUE
 
 	weapon_equipped = "Thermal Release"
 
 	repairs_left = 2
 
-	movement_cooldown = 4
+	base_movement_cooldown = 4
 
 	var/jump_cooldown = 0
 
@@ -56,7 +56,7 @@
 			stat(SPAN_COLOR("#6dc5ff", "Барьера ") + protected.name + SPAN_COLOR("#6dc5ff", ":"), SPAN_COLOR("#6dc5ff", "[shield_integrity]"))
 
 /mob/living/simple_animal/hostile/fd/lancer/saladin/Life()
-	if(overheat && overheat_timer > 0 && !damaged)
+	if(overheated && overheated_timer > 0 && !damaged)
 		for(var/mob/living/simple_animal/hostile/fd/lancer/M in orange(5,src))
 			M.integrity -= 5
 			M.damage_animation(5, ignore_armor = TRUE)

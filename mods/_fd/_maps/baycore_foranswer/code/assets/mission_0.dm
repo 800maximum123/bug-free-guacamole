@@ -1272,7 +1272,7 @@
 	icon_state = "EXPERIMENTAL"
 
 	wreck_type = null
-	has_overheat_state = FALSE
+	has_overheated_state = FALSE
 
 	integrity = 150
 	integrity_max = 150

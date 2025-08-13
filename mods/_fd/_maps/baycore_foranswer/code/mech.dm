@@ -25,16 +25,16 @@
 
 	/// Список способностей меха
 	var/list/abilities = list(
-		/datum/mech_ability/action/change_weapon,
+		/datum/mech_ability/action/change_module,
 		/datum/mech_ability/action/reboot,
 		/datum/mech_ability/action/toggle_safety,
 	)
 
 	/// Выбранный тип оружия
-	var/datum/mech_weapon/selected_weapon = null
+	var/datum/mech_equipment/selected_equipment = null
 	/// Список оружия меха
-	var/list/weapons = list(
-		/datum/mech_weapon,
+	var/list/equipment = list(
+		/datum/mech_equipment,
 	)
 
 	var/armor_stat = 0 // Снижает урон на [X]
@@ -48,35 +48,30 @@
 	var/heat = 0 // Перегрев. Сбрасывается до нуля, когда достигает [heat_overflow]
 	var/heat_overflow = 5 // Максимальное количество перегрева, после достижения которого мы перегреваемся
 
-	var/overheat = FALSE // Мы перегрелись. Мы получаем урон, но также можем бесплатно использовать любые абилки пока таймер не кончится
-	var/overheat_timer = 30 // Остужение через [X]
-	var/has_overheat_state = FALSE
+	var/has_overheated_state = FALSE
 
 	var/weapon_equipped = "Standart Pistol"
 
-	var/repairs_left = 1 // Сколько раз мы сможем подниматься из мёртвых?
 	var/damaged = FALSE // Мы в "крите"?
+	var/repairs_left = 1 // Сколько раз мы сможем подниматься из мёртвых?
 
 	/// На предохранителе ли всё оружие?
 	var/weapon_safety = TRUE
-
-	var/has_ammo = FALSE // Есть ли у нас запас патронов?
-	var/spare_magazines = 0 // Запасные магазины для пополнения патрон
-	var/next_fire = 0 // Время после которого можно будет вновь выстрелить
+	/// Запасные магазины для пополнения патрон
+	var/spare_magazines = 0
 
 	var/scan_delay = 1.5 SECONDS // Задержка перед показом результатов сканирования
 
-	var/hacked = FALSE
-	var/chained = FALSE
-	var/chained_for = 0
-	var/malfunctioned = FALSE
-	var/malf_for = 0
+	var/overheated = FALSE // Мы перегрелись. Мы получаем урон, но также можем бесплатно использовать любые абилки пока таймер не кончится
+	var/chained = 0
+	var/malfunctioned = 0
+	var/hacked = 0
+	var/vulnerable = 0
+
+	var/base_movement_cooldown = 3
 
 	var/wreck_type = /obj/structure/fd/mech_wreckage
 	var/dead = FALSE
-
-	var/leader_target = FALSE
-	var/target_for = 0
 
 	var/mob/living/carbon/human/pilot/pilot // Текущий пилот меха
 	var/mob/living/simple_animal/hostile/fd/lancer/protected_by // Защищающий нас мех
@@ -88,53 +83,49 @@
 
 	add_language(LANGUAGE_PILOT)
 
-	var/list/ability_datums = list()
-	for(var/ability_type in abilities)
-		new ability_type(src)
-	abilities = ability_datums
+	var/list/ability_types = abilities.Copy()
+	abilities.Cut()
+	for(var/ability in ability_types)
+		new ability(src)
 
-	var/list/weapon_datums = list()
-	for(var/weapon_type in weapons)
-		new weapon_type(src)
-	weapons = weapon_datums
+	var/list/equipment_types = equipment.Copy()
+	equipment.Cut()
+	for(var/equip in equipment_types)
+		new equip(src)
 
-	if(length(weapons))
-		selected_weapon = weapons[1]
+	if(length(equipment))
+		selected_equipment = equipment[1]
 
-/// Can't go below 0, getting a low amount of effect doesn't lower your current effect time
-/mob/living/simple_animal/hostile/fd/lancer/proc/Effect(type, time = 1 SECONDS)
+/// Can't go below 0, getting a smaller amount of effect doesn't lower it's current duration
+/mob/living/simple_animal/hostile/fd/lancer/proc/Effect(type, duration = 1 SECONDS)
+	handle_effects(type, duration)
+	return vars[type] = max(max(vars[type], duration), 0)
+
+/// If you REALLY need to set some effect to a set amount without the whole "can't go below than current duration"
+/mob/living/simple_animal/hostile/fd/lancer/proc/SetEffect(type, duration = 1 SECONDS)
+	handle_effects(type, duration)
+	return vars[type] = max(duration, 0)
+
+/mob/living/simple_animal/hostile/fd/lancer/proc/AdjustEffect(type, duration = 1 SECONDS)
+	handle_effects(type, duration)
+	return vars[type] = max(vars[type] + duration, 0)
+
+/mob/living/simple_animal/hostile/fd/lancer/proc/handle_effects(type, duration)
+	if(duration <= 0)
+		return FALSE
+	if(vars[type])
+		return FALSE
 	switch(type)
-		if(EFFECT_OVERHEAT)
-			overheat = max(max(overheat,time), 0)
-		if(EFFECT_CHAINED)
-			chained = max(max(chained,time), 0)
-		if(EFFECT_MALFUNCTIONED)
-			malfunctioned = max(max(malfunctioned,time), 0)
-		if(EFFECT_HACKED)
-			hacked = max(max(hacked,time), 0)
-
-/// If you REALLY need to set some effect to a set amount without the whole "can't go below than current time"
-/mob/living/simple_animal/hostile/fd/lancer/proc/SetEffect(type, time = 1 SECONDS)
-	switch(type)
-		if(EFFECT_OVERHEAT)
-			overheat = max(time, 0)
-		if(EFFECT_CHAINED)
-			chained = max(time, 0)
-		if(EFFECT_MALFUNCTIONED)
-			malfunctioned = max(time, 0)
-		if(EFFECT_HACKED)
-			hacked = max(time, 0)
-
-/mob/living/simple_animal/hostile/fd/lancer/proc/AdjustEffect(type, time = 1 SECONDS)
-	switch(type)
-		if(EFFECT_OVERHEAT)
-			overheat = max(overheat+time, 0)
-		if(EFFECT_CHAINED)
-			chained = max(chained+time, 0)
-		if(EFFECT_MALFUNCTIONED)
-			malfunctioned = max(malfunctioned+time, 0)
-		if(EFFECT_HACKED)
-			hacked = max(hacked+time, 0)
+		if(MECH_OVERHEATED)
+			if(has_overheated_state)
+				icon_state = "[icon_living]_charged"
+			add_filter("heated", 5, list("type" = "outline", , "size" = 0, "color" = COLOR_AMBER))
+			add_filter("heated_blur", 4, list("type" = "blur", , "size" = 0))
+			animate(get_filter("heated"), time = 15 SECONDS, size = 1, flags = ANIMATION_PARALLEL)
+			animate(get_filter("heated_blur"), time = 10 SECONDS, size = 1, flags = ANIMATION_PARALLEL)
+			animate(src, time = 10 SECONDS, color = "#fc987a", flags = ANIMATION_PARALLEL)
+			playsound(get_turf(src),'sound/mecha/internaldmgalarm.ogg',20)
+			playsound(get_turf(src),'sound/effects/iron_sizzle.ogg',100,TRUE)
 
 /mob/living/simple_animal/hostile/fd/lancer/proc/recieve_damage(integrity_damage = 0, hull_damage = 1, shredding = FALSE, do_animation = TRUE)
 	var/final_damage = 0
@@ -150,6 +141,9 @@
 
 	if(!shredding && prob(armor_durability))
 		final_damage = integrity_damage - armor_stat
+
+	if(vulnerable)
+		final_damage *= 2
 
 	if(final_damage > 0)
 		integrity -= final_damage
@@ -178,29 +172,25 @@
 			animate(src, color = initial(color), time = 0.2 SECOND, easing = CUBIC_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
 
 /mob/living/simple_animal/hostile/fd/lancer/proc/add_ability(ability_type)
-	new ability_type(src)
+	return new ability_type(src)
 
 /mob/living/simple_animal/hostile/fd/lancer/proc/add_weapon(weapon_type)
-	new weapon_type(src)
+	return new weapon_type(src)
 
 /mob/living/simple_animal/hostile/fd/lancer/proc/resupply()
 	SHOULD_CALL_PARENT(TRUE)
 	mech_reboot(FALSE, FALSE)
 
+	damaged = FALSE
 	integrity = integrity_max
 	heat = 0
-	overheat = FALSE
-	repairs_left = initial(repairs_left)
-	damaged = FALSE
-	overheat_timer = initial(overheat_timer)
 	spare_magazines = initial(spare_magazines)
-	hacked = FALSE
-	chained = FALSE
-	chained_for = 0
-	malfunctioned = FALSE
-	malf_for = 0
-	leader_target = FALSE
-	target_for = 0
+	repairs_left = initial(repairs_left)
+	overheated = 0
+	chained = 0
+	malfunctioned = 0
+	hacked = 0
+	vulnerable = 0
 
 /mob/living/simple_animal/hostile/fd/lancer/can_pull()
 	return FALSE
@@ -268,7 +258,7 @@
 
 	stat(FONT_LARGE(name), null)
 
-	if(has_ammo)
+	if(initial(spare_magazines))
 		var/ammo_color = gradient(COLOR_RED, COLOR_DARKMODE_TEXT, spare_magazines/initial(spare_magazines))
 		stat(FONT_NORMAL(SPAN_COLOR(ammo_color, "Запасных Магазинов:")), FONT_NORMAL(SPAN_COLOR(ammo_color, "[spare_magazines]")))
 
@@ -289,8 +279,8 @@
 		for(var/list/data as anything in data_set)
 			stat(data["title"], data["desc"])
 
-	for(var/datum/mech_weapon/weapon as anything in weapons)
-		var/data_set = weapon.get_stat_info(src)
+	for(var/datum/mech_equipment/equip as anything in equipment)
+		var/data_set = equip.get_stat_info(src)
 		for(var/list/data as anything in data_set)
 			stat(data["title"], data["desc"])
 
@@ -308,7 +298,7 @@
 			new wreck_type(get_turf(src))
 			playsound(get_turf(src),'sound/mecha/Explosion_02.mp3', 60)
 		..(FALSE, "suddenly breaks apart.", "You have been destroyed.")
-		qdel(src)
+		QDEL_NULL(src)
 
 /mob/living/simple_animal/hostile/fd/lancer/proc/choose_weapon()
 	var/list/options = list(
@@ -348,39 +338,46 @@
 	pilot.client.view = 7
 	pilot = null
 
+/mob/living/simple_animal/hostile/fd/lancer/proc/handle_mech_speed()
+	. = base_movement_cooldown
+	if(overheated)
+		. += 1
+	if(selected_equipment)
+		. += selected_equipment.speed_debuff
+	movement_cooldown = .
+
 /mob/living/simple_animal/hostile/fd/lancer/Life()
 
-	if(!chained && chained_for > 0)
-		chained_for = 0
-		visible_message(SPAN_WARNING("[src] вновь начал исправно двигатся!"))
+	if(heat >= heat_overflow && !overheated)
+		heat = 0
+		AdjustEffect(MECH_OVERHEATED, 30 SECONDS)
 
-	if(world.time >= chained_for && chained)
-		chained = FALSE
-		visible_message(SPAN_WARNING("[src] вновь начал исправно двигатся!"))
-
-	if(world.time >= malf_for && malfunctioned)
-		malfunctioned = FALSE
-		visible_message(SPAN_WARNING("[src] вновь начал исправно функционировать!"))
-
-	if(world.time >= target_for && leader_target)
-		leader_target = FALSE
-		visible_message(SPAN_WARNING("[src] теряет статус приоритетной цели!"))
-
-	if(overheat && overheat_timer > 0 && !damaged)
-		integrity -= 2
-		overheat_timer -= 1
-		// Попробуем заменить анимацию урона на звук шипения, посмотрим лучше ли будет выглядеть
-		//damage_animation(1, ignore_armor = TRUE)
-		playsound(get_turf(src),'sound/effects/razorweb_hiss.ogg',80,TRUE)
-
-	if(overheat && overheat_timer <= 0)
-		overheat = FALSE
-		movement_cooldown += 1
-		if(has_overheat_state && !dead)
-			icon_state = initial(icon_state)
+	if(overheated && (AdjustEffect(MECH_OVERHEATED, -2 SECONDS) <= 0))
+		visible_message(SPAN_WARNING("[src] прекратил плавиться от перегрева!"))
 		animate(get_filter("heated"), time = 10 SECONDS, size = 0, flags = ANIMATION_PARALLEL)
 		animate(get_filter("heated_blur"), time = 10 SECONDS, size = 0, flags = ANIMATION_PARALLEL)
 		animate(src, time = 15 SECONDS, color = initial(color), transform = matrix(), flags = ANIMATION_PARALLEL)
+		if(has_overheated_state && !dead)
+			icon_state = initial(icon_state)
+
+	if(chained && (AdjustEffect(MECH_CHAINED, -2 SECONDS) <= 0))
+		visible_message(SPAN_WARNING("[src] вновь начал исправно двигатся!"))
+
+	if(malfunctioned && (AdjustEffect(MECH_MALFUNCTIONED, -2 SECONDS) <= 0))
+		visible_message(SPAN_WARNING("[src] вновь начал исправно функционировать!"))
+
+	if(hacked && (AdjustEffect(MECH_HACKED, -2 SECONDS) <= 0))
+		visible_message(SPAN_WARNING("[src] вновь вернул меха под контроль!"))
+
+	if(vulnerable && (AdjustEffect(MECH_VULNERABLE, -2 SECONDS) <= 0))
+		visible_message(SPAN_WARNING("[src] перестал быть уязвимым!"))
+
+	if(overheated)
+		integrity -= 2
+		handle_mech_speed()
+		/// Попробуем заменить анимацию урона на звук шипения, посмотрим лучше ли будет выглядеть
+		//damage_animation(1, ignore_armor = TRUE)
+		playsound(get_turf(src),'sound/effects/razorweb_hiss.ogg',80,TRUE)
 
 	if(integrity <= 0)
 		playsound(get_turf(src),'sound/mecha/internaldmgalarm.ogg',20)
@@ -396,27 +393,7 @@
 			animate(src, time = 2 SECONDS, color = COLOR_GRAY, transform = matrix(-30, MATRIX_ROTATE), easing = SINE_EASING, flags = ANIMATION_PARALLEL)
 			anchored = TRUE
 
-	if(heat >= heat_overflow && !overheat)
-		heat = 0
-		overheat = TRUE
-		movement_cooldown -= 1
-		overheat_timer = initial(overheat_timer)
-		if(has_overheat_state)
-			icon_state = "[icon_living]_charged"
-		add_filter("heated", 5, list("type" = "outline", , "size" = 0, "color" = COLOR_AMBER))
-		add_filter("heated_blur", 4, list("type" = "blur", , "size" = 0))
-		animate(get_filter("heated"), time = 15 SECONDS, size = 1, flags = ANIMATION_PARALLEL)
-		animate(get_filter("heated_blur"), time = 10 SECONDS, size = 1, flags = ANIMATION_PARALLEL)
-		animate(src, time = 10 SECONDS, color = "#fc987a", flags = ANIMATION_PARALLEL)
-		playsound(get_turf(src),'sound/mecha/internaldmgalarm.ogg',20)
-		playsound(get_turf(src),'sound/effects/iron_sizzle.ogg',100,TRUE)
-
-/*	if(shielded)
-		for(var/mob/living/simple_animal/hostile/fd/lancer/drake/M in view(2,src))
-			if(!M)
-				shielded = FALSE
-			if(M.damaged)
-				shielded = FALSE*/
+	handle_mech_speed()
 
 	. = ..()
 
@@ -429,65 +406,19 @@
 
 	. = ..()
 
-/mob/living/simple_animal/hostile/fd/lancer/proc/consume_ammo()
-	return TRUE
-
-/mob/living/simple_animal/hostile/fd/lancer/proc/mech_shoot(atom/target, bullet_type = /obj/item/projectile/bullet/mech, cooldown, amount = 1, interval = 0, damage_bonus, bullet_icon, sound)
-	set waitfor = FALSE
-
-	if(world.time < next_fire)
-		return FALSE
-
-	next_fire = world.time + cooldown
-
-	for(var/shot, shot<amount, shot++)
-		if(weapon_safety)
-			return FALSE
-		if(malfunctioned)
-			playsound(get_turf(src),'sound/weapons/empty.ogg', 80, TRUE)
-			to_chat(src, SPAN_WARNING("Оружие заклинило!"))
-			return FALSE
-		if(damaged)
-			return FALSE
-		if(!consume_ammo())
-			playsound(get_turf(src),'sound/weapons/empty.ogg', 80, TRUE)
-			return FALSE
-
-		var/obj/item/projectile/bullet/mech/pew = new bullet_type(get_turf(src))
-
-		if(sound)
-			pew.fire_sound = sound
-		playsound(pew.loc, pew.fire_sound, 30, 1)
-
-		if(damage_bonus)
-			pew.integrity_damage += damage_bonus
-		if(bullet_icon)
-			pew.icon_state = bullet_icon
-
-		pew.SetTransform(2)
-
-		pew.original = target
-		pew.current = target
-		pew.starting = get_turf(src)
-		pew.shot_from = src
-		pew.permutated += src
-
-		pew.launch(target, BP_CHEST)
-		spawn(rand(0.5 SECONDS, 1 SECONDS))
-			playsound(get_turf(src), pick(list('sound/weapons/guns/casingfall1.ogg','sound/weapons/guns/casingfall2.ogg','sound/weapons/guns/casingfall3.ogg')), 25, TRUE)
-
-		sleep(interval)
-
 /mob/living/simple_animal/hostile/fd/lancer/ClickOn(atom/A, params)
 	if(next_click > world.time) // Hard check, before anything else, to avoid crashing
 		return FALSE
 
+	next_click = world.time + 1
+
 	if(damaged)
 		return FALSE
 
-	var/params_list = params2list(params)
+	if(A.z != z)
+		return FALSE
 
-	next_click = world.time + 1
+	var/params_list = params2list(params)
 
 	if(!handle_abilities(A, params))
 		handle_weapons(A, params)
@@ -542,7 +473,7 @@
 	if(!params_list["left"])
 		return
 
-	if(!selected_weapon)
+	if(!selected_equipment)
 		return
 
-	return selected_weapon.fire(A, params)
+	return selected_equipment.use(A, params)

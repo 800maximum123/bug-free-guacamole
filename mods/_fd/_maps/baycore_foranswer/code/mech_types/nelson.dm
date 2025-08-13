@@ -32,7 +32,7 @@
 
 	weapon_equipped = "Shield"
 
-	movement_cooldown = 5
+	base_movement_cooldown = 5
 
 	var/next_shield_bump = 0
 	var/next_spear_poke = 0
@@ -233,7 +233,7 @@
 				if(istype(A, /mob/living/simple_animal/hostile/fd/lancer))
 					var/mob/living/simple_animal/hostile/fd/lancer/M = A
 					var/damage_incoming = 10
-					if(M.leader_target)
+					if(M.vulnerable)
 						damage_incoming *= 2
 					damage_incoming -= M.armor_stat
 					if(!M.damaged)
@@ -254,7 +254,7 @@
 				if(istype(A, /mob/living/simple_animal/hostile/fd/lancer))
 					var/mob/living/simple_animal/hostile/fd/lancer/M = A
 					var/damage_incoming = 5
-					if(M.leader_target)
+					if(M.vulnerable)
 						damage_incoming *= 2
 					if(!M.damaged)
 						M.integrity -= damage_incoming

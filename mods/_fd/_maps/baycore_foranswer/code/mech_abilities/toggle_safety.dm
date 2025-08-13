@@ -1,5 +1,5 @@
 /datum/mech_ability/action/toggle_safety
-	name = "Предохранитель вкл/выкл"
+	name = "Предохранитель Вкл/Выкл"
 	action_state = "38"
 
 	cooldown = 0

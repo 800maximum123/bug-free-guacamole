@@ -12,7 +12,7 @@
 #include "code/assets/ship_area.dm"
 #include "code/assets/turfs.dm"
 
-#include "code/mech_abilities/change_weapon.dm"
+#include "code/mech_abilities/change_module.dm"
 #include "code/mech_abilities/reboot.dm"
 #include "code/mech_abilities/toggle_safety.dm"
 
@@ -32,6 +32,8 @@
 
 #include "code/mech_ability.dm"
 #include "code/mech_bullet.dm"
+#include "code/mech_equipment.dm"
+#include "code/mech_firearm.dm"
 #include "code/mech_weapon.dm"
 #include "code/mech_wreck.dm"
 #include "code/mech.dm"

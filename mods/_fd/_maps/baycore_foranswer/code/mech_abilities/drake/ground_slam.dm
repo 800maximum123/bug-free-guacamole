@@ -44,5 +44,4 @@
 
 /obj/effect/ground_slam/Initialize()
 	. = ..()
-	spawn(5 SECONDS)
-		qdel(src)
+	QDEL_IN(src, 5 SECONDS)

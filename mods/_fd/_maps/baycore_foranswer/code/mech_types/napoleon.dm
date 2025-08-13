@@ -27,7 +27,7 @@
 	pixel_y = -50
 	default_pixel_y = -50
 
-	movement_cooldown = 4
+	base_movement_cooldown = 4
 
 	armor_stat = 2
 
@@ -127,11 +127,11 @@
 			return FALSE
 		if(istype(A, /mob/living/simple_animal/hostile/fd/lancer))
 			var/mob/living/simple_animal/hostile/fd/lancer/M = A
-			if(M.leader_target)
+			if(M.vulnerable)
 				to_chat(src, SPAN_WARNING("Эта цель уже отмечена!"))
 				return FALSE
 			command_cooldown = world.time + 15 SECONDS
-			M.leader_target = TRUE
+			M.vulnerable = TRUE
 			M.target_for = world.time + 10 SECONDS
 			visible_message(SPAN_DANGER("[src] помечает [M] в качестве приоритетной цели!"), SPAN_INFO("Ты помечаешь [M] в качестве приоритетной цели."))
 

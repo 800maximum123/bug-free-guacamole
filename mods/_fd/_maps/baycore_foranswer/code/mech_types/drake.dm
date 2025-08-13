@@ -27,7 +27,7 @@
 	pixel_y = -30
 	default_pixel_y = -30
 
-	movement_cooldown = 7
+	base_movement_cooldown = 7
 
 	armor_stat = 5
 	integrity = 1000
@@ -170,7 +170,7 @@
 						to_chat(src, SPAN_WARNING("Пушка уже раскручена до максимума!"))
 						return FALSE
 					speed_buff += 1 SECOND
-					if(overheat)
+					if(overheated)
 						integrity -= 10
 						damage_animation(10, ignore_armor = TRUE)
 					else
@@ -214,7 +214,7 @@
 				if(istype(A, /mob/living/simple_animal/hostile/fd/lancer))
 					var/mob/living/simple_animal/hostile/fd/lancer/M = A
 					var/damage_incoming = 10
-					if(M.leader_target)
+					if(M.vulnerable)
 						damage_incoming *= 2
 					damage_incoming -= M.armor_stat
 					if(!M.damaged)

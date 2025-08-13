@@ -62,8 +62,7 @@
 				shielded_turfs[floor] = floor.color
 				animate(floor, time = 1 SECONDS, color = COLOR_DARK_GRAY, easing = SINE_EASING, flags = ANIMATION_PARALLEL)
 		owner.armor_stat += 10
-		owner.chained = TRUE
-		owner.chained_for = world.time + 3 DAYS // ВОТ ПОЧЕМУ НАМ НУЖЕН БЫЛ CAN_MOVE
+		owner.AdjustEffect(MECH_CHAINED, 1 DAYS)
 		START_PROCESSING(SSprocessing, src)
 
 	else
@@ -74,7 +73,7 @@
 			animate(floor, time = 1.5 SECONDS, color = shielded_turfs[floor], easing = SINE_EASING, flags = ANIMATION_PARALLEL)
 		shielded_turfs.Cut()
 		owner.armor_stat -= 10
-		owner.chained = FALSE
+		owner.AdjustEffect(MECH_CHAINED, -1 DAYS)
 		STOP_PROCESSING(SSprocessing, src)
 
 		zonestart_by_x = initial(zonestart_by_x)

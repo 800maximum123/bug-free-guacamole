@@ -23,13 +23,13 @@
 			hacked = FALSE
 
 	if(hacked)
-		var/debuff = pick("overheat","Stunned","Broken")
+		var/debuff = pick("overheated","Stunned","Broken")
 		switch(debuff)
-			if("overheat")
-				overheat = TRUE
-				overheat_timer = initial(overheat_timer)
+			if("overheated")
+				overheated = TRUE
+				overheated_timer = initial(overheated_timer)
 				heat = 0
-				if(has_overheat_state)
+				if(has_overheated_state)
 					icon_state = "[icon_living]_charged"
 				add_filter("heated", 5, list("type" = "outline", , "size" = 0, "color" = COLOR_AMBER))
 				add_filter("heated_blur", 4, list("type" = "blur", , "size" = 0))
@@ -78,7 +78,7 @@
 	heat_overflow = 10
 	repairs_left = 2
 
-	movement_cooldown = 3
+	base_movement_cooldown = 3
 
 	weapon_equipped = "Submachine Gun"
 
@@ -237,7 +237,7 @@
 			if(!do_after(src, 5 SECONDS, do_flags = DO_BOTH_CAN_MOVE))
 				return FALSE
 			M.hacked()
-			if(!overheat)
+			if(!overheated)
 				hack_charges -= 1
 				heat += 2
 			return TRUE
@@ -272,7 +272,7 @@
 					if(cloaked)
 						damage_incoming += 50
 						cloaked = FALSE
-					if(M.leader_target)
+					if(M.vulnerable)
 						damage_incoming *= 2
 					damage_incoming -= M.armor_stat
 					if(!M.damaged)

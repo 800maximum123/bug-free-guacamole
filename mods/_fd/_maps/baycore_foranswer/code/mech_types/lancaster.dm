@@ -22,14 +22,14 @@
 	pixel_y = -55
 	default_pixel_y = -55
 
-	movement_cooldown = 4
+	base_movement_cooldown = 4
 
 	armor_stat = 4
 	integrity = 500
 	integrity_max = 500
 
 	heat_overflow = 5
-	overheat_timer = 10
+	overheated_timer = 10
 
 	weapon_equipped = "Plasma Cutter"
 
@@ -180,7 +180,7 @@
 						passenger.forceMove(get_turf(src))
 						passenger = null
 						contents -= passenger
-						movement_cooldown = initial(movement_cooldown)
+						handle_mech_speed()
 						CutOverlays(passenger_overlay)
 						return TRUE
 
@@ -207,7 +207,7 @@
 			passenger_overlay = mutable_appearance(M.icon, M.icon_state)
 			passenger_overlay.pixel_y = M.pixel_y + 100
 			passenger_overlay.mouse_opacity = FALSE
-			movement_cooldown = 4
+			handle_mech_speed()
 
 			AddOverlays(passenger_overlay)
 			return TRUE
