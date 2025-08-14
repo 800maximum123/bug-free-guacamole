@@ -1,4 +1,4 @@
-/datum/mech_ability/action/drake/bunker
+/datum/mech_ability/action/bunker
 	name = "Оборонительный режим"
 	action_state = "18"
 	cooldown = 5 SECONDS
@@ -12,7 +12,7 @@
 	var/zoneend_by_x = 3 // Стандартные значения, меняются в зависимости от дира
 	var/zoneend_by_y = 3 // Стандартные значения, меняются в зависимости от дира
 
-/datum/mech_ability/action/drake/bunker/proc/check_direction(dir)
+/datum/mech_ability/action/bunker/proc/check_direction(dir)
 	switch(dir)
 		if(NORTH)
 			zonestart_by_y += 2
@@ -35,7 +35,7 @@
 			zonestart_by_y -= 1
 			zoneend_by_y -= 1
 
-/datum/mech_ability/action/drake/bunker/use(atom/target, params)
+/datum/mech_ability/action/bunker/use(atom/target, params)
 	. = ..()
 
 	var/pixel_y_adjust = owner.pixel_y + 10
@@ -83,7 +83,7 @@
 
 	return handle_use(target, params)
 
-/datum/mech_ability/action/drake/bunker/Process()
+/datum/mech_ability/action/bunker/Process()
 	..()
 
 	for(var/mob/living/simple_animal/fd/lancer/L in shielded_mechs)

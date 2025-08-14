@@ -1,4 +1,4 @@
-/datum/mech_ability/drake/ground_slam
+/datum/mech_ability/ground_slam
 	name = "Удар по земле"
 	action_state = "37"
 
@@ -8,7 +8,7 @@
 	var/setup_offset = 50 // Так мы сможем сетапать эффект ровно под ножкой у разных мехов, не страдая от постоянного переписывания use()
 
 /// Активация/переключение способности, возвращает результат использования
-/datum/mech_ability/drake/ground_slam/use(atom/target, params)
+/datum/mech_ability/ground_slam/use(atom/target, params)
 	. = ..()
 
 	var/list/affected_turfs = list()

@@ -85,8 +85,8 @@
 	var/time = world.time
 	if(next_use > time)
 		. += list(list(
-			"title" = SPAN_ABILITY_GRADIENT("<[name]> Готов Через:", next_use/time),
-			"desc" = SPAN_ABILITY_GRADIENT("[SECONDS_LEFT(next_use, time)] секунд", next_use/time),
+			"title" = SPAN_ABILITY_GRADIENT("<[name]> Готов Через:", round(time/next_use)),
+			"desc" = SPAN_ABILITY_GRADIENT("[SECONDS_LEFT(next_use, time)] секунд", round(time/next_use)),
 			))
 	if(max_charges)
 		. += list(list(

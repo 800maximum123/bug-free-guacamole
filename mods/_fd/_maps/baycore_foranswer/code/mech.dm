@@ -28,6 +28,11 @@
 		/datum/mech_ability/action/change_module,
 		/datum/mech_ability/action/reboot,
 		/datum/mech_ability/action/toggle_safety,
+		/// ТЕСТ
+		/datum/mech_ability/action/bunker,
+		/datum/mech_ability/ground_slam,
+		/datum/mech_ability/action/toggle_cloak,
+		/datum/mech_ability/intrusion,
 	)
 
 	/// Выбранный тип оружия
