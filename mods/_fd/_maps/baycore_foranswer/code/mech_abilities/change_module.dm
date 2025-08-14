@@ -24,4 +24,4 @@
 		playsound(get_turf(owner), 'packs/infinity/sound/items/change_jaws.ogg', 40, TRUE)
 
 	owner.selected_equipment = new_equip
-	owner.handle_mech_speed()
+	owner.recalculate_mech_speed()

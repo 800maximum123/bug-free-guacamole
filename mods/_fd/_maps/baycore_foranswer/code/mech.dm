@@ -339,12 +339,14 @@
 	pilot.client.view = 7
 	pilot = null
 
-/mob/living/simple_animal/hostile/fd/lancer/proc/handle_mech_speed()
+/mob/living/simple_animal/hostile/fd/lancer/proc/recalculate_mech_speed()
 	. = base_movement_cooldown
 	if(overheated)
 		. -= 1
 	if(selected_equipment)
 		. += selected_equipment.speed_debuff
+	for(var/datum/mech_ability/ability as anything in abilities)
+		. += ability.speed_debuff
 	movement_cooldown = .
 
 /mob/living/simple_animal/hostile/fd/lancer/Life()
@@ -352,6 +354,9 @@
 	if(heat >= heat_overflow && !overheated)
 		heat = 0
 		AdjustEffect(MECH_OVERHEATED, 30 SECONDS)
+
+	if(hacked)
+		overlay_fullscreen("hacked", /obj/screen/fullscreen/scanline)
 
 	if(overheated)
 		integrity -= 2
@@ -374,7 +379,8 @@
 		visible_message(SPAN_WARNING("[src] вновь начал исправно функционировать!"))
 
 	if(hacked && (AdjustEffect(MECH_HACKED, -2 SECONDS) <= 0))
-		visible_message(SPAN_WARNING("[src] вновь вернул меха под контроль!"))
+		visible_message(SPAN_WARNING("[src] вновь вернулся под контроль пилота!"))
+		clear_fullscreen("hacked")
 
 	if(vulnerable && (AdjustEffect(MECH_VULNERABLE, -2 SECONDS) <= 0))
 		visible_message(SPAN_WARNING("[src] перестал быть уязвимым!"))
@@ -393,7 +399,7 @@
 			animate(src, time = 2 SECONDS, color = COLOR_GRAY, transform = matrix(-30, MATRIX_ROTATE), easing = SINE_EASING, flags = ANIMATION_PARALLEL)
 			anchored = TRUE
 
-	handle_mech_speed()
+	recalculate_mech_speed()
 
 	. = ..()
 

@@ -180,7 +180,7 @@
 						passenger.forceMove(get_turf(src))
 						passenger = null
 						contents -= passenger
-						handle_mech_speed()
+						recalculate_mech_speed()
 						CutOverlays(passenger_overlay)
 						return TRUE
 
@@ -207,7 +207,7 @@
 			passenger_overlay = mutable_appearance(M.icon, M.icon_state)
 			passenger_overlay.pixel_y = M.pixel_y + 100
 			passenger_overlay.mouse_opacity = FALSE
-			handle_mech_speed()
+			recalculate_mech_speed()
 
 			AddOverlays(passenger_overlay)
 			return TRUE
