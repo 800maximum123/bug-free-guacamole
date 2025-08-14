@@ -42,12 +42,12 @@
 
 /datum/mech_equipment/firearm/handle_use(atom/target, params)
 	if(owner.malfunctioned)
-		playsound(get_turf(src), 'sound/weapons/empty.ogg', 80, TRUE) // В идеале найти другой звук
-		to_chat(src, SPAN_WARNING("Оружие заклинило!"))
+		playsound(get_turf(owner), 'sound/weapons/empty.ogg', 80, TRUE) // В идеале найти другой звук
+		to_chat(owner, SPAN_WARNING("Оружие заклинило!"))
 		return FALSE
 
 	if(owner.weapon_safety)
-		to_chat(target, SPAN_WARNING("Включенный предохранитель не позволяет выстрелить с <[name]>!"))
+		to_chat(owner, SPAN_WARNING("Включенный предохранитель не позволяет выстрелить с <[name]>!"))
 		return FALSE
 
 	return ..()
@@ -87,7 +87,7 @@
 	. = ..()
 	if(max_ammo > 0)
 		. += list(list(
-			"title" = SPAN_ABILITY_GRADIENT("<[name]> Боезапаса:", ammo/max_ammo),
-			"desc" = SPAN_ABILITY_GRADIENT("[ammo]/[max_ammo]", ammo/max_ammo),
+			"title" = SPAN_ABILITY_GRADIENT("Боезапаса <[name]>:", ammo/max_ammo),
+			"desc" = SPAN_ABILITY_GRADIENT("[ammo] / [max_ammo]", ammo/max_ammo),
 			))
 	return .

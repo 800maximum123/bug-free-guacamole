@@ -63,7 +63,7 @@
 
 	var/scan_delay = 1.5 SECONDS // Задержка перед показом результатов сканирования
 
-	var/overheated = FALSE // Мы перегрелись. Мы получаем урон, но также можем бесплатно использовать любые абилки пока таймер не кончится
+	var/overheated = 0 // Мы перегрелись. Мы получаем урон, но также можем бесплатно использовать любые абилки пока таймер не кончится
 	var/chained = 0
 	var/malfunctioned = 0
 	var/hacked = 0
@@ -261,27 +261,27 @@
 
 	if(initial(spare_magazines))
 		var/ammo_color = gradient(COLOR_RED, COLOR_DARKMODE_TEXT, spare_magazines/initial(spare_magazines))
-		stat(FONT_NORMAL(SPAN_COLOR(ammo_color, "Запасных Магазинов:")), FONT_NORMAL(SPAN_COLOR(ammo_color, "[spare_magazines]")))
+		stat(FONT_NORMAL(SPAN_COLOR(ammo_color, "Запасных Магазинов:")), FONT_NORMAL(SPAN_COLOR(ammo_color, "[spare_magazines] / [initial(spare_magazines)]")))
 
 	if(initial(repairs_left)) // ноль на ноль делить нельзя
 		var/repairs_color = gradient(COLOR_RED, COLOR_DARKMODE_TEXT, repairs_left/initial(repairs_left))
-		stat(FONT_NORMAL(SPAN_COLOR(repairs_color, "Комплектов Починки:")), FONT_NORMAL(SPAN_COLOR(repairs_color, "[repairs_left]")))
+		stat(FONT_NORMAL(SPAN_COLOR(repairs_color, "Комплектов Починки:")), FONT_NORMAL(SPAN_COLOR(repairs_color, "[repairs_left] / [initial(repairs_left)]")))
 
 	if(integrity_max)
 		var/integrity_color = gradient(COLOR_RED, COLOR_DARKMODE_TEXT, (integrity*1.4)/integrity_max)
-		stat(FONT_NORMAL(SPAN_COLOR(integrity_color, "Структуры:")), FONT_NORMAL(SPAN_COLOR(integrity_color, "[integrity]/[integrity_max] ([Percent(integrity,integrity_max,1)]%)")))
+		stat(FONT_NORMAL(SPAN_COLOR(integrity_color, "Структуры:")), FONT_NORMAL(SPAN_COLOR(integrity_color, "[integrity] / [integrity_max] ([Percent(integrity,integrity_max,1)]%)")))
 
 	if(heat_overflow)
 		var/heat_color = gradient("#ff8800", COLOR_RED, heat/heat_overflow)
-		stat(FONT_NORMAL(SPAN_COLOR(heat_color, "Перегрева:")), FONT_NORMAL(SPAN_COLOR(heat_color, "[heat]/[heat_overflow] ([Percent(heat,heat_overflow,1)]%)")))
-
-	for(var/datum/mech_ability/ability as anything in abilities)
-		var/data_set = ability.get_stat_info(src)
-		for(var/list/data as anything in data_set)
-			stat(data["title"], data["desc"])
+		stat(FONT_NORMAL(SPAN_COLOR(heat_color, "Перегрева:")), FONT_NORMAL(SPAN_COLOR(heat_color, "[heat] / [heat_overflow] ([Percent(heat,heat_overflow,1)]%)")))
 
 	for(var/datum/mech_equipment/equip as anything in equipment)
 		var/data_set = equip.get_stat_info(src)
+		for(var/list/data as anything in data_set)
+			stat(data["title"], data["desc"])
+
+	for(var/datum/mech_ability/ability as anything in abilities)
+		var/data_set = ability.get_stat_info(src)
 		for(var/list/data as anything in data_set)
 			stat(data["title"], data["desc"])
 

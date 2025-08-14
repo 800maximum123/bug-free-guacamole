@@ -40,7 +40,7 @@
 		return FALSE
 
 	if(owner.weapon_safety)
-		to_chat(target, SPAN_WARNING("Включенный предохранитель не позволяет ударить при помощи <[name]>!"))
+		to_chat(owner, SPAN_WARNING("Включенный предохранитель не позволяет ударить при помощи <[name]>!"))
 		return FALSE
 
 	return ..()
