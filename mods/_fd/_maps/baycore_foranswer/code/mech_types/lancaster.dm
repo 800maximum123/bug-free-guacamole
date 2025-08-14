@@ -7,11 +7,11 @@
 	bound_width = 256
 	bound_height = 64
 
-/mob/living/simple_animal/hostile/fd/lancer/lancaster/resupply()
+/mob/living/simple_animal/fd/lancer/lancaster/resupply()
 	. = ..()
 	restock_charges = initial(restock_charges)
 
-/mob/living/simple_animal/hostile/fd/lancer/lancaster
+/mob/living/simple_animal/fd/lancer/lancaster
 	name = "SUPP-APU Lancaster"
 	desc = "Special engineering machine, manufactured to bring fast aid to the other personal units on the battlefield."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/engineer_def.dmi'
@@ -33,7 +33,7 @@
 
 	weapon_equipped = "Plasma Cutter"
 
-	repairs_left = 4
+	repairs = 4
 	var/restock_charges = 12
 
 	var/ping_cooldown = 0
@@ -41,17 +41,17 @@
 	var/cooling_process = 30 SECONDS
 	var/start_counting = FALSE
 
-	var/mob/living/simple_animal/hostile/fd/lancer/passenger = null
+	var/mob/living/simple_animal/fd/lancer/passenger = null
 	var/mutable_appearance/passenger_overlay
 
 	wreck_type = /obj/structure/fd/mech_wreckage/small/lancaster
 
-/mob/living/simple_animal/hostile/fd/lancer/lancaster/Stat()
+/mob/living/simple_animal/fd/lancer/lancaster/Stat()
 	. = ..()
 	if(statpanel("Mech Status"))
 		stat(SPAN_COLOR("#aac256", "Зарядов Пополнения:"), SPAN_COLOR("#aac256", "[restock_charges]"))
 
-/mob/living/simple_animal/hostile/fd/lancer/lancaster/Life()
+/mob/living/simple_animal/fd/lancer/lancaster/Life()
 	if(heat > 0 && !start_counting)
 		start_counting = TRUE
 		cooling_process += world.time
@@ -63,7 +63,7 @@
 
 	. = ..()
 
-/mob/living/simple_animal/hostile/fd/lancer/lancaster/proc/choose_resupp(params)
+/mob/living/simple_animal/fd/lancer/lancaster/proc/choose_resupp(params)
 	var/list/mechs_in_radius = list()
 
 	var/list/options = list(
@@ -84,10 +84,10 @@
 			if(restock_charges <= 0)
 				to_chat(src, SPAN_WARNING("Для этого действия нужен как минимум 1 Заряд Пополнения!"))
 				return FALSE
-			for(var/mob/living/simple_animal/hostile/fd/lancer/M in view(2,src))
+			for(var/mob/living/simple_animal/fd/lancer/M in view(2,src))
 				if(!M.dead)
 					mechs_in_radius += M
-			var/mob/living/simple_animal/hostile/fd/lancer/target_choice = show_radial_menu(src, src, mechs_in_radius, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
+			var/mob/living/simple_animal/fd/lancer/target_choice = show_radial_menu(src, src, mechs_in_radius, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
 			if(!target_choice)
 				return FALSE
 			if(target_choice.integrity >= target_choice.integrity_max)
@@ -117,10 +117,10 @@
 			if(restock_charges <= 0)
 				to_chat(src, SPAN_WARNING("Для этого действия нужен как минимум 1 Заряд Пополнения!"))
 				return FALSE
-			for(var/mob/living/simple_animal/hostile/fd/lancer/M in oview(1,src))
+			for(var/mob/living/simple_animal/fd/lancer/M in oview(1,src))
 				if(!M.dead && M.has_ammo)
 					mechs_in_radius += M
-			var/mob/living/simple_animal/hostile/fd/lancer/target_choice = show_radial_menu(src, src, mechs_in_radius, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
+			var/mob/living/simple_animal/fd/lancer/target_choice = show_radial_menu(src, src, mechs_in_radius, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
 			if(!target_choice)
 				return FALSE
 			visible_message(SPAN_NOTICE("[src] начал погружать припасы на борт [target_choice]."), SPAN_INFO("Ты начал погружать припасы на борт [target_choice]."))
@@ -137,7 +137,7 @@
 			visible_message(SPAN_NOTICE("[src] восполнил часть припасов у [target_choice]."), SPAN_INFO("Ты восполнил часть припасов у [target_choice]."))
 			return TRUE
 
-/mob/living/simple_animal/hostile/fd/lancer/lancaster/ClickOn(atom/A, params)
+/mob/living/simple_animal/fd/lancer/lancaster/ClickOn(atom/A, params)
 	var/modifiers = params2list(params)
 
 	if(A == src)
@@ -169,7 +169,7 @@
 						heat += 1
 					if(!do_after(src, 2 SECONDS, do_flags = DO_BOTH_CAN_MOVE))
 						return FALSE
-					for(var/mob/living/simple_animal/hostile/fd/lancer/M in oview(6,src))
+					for(var/mob/living/simple_animal/fd/lancer/M in oview(6,src))
 						if(M.faction != faction && alpha < 255)
 							animate(M, 1 SECOND, alpha = 255)
 					ping_cooldown = world.time + 5 SECONDS
@@ -188,7 +188,7 @@
 
 	else if(modifiers["middle"])
 
-	else if(modifiers["shift"] && istype(A, /mob/living/simple_animal/hostile/fd/lancer))
+	else if(modifiers["shift"] && istype(A, /mob/living/simple_animal/fd/lancer))
 		scan(A, params)
 
 	else if(modifiers["alt"])
@@ -196,8 +196,8 @@
 			return FALSE
 		if(!isnull(passenger))
 			return FALSE
-		if(istype(A, /mob/living/simple_animal/hostile/fd/lancer))
-			var/mob/living/simple_animal/hostile/fd/lancer/M = A
+		if(istype(A, /mob/living/simple_animal/fd/lancer))
+			var/mob/living/simple_animal/fd/lancer/M = A
 			if(M == src)
 				return FALSE
 			if(!do_after(src, 5 SECONDS))

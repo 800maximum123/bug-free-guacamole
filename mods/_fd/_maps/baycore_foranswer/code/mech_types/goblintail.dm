@@ -1,4 +1,4 @@
-/mob/living/simple_animal/hostile/fd/lancer/proc/hacked()
+/mob/living/simple_animal/fd/lancer/proc/hacked()
 // 1984 ЗДЕСЬ НИКОМУ НИХЕРА НИЧЕГО
 	set waitfor = FALSE
 
@@ -62,11 +62,11 @@
 	var/state = rand(1,4)
 	icon_state = "scout_death_[state]"
 
-/mob/living/simple_animal/hostile/fd/lancer/goblintail/resupply()
+/mob/living/simple_animal/fd/lancer/goblintail/resupply()
 	. = ..()
 	gun_ammo = initial(gun_ammo)
 
-/mob/living/simple_animal/hostile/fd/lancer/goblintail
+/mob/living/simple_animal/fd/lancer/goblintail
 	name = "L-APU Goblintail"
 	desc = "An spec-ops lightweight APU model with installed stealth-tech."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/scout_def.dmi'
@@ -76,16 +76,11 @@
 	integrity_max = 300
 
 	heat_overflow = 10
-	repairs_left = 2
+	repairs = 2
 
 	base_movement_cooldown = 3
 
-	weapon_equipped = "Submachine Gun"
-
 	spare_magazines = 4
-	has_ammo = TRUE
-
-	var/gun_ammo = 80
 
 	pixel_x = -105
 	default_pixel_x = -105
@@ -104,20 +99,20 @@
 
 	wreck_type = /obj/structure/fd/mech_wreckage/small/goblin
 
-/mob/living/simple_animal/hostile/fd/lancer/goblintail/Stat()
+/mob/living/simple_animal/fd/lancer/goblintail/Stat()
 	. = ..()
 	if(statpanel("Mech Status"))
 		stat(SPAN_COLOR("#c675fc", "Зарядов Взлома:"), SPAN_COLOR("#c675fc", "[hack_charges]"))
 		if(recharging)
 			stat(SPAN_COLOR("#ec75fc", "Следующий Заряд:"), SPAN_COLOR("#ec75fc","[recharge_in - world.time / 10] Секунд"))
 
-/mob/living/simple_animal/hostile/fd/lancer/goblintail/damage_animation(amount, ignore_armor = FALSE)
+/mob/living/simple_animal/fd/lancer/goblintail/damage_animation(amount, ignore_armor = FALSE)
 	. = ..()
 
 	if(cloaked)
 		cloaked = FALSE
 
-/mob/living/simple_animal/hostile/fd/lancer/goblintail/Life()
+/mob/living/simple_animal/fd/lancer/goblintail/Life()
 
 	if(hack_charges < initial(hack_charges) && !recharging)
 		recharging = TRUE
@@ -141,7 +136,7 @@
 
 	. = ..()
 
-/mob/living/simple_animal/hostile/fd/lancer/goblintail/choose_weapon()
+/mob/living/simple_animal/fd/lancer/goblintail/choose_weapon()
 	var/list/options = list(
 		"Submachine Gun" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),
 		"Whip" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24")
@@ -152,13 +147,13 @@
 	weapon_equipped = chosen_option
 	playsound(get_turf(src), 'packs/infinity/sound/items/change_jaws.ogg', 80, TRUE)
 
-/mob/living/simple_animal/hostile/fd/lancer/goblintail/consume_ammo()
+/mob/living/simple_animal/fd/lancer/goblintail/consume_ammo()
 	if(gun_ammo <= 0)
 		return FALSE
 	gun_ammo--
 	return TRUE
 
-/mob/living/simple_animal/hostile/fd/lancer/goblintail/ClickOn(atom/A, params)
+/mob/living/simple_animal/fd/lancer/goblintail/ClickOn(atom/A, params)
 	var/modifiers = params2list(params)
 
 	if(A == src)
@@ -223,15 +218,15 @@
 
 	else if(modifiers["middle"])
 
-	else if(modifiers["shift"] && istype(A, /mob/living/simple_animal/hostile/fd/lancer))
+	else if(modifiers["shift"] && istype(A, /mob/living/simple_animal/fd/lancer))
 		scan(A, params)
 
 	else if(modifiers["alt"])
 		if(!cloaked)
 			return FALSE
 
-		if(istype(A, /mob/living/simple_animal/hostile/fd/lancer))
-			var/mob/living/simple_animal/hostile/fd/lancer/M = A
+		if(istype(A, /mob/living/simple_animal/fd/lancer))
+			var/mob/living/simple_animal/fd/lancer/M = A
 			if(hack_charges <= 0)
 				return FALSE
 			if(!do_after(src, 5 SECONDS, do_flags = DO_BOTH_CAN_MOVE))
@@ -266,8 +261,8 @@
 					return FALSE
 
 				do_attack_animation(A)
-				if(istype(A, /mob/living/simple_animal/hostile/fd/lancer))
-					var/mob/living/simple_animal/hostile/fd/lancer/M = A
+				if(istype(A, /mob/living/simple_animal/fd/lancer))
+					var/mob/living/simple_animal/fd/lancer/M = A
 					var/damage_incoming = 50
 					if(cloaked)
 						damage_incoming += 50

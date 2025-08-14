@@ -12,7 +12,7 @@
 	var/state = rand(1,4)
 	icon_state = "breacher_death_[state]"
 
-/mob/living/simple_animal/hostile/fd/lancer/nelson
+/mob/living/simple_animal/fd/lancer/nelson
 	name = "APU Nelson"
 	desc = "One of the most used breaching units."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/breacher_def.dmi'
@@ -26,7 +26,7 @@
 	armor_stat = 10
 	integrity = 500
 	integrity_max = 500
-	repairs_left = 2
+	repairs = 2
 
 	heat_overflow = 10
 
@@ -49,13 +49,13 @@
 
 	wreck_type = /obj/structure/fd/mech_wreckage/small/nelson
 
-/mob/living/simple_animal/hostile/fd/lancer/nelson/Stat()
+/mob/living/simple_animal/fd/lancer/nelson/Stat()
 	. = ..()
 	if(statpanel("Mech Status"))
 		if(pointblank)
 			stat(SPAN_COLOR("#ff4800", "ПРОТКНУТЬ И ЗАСТРЕЛИТЬ:"), FONT_HUGE(SPAN_COLOR("#ff0000", "ВРЕМЯ ДЕЙСТВОВАТЬ.")))
 
-/mob/living/simple_animal/hostile/fd/lancer/nelson/set_dir()
+/mob/living/simple_animal/fd/lancer/nelson/set_dir()
 	..()
 	switch(dir)
 		if(WEST, SOUTH)
@@ -77,7 +77,7 @@
 	else if(direction == WEST) return list(SOUTHWEST, WEST, NORTHWEST)
 	else return list()
 
-/mob/living/simple_animal/hostile/fd/lancer/nelson/SelfMove(move_dir)
+/mob/living/simple_animal/fd/lancer/nelson/SelfMove(move_dir)
 	var/turf/old_loc = get_turf(src)
 	var/old_dir = dir
 
@@ -115,11 +115,11 @@
 		if(movement_cooldown > 1)
 			movement_cooldown -= 0.5
 
-/mob/living/simple_animal/hostile/fd/lancer/nelson/Bump(atom/A)
+/mob/living/simple_animal/fd/lancer/nelson/Bump(atom/A)
 
 	if(momentum_stacks >= 10)
-		if(istype(A, /mob/living/simple_animal/hostile/fd/lancer))
-			var/mob/living/simple_animal/hostile/fd/lancer/M = A
+		if(istype(A, /mob/living/simple_animal/fd/lancer))
+			var/mob/living/simple_animal/fd/lancer/M = A
 			shake_camera(src, 1, 1)
 			throw_at(get_edge_target_turf(src, get_dir(M, src)), 1, 2, M, FALSE)
 			M.throw_at(get_edge_target_turf(M, get_dir(src, M)), 1, 2, src)
@@ -136,7 +136,7 @@
 
 	. = ..()
 
-/mob/living/simple_animal/hostile/fd/lancer/nelson/Life()
+/mob/living/simple_animal/fd/lancer/nelson/Life()
 
 	if(momentum && world.time >= momentum_timer)
 		momentum = FALSE
@@ -152,7 +152,7 @@
 
 	. = ..()
 
-/mob/living/simple_animal/hostile/fd/lancer/nelson/choose_weapon()
+/mob/living/simple_animal/fd/lancer/nelson/choose_weapon()
 	var/list/options = list(
 		"Shield" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),
 		"Spear" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24")
@@ -171,7 +171,7 @@
 			movement_cooldown = 5
 	playsound(get_turf(src), 'packs/infinity/sound/items/change_jaws.ogg', 80, TRUE)
 
-/mob/living/simple_animal/hostile/fd/lancer/nelson/ClickOn(atom/A, params)
+/mob/living/simple_animal/fd/lancer/nelson/ClickOn(atom/A, params)
 	var/modifiers = params2list(params)
 
 	if(A == src)
@@ -203,7 +203,7 @@
 
 	else if(modifiers["middle"])
 
-	else if(modifiers["shift"] && istype(A, /mob/living/simple_animal/hostile/fd/lancer))
+	else if(modifiers["shift"] && istype(A, /mob/living/simple_animal/fd/lancer))
 		scan(A, params)
 
 	else if(modifiers["alt"])
@@ -230,8 +230,8 @@
 					return FALSE
 
 				do_attack_animation(A)
-				if(istype(A, /mob/living/simple_animal/hostile/fd/lancer))
-					var/mob/living/simple_animal/hostile/fd/lancer/M = A
+				if(istype(A, /mob/living/simple_animal/fd/lancer))
+					var/mob/living/simple_animal/fd/lancer/M = A
 					var/damage_incoming = 10
 					if(M.vulnerable)
 						damage_incoming *= 2
@@ -251,8 +251,8 @@
 					return FALSE
 
 				do_attack_animation(A)
-				if(istype(A, /mob/living/simple_animal/hostile/fd/lancer))
-					var/mob/living/simple_animal/hostile/fd/lancer/M = A
+				if(istype(A, /mob/living/simple_animal/fd/lancer))
+					var/mob/living/simple_animal/fd/lancer/M = A
 					var/damage_incoming = 5
 					if(M.vulnerable)
 						damage_incoming *= 2

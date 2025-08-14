@@ -86,20 +86,20 @@
 /datum/mech_ability/action/drake/bunker/Process()
 	..()
 
-	for(var/mob/living/simple_animal/hostile/fd/lancer/L in shielded_mechs)
+	for(var/mob/living/simple_animal/fd/lancer/L in shielded_mechs)
 		L.protected_by = null
 
 	shielded_mechs.Cut()
 
 	for(var/turf/F as anything in shielded_turfs)
-		for(var/mob/living/simple_animal/hostile/fd/lancer/L as anything in F)
+		for(var/mob/living/simple_animal/fd/lancer/L as anything in F)
 			if(L in shielded_mechs)
 				continue
 			if(L == owner)
 				continue
 			shielded_mechs += L
 
-	for(var/mob/living/simple_animal/hostile/fd/lancer/L in shielded_mechs)
+	for(var/mob/living/simple_animal/fd/lancer/L in shielded_mechs)
 		if(isnull(L.protected_by))
 			L.protected_by = owner
 

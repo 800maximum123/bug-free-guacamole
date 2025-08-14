@@ -17,15 +17,15 @@
 	integrity_damage = 5
 
 /obj/item/projectile/bullet/mech/on_hit(atom/target, blocked = 0)
-	if(istype(target, /mob/living/simple_animal/hostile/fd/lancer))
-		var/mob/living/simple_animal/hostile/fd/lancer/M = target
+	if(istype(target, /mob/living/simple_animal/fd/lancer))
+		var/mob/living/simple_animal/fd/lancer/M = target
 		if(M.vulnerable)
 			integrity_damage *= 2
 
 		M.recieve_damage(integrity_damage = integrity_damage, hull_damage = hull_damage, shredding = shredding, do_animation = TRUE)
 
 /*		if(M.overprotected)
-			for(var/mob/living/simple_animal/hostile/fd/lancer/saladin/D in range(13, get_turf(src)))
+			for(var/mob/living/simple_animal/fd/lancer/saladin/D in range(13, get_turf(src)))
 				if(D.protected != M)
 					continue
 				D.shield_integrity -= final_damage

@@ -23,10 +23,10 @@
 	if(!.)
 		return .
 
-	if(!istype(target, /mob/living/simple_animal/hostile/fd/lancer))
+	if(!istype(target, /mob/living/simple_animal/fd/lancer))
 		return FALSE
 
-	var/mob/living/simple_animal/hostile/fd/lancer/mech = target
+	var/mob/living/simple_animal/fd/lancer/mech = target
 
 	mech.recieve_damage(integrity_damage, hull_damage, shredding)
 

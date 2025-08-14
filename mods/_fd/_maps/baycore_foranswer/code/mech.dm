@@ -1,4 +1,4 @@
-/mob/living/simple_animal/hostile/fd/lancer
+/mob/living/simple_animal/fd/lancer
 	name = "Armored Personal Unit (APU)"
 	desc = "An special experimental vehicle."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/trooper_def.dmi'
@@ -54,7 +54,7 @@
 	var/weapon_equipped = "Standart Pistol"
 
 	var/damaged = FALSE // Мы в "крите"?
-	var/repairs_left = 1 // Сколько раз мы сможем подниматься из мёртвых?
+	var/repairs = 1 // Сколько раз мы сможем подниматься из мёртвых?
 
 	/// На предохранителе ли всё оружие?
 	var/weapon_safety = TRUE
@@ -75,9 +75,9 @@
 	var/dead = FALSE
 
 	var/mob/living/carbon/human/pilot/pilot // Текущий пилот меха
-	var/mob/living/simple_animal/hostile/fd/lancer/protected_by // Защищающий нас мех
+	var/mob/living/simple_animal/fd/lancer/protected_by // Защищающий нас мех
 
-/mob/living/simple_animal/hostile/fd/lancer/Initialize()
+/mob/living/simple_animal/fd/lancer/Initialize()
 	icon_living = icon_state
 
 	. = ..()
@@ -98,20 +98,20 @@
 		selected_equipment = equipment[1]
 
 /// Can't go below 0, getting a smaller amount of effect doesn't lower it's current duration
-/mob/living/simple_animal/hostile/fd/lancer/proc/Effect(type, duration = 1 SECONDS)
+/mob/living/simple_animal/fd/lancer/proc/Effect(type, duration = 1 SECONDS)
 	handle_effects(type, duration)
 	return vars[type] = max(max(vars[type], duration), 0)
 
 /// If you REALLY need to set some effect to a set amount without the whole "can't go below than current duration"
-/mob/living/simple_animal/hostile/fd/lancer/proc/SetEffect(type, duration = 1 SECONDS)
+/mob/living/simple_animal/fd/lancer/proc/SetEffect(type, duration = 1 SECONDS)
 	handle_effects(type, duration)
 	return vars[type] = max(duration, 0)
 
-/mob/living/simple_animal/hostile/fd/lancer/proc/AdjustEffect(type, duration = 1 SECONDS)
+/mob/living/simple_animal/fd/lancer/proc/AdjustEffect(type, duration = 1 SECONDS)
 	handle_effects(type, duration)
 	return vars[type] = max(vars[type] + duration, 0)
 
-/mob/living/simple_animal/hostile/fd/lancer/proc/handle_effects(type, duration)
+/mob/living/simple_animal/fd/lancer/proc/handle_effects(type, duration)
 	if(duration <= 0)
 		return FALSE
 	if(vars[type])
@@ -128,7 +128,7 @@
 			playsound(get_turf(src),'sound/mecha/internaldmgalarm.ogg',20)
 			playsound(get_turf(src),'sound/effects/iron_sizzle.ogg',100,TRUE)
 
-/mob/living/simple_animal/hostile/fd/lancer/proc/recieve_damage(integrity_damage = 0, hull_damage = 1, shredding = FALSE, do_animation = TRUE)
+/mob/living/simple_animal/fd/lancer/proc/recieve_damage(integrity_damage = 0, hull_damage = 1, shredding = FALSE, do_animation = TRUE)
 	var/final_damage = 0
 	var/nullified = TRUE
 
@@ -158,11 +158,11 @@
 
 	return TRUE
 
-/mob/living/simple_animal/hostile/fd/lancer/proc/redirect_damage(mob/living/simple_animal/hostile/fd/lancer/target, real_damage = 0, armor_damage = 1, ap = FALSE, animation = TRUE)
+/mob/living/simple_animal/fd/lancer/proc/redirect_damage(mob/living/simple_animal/fd/lancer/target, real_damage = 0, armor_damage = 1, ap = FALSE, animation = TRUE)
 	log_and_message_admins(SPAN_WARNING("<b> [src] получил перенаправленный урон на [real_damage] INTEG!</i></b>"))
 	target.recieve_damage(integrity_damage = real_damage, hull_damage = armor_damage, shredding = ap, do_animation = animation)
 
-/mob/living/simple_animal/hostile/fd/lancer/proc/damage_animation(damage_blocked = FALSE)
+/mob/living/simple_animal/fd/lancer/proc/damage_animation(damage_blocked = FALSE)
 	if(damage_blocked)
 		animate(src, color = COLOR_DEEP_SKY_BLUE, time = 0.2 SECOND, easing = CUBIC_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
 		spawn(0.4 SECOND)
@@ -172,13 +172,13 @@
 		spawn(0.4 SECOND)
 			animate(src, color = initial(color), time = 0.2 SECOND, easing = CUBIC_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
 
-/mob/living/simple_animal/hostile/fd/lancer/proc/add_ability(ability_type)
+/mob/living/simple_animal/fd/lancer/proc/add_ability(ability_type)
 	return new ability_type(src)
 
-/mob/living/simple_animal/hostile/fd/lancer/proc/add_weapon(weapon_type)
+/mob/living/simple_animal/fd/lancer/proc/add_weapon(weapon_type)
 	return new weapon_type(src)
 
-/mob/living/simple_animal/hostile/fd/lancer/proc/resupply()
+/mob/living/simple_animal/fd/lancer/proc/resupply()
 	SHOULD_CALL_PARENT(TRUE)
 	mech_reboot(FALSE, FALSE)
 
@@ -186,17 +186,17 @@
 	integrity = integrity_max
 	heat = 0
 	spare_magazines = initial(spare_magazines)
-	repairs_left = initial(repairs_left)
+	repairs = initial(repairs)
 	overheated = 0
 	chained = 0
 	malfunctioned = 0
 	hacked = 0
 	vulnerable = 0
 
-/mob/living/simple_animal/hostile/fd/lancer/can_pull()
+/mob/living/simple_animal/fd/lancer/can_pull()
 	return FALSE
 
-/mob/living/simple_animal/hostile/fd/lancer/proc/scan(mob/living/simple_animal/hostile/fd/lancer/mech_target, params)
+/mob/living/simple_animal/fd/lancer/proc/scan(mob/living/simple_animal/fd/lancer/mech_target, params)
 	set waitfor = FALSE
 
 	to_chat(src, SPAN_NOTICE("Вы пытаетесь просканировать сигнатуру [mech_target]..."))
@@ -212,7 +212,7 @@
 	to_chat(src, SPAN_NOTICE("Сканирование завершено."))
 	to_chat(mech_target, SPAN_WARNING("Ваша сигнатура была просканирована."))
 
-/mob/living/simple_animal/hostile/fd/lancer/proc/get_scan_info()
+/mob/living/simple_animal/fd/lancer/proc/get_scan_info()
 	. = ""
 	var/integrity_color = gradient(COLOR_RED, COLOR_DARKMODE_TEXT, (integrity*1.4)/integrity_max)
 	. += FONT_NORMAL("<li>[SPAN_COLOR(integrity_color, "Структуры: [Percent(integrity,integrity_max,1)]%")]")
@@ -223,7 +223,7 @@
 	for(var/datum/mech_ability/ability as anything in abilities)
 		. += ability.get_scan_info(src)
 
-/mob/living/simple_animal/hostile/fd/lancer/proc/mech_reboot(delay = TRUE, heal = TRUE)
+/mob/living/simple_animal/fd/lancer/proc/mech_reboot(delay = TRUE, heal = TRUE)
 	set waitfor = FALSE
 
 	if(!damaged)
@@ -236,7 +236,7 @@
 
 	if(heal)
 		integrity = integrity_max / 2
-		repairs_left -= 1
+		repairs -= 1
 
 	damaged = FALSE
 	anchored = FALSE
@@ -252,7 +252,7 @@
 	animate(src, time = 2 SECONDS, color = initial(color), transform = matrix(), easing = SINE_EASING, flags = ANIMATION_PARALLEL)
 	return TRUE
 
-/mob/living/simple_animal/hostile/fd/lancer/Stat()
+/mob/living/simple_animal/fd/lancer/Stat()
 	. = ..()
 	if(!statpanel("Mech Status"))
 		return
@@ -263,9 +263,9 @@
 		var/ammo_color = gradient(COLOR_RED, COLOR_DARKMODE_TEXT, spare_magazines/initial(spare_magazines))
 		stat(FONT_NORMAL(SPAN_COLOR(ammo_color, "Запасных Магазинов:")), FONT_NORMAL(SPAN_COLOR(ammo_color, "[spare_magazines] / [initial(spare_magazines)]")))
 
-	if(initial(repairs_left)) // ноль на ноль делить нельзя
-		var/repairs_color = gradient(COLOR_RED, COLOR_DARKMODE_TEXT, repairs_left/initial(repairs_left))
-		stat(FONT_NORMAL(SPAN_COLOR(repairs_color, "Комплектов Починки:")), FONT_NORMAL(SPAN_COLOR(repairs_color, "[repairs_left] / [initial(repairs_left)]")))
+	if(initial(repairs)) // ноль на ноль делить нельзя
+		var/repairs_color = gradient(COLOR_RED, COLOR_DARKMODE_TEXT, repairs/initial(repairs))
+		stat(FONT_NORMAL(SPAN_COLOR(repairs_color, "Комплектов Починки:")), FONT_NORMAL(SPAN_COLOR(repairs_color, "[repairs] / [initial(repairs)]")))
 
 	if(integrity_max)
 		var/integrity_color = gradient(COLOR_RED, COLOR_DARKMODE_TEXT, (integrity*1.4)/integrity_max)
@@ -285,7 +285,7 @@
 		for(var/list/data as anything in data_set)
 			stat(data["title"], data["desc"])
 
-/mob/living/simple_animal/hostile/fd/lancer/death()
+/mob/living/simple_animal/fd/lancer/death()
 	dead = TRUE
 	anchored = TRUE
 	playsound(get_turf(src),'sound/mecha/mech-shutdown.ogg',150)
@@ -301,7 +301,7 @@
 		..(FALSE, "suddenly breaks apart.", "You have been destroyed.")
 		QDEL_NULL(src)
 
-/mob/living/simple_animal/hostile/fd/lancer/proc/choose_weapon()
+/mob/living/simple_animal/fd/lancer/proc/choose_weapon()
 	var/list/options = list(
 		"Standart Pistol" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),
 		"Standart Rifle" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24")
@@ -312,14 +312,14 @@
 	weapon_equipped = chosen_option
 	playsound(get_turf(src), 'packs/infinity/sound/items/change_jaws.ogg', 80, TRUE)
 
-/mob/living/simple_animal/hostile/fd/lancer/verb/change_view()
+/mob/living/simple_animal/fd/lancer/verb/change_view()
 	set name = "Мех - Сменить радиус зрения"
 	set category = "IC"
 	set desc = "This will let you change your view range."
 
 	src.client.view = input("Select view range:", "FUCK YEAH", 12) in list(7,8,9,10,11,12,13,14)
 
-/mob/living/simple_animal/hostile/fd/lancer/verb/exit_mech()
+/mob/living/simple_animal/fd/lancer/verb/exit_mech()
 	set name = "Мех - Покинуть"
 	set category = "IC"
 	set desc = "Позволяет покинуть боевую машину."
@@ -339,7 +339,7 @@
 	pilot.client.view = 7
 	pilot = null
 
-/mob/living/simple_animal/hostile/fd/lancer/proc/recalculate_mech_speed()
+/mob/living/simple_animal/fd/lancer/proc/recalculate_mech_speed()
 	. = base_movement_cooldown
 	if(overheated)
 		. -= 1
@@ -349,7 +349,7 @@
 		. += ability.speed_debuff
 	movement_cooldown = .
 
-/mob/living/simple_animal/hostile/fd/lancer/Life()
+/mob/living/simple_animal/fd/lancer/Life()
 
 	if(heat >= heat_overflow && !overheated)
 		heat = 0
@@ -389,7 +389,7 @@
 		playsound(get_turf(src),'sound/mecha/internaldmgalarm.ogg',20)
 		if(!damaged)
 			damaged = TRUE
-			if(repairs_left <= 0 && !dead)
+			if(repairs <= 0 && !dead)
 				death()
 				return ..()
 			playsound(get_turf(src),'sound/mecha/mech-shutdown.ogg',100)
@@ -403,7 +403,7 @@
 
 	. = ..()
 
-/mob/living/simple_animal/hostile/fd/lancer/SelfMove(dir)
+/mob/living/simple_animal/fd/lancer/SelfMove(dir)
 	if(damaged)
 		return 0
 
@@ -412,7 +412,7 @@
 
 	. = ..()
 
-/mob/living/simple_animal/hostile/fd/lancer/ClickOn(atom/A, params)
+/mob/living/simple_animal/fd/lancer/ClickOn(atom/A, params)
 	if(next_click > world.time) // Hard check, before anything else, to avoid crashing
 		return FALSE
 
@@ -428,8 +428,8 @@
 
 	if(!handle_abilities(A, params))
 		if(params_list["shift"] && params_list["left"])
-			if(istype(A, /mob/living/simple_animal/hostile/fd/lancer))
-				var/mob/living/simple_animal/hostile/fd/lancer/scan_target = A
+			if(istype(A, /mob/living/simple_animal/fd/lancer))
+				var/mob/living/simple_animal/fd/lancer/scan_target = A
 				scan_target.scan(A, params)
 			return A.ShiftClick(src)
 
@@ -437,7 +437,7 @@
 
 	return TRUE
 
-/mob/living/simple_animal/hostile/fd/lancer/proc/handle_abilities(atom/A, params)
+/mob/living/simple_animal/fd/lancer/proc/handle_abilities(atom/A, params)
 	. = FALSE
 
 	if(hacked)
@@ -476,7 +476,7 @@
 
 	return .
 
-/mob/living/simple_animal/hostile/fd/lancer/proc/handle_weapons(atom/A, params)
+/mob/living/simple_animal/fd/lancer/proc/handle_weapons(atom/A, params)
 	var/params_list = params2list(params)
 	if(!params_list["left"])
 		return

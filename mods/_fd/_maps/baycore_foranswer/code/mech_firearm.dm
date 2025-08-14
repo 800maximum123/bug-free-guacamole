@@ -19,7 +19,7 @@
 	/// Время перезарядки магазина
 	var/reload_time = 3 SECONDS
 
-/datum/mech_equipment/firearm/New(mob/living/simple_animal/hostile/fd/lancer/new_owner)
+/datum/mech_equipment/firearm/New(mob/living/simple_animal/fd/lancer/new_owner)
 	. = ..()
 	ammo = max_ammo
 
@@ -83,7 +83,7 @@
 
 	return TRUE
 
-/datum/mech_equipment/firearm/get_stat_info(mob/living/simple_animal/hostile/fd/lancer/user)
+/datum/mech_equipment/firearm/get_stat_info(mob/living/simple_animal/fd/lancer/user)
 	. = ..()
 	if(max_ammo > 0)
 		. += list(list(

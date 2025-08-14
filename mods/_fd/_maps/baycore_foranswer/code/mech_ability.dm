@@ -30,9 +30,9 @@
 	var/next_use = 0
 
 	/// Референс к владельцу
-	var/mob/living/simple_animal/hostile/fd/lancer/owner
+	var/mob/living/simple_animal/fd/lancer/owner
 
-/datum/mech_ability/New(mob/living/simple_animal/hostile/fd/lancer/new_owner)
+/datum/mech_ability/New(mob/living/simple_animal/fd/lancer/new_owner)
 	. = ..()
 	owner = new_owner
 	new_owner.abilities += src
@@ -73,7 +73,7 @@
 
 /// Информация, которая пойдёт от абилки в стат панель игрока
 /// ПРИМЕЧАНИЕ: += list(list( требуется для того, что бы список из тайтла и описания правильно добавился :3
-/datum/mech_ability/proc/get_stat_info(mob/living/simple_animal/hostile/fd/lancer/user)
+/datum/mech_ability/proc/get_stat_info(mob/living/simple_animal/fd/lancer/user)
 	RETURN_TYPE(/list)
 	. = list()
 	var/time = world.time
@@ -90,7 +90,7 @@
 	return .
 
 /// Дополнительная информация после скана владельца, диктуемая этой способностью (ПОКА НЕ ГОТОВО)
-/datum/mech_ability/proc/get_scan_info(mob/living/simple_animal/hostile/fd/lancer/user)
+/datum/mech_ability/proc/get_scan_info(mob/living/simple_animal/fd/lancer/user)
 	. = ""
 	return .
 

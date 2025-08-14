@@ -1228,7 +1228,7 @@
 
 ////// МЕХИ СИМУЛЯКРЫ //////
 
-/mob/living/simple_animal/hostile/fd/lancer/napoleon/holo
+/mob/living/simple_animal/fd/lancer/napoleon/holo
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/mechs_sim.dmi'
 	icon_state = "TROOPER"
 
@@ -1236,11 +1236,11 @@
 
 	integrity = 250
 	integrity_max = 250
-	repairs_left = 0
+	repairs = 0
 
 	heat_overflow = 5
 
-/mob/living/simple_animal/hostile/fd/lancer/drake/holo
+/mob/living/simple_animal/fd/lancer/drake/holo
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/mechs_sim.dmi'
 	icon_state = "HEAVY"
 
@@ -1248,14 +1248,14 @@
 
 	integrity = 500
 	integrity_max = 500
-	repairs_left = 0
+	repairs = 0
 
 	heat_overflow = 5
 
 	pixel_x = -125
 	default_pixel_x = -125
 
-/mob/living/simple_animal/hostile/fd/lancer/lancaster/holo
+/mob/living/simple_animal/fd/lancer/lancaster/holo
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/mechs_sim.dmi'
 	icon_state = "ENGINEER"
 
@@ -1263,11 +1263,11 @@
 
 	integrity = 250
 	integrity_max = 250
-	repairs_left = 0
+	repairs = 0
 
 	heat_overflow = 3
 
-/mob/living/simple_animal/hostile/fd/lancer/saladin/holo
+/mob/living/simple_animal/fd/lancer/saladin/holo
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/mechs_sim.dmi'
 	icon_state = "EXPERIMENTAL"
 
@@ -1276,11 +1276,11 @@
 
 	integrity = 150
 	integrity_max = 150
-	repairs_left = 0
+	repairs = 0
 
 	heat_overflow = 20
 
-/mob/living/simple_animal/hostile/fd/lancer/goblintail/holo
+/mob/living/simple_animal/fd/lancer/goblintail/holo
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/mechs_sim.dmi'
 	icon_state = "SCOUT"
 
@@ -1288,7 +1288,7 @@
 
 	integrity = 150
 	integrity_max = 150
-	repairs_left = 0
+	repairs = 0
 
 	heat_overflow = 5
 

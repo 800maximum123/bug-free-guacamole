@@ -15,7 +15,7 @@
 	var/state = rand(1,2)
 	icon_state = "experimental_death_[state]"
 
-/mob/living/simple_animal/hostile/fd/lancer/saladin
+/mob/living/simple_animal/fd/lancer/saladin
 	name = "SUPP-APU Saladin"
 	desc = "An special experimental mech, utilizing some of the stolen enemy tech."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/experimental_def.dmi'
@@ -35,19 +35,19 @@
 
 	weapon_equipped = "Thermal Release"
 
-	repairs_left = 2
+	repairs = 2
 
 	base_movement_cooldown = 4
 
 	var/jump_cooldown = 0
 
-	var/mob/living/simple_animal/hostile/fd/lancer/protected = null
+	var/mob/living/simple_animal/fd/lancer/protected = null
 	var/shield_integrity = 200
 	var/shield_cooldown = 0
 
 	wreck_type = /obj/structure/fd/mech_wreckage/small/saladin
 
-/mob/living/simple_animal/hostile/fd/lancer/saladin/Stat()
+/mob/living/simple_animal/fd/lancer/saladin/Stat()
 	. = ..()
 	if(statpanel("Mech Status"))
 		if(jump_cooldown > world.time)
@@ -55,9 +55,9 @@
 		if(protected)
 			stat(SPAN_COLOR("#6dc5ff", "Барьера ") + protected.name + SPAN_COLOR("#6dc5ff", ":"), SPAN_COLOR("#6dc5ff", "[shield_integrity]"))
 
-/mob/living/simple_animal/hostile/fd/lancer/saladin/Life()
+/mob/living/simple_animal/fd/lancer/saladin/Life()
 	if(overheated && overheated_timer > 0 && !damaged)
-		for(var/mob/living/simple_animal/hostile/fd/lancer/M in orange(5,src))
+		for(var/mob/living/simple_animal/fd/lancer/M in orange(5,src))
 			M.integrity -= 5
 			M.damage_animation(5, ignore_armor = TRUE)
 
@@ -80,13 +80,13 @@
 		protected = null
 		shield_cooldown = world.time + 5 SECONDS
 
-/mob/living/simple_animal/hostile/fd/lancer/saladin/ClickOn(atom/A, params)
+/mob/living/simple_animal/fd/lancer/saladin/ClickOn(atom/A, params)
 	var/modifiers = params2list(params)
 
 	// Выше приоритетом, что бы щит можно было наложить на себя
 	if(modifiers["middle"])
-		if(istype(A, /mob/living/simple_animal/hostile/fd/lancer))
-			var/mob/living/simple_animal/hostile/fd/lancer/M = A
+		if(istype(A, /mob/living/simple_animal/fd/lancer))
+			var/mob/living/simple_animal/fd/lancer/M = A
 			if(world.time <= shield_cooldown)
 				return FALSE
 
@@ -142,7 +142,7 @@
 			return FALSE
 
 	else if(modifiers["shift"])
-		if(istype(A, /mob/living/simple_animal/hostile/fd/lancer))
+		if(istype(A, /mob/living/simple_animal/fd/lancer))
 			scan(A, params)
 
 	else if(modifiers["alt"])
@@ -191,7 +191,7 @@
 	else
 		. = ..()
 
-/mob/living/simple_animal/hostile/fd/lancer/saladin/consume_ammo()
+/mob/living/simple_animal/fd/lancer/saladin/consume_ammo()
 	if(heat <= 0)
 		return FALSE
 	heat -= 1
@@ -206,8 +206,8 @@
 /obj/item/projectile/bullet/mech/saladin/on_hit(atom/target, blocked = 0)
 	. = ..()
 
-	if(istype(target, /mob/living/simple_animal/hostile/fd/lancer))
-		var/mob/living/simple_animal/hostile/fd/lancer/M = target
+	if(istype(target, /mob/living/simple_animal/fd/lancer))
+		var/mob/living/simple_animal/fd/lancer/M = target
 
 		M.heat += 2
 		to_chat(M, SPAN_DANGER("Твой мех начинает перегреватся после попадания плазмы!"))
