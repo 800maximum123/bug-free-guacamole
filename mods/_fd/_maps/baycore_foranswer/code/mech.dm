@@ -24,7 +24,7 @@
 	see_in_dark = 30
 
 	/// Список способностей меха
-	var/list/abilities = list(
+	var/list/datum/mech_ability/abilities = list(
 		/datum/mech_ability/action/change_module,
 		/datum/mech_ability/action/reboot,
 		/datum/mech_ability/action/toggle_safety,
@@ -33,7 +33,7 @@
 	/// Выбранный тип оружия
 	var/datum/mech_equipment/selected_equipment = null
 	/// Список оружия меха
-	var/list/equipment = list(
+	var/list/datum/mech_equipment/equipment = list(
 		/datum/mech_equipment/firearm,
 		/datum/mech_equipment/weapon,
 	)
@@ -135,6 +135,13 @@
 	if(damaged)
 		return FALSE
 
+	for(var/datum/mech_ability/action/toggle_cloak/cloak as anything in abilities)
+		if(istype(cloak) && cloak.state)
+			cloak.use()
+
+	if(vulnerable)
+		final_damage *= 2
+
 	if(!isnull(protected_by))
 		redirect_damage(protected_by, integrity_damage, hull_damage, shredding, do_animation)
 		log_and_message_admins(SPAN_WARNING("<b> [src] только что передел [protected_by] урон в размере [integrity_damage] INTEG!</i></b>"))
@@ -142,9 +149,6 @@
 
 	if(!shredding && prob(armor_durability))
 		final_damage = integrity_damage - armor_stat
-
-	if(vulnerable)
-		final_damage *= 2
 
 	if(final_damage > 0)
 		integrity -= final_damage
@@ -301,17 +305,6 @@
 		..(FALSE, "suddenly breaks apart.", "You have been destroyed.")
 		QDEL_NULL(src)
 
-/mob/living/simple_animal/fd/lancer/proc/choose_weapon()
-	var/list/options = list(
-		"Standart Pistol" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),
-		"Standart Rifle" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24")
-	)
-	var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 125, offset_y = 125)
-	if(!chosen_option)
-		return FALSE
-	weapon_equipped = chosen_option
-	playsound(get_turf(src), 'packs/infinity/sound/items/change_jaws.ogg', 80, TRUE)
-
 /mob/living/simple_animal/fd/lancer/verb/change_view()
 	set name = "Мех - Сменить радиус зрения"
 	set category = "IC"
@@ -368,7 +361,7 @@
 		visible_message(SPAN_WARNING("[src] прекратил плавиться от перегрева!"))
 		animate(get_filter("heated"), time = 5 SECONDS, size = 0, flags = ANIMATION_PARALLEL)
 		animate(get_filter("heated_blur"), time = 5 SECONDS, size = 0, flags = ANIMATION_PARALLEL)
-		animate(src, time = 5 SECONDS, color = initial(color), transform = matrix(), flags = ANIMATION_PARALLEL)
+		animate(src, time = 5 SECONDS, color = initial(color), flags = ANIMATION_PARALLEL)
 		if(has_overheated_state && !dead)
 			icon_state = initial(icon_state)
 
@@ -411,6 +404,10 @@
 		return FALSE
 
 	. = ..()
+	if(!.)
+		return
+
+	next_move = world.time + movement_cooldown
 
 /mob/living/simple_animal/fd/lancer/ClickOn(atom/A, params)
 	if(next_click > world.time) // Hard check, before anything else, to avoid crashing
@@ -457,6 +454,8 @@
 				continue
 
 			options[ability.name] = image(ability.action_icon, ability.action_state)
+			options[ability.name]?:color = ability.action_color
+
 			actions[ability.name] = ability
 
 		var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 125, offset_y = 125)

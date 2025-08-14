@@ -1,9 +1,12 @@
 /datum/mech_ability
 	var/name = ""
+
 	/// Путь к иконке в радиальном меню
 	var/action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/ui.dmi'
 	/// Иконка в радиальном меню
 	var/action_state = "1"
+	/// Цвет придаваемый иконке в радиальном меню
+	var/action_color = "#ffffff"
 
 	/// Список параметров клика мышкой, при котором будет применяться способность
 	var/list/required_params = list()
@@ -56,6 +59,9 @@
 
 /// Хэндлер для активации способности, содержит все базовые проверки для использования
 /datum/mech_ability/proc/handle_use(atom/target, params)
+	if(owner.hacked)
+		return FALSE
+
 	if(max_charges && (charges <= 0))
 		to_chat(owner, SPAN_WARNING("Способность <[name]> не имеет зарядов!"))
 		return FALSE
@@ -79,8 +85,8 @@
 	var/time = world.time
 	if(next_use > time)
 		. += list(list(
-			"title" = SPAN_ABILITY_STAT("<[name]> Готов Через:", stat_color),
-			"desc" = SPAN_ABILITY_STAT("[SECONDS_LEFT(next_use, time)] секунд", stat_color),
+			"title" = SPAN_ABILITY_GRADIENT("<[name]> Готов Через:", next_use/time),
+			"desc" = SPAN_ABILITY_GRADIENT("[SECONDS_LEFT(next_use, time)] секунд", next_use/time),
 			))
 	if(max_charges)
 		. += list(list(

@@ -13,6 +13,8 @@
 	var/list/actions = list()
 	for(var/datum/mech_equipment/equip as anything in owner.equipment)
 		options[equip.name] = image(equip.action_icon, equip.action_state)
+		options[equip.name]?:color = equip.action_color
+
 		actions[equip.name] = equip
 
 	var/chosen_option = show_radial_menu(owner, owner, options, radius = 30, require_near = TRUE, offset_x = 125, offset_y = 125)

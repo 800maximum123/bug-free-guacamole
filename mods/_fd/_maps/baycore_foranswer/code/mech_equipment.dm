@@ -5,6 +5,8 @@
 	var/action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/ui.dmi'
 	/// Иконка в радиальном меню
 	var/action_state = "2"
+	/// Цвет придаваемый иконке в радиальном меню
+	var/action_color = "#ffffff"
 
 	/// Цвет информации об оружии в стат панели
 	var/stat_color = COLOR_DARKMODE_TEXT

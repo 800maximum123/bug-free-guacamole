@@ -26,8 +26,6 @@
 		var/debuff = pick("overheated","Stunned","Broken")
 		switch(debuff)
 			if("overheated")
-				overheated = TRUE
-				overheated_timer = initial(overheated_timer)
 				heat = 0
 				if(has_overheated_state)
 					icon_state = "[icon_living]_charged"
@@ -39,10 +37,8 @@
 				playsound(get_turf(src),'sound/mecha/internaldmgalarm.ogg',20)
 				playsound(get_turf(src),'sound/effects/iron_sizzle.ogg',100,TRUE)
 			if("Stunned")
-				chained_for = world.time + 10 SECONDS
 				chained = TRUE
 			if("Broken")
-				malf_for = world.time + 10 SECONDS
 				malfunctioned = TRUE
 
 	clear_fullscreen("scanlines")
@@ -61,10 +57,6 @@
 	. = ..()
 	var/state = rand(1,4)
 	icon_state = "scout_death_[state]"
-
-/mob/living/simple_animal/fd/lancer/goblintail/resupply()
-	. = ..()
-	gun_ammo = initial(gun_ammo)
 
 /mob/living/simple_animal/fd/lancer/goblintail
 	name = "L-APU Goblintail"
@@ -106,12 +98,6 @@
 		if(recharging)
 			stat(SPAN_COLOR("#ec75fc", "Следующий Заряд:"), SPAN_COLOR("#ec75fc","[recharge_in - world.time / 10] Секунд"))
 
-/mob/living/simple_animal/fd/lancer/goblintail/damage_animation(amount, ignore_armor = FALSE)
-	. = ..()
-
-	if(cloaked)
-		cloaked = FALSE
-
 /mob/living/simple_animal/fd/lancer/goblintail/Life()
 
 	if(hack_charges < initial(hack_charges) && !recharging)
@@ -136,23 +122,6 @@
 
 	. = ..()
 
-/mob/living/simple_animal/fd/lancer/goblintail/choose_weapon()
-	var/list/options = list(
-		"Submachine Gun" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24"),
-		"Whip" = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "24")
-	)
-	var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 105, offset_y = 90)
-	if(!chosen_option)
-		return FALSE
-	weapon_equipped = chosen_option
-	playsound(get_turf(src), 'packs/infinity/sound/items/change_jaws.ogg', 80, TRUE)
-
-/mob/living/simple_animal/fd/lancer/goblintail/consume_ammo()
-	if(gun_ammo <= 0)
-		return FALSE
-	gun_ammo--
-	return TRUE
-
 /mob/living/simple_animal/fd/lancer/goblintail/ClickOn(atom/A, params)
 	var/modifiers = params2list(params)
 
@@ -174,27 +143,6 @@
 				return FALSE
 
 			switch(chosen_option)
-				if("Reload Weapon")
-					if(weapon_equipped == "Submachine Gun")
-						if(spare_magazines <= 0)
-							return FALSE
-
-						visible_message(SPAN_NOTICE("[src] начинает перезаряжать своё орудие."), SPAN_INFO("Ты начинаешь перезаряжать своё орудие."))
-						if(!do_after(src, 10 SECONDS))
-							return FALSE
-
-						playsound(get_turf(src), 'mods/_fd/immersive_sounds/sounds/SOMA/server_lever_reset_01.ogg', 80)
-						visible_message(SPAN_NOTICE("[src] загружает новую порцию патрон в систему."), SPAN_INFO("Ты загружаешь новую порцию патрон в систему."))
-
-						gun_ammo = initial(gun_ammo)
-						spare_magazines -= 1
-
-				if("Toggle Safety")
-					weapon_safety = !weapon_safety
-					playsound(get_turf(src), 'packs/infinity/sound/effects/using/switch/small2.ogg', 80, TRUE)
-
-				if("Change Weapon")
-					choose_weapon()
 
 				if("Cloak On/Off")
 					if(cloaked)
@@ -210,9 +158,6 @@
 						animate(src, 1 SECOND, alpha = 30)
 						set_light(3, 2, l_color = cloak_color)
 						cloaked = TRUE
-
-				if("Reboot")
-					mech_reboot()
 
 			return FALSE
 
@@ -250,7 +195,6 @@
 					damage_bonus += 20
 					cloaked = FALSE
 					next_cloak_in = world.time + 10 SECONDS
-				mech_shoot(A, /obj/item/projectile/bullet/mech/goblintail, 1 SECONDS, 3, 2, damage_bonus)
 
 			if("Whip")
 				if(damaged)
@@ -281,5 +225,6 @@
 		. = ..()
 
 /obj/item/projectile/bullet/mech/goblintail
-	mech_damage = 5
+	integrity_damage = 5
+	hull_damage = 5
 	fire_sound = 'sound/weapons/gunshot/gunshot.ogg'
