@@ -6,6 +6,7 @@
 #define CALIBER_PISTOL_FAST	 "5.7mmP"
 
 #define CALIBER_RIFLE			"5mmR"
+#define CALIBER_RIFLE_CASELESS	"6mmC"
 #define CALIBER_RIFLE_MILITARY  "7mmR"
 #define CALIBER_ANTIMATERIAL    "15mmR"
 

@@ -208,6 +208,10 @@
 	damage = 40
 	armor_penetration = 35
 
+/obj/item/projectile/bullet/rifle/caseless
+	damage = 35
+	armor_penetration = 35
+
 /obj/item/projectile/bullet/rifle/shell
 	fire_sound = 'sound/weapons/gunshot/sniper.ogg'
 	damage = 80

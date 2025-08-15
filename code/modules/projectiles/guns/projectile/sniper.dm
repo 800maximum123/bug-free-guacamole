@@ -150,6 +150,46 @@
 		icon_state = "dmr-empty"
 	..()
 
+/obj/item/gun/projectile/sniper/caseless
+	name = "caseless marksman rifle"
+	desc = "An H3/M 'Ocelot' marksman rifle. A mainstay of SCGDF, H3 and its configurations are made to shine in situations \
+	where Z8 lacks versatility. Courtesy of Hephaestus Industries. This one comes with a better stock and optics, but only has a semi-auto firemode."
+	icon = 'icons/obj/guns/pointman.dmi'
+	icon_state = "marksman"
+	item_state = null
+	w_class = ITEM_SIZE_HUGE
+	force = 12
+	caliber = CALIBER_RIFLE_CASELESS
+	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 1, TECH_ESOTERIC = 5)
+	slot_flags = SLOT_BACK
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/caseless_rifle
+	allowed_magazines = /obj/item/ammo_magazine/caseless_rifle
+	auto_eject = 1
+	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+	handle_casings = CLEAR_CASINGS // obviously
+	one_hand_penalty = 10
+	scoped_accuracy = 8
+	scope_zoom = 1
+	accuracy_power = 8
+	accuracy = 3
+	bulk = GUN_BULK_RIFLE
+	wielded_item_state = "battlerifle-wielded"
+	mag_insert_sound = 'sound/weapons/guns/interaction/ltrifle_magin.ogg'
+	mag_remove_sound = 'sound/weapons/guns/interaction/ltrifle_magout.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
+
+/obj/item/gun/projectile/sniper/caseless/on_update_icon()
+	..()
+	if(ammo_magazine)
+		if(length(ammo_magazine.stored_ammo))
+			icon_state = "marksman-loaded"
+		else
+			icon_state = "marksman-empty"
+	else
+		icon_state = "marksman"
+
+
 /obj/item/gun/projectile/sniper/garand
 	name = "garand rifle"
 	desc = "The rugged garand is a old semi-automatic weapon popular on the frontier worlds. PING!"

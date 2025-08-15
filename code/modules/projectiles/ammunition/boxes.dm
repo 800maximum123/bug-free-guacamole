@@ -348,6 +348,30 @@
 	labels = list("light, practice")
 	ammo_type = /obj/item/ammo_casing/rifle/military/practice
 
+/obj/item/ammo_magazine/caseless_rifle
+	name = "caseless rifle magazine"
+	icon_state = "caseless"
+	origin_tech = list(TECH_COMBAT = 4)
+	mag_type = MAGAZINE
+	caliber = CALIBER_RIFLE_CASELESS
+	matter = list(MATERIAL_STEEL = 1200)
+	ammo_type = /obj/item/ammo_casing/rifle/caseless
+	max_ammo = 24
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/caseless_box
+	name = "caseless rifle box magazine"
+	desc = "A magazine for machine guns with an absurd capacity for its size. \
+	Due to its weight, though, only guns with modified magwells can fit it."
+	icon_state = "caselessbox"
+	w_class = ITEM_SIZE_NORMAL
+	mag_type = MAGAZINE
+	caliber = CALIBER_RIFLE_CASELESS
+	matter = list(MATERIAL_STEEL = 6000)
+	ammo_type = /obj/item/ammo_casing/rifle/caseless
+	max_ammo = 80
+	multiple_sprites = 1
+
 /obj/item/ammo_magazine/caps
 	name = "speed loader"
 	desc = "A cheap plastic speed loader for some kind of revolver."

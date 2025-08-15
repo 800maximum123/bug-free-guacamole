@@ -170,6 +170,13 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/military/practice
 	icon_state = "rifle_mil_p"
 
+/obj/item/ammo_casing/rifle/caseless
+	name = "caseless cartridge"
+	desc = "A rifle bullet with a combustible casing, made to burn up along with a propellant."
+	caliber = CALIBER_RIFLE_CASELESS
+	projectile_type = /obj/item/projectile/bullet/rifle/caseless
+	icon_state = "rifle_caseless"
+
 /obj/item/ammo_casing/rocket
 	name = "rocket shell"
 	desc = "A high explosive designed to be fired from a launcher."
