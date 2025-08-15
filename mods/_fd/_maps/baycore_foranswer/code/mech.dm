@@ -34,7 +34,8 @@
 		/datum/mech_ability/action/toggle_cloak,
 		/datum/mech_ability/intrusion,
 		/datum/mech_ability/action/boosters_passive,
-		/datum/mech_ability/boosters_quick
+		/datum/mech_ability/boosters_quick,
+		/datum/mech_ability/action/accelerate
 	)
 
 	/// Выбранный тип оружия

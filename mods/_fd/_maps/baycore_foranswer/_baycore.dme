@@ -17,6 +17,7 @@
 #include "code/mech_abilities/reboot.dm"
 #include "code/mech_abilities/toggle_safety.dm"
 
+#include "code/mech_abilities/drake/accelerate.dm"
 #include "code/mech_abilities/drake/bunker.dm"
 #include "code/mech_abilities/drake/ground_slam.dm"
 
@@ -44,12 +45,3 @@
 #include "code/mech.dm"
 
 #endif
-// BEGIN_INTERNALS
-// END_INTERNALS
-// BEGIN_FILE_DIR
-#define FILE_DIR .
-// END_FILE_DIR
-// BEGIN_PREFERENCES
-// END_PREFERENCES
-// BEGIN_INCLUDE
-// END_INCLUDE
