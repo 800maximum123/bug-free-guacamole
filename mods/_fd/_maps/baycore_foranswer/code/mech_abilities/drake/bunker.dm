@@ -37,8 +37,9 @@
 
 /datum/mech_ability/action/bunker/use(atom/target, params)
 	. = ..()
+	if(!.)
+		return
 
-	var/pixel_y_adjust = owner.pixel_y + 10
 	var/current_direction = owner.dir
 
 	in_bunker = !in_bunker
@@ -49,10 +50,16 @@
 
 		check_direction(current_direction)
 
-		playsound(get_turf(owner),'packs/infinity/sound/mecha/bigmech_rstep.ogg',100)
-		animate(owner, pixel_y = pixel_y_adjust, time = 0.5 SECONDS, easing = LINEAR_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
-		spawn(0.5 SECONDS)
-			animate(owner, pixel_y = owner.default_pixel_y, time = 0.2 SECONDS, easing = ELASTIC_EASING)
+		animate(owner, time = 2 SECONDS, transform = matrix(30, MATRIX_ROTATE), easing = SINE_EASING, flags = ANIMATION_PARALLEL)
+		spawn(2 SECONDS)
+			playsound(get_turf(owner),'packs/infinity/sound/mecha/bigmech_rstep.ogg',100)
+			animate(owner, time = 0.5 SECONDS, transform = matrix(), easing = ELASTIC_EASING)
+
+		spawn(3 SECONDS)
+			animate(owner, time = 2 SECONDS, transform = matrix(-30, MATRIX_ROTATE), easing = SINE_EASING, flags = ANIMATION_PARALLEL)
+		spawn(5 SECONDS)
+			animate(owner, time = 0.5 SECONDS, transform = matrix(), easing = ELASTIC_EASING)
+			playsound(get_turf(owner),'packs/infinity/sound/mecha/bigmech_lstep.ogg',100)
 
 		spawn(1 SECONDS)
 			owner.add_filter("bunker", 1, list("type" = "outline", , "size" = 0, "color" = COLOR_BLACK))
@@ -81,7 +88,7 @@
 		zoneend_by_x = initial(zoneend_by_x)
 		zoneend_by_y = initial(zoneend_by_y)
 
-	return handle_use(target, params)
+	return .
 
 /datum/mech_ability/action/bunker/Process()
 	..()

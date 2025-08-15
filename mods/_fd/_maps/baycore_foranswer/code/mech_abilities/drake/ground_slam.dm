@@ -5,11 +5,14 @@
 	required_params = list("middle")
 	cooldown = 5 SECONDS
 
-	var/setup_offset = 50 // Так мы сможем сетапать эффект ровно под ножкой у разных мехов, не страдая от постоянного переписывания use()
+	var/setup_offset_x = 50 // Так мы сможем сетапать эффект ровно под ножкой у разных мехов, не страдая от постоянного переписывания use()
+	var/setup_offset_y = 20 // Так мы сможем сетапать эффект ровно под ножкой у разных мехов, не страдая от постоянного переписывания use()
 
 /// Активация/переключение способности, возвращает результат использования
 /datum/mech_ability/ground_slam/use(atom/target, params)
 	. = ..()
+	if(!.)
+		return
 
 	var/list/affected_turfs = list()
 
@@ -18,7 +21,8 @@
 		animate(owner, time = 0.5 SECONDS, transform = matrix(), easing = ELASTIC_EASING)
 		var/obj/effect/ground_slam/explosion = new /obj/effect/ground_slam(get_turf(owner))
 		new explosion(get_turf(owner))
-		explosion.pixel_x = owner.pixel_x - setup_offset
+		explosion.pixel_x -= setup_offset_x
+		explosion.pixel_y -= setup_offset_y
 
 	for(var/turf/floor in block(owner.x-3, owner.y-3, owner.z, owner.x+3, owner.y+3, owner.z))
 		affected_turfs[floor] = floor.color
@@ -33,7 +37,7 @@
 			victim.throw_at(get_edge_target_turf(victim, get_dir(owner, victim)), 2, 1, owner, spin = FALSE)
 	affected_turfs.Cut()
 
-	return handle_use(target, params)
+	return .
 
 /obj/effect/ground_slam
 	name = "slam"

@@ -1,0 +1,70 @@
+/datum/mech_ability/action/boosters_passive
+	name = "Реактивные бустеры"
+	action_state = "29"
+
+	cooldown = 0
+	var/currently_active = FALSE
+
+/datum/mech_ability/action/boosters_passive/use(atom/target, params)
+	. = ..()
+	if(!.)
+		return
+
+	currently_active = !currently_active
+	to_chat(owner, SPAN_INFO("Ты [currently_active ? "включил" : "выключил"] пассивное ускорение."))
+	playsound(get_turf(owner), pick(GLOB.switch_small_sound), 90, TRUE)
+
+	if(currently_active)
+		speed_debuff = -2
+		START_PROCESSING(SSprocessing, src)
+		owner.recalculate_mech_speed()
+	else
+		speed_debuff = 0
+		owner.overlays -= image(owner.icon, "burst")
+		STOP_PROCESSING(SSprocessing, src)
+		owner.recalculate_mech_speed()
+
+/datum/mech_ability/action/boosters_passive/Process()
+	..()
+
+	if(world.time <= owner.next_move)
+		owner.heat += 0.1
+
+		owner.overlays += image(owner.icon, "burst", layer = ABOVE_OBJ_LAYER)
+
+	else
+		owner.overlays -= image(owner.icon, "burst")
+
+	return .
+
+
+/datum/mech_ability/action/boosters_passive/get_stat_info()
+	var/color = currently_active ? stat_color : second_color
+	. = list(list(
+		"title" = SPAN_ABILITY_STAT("ПАССИВНОЕ УСКОРЕНИЕ:", color),
+		"desc" = SPAN_ABILITY_STAT(currently_active ? "РАБОТАЕТ" : "ОТКЛЮЧЕНО", color),
+		))
+
+
+/datum/mech_ability/boosters_quick
+	name = "Реактивные бустеры"
+	action_state = "29"
+
+	required_params = list("middle")
+	cooldown = 2 SECONDS
+
+/datum/mech_ability/boosters_quick/use(atom/target, params)
+	. = ..()
+	if(!.)
+		return
+
+	owner.face_atom(target)
+	owner.overlays += image(owner.icon, "burst", layer = ABOVE_OBJ_LAYER)
+
+	owner.throw_at(get_edge_target_turf(owner, get_dir(target, owner)), 15, 1, owner, spin = FALSE) // ЭТО НАМЕРЕННЫЙ РЕВЁРС КОТОРЫЙ ИЗНАЧАЛЬНО БЫЛ БАГОМ НО Я РЕШИЛ ТАК И ОСТАВИТЬ
+	owner.heat += 1
+
+	spawn(0.8 SECONDS)
+		owner.overlays -= image(owner.icon, "burst")
+
+	return .
