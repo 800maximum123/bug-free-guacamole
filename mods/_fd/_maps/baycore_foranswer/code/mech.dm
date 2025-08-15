@@ -146,10 +146,7 @@
 		if(istype(cloak) && cloak.state)
 			cloak.use()
 
-	if(vulnerable)
-		final_damage *= 2
-
-	if(!isnull(protected_by))
+	if(!QDELETED(protected_by))
 		redirect_damage(protected_by, integrity_damage, hull_damage, shredding, do_animation)
 		log_and_message_admins(SPAN_WARNING("<b> [src] только что передел [protected_by] урон в размере [integrity_damage] INTEG!</i></b>"))
 		return TRUE
@@ -157,8 +154,11 @@
 	if(!shredding && prob(armor_durability))
 		final_damage = integrity_damage - armor_stat
 
+	if(vulnerable)
+		final_damage *= 2
+
 	if(final_damage > 0)
-		integrity -= final_damage
+		integrity = max(integrity - final_damage, 0)
 		log_and_message_admins(SPAN_WARNING("<b> [src] только что получил урон в размере [final_damage] INTEG!</i></b>"))
 		nullified = FALSE
 
