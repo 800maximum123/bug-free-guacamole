@@ -75,6 +75,7 @@
 	var/hacked = 0
 	var/vulnerable = 0
 
+	var/zoom = 0
 	var/base_movement_cooldown = 3
 
 	var/wreck_type = /obj/structure/fd/mech_wreckage
@@ -322,6 +323,52 @@
 			playsound(get_turf(src),'sound/mecha/Explosion_02.mp3', 60)
 		..(FALSE, "suddenly breaks apart.", "You have been destroyed.")
 		QDEL_NULL(src)
+
+/mob/living/simple_animal/fd/lancer/verb/zoom()
+	set category = "IC"
+	set name = "Мех - Настроить оптику"
+
+	if(!src.client)
+		return FALSE
+	var/cannotzoom
+
+	if(src.incapacitated(INCAPACITATION_DISABLED))
+		to_chat(src, SPAN_WARNING("Прямо сейчас - линза не может сфокусироваться."))
+		cannotzoom = 1
+
+	if(!zoom && !cannotzoom)
+		src.toggle_zoom_hud()
+		src.client.view = 9
+		zoom = 1
+
+		var/tilesize = 35
+		var/viewoffset = tilesize * 6
+
+		switch(src.dir)
+			if (NORTH)
+				src.client.pixel_x = 0
+				src.client.pixel_y = viewoffset
+			if (SOUTH)
+				src.client.pixel_x = 0
+				src.client.pixel_y = -viewoffset
+			if (EAST)
+				src.client.pixel_x = viewoffset
+				src.client.pixel_y = 0
+			if (WEST)
+				src.client.pixel_x = -viewoffset
+				src.client.pixel_y = 0
+		src.visible_message("[src] прицеливается.")
+		src.set_face_dir()
+
+	else
+		src.client.view = world.view
+		src.toggle_zoom_hud()
+		zoom = 0
+		src.client.pixel_x = 0
+		src.client.pixel_y = 0
+		src.set_face_dir(newdir = null)
+
+	return TRUE
 
 /mob/living/simple_animal/fd/lancer/verb/change_view()
 	set name = "Мех - Сменить радиус зрения"
