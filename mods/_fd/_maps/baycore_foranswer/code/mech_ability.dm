@@ -4,7 +4,7 @@
 	/// Путь к иконке в радиальном меню
 	var/action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/ui.dmi'
 	/// Иконка в радиальном меню
-	var/action_state = "1"
+	var/action_state = "9"
 	/// Цвет придаваемый иконке в радиальном меню
 	var/action_color = "#ffffff"
 
@@ -85,13 +85,13 @@
 	var/time = world.time
 	if(next_use > time)
 		. += list(list(
-			"title" = SPAN_ABILITY_GRADIENT("<[name]> Готов Через:", round(time/next_use)),
-			"desc" = SPAN_ABILITY_GRADIENT("[SECONDS_LEFT(next_use, time)] секунд", round(time/next_use)),
+			"title" = ABILITY_STAT_GRADIENT("<[name]> Готов Через:", time, next_use),
+			"desc" = ABILITY_STAT_GRADIENT("[SECONDS_LEFT(time, next_use)] секунд", time, next_use),
 			))
 	if(max_charges)
 		. += list(list(
-			"title" = SPAN_ABILITY_GRADIENT("<[name]> Осталось Зарядов:", charges/max_charges),
-			"desc" = SPAN_ABILITY_GRADIENT("[charges]/[max_charges]", charges/max_charges),
+			"title" = ABILITY_STAT_GRADIENT("<[name]> Осталось Зарядов:", charges, max_charges),
+			"desc" = ABILITY_STAT_GRADIENT("[charges]/[max_charges]", charges, max_charges),
 			))
 	return .
 

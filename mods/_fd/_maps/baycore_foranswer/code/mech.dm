@@ -37,29 +37,27 @@
 		/datum/mech_ability/boosters_quick,
 		/datum/mech_ability/action/accelerate
 	)
-
-	/// Выбранный тип оружия
-	var/datum/mech_equipment/selected_equipment = null
 	/// Список оружия меха
 	var/list/datum/mech_equipment/equipment = list(
 		/datum/mech_equipment/firearm,
 		/datum/mech_equipment/weapon,
 	)
+	/// Выбранный тип оружия
+	var/datum/mech_equipment/selected_equipment = null
 
 	var/armor_stat = 0 // Снижает урон на [X]
 	var/armor_durability = 100 // Износ брони
-	var/overprotected = FALSE // Саладин накидывает оверхп
-	var/mutable_appearance/field_overlay
 
 	var/integrity = 100 // Текущее ХП
 	var/integrity_max = 100 // Максимальное ХП
 
-	var/heat = 0 // Перегрев. Сбрасывается до нуля, когда достигает [heat_overflow]
+	var/heat = 0 // Перегрев. Сбрасывается, когда достигает [heat_overflow]
 	var/heat_overflow = 5 // Максимальное количество перегрева, после достижения которого мы перегреваемся
 
-	var/has_overheated_state = FALSE
+	/// Постоянное изменение нагрева, которое будет происходить раз в 2 секунды
+	var/heat_update = 0
 
-	var/weapon_equipped = "Standart Pistol"
+	var/has_overheated_state = FALSE
 
 	var/damaged = FALSE // Мы в "крите"?
 	var/repairs = 1 // Сколько раз мы сможем подниматься из мёртвых?
@@ -106,23 +104,23 @@
 		selected_equipment = equipment[1]
 
 /// Can't go below 0, getting a smaller amount of effect doesn't lower it's current duration
-/mob/living/simple_animal/fd/lancer/proc/Effect(type, duration = 1 SECONDS)
-	handle_effects(type, duration)
-	return vars[type] = max(max(vars[type], duration), 0)
+/mob/living/simple_animal/fd/lancer/proc/Effect(type, amount = 1 SECONDS)
+	handle_effects(type, amount)
+	return vars[type] = max(max(vars[type], amount), 0)
 
 /// If you REALLY need to set some effect to a set amount without the whole "can't go below than current duration"
-/mob/living/simple_animal/fd/lancer/proc/SetEffect(type, duration = 1 SECONDS)
-	handle_effects(type, duration)
-	return vars[type] = max(duration, 0)
+/mob/living/simple_animal/fd/lancer/proc/SetEffect(type, amount = 1 SECONDS)
+	handle_effects(type, amount)
+	return vars[type] = max(amount, 0)
 
-/mob/living/simple_animal/fd/lancer/proc/AdjustEffect(type, duration = 1 SECONDS)
-	handle_effects(type, duration)
-	return vars[type] = max(vars[type] + duration, 0)
+/mob/living/simple_animal/fd/lancer/proc/AdjustEffect(type, amount = 1 SECONDS)
+	handle_effects(type, amount)
+	return vars[type] = max(vars[type] + amount, 0)
 
-/mob/living/simple_animal/fd/lancer/proc/handle_effects(type, duration)
-	if(duration <= 0)
+/mob/living/simple_animal/fd/lancer/proc/handle_effects(type, amount)
+	if(amount < 0)
 		return FALSE
-	if(vars[type])
+	if(vars.Find(type) && vars[type])
 		return FALSE
 	switch(type)
 		if(MECH_OVERHEATED)
@@ -135,6 +133,18 @@
 			animate(src, time = 5 SECONDS, color = "#fc987a", flags = ANIMATION_PARALLEL)
 			playsound(get_turf(src),'sound/mecha/internaldmgalarm.ogg',20)
 			playsound(get_turf(src),'sound/effects/iron_sizzle.ogg',100,TRUE)
+		if(MECH_HACKED)
+			overlay_fullscreen("hacked", /obj/screen/fullscreen/noise/hacked)
+			overlay_fullscreen("hacked_borders", /obj/screen/fullscreen/fishbed)
+
+/mob/living/simple_animal/fd/lancer/proc/adjust_heat(amount)
+	heat = max(heat + amount, 0)
+	handle_heat()
+
+/mob/living/simple_animal/fd/lancer/proc/handle_heat()
+	if(heat >= heat_overflow)
+		heat -= heat_overflow
+		Effect(MECH_OVERHEATED, 30 SECONDS)
 
 /mob/living/simple_animal/fd/lancer/proc/recieve_damage(integrity_damage = 0, hull_damage = 1, shredding = FALSE, do_animation = TRUE)
 	var/final_damage = 0
@@ -351,19 +361,11 @@
 	movement_cooldown = .
 
 /mob/living/simple_animal/fd/lancer/Life()
-
-	if(heat >= heat_overflow && !overheated)
-		heat = 0
-		AdjustEffect(MECH_OVERHEATED, 30 SECONDS)
-
-	if(hacked)
-		overlay_fullscreen("hacked", /obj/screen/fullscreen/scanline)
+	adjust_heat(heat_update)
 
 	if(overheated)
-		integrity -= 2
-		/// Попробуем заменить анимацию урона на звук шипения, посмотрим лучше ли будет выглядеть
-		//damage_animation(1, ignore_armor = TRUE)
-		playsound(get_turf(src),'sound/effects/razorweb_hiss.ogg',80,TRUE)
+		recieve_damage(2, 0, TRUE)
+		playsound(get_turf(src), 'sound/effects/razorweb_hiss.ogg', 80, TRUE)
 
 	if(overheated && (AdjustEffect(MECH_OVERHEATED, -2 SECONDS) <= 0))
 		visible_message(SPAN_WARNING("[src] прекратил плавиться от перегрева!"))
@@ -382,6 +384,7 @@
 	if(hacked && (AdjustEffect(MECH_HACKED, -2 SECONDS) <= 0))
 		visible_message(SPAN_WARNING("[src] вновь вернулся под контроль пилота!"))
 		clear_fullscreen("hacked")
+		clear_fullscreen("hacked_borders")
 
 	if(vulnerable && (AdjustEffect(MECH_VULNERABLE, -2 SECONDS) <= 0))
 		visible_message(SPAN_WARNING("[src] перестал быть уязвимым!"))
@@ -438,7 +441,8 @@
 				scan_target.scan(A, params)
 			return A.ShiftClick(src)
 
-		handle_weapons(A, params)
+		if(selected_equipment)
+			selected_equipment.use(A, params)
 
 	return TRUE
 
@@ -483,12 +487,7 @@
 
 	return .
 
-/mob/living/simple_animal/fd/lancer/proc/handle_weapons(atom/A, params)
-	var/params_list = params2list(params)
-	if(!params_list["left"])
-		return
-
-	if(!selected_equipment)
-		return
-
-	return selected_equipment.use(A, params)
+/obj/screen/fullscreen/noise/hacked
+	icon_state = "1 moderate"
+	color = COLOR_VIOLET
+	alpha = 200

@@ -91,8 +91,6 @@
 	return .
 
 /datum/mech_ability/action/bunker/Process()
-	..()
-
 	for(var/mob/living/simple_animal/fd/lancer/L in shielded_mechs)
 		L.protected_by = null
 
@@ -109,5 +107,3 @@
 	for(var/mob/living/simple_animal/fd/lancer/L in shielded_mechs)
 		if(isnull(L.protected_by))
 			L.protected_by = owner
-
-	return TRUE

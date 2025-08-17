@@ -8,12 +8,15 @@
 	/// Цвет придаваемый иконке в радиальном меню
 	var/action_color = "#ffffff"
 
+	/// Список параметров клика мышкой, при котором будет применяться модуль
+	var/list/required_params = list("left")
+
 	/// Цвет информации об оружии в стат панели
 	var/stat_color = COLOR_DARKMODE_TEXT
 	/// Вторичный цвет информации об оружии, по стандарту используется при нуле патрон
 	var/second_color = COLOR_RED
 
-	/// Число, добавляемое к задержке между шагами в качестве дебаффа от тяжести модуля
+	/// Число, добавляемое к задержке между шагами в качестве дебаффа от тяжести когда модуль выбран
 	var/speed_debuff = 0
 
 	/// Время перезарядки модуля
@@ -52,9 +55,15 @@
 		to_chat(target, SPAN_WARNING("[name] ещё не готов!"))
 		return FALSE
 
-	next_use = world.time + cooldown
-	owner.face_atom(target)
+	var/params_list = params2list(params)
+	for(var/param in required_params)
+		if(!params_list[param])
+			return FALSE
 
+	if(target == src)
+		return FALSE
+
+	next_use = world.time + cooldown
 	return TRUE  // В идеале не переписывать этот прок, за исключением моментов, где эти базовые проверки будут мешать(
 
 /// Информация, которая пойдёт от абилки в стат панель игрока

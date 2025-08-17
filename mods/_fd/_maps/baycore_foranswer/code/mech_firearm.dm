@@ -50,6 +50,7 @@
 		to_chat(owner, SPAN_WARNING("Включенный предохранитель не позволяет выстрелить с <[name]>!"))
 		return FALSE
 
+	owner.face_atom(target)
 	return ..()
 
 /// В идеале, модифицировать параметры пули с зависимостью от меха - тут
@@ -87,7 +88,7 @@
 	. = ..()
 	if(max_ammo > 0)
 		. += list(list(
-			"title" = SPAN_ABILITY_GRADIENT("Боезапаса <[name]>:", ammo/max_ammo),
-			"desc" = SPAN_ABILITY_GRADIENT("[ammo] / [max_ammo]", ammo/max_ammo),
+			"title" = ABILITY_STAT_GRADIENT("Боезапаса <[name]>:", ammo, max_ammo),
+			"desc" = ABILITY_STAT_GRADIENT("[ammo] / [max_ammo]", ammo, max_ammo),
 			))
 	return .

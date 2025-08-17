@@ -3,7 +3,13 @@
 	action_state = "29"
 
 	cooldown = 0
+
 	var/currently_active = FALSE
+	var/image/overlay = null
+
+/datum/mech_ability/action/boosters_passive/New(mob/living/simple_animal/fd/lancer/new_owner)
+	. = ..()
+	overlay = image(owner.icon, "burst", layer = ABOVE_OBJ_LAYER)
 
 /datum/mech_ability/action/boosters_passive/use(atom/target, params)
 	. = ..()
@@ -17,32 +23,25 @@
 	if(currently_active)
 		speed_debuff = -2
 		START_PROCESSING(SSprocessing, src)
-		owner.recalculate_mech_speed()
 	else
 		speed_debuff = 0
-		owner.overlays -= image(owner.icon, "burst")
 		STOP_PROCESSING(SSprocessing, src)
-		owner.recalculate_mech_speed()
+		owner.CutOverlays(overlay)
+
+	owner.recalculate_mech_speed()
 
 /datum/mech_ability/action/boosters_passive/Process()
-	..()
-
+	owner.CutOverlays(overlay)
 	if(world.time <= owner.next_move)
-		owner.heat += 0.1
-
-		owner.overlays += image(owner.icon, "burst", layer = ABOVE_OBJ_LAYER)
-
-	else
-		owner.overlays -= image(owner.icon, "burst")
-
-	return .
+		owner.adjust_heat(0.1)
+		owner.AddOverlays(overlay)
 
 
 /datum/mech_ability/action/boosters_passive/get_stat_info()
 	var/color = currently_active ? stat_color : second_color
 	. = list(list(
-		"title" = SPAN_ABILITY_STAT("ПАССИВНОЕ УСКОРЕНИЕ:", color),
-		"desc" = SPAN_ABILITY_STAT(currently_active ? "РАБОТАЕТ" : "ОТКЛЮЧЕНО", color),
+		"title" = ABILITY_STAT("ПАССИВНОЕ УСКОРЕНИЕ:", color),
+		"desc" = ABILITY_STAT(currently_active ? "РАБОТАЕТ" : "ОТКЛЮЧЕНО", color),
 		))
 
 
@@ -62,7 +61,7 @@
 	owner.overlays += image(owner.icon, "burst", layer = ABOVE_OBJ_LAYER)
 
 	owner.throw_at(get_edge_target_turf(owner, get_dir(target, owner)), 15, 1, owner, spin = FALSE) // ЭТО НАМЕРЕННЫЙ РЕВЁРС КОТОРЫЙ ИЗНАЧАЛЬНО БЫЛ БАГОМ НО Я РЕШИЛ ТАК И ОСТАВИТЬ
-	owner.heat += 1
+	owner.adjust_heat(1)
 
 	spawn(0.8 SECONDS)
 		owner.overlays -= image(owner.icon, "burst")

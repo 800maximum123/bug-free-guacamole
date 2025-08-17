@@ -43,4 +43,5 @@
 		to_chat(owner, SPAN_WARNING("Включенный предохранитель не позволяет ударить при помощи <[name]>!"))
 		return FALSE
 
+	owner.face_atom(target)
 	return ..()
