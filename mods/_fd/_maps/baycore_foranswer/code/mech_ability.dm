@@ -31,6 +31,7 @@
 
 	/// Таймер кулдауна
 	var/next_use = 0
+	var/last_used = 0
 
 	/// Референс к владельцу
 	var/mob/living/simple_animal/fd/lancer/owner
@@ -71,6 +72,7 @@
 		return FALSE
 
 	next_use = world.time + cooldown
+	last_used = world.time
 
 	if(max_charges)
 		charges--
@@ -85,12 +87,12 @@
 	var/time = world.time
 	if(next_use > time)
 		. += list(list(
-			"title" = ABILITY_STAT_GRADIENT("<[name]> Готов Через:", time, next_use),
-			"desc" = ABILITY_STAT_GRADIENT("[SECONDS_LEFT(time, next_use)] секунд", time, next_use),
+			"title" = ABILITY_STAT_GRADIENT("<[name]> Готов Через:", time-last_used, next_use-last_used),
+			"desc" = ABILITY_STAT_GRADIENT("[SECONDS_LEFT(time, next_use)] секунд", time-last_used, next_use-last_used),
 			))
 	if(max_charges)
 		. += list(list(
-			"title" = ABILITY_STAT_GRADIENT("<[name]> Осталось Зарядов:", charges, max_charges),
+			"title" = ABILITY_STAT_GRADIENT("Зарядов <[name]>:", charges, max_charges),
 			"desc" = ABILITY_STAT_GRADIENT("[charges]/[max_charges]", charges, max_charges),
 			))
 	return .

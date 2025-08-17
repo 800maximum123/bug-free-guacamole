@@ -24,6 +24,7 @@
 
 	/// Таймер кулдауна
 	var/next_use = 0
+	var/last_used = 0
 
 	/// Референс к владельцу
 	var/mob/living/simple_animal/fd/lancer/owner
@@ -51,8 +52,7 @@
 	if(owner.damaged)
 		return FALSE
 
-	if(world.time < next_use)
-		to_chat(target, SPAN_WARNING("[name] ещё не готов!"))
+	if(target == owner)
 		return FALSE
 
 	var/params_list = params2list(params)
@@ -60,10 +60,13 @@
 		if(!params_list[param])
 			return FALSE
 
-	if(target == src)
+	if(world.time < next_use)
+		to_chat(target, SPAN_WARNING("[name] ещё не готов!"))
 		return FALSE
 
 	next_use = world.time + cooldown
+	last_used = world.time
+
 	return TRUE  // В идеале не переписывать этот прок, за исключением моментов, где эти базовые проверки будут мешать(
 
 /// Информация, которая пойдёт от абилки в стат панель игрока

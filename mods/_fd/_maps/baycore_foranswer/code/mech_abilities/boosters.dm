@@ -35,7 +35,7 @@
 	if(world.time <= owner.next_move)
 		owner.adjust_heat(0.1)
 		owner.AddOverlays(overlay)
-
+		playsound(owner, 'sound/machines/thruster.ogg', 100, TRUE)
 
 /datum/mech_ability/action/boosters_passive/get_stat_info()
 	var/color = currently_active ? stat_color : second_color
@@ -62,6 +62,8 @@
 
 	owner.throw_at(get_edge_target_turf(owner, get_dir(target, owner)), 15, 1, owner, spin = FALSE) // ЭТО НАМЕРЕННЫЙ РЕВЁРС КОТОРЫЙ ИЗНАЧАЛЬНО БЫЛ БАГОМ НО Я РЕШИЛ ТАК И ОСТАВИТЬ
 	owner.adjust_heat(1)
+
+	playsound(owner, 'sound/machines/thruster.ogg', 100, TRUE)
 
 	spawn(0.8 SECONDS)
 		owner.overlays -= image(owner.icon, "burst")

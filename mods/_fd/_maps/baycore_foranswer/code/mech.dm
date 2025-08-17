@@ -148,7 +148,7 @@
 		Effect(MECH_OVERHEATED, 30 SECONDS)
 
 /mob/living/simple_animal/fd/lancer/proc/recieve_damage(integrity_damage = 0, hull_damage = 1, shredding = FALSE, do_animation = TRUE)
-	var/final_damage = 0
+	var/final_damage = integrity_damage
 	var/nullified = TRUE
 
 	if(damaged)
@@ -174,7 +174,8 @@
 		log_and_message_admins(SPAN_WARNING("<b> [src] только что получил урон в размере [final_damage] INTEG!</i></b>"))
 		nullified = FALSE
 
-	armor_durability -= rand(1,hull_damage)
+	if(hull_damage)
+		armor_durability -= rand(1,hull_damage)
 
 	if(do_animation && !damaged)
 		damage_animation(nullified)
@@ -411,7 +412,7 @@
 	adjust_heat(heat_update)
 
 	if(overheated)
-		recieve_damage(2, 0, TRUE)
+		recieve_damage(2, 0, TRUE, FALSE)
 		playsound(get_turf(src), 'sound/effects/razorweb_hiss.ogg', 80, TRUE)
 
 	if(overheated && (AdjustEffect(MECH_OVERHEATED, -2 SECONDS) <= 0))
@@ -471,7 +472,7 @@
 	if(next_click > world.time) // Hard check, before anything else, to avoid crashing
 		return FALSE
 
-	next_click = world.time + 1
+	next_click = world.time + 2
 
 	if(damaged)
 		return FALSE
@@ -484,8 +485,7 @@
 	if(!handle_abilities(A, params))
 		if(params_list["shift"] && params_list["left"])
 			if(istype(A, /mob/living/simple_animal/fd/lancer))
-				var/mob/living/simple_animal/fd/lancer/scan_target = A
-				scan_target.scan(A, params)
+				scan(A, params)
 			return A.ShiftClick(src)
 
 		if(selected_equipment)
@@ -496,14 +496,14 @@
 /mob/living/simple_animal/fd/lancer/proc/handle_abilities(atom/A, params)
 	. = FALSE
 
-	if(hacked)
-		playsound(get_turf(src), 'sound/machines/buzz-two.ogg', 25, TRUE)
-		return .
-
 	var/params_list = params2list(params)
 
 	/// Генерируем и активируем список действий при клике на себя
 	if(A == src && params_list["left"])
+		if(hacked)
+			playsound(get_turf(src), 'sound/machines/buzz-two.ogg', 25, TRUE)
+			return .
+
 		. = TRUE
 
 		var/list/options = list()
@@ -517,13 +517,19 @@
 
 			actions[ability.name] = ability
 
+		playsound(src, 'packs/infinity/sound/mecha/UI_SCI-FI_Tone_10_stereo.ogg', 60, TRUE)
+
 		var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 125, offset_y = 125)
 		if(!chosen_option)
+			playsound(src, 'packs/infinity/sound/mecha/UI_SCI-FI_Tone_Deep_Wet_22_stereo_complite.ogg', 40, TRUE)
 			return .
 
 		var/datum/mech_ability/action = actions[chosen_option]
-		if(!action.use(null, params))
-			playsound(get_turf(src), 'sound/machines/buzz-two.ogg', 25, TRUE)
+		if(action.use(null, params))
+			playsound(src, 'packs/infinity/sound/mecha/UI_SCI-FI_Tone_Deep_Wet_22_stereo_complite.ogg', 40, TRUE)
+			return .
+
+		playsound(src, 'sound/machines/buzz-two.ogg', 25, TRUE)
 
 	/// Далее смотрим, есть ли у нас способности с парамс-триггерами
 	for(var/datum/mech_ability/ability as anything in abilities)

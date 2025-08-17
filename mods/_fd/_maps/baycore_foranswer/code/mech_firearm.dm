@@ -46,11 +46,12 @@
 		to_chat(owner, SPAN_WARNING("Оружие заклинило!"))
 		return FALSE
 
+	owner.face_atom(target)
+
 	if(owner.weapon_safety)
 		to_chat(owner, SPAN_WARNING("Включенный предохранитель не позволяет выстрелить с <[name]>!"))
 		return FALSE
 
-	owner.face_atom(target)
 	return ..()
 
 /// В идеале, модифицировать параметры пули с зависимостью от меха - тут

@@ -4,7 +4,7 @@
 	stat_color = "#ec75fc"
 
 	cooldown = 10 SECONDS
-	var/qte_time = 3 SECONDS
+	var/qte_time = 2 SECONDS
 
 	var/debuff_duration = 20 SECONDS
 
@@ -34,7 +34,7 @@
 
 	var/stage
 	for(stage in 1 to stages_max)
-		target.AdjustEffect(MECH_HACKED, qte_time + 1 SECONDS)
+		target.Effect(MECH_HACKED, qte_time + 1 SECONDS)
 
 		var/list/options = list()
 		options["#FIX"] = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "31")
@@ -50,11 +50,12 @@
 			break
 
 		if(stage == stages_max)
-			playsound(target, 'packs/infinity/sound/mecha/UI_SCI-FI_Tone_Deep_Wet_22_stereo_complite.ogg', 60)
+			playsound(target, 'packs/infinity/sound/mecha/UI_SCI-FI_Tone_Deep_Wet_22_stereo_complite.ogg', 80)
 			target.AdjustEffect(MECH_HACKED, -qte_time)
 
 	if(stage < stages_max)
 		target.AdjustEffect(pick(debuff_types), debuff_duration)
+		to_chat(target, SPAN_WARNING("Вам не удалось остановить вторжение в системы [target]!"))
 
 /datum/mech_ability/intrusion/proc/qte_check(start_time)
 	return (world.time < (start_time + qte_time))
