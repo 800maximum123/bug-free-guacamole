@@ -266,6 +266,14 @@
 	name = "box of light bullpup magazines"
 	startswith = list(/obj/item/ammo_magazine/mil_rifle/light = 6)
 
+/obj/item/storage/box/ammo/rifle // GAIA
+	name = "box of rifle magazines"
+	startswith = list(/obj/item/ammo_magazine/rifle = 6)
+
+/obj/item/storage/box/ammo/caseless // GAIA
+	name = "box of caseless magazines"
+	startswith = list(/obj/item/ammo_magazine/caseless_rifle = 6)
+
 
 /obj/item/storage/box/flashbangs
 	name = "box of flashbangs"

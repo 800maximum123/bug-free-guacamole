@@ -62,6 +62,23 @@
 			endgame_exits += loc
 			delete_me = 1
 			return
+		//GAIA
+		if("JoinLateSCGBarracks")
+			GLOB.latejoin_barracks_scg += loc
+			delete_me = 1
+			return
+		if("JoinLateSCGOfficerBarracks")
+			GLOB.latejoin_officer_barracks_scg += loc
+			delete_me = 1
+			return
+		if("JoinLateICCGBarracks")
+			GLOB.latejoin_barracks_iccg += loc
+			delete_me = 1
+			return
+		if("JoinLateICCGOfficerBarracks")
+			GLOB.latejoin_officer_barracks_iccg += loc
+			delete_me = 1
+			return
 
 	landmarks_list += src
 	return 1

@@ -23,7 +23,7 @@
 /obj/item/card/id/torch/crew
 	desc = "An identification card issued to SolGov crewmembers aboard the SEV Torch."
 	color = "#d3e3e1"
-	job_access_type = /datum/job/crew
+	//job_access_type = /datum/job/crew ГАЙЯ
 	color = "#ccecff"
 
 
@@ -42,14 +42,14 @@
 	detail_color = COLOR_PALE_BLUE_GRAY
 
 /obj/item/card/id/torch/crew/medical/senior
-	job_access_type = /datum/job/senior_doctor
+	//alistjob_access_type = /datum/job/senior_doctor ГАЙЯ
 
 /obj/item/card/id/torch/contractor/medical
 	job_access_type = /datum/job/doctor
 	detail_color = COLOR_PALE_BLUE_GRAY
 
 /obj/item/card/id/torch/contractor/medical/senior
-	job_access_type = /datum/job/senior_doctor
+	//job_access_type = /datum/job/senior_doctor ГАЙЯ
 
 /obj/item/card/id/torch/contractor/chemist
 	job_access_type = /datum/job/chemist
@@ -86,7 +86,7 @@
 	detail_color = COLOR_SUN
 
 /obj/item/card/id/torch/crew/engineering/senior
-	job_access_type = /datum/job/senior_engineer
+	//job_access_type = /datum/job/senior_engineer ГАЙЯ
 	extra_details = list("onegoldstripe")
 
 /obj/item/card/id/torch/contractor/engineering
@@ -115,7 +115,7 @@
 	detail_color = COLOR_CIVIE_GREEN
 
 /obj/item/card/id/torch/crew/service/chief_steward
-	job_access_type = /datum/job/chief_steward
+	//job_access_type = /datum/job/chief_steward ГАЙЯ
 	extra_details = list("onegoldstripe")
 
 /obj/item/card/id/torch/crew/service/janitor
@@ -133,29 +133,29 @@
 
 
 /obj/item/card/id/torch/crew/representative
-	job_access_type = /datum/job/representative
+	//job_access_type = /datum/job/representative ГАЙЯ
 	detail_color = COLOR_COMMAND_BLUE
 
 /obj/item/card/id/torch/crew/sea
-	job_access_type = /datum/job/sea
+	//job_access_type = /datum/job/sea ГАЙЯ
 	detail_color = COLOR_COMMAND_BLUE
 	extra_details = list("onegoldstripe")
 
 /obj/item/card/id/torch/crew/bridgeofficer
-	job_access_type = /datum/job/bridgeofficer
+	//job_access_type = /datum/job/bridgeofficer ГАЙЯ
 	detail_color = COLOR_COMMAND_BLUE
 
 /obj/item/card/id/torch/crew/pathfinder
-	job_access_type = /datum/job/pathfinder
+	//job_access_type = /datum/job/pathfinder ГАЙЯ
 	detail_color = COLOR_PURPLE
 	extra_details = list("onegoldstripe")
 
 /obj/item/card/id/torch/crew/explorer
-	job_access_type = /datum/job/explorer
+	//job_access_type = /datum/job/explorer ГАЙЯ
 	detail_color = COLOR_PURPLE
 
 /obj/item/card/id/torch/crew/pilot
-	job_access_type = /datum/job/nt_pilot
+	//job_access_type = /datum/job/nt_pilot ГАЙЯ
 	detail_color = COLOR_PURPLE
 
 // EC Science
@@ -166,11 +166,11 @@
 
 /obj/item/card/id/torch/crew/research
 	desc = "A card issued to science personnel aboard the SEV Torch."
-	job_access_type = /datum/job/scientist_assistant
+	//job_access_type = /datum/job/scientist_assistant ГАЙЯ
 	detail_color = COLOR_RESEARCH
 
 /obj/item/card/id/torch/crew/research/senior_scientist
-	job_access_type = /datum/job/senior_scientist
+	//job_access_type = /datum/job/senior_scientist ГАЙЯ
 	extra_details = list("onegoldstripe")
 
 /obj/item/card/id/torch/crew/research/scientist
@@ -185,15 +185,15 @@
 
 /obj/item/card/id/torch/passenger/research
 	desc = "A card issued to corporate personnel aboard the SEV Torch."
-	job_access_type = /datum/job/scientist_assistant
+	// job_access_type = /datum/job/scientist_assistant ГАЙЯ
 	detail_color = COLOR_BOTTLE_GREEN
 
 /obj/item/card/id/torch/passenger/research/senior_scientist
-	job_access_type = /datum/job/senior_scientist
+	//job_access_type = /datum/job/senior_scientist ГАЙЯ
 	extra_details = list("onegoldstripe")
 
 /obj/item/card/id/torch/passenger/research/nt_pilot
-	job_access_type = /datum/job/nt_pilot
+	//job_access_type = /datum/job/nt_pilot ГАЙЯ
 
 /obj/item/card/id/torch/passenger/research/scientist
 	job_access_type = /datum/job/scientist
@@ -206,12 +206,12 @@
 	detail_color = COLOR_OFF_WHITE
 
 /obj/item/card/id/torch/passenger/corporate/liaison
-	job_access_type = /datum/job/liaison
+	//job_access_type = /datum/job/liaison ГАЙЯ
 	extra_details = list("onegoldstripe")
 
 //Merchant
 /obj/item/card/id/torch/merchant
 	desc = "An identification card issued to Merchants, indicating their right to sell and buy goods."
-	job_access_type = /datum/job/merchant
+	//job_access_type = /datum/job/merchant ГАЙЯ
 	color = COLOR_OFF_WHITE
 	detail_color = COLOR_BEIGE

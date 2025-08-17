@@ -112,6 +112,11 @@
 /turf/simulated/floor/exoplanet/water/update_dirt()
 	return	// Water doesn't become dirty
 
+/turf/simulated/floor/exoplanet/water/shallow/deep
+	name = "deep water"
+	icon_state = "seadeep"
+	movement_delay = 4
+
 //Ice
 /turf/simulated/floor/exoplanet/ice
 	name = "ice"

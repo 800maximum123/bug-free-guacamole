@@ -4,7 +4,7 @@
 	name = OUTFIT_JOB_NAME("SCG Gaia Default Outfit")
 	hierarchy_type = /singleton/hierarchy/outfit/job/gaia/scg
 	l_ear = /obj/item/device/radio/headset/gaia_scg
-	pda_type = /obj/item/modular_computer/pda
+	pda_type = null
 
 // -- COMMAND --
 // COMMANDING OFFICER
@@ -19,7 +19,6 @@
 	shoes = /obj/item/clothing/shoes/scga/utility
 	head = /obj/item/clothing/head/scga/utility
 	id_types = list(/obj/item/card/id/torch/gold)
-	pda_type = /obj/item/modular_computer/pda/captain
 
 /singleton/hierarchy/outfit/job/gaia/scg/command/CO/New()
 	..()
@@ -32,7 +31,6 @@
 	shoes = /obj/item/clothing/shoes/scga/utility
 	head = /obj/item/clothing/head/scga/utility/drill
 	id_types = list(/obj/item/card/id/torch/silver)
-	pda_type = /obj/item/modular_computer/pda/heads/hop
 
 /singleton/hierarchy/outfit/job/gaia/scg/command/PS/New()
 	..()

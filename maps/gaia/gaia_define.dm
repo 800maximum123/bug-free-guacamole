@@ -5,11 +5,15 @@
 	flags = MAP_HAS_BRANCH | MAP_HAS_RANK
 	config_path = "config/gaia_config.txt"
 
-	admin_levels  = list(7)
-	escape_levels = list(8)
-	empty_levels  = list(9)
-	accessible_z_levels = list("1"=1,"2"=3,"3"=1,"4"=1,"5"=1,"6"=1,"9"=30)
-	usable_email_tlds = list("army.mil.scg", "torch.mil.scg", "gaiamail.net", "navy.gcc")
+	admin_levels  = list(5)
+	escape_levels = list(6)
+	empty_levels  = list(7)
+	accessible_z_levels = list(1, 2, 3, 4, 5, 6, 7) // 1 - SCG Camp, 2-3 ICCG Camp, 4 - Area of Operations, 5 - Admin, 6 - Transit, 7 - Empty
+	station_levels = list(1, 2, 3, 4) // 1 - SCG Camp, 2-3 ICCG Camp, 4 - Area of Operations
+	usable_email_tlds = list("army.mil.scg", "torch.mil.scg", "gaiamail.net", "freemail.net", "navy.gcc")
+
+	base_floor_area = /area/gaia
+	base_floor_type = /turf/simulated/floor/exoplanet/barren
 
 	allowed_spawns = list("SCG Barracks", "SCG Officer Barracks", "ICCG Barracks", "ICCG Officer Barracks")
 	default_spawn = "SCG Barracks"
@@ -21,10 +25,10 @@
 	boss_short    = "Col. Monty"
 	company_name  = "Solar Central Government"
 	company_short = "SolGov"
-	system_name = "Galilei System"
+	system_name   = "Galilei System"
 
-	evil_station_name  = "\improper Okkupatsionnyy Garnizon Kastel-13"
-	evil_station_short = "\improper Kastel-13"
+	evil_station_name  = "\improper Okkupatsionnyy Garnizon Morskiye Draguny"
+	evil_station_short = "\improper Morskiye Draguny"
 	evil_boss_name     = "Kapitan Sasha Alistratova"
 	evil_boss_short    = "Kap. Alistratova"
 	evil_company_name  = "Gilgamesh Colonial Confederation"

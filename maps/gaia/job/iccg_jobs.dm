@@ -1,6 +1,8 @@
 // -- COMMAND --
 /datum/job/iccg_co
 	title = "Komandir Vzvoda"
+	total_positions = 1
+	spawn_positions = 1
 	supervisors = "Vysshemu Komandovaniye ICCG"
 	department = "Gilgamesh Colonial Confederation"
 	department_flag = SEC // SPT = SCG, SEC = ICCG
@@ -9,6 +11,9 @@
 	minimum_character_age = list(SPECIES_HUMAN = 22)
 	ideal_character_age = 30
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/iccg/command/CO
+	required_language = LANGUAGE_HUMAN_RUSSIAN
+	selection_color = "#0066BB"
+	head_position = TRUE
 	allowed_branches = list(
 		/datum/mil_branch/iccgn,
 	)
@@ -29,6 +34,8 @@
 
 /datum/job/iccg_xo
 	title = "Nachalnik Shtaba"
+	total_positions = 1
+	spawn_positions = 1
 	supervisors = "Komandiru Vzvoda"
 	department = "Gilgamesh Colonial Confederation"
 	department_flag = SEC
@@ -37,6 +44,9 @@
 	minimum_character_age = list(SPECIES_HUMAN = 30)
 	ideal_character_age = 35
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/iccg/command/XO
+	required_language = LANGUAGE_HUMAN_RUSSIAN
+	selection_color = "#0066BB"
+	head_position = TRUE
 	allowed_branches = list(
 		/datum/mil_branch/iccgn,
 	)
@@ -84,6 +94,8 @@
 	ideal_character_age = 40
 	minimal_player_age = 0
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/iccg/medic
+	required_language = LANGUAGE_HUMAN_RUSSIAN
+	selection_color = "#FF0033"
 	allowed_branches = list(
 		/datum/mil_branch/iccgn,
 	)
@@ -119,6 +131,8 @@
 	minimum_character_age = list(SPECIES_HUMAN = 19)
 	ideal_character_age = 30
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/iccg/engineer
+	required_language = LANGUAGE_HUMAN_RUSSIAN
+	selection_color = "#FF0033"
 	allowed_branches = list(
 		/datum/mil_branch/iccgn,
 	)
@@ -157,6 +171,8 @@
 	minimum_character_age = list(SPECIES_HUMAN = 23)
 	ideal_character_age = 25
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/iccg/mp
+	required_language = LANGUAGE_HUMAN_RUSSIAN
+	selection_color = "#FF0033"
 	allowed_branches = list(
 		/datum/mil_branch/iccgn,
 	)
@@ -196,6 +212,9 @@
 	minimum_character_age = list(SPECIES_HUMAN = 23)
 	ideal_character_age = 25
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/iccg/squad_leader
+	required_language = LANGUAGE_HUMAN_RUSSIAN
+	selection_color = "#0066BB"
+	head_position = TRUE
 	allowed_branches = list(
 		/datum/mil_branch/iccgn,
 	)
@@ -233,6 +252,8 @@
 	minimum_character_age = list(SPECIES_HUMAN = 18)
 	ideal_character_age = 22
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/iccg/trooper
+	required_language = LANGUAGE_HUMAN_RUSSIAN
+	selection_color = "#FF0033"
 	allowed_branches = list(
 		/datum/mil_branch/iccgn,
 	)

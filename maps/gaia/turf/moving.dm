@@ -1,7 +1,7 @@
 /turf/unsimulated/floor/moving
 	name = "moving floor"
 	desc = "Not the smartest idea to jump out."
-	icon = 'gaia/icons/turf.dmi'
+	icon = 'maps/gaia/icons/turf.dmi'
 
 /turf/unsimulated/floor/moving/Entered(mob/living/L)
 	. = ..()
@@ -12,7 +12,7 @@
 		L.SetParalysis(1)
 		if(prob(50))
 			L.adjustBruteLoss(15)
-			playsound(L, 'sounds/weapons/genhit1.ogg', 40, TRUE)
+			playsound(L, 'sound/weapons/genhit1.ogg', 40, TRUE)
 			L.visible_message(SPAN_WARNING("[L] hits hard against [src]!"))
 
 /turf/unsimulated/floor/moving/concrete

@@ -15,41 +15,46 @@
 	#include "../gaia/gaia_ranks.dm"
 	#include "../gaia/gaia_setup.dm"
 	#include "../gaia/gaia_shuttles.dm"
+	#include "../gaia/gaia_spawnpoints.dm"
+	#include "../gaia/gaia_lobby.dm"
 	#include "../gaia/ai_law_sets.dm"
 
 	#include "../gaia/effects/lock_helper.dm"
 
 	#include "../gaia/items/key.dm"
+	#include "../gaia/items/clothes.dm"
 
 	#include "../gaia/structures/gaiaflags.dm"
 	#include "../gaia/structures/lockers.dm"
 	#include "../gaia/structures/machinery.dm"
 	#include "../gaia/structures/military.dm"
 	#include "../gaia/structures/truck.dm"
+	#include "../gaia/structures/barrier.dm"
 
 	#include "../gaia/turf/moving.dm"
 
 	#include "../gaia/job/iccg_jobs.dm"
 	#include "../gaia/job/scg_jobs.dm"
+	#include "../gaia/job/gaia_jobs.dm"
 
 	#include "../gaia/job/outfits/iccg_outfits.dm"
 	#include "../gaia/job/outfits/scg_outfits.dm"
 
 	#include "../gaia/gaia_scg_camp.dmm"
-	#include "../gaia/area_of_op/city.dmm"
+	#include "../gaia/gaia_iccg_camp.dmm"
+	#include "../gaia/area_of_op/city.dmm" //CHANGE THIS DEPENDING ON THE MISSION!!
+	#include "../gaia/z5_admin.dmm"
+	#include "../gaia/z6_transit.dmm"
 
 	// --- MAP MAINTENANCE --- //
 	#include "../torch/torch_areas.dm"
-	#include "../torch/torch_antagonism.dm"
 	#include "../torch/torch_events.dm"
 	#include "../torch/torch_holodecks.dm"
-	#include "../torch/torch_lobby.dm"
 	#include "../torch/torch_machinery.dm"
 	#include "../torch/torch_presets.dm"
 	#include "../torch/torch_setup.dm"
 	#include "../torch/torch_submaps.dm"
 	#include "../torch/torch_turfs.dm"
-	#include "../torch/torch_unit_testing.dm"
 	#include "../torch/torch_simplemobs.dm"
 
 	#include "../torch_fd/torch_decals.dm"
@@ -143,10 +148,6 @@
 
 	// --- MAP FILES --- //
 
-		// ~TORCH~ //
-	#include "z1_admin.dmm"
-	#include "z2_transit.dmm"
-
 		// ~AWAY SITES~ //
 	#include "../away/empty.dmm"
 	#include "../away/mining/mining.dm"
@@ -182,7 +183,7 @@
 
 	#include "../../mods/antagonists/_antagonists.dme"
 	// #include "../../mods/atmos_ret_field/_atm_ret_field.dme"
-//	#include "../../mods/bluespace_kitty/_bluespace_kitty.dme"
+	// #include "../../mods/bluespace_kitty/_bluespace_kitty.dme"
 	#include "../../mods/fancy_sofas/_fancy_sofas.dme"
 	#include "../../mods/guns/_guns.dme"
 	#include "../../mods/jukebox_tapes/_jukebox_tapes.dme"
@@ -264,21 +265,16 @@
 	#include "../../mods/_fd/_maps/fluffy_biscuit/_fluffy_biscuit.dme"
 	#include "../../mods/_fd/_maps/gccv_ulyanovsk/_ulyanovsk.dme"
 	#include "../../mods/_fd/_maps/khizriel/_khizriel.dme"
-	#include "../../mods/_fd/_maps/kitsune/_kitsune.dme"
 	#include "../../mods/_fd/_maps/lighthouse/_lighthouse.dme"
 	#include "../../mods/_fd/_maps/new_blueriver/_new_blueriver.dme"
 	#include "../../mods/_fd/_maps/new_year_house/_new_year_house.dme"
 	#include "../../mods/_fd/_maps/prison_ship/_prison_ship.dme"
 	#include "../../mods/_fd/_maps/providence/_providence.dme"
-//	#include "../../mods/_fd/_maps/sentinel_fd/_sentinel.dme"
 	#include "../../mods/_fd/_maps/sfv_dropship/_delman.dme"
-	#include "../../mods/_fd/_maps/sfv_manticore/_manticore.dme"
 	#include "../../mods/_fd/_maps/small_exoplanet_1/_small_exoplanet_1.dme"
 	#include "../../mods/_fd/_maps/smugglers_ship/_smugglers_ship.dme"
 	#include "../../mods/_fd/_maps/snow_cage/_snow_cage.dme"
 	#include "../../mods/_fd/_maps/tartakan/_tartakan.dme"
-	#include "../../mods/_fd/_maps/trader_ship/_trader_ship.dme"
-	#include "../../mods/_fd/_maps/yacht/_yacht.dme"
 
 	#define using_map_DATUM /datum/map/gaia
 

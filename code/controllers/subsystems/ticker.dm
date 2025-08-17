@@ -185,7 +185,7 @@ SUBSYSTEM_DEF(ticker)
 	if(!length(GLOB.admins))
 		send_to_admin_discord(EXCOM_MSG_AHELP, "Round has started with no admins online.")
 
-	torch_past()
+	//torch_past() нету никакого Факела
 
 /datum/controller/subsystem/ticker/proc/playing_tick()
 	mode.process()

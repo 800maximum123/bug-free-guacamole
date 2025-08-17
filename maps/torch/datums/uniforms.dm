@@ -34,7 +34,7 @@
 /singleton/hierarchy/mil_uniform/ec
 	name = "Master EC outfit"
 	hierarchy_type = /singleton/hierarchy/mil_uniform/ec
-	branches = list(/datum/mil_branch/expeditionary_corps)
+	// branches = list(/datum/mil_branch/expeditionary_corps) ГАЙЯ
 
 	pt_under = /obj/item/clothing/under/solgov/pt/expeditionary
 	pt_shoes = /obj/item/clothing/shoes/black

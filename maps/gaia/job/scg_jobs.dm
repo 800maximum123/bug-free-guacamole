@@ -1,6 +1,8 @@
 // -- COMMAND --
 /datum/job/scg_co
 	title = "Commanding Officer"
+	total_positions = 1
+	spawn_positions = 1
 	supervisors = "the Sol Central Government and the Sol Code of Uniform Justice"
 	department = "Solar Central Government"
 	department_flag = SPT // SPT = SCG, SEC = ICCG
@@ -9,6 +11,10 @@
 	minimum_character_age = list(SPECIES_HUMAN = 22)
 	ideal_character_age = 30
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/scg/command/CO
+	required_language = LANGUAGE_HUMAN_EURO
+	selection_color = "#ffc400bb"
+	head_position = TRUE
+	create_record = FALSE
 	allowed_branches = list(
 		/datum/mil_branch/scga,
 	)
@@ -30,6 +36,8 @@
 
 /datum/job/scg_ps
 	title = "Platoon Sergeant"
+	total_positions = 1
+	spawn_positions = 1
 	supervisors = "the Commanding Officer"
 	department = "Solar Central Government"
 	department_flag = SPT
@@ -41,6 +49,10 @@
 		"Platoon Petty Officer",
 	)
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/scg/command/PS
+	required_language = LANGUAGE_HUMAN_EURO
+	selection_color = "#ffc400bb"
+	head_position = TRUE
+	create_record = FALSE
 	allowed_branches = list(
 		/datum/mil_branch/scga,
 		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/gaia/scg/command/PS/fleet,
@@ -103,6 +115,9 @@
 		"Surgeon",
 	)
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/scg/medic
+	required_language = LANGUAGE_HUMAN_EURO
+	selection_color = "#009EDB"
+	create_record = FALSE
 	allowed_branches = list(
 		/datum/mil_branch/scga,
 		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/gaia/scg/medic/fleet,
@@ -153,6 +168,9 @@
 		"Firefighter",
 	)
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/scg/engineer
+	required_language = LANGUAGE_HUMAN_EURO
+	selection_color = "#009EDB"
+	create_record = FALSE
 	allowed_branches = list(
 		/datum/mil_branch/scga,
 		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/gaia/scg/engineer/fleet,
@@ -199,6 +217,10 @@
 	minimum_character_age = list(SPECIES_HUMAN = 23)
 	ideal_character_age = 25
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/scg/squad_leader
+	required_language = LANGUAGE_HUMAN_EURO
+	selection_color = "#ffc400bb"
+	head_position = TRUE
+	create_record = FALSE
 	allowed_branches = list(
 		/datum/mil_branch/scga,
 		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/gaia/scg/squad_leader/fleet,
@@ -242,6 +264,9 @@
 		"Combatant",
 	)
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/scg/trooper
+	required_language = LANGUAGE_HUMAN_EURO
+	selection_color = "#009EDB"
+	create_record = FALSE
 	allowed_branches = list(
 		/datum/mil_branch/scga,
 		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/gaia/scg/trooper/fleet,

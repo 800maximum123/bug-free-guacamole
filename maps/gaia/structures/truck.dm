@@ -36,3 +36,5 @@
 	desc = "A reinforced windshield, likely from a vehicle."
 	icon = 'maps/gaia/icons/truck.dmi'
 	icon_state = "windshield"
+	blend_objects = null
+	noblend_objects = null

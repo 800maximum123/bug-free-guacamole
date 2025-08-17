@@ -3,7 +3,7 @@
 	name = OUTFIT_JOB_NAME("ICCG Gaia Default Outfit")
 	hierarchy_type = /singleton/hierarchy/outfit/job/gaia/iccg
 	l_ear = /obj/item/device/radio/headset/gaia_iccg
-	pda_type = /obj/item/modular_computer/pda
+	pda_type = /obj/item/modular_computer/pda/syndicate
 
 // -- COMMAND --
 // COMMANDING OFFICER
@@ -18,7 +18,6 @@
 	shoes = /obj/item/clothing/shoes/iccgn/service
 	head = /obj/item/clothing/head/iccgn/service_command
 	id_types = list(/obj/item/card/id/torch/gold)
-	pda_type = /obj/item/modular_computer/pda/captain
 	backpack_contents = list(/obj/item/clothing/accessory/solgov/department/command/fleet = 1)
 
 /singleton/hierarchy/outfit/job/gaia/iccg/command/CO/New()
@@ -32,7 +31,6 @@
 	shoes = /obj/item/clothing/shoes/iccgn/utility
 	head = /obj/item/clothing/head/iccgn/beret
 	id_types = list(/obj/item/card/id/torch/silver)
-	pda_type = /obj/item/modular_computer/pda/heads/hop
 	backpack_contents = list(/obj/item/clothing/accessory/solgov/department/command/fleet = 1)
 
 /singleton/hierarchy/outfit/job/gaia/iccg/command/XO/New()

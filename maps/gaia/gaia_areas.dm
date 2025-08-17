@@ -21,93 +21,126 @@
 	requires_power = 0
 	sound_env = ASTEROID
 	ambience = list('sound/effects/wind/wind_2_1.ogg','sound/effects/wind/wind_2_2.ogg','sound/effects/wind/wind_3_1.ogg','sound/effects/wind/wind_4_1.ogg','sound/effects/wind/wind_4_2.ogg','sound/effects/wind/wind_5_1.ogg')
+	base_turf = /turf/simulated/floor/exoplanet/barren
 
 /*
 * -- SCG Camp "Boxcutters" Platoon camp --
 */
 
 /area/gaia/scg
-	name = "\improper 'Boxcutters' Camp"
+	name = "\improper SCG Camp"
 	icon_state = "scg"
 	req_access = list(access_solgov_crew)
 	ambience = list('maps/gaia/sounds/ambipartisan_base.ogg')
 
 /area/gaia/scg/outskirts
-	name = "\improper 'Boxcutters' Camp - Outskirts"
+	name = "\improper SCG Camp - Outskirts"
 	icon_state = "scg_outskirts"
 	ambience = list('maps/gaia/sounds/ambipartisan_outskirts.ogg')
 
 // Barracks and Officer Barracks
 /area/gaia/scg/barracks
-	name = "\improper 'Boxcutters' Camp - Barracks"
+	name = "\improper SCG Camp - Barracks"
 	icon_state = "scg_barracks"
 	sound_env = STANDARD_STATION
 
 /area/gaia/scg/barracks/bathroom
-	name = "\improper 'Boxcutters' Camp - Barracks Bathroom"
+	name = "\improper SCG Camp - Barracks Bathroom"
 	sound_env = SMALL_ENCLOSED
 
 /area/gaia/scg/barracks/ps
-	name = "\improper 'Boxcutters' Camp - Platoon Sergeant"
+	name = "\improper SCG Camp - Platoon Sergeant"
 	icon_state = "scg_ps"
 	sound_env = SMALL_SOFTFLOOR
 
 /area/gaia/scg/barracks/officer
-	name = "\improper 'Boxcutters' Camp - Officer Barracks"
+	name = "\improper SCG Camp - Officer Barracks"
 	icon_state = "scg_barracks_officer"
 	sound_env = MEDIUM_SOFTFLOOR
 
 /area/gaia/scg/barracks/officer/breakroom
-	name = "\improper 'Boxcutters' Camp - Officer Breakroom"
+	name = "\improper SCG Camp - Officer Breakroom"
 
 /area/gaia/scg/barracks/officer/bathroom
-	name = "\improper 'Boxcutters' Camp - Officer Bathroom"
+	name = "\improper SCG Camp - Officer Bathroom"
 	sound_env = SMALL_ENCLOSED
 
-// Facilities
+// Guns
 /area/gaia/scg/armory
-	name = "\improper 'Boxcutters' Camp - Armory"
+	name = "\improper SCG Camp - Armory"
 	icon_state = "scg_armory"
 	req_access = list(access_solgov_crew, access_armory)
 	sound_env = LARGE_ENCLOSED
 
+/area/gaia/scg/shooting_range
+	name = "\improper SCG Camp - Shooting Range"
+	icon_state = "scg_shooting_range"
+	sound_env = LARGE_ENCLOSED
+
+// Engineering
 /area/gaia/scg/engineering
-	name = "\improper 'Boxcutters' Camp - Engineering"
+	name = "\improper SCG Camp - Engineering"
 	icon_state = "scg_engineering"
 	sound_env = SMALL_SOFTFLOOR
 
 /area/gaia/scg/engineering/communications
-	name = "\improper 'Boxcutters' Camp - Communications"
+	name = "\improper SCG Camp - Communications"
 	icon_state = "scg_comms"
 	sound_env = STANDARD_STATION
 
 /area/gaia/scg/engineering/water
-	name = "\improper 'Boxcutters' Camp - Water Processing"
+	name = "\improper SCG Camp - Water Processing"
 
 /area/gaia/scg/engineering/electricity
-	name = "\improper 'Boxcutters' Camp - Electrical Room"
+	name = "\improper SCG Camp - Electrical Room"
 
+// Hospital
 /area/gaia/scg/hospital
-	name = "\improper 'Boxcutters' Camp - Hospital"
+	name = "\improper SCG Camp - Hospital"
 	icon_state = "scg_hospital"
 	sound_env = STANDARD_STATION
 
 /area/gaia/scg/hospital/surgery
-	name = "\improper 'Boxcutters' Camp - Surgical"
+	name = "\improper SCG Camp - Surgical"
 	icon_state = "scg_hospital"
 	sound_env = SMALL_SOFTFLOOR
 
 // Command
 /area/gaia/scg/command
-	name = "\improper 'Boxcutters' Camp - Command Office"
+	name = "\improper SCG Camp - Command Office"
 	icon_state = "scg_command"
 	ambience = list('maps/gaia/sounds/ambipartisan_command.ogg')
 	sound_env = MEDIUM_SOFTFLOOR
 
 /area/gaia/scg/command/briefing
-	name = "\improper 'Boxcutters' Camp - Briefing Area"
+	name = "\improper SCG Camp - Briefing Area"
 	sound_env = STANDARD_STATION
 
+/area/gaia/scg/command/monty
+	name = "\improper Colonel Montogemory HQ"
+	sound_env = LARGE_ENCLOSED
+
+// Security
+/area/gaia/scg/security
+	name = "\improper SCG Camp - Security Booth"
+	icon_state = "scg_security"
+	sound_env = SMALL_SOFTFLOOR
+
+/area/gaia/scg/security/prison
+	name = "\improper SCG Camp - Prison"
+	sound_env = STANDARD_STATION
+
+// Miscellaneous
+/area/gaia/scg/worship
+	name = "\improper SCG Camp - Worshipping Area"
+	icon_state = "scg_worship"
+	ambience = list('sound/ambience/ambicha1.ogg', 'sound/ambience/ambicha2.ogg', 'sound/ambience/ambicha3.ogg')
+
 /*
-* -- ICCG Garrison "Kastel-13" base --
+* -- ICCG Garrison "Morskiye Dragooni" base --
 */
+/area/gaia/iccg
+	name = "\improper ICCG Camp"
+	icon_state = "iccg"
+	req_access = list(access_iccg)
+	ambience = list('maps/gaia/sounds/ambioccupation_base.ogg')

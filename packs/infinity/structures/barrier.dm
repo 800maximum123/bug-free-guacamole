@@ -9,10 +9,12 @@
 	throwpass = 1
 	anchored = TRUE
 	atom_flags = ATOM_FLAG_CLIMBABLE | ATOM_FLAG_CHECKS_BORDER
+	material = MATERIAL_PLASTEEL
 	var/health = 200
 	var/maxhealth = 200
 	var/deployed = 0
 	var/basic_chance = 50
+	var/is_static = FALSE // If barrier can be closed and opened.
 
 /obj/structure/barrier/Initialize()
 	. = ..()
@@ -21,21 +23,20 @@
 
 /obj/structure/barrier/examine(mob/user)
 	..()
-	if(health>=200)
+	if(health>=maxhealth)
 		to_chat(user, SPAN_NOTICE("It looks undamaged."))
-	if(health>=140 && health<200)
+	if(health>=(maxhealth-20) && health<maxhealth)
 		USE_FEEDBACK_FAILURE("It has small dents.")
-	if(health>=80 && health<140)
+	if(health>=(maxhealth-50) && health<(maxhealth-20))
 		USE_FEEDBACK_FAILURE("It has medium dents.")
-	if(health<80)
+	if(health<(maxhealth-50))
 		to_chat(user, "<span class='danger'>It will break apart soon!</span>")
 
 /obj/structure/barrier/Destroy()
 	if(health <= 0)
 		visible_message("<span class='danger'>[src] was destroyed!</span>")
 		playsound(src, 'sound/effects/clang.ogg', 100, 1)
-		new /obj/item/stack/material/steel(src.loc)
-		new /obj/item/stack/material/steel(src.loc)
+		material.place_sheet(src.loc, amount = 2)
 	return ..()
 
 /obj/structure/barrier/proc/update_layers()
@@ -93,6 +94,8 @@
 	if(user.species.can_shred(user) && user.a_intent == I_HURT)
 		take_damage(20)
 		return
+	if(is_static)
+		return
 	if(deployed)
 		to_chat(user, SPAN_NOTICE("[src] is already deployed. You can't move it."))
 	else
@@ -126,7 +129,7 @@
 		update_icon()
 		return TRUE
 
-	if(isScrewdriver(tool))
+	if(isScrewdriver(tool) && !is_static)
 		if(density)
 			visible_message("<span class='danger'>[user] begins to [deployed ? "un" : ""]deploy \the [src]...</span>")
 			playsound(src, 'sound/items/Screwdriver.ogg', 100, 1)
@@ -234,7 +237,7 @@
 	Also, demontage can be done with a crowbar.In case of structural damage, can be repaired with welding tool."
 	icon = 'packs/infinity/icons/obj/items.dmi'
 	icon_state = "barrier_hand"
-	w_class = 4
+	w_class = ITEM_SIZE_NORMAL // Normal sized for Gaian field engineers
 	var/health = 200
 
 /obj/item/barrier/proc/turf_check(mob/user as mob)

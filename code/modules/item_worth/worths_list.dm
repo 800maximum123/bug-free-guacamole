@@ -150,7 +150,7 @@ var/global/list/worths = list(
 					/obj/item/cell/infinite = 50000,
 					/obj/item/cell/potato = 1,
 					/obj/item/cell/slime = 160,
-					/obj/item/drone_cell = 3000,
+					///obj/item/drone_cell = 3000, гайя
 //SMES COILS,
 					/obj/item/stock_parts/smes_coil/weak = 1000,
 					/obj/item/stock_parts/smes_coil/super_capacity = 5000,

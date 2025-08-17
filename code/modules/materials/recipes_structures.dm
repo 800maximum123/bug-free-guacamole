@@ -24,3 +24,12 @@
 	time = 50
 	on_floor = 1
 	difficulty = 2
+
+/datum/stack_recipe/simple_barrier
+	title = "simple barrier"
+	result_type = /obj/structure/barrier/simple
+	req_amount = 6
+	time = 40
+	on_floor = 1
+	difficulty = 2
+	send_material_data = 1

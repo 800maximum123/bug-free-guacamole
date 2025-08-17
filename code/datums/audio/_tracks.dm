@@ -297,6 +297,13 @@
 	license = /singleton/license/cc_by_sa_3_0
 	url = "https://soundcloud.com/adrop_aday/14-wild-encounters"
 
+/singleton/audio/track/hellmet
+	source = 'sound/music/tuxedo/HELLMET.ogg'
+	title = "HELLMET"
+	author = "DrTuxedo"
+	license = /singleton/license/cc_by_sa_3_0
+	url = "https://bluetuxedo.newgrounds.com/audio"
+
 /singleton/audio/track/ambience
 	source = 'sound/music/ambience.ogg'
 	title = null

@@ -1,15 +1,15 @@
 /obj/landmark/corpse/fleet
 	name = "Fleet Armsman"
-	corpse_outfits = list(/singleton/hierarchy/outfit/job/torch/ert/hostile)
+	//corpse_outfits = list(/singleton/hierarchy/outfit/job/torch/ert/hostile) ГАЙЯ
 	spawn_flags = CORPSE_SPAWNER_RANDOM_NAMELESS | CORPSE_SPAWNER_ALL_SKIPS
 
 /obj/landmark/corpse/fleet/leader
 	name = "Fleet Team Leader"
-	corpse_outfits = list(/singleton/hierarchy/outfit/job/torch/ert/hostile/leader)
+	//corpse_outfits = list(/singleton/hierarchy/outfit/job/torch/ert/hostile/leader) ГАЙЯ
 
 /obj/landmark/corpse/fleet/space
 	name = "Fleet Assault Armsman"
-	corpse_outfits = list(/singleton/hierarchy/outfit/job/torch/ert/hostile/suit)
+	//corpse_outfits = list(/singleton/hierarchy/outfit/job/torch/ert/hostile/suit) ГАЙЯ
 
 /obj/item/clothing/suit/armor/bulletproof/armsman
 	valid_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA, ACCESSORY_SLOT_ARMOR_A, ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)

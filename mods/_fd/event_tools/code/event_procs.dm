@@ -162,7 +162,7 @@
         list("Мантикора - это последняя надежда переломить исход противостояния", 10),
     ))
 
-    captain_transmission()
+    //captain_transmission() ГАЙЯ
 
 /proc/title_2()
 

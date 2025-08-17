@@ -65,6 +65,7 @@
 	. = ..()
 	if(reinforce_material)	//recipes below don't support composite materials
 		return
+	. += new/datum/stack_recipe/simple_barrier(src) // GAIA-EDIT - Added simple barrier recipe
 	. += new/datum/stack_recipe_list("office chairs",list(
 		new/datum/stack_recipe/furniture/chair/office/dark(src),
 		new/datum/stack_recipe/furniture/chair/office/light(src)

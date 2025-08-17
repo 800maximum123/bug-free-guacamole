@@ -152,7 +152,6 @@
 		/datum/mil_rank/fleet/o5
 	)
 
-	assistant_job = /datum/job/crew
 	min_skill = list(	SKILL_HAULING = SKILL_BASIC,
 						SKILL_WEAPONS = SKILL_BASIC,
 						SKILL_EVA     = SKILL_BASIC)
@@ -166,14 +165,14 @@
 
 	rank_types = list(
 		/datum/mil_rank/civ/civ,
-		/datum/mil_rank/civ/contractor,
-		/datum/mil_rank/civ/synthetic
+		/datum/mil_rank/civ/synthetic,
+		/datum/mil_rank/civ/partisan
 	)
 
 	spawn_rank_types = list(
 		/datum/mil_rank/civ/civ,
-		/datum/mil_rank/civ/contractor,
-		/datum/mil_rank/civ/synthetic
+		/datum/mil_rank/civ/synthetic,
+		/datum/mil_rank/civ/partisan
 	)
 
 /datum/mil_branch/solgov
