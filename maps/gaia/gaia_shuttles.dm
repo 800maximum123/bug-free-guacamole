@@ -87,19 +87,19 @@
 	ceiling_type = /turf/simulated/floor/shuttle_ceiling/air
 
 // Landmarks for the ICCG Shuttle
-/obj/shuttle_landmark/lift/iccg_stopa_shuttle
+/obj/shuttle_landmark/lift/iccg_stopa_shuttle_base
 	name = "ICCG Garrison"
 	landmark_tag = "nav_iccg_stopa_shuttle_camp"
 	base_area = /area/gaia/scg
 	base_turf = /turf/simulated/floor/exoplanet/concrete/reinforced
 
-/obj/shuttle_landmark/lift/iccg_stopa_shuttle
+/obj/shuttle_landmark/lift/iccg_stopa_shuttle_transit
 	name = "In transit"
 	landmark_tag = "nav_iccg_stopa_shuttle_transit"
 	base_area = /area/gaia/scg
 	base_turf = /turf/space/transit/east
 
-/obj/shuttle_landmark/lift/iccg_stopa_shuttle
+/obj/shuttle_landmark/lift/iccg_stopa_shuttle_op
 	name = "Area of Operations"
 	landmark_tag = "nav_iccg_stopa_shuttle_areaofop"
 	flags = SLANDMARK_FLAG_AUTOSET

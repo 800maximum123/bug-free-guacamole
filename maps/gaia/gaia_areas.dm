@@ -30,7 +30,7 @@
 /area/gaia/scg
 	name = "\improper SCG Camp"
 	icon_state = "scg"
-	req_access = list(access_solgov_crew)
+	//req_access = list(access_solgov_crew)
 	ambience = list('maps/gaia/sounds/ambipartisan_base.ogg')
 
 /area/gaia/scg/outskirts
@@ -142,5 +142,24 @@
 /area/gaia/iccg
 	name = "\improper ICCG Camp"
 	icon_state = "iccg"
-	req_access = list(access_iccg)
+	//req_access = list(access_iccg)
 	ambience = list('maps/gaia/sounds/ambioccupation_base.ogg')
+
+/area/gaia/iccg/outskirts
+	name = "\improper ICCG Camp - Outskirts"
+	icon_state = "iccg_outskirts"
+	ambience = list('maps/gaia/sounds/ambioccupation_outskirts.ogg')
+
+/area/gaia/iccg/citadel
+	name = "\improper ICCG Camp - Citadel"
+	icon_state = "iccg_citadel"
+	sound_env = STANDARD_STATION
+
+/area/gaia/iccg/citadel/command
+	name = "\improper ICCG Camp - CIC"
+	icon_state = "iccg_command"
+	ambience = list('maps/gaia/sounds/ambioccupation_command.ogg')
+
+/area/gaia/iccg/citadel/command/briefing
+	name = "\improper ICCG Camp - Briefing"
+	sound_env = LARGE_SOFTFLOOR

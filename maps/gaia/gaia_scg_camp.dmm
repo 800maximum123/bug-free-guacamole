@@ -137,7 +137,6 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/gaia/scg/barracks)
 "bh" = (
-/obj/machinery/door/window/westleft,
 /obj/floor_decal/steeldecal/steel_decals_central2,
 /obj/floor_decal/steeldecal/steel_decals_central2{
 	dir = 1
@@ -148,10 +147,9 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 32
 	},
-/obj/structure/closet/walllocker{
-	pixel_y = -32
+/obj/structure/handrail{
+	dir = 1
 	},
-/obj/structure/curtain/black,
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck)
 "bi" = (
@@ -288,9 +286,6 @@
 /turf/simulated/floor/plating,
 /area/gaia/scg/security/prison)
 "cj" = (
-/obj/machinery/door/blast/shutters{
-	dir = 4
-	},
 /obj/floor_decal/hull{
 	dir = 4
 	},
@@ -300,6 +295,9 @@
 	},
 /obj/floor_decal/steeldecal/steel_decals_central2{
 	dir = 8
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck)
@@ -344,26 +342,11 @@
 /turf/simulated/floor/plating,
 /area/gaia/scg/command/monty)
 "cR" = (
-/obj/structure/bed/chair/shuttle/black{
-	pixel_y = 20;
-	pixel_x = -7
-	},
-/obj/structure/bed/chair/shuttle/black{
-	pixel_y = 20;
-	pixel_x = 8
-	},
-/obj/structure/bed/chair/shuttle/black{
-	pixel_y = -2;
-	pixel_x = -7;
-	dir = 1
-	},
-/obj/structure/bed/chair/shuttle/black{
-	pixel_y = -2;
-	pixel_x = 8;
-	dir = 1
-	},
 /obj/floor_decal/steeldecal/steel_decals_central2,
 /obj/floor_decal/steeldecal/steel_decals_central2{
+	dir = 1
+	},
+/obj/structure/handrail{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/black,
@@ -681,11 +664,10 @@
 	layer = 3.06;
 	pixel_y = -14
 	},
-/obj/structure/window/reinforced/windshield,
 /obj/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/obj/structure/table/reinforced,
+/obj/wallframe_spawn/reinforced/titanium,
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck)
 "fu" = (
@@ -724,6 +706,17 @@
 /obj/item/gun/projectile/automatic/sec_smg/lethal,
 /obj/item/gun/projectile/automatic/sec_smg/lethal,
 /obj/decal/cleanable/dirt,
+/obj/item/gun/projectile/automatic/caseless,
+/obj/item/gun/projectile/automatic/caseless,
+/obj/item/gun/projectile/automatic/caseless,
+/obj/item/gun/projectile/automatic/caseless,
+/obj/item/gun/projectile/automatic/caseless,
+/obj/item/gun/projectile/automatic/caseless/carbine,
+/obj/item/gun/projectile/automatic/caseless/carbine,
+/obj/item/gun/projectile/automatic/caseless/carbine,
+/obj/item/gun/projectile/automatic/caseless/carbine,
+/obj/item/gun/projectile/automatic/caseless/grenadier,
+/obj/item/gun/projectile/automatic/caseless/grenadier,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "fE" = (
@@ -1368,13 +1361,10 @@
 /obj/structure/gaia/truck_shadow{
 	pixel_y = -32
 	},
-/obj/structure/window/reinforced/windshield{
-	dir = 10
-	},
 /obj/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/obj/structure/table/reinforced,
+/obj/wallframe_spawn/reinforced/titanium,
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck)
 "lB" = (
@@ -1568,29 +1558,14 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/gaia/scg/engineering)
 "nm" = (
-/obj/structure/bed/chair/shuttle/black{
-	pixel_y = 20;
-	pixel_x = -7
-	},
-/obj/structure/bed/chair/shuttle/black{
-	pixel_y = 20;
-	pixel_x = 8
-	},
-/obj/structure/bed/chair/shuttle/black{
-	pixel_y = -2;
-	pixel_x = -7;
-	dir = 1
-	},
-/obj/structure/bed/chair/shuttle/black{
-	pixel_y = -2;
-	pixel_x = 8;
-	dir = 1
-	},
 /obj/floor_decal/steeldecal/steel_decals_central2,
 /obj/floor_decal/steeldecal/steel_decals_central2{
 	dir = 1
 	},
 /obj/machinery/light/small/red{
+	dir = 1
+	},
+/obj/structure/handrail{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/black,
@@ -1710,19 +1685,21 @@
 "on" = (
 /obj/floor_decal/hull,
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/item/clothing/head/helmet/ballistic,
-/obj/item/clothing/head/helmet/ballistic,
-/obj/item/clothing/head/helmet/ballistic,
-/obj/item/clothing/head/helmet/merc,
-/obj/item/clothing/head/helmet/merc,
-/obj/item/clothing/head/helmet/nt/guard,
-/obj/item/clothing/head/helmet/nt/guard,
-/obj/item/clothing/head/helmet/riot,
-/obj/item/clothing/head/helmet/solgov/command,
-/obj/item/clothing/head/helmet/solgov/command,
-/obj/item/clothing/head/helmet/solgov/command,
-/obj/item/clothing/head/helmet/solgov/security,
-/obj/item/clothing/head/helmet/solgov/pilot/fleet,
+/obj/item/clothing/suit/armor/pcarrier/green/scg,
+/obj/item/clothing/suit/armor/pcarrier/green/scg,
+/obj/item/clothing/suit/armor/pcarrier/green/scg,
+/obj/item/clothing/suit/armor/pcarrier/green/scg,
+/obj/item/clothing/suit/armor/pcarrier/green/scg,
+/obj/item/clothing/suit/armor/pcarrier/green/scg,
+/obj/item/clothing/suit/armor/pcarrier/green/scg,
+/obj/item/clothing/suit/armor/pcarrier/green/scg,
+/obj/item/clothing/head/helmet/green,
+/obj/item/clothing/head/helmet/green,
+/obj/item/clothing/head/helmet/green,
+/obj/item/clothing/head/helmet/green,
+/obj/item/clothing/head/helmet/green,
+/obj/item/clothing/head/helmet/green,
+/obj/item/clothing/head/helmet/green,
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "op" = (
@@ -1751,11 +1728,11 @@
 /turf/simulated/floor/exoplanet/gravel,
 /area/gaia/scg/outskirts)
 "oT" = (
-/obj/structure/window/reinforced/windshield{
-	dir = 8
-	},
 /obj/machinery/computer/shuttle_control/scg_truck/bravo{
 	dir = 4
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8
 	},
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck/bravo)
@@ -2194,6 +2171,13 @@
 /obj/item/storage/box/ammo/smg,
 /obj/item/storage/box/ammo/smg,
 /obj/item/storage/box/ammo/smg,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "tB" = (
@@ -2698,10 +2682,7 @@
 /turf/simulated/floor/steel_dirty,
 /area/gaia/scg/barracks/officer)
 "wU" = (
-/obj/structure/window/reinforced/windshield{
-	dir = 9
-	},
-/obj/structure/railing/mapped/no_density,
+/obj/wallframe_spawn/reinforced/titanium,
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck/bravo)
 "wW" = (
@@ -2724,11 +2705,11 @@
 /turf/simulated/wall/titanium,
 /area/turbolift/scg_truck)
 "xa" = (
-/obj/structure/window/reinforced/windshield{
-	dir = 8
-	},
 /obj/machinery/computer/shuttle_control/scg_truck{
 	dir = 4
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8
 	},
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck)
@@ -3151,7 +3132,6 @@
 /obj/structure/gaia/truck_shadow/middle{
 	pixel_y = -32
 	},
-/obj/structure/window/reinforced/windshield,
 /obj/floor_decal/spline/plain/black{
 	dir = 1
 	},
@@ -3159,7 +3139,7 @@
 	layer = 3.06;
 	pixel_y = -14
 	},
-/obj/structure/table/reinforced,
+/obj/wallframe_spawn/reinforced/titanium,
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck/bravo)
 "Bj" = (
@@ -3875,10 +3855,7 @@
 /turf/simulated/floor/exoplanet/concrete/reinforced,
 /area/gaia/scg)
 "Hd" = (
-/obj/structure/window/reinforced/windshield{
-	dir = 9
-	},
-/obj/structure/railing/mapped/no_density,
+/obj/wallframe_spawn/reinforced/titanium,
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck)
 "He" = (
@@ -4199,28 +4176,13 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/shooting_range)
 "JR" = (
-/obj/structure/bed/chair/shuttle/black{
-	pixel_y = 20;
-	pixel_x = -7
-	},
-/obj/structure/bed/chair/shuttle/black{
-	pixel_y = 20;
-	pixel_x = 8
-	},
-/obj/structure/bed/chair/shuttle/black{
-	pixel_y = -2;
-	pixel_x = -7;
-	dir = 1
-	},
-/obj/structure/bed/chair/shuttle/black{
-	pixel_y = -2;
-	pixel_x = 8;
-	dir = 1
-	},
 /obj/floor_decal/steeldecal/steel_decals_central2{
 	dir = 1
 	},
 /obj/floor_decal/steeldecal/steel_decals_central2,
+/obj/structure/handrail{
+	dir = 1
+	},
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck/bravo)
 "JS" = (
@@ -4444,13 +4406,10 @@
 /obj/structure/gaia/truck_shadow{
 	pixel_y = -32
 	},
-/obj/structure/window/reinforced/windshield{
-	dir = 10
-	},
 /obj/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/obj/structure/table/reinforced,
+/obj/wallframe_spawn/reinforced/titanium,
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck/bravo)
 "LD" = (
@@ -4707,9 +4666,6 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg/outskirts)
 "On" = (
-/obj/machinery/door/blast/shutters{
-	dir = 4
-	},
 /obj/floor_decal/hull{
 	dir = 4
 	},
@@ -4719,6 +4675,9 @@
 /obj/floor_decal/steeldecal/steel_decals_central2,
 /obj/floor_decal/steeldecal/steel_decals_central2{
 	dir = 8
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck/bravo)
@@ -5089,34 +5048,6 @@
 /obj/machinery/light/invisible,
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/scg)
-"Sc" = (
-/obj/structure/bed/chair/shuttle/black{
-	pixel_y = 20;
-	pixel_x = -7
-	},
-/obj/structure/bed/chair/shuttle/black{
-	pixel_y = 20;
-	pixel_x = 8
-	},
-/obj/structure/bed/chair/shuttle/black{
-	pixel_y = -2;
-	pixel_x = -7;
-	dir = 1
-	},
-/obj/structure/bed/chair/shuttle/black{
-	pixel_y = -2;
-	pixel_x = 8;
-	dir = 1
-	},
-/obj/floor_decal/steeldecal/steel_decals_central2{
-	dir = 1
-	},
-/obj/floor_decal/steeldecal/steel_decals_central2,
-/obj/machinery/light/small/red{
-	dir = 1
-	},
-/turf/simulated/floor/shuttle/black,
-/area/turbolift/scg_truck/bravo)
 "Sh" = (
 /obj/floor_decal/industrial/warning/dust{
 	dir = 4
@@ -6026,7 +5957,6 @@
 /turf/simulated/floor/steel_dirty,
 /area/gaia/scg/barracks)
 "Zb" = (
-/obj/machinery/door/window/westleft,
 /obj/floor_decal/steeldecal/steel_decals_central2,
 /obj/floor_decal/steeldecal/steel_decals_central2{
 	dir = 1
@@ -6037,10 +5967,9 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 32
 	},
-/obj/structure/closet/walllocker{
-	pixel_y = -32
+/obj/structure/handrail{
+	dir = 1
 	},
-/obj/structure/curtain/black,
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck/bravo)
 "Zd" = (
@@ -10347,7 +10276,7 @@ wy
 CH
 jS
 KZ
-Sc
+JR
 Tp
 MX
 eg

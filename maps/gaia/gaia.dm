@@ -42,7 +42,9 @@
 
 	#include "../gaia/gaia_scg_camp.dmm"
 	#include "../gaia/gaia_iccg_camp.dmm"
-	#include "../gaia/area_of_op/city.dmm" //CHANGE THIS DEPENDING ON THE MISSION!!
+	 //CHANGE THIS DEPENDING ON THE MISSION!!
+	//#include "../gaia/area_of_op/city.dmm"
+	#include "../gaia/area_of_op/outskirts.dmm"
 	#include "../gaia/z5_admin.dmm"
 	#include "../gaia/z6_transit.dmm"
 
