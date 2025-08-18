@@ -182,7 +182,7 @@
 		nullified = FALSE
 
 	if(hull_damage)
-		armor_durability -= rand(1,hull_damage)
+		armor_durability = max(armor_durability - rand(1,hull_damage), 0)
 
 	if(do_animation && !damaged)
 		damage_animation(nullified)
