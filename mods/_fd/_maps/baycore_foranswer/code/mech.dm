@@ -37,12 +37,12 @@
 		/datum/mech_ability/boosters_quick,
 		/datum/mech_ability/action/accelerate
 	)
-	/// Список оружия меха
+	/// Список модулей меха
 	var/list/datum/mech_equipment/equipment = list(
 		/datum/mech_equipment/firearm,
 		/datum/mech_equipment/weapon,
 	)
-	/// Выбранный тип оружия
+	/// Выбранный на текущий момент модуль
 	var/datum/mech_equipment/selected_equipment = null
 
 	var/armor_stat = 0 // Снижает урон на [X]
@@ -51,23 +51,28 @@
 	var/integrity = 100 // Текущее ХП
 	var/integrity_max = 100 // Максимальное ХП
 
-	var/heat = 0 // Перегрев. Сбрасывается, когда достигает [heat_max]
-	var/heat_max = 5 // Максимальное количество перегрева, после достижения которого мы перегреваемся
+	/// Число перегрева. Сбрасывается, когда достигает [heat_max]
+	var/heat = 0
+	/// Максимальное число [heat]. По достижению происходит [overheat]
+	var/heat_max = 5
 
-	/// Число, которое раз в 2 секунды будет прибавлятся к [heat]
+	/// Число, которое раз в 2 секунды прибавляется к [heat]
 	var/heat_regen = 0
 
 	var/has_overheated_state = FALSE
 
-	var/damaged = FALSE // Мы в "крите"?
-	var/repairs = 1 // Сколько раз мы сможем подниматься из мёртвых?
+	/// Выведен ли мех из строя?
+	var/damaged = FALSE
+	/// Число "возраждений" нашего меха
+	var/repairs = 1
 
-	/// На предохранителе ли всё оружие?
+	/// На предохранителе ли все наши модули?
 	var/weapon_safety = TRUE
-	/// Запасные магазины для пополнения патрон
+	/// Число запасных магазинов для пополнения патрон
 	var/spare_magazines = 0
 
-	var/scan_delay = 1.5 SECONDS // Задержка перед показом результатов сканирования
+	/// Задержка перед показом результатов сканирования
+	var/scan_delay = 1.5 SECONDS
 
 	var/overheated = 0 // Мы перегрелись. Мы получаем урон, но также можем бесплатно использовать любые абилки пока таймер не кончится
 	var/chained = 0
@@ -81,8 +86,10 @@
 	var/wreck_type = /obj/structure/fd/mech_wreckage
 	var/dead = FALSE
 
-	var/mob/living/carbon/human/pilot/pilot // Текущий пилот меха
-	var/mob/living/simple_animal/fd/lancer/protected_by // Защищающий нас мех
+	/// Текущий пилот меха, находящийся внутри
+	var/mob/living/carbon/human/pilot/pilot
+	/// Мех, которому будет передаватся весь полученный нами урон
+	var/mob/living/simple_animal/fd/lancer/protected_by
 
 /mob/living/simple_animal/fd/lancer/Initialize()
 	icon_living = icon_state
