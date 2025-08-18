@@ -87,13 +87,13 @@
 	var/time = world.time
 	if(next_use > time)
 		. += list(list(
-			"title" = ABILITY_STAT_GRADIENT("<[name]> Готов Через:", time-last_used, next_use-last_used),
-			"desc" = ABILITY_STAT_GRADIENT("[SECONDS_LEFT(time, next_use)] секунд", time-last_used, next_use-last_used),
+			"title" = ABILITY_STAT("<[name]> Готов Через:", time-last_used, next_use-last_used, 0.5),
+			"desc" = ABILITY_STAT("[SECONDS_LEFT(time, next_use)] секунд", time-last_used, next_use-last_used, 0.5),
 			))
 	if(max_charges)
 		. += list(list(
-			"title" = ABILITY_STAT_GRADIENT("Зарядов <[name]>:", charges, max_charges),
-			"desc" = ABILITY_STAT_GRADIENT("[charges]/[max_charges]", charges, max_charges),
+			"title" = ABILITY_STAT("Зарядов <[name]>:", charges, max_charges, 0.5),
+			"desc" = ABILITY_STAT("[charges]/[max_charges]", charges, max_charges, 0.5),
 			))
 	return .
 

@@ -89,7 +89,7 @@
 	. = ..()
 	if(max_ammo > 0)
 		. += list(list(
-			"title" = ABILITY_STAT_GRADIENT("Боезапаса <[name]>:", ammo, max_ammo),
-			"desc" = ABILITY_STAT_GRADIENT("[ammo] / [max_ammo]", ammo, max_ammo),
+			"title" = ABILITY_STAT("Боезапаса <[name]>:", ammo, max_ammo, 0.5),
+			"desc" = ABILITY_STAT("[ammo] / [max_ammo]", ammo, max_ammo, 0.5),
 			))
 	return .

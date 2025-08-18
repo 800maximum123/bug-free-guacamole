@@ -238,7 +238,7 @@
 
 /mob/living/simple_animal/fd/lancer/proc/get_scan_info()
 	. = ""
-	var/integrity_color = gradient(COLOR_RED, COLOR_DARKMODE_TEXT, (integrity*1.4)/integrity_max)
+	var/integrity_color = gradient(COLOR_RED, COLOR_DARKMODE_TEXT, (integrity*1.5)/integrity_max)
 	. += FONT_NORMAL("<li>[SPAN_COLOR(integrity_color, "Структуры: [Percent(integrity,integrity_max,1)]%")]")
 	var/heat_color = gradient("#ff8800", COLOR_RED, heat/heat_overflow)
 	. += FONT_NORMAL("<li>[SPAN_COLOR(heat_color, "Перегрева: [Percent(heat,heat_overflow,1)]%")]")
@@ -285,19 +285,19 @@
 
 	if(initial(spare_magazines))
 		var/ammo_color = gradient(COLOR_RED, COLOR_DARKMODE_TEXT, spare_magazines/initial(spare_magazines))
-		stat(FONT_NORMAL(SPAN_COLOR(ammo_color, "Запасных Магазинов:")), FONT_NORMAL(SPAN_COLOR(ammo_color, "[spare_magazines] / [initial(spare_magazines)]")))
+		stat(MECH_STAT("Запасных Магазинов:", ammo_color), MECH_STAT("[spare_magazines] / [initial(spare_magazines)]", ammo_color))
 
 	if(initial(repairs)) // ноль на ноль делить нельзя
 		var/repairs_color = gradient(COLOR_RED, COLOR_DARKMODE_TEXT, repairs/initial(repairs))
-		stat(FONT_NORMAL(SPAN_COLOR(repairs_color, "Комплектов Починки:")), FONT_NORMAL(SPAN_COLOR(repairs_color, "[repairs] / [initial(repairs)]")))
+		stat(MECH_STAT("Комплектов Починки:", repairs_color), MECH_STAT("[repairs] / [initial(repairs)]", repairs_color))
 
 	if(integrity_max)
 		var/integrity_color = gradient(COLOR_RED, COLOR_DARKMODE_TEXT, (integrity*1.4)/integrity_max)
-		stat(FONT_NORMAL(SPAN_COLOR(integrity_color, "Структуры:")), FONT_NORMAL(SPAN_COLOR(integrity_color, "[integrity] / [integrity_max] ([Percent(integrity,integrity_max,1)]%)")))
+		stat(MECH_STAT("Структуры:", integrity_color), MECH_STAT("[integrity] / [integrity_max] ([Percent(integrity,integrity_max,1)]%)", integrity_color))
 
 	if(heat_overflow)
 		var/heat_color = gradient("#ff8800", COLOR_RED, heat/heat_overflow)
-		stat(FONT_NORMAL(SPAN_COLOR(heat_color, "Перегрева:")), FONT_NORMAL(SPAN_COLOR(heat_color, "[heat] / [heat_overflow] ([Percent(heat,heat_overflow,1)]%)")))
+		stat(MECH_STAT("Перегрева:", heat_color), MECH_STAT("[heat] / [heat_overflow] ([Percent(heat,heat_overflow,1)]%)", heat_color))
 
 	for(var/datum/mech_equipment/equip as anything in equipment)
 		var/data_set = equip.get_stat_info(src)
@@ -500,11 +500,11 @@
 
 	/// Генерируем и активируем список действий при клике на себя
 	if(A == src && params_list["left"])
+		. = TRUE
+
 		if(hacked)
 			playsound(get_turf(src), 'sound/machines/buzz-two.ogg', 25, TRUE)
 			return .
-
-		. = TRUE
 
 		var/list/options = list()
 		var/list/actions = list()
@@ -517,7 +517,7 @@
 
 			actions[ability.name] = ability
 
-		playsound(src, 'packs/infinity/sound/mecha/UI_SCI-FI_Tone_10_stereo.ogg', 60, TRUE)
+		playsound(src, 'packs/infinity/sound/mecha/UI_SCI-FI_Tone_10_stereo.ogg', 40)
 
 		var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 125, offset_y = 125)
 		if(!chosen_option)

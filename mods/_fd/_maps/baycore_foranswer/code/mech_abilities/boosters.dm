@@ -40,8 +40,8 @@
 /datum/mech_ability/action/boosters_passive/get_stat_info()
 	var/color = currently_active ? stat_color : second_color
 	. = list(list(
-		"title" = ABILITY_STAT("ПАССИВНОЕ УСКОРЕНИЕ:", color),
-		"desc" = ABILITY_STAT(currently_active ? "РАБОТАЕТ" : "ОТКЛЮЧЕНО", color),
+		"title" = MECH_STAT("ПАССИВНОЕ УСКОРЕНИЕ:", color),
+		"desc" = MECH_STAT(currently_active ? "РАБОТАЕТ" : "ОТКЛЮЧЕНО", color),
 		))
 
 
