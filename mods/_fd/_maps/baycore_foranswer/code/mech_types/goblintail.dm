@@ -35,7 +35,7 @@
 	integrity = 300
 	integrity_max = 300
 
-	heat_overflow = 10
+	heat_max = 10
 	repairs = 2
 
 	base_movement_cooldown = 3

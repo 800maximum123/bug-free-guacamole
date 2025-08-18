@@ -51,11 +51,11 @@
 	var/integrity = 100 // Текущее ХП
 	var/integrity_max = 100 // Максимальное ХП
 
-	var/heat = 0 // Перегрев. Сбрасывается, когда достигает [heat_overflow]
-	var/heat_overflow = 5 // Максимальное количество перегрева, после достижения которого мы перегреваемся
+	var/heat = 0 // Перегрев. Сбрасывается, когда достигает [heat_max]
+	var/heat_max = 5 // Максимальное количество перегрева, после достижения которого мы перегреваемся
 
-	/// Постоянное изменение нагрева, которое будет происходить раз в 2 секунды
-	var/heat_update = 0
+	/// Число, которое раз в 2 секунды будет прибавлятся к [heat]
+	var/heat_regen = 0
 
 	var/has_overheated_state = FALSE
 
@@ -143,8 +143,8 @@
 	handle_heat()
 
 /mob/living/simple_animal/fd/lancer/proc/handle_heat()
-	if(heat >= heat_overflow)
-		heat -= heat_overflow
+	if(heat >= heat_max)
+		heat -= heat_max
 		Effect(MECH_OVERHEATED, 30 SECONDS)
 
 /mob/living/simple_animal/fd/lancer/proc/recieve_damage(integrity_damage = 0, hull_damage = 1, shredding = FALSE, do_animation = TRUE)
@@ -240,8 +240,8 @@
 	. = ""
 	var/integrity_color = gradient(COLOR_RED, COLOR_DARKMODE_TEXT, (integrity*1.5)/integrity_max)
 	. += FONT_NORMAL("<li>[SPAN_COLOR(integrity_color, "Структуры: [Percent(integrity,integrity_max,1)]%")]")
-	var/heat_color = gradient("#ff8800", COLOR_RED, heat/heat_overflow)
-	. += FONT_NORMAL("<li>[SPAN_COLOR(heat_color, "Перегрева: [Percent(heat,heat_overflow,1)]%")]")
+	var/heat_color = gradient("#ff8800", COLOR_RED, heat/heat_max)
+	. += FONT_NORMAL("<li>[SPAN_COLOR(heat_color, "Перегрева: [Percent(heat,heat_max,1)]%")]")
 	. += FONT_NORMAL("</li>")
 
 	for(var/datum/mech_ability/ability as anything in abilities)
@@ -295,9 +295,9 @@
 		var/integrity_color = gradient(COLOR_RED, COLOR_DARKMODE_TEXT, (integrity*1.4)/integrity_max)
 		stat(MECH_STAT("Структуры:", integrity_color), MECH_STAT("[integrity] / [integrity_max] ([Percent(integrity,integrity_max,1)]%)", integrity_color))
 
-	if(heat_overflow)
-		var/heat_color = gradient("#ff8800", COLOR_RED, heat/heat_overflow)
-		stat(MECH_STAT("Перегрева:", heat_color), MECH_STAT("[heat] / [heat_overflow] ([Percent(heat,heat_overflow,1)]%)", heat_color))
+	if(heat_max)
+		var/heat_color = gradient("#ff8800", COLOR_RED, heat/heat_max)
+		stat(MECH_STAT("Перегрева:", heat_color), MECH_STAT("[heat] / [heat_max] ([Percent(heat,heat_max,1)]%)", heat_color))
 
 	for(var/datum/mech_equipment/equip as anything in equipment)
 		var/data_set = equip.get_stat_info(src)
@@ -409,7 +409,7 @@
 	movement_cooldown = .
 
 /mob/living/simple_animal/fd/lancer/Life()
-	adjust_heat(heat_update)
+	adjust_heat(heat_regen)
 
 	if(overheated)
 		recieve_damage(2, 0, TRUE, FALSE)

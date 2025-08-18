@@ -4,12 +4,14 @@
 	stat_color = "#ec75fc"
 
 	cooldown = 10 SECONDS
-	var/qte_time = 2 SECONDS
 
-	var/debuff_duration = 20 SECONDS
 
 	var/stages_max = 5
 	var/options_per_stage = 2
+
+	var/qte_time = 2 SECONDS
+
+	var/debuff_duration = 20 SECONDS
 
 	var/list/debuff_types = list(MECH_OVERHEATED, MECH_MALFUNCTIONED, MECH_CHAINED, MECH_HACKED)
 

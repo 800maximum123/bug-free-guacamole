@@ -33,7 +33,7 @@
 	integrity = 1000
 	integrity_max = 1000
 
-	heat_overflow = 10
+	heat_max = 10
 	weapon_equipped = "Assault Cannon"
 	repairs = 2
 

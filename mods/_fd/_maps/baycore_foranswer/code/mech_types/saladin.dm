@@ -29,7 +29,7 @@
 	integrity = 300
 	integrity_max = 300
 
-	heat_overflow = 40
+	heat_max = 40
 	overheated_timer = 60
 	has_overheated_state = TRUE
 

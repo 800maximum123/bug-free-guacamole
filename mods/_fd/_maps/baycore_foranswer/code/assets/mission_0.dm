@@ -1238,7 +1238,7 @@
 	integrity_max = 250
 	repairs = 0
 
-	heat_overflow = 5
+	heat_max = 5
 
 /mob/living/simple_animal/fd/lancer/drake/holo
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/mechs_sim.dmi'
@@ -1250,7 +1250,7 @@
 	integrity_max = 500
 	repairs = 0
 
-	heat_overflow = 5
+	heat_max = 5
 
 	pixel_x = -125
 	default_pixel_x = -125
@@ -1265,7 +1265,7 @@
 	integrity_max = 250
 	repairs = 0
 
-	heat_overflow = 3
+	heat_max = 3
 
 /mob/living/simple_animal/fd/lancer/saladin/holo
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/mechs_sim.dmi'
@@ -1278,7 +1278,7 @@
 	integrity_max = 150
 	repairs = 0
 
-	heat_overflow = 20
+	heat_max = 20
 
 /mob/living/simple_animal/fd/lancer/goblintail/holo
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/mechs_sim.dmi'
@@ -1290,7 +1290,7 @@
 	integrity_max = 150
 	repairs = 0
 
-	heat_overflow = 5
+	heat_max = 5
 
 	pixel_x = -110
 	default_pixel_x = -110

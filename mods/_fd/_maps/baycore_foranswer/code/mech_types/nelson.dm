@@ -28,7 +28,7 @@
 	integrity_max = 500
 	repairs = 2
 
-	heat_overflow = 10
+	heat_max = 10
 
 	weapon_equipped = "Shield"
 

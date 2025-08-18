@@ -19,7 +19,7 @@
 	var/second_color = COLOR_RED
 
 	/// Максимальное количество зарядов способности
-	var/max_charges = 0
+	var/charges_max = 0
 	/// Максимальное количество зарядов способности
 	var/charges = 0
 
@@ -63,7 +63,7 @@
 	if(owner.hacked)
 		return FALSE
 
-	if(max_charges && (charges <= 0))
+	if(charges_max && (charges <= 0))
 		to_chat(owner, SPAN_WARNING("Способность <[name]> не имеет зарядов!"))
 		return FALSE
 
@@ -74,7 +74,7 @@
 	next_use = world.time + cooldown
 	last_used = world.time
 
-	if(max_charges)
+	if(charges_max)
 		charges--
 
 	return TRUE // В идеале не переписывать этот прок, за исключением моментов, где эти базовые проверки будут мешать(
@@ -90,10 +90,10 @@
 			"title" = ABILITY_STAT("<[name]> Готов Через:", time-last_used, next_use-last_used, 0.5),
 			"desc" = ABILITY_STAT("[SECONDS_LEFT(time, next_use)] секунд", time-last_used, next_use-last_used, 0.5),
 			))
-	if(max_charges)
+	if(charges_max)
 		. += list(list(
-			"title" = ABILITY_STAT("Зарядов <[name]>:", charges, max_charges, 0.5),
-			"desc" = ABILITY_STAT("[charges]/[max_charges]", charges, max_charges, 0.5),
+			"title" = ABILITY_STAT("Зарядов <[name]>:", charges, charges_max, 0.5),
+			"desc" = ABILITY_STAT("[charges]/[charges_max]", charges, charges_max, 0.5),
 			))
 	return .
 

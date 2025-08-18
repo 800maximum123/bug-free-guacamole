@@ -28,7 +28,7 @@
 	integrity = 500
 	integrity_max = 500
 
-	heat_overflow = 5
+	heat_max = 5
 	overheated_timer = 10
 
 	weapon_equipped = "Plasma Cutter"

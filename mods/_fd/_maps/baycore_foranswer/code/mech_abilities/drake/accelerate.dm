@@ -3,7 +3,7 @@
 	action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/ui.dmi'
 	action_state = "1"
 
-	max_charges = 4
+	charges_max = 4
 	charges = 4
 
 	var/datum/mech_equipment/buffed
@@ -37,5 +37,5 @@
 
 /datum/mech_ability/action/accelerate/proc/reset_after()
 	buffed.cooldown = initial(buffed.cooldown)
-	charges = max_charges
+	charges = charges_max
 	buffed = null
