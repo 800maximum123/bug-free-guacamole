@@ -77,7 +77,7 @@
 		return FALSE
 	switch(chosen_option)
 		if("Reboot Self")
-			mech_reboot()
+			mech_revive(TRUE, TRUE)
 			return TRUE
 
 		if("Patch Allie/Self")
@@ -106,7 +106,7 @@
 			if(!QDELETED(EM))
 				qdel(EM)
 			playsound(get_turf(src), 'sound/items/welderdeactivate.ogg', 80)
-			target_choice.mech_reboot(FALSE, FALSE)
+			target_choice.mech_revive()
 			target_choice.integrity = min(target_choice.integrity + 100, target_choice.integrity_max)
 			target_choice.heat = 0
 			restock_charges -= 1

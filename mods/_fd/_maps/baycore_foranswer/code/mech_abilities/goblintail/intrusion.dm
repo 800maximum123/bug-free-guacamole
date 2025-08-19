@@ -4,13 +4,12 @@
 	stat_color = "#ec75fc"
 
 	cooldown = 10 SECONDS
-
+	charges_max = 6 // Нужно добавить реген зарядов, надеюсь не забуду
 
 	var/stages_max = 5
 	var/options_per_stage = 2
 
 	var/qte_time = 2 SECONDS
-
 	var/debuff_duration = 20 SECONDS
 
 	var/list/debuff_types = list(MECH_OVERHEATED, MECH_MALFUNCTIONED, MECH_CHAINED, MECH_HACKED)
@@ -22,6 +21,9 @@
 		return
 
 	if(!istype(target))
+		return
+
+	if(target.mech_stat != CONSCIOUS)
 		return
 
 	if(target.hacked)

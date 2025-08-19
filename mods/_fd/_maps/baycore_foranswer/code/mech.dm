@@ -61,6 +61,8 @@
 
 	var/has_overheated_state = FALSE
 
+	var/mech_stat = CONSCIOUS
+
 	/// Выведен ли мех из строя?
 	var/damaged = FALSE
 	/// Число "возраждений" нашего меха
@@ -84,7 +86,6 @@
 	var/base_movement_cooldown = 3
 
 	var/wreck_type = /obj/structure/fd/mech_wreckage
-	var/dead = FALSE
 
 	/// Текущий пилот меха, находящийся внутри
 	var/mob/living/carbon/human/pilot/pilot
@@ -113,37 +114,58 @@
 
 /// Can't go below 0, getting a smaller amount of effect doesn't lower it's current duration
 /mob/living/simple_animal/fd/lancer/proc/Effect(type, amount = 1 SECONDS)
-	handle_effects(type, amount)
+	handle_effects(type, max(max(vars[type], amount), 0))
 	return vars[type] = max(max(vars[type], amount), 0)
 
 /// If you REALLY need to set some effect to a set amount without the whole "can't go below than current duration"
 /mob/living/simple_animal/fd/lancer/proc/SetEffect(type, amount = 1 SECONDS)
-	handle_effects(type, amount)
+	handle_effects(type, max(amount, 0))
 	return vars[type] = max(amount, 0)
 
 /mob/living/simple_animal/fd/lancer/proc/AdjustEffect(type, amount = 1 SECONDS)
-	handle_effects(type, amount)
+	handle_effects(type, max(vars[type] + amount, 0))
 	return vars[type] = max(vars[type] + amount, 0)
 
-/mob/living/simple_animal/fd/lancer/proc/handle_effects(type, amount)
-	if(amount < 0)
+/mob/living/simple_animal/fd/lancer/proc/handle_effects(type, new_amount)
+	if(!vars.Find(type))
 		return FALSE
-	if(vars.Find(type) && vars[type])
-		return FALSE
-	switch(type)
-		if(MECH_OVERHEATED)
-			if(has_overheated_state)
-				icon_state = "[icon_living]_charged"
-			add_filter("heated", 5, list("type" = "outline", , "size" = 0, "color" = COLOR_AMBER))
-			add_filter("heated_blur", 4, list("type" = "blur", , "size" = 0))
-			animate(get_filter("heated"), time = 5 SECONDS, size = 1, flags = ANIMATION_PARALLEL)
-			animate(get_filter("heated_blur"), time = 5 SECONDS, size = 1, flags = ANIMATION_PARALLEL)
-			animate(src, time = 5 SECONDS, color = "#fc987a", flags = ANIMATION_PARALLEL)
-			playsound(get_turf(src),'sound/mecha/internaldmgalarm.ogg',20)
-			playsound(get_turf(src),'sound/effects/iron_sizzle.ogg',100,TRUE)
-		if(MECH_HACKED)
-			overlay_fullscreen("hacked", /obj/screen/fullscreen/noise/hacked)
-			overlay_fullscreen("hacked_borders", /obj/screen/fullscreen/fishbed)
+	if(!vars[type] && (new_amount > 0))
+		switch(type)
+			if(MECH_OVERHEATED)
+				if(has_overheated_state)
+					icon_state = "[icon_living]_charged"
+				remove_filter("heated")
+				add_filter("heated", 5, list("type" = "outline", , "size" = 0, "color" = COLOR_AMBER))
+				remove_filter("heated_blur")
+				add_filter("heated_blur", 4, list("type" = "blur", , "size" = 0))
+				animate(get_filter("heated"), time = 5 SECONDS, size = 1, flags = ANIMATION_PARALLEL)
+				animate(get_filter("heated_blur"), time = 5 SECONDS, size = 1, flags = ANIMATION_PARALLEL)
+				animate(src, time = 5 SECONDS, color = "#fc987a", flags = ANIMATION_PARALLEL)
+				playsound(get_turf(src),'sound/mecha/internaldmgalarm.ogg',20)
+				playsound(get_turf(src),'sound/effects/iron_sizzle.ogg',100,TRUE)
+			if(MECH_HACKED)
+				overlay_fullscreen("hacked", /obj/screen/fullscreen/noise/hacked)
+				overlay_fullscreen("hacked_borders", /obj/screen/fullscreen/fishbed)
+	if(vars[type] && (new_amount <= 0))
+		switch(type)
+			if(MECH_OVERHEATED)
+				visible_message(SPAN_WARNING("[src] прекратил плавиться от перегрева!"))
+				animate(get_filter("heated"), time = 5 SECONDS, size = 0, flags = ANIMATION_PARALLEL)
+				animate(get_filter("heated_blur"), time = 5 SECONDS, size = 0, flags = ANIMATION_PARALLEL)
+				animate(src, time = 5 SECONDS, color = initial(color), flags = ANIMATION_PARALLEL)
+				if(has_overheated_state && (mech_stat != DEAD))
+					icon_state = initial(icon_state)
+			if(MECH_CHAINED)
+				visible_message(SPAN_WARNING("[src] вновь начал исправно двигаться!"))
+			if(MECH_MALFUNCTIONED)
+				visible_message(SPAN_WARNING("[src] вновь начал исправно функционировать!"))
+			if(MECH_HACKED)
+				visible_message(SPAN_WARNING("[src] вновь вернулся под контроль пилота!"))
+				clear_fullscreen("hacked")
+				clear_fullscreen("hacked_borders")
+			if(MECH_VULNERABLE)
+				visible_message(SPAN_WARNING("[src] перестал быть уязвимым!"))
+	return TRUE
 
 /mob/living/simple_animal/fd/lancer/proc/adjust_heat(amount)
 	heat = max(heat + amount, 0)
@@ -209,9 +231,10 @@
 /mob/living/simple_animal/fd/lancer/proc/add_weapon(weapon_type)
 	return new weapon_type(src)
 
+/// Нужно переделать под новую систему эффектов
 /mob/living/simple_animal/fd/lancer/proc/resupply()
 	SHOULD_CALL_PARENT(TRUE)
-	mech_reboot(FALSE, FALSE)
+	mech_revive()
 
 	damaged = FALSE
 	integrity = integrity_max
@@ -254,7 +277,32 @@
 	for(var/datum/mech_ability/ability as anything in abilities)
 		. += ability.get_scan_info(src)
 
-/mob/living/simple_animal/fd/lancer/proc/mech_reboot(delay = TRUE, heal = TRUE)
+/mob/living/simple_animal/fd/lancer/proc/power_up()
+	if(mech_stat != UNCONSCIOUS)
+		return FALSE
+
+	mech_stat = CONSCIOUS
+
+	visible_message(SPAN_DANGER("[src] вновь начинается двигаться, медленно поднимаясь с земли!"), SPAN_INFO("[src] вновь начинается двигаться, медленно поднимаясь с земли."))
+	animate(src, time = 2 SECONDS, color = initial(color), transform = matrix(), easing = SINE_EASING, flags = ANIMATION_PARALLEL)
+
+	playsound(get_turf(src), 'sound/mecha/powerup.ogg', 60)
+	spawn(3 SECONDS) // в будущем надо сделать таймером, дабы без багов
+		playsound(get_turf(src), 'sound/mecha/nominal.ogg', 60)
+
+	return TRUE
+
+/mob/living/simple_animal/fd/lancer/proc/power_down()
+	if(mech_stat != CONSCIOUS)
+		return FALSE
+
+	mech_stat = UNCONSCIOUS
+
+	animate(src, time = 2 SECONDS, color = COLOR_GRAY, transform = matrix(-30, MATRIX_ROTATE), easing = SINE_EASING, flags = ANIMATION_PARALLEL)
+	playsound(get_turf(src),'sound/mecha/mech-shutdown.ogg',100)
+	return TRUE
+
+/mob/living/simple_animal/fd/lancer/proc/mech_revive(delay = FALSE, heal = FALSE)
 	set waitfor = FALSE
 
 	if(!damaged)
@@ -266,21 +314,13 @@
 			return FALSE
 
 	if(heal)
-		integrity = integrity_max / 2
+		integrity = max(integrity, integrity_max / 2)
 		repairs -= 1
 
 	damaged = FALSE
-	anchored = FALSE
-	heat = 0
+	power_up()
 
-	visible_message(SPAN_DANGER("[src] вновь начинается двигаться, медленно поднимаясь с земли!"), SPAN_INFO("[src] вновь начинается двигаться, медленно поднимаясь с земли."))
-
-	playsound(get_turf(src),'sound/mecha/powerup.ogg',60)
-	spawn(3 SECONDS)
-		playsound(get_turf(src),'sound/mecha/nominal.ogg',60)
-
-	animate(get_filter("down"), time = 1 SECONDS, size = 0, flags = ANIMATION_PARALLEL)
-	animate(src, time = 2 SECONDS, color = initial(color), transform = matrix(), easing = SINE_EASING, flags = ANIMATION_PARALLEL)
+	animate(get_filter("damaged"), time = 1 SECONDS, size = 0, flags = ANIMATION_PARALLEL)
 	return TRUE
 
 /mob/living/simple_animal/fd/lancer/Stat()
@@ -317,7 +357,7 @@
 			stat(data["title"], data["desc"])
 
 /mob/living/simple_animal/fd/lancer/death()
-	dead = TRUE
+	mech_stat = DEAD
 	anchored = TRUE
 	playsound(get_turf(src),'sound/mecha/mech-shutdown.ogg',150)
 	playsound(get_turf(src),'sound/mecha/hydraulic.ogg',40)
@@ -331,6 +371,7 @@
 			playsound(get_turf(src),'sound/mecha/Explosion_02.mp3', 60)
 		..(FALSE, "suddenly breaks apart.", "You have been destroyed.")
 		QDEL_NULL(src)
+	return TRUE
 
 /mob/living/simple_animal/fd/lancer/verb/zoom()
 	set category = "IC"
@@ -416,55 +457,44 @@
 	movement_cooldown = .
 
 /mob/living/simple_animal/fd/lancer/Life()
+	if(mech_stat == DEAD)
+		return
+
 	adjust_heat(heat_regen)
 
 	if(overheated)
 		recieve_damage(2, 0, TRUE, FALSE)
 		playsound(get_turf(src), 'sound/effects/razorweb_hiss.ogg', 80, TRUE)
 
-	if(overheated && (AdjustEffect(MECH_OVERHEATED, -2 SECONDS) <= 0))
-		visible_message(SPAN_WARNING("[src] прекратил плавиться от перегрева!"))
-		animate(get_filter("heated"), time = 5 SECONDS, size = 0, flags = ANIMATION_PARALLEL)
-		animate(get_filter("heated_blur"), time = 5 SECONDS, size = 0, flags = ANIMATION_PARALLEL)
-		animate(src, time = 5 SECONDS, color = initial(color), flags = ANIMATION_PARALLEL)
-		if(has_overheated_state && !dead)
-			icon_state = initial(icon_state)
-
-	if(chained && (AdjustEffect(MECH_CHAINED, -2 SECONDS) <= 0))
-		visible_message(SPAN_WARNING("[src] вновь начал исправно двигаться!"))
-
-	if(malfunctioned && (AdjustEffect(MECH_MALFUNCTIONED, -2 SECONDS) <= 0))
-		visible_message(SPAN_WARNING("[src] вновь начал исправно функционировать!"))
-
-	if(hacked && (AdjustEffect(MECH_HACKED, -2 SECONDS) <= 0))
-		visible_message(SPAN_WARNING("[src] вновь вернулся под контроль пилота!"))
-		clear_fullscreen("hacked")
-		clear_fullscreen("hacked_borders")
-
-	if(vulnerable && (AdjustEffect(MECH_VULNERABLE, -2 SECONDS) <= 0))
-		visible_message(SPAN_WARNING("[src] перестал быть уязвимым!"))
+	for(var/status_effect in ALL_MECH_EFFECTS)
+		AdjustEffect(status_effect, -2 SECONDS)
 
 	if(integrity <= 0)
-		playsound(get_turf(src),'sound/mecha/internaldmgalarm.ogg',20)
+		playsound(get_turf(src),'sound/mecha/internaldmgalarm.ogg', 20)
 		if(!damaged)
+			if(repairs <= 0)
+				return death()
+
 			damaged = TRUE
-			if(repairs <= 0 && !dead)
-				death()
-				return ..()
-			playsound(get_turf(src),'sound/mecha/mech-shutdown.ogg',100)
-			playsound(get_turf(src),'sound/mecha/critdestr.ogg',60)
-			add_filter("down", 10, list("type" = "outline", , "size" = 0, "color" = COLOR_RED))
-			animate(get_filter("down"), time = 4 SECONDS, size = 1, flags = ANIMATION_PARALLEL)
-			animate(src, time = 2 SECONDS, color = COLOR_GRAY, transform = matrix(-30, MATRIX_ROTATE), easing = SINE_EASING, flags = ANIMATION_PARALLEL)
-			anchored = TRUE
+
+			power_down()
+			mech_revive(TRUE, TRUE)
+
+			add_filter("damaged", 10, list("type" = "outline", , "size" = 0, "color" = COLOR_RED))
+			animate(get_filter("damaged"), time = 4 SECONDS, size = 1, flags = ANIMATION_PARALLEL)
+
+			playsound(get_turf(src), 'sound/mecha/critdestr.ogg', 60)
 
 	recalculate_mech_speed()
 
 	. = ..()
 
 /mob/living/simple_animal/fd/lancer/SelfMove(dir)
+	if(mech_stat > CONSCIOUS)
+		return FALSE
+
 	if(damaged)
-		return 0
+		return FALSE
 
 	if(chained)
 		return FALSE
@@ -476,6 +506,9 @@
 	next_move = world.time + movement_cooldown
 
 /mob/living/simple_animal/fd/lancer/ClickOn(atom/A, params)
+	if(mech_stat > CONSCIOUS)
+		return FALSE
+
 	if(next_click > world.time) // Hard check, before anything else, to avoid crashing
 		return FALSE
 

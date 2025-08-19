@@ -1,5 +1,5 @@
 /datum/mech_ability/action/bunker
-	name = "Оборонительный режим"
+	name = "Оборонительный Режим Вкл/Выкл"
 	action_state = "18"
 	cooldown = 6 SECONDS
 

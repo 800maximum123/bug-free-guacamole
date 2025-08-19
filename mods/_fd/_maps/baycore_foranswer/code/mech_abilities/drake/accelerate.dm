@@ -1,5 +1,5 @@
 /datum/mech_ability/action/accelerate
-	name = "Разгон модуля"
+	name = "Разгон Модуля"
 	action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/ui.dmi'
 	action_state = "1"
 

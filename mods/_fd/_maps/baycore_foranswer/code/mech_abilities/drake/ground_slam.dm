@@ -1,5 +1,5 @@
 /datum/mech_ability/ground_slam
-	name = "Удар по земле"
+	name = "Удар по Земле"
 	action_state = "37"
 
 	required_params = list("middle")

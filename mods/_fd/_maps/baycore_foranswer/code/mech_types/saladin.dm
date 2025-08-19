@@ -137,7 +137,7 @@
 					playsound(get_turf(src), 'packs/infinity/sound/effects/using/switch/small2.ogg', 100, TRUE)
 
 				if("Reboot")
-					mech_reboot()
+					mech_revive(TRUE, TRUE)
 
 			return FALSE
 

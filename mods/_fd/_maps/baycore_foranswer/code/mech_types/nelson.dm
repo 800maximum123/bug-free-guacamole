@@ -197,7 +197,7 @@
 					choose_weapon()
 
 				if("Reboot")
-					mech_reboot()
+					mech_revive(TRUE, TRUE)
 
 			return FALSE
 

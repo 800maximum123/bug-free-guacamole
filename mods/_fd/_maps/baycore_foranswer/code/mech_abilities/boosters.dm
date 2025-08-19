@@ -1,5 +1,5 @@
 /datum/mech_ability/action/boosters_passive
-	name = "Реактивные бустеры"
+	name = "Пассивные Ускорители"
 	action_state = "29"
 
 	cooldown = 0
@@ -17,7 +17,7 @@
 		return
 
 	currently_active = !currently_active
-	to_chat(owner, SPAN_INFO("Ты [currently_active ? "включил" : "выключил"] пассивное ускорение."))
+	to_chat(owner, SPAN_INFO("Ты [currently_active ? "включил" : "выключил"] пассивные ускорители."))
 	playsound(get_turf(owner), pick(GLOB.switch_small_sound), 90, TRUE)
 
 	if(currently_active)
@@ -40,13 +40,13 @@
 /datum/mech_ability/action/boosters_passive/get_stat_info()
 	var/color = currently_active ? stat_color : second_color
 	. = list(list(
-		"title" = MECH_STAT("ПАССИВНОЕ УСКОРЕНИЕ:", color),
-		"desc" = MECH_STAT(currently_active ? "РАБОТАЕТ" : "ОТКЛЮЧЕНО", color),
+		"title" = MECH_STAT("[name]:", color),
+		"desc" = MECH_STAT(currently_active ? "РАБОТАЮТ" : "ОТКЛЮЧЕНЫ", color),
 		))
 
 
 /datum/mech_ability/boosters_quick
-	name = "Реактивные бустеры"
+	name = "Реактивные Ускорители"
 	action_state = "29"
 
 	required_params = list("middle")
