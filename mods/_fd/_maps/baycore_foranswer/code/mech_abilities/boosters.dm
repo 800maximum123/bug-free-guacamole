@@ -69,8 +69,7 @@
 
 	playsound(owner, 'sound/machines/thruster.ogg', 80, TRUE)
 
-	sleep(0.5 SECONDS)
+	sleep(0.5 SECONDS) // надо заменить на таймер дабы без багов было
 	owner.CutOverlays(overlay)
-
 
 	return .
