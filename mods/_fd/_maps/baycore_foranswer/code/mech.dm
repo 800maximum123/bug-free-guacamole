@@ -461,7 +461,9 @@
 	if(!do_after(src, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
 		return
 
-	pilot.forceMove(get_step(get_turf(src), dir))
+	power_down()
+
+	pilot.forceMove(get_turf(src))
 	pilot.ckey = ckey
 	pilot.client.view = 7
 	pilot = null

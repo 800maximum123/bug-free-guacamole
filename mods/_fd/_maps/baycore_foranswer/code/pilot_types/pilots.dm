@@ -116,9 +116,7 @@
 	forceMove(mech_target)
 	mech_target.ckey = ckey
 	mech_target.visible_message(SPAN_INFO("[src] усаживается внутрь [mech_target]."))
-	playsound(get_turf(mech_target),'sound/mecha/powerup.ogg',60)
-	spawn(3 SECONDS)
-		playsound(get_turf(mech_target),'sound/mecha/nominal.ogg',60)
+	mech_target.power_up()
 
 /obj/landmark/mech_pilot
 	name = "Pilot spawn"
