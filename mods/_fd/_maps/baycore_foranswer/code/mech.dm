@@ -130,7 +130,7 @@
 	if(!vars.Find(type))
 		return FALSE
 	if(!vars[type] && (new_amount > 0))
-		switch(type) // Происходит, когда несуществующий эффект НАЧИНАЕТСЯ
+		switch(type) // Происходит, когда ещё не существующий эффект НАЧИНАЕТСЯ
 			if(MECH_OVERHEATED)
 				if(has_overheated_state)
 					icon_state = "[icon_living]_charged"
