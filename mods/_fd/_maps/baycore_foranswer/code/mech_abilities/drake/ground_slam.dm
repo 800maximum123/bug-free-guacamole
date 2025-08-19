@@ -25,14 +25,14 @@
 		affected_turfs[floor] = floor.color
 		animate(floor, time = 1 SECONDS, color = COLOR_RED, easing = CUBIC_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
 
-	spawn(3 SECONDS)
+	spawn(2.1 SECONDS)
 		for(var/turf/floor in affected_turfs.Copy())
 			animate(floor, time = 0.2 SECONDS, color = affected_turfs[floor], easing = SINE_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
 			for(var/mob/living/simple_animal/fd/lancer/victim in floor)
 				if(victim == owner)
 					continue
 				victim.throw_at(get_edge_target_turf(victim, get_dir(owner, victim)), 2, 1, owner, spin = FALSE)
-				victim.AdjustEffect(MECH_CHAINED, 2 SECONDS)
+				victim.AdjustEffect(MECH_CHAINED, 5 SECONDS)
 		affected_turfs.Cut()
 
 	return .

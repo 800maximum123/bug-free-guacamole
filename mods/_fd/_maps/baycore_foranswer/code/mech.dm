@@ -158,15 +158,15 @@
 	if(vars[type])
 		switch(type) // Происходит, пока эффект СУЩЕСТВУЕТ
 			if(MECH_OVERHEATED)
-				; // плейсхолдер
+				new /obj/effect/mech/overheated(src.loc)
 			if(MECH_CHAINED)
-				; // плейсхолдер
+				new /obj/effect/mech/chained(src.loc)
 			if(MECH_MALFUNCTIONED)
-				; // плейсхолдер
+				new /obj/effect/mech/malfunctioned(src.loc)
 			if(MECH_HACKED)
-				; // плейсхолдер
+				new /obj/effect/mech/hacked(src.loc)
 			if(MECH_VULNERABLE)
-				; // плейсхолдер
+				new /obj/effect/mech/vulnerable(src.loc)
 	if(vars[type] && (new_amount <= 0))
 		switch(type) // Происходит, когда существующий эффект КОНЧАЕТСЯ
 			if(MECH_OVERHEATED)
