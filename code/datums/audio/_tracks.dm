@@ -297,12 +297,30 @@
 	license = /singleton/license/cc_by_sa_3_0
 	url = "https://soundcloud.com/adrop_aday/14-wild-encounters"
 
+// Gaian Shenanigans
 /singleton/audio/track/hellmet
 	source = 'sound/music/tuxedo/HELLMET.ogg'
 	title = "HELLMET"
 	author = "DrTuxedo"
+	collection = "Gaian Shenanigans"
 	license = /singleton/license/cc_by_sa_3_0
-	url = "https://bluetuxedo.newgrounds.com/audio"
+	url = "https://bluetuxedo.bandcamp.com/track/hellmet"
+
+/singleton/audio/track/blackhawk_of_space
+	source = 'sound/music/tuxedo/BlackhawkOfSpace.ogg'
+	title = "Blackhawk of Space"
+	author = "DrTuxedo"
+	collection = "Gaian Shenanigans"
+	license = /singleton/license/cc_by_sa_3_0
+	url = "https://www.newgrounds.com/audio/listen/1150011"
+
+/singleton/audio/track/unrest_at_mars
+	source = 'sound/music/tuxedo/UnrestAtMars.ogg'
+	title = "Unrest at Mars"
+	author = "DrTuxedo"
+	collection = "Gaian Shenanigans"
+	license = /singleton/license/cc_by_sa_3_0
+	url = "https://www.newgrounds.com/audio/listen/1113474"
 
 /singleton/audio/track/ambience
 	source = 'sound/music/ambience.ogg'

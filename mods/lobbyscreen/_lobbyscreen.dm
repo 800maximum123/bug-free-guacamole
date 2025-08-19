@@ -1,4 +1,4 @@
 /singleton/modpack/lobbyscreen
-	name = "Экран лобби"
-	desc = "Офигеннейший красивейший экран лобби, нарисованный Remission."
-	author = "Remission, SuhEugene, (appatea, Lozari/Yarrik)"
+	name = "Lobby Art: GAIAN MILITARY INTERFACE"
+	desc = "You might want to see this Colonel..."
+	author = "DrTuxedo"

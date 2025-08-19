@@ -69,7 +69,7 @@
       font-size: 1.8vmin;
       line-height: 1.8vmin;
       letter-spacing: 1px;
-      color: #85bab6;
+      color: #ffffff;
       text-align: center;
       transition: .3s opacity, .3s transform;
     }
@@ -83,8 +83,8 @@
       text-decoration: underline;
       cursor: pointer;
       transition: .1s color;
-      font-size: 2.1vmin;
-      line-height: 2.1vmin;
+      font-size: 1.5vmin;
+      line-height: 1.5vmin;
     }
     .character__link:hover {
       color: white;
@@ -109,11 +109,11 @@
 
     /* 290px x 108px */
     .bottom-menu__item {
-      height: 5.1428vmin; /* 61.7px */
-      width: 13.8095vmin; /* 165.7px */
+      height: 0vmin; /* 61.7px */
+      width: 0vmin; /* 165.7px */
 
       margin: 0 1.5vmin;
-      color: #85bab6;
+      color: #ffffff;
 
       background-image: url("smallbutton.png");
       background-position: center center;
@@ -200,16 +200,16 @@
 
     /* 590x169 */
     .center-menu__item {
-      width: 23.5375vmin; /* 282.45px */
-      height: 6.74575vmin; /* 80.949px */
+      width: 54.2593vmin;
+      height: 19.0741vmin;
       padding: 2.33vmin 3.38vmin;
-      color: #85bab6;
+      color: #ffffff;
 
       font-family: "Round Control", Verdana, sans-serif;
       text-align: left;
       font-weight: normal;
-      font-size: 2vmin;
-      line-height: 2vmin;
+      font-size: 4vmin;
+      line-height: 4vmin;
       letter-spacing: 1px;
 
       transition: .1s color, .1s opacity, .1s text-shadow;
@@ -233,38 +233,51 @@
       align-items: center;
 
       position: absolute;
-      top: 0;
-      width: 17.6331vmin; /* 211.5981px */
-      width: 19.4683vmin; /* 233.6196px */
+      top: 2vmin;
+      width: 40vmin;
+      height: 5vmin;
       height: 100%;
     }
 
     .center-menu__item--tl span, .center-menu__item--bl span { left: 0; }
     .center-menu__item--tr span, .center-menu__item--br span { left: 0; }
 
+    .center-menu__item--bl span, .center-menu__item--br span {
+      width: 65vmin;
+    }
+
+/*
+(349, 83) → (32.3148 vmin, 7.6852 vmin)
+
+(87, 323) → (8.0556 vmin, 29.9074 vmin)
+
+(349, 577) → (32.3148 vmin, 53.4259 vmin)
+
+(87, 816) → (8.0556 vmin, 75.5556 vmin)
+*/
     /* X - same. Y - not */
     .center-menu__item--tl {
-      left: 2.7691vmin; /* 129.23px */
-      top: 26.8vmin;  /* 505.36px */
+      left: 32.3148vmin; /* 349px */
+      top: 7.6852vmin;  /* 83px */
     }
 
     .center-menu__item--bl {
-      left: 2.7691vmin; /* 129.23px */
-      top: 43vmin;  /* 616.8px */
+      left: 8.0556vmin; /* 87px */
+      top: 29.9074vmin;  /* 323px */
     }
 
     .center-menu__item--tr {
-      left: 2.7691vmin; /* 789.32px */
-      top: 34.8vmin;  /* 502.25px */
+      left: 32.3148vmin; /* 349px */
+      top: 53.4259vmin;  /* 577px */
     }
 
     .center-menu__item--br {
-      left: 2.7691vmin; /* 789.32px */
-      top: 51.1416vmin;  /* 613.7px */
+      left: 8.0556vmin; /* 87px */
+      top: 75.5556vmin;  /* 816px */
     }
 
-    .center-menu__item--tl::before, .center-menu__item--bl::before { background-image: url("light_left.png"); }
-    .center-menu__item--tr::before, .center-menu__item--br::before { background-image: url("light_left.png"); }
+    .center-menu__item--tl::before, .center-menu__item--tr::before { background-image: url("light_left.png"); }
+    .center-menu__item--bl::before, .center-menu__item--br::before { background-image: url("light_right.png"); }
 
     .center-menu__item::before {
       content: "";
@@ -327,8 +340,8 @@
     </div>
     <div id="bottom-menu">
       <!-- <a class="bottom-menu__item" href='?src=[player-ref];lobby_changelog=1' id="changelog"><span>Changelog</span><i class="far fa-list-alt"></i></a> -->
-      <a class="bottom-menu__item" href='?src=[player-ref];lobby_discord=1' id="discord"><span>Discord</span><i class="fab fa-discord"></i></a>
-      <a class="bottom-menu__item" href='?src=[player-ref];lobby_wiki=1' id="wiki"><span>Wiki</span><i class="fas fa-book"></i></a>
+      <!-- <a class="bottom-menu__item" href='?src=[player-ref];lobby_discord=1' id="discord"><span>Discord</span><i class="fab fa-discord"></i></a> -->
+      <!-- <a class="bottom-menu__item" href='?src=[player-ref];lobby_wiki=1' id="wiki"><span>Wiki</span><i class="fas fa-book"></i></a> -->
     </div>
     <div id="character" style="display: none;">
       <div class="character__text">Playing as:</div>
@@ -405,14 +418,14 @@
         setTimeout(function () {
           loopVideo.pause();
           hide(loopVideo);
-        }, 1000);
+        }, 9000);
 
         setTimeout(function () {
         hide(buttonsVideo);
         show(buttonsLoopVideo);
         buttonsLoopVideo.classList.remove("transparent");
         buttonsLoopVideo.play();
-        }, 5000);
+        }, 10000);
       }
 
       if (video_type == VIDEO_LOOP) {
