@@ -41,6 +41,9 @@
 	var/list/datum/mech_equipment/equipment = list(
 		/datum/mech_equipment/firearm,
 		/datum/mech_equipment/weapon,
+		/// ТЕСТ
+		/datum/mech_equipment/firearm/assault_cannon,
+		/datum/mech_equipment/weapon/shield
 	)
 	/// Выбранный на текущий момент модуль
 	var/datum/mech_equipment/selected_equipment = null

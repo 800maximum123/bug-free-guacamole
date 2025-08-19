@@ -50,7 +50,6 @@
 
 	required_params = list("middle")
 	cooldown = 2 SECONDS
-
 	var/image/overlay = null
 
 /datum/mech_ability/boosters_quick/New(mob/living/simple_animal/fd/lancer/new_owner)
@@ -70,7 +69,8 @@
 
 	playsound(owner, 'sound/machines/thruster.ogg', 80, TRUE)
 
-	spawn(0.8 SECONDS) // надо заменить на таймер дабы без багов было
-		owner.CutOverlays(overlay)
+	sleep(0.5 SECONDS)
+	owner.CutOverlays(overlay)
+
 
 	return .
