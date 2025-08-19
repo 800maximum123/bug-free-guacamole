@@ -18,20 +18,20 @@
 /datum/mech_ability/intrusion/use(mob/living/simple_animal/fd/lancer/target, params)
 	. = ..()
 	if(!.)
-		return
+		return FALSE
 
 	if(!istype(target))
-		return
+		return FALSE
 
 	if(target.mech_stat != CONSCIOUS)
-		return
+		return FALSE
 
 	if(target.hacked)
 		to_chat(SPAN_WARNING("Каналы [target] уже забиты другим вторжением!"))
-		return
+		return FALSE
 
-	playsound(owner, 'packs/infinity/sound/mecha/UI_SCI-FI_Tone_Deep_Wet_22_stereo_complite.ogg', 60)
 	hack(target, params)
+	return TRUE
 
 /datum/mech_ability/intrusion/proc/hack(mob/living/simple_animal/fd/lancer/target, params)
 	set waitfor = FALSE
@@ -50,16 +50,23 @@
 
 		var/chosen_option = show_radial_menu(target, target, shuffle(options), radius = 60, custom_check = new Callback(src, PROC_REF(qte_check), world.time), offset_x = 125, offset_y = 125)
 		if(chosen_option != "#FIX")
-			playsound(target, 'packs/infinity/sound/mecha/UI_SCI-FI_Tone_Deep_Wet_15_stereo_error.ogg', 60, TRUE)
+			playsound(target, 'packs/infinity/sound/mecha/UI_SCI-FI_Tone_Deep_Wet_15_stereo_error.ogg', 60, TRUE, falloff = 4)
 			break
 
 		if(stage == stages_max)
-			playsound(target, 'packs/infinity/sound/mecha/UI_SCI-FI_Tone_Deep_Wet_22_stereo_complite.ogg', 80)
+			playsound(target, 'packs/infinity/sound/mecha/UI_SCI-FI_Tone_Deep_Wet_22_stereo_complite.ogg', 80, falloff = 4)
 			target.AdjustEffect(MECH_HACKED, -qte_time)
 
 	if(stage < stages_max)
 		target.AdjustEffect(pick(debuff_types), debuff_duration)
 		to_chat(target, SPAN_WARNING("Вам не удалось остановить вторжение в системы [target]!"))
+
+		var/list/sounds = list(
+			'mods/_fd/event_tools/sounds/atlas_beep1.ogg',
+			'mods/_fd/event_tools/sounds/atlas_beep2.ogg',
+			'mods/_fd/event_tools/sounds/atlas_beep3.ogg',
+			)
+		playsound(target, pick(sounds), 60, TRUE, falloff = 4)
 
 /datum/mech_ability/intrusion/proc/qte_check(start_time)
 	return (world.time < (start_time + qte_time))

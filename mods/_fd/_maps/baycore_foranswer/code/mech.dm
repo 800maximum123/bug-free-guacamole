@@ -130,7 +130,7 @@
 	if(!vars.Find(type))
 		return FALSE
 	if(!vars[type] && (new_amount > 0))
-		switch(type)
+		switch(type) // Происходит, когда несуществующий эффект НАЧИНАЕТСЯ
 			if(MECH_OVERHEATED)
 				if(has_overheated_state)
 					icon_state = "[icon_living]_charged"
@@ -143,11 +143,29 @@
 				animate(src, time = 5 SECONDS, color = "#fc987a", flags = ANIMATION_PARALLEL)
 				playsound(get_turf(src),'sound/mecha/internaldmgalarm.ogg',20)
 				playsound(get_turf(src),'sound/effects/iron_sizzle.ogg',100,TRUE)
+			if(MECH_CHAINED)
+				; // плейсхолдер
+			if(MECH_MALFUNCTIONED)
+				; // плейсхолдер
 			if(MECH_HACKED)
 				overlay_fullscreen("hacked", /obj/screen/fullscreen/noise/hacked)
 				overlay_fullscreen("hacked_borders", /obj/screen/fullscreen/fishbed)
+			if(MECH_VULNERABLE)
+				; // плейсхолдер
+	if(vars[type])
+		switch(type) // Происходит, пока эффект СУЩЕСТВУЕТ
+			if(MECH_OVERHEATED)
+				; // плейсхолдер
+			if(MECH_CHAINED)
+				; // плейсхолдер
+			if(MECH_MALFUNCTIONED)
+				; // плейсхолдер
+			if(MECH_HACKED)
+				; // плейсхолдер
+			if(MECH_VULNERABLE)
+				; // плейсхолдер
 	if(vars[type] && (new_amount <= 0))
-		switch(type)
+		switch(type) // Происходит, когда существующий эффект КОНЧАЕТСЯ
 			if(MECH_OVERHEATED)
 				visible_message(SPAN_WARNING("[src] прекратил плавиться от перегрева!"))
 				animate(get_filter("heated"), time = 5 SECONDS, size = 0, flags = ANIMATION_PARALLEL)
@@ -161,14 +179,14 @@
 				visible_message(SPAN_WARNING("[src] вновь начал исправно функционировать!"))
 			if(MECH_HACKED)
 				visible_message(SPAN_WARNING("[src] вновь вернулся под контроль пилота!"))
-				clear_fullscreen("hacked")
-				clear_fullscreen("hacked_borders")
+				clear_fullscreen("hacked", 2 SECONDS)
+				clear_fullscreen("hacked_borders", 2 SECONDS)
 			if(MECH_VULNERABLE)
 				visible_message(SPAN_WARNING("[src] перестал быть уязвимым!"))
 	return TRUE
 
 /mob/living/simple_animal/fd/lancer/proc/adjust_heat(amount)
-	heat = max(heat + amount, 0)
+	heat = round(max(heat + amount, 0), 0.1)
 	handle_heat()
 
 /mob/living/simple_animal/fd/lancer/proc/handle_heat()
@@ -281,13 +299,12 @@
 	if(mech_stat != UNCONSCIOUS)
 		return FALSE
 
-	mech_stat = CONSCIOUS
-
 	visible_message(SPAN_DANGER("[src] вновь начинается двигаться, медленно поднимаясь с земли!"), SPAN_INFO("[src] вновь начинается двигаться, медленно поднимаясь с земли."))
 	animate(src, time = 2 SECONDS, color = initial(color), transform = matrix(), easing = SINE_EASING, flags = ANIMATION_PARALLEL)
 
 	playsound(get_turf(src), 'sound/mecha/powerup.ogg', 60)
 	spawn(3 SECONDS) // в будущем надо сделать таймером, дабы без багов
+		mech_stat = CONSCIOUS
 		playsound(get_turf(src), 'sound/mecha/nominal.ogg', 60)
 
 	return TRUE
@@ -299,7 +316,7 @@
 	mech_stat = UNCONSCIOUS
 
 	animate(src, time = 2 SECONDS, color = COLOR_GRAY, transform = matrix(-30, MATRIX_ROTATE), easing = SINE_EASING, flags = ANIMATION_PARALLEL)
-	playsound(get_turf(src),'sound/mecha/mech-shutdown.ogg',100)
+	playsound(get_turf(src), 'sound/mecha/mech-shutdown.ogg', 150)
 	return TRUE
 
 /mob/living/simple_animal/fd/lancer/proc/mech_revive(delay = FALSE, heal = FALSE)
@@ -310,7 +327,7 @@
 
 	if(delay)
 		visible_message(SPAN_NOTICE("[src] тихо жужжит, начиная процесс экстренного ремонта."), SPAN_INFO("Ты запускаешь протокол экстренного ремонта [src]."))
-		if(!do_after(src, 60 SECONDS))
+		if(!do_after(src, 60 SECONDS, src, DO_SHOW_PROGRESS|DO_PUBLIC_PROGRESS|DO_BOTH_UNIQUE_ACT|DO_BOTH_CAN_MOVE|DO_BOTH_CAN_TURN))
 			return FALSE
 
 	if(heal)
@@ -363,12 +380,12 @@
 	playsound(get_turf(src),'sound/mecha/hydraulic.ogg',40)
 	playsound(get_turf(src),'sound/mecha/weapdestr.ogg',60)
 	playsound(get_turf(src),'sound/effects/iron_sizzle.ogg',100,TRUE)
-	animate(src, time = 4 SECONDS, color = COLOR_RED_LIGHT, transform = matrix(30, MATRIX_ROTATE), easing = CUBIC_EASING|EASE_OUT)
+	animate(src, time = 5 SECONDS, color = COLOR_RED_LIGHT, transform = matrix(30, MATRIX_ROTATE), easing = CUBIC_EASING|EASE_OUT)
 	// Добавить сюда анимацию тряски перед уничтожением
-	spawn(rand(3 SECONDS, 4 SECONDS))
+	spawn(3 SECONDS)
 		if(wreck_type)
 			new wreck_type(get_turf(src))
-			playsound(get_turf(src),'sound/mecha/Explosion_02.mp3', 60)
+		playsound(get_turf(src),'sound/mecha/Explosion_02.mp3', 60)
 		..(FALSE, "suddenly breaks apart.", "You have been destroyed.")
 		QDEL_NULL(src)
 	return TRUE
@@ -381,8 +398,8 @@
 		return FALSE
 	var/cannotzoom
 
-	if(src.incapacitated(INCAPACITATION_DISABLED))
-		to_chat(src, SPAN_WARNING("Прямо сейчас - линза не может сфокусироваться."))
+	if(mech_stat != CONSCIOUS)
+		to_chat(src, SPAN_WARNING("Прямо сейчас линза не может сфокусироваться!"))
 		cannotzoom = 1
 
 	if(!zoom && !cannotzoom)
@@ -456,6 +473,29 @@
 		. += ability.speed_debuff
 	movement_cooldown = .
 
+/mob/living/simple_animal/fd/lancer/proc/handle_health()
+	set waitfor = FALSE
+
+	if(integrity > 0)
+		return
+
+	if(damaged)
+		return
+
+	if(repairs <= 0)
+		death()
+		return
+
+	damaged = TRUE
+
+	add_filter("damaged", 10, list("type" = "outline", , "size" = 0, "color" = COLOR_RED))
+	animate(get_filter("damaged"), time = 4 SECONDS, size = 1, flags = ANIMATION_PARALLEL)
+
+	playsound(get_turf(src), 'sound/mecha/critdestr.ogg', 60)
+
+	power_down()
+	mech_revive(TRUE, TRUE)
+
 /mob/living/simple_animal/fd/lancer/Life()
 	if(mech_stat == DEAD)
 		return
@@ -471,19 +511,8 @@
 
 	if(integrity <= 0)
 		playsound(get_turf(src),'sound/mecha/internaldmgalarm.ogg', 20)
-		if(!damaged)
-			if(repairs <= 0)
-				return death()
 
-			damaged = TRUE
-
-			power_down()
-			mech_revive(TRUE, TRUE)
-
-			add_filter("damaged", 10, list("type" = "outline", , "size" = 0, "color" = COLOR_RED))
-			animate(get_filter("damaged"), time = 4 SECONDS, size = 1, flags = ANIMATION_PARALLEL)
-
-			playsound(get_turf(src), 'sound/mecha/critdestr.ogg', 60)
+	handle_health()
 
 	recalculate_mech_speed()
 
@@ -543,7 +572,7 @@
 		. = TRUE
 
 		if(hacked)
-			playsound(get_turf(src), 'sound/machines/buzz-two.ogg', 25, TRUE)
+			playsound(get_turf(src), 'sound/machines/buzz-two.ogg', 25, TRUE, falloff = 4)
 			return .
 
 		var/list/options = list()
@@ -557,19 +586,19 @@
 
 			actions[ability.name] = ability
 
-		playsound(src, 'packs/infinity/sound/mecha/UI_SCI-FI_Tone_10_stereo.ogg', 40)
+		playsound(src, 'packs/infinity/sound/mecha/UI_SCI-FI_Tone_10_stereo.ogg', 40, falloff = 4)
 
 		var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 125, offset_y = 125)
 		if(!chosen_option)
-			playsound(src, 'packs/infinity/sound/mecha/UI_SCI-FI_Tone_Deep_Wet_22_stereo_complite.ogg', 40, TRUE)
+			playsound(src, 'packs/infinity/sound/mecha/UI_SCI-FI_Tone_Deep_Wet_22_stereo_complite.ogg', 40, TRUE, falloff = 4)
 			return .
 
 		var/datum/mech_ability/action = actions[chosen_option]
 		if(action.use(null, params))
-			playsound(src, 'packs/infinity/sound/mecha/UI_SCI-FI_Tone_Deep_Wet_22_stereo_complite.ogg', 40, TRUE)
+			playsound(src, 'packs/infinity/sound/mecha/UI_SCI-FI_Tone_Deep_Wet_22_stereo_complite.ogg', 40, TRUE, falloff = 4)
 			return .
 
-		playsound(src, 'sound/machines/buzz-two.ogg', 25, TRUE)
+		playsound(src, 'sound/machines/buzz-two.ogg', 25, TRUE, falloff = 4)
 
 	/// Далее смотрим, есть ли у нас способности с парамс-триггерами
 	for(var/datum/mech_ability/ability as anything in abilities)
@@ -582,5 +611,15 @@
 
 /obj/screen/fullscreen/noise/hacked
 	icon_state = "1 moderate"
-	color = COLOR_VIOLET
-	alpha = 200
+	alpha = 0
+
+/obj/screen/fullscreen/noise/hacked/Initialize()
+	. = ..()
+	animate(src, color = COLOR_VIOLET, alpha = 255, time = 2 SECONDS)
+
+/obj/screen/fullscreen/fishbed/hacked
+	alpha = 0
+
+/obj/screen/fullscreen/fishbed/hacked/Initialize()
+	. = ..()
+	animate(src, color = COLOR_VIOLET, alpha = 255, time = 2 SECONDS)

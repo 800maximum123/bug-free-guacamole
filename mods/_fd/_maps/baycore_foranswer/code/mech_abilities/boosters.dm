@@ -18,7 +18,6 @@
 
 	currently_active = !currently_active
 	to_chat(owner, SPAN_INFO("Ты [currently_active ? "включил" : "выключил"] пассивные ускорители."))
-	playsound(get_turf(owner), pick(GLOB.switch_small_sound), 90, TRUE)
 
 	if(currently_active)
 		speed_debuff = -2
@@ -35,7 +34,7 @@
 	if(world.time <= owner.next_move)
 		owner.adjust_heat(0.1)
 		owner.AddOverlays(overlay)
-		playsound(owner, 'sound/machines/thruster.ogg', 100, TRUE)
+		playsound(owner, 'sound/machines/thruster.ogg', 80, TRUE)
 
 /datum/mech_ability/action/boosters_passive/get_stat_info()
 	var/color = currently_active ? stat_color : second_color
@@ -52,20 +51,26 @@
 	required_params = list("middle")
 	cooldown = 2 SECONDS
 
+	var/image/overlay = null
+
+/datum/mech_ability/boosters_quick/New(mob/living/simple_animal/fd/lancer/new_owner)
+	. = ..()
+	overlay = image(owner.icon, "burst", layer = ABOVE_OBJ_LAYER)
+
 /datum/mech_ability/boosters_quick/use(atom/target, params)
 	. = ..()
 	if(!.)
 		return
 
 	owner.face_atom(target)
-	owner.overlays += image(owner.icon, "burst", layer = ABOVE_OBJ_LAYER)
+	owner.AddOverlays(overlay)
 
 	owner.throw_at(get_edge_target_turf(owner, get_dir(target, owner)), 15, 1, owner, spin = FALSE) // ЭТО НАМЕРЕННЫЙ РЕВЁРС КОТОРЫЙ ИЗНАЧАЛЬНО БЫЛ БАГОМ НО Я РЕШИЛ ТАК И ОСТАВИТЬ
 	owner.adjust_heat(1)
 
-	playsound(owner, 'sound/machines/thruster.ogg', 100, TRUE)
+	playsound(owner, 'sound/machines/thruster.ogg', 80, TRUE)
 
-	spawn(0.8 SECONDS)
-		owner.overlays -= image(owner.icon, "burst")
+	spawn(0.8 SECONDS) // надо заменить на таймер дабы без багов было
+		owner.CutOverlays(overlay)
 
 	return .

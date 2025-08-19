@@ -6,6 +6,7 @@
 	icon_state = "breacher_death_1"
 	density = TRUE
 	anchor_fall = TRUE
+	anchored = TRUE
 
 	layer = ABOVE_HUMAN_LAYER
 

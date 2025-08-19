@@ -38,6 +38,7 @@
 
 /datum/mech_ability/New(mob/living/simple_animal/fd/lancer/new_owner)
 	. = ..()
+	charges = charges_max
 	owner = new_owner
 	new_owner.abilities += src
 
@@ -97,10 +98,9 @@
 			))
 	return .
 
-/// Дополнительная информация после скана владельца, диктуемая этой способностью (ПОКА НЕ ГОТОВО)
+/// Дополнительная информация после скана владельца, диктуемая этой способностью
 /datum/mech_ability/proc/get_scan_info(mob/living/simple_animal/fd/lancer/user)
-	. = ""
-	return .
+	return ""
 
 /// Для удобства - вот тип способности, который сразу будет показыватся в радиальном меню :D
 /datum/mech_ability/action

@@ -73,10 +73,8 @@
 /// ПРИМЕЧАНИЕ: += list(list( требуется для того, что бы список из тайтла и описания правильно добавился :3
 /datum/mech_equipment/proc/get_stat_info(mob/living/simple_animal/fd/lancer/user)
 	RETURN_TYPE(/list)
-	. = list()
-	return .
+	return list()
 
-/// Дополнительная информация после скана владельца, диктуемая этой способностью (ПОКА НЕ ГОТОВО)
+/// Дополнительная информация после скана владельца, диктуемая этой способностью
 /datum/mech_equipment/proc/get_scan_info(mob/living/simple_animal/fd/lancer/user)
-	. = ""
-	return .
+	return ""
