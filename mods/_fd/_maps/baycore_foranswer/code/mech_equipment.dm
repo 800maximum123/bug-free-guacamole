@@ -41,7 +41,7 @@
 
 /// НАПОМИНАНИЕ: что бы ввести процесс - нужно ретурнуть TRUE и прописать START_PROCESSING() в new()
 /datum/mech_equipment/Process()
-	. = ..()
+	..()
 
 /datum/mech_equipment/proc/use(atom/target, params)
 	. = handle_use(target, params)

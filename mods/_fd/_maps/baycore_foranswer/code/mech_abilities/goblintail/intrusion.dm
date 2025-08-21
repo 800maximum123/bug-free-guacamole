@@ -3,8 +3,10 @@
 	action_state = "35"
 	stat_color = "#ec75fc"
 
+	charges_max = 6
+	charges_cooldown = 1 MINUTES
+
 	cooldown = 10 SECONDS
-	charges_max = 6 // Нужно добавить реген зарядов, надеюсь не забуду
 
 	var/stages_max = 5
 	var/options_per_stage = 2

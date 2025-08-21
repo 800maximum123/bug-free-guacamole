@@ -18,38 +18,58 @@
 	/// Вторичный цвет информации об абилке, по стандарту используется при нуле зарядов
 	var/second_color = COLOR_RED
 
+	/// Пенальти/бонус к скорости меха, который можно менять этой способностью
+	var/speed_debuff = 0
+
 	/// Максимальное количество зарядов способности
 	var/charges_max = 0
 	/// Максимальное количество зарядов способности
 	var/charges = 0
-
-	/// Бонус/пенальти к скорости меха, который можно менять этой способностью
-	var/speed_debuff = 0
+	/// Время, через которое будет появлятся новый заряд (FALSE для отмены регенерации)
+	var/charges_cooldown = FALSE
 
 	/// Время перезарядки
 	var/cooldown = 1 SECONDS
 
+	/// Таймер кулдауна зарядов
+	var/next_charge
+
 	/// Таймер кулдауна
-	var/next_use = 0
-	var/last_used = 0
+	var/next_use
+	/// Последний раз, когда использовалась способность
+	var/last_used
 
 	/// Референс к владельцу
 	var/mob/living/simple_animal/fd/lancer/owner
 
 /datum/mech_ability/New(mob/living/simple_animal/fd/lancer/new_owner)
 	. = ..()
-	charges = charges_max
 	owner = new_owner
 	new_owner.abilities += src
+	charges = charges_max
+	START_PROCESSING(SSprocessing, src)
 
 /datum/mech_ability/Destroy()
 	owner.abilities -= src
 	owner = null
+	STOP_PROCESSING(SSprocessing, src)
 	. = ..()
 
-/// НАПОМИНАНИЕ: что бы ввести процесс - нужно ретурнуть TRUE и прописать START_PROCESSING() в new()
 /datum/mech_ability/Process()
-	..()
+	if(!charges_cooldown)
+		return
+
+	if(charges >= charges_max)
+		return
+
+	if(!next_charge)
+		next_charge = world.time + charges_cooldown
+
+	if(next_charge < world.time)
+		return
+
+	next_charge = null
+	charges++
 
 /// Активация/переключение способности, возвращает результат использования
 /datum/mech_ability/proc/use(atom/target, params)

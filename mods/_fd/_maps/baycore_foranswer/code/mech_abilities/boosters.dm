@@ -21,15 +21,18 @@
 
 	if(currently_active)
 		speed_debuff = -2
-		START_PROCESSING(SSprocessing, src)
 	else
 		speed_debuff = 0
-		STOP_PROCESSING(SSprocessing, src)
 		owner.CutOverlays(overlay)
 
 	owner.recalculate_mech_speed()
 
 /datum/mech_ability/action/boosters_passive/Process()
+	. = ..()
+
+	if(!currently_active)
+		return
+
 	owner.CutOverlays(overlay)
 	if(world.time <= owner.next_move)
 		owner.adjust_heat(0.1)

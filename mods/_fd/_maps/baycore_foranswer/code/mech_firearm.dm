@@ -3,13 +3,13 @@
 	action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/ui.dmi'
 	action_state = "26"
 
-	var/ammo = 0
-	var/max_ammo = 100
+	var/bullet_type = /obj/item/projectile/bullet/mech
 
-	var/magazines = 5
+	var/max_ammo = 100
 	var/max_magazines = 5
 
-	var/bullet_type = /obj/item/projectile/bullet/mech
+	var/ammo = 0
+	var/magazines = 0
 
 	/// Количество выстрелов в очереди
 	var/burst_size = 1
@@ -22,6 +22,7 @@
 /datum/mech_equipment/firearm/New(mob/living/simple_animal/fd/lancer/new_owner)
 	. = ..()
 	ammo = max_ammo
+	magazines = max_magazines
 
 /datum/mech_equipment/firearm/use(atom/target, params)
 	. = ..()
