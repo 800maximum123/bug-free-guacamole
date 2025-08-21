@@ -34,6 +34,10 @@
 		to_chat(SPAN_WARNING("Каналы [target] уже забиты другим вторжением!"))
 		return FALSE
 
+	for(var/datum/mech_ability/action/toggle_cloak/ability as anything in owner.abilities)
+		if(istype(ability) && !ability.state)
+			return FALSE // Если имеется способность инвиза - то вне невидимости взлом невозможен
+
 	hack(target, params)
 	return TRUE
 
