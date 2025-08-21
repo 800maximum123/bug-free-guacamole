@@ -199,12 +199,14 @@
 	var/final_damage = integrity_damage
 	var/nullified = TRUE
 
-	if(damaged)
-		return FALSE
+	handle_health()
 
 	for(var/datum/mech_ability/action/toggle_cloak/cloak as anything in abilities)
 		if(istype(cloak) && cloak.state)
 			cloak.use()
+
+	if(damaged)
+		return FALSE
 
 	if(!QDELETED(protected_by))
 		redirect_damage(protected_by, integrity_damage, hull_damage, shredding, do_animation)
