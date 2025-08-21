@@ -137,9 +137,7 @@
 			if(MECH_OVERHEATED)
 				if(has_overheated_state)
 					icon_state = "[icon_living]_charged"
-				remove_filter("heated")
 				add_filter("heated", 5, list("type" = "outline", , "size" = 0, "color" = COLOR_AMBER))
-				remove_filter("heated_blur")
 				add_filter("heated_blur", 4, list("type" = "blur", , "size" = 0))
 				animate(get_filter("heated"), time = 5 SECONDS, size = 1, flags = ANIMATION_PARALLEL)
 				animate(get_filter("heated_blur"), time = 5 SECONDS, size = 1, flags = ANIMATION_PARALLEL)
@@ -158,15 +156,15 @@
 	if(vars[type])
 		switch(type) // Происходит, пока эффект СУЩЕСТВУЕТ
 			if(MECH_OVERHEATED)
-				new /obj/effect/mech/overheated(src.loc)
+				new /obj/effect/mech_particle/overheated(src.loc)
 			if(MECH_CHAINED)
-				new /obj/effect/mech/chained(src.loc)
+				new /obj/effect/mech_particle/chained(src.loc)
 			if(MECH_MALFUNCTIONED)
-				new /obj/effect/mech/malfunctioned(src.loc)
+				new /obj/effect/mech_particle/malfunctioned(src.loc)
 			if(MECH_HACKED)
-				new /obj/effect/mech/hacked(src.loc)
+				new /obj/effect/mech_particle/hacked(src.loc)
 			if(MECH_VULNERABLE)
-				new /obj/effect/mech/vulnerable(src.loc)
+				new /obj/effect/mech_particle/vulnerable(src.loc)
 	if(vars[type] && (new_amount <= 0))
 		switch(type) // Происходит, когда существующий эффект КОНЧАЕТСЯ
 			if(MECH_OVERHEATED)
@@ -327,6 +325,10 @@
 
 	if(!damaged)
 		return FALSE
+
+	for(var/status_effect in ALL_MECH_EFFECTS)
+		if(vars[status_effect] < 1 HOURS)
+			SetEffect(status_effect, 0)
 
 	if(delay)
 		visible_message(SPAN_NOTICE("[src] тихо жужжит, начиная процесс экстренного ремонта."), SPAN_INFO("Ты запускаешь протокол экстренного ремонта [src]."))
