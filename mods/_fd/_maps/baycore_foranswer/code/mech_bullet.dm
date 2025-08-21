@@ -1,12 +1,12 @@
 /obj/item/projectile/bullet/mech
 	name = "bullet"
 	icon_state = "bullet"
-	fire_sound = null
+	fire_sound = 'sound/weapons/guns/ricochet4.ogg'
 	damage = 0
+	distance_falloff = 0.1
+	embed = FALSE
 	damage_type = DAMAGE_BRUTE
 	damage_flags = DAMAGE_FLAG_BULLET
-	embed = FALSE
-	fire_sound = 'sound/weapons/guns/ricochet4.ogg'
 
 	var/bullet_size = 2 // Множитель размера пули
 	var/integrity_damage = 10 // Реальный дамаг по мехам
