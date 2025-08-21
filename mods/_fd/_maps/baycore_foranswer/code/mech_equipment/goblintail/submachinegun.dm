@@ -26,6 +26,7 @@
 		return .
 
 	if(burst_count >= burst_size)
+		invis.next_use = 0
 		invis.use()
 
 	projectile.integrity_damage += 10
