@@ -22,18 +22,18 @@
 		/datum/mech_ability/action/change_module,
 		/datum/mech_ability/action/reboot,
 		/datum/mech_ability/action/toggle_safety,
-		/datum/mech_ability/action/toggle_cloak,
-		/datum/mech_ability/intrusion,
 		/datum/mech_ability/action/boosters_passive,
 		/datum/mech_ability/boosters_quick,
+		/datum/mech_ability/action/toggle_cloak,
+		/datum/mech_ability/intrusion,
 	)
 	equipment = list(
-		/datum/mech_equipment/firearm,
-		/datum/mech_equipment/weapon,
+		/datum/mech_equipment/firearm/submachinegun,
+		/datum/mech_equipment/weapon/nano_whip,
 	)
 
-	integrity = 300
-	integrity_max = 300
+	integrity = 150
+	integrity_max = 150
 
 	heat_max = 10
 	repairs = 2
@@ -48,8 +48,3 @@
 	default_pixel_y = -76
 
 	wreck_type = /obj/structure/fd/mech_wreckage/small/goblin
-
-/obj/item/projectile/bullet/mech/goblintail
-	integrity_damage = 5
-	hull_damage = 5
-	fire_sound = 'sound/weapons/gunshot/gunshot.ogg'

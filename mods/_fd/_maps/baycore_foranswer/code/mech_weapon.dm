@@ -15,7 +15,7 @@
 	/// Игнорирует армор?
 	var/shredding = FALSE
 
-	/// Насколько далеко мы можем бить этим оружием?
+	/// Звук, воспроизводящийся при ударе
 	var/attack_sound = 'sound/weapons/rapidslice.ogg'
 
 /datum/mech_equipment/weapon/use(atom/target, params)

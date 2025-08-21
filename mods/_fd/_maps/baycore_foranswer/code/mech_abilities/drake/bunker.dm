@@ -70,7 +70,6 @@
 				animate(floor, time = 1 SECONDS, color = COLOR_DARK_GRAY, easing = SINE_EASING, flags = ANIMATION_PARALLEL)
 		owner.armor_stat += 10
 		owner.AdjustEffect(MECH_CHAINED, 1 DAYS)
-		START_PROCESSING(SSprocessing, src)
 
 	else
 
@@ -81,7 +80,6 @@
 		shielded_turfs.Cut()
 		owner.armor_stat -= 10
 		owner.AdjustEffect(MECH_CHAINED, -1 DAYS)
-		STOP_PROCESSING(SSprocessing, src)
 
 		zonestart_by_x = initial(zonestart_by_x)
 		zonestart_by_y = initial(zonestart_by_y)
@@ -91,6 +89,8 @@
 	return .
 
 /datum/mech_ability/action/bunker/Process()
+	. = ..()
+
 	for(var/mob/living/simple_animal/fd/lancer/L in shielded_mechs)
 		L.protected_by = null
 
