@@ -30,7 +30,7 @@
 
 	equipment = list(
 		/datum/mech_equipment/weapon/ascent_torch,
-
+		/datum/mech_equipment/firearm/swarm_launcher
 	)
 
 	armor_stat = 5
