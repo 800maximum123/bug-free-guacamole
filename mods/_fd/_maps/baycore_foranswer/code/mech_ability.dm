@@ -65,10 +65,10 @@
 	if(!next_charge)
 		next_charge = world.time + charges_cooldown
 
-	if(next_charge < world.time)
+	if(world.time < next_charge)
 		return
 
-	next_charge = null
+	next_charge = 0
 	charges++
 
 /// Активация/переключение способности, возвращает результат использования
