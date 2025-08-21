@@ -42,3 +42,8 @@
 	animate(src, pixel_y = pixel_y_adjust, alpha = 0, time = 2 SECONDS, easing = SINE_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
 
 	QDEL_IN(src, 2 SECONDS)
+
+	. = ..()
+
+/obj/effect/mech_particle/accelerating
+	icon_state = "accelerating"

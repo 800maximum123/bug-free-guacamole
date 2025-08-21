@@ -3,8 +3,10 @@
 	action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/ui.dmi'
 	action_state = "15"
 
-	integrity_damage = 5 // Дамаг пока такой, ибо я всё ещё не знаю, планируем мы повышать урон, или наоборот понижать хп
+	integrity_damage = 10 // Дамаг пока такой, ибо я всё ещё не знаю, планируем мы повышать урон, или наоборот понижать хп
 	hull_damage = 0
+
+	cooldown = 3 SECONDS
 
 	attack_sound = 'sound/weapons/pushhiss.ogg'
 

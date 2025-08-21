@@ -6,7 +6,6 @@
 	cooldown = 5 SECONDS
 	var/image/overlay = null
 
-/// Активация/переключение способности, возвращает результат использования
 /datum/mech_ability/ground_slam/use(atom/target, params)
 	. = ..()
 	if(!.)
@@ -40,14 +39,3 @@
 /datum/mech_ability/ground_slam/proc/remove_overlay()
 	owner.CutOverlays(overlay)
 	overlay = null
-
-/*/obj/effect/ground_slam
-	name = "slam"
-	desc = "slam"
-	icon = 'mods/_fd/_maps/baycore_foranswer/icons/drake_burst.dmi'
-	icon_state = "burst"
-	layer = ABOVE_HUMAN_LAYER
-
-/obj/effect/ground_slam/Initialize()
-	. = ..()
-	QDEL_IN(src, 5 SECONDS)*/

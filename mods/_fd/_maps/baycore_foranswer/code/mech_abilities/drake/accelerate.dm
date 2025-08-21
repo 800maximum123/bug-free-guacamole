@@ -15,7 +15,7 @@
 
 	if(isnull(buffed))
 		buffed = owner.selected_equipment
-		addtimer(new Callback(src, PROC_REF(reset_after)), 10 SECONDS)
+		addtimer(new Callback(src, PROC_REF(reset_after)), 20 SECONDS)
 
 	if(buffed.cooldown <= 0)
 		to_chat(owner, SPAN_WARNING("<[buffed.name]> находится на пределе своего разгона!"))
@@ -32,6 +32,7 @@
 	else
 		buffed.cooldown -= 1 SECOND
 	playsound(get_turf(src),'mods/_fd/immersive_sounds/sounds/SOMA/computer_fan_turn_on.ogg',100)
+	new /obj/effect/mech_particle/accelerating(owner.loc)
 
 	return .
 
