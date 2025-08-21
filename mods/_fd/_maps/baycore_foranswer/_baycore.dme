@@ -24,11 +24,16 @@
 #include "code/mech_abilities/goblintail/intrusion.dm"
 #include "code/mech_abilities/goblintail/toggle_cloak.dm"
 
+#include "code/mech_abilities/swarmer/alt_grab.dm"
+
 #include "code/mech_equipment/drake/assault_cannon.dm"
 #include "code/mech_equipment/drake/combat_shield.dm"
 
 #include "code/mech_equipment/goblintail/nano_whip.dm"
 #include "code/mech_equipment/goblintail/submachinegun.dm"
+
+#include "code/mech_equipment/swarmer/ascent_torch.dm"
+#include "code/mech_equipment/swarmer/swarm_launcher.dm"
 
 //#include "code/mech_types/drake.dm"
 #include "code/mech_types/goblintail.dm"
@@ -37,6 +42,7 @@
 //#include "code/mech_types/nelson.dm"
 //#include "code/mech_types/players_mechs.dm"
 //#include "code/mech_types/saladin.dm"
+#include "code/mech_types/swarmer.dm"
 
 #include "code/pilot_types/pilots.dm"
 #include "code/pilot_types/players_avatars.dm"

@@ -4,6 +4,6 @@
 	action_state = "15"
 
 	integrity_damage = 2
-	hull_damage = 10
+	hull_damage = 5
 
 	attack_sound = 'sound/weapons/blade1.ogg'

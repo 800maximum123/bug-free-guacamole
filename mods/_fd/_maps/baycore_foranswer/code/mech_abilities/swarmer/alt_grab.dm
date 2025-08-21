@@ -5,7 +5,7 @@
 	action_state = "9" // Поменять
 
 	required_params = list("ctrl")
-	cooldown = 10 SECONDS
+	cooldown = 20 SECONDS
 
 	var/mob/living/simple_animal/fd/lancer/grabbed
 	var/mutable_appearance/grabbed_overlay
@@ -18,25 +18,29 @@
 
 	if(istype(target, /mob/living/simple_animal/fd/lancer))
 		var/mob/living/simple_animal/fd/lancer/L = target
+		if(L.chained > 0)
+			to_chat(owner, SPAN_NOTICE("Вы не можете схватить [L.name]! Он прибит к земле!"))
+			return FALSE
+
 		if(grabbed_someone && !isnull(grabbed))
 			detach(grabbed)
 
 			spawn(0.5 SECONDS)
 				attach(L)
-				addtimer(new Callback(src, PROC_REF(detach(grabbed))), 10 SECONDS)
+				addtimer(new Callback(src, PROC_REF(detach), grabbed), 10 SECONDS)
 		else if(!grabbed_someone && isnull(grabbed))
 			attach(L)
-			addtimer(new Callback(src, PROC_REF(detach(grabbed))), 10 SECONDS)
+			addtimer(new Callback(src, PROC_REF(detach), grabbed), 10 SECONDS)
 
 	return .
 
-/datum/mech_ability/grab_swarmer/attach(mob/living/simple_animal/fd/lancer/target)
+/datum/mech_ability/grab_swarmer/proc/attach(mob/living/simple_animal/fd/lancer/target)
 	speed_debuff = -4
 
 	target.forceMove(owner)
 	grabbed = target
 	grabbed_overlay = mutable_appearance(target.icon, target.icon_state)
-	grabbed_overlay.pixel_x = target.pixel_x - 100
+	grabbed_overlay.pixel_y = owner.pixel_y - 100
 	grabbed_overlay.layer = ABOVE_OBJ_LAYER
 	grabbed_overlay.mouse_opacity = FALSE
 
@@ -44,12 +48,11 @@
 
 	owner.AddOverlays(grabbed_overlay)
 
-/datum/mech_ability/grab_swarmer/detach(mob/living/simple_animal/fd/lancer/target)
+/datum/mech_ability/grab_swarmer/proc/detach(mob/living/simple_animal/fd/lancer/target)
 	speed_debuff = 0
 
 	grabbed.forceMove(get_turf(owner))
 	grabbed = null
-	contents -= grabbed
 
 	grabbed_someone = FALSE
 

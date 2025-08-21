@@ -17,6 +17,10 @@
 	integrity_damage = 5
 
 /obj/item/projectile/bullet/mech/on_hit(atom/target, blocked = 0)
+	if(istype(target, /mob/living/simple_animal/hostile/ascent_trooper))
+		var/mob/living/simple_animal/hostile/ascent_trooper/AT = target
+		AT.gib()
+
 	if(istype(target, /mob/living/simple_animal/fd/lancer))
 		var/mob/living/simple_animal/fd/lancer/M = target
 		if(M.vulnerable)
