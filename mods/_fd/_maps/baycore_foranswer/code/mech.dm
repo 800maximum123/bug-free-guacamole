@@ -25,18 +25,22 @@
 
 	/// Список способностей меха
 	var/list/datum/mech_ability/abilities = list(
-		/datum/mech_ability/action/change_module,
-		/datum/mech_ability/action/reboot,
-		/datum/mech_ability/action/toggle_safety,
 		/// ТЕСТ
 		/datum/mech_ability/action/bunker,
 		/datum/mech_ability/ground_slam,
 		/datum/mech_ability/action/toggle_cloak,
 		/datum/mech_ability/intrusion,
-		/datum/mech_ability/action/boosters_passive,
-		/datum/mech_ability/boosters_quick,
-		/datum/mech_ability/action/accelerate
 	)
+	/// Список базовых способностей меха
+	var/list/datum/mech_ability/default_abilities = list(
+		/datum/mech_ability/action/change_module,
+		/datum/mech_ability/action/reboot,
+		/datum/mech_ability/action/toggle_safety,
+		/datum/mech_ability/action/boosters_passive,
+		/datum/mech_ability/action/accelerate,
+		/datum/mech_ability/boosters_quick,
+	)
+
 	/// Список модулей меха
 	var/list/datum/mech_equipment/equipment = list(
 		/datum/mech_equipment/firearm,
@@ -334,7 +338,7 @@
 
 	if(delay)
 		visible_message(SPAN_NOTICE("[src] тихо жужжит, начиная процесс экстренного ремонта."), SPAN_INFO("Ты запускаешь протокол экстренного ремонта [src]."))
-		if(!do_after(src, 60 SECONDS, src, DO_SHOW_PROGRESS|DO_PUBLIC_PROGRESS|DO_BOTH_UNIQUE_ACT|DO_BOTH_CAN_MOVE|DO_BOTH_CAN_TURN))
+		if(!do_after(src, 30 SECONDS, src, DO_SHOW_PROGRESS|DO_PUBLIC_PROGRESS|DO_BOTH_UNIQUE_ACT|DO_BOTH_CAN_MOVE|DO_BOTH_CAN_TURN))
 			return FALSE
 
 	if(heal)

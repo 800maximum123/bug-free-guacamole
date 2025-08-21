@@ -3,6 +3,8 @@
 	action_state = "35"
 	stat_color = "#ec75fc"
 
+	required_params = list("alt")
+
 	charges_max = 6
 	charges_cooldown = 1 MINUTES
 

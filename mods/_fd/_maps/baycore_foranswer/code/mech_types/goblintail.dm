@@ -19,11 +19,6 @@
 	icon_state = "scout"
 
 	abilities = list(
-		/datum/mech_ability/action/change_module,
-		/datum/mech_ability/action/reboot,
-		/datum/mech_ability/action/toggle_safety,
-		/datum/mech_ability/action/boosters_passive,
-		/datum/mech_ability/boosters_quick,
 		/datum/mech_ability/action/toggle_cloak,
 		/datum/mech_ability/intrusion,
 	)
