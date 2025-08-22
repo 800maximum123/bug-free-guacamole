@@ -101,7 +101,7 @@
 	icon_state_setup = "stella"
 
 /mob/living/carbon/human/pilot/emmy
-	setup_name = "Emmy Rein"
+	setup_name = "Emmy Rain"
 	setup_desc = "Марсианка с любовью к Мехам."
 	see_in_dark = 8
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/pilots/pilots_list.dmi'
