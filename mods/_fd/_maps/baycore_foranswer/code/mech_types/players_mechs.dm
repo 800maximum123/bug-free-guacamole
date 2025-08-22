@@ -37,7 +37,7 @@
 	pixel_y = -82
 	default_pixel_y = -82
 
-	wreck_type = /obj/structure/fd/mech_wreckage/small/saladin
+//	wreck_type = /obj/structure/fd/mech_wreckage/small/saladin
 
 
 
@@ -218,7 +218,7 @@
 	pixel_y = -52
 	default_pixel_y = -52
 
-	wreck_type = /obj/structure/fd/mech_wreckage/medium/napoleon
+//	wreck_type = /obj/structure/fd/mech_wreckage/medium/napoleon
 
 /mob/living/simple_animal/fd/lancer/goblintail/inquisitor/set_dir()
 	..()
@@ -243,7 +243,7 @@
 	pixel_y = -46
 	default_pixel_y = -46
 
-	wreck_type = /obj/structure/fd/mech_wreckage/medium/napoleon
+//	wreck_type = /obj/structure/fd/mech_wreckage/medium/napoleon
 
 /mob/living/simple_animal/fd/lancer/napoleon/barracuda/set_dir()
 	..()

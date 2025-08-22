@@ -41,6 +41,7 @@
 	grabbed = target
 	grabbed_overlay = mutable_appearance(target.icon, target.icon_state)
 	grabbed_overlay.pixel_y = owner.pixel_y - 100
+	grabbed_overlay.SetTransform(1,0,0,90)
 	grabbed_overlay.layer = ABOVE_OBJ_LAYER
 	grabbed_overlay.mouse_opacity = FALSE
 

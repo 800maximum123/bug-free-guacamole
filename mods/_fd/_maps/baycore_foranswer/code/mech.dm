@@ -26,8 +26,6 @@
 	/// Список способностей меха
 	var/list/datum/mech_ability/abilities = list(
 		/// ТЕСТ
-		/datum/mech_ability/action/bunker,
-		/datum/mech_ability/ground_slam,
 		/datum/mech_ability/action/toggle_cloak,
 		/datum/mech_ability/intrusion,
 	)
@@ -37,7 +35,6 @@
 		/datum/mech_ability/action/reboot,
 		/datum/mech_ability/action/toggle_safety,
 		/datum/mech_ability/action/boosters_passive,
-		/datum/mech_ability/action/accelerate,
 		/datum/mech_ability/boosters_quick,
 	)
 
