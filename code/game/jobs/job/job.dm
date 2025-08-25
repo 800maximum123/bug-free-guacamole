@@ -55,7 +55,7 @@
 
 	var/required_language
 
-	var/faction = MOB_FACTION_CREW
+	var/faction = MOB_FACTION_NEUTRAL
 // [FD-ADD]
 	var/global/psi_allowed_species = list(/datum/species/human,/datum/species/human/vatgrown,/datum/species/human/tritonian,/datum/species/human/gravworlder,/datum/species/human/spacer, /datum/species/tajaran)
 // [/FD-ADD]

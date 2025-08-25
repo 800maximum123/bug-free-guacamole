@@ -166,12 +166,12 @@
 //			AI HOLDER			\\
 
 /datum/ai_holder/simple_animal/humanoid/hostile/warspite/passive_crewman
-	faction_friends = list(MOB_FACTION_CREW, "fleet")
+	faction_friends = list(MOB_FACTION_SCG, "fleet")
 	can_flee = TRUE
 	dying_threshold = 0.7
 
 /datum/ai_holder/simple_animal/humanoid/hostile/warspite
-	faction_friends = list(MOB_FACTION_CREW, "fleet")
+	faction_friends = list(MOB_FACTION_SCG, "fleet")
 	hostile = FALSE
 	home_low_priority = FALSE
 	threaten_delay = 4 SECOND

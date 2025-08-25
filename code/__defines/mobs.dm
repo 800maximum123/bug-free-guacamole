@@ -409,7 +409,8 @@
 #define MOB_CLIMB_TIME_MEDIUM (5 SECONDS)
 
 #define MOB_FACTION_NEUTRAL "neutral"
-#define MOB_FACTION_CREW	"crew"
+#define MOB_FACTION_SCG		"SCG" // Gaia
+#define MOB_FACTION_ICCG	"ICCG" // Gaia
 
 #define ROBOT_MODULE_TYPE_GROUNDED "grounded"
 #define ROBOT_MODULE_TYPE_FLYING   "flying"

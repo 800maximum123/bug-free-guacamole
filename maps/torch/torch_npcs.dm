@@ -6,7 +6,7 @@
 /mob/living/carbon/human/monkey/punitelli
 	name = "Warrant Officer Punitelli"
 	gender = MALE
-	faction = MOB_FACTION_CREW
+	faction = MOB_FACTION_SCG
 
 
 /mob/living/carbon/human/monkey/punitelli/Initialize(mapload)

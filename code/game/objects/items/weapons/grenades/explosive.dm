@@ -21,7 +21,7 @@
 
 	var/list/fragment_types = list(/obj/item/projectile/bullet/pellet/fragment = 1)
 	var/num_fragments = 72  //total number of fragments produced by the grenade
-	var/explosion_size = 2   //size of the center explosion
+	var/explosion_size = 100   //size of the center explosion. CHANGED IN GAIA
 
 	//The radius of the circle used to launch projectiles. Lower values mean less projectiles are used but if set too low gaps may appear in the spread pattern
 	var/spread_range = 7 //leave as is, for some reason setting this higher makes the spread pattern have gaps close to the epicenter
@@ -32,10 +32,10 @@
 	var/turf/O = get_turf(src)
 	if(!O) return
 
+	src.fragmentate(O, num_fragments, spread_range, fragment_types) // Fragmentation first to prevent fragments being "eaten"
+
 	if(explosion_size)
 		on_explosion(O)
-
-	src.fragmentate(O, num_fragments, spread_range, fragment_types)
 
 	qdel(src)
 
@@ -78,7 +78,7 @@
 
 /obj/item/grenade/frag/proc/on_explosion(turf/O)
 	if(explosion_size)
-		explosion(O, explosion_size, EX_ACT_LIGHT, 0)
+		cell_explosion(epicenter = loc, power = explosion_size) // Gaia
 
 /obj/item/grenade/frag/shell
 	name = "fragmentation grenade"
@@ -98,11 +98,7 @@
 
 	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment=1,/obj/item/projectile/bullet/pellet/fragment/strong=4)
 	num_fragments = 144  //total number of fragments produced by the grenade
-	explosion_size = 3
-
-/obj/item/grenade/frag/high_yield/on_explosion(turf/O)
-	if(explosion_size)
-		explosion(O, round(explosion_size * 1.5), EX_ACT_HEAVY, 0) //has a chance to blow a hole in the floor
+	explosion_size = 150 // gaia
 
 /obj/item/grenade/frag/makeshift
 	name = "improvised explosive device"
@@ -111,7 +107,7 @@
 	arm_sound = 'sound/effects/flare.ogg'
 
 	num_fragments = 10  // Its a /can/ , not nearly as strong as an industrially produced grenade.
-	explosion_size = 1
+	explosion_size = 80 // Gaia
 
 	det_time = 5
 

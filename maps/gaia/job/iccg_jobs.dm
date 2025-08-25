@@ -12,7 +12,8 @@
 	ideal_character_age = 30
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/iccg/command/CO
 	required_language = LANGUAGE_HUMAN_RUSSIAN
-	selection_color = "#0066BB"
+	selection_color = COLOR_NAVY_BLUE
+	faction = MOB_FACTION_ICCG
 	head_position = TRUE
 	allowed_branches = list(
 		/datum/mil_branch/iccgn,
@@ -45,7 +46,8 @@
 	ideal_character_age = 35
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/iccg/command/XO
 	required_language = LANGUAGE_HUMAN_RUSSIAN
-	selection_color = "#0066BB"
+	selection_color = COLOR_NAVY_BLUE
+	faction = MOB_FACTION_ICCG
 	head_position = TRUE
 	allowed_branches = list(
 		/datum/mil_branch/iccgn,
@@ -95,7 +97,8 @@
 	minimal_player_age = 0
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/iccg/medic
 	required_language = LANGUAGE_HUMAN_RUSSIAN
-	selection_color = "#FF0033"
+	selection_color = COLOR_MAROON
+	faction = MOB_FACTION_ICCG
 	allowed_branches = list(
 		/datum/mil_branch/iccgn,
 	)
@@ -108,6 +111,7 @@
 	                    SKILL_ANATOMY = SKILL_BASIC)
 
 	max_skill = list(   SKILL_MEDICAL     = SKILL_MAX,
+	                    SKILL_ANATOMY     = SKILL_MAX,
 	                    SKILL_CHEMISTRY   = SKILL_MAX)
 
 	access = list(
@@ -132,7 +136,8 @@
 	ideal_character_age = 30
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/iccg/engineer
 	required_language = LANGUAGE_HUMAN_RUSSIAN
-	selection_color = "#FF0033"
+	selection_color = COLOR_MAROON
+	faction = MOB_FACTION_ICCG
 	allowed_branches = list(
 		/datum/mil_branch/iccgn,
 	)
@@ -172,7 +177,8 @@
 	ideal_character_age = 25
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/iccg/mp
 	required_language = LANGUAGE_HUMAN_RUSSIAN
-	selection_color = "#FF0033"
+	selection_color = COLOR_MAROON
+	faction = MOB_FACTION_ICCG
 	allowed_branches = list(
 		/datum/mil_branch/iccgn,
 	)
@@ -213,7 +219,8 @@
 	ideal_character_age = 25
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/iccg/squad_leader
 	required_language = LANGUAGE_HUMAN_RUSSIAN
-	selection_color = "#0066BB"
+	selection_color = COLOR_NAVY_BLUE
+	faction = MOB_FACTION_ICCG
 	head_position = TRUE
 	allowed_branches = list(
 		/datum/mil_branch/iccgn,
@@ -253,7 +260,8 @@
 	ideal_character_age = 22
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/iccg/trooper
 	required_language = LANGUAGE_HUMAN_RUSSIAN
-	selection_color = "#FF0033"
+	selection_color = COLOR_MAROON
+	faction = MOB_FACTION_ICCG
 	allowed_branches = list(
 		/datum/mil_branch/iccgn,
 	)
@@ -274,4 +282,17 @@
 		access_external_airlocks, access_emergency_storage,
 		access_eva, access_sec_doors, access_iccg,
 		access_radio_sec
+	)
+
+// Synthetics
+
+/datum/job/cyborg
+	title = "Voyennyy Dron"
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "tvoi zakony"
+	selection_color = COLOR_MAROON
+	faction = MOB_FACTION_ICCG
+	allowed_ranks = list(
+		/datum/mil_rank/civ/synthetic
 	)

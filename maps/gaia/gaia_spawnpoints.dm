@@ -5,6 +5,8 @@ GLOBAL_LIST_EMPTY(latejoin_officer_barracks_iccg)
 GLOBAL_LIST_EMPTY(latejoin_officer_barracks_scg)
 GLOBAL_LIST_EMPTY(latejoin_barracks_iccg)
 
+GLOBAL_LIST_EMPTY(latejoin_area_of_operations)
+
 // -- SCG Spawnpoints --
 /datum/spawnpoint/scg_barracks
 	display_name = "SCG Barracks"
@@ -44,6 +46,6 @@ GLOBAL_LIST_EMPTY(latejoin_barracks_iccg)
 	display_name = "Area of Operations"
 	disallow_job = list("Commanding Officer", "Platoon Sergeant", "Squad Leader", "Field Engineer", "Field Medic", "Trooper", "Komandir Vzvoda", "Nachalnik Shtaba", "Voyennyy Vrach", "Voyennyy Inzhener", "Voyennyy Politseyskiy", "Komandir Otdeleniya", "Pekhotinets")
 
-/datum/spawnpoint/scg_barracks/New()
+/datum/spawnpoint/area_of_operations/New()
 	..()
-	turfs = GLOB.latejoin_barracks_scg
+	turfs = GLOB.latejoin_area_of_operations

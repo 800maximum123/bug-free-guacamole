@@ -12,7 +12,8 @@
 	ideal_character_age = 30
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/scg/command/CO
 	required_language = LANGUAGE_HUMAN_EURO
-	selection_color = "#ffc400bb"
+	selection_color = COLOR_ASSEMBLY_GOLD
+	faction = MOB_FACTION_SCG
 	head_position = TRUE
 	create_record = FALSE
 	allowed_branches = list(
@@ -50,7 +51,8 @@
 	)
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/scg/command/PS
 	required_language = LANGUAGE_HUMAN_EURO
-	selection_color = "#ffc400bb"
+	selection_color = COLOR_ASSEMBLY_GOLD
+	faction = MOB_FACTION_SCG
 	head_position = TRUE
 	create_record = FALSE
 	allowed_branches = list(
@@ -116,7 +118,8 @@
 	)
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/scg/medic
 	required_language = LANGUAGE_HUMAN_EURO
-	selection_color = "#009EDB"
+	selection_color = COLOR_SOL
+	faction = MOB_FACTION_SCG
 	create_record = FALSE
 	allowed_branches = list(
 		/datum/mil_branch/scga,
@@ -139,6 +142,7 @@
 	                    SKILL_ANATOMY = SKILL_BASIC)
 
 	max_skill = list(   SKILL_MEDICAL     = SKILL_MAX,
+	                    SKILL_ANATOMY     = SKILL_MAX,
 	                    SKILL_CHEMISTRY   = SKILL_MAX)
 
 	access = list(
@@ -169,7 +173,8 @@
 	)
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/scg/engineer
 	required_language = LANGUAGE_HUMAN_EURO
-	selection_color = "#009EDB"
+	selection_color = COLOR_SOL
+	faction = MOB_FACTION_SCG
 	create_record = FALSE
 	allowed_branches = list(
 		/datum/mil_branch/scga,
@@ -218,7 +223,8 @@
 	ideal_character_age = 25
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/scg/squad_leader
 	required_language = LANGUAGE_HUMAN_EURO
-	selection_color = "#ffc400bb"
+	selection_color = COLOR_ASSEMBLY_GOLD
+	faction = MOB_FACTION_SCG
 	head_position = TRUE
 	create_record = FALSE
 	allowed_branches = list(
@@ -265,7 +271,8 @@
 	)
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/scg/trooper
 	required_language = LANGUAGE_HUMAN_EURO
-	selection_color = "#009EDB"
+	selection_color = COLOR_SOL
+	faction = MOB_FACTION_SCG
 	create_record = FALSE
 	allowed_branches = list(
 		/datum/mil_branch/scga,

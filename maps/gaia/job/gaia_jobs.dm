@@ -50,12 +50,19 @@
 	title = "Citizen"
 	department = "Civilian"
 	department_flag = CIV
-
 	total_positions = 0
 	spawn_positions = 0
 	supervisors = "the authorities and survival instincts"
+	alt_titles = list(
+				"Police Officer" = /singleton/hierarchy/outfit/job/gaia/police,
+				"Construction Worker" = /singleton/hierarchy/outfit/job/gaia/worker,
+				"Paramedic" = /singleton/hierarchy/outfit/job/gaia/paramedic,
+				"Mayor" = /singleton/hierarchy/outfit/job/gaia/mayor,
+				"Cashier",
+				)
 	economic_power = 1
-	access = list()
+	faction = MOB_FACTION_NEUTRAL
+	access = list(access_maint_tunnels)
 	outfit_type = /singleton/hierarchy/outfit/job/assistant
 
 /datum/job/assistant/get_description_blurb()

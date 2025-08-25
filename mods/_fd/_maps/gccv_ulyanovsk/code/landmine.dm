@@ -10,7 +10,7 @@
 	icon_state = "mine"
 	w_class = ITEM_SIZE_SMALL
 	var/active = FALSE
-	var/iff_signal = FACTION_INDIE_CONFED
+	var/iff_signal // Its free for all bitches
 	var/triggered = FALSE
 	var/hard_iff_lock = FALSE
 	var/obj/effect/mine_tripwire/tripwire
@@ -160,7 +160,7 @@
 
 //Note : May not be actual explosion depending on linked method
 /obj/item/device/claymore/proc/prime()
-	explosion(loc, range = 1, max_power = EX_ACT_LIGHT, adminlog = FALSE, z_transfer = null, turf_breaker = FALSE)
+	cell_explosion(epicenter = loc, power = 150, falloff = 100, direction = dir) // Fixes mines GAIA
 	qdel(src)
 
 
@@ -198,6 +198,16 @@
 /obj/item/device/claymore/deployed
 	map_deployed = TRUE
 
+/obj/item/device/claymore/iccg // Gaia
+	color = COLOR_RED_GRAY
+	iff_signal = MOB_FACTION_ICCG
+	hard_iff_lock = TRUE
+
+/obj/item/device/claymore/scg // Gaia
+	color = COLOR_BLUE_GRAY
+	iff_signal = MOB_FACTION_SCG
+	hard_iff_lock = TRUE
+
 /obj/item/storage/box/claymore
 	name = "landmine packet"
 	desc = "This is a packet for mines. Small enough to keep in your pocket, but can't contain anything other than mines."
@@ -208,3 +218,11 @@
 	max_storage_space = ITEM_SIZE_SMALL * 5
 	max_w_class = ITEM_SIZE_SMALL
 	startswith = list(/obj/item/device/claymore = 5)
+
+/obj/item/storage/box/claymore/iccg // Gaia
+	color = COLOR_RED_GRAY
+	startswith = list(/obj/item/device/claymore/iccg = 5)
+
+/obj/item/storage/box/claymore/scg // Gaia
+	color = COLOR_BLUE_GRAY
+	startswith = list(/obj/item/device/claymore/scg = 5)
