@@ -79,6 +79,10 @@
 			GLOB.latejoin_officer_barracks_iccg += loc
 			delete_me = 1
 			return
+		if("JoinLateAreaOfOperations")
+			GLOB.latejoin_area_of_operations += loc
+			delete_me = 1
+			return
 
 	landmarks_list += src
 	return 1
