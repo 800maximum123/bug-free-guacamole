@@ -21,15 +21,22 @@
 
 	#include "../gaia/effects/lock_helper.dm"
 
+	#include "../gaia/language/human/euro.dm"
+	#include "../gaia/language/human/iberian.dm"
+	#include "../gaia/language/human/russian.dm"
+
+	#include "../gaia/items/bell.dm"
 	#include "../gaia/items/key.dm"
 	#include "../gaia/items/clothes.dm"
 
+	#include "../gaia/structures/barrier.dm"
 	#include "../gaia/structures/gaiaflags.dm"
 	#include "../gaia/structures/lockers.dm"
 	#include "../gaia/structures/machinery.dm"
 	#include "../gaia/structures/military.dm"
+	#include "../gaia/structures/rubble.dm"
+	#include "../gaia/structures/signs.dm"
 	#include "../gaia/structures/truck.dm"
-	#include "../gaia/structures/barrier.dm"
 
 	#include "../gaia/turf/moving.dm"
 
@@ -38,15 +45,16 @@
 	#include "../gaia/job/gaia_jobs.dm"
 
 	#include "../gaia/job/outfits/iccg_outfits.dm"
+	#include "../gaia/job/outfits/misc_outfits.dm"
 	#include "../gaia/job/outfits/scg_outfits.dm"
 
 	#include "../gaia/gaia_scg_camp.dmm"
 	#include "../gaia/gaia_iccg_camp.dmm"
+	#include "../gaia/z4_admin.dmm"
+	#include "../gaia/z5_transit.dmm"
 	 //CHANGE THIS DEPENDING ON THE MISSION!!
-	//#include "../gaia/area_of_op/city.dmm"
-	#include "../gaia/area_of_op/outskirts.dmm"
-	#include "../gaia/z5_admin.dmm"
-	#include "../gaia/z6_transit.dmm"
+	#include "../gaia/area_of_op/city.dmm"
+	//#include "../gaia/area_of_op/outskirts.dmm"
 
 	// --- MAP MAINTENANCE --- //
 	#include "../torch/torch_areas.dm"
@@ -82,9 +90,6 @@
 	#include "../torch/datums/department_exploration.dm"
 
 	#include "../torch/datums/uplink.dm"
-
-	#include "../torch/language/human/euro.dm"
-	#include "../torch/language/human/misc/spacer.dm"
 
 	// --- ITEMS --- //
 	#include "../torch_fd/items/agencylogo.dm"
@@ -151,7 +156,6 @@
 	// --- MAP FILES --- //
 
 		// ~AWAY SITES~ //
-	#include "../away/empty.dmm"
 	#include "../away/mining/mining.dm"
 	#include "../away/derelict/derelict.dm"
 	#include "../away/bearcat/bearcat.dm"

@@ -10,7 +10,7 @@
 	default_material = MATERIAL_ALUMINIUM
 	var/normal_sound = 'sound/items/oneding.ogg'
 	var/angry_sound = 'sound/items/manydings.ogg'
-
+	var/ding_icon_state = "bell_dingeth"
 
 /obj/item/material/bell/attack_hand(mob/living/user)
 	if (user.a_intent == I_GRAB)
@@ -29,7 +29,7 @@
 			SPAN_WARNING("You hear a bell sounding.")
 		)
 		playsound(src, normal_sound, 20)
-	flick("bell_dingeth", src)
+	flick(ding_icon_state, src)
 
 
 /obj/item/material/bell/glass

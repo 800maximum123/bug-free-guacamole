@@ -71,7 +71,7 @@
 */
 /obj/machinery/computer/shuttle_control/iccg_stopa_shuttle
 	name = "ICCGN 'Stopa' control console"
-	shuttle_tag = "ICCG stopa shuttle"
+	shuttle_tag = "ICCGN 'Stopa' Shuttle"
 
 /area/turbolift/iccg_stopa_shuttle
 	name = "ICCGN 'Stopa' Shuttle"
@@ -90,13 +90,13 @@
 /obj/shuttle_landmark/lift/iccg_stopa_shuttle_base
 	name = "ICCG Garrison"
 	landmark_tag = "nav_iccg_stopa_shuttle_camp"
-	base_area = /area/gaia/scg
-	base_turf = /turf/simulated/floor/exoplanet/concrete/reinforced
+	base_area = /area/gaia/iccg
+	base_turf = /turf/simulated/floor/armored
 
 /obj/shuttle_landmark/lift/iccg_stopa_shuttle_transit
 	name = "In transit"
 	landmark_tag = "nav_iccg_stopa_shuttle_transit"
-	base_area = /area/gaia/scg
+	base_area = /area/gaia/iccg
 	base_turf = /turf/space/transit/east
 
 /obj/shuttle_landmark/lift/iccg_stopa_shuttle_op
@@ -111,7 +111,7 @@
 */
 /obj/machinery/computer/shuttle_control/iccg_masha_boat
 	name = "ICCGN 'Masha' control console"
-	shuttle_tag = "ICCG masha boat"
+	shuttle_tag = "ICCGN 'Masha' Patrol Boat"
 
 /area/turbolift/iccg_masha_boat
 	name = "ICCGN 'Masha' Patrol Boat"
@@ -130,19 +130,19 @@
 	ceiling_type = /turf/simulated/open
 
 // Landmarks for the ICCG Boat
-/obj/shuttle_landmark/lift/iccg_masha_boat
+/obj/shuttle_landmark/lift/iccg_masha_boat/base
 	name = "ICCG Garrison"
 	landmark_tag = "nav_iccg_masha_boat_camp"
 	base_area = /area/gaia/scg
 	base_turf = /turf/simulated/floor/exoplanet/water/shallow
 
-/obj/shuttle_landmark/lift/iccg_masha_boat
+/obj/shuttle_landmark/lift/iccg_masha_boat/transit
 	name = "In transit"
 	landmark_tag = "nav_iccg_masha_boat_transit"
 	base_area = /area/gaia/scg
 	base_turf = /turf/simulated/floor/exoplanet/water/shallow //TODO: Change this to transit turf
 
-/obj/shuttle_landmark/lift/iccg_masha_boat
+/obj/shuttle_landmark/lift/iccg_masha_boat/op
 	name = "Area of Operations"
 	landmark_tag = "nav_iccg_masha_boat_areaofop"
 	flags = SLANDMARK_FLAG_AUTOSET
