@@ -1,13 +1,13 @@
 /obj/structure/pit
 	name = "pit"
-	desc = "Watch your step, partner."
+	desc = "A nice pit to bury things in, and hide against projectiles."
 	icon = 'icons/obj/structures/pit.dmi'
 	icon_state = "pit1"
 	blend_mode = BLEND_MULTIPLY
 	density = FALSE
 	anchored = TRUE
 	var/open = 1
-
+	var/block_chance = 30 // The chance of pit blocking a bullet when a person is occupying it as a trench
 
 /obj/structure/pit/use_tool(obj/item/tool, mob/user, list/click_params)
 	// Shovel - Dig or fill pit
@@ -62,7 +62,6 @@
 
 	return ..()
 
-
 /obj/structure/pit/on_update_icon()
 	icon_state = "pit[open]"
 	if(istype(loc,/turf/simulated/floor/exoplanet))
@@ -72,7 +71,7 @@
 
 /obj/structure/pit/proc/open()
 	name = "pit"
-	desc = "Watch your step, partner."
+	desc = "A nice pit to bury things in, and hide against projectiles."
 	open = 1
 	for(var/atom/movable/A in src)
 		A.forceMove(src.loc)
@@ -86,7 +85,6 @@
 		if(!A.anchored && A != user)
 			A.forceMove(src)
 	update_icon()
-
 /obj/structure/pit/return_air()
 	if(open && loc)
 		return loc.return_air()
@@ -122,6 +120,20 @@
 	visible_message(SPAN_DANGER("\the [escapee] emerges from \the [src]!"))
 	playsound(src.loc, 'sound/effects/squelch1.ogg', 100, 1)
 	open()
+
+/obj/structure/pit/CanPass(atom/movable/mover, turf/target, height = 0, air_group = 0)
+	if(istype(mover, /obj/item/projectile))
+		var/obj/item/projectile/proj = mover
+
+		if(Adjacent(proj?.firer))
+			return TRUE
+
+		for(var/mob/A in src.loc)
+			if(prob(block_chance))
+				visible_message(SPAN_WARNING("[A] is shielded by [src] from [proj]!"))
+				playsound(src, 'sound/effects/projectile_impact/bullet_meat2.ogg', 35, TRUE)
+				return FALSE // Its just like good ol' trench warfare days
+	return TRUE
 
 /obj/structure/pit/closed
 	name = "mound"

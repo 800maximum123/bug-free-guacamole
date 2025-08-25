@@ -75,6 +75,7 @@
 	sheet_icon_base = "ingot"
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
+	dooropen_noise = 'sound/machines/door_open.ogg' //Gaia
 	chem_products = list(
 		/datum/reagent/copper = 12,
 		/datum/reagent/silver = 8
@@ -122,6 +123,7 @@
 	wall_icon_base = "solid"
 	wall_icon_reinf = "reinf_over"
 	icon_colour = COLOR_STEEL
+	dooropen_noise = 'sound/machines/door_open.ogg' //Gaia
 	hitsound = 'sound/weapons/smash.ogg'
 	chem_products = list(
 				/datum/reagent/iron = 19.6,
@@ -151,6 +153,7 @@
 	lore_text = "A low-density ductile metal with a silvery-white sheen."
 	wall_name = "bulkhead"
 	stack_type = /obj/item/stack/material/aluminium
+	dooropen_noise = 'sound/machines/door_open.ogg' //Gaia
 	chem_products = list(
 				/datum/reagent/aluminium = 20
 				)
@@ -191,6 +194,7 @@
 	hardness = MATERIAL_VERY_HARD
 	weight = 23
 	stack_origin_tech = list(TECH_MATERIAL = 2)
+	dooropen_noise = 'sound/machines/door_open.ogg' //Gaia
 	hitsound = 'sound/weapons/smash.ogg'
 	construction_difficulty = MATERIAL_HARD_DIY
 	alloy_materials = list(MATERIAL_STEEL = 2500, MATERIAL_PLATINUM = 1250)
@@ -207,6 +211,7 @@
 	integrity = 200
 	melting_point = 3000
 	weight = 18
+	dooropen_noise = 'sound/machines/door_open.ogg' //Gaia
 	stack_type = /obj/item/stack/material/titanium
 	wall_icon_base = "metal"
 	door_icon_base = "metal"

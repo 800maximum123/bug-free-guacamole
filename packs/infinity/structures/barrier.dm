@@ -36,8 +36,6 @@
 	if(health <= 0)
 		visible_message("<span class='danger'>[src] was destroyed!</span>")
 		playsound(src, 'sound/effects/clang.ogg', 100, 1)
-		material.place_sheet(src.loc, amount = 2)
-		qdel(src)
 	return ..()
 
 /obj/structure/barrier/proc/update_layers()

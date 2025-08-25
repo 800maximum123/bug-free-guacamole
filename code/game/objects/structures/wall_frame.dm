@@ -16,6 +16,7 @@
 
 	var/paint_color
 	var/stripe_color
+	var/hit_chance = 40
 	rad_resistance_modifier = 0.5
 
 	blend_objects = list(/obj/machinery/door, /turf/simulated/wall) // Objects which to blend with
@@ -127,11 +128,26 @@
 
 
 /obj/structure/wall_frame/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group || (height==0)) return 1
-	if(istype(mover,/obj/item/projectile))
-		return 1
+	if(air_group || (height==0)) return TRUE
+	if(istype(mover, /obj/item/projectile)) // Projectile handling stolen from barrier
+		var/obj/item/projectile/proj = mover
+
+		if(Adjacent(proj?.firer))
+			return TRUE
+
+		if(mover.dir != reverse_direction(dir))
+			return TRUE
+
+		if(get_dist(proj.starting, loc) <= 1)//allows to fire from 1 tile away of barrier
+			return TRUE
+
+		if(prob(hit_chance))
+			visible_message(SPAN_WARNING("[proj] hits \the [src]!"))
+			bullet_act(proj)
+			return FALSE
+
 	if(istype(mover) && mover.checkpass(PASS_FLAG_TABLE))
-		return 1
+		return TRUE
 
 // icon related
 

@@ -64,7 +64,7 @@
 	update_icon(1)
 
 /turf/simulated/floor/exoplanet/on_update_icon(update_neighbors)
-	ClearOverlays()
+	//ClearOverlays() Gaia lazy fix
 	if(LAZYLEN(decals))
 		AddOverlays(decals)
 	for(var/direction in GLOB.cardinal)
