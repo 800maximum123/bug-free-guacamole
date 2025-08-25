@@ -4,6 +4,7 @@
 	icon = 'icons/obj/guns/basic_energy.dmi'
 	icon_state = "energy"
 	fire_sound = 'sound/weapons/Taser.ogg'
+	far_fire_sound = 'sound/weapons/Taser_far.ogg'
 	fire_sound_text = "laser blast"
 	accuracy = 1
 

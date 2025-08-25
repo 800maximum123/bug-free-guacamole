@@ -13,6 +13,7 @@
 	accuracy = 1
 	one_hand_penalty = 0
 	fire_sound = 'sound/weapons/foamblaster.ogg'
+	far_fire_sound = 'sound/misc/null.ogg'
 	fire_sound_text = "a pleasing 'pomp'"
 	matter = list(MATERIAL_PLASTIC = 200)
 

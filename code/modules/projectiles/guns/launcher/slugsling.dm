@@ -45,7 +45,8 @@
 	icon_state = "slugsling"
 	item_state = "spikethrower"
 	fire_sound_text = "a strange noise"
-	fire_sound = 'sound/weapons/towelwhip.ogg'
+	fire_sound = 'sound/weapons/spike.ogg'
+	far_fire_sound = 'sound/weapons/spike_far.ogg'
 	release_force = 6
 	ammo_name = "slug"
 	ammo_type = /obj/item/slugegg

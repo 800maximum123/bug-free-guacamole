@@ -51,7 +51,8 @@
 #undef CALIBER_RIFLE_RUSSIA
 
 /obj/item/projectile/bullet/rifle/russian
-	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
+	fire_sound = 'sound/weapons/gunshot/rifle/shot_heavy.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/rifle/shot_heavy_far.ogg'
 	damage = 46
 	penetrating = 1
 	armor_penetration = 30

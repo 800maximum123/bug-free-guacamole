@@ -7,7 +7,8 @@
 	w_class = ITEM_SIZE_HUGE
 	force = 10
 
-	fire_sound = 'sound/weapons/empty.ogg'
+	fire_sound = 'sound/weapons/gunshot/general/grenade_launch.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/general/grenade_launch_far.ogg'
 	fire_sound_text = "a metallic thunk"
 	screen_shake = 0
 	throw_distance = 7

@@ -10,6 +10,7 @@
 	fire_sound_text = "a whoosh and a crisp, papery rustle"
 	fire_delay = 1
 	fire_sound = 'sound/weapons/gunshot/money_launcher.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/money_launcher_far.ogg'
 	var/emagged = FALSE
 	var/max_capacity = 2000
 

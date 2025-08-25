@@ -22,6 +22,8 @@
 	var/bolt_open = 0
 	wielded_item_state = "heavysniper-wielded" //sort of placeholder
 	load_sound = 'sound/weapons/guns/interaction/rifle_load.ogg'
+	fire_sound = 'sound/weapons/gunshot/hmg/shot.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/hmg/shot_far.ogg'
 	fire_delay = 12
 
 /obj/item/gun/projectile/heavysniper/on_update_icon()
@@ -109,12 +111,23 @@
 	caliber = CALIBER_RIFLE
 	ammo_type = /obj/item/ammo_casing/rifle
 	load_method = SINGLE_CASING|SPEEDLOADER
+	screen_shake = 0
 	max_shells = 5
 	accuracy = 4
 	scope_zoom = 0
 	scoped_accuracy = 0
 	wielded_item_state = "boltaction-wielded"
-	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
+	fire_sound = 'sound/weapons/gunshot/rifle/shot_heavy.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/rifle/shot_heavy_far.ogg'
+
+/obj/item/gun/projectile/heavysniper/boltaction/scope //Scoped variant GAIA
+	name = "scoped bolt action rifle"
+	desc = "An old bolt action rifle from some forgotten war, still commonplace among farmers and colonists as an anti-varmint rifle. This one has an optical scope."
+	icon_state = "boltaction_scoped"
+	item_state = "boltaction_scoped"
+	scope_zoom = 2
+	scoped_accuracy = 3
+	wielded_item_state = "boltaction_scoped-wielded"
 
 /obj/item/gun/projectile/sniper/panther //semi-automatic only
 	name = "marksman rifle"
@@ -141,7 +154,8 @@
 	wielded_item_state = "dmr-wielded"
 	mag_insert_sound = 'sound/weapons/guns/interaction/ltrifle_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/ltrifle_magout.ogg'
-	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
+	fire_sound = 'sound/weapons/gunshot/rifle/shot_heavy.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/rifle/shot_heavy_far.ogg'
 
 /obj/item/gun/projectile/sniper/panther/on_update_icon()
 	if(ammo_magazine)
@@ -177,7 +191,8 @@
 	wielded_item_state = "battlerifle-wielded"
 	mag_insert_sound = 'sound/weapons/guns/interaction/ltrifle_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/ltrifle_magout.ogg'
-	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
+	fire_sound = 'sound/weapons/gunshot/rifle/shot_heavy.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/rifle/shot_heavy_far.ogg'
 
 /obj/item/gun/projectile/sniper/caseless/on_update_icon()
 	..()
@@ -213,7 +228,8 @@
 	wielded_item_state = "garand-wielded"
 	mag_insert_sound = 'sound/weapons/guns/interaction/ltrifle_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/garand_magout.ogg'
-	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
+	fire_sound = 'sound/weapons/gunshot/rifle/shot_heavy.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/rifle/shot_heavy_far.ogg'
 
 /obj/item/gun/projectile/sniper/garand/on_update_icon()
 	if(ammo_magazine && length(ammo_magazine.stored_ammo))
@@ -242,7 +258,8 @@
 	max_shells = 10
 	accuracy = 1
 	wielded_item_state = "semistrip-wielded"
-	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
+	fire_sound = 'sound/weapons/gunshot/rifle/shot.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/rifle/shot_far.ogg'
 
 /obj/item/gun/projectile/sniper/semistrip/on_update_icon()
 	if(ammo_magazine && length(ammo_magazine.stored_ammo))

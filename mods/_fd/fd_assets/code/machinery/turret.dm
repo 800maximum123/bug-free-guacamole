@@ -40,27 +40,27 @@
 		if(/obj/item/gun/projectile/automatic/assault_rifle)
 			projectile = /obj/item/projectile/bullet/rifle/military
 			eprojectile = /obj/item/projectile/bullet/rifle/military
-			shot_sound = 'sound/weapons/gunshot/gunshot3.ogg'
+			shot_sound = 'sound/weapons/gunshot/rifle/shot.ogg'
 
 		if(/obj/item/gun/projectile/heavysniper)
 			projectile = /obj/item/projectile/bullet/rifle/shell
 			eprojectile = /obj/item/projectile/bullet/rifle/shell
-			shot_sound = 'sound/weapons/gunshot/sniper.ogg'
+			shot_sound = 'sound/weapons/gunshot/sniper/shot.ogg'
 
 		if(/obj/item/gun/projectile/automatic/shotgun)
 			projectile = /obj/item/projectile/bullet/shotgun
 			eprojectile = /obj/item/projectile/bullet/shotgun
-			shot_sound = 'sound/weapons/gunshot/shotgun.ogg'
+			shot_sound = 'sound/weapons/gunshot/shotgun/shot.ogg'
 
 		if(/obj/item/gun/launcher/rocket)
 			projectile = /obj/item/missile
 			eprojectile = /obj/item/missile
-			shot_sound = 'sound/weapons/gunshot/shotgun.ogg' //PLACEHOLDER
+			shot_sound = 'sound/weapons/gunshot/general/rocket_launch.ogg'
 
 		if(/obj/item/gun/magnetic/railgun/automatic/mmi)
 			projectile = /obj/item/projectile/bullet/magnetic/slug
 			eprojectile = /obj/item/projectile/bullet/magnetic/slug
-			shot_sound = 'sound/weapons/gunshot/sniper.ogg' //PLACEHOLDER
+			shot_sound = 'sound/weapons/gunshot/hmg/shot.ogg'
 
 /obj/machinery/porta_turret/ballistic/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if(MACHINE_IS_BROKEN(src))

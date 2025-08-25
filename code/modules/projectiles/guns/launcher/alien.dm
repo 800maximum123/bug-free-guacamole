@@ -50,6 +50,7 @@
 	item_state = "spikethrower"
 	fire_sound_text = "a strange noise"
 	fire_sound = 'sound/weapons/spike.ogg'
+	far_fire_sound = 'sound/weapons/spike_far.ogg'
 
 /obj/item/gun/launcher/alien/spikethrower/on_update_icon()
 	icon_state = "spikethrower[ammo]"

@@ -498,7 +498,7 @@ var/global/list/tank_gauge_cache = list()
 			if(!T)
 				return
 			T.assume_air(air_contents)
-			playsound(get_turf(src), 'sound/weapons/gunshot/shotgun.ogg', 20, 1)
+			playsound(get_turf(src), 'sound/weapons/gunshot/shotgun/shot.ogg', 20, 1)
 			visible_message("[icon2html(src, viewers(get_turf(src)))] [SPAN_DANGER("\The [src] flies apart!")]", SPAN_WARNING("You hear a bang!"))
 			T.hotspot_expose(air_contents.temperature, 70, 1)
 

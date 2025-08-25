@@ -2,6 +2,7 @@
 	name = "ion bolt"
 	icon_state = "ion"
 	fire_sound = 'sound/weapons/Laser.ogg'
+	far_fire_sound = 'sound/weapons/Laser_far.ogg'
 	damage = 0
 	damage_type = DAMAGE_BURN
 	damage_flags = 0
@@ -64,7 +65,8 @@
 /obj/item/projectile/energy/floramut
 	name = "alpha somatoray"
 	icon_state = "energy"
-	fire_sound = 'sound/effects/stealthoff.ogg'
+	fire_sound = 'sound/weapons/Laser3.ogg'
+	far_fire_sound = 'sound/weapons/Laser3_far.ogg'
 	damage = 0
 	damage_type = DAMAGE_TOXIN
 	nodamage = TRUE
@@ -98,7 +100,8 @@
 /obj/item/projectile/energy/floramut/gene
 	name = "gamma somatoray"
 	icon_state = "energy2"
-	fire_sound = 'sound/effects/stealthoff.ogg'
+	fire_sound = 'sound/weapons/Laser3.ogg'
+	far_fire_sound = 'sound/weapons/Laser3_far.ogg'
 	damage = 0
 	damage_type = DAMAGE_TOXIN
 	nodamage = TRUE
@@ -107,7 +110,8 @@
 /obj/item/projectile/energy/florayield
 	name = "beta somatoray"
 	icon_state = "energy2"
-	fire_sound = 'sound/effects/stealthoff.ogg'
+	fire_sound = 'sound/weapons/Laser3.ogg'
+	far_fire_sound = 'sound/weapons/Laser3_far.ogg'
 	damage = 0
 	damage_type = DAMAGE_TOXIN
 	nodamage = TRUE

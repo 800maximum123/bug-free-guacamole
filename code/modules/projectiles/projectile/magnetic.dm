@@ -7,6 +7,7 @@
 	armor_penetration = 85
 	penetration_modifier = 1.1
 	fire_sound = 'sound/weapons/railgun.ogg'
+	far_fire_sound = 'sound/weapons/railgun_far.ogg'
 	distance_falloff = 1
 
 /obj/item/projectile/bullet/magnetic/slug
@@ -22,4 +23,5 @@
 	damage = 35
 	armor_penetration = 100
 	fire_sound = 'sound/weapons/rapidslice.ogg'
+	far_fire_sound = 'sound/weapons/rapidslice_far.ogg'
 	distance_falloff = 0.5

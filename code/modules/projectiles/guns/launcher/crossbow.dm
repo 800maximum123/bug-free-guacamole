@@ -49,7 +49,8 @@
 	icon = 'icons/obj/guns/crossbow.dmi'
 	icon_state = "crossbow"
 	item_state = "crossbow-solid"
-	fire_sound = 'sound/weapons/punchmiss.ogg' // TODO: Decent THWOK noise.
+	fire_sound = 'sound/weapons/gunshot/bow/bow_fire.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/bow/bow_fire_far.ogg'
 	fire_sound_text = "a solid thunk"
 	fire_delay = 25
 	slot_flags = SLOT_BACK
@@ -299,6 +300,7 @@
 	name = "rapid crossbow device"
 	desc = "A hacked RCD turns an innocent construction tool into the penultimate deconstruction tool. Flashforges bolts using matter units when the string is drawn back."
 	fire_sound = 'sound/weapons/rcd_crossbow.ogg'
+	far_fire_sound = 'sound/weapons/rcd_crossbow_far.ogg'
 	icon_state = "rxb"
 	slot_flags = null
 	draw_time = 10

@@ -80,7 +80,8 @@
 	matter = list(MATERIAL_STEEL = 2000)
 	slot_flags = SLOT_BELT
 
-	fire_sound = 'sound/weapons/empty.ogg'
+	fire_sound = 'sound/weapons/gunshot/general/grenade_launch.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/general/grenade_launch.ogg'
 	fire_sound_text = "a metallic thunk"
 	screen_shake = 0
 	release_force = 10

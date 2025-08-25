@@ -31,7 +31,8 @@
 /obj/item/projectile/bullet/pellet/shotgun/magnum
 	name = "shrapnel"
 	icon_state = "pellet"
-	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
+	fire_sound = 'sound/weapons/gunshot/shotgun/shot.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/shotgun/shot_far.ogg'
 	damage = 30
 	pellets = 16
 	range_step = 1
@@ -44,7 +45,8 @@
 	penetrating = 0
 
 /obj/item/projectile/bullet/rifle/army
-	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
+	fire_sound = 'sound/weapons/gunshot/rifle/shot.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/rifle/shot_far.ogg'
 	damage = 45
 	armor_penetration = 50
 	penetrating = 3
@@ -83,13 +85,15 @@
 	return 1
 
 /obj/item/projectile/bullet/rifle/marksman
-	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
+	fire_sound = 'sound/weapons/gunshot/rifle/shot.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/rifle/shot_far.ogg'
 	damage = 30
 	armor_penetration = 20
 	penetrating = 1
 
 /obj/item/projectile/bullet/rifle/marksman/dmr
-	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
+	fire_sound = 'sound/weapons/gunshot/rifle/shot.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/rifle/shot_far.ogg'
 	damage = 35
 	armor_penetration = 30
 	penetrating = 1

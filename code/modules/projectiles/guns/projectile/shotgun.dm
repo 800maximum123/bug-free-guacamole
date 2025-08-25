@@ -2,7 +2,8 @@
 	abstract_type = /obj/item/gun/projectile/shotgun
 	name = "master shotgun object"
 	desc = "You should not see this."
-	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
+	fire_sound = 'sound/weapons/gunshot/shotgun/shot.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/shotgun/shot_far.ogg'
 
 /obj/item/gun/projectile/shotgun/pump
 	name = "shotgun"
@@ -330,7 +331,8 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
 	auto_eject = TRUE
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
-	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
+	fire_sound = 'sound/weapons/gunshot/shotgun/shot_alt.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/shotgun/shot_alt_far.ogg'
 	one_hand_penalty = 8
 	bulk = GUN_BULK_RIFLE
 	burst_delay = 2

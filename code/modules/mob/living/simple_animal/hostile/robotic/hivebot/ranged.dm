@@ -4,7 +4,7 @@
 	maxHealth = 60
 	health = 60
 	projectiletype = /obj/item/projectile/bullet/hivebot
-	projectilesound = 'sound/weapons/gunshot/gunshot.ogg'
+	projectilesound = 'sound/weapons/gunshot/rifle/shot.ogg'
 
 // The regular ranged hivebot, that fires somewhat weak projectiles.
 /mob/living/simple_animal/hostile/hivebot/ranged_damage/basic

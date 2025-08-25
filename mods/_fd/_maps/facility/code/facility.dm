@@ -346,7 +346,7 @@
 	icon_state = "mercenary_ranged1"
 	icon_living = "mercenary_ranged1"
 	casingtype = /obj/item/ammo_casing/pistol/used
-	projectilesound = 'sound/weapons/gunshot/gunshot_strong.ogg'
+	projectilesound = 'sound/weapons/gunshot/pistol/shot_alt.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol
 	needs_reload = TRUE
 	reload_max = 15
@@ -363,7 +363,7 @@
 	icon_state = "mercenary_ranged2"
 	icon_living = "mercenary_ranged2"
 	casingtype = /obj/item/ammo_casing/pistol/used
-	projectilesound = 'sound/weapons/gunshot/gunshot2.ogg'
+	projectilesound = 'sound/weapons/gunshot/revolver/shot.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol/strong
 	needs_reload = TRUE
 	reload_max = 25

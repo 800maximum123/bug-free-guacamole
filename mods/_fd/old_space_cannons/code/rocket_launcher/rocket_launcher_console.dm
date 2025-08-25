@@ -13,4 +13,5 @@
 	caldigit = 4
 	shake_camera_force = 1
 
-//	fire_sound = 'sound/machines/rocket_fire.ogg'
+	fire_sound = 'sound/weapons/gunshot/general/rocket_launch.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/general/rocket_launch_far.ogg'

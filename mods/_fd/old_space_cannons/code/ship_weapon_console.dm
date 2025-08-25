@@ -38,10 +38,10 @@
 
 	var/shake_camera_force = 8
 
-	var/fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
+	var/fire_sound = 'sound/weapons/railgun.ogg'
 	var/prefire_sound = null
 
-	var/far_fire_sound = 'sound/effects/explosionfar.ogg'
+	var/far_fire_sound = 'sound/weapons/railgun_far.ogg'
 	var/far_prefire_sound = null
 
 	var/muzzle_flash = /obj/projectile/bullet/muzzle/ship_weapon

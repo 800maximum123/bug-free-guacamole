@@ -11,7 +11,6 @@
 /obj/item/projectile/energy/flash
 	name = "chemical shell"
 	icon_state = "bullet"
-	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	damage = 5
 	agony = 20
 	life_span = 15 //if the shell hasn't hit anything after travelling this far it just explodes.
@@ -46,7 +45,6 @@
 /obj/item/projectile/energy/flash/flare
 	damage = 10
 	agony = 25
-	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
 	flash_range = 2
 	brightness = 15
 
@@ -80,6 +78,7 @@
 	name = "electrode"
 	icon_state = "spark"
 	fire_sound = 'sound/weapons/Taser.ogg'
+	far_fire_sound = 'sound/weapons/Taser_far.ogg'
 	agony = 50
 	damage = 2
 	damage_type = DAMAGE_BURN
@@ -102,6 +101,7 @@
 	name = "decloner beam"
 	icon_state = "declone"
 	fire_sound = 'sound/weapons/pulse3.ogg'
+	far_fire_sound = 'sound/weapons/pulse3_far.ogg'
 	damage = 30
 	damage_type = DAMAGE_GENETIC
 	irradiate = 40
@@ -136,7 +136,8 @@
 /obj/item/projectile/energy/phoron
 	name = "phoron bolt"
 	icon_state = "energy"
-	fire_sound = 'sound/effects/stealthoff.ogg'
+	fire_sound = 'sound/weapons/Laser3.ogg'
+	far_fire_sound = 'sound/weapons/Laser3_far.ogg'
 	damage = 20
 	damage_type = DAMAGE_TOXIN
 	irradiate = 20
@@ -145,6 +146,7 @@
 	name = "plasma pulse"
 	icon_state = "plasma_stun"
 	fire_sound = 'sound/weapons/blaster.ogg'
+	far_fire_sound = 'sound/weapons/blaster_far.ogg'
 	armor_penetration = 10
 	life_span = 4
 	damage = 5
@@ -196,6 +198,7 @@
 	name = "sonic pulse"
 	icon_state = "sound"
 	fire_sound = 'sound/effects/basscannon.ogg'
+	far_fire_sound = 'sound/effects/explosionfar.ogg'
 	damage = 5
 	armor_penetration = 40
 	damage_type = DAMAGE_BRUTE
@@ -222,6 +225,7 @@
 	name = "dark matter pellet"
 	icon_state = "dark_pellet"
 	fire_sound = 'sound/weapons/eLuger.ogg'
+	far_fire_sound = 'sound/weapons/eLuger_far.ogg'
 	damage = 10
 	armor_penetration = 35
 	damage_type = DAMAGE_BRUTE

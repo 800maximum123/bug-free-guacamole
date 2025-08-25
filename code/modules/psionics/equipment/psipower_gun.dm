@@ -68,6 +68,7 @@
 	icon = 'icons/obj/psychic_powers.dmi'
 	icon_state = "gun"
 	fire_sound = 'sound/weapons/Taser.ogg'
+	far_fire_sound = 'sound/weapons/Taser_far.ogg'
 	fire_sound_text = "energy blast"
 
 	var/maintain_cost = 10

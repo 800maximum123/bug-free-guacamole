@@ -89,7 +89,7 @@
 	desc = "A relatively recent model of a 'tracker' security subaltern, armed with a sub-machine gun."
 	projectiletype = /obj/item/projectile/bullet/pistol/holdout
 	casingtype = /obj/item/ammo_casing/pistol/small
-	projectilesound = 'sound/weapons/gunshot/gunshot_smg.ogg'
+	projectilesound = 'sound/weapons/gunshot/smg/shot.ogg'
 	base_attack_cooldown = 0.5 SECONDS
 	projectile_dispersion = 2
 	icon_state = "fleetrifle"

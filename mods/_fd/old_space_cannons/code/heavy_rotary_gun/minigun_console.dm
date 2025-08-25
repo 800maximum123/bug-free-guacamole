@@ -12,7 +12,8 @@
 	burst_size = 80
 	fire_interval = 1
 
-	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
+	fire_sound = 'sound/weapons/gunshot/minigun.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/minigun_far.ogg'
 
 /obj/machinery/computer/ship/ship_weapon/minigun/telescreen	//little hacky but it's only used on one ship so it should be okay
 	icon = 'mods/_fd/old_space_cannons/icons/telescreen_consoles.dmi'

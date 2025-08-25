@@ -132,7 +132,8 @@
 	slot_flags = SLOT_BELT|SLOT_BACK
 	magazine_type = /obj/item/ammo_magazine/smg/special/scg
 	allowed_magazines = /obj/item/ammo_magazine/smg/special/scg
-	fire_sound = 'sound/weapons/gunshot/gunshot_smg.ogg'
+	fire_sound = 'sound/weapons/gunshot/smg/shot.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/smg/shot_far.ogg'
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	bulk = 0
@@ -242,7 +243,6 @@
 		slot_r_hand_str = 'mods/_fd/fd_guns/icons/onmob/weapon_gkk_character.dmi',
 		slot_back_str = 'mods/_fd/fd_guns/icons/onmob/weapon_gkk_back.dmi'
 		)
-	screen_shake = 1
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	w_class = ITEM_SIZE_HUGE

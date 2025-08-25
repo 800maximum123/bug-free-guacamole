@@ -2,6 +2,7 @@
 	name = "bullet"
 	icon_state = "bullet"
 	fire_sound = null
+	far_fire_sound = null
 	damage = 50
 	damage_type = DAMAGE_BRUTE
 	damage_flags = DAMAGE_FLAG_BULLET | DAMAGE_FLAG_SHARP
@@ -213,7 +214,6 @@
 	armor_penetration = 35
 
 /obj/item/projectile/bullet/rifle/shell
-	fire_sound = 'sound/weapons/gunshot/sniper.ogg'
 	damage = 80
 	stun = 3
 	weaken = 3
@@ -232,6 +232,7 @@
 /obj/item/projectile/bullet/gyro
 	name = "minirocket"
 	fire_sound = 'sound/effects/Explosion1.ogg'
+	far_fire_sound = 'sound/effects/explosionfar.ogg'
 	var/explosion_radius = 2
 	var/explosion_max_power = EX_ACT_LIGHT
 
@@ -264,6 +265,7 @@
 	name = "cap"
 	invisibility = INVISIBILITY_ABSTRACT
 	fire_sound = null
+	far_fire_sound = null
 	damage_type = DAMAGE_PAIN
 	damage_flags = 0
 	damage = 0
@@ -289,7 +291,6 @@
 	..()
 
 /obj/item/projectile/bullet/pistol/fast
-	fire_sound = 'sound/weapons/gunshot/gunshot_smg.ogg'
 	damage = 45 //4.6x30 mm, 5.7x28 mm
 	armor_penetration = 7.5
 	distance_falloff = 2

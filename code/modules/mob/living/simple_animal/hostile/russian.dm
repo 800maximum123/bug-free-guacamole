@@ -31,7 +31,7 @@
 	dropped_weapon = /obj/item/gun/projectile/revolver
 	ranged = 1
 	projectiletype = /obj/item/projectile/bullet
-	projectilesound = 'sound/weapons/gunshot/gunshot2.ogg'
+	projectilesound = 'sound/weapons/gunshot/rifle/shot_heavy.ogg'
 	casingtype = /obj/item/ammo_casing/pistol/magnum
 
 

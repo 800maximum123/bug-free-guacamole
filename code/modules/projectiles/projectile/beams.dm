@@ -27,6 +27,7 @@
 
 /obj/item/projectile/beam/practice
 	fire_sound = 'sound/weapons/Taser.ogg'
+	far_fire_sound = 'sound/weapons/Taser_far.ogg'
 	damage = 0
 	eyeblur = 2
 
@@ -51,6 +52,7 @@
 	name = "heavy laser"
 	icon_state = "heavylaser"
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
+	far_fire_sound = 'sound/weapons/lasercannonfire_far.ogg'
 	damage = 60
 	armor_penetration = 30
 	distance_falloff = 0.5
@@ -68,6 +70,7 @@
 	name = "x-ray beam"
 	icon_state = "xray"
 	fire_sound = 'sound/weapons/laser3.ogg'
+	far_fire_sound = 'sound/weapons/laser3_far.ogg'
 	damage = 30
 	armor_penetration = 30
 	penetration_modifier = 0.8
@@ -161,6 +164,7 @@
 	name = "emitter beam"
 	icon_state = "emitter"
 	fire_sound = 'sound/weapons/emitter.ogg'
+	far_fire_sound = 'sound/weapons/emitter_far.ogg'
 	damage = 0 // The actual damage is computed in `/obj/machinery/power/emitter/proc/get_emitter_damage()`
 
 	muzzle_type = /obj/projectile/laser/emitter/muzzle
@@ -223,6 +227,7 @@
 	name = "sniper beam"
 	icon_state = "xray"
 	fire_sound = 'sound/weapons/marauder.ogg'
+	far_fire_sound = 'sound/weapons/marauder_far.ogg'
 	damage = 35
 	armor_penetration = 10
 	damage_falloff_list = null
@@ -235,6 +240,7 @@
 	name = "stun beam"
 	icon_state = "stun"
 	fire_sound = 'sound/weapons/Taser.ogg'
+	far_fire_sound = 'sound/weapons/Taser_far.ogg'
 	damage_flags = 0
 	sharp = FALSE
 	damage = 1//flavor burn! still not a laser, dmg will be reduce by energy resistance not laser resistances
@@ -306,6 +312,7 @@
 	name = "plasma arc"
 	icon_state = "omnilaser"
 	fire_sound = 'sound/weapons/plasma_cutter.ogg'
+	far_fire_sound = 'sound/weapons/plasma_cutter_far.ogg'
 	damage = 20
 	armor_penetration = 30
 	edge = TRUE

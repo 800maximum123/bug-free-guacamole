@@ -70,7 +70,10 @@
 	var/burst_delay = 2
 	var/move_delay = 1
 	/// Sound this gun makes when firing. Overridden by projectiles with their own sounds.
-	var/fire_sound = 'sound/weapons/gunshot/gunshot.ogg'
+	var/fire_sound = 'sound/weapons/gunshot/general/mountedgun.ogg'
+	var/far_fire_sound = 'sound/weapons/gunshot/general/mountedgun_far.ogg' // Gaia
+	var/silenced_fire_sound = 'sound/weapons/gunshot/general/heavy_shot_suppressed.ogg' // Gaia
+	var/dry_fire_sound = 'sound/weapons/gunshot/general/dry_fire.ogg' // Gaia
 	var/fire_sound_text = "gunshot"
 	var/fire_sound_vary = TRUE
 	var/fire_anim = null
@@ -322,7 +325,7 @@
 		user.visible_message("*click click*", SPAN_DANGER("*click*"))
 	else
 		src.visible_message("*click click*")
-	playsound(src.loc, 'sound/weapons/empty.ogg', 100, 1)
+	playsound(src.loc, dry_fire_sound, 100, 1)
 
 /obj/item/gun/proc/handle_click_safety(mob/user)
 	user.visible_message(SPAN_WARNING("[user] squeezes the trigger of \the [src] but it doesn't move!"), SPAN_WARNING("You squeeze the trigger but it doesn't move!"), range = 3)
@@ -542,15 +545,21 @@
 
 /obj/item/gun/proc/play_fire_sound(mob/user, obj/item/projectile/projectile)
 	var/sound = fire_sound
+	var/sound_far = far_fire_sound
 	if (istype(projectile) && projectile.fire_sound)
 		sound = projectile.fire_sound
+	if (istype(projectile) && projectile.far_fire_sound)
+		sound_far = projectile.far_fire_sound
 	if (islist(sound))
 		sound = pick(sound)
 	var/volume = 50
 	if (silenced)
 		volume = 10
-	playsound(src, sound, volume, fire_sound_vary)
+		sound = silenced_fire_sound
+	else
+		playsound(src, sound_far, volume - 10, fire_sound_vary, 15) // Gaia, creates that WARFARE ambience
 
+	playsound(src, sound, volume, fire_sound_vary)
 
 //Suicide handling.
 /obj/item/gun/proc/handle_suicide(mob/living/user)

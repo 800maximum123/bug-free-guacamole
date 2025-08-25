@@ -10,7 +10,8 @@
 	obj_flags =  OBJ_FLAG_CONDUCTIBLE
 	slot_flags = 0
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 5)
-	fire_sound = 'sound/effects/bang.ogg'
+	fire_sound = 'sound/weapons/gunshot/general/rocket_launch.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/general/rocket_launch_far.ogg'
 	combustion = 1
 
 	release_force = 15

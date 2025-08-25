@@ -33,11 +33,14 @@
 	caliber = initial(ammo.caliber)
 	desc += " Uses [caliber] rounds."
 	if(caliber == CALIBER_SHOTGUN)
-		fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
+		fire_sound = 'sound/weapons/gunshot/shotgun/shot_alt.ogg'
+		far_fire_sound = 'sound/weapons/gunshot/shotgun/shot_alt_far.ogg'
 	if(caliber == CALIBER_PISTOL)
-		fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+		fire_sound = 'sound/weapons/gunshot/pistol/shot_alt.ogg'
+		far_fire_sound = 'sound/weapons/gunshot/pistol/shot_alt_far.ogg'
 	if(caliber == CALIBER_RIFLE || caliber == CALIBER_RIFLE_MILITARY)
-		fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
+		fire_sound = 'sound/weapons/gunshot/rifle/shot_heavy.ogg'
+		far_fire_sound = 'sound/weapons/gunshot/rifle/shot_heavy_far.ogg'
 	. = ..()
 
 /obj/item/gun/projectile/pirate/unloaded

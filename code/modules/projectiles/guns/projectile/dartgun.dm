@@ -50,7 +50,8 @@
 	item_state = null
 
 	caliber = CALIBER_DART
-	fire_sound = 'sound/weapons/empty.ogg'
+	fire_sound = 'sound/weapons/gunshot/general/grenade_launch.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/general/grenade_launch_far.ogg'
 	fire_sound_text = "a metallic click"
 	screen_shake = 0
 	silenced = TRUE

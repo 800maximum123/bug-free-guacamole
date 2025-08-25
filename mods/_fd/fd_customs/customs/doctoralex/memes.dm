@@ -106,6 +106,7 @@
 	name = "heavy laser"
 	icon_state = "heavylaser"
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
+	far_fire_sound = 'sound/weapons/lasercannonfire_far.ogg'
 	damage = 100 //badmins be badmins I don't give a fuck
 	armor_penetration = 100
 	damage_falloff_list = list(
