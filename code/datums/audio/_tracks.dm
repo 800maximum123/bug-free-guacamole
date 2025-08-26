@@ -322,9 +322,17 @@
 	license = /singleton/license/cc_by_sa_3_0
 	url = "https://www.newgrounds.com/audio/listen/1113474"
 
+/singleton/audio/track/spooky_fields
+	source = 'sound/music/spooky_fields.ogg'
+	title = "Spooky Fields"
+	author = "Stephane Hirondelle"
+	collection = "Urban Noir"
+	license = /singleton/license/fair_use
+	url = "https://www.youtube.com/watch?v=znKpZKiQhpE"
+
 /singleton/audio/track/ambience
 	source = 'sound/music/ambience.ogg'
 	title = null
 	author = null
-	license = null
+	license = /singleton/license/fair_use
 	url = null

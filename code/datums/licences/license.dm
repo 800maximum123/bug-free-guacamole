@@ -35,3 +35,8 @@
 	name = "Grandfathered In"
 	url = "https://en.wikipedia.org/wiki/Grandfather_clause"
 	attribution_mandatory = FALSE
+
+/singleton/license/fair_use
+	name = "Fair Use"
+	url = "https://en.wikipedia.org/wiki/Fair_use"
+	attribution_mandatory = FALSE

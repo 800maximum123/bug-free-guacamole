@@ -25,7 +25,7 @@ GLOBAL_LIST(end_titles)
 		if(mob.get_preference_value(/datum/client_preference/play_lobby_music) == GLOB.PREF_YES)
 			sound_to(mob, sound(null, channel = GLOB.lobby_sound_channel))
 			if(isnull(GLOB.end_credits_song))
-				var/title_song = pick('sound/music/THUNDERDOME.ogg', 'sound/music/europa/Chronox_-_03_-_In_Orbit.ogg', 'sound/music/europa/asfarasitgets.ogg')
+				var/title_song = pick('sound/music/spooky_fields.ogg')
 				sound_to(mob, sound(title_song, wait = 0, volume = 40, channel = GLOB.lobby_sound_channel))
 			else if(get_preference_value(/datum/client_preference/play_admin_midis) == GLOB.PREF_YES)
 				sound_to(mob, sound(GLOB.end_credits_song, wait = 0, volume = 40, channel = GLOB.lobby_sound_channel))
@@ -99,19 +99,15 @@ GLOBAL_LIST(end_titles)
 	var/chunksize = 0
 	if(!GLOB.end_credits_title)
 		/* Establish a big-ass list of potential titles for the "episode". */
-		possible_titles += "THE [pick("DOWNFALL OF ", "RISE OF ", "TROUBLE WITH ", "FINAL STAND OF ", "DARK SIDE OF ", "DESOLATION OF ", "DESTRUCTION OF ", "CRISIS OF ")]\
-							[pick("SPACEMEN", "HUMANITY", "DIGNITY", "SANITY", "THE CHIMPANZEES", "THE VENDOMAT PRICES", "GIANT ARMORED", "THE GAS JANITOR",\
-							"THE SUPERMATTER CRYSTAL", "MEDICAL", "ENGINEERING", "SECURITY", "RESEARCH", "THE SERVICE DEPARTMENT", "COMMAND", "THE EXPLORERS", "THE PATHFINDER",\
-							"[uppertext(GLOB.using_map.station_name)]")]"
-		possible_titles += "THE CREW GETS [pick("RACIST", "PICKLED", "AN INCURABLE DISEASE", "PIZZA", "A VALUABLE HISTORY LESSON", "A BREAK", "HIGH", "TO LIVE", "TO RELIVE THEIR CHILDHOOD", "EMBROILED IN CIVIL WAR", "A BAD HANGOVER", "SERIOUS ABOUT [pick("DRUG ABUSE", "CRIME", "PRODUCTIVITY", "ANCIENT AMERICAN CARTOONS", "SPACEBALL", "DECOMPRESSION PROCEDURES")]")]"
-		possible_titles += "THE CREW LEARNS ABOUT [pick("LOVE", "DRUGS", "THE DANGERS OF MONEY LAUNDERING", "XENIC SENSITIVITY", "INVESTMENT FRAUD", "KELOTANE ABUSE", "RADIATION PROTECTION", "SACRED GEOMETRY", "STRING THEORY", "ABSTRACT MATHEMATICS", "[pick("UNATHI", "SKRELLIAN", "DIONAN", "KHAARMANI", "VOX", "SERPENTID")] MATING RITUALS", "ANCIENT CHINESE MEDICINE")]"
-		possible_titles += "A VERY [pick("CORPORATE", "NANOTRASEN", "FLEET", "HAPHAESTUS", "DAIS", "XENOLIFE", "EXPEDITIONARY", "DIONA", "PHORON", "MARTIAN", "SERPENTID")] [pick("CHRISTMAS", "EASTER", "HOLIDAY", "WEEKEND", "THURSDAY", "VACATION")]"
-		possible_titles += "[pick("GUNS, GUNS EVERYWHERE", "THE LITTLEST ARMALIS", "WHAT HAPPENS WHEN YOU MIX MAINTENANCE DRONES AND COMMERCIAL-GRADE PACKING FOAM", "ATTACK! ATTACK! ATTACK!", "SEX BOMB", "THE LEGEND OF THE ALIEN ARTIFACT: PART [pick("I","II","III","IV","V","VI","VII","VIII","IX", "X", "C","M","L")]")]"
-		possible_titles += "[pick("SPACE", "SEXY", "DRAGON", "WARLOCK", "LAUNDRY", "GUN", "ADVERTISING", "DOG", "CARBON MONOXIDE", "NINJA", "WIZARD", "SOCRATIC", "JUVENILE DELIQUENCY", "POLITICALLY MOTIVATED", "RADTACULAR SICKNASTY")] [pick("QUEST", "FORCE", "ADVENTURE")]"
-		possible_titles += "[pick("THE DAY [uppertext(GLOB.using_map.station_short)] STOOD STILL", "HUNT FOR THE GREEN WEENIE", "ALIEN VS VENDOMAT", "SPACE TRACK")]"
-		titles += "<center><h1>EPISODE [rand(1,1000)]<br>[pick(possible_titles)]<h1></h1></h1></center>"
+		possible_titles += "THE [pick("LEGACY OF ", "REBELLION OF ", "LAST DAYS OF ", "RETURN OF ", "SECRETS OF ", "CONQUEST OF ",
+							"TWILIGHT OF ", "AFTERMATH OF ", "CURSE OF ", "DAWN OF ", "RECKONING OF ", "IRON HAND OF ", "BURDEN OF ", "SHADOW OVER ", "PRICE OF ")]\
+							[pick("GAIAN UPRISING", "BOXCUTTER PLATOON", "ICCG CRUSADE", "DRAGUNY CAMPAIGN", "SCG FRONTLINE",
+							"RESISTANCE MOVEMENT", "OCCUPATION WAR", "PEOPLE'S STRUGGLE", "LOST FLEET", "FORGOTTEN LEGION", "COLONIAL CRISIS", "OUTER RIM REVOLT", "SILENT WAR", "RED MARCH", "BLACK DAWN")]"
+		possible_titles += "[pick("CALL OF GAIA ", "BATTLESPACE ", "PREEMPTIVE-STRIKE ", "SPCARMA ", "ESCAPE FROM GAIA ")][pick("", "REMASTER", "GOTY", "I", "2", "3", "4", "5", "6", "2295", "SOFTLINE")]\
+							[pick("", ": POST-MODERN WARFARE", ": SOL AT WAR", ": WAR NEVER CHANGES", ": LAST CONFLICT", ": LOST FIELDS", ": HEGEMONS GAMBLE", ": SOL VS GILGAMESH", ": SILENCED STAR", ": CRY OF GALILEI", ": SOL, INDIE, AND LITTLE GAIA")]"
+		titles += "<center><h1>[pick(possible_titles)]<h1></h1></h1></center>"
 	else
-		titles += "<center><h1>EPISODE [rand(1,1000)]<br>[GLOB.end_credits_title]<h1></h1></h1></center>"
+		titles += "<center><h1>[GLOB.end_credits_title]<h1></h1></h1></center>"
 
 	for(var/mob/living/carbon/human/H in GLOB.alive_mobs|GLOB.dead_mobs)
 		if(findtext(H.real_name,"(mannequin)"))
@@ -121,7 +117,7 @@ GLOBAL_LIST(end_titles)
 		if(isnull(H.last_ckey)) //don't mention these losers (prespawned corpses mostly)
 			continue
 		if(!length(cast) && !chunksize)
-			chunk += "CAST:"
+			chunk += "MOTION CAPTURE CAST:"
 		var/job = ""
 		if(GetAssignment(H) != "Unassigned")
 			job = ", [uppertext(GetAssignment(H))]"
@@ -158,6 +154,9 @@ GLOBAL_LIST(end_titles)
 
 	var/list/corpses = list()
 	var/list/monkies = list()
+	var/list/scg_casualties = 0
+	var/list/iccg_casualties = 0
+	var/list/civilian_casualties = 0
 	for(var/mob/living/carbon/human/H in GLOB.dead_mobs)
 		if(isnull(H.last_ckey)) //no prespawned corpses
 			continue
@@ -165,14 +164,31 @@ GLOBAL_LIST(end_titles)
 			monkies[H.species.name] += 1
 		else if(H.real_name)
 			corpses += H.real_name
+
+		if(H.faction == MOB_FACTION_SCG)
+			scg_casualties += 1
+		else if(H.faction == MOB_FACTION_ICCG)
+			iccg_casualties += 1
+		else if(H.faction == MOB_FACTION_NEUTRAL)
+			civilian_casualties += 1
 	for(var/spec in monkies)
 		var/datum/species/S = all_species[spec]
 		corpses += "[monkies[spec]] [lowertext(monkies[spec] > 1 ? S.name_plural : S.name)]"
 	if(length(corpses))
 		titles += "<center>BASED ON REAL EVENTS<br>In memory of [english_list(corpses)].</center>"
 
-	var/list/staff = list("PRODUCTION STAFF:")
-	var/list/staffjobs = list("Coffee Fetcher", "Cameraman", "Angry Yeller", "Chair Operator", "Choreographer", "Historical Consultant", "Costume Designer", "Chief Editor", "Executive Assistant")
+	if(scg_casualties != 0)
+		titles += "<center>[scg_casualties] SolGov troops and loyalists have died...</center>"
+	if(iccg_casualties != 0)
+		titles += "<center>[scg_casualties] Indie soldiers have perished...</center>"
+	if(civilian_casualties != 0)
+		titles += "<center>[scg_casualties] innocent civilians have been lost...</center>"
+	titles += "<center><b>WAR NEVER CHANGES.</b></center>"
+
+	var/list/staff = list("DEVELOPERS:")
+	var/list/staffjobs = list("Bug Tester", "Level Designer", "Balance Whiner", "Sprite Polisher", "Lore Writer", "Code Janitor", "Server Gremlin", "Patch Note Intern", "Exploit Finder",
+							"AI Pathing Consultant", "Hotfix Deployer", "Mechanics Over-Complicator", "Particle Effect Enthusiast", "Save Corruption Specialist", "Assistant QA Lead (Unpaid)", "Government Censor")
+
 	var/list/goodboys = list()
 	for(var/client/C)
 		if(!C.holder || C.is_stealthed())
@@ -186,25 +202,28 @@ GLOBAL_LIST(end_titles)
 
 	titles += "<center>[jointext(staff,"<br>")]</center>"
 	if(length(goodboys))
-		titles += "<center>STAFF'S GOOD BOYS:<br>[english_list(goodboys)]</center><br>"
+		titles += "<center>SPECIAL THANKS:<br>[english_list(goodboys)]</center><br>"
 
-	var/disclaimer = "<br>Sponsored by [GLOB.using_map.company_name].<br>All rights reserved.<br>\
-					 This motion picture is protected under the copyright laws of the Sol Central Government<br> and other nations throughout the galaxy.<br>\
-					 Colony of First Publication: [pick("Mars", "Luna", "Earth", "Venus", "Phobos", "Ceres", "Tiamat", "Ceti Epsilon", "Eos", "Pluto", "Ouere",\
-					 "Tadmor", "Brahe", "Pirx", "Iolaus", "Saffar", "Gaia")].<br>"
-	disclaimer += pick("Use for parody prohibited. PROHIBITED.",
-					   "All stunts were performed by underpaid interns. Do NOT try at home.",
-					   "[GLOB.using_map.company_name] does not endorse behaviour depicted. Attempt at your own risk.",
-					   "Any unauthorized exhibition, distribution, or copying of this film or any part thereof (including soundtrack)<br>\
-						may result in an ERT being called to storm your home and take it back by force.",
-						"The story, all names, characters, and incidents portrayed in this production are fictitious. No identification with actual<br>\
-						persons (living or deceased), places, buildings, and products is intended or should be inferred.<br>\
-						This film is based on a true story and all individuals depicted are based on real people, despite what we just said.",
-						"No person or entity associated	with this film received payment or anything of value, or entered into any agreement, in connection<br>\
-						with the depiction of tobacco products, despite the copious amounts	of smoking depicted within.<br>\
-						(This disclaimer sponsored by Carcinoma - Carcinogens are our Business!(TM)).",
-						"No animals were harmed in the making of this motion picture except for those listed previously as dead. Do not try this at home.")
+	var/disclaimer = "<br>Published by [GLOB.using_map.company_name].<br>All rights reserved.<br>\
+					This interactive software is protected under the intellectual property laws of the Sol Central Government<br> and other nations throughout the galaxy.<br>\
+					First Release Platform: [pick("Mars", "Luna", "Earth", "Venus", "Phobos", "Ceres", "Tiamat", "Ceti Epsilon", "Eos", "Pluto", "Ouere",\
+					"Tadmor", "Brahe", "Pirx", "Iolaus", "Saffar", "Gaia")].<br>"
+
+	disclaimer += pick("Unauthorized reproduction, rental, or streaming of this game may result in an ERT raid on your hab-unit.",
+					"Gameplay may cause dizziness, nausea, or sudden desire to overthrow your local planetary government.",
+					"All characters and factions depicted in this game are fictitious... except the ones you know are real.",
+					"[GLOB.using_map.company_name] reminds you: save early, save often, and never trust the autosave.",
+					"This software contains optional microtransactions. Purchasing them is mandatory.",
+					"Any resemblance to actual wars, occupations, or rebellions is purely coincidental. Or classified.",
+					"For best experience, please play in a cryosleep chamber with neural uplink enabled.",
+					"Warning: Prolonged play may lead to permanent assignment to the SCG Army.",
+					"NPC deaths are simulated. Player deaths are permanent. Please enjoy responsibly.",
+					"This software is definitely not a propaganda device created and utilized for recruiting into the SCG Armed Forces,\
+					nor is it designed to create distrust and hate towards GCC and their actions.")
+
 	titles += "<hr>"
 	titles += "<center><span style='font-size:6pt;'>[JOINTEXT(disclaimer)]</span></center>"
+
+	titles += "<center>THANKS <b>YOU</b> FOR PLAYING!</center>"
 
 	return titles
