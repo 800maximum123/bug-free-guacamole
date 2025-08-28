@@ -305,7 +305,7 @@
 
 /mob/living/simple_animal/fd/lancer/death()
 	mech_condition = DEAD
-	anchored = TRUE
+	add_status_effect(/datum/mech_status/anchored, source = "death")
 	playsound(get_turf(src),'sound/mecha/mech-shutdown.ogg',150)
 	playsound(get_turf(src),'sound/mecha/hydraulic.ogg',40)
 	playsound(get_turf(src),'sound/mecha/weapdestr.ogg',60)
