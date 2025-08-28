@@ -16,7 +16,7 @@
 	var/qte_time = 2 SECONDS
 	var/debuff_duration = 20 SECONDS
 
-	var/list/debuff_types = list(MECH_OVERHEATED, MECH_MALFUNCTIONED, MECH_CHAINED, MECH_HACKED)
+	var/list/debuff_types = list(/datum/mech_status/overheated, /datum/mech_status/malfunctioned, /datum/mech_status/chained, /datum/mech_status/jammed)
 
 /// 1984 ЗДЕСЬ НИКОМУ НИХЕРА НИЧЕГО
 /datum/mech_ability/intrusion/use(mob/living/simple_animal/fd/lancer/target, params)
@@ -27,10 +27,10 @@
 	if(!istype(target))
 		return FALSE
 
-	if(target.mech_stat != CONSCIOUS)
+	if(target.mech_condition != CONSCIOUS)
 		return FALSE
 
-	if(target.hacked)
+	if(target.get_status_effect(/datum/mech_status/hacked))
 		to_chat(SPAN_WARNING("Каналы [target] уже забиты другим вторжением!"))
 		return FALSE
 
@@ -46,7 +46,7 @@
 
 	var/stage
 	for(stage in 1 to stages_max)
-		target.Effect(MECH_HACKED, qte_time + 1 SECONDS)
+		target.add_status_effect(/datum/mech_status/hacked, qte_time + 1 SECONDS)
 
 		var/list/options = list()
 		options["#FIX"] = image('mods/_fd/_maps/baycore_foranswer/icons/ui.dmi', "31")
@@ -63,10 +63,10 @@
 
 		if(stage == stages_max)
 			playsound(target, 'packs/infinity/sound/mecha/UI_SCI-FI_Tone_Deep_Wet_22_stereo_complite.ogg', 80, falloff = 4)
-			target.AdjustEffect(MECH_HACKED, -qte_time)
+			target.remove_status_effect(/datum/mech_status/hacked)
 
 	if(stage < stages_max)
-		target.AdjustEffect(pick(debuff_types), debuff_duration)
+		target.add_status_effect(pick(debuff_types), debuff_duration)
 		to_chat(target, SPAN_WARNING("Вам не удалось остановить вторжение в системы [target]!"))
 
 		var/list/sounds = list(

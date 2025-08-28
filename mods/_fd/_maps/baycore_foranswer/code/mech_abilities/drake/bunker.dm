@@ -45,7 +45,6 @@
 	in_bunker = !in_bunker
 	to_chat(owner, SPAN_NOTICE("Ты [in_bunker ? "разложил" : "втянул"] пластины своего мобильного бункера."))
 
-
 	if(in_bunker)
 
 		check_direction(current_direction)
@@ -69,7 +68,7 @@
 				shielded_turfs[floor] = floor.color
 				animate(floor, time = 1 SECONDS, color = COLOR_DARK_GRAY, easing = SINE_EASING, flags = ANIMATION_PARALLEL)
 		owner.armor_stat += 10
-		owner.AdjustEffect(MECH_CHAINED, 1 DAYS)
+		owner.add_status_effect(/datum/mech_status/anchored)
 
 	else
 
@@ -79,7 +78,7 @@
 			animate(floor, time = 1.5 SECONDS, color = shielded_turfs[floor], easing = SINE_EASING, flags = ANIMATION_PARALLEL)
 		shielded_turfs.Cut()
 		owner.armor_stat -= 10
-		owner.AdjustEffect(MECH_CHAINED, -1 DAYS)
+		owner.remove_status_effect(/datum/mech_status/anchored)
 
 		zonestart_by_x = initial(zonestart_by_x)
 		zonestart_by_y = initial(zonestart_by_y)
@@ -90,6 +89,9 @@
 
 /datum/mech_ability/action/bunker/Process()
 	. = ..()
+
+	if(!in_bunker)
+		return
 
 	for(var/mob/living/simple_animal/fd/lancer/L in shielded_mechs)
 		L.protected_by = null

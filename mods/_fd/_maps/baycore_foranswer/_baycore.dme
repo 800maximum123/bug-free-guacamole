@@ -4,6 +4,7 @@
 #include "_baycore.dm"
 
 #include "code/_defines.dm"
+#include "code/helpers.dm"
 
 #include "code/assets/assets.dm"
 #include "code/assets/map_code.dm"
@@ -34,6 +35,14 @@
 
 #include "code/mech_equipment/swarmer/ascent_torch.dm"
 #include "code/mech_equipment/swarmer/swarm_launcher.dm"
+
+#include "code/mech_status_effects/anchored.dm"
+#include "code/mech_status_effects/chained.dm"
+#include "code/mech_status_effects/hacked.dm"
+#include "code/mech_status_effects/jammed.dm"
+#include "code/mech_status_effects/malfunctioned.dm"
+#include "code/mech_status_effects/overheated.dm"
+#include "code/mech_status_effects/vulnerable.dm"
 
 #include "code/mech_types/drake.dm"
 #include "code/mech_types/goblintail.dm"

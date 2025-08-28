@@ -29,12 +29,6 @@
 		/datum/mech_ability/ground_slam,
 		/datum/mech_ability/action/accelerate
 	)
-	default_abilities = list(
-		/datum/mech_ability/action/change_module,
-		/datum/mech_ability/action/reboot,
-		/datum/mech_ability/action/toggle_safety,
-		/datum/mech_ability/action/boosters_passive
-	)
 	equipment = list(
 		/datum/mech_equipment/firearm/assault_cannon,
 		/datum/mech_equipment/weapon/shield

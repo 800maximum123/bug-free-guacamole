@@ -81,7 +81,7 @@
 
 /// Хэндлер для активации способности, содержит все базовые проверки для использования
 /datum/mech_ability/proc/handle_use(atom/target, params)
-	if(owner.hacked)
+	if(owner.get_status_effect(/datum/mech_status/malfunctioned))
 		return FALSE
 
 	if(charges_max && (charges <= 0))

@@ -6,6 +6,15 @@
 
 	var/duration = 15 SECONDS
 
+	var/list/to_remove = list(
+		/datum/mech_status/chained,
+		/datum/mech_status/hacked,
+		/datum/mech_status/jammed,
+		/datum/mech_status/malfunctioned,
+		/datum/mech_status/overheated,
+		/datum/mech_status/vulnerable,
+		)
+
 /datum/mech_ability/action/reboot/use(atom/target, params)
 	. = ..()
 	if(!.)
@@ -22,9 +31,9 @@
 	set waitfor = FALSE
 
 	owner.power_down()
-	for(var/status_effect in ALL_MECH_EFFECTS)
-		if(owner.vars[status_effect] < 1 HOURS)
-			owner.SetEffect(status_effect, 0)
+	for(var/datum/mech_status/status_effect as anything in owner.status_effects)
+		if(status_effect.type in to_remove)
+			qdel(status_effect)
 
 	if(!do_after(owner, duration, owner, DO_SHOW_PROGRESS|DO_PUBLIC_PROGRESS|DO_BOTH_UNIQUE_ACT|DO_BOTH_CAN_MOVE|DO_BOTH_CAN_TURN))
 		message_admins("[owner.ckey] КАКИМ ТО ОБРАЗОМ СМОГ ЗААБУЗИТЬ ДЕЛЕЙ НА РЕБУТ!!!!!!!!!!!!!!!!!!!!!!")

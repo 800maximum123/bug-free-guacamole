@@ -27,7 +27,7 @@
 		return FALSE
 
 	owner.heat += 2
-	if(owner.overheated)
+	if(owner.get_status_effect(/datum/mech_status/overheated))
 		buffed.cooldown -= 2 SECONDS
 	else
 		buffed.cooldown -= 1 SECOND

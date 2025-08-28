@@ -23,7 +23,7 @@
 
 	if(istype(target, /mob/living/simple_animal/fd/lancer))
 		var/mob/living/simple_animal/fd/lancer/M = target
-		if(M.vulnerable)
+		if(M.get_status_effect(/datum/mech_status/vulnerable))
 			integrity_damage *= 2
 
 		M.recieve_damage(integrity_damage = integrity_damage, hull_damage = hull_damage, shredding = shredding, do_animation = TRUE)

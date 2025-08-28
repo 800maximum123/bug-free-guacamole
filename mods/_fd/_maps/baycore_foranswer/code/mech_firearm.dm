@@ -42,7 +42,7 @@
 	return .
 
 /datum/mech_equipment/firearm/handle_use(atom/target, params)
-	if(owner.malfunctioned)
+	if(owner.get_status_effect(/datum/mech_status/jammed))
 		playsound(get_turf(owner), 'sound/weapons/empty.ogg', 80, TRUE) // В идеале найти другой звук
 		to_chat(owner, SPAN_WARNING("Оружие заклинило!"))
 		return FALSE
@@ -75,7 +75,7 @@
 	if(owner.damaged)
 		return FALSE
 
-	if(owner.malfunctioned)
+	if(owner.get_status_effect(/datum/mech_status/jammed))
 		return FALSE
 
 	if(max_ammo > 0)

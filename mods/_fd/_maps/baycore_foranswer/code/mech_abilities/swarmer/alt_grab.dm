@@ -18,7 +18,7 @@
 
 	if(istype(target, /mob/living/simple_animal/fd/lancer))
 		var/mob/living/simple_animal/fd/lancer/L = target
-		if(L.chained > 0)
+		if(L.get_status_effect(/datum/mech_status/overheated))
 			to_chat(owner, SPAN_NOTICE("Вы не можете схватить [L.name]! Он прибит к земле!"))
 			return FALSE
 

@@ -31,7 +31,7 @@
 				if(victim == owner)
 					continue
 				victim.throw_at(get_edge_target_turf(victim, get_dir(owner, victim)), 2, 1, owner, spin = FALSE)
-				victim.AdjustEffect(MECH_CHAINED, 5 SECONDS)
+				victim.add_status_effect(/datum/mech_status/chained, 5 SECONDS)
 		affected_turfs.Cut()
 
 	return .
