@@ -1,6 +1,6 @@
 /datum/mech_ability/action/change_module
 	name = "Выбрать Модуль"
-	action_state = "17"
+	action_state = "change"
 
 	cooldown = 0
 

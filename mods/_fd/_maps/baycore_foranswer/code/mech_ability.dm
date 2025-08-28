@@ -2,9 +2,9 @@
 	var/name = ""
 
 	/// Путь к иконке в радиальном меню
-	var/action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/ui.dmi'
+	var/action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/mech_ui.dmi'
 	/// Иконка в радиальном меню
-	var/action_state = "9"
+	var/action_state = "BASE ABILITIES"
 	/// Цвет придаваемый иконке в радиальном меню
 	var/action_color = "#ffffff"
 

@@ -1,6 +1,6 @@
 /datum/mech_ability/action/reboot
 	name = "Перезагрузка"
-	action_state = "32"
+	action_state = "reboot"
 
 	cooldown = 0
 

@@ -1,6 +1,6 @@
 /datum/mech_ability/action/boosters_passive
 	name = "Пассивные Ускорители"
-	action_state = "29"
+	action_state = "boosters"
 
 	cooldown = 0
 

@@ -1,6 +1,6 @@
 /datum/mech_ability/action/bunker
 	name = "Оборонительный Режим Вкл/Выкл"
-	action_state = "18"
+	action_state = "bunker"
 	cooldown = 6 SECONDS
 
 	var/list/shielded_turfs = list()

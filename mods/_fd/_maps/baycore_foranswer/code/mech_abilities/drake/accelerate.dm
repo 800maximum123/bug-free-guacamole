@@ -1,7 +1,7 @@
 /datum/mech_ability/action/accelerate
 	name = "Разгон Модуля"
 	action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/ui.dmi'
-	action_state = "1"
+	action_state = "accelerate"
 
 	charges_max = 4
 	charges = 4
