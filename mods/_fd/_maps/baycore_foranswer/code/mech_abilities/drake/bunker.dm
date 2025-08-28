@@ -68,7 +68,7 @@
 				shielded_turfs[floor] = floor.color
 				animate(floor, time = 1 SECONDS, color = COLOR_DARK_GRAY, easing = SINE_EASING, flags = ANIMATION_PARALLEL)
 		owner.armor_stat += 10
-		owner.remove_status_effect(/datum/mech_status/anchored)
+		owner.add_status_effect(/datum/mech_status/anchored)
 
 	else
 
@@ -78,7 +78,7 @@
 			animate(floor, time = 1.5 SECONDS, color = shielded_turfs[floor], easing = SINE_EASING, flags = ANIMATION_PARALLEL)
 		shielded_turfs.Cut()
 		owner.armor_stat -= 10
-		owner.add_status_effect(/datum/mech_status/anchored)
+		owner.remove_status_effect(/datum/mech_status/anchored)
 
 		zonestart_by_x = initial(zonestart_by_x)
 		zonestart_by_y = initial(zonestart_by_y)

@@ -54,7 +54,7 @@
 					return
 
 	// Create the status effect with our mob + our arguments
-	var/datum/mech_status/new_instance = new new_effect(arguments)
+	var/datum/mech_status/new_instance = new new_effect(arglist(arguments))
 	if(!QDELETED(new_instance))
 		return new_instance
 
