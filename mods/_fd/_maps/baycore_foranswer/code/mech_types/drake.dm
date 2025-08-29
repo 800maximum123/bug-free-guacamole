@@ -34,6 +34,13 @@
 		/datum/mech_equipment/weapon/shield
 	)
 
+	default_abilities = list(
+		/datum/mech_ability/action/change_module,
+		/datum/mech_ability/action/reboot,
+		/datum/mech_ability/action/toggle_safety,
+		/datum/mech_ability/action/boosters_passive,
+	)
+
 	armor_stat = 5
 	armor_durability = 200
 	integrity = 500

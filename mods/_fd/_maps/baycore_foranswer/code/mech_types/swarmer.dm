@@ -28,6 +28,13 @@
 		/datum/mech_equipment/firearm/swarm_launcher
 	)
 
+	default_abilities = list(
+		/datum/mech_ability/action/change_module,
+		/datum/mech_ability/action/reboot,
+		/datum/mech_ability/action/toggle_safety,
+		/datum/mech_ability/action/boosters_passive,
+	)
+
 	armor_stat = 5
 	integrity = 200
 	integrity_max = 200

@@ -37,8 +37,7 @@
 		/datum/mech_ability/action/reboot,
 		/datum/mech_ability/action/toggle_safety,
 		/datum/mech_ability/action/boosters_passive,
-		/datum/mech_ability/action/accelerate,
-		/datum/mech_ability/boosters_quick,
+		/datum/mech_ability/boosters_quick
 	)
 
 	/// Список модулей меха
@@ -517,7 +516,7 @@
 
 		playsound(src, 'packs/infinity/sound/mecha/UI_SCI-FI_Tone_10_stereo.ogg', 40, falloff = 4)
 
-		var/chosen_option = show_radial_menu(src, src, options, radius = 30, require_near = TRUE, offset_x = 125, offset_y = 125)
+		var/chosen_option = show_radial_menu(src, src, options, radius = 60, require_near = TRUE, offset_x = 125, offset_y = 125)
 		if(!chosen_option)
 			playsound(src, 'packs/infinity/sound/mecha/UI_SCI-FI_Tone_Deep_Wet_22_stereo_complite.ogg', 40, TRUE, falloff = 4)
 			return .
