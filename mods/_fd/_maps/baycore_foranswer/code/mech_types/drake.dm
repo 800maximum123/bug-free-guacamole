@@ -41,7 +41,7 @@
 		/datum/mech_ability/action/boosters_passive,
 	)
 
-	armor_stat = 5
+	armor_stat = 10
 	armor_durability = 200
 	integrity = 500
 	integrity_max = 500

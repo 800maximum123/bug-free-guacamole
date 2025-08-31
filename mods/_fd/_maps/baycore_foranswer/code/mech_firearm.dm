@@ -3,7 +3,7 @@
 	action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/ui.dmi'
 	action_state = "26"
 
-	var/bullet_type = /obj/item/projectile/bullet/mech
+	var/obj/item/projectile/bullet/mech/bullet_type = /obj/item/projectile/bullet/mech
 
 	var/max_ammo = 100
 	var/max_magazines = 5
@@ -64,6 +64,7 @@
 	projectile.shot_from = owner
 	projectile.permutated += owner
 
+	projectile.firer = owner // Если нам вдруг понадобится для какой-то абилки
 	projectile.launch(target, BP_CHEST)
 
 	//owner.visible_message(SPAN_DANGER("[owner.name] делает выстрел из [src.name]!")) Предположительно будет слишком засорять чат

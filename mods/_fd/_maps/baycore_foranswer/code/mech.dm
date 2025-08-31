@@ -30,6 +30,7 @@
 		/datum/mech_ability/ground_slam,
 		/datum/mech_ability/action/toggle_cloak,
 		/datum/mech_ability/intrusion,
+		/datum/mech_ability/death_mark
 	)
 	/// Список базовых способностей меха
 	var/list/datum/mech_ability/default_abilities = list(
@@ -46,7 +47,8 @@
 		/datum/mech_equipment/weapon,
 		/// ТЕСТ
 		/datum/mech_equipment/firearm/assault_cannon,
-		/datum/mech_equipment/weapon/shield
+		/datum/mech_equipment/weapon/shield,
+		/datum/mech_equipment/firearm/revolver
 	)
 	/// Выбранный на текущий момент модуль
 	var/datum/mech_equipment/selected_equipment = null
