@@ -166,37 +166,6 @@
 
 	. = ..()
 
-/obj/item/projectile/bullet/mech/napoleon_grenade
-	mech_damage = 0
-	life_span = 12
-	fire_sound = 'sound/weapons/bombwhine.ogg'
-	icon_state = "spark_green"
-
-/obj/item/projectile/bullet/mech/napoleon_grenade/Destroy()
-	new /obj/structure/fd/gravity_mine(get_turf(src))
-	. = ..()
-
-/obj/structure/fd/gravity_mine/Initialize()
-	. = ..()
-	activate()
-
-/obj/structure/fd/gravity_mine/proc/activate()
-	set waitfor = FALSE
-
-	var/list/affected_turfs = list()
-	for(var/turf/floor in block(x-5, y-5, z, x+5, y+5, z))
-		affected_turfs[floor] = floor.color
-		animate(floor, time = 1 SECONDS, color = COLOR_RED, easing = CUBIC_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
-
-	sleep(1 SECONDS)
-
-	for(var/turf/floor in affected_turfs.Copy())
-		animate(floor, time = 0.2 SECONDS, color = affected_turfs[floor], easing = SINE_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
-		for(var/mob/living/mobik in floor)
-			mobik.throw_at(src, 3, 1)
-	affected_turfs.Cut()
-	qdel(src)
-
 /obj/item/projectile/bullet/mech/napoleon_pistol
 	mech_damage = 15
 	fire_sound = 'sound/weapons/gunshot/sniper.ogg'

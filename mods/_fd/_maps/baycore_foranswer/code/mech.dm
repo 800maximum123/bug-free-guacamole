@@ -30,7 +30,9 @@
 		/datum/mech_ability/ground_slam,
 		/datum/mech_ability/action/toggle_cloak,
 		/datum/mech_ability/intrusion,
-		/datum/mech_ability/death_mark
+		/datum/mech_ability/death_mark,
+		/datum/mech_ability/action/ammunition_change,
+		/datum/mech_ability/action/smoke_deployer
 	)
 	/// Список базовых способностей меха
 	var/list/datum/mech_ability/default_abilities = list(
@@ -48,7 +50,9 @@
 		/// ТЕСТ
 		/datum/mech_equipment/firearm/assault_cannon,
 		/datum/mech_equipment/weapon/shield,
-		/datum/mech_equipment/firearm/revolver
+		/datum/mech_equipment/firearm/revolver,
+		/datum/mech_equipment/weapon/fist,
+		/datum/mech_equipment/firearm/grenade_launcher
 	)
 	/// Выбранный на текущий момент модуль
 	var/datum/mech_equipment/selected_equipment = null

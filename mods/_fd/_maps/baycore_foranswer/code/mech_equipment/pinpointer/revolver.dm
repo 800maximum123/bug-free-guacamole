@@ -11,7 +11,7 @@
 	bullet_type = /obj/item/projectile/bullet/mech/revolver
 	reload_time = 6 SECONDS
 
-	cooldown = 1 SECONDS
+	cooldown = 0.5 SECONDS
 
 /datum/mech_equipment/firearm/revolver/fire(atom/target, params, obj/item/projectile/bullet/mech/projectile, burst_count)
 
@@ -28,7 +28,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 
 	integrity_damage = 20
-	hull_damage = 0
+	hull_damage = 1
 
 /obj/item/projectile/bullet/mech/revolver/on_hit(atom/target, blocked = 0)
 	. = ..()

@@ -37,7 +37,7 @@
 
 	animate(src, transform = matrix1.Update(1,1,0,30,0), time = 1 SECOND, easing = SINE_EASING | EASE_OUT)
 	spawn(0.5 SECONDS)
-		animate(src, transform = matrix1.Update(1.9,1.9), time = 0.1 SECOND, easing = SINE_EASING)
+		animate(src, transform = matrix1.Update(1.8,1.8), time = 0.1 SECOND, easing = SINE_EASING)
 	maptext = "<span class='maptext' style='text-align: center; font-size: 32px; color: [text_color]'>[text]</span>"
 
 /datum/mech_ability/death_mark/proc/kamina_speech1()
@@ -60,7 +60,7 @@
 	var/colored = "#60cfa5"
 
 	var/obj/screen/novel_message/kamina/sec/speech = new /obj/screen/novel_message/kamina/sec()
-	speech.maptext_y = -250
+	speech.maptext_y = -200
 	owner.client.screen += speech
 	speech.set_text(message, colored)
 
@@ -76,7 +76,7 @@
 
 	var/obj/screen/novel_message/speech = new /obj/screen/novel_message()
 	speech.maptext_y = -310
-	speech.maptext_x = -240
+	speech.maptext_x = 240
 	owner.client.screen += speech
 	speech.set_text(message, colored)
 
