@@ -34,6 +34,6 @@
 			qdel(status_effect)
 
 	if(!do_after(owner, duration, owner, DO_SHOW_PROGRESS|DO_PUBLIC_PROGRESS|DO_BOTH_UNIQUE_ACT|DO_BOTH_CAN_MOVE|DO_BOTH_CAN_TURN))
-		message_admins("[owner.ckey] КАКИМ ТО ОБРАЗОМ СМОГ ЗААБУЗИТЬ ДЕЛЕЙ НА РЕБУТ!!!!!!!!!!!!!!!!!!!!!!")
+		message_admins("[owner.ckey] НА [owner] СУМЕЛ КАКИМ ТО ОБРАЗОМ ЗААБУЗИТЬ ДЕЛЕЙ НА РЕБУТ!!!!!!!!!!!!!!!!!!!!!!")
 
 	owner.power_up()
