@@ -33,6 +33,15 @@
 /obj/item/projectile/bullet/mech/revolver/on_hit(atom/target, blocked = 0)
 	. = ..()
 
+	if(shredding)
+		new /obj/effect/mech_particle/pierced(target.loc)
+
+		if(prob(30))
+			if(istype(firer, /mob/living/simple_animal/fd/lancer))
+				var/mob/living/simple_animal/fd/lancer/L = firer
+				for(var/datum/mech_ability/death_mark/DM in L.abilities)
+					DM.kamina()
+
 	if(istype(target, /mob/living/simple_animal/fd/lancer))
 		if(istype(firer, /mob/living/simple_animal/fd/lancer))
 			var/mob/living/simple_animal/fd/lancer/L = firer

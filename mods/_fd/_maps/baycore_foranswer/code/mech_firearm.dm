@@ -3,7 +3,7 @@
 	action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/ui.dmi'
 	action_state = "26"
 
-	var/obj/item/projectile/bullet/mech/bullet_type = /obj/item/projectile/bullet/mech
+	var/bullet_type = /obj/item/projectile/bullet/mech
 
 	var/max_ammo = 100
 	var/max_magazines = 5

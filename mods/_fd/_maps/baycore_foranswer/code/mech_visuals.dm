@@ -47,3 +47,21 @@
 
 /obj/effect/mech_particle/accelerating
 	icon_state = "accelerating"
+
+/obj/effect/mech_particle/pierced
+	icon_state = "pierced"
+
+/obj/effect/mech_particle/pierced/animation()
+	pixel_x = rand(-80, 80)
+	pixel_y = rand(1, 200)
+	var/pixel_x_1 = pixel_x + 10
+	var/pixel_x_2 = pixel_x - 20
+	var/pixel_x_3 = pixel_x + 10
+
+	animate(src, 0.2 SECOND, alpha = 255, flags = ANIMATION_PARALLEL)
+	animate(src, pixel_x = pixel_x_1, time = 0.2 SECONDS, easing = SINE_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
+	animate(src, pixel_x = pixel_x_2, time = 0.3 SECONDS, easing = SINE_EASING | EASE_IN)
+	animate(src, pixel_x = pixel_x_3, time = 0.3 SECONDS, easing = SINE_EASING | EASE_IN)
+	animate(src, 0.4 SECOND, alpha = 0)
+
+	QDEL_IN(src, 2 SECONDS)
