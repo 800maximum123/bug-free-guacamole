@@ -18,10 +18,9 @@
 	. = ..()
 
 	var/datum/mech_ability/action/toggle_cloak/invis
-	for(var/ability in owner.abilities)
-		if(istype(ability, /datum/mech_ability/action/toggle_cloak))
-			invis = ability
-			break
+	for(var/datum/mech_ability/action/toggle_cloak/ability in owner.abilities)
+		invis = ability
+		break
 
 	if(!invis || !invis.state)
 		return .

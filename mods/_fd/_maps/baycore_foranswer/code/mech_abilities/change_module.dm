@@ -1,13 +1,11 @@
 /datum/mech_ability/action/change_module
-	name = "Выбрать Модуль"
+	name = "Выбор Модуля"
 	action_state = "change"
-
-	cooldown = 0
 
 /datum/mech_ability/action/change_module/use(atom/target, params)
 	. = ..()
 	if(!.)
-		return
+		return FALSE
 
 	var/list/options = list()
 	var/list/actions = list()

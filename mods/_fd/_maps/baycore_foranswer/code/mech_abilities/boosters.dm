@@ -2,8 +2,6 @@
 	name = "Пассивные Ускорители"
 	action_state = "boosters"
 
-	cooldown = 0
-
 	var/currently_active = FALSE
 	var/image/overlay = null
 
@@ -14,7 +12,7 @@
 /datum/mech_ability/action/boosters_passive/use(atom/target, params)
 	. = ..()
 	if(!.)
-		return
+		return FALSE
 
 	currently_active = !currently_active
 	to_chat(owner, SPAN_INFO("Ты [currently_active ? "включил" : "выключил"] пассивные ускорители."))

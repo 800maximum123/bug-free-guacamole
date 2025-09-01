@@ -2,8 +2,6 @@
 	name = "Перезагрузка"
 	action_state = "reboot"
 
-	cooldown = 0
-
 	var/duration = 15 SECONDS
 
 	var/list/to_remove = list(
@@ -18,7 +16,7 @@
 /datum/mech_ability/action/reboot/use(atom/target, params)
 	. = ..()
 	if(!.)
-		return
+		return FALSE
 
 	var/answer = alert(owner, "Вы уверены, что хотите перезагрузить системы меха?", "Перезагрузка", "Да", "Нет")
 	if(answer != "Да")

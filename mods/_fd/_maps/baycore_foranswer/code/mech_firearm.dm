@@ -19,6 +19,8 @@
 	/// Время перезарядки магазина
 	var/reload_time = 3 SECONDS
 
+	var/reload_sound = 'sound/machines/bolts_up.ogg'
+
 /datum/mech_equipment/firearm/New(mob/living/simple_animal/fd/lancer/new_owner)
 	. = ..()
 	ammo = max_ammo
@@ -84,6 +86,21 @@
 			return FALSE
 
 		ammo--
+
+	return TRUE
+
+/datum/mech_equipment/firearm/proc/reload()
+	if(!magazines)
+		return FALSE
+
+	if(!do_after(owner, reload_time, owner, DO_PUBLIC_UNIQUE))
+		return FALSE
+
+	magazines -= 1
+	ammo = max_ammo
+
+	owner.visible_message("[owner] перезаряжает своё основное оружие!")
+	playsound(get_turf(owner), reload_sound, 100, TRUE)
 
 	return TRUE
 

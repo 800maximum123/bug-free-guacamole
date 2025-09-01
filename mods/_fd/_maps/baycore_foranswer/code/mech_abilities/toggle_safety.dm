@@ -2,12 +2,10 @@
 	name = "Предохранитель Вкл/Выкл"
 	action_state = "safety"
 
-	cooldown = 0
-
 /datum/mech_ability/action/toggle_safety/use(atom/target, params)
 	. = ..()
 	if(!.)
-		return
+		return FALSE
 
 	owner.weapon_safety = !owner.weapon_safety
 	to_chat(owner, SPAN_INFO("Ты [owner.weapon_safety ? "включил" : "выключил"] орудийный предохранитель."))

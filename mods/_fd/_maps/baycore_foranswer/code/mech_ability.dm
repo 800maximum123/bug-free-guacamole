@@ -29,7 +29,7 @@
 	var/charges_cooldown = FALSE
 
 	/// Время перезарядки
-	var/cooldown = 1 SECONDS
+	var/cooldown = 0
 
 	/// Таймер кулдауна зарядов
 	var/next_charge
