@@ -24,17 +24,22 @@
 	spawn(8 SECONDS)
 		opacity = FALSE
 
-/obj/structure/fd/lancer/grenade/smoke
-	splash_zone = 2
-	var/list/remove_from_pull = list()
+/obj/structure/fd/lancer/grenade/smoke/bomb_trigger()
+	set waitfor = FALSE
 
-/obj/structure/fd/lancer/grenade/smoke/Initialize()
-	check_near()
+	var/list/affected_turfs = list()
 
-	. = ..()
-/obj/structure/fd/lancer/grenade/smoke/proc/check_near()
-	for(var/turf/floor in block(x-splash_zone, y-splash_zone, z, x+splash_zone, y+splash_zone, z))
-		remove_from_pull -= floor
+	for(var/turf/floor in block(src.x-splash_zone, src.y-splash_zone, src.z, src.x+splash_zone, src.y+splash_zone, src.z))
+		affected_turfs[floor] = floor.color
+		animate(floor, time = 1 SECONDS, color = COLOR_RED, easing = CUBIC_EASING | EASE_OUT)
+
+	sleep(1 SECONDS)
+
+	for(var/turf/floor in affected_turfs.Copy())
+		animate(floor, time = 0.2 SECONDS, color = affected_turfs[floor], easing = SINE_EASING | EASE_IN)
+		bomb_effect(floor)
+
+	affected_turfs.Cut()
 
 /obj/structure/fd/lancer/grenade/smoke/bomb_effect(turf/where_to_check)
 	if(where_to_check.density == FALSE)
@@ -53,16 +58,9 @@
 		affected_turfs += floor
 
 	for(var/smokes, smokes<6, smokes++)
-		var/delay
-		var/final_delay = 1 SECOND + delay
-		var/obj/structure/fd/lancer/grenade/smoke/S
+		var/turf/deployment_turf = pick(affected_turfs)
 
-		spawn(final_delay)
-			var/turf/deployment_turf = pick(affected_turfs)
-
-			new S(deployment_turf)
-			affected_turfs -= S.remove_from_pull
-			delay += 1 SECOND
-
+		new /obj/structure/fd/lancer/grenade/smoke(deployment_turf)
+		affected_turfs -= deployment_turf
 
 	return .

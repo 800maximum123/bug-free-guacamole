@@ -66,7 +66,7 @@
 
 			for(var/turf/floor in block(owner.x-zonestart_by_x, owner.y-zonestart_by_y, owner.z, owner.x+zoneend_by_x, owner.y+zoneend_by_y, owner.z))
 				shielded_turfs[floor] = floor.color
-				animate(floor, time = 1 SECONDS, color = COLOR_DARK_GRAY, easing = SINE_EASING, flags = ANIMATION_PARALLEL)
+				animate(floor, time = 1 SECONDS, color = COLOR_DARK_GRAY, easing = SINE_EASING)
 		owner.armor_stat += 10
 		owner.add_status_effect(/datum/mech_status/anchored)
 
@@ -75,7 +75,7 @@
 		playsound(get_turf(owner),'packs/infinity/sound/mecha/bigmech_rturn.ogg',100)
 		animate(owner.get_filter("bunker"), time = 1.5 SECONDS, size = 0, easing = SINE_EASING, flags = ANIMATION_PARALLEL)
 		for(var/turf/floor in shielded_turfs.Copy())
-			animate(floor, time = 1.5 SECONDS, color = shielded_turfs[floor], easing = SINE_EASING, flags = ANIMATION_PARALLEL)
+			animate(floor, time = 1.5 SECONDS, color = shielded_turfs[floor], easing = SINE_EASING)
 		shielded_turfs.Cut()
 		owner.armor_stat -= 10
 		owner.remove_status_effect(/datum/mech_status/anchored)
