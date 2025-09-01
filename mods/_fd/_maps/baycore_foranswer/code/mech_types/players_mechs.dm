@@ -147,7 +147,7 @@
 
 
 
-/mob/living/simple_animal/fd/lancer/napoleon/peacekeeper
+/mob/living/simple_animal/fd/lancer/pinpointer/peacekeeper
 	name = "APU 'Peacekeeper'"
 	desc = "'Миротворец' - специальная модификация стандартных APU вооруженных сил ЦПСС, предназначенная для лидеров огневых групп. \
 	Блок связи на его спине позволяет оперативно получать новую информацию и делиться ей с остальными."
@@ -161,7 +161,7 @@
 
 
 
-/mob/living/simple_animal/fd/lancer/napoleon/oven
+/mob/living/simple_animal/fd/lancer/pinpointer/oven
 	name = "APU 'Oven'"
 	desc = "Небрежно перекрашенный зачастую неподходящей, и от того порой сыпящейся, жёлтой краской монстр Франкенштейна. \
 	Собран из относительно целых и подходящих запчастей с разных мехов."
@@ -175,7 +175,7 @@
 
 
 
-/mob/living/simple_animal/fd/lancer/napoleon/wanderer
+/mob/living/simple_animal/fd/lancer/pinpointer/wanderer
 	name = "APU 'Wanderer'"
 	desc = "'Скиталец' представитель мехов класса 'Страж', которые усилены дополнительными листами брони и ракетной установкой для оказания огневой поддержки штурмовым группам. \
 	Данная единица выглядит потрёпанной, имеет множество следов небрежного ремонта и боевых отметин, кое-где слезла краска, а кое-где оплавилась."
@@ -189,7 +189,7 @@
 
 
 
-/mob/living/simple_animal/fd/lancer/napoleon/siren
+/mob/living/simple_animal/fd/lancer/pinpointer/siren
 	name = "APU 'Lilac Siren'"
 	desc = "'Сирена' представляет из себя прототип класса 'Калибан', расчитанный на устранение наземной техники и авиации противника. \
 	К удивлению, но он хорошо зарекомендовал себя и в устранении своих старших братьев, благодаря мощи 155-мм двухствольного дробовика."
@@ -218,7 +218,7 @@
 	pixel_y = -52
 	default_pixel_y = -52
 
-//	wreck_type = /obj/structure/fd/mech_wreckage/medium/napoleon
+	wreck_type = /obj/structure/fd/mech_wreckage/medium/pinpointer
 
 /mob/living/simple_animal/fd/lancer/goblintail/inquisitor/set_dir()
 	..()
@@ -230,7 +230,7 @@
 			pixel_x = -50
 			default_pixel_x = -50
 
-/mob/living/simple_animal/fd/lancer/napoleon/barracuda
+/mob/living/simple_animal/fd/lancer/pinpointer/barracuda
 	name = "APU 'Goblin'"
 	desc = "\"Барракуда\" от Гефеста - простой в эксплуатации и обслуживании, резвый и, главное, массовый. \
 	Этот экземпляр - представитель ранней модели, местами проржавевший. На крашеном наспех корпусе \
@@ -243,9 +243,9 @@
 	pixel_y = -46
 	default_pixel_y = -46
 
-//	wreck_type = /obj/structure/fd/mech_wreckage/medium/napoleon
+	wreck_type = /obj/structure/fd/mech_wreckage/medium/pinpointer
 
-/mob/living/simple_animal/fd/lancer/napoleon/barracuda/set_dir()
+/mob/living/simple_animal/fd/lancer/pinpointer/barracuda/set_dir()
 	..()
 	switch(dir)
 		if(WEST, SOUTH)

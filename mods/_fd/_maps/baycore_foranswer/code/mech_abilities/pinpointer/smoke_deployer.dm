@@ -63,4 +63,6 @@
 		new /obj/structure/fd/lancer/grenade/smoke(deployment_turf)
 		affected_turfs -= deployment_turf
 
+	owner.adjust_heat(2)
+
 	return .

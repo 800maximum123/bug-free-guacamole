@@ -25,6 +25,7 @@
 
 #include "code/mech_abilities/pinpointer/ammunition_change.dm"
 #include "code/mech_abilities/pinpointer/death_mark.dm"
+#include "code/mech_abilities/pinpointer/firemode_change.dm"
 #include "code/mech_abilities/pinpointer/smoke_deployer.dm"
 #include "code/mech_abilities/pinpointer/weapons_hotkeys.dm"
 
@@ -36,6 +37,7 @@
 #include "code/mech_equipment/drake/assault_cannon.dm"
 #include "code/mech_equipment/drake/combat_shield.dm"
 
+#include "code/mech_equipment/pinpointer/assault_rifle.dm"
 #include "code/mech_equipment/pinpointer/fist.dm"
 #include "code/mech_equipment/pinpointer/grenade_launcher.dm"
 #include "code/mech_equipment/pinpointer/revolver.dm"
@@ -59,6 +61,7 @@
 //#include "code/mech_types/lancaster.dm"
 //#include "code/mech_types/napoleon.dm"
 //#include "code/mech_types/nelson.dm"
+#include "code/mech_types/pinpointer.dm"
 #include "code/mech_types/players_mechs.dm"
 //#include "code/mech_types/saladin.dm"
 #include "code/mech_types/swarmer.dm"

@@ -11,6 +11,7 @@
 	bullet_type = /obj/item/projectile/bullet/mech/grenade
 	reload_time = 10 SECONDS
 
+	speed_debuff = 2
 	cooldown = 2 SECONDS
 
 /obj/item/projectile/bullet/mech/grenade

@@ -93,7 +93,7 @@
 	if(!magazines)
 		return FALSE
 
-	if(!do_after(owner, reload_time, owner, DO_PUBLIC_UNIQUE))
+	if(!do_after(owner, reload_time, owner, DO_BOTH_CAN_MOVE | DO_PUBLIC_UNIQUE))
 		return FALSE
 
 	magazines -= 1
