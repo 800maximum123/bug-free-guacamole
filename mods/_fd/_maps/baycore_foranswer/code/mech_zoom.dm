@@ -51,7 +51,7 @@
 	if(!client)
 		return FALSE
 
-	if(mech_stat != CONSCIOUS)
+	if(mech_condition != CONSCIOUS)
 		to_chat(src, SPAN_WARNING("Прямо сейчас линза не может сфокусироваться!"))
 		newZoom = FALSE
 

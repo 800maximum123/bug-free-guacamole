@@ -1,7 +1,6 @@
 /datum/mech_equipment/firearm/grenade_launcher
 	name = "Гранатомёт"
-	action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/ui.dmi'
-	action_state = "26"
+	action_state = "heavy_weapon"
 
 	ammo = 12
 	max_ammo = 12

@@ -24,6 +24,7 @@
 
 	for(var/datum/mech_equipment/firearm/revolver/R in equipment)
 		selected_equipment = R
+		to_chat(src, SPAN_INFO("Ты переключился на <РЕВОЛЬВЕР>."))
 		recalculate_mech_speed()
 
 /datum/keybinding/pinpointer/fist
@@ -43,6 +44,7 @@
 
 	for(var/datum/mech_equipment/weapon/fist/F in equipment)
 		selected_equipment = F
+		to_chat(src, SPAN_INFO("Ты переключился на <КУЛАКИ>."))
 		recalculate_mech_speed()
 
 /datum/keybinding/pinpointer/launcher
@@ -62,6 +64,7 @@
 
 	for(var/datum/mech_equipment/firearm/grenade_launcher/G in equipment)
 		selected_equipment = G
+		to_chat(src, SPAN_INFO("Ты переключился на <ГРАНАТОМЁТ>."))
 		recalculate_mech_speed()
 
 /datum/keybinding/pinpointer/rifle
@@ -81,6 +84,7 @@
 
 	for(var/datum/mech_equipment/firearm/assault_rifle/AR in equipment)
 		selected_equipment = AR
+		to_chat(src, SPAN_INFO("Ты переключился на <ШТУРМОВУЮ ВИНТОВКУ>."))
 		recalculate_mech_speed()
 
 /datum/keybinding/pinpointer/rifle_firemode

@@ -1,7 +1,6 @@
 /datum/mech_equipment/firearm/submachinegun
 	name = "Пистолет-пулемёт"
-	action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/ui.dmi'
-	action_state = "26"
+	action_state = "light_weapon"
 
 	max_ammo = 60
 	max_magazines = 3

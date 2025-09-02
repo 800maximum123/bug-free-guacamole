@@ -10,7 +10,7 @@
 		return FALSE
 
 	semi_off = !semi_off
-	to_chat(owner, SPAN_INFO("Ты только что переключил винтовку на стрельбу[semi_off ? "очередями" : "одиночными"]."))
+	to_chat(owner, SPAN_INFO("Ты только что переключил винтовку на стрельбу [semi_off ? "очередями" : "одиночными"]."))
 
 	if(!semi_off)
 		for(var/datum/mech_equipment/firearm/assault_rifle/AR in owner.equipment)

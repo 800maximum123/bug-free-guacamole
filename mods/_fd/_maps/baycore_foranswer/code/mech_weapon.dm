@@ -1,7 +1,7 @@
 /datum/mech_equipment/weapon
 	name = "Лезвие"
-	action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/ui.dmi'
-	action_state = "15"
+	action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/mech_ui.dmi'
+	action_state = "melee_weapon"
 
 	/// Реальный дамаг по мехам
 	var/integrity_damage = 10

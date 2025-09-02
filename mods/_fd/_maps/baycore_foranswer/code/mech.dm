@@ -35,7 +35,8 @@
 		/datum/mech_ability/action/reboot,
 		/datum/mech_ability/action/toggle_safety,
 		/datum/mech_ability/action/boosters_passive,
-		/datum/mech_ability/boosters_quick
+		/datum/mech_ability/boosters_quick,
+		/datum/mech_ability/action/reload_firearm
 	)
 
 	/// Список модулей меха

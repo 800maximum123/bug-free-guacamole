@@ -36,6 +36,6 @@
 
 	heat_max = 8
 
-	base_movement_cooldown = 4
+	base_movement_cooldown = 3
 
 	wreck_type = /obj/structure/fd/mech_wreckage/medium/pinpointer
