@@ -108,7 +108,9 @@
 
 /obj/structure/fd/lancer/grenade/flash/bomb_effect(turf/where_to_check)
 	for(var/mob/living/simple_animal/fd/lancer/mobik in where_to_check)
-		mobik.add_status_effect(/datum/mech_status/vulnerable, 5 SECONDS)
+		mobik.add_status_effect(/datum/mech_status/vulnerable, 10 SECONDS)
+		mobik.flash_eyes(FLASH_PROTECTION_NONE)
+		mobik.eye_blurry = max(mobik.eye_blurry, 10)
 
 	spawn(4 SECONDS)
 		qdel(src)

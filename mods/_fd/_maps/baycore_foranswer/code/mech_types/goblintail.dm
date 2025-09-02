@@ -14,28 +14,31 @@
 
 /mob/living/simple_animal/fd/lancer/goblintail
 	name = "L-APU Goblintail"
-	desc = "An spec-ops lightweight APU model with installed stealth-tech."
+	desc = "Специальный легковесный фрейм, рассчитанный на ведение боя из тени."
 	icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/scout_def.dmi'
 	icon_state = "scout"
 
 	abilities = list(
 		/datum/mech_ability/action/toggle_cloak,
 		/datum/mech_ability/intrusion,
+		/datum/mech_ability/body_swap,
+		/datum/mech_ability/action/flash
 	)
 	equipment = list(
 		/datum/mech_equipment/firearm/submachinegun,
 		/datum/mech_equipment/weapon/nano_whip,
 	)
 
-	integrity = 150
-	integrity_max = 150
+	armor_stat = 5
+	armor_durability = 50 // Износ брони
 
-	heat_max = 10
-	repairs = 2
+	integrity = 200
+	integrity_max = 200
 
-	base_movement_cooldown = 3
+	heat_max = 14
 
-	spare_magazines = 4
+	scan_delay = 0.5 SECONDS
+	base_movement_cooldown = 2
 
 	pixel_x = -105
 	default_pixel_x = -105

@@ -13,7 +13,7 @@
 	icon_state = "trooper_death_[state]"
 
 /mob/living/simple_animal/fd/lancer/pinpointer
-	name = "APU Napoleon"
+	name = "APU Pinpointer"
 	desc = "Являясь одним из рядовых, 'Наполеон' также наиболее привередлив к пилотам. Нет никаких проблем научиться управлять данной моделью. Но вот довести этот навык до идеала..."
 
 	abilities = list(
@@ -31,10 +31,10 @@
 
 	armor_stat = 5
 
-	integrity = 300
-	integrity_max = 300
+	integrity = 400
+	integrity_max = 400
 
-	heat_max = 8
+	heat_max = 10
 
 	base_movement_cooldown = 3
 

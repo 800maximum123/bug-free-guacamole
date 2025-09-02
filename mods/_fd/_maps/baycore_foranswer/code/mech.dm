@@ -93,6 +93,9 @@
 	/// Мех, которому будет передаватся весь полученный нами урон
 	var/mob/living/simple_animal/fd/lancer/protected_by
 
+	//Защита от вторжения в зад
+	var/swap_protected = FALSE
+
 /mob/living/simple_animal/fd/lancer/Initialize()
 	icon_living = icon_state
 
