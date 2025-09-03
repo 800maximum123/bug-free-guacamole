@@ -49,7 +49,6 @@
 	name = "Реактивные Ускорители"
 	action_state = "29"
 
-	required_params = list("middle")
 	cooldown = 2 SECONDS
 	var/image/overlay = null
 
@@ -65,7 +64,7 @@
 	owner.face_atom(target)
 	owner.AddOverlays(overlay)
 
-	owner.throw_at(get_edge_target_turf(owner, get_dir(target, owner)), 15, 1, owner, spin = FALSE) // ЭТО НАМЕРЕННЫЙ РЕВЁРС КОТОРЫЙ ИЗНАЧАЛЬНО БЫЛ БАГОМ НО Я РЕШИЛ ТАК И ОСТАВИТЬ
+	owner.throw_at(get_edge_target_turf(owner,owner.dir), 15, 1, owner, spin = FALSE) // ЭТО НАМЕРЕННЫЙ РЕВЁРС КОТОРЫЙ ИЗНАЧАЛЬНО БЫЛ БАГОМ НО Я РЕШИЛ ТАК И ОСТАВИТЬ
 	owner.adjust_heat(1)
 
 	playsound(owner, 'sound/machines/thruster.ogg', 80, TRUE)

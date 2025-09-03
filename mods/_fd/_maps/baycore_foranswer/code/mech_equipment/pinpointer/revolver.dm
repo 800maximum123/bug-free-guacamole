@@ -1,12 +1,11 @@
 /datum/mech_equipment/firearm/revolver
 	name = "Револьвер"
-	action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/ui.dmi'
-	action_state = "26"
+	action_state = "light_weapon"
 
 	ammo = 6
 	max_ammo = 6
-	magazines = 12
-	max_magazines = 12
+	magazines = 0
+	max_magazines = 0
 
 	bullet_type = /obj/item/projectile/bullet/mech/revolver
 	reload_time = 6 SECONDS

@@ -1,7 +1,5 @@
 /datum/mech_equipment/weapon/fist
 	name = "Железный кулак"
-	action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/ui.dmi'
-	action_state = "15"
 
 	integrity_damage = 10
 	hull_damage = 1

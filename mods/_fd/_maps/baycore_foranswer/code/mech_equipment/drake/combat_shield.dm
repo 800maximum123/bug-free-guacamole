@@ -1,7 +1,5 @@
 /datum/mech_equipment/weapon/shield
 	name = "Осадный щит"
-	action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/ui.dmi'
-	action_state = "15"
 
 	integrity_damage = 10 // Дамаг пока такой, ибо я всё ещё не знаю, планируем мы повышать урон, или наоборот понижать хп
 	hull_damage = 1

@@ -1,7 +1,5 @@
 /datum/mech_equipment/firearm/assault_rifle
 	name = "Штурмовая винтовка"
-	action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/ui.dmi'
-	action_state = "26"
 
 	ammo = 48
 	max_ammo = 48

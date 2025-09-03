@@ -29,6 +29,8 @@
 #include "code/mech_abilities/pinpointer/smoke_deployer.dm"
 #include "code/mech_abilities/pinpointer/weapons_hotkeys.dm"
 
+#include "code/mech_abilities/goblintail/body_swap.dm"
+#include "code/mech_abilities/goblintail/flash.dm"
 #include "code/mech_abilities/goblintail/intrusion.dm"
 #include "code/mech_abilities/goblintail/toggle_cloak.dm"
 
@@ -73,10 +75,12 @@
 #include "code/mech_bullet.dm"
 #include "code/mech_equipment.dm"
 #include "code/mech_firearm.dm"
+#include "code/mech_hotkeys.dm"
 #include "code/mech_status_effect.dm"
 #include "code/mech_visuals.dm"
 #include "code/mech_weapon.dm"
 #include "code/mech_wreck.dm"
+#include "code/mech_zoom.dm"
 #include "code/mech.dm"
 
 #endif

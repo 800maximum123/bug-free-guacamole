@@ -1,6 +1,6 @@
 /datum/mech_ability/action/toggle_cloak
 	name = "Скрытность Вкл/Выкл"
-	action_state = "1"
+	action_state = "stealth"
 	stat_color = "#c675fc"
 
 	cooldown = 10 SECONDS

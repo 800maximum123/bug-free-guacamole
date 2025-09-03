@@ -39,14 +39,15 @@
 		/datum/mech_ability/action/reboot,
 		/datum/mech_ability/action/toggle_safety,
 		/datum/mech_ability/action/boosters_passive,
+		/datum/mech_ability/action/reload_firearm
 	)
 
 	armor_stat = 10
 	armor_durability = 200
-	integrity = 500
-	integrity_max = 500
+	integrity = 600
+	integrity_max = 600
 
-	heat_max = 8
+	heat_max = 6
 	base_movement_cooldown = 6
 
 	wreck_type = /obj/structure/fd/mech_wreckage/big

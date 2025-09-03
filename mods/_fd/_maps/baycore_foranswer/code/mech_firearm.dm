@@ -1,7 +1,7 @@
 /datum/mech_equipment/firearm
 	name = "Пушка"
-	action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/ui.dmi'
-	action_state = "26"
+	action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/mechs/mech_ui.dmi'
+	action_state = "medium_weapon"
 
 	var/bullet_type = /obj/item/projectile/bullet/mech
 

@@ -1,7 +1,6 @@
 /datum/mech_equipment/firearm/assault_cannon
 	name = "Штурмовое орудие"
-	action_icon = 'mods/_fd/_maps/baycore_foranswer/icons/ui.dmi'
-	action_state = "26"
+	action_state = "heavy_weapon"
 
 	ammo = 1000
 	max_ammo = 1000

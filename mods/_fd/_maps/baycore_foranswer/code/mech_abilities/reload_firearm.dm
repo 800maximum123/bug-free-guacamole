@@ -1,6 +1,6 @@
 /datum/mech_ability/action/reload_firearm
 	name = "Перезарядка Оружия"
-	action_state = "reboot"
+	action_state = "reload"
 
 /datum/mech_ability/action/reload_firearm/use(atom/target, params)
 	. = ..()

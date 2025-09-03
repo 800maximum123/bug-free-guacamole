@@ -36,7 +36,7 @@
 		/datum/mech_ability/action/toggle_safety,
 		/datum/mech_ability/action/boosters_passive,
 		/datum/mech_ability/action/reload_firearm,
-		/datum/mech_ability/boosters_quick
+		/datum/mech_ability/boosters_quick,
 	)
 
 	/// Список модулей меха
@@ -81,7 +81,9 @@
 	/// Задержка перед показом результатов сканирования
 	var/scan_delay = 1.5 SECONDS
 
-	var/zoom = 0
+	var/zoom = FALSE
+	var/precise_zoom = FALSE
+
 	var/base_movement_cooldown = 3
 
 	var/wreck_type = /obj/structure/fd/mech_wreckage
@@ -90,6 +92,9 @@
 	var/mob/living/carbon/human/pilot/pilot
 	/// Мех, которому будет передаватся весь полученный нами урон
 	var/mob/living/simple_animal/fd/lancer/protected_by
+
+	//Защита от вторжения в зад
+	var/swap_protected = FALSE
 
 /mob/living/simple_animal/fd/lancer/Initialize()
 	icon_living = icon_state
@@ -318,52 +323,6 @@
 		QDEL_NULL(src)
 	return TRUE
 
-/mob/living/simple_animal/fd/lancer/verb/zoom()
-	set category = "IC"
-	set name = "Мех - Настроить оптику"
-
-	if(!src.client)
-		return FALSE
-	var/cannotzoom
-
-	if(mech_condition != CONSCIOUS)
-		to_chat(src, SPAN_WARNING("Прямо сейчас линза не может сфокусироваться!"))
-		cannotzoom = 1
-
-	if(!zoom && !cannotzoom)
-		src.toggle_zoom_hud()
-		src.client.view = 9
-		zoom = 1
-
-		var/tilesize = 35
-		var/viewoffset = tilesize * 6
-
-		switch(src.dir)
-			if (NORTH)
-				src.client.pixel_x = 0
-				src.client.pixel_y = viewoffset
-			if (SOUTH)
-				src.client.pixel_x = 0
-				src.client.pixel_y = -viewoffset
-			if (EAST)
-				src.client.pixel_x = viewoffset
-				src.client.pixel_y = 0
-			if (WEST)
-				src.client.pixel_x = -viewoffset
-				src.client.pixel_y = 0
-		src.visible_message("[src] прицеливается.")
-		src.set_face_dir()
-
-	else
-		src.client.view = world.view
-		src.toggle_zoom_hud()
-		zoom = 0
-		src.client.pixel_x = 0
-		src.client.pixel_y = 0
-		src.set_face_dir(newdir = null)
-
-	return TRUE
-
 /mob/living/simple_animal/fd/lancer/verb/change_view()
 	set name = "Мех - Сменить радиус зрения"
 	set category = "IC"
@@ -391,6 +350,7 @@
 	pilot.forceMove(get_turf(src))
 	pilot.ckey = ckey
 	pilot.client.view = 7
+
 	pilot = null
 
 /mob/living/simple_animal/fd/lancer/proc/recalculate_mech_speed()
