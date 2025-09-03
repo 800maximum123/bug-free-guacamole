@@ -35,6 +35,7 @@
 		/datum/mech_ability/action/reboot,
 		/datum/mech_ability/action/toggle_safety,
 		/datum/mech_ability/action/boosters_passive,
+		/datum/mech_ability/action/reload_firearm,
 		/datum/mech_ability/boosters_quick
 	)
 
@@ -109,6 +110,9 @@
 
 	if(length(equipment))
 		selected_equipment = equipment[1]
+
+/mob/living/simple_animal/fd/lancer/get_current_health()
+	return 1
 
 /mob/living/simple_animal/fd/lancer/proc/adjust_heat(amount)
 	heat = round(max(heat + amount, 0), 0.1)
@@ -534,17 +538,20 @@
 
 	return .
 
-/obj/screen/fullscreen/noise/hacked
-	icon_state = "1 moderate"
-	alpha = 0
+/mob/living/simple_animal/fd/lancer/general_health_adjustment()
+	return FALSE
 
-/obj/screen/fullscreen/noise/hacked/Initialize()
-	. = ..()
-	animate(src, color = COLOR_VIOLET, alpha = 255, time = 2 SECONDS)
+/mob/living/simple_animal/fd/lancer/apply_damage()
+	return FALSE
 
-/obj/screen/fullscreen/fishbed/hacked
-	alpha = 0
+/mob/living/simple_animal/fd/lancer/restore_health()
+	return FALSE
 
-/obj/screen/fullscreen/fishbed/hacked/Initialize()
-	. = ..()
-	animate(src, color = COLOR_VIOLET, alpha = 255, time = 2 SECONDS)
+/mob/living/simple_animal/fd/lancer/damage_health()
+	return FALSE
+
+/mob/living/simple_animal/fd/lancer/set_health()
+	return FALSE
+
+/mob/living/simple_animal/fd/lancer/mod_health()
+	return FALSE

@@ -12,4 +12,4 @@
 
 /datum/mech_status/vulnerable/on_remove()
 	. = ..()
-	owner.visible_message(SPAN_WARNING("[src] перестал быть уязвимым!"))
+	owner.visible_message(SPAN_WARNING("[owner] перестал быть уязвимым!"))
