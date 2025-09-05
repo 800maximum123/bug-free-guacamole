@@ -23,7 +23,8 @@ SUBSYSTEM_DEF(culture)
 			continue
 		culture = new culture
 		if(cultural_info_by_name[culture.name])
-			crash_with("Duplicate cultural datum ID - [culture.name] - [ftype]")
+			//crash_with("Duplicate cultural datum ID - [culture.name] - [ftype]")
+			return
 		cultural_info_by_name[culture.name] = culture
 		cultural_info_by_path[ftype] = culture
 		if(culture.category && !culture.hidden)
