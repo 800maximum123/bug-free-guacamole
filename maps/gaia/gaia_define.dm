@@ -5,8 +5,8 @@
 	flags = MAP_HAS_BRANCH | MAP_HAS_RANK
 	config_path = "config/gaia_config.txt"
 
-	admin_levels  = list(5)
-	escape_levels = list(6)
+	admin_levels  = list(4)
+	escape_levels = list(5)
 	empty_levels  = list(7)
 	accessible_z_levels = list(1, 2, 3, 4, 5, 6) // 1 - SCG Camp, 2-3 ICCG Camp, 4 - Admin, 5 - Transit, 6-etc - Area of Operations
 	station_levels = list(1, 2, 3, 6) // 1 - SCG Camp, 2-3 ICCG Camp, 6-etc - Area of Operations
@@ -54,4 +54,20 @@
 		/obj/item/clothing/head/beret/solgov/fleet/branch/fifth,
 		/obj/item/clothing/accessory/solgov/fleet_patch/fifth,
 		/obj/item/material/coin/challenge/sol/gaia,
+	)
+
+	local_currency_name = "Gaian pesos"
+	local_currency_name_singular = "peso"
+	local_currency_name_short = "GP"
+
+	game_year = 2294 //November 2294, 3 years since the war begun
+
+// Networks that will show up as options in the camera monitor program
+	station_networks = list(
+		NETWORK_GAIA,
+		NETWORK_SCG,
+		NETWORK_HELMETS_SCG,
+		NETWORK_ICCG,
+		NETWORK_HELMETS_ICCG,
+		NETWORK_THUNDER,
 	)

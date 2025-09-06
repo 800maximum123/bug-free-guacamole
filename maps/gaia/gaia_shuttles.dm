@@ -4,6 +4,7 @@
 /obj/machinery/computer/shuttle_control/scg_truck
 	name = "alpha truck control console"
 	shuttle_tag = "SCG Truck Alpha"
+	req_access = list(access_heads)
 
 /obj/machinery/computer/shuttle_control/scg_truck/bravo
 	name = "bravo truck control console"
@@ -12,6 +13,7 @@
 /area/turbolift/scg_truck
 	name = "SCG Truck Alpha"
 	base_turf = /turf/simulated/floor/plating
+	req_access = list(access_solgov_crew)
 
 /area/turbolift/scg_truck/bravo
 	name = "SCG Truck Bravo"
@@ -72,10 +74,12 @@
 /obj/machinery/computer/shuttle_control/iccg_stopa_shuttle
 	name = "ICCGN 'Stopa' control console"
 	shuttle_tag = "ICCGN 'Stopa' Shuttle"
+	req_access = list(access_iccg_com)
 
 /area/turbolift/iccg_stopa_shuttle
 	name = "ICCGN 'Stopa' Shuttle"
 	base_turf = /turf/simulated/floor/plating
+	req_access = list(access_iccg)
 
 /datum/shuttle/autodock/ferry/iccg_stopa_shuttle
 	name = "ICCGN 'Stopa' Shuttle"
@@ -112,10 +116,13 @@
 /obj/machinery/computer/shuttle_control/iccg_masha_boat
 	name = "ICCGN 'Masha' control console"
 	shuttle_tag = "ICCGN 'Masha' Patrol Boat"
+	req_access = list(access_iccg_com)
+
 
 /area/turbolift/iccg_masha_boat
 	name = "ICCGN 'Masha' Patrol Boat"
 	base_turf = /turf/simulated/floor/plating
+	req_access = list(access_iccg)
 
 /datum/shuttle/autodock/ferry/iccg_masha_boat
 	name = "ICCGN 'Masha' Patrol Boat"

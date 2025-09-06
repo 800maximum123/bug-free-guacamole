@@ -35,7 +35,7 @@
 /area/gaia/scg/command/monty)
 "aw" = (
 /obj/structure/flora/ausbushes/ppflowers,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg/outskirts)
 "ax" = (
@@ -82,7 +82,7 @@
 /obj/floor_decal/step{
 	dir = 1
 	},
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/scg)
 "aO" = (
@@ -94,15 +94,18 @@
 "aS" = (
 /obj/floor_decal/hull,
 /obj/structure/closet/secure_closet/guncabinet,
+/obj/decal/cleanable/dirt,
+/obj/item/gun/projectile/pistol/m19,
+/obj/item/gun/projectile/pistol/m19,
 /obj/item/gun/projectile/pistol/m19,
 /obj/item/gun/projectile/pistol/m22f,
 /obj/item/gun/projectile/pistol/m22f,
-/obj/item/gun/projectile/pistol/sec/lethal,
+/obj/item/gun/projectile/pistol/m22f,
 /obj/item/gun/projectile/pistol/sec/lethal,
 /obj/item/gun/projectile/pistol/sec/lethal,
 /obj/item/gun/projectile/revolver/medium,
+/obj/item/gun/projectile/revolver/medium,
 /obj/item/gun/energy/gun,
-/obj/decal/cleanable/dirt,
 /obj/item/gun/energy/gun,
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
@@ -175,6 +178,31 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/gaia/scg/security/prison)
+"bp" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/closet/crate,
+/obj/item/clothing/under/scga/utility/urban/command,
+/obj/item/clothing/under/scga/utility/urban/command,
+/obj/item/clothing/under/scga/utility/urban/command,
+/obj/item/clothing/under/scga/utility/urban/command,
+/obj/item/clothing/under/scga/utility/urban/command,
+/obj/item/clothing/under/scga/service_command,
+/obj/item/clothing/under/scga/service_command,
+/obj/item/clothing/under/scga/service_command,
+/obj/item/clothing/under/scga/service_command,
+/obj/item/clothing/under/scga/service_command,
+/obj/item/clothing/head/scga/service/wheel_command,
+/obj/item/clothing/head/scga/service/wheel_command,
+/obj/item/clothing/head/scga/service/wheel_command,
+/obj/item/clothing/head/scga/service/wheel_command,
+/obj/item/clothing/head/scga/service/wheel_command,
+/obj/item/clothing/head/scga/beret/airborne,
+/obj/item/clothing/head/scga/beret/airborne,
+/obj/item/clothing/head/scga/beret/airborne,
+/obj/item/clothing/head/scga/beret/airborne,
+/obj/item/clothing/head/scga/beret/airborne,
+/turf/simulated/floor/lino,
+/area/gaia/scg/command/monty)
 "bq" = (
 /obj/decal/cleanable/cobweb2,
 /obj/machinery/vending/cigarette,
@@ -202,14 +230,14 @@
 /turf/simulated/floor/tiled/old_cargo,
 /area/gaia/scg/engineering/communications)
 "bA" = (
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg/worship)
 "bE" = (
 /obj/floor_decal/industrial/warning/dust{
 	dir = 8
 	},
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/concrete/reinforced,
 /area/gaia/scg)
 "bF" = (
@@ -239,12 +267,9 @@
 "bP" = (
 /obj/structure/closet/secure_closet/guncabinet,
 /obj/item/gun/projectile/shotgun/doublebarrel,
-/obj/item/gun/projectile/shotgun/doublebarrel,
 /obj/item/gun/projectile/shotgun/pump,
-/obj/item/gun/projectile/shotgun/pump,
-/obj/item/gun/projectile/shotgun/pump,
-/obj/item/gun/projectile/automatic/shotgun,
 /obj/decal/cleanable/dirt,
+/obj/item/gun/projectile/automatic/shotgun,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "bQ" = (
@@ -261,7 +286,7 @@
 /area/gaia/scg)
 "bT" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg)
 "bU" = (
@@ -385,6 +410,19 @@
 	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/scg)
+"da" = (
+/obj/decal/cleanable/dirt,
+/obj/item/target/gaia/iccg,
+/obj/item/target/gaia/iccg,
+/obj/item/target/gaia/iccg,
+/obj/item/target/gaia/iccg,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/structure/closet/crate,
+/turf/simulated/floor/exoplanet/grass,
+/area/gaia/scg)
 "dh" = (
 /obj/floor_decal/techfloor{
 	dir = 5
@@ -393,7 +431,7 @@
 /area/gaia/scg/security)
 "dl" = (
 /obj/structure/table/standard,
-/obj/item/modular_computer/tablet/preset/custom_loadout/cheap,
+/obj/item/modular_computer/laptop/preset/custom_loadout/advanced/commander,
 /turf/simulated/floor/lino,
 /area/gaia/scg/command)
 "dm" = (
@@ -401,14 +439,13 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg/outskirts)
 "dn" = (
-/obj/floor_decal/industrial/warning/dust,
-/obj/structure/mopbucket,
-/obj/item/mop,
-/turf/simulated/floor/tiled/techmaint,
-/area/gaia/scg/hospital)
+/obj/machinery/uniform_vendor,
+/turf/simulated/floor/carpet/blue,
+/area/gaia/scg/command/monty)
 "dq" = (
 /obj/item/reagent_containers/food/drinks/bottle/specialwhiskey,
 /obj/structure/filingcabinet/chestdrawer,
+/obj/item/key/gaia/scg,
 /turf/simulated/floor/carpet/green,
 /area/gaia/scg/command)
 "ds" = (
@@ -431,7 +468,7 @@
 "du" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/gaiabanner,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg/worship)
 "dw" = (
@@ -448,7 +485,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/gaia/scg/barracks)
 "dz" = (
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/gravel,
 /area/gaia/scg/outskirts)
 "dB" = (
@@ -520,8 +557,12 @@
 /turf/simulated/wall/titanium,
 /area/turbolift/scg_truck)
 "eh" = (
-/obj/item/storage/backpack/dufflebag/scga_accessories,
 /obj/structure/table/rack,
+/obj/item/storage/backpack/dufflebag/scga_accessories,
+/obj/item/storage/backpack/dufflebag/scga_accessories,
+/obj/item/storage/backpack/dufflebag/scga_accessories,
+/obj/item/storage/backpack/dufflebag/scga_accessories,
+/obj/item/storage/backpack/dufflebag/scga_accessories,
 /turf/simulated/floor/lino,
 /area/gaia/scg/command/monty)
 "ej" = (
@@ -550,9 +591,6 @@
 /area/gaia/scg/engineering/water)
 "es" = (
 /obj/decal/cleanable/dirt,
-/obj/machinery/floodlight{
-	dir = 1
-	},
 /obj/structure/sign/nanotrasen{
 	dir = 1;
 	pixel_y = -32
@@ -574,7 +612,7 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg)
 "ey" = (
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/barren,
 /area/gaia/scg)
 "eA" = (
@@ -694,7 +732,6 @@
 /area/gaia/scg/hospital)
 "fv" = (
 /obj/decal/cleanable/dirt,
-/obj/machinery/bluespacerelay,
 /turf/simulated/floor/tiled/old_cargo,
 /area/gaia/scg/engineering/communications)
 "fx" = (
@@ -703,25 +740,25 @@
 /area/gaia/scg/outskirts)
 "fz" = (
 /obj/floor_decal/industrial/warning/dust,
-/obj/structure/closet/secure_closet/medical3,
+/obj/structure/closet/secure_closet/medical3{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/gaia/scg/hospital)
 "fB" = (
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/item/gun/projectile/automatic/bullpup_rifle,
-/obj/item/gun/projectile/automatic/bullpup_rifle/light,
-/obj/item/gun/projectile/automatic/battlerifle,
-/obj/item/gun/projectile/automatic/assault_rifle,
-/obj/item/gun/projectile/automatic/assault_rifle,
-/obj/item/gun/projectile/automatic/sec_smg/lethal,
-/obj/item/gun/projectile/automatic/sec_smg/lethal,
-/obj/item/gun/projectile/automatic/sec_smg/lethal,
 /obj/decal/cleanable/dirt,
 /obj/item/gun/projectile/automatic/caseless,
 /obj/item/gun/projectile/automatic/caseless,
 /obj/item/gun/projectile/automatic/caseless,
+/obj/item/gun/projectile/automatic/caseless,
+/obj/item/gun/projectile/automatic/caseless,
+/obj/item/gun/projectile/automatic/caseless,
 /obj/item/gun/projectile/automatic/caseless/carbine,
 /obj/item/gun/projectile/automatic/caseless/carbine,
+/obj/item/gun/projectile/automatic/caseless/carbine,
+/obj/item/gun/projectile/automatic/caseless/carbine,
+/obj/item/gun/projectile/automatic/caseless/grenadier,
 /obj/item/gun/projectile/automatic/caseless/grenadier,
 /obj/item/gun/projectile/automatic/caseless/grenadier,
 /turf/simulated/floor/tiled/dark/monotile,
@@ -766,7 +803,8 @@
 /obj/item/clothing/accessory/glassesmod/nvg,
 /obj/item/clothing/accessory/glassesmod/nvg,
 /obj/item/clothing/accessory/glassesmod/nvg,
-/obj/item/clothing/accessory/glassesmod/thermal,
+/obj/item/clothing/accessory/glassesmod/nvg,
+/obj/item/clothing/accessory/glassesmod/nvg,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "fU" = (
@@ -817,7 +855,7 @@
 /turf/simulated/floor/carpet/green,
 /area/gaia/scg/command)
 "gn" = (
-/turf/simulated/wall/iron,
+/turf/simulated/wall/r_concrete,
 /area/gaia/scg/worship)
 "gs" = (
 /obj/machinery/constructable_frame/computerframe{
@@ -843,7 +881,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/grim_wood_log,
+/turf/simulated/floor/exoplanet/concrete/reinforced/damaged,
 /area/gaia/scg/outskirts)
 "gI" = (
 /obj/structure/flora/ausbushes/grassybush,
@@ -870,7 +908,7 @@
 /obj/floor_decal/stairs{
 	dir = 1
 	},
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/steel_dirty,
 /area/gaia/scg/outskirts)
 "hd" = (
@@ -952,6 +990,7 @@
 /obj/decal/cleanable/dirt,
 /obj/item/book/manual/military_law,
 /obj/item/book/manual/nuclear,
+/obj/item/book/manual/solgov_law,
 /turf/simulated/floor/lino,
 /area/gaia/scg/command/monty)
 "ib" = (
@@ -988,7 +1027,7 @@
 /area/gaia/scg/engineering)
 "in" = (
 /obj/floor_decal/industrial/warning/fulltile,
-/obj/machinery/door/blast/shutters/open{
+/obj/machinery/door/blast/shutters{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/monotile,
@@ -1004,7 +1043,7 @@
 /area/gaia/scg/hospital)
 "ix" = (
 /obj/structure/grille,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/scg/outskirts)
 "iD" = (
@@ -1047,7 +1086,7 @@
 /area/gaia/scg/armory)
 "jd" = (
 /obj/structure/flora/ausbushes/lavendergrass,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg/outskirts)
 "jf" = (
@@ -1105,7 +1144,9 @@
 /area/gaia/scg/outskirts)
 "jM" = (
 /obj/floor_decal/steeldecal/steel_decals_central5,
-/obj/machinery/vending/engineering,
+/obj/machinery/vending/engineering{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/gaia/scg/engineering)
 "jP" = (
@@ -1121,7 +1162,7 @@
 /area/gaia/scg)
 "jV" = (
 /obj/structure/closet/crate/large,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/scg)
 "jW" = (
@@ -1196,7 +1237,9 @@
 /area/gaia/scg/barracks/bathroom)
 "km" = (
 /obj/floor_decal/industrial/warning/dust,
-/obj/structure/closet/secure_closet/medical1,
+/obj/structure/closet/secure_closet/medical1{
+	req_access = null
+	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled/techmaint,
 /area/gaia/scg/hospital)
@@ -1212,7 +1255,7 @@
 /obj/floor_decal/industrial/warning/dust{
 	dir = 8
 	},
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/scg)
 "ku" = (
@@ -1242,7 +1285,7 @@
 /obj/item/clothing/accessory/storage/webbing_large,
 /obj/item/clothing/accessory/storage/webbing,
 /obj/item/clothing/accessory/storage/webbing,
-/obj/machinery/light/small{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -1284,7 +1327,7 @@
 "kV" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/ppflowers,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg)
 "kW" = (
@@ -1307,7 +1350,7 @@
 	dir = 4
 	},
 /obj/machinery/floodlight,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg/outskirts)
 "lj" = (
@@ -1400,6 +1443,11 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/shooting_range)
+"lD" = (
+/obj/machinery/bluespacerelay,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/old_cargo,
+/area/gaia/scg/engineering/communications)
 "lE" = (
 /obj/floor_decal/industrial/warning/dust{
 	dir = 8
@@ -1490,7 +1538,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/gaia/scg/barracks)
 "mk" = (
-/turf/simulated/floor/exoplanet/grim_wood_log,
+/turf/simulated/floor/exoplanet/concrete/reinforced/damaged,
 /area/gaia/scg/outskirts)
 "mn" = (
 /obj/floor_decal/industrial/outline/yellow,
@@ -1527,7 +1575,7 @@
 /area/gaia/scg)
 "mB" = (
 /obj/decal/cleanable/blood/oil,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/scg)
 "mF" = (
@@ -1720,19 +1768,24 @@
 /obj/item/clothing/suit/armor/pcarrier/green/scg,
 /obj/item/clothing/suit/armor/pcarrier/green/scg,
 /obj/item/clothing/suit/armor/pcarrier/green/scg,
-/obj/item/clothing/head/helmet/green,
-/obj/item/clothing/head/helmet/green,
-/obj/item/clothing/head/helmet/green,
-/obj/item/clothing/head/helmet/green,
-/obj/item/clothing/head/helmet/green,
-/obj/item/clothing/head/helmet/green,
-/obj/item/clothing/head/helmet/green,
+/obj/item/clothing/head/helmet/green/scg,
+/obj/item/clothing/head/helmet/green/scg,
+/obj/item/clothing/head/helmet/green/scg,
+/obj/item/clothing/head/helmet/green/scg,
+/obj/item/clothing/head/helmet/green/scg,
+/obj/item/clothing/head/helmet/green/scg,
+/obj/item/clothing/head/helmet/green/scg,
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "op" = (
 /obj/paint/green,
 /turf/simulated/wall/concrete,
 /area/gaia/scg/barracks/officer)
+"oq" = (
+/obj/decal/cleanable/dirt,
+/obj/landmark/light/gaia,
+/turf/simulated/floor/tiled/old_cargo,
+/area/gaia/scg/engineering/communications)
 "ox" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 10
@@ -1780,7 +1833,9 @@
 /area/turbolift/scg_truck/bravo)
 "oX" = (
 /obj/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/secure_closet/chemical,
+/obj/structure/closet/secure_closet/chemical{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/scg/hospital)
 "ph" = (
@@ -1962,7 +2017,7 @@
 /area/gaia/scg/outskirts)
 "qW" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg/outskirts)
 "qY" = (
@@ -1997,7 +2052,7 @@
 "rs" = (
 /obj/structure/flora/tree/jungle,
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg)
 "rx" = (
@@ -2054,18 +2109,17 @@
 /obj/structure/bed/chair/wood{
 	dir = 4
 	},
-/obj/machinery/light/invisible,
 /turf/simulated/floor/exoplanet/concrete/reinforced,
 /area/gaia/scg)
 "rY" = (
 /obj/structure/flora/jungle/bush,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg/outskirts)
 "rZ" = (
 /obj/structure/flora/tree/jungle/small,
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg/outskirts)
 "sb" = (
@@ -2101,7 +2155,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/grim_wood_log,
+/turf/simulated/floor/exoplanet/concrete/reinforced/damaged,
 /area/gaia/scg/outskirts)
 "sp" = (
 /turf/simulated/floor/plating,
@@ -2116,12 +2170,6 @@
 	},
 /turf/simulated/floor/steel_dirty,
 /area/gaia/scg/command)
-"sx" = (
-/obj/structure/target_stake,
-/obj/decal/cleanable/dirt,
-/obj/item/target/syndicate,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/gaia/scg/shooting_range)
 "sE" = (
 /obj/floor_decal/techfloor/blood_red,
 /turf/simulated/floor/tiled/techmaint,
@@ -2174,6 +2222,7 @@
 /obj/item/book/manual/military_law,
 /obj/item/book/manual/nuclear,
 /obj/item/book/manual/engineering_hacking,
+/obj/item/book/manual/solgov_law,
 /turf/simulated/floor/plating,
 /area/gaia/scg/command)
 "sY" = (
@@ -2208,7 +2257,7 @@
 /turf/simulated/floor/steel_dirty,
 /area/gaia/scg/barracks)
 "tg" = (
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg)
 "tu" = (
@@ -2216,7 +2265,7 @@
 	dir = 4
 	},
 /obj/floor_decal/industrial/warning/dust/corner,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/scg)
 "tw" = (
@@ -2228,17 +2277,18 @@
 "tz" = (
 /obj/floor_decal/hull,
 /obj/structure/closet/crate/secure/weapon,
-/obj/item/storage/box/ammo/smg,
-/obj/item/storage/box/ammo/smg,
-/obj/item/storage/box/ammo/smg,
-/obj/item/storage/box/ammo/smg,
-/obj/item/storage/box/ammo/caseless,
-/obj/item/storage/box/ammo/caseless,
-/obj/item/storage/box/ammo/caseless,
-/obj/item/storage/box/ammo/caseless,
-/obj/item/storage/box/ammo/caseless,
-/obj/item/storage/box/ammo/caseless,
-/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/doublestack,
+/obj/item/storage/box/ammo/doublestack,
+/obj/item/storage/box/ammo/doublestack,
+/obj/item/storage/box/ammo/doublestack,
+/obj/item/storage/box/ammo/doublestack,
+/obj/item/storage/box/ammo/doublestack,
+/obj/item/storage/box/ammo/pistol,
+/obj/item/storage/box/ammo/pistol,
+/obj/item/storage/box/ammo/pistol,
+/obj/item/storage/box/ammo/pistol,
+/obj/item/storage/box/ammo/pistol,
+/obj/item/storage/box/ammo/pistol,
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "tB" = (
@@ -2279,7 +2329,7 @@
 /obj/floor_decal/corner/white/border{
 	dir = 8
 	},
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/scg)
 "tU" = (
@@ -2356,7 +2406,7 @@
 /turf/simulated/floor/steel_dirty,
 /area/gaia/scg/command/briefing)
 "uo" = (
-/turf/simulated/wall/iron,
+/turf/simulated/wall/r_concrete,
 /area/gaia/scg/security)
 "up" = (
 /obj/structure/table/woodentable/walnut,
@@ -2437,19 +2487,17 @@
 /turf/simulated/floor/plating,
 /area/gaia/scg/security/prison)
 "uT" = (
-/obj/structure/gaiabanner{
-	pixel_x = 16;
+/obj/structure/solbanner{
 	pixel_y = -6
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg)
-"uU" = (
+"uY" = (
 /obj/decal/cleanable/dirt,
-/obj/item/device/flashlight/lamp/floodlamp{
-	dir = 8
-	},
-/turf/simulated/floor/steel_dirty,
-/area/gaia/scg/command/briefing)
+/obj/item/stool/padded/red,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/lino,
+/area/gaia/scg/command/monty)
 "va" = (
 /obj/machinery/mech_recharger,
 /obj/structure/railing/mapped{
@@ -2524,7 +2572,7 @@
 /area/gaia/scg/barracks)
 "vx" = (
 /obj/structure/flora/tree/jungle,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg/outskirts)
 "vy" = (
@@ -2539,7 +2587,7 @@
 /turf/simulated/floor/lino,
 /area/gaia/scg/command)
 "vA" = (
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg/outskirts)
 "vD" = (
@@ -2548,13 +2596,15 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/engineering/communications)
 "vE" = (
-/obj/structure/target_stake,
-/obj/decal/cleanable/dirt,
-/obj/item/target,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/gaia/scg/shooting_range)
+/obj/structure/gaiabanner{
+	pixel_y = -6
+	},
+/turf/simulated/floor/exoplanet/grass,
+/area/gaia/scg)
 "vG" = (
-/obj/structure/closet/crate/secure/biohazard/alt,
+/obj/structure/closet/crate/secure/biohazard/alt{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/old_cargo,
 /area/gaia/scg/hospital/surgery)
 "vH" = (
@@ -2574,10 +2624,7 @@
 /area/gaia/scg/barracks)
 "vN" = (
 /obj/structure/table/standard,
-/obj/item/tableflag/rainbow{
-	anchored = 1;
-	desc = "A flag in the colors of the rainbow, celebrating inclusivity, diversity and equality across the universe. Its superglued to the table."
-	},
+/obj/item/tableflag/rainbow,
 /turf/simulated/floor/lino,
 /area/gaia/scg/barracks/ps)
 "vO" = (
@@ -2597,7 +2644,7 @@
 /obj/item/cell/guncell,
 /obj/item/cell/guncell,
 /obj/decal/cleanable/dirt,
-/obj/machinery/light/small{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -2618,10 +2665,15 @@
 /area/gaia/scg/barracks/officer)
 "vT" = (
 /obj/structure/table/woodentable/walnut,
-/obj/item/tableflag,
 /obj/structure/railing/mapped{
 	dir = 8;
 	icon_state = "railing0-1"
+	},
+/obj/item/tableflag/gaia{
+	pixel_x = 3
+	},
+/obj/item/tableflag{
+	pixel_x = -6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/gaia/scg/command/briefing)
@@ -2639,7 +2691,22 @@
 /turf/simulated/floor/tiled/white,
 /area/gaia/scg/barracks/officer/bathroom)
 "wc" = (
-/obj/structure/table/rack,
+/obj/item/storage/belt/holster/security/tactical,
+/obj/item/storage/belt/holster/security/tactical,
+/obj/item/storage/belt/holster/security/tactical,
+/obj/item/storage/belt/holster/security/tactical,
+/obj/item/storage/belt/holster/security/tactical,
+/obj/item/clothing/suit/armor/pcarrier/green/scg/medium,
+/obj/item/clothing/suit/armor/pcarrier/green/scg/medium,
+/obj/item/clothing/suit/armor/pcarrier/green/scg/medium,
+/obj/item/clothing/suit/armor/pcarrier/green/scg/medium,
+/obj/item/clothing/suit/armor/pcarrier/green/scg/medium,
+/obj/item/clothing/head/helmet/green/scg,
+/obj/item/clothing/head/helmet/green/scg,
+/obj/item/clothing/head/helmet/green/scg,
+/obj/item/clothing/head/helmet/green/scg,
+/obj/item/clothing/head/helmet/green/scg,
+/obj/structure/closet/secure_closet/guncabinet,
 /turf/simulated/floor/lino,
 /area/gaia/scg/command/monty)
 "wj" = (
@@ -2661,6 +2728,10 @@
 /obj/item/storage/firstaid/adv,
 /obj/item/gripper/auto_cpr,
 /obj/item/gripper/auto_cpr,
+/obj/item/storage/firstaid/trauma,
+/obj/item/storage/firstaid/stab,
+/obj/item/storage/firstaid/o2,
+/obj/item/storage/firstaid/fire,
 /turf/simulated/floor/tiled/techmaint,
 /area/gaia/scg/hospital)
 "wm" = (
@@ -2693,7 +2764,7 @@
 /area/gaia/scg/outskirts)
 "wy" = (
 /obj/decal/cleanable/blood/oil/streak,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/scg)
 "wA" = (
@@ -2705,11 +2776,23 @@
 /area/gaia/scg)
 "wD" = (
 /obj/structure/closet/crate/secure/weapon,
-/obj/item/storage/box/ammo/shotgunammo,
-/obj/item/storage/box/ammo/shotgunammo,
-/obj/item/storage/box/ammo/shotgunshells,
-/obj/item/storage/box/ammo/shotgunshells,
-/obj/item/storage/box/ammo/flechetteshells,
+/obj/item/ammo_magazine/speedloader/clip,
+/obj/item/ammo_magazine/speedloader/clip,
+/obj/item/ammo_magazine/speedloader/clip,
+/obj/item/ammo_magazine/speedloader/clip,
+/obj/item/ammo_magazine/speedloader/clip,
+/obj/item/ammo_magazine/speedloader/clip,
+/obj/item/ammo_magazine/speedloader/clip,
+/obj/item/ammo_magazine/speedloader/clip,
+/obj/item/ammo_magazine/iclipr,
+/obj/item/ammo_magazine/iclipr,
+/obj/item/ammo_magazine/iclipr,
+/obj/item/ammo_magazine/iclipr,
+/obj/item/ammo_magazine/iclipr,
+/obj/item/ammo_magazine/iclipr,
+/obj/item/ammo_magazine/iclipr,
+/obj/item/ammo_magazine/iclipr,
+/obj/item/ammo_magazine/iclipr,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "wF" = (
@@ -2752,7 +2835,9 @@
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck/bravo)
 "wW" = (
-/obj/structure/closet/secure_closet/security/cargo,
+/obj/structure/closet/secure_closet/security/cargo{
+	req_access = null
+	},
 /obj/floor_decal/techfloor{
 	dir = 9
 	},
@@ -2802,13 +2887,6 @@
 /obj/structure/flora/ausbushes/grassybush,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg)
-"xi" = (
-/obj/decal/cleanable/dirt,
-/obj/floor_decal/hull,
-/obj/structure/target_stake,
-/obj/item/target/alien,
-/turf/simulated/floor/plating,
-/area/gaia/scg/shooting_range)
 "xl" = (
 /obj/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/shutters,
@@ -2868,7 +2946,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/gaia/scg/security/prison)
 "xN" = (
-/turf/simulated/wall/iron,
+/turf/simulated/wall/r_concrete,
 /area/gaia/scg)
 "xO" = (
 /obj/floor_decal/industrial/outline/red,
@@ -3004,10 +3082,13 @@
 /turf/simulated/floor/lino,
 /area/gaia/scg/command/monty)
 "yR" = (
-/obj/structure/table/standard,
-/obj/item/modular_computer/laptop/preset/custom_loadout/advanced,
-/turf/simulated/floor/lino,
-/area/gaia/scg/command)
+/obj/floor_decal/industrial/warning/dust,
+/obj/structure/closet/medical_wall/filled{
+	pixel_y = -32;
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/scg/hospital)
 "yT" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/gaia/scg/engineering)
@@ -3059,9 +3140,9 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
-/obj/item/shield/riot,
-/obj/item/shield/riot,
 /obj/item/shield/riot/metal,
+/obj/item/shield/buckler,
+/obj/item/shield/buckler,
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "zw" = (
@@ -3096,7 +3177,9 @@
 /turf/simulated/floor/tiled/white,
 /area/gaia/scg/barracks/bathroom)
 "zZ" = (
-/obj/structure/closet/secure_closet/engineering_welding,
+/obj/structure/closet/secure_closet/engineering_welding{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/gaia/scg/engineering)
 "Aj" = (
@@ -3186,7 +3269,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/barren,
 /area/gaia/scg)
 "Bf" = (
@@ -3249,9 +3332,6 @@
 /obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/gaia/scg/security/prison)
-"BD" = (
-/turf/simulated/wall/iron,
-/area/gaia/scg/command/briefing)
 "BM" = (
 /obj/machinery/door/airlock/highsecurity/bolted,
 /turf/simulated/floor/tiled/techfloor/grid,
@@ -3265,7 +3345,7 @@
 /obj/floor_decal/industrial/warning/dust{
 	dir = 1
 	},
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/scg)
 "BR" = (
@@ -3308,6 +3388,13 @@
 /obj/structure/holoplant,
 /turf/simulated/floor/tiled/dark,
 /area/gaia/scg/command/briefing)
+"Cj" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/light,
+/obj/item/stool/padded/red,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/lino,
+/area/gaia/scg/command/monty)
 "Cl" = (
 /obj/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/shutters/open,
@@ -3422,14 +3509,14 @@
 	dir = 1
 	},
 /obj/structure/closet/crate/secure/weapon,
-/obj/item/storage/box/ammo/light_bullpup,
-/obj/item/storage/box/ammo/light_bullpup,
-/obj/item/storage/box/ammo/heavy_bullpup,
-/obj/item/storage/box/ammo/heavy_bullpup,
-/obj/item/storage/box/ammo/rifle,
-/obj/item/storage/box/ammo/rifle,
-/obj/item/storage/box/ammo/rifle,
-/obj/item/storage/box/ammo/rifle,
+/obj/item/storage/box/ammo/shotgunammo,
+/obj/item/storage/box/ammo/shotgunammo,
+/obj/item/storage/box/ammo/shotgunammo,
+/obj/item/storage/box/ammo/shotgunammo,
+/obj/item/storage/box/ammo/shotgunshells,
+/obj/item/storage/box/ammo/shotgunshells,
+/obj/item/storage/box/ammo/shotgunshells,
+/obj/item/storage/box/ammo/shotgunshells,
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "Db" = (
@@ -3465,10 +3552,18 @@
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/scg)
 "Dx" = (
-/obj/item/storage/box/large/scga_ranks,
-/obj/item/storage/box/large/scga_ranks_officer,
 /obj/structure/table/rack,
 /obj/decal/cleanable/dirt,
+/obj/item/storage/box/large/scga_ranks,
+/obj/item/storage/box/large/scga_ranks,
+/obj/item/storage/box/large/scga_ranks,
+/obj/item/storage/box/large/scga_ranks,
+/obj/item/storage/box/large/scga_ranks,
+/obj/item/storage/box/large/scga_ranks_officer,
+/obj/item/storage/box/large/scga_ranks_officer,
+/obj/item/storage/box/large/scga_ranks_officer,
+/obj/item/storage/box/large/scga_ranks_officer,
+/obj/item/storage/box/large/scga_ranks_officer,
 /turf/simulated/floor/lino,
 /area/gaia/scg/command/monty)
 "Dz" = (
@@ -3560,7 +3655,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/scg/barracks)
 "Eb" = (
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/scg/outskirts)
 "Ed" = (
@@ -3690,12 +3785,18 @@
 /obj/structure/curtain/open/military,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/barracks/officer)
+"Fc" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/scg/shooting_range)
 "Ff" = (
 /obj/floor_decal/hull{
 	dir = 1
 	},
 /obj/machinery/power/port_gen/pacman,
-/obj/machinery/light/small{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -3746,12 +3847,11 @@
 /obj/lock_helper/gaia_scg,
 /turf/simulated/floor/lino,
 /area/gaia/scg/barracks/ps)
-"FF" = (
-/obj/structure/hygiene/shower{
-	dir = 1
-	},
+"FH" = (
+/obj/machinery/external_cooling_device,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/old_cargo,
-/area/gaia/scg/hospital/surgery)
+/area/gaia/scg/engineering/communications)
 "FI" = (
 /obj/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark/monotile,
@@ -3817,7 +3917,7 @@
 /area/gaia/scg/barracks)
 "Ga" = (
 /obj/structure/barricade/spike,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/barren,
 /area/gaia/scg/outskirts)
 "Gg" = (
@@ -4145,7 +4245,7 @@
 /turf/simulated/floor/steel_dirty,
 /area/gaia/scg/command/briefing)
 "IZ" = (
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/concrete/reinforced,
 /area/gaia/scg)
 "Ja" = (
@@ -4156,7 +4256,7 @@
 "Jb" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/grassybush,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg/outskirts)
 "Je" = (
@@ -4251,6 +4351,9 @@
 /area/gaia/scg/security/prison)
 "JI" = (
 /obj/decal/cleanable/filth,
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/shooting_range)
 "JR" = (
@@ -4373,7 +4476,7 @@
 "KA" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/tree/jungle/small,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg)
 "KB" = (
@@ -4402,7 +4505,7 @@
 /obj/item/storage/backpack/rucksack/green,
 /obj/item/storage/backpack/rucksack/tan,
 /obj/item/storage/backpack/rucksack/tan,
-/obj/item/storage/backpack/rucksack/blue,
+/obj/item/storage/backpack/rucksack/tan,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "KK" = (
@@ -4549,12 +4652,16 @@
 /area/gaia/scg/barracks/officer/bathroom)
 "LW" = (
 /obj/structure/flora/tree/jungle/small,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg/outskirts)
 "Ma" = (
-/obj/item/storage/box/scga_badges,
 /obj/structure/table/rack,
+/obj/item/storage/box/scga_badges,
+/obj/item/storage/box/scga_badges,
+/obj/item/storage/box/scga_badges,
+/obj/item/storage/box/scga_badges,
+/obj/item/storage/box/scga_badges,
 /turf/simulated/floor/lino,
 /area/gaia/scg/command/monty)
 "Me" = (
@@ -4580,8 +4687,8 @@
 /area/gaia/scg/hospital/surgery)
 "Ms" = (
 /obj/structure/target_stake,
-/obj/item/target/syndicate,
 /obj/decal/cleanable/dirt,
+/obj/item/target/gaia/iccg,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/shooting_range)
 "MA" = (
@@ -4649,7 +4756,7 @@
 /obj/floor_decal/industrial/warning/dust{
 	dir = 1
 	},
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/scg)
 "Nc" = (
@@ -4669,6 +4776,10 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/engineering/communications)
+"Ng" = (
+/obj/landmark/light/gaia,
+/turf/simulated/floor/exoplanet/concrete/reinforced/damaged,
+/area/gaia/scg/outskirts)
 "Nh" = (
 /obj/machinery/hologram/holopad/longrange,
 /obj/decal/cleanable/blood/oil,
@@ -4720,7 +4831,7 @@
 "NN" = (
 /obj/floor_decal/hull,
 /obj/structure/target_stake,
-/obj/item/target/syndicate,
+/obj/item/target/gaia/iccg,
 /turf/simulated/floor/plating,
 /area/gaia/scg/shooting_range)
 "NR" = (
@@ -4749,7 +4860,7 @@
 /obj/item/barrier,
 /obj/item/barrier,
 /obj/item/barrier,
-/obj/machinery/light/small{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -4760,7 +4871,7 @@
 	},
 /obj/structure/railing/mapped/hard,
 /obj/floor_decal/industrial/warning/dust,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg/outskirts)
 "On" = (
@@ -4826,7 +4937,7 @@
 "OL" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/ywflowers,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg)
 "OQ" = (
@@ -4839,7 +4950,7 @@
 "OR" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg)
 "OU" = (
@@ -4857,7 +4968,7 @@
 /area/gaia/scg)
 "OZ" = (
 /obj/structure/flora/ausbushes/lavendergrass,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg)
 "Pb" = (
@@ -4964,7 +5075,7 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg/outskirts)
 "PZ" = (
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/scg/outskirts)
 "Qb" = (
@@ -5009,15 +5120,18 @@
 /area/gaia/scg/barracks/officer/bathroom)
 "Qz" = (
 /obj/structure/closet/crate/secure/weapon,
-/obj/item/storage/box/ammo/sniperammo,
-/obj/item/storage/box/ammo/sniperammo,
-/obj/item/storage/box/ammo/sniperammo,
-/obj/item/storage/box/ammo/sniperammo/apds,
-/obj/item/ammo_magazine/speedloader/clip,
-/obj/item/ammo_magazine/speedloader/clip,
-/obj/item/ammo_magazine/speedloader/dmr,
-/obj/item/ammo_magazine/speedloader/dmr,
 /obj/decal/cleanable/dirt,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "QC" = (
@@ -5108,7 +5222,7 @@
 /area/gaia/scg/worship)
 "Rw" = (
 /obj/structure/grille/broken,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/scg/outskirts)
 "RF" = (
@@ -5156,7 +5270,7 @@
 /turf/unsimulated/mineral,
 /area/gaia/scg/outskirts)
 "Sa" = (
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/scg)
 "Sh" = (
@@ -5237,7 +5351,9 @@
 /turf/simulated/floor/lino,
 /area/gaia/scg/command)
 "SE" = (
-/obj/structure/closet/secure_closet/medical2,
+/obj/structure/closet/secure_closet/medical2{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/old_cargo,
 /area/gaia/scg/hospital/surgery)
 "SH" = (
@@ -5311,7 +5427,7 @@
 /area/gaia/scg/engineering/communications)
 "Tg" = (
 /obj/floor_decal/industrial/outline/red,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/concrete/reinforced,
 /area/gaia/scg)
 "Ti" = (
@@ -5374,12 +5490,11 @@
 /area/gaia/scg/engineering/water)
 "TJ" = (
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/item/clothing/suit/armor/bulletproof,
-/obj/item/clothing/suit/armor/bulletproof,
-/obj/item/clothing/suit/armor/bulletproof,
-/obj/item/clothing/head/helmet/ballistic,
-/obj/item/clothing/head/helmet/ballistic,
-/obj/item/clothing/head/helmet/ballistic,
+/obj/item/storage/backpack/dufflebag/firefighter,
+/obj/item/flamethrower/full/loaded,
+/obj/item/tank/phoron,
+/obj/item/tank/phoron,
+/obj/item/tank/phoron,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "TM" = (
@@ -5426,7 +5541,7 @@
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/hull,
 /obj/structure/target_stake,
-/obj/item/target,
+/obj/item/target/gaia/iccg,
 /turf/simulated/floor/plating,
 /area/gaia/scg/shooting_range)
 "Uk" = (
@@ -5438,7 +5553,7 @@
 /obj/floor_decal/industrial/warning/dust{
 	dir = 4
 	},
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/scg)
 "Uo" = (
@@ -5465,6 +5580,7 @@
 /area/gaia/scg)
 "Uz" = (
 /obj/structure/table/standard,
+/obj/item/modular_computer/laptop/preset/custom_loadout/advanced/commander,
 /turf/simulated/floor/lino,
 /area/gaia/scg/barracks/ps)
 "UA" = (
@@ -5526,7 +5642,7 @@
 /turf/simulated/floor/steel_dirty,
 /area/gaia/scg/command)
 "Ve" = (
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/scg)
 "Vf" = (
@@ -5540,7 +5656,7 @@
 /obj/structure/barricade/spike{
 	dir = 8
 	},
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/barren,
 /area/gaia/scg/outskirts)
 "Vi" = (
@@ -5549,7 +5665,7 @@
 /area/gaia/scg/armory)
 "Vj" = (
 /obj/machinery/constructable_frame/machine_frame,
-/turf/simulated/wall/concrete,
+/turf/simulated/floor/tiled/techfloor,
 /area/gaia/scg/command/monty)
 "Vk" = (
 /turf/simulated/floor/exoplanet/grass,
@@ -5572,19 +5688,13 @@
 /area/gaia/scg/security/prison)
 "Vs" = (
 /obj/structure/table/rack,
-/obj/item/clothing/glasses/tacgoggles,
-/obj/item/clothing/glasses/tacgoggles,
-/obj/item/clothing/glasses/tacgoggles,
-/obj/item/clothing/glasses/tacgoggles,
-/obj/item/clothing/glasses/tacgoggles,
-/obj/item/clothing/glasses/tacgoggles,
 /obj/decal/cleanable/dirt,
-/obj/item/clothing/accessory/glassesmod/hud/medical,
-/obj/item/clothing/accessory/glassesmod/hud/medical,
-/obj/item/clothing/accessory/glassesmod/hud/medical,
 /obj/item/clothing/accessory/glassesmod/vision/welding,
 /obj/item/clothing/accessory/glassesmod/vision/welding,
 /obj/item/clothing/accessory/glassesmod/vision/welding,
+/obj/item/clothing/accessory/glassesmod/hud/medical,
+/obj/item/clothing/accessory/glassesmod/hud/medical,
+/obj/item/clothing/accessory/glassesmod/hud/medical,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "Vu" = (
@@ -5612,11 +5722,10 @@
 /obj/structure/closet/secure_closet/guncabinet,
 /obj/item/gun/projectile/heavysniper/boltaction,
 /obj/item/gun/projectile/heavysniper/boltaction,
-/obj/item/gun/projectile/sniper/semistrip,
-/obj/item/gun/projectile/sniper/semistrip,
-/obj/item/gun/projectile/sniper/semistrip,
+/obj/item/gun/projectile/heavysniper/boltaction/scope,
 /obj/item/gun/projectile/sniper/garand,
-/obj/decal/cleanable/dirt,
+/obj/item/gun/projectile/sniper/garand,
+/obj/item/gun/projectile/sniper/garand,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "VE" = (
@@ -5664,20 +5773,6 @@
 /obj/floor_decal/industrial/warning/dust,
 /turf/simulated/floor/tiled/techmaint,
 /area/gaia/scg/hospital)
-"Wa" = (
-/obj/structure/closet/crate/secure/weapon,
-/obj/item/storage/box/ammo/doublestack,
-/obj/item/storage/box/ammo/doublestack,
-/obj/item/storage/box/ammo/pistol,
-/obj/item/storage/box/ammo/pistol,
-/obj/item/ammo_magazine/speedloader/small,
-/obj/item/ammo_magazine/speedloader/small,
-/obj/item/ammo_magazine/speedloader/small,
-/obj/decal/cleanable/dirt,
-/obj/item/storage/box/ammo/pistol,
-/obj/item/storage/box/ammo/pistol,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/gaia/scg/armory)
 "Wc" = (
 /obj/structure/iv_stand,
 /turf/simulated/floor/tiled/old_cargo,
@@ -5696,7 +5791,7 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg)
 "Wi" = (
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/barren,
 /area/gaia/scg/outskirts)
 "Wm" = (
@@ -5719,7 +5814,7 @@
 	dir = 1
 	},
 /obj/floor_decal/industrial/warning/dust,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/scg)
 "Ws" = (
@@ -5860,7 +5955,7 @@
 /area/gaia/scg/barracks/ps)
 "Xi" = (
 /obj/structure/flora/ausbushes/grassybush,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg/outskirts)
 "Xj" = (
@@ -5934,6 +6029,16 @@
 /area/gaia/scg/command)
 "XU" = (
 /obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/projectile/automatic/caseless/carbine,
+/obj/item/gun/projectile/automatic/caseless/carbine,
+/obj/item/gun/projectile/automatic/caseless/carbine,
+/obj/item/gun/projectile/automatic/caseless/carbine,
+/obj/item/gun/projectile/automatic/caseless/carbine,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
 /turf/simulated/floor/lino,
 /area/gaia/scg/command/monty)
 "XX" = (
@@ -6009,7 +6114,7 @@
 /area/gaia/scg/barracks/officer/breakroom)
 "Yz" = (
 /obj/structure/flora/tree/jungle,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg)
 "YA" = (
@@ -6021,7 +6126,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/gaia/scg/security/prison)
 "YE" = (
-/obj/structure/closet/crate/medical,
+/obj/structure/closet/secure_closet/personal/patient,
 /turf/simulated/floor/steel_dirty,
 /area/gaia/scg/hospital)
 "YG" = (
@@ -6196,6 +6301,21 @@
 "ZB" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/projectile/pistol/m19,
+/obj/item/gun/projectile/pistol/m19,
+/obj/item/gun/projectile/pistol/m19,
+/obj/item/gun/projectile/pistol/m19,
+/obj/item/gun/projectile/pistol/m19,
+/obj/item/storage/box/ammo/pistol,
+/obj/item/storage/box/ammo/pistol,
+/obj/item/storage/box/ammo/pistol,
+/obj/item/storage/box/ammo/pistol,
+/obj/item/storage/box/ammo/pistol,
+/obj/item/clothing/accessory/storage/holster/thigh,
+/obj/item/clothing/accessory/storage/holster/thigh,
+/obj/item/clothing/accessory/storage/holster/thigh,
+/obj/item/clothing/accessory/storage/holster/thigh,
+/obj/item/clothing/accessory/storage/holster/thigh,
 /turf/simulated/floor/plating,
 /area/gaia/scg/command/monty)
 "ZC" = (
@@ -6210,7 +6330,7 @@
 "ZI" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/solbanner,
-/obj/machinery/light/invisible,
+/obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg/worship)
 "ZJ" = (
@@ -6224,8 +6344,12 @@
 /area/gaia/scg/security)
 "ZK" = (
 /obj/structure/table/woodentable/walnut,
-/obj/item/tableflag,
-/obj/item/key/gaia/scg,
+/obj/item/tableflag{
+	pixel_x = -6
+	},
+/obj/item/tableflag/gaia{
+	pixel_x = 3
+	},
 /turf/simulated/floor/carpet/green,
 /area/gaia/scg/command)
 "ZL" = (
@@ -6680,9 +6804,9 @@ jX
 Ev
 qR
 rj
+bp
 wH
-wH
-wH
+uY
 rj
 xq
 xq
@@ -6784,7 +6908,7 @@ qR
 rj
 Ub
 kQ
-Le
+Cj
 rj
 xq
 xq
@@ -6886,7 +7010,7 @@ VJ
 rj
 eh
 wH
-wH
+uY
 rj
 xq
 xq
@@ -6988,7 +7112,7 @@ Is
 rj
 Dx
 wH
-wH
+uY
 rj
 xq
 xq
@@ -8212,7 +8336,7 @@ oH
 zK
 ye
 eU
-ye
+dn
 rj
 xq
 xq
@@ -9482,7 +9606,7 @@ mz
 nc
 nc
 DF
-Vk
+vE
 Vk
 DF
 cL
@@ -9795,9 +9919,9 @@ nc
 nc
 We
 aK
-aK
-aK
-aK
+mk
+mk
+mk
 aK
 aK
 aK
@@ -9901,8 +10025,8 @@ Wi
 aK
 aK
 aK
-aK
-Wi
+mk
+Ng
 aK
 Wn
 eY
@@ -10004,7 +10128,7 @@ Wn
 Wn
 aK
 aK
-aK
+mk
 aK
 Wn
 Wn
@@ -10074,7 +10198,7 @@ rx
 rx
 el
 el
-BD
+rx
 rx
 rx
 yw
@@ -10105,7 +10229,7 @@ Wn
 pM
 Wn
 Wn
-aK
+mk
 aK
 aK
 Wn
@@ -10412,8 +10536,8 @@ jK
 Wn
 pM
 aK
-Wi
-aK
+Ng
+mk
 Wn
 Wn
 Wn
@@ -10515,7 +10639,7 @@ Wn
 Wn
 aK
 aK
-aK
+mk
 Wn
 Wn
 jK
@@ -10617,7 +10741,7 @@ Wn
 pM
 Wn
 aK
-aK
+mk
 Wn
 Wn
 Wn
@@ -10939,15 +11063,15 @@ Wn
 aK
 Wi
 aK
-Wn
+mk
+mk
+mk
+Ng
 aK
 aK
-Wi
-aK
-aK
-Wn
-aK
-PZ
+mk
+mk
+Ng
 Ru
 Ru
 Ru
@@ -11039,17 +11163,17 @@ Wn
 Wn
 aK
 aK
+mk
 aK
 aK
 aK
 aK
+mk
 aK
 aK
-aK
-aK
-aK
-aK
-hS
+mk
+mk
+mk
 Ru
 Ru
 Ru
@@ -11095,7 +11219,7 @@ UA
 iE
 UA
 GK
-uU
+GK
 UA
 UA
 EZ
@@ -11126,7 +11250,7 @@ bQ
 bQ
 Wn
 aK
-aK
+mk
 aK
 pM
 Wn
@@ -11140,19 +11264,19 @@ Wn
 Wn
 Wn
 aK
+mk
+mk
 aK
 aK
+mk
+mk
 aK
 aK
+mk
 aK
 aK
-aK
-aK
-aK
-aK
-aK
-hS
-hS
+mk
+mk
 Ru
 Ru
 Ru
@@ -11182,7 +11306,7 @@ gY
 jk
 Ps
 Yr
-yR
+Cw
 DH
 jk
 gY
@@ -11228,7 +11352,7 @@ Wn
 bQ
 Wn
 aK
-aK
+mk
 aK
 Wn
 Wn
@@ -11242,7 +11366,7 @@ jK
 Wn
 Wn
 aK
-aK
+mk
 aK
 aK
 Wn
@@ -11329,7 +11453,7 @@ Wn
 bQ
 bQ
 Wn
-aK
+mk
 aK
 aK
 Wn
@@ -11385,7 +11509,7 @@ Vk
 gY
 sw
 sp
-yR
+Cw
 Cw
 tw
 sw
@@ -11431,7 +11555,7 @@ vA
 bQ
 jK
 Wn
-aK
+mk
 Wi
 aK
 Wn
@@ -11533,7 +11657,7 @@ Wn
 Wn
 Wn
 Wn
-aK
+mk
 aK
 aK
 Wn
@@ -11548,7 +11672,7 @@ Wn
 Wn
 Wn
 aK
-aK
+mk
 aK
 Wn
 gI
@@ -11635,7 +11759,7 @@ Wn
 Wn
 Wn
 Wn
-aK
+mk
 aK
 aK
 Wn
@@ -11650,7 +11774,7 @@ Wn
 pM
 Wn
 aK
-aK
+mk
 aK
 Wn
 gI
@@ -11751,7 +11875,7 @@ Wn
 Wn
 Wn
 Wn
-aK
+mk
 aK
 aK
 Wn
@@ -11853,7 +11977,7 @@ Wn
 Wn
 Wn
 Wn
-aK
+mk
 aK
 Wn
 Wn
@@ -11893,11 +12017,11 @@ xN
 xN
 dV
 Vk
-Vk
-Vk
-tg
-Vk
-Vk
+by
+by
+by
+by
+by
 Vk
 tg
 Vk
@@ -11996,9 +12120,9 @@ Vk
 bT
 Vk
 by
-by
-by
-by
+FH
+oq
+lD
 by
 Vk
 Vk
@@ -12044,7 +12168,7 @@ Wn
 Wn
 Wn
 aK
-aK
+mk
 aK
 Wn
 eY
@@ -12058,8 +12182,8 @@ jK
 Wn
 Wn
 aK
-aK
-aK
+mk
+mk
 Wn
 Wn
 Wn
@@ -12146,7 +12270,7 @@ Wn
 Wn
 Wn
 aK
-aK
+mk
 aK
 Wn
 Wn
@@ -12160,8 +12284,8 @@ Wn
 Wn
 Wn
 aK
-aK
-aK
+mk
+mk
 Wn
 jK
 Wn
@@ -12249,7 +12373,7 @@ Wn
 Wn
 aK
 aK
-aK
+mk
 pM
 Wn
 Wn
@@ -12262,8 +12386,8 @@ Wn
 Wn
 Wn
 aK
-aK
-aK
+mk
+mk
 Wn
 bQ
 Wn
@@ -12351,7 +12475,7 @@ Wn
 Wn
 aK
 aK
-aK
+mk
 Wn
 Wn
 Wn
@@ -12363,9 +12487,9 @@ Wn
 pM
 Wn
 Wn
-aK
-aK
-Wn
+mk
+mk
+mk
 Wn
 bQ
 Wn
@@ -12453,7 +12577,7 @@ eY
 Wn
 aK
 Wi
-aK
+mk
 Wn
 Wn
 CE
@@ -12465,8 +12589,8 @@ Wn
 vA
 Wn
 Wn
-aK
-aK
+mk
+mk
 Wi
 xQ
 xQ
@@ -12568,7 +12692,7 @@ Wn
 Wn
 aK
 aK
-aK
+mk
 Wn
 Wn
 xQ
@@ -12655,22 +12779,22 @@ Wn
 eY
 Wn
 Wn
+mk
 aK
-aK
-aK
-aK
+mk
+mk
 VA
 gB
 gB
 aK
+mk
+mk
+mk
 aK
-Wn
+mk
+mk
 aK
-aK
-aK
-aK
-aK
-aK
+mk
 aK
 Wn
 xQ
@@ -12708,7 +12832,7 @@ xX
 in
 in
 xX
-rp
+da
 rp
 AA
 Vk
@@ -12759,20 +12883,20 @@ Wn
 Wn
 aK
 aK
-aK
+mk
 aK
 VA
 mk
 mk
 aK
+mk
+mk
+mk
 aK
 aK
 aK
-aK
-aK
-aK
-aK
-aK
+mk
+mk
 aK
 Wn
 bQ
@@ -12807,7 +12931,7 @@ mM
 mM
 AA
 xX
-vE
+Ms
 ul
 WO
 tg
@@ -12861,7 +12985,7 @@ Wn
 eY
 Wn
 aK
-aK
+mk
 aK
 VA
 sj
@@ -12871,8 +12995,8 @@ aK
 aK
 Wn
 Wn
-aK
-aK
+mk
+mk
 aK
 aK
 Wn
@@ -12962,7 +13086,7 @@ Wn
 Wn
 Wn
 aK
-Wi
+Ng
 aK
 Wn
 sT
@@ -13064,7 +13188,7 @@ Wn
 Wn
 Wn
 aK
-aK
+mk
 aK
 Wn
 Wn
@@ -13115,7 +13239,7 @@ ka
 xX
 ul
 ul
-xi
+Uj
 Vk
 Lt
 wF
@@ -13136,7 +13260,7 @@ fa
 Kt
 Zq
 id
-VZ
+yR
 hT
 fa
 oX
@@ -13165,8 +13289,8 @@ Wn
 Wn
 Wn
 jK
-aK
-aK
+mk
+mk
 aK
 Wn
 pM
@@ -13215,7 +13339,7 @@ EQ
 Vk
 AA
 xX
-sx
+Ms
 ul
 qT
 tg
@@ -13317,7 +13441,7 @@ mM
 Vk
 AA
 xX
-ul
+Fc
 ul
 NN
 rp
@@ -13419,7 +13543,7 @@ Vk
 Vk
 AA
 xX
-sx
+Ms
 ul
 qT
 AA
@@ -13442,7 +13566,7 @@ DF
 Hu
 wL
 Cc
-dn
+Kw
 Hu
 DF
 DF
@@ -13574,7 +13698,7 @@ Wn
 bQ
 bQ
 aK
-aK
+mk
 aK
 gI
 Wn
@@ -13676,7 +13800,7 @@ Wn
 bQ
 bQ
 aK
-aK
+mk
 aK
 gI
 Wn
@@ -13778,7 +13902,7 @@ Wn
 sb
 bQ
 aK
-aK
+mk
 Wn
 jK
 Wn
@@ -13880,7 +14004,7 @@ Wn
 Wn
 Wn
 aK
-aK
+mk
 aK
 gI
 Wn
@@ -13981,7 +14105,7 @@ Xi
 Wn
 Wn
 Wn
-aK
+mk
 Wi
 Wn
 Wn
@@ -14055,7 +14179,7 @@ FR
 FR
 FR
 Mp
-FF
+FR
 Mp
 Uk
 iq
@@ -14083,7 +14207,7 @@ gI
 Wn
 eY
 pM
-aK
+mk
 aK
 aK
 Wn
@@ -14237,7 +14361,7 @@ Vi
 MH
 eX
 Qz
-Wa
+Qz
 tz
 CZ
 wD
@@ -14288,7 +14412,7 @@ pM
 Wn
 Wn
 aK
-aK
+mk
 aK
 Wn
 Wn
@@ -14390,8 +14514,8 @@ Wn
 Wn
 Wn
 aK
-aK
-aK
+mk
+mk
 Wn
 Wn
 Wn
@@ -14493,7 +14617,7 @@ Wn
 Wn
 aK
 Wi
-Wn
+mk
 Wn
 eY
 Wn
@@ -14595,7 +14719,7 @@ jK
 Wn
 aK
 aK
-aK
+mk
 Wn
 Wn
 Wn
@@ -14697,7 +14821,7 @@ Wn
 Wn
 aK
 aK
-aK
+mk
 Wn
 pM
 Wn
@@ -14798,8 +14922,8 @@ Wn
 Wn
 Wn
 aK
-aK
-aK
+mk
+mk
 Wn
 Wn
 Wn
@@ -14895,9 +15019,9 @@ ef
 ef
 FM
 BR
-Wn
-aK
-Wn
+mk
+mk
+mk
 aK
 aK
 aK
@@ -14998,9 +15122,9 @@ ef
 FM
 aK
 Ga
-Wn
-aK
-aK
+mk
+mk
+mk
 aK
 Wi
 aK
@@ -15099,12 +15223,12 @@ ef
 IZ
 FM
 fx
-aK
-aK
-Wn
-Wn
-aK
-aK
+mk
+mk
+mk
+mk
+mk
+mk
 Wn
 Wn
 Wn

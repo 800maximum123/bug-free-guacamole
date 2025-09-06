@@ -22,8 +22,13 @@
 
 /// INVISIBLE LIGHTS ///
 
-/obj/machinery/light/invisible
+/obj/machinery/light/invisible // Changed up to be better in Gaia
+	idle_power_usage = 0
+	active_power_usage = 0
+	use_power = POWER_USE_OFF
+	light_type = /obj/item/light/tube/large
 	invisibility = 101
+	unacidable = TRUE
 
 /obj/machinery/light/blue/invisible
 	invisibility = 101

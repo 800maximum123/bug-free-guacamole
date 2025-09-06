@@ -141,7 +141,8 @@ var/global/list/admin_verbs_fun = list(
 	/client/proc/cmd_admin_simulate_distant_explosion,
 	/datum/admins/proc/ai_hologram_set,
 	/client/proc/bombard_zlevel,
-	/client/proc/rename_shuttle
+	/client/proc/rename_shuttle,
+	/client/proc/commander_message, // GAIA
 	)
 
 var/global/list/admin_verbs_spawn = list(

@@ -29,8 +29,6 @@
 	species_restricted = list("exclude", SPECIES_NABBER, SPECIES_DIONA)
 	flash_protection = FLASH_PROTECTION_MAJOR
 
-	var/obj/machinery/camera/camera
-
 	action_button_name = "Toggle Helmet Light"
 	light_overlay = "helmet_light"
 	brightness_on = 1
@@ -38,42 +36,11 @@
 
 	var/tinted = null	//Set to non-null for toggleable tint helmets
 
-/obj/item/clothing/head/helmet/space/Destroy()
-	if(camera && !ispath(camera))
-		QDEL_NULL(camera)
-	. = ..()
-
 /obj/item/clothing/head/helmet/space/Initialize()
 	. = ..()
-	if(camera)
-		verbs += /obj/item/clothing/head/helmet/space/proc/toggle_camera
 	if(!isnull(tinted))
 		verbs += /obj/item/clothing/head/helmet/space/proc/toggle_tint
 		update_tint()
-
-/obj/item/clothing/head/helmet/space/proc/toggle_camera()
-	set name = "Toggle Helmet Camera"
-	set category = "Object"
-	set src in usr
-
-	if(ispath(camera))
-		camera = new camera(src)
-		camera.set_stat_immunity(MACHINE_STAT_NOPOWER)
-		camera.set_status(0)
-		camera.is_helmet_cam = TRUE
-
-	if(camera)
-		camera.set_status(!camera.status)
-		if(camera.status)
-			camera.c_tag = FindNameFromID(usr)
-			to_chat(usr, SPAN_NOTICE("User scanned as [camera.c_tag]. Camera activated."))
-		else
-			to_chat(usr, SPAN_NOTICE("Camera deactivated."))
-
-/obj/item/clothing/head/helmet/space/examine(mob/user, distance)
-	. = ..()
-	if(distance <= 1 && camera)
-		to_chat(user, "This helmet has a built-in camera. Its [!ispath(camera) && camera.status ? "" : "in"]active.")
 
 /obj/item/clothing/head/helmet/space/proc/update_tint()
 	if(tinted)

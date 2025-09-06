@@ -22,6 +22,17 @@
 			return 0
 		if(NETWORK_HELMETS)
 			return access_eva
+		// GAIA
+		if(NETWORK_HELMETS_SCG)
+			return access_heads
+		if(NETWORK_HELMETS_ICCG)
+			return access_iccg_com
+		if(NETWORK_SCG)
+			return access_heads
+		if(NETWORK_ICCG)
+			return access_iccg_com
+		if(NETWORK_GAIA)
+			return access_maint_tunnels
 
 	return access_security // Default for all other networks
 

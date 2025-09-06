@@ -40,6 +40,8 @@
 
 	var/intercom_handling = FALSE
 
+	var/command = FALSE
+
 
 /obj/item/device/radio/hailing
 	name = "shortwave radio (Hailing)"
@@ -386,6 +388,10 @@
 	if(loc == M)
 		playsound(loc, 'sound/effects/walkietalkie.ogg', 20, 0, -1)
 
+	// GAIA. Radios with command var set to TRUE will be much larger
+	// Made to make important HQ messages more seen
+	if(command)
+		message = FONT_GIANT(message)
 
 	/* Quick introduction:
 		This new radio system uses a very robust FTL signaling technology unoriginally

@@ -59,6 +59,12 @@
 	desc = "ICCG Command"
 	region = ACCESS_REGION_NONE
 
+/var/const/access_iccg_com_xo = "ACCESS_ICCG_COM_XO"
+/datum/access/iccg_com
+	id = access_iccg_com_xo
+	desc = "ICCG Command - XO"
+	region = ACCESS_REGION_NONE
+
 /var/const/access_iccg_com_cap = "ACCESS_ICCG_COM_CAP"
 /datum/access/iccg_com_cap
 	id = access_iccg_com_cap
@@ -846,6 +852,8 @@
 	var/zoom_size = 9
 
 /obj/item/device/binoculars/blue
+	name = "advanced binoculars"
+	desc = "A pair of binoculars with extra range."
 	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi'
 	icon_state = "binoculars1"
 	zoom_offset = 16
@@ -858,6 +866,8 @@
 		zoom(user, zoom_offset, zoom_size)
 
 /obj/item/device/binoculars/nvg
+	name = "ultra binoculars"
+	desc = "A pair of binoculars with extra-EXTRA range."
 	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi'
 	icon_state = "binoculars_nvg"
 	zoom_offset = 19
@@ -874,9 +884,13 @@
 	icon_state = pick("binoculars","binoculars1","binoculars_nvg")
 	switch(icon_state)
 		if("binoculars1")
+			name = "advanced binoculars"
+			desc = "A pair of binoculars with extra range."
 			zoom_offset = 16
 			zoom_size = 9
 		if("binoculars_nvg")
+			name = "ultra binoculars"
+			desc = "A pair of binoculars with extra-EXTRA range."
 			zoom_offset = 19
 			zoom_size = 11
 		else
@@ -1054,7 +1068,7 @@
 
 /obj/structure/sign/double/ul_iccg
 	name = "ICCG Flag"
-	desc = "The flag of the Independent Colonial Confederation of Gilgamesh."
+	desc = "The flag of the Independent Colonial Confederation of Gilgamesh, a symbol of Motherland to many proud people."
 	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi'
 
 /obj/structure/sign/double/ul_iccg/left

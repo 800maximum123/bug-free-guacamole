@@ -59,6 +59,9 @@
 	"}
 	path = /obj/item/material/coin/challenge/gcc
 	cost = 1
+	allowed_branches = list(
+		/datum/mil_branch/iccgn
+	)
 
 
 /datum/gear/trinket/gcc_challenge_coin/New()

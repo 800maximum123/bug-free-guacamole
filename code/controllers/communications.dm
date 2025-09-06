@@ -170,7 +170,8 @@ var/global/list/radiochannels = list(
 	"Entertainment" = ENT_FREQ,
 	"Medical (I)"	= MED_I_FREQ,
 	"Security (I)"	= SEC_I_FREQ,
-	"ICGNV Hound"   = ICCGN_FREQ
+	"ICCGN"         = ICCGN_FREQ,
+	"SCGDF"         = SFV_FREQ,
 )
 
 var/global/list/channel_color_presets = list(
@@ -244,6 +245,10 @@ var/global/list/DEPT_FREQS = list(AI_FREQ, COMM_FREQ, ENG_FREQ, MED_FREQ, SEC_FR
 		return "hailradio"
 	if(frequency in DEPT_FREQS)
 		return "deptradio"
+	if (frequency == ICCGN_FREQ) // ICCGN Frequency
+		return "iccgradio"
+	if (frequency == SFV_FREQ) // SCGDF Frequency
+		return "scgradio"
 
 	// Away site channels
 	for (var/channel in AWAY_FREQS_ASSIGNED)

@@ -165,3 +165,16 @@
 /obj/wallframe_spawn/reinforced/polarized/handle_window_spawn(obj/structure/window/reinforced/polarized/P)
 	if(id)
 		P.id = id
+
+//GAIA CONCRETE FRAMES
+/obj/wallframe_spawn/concrete
+	name = "concrete wall frame window spawner"
+	frame_path = /obj/structure/wall_frame/concrete
+
+/obj/wallframe_spawn/reinforced/concrete
+	name = "reinforced concrete wall frame window spawner"
+	frame_path = /obj/structure/wall_frame/concrete
+
+/obj/wallframe_spawn/reinforced/polarized/concrete
+	name = "polarized reinforced concrete wall frame window spawner"
+	frame_path = /obj/structure/wall_frame/concrete

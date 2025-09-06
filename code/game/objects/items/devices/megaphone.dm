@@ -31,13 +31,15 @@
 		if(emagged)
 			if(insults)
 				for(var/mob/O in (viewers(user)))
-					O.show_message("<B>[user]</B> broadcasts, [FONT_LARGE("\"[pick(insultmsg)]\"")]",2) // 2 stands for hearable message
+					O.audible_message(message = SPAN_DANGER("([FONT_GIANT("\"[pick(insultmsg)]\"")])"))
+					playsound(src, 'sound/items/megaphone.ogg', 100, TRUE)
 				insults--
 			else
 				to_chat(user, SPAN_WARNING("*BZZZZzzzzzt*"))
 		else
 			for(var/mob/O in (viewers(user)))
-				O.show_message("<B>[user]</B> broadcasts, [FONT_LARGE("\"[message]\"")]",2) // 2 stands for hearable message
+				O.audible_message(message = "[FONT_GIANT("\"[message]\"")]")
+				playsound(src, 'sound/items/megaphone.ogg', 50, TRUE)
 
 		spamcheck = 1
 		spawn(20)

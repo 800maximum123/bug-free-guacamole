@@ -4,15 +4,8 @@
 	base_floor_area = /area/gaia
 
 	post_round_safe_areas = list (
-		/area/centcom,
-		/area/shuttle/escape/centcom,
-		/area/shuttle/escape_pod1/centcom,
-		/area/shuttle/escape_pod2/centcom,
-		/area/shuttle/escape_pod3/centcom,
-		/area/shuttle/escape_pod5/centcom,
-		/area/shuttle/transport1/centcom,
-		/area/shuttle/administration/centcom,
-		/area/shuttle/specops/centcom,
+		/area/gaia/scg,
+		/area/gaia/iccg,
 	)
 
 /area/gaia
@@ -24,13 +17,21 @@
 	base_turf = /turf/simulated/floor/exoplanet/barren
 
 /*
+* -- Area of Operations --
+*/
+/area/gaia/city
+	name = "\improper Maricarbonia"
+	icon_state = "gaia_city"
+	ambience = list('sound/ambience/ominous1', 'sound/ambience/ominous2', 'sound/ambience/ominous3',)
+
+/*
 * -- SCG Camp "Boxcutters" Platoon camp --
 */
 
 /area/gaia/scg
 	name = "\improper SCG Camp"
 	icon_state = "scg"
-	//req_access = list(access_solgov_crew)
+	req_access = list(access_solgov_crew)
 	ambience = list('maps/gaia/sounds/ambipartisan_base.ogg')
 
 /area/gaia/scg/outskirts
@@ -81,6 +82,7 @@
 /area/gaia/scg/engineering
 	name = "\improper SCG Camp - Engineering"
 	icon_state = "scg_engineering"
+	req_access = list(access_solgov_crew, access_engine)
 	sound_env = SMALL_SOFTFLOOR
 
 /area/gaia/scg/engineering/communications
@@ -98,6 +100,7 @@
 /area/gaia/scg/hospital
 	name = "\improper SCG Camp - Hospital"
 	icon_state = "scg_hospital"
+	req_access = list(access_solgov_crew, access_medical)
 	sound_env = STANDARD_STATION
 
 /area/gaia/scg/hospital/surgery
@@ -109,6 +112,7 @@
 /area/gaia/scg/command
 	name = "\improper SCG Camp - Command Office"
 	icon_state = "scg_command"
+	req_access = list(access_solgov_crew, access_heads)
 	ambience = list('maps/gaia/sounds/ambipartisan_command.ogg')
 	sound_env = MEDIUM_SOFTFLOOR
 
@@ -124,6 +128,7 @@
 /area/gaia/scg/security
 	name = "\improper SCG Camp - Security Booth"
 	icon_state = "scg_security"
+	req_access = list(access_solgov_crew, access_security)
 	sound_env = SMALL_SOFTFLOOR
 
 /area/gaia/scg/security/prison
@@ -142,7 +147,7 @@
 /area/gaia/iccg
 	name = "\improper ICCG Camp"
 	icon_state = "iccg"
-	//req_access = list(access_iccg)
+	req_access = list(access_iccg)
 	ambience = list('maps/gaia/sounds/ambioccupation_base.ogg')
 
 /area/gaia/iccg/outskirts
@@ -150,16 +155,36 @@
 	icon_state = "iccg_outskirts"
 	ambience = list('maps/gaia/sounds/ambioccupation_outskirts.ogg')
 
+// Main Citadel
 /area/gaia/iccg/citadel
 	name = "\improper ICCG Camp - Citadel"
 	icon_state = "iccg_citadel"
 	sound_env = STANDARD_STATION
 
+/area/gaia/iccg/citadel/armory
+	name = "\improper ICCG Camp - Armory"
+	icon_state = "iccg_armory"
+	req_access = list(access_iccg_com)
+	sound_env = SMALL_ENCLOSED
+
+/area/gaia/iccg/citadel/armory/second
+	name = "\improper ICCG Camp - 2nd Floor Armory"
+	sound_env = LARGE_ENCLOSED
+
+// Command
 /area/gaia/iccg/citadel/command
 	name = "\improper ICCG Camp - CIC"
 	icon_state = "iccg_command"
+	req_access = list(access_iccg_com)
 	ambience = list('maps/gaia/sounds/ambioccupation_command.ogg')
 
 /area/gaia/iccg/citadel/command/briefing
 	name = "\improper ICCG Camp - Briefing"
+	req_access = list(access_iccg)
 	sound_env = LARGE_SOFTFLOOR
+
+// Security
+/area/gaia/iccg/security
+	name = "\improper ICCG Camp - Police Station"
+	icon_state = "iccg_police"
+	sound_env = STANDARD_STATION

@@ -3,7 +3,9 @@
 	name = OUTFIT_JOB_NAME("ICCG Gaia Default Outfit")
 	hierarchy_type = /singleton/hierarchy/outfit/job/gaia/iccg
 	l_ear = /obj/item/device/radio/headset/gaia_iccg
+	r_pocket = null
 	pda_type = /obj/item/modular_computer/pda/syndicate
+	id_types = list(/obj/item/card/id/gaia/iccg)
 
 // -- COMMAND --
 // COMMANDING OFFICER
@@ -14,11 +16,10 @@
 
 /singleton/hierarchy/outfit/job/gaia/iccg/command/CO
 	name = OUTFIT_JOB_NAME("ICCG Gaia Commanding Officer")
-	uniform = /obj/item/clothing/under/iccgn/service_command
-	shoes = /obj/item/clothing/shoes/iccgn/service
-	head = /obj/item/clothing/head/iccgn/service_command
-	id_types = list(/obj/item/card/id/torch/gold)
-	backpack_contents = list(/obj/item/clothing/accessory/solgov/department/command/fleet = 1)
+	uniform = /obj/item/clothing/under/iccgn/combat/command
+	shoes = /obj/item/clothing/shoes/iccgn/utility
+	id_types = list(/obj/item/card/id/gaia/iccg/co)
+	backpack_contents = list(/obj/item/melee/telebaton = 1)
 
 /singleton/hierarchy/outfit/job/gaia/iccg/command/CO/New()
 	..()
@@ -27,11 +28,10 @@
 // PLATOON SERGEANT
 /singleton/hierarchy/outfit/job/gaia/iccg/command/XO
 	name = OUTFIT_JOB_NAME("ICCG Gaia Executive Officer")
-	uniform = /obj/item/clothing/under/iccgn/utility
+	uniform = /obj/item/clothing/under/iccgn/combat/command
 	shoes = /obj/item/clothing/shoes/iccgn/utility
-	head = /obj/item/clothing/head/iccgn/beret
-	id_types = list(/obj/item/card/id/torch/silver)
-	backpack_contents = list(/obj/item/clothing/accessory/solgov/department/command/fleet = 1)
+	id_types = list(/obj/item/card/id/gaia/iccg/xo)
+	backpack_contents = list(/obj/item/melee/telebaton = 1)
 
 /singleton/hierarchy/outfit/job/gaia/iccg/command/XO/New()
 	..()
@@ -41,11 +41,11 @@
 // MEDIC
 /singleton/hierarchy/outfit/job/gaia/iccg/medic
 	name = OUTFIT_JOB_NAME("ICCG Gaia Medic")
-	uniform = /obj/item/clothing/under/iccgn/utility
+	uniform = /obj/item/clothing/under/iccgn/combat/medical
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/dark
 	shoes = /obj/item/clothing/shoes/iccgn/utility
 	head = /obj/item/clothing/head/surgery/black
-	backpack_contents = list(/obj/item/clothing/accessory/solgov/department/medical/fleet = 1)
+	id_types = list(/obj/item/card/id/gaia/iccg/medic)
 
 /singleton/hierarchy/outfit/job/gaia/iccg/medic/New()
 	..()
@@ -54,10 +54,10 @@
 //ENGINEER
 /singleton/hierarchy/outfit/job/gaia/iccg/engineer
 	name = OUTFIT_JOB_NAME("ICCG Gaia Engineer")
-	uniform = /obj/item/clothing/under/iccgn/utility
+	uniform = /obj/item/clothing/under/iccgn/combat/engineering
 	shoes = /obj/item/clothing/shoes/iccgn/utility
 	head = /obj/item/clothing/head/hardhat/red
-	backpack_contents = list(/obj/item/clothing/accessory/solgov/department/engineering/fleet = 1)
+	id_types = list(/obj/item/card/id/gaia/iccg/engineer)
 
 /singleton/hierarchy/outfit/job/gaia/iccg/engineer/New()
 	..()
@@ -66,13 +66,12 @@
 // MILITARY POLICE
 /singleton/hierarchy/outfit/job/gaia/iccg/mp
 	name = OUTFIT_JOB_NAME("ICCG Gaia Military Police")
-	uniform = /obj/item/clothing/under/iccgn/service
-	suit = /obj/item/clothing/suit/iccgn/service_enlisted
-	shoes = /obj/item/clothing/shoes/iccgn/service
-	head = /obj/item/clothing/head/iccgn/service
+	uniform = /obj/item/clothing/under/iccgn/combat/security
+	shoes = /obj/item/clothing/shoes/iccgn/utility
 	l_pocket = /obj/item/handcuffs
 	r_pocket = /obj/item/device/flash
-	backpack_contents = list(/obj/item/clothing/accessory/armband/solgov/mp = 1, /obj/item/key/gaia/iccg = 1, /obj/item/clothing/accessory/solgov/department/security/fleet = 1)
+	id_types = list(/obj/item/card/id/gaia/iccg/mp)
+	backpack_contents = list(/obj/item/clothing/accessory/armband/solgov/mp = 1, /obj/item/key/gaia/iccg = 1)
 
 /singleton/hierarchy/outfit/job/gaia/iccg/mp/New()
 	..()
@@ -82,12 +81,12 @@
 // SQUAD LEADER
 /singleton/hierarchy/outfit/job/gaia/iccg/squad_leader
 	name = OUTFIT_JOB_NAME("ICCG Gaia Squad Leader")
-	uniform = /obj/item/clothing/under/iccgn/utility
+	uniform = /obj/item/clothing/under/iccgn/combat/command
 	shoes = /obj/item/clothing/shoes/iccgn/utility
-	head = /obj/item/clothing/head/iccgn/beret
+	id_types = list(/obj/item/card/id/gaia/iccg/squad_leader)
 
 // TROOPER
 /singleton/hierarchy/outfit/job/gaia/iccg/trooper
 	name = OUTFIT_JOB_NAME("ICCG Gaia Trooper")
-	uniform = /obj/item/clothing/under/iccgn/utility
+	uniform = /obj/item/clothing/under/iccgn/combat
 	shoes = /obj/item/clothing/shoes/iccgn/utility

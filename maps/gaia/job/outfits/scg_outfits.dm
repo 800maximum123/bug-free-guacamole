@@ -4,7 +4,9 @@
 	name = OUTFIT_JOB_NAME("SCG Gaia Default Outfit")
 	hierarchy_type = /singleton/hierarchy/outfit/job/gaia/scg
 	l_ear = /obj/item/device/radio/headset/gaia_scg
+	r_pocket = null
 	pda_type = null
+	id_types = list(/obj/item/card/id/gaia/scg)
 
 // -- COMMAND --
 // COMMANDING OFFICER
@@ -17,8 +19,7 @@
 	name = OUTFIT_JOB_NAME("SCG Gaia Commanding Officer")
 	uniform = /obj/item/clothing/under/scga/utility/command
 	shoes = /obj/item/clothing/shoes/scga/utility
-	head = /obj/item/clothing/head/scga/utility
-	id_types = list(/obj/item/card/id/torch/gold)
+	id_types = list(/obj/item/card/id/gaia/scg/co)
 
 /singleton/hierarchy/outfit/job/gaia/scg/command/CO/New()
 	..()
@@ -30,7 +31,7 @@
 	uniform = /obj/item/clothing/under/scga/utility/command
 	shoes = /obj/item/clothing/shoes/scga/utility
 	head = /obj/item/clothing/head/scga/utility/drill
-	id_types = list(/obj/item/card/id/torch/silver)
+	id_types = list(/obj/item/card/id/gaia/scg/ps)
 
 /singleton/hierarchy/outfit/job/gaia/scg/command/PS/New()
 	..()
@@ -40,7 +41,6 @@
 	name = OUTFIT_JOB_NAME("SCG Gaia Platoon Sergeant - Fleet")
 	uniform = /obj/item/clothing/under/solgov/utility/fleet/combat/command
 	shoes = /obj/item/clothing/shoes/dutyboots
-	head = /obj/item/clothing/head/solgov/utility/fleet
 
 // -- SUPPORT STAFF --
 // MEDIC
@@ -50,6 +50,7 @@
 	suit = /obj/item/clothing/suit/surgicalapron
 	shoes = /obj/item/clothing/shoes/scga/utility
 	head = /obj/item/clothing/head/surgery/green
+	id_types = list(/obj/item/card/id/gaia/scg/medic)
 
 /singleton/hierarchy/outfit/job/gaia/scg/medic/New()
 	..()
@@ -74,6 +75,7 @@
 	uniform = /obj/item/clothing/under/scga/utility/engineering
 	shoes = /obj/item/clothing/shoes/scga/utility
 	head = /obj/item/clothing/head/hardhat
+	id_types = list(/obj/item/card/id/gaia/scg/engineer)
 
 /singleton/hierarchy/outfit/job/gaia/scg/engineer/New()
 	..()
@@ -97,13 +99,12 @@
 	name = OUTFIT_JOB_NAME("SCG Gaia Squad Leader")
 	uniform = /obj/item/clothing/under/scga/utility/security
 	shoes = /obj/item/clothing/shoes/scga/utility
-	head = /obj/item/clothing/head/scga/utility
+	id_types = list(/obj/item/card/id/gaia/scg/squad_leader)
 
 /singleton/hierarchy/outfit/job/gaia/scg/squad_leader/fleet
 	name = OUTFIT_JOB_NAME("SCG Gaia Squad Leader - Fleet")
 	uniform = /obj/item/clothing/under/solgov/utility/fleet/combat
 	shoes = /obj/item/clothing/shoes/dutyboots
-	head = /obj/item/clothing/head/solgov/utility/fleet
 
 // TROOPER
 /singleton/hierarchy/outfit/job/gaia/scg/trooper

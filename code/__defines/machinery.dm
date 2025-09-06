@@ -41,17 +41,23 @@
 #define AI_CAMERA_LUMINOSITY 6
 
 // Camera networks
-var/global/const/NETWORK_CRESCENT       = "Crescent"
-var/global/const/NETWORK_ENGINEERING       = "Engineering"
-var/global/const/NETWORK_ERT       = "ERT"
-var/global/const/NETWORK_EXODUS       = "Exodus"
-var/global/const/NETWORK_MEDICAL       = "Medical"
+var/global/const/NETWORK_CRESCENT        = "Crescent"
+var/global/const/NETWORK_ENGINEERING     = "Engineering"
+var/global/const/NETWORK_ERT             = "ERT"
+var/global/const/NETWORK_EXODUS          = "Exodus"
+var/global/const/NETWORK_MEDICAL         = "Medical"
 var/global/const/NETWORK_MERCENARY       = "MercurialNet"
-var/global/const/NETWORK_MINE       = "Mining"
-var/global/const/NETWORK_RESEARCH       = "Research"
-var/global/const/NETWORK_SECURITY       = "Security"
-var/global/const/NETWORK_THUNDER       = "Thunderdome"
-var/global/const/NETWORK_HELMETS       = "Helmet Cameras"
+var/global/const/NETWORK_MINE            = "Mining"
+var/global/const/NETWORK_RESEARCH        = "Research"
+var/global/const/NETWORK_SECURITY        = "Security"
+var/global/const/NETWORK_THUNDER         = "Thunderdome"
+var/global/const/NETWORK_HELMETS         = "Helmet Cameras"
+// GAIA
+var/global/const/NETWORK_HELMETS_SCG     = "SCG Helmet Cameras"
+var/global/const/NETWORK_HELMETS_ICCG    = "ICCG Helmet Cameras"
+var/global/const/NETWORK_SCG             = "SCG Base Cameras"
+var/global/const/NETWORK_ICCG            = "ICCG Base Cameras"
+var/global/const/NETWORK_GAIA            = "Gaia Cameras"
 
 #define NETWORK_ALARM_ATMOS "Atmosphere Alarms"
 #define NETWORK_ALARM_CAMERA "Camera Alarms"

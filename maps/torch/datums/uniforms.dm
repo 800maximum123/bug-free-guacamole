@@ -95,6 +95,8 @@
 	hierarchy_type = /singleton/hierarchy/mil_uniform/civilian
 	branches = list(/datum/mil_branch/civilian,/datum/mil_branch/solgov)
 
+	utility_under = /obj/item/clothing/under/syndicate
+
 	service_under = /obj/item/clothing/under/suit_jacket/really_black
 	service_skirt = /obj/item/clothing/under/skirt_c/dress/black
 	service_shoes = /obj/item/clothing/shoes/dress
@@ -105,3 +107,62 @@
 	dress_over = /obj/item/clothing/suit/storage/toggle/suit/black
 	dress_shoes = /obj/item/clothing/shoes/dress
 	dress_extra = list(/obj/item/clothing/accessory/waistcoat/black, /obj/item/clothing/under/skirt_c/dress/long/eggshell, /obj/item/clothing/shoes/flats/black)
+
+// ICCGN UNIFORMS FOR GAIA
+/singleton/hierarchy/mil_uniform/iccgn
+	name = "Master ICCGN outfit"
+	hierarchy_type = /singleton/hierarchy/mil_uniform/iccgn
+	branches = list(/datum/mil_branch/iccgn)
+
+	pt_under = /obj/item/clothing/under/iccgn/pt
+	pt_shoes = /obj/item/clothing/shoes/black
+
+	utility_under = /obj/item/clothing/under/iccgn/utility
+	utility_shoes = /obj/item/clothing/shoes/iccgn/utility
+	utility_hat = /obj/item/clothing/head/iccgn/utility
+	utility_extra = list(
+		/obj/item/clothing/gloves/iccgn/duty,
+		/obj/item/clothing/head/iccgn/beret,
+		/obj/item/clothing/head/ushanka/gcc,
+		/obj/item/clothing/suit/iccgn/utility,
+		/obj/item/clothing/suit/storage/toggle/track/gcc,
+		/obj/item/clothing/head/tank,
+	)
+
+	service_under = /obj/item/clothing/under/iccgn/service
+	service_over = /obj/item/clothing/suit/iccgn/service_enlisted
+	service_shoes = /obj/item/clothing/shoes/iccgn/service
+	service_hat = /obj/item/clothing/head/iccgn/service
+
+	dress_under = /obj/item/clothing/under/iccgn/service
+	dress_over = /obj/item/clothing/suit/iccgn/dress_enlisted
+	dress_shoes = /obj/item/clothing/shoes/iccgn/service
+	dress_hat = /obj/item/clothing/head/iccgn/service
+	dress_gloves = /obj/item/clothing/gloves/white
+
+/singleton/hierarchy/mil_uniform/iccgn/com
+	name = "ICCGN command"
+	min_rank = 110
+
+	utility_under = /obj/item/clothing/under/iccgn/utility/command
+
+	service_over = /obj/item/clothing/suit/iccgn/service_officer
+
+	dress_over = /obj/item/clothing/suit/iccgn/dress_officer
+
+/singleton/hierarchy/mil_uniform/iccgn/com/seniorofficer
+	name = "ICCGN senior command"
+	min_rank = 150
+
+	utility_under = /obj/item/clothing/under/iccgn/utility/command
+
+	service_under = /obj/item/clothing/under/iccgn/service_command
+	service_over = /obj/item/clothing/suit/iccgn/service_command
+	service_hat = /obj/item/clothing/head/iccgn/service_command
+
+	dress_under = /obj/item/clothing/under/iccgn/service_command
+	dress_over = /obj/item/clothing/suit/iccgn/dress_command
+	dress_hat = /obj/item/clothing/head/iccgn/service_command
+	dress_extra = list(
+		/obj/item/material/sword // ICCGN ain't fucking around, real deal
+	)

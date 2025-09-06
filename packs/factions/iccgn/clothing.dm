@@ -38,6 +38,57 @@
 		slot_w_uniform_str = "under_utility_worn"
 	)
 
+/obj/item/clothing/under/iccgn/utility/command
+	accessories = list(/obj/item/clothing/accessory/solgov/department/command/fleet)
+
+/obj/item/clothing/under/iccgn/utility/engineering
+	accessories = list(/obj/item/clothing/accessory/solgov/department/engineering/fleet)
+
+/obj/item/clothing/under/iccgn/utility/security
+	accessories = list(/obj/item/clothing/accessory/solgov/department/security/fleet)
+
+/obj/item/clothing/under/iccgn/utility/medical
+	accessories = list(/obj/item/clothing/accessory/solgov/department/medical/fleet)
+
+/obj/item/clothing/under/iccgn/utility/supply
+	accessories = list(/obj/item/clothing/accessory/solgov/department/supply/fleet)
+
+/obj/item/clothing/under/iccgn/utility/service
+	accessories = list(/obj/item/clothing/accessory/solgov/department/service/fleet)
+
+/obj/item/clothing/under/iccgn/utility/exploration
+	accessories = list(/obj/item/clothing/accessory/solgov/department/exploration/fleet)
+
+/obj/item/clothing/under/iccgn/combat
+	name = "combat uniform, ICCGN"
+	desc = "Comfortable grey fatiques from a confederation navy uniform. For when you need boots on the ground."
+	icon_state = "under_combat"
+	item_state_slots = list(
+		slot_l_hand_str = "under_combat_held_l",
+		slot_r_hand_str = "under_combat_held_r",
+		slot_w_uniform_str = "under_combat_worn"
+	)
+
+/obj/item/clothing/under/iccgn/combat/command
+	accessories = list(/obj/item/clothing/accessory/solgov/department/command/fleet)
+
+/obj/item/clothing/under/iccgn/combat/engineering
+	accessories = list(/obj/item/clothing/accessory/solgov/department/engineering/fleet)
+
+/obj/item/clothing/under/iccgn/combat/security
+	accessories = list(/obj/item/clothing/accessory/solgov/department/security/fleet)
+
+/obj/item/clothing/under/iccgn/combat/medical
+	accessories = list(/obj/item/clothing/accessory/solgov/department/medical/fleet)
+
+/obj/item/clothing/under/iccgn/combat/supply
+	accessories = list(/obj/item/clothing/accessory/solgov/department/supply/fleet)
+
+/obj/item/clothing/under/iccgn/combat/service
+	accessories = list(/obj/item/clothing/accessory/solgov/department/service/fleet)
+
+/obj/item/clothing/under/iccgn/combat/exploration
+	accessories = list(/obj/item/clothing/accessory/solgov/department/exploration/fleet)
 
 /obj/item/clothing/under/iccgn/service
 	name = "service uniform, ICCGN"
@@ -195,6 +246,14 @@
 		slot_gloves_str = 'packs/factions/iccgn/clothing.dmi'
 	)
 	sprite_sheets = list()
+	siemens_coefficient = 0.50
+	permeability_coefficient = 0.05
+	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_WASHER_ALLOWED
+
+	cold_protection = HANDS
+	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
+	heat_protection = HANDS
+	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
 
 
 /obj/item/clothing/gloves/iccgn/duty
@@ -218,6 +277,19 @@
 		slot_shoes_str = 'packs/factions/iccgn/clothing.dmi'
 	)
 	sprite_sheets = list()
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		rad = ARMOR_RAD_MINOR
+	)
+	siemens_coefficient = 0.7
+	gas_transfer_coefficient = 0.90
+	permeability_coefficient = 0.50
+	body_parts_covered = FEET
+	heat_protection = FEET
+	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
+	max_pressure_protection = FIRESUIT_MAX_PRESSURE
 
 
 /obj/item/clothing/shoes/iccgn/utility
@@ -262,6 +334,17 @@
 		slot_l_hand_str = "hat_beret_held_l",
 		slot_r_hand_str = "hat_beret_held_r",
 		slot_head_str = "hat_beret_worn"
+	)
+
+
+/obj/item/clothing/head/iccgn/utility
+	name = "utility cap, ICCGN"
+	desc = "A sturdy grey cap from a confederation navy uniform."
+	icon_state = "hat_utility"
+	item_state_slots = list(
+		slot_l_hand_str = "hat_utility_held_l",
+		slot_r_hand_str = "hat_utility_held_r",
+		slot_head_str = "hat_utility_worn"
 	)
 
 

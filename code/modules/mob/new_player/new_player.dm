@@ -346,7 +346,7 @@
 	dat += "Choose from the following open/valid positions:<br>"
 	dat += "<a href='byond://?src=\ref[src];invalid_jobs=1'>[show_invalid_jobs ? "Hide":"Show"] unavailable jobs.</a><br>"
 	dat += "<table>"
-	dat += "<tr><td align = 'center' colspan = 3><b>[GLOB.using_map.station_name]:</b></td></tr>"
+	dat += "<tr><td align = 'center' colspan = 3><b>[GLOB.using_map.full_name]:</b></td></tr>"
 
 	var/list/categorizedJobs = list(
 		"Command" =         list(jobs = list(), dep = COM, color = "#aac1ee"),

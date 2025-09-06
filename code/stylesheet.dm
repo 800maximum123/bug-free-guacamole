@@ -68,6 +68,10 @@ em						{font-style: normal;font-weight: bold;}
 .colonyradio			{color: #ceaf3e;}
 .verneradio				{color: #738465;}
 
+/* Gaia Radio Channels */
+.iccgradio				{color: #790000;}
+.scgradio				{color: #436b8e;}
+
 /* Miscellaneous */
 .name					{font-weight: bold;}
 .say					{}

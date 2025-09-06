@@ -41,7 +41,7 @@
 	stack_type = /obj/item/stack/material/sandstone
 	wall_icon_base = "stone"
 	table_icon_base = "stone"
-	wall_icon_reinf = "reinf_stone"
+	wall_icon_reinf = "reinf_over"
 	icon_colour = "#d9c179"
 	shard_type = SHARD_STONE_PIECE
 	weight = 22

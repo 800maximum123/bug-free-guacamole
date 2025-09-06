@@ -61,6 +61,7 @@ SUBSYSTEM_DEF(goals)
 
 
 /datum/controller/subsystem/goals/proc/get_roundend_summary()
+	/* GAIA REMOVE
 	var/list/result = list()
 	for (var/flag in departments)
 		var/datum/department/department = departments[flag]
@@ -68,4 +69,5 @@ SUBSYSTEM_DEF(goals)
 		result += department.summarize_goals(show_success = TRUE)
 	if (length(result))
 		return "<br>[jointext(result, "<br>")]"
+	*/
 	return "<br><b>There were no departmental goals this round.</b>"

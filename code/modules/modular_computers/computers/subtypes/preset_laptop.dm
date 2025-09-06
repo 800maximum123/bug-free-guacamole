@@ -59,3 +59,10 @@
 	if(os)
 		os.create_file(new /datum/computer_file/program/wordprocessor())
 		os.create_file(new /datum/computer_file/program/records())
+
+/obj/item/modular_computer/laptop/preset/custom_loadout/advanced/commander/install_default_programs()
+	..()
+	var/datum/extension/interactive/ntos/os = get_extension(src, /datum/extension/interactive/ntos)
+	if(os)
+		os.create_file(new /datum/computer_file/program/suit_sensors())
+		os.create_file(new /datum/computer_file/program/camera_monitor())

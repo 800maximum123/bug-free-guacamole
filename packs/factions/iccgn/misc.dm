@@ -37,7 +37,8 @@
 		/obj/item/clothing/accessory/iccgn_patch/ordnance,
 		/obj/item/clothing/accessory/iccgn_patch/security,
 		/obj/item/clothing/accessory/iccgn_patch/research,
-		/obj/item/clothing/accessory/iccgn_patch/guard
+		/obj/item/clothing/accessory/iccgn_patch/guard,
+		/obj/item/clothing/accessory/iccgn_patch/surface
 	)
 
 

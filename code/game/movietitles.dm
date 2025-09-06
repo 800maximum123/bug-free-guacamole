@@ -178,11 +178,11 @@ GLOBAL_LIST(end_titles)
 		titles += "<center>BASED ON REAL EVENTS<br>In memory of [english_list(corpses)].</center>"
 
 	if(scg_casualties != 0)
-		titles += "<center>[scg_casualties] SolGov troops and loyalists have died...</center>"
+		titles += "<center>[scg_casualties] SolGov troops have died...</center>"
 	if(iccg_casualties != 0)
-		titles += "<center>[scg_casualties] Indie soldiers have perished...</center>"
+		titles += "<center>[iccg_casualties] Indie soldiers have perished...</center>"
 	if(civilian_casualties != 0)
-		titles += "<center>[scg_casualties] innocent civilians have been lost...</center>"
+		titles += "<center>[civilian_casualties] innocent civilians have been lost...</center>"
 	titles += "<center><b>WAR NEVER CHANGES.</b></center>"
 
 	var/list/staff = list("DEVELOPERS:")
@@ -218,8 +218,10 @@ GLOBAL_LIST(end_titles)
 					"For best experience, please play in a cryosleep chamber with neural uplink enabled.",
 					"Warning: Prolonged play may lead to permanent assignment to the SCG Army.",
 					"NPC deaths are simulated. Player deaths are permanent. Please enjoy responsibly.",
-					"This software is definitely not a propaganda device created and utilized for recruiting into the SCG Armed Forces,\
-					nor is it designed to create distrust and hate towards GCC and their actions.")
+					"This software is definitely not a propaganda device created and utilized for recruiting into the SCG Defense Forces,\
+					nor is it designed to create distrust and hate towards GCC and their actions.",
+					"Warning: Committing war crimes will result in criminal prosecution, yes we know this is just a videogame,\
+					but you psychopaths can't be trusted with anything.")
 
 	titles += "<hr>"
 	titles += "<center><span style='font-size:6pt;'>[JOINTEXT(disclaimer)]</span></center>"

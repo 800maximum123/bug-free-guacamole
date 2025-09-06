@@ -25,6 +25,23 @@
 /obj/machinery/camera/network/helmet
 	network = list(NETWORK_HELMETS)
 
+// GAIA
+/obj/machinery/camera/network/helmet_scg
+	network = list(NETWORK_HELMETS_SCG)
+
+/obj/machinery/camera/network/helmet_iccg
+	network = list(NETWORK_HELMETS_ICCG)
+
+/obj/machinery/camera/network/scg
+	network = list(NETWORK_SCG)
+
+/obj/machinery/camera/network/iccg
+	network = list(NETWORK_ICCG)
+
+/obj/machinery/camera/network/gaia
+	network = list(NETWORK_GAIA)
+
+
 // EMP
 
 /obj/machinery/camera/emp_proof/Initialize()

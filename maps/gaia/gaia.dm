@@ -17,8 +17,22 @@
 	#include "../gaia/gaia_shuttles.dm"
 	#include "../gaia/gaia_spawnpoints.dm"
 	#include "../gaia/gaia_lobby.dm"
+	#include "../gaia/gaia_procs.dm"
 	#include "../gaia/ai_law_sets.dm"
 
+	#include "../gaia/loadout/_defines.dm"
+	#include "../gaia/loadout/loadout_accessories.dm"
+	#include "../gaia/loadout/loadout_eyes.dm"
+	#include "../gaia/loadout/loadout_gloves.dm"
+	#include "../gaia/loadout/loadout_head.dm"
+	#include "../gaia/loadout/loadout_misc.dm"
+	#include "../gaia/loadout/loadout_shoes.dm"
+	#include "../gaia/loadout/loadout_suit.dm"
+	#include "../gaia/loadout/loadout_uniform.dm"
+	#include "../gaia/loadout/loadout_xeno.dm"
+	#include "../gaia/loadout/~defines.dm"
+
+	#include "../gaia/effects/light.dm"
 	#include "../gaia/effects/lock_helper.dm"
 
 	#include "../gaia/language/human/euro.dm"
@@ -26,8 +40,10 @@
 	#include "../gaia/language/human/russian.dm"
 
 	#include "../gaia/items/bell.dm"
-	#include "../gaia/items/key.dm"
+	#include "../gaia/items/cards_ids.dm"
 	#include "../gaia/items/clothes.dm"
+	#include "../gaia/items/key.dm"
+	#include "../gaia/items/shooting_range.dm"
 
 	#include "../gaia/structures/barrier.dm"
 	#include "../gaia/structures/gaiaflags.dm"
@@ -39,6 +55,7 @@
 	#include "../gaia/structures/truck.dm"
 
 	#include "../gaia/turf/moving.dm"
+	#include "../gaia/turf/walls.dm"
 
 	#include "../gaia/job/iccg_jobs.dm"
 	#include "../gaia/job/scg_jobs.dm"
@@ -52,7 +69,7 @@
 	#include "../gaia/gaia_iccg_camp.dmm"
 	#include "../gaia/z4_admin.dmm"
 	#include "../gaia/z5_transit.dmm"
-	 //CHANGE THIS DEPENDING ON THE MISSION!!
+	//CHANGE THIS DEPENDING ON THE MISSION!!
 	#include "../gaia/area_of_op/city.dmm"
 	//#include "../gaia/area_of_op/outskirts.dmm"
 
@@ -150,8 +167,6 @@
 	#include "../torch/structures/memorabilia.dm"
 	#include "../torch/structures/posters.dm"
 	#include "../torch/structures/signs.dm"
-
-	// --- LOADOUT --- //
 
 	// --- MAP FILES --- //
 
@@ -286,6 +301,6 @@
 
 #elif !defined(MAP_OVERRIDE)
 
-	#warn A map has already been included
+	#warn A Gaia map has already been included
 
 #endif

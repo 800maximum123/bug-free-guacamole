@@ -42,7 +42,8 @@
 	var/list/fallen = list()
 	var/list/accepted_branches = list(
 		"Expeditionary Corps",
-		"Fleet"
+		"Fleet",
+		"Army"
 	)
 
 

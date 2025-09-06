@@ -11,6 +11,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT
 	req_access = list(list(access_heads, access_security))
+	var/evil = FALSE
 	var/datum/computer_file/data/warrant/active
 
 //look at it
@@ -96,6 +97,12 @@
 		icon_state = "holowarrant"
 
 /obj/item/device/holowarrant/proc/show_content(mob/user, forceshow)
+	var/boss_name = GLOB.using_map.boss_name
+	var/station_name = GLOB.using_map.station_name
+	if(evil)
+		boss_name = GLOB.using_map.evil_boss_name
+		station_name = GLOB.using_map.evil_station_name
+
 	if(!active)
 		return
 	if(active.fields["arrestsearch"] == "arrest")
@@ -104,13 +111,13 @@
 		<BODY bgcolor='#ffffff'><center><large><b>SCG SFP Warrant Tracker System</b></large></br>
 		</br>
 		Issued in the jurisdiction of the</br>
-		[GLOB.using_map.boss_name] in [GLOB.using_map.system_name]</br>
+		[boss_name] in [GLOB.using_map.system_name]</br>
 		</br>
 		<b>ARREST WARRANT</b></center></br>
 		</br>
 		This document serves as authorization and notice for the arrest of _<u>[active.fields["namewarrant"]]</u>____ for the crime(s) of:</br>[active.fields["charges"]]</br>
 		</br>
-		Vessel or habitat: _<u>[GLOB.using_map.station_name]</u>____</br>
+		Vessel or habitat: _<u>[station_name]</u>____</br>
 		</br>_<u>[active.fields["auth"]]</u>____</br>
 		<small>Person authorizing arrest</small></br>
 		</BODY></HTML>
@@ -123,7 +130,7 @@
 		<BODY bgcolor='#ffffff'><center><large><b>SCG SFP Warrant Tracker System</b></large></br>
 		</br>
 		Issued in the jurisdiction of the</br>
-		[GLOB.using_map.boss_name] in [GLOB.using_map.system_name]</br>
+		[boss_name] in [GLOB.using_map.system_name]</br>
 		</br>
 		<b>SEARCH WARRANT</b></center></br>
 		</br>
@@ -133,7 +140,7 @@
 		</br>
 		<b>Warrant issued by: </b> [active.fields ["auth"]]</br>
 		</br>
-		Vessel or habitat: _<u>[GLOB.using_map.station_name]</u>____</br>
+		Vessel or habitat: _<u>[station_name]</u>____</br>
 		</br>
 		<center><small><i>The Security Officer(s) bearing this Warrant are hereby authorized by the Issuer to conduct a one time lawful search of the Suspect's person/belongings/premises and/or Department for any items and materials that could be connected to the suspected criminal act described below, pending an investigation in progress.</br>
 		</br>
@@ -147,3 +154,7 @@
 		</BODY></HTML>
 		"}
 		show_browser(user, output, "window=Search warrant for [active.fields["namewarrant"]]")
+
+/obj/item/device/holowarrant/evil //GAIA
+	color = COLOR_RED_GRAY
+	evil = TRUE

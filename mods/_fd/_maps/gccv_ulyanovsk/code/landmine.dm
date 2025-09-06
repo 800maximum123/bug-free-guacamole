@@ -160,7 +160,7 @@
 
 //Note : May not be actual explosion depending on linked method
 /obj/item/device/claymore/proc/prime()
-	cell_explosion(epicenter = loc, power = 150, falloff = 100, direction = dir) // Fixes mines GAIA
+	cell_explosion(epicenter = loc, power = 150, falloff = 10, direction = dir) // Fixes mines GAIA
 	qdel(src)
 
 

@@ -303,7 +303,7 @@ as having entered the turf.
 		S.start(explosion_range)
 
 	if(shrapnel) // powerful explosions send out some special effects
-		fragmentate(epicenter, rand(explosion_range * 0.5, explosion_range * 2), rand(explosion_range * 0.5, explosion_range * 2) / 2, list(/obj/item/projectile/bullet/pellet/fragment/tank/small = 1,/obj/item/projectile/bullet/pellet/fragment/tank = 5,/obj/item/projectile/bullet/pellet/fragment/strong = 4), "explosion")
+		fragmentate(epicenter, rand(explosion_range * 0.5, explosion_range * 2), rand(explosion_range * 0.5, explosion_range * 2) / 2, list(/obj/item/projectile/bullet/pellet/fragment/tank/small = 1,/obj/item/projectile/bullet/pellet/fragment/tank = 5,/obj/item/projectile/bullet/pellet/fragment/strong = 4), "explosion", direction)
 
 	var/z_level_scaled = power * 0.35
 	if(z_level_scaled > 0)
@@ -391,10 +391,25 @@ as having entered the turf.
 	transform = matrix().Scale(32 / 1024, 32 / 1024)
 	animate(src, time = 0.5 * radius * speed, transform=matrix().Scale((32 / 1024) * radius * 1.5, (32 / 1024) * radius * 1.5), easing = easing_type)
 
-/proc/fragmentate(turf/T, fragment_number = 30, spreading_range = 5, list/fragtypes=list(/obj/item/projectile/bullet/pellet/fragment), shoot_from)
+/proc/fragmentate(turf/T, fragment_number = 30, spreading_range = 5, list/fragtypes=list(/obj/item/projectile/bullet/pellet/fragment), shoot_from, direction)
 	set waitfor = 0
 	var/list/target_turfs = getcircle(T, spreading_range)
-	var/fragments_per_projectile = round(fragment_number/length(target_turfs))
+
+	// filter target turfs if a direction was given
+	if(direction)
+		var/list/filtered = list()
+		for(var/turf/O in target_turfs)
+			// find the dir from origin turf to this turf
+			var/dir_to = get_dir(T, O)
+			// only allow turfs that match the given direction (including diagonals)
+			if(dir_to & direction)
+				filtered += O
+		target_turfs = filtered
+
+	if(!length(target_turfs))
+		return
+
+	var/fragments_per_projectile = round(fragment_number / length(target_turfs))
 
 	for(var/turf/O in target_turfs)
 		sleep(0)
@@ -403,8 +418,8 @@ as having entered the turf.
 		P.pellets = fragments_per_projectile
 		P.shot_from = shoot_from
 		P.hitchance_mod = 50
-
 		P.launch(O)
+
 /* shit mess, removed because I want make that proc global
 		// Handle damaging whatever the grenade's inside. Currently only checks for mobs.
 		if(loc != get_turf(src))

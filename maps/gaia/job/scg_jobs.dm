@@ -25,11 +25,23 @@
 		/datum/mil_rank/scga/o3,
 	)
 	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
-	                    SKILL_SCIENCE     = SKILL_TRAINED,
-	                    SKILL_PILOT       = SKILL_TRAINED)
+	                    SKILL_PILOT       = SKILL_TRAINED,
+	                    SKILL_COMBAT      = SKILL_BASIC,
+	                    SKILL_WEAPONS     = SKILL_BASIC)
 
 	max_skill = list(   SKILL_PILOT       = SKILL_MAX,
-	                    SKILL_SCIENCE     = SKILL_MAX)
+	                    SKILL_SCIENCE     = SKILL_MAX,
+	                    SKILL_COMBAT      = SKILL_MAX,
+	                    SKILL_WEAPONS     = SKILL_MAX)
+
+	access = list(
+		access_medical, access_morgue, access_maint_tunnels,
+		access_surgery, access_medical_equip, access_solgov_crew,
+		access_engine, access_network, access_network_admin,
+		access_armory, access_security,
+		access_captain, access_hop, access_heads
+	)
+
 	skill_points = 30
 
 /datum/job/scg_co/get_description_blurb()
@@ -72,29 +84,26 @@
 		/datum/mil_rank/fleet/e9_alt2,
 		/datum/mil_rank/fleet/e9_alt3,
 	)
-	min_skill = list(   SKILL_BUREAUCRACY = SKILL_TRAINED,
+	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
 	                    SKILL_COMPUTER    = SKILL_BASIC,
-	                    SKILL_PILOT       = SKILL_BASIC)
+	                    SKILL_PILOT       = SKILL_BASIC,
+	                    SKILL_HAULING     = SKILL_BASIC,
+	                    SKILL_COMBAT      = SKILL_BASIC,
+	                    SKILL_WEAPONS     = SKILL_TRAINED)
 
 	max_skill = list(   SKILL_PILOT       = SKILL_MAX,
-	                    SKILL_SCIENCE     = SKILL_MAX)
-	skill_points = 30
+	                    SKILL_COMBAT      = SKILL_MAX,
+	                    SKILL_WEAPONS     = SKILL_MAX)
 
 	access = list(
-		access_security, access_brig, access_armory, access_forensics_lockers, access_heads, access_medical, access_morgue, access_tox, access_tox_storage,
-		access_engine, access_engine_equip, access_maint_tunnels, access_external_airlocks, access_emergency_storage, access_change_ids,
-		access_ai_upload, access_teleporter, access_eva, access_bridge, access_all_personal_lockers, access_chapel_office, access_tech_storage,
-		access_atmospherics, access_janitor, access_crematorium, access_kitchen, access_robotics, access_cargo, access_construction,
-		access_chemistry, access_cargo_bot, access_hydroponics, access_manufacturing, access_library, access_lawyer, access_virology, access_cmo,
-		access_qm, access_network, access_network_admin, access_surgery, access_research, access_mining, access_mining_office, access_mailsorting, access_heads_vault,
-		access_mining_station, access_xenobiology, access_ce, access_hop, access_hos, access_RC_announce, access_keycard_auth, access_tcomsat,
-		access_gateway, access_sec_doors, access_psychiatrist, access_xenoarch, access_medical_equip, access_heads, access_hangar, access_guppy_helm,
-		access_expedition_shuttle_helm, access_aquila, access_aquila_helm, access_solgov_crew, access_nanotrasen, access_chief_steward,
-		access_emergency_armory, access_sec_guard, access_gun, access_expedition_shuttle, access_guppy, access_seneng, access_senmed, access_senadv,
-		access_explorer, access_pathfinder, access_pilot, access_commissary, access_petrov, access_petrov_helm, access_petrov_analysis, access_petrov_phoron,
-		access_petrov_toxins, access_petrov_chemistry, access_petrov_control, access_petrov_maint, access_rd, access_petrov_rd, access_torch_fax, access_torch_helm,
-		access_radio_comm, access_research_storage
+		access_medical, access_morgue, access_maint_tunnels,
+		access_surgery, access_medical_equip, access_solgov_crew,
+		access_engine, access_network, access_network_admin,
+		access_armory, access_security,
+		access_hop, access_heads
 	)
+
+	skill_points = 30
 
 /datum/job/scg_ps/get_description_blurb()
 	return "You are the Platoon Sergeant — second in command and the backbone of the '[GLOB.using_map.station_short]' unit. While the officer leads from the map table, you lead from the front. You manage logistics, discipline, and readiness, and you're expected to step up if the CO is killed or cut off. You keep the squads moving, equipment working, and rebels alive. Veterans and rookies alike look to you to keep this war going day by day."
@@ -138,18 +147,20 @@
 		/datum/mil_rank/fleet/e5,
 		/datum/mil_rank/civ/partisan,
 	)
-	min_skill = list(   SKILL_MEDICAL = SKILL_BASIC,
-	                    SKILL_ANATOMY = SKILL_BASIC)
+	min_skill = list(   SKILL_MEDICAL     = SKILL_BASIC,
+	                    SKILL_ANATOMY     = SKILL_BASIC,
+	                    SKILL_HAULING     = SKILL_BASIC,
+	                    SKILL_WEAPONS     = SKILL_BASIC)
 
 	max_skill = list(   SKILL_MEDICAL     = SKILL_MAX,
 	                    SKILL_ANATOMY     = SKILL_MAX,
-	                    SKILL_CHEMISTRY   = SKILL_MAX)
+	                    SKILL_CHEMISTRY   = SKILL_MAX,
+	                    SKILL_COMBAT      = SKILL_TRAINED,
+	                    SKILL_WEAPONS     = SKILL_TRAINED)
 
 	access = list(
 		access_medical, access_morgue, access_maint_tunnels,
-		access_external_airlocks, access_emergency_storage,
-		access_eva, access_surgery, access_medical_equip,
-		access_solgov_crew, access_hangar
+		access_surgery, access_medical_equip, access_solgov_crew,
 	)
 
 	skill_points = 22
@@ -168,8 +179,6 @@
 	alt_titles = list(
 		"Damage Control Technician",
 		"Civil Engineer",
-		"Electrician",
-		"Firefighter",
 	)
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/scg/engineer
 	required_language = LANGUAGE_HUMAN_EURO
@@ -191,7 +200,9 @@
 		/datum/mil_rank/fleet/e5,
 		/datum/mil_rank/civ/partisan,
 	)
-	min_skill = list(   SKILL_COMPUTER     = SKILL_BASIC,
+	min_skill = list(   SKILL_HAULING      = SKILL_BASIC,
+	                    SKILL_WEAPONS      = SKILL_BASIC,
+	                    SKILL_COMPUTER     = SKILL_BASIC,
 	                    SKILL_CONSTRUCTION = SKILL_TRAINED,
 	                    SKILL_ELECTRICAL   = SKILL_BASIC,
 	                    SKILL_ATMOS        = SKILL_BASIC,
@@ -200,13 +211,13 @@
 	max_skill = list(   SKILL_CONSTRUCTION = SKILL_MAX,
 	                    SKILL_ELECTRICAL   = SKILL_MAX,
 	                    SKILL_ATMOS        = SKILL_MAX,
-	                    SKILL_ENGINES      = SKILL_MAX)
+	                    SKILL_ENGINES      = SKILL_MAX,
+	                    SKILL_COMBAT       = SKILL_TRAINED,
+	                    SKILL_WEAPONS      = SKILL_TRAINED)
 	skill_points = 20
 
 	access = list(
-		access_engine, access_engine_equip, access_maint_tunnels, access_external_airlocks, access_emergency_storage,
-		access_teleporter, access_eva, access_tech_storage, access_atmospherics, access_janitor, access_construction,
-		access_solgov_crew, access_hangar, access_network
+		access_maint_tunnels, access_engine, access_solgov_crew, access_network, access_network_admin
 	)
 
 // -- COMBAT (meatshields) --
@@ -237,18 +248,18 @@
 		/datum/mil_rank/fleet/e5,
 		/datum/mil_rank/fleet/e6,
 	)
-	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
+	min_skill = list(   SKILL_HAULING     = SKILL_BASIC,
 	                    SKILL_COMBAT      = SKILL_BASIC,
-	                    SKILL_WEAPONS     = SKILL_TRAINED,)
+	                    SKILL_WEAPONS     = SKILL_TRAINED)
 
-	max_skill = list(   SKILL_COMBAT      = SKILL_MAX,
-	                    SKILL_WEAPONS     = SKILL_MAX,)
-	skill_points = 25
+	max_skill = list(   SKILL_COMBAT      = SKILL_EXPERIENCED,
+	                    SKILL_WEAPONS     = SKILL_EXPERIENCED)
+	skill_points = 20
 
 	access = list(
-		access_security, access_brig, access_maint_tunnels,
-		access_external_airlocks, access_emergency_storage,
-		access_eva, access_sec_doors, access_solgov_crew,
+		access_medical, access_morgue, access_maint_tunnels,
+		access_surgery, access_medical_equip, access_solgov_crew,
+		access_engine, access_heads
 	)
 
 /datum/job/scg_squad_leader/get_description_blurb()
@@ -290,16 +301,12 @@
 		/datum/mil_rank/fleet/e4,
 		/datum/mil_rank/civ/partisan,
 	)
-	min_skill = list(   SKILL_COMBAT      = SKILL_BASIC,
+	min_skill = list(   SKILL_HAULING      = SKILL_BASIC,
 	                    SKILL_WEAPONS     = SKILL_BASIC)
 
-	max_skill = list(   SKILL_COMBAT      = SKILL_MAX,
-	                    SKILL_WEAPONS     = SKILL_MAX)
-
-	skill_points = 20
+	max_skill = list(   SKILL_COMBAT      = SKILL_TRAINED,
+	                    SKILL_WEAPONS     = SKILL_TRAINED)
 
 	access = list(
-		access_security, access_brig, access_maint_tunnels,
-		access_external_airlocks, access_emergency_storage,
-		access_eva, access_sec_doors, access_solgov_crew,
+		access_maint_tunnels, access_solgov_crew,
 	)

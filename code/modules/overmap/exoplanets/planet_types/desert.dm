@@ -121,7 +121,7 @@
 	if(!exposed)
 		return
 	icon_state = "open"
-	ClearOverlays()
+	//ClearOverlays() Lazy Fix GAIA
 	if(buckled_mob)
 		AddOverlays(image(icon,icon_state="overlay",layer=ABOVE_HUMAN_LAYER))
 

@@ -75,3 +75,10 @@
 	desc = "An embroidered patch with confederation navy iconography. This one indicates that its wearer is part of the Colonial Guard."
 	icon_state = "guard"
 	overlay_state = "guard_worn"
+
+
+/obj/item/clothing/accessory/iccgn_patch/surface
+	name = "uniform patch, Surface Warfare Corps"
+	desc = "An embroidered patch with confederation navy iconography. This one indicates that its wearer is part of the Surface Warfare Corps."
+	icon_state = "surface"
+	overlay_state = "surface_worn"

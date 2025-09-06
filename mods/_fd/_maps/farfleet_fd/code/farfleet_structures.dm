@@ -290,7 +290,7 @@
 
 /obj/structure/sign/double/iccgflag
 	name = "ICCG Flag"
-	desc = "The flag of the Independent Colonial Confederation of Gilgamesh, a symbol of Motherland to many proud peoples."
+	desc = "The flag of the Independent Colonial Confederation of Gilgamesh, a symbol of Motherland to many proud people."
 	icon = 'mods/_maps/farfleet/icons/iccg_flag.dmi'
 
 /obj/structure/sign/double/iccgflag/left

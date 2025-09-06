@@ -206,9 +206,10 @@
 	desc = "Stone-like artificial material."
 	icon = 'icons/turf/flooring/misc.dmi'
 	icon_state = "concrete"
+	diggable = FALSE
 
 /turf/simulated/floor/exoplanet/concrete/on_update_icon()
-	ClearOverlays()
+	//ClearOverlays() Lazy Fix GAIA
 	if(burnt)
 		AddOverlays(get_damage_overlay("burned[(x + y) % 3]", BLEND_MULTIPLY))
 	if(broken)

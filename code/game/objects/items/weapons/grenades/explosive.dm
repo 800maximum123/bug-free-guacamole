@@ -21,7 +21,7 @@
 
 	var/list/fragment_types = list(/obj/item/projectile/bullet/pellet/fragment = 1)
 	var/num_fragments = 72  //total number of fragments produced by the grenade
-	var/explosion_size = 100   //size of the center explosion. CHANGED IN GAIA
+	var/explosion_size = 200   //size of the center explosion. CHANGED IN GAIA
 
 	//The radius of the circle used to launch projectiles. Lower values mean less projectiles are used but if set too low gaps may appear in the spread pattern
 	var/spread_range = 7 //leave as is, for some reason setting this higher makes the spread pattern have gaps close to the epicenter
@@ -40,19 +40,33 @@
 	qdel(src)
 
 
-/obj/proc/fragmentate(turf/T=get_turf(src), fragment_number = 30, spreading_range = 5, list/fragtypes=list(/obj/item/projectile/bullet/pellet/fragment))
+/obj/proc/fragmentate(turf/T, fragment_number = 30, spreading_range = 5, list/fragtypes=list(/obj/item/projectile/bullet/pellet/fragment), shoot_from, direction)
 	set waitfor = 0
 	var/list/target_turfs = getcircle(T, spreading_range)
-	var/fragments_per_projectile = round(fragment_number/length(target_turfs))
+
+	// filter target turfs if a direction was given
+	if(direction)
+		var/list/filtered = list()
+		for(var/turf/O in target_turfs)
+			// find the dir from origin turf to this turf
+			var/dir_to = get_dir(T, O)
+			// only allow turfs that match the given direction (including diagonals)
+			if(dir_to & direction)
+				filtered += O
+		target_turfs = filtered
+
+	if(!length(target_turfs))
+		return
+
+	var/fragments_per_projectile = round(fragment_number / length(target_turfs))
 
 	for(var/turf/O in target_turfs)
 		sleep(0)
 		var/fragment_type = pickweight(fragtypes)
 		var/obj/item/projectile/bullet/pellet/fragment/P = new fragment_type(T)
 		P.pellets = fragments_per_projectile
-		P.shot_from = src.name
+		P.shot_from = shoot_from
 		P.hitchance_mod = 50
-
 		P.launch(O)
 
 		// Handle damaging whatever the grenade's inside. Currently only checks for mobs.
@@ -78,7 +92,7 @@
 
 /obj/item/grenade/frag/proc/on_explosion(turf/O)
 	if(explosion_size)
-		cell_explosion(epicenter = loc, power = explosion_size) // Gaia
+		cell_explosion(epicenter = loc, power = explosion_size, falloff = 50, shrapnel = FALSE) // Gaia
 
 /obj/item/grenade/frag/shell
 	name = "fragmentation grenade"
@@ -98,7 +112,7 @@
 
 	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment=1,/obj/item/projectile/bullet/pellet/fragment/strong=4)
 	num_fragments = 144  //total number of fragments produced by the grenade
-	explosion_size = 150 // gaia
+	explosion_size = 300 // gaia
 
 /obj/item/grenade/frag/makeshift
 	name = "improvised explosive device"
@@ -107,7 +121,7 @@
 	arm_sound = 'sound/effects/flare.ogg'
 
 	num_fragments = 10  // Its a /can/ , not nearly as strong as an industrially produced grenade.
-	explosion_size = 80 // Gaia
+	explosion_size = 150 // Gaia
 
 	det_time = 5
 

@@ -27,7 +27,7 @@
  * ========
  */
 
-
+/* GAIA REMOVE
 /obj/item/clothing/under/iccgn/service_command
 	accessories = list(
 		/obj/item/clothing/accessory/iccgn_patch/pioneer
@@ -42,7 +42,7 @@
 	accessories = list(
 		/obj/item/clothing/accessory/iccgn_patch/pioneer
 	)
-
+*/
 /obj/item/storage/belt/holster/security/tactical/farfleet/New()
 	..()
 	new /obj/item/gun/projectile/pistol/optimus(src)

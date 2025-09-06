@@ -58,7 +58,7 @@
 				"Construction Worker" = /singleton/hierarchy/outfit/job/gaia/worker,
 				"Paramedic" = /singleton/hierarchy/outfit/job/gaia/paramedic,
 				"Mayor" = /singleton/hierarchy/outfit/job/gaia/mayor,
-				"Cashier",
+				"Chaplain" = /singleton/hierarchy/outfit/job/gaia/chaplain,
 				)
 	economic_power = 1
 	faction = MOB_FACTION_NEUTRAL

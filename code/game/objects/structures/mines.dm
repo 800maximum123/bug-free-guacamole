@@ -56,7 +56,7 @@
 		SPAN_DANGER("\The [src] explodes!"),
 		SPAN_DANGER("You hear an explosion!")
 	)
-	cell_explosion(epicenter = loc, power = 150, falloff = 200) // Fixes mines GAIA
+	cell_explosion(epicenter = loc, power = 100, falloff = 50) // Fixes mines GAIA
 	qdel_self()
 
 

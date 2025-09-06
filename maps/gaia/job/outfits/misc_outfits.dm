@@ -2,15 +2,16 @@
 	name = OUTFIT_JOB_NAME("Gaian Outfit")
 	hierarchy_type = /singleton/hierarchy/outfit/job/gaia
 	uniform = /obj/item/clothing/under/color/grey
-	l_ear = null
 	pda_type = null
 	r_pocket = /obj/item/device/radio/hailing
+	id_types = list(/obj/item/card/id/gaia)
 
 /singleton/hierarchy/outfit/job/gaia/police
 	name = OUTFIT_JOB_NAME("Gaian Police Officer")
 	uniform = /obj/item/clothing/under/rank/security/alt/police
+	suit = /obj/item/clothing/suit/storage/hazardvest/blue
 	shoes = /obj/item/clothing/shoes/laceup
-	head = /obj/item/clothing/head/caphat/formal
+	head = /obj/item/clothing/head/caphat/cap/police
 	l_pocket = /obj/item/device/flash
 
 /singleton/hierarchy/outfit/job/gaia/worker
@@ -37,3 +38,8 @@
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/monocle
 	l_pocket = /obj/item/device/megaphone
+
+/singleton/hierarchy/outfit/job/gaia/chaplain
+	name = OUTFIT_JOB_NAME("Chaplain")
+	uniform = /obj/item/clothing/under/rank/chaplain
+	l_hand = /obj/item/storage/bible

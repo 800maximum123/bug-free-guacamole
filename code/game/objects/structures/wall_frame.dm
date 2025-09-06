@@ -218,3 +218,6 @@
 
 /obj/structure/wall_frame/hull/verne
 	paint_color = COLOR_GUNMETAL
+
+/obj/structure/wall_frame/concrete // GAIA
+	material = MATERIAL_CONCRETE

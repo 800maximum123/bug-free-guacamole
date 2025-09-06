@@ -32,7 +32,7 @@
 	icon_state = "asteroid"
 
 /turf/simulated/floor/exoplanet/barren/on_update_icon()
-	ClearOverlays()
+	//ClearOverlays() Lazy Fix GAIA
 	if(prob(20))
 		AddOverlays(image('icons/turf/flooring/decals.dmi', "asteroid[rand(0,9)]"))
 

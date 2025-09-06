@@ -23,6 +23,8 @@ var/global/list/all_gps_units = list()
 	var/can_hide_signal = FALSE
 	/// How the GPS marker should be handled.
 	var/is_special_gps_marker = FALSE
+	/// GAIA. Faction specific GPS trackers
+	var/gps_faction = MOB_FACTION_NEUTRAL
 
 	var/mob/holder
 	var/is_in_processing_list = FALSE
@@ -234,6 +236,8 @@ var/global/list/all_gps_units = list()
 
 	var/list/gps_list = list()
 	for(var/obj/item/device/gps/G as anything in global.all_gps_units)
+		if(gps_faction != G.gps_faction) // GAIA. Do not track enemy GPS
+			continue
 		if(G == src || !can_track(G, z_level_detection))
 			continue
 
@@ -348,3 +352,16 @@ var/global/list/all_gps_units = list()
 /obj/item/device/gps/AltClick(mob/user)
 	toggle_tracking(user)
 	return TRUE
+
+// GAIA
+/obj/item/device/gps/scg
+	desc = "A handheld relay used to triangulate the approximate co-ordinates of the device. This one belongs to the SCGDF."
+	color = COLOR_BLUE_GRAY
+	gps_tag = "SOL0"
+	gps_faction = MOB_FACTION_SCG
+
+/obj/item/device/gps/iccg
+	desc = "A handheld relay used to triangulate the approximate co-ordinates of the device. This one belongs to the ICCGN."
+	color = COLOR_RED_GRAY
+	gps_tag = "ICCG0"
+	gps_faction = MOB_FACTION_ICCG

@@ -30,9 +30,8 @@
 	if(!message)
 		return
 	message = capitalize(message)
-	owner.visible_message("[FONT_GIANT("\"[]\"")]",10)
-	owner.visible_message("[FONT_GIANT("\"[owner] integrated megaspeaker speaks: [message]\"")]",10)
-	owner.visible_message("[FONT_GIANT("\"[]\"")]",10)
+	owner.audible_message(message = FONT_GIANT("[message]"))
+	playsound(src, 'sound/items/megaphone.ogg', 50, TRUE)
 	return
 
 /obj/screen/movable/exosuit/toggle/gps
