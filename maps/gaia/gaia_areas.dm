@@ -22,7 +22,7 @@
 /area/gaia/city
 	name = "\improper Maricarbonia"
 	icon_state = "gaia_city"
-	ambience = list('sound/ambience/ominous1', 'sound/ambience/ominous2', 'sound/ambience/ominous3',)
+	ambience = list('sound/ambience/ominous1.ogg', 'sound/ambience/ominous2.ogg', 'sound/ambience/ominous3.ogg',)
 
 /*
 * -- SCG Camp "Boxcutters" Platoon camp --
