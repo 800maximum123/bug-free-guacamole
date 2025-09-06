@@ -170,7 +170,7 @@
 	where Z8 lacks versatility. Courtesy of Hephaestus Industries. This one comes with a better stock and optics, but only has a semi-auto firemode."
 	icon = 'icons/obj/guns/pointman.dmi'
 	icon_state = "marksman"
-	item_state = null
+	item_state = "caselessrifle"
 	w_class = ITEM_SIZE_HUGE
 	force = 12
 	caliber = CALIBER_RIFLE_CASELESS
@@ -182,13 +182,13 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	handle_casings = CLEAR_CASINGS // obviously
-	one_hand_penalty = 10
+	one_hand_penalty = 8
 	scoped_accuracy = 8
 	scope_zoom = 1
 	accuracy_power = 8
-	accuracy = 3
+	accuracy = 4
 	bulk = GUN_BULK_RIFLE
-	wielded_item_state = "battlerifle-wielded"
+	wielded_item_state = "caselessrifle-wielded"
 	mag_insert_sound = 'sound/weapons/guns/interaction/ltrifle_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/ltrifle_magout.ogg'
 	fire_sound = 'sound/weapons/gunshot/rifle/shot_heavy.ogg'
@@ -199,8 +199,10 @@
 	if(ammo_magazine)
 		if(length(ammo_magazine.stored_ammo))
 			icon_state = "marksman-loaded"
+			wielded_item_state = "caselessrifle-wielded"
 		else
 			icon_state = "marksman-empty"
+			wielded_item_state = "caselessrifle-wielded-empty"
 	else
 		icon_state = "marksman"
 

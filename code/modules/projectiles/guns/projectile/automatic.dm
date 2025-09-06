@@ -432,7 +432,7 @@
 	where Z8 lacks versatility. Courtesy of Hephaestus Industries. This one's a regular make, only fitted with a holosight."
 	icon = 'icons/obj/guns/pointman.dmi'
 	icon_state = "infantry"
-	item_state = null
+	item_state = "caselessrifle"
 	w_class = ITEM_SIZE_HUGE
 	force = 12
 	caliber = CALIBER_RIFLE_CASELESS
@@ -447,7 +447,7 @@
 	one_hand_penalty = 10
 	accuracy_power = 9
 	accuracy = 1
-	wielded_item_state = "battlerifle-wielded"
+	wielded_item_state = "caselessrifle-wielded"
 	mag_insert_sound = 'sound/weapons/guns/interaction/ltrifle_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/ltrifle_magout.ogg'
 	fire_sound = 'sound/weapons/gunshot/rifle/shot.ogg'
@@ -463,8 +463,10 @@
 	if(ammo_magazine)
 		if(length(ammo_magazine.stored_ammo))
 			icon_state = "infantry-loaded"
+			wielded_item_state = "caselessrifle-wielded"
 		else
 			icon_state = "infantry-empty"
+			wielded_item_state = "caselessrifle-wielded-empty"
 	else
 		icon_state = "infantry"
 
@@ -490,8 +492,10 @@
 	if(ammo_magazine)
 		if(length(ammo_magazine.stored_ammo))
 			icon_state = "carbine-loaded"
+			wielded_item_state = "caselessrifle-wielded"
 		else
 			icon_state = "carbine-empty"
+			wielded_item_state = "caselessrifle-wielded-empty"
 	else
 		icon_state = "carbine"
 
@@ -553,8 +557,10 @@
 	if(ammo_magazine)
 		if(length(ammo_magazine.stored_ammo))
 			icon_state = "grenadier-loaded"
+			wielded_item_state = "caselessrifle-wielded"
 		else
 			icon_state = "grenadier-empty"
+			wielded_item_state = "caselessrifle-wielded-empty"
 	else
 		icon_state = "grenadier"
 
@@ -674,7 +680,7 @@
 	balances between accuracy and reliability at the cost of its large size."
 	icon = 'icons/obj/guns/molot.dmi'
 	icon_state = "infantry"
-	item_state = null
+	item_state = "molot"
 	w_class = ITEM_SIZE_HUGE
 	force = 12
 	caliber = CALIBER_RIFLE_CASELESS
@@ -690,7 +696,7 @@
 	accuracy_power = 8
 	accuracy = 2
 	bulk = GUN_BULK_HEAVY_RIFLE
-	wielded_item_state = "battlerifle-wielded"
+	wielded_item_state = "molot-wielded"
 	mag_insert_sound = 'sound/weapons/guns/interaction/ltrifle_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/ltrifle_magout.ogg'
 	fire_sound = 'sound/weapons/gunshot/rifle/shot.ogg'
