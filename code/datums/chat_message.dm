@@ -196,6 +196,10 @@ GLOBAL_LIST_EMPTY(runechat_image_cache)
 
 	invoke_async(src, PROC_REF(finish_image_generation), mheight, target, owner, complete_text, lifespan)
 
+/atom
+	var/runechat_x_offset = 0
+	var/runechat_y_offset = 0
+
 /// Finishes the image generation after the MeasureText() call in generate_image().
 /// Necessary because after that call the proc can resume at the end of the tick and cause overtime.
 /datum/chatmessage/proc/finish_image_generation(mheight, atom/target, mob/owner, complete_text, lifespan)
@@ -245,6 +249,8 @@ GLOBAL_LIST_EMPTY(runechat_image_cache)
 	message.maptext_height = mheight * 1.25
 	message.maptext_x = (CHAT_MESSAGE_WIDTH - owner.bound_width) * -0.5
 	message.maptext = complete_text
+	message.pixel_x += target.runechat_x_offset
+	message.pixel_y += target.runechat_y_offset
 
 	// View the message
 	LAZYADDASSOCLIST(owned_by.seen_messages, message_loc, src)
