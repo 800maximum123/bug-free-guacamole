@@ -36,6 +36,7 @@
 
 #include "code/obj/landmarks.dm"
 #include "code/obj/random.dm"
+#include "code/obj/vines.dm"
 
 #include "code/structures/decor.dm"
 #include "code/structures/mag_table_fd.dm"
@@ -69,3 +70,12 @@
 #include "code/autodoc.dm"
 
 #endif
+// BEGIN_INTERNALS
+// END_INTERNALS
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+// END_FILE_DIR
+// BEGIN_PREFERENCES
+// END_PREFERENCES
+// BEGIN_INCLUDE
+// END_INCLUDE
