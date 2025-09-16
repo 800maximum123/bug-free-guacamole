@@ -294,7 +294,7 @@
 
 		// ~VOID'S MINI-GAMES~ //
 
-	#include "../../mods/_fd/cat_alchemist/_cat_alchemist.dme"
+//	#include "../../mods/_fd/cat_alchemist/_cat_alchemist.dme"
 //	#include "../../mods/_fd/fd_tbs/_fd_tbs.dme"
 
 		// ~FD-MAPS All in one ~ \\
@@ -314,7 +314,7 @@
 	#include "../../mods/_fd/_maps/fluffy_biscuit/_fluffy_biscuit.dme"
 	#include "../../mods/_fd/_maps/gccv_ulyanovsk/_ulyanovsk.dme"
 //	#include "../../mods/_fd/_maps/iccgn_samosbor/_samosbor.dme"
-	#include "../../mods/_fd/_maps/baycore_foranswer/_baycore.dme"
+//	#include "../../mods/_fd/_maps/baycore_foranswer/_baycore.dme"
 	#include "../../mods/_fd/_maps/khizriel/_khizriel.dme"
 	#include "../../mods/_fd/_maps/kitsune/_kitsune.dme"
 	#include "../../mods/_fd/_maps/lighthouse/_lighthouse.dme"

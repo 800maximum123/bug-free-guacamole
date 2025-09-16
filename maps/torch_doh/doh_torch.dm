@@ -14,7 +14,6 @@
 	#include "../torch/torch_announcements.dm"
 	#include "../torch/torch_antagonism.dm"
 	#include "../torch/torch_areas.dm"
-	#include "../torch/torch_elevator.dm"
 	#include "../torch/torch_events.dm"
 	#include "../torch/torch_holodecks.dm"
 	#include "../torch/torch_lobby.dm"
@@ -27,7 +26,6 @@
 	#include "torch_ranks.dm"
 	#include "../torch/torch_security_state.dm"
 	#include "../torch/torch_setup.dm"
-	#include "torch_shuttles.dm"
 	#include "../torch/torch_submaps.dm"
 	#include "../torch/torch_turfs.dm"
 	#include "../torch/torch_unit_testing.dm"
@@ -184,14 +182,8 @@
 	// --- MAP FILES --- //
 
 		// ~TORCH~ //
-	#include "torch1_deck5.dmm"
-	#include "torch2_deck4.dmm"
-	#include "torch3_deck3.dmm"
-	#include "torch4_deck2.dmm"
-	#include "torch5_deck1.dmm"
-	#include "torch6_bridge.dmm"
-	#include "z7_admin.dmm"
-	#include "z8_transit.dmm"
+	#include "z1_empty.dmm"
+	#include "z2_admin.dmm"
 
 	#include "../bluespace_interlude/bluespace_interlude.dm"
 	#include "../bluespace_interlude/bluespace_interlude.dmm"
@@ -324,7 +316,7 @@
 
 		// ~VOID'S MINI-GAMES~ //
 
-	#include "../../mods/_fd/cat_alchemist/_cat_alchemist.dme"
+//	#include "../../mods/_fd/cat_alchemist/_cat_alchemist.dme"
 //	#include "../../mods/_fd/fd_tbs/_fd_tbs.dme"
 
 

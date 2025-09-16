@@ -1,4 +1,4 @@
 /singleton/modpack/new_year_house
-	name = "..."
+	name = "New Year Swift House"
 	desc = "..."
 	author = "Doctor Alex"

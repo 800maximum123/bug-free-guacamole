@@ -1,6 +1,6 @@
-// Вступительная сцена второго акта
-
-// Фейковые пропы кораблей. Нужны будут для анимации на фоне
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// OUTDATED, BUT CANNOT BE DELETED //
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /obj/structure/fd/fake_torch
 	name = "SEV 'TORCH'"
@@ -13,8 +13,6 @@
 	desc = "Это заглушка для фоновой анимации"
 	icon = 'mods/_fd/ai_overmap_objects/icons/ascent/ascent_ships.dmi'
 	icon_state = "fighter"
-
-// Задний фон
 
 /obj/structure/fd/planet_sea
 	name = "sea"
@@ -64,8 +62,6 @@
 			PSK.forceMove(relocate_to)
 			PSK.pixel_x = 0
 
-//Контроллер, в который мы позже запихнём камеру наших игроков. Вот бы только понять, как её потом обратно вернуть пиздец
-
 /obj/structure/fd/camera_controller
 	icon = 'mods/_fd/event_tools/icons/landmarks_static.dmi'
 	icon_state = "generic_event"
@@ -79,7 +75,6 @@
 	invisibility = 50
 	var/id_background = 1
 
-// Фуллскрины
 /obj/screen/fullscreen/fd/blackout
 	icon = 'mods/_fd/fd_assets/icons/screen_full.dmi'
 	icon_state = "fullblack"
@@ -90,123 +85,10 @@
 /obj/screen/fullscreen/fd/blackout/alt
 	layer = UNDER_HUD_LAYER
 
-
 /obj/screen/fullscreen/fishbed/fd
 	plane = HUD_PLANE
 	layer = 7
 
-// Логика самой катсцены
-
-/proc/campaign_act_two()
-	var/obj/structure/fd/camera_controller/controller
-
-	for(var/obj/structure/fd/camera_controller/searching in world)
-		controller = searching
-
-	for(var/mob/all in GLOB.player_list)
-		all.overlay_fullscreen("blackscreen", /obj/screen/fullscreen/fd/blackout)
-		all.overlay_fullscreen("fishbed", /obj/screen/fullscreen/fishbed/fd)
-		all.Stun(99999)
-
-		spawn(20 SECONDS)
-			all.clear_fullscreen("blackscreen")
-			all.clear_fullscreen("fishbed")
-
-		all.alpha = 0
-		all.forceMove(controller)
-
-	spawn(1 SECOND)
-		blackbox_pt1()
-	spawn(5 SECONDS)
-		blackbox_pt2()
-	spawn(7 SECONDS)
-		blackbox_pt3()
-
-	spawn(22 SECOND)
-		change_background()
-
-	spawn(32 SECONDS)
-		reset_background()
-
-	spawn(33 SECONDS)
-		change_background()
-
-	spawn(42 SECONDS)
-		reset_background()
-
-	spawn(23 SECONDS)
-		bridge_scene_pt1()
-
-
-
-// Новельные реплики
-
-/proc/blackbox_pt1()
-	var/novel_message = "2337 г, 8 марта. ГЭК 'Факел' покидает систему |XXX| - 16:39:07"
-	var/colored = "#4ec908"
-
-	var/obj/screen/novel_message/first = new /obj/screen/novel_message()
-	first.maptext_y = -140
-	for(var/client/M in GLOB.clients)
-		M.screen += first
-		first.set_text(novel_message, colored)
-
-	spawn(12 SECONDS)
-		for(var/obj/screen/novel_message/messages in world)
-			animate(messages, 1 SECOND, alpha = 0)
-			spawn(1 SECOND)
-				qdel(messages)
-
-/proc/blackbox_pt2()
-	var/novel_message = "2337 г, 8 марта. ГЭК 'Факел' прибывает в систему |EZ-107| - 20:10:44"
-	var/colored = "#4ec908"
-
-	var/obj/screen/novel_message/first = new /obj/screen/novel_message()
-	first.maptext_y = -170
-	for(var/client/M in GLOB.clients)
-		M.screen += first
-		first.set_text(novel_message, colored)
-
-	spawn(10 SECONDS)
-		for(var/obj/screen/novel_message/messages in world)
-			animate(messages, 1 SECOND, alpha = 0)
-			spawn(1 SECOND)
-				qdel(messages)
-
-/proc/blackbox_pt3()
-	var/novel_message = "2337 г, 8 марта. Факел вступает в бой - 20:31:05"
-	var/colored = "#4ec908"
-
-	var/obj/screen/novel_message/first = new /obj/screen/novel_message()
-	first.maptext_y = -190
-	for(var/client/M in GLOB.clients)
-		M.screen += first
-		first.set_text(novel_message, colored)
-
-	spawn(8 SECONDS)
-		for(var/obj/screen/novel_message/messages in world)
-			animate(messages, 1 SECOND, alpha = 0)
-			spawn(1 SECOND)
-				qdel(messages)
-
-/proc/bridge_scene_pt1()
-	for(var/mob/living/M in GLOB.player_list)
-		M.overlay_fullscreen("pilot", /obj/screen/fullscreen/novel2) // Заменить
-
-	var/novel_message = "Что...Какого чёрта только что произошло?"
-	var/colored = "#ffffff"
-
-	var/obj/screen/novel_message/first = new /obj/screen/novel_message()
-	first.maptext_y = -380
-	first.maptext_x = 20
-	for(var/client/M in GLOB.clients)
-		M.screen += first
-		first.set_text(novel_message, colored)
-
-	spawn(6 SECONDS)
-		for(var/mob/living/M in GLOB.player_list)
-			M.clear_fullscreen("pilot") // Заменить
-		for(var/obj/screen/novel_message/messages in world)
-			animate(messages, 1 SECOND, alpha = 0)
-			spawn(1 SECOND)
-				qdel(messages)
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// OUTDATED, BUT CANNOT BE DELETED //
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

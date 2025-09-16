@@ -74,10 +74,6 @@ default behaviour is:
 		return
 	// End boilerplate.
 
-	if(istype(AM, /mob/living/simple_animal/fd/lancer))
-		now_pushing = 0
-		return
-
 	spawn(0)
 		if ((!( yes ) || now_pushing) || !loc)
 			return
