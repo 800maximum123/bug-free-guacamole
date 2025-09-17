@@ -179,6 +179,11 @@
 	#include "../torch/loadout/~defines.dm"
 	#include "loadout/overrides.dm"
 
+	// --- CUTSCENES --- //
+	#include "cutscenes/animations.dm"
+	#include "cutscenes/framework.dm"
+	#include "cutscenes/s2ep1/scene_1.dm"
+
 	// --- MAP FILES --- //
 
 		// ~TORCH~ //

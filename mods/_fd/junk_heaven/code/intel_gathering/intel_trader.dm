@@ -1,4 +1,4 @@
-var/list/intel_cost = list(
+var/global/list/intel_cost = list(
 //INTEL
 					/obj/item/fd/data = 100,
 
@@ -48,10 +48,6 @@ var/list/intel_cost = list(
 					/obj/item/fd/ancient_items/bio_implant = 2000,
 					/obj/item/fd/ancient_items/lighting_staff = 2000,
 					/obj/item/fd/ancient_items/eye_of_the_maw = 5000)
-
-/get_value(atom/A)
-	worths += intel_cost
-	..()
 
 /datum/trader/ship/intel_collector
 	name = "Загадочный Фиксер"
