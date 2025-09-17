@@ -42,7 +42,7 @@
 	maptext_name.maptext = STYLE_SMALLFONTS_OUTLINE("<center>[name]</center>", 7, main_color, support_color)
 	maptext_name.maptext_height = 26
 	maptext_name.maptext_width = 64
-	maptext_name.maptext_x = -8
+	maptext_name.maptext_x = -15
 	maptext_name.maptext_y = -10
 
 	AddOverlays(maptext_name)

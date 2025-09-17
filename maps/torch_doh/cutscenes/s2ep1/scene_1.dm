@@ -85,6 +85,9 @@
 	spawn(20 SECONDS)
 		animate(src, 5 SECOND, alpha = 0)
 
+/obj/screen/novel_message/start_credits
+	layer = 5.2
+
 /obj/screen/novel_message/start_credits/set_text(text, text_color, time = 5 SECONDS)
 	var/countdown = time + 6 SECONDS
 
@@ -113,8 +116,7 @@
 	var/colored = COLOR_ASSEMBLY_BLACK
 
 	var/obj/screen/novel_message/start_credits/big/visuals = new /obj/screen/novel_message/start_credits/big()
-	visuals.maptext_y = -120
-	visuals.maptext_x = 40
+	visuals.maptext_y = -80
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 12 SECONDS)
@@ -124,8 +126,8 @@
 	var/colored = COLOR_ASSEMBLY_BLACK
 
 	var/obj/screen/novel_message/start_credits/big/visuals = new /obj/screen/novel_message/start_credits/big()
-	visuals.maptext_y = -150
-	visuals.maptext_x = 40
+	visuals.maptext_y = -100
+	visuals.maptext_x = 25
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 12 SECONDS)
@@ -180,15 +182,15 @@
 		all.client.view = 7
 
 		spawn(5 SECONDS)
+			credits_team()
+		spawn(7 SECONDS)
+			credits_show()
+
+		spawn(15 SECONDS)
 
 			for(var/obj/structure/fd/players_geter/s2ep1/part1_1/G in world)
 				all.alpha = 0
 				all.forceMove(G)
-
-		spawn(7 SECONDS)
-			credits_team()
-		spawn(10 SECONDS)
-			credits_show()
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // СКРИПТ ПЕРСОНАЖЕЙ В СЦЕНЕ //
