@@ -82,7 +82,8 @@
 
 /obj/screen/fullscreen/fd/blackout/animated/s2ep1sc1/Initialize()
 	. = ..()
-	animate(src, 20 SECOND, alpha = 0)
+	spawn(20 SECONDS)
+		animate(src, 5 SECOND, alpha = 0)
 
 /obj/screen/novel_message/start_credits/set_text(text, text_color, time = 5 SECONDS)
 	var/countdown = time + 6 SECONDS
