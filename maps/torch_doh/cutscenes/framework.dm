@@ -1,5 +1,7 @@
 #define STYLE_FDFONT_OUTLINE(X, S, C1, C2) SPAN_STYLE("text-align: left; font-family: 'Small Fonts'; color: [C1]; -dm-text-outline: 1 [C2]; font-size: [S]px", "[X]")
 
+GLOBAL_VAR_INIT(stop_the_siren, FALSE)
+
 /mob
 	var/turf/remember_position
 	var/remember_camera_size
@@ -79,16 +81,3 @@
 /obj/screen/fullscreen/fd/cinema_borders/Initialize()
 	. = ..()
 	animate(src, 3 SECOND, alpha = 255)
-
-/mob/proc/move_cutscene_camera(atom/movable/UNIT, move_by_x = 0, move_by_y = 0, time_frame = 3 SECONDS)
-	set waitfor = FALSE
-
-	if(istype(UNIT, /mob))
-		var/mob/user = UNIT
-
-		var/client/client = user.client
-		ADD_TRANSFORMATION_MOVEMENT_HANDLER(user)
-		animate(client, pixel_y = move_by_y, pixel_x = move_by_x, time = time_frame, easing = SINE_EASING|EASE_IN)
-
-		sleep(time_frame)
-		DEL_TRANSFORMATION_MOVEMENT_HANDLER(user)

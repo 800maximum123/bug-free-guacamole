@@ -11,10 +11,10 @@
 /mob/living/simple_animal/cutscene_character/amelia
 	name = "Амелия Б."
 	desc = "..."
-	icon = 'mods/_fd/fd_assets/icons/animals/prime_soul.dmi'
-	icon_state = "body"
-	icon_living = "body"
-	icon_dead = "body"
+	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
+	icon_state = "Amelia"
+	icon_living = "Amelia"
+	icon_dead = "Amelia"
 
 /mob/living/simple_animal/cutscene_character/amelia/s2ep1/part1_1
 /mob/living/simple_animal/cutscene_character/amelia/s2ep1/part1_2
@@ -82,8 +82,14 @@
 
 /obj/screen/fullscreen/fd/blackout/animated/s2ep1sc1/Initialize()
 	. = ..()
-	spawn(20 SECONDS)
-		animate(src, 5 SECOND, alpha = 0)
+	spawn(25 SECONDS)
+		animate(src, 3 SECOND, alpha = 0)
+
+	spawn(44 SECONDS)
+		animate(src, 3 SECOND, alpha = 255)
+
+	spawn(48 SECONDS)
+		animate(src, 3 SECOND, alpha = 0)
 
 /obj/screen/novel_message/start_credits
 	layer = 5.2
@@ -132,16 +138,29 @@
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 12 SECONDS)
 
-/proc/credits_author()
-	var/novel_message = "АВТОР ИДЕИ: DOCTOR ALEX"
+/proc/credits_production()
+	var/novel_message = "ПРОДЮСИРОВАНИЕ DOCTOR ALEX'A"
 	var/colored = COLOR_ASSEMBLY_BLACK
 
 	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
 	visuals.maptext_x = -110
-	visuals.maptext_y = -20
+	visuals.maptext_y = -5
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
-		visuals.set_text(novel_message, colored, time = 12 SECONDS)
+		visuals.set_text(novel_message, colored, time = 16 SECONDS)
+
+/proc/credits_author()
+	var/novel_message = "ФИЛЬМ SWIFT0"
+	var/colored = COLOR_ASSEMBLY_BLACK
+
+	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
+	visuals.maptext_x = -100
+	visuals.maptext_y = -15
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 18 SECONDS)
+
+		animate(visuals, maptext_x = 30, 3 SECONDS, easing = SINE_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
 
 /proc/credits_writer()
 	var/novel_message = "СЦЕНАРИСТ И РЕЖИССЁР ПОСТАНОВКИ: DOCTOR ALEX"
@@ -165,6 +184,21 @@
 		M.screen += visuals
 		visuals.set_text(novel_message, colored)
 
+/proc/repeating_siren(atom/search_in)
+	var/atom/play_on_next = search_in
+
+	for(var/mob/all in search_in)
+		var/list/players_on_point = list()
+		players_on_point += all
+
+		var/mob/choosen_player = pick(players_on_point)
+		playsound(choosen_player, 'maps/torch_doh/cutscenes/sounds/nuclear_klaxon.ogg', 70, FALSE)
+
+	spawn(14 SECONDS)
+		if(GLOB.stop_the_siren)
+			return
+		repeating_siren(play_on_next)
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // СКРИПТ СЦЕНЫ //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -186,12 +220,76 @@
 		spawn(7 SECONDS)
 			credits_show()
 
-		spawn(15 SECONDS)
+		spawn(25 SECONDS)
 
 			for(var/obj/structure/fd/players_geter/s2ep1/part1_1/G in world)
 				all.alpha = 0
 				all.forceMove(G)
+				repeating_siren(G)
+
+		spawn(26 SECONDS)
+			all.move_cutscene_camera(all, 0, -160, 20 SECONDS)
+
+		spawn(28 SECONDS)
+			credits_production()
+
+		spawn(34 SECONDS)
+			credits_author()
+
+		spawn(47 SECONDS)
+
+			for(var/obj/structure/fd/players_geter/s2ep1/part1_2/G in world)
+				all.alpha = 0
+				all.forceMove(G)
+				repeating_siren(G)
+
+		spawn(48 SECONDS)
+			all.client.pixel_y = 0
+			all.client.pixel_x = 160
+
+	spawn(26 SECONDS)
+		for(var/mob/living/simple_animal/cutscene_character/C in world)
+			if(C.cutscene_id != "s2ep1sc1pt11")
+				continue
+			C.do_stuff()
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // СКРИПТ ПЕРСОНАЖЕЙ В СЦЕНЕ //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/mob/living/simple_animal/cutscene_character/amelia/s2ep1/part1_1/do_stuff()
+	forceMove(get_step(src, SOUTH))
+
+	spawn(3 SECONDS)
+		forceMove(get_step(src, SOUTH))
+
+	spawn(6 SECONDS)
+		dir = WEST
+		ISay("!слегка пошатывается.")
+		forceMove(get_step(src, SOUTH))
+
+	spawn(9 SECONDS)
+		dir = SOUTH
+		forceMove(get_step(src, SOUTH))
+
+	spawn(12 SECONDS)
+		forceMove(get_step(src, SOUTH))
+
+	spawn(15 SECONDS)
+		ISay("!спотыкается.")
+		animate(src, 0.3 SECONDS, transform = matrix(-15, MATRIX_ROTATE), easing = SINE_EASING, flags = ANIMATION_PARALLEL)
+		animate(src, pixel_y = -3, 0.3 SECONDS, easing = JUMP_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
+		forceMove(get_step(src, SOUTH))
+		animate(src, pixel_y = 0, 0.5 SECONDS, easing = SINE_EASING|EASE_OUT)
+		animate(src, 0.4 SECONDS, transform = matrix(0, MATRIX_ROTATE), easing = SINE_EASING|EASE_OUT)
+		ISay("З-зараза...")
+
+	spawn(18 SECONDS)
+		forceMove(get_step(src, SOUTH))
+
+	spawn(21 SECONDS)
+		ISay("!придерживает правую руку.")
+		forceMove(get_step(src, SOUTH))
+
+	spawn(24 SECONDS)
+		forceMove(get_step(src, SOUTH))
