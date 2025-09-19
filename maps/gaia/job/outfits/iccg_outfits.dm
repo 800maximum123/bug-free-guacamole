@@ -44,8 +44,15 @@
 	uniform = /obj/item/clothing/under/iccgn/combat/medical
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/dark
 	shoes = /obj/item/clothing/shoes/iccgn/utility
-	head = /obj/item/clothing/head/surgery/black
+	head = /obj/item/clothing/head/soft/scp_cap
 	id_types = list(/obj/item/card/id/gaia/iccg/medic)
+
+/singleton/hierarchy/outfit/job/gaia/iccg/medic/pmc
+	name = OUTFIT_JOB_NAME("ICCG PMC Gaia Medic")
+	uniform = /obj/item/clothing/under/scp_uniform
+	suit = /obj/item/clothing/suit/surgicalapron
+	shoes = /obj/item/clothing/shoes/jackboots
+	backpack_contents = list(/obj/item/clothing/accessory/armor_tag/scp = 1, /obj/item/clothing/accessory/armor/helmcover/scp_cover = 1)
 
 /singleton/hierarchy/outfit/job/gaia/iccg/medic/New()
 	..()
@@ -58,6 +65,13 @@
 	shoes = /obj/item/clothing/shoes/iccgn/utility
 	head = /obj/item/clothing/head/hardhat/red
 	id_types = list(/obj/item/card/id/gaia/iccg/engineer)
+
+/singleton/hierarchy/outfit/job/gaia/iccg/engineer/pmc
+	name = OUTFIT_JOB_NAME("ICCG PMC Gaia Engineer")
+	uniform = /obj/item/clothing/under/scp_uniform
+	shoes = /obj/item/clothing/shoes/jackboots
+	head = /obj/item/clothing/head/soft/scp_cap
+	backpack_contents = list(/obj/item/clothing/accessory/armor_tag/scp = 1, /obj/item/clothing/accessory/armor/helmcover/scp_cover = 1)
 
 /singleton/hierarchy/outfit/job/gaia/iccg/engineer/New()
 	..()
@@ -90,3 +104,10 @@
 	name = OUTFIT_JOB_NAME("ICCG Gaia Trooper")
 	uniform = /obj/item/clothing/under/iccgn/combat
 	shoes = /obj/item/clothing/shoes/iccgn/utility
+
+/singleton/hierarchy/outfit/job/gaia/iccg/trooper/pmc
+	name = OUTFIT_JOB_NAME("ICCG PMC Gaia Trooper")
+	uniform = /obj/item/clothing/under/scp_uniform
+	shoes = /obj/item/clothing/shoes/jackboots
+	head = /obj/item/clothing/head/soft/scp_cap
+	backpack_contents = list(/obj/item/clothing/accessory/armor_tag/scp = 1, /obj/item/clothing/accessory/armor/helmcover/scp_cover = 1)

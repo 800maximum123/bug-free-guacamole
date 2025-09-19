@@ -106,11 +106,13 @@
 	faction = MOB_FACTION_ICCG
 	allowed_branches = list(
 		/datum/mil_branch/iccgn,
+		/datum/mil_branch/civilian = /singleton/hierarchy/outfit/job/gaia/iccg/medic/pmc,
 	)
 	allowed_ranks = list(
 		/datum/mil_rank/iccgn/of1,
 		/datum/mil_rank/iccgn/of2,
 		/datum/mil_rank/iccgn/of3,
+		/datum/mil_rank/civ/pmc,
 	)
 	min_skill = list(   SKILL_MEDICAL     = SKILL_BASIC,
 	                    SKILL_ANATOMY     = SKILL_BASIC,
@@ -146,11 +148,13 @@
 	faction = MOB_FACTION_ICCG
 	allowed_branches = list(
 		/datum/mil_branch/iccgn,
+		/datum/mil_branch/civilian = /singleton/hierarchy/outfit/job/gaia/iccg/engineer/pmc,
 	)
 	allowed_ranks = list(
 		/datum/mil_rank/iccgn/or3,
 		/datum/mil_rank/iccgn/or4,
 		/datum/mil_rank/iccgn/or5,
+		/datum/mil_rank/civ/pmc,
 	)
 	min_skill = list(   SKILL_HAULING      = SKILL_BASIC,
 	                    SKILL_WEAPONS      = SKILL_BASIC,
@@ -272,10 +276,12 @@
 	faction = MOB_FACTION_ICCG
 	allowed_branches = list(
 		/datum/mil_branch/iccgn,
+		/datum/mil_branch/civilian = /singleton/hierarchy/outfit/job/gaia/iccg/trooper/pmc,
 	)
 	allowed_ranks = list(
 		/datum/mil_rank/iccgn/or3,
 		/datum/mil_rank/iccgn/or4,
+		/datum/mil_rank/civ/pmc,
 	)
 	min_skill = list(   SKILL_HAULING      = SKILL_BASIC,
 	                    SKILL_WEAPONS     = SKILL_BASIC)

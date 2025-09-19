@@ -166,13 +166,15 @@
 	rank_types = list(
 		/datum/mil_rank/civ/civ,
 		/datum/mil_rank/civ/synthetic,
-		/datum/mil_rank/civ/partisan
+		/datum/mil_rank/civ/partisan,
+		/datum/mil_rank/civ/pmc,
 	)
 
 	spawn_rank_types = list(
 		/datum/mil_rank/civ/civ,
 		/datum/mil_rank/civ/synthetic,
-		/datum/mil_rank/civ/partisan
+		/datum/mil_rank/civ/partisan,
+		/datum/mil_rank/civ/pmc,
 	)
 
 /datum/mil_branch/solgov
@@ -380,6 +382,10 @@
 /datum/mil_rank/civ/partisan // SolGov sympathizers, ICCG ones are fully integrted into their army.
 	name = "Partisan"
 	accessory = list(/obj/item/clothing/accessory/scga_rank/e1)
+
+/datum/mil_rank/civ/pmc
+	name = "Military Contractor"
+	name_short = "PMC"
 
 /*
  *  SolGov Employees
