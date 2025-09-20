@@ -2,9 +2,11 @@
 	name = "vines"
 	icon = 'mods/_fd/fd_assets/icons/obj/flora/spacevines.dmi'
 	icon_state = "light_1"
-	layer = ABOVE_WINDOW_LAYER
+	anchored = TRUE
+	layer = ABOVE_HUMAN_LAYER
 	opacity = 0
 	density = FALSE
+	health_max = 25
 
 /obj/structure/vines/Initialize()
 	.=..()
@@ -17,10 +19,12 @@
 	else
 		..(P, def_zone)
 
-/obj/structure/vines/attack_hand(mob/user)
-	playsound(get_turf(loc), "rustle", 15, 1, -5)
+/obj/structure/vines/on_death()
 	qdel(src)
-	..()
+
+/obj/structure/vines/Destroy()
+	. = ..()
+	visible_message(SPAN_WARNING("[src] chops down!"))
 
 /obj/structure/vines/light2
 	icon_state = "light_2"
@@ -30,24 +34,30 @@
 
 /obj/structure/vines/heavy1
 	icon_state = "heavy_1"
+	health_max = 50
 	opacity = 1
 
 /obj/structure/vines/heavy2
 	icon_state = "heavy_2"
+	health_max = 50
 	opacity = 1
 
 /obj/structure/vines/heavy3
 	icon_state = "heavy_3"
+	health_max = 50
 	opacity = 1
 
 /obj/structure/vines/heavy4
 	icon_state = "heavy_4"
+	health_max = 50
 	opacity = 1
 
 /obj/structure/vines/heavy5
 	icon_state = "heavy_5"
+	health_max = 50
 	opacity = 1
 
 /obj/structure/vines/heavy6
 	icon_state = "heavy_6"
+	health_max = 50
 	opacity = 1
