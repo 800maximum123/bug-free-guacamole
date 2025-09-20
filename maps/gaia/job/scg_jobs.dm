@@ -49,8 +49,9 @@
 
 /datum/job/scg_ps
 	title = "Platoon Sergeant"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0 //temporary, we'll talk about this later
+	spawn_positions = 0
+	available_by_default = FALSE
 	supervisors = "the Commanding Officer"
 	department = "Solar Central Government"
 	department_flag = SPT
@@ -137,11 +138,15 @@
 	)
 	allowed_ranks = list(
 		/datum/mil_rank/scga/o1,
+		/datum/mil_rank/scga/o2, //separate commissioned doctors and enlisted medics later
+		/datum/mil_rank/scga/o3,
 		/datum/mil_rank/scga/e3,
 		/datum/mil_rank/scga/e4,
 		/datum/mil_rank/scga/e4_alt,
 		/datum/mil_rank/scga/e5,
 		/datum/mil_rank/fleet/o1,
+		/datum/mil_rank/fleet/o2,
+		/datum/mil_rank/fleet/o3,
 		/datum/mil_rank/fleet/e3,
 		/datum/mil_rank/fleet/e4,
 		/datum/mil_rank/fleet/e5,
@@ -220,6 +225,7 @@
 		access_maint_tunnels, access_engine, access_solgov_crew, access_network, access_network_admin
 	)
 
+/* //UNCOMMENT AFTER SATURDAY
 // -- COMBAT (meatshields) --
 /datum/job/scg_squad_leader
 	title = "Squad Leader"
@@ -310,3 +316,269 @@
 	access = list(
 		access_maint_tunnels, access_solgov_crew,
 	)
+*/
+
+//extended event section
+/datum/job/training_squad_leader
+	title = "Training Squad Leader"
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "the Commanding Officer"
+	department = "Solar Central Government"
+	department_flag = SPT
+	economic_power = 10
+	minimal_player_age = 0
+	minimum_character_age = list(SPECIES_HUMAN = 23)
+	ideal_character_age = 25
+	outfit_type = /singleton/hierarchy/outfit/job/gaia/scg/squad_leader
+	required_language = LANGUAGE_HUMAN_EURO
+	selection_color = COLOR_ASSEMBLY_GOLD
+	faction = MOB_FACTION_SCG
+	head_position = TRUE
+	create_record = FALSE
+	allowed_branches = list(
+		/datum/mil_branch/scga,
+		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/gaia/scg/squad_leader/fleet,
+	)
+	allowed_ranks = list(
+		/datum/mil_rank/scga/e5,
+		/datum/mil_rank/scga/e6,
+		/datum/mil_rank/fleet/e5,
+		/datum/mil_rank/fleet/e6,
+	)
+	min_skill = list(   SKILL_HAULING     = SKILL_BASIC,
+	                    SKILL_COMBAT      = SKILL_BASIC,
+	                    SKILL_WEAPONS     = SKILL_TRAINED)
+
+	max_skill = list(   SKILL_COMBAT      = SKILL_EXPERIENCED,
+	                    SKILL_WEAPONS     = SKILL_EXPERIENCED)
+	skill_points = 20
+
+	access = list(
+		access_medical, access_morgue, access_maint_tunnels,
+		access_surgery, access_medical_equip, access_solgov_crew,
+		access_engine, access_heads
+	)
+
+/datum/job/scg_squad_leader/get_description_blurb()
+	return "You are a Squad Leader for the current training group in the camp. You're a seasoned soldier with about the most experience your CO could find. Coordinate with your superior officer and groom your recruits into a real fighting force."
+
+/datum/job/scg_trooper
+	title = "Recruit"
+	total_positions = 5
+	spawn_positions = 5
+	supervisors = "your Squad Leader"
+	department = "Solar Central Government"
+	department_flag = SPT
+	economic_power = 3
+	minimal_player_age = 0
+	minimum_character_age = list(SPECIES_HUMAN = 18)
+	ideal_character_age = 22
+	alt_titles = list(
+		"Trainee",
+	)
+	outfit_type = /singleton/hierarchy/outfit/job/gaia/scg/trooper
+	required_language = LANGUAGE_HUMAN_EURO
+	selection_color = COLOR_SOL
+	faction = MOB_FACTION_SCG
+	create_record = FALSE
+	allowed_branches = list(
+		/datum/mil_branch/scga,
+		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/gaia/scg/trooper/fleet,
+		/datum/mil_branch/civilian = /singleton/hierarchy/outfit/job/gaia/scg/trooper/civilain,
+	)
+	allowed_ranks = list(
+		/datum/mil_rank/scga/e2,
+		/datum/mil_rank/scga/e3,
+		/datum/mil_rank/scga/e4,
+		/datum/mil_rank/scga/e4_alt,
+		/datum/mil_rank/fleet/e1,
+		/datum/mil_rank/fleet/e2,
+		/datum/mil_rank/fleet/e3,
+		/datum/mil_rank/fleet/e4,
+		/datum/mil_rank/civ/partisan,
+	)
+	min_skill = list(   SKILL_HAULING      = SKILL_BASIC)
+
+	max_skill = list(   SKILL_COMBAT      = SKILL_TRAINED,
+	                    SKILL_WEAPONS     = SKILL_TRAINED)
+
+	access = list(
+		access_maint_tunnels, access_solgov_crew,
+	)
+
+/datum/job/scg_squad_leader
+	title = "Delta Squad Leader"
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "the Commanding Officer"
+	department = "Solar Central Government"
+	department_flag = SPT
+	economic_power = 10
+	minimal_player_age = 0
+	minimum_character_age = list(SPECIES_HUMAN = 23)
+	ideal_character_age = 25
+	outfit_type = /singleton/hierarchy/outfit/job/gaia/scg/squad_leader
+	required_language = LANGUAGE_HUMAN_EURO
+	selection_color = COLOR_ASSEMBLY_GOLD
+	faction = MOB_FACTION_SCG
+	head_position = TRUE
+	create_record = FALSE
+	allowed_branches = list(
+		/datum/mil_branch/scga,
+		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/gaia/scg/squad_leader/fleet,
+	)
+	allowed_ranks = list(
+		/datum/mil_rank/scga/e5,
+		/datum/mil_rank/scga/e6,
+		/datum/mil_rank/fleet/e5,
+		/datum/mil_rank/fleet/e6,
+	)
+	min_skill = list(   SKILL_HAULING     = SKILL_BASIC,
+	                    SKILL_COMBAT      = SKILL_BASIC,
+	                    SKILL_WEAPONS     = SKILL_TRAINED)
+
+	max_skill = list(   SKILL_COMBAT      = SKILL_EXPERIENCED,
+	                    SKILL_WEAPONS     = SKILL_EXPERIENCED)
+	skill_points = 20
+
+	access = list(
+		access_medical, access_morgue, access_maint_tunnels,
+		access_surgery, access_medical_equip, access_solgov_crew,
+		access_engine, access_heads
+	)
+
+/datum/job/scg_squad_leader/get_description_blurb()
+	return "You are a Squad Leader in the SCG '[GLOB.using_map.station_name]' — a seasoned combatant responsible for leading partisans through the ruins of Gaia. You're the first into the breach and the last to leave, tasked with executing ambushes, sabotage, and hit-and-run missions under harsh conditions. It's your job to keep your fighters alive, disciplined, and mission-focused, even when cut off from higher command. Coordinate with the Platoon Sergeant, adapt to rapidly changing situations, and make decisions on the fly. Your squad looks to you for orders, protection, and example — don’t let them down."
+
+/datum/job/scg_squad_medic
+	title = "Delta Squad Medic"
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "your Squad Leader"
+	department = "Solar Central Government"
+	department_flag = SPT
+	economic_power = 3
+	minimal_player_age = 0
+	minimum_character_age = list(SPECIES_HUMAN = 18)
+	ideal_character_age = 22
+	alt_titles = list(
+		"Delta Combat Lifesaver",
+	)
+	outfit_type = /singleton/hierarchy/outfit/job/gaia/scg/trooper
+	required_language = LANGUAGE_HUMAN_EURO
+	selection_color = COLOR_SOL
+	faction = MOB_FACTION_SCG
+	create_record = FALSE
+	allowed_branches = list(
+		/datum/mil_branch/scga,
+		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/gaia/scg/trooper/fleet,
+		/datum/mil_branch/civilian = /singleton/hierarchy/outfit/job/gaia/scg/trooper/civilain,
+	)
+	allowed_ranks = list(
+		/datum/mil_rank/scga/e4,
+		/datum/mil_rank/scga/e4_alt,
+		/datum/mil_rank/scga/e5,
+		/datum/mil_rank/scga/e6,
+		/datum/mil_rank/fleet/e4,
+		/datum/mil_rank/fleet/e5,
+		/datum/mil_rank/fleet/e6,
+		/datum/mil_rank/civ/partisan,
+	)
+	min_skill = list(   SKILL_HAULING      = SKILL_BASIC,
+	                    SKILL_WEAPONS     = SKILL_BASIC,
+	                    SKILL_MEDICAL     = SKILL_BASIC,
+	                    SKILL_ANATOMY     = SKILL_BASIC)
+
+	max_skill = list(   SKILL_COMBAT      = SKILL_TRAINED,
+	                    SKILL_WEAPONS     = SKILL_TRAINED)
+	skill_points = 20
+
+	access = list(
+		access_maint_tunnels, access_solgov_crew,
+	)
+
+/datum/job/scg_squad_grenadier
+	title = "Delta Squad Grenadier"
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "your Squad Leader"
+	department = "Solar Central Government"
+	department_flag = SPT
+	economic_power = 3
+	minimal_player_age = 0
+	minimum_character_age = list(SPECIES_HUMAN = 18)
+	ideal_character_age = 22
+	outfit_type = /singleton/hierarchy/outfit/job/gaia/scg/trooper
+	required_language = LANGUAGE_HUMAN_EURO
+	selection_color = COLOR_SOL
+	faction = MOB_FACTION_SCG
+	create_record = FALSE
+	allowed_branches = list(
+		/datum/mil_branch/scga,
+		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/gaia/scg/trooper/fleet,
+		/datum/mil_branch/civilian = /singleton/hierarchy/outfit/job/gaia/scg/trooper/civilain,
+	)
+	allowed_ranks = list(
+		/datum/mil_rank/scga/e3,
+		/datum/mil_rank/scga/e4,
+		/datum/mil_rank/scga/e4_alt,
+		/datum/mil_rank/scga/e5,
+		/datum/mil_rank/fleet/e3,
+		/datum/mil_rank/fleet/e4,
+		/datum/mil_rank/fleet/e5,
+		/datum/mil_rank/civ/partisan,
+	)
+	min_skill = list(   SKILL_HAULING      = SKILL_BASIC,
+	                    SKILL_WEAPONS     = SKILL_BASIC,
+	                    SKILL_CONSTRUCTION	= SKILL_BASIC)
+
+	max_skill = list(   SKILL_COMBAT      = SKILL_TRAINED,
+	                    SKILL_WEAPONS     = SKILL_EXPERIENCED)
+
+	access = list(
+		access_maint_tunnels, access_solgov_crew,
+	)
+
+/datum/job/scg_squad_marksman
+	title = "Delta Squad Marksman"
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "your Squad Leader"
+	department = "Solar Central Government"
+	department_flag = SPT
+	economic_power = 3
+	minimal_player_age = 0
+	minimum_character_age = list(SPECIES_HUMAN = 18)
+	ideal_character_age = 22
+	outfit_type = /singleton/hierarchy/outfit/job/gaia/scg/trooper
+	required_language = LANGUAGE_HUMAN_EURO
+	selection_color = COLOR_SOL
+	faction = MOB_FACTION_SCG
+	create_record = FALSE
+	allowed_branches = list(
+		/datum/mil_branch/scga,
+		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/gaia/scg/trooper/fleet,
+		/datum/mil_branch/civilian = /singleton/hierarchy/outfit/job/gaia/scg/trooper/civilain,
+	)
+	allowed_ranks = list(
+		/datum/mil_rank/scga/e3,
+		/datum/mil_rank/scga/e4,
+		/datum/mil_rank/scga/e4_alt,
+		/datum/mil_rank/scga/e5,
+		/datum/mil_rank/fleet/e3,
+		/datum/mil_rank/fleet/e4,
+		/datum/mil_rank/fleet/e5,
+		/datum/mil_rank/civ/partisan,
+	)
+	min_skill = list(   SKILL_HAULING      = SKILL_BASIC,
+	                    SKILL_WEAPONS     = SKILL_BASIC)
+
+	max_skill = list(   SKILL_COMBAT      = SKILL_TRAINED,
+	                    SKILL_WEAPONS     = SKILL_TRAINED)
+
+	access = list(
+		access_maint_tunnels, access_solgov_crew,
+	)
+
+//event section end

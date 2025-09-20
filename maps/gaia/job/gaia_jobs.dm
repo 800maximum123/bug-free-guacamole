@@ -3,7 +3,10 @@
 		/datum/species/machine = list(
 			/datum/job/scg_engineer,
 			/datum/job/scg_medic,
-			/datum/job/scg_trooper
+			/datum/job/scg_trooper,
+			/datum/job/scg_squad_medic, //temp for saturday
+			/datum/job/scg_squad_grenadier,
+			/datum/job/scg_squad_marksman
 		),
 	)
 
@@ -22,7 +25,7 @@
 #undef ICCG_JOBS
 
 	allowed_jobs = list(
-		/datum/job/scg_co, /datum/job/scg_ps, /datum/job/scg_squad_leader, /datum/job/scg_engineer, /datum/job/scg_medic, /datum/job/scg_trooper,
+		/datum/job/scg_co, /datum/job/scg_ps, /datum/job/scg_squad_leader, /datum/job/scg_engineer, /datum/job/scg_medic, /datum/job/scg_trooper, /datum/job/scg_squad_medic, /datum/job/scg_squad_grenadier, /datum/job/scg_squad_marksman,
 		/datum/job/iccg_co, /datum/job/iccg_xo, /datum/job/iccg_mp, /datum/job/iccg_squad_leader, /datum/job/iccg_engineer, /datum/job/iccg_medic, /datum/job/iccg_trooper,
 	)
 
