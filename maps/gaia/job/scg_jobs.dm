@@ -572,10 +572,10 @@
 		/datum/mil_rank/civ/partisan,
 	)
 	min_skill = list(   SKILL_HAULING      = SKILL_BASIC,
-	                    SKILL_WEAPONS     = SKILL_BASIC)
+	                    SKILL_WEAPONS     = SKILL_TRAINED)
 
 	max_skill = list(   SKILL_COMBAT      = SKILL_TRAINED,
-	                    SKILL_WEAPONS     = SKILL_TRAINED)
+	                    SKILL_WEAPONS     = SKILL_MAX)
 
 	access = list(
 		access_maint_tunnels, access_solgov_crew,
