@@ -18,6 +18,9 @@
 
 /mob/living/simple_animal/cutscene_character/amelia/s2ep1/part1_1
 /mob/living/simple_animal/cutscene_character/amelia/s2ep1/part1_2
+	icon_state = "Amelia 2"
+	icon_living = "Amelia 2"
+	icon_dead = "Amelia 2"
 
 /mob/living/simple_animal/cutscene_character/zlata
 	name = "Злата С."
@@ -163,7 +166,7 @@
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 18 SECONDS)
 
-		animate(visuals, maptext_x = 50, 6 SECONDS, easing = SINE_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
+		animate(visuals, maptext_x = 50, 10 SECONDS, easing = SINE_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
 
 /proc/credits_writer()
 	var/novel_message = "СЦЕНАРИСТ И РЕЖИССЁР ПОСТАНОВКИ: DOCTOR ALEX"
@@ -230,7 +233,7 @@
 				all.forceMove(G)
 				repeating_siren(G)
 
-				spawn(8 SECONDS)
+				spawn(13 SECONDS)
 					playsound(get_turf(G), 'sound/mecha/lowpowernano.ogg', 10)
 
 		spawn(26 SECONDS)
@@ -253,6 +256,9 @@
 		spawn(52 SECONDS)
 			all.client.pixel_y = 0
 			all.client.pixel_x = 160
+
+		spawn(85 SECONDS)
+			all.move_cutscene_camera(all, 0, 0, 10 SECONDS)
 
 	spawn(26 SECONDS)
 		for(var/mob/living/simple_animal/cutscene_character/C in world)
@@ -332,49 +338,73 @@
 		dir = WEST
 		ISay("Что с ней?")
 
-	spawn(9 SECONDS)
+	spawn(11 SECONDS)
 		ISay("Наверное это самое безобидное ранение, которое я видела за сегодня...")
 
-	spawn(13 SECONDS)
+	spawn(14 SECONDS)
 		ISay("!достаёт сканер.")
 		ISay("Привести в чувства пробовал?")
 
-	spawn(17 SECONDS)
+	spawn(18 SECONDS)
 		ISay("!вздыхает.")
 
-	spawn(18 SECONDS)
+	spawn(19 SECONDS)
 		ISay("Тащи её на кушетку.")
 
-	spawn(20 SECONDS)
+	spawn(21 SECONDS)
 		ISay("Я сейчас подойду.")
 
-	spawn(26 SECONDS)
+	spawn(25 SECONDS)
 		dir = NORTH
 
-	spawn(28 SECONDS)
+	spawn(29 SECONDS)
 		ISay("!опускает маску.")
+		forceMove(get_step(src, SOUTH))
 		icon_state = "Zlata 2"
+
+	spawn(33 SECONDS)
+		dir = WEST
+
+	spawn(34 SECONDS)
+		ISay("Амелия!")
+		forceMove(get_step(src, WEST))
+
+	spawn(34.5 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(35 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(35.5 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(36 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(36.5 SECONDS)
+		forceMove(get_step(src, WEST))
+		ISay("!хватает девушку в объятия.")
 
 /mob/living/simple_animal/cutscene_character/maxim/s2ep1/part1_2/do_stuff()
 	spawn(2 SECONDS)
 		forceMove(get_step(src, NORTH))
 
-	spawn(4 SECONDS)
+	spawn(5 SECONDS)
 		ISay("Кусок корпуса в лоб прилетел.")
 
-	spawn(5 SECONDS)
+	spawn(6 SECONDS)
 		ISay("Нашёл уже в отключке.")
 
-	spawn(15 SECONDS)
+	spawn(16 SECONDS)
 		ISay("Не отвечает.")
 
-	spawn(21 SECONDS)
+	spawn(23 SECONDS)
 		ISay("!кивает.")
 
 	spawn(25 SECONDS)
 		forceMove(get_step(src, NORTH))
 
-	spawn(29 SECONDS)
+	spawn(28 SECONDS)
 		forceMove(get_step(src, NORTH))
 
 /mob/living/simple_animal/cutscene_character/gora/s2ep1/part1_2/do_stuff()
@@ -386,6 +416,22 @@
 		forceMove(get_step(src, NORTH))
 		pixel_y = -11
 
-	spawn(29 SECONDS)
+	spawn(28 SECONDS)
 		forceMove(get_step(src, NORTH))
 		pixel_y = -11
+
+/mob/living/simple_animal/cutscene_character/amelia/s2ep1/part1_2/do_stuff()
+	spawn(29 SECONDS)
+		forceMove(get_step(src, EAST))
+
+	spawn(32 SECONDS)
+		forceMove(get_step(src, EAST))
+
+	spawn(35 SECONDS)
+		forceMove(get_step(src, EAST))
+
+	spawn(36 SECONDS)
+		forceMove(get_step(src, EAST))
+
+	spawn(37 SECONDS)
+		animate(src, pixel_x = 20, 0.3 SECONDS, easing = SINE_EASING|EASE_OUT)
