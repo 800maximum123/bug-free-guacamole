@@ -109,32 +109,6 @@
 	spawn(153 SECONDS)
 		animate(src, 3 SECOND, alpha = 255)
 
-/obj/screen/novel_message/start_credits
-	layer = 5.2
-
-/obj/screen/novel_message/start_credits/set_text(text, text_color, time = 5 SECONDS)
-	var/countdown = time + 6 SECONDS
-
-	animate(src, 3 SECOND, alpha = 255)
-	maptext = STYLE_FDFONT_OUTLINE("[text]", 7, text_color, COLOR_WHITE)
-
-	spawn(time)
-		animate(src, 3 SECOND, alpha = 0)
-
-	QDEL_IN(src, countdown)
-
-/obj/screen/novel_message/start_credits/big/set_text(text, text_color, time = 5 SECONDS)
-	SetTransform(2)
-	var/countdown = time + 6 SECONDS
-
-	animate(src, 3 SECOND, alpha = 255)
-	maptext = STYLE_FDFONT_OUTLINE("[text]", 7, text_color, COLOR_WHITE)
-
-	spawn(time)
-		animate(src, 3 SECOND, alpha = 0)
-
-	QDEL_IN(src, countdown)
-
 /proc/credits_team()
 	var/novel_message = "КОМАНДА \"UNDERGROUND FRONT\""
 	var/colored = COLOR_ASSEMBLY_BLACK
@@ -180,16 +154,16 @@
 
 		animate(visuals, maptext_x = 50, 10 SECONDS, easing = SINE_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
 
-/proc/credits_tv()
+/proc/credits_television()
 	var/novel_message = "ПРИ ПОДДЕРЖКЕ CUDDLEANDTEA ENTERTAINMENT"
 	var/colored = COLOR_ASSEMBLY_BLACK
 
 	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
-	visuals.maptext_x = 100
-	visuals.maptext_y = 100
+	visuals.maptext_x = 90
+	visuals.maptext_y = -410
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
-		visuals.set_text(novel_message, colored, time = 18 SECONDS)
+		visuals.set_text(novel_message, colored, time = 16 SECONDS)
 
 /proc/credits_name()
 	var/novel_message = "\"FINAL DESTINATION\""
@@ -197,7 +171,7 @@
 
 	var/obj/screen/novel_message/start_credits/big/visuals = new /obj/screen/novel_message/start_credits/big()
 	visuals.maptext_y = -80
-	visuals.maptext_x = 20
+	visuals.maptext_x = 15
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 12 SECONDS)
@@ -208,7 +182,7 @@
 
 	var/obj/screen/novel_message/start_credits/big/visuals = new /obj/screen/novel_message/start_credits/big()
 	visuals.maptext_y = -100
-	visuals.maptext_x = 40
+	visuals.maptext_x = 50
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 12 SECONDS)
@@ -280,8 +254,8 @@
 			all.client.pixel_y = 0
 			all.client.pixel_x = 160
 
-		spawn(75 SECONDS)
-			credits_tv()
+		spawn(80 SECONDS)
+			credits_television()
 
 		spawn(85 SECONDS)
 			all.move_cutscene_camera(all, 0, 0, 10 SECONDS)
@@ -314,6 +288,9 @@
 
 			for(var/obj/structure/fd/players_geter/s2ep1/part1_2/G in world)
 				repeating_siren(G)
+
+		spawn(160 SECONDS)
+			fds2ep1_sc2()
 
 		spawn(160 SECONDS)
 			credits_name()

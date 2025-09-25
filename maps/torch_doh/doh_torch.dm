@@ -183,6 +183,7 @@
 	#include "cutscenes/animations.dm"
 	#include "cutscenes/framework.dm"
 	#include "cutscenes/s2ep1/scene_1.dm"
+	#include "cutscenes/s2ep1/scene_2.dm"
 
 	// --- MAP FILES --- //
 

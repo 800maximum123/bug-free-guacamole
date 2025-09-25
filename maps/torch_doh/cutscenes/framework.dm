@@ -81,3 +81,30 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 /obj/screen/fullscreen/fd/cinema_borders/Initialize()
 	. = ..()
 	animate(src, 3 SECOND, alpha = 255)
+
+
+/obj/screen/novel_message/start_credits
+	layer = 5.2
+
+/obj/screen/novel_message/start_credits/set_text(text, text_color, time = 5 SECONDS)
+	var/countdown = time + 6 SECONDS
+
+	animate(src, 3 SECOND, alpha = 255)
+	maptext = STYLE_FDFONT_OUTLINE("[text]", 7, text_color, COLOR_WHITE)
+
+	spawn(time)
+		animate(src, 3 SECOND, alpha = 0)
+
+	QDEL_IN(src, countdown)
+
+/obj/screen/novel_message/start_credits/big/set_text(text, text_color, time = 5 SECONDS)
+	SetTransform(2)
+	var/countdown = time + 6 SECONDS
+
+	animate(src, 3 SECOND, alpha = 255)
+	maptext = STYLE_FDFONT_OUTLINE("[text]", 7, text_color, COLOR_WHITE)
+
+	spawn(time)
+		animate(src, 3 SECOND, alpha = 0)
+
+	QDEL_IN(src, countdown)
