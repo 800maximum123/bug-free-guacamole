@@ -15,9 +15,9 @@
 #define CHAT_MESSAGE_APPROX_LHEIGHT 11
 
 /// Max default runechat message length in characters
-#define CHAT_MESSAGE_LENGTH 68
+#define CHAT_MESSAGE_LENGTH 150
 /// Max extended runechat message length in characters
-#define CHAT_MESSAGE_EXT_LENGTH 150
+#define CHAT_MESSAGE_EXT_LENGTH 200
 /// Max default runechat message width in pixels
 #define CHAT_MESSAGE_WIDTH 96
 /// Max extended runechat message width in pixels

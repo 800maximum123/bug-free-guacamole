@@ -32,6 +32,9 @@
 
 /mob/living/simple_animal/cutscene_character/zlata/s2ep1/part1_2
 /mob/living/simple_animal/cutscene_character/zlata/s2ep1/part1_3
+	icon_state = "Zlata 6"
+	icon_living = "Zlata 6"
+	icon_dead = "Zlata 6"
 
 /mob/living/simple_animal/cutscene_character/maxim
 	name = "Максим К."
@@ -59,32 +62,38 @@
 /mob/living/simple_animal/cutscene_character/datura
 	name = "Реймонд Д."
 	desc = "..."
-	icon = 'mods/_fd/fd_assets/icons/animals/prime_soul.dmi'
-	icon_state = "body"
-	icon_living = "body"
-	icon_dead = "body"
+	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
+	icon_state = "Datura"
+	icon_living = "Datura"
+	icon_dead = "Datura"
 
 /mob/living/simple_animal/cutscene_character/datura/s2ep1/part1_3
 
 /mob/living/simple_animal/cutscene_character/perci
 	name = "Персиваль Э."
 	desc = "..."
-	icon = 'mods/_fd/fd_assets/icons/animals/prime_soul.dmi'
-	icon_state = "body"
-	icon_living = "body"
-	icon_dead = "body"
+	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
+	icon_state = "Percival"
+	icon_living = "Percival"
+	icon_dead = "Percival"
 
 /mob/living/simple_animal/cutscene_character/perci/s2ep1/part1_3
+/mob/living/simple_animal/cutscene_character/perci/s2ep1/part1_3/Initialize()
+	. = ..()
+	SetTransform(rotation = 90)
 
 /mob/living/simple_animal/cutscene_character/luny
 	name = "Луни"
 	desc = "..."
-	icon = 'mods/_fd/fd_assets/icons/animals/prime_soul.dmi'
-	icon_state = "body"
-	icon_living = "body"
-	icon_dead = "body"
+	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
+	icon_state = "Looney"
+	icon_living = "Looney"
+	icon_dead = "Looney"
 
 /mob/living/simple_animal/cutscene_character/luny/s2ep1/part1_3
+	icon_state = "Looney 2"
+	icon_living = "Looney 2"
+	icon_dead = "Looney 2"
 
 /obj/screen/fullscreen/fd/blackout/animated/s2ep1sc1/Initialize()
 	. = ..()
@@ -96,6 +105,9 @@
 
 	spawn(52 SECONDS)
 		animate(src, 3 SECOND, alpha = 0)
+
+	spawn(153 SECONDS)
+		animate(src, 3 SECOND, alpha = 255)
 
 /obj/screen/novel_message/start_credits
 	layer = 5.2
@@ -164,31 +176,42 @@
 	visuals.maptext_y = -15
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
-		visuals.set_text(novel_message, colored, time = 18 SECONDS)
+		visuals.set_text(novel_message, colored, time = 10 SECONDS)
 
 		animate(visuals, maptext_x = 50, 10 SECONDS, easing = SINE_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
 
-/proc/credits_writer()
-	var/novel_message = "СЦЕНАРИСТ И РЕЖИССЁР ПОСТАНОВКИ: DOCTOR ALEX"
+/proc/credits_tv()
+	var/novel_message = "ПРИ ПОДДЕРЖКЕ CUDDLEANDTEA ENTERTAINMENT"
 	var/colored = COLOR_ASSEMBLY_BLACK
 
 	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
-	visuals.maptext_x = -110
-	visuals.maptext_y = -40
+	visuals.maptext_x = 100
+	visuals.maptext_y = 100
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 18 SECONDS)
+
+/proc/credits_name()
+	var/novel_message = "\"FINAL DESTINATION\""
+	var/colored = COLOR_ASSEMBLY_BLACK
+
+	var/obj/screen/novel_message/start_credits/big/visuals = new /obj/screen/novel_message/start_credits/big()
+	visuals.maptext_y = -80
+	visuals.maptext_x = 20
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 12 SECONDS)
 
-/proc/credits_mapper()
-	var/novel_message = "АРХИТЕКТОР И ПРОЕКТИРОВЩИК ЛОКАЦИЙ: PALERNO"
+/proc/credits_name2()
+	var/novel_message = "АКТ II"
 	var/colored = COLOR_ASSEMBLY_BLACK
 
-	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
-	visuals.maptext_x = -110
-	visuals.maptext_y = -60
+	var/obj/screen/novel_message/start_credits/big/visuals = new /obj/screen/novel_message/start_credits/big()
+	visuals.maptext_y = -100
+	visuals.maptext_x = 40
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
-		visuals.set_text(novel_message, colored)
+		visuals.set_text(novel_message, colored, time = 12 SECONDS)
 
 /proc/repeating_siren(atom/search_in)
 	var/atom/play_on_next = search_in
@@ -257,8 +280,45 @@
 			all.client.pixel_y = 0
 			all.client.pixel_x = 160
 
+		spawn(75 SECONDS)
+			credits_tv()
+
 		spawn(85 SECONDS)
 			all.move_cutscene_camera(all, 0, 0, 10 SECONDS)
+
+		spawn(120 SECONDS)
+			all.move_cutscene_camera(all, 64, 0, 5 SECONDS)
+
+		spawn(128 SECONDS)
+			all.move_cutscene_camera(all, 32, 0, 1 SECONDS)
+
+		spawn(136 SECONDS)
+			sound_to(all.client, sound(null))
+			GLOB.stop_the_siren = TRUE
+
+			for(var/obj/structure/fd/players_geter/s2ep1/part1_3/G in world)
+				all.alpha = 0
+				all.forceMove(G)
+				all.overlay_fullscreen("glitch", /obj/screen/fullscreen/bluespace_affection)
+
+		spawn(142 SECONDS)
+
+			for(var/obj/structure/fd/players_geter/s2ep1/part1_2/G in world)
+				all.alpha = 0
+				all.forceMove(G)
+
+			all.clear_fullscreen("glitch")
+
+		spawn(150 SECONDS)
+			GLOB.stop_the_siren = FALSE
+
+			for(var/obj/structure/fd/players_geter/s2ep1/part1_2/G in world)
+				repeating_siren(G)
+
+		spawn(160 SECONDS)
+			credits_name()
+		spawn(163 SECONDS)
+			credits_name2()
 
 	spawn(26 SECONDS)
 		for(var/mob/living/simple_animal/cutscene_character/C in world)
@@ -269,6 +329,12 @@
 	spawn(54 SECONDS)
 		for(var/mob/living/simple_animal/cutscene_character/C in world)
 			if(C.cutscene_id != "s2ep1sc1pt12")
+				continue
+			C.do_stuff()
+
+	spawn(137 SECONDS)
+		for(var/mob/living/simple_animal/cutscene_character/C in world)
+			if(C.cutscene_id != "s2ep1sc1pt13")
 				continue
 			C.do_stuff()
 
@@ -328,11 +394,17 @@
 		forceMove(get_step(src, SOUTH))
 		playsound(get_turf(src), 'sound/effects/footstep/plating3.ogg', 70)
 
+/mob/living/simple_animal/cutscene_character/zlata/s2ep1/part1_2/Life()
+	. = ..()
+	layer = 4.2
+
 /mob/living/simple_animal/cutscene_character/zlata/s2ep1/part1_2/do_stuff()
 	forceMove(get_step(src, SOUTH))
+	playsound(get_turf(src), 'sound/effects/footstep/plating2.ogg', 70)
 
 	spawn(2 SECONDS)
 		forceMove(get_step(src, SOUTH))
+		playsound(get_turf(src), 'sound/effects/footstep/plating1.ogg', 70)
 
 	spawn(3 SECONDS)
 		dir = WEST
@@ -342,10 +414,12 @@
 		ISay("Наверное это самое безобидное ранение, которое я видела за сегодня...")
 
 	spawn(14 SECONDS)
+		icon_state = "Zlata 2"
 		ISay("!достаёт сканер.")
 		ISay("Привести в чувства пробовал?")
 
 	spawn(18 SECONDS)
+		playsound(get_turf(src), 'sound/effects/fastbeep.ogg', 20)
 		ISay("!вздыхает.")
 
 	spawn(19 SECONDS)
@@ -360,7 +434,8 @@
 	spawn(29 SECONDS)
 		ISay("!опускает маску.")
 		forceMove(get_step(src, SOUTH))
-		icon_state = "Zlata 2"
+		playsound(get_turf(src), 'sound/effects/footstep/plating5.ogg', 70)
+		icon_state = "Zlata 3"
 
 	spawn(33 SECONDS)
 		dir = WEST
@@ -368,22 +443,86 @@
 	spawn(34 SECONDS)
 		ISay("Амелия!")
 		forceMove(get_step(src, WEST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating1.ogg', 70)
 
 	spawn(34.5 SECONDS)
 		forceMove(get_step(src, WEST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating3.ogg', 70)
 
 	spawn(35 SECONDS)
 		forceMove(get_step(src, WEST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating1.ogg', 70)
 
 	spawn(35.5 SECONDS)
 		forceMove(get_step(src, WEST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating4.ogg', 70)
 
 	spawn(36 SECONDS)
 		forceMove(get_step(src, WEST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating5.ogg', 70)
 
 	spawn(36.5 SECONDS)
 		forceMove(get_step(src, WEST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating2.ogg', 70)
 		ISay("!хватает девушку в объятия.")
+
+	spawn(37 SECONDS)
+		icon_state = "Zlata 4"
+
+	spawn(39 SECONDS)
+		ISay("Если бы ты только знала, как я рада тебя видеть...")
+
+	spawn(41 SECONDS)
+		ISay("Во всём этом хаосе я даже-...")
+
+	spawn(44 SECONDS)
+		ISay("Не важно. Главное что ты в порядке.")
+
+	spawn(46 SECONDS)
+		ISay("Ну...почти.")
+		animate(src, pixel_x = 4, 0.3 SECONDS, easing = SINE_EASING|EASE_IN)
+		icon_state = "Zlata 5"
+
+	spawn(50 SECONDS)
+		ISay("Руку придётся обработать.")
+
+	spawn(53 SECONDS)
+		ISay("Помимо этого ничего? Головная боль? Головокружение?")
+
+	spawn(61 SECONDS)
+		ISay("...обвалился проход на третью. Знаю.")
+
+	spawn(66 SECONDS)
+		ISay("!хлопает по плечу.")
+		ISay("Ничего что не исправила бы современная медицина, значит?")
+
+	spawn(70 SECONDS)
+		ISay("Не переживай, поставим тебя на ноги в два счёта.")
+		animate(src, pixel_x = 8, 0.3 SECONDS, easing = SINE_EASING|EASE_IN)
+		dir = EAST
+		forceMove(get_step(src, EAST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating3.ogg', 70)
+
+	spawn(72 SECONDS)
+		forceMove(get_step(src, EAST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating1.ogg', 70)
+
+	spawn(74 SECONDS)
+		icon_state = "Zlata 3"
+		dir = WEST
+		animate(src, pixel_x = 0, 0.3 SECONDS, easing = SINE_EASING|EASE_OUT)
+
+	spawn(76 SECONDS)
+		ISay("В чём дело?")
+
+	spawn(84 SECONDS)
+		dir = NORTH
+
+	spawn(90 SECONDS)
+		ISay("!сжимает пальцы в кулак.")
+
+	spawn(94 SECONDS)
+		dir = WEST
 
 /mob/living/simple_animal/cutscene_character/maxim/s2ep1/part1_2/do_stuff()
 	spawn(2 SECONDS)
@@ -423,9 +562,11 @@
 /mob/living/simple_animal/cutscene_character/amelia/s2ep1/part1_2/do_stuff()
 	spawn(29 SECONDS)
 		forceMove(get_step(src, EAST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating4.ogg', 70)
 
 	spawn(32 SECONDS)
 		forceMove(get_step(src, EAST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating1.ogg', 70)
 
 	spawn(35 SECONDS)
 		forceMove(get_step(src, EAST))
@@ -434,4 +575,53 @@
 		forceMove(get_step(src, EAST))
 
 	spawn(37 SECONDS)
-		animate(src, pixel_x = 20, 0.3 SECONDS, easing = SINE_EASING|EASE_OUT)
+		animate(src, pixel_x = 24, 0.3 SECONDS, easing = SINE_EASING|EASE_OUT)
+
+	spawn(56 SECONDS)
+		ISay("!ворочит головой.")
+
+	spawn(58 SECONDS)
+		ISay("Просто не повезло оказаться на лестничном пролёте, когда-...")
+
+	spawn(70 SECONDS)
+		icon_state = "Amelia 3"
+		forceMove(get_step(src, EAST))
+
+	spawn(72 SECONDS)
+		forceMove(get_step(src, EAST))
+
+	spawn(73 SECONDS)
+		ISay("П-погоди!")
+
+	spawn(74 SECONDS)
+		icon_state = "Amelia 2"
+		forceMove(get_step(src, WEST))
+		animate(src, pixel_x = 0, 0.3 SECONDS, easing = SINE_EASING|EASE_IN)
+
+	spawn(80 SECONDS)
+		ISay("От Эндсли до сих пор ничего не слышно.")
+
+	spawn(88 SECONDS)
+		ISay("Я боюсь, что он мог застрять т-там, внизу, и-...")
+
+	spawn(90 SECONDS)
+		ISay("Если кто-нибудь в госпитале сейчас свободен чтобы помочь мне...!")
+
+	spawn(94 SECONDS)
+		forceMove(get_step(src, WEST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating5.ogg', 70)
+
+	spawn(100 SECONDS)
+		ISay("...мам?")
+
+/mob/living/simple_animal/cutscene_character/datura/s2ep1/part1_3/do_stuff()
+	forceMove(get_step(src, NORTH))
+
+	spawn(1 SECOND)
+		ISay("!роняет скальпель на пол.")
+
+	spawn(3 SECOND)
+		ISay("Время смерти...")
+
+/mob/living/simple_animal/cutscene_character/luny/s2ep1/part1_3/do_stuff()
+	ISay("!дрожит.")
