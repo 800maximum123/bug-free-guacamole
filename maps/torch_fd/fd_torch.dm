@@ -330,6 +330,7 @@
 	#include "../../mods/_fd/_maps/snow_cage/_snow_cage.dme"
 	#include "../../mods/_fd/_maps/tartakan/_tartakan.dme"
 	#include "../../mods/_fd/_maps/trader_ship/_trader_ship.dme"
+	#include "../../mods/_fd/_maps/venera/venera.dme"
 	#include "../../mods/_fd/_maps/yacht/_yacht.dme"
 
 		// ~EXOPLANET RUINS~ //
