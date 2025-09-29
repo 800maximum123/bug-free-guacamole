@@ -109,6 +109,20 @@
 	spawn(153 SECONDS)
 		animate(src, 3 SECOND, alpha = 255)
 
+	spawn(175 SECONDS)
+		animate(src, 3 SECOND, alpha = 0)
+
+/proc/time_of_death()
+	var/novel_message = "ВРЕМЯ СМЕРТИ..."
+	var/colored = COLOR_SABER_RED
+
+	var/obj/screen/novel_message/start_credits/blinking/visuals = new /obj/screen/novel_message/start_credits/blinking()
+	visuals.maptext_y = -60
+	visuals.maptext_x = -70
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored)
+
 /proc/credits_team()
 	var/novel_message = "КОМАНДА \"UNDERGROUND FRONT\""
 	var/colored = COLOR_ASSEMBLY_BLACK
@@ -275,6 +289,9 @@
 				all.forceMove(G)
 				all.overlay_fullscreen("glitch", /obj/screen/fullscreen/bluespace_affection)
 
+		spawn(140 SECONDS)
+			time_of_death()
+
 		spawn(142 SECONDS)
 
 			for(var/obj/structure/fd/players_geter/s2ep1/part1_2/G in world)
@@ -290,12 +307,12 @@
 				repeating_siren(G)
 
 		spawn(160 SECONDS)
-			fds2ep1_sc2()
-
-		spawn(160 SECONDS)
 			credits_name()
 		spawn(163 SECONDS)
 			credits_name2()
+
+		spawn(170 SECONDS)
+			fds2ep1_sc2()
 
 	spawn(26 SECONDS)
 		for(var/mob/living/simple_animal/cutscene_character/C in world)
@@ -501,6 +518,9 @@
 	spawn(94 SECONDS)
 		dir = WEST
 
+	spawn(103 SECONDS)
+		CutOverlays(maptext_name)
+
 /mob/living/simple_animal/cutscene_character/maxim/s2ep1/part1_2/do_stuff()
 	spawn(2 SECONDS)
 		forceMove(get_step(src, NORTH))
@@ -576,12 +596,12 @@
 		animate(src, pixel_x = 0, 0.3 SECONDS, easing = SINE_EASING|EASE_IN)
 
 	spawn(80 SECONDS)
-		ISay("От Эндсли до сих пор ничего не слышно.")
+		ISay("От Эндсли...до сих пор ничего не слышно.")
 
-	spawn(88 SECONDS)
+	spawn(88.5 SECONDS)
 		ISay("Я боюсь, что он мог застрять т-там, внизу, и-...")
 
-	spawn(90 SECONDS)
+	spawn(91 SECONDS)
 		ISay("Если кто-нибудь в госпитале сейчас свободен чтобы помочь мне...!")
 
 	spawn(94 SECONDS)
@@ -591,14 +611,15 @@
 	spawn(100 SECONDS)
 		ISay("...мам?")
 
+	spawn(103 SECONDS)
+		CutOverlays(maptext_name)
+
 /mob/living/simple_animal/cutscene_character/datura/s2ep1/part1_3/do_stuff()
 	forceMove(get_step(src, NORTH))
 
-	spawn(1 SECOND)
+	spawn(2 SECOND)
 		ISay("!роняет скальпель на пол.")
-
-	spawn(3 SECOND)
-		ISay("Время смерти...")
 
 /mob/living/simple_animal/cutscene_character/luny/s2ep1/part1_3/do_stuff()
 	ISay("!дрожит.")
+	make_jittery(900)

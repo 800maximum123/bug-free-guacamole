@@ -30,6 +30,7 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 	mob_size = MOB_SMALL
 
 	var/image/maptext_name
+	var/should_show_name = TRUE
 	var/main_color = MANIFEST_COLOR_COMMAND
 	var/support_color = COLOR_WHITE
 
@@ -38,16 +39,18 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 /mob/living/simple_animal/cutscene_character/Initialize()
 	. = ..()
 
-	maptext_name = image(loc = src, layer = ABOVE_LIGHTING_LAYER)
-	maptext_name.plane = RUNECHAT_PLANE
-	maptext_name.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA | KEEP_APART
-	maptext_name.maptext = STYLE_SMALLFONTS_OUTLINE("<center>[name]</center>", 7, main_color, support_color)
-	maptext_name.maptext_height = 26
-	maptext_name.maptext_width = 64
-	maptext_name.maptext_x = -15
-	maptext_name.maptext_y = -10
+	if(should_show_name)
 
-	AddOverlays(maptext_name)
+		maptext_name = image(loc = src, layer = ABOVE_LIGHTING_LAYER)
+		maptext_name.plane = RUNECHAT_PLANE
+		maptext_name.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA | KEEP_APART
+		maptext_name.maptext = STYLE_SMALLFONTS_OUTLINE("<center>[name]</center>", 7, main_color, support_color)
+		maptext_name.maptext_height = 26
+		maptext_name.maptext_width = 64
+		maptext_name.maptext_x = -15
+		maptext_name.maptext_y = -10
+
+		AddOverlays(maptext_name)
 
 /mob/living/simple_animal/cutscene_character/proc/do_stuff() //Сюда писать всё что должен этот моб в сцене сделать
 	return
@@ -108,3 +111,28 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 		animate(src, 3 SECOND, alpha = 0)
 
 	QDEL_IN(src, countdown)
+
+/obj/screen/novel_message/start_credits/blinking
+	layer = 5.4
+
+/obj/screen/novel_message/start_credits/blinking/set_text(text, text_color, time = 5 SECONDS)
+	SetTransform(3)
+
+	animate(src, 0.2 SECOND, alpha = 255)
+	maptext = STYLE_SMALLFONTS_OUTLINE("<center>[text]</center>", 7, text_color, COLOR_WHITE)
+	spawn(0.2 SECOND)
+		animate(src, 0.2 SECOND, alpha = 0)
+	spawn(0.4 SECOND)
+		animate(src, 0.2 SECOND, alpha = 255)
+	spawn(0.6 SECOND)
+		animate(src, 0.2 SECOND, alpha = 0)
+	spawn(0.8 SECOND)
+		animate(src, 0.2 SECOND, alpha = 255)
+	spawn(1 SECOND)
+		animate(src, 0.2 SECOND, alpha = 0)
+	spawn(1.2 SECOND)
+		animate(src, 0.2 SECOND, alpha = 255)
+	spawn(1.4 SECOND)
+		animate(src, 0.2 SECOND, alpha = 0)
+
+	QDEL_IN(src, 1.6 SECONDS)
