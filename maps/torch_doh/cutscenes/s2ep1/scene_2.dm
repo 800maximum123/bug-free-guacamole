@@ -137,9 +137,10 @@
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 16 SECONDS)
 
-/proc/until_dawn1()
-	var/novel_message = "Я БЫ ОЧЕНЬ ХОТЕЛ СОВРАТЬ ТЕБЕ, ФОКС"
-	var/colored = COLOR_SABER_RED
+//ПОКА ЧТО В СКРАП
+/proc/great_plan1()
+	var/novel_message = "ПОСТАВЬ ЭКИПАЖ В ИЗВЕСТНОСТЬ"
+	var/colored = COLOR_MEDICAL_BURN
 
 	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
 	visuals.maptext_y = -80
@@ -147,9 +148,9 @@
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 6 SECONDS)
 
-/proc/until_dawn2()
-	var/novel_message = "НО У НАС, ЗЕМЛЯН-"
-	var/colored = COLOR_SABER_RED
+/proc/great_plan2()
+	var/novel_message = "ЛЮДИ ДОЛЖНЫ ЗНАТЬ, С ЧЕМ МЫ ИМЕЕМ ДЕЛО"
+	var/colored = COLOR_MEDICAL_BURN
 
 	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
 	visuals.maptext_y = -90
@@ -157,9 +158,29 @@
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 4 SECONDS)
 
-/proc/until_dawn3()
-	var/novel_message = "ВСЕГДА ВЫХОДИТ..."
-	var/colored = COLOR_SABER_RED
+/proc/great_plan3()
+	var/novel_message = "И ВСЕХ ПОТЕРЯШЕК НАПРАВЛЯЙ В МЕДБЛОК"
+	var/colored = COLOR_MEDICAL_BURN
+
+	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
+	visuals.maptext_y = -80
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 6 SECONDS)
+
+/proc/great_plan4()
+	var/novel_message = "ТАМ СЕЙЧАС БЕЗОПАСНЕЕ ВСЕГО"
+	var/colored = COLOR_MEDICAL_BURN
+
+	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
+	visuals.maptext_y = -90
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 4 SECONDS)
+
+/proc/great_plan5()
+	var/novel_message = "И ЧТО ТЫ БУДЕШЬ ДЕЛАТЬ В ЭТО ВРЕМЯ?"
+	var/colored = COLOR_ASSEMBLY_GREEN
 
 	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
 	visuals.maptext_y = -90
@@ -167,9 +188,41 @@
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 6 SECONDS)
 
-/proc/until_dawn4()
-	var/novel_message = "...КАК-ТО ПАРШИВО"
-	var/colored = COLOR_SABER_RED
+/proc/great_plan6()
+	var/novel_message = "ПОСТАРАЮСЬ НАЙТИ ФИДДЛЕРА И ШОФФИЛДА"
+	var/colored = COLOR_MEDICAL_BURN
+
+	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
+	visuals.maptext_y = -90
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 6 SECONDS)
+
+/proc/great_plan7()
+	var/novel_message = "МОЖЕТ..."
+	var/colored = COLOR_MEDICAL_BURN
+
+	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
+	visuals.maptext_y = -90
+	visuals.maptext_x = 10
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 6 SECONDS)
+
+/proc/great_plan8()
+	var/novel_message = "ХОТЬ ОНИ ЗНАЮТ ЧТО НАМ ДЕЛАТЬ..."
+	var/colored = COLOR_MEDICAL_BURN
+
+	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
+	visuals.maptext_y = -90
+	visuals.maptext_x = 60
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 4 SECONDS)
+
+/proc/great_plan9()
+	var/novel_message = "...ПОНАДЕЕМСЯ..."
+	var/colored = COLOR_ASSEMBLY_GREEN
 
 	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
 	visuals.maptext_y = -90
@@ -228,6 +281,22 @@
 				repeating_siren(G)
 
 		spawn(142 SECONDS)
+			sound_to(all.client, sound(null))
+
+			for(var/obj/structure/fd/players_geter/s2ep1/part2_1/G in world)
+				all.alpha = 0
+				all.forceMove(G)
+				repeating_siren(G)
+
+		spawn(192 SECONDS)
+			sound_to(all.client, sound(null))
+
+			for(var/obj/structure/fd/players_geter/s2ep1/part2_2/G in world)
+				all.alpha = 0
+				all.forceMove(G)
+				repeating_siren(G)
+
+		spawn(210 SECONDS)
 			sound_to(all.client, sound(null))
 
 			for(var/obj/structure/fd/players_geter/s2ep1/part2_1/G in world)
@@ -324,7 +393,7 @@
 		ISay("Самое то для массового захоронения, не могу не согласиться.")
 
 	spawn(41 SECONDS)
-		ISay("Что с кораблём?")
+		ISay("Ты можешь получить доступ к корабельным системам?")
 
 	spawn(140 SECONDS)
 		forceMove(get_step(src, WEST))
@@ -335,6 +404,12 @@
 	spawn(142 SECONDS)
 		dir = SOUTH
 		forceMove(get_step(src, SOUTH))
+
+	spawn(200 SECONDS)
+		ISay("Что дальше, мисс-сама-уверенность?")
+
+	spawn(215 SECONDS)
+		dir = EAST
 
 /mob/living/simple_animal/cutscene_character/naia/s2ep1/part2_1/do_stuff()
 	spawn(1.5 SECONDS)
@@ -446,7 +521,76 @@
 	spawn(142 SECONDS)
 		ISay("Сколько у нас времени?")
 
+	spawn(162 SECONDS)
+		ISay("Пауль.")
+
+	spawn(202 SECONDS)
+		ISay("!нахмурилась.")
+		icon_state = "Naia"
+		animate(src, pixel_x = -5, 0.5 SECONDS, easing = SINE_EASING|EASE_IN)
+
+	spawn(206 SECONDS)
+		ISay("Постараемся сделать так, чтобы их жертва не стала напрасной.")
+
+	spawn(212 SECONDS)
+		pixel_x = 0
+		dir = EAST
+		forceMove(get_step(src, EAST))
+		ISay("В процессе не подохнув в твоих же отходах.")
+
+	spawn(213 SECONDS)
+		dir = NORTH
+		forceMove(get_step(src, NORTH))
+
+	spawn(214 SECONDS)
+		forceMove(get_step(src, NORTH))
+
+	spawn(215 SECONDS)
+		forceMove(get_step(src, NORTH))
+
+	spawn(216 SECONDS)
+		dir = EAST
+		forceMove(get_step(src, EAST))
+
+	spawn(218 SECONDS)
+		ISay("И ещё...")
+
+	spawn(224 SECONDS)
+		dir = SOUTH
+		ISay("Мне необходим спикер и навигатор.")
+
+	spawn(228 SECONDS)
+		ISay("Так что, как бы ты того не хотел, но пока нет других опций - нам придётся работать сообща.")
+
+	spawn(236 SECONDS)
+		dir = EAST
+		ISay("К тому же, меня уж точно не захотят слушать.")
+
+	spawn(240 SECONDS)
+		ISay("...не после того, что случилось с Диной.")
+
 /mob/living/simple_animal/cutscene_character/swift/s2ep1/part2_1/do_stuff()
+	spawn(19 SECONDS)
+		animate(src, 0.2 SECONDS, transform = matrix(-5, MATRIX_ROTATE), easing = BOUNCE_EASING|EASE_IN)
+	spawn(19.2 SECONDS)
+		animate(src, 0.2 SECONDS, transform = matrix(0, MATRIX_ROTATE), easing = BOUNCE_EASING|EASE_OUT)
+	spawn(19.4 SECONDS)
+		animate(src, 0.2 SECONDS, transform = matrix(-5, MATRIX_ROTATE), easing = BOUNCE_EASING|EASE_IN)
+	spawn(19.6 SECONDS)
+		animate(src, 0.2 SECONDS, transform = matrix(0, MATRIX_ROTATE), easing = BOUNCE_EASING|EASE_OUT)
+	spawn(19.8 SECONDS)
+		animate(src, 0.2 SECONDS, transform = matrix(-5, MATRIX_ROTATE), easing = BOUNCE_EASING|EASE_IN)
+	spawn(20 SECONDS)
+		animate(src, 0.4 SECONDS, transform = matrix(0, MATRIX_ROTATE), easing = BOUNCE_EASING|EASE_OUT)
+	spawn(20.4 SECONDS)
+		animate(src, 0.4 SECONDS, transform = matrix(-5, MATRIX_ROTATE), easing = BOUNCE_EASING|EASE_IN)
+	spawn(20.8 SECONDS)
+		animate(src, 0.4 SECONDS, transform = matrix(0, MATRIX_ROTATE), easing = BOUNCE_EASING|EASE_OUT)
+	spawn(21.2 SECONDS)
+		animate(src, 0.4 SECONDS, transform = matrix(-5, MATRIX_ROTATE), easing = BOUNCE_EASING|EASE_IN)
+	spawn(21.6 SECONDS)
+		animate(src, 0.4 SECONDS, transform = matrix(0, MATRIX_ROTATE), easing = BOUNCE_EASING|EASE_OUT)
+
 	spawn(22 SECONDS)
 		animate(src, 1 SECONDS, transform = matrix(90, MATRIX_ROTATE), easing = BACK_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
 		animate(src, pixel_y = -15, 1 SECONDS, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
@@ -463,14 +607,36 @@
 	spawn(44 SECOND)
 		ISay("А я удивлена тому, что у тебя ещё остались силы отшучиваться.")
 
+	spawn(118 SECOND)
+		ISay("...")
+
+	spawn(124 SECOND)
+		ISay("Поняла.")
+
+	spawn(128 SECOND)
+		ISay("Рассчитываем на тебя...вольтанутый.")
+
 /mob/living/simple_animal/cutscene_character/kz/s2ep1/part2_2/do_stuff()
 	spawn(2 SECONDS)
 		ISay("!нервно протягивает трубку мужчине.")
 
-	spawn(40 SECONDS)
-		icon_state = "Abigail 3"
+	spawn(34 SECONDS)
 		animate(src, pixel_x = 4, 1 SECONDS, easing = SINE_EASING|EASE_IN)
 		ISay("!паникующе протянула руку.")
+
+	spawn(34.5 SECONDS)
+		icon_state = "Abigail 3"
+
+	spawn(100 SECONDS)
+		icon_state = "Abigail 4"
+
+	spawn(135 SECOND)
+		icon_state = "Abigail 2"
+		animate(src, pixel_x = 15, 1 SECONDS, easing = SINE_EASING|EASE_IN)
+
+	spawn(138 SECOND)
+		pixel_x = 0
+		forceMove(get_step(src, EAST))
 
 /mob/living/simple_animal/cutscene_character/amper/s2ep1/part2_2/do_stuff()
 	ISay("!сплёвывает кровь.")
@@ -505,7 +671,10 @@
 		ISay("Советую паковать вещички и сваливать, пока ещё есть такая возможность.")
 
 	spawn(68 SECONDS)
-		ISay("!закрыл глаза, откинув голову назад.")
+		ISay("!слегка опустил голову.")
+
+	spawn(100 SECONDS)
+		icon_state = "Paul 3"
 
 /mob/living/simple_animal/cutscene_character/amper/s2ep1/part2_1/do_stuff()
 
@@ -518,5 +687,20 @@
 	spawn(138 SECONDS)
 		ISay("Сомневаюсь, что ты хочешь ощутить как кожа медленно слезает с твоего тела.")
 
-	spawn(144 SECONDS)
+	spawn(146 SECONDS)
 		ISay("...")
+
+	spawn(148 SECONDS)
+		ISay("Я бы очень хотел соврать, Фокс.")
+
+	spawn(154 SECONDS)
+		ISay("Но мы и правду исковеркать способны...")
+
+	spawn(160 SECONDS)
+		ISay("...так что и благой ложью...не отделаешься.")
+
+	spawn(168 SECONDS)
+		ISay("Делайте свою работу.")
+
+	spawn(175 SECONDS)
+		ISay("...а мы постараемся...выполнить свою.")
