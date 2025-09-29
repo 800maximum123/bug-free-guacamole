@@ -118,7 +118,7 @@
 
 	var/obj/screen/novel_message/start_credits/blinking/visuals = new /obj/screen/novel_message/start_credits/blinking()
 	visuals.maptext_y = -60
-	visuals.maptext_x = -70
+	visuals.maptext_x = -80
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
 		visuals.set_text(novel_message, colored)
@@ -289,7 +289,7 @@
 				all.forceMove(G)
 				all.overlay_fullscreen("glitch", /obj/screen/fullscreen/bluespace_affection)
 
-		spawn(140 SECONDS)
+		spawn(138 SECONDS)
 			time_of_death()
 
 		spawn(142 SECONDS)

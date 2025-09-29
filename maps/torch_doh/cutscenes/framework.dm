@@ -112,8 +112,19 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 
 	QDEL_IN(src, countdown)
 
+/obj/screen/novel_message/start_credits/big_nofade
+	alpha = 255
+
+/obj/screen/novel_message/start_credits/big_nofade/set_text(text, text_color, time = 5 SECONDS)
+	SetTransform(2)
+
+	maptext = STYLE_FDFONT_OUTLINE("[text]", 7, text_color, COLOR_WHITE)
+
+	QDEL_IN(src, time)
+
 /obj/screen/novel_message/start_credits/blinking
 	layer = 5.4
+	plane = 7
 
 /obj/screen/novel_message/start_credits/blinking/set_text(text, text_color, time = 5 SECONDS)
 	SetTransform(3)
@@ -134,5 +145,25 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 		animate(src, 0.2 SECOND, alpha = 255)
 	spawn(1.4 SECOND)
 		animate(src, 0.2 SECOND, alpha = 0)
+	spawn(1.6 SECOND)
+		animate(src, 0.2 SECOND, alpha = 255)
+	spawn(1.8 SECOND)
+		animate(src, 0.2 SECOND, alpha = 0)
+	spawn(2 SECOND)
+		animate(src, 0.2 SECOND, alpha = 255)
+	spawn(2.2 SECOND)
+		animate(src, 0.2 SECOND, alpha = 0)
+	spawn(2.4 SECOND)
+		animate(src, 0.2 SECOND, alpha = 255)
+	spawn(2.6 SECOND)
+		animate(src, 0.2 SECOND, alpha = 0)
+	spawn(2.8 SECOND)
+		animate(src, 0.2 SECOND, alpha = 255)
+	spawn(3 SECOND)
+		animate(src, 0.2 SECOND, alpha = 0)
+	spawn(3.2 SECOND)
+		animate(src, 0.2 SECOND, alpha = 255)
+	spawn(3.4 SECOND)
+		animate(src, 0.2 SECOND, alpha = 0)
 
-	QDEL_IN(src, 1.6 SECONDS)
+	QDEL_IN(src, 3.6 SECONDS)

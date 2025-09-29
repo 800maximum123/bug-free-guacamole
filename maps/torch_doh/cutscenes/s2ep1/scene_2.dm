@@ -98,6 +98,12 @@
 
 /obj/structure/fd/players_geter/s2ep1/part2_2 // Инженерный отсек
 
+/obj/structure/fd/players_geter/s2ep1/part2_3 // Ядро ИИ
+
+/obj/structure/fd/players_geter/s2ep1/part2_4 // Медблок
+
+/obj/structure/fd/players_geter/s2ep1/part2_5 // Коридор третьей
+
 /proc/credits_mapper()
 	var/novel_message = "РАБОТА НАД ЛОКАЦИЯМИ: PALERNO"
 	var/colored = COLOR_ASSEMBLY_BLACK
@@ -119,6 +125,57 @@
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 16 SECONDS)
+
+/proc/credits_writers()
+	var/novel_message = "ПОМОЩНИКИ СЦЕНАРИСТА: TECHPRIEST34, HELPMEEE, LOZARI, KANARYSS"
+	var/colored = COLOR_ASSEMBLY_BLACK
+
+	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
+	visuals.maptext_x = 100
+	visuals.maptext_y = -10
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 16 SECONDS)
+
+/proc/until_dawn1()
+	var/novel_message = "Я БЫ ОЧЕНЬ ХОТЕЛ СОВРАТЬ ТЕБЕ, ФОКС"
+	var/colored = COLOR_SABER_RED
+
+	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
+	visuals.maptext_y = -80
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 6 SECONDS)
+
+/proc/until_dawn2()
+	var/novel_message = "НО У НАС, ЗЕМЛЯН-"
+	var/colored = COLOR_SABER_RED
+
+	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
+	visuals.maptext_y = -90
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 4 SECONDS)
+
+/proc/until_dawn3()
+	var/novel_message = "ВСЕГДА ВЫХОДИТ..."
+	var/colored = COLOR_SABER_RED
+
+	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
+	visuals.maptext_y = -90
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 6 SECONDS)
+
+/proc/until_dawn4()
+	var/novel_message = "...КАК-ТО ПАРШИВО"
+	var/colored = COLOR_SABER_RED
+
+	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
+	visuals.maptext_y = -90
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 6 SECONDS)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // СКРИПТ СЦЕНЫ //
@@ -143,7 +200,7 @@
 		spawn(25 SECONDS)
 			all.move_cutscene_camera(all, 0, 0, 5 SECONDS)
 
-		spawn(65 SECONDS)
+		spawn(67 SECONDS)
 			sound_to(all.client, sound(null))
 
 			for(var/obj/structure/fd/players_geter/s2ep1/part2_2/G in world)
@@ -151,7 +208,26 @@
 				all.forceMove(G)
 				repeating_siren(G)
 
-		spawn(71 SECONDS)
+		spawn(70 SECONDS)
+			credits_writers()
+
+		spawn(78 SECONDS)
+			sound_to(all.client, sound(null))
+
+			for(var/obj/structure/fd/players_geter/s2ep1/part2_1/G in world)
+				all.alpha = 0
+				all.forceMove(G)
+				repeating_siren(G)
+
+		spawn(93 SECONDS)
+			sound_to(all.client, sound(null))
+
+			for(var/obj/structure/fd/players_geter/s2ep1/part2_2/G in world)
+				all.alpha = 0
+				all.forceMove(G)
+				repeating_siren(G)
+
+		spawn(142 SECONDS)
 			sound_to(all.client, sound(null))
 
 			for(var/obj/structure/fd/players_geter/s2ep1/part2_1/G in world)
@@ -165,7 +241,7 @@
 				continue
 			C.do_stuff()
 
-	spawn(66 SECONDS)
+	spawn(69 SECONDS)
 		for(var/mob/living/simple_animal/cutscene_character/C in world)
 			if(C.cutscene_id != "s2ep1sc1pt22")
 				continue
@@ -229,24 +305,36 @@
 		forceMove(get_step(src, SOUTH))
 
 	spawn(24 SECONDS)
-		dir = WEST
 		ISay("Сомневаюсь, что там осталось кому отвечать.")
-		forceMove(get_step(src, WEST))
 
 	spawn(25 SECONDS)
+		dir = WEST
 		forceMove(get_step(src, WEST))
 
 	spawn(26 SECONDS)
 		forceMove(get_step(src, WEST))
 
 	spawn(27 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(28 SECONDS)
 		ISay("Да и мостика у нас, в целом-то, тоже не осталось.")
 
-	spawn(32 SECONDS)
+	spawn(38 SECONDS)
 		ISay("Самое то для массового захоронения, не могу не согласиться.")
 
-	spawn(35 SECONDS)
+	spawn(41 SECONDS)
 		ISay("Что с кораблём?")
+
+	spawn(140 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(141 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(142 SECONDS)
+		dir = SOUTH
+		forceMove(get_step(src, SOUTH))
 
 /mob/living/simple_animal/cutscene_character/naia/s2ep1/part2_1/do_stuff()
 	spawn(1.5 SECONDS)
@@ -301,65 +389,69 @@
 
 	spawn(19 SECONDS)
 		ISay("Эй, железный дровосек, ты ещё с нами?")
-
-	spawn(19.5 SECONDS)
 		ISay("!слегка трясёт ИПСа за плечо.")
 
-	spawn(21.5 SECONDS)
+	spawn(22 SECONDS)
 		dir = SOUTH
 		ISay("Твою-то!")
-		animate(src, pixel_y = 10, 0.5 SECONDS, easing = JUMP_EASING|EASE_IN)
+		animate(src, pixel_y = 10, 0.3 SECONDS, easing = SINE_EASING|EASE_IN)
 
 	spawn(24 SECONDS)
 		dir = EAST
 
-	spawn(26 SECONDS)
+	spawn(28 SECONDS)
 		dir = SOUTH
 
-	spawn(26.5 SECONDS)
+	spawn(28.5 SECONDS)
 		dir = WEST
 
-	spawn(30 SECONDS)
+	spawn(34 SECONDS)
 		ISay("Хотя бы вид красивый.")
 
-	spawn(37 SECONDS)
+	spawn(44 SECONDS)
 		ISay("!ворчливо закатила глаза.")
 
-	spawn(37.5 SECONDS)
+	spawn(44.5 SECONDS)
 		animate(src, pixel_x = 0, 0.5 SECONDS, easing = SINE_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
 		animate(src, pixel_y = 0, 0.5 SECONDS, easing = SINE_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
 		forceMove(get_step(src, WEST))
 
-	spawn(39 SECONDS)
+	spawn(45 SECONDS)
 		forceMove(get_step(src, SOUTH))
 
-	spawn(40 SECONDS)
+	spawn(46 SECONDS)
 		icon_state = "Naia 3"
 		animate(src, pixel_x = -15, 0.5 SECONDS, easing = SINE_EASING|EASE_OUT)
 		ISay("Я ожидала услышать ответ от тебя, мистер-мои-щупальца-везде-успеют.")
 		ISay("!щёлкает по клавишам.")
 
-	spawn(44 SECONDS)
+	spawn(52 SECONDS)
 		ISay("Мостик инженерному отсеку. Каз? Ампер?")
 
-	spawn(46 SECONDS)
+	spawn(54 SECONDS)
 		ISay("На частоте кто-нибудь есть?")
 
-	spawn(56 SECONDS)
+	spawn(70 SECONDS)
 		ISay("У меня здесь корабль по швам трещит, а его штурман решил прикурнуть.")
 
-	spawn(60 SECONDS)
+	spawn(76 SECONDS)
 		ISay("Я делаю всё что в моих силах, чтобы мы не пошли с ним ко дну.")
 
-	spawn(64 SECONDS)
-		ISay("У нас есть шансы доковылять хотя бы до берега?")
+	spawn(80 SECONDS)
+		ISay("Скажи, Факел сможет доковылять хотя бы до берега?")
+
+	spawn(130 SECONDS)
+		ISay("!вздыхает.")
+
+	spawn(142 SECONDS)
+		ISay("Сколько у нас времени?")
 
 /mob/living/simple_animal/cutscene_character/swift/s2ep1/part2_1/do_stuff()
-	spawn(20 SECONDS)
+	spawn(22 SECONDS)
 		animate(src, 1 SECONDS, transform = matrix(90, MATRIX_ROTATE), easing = BACK_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
 		animate(src, pixel_y = -15, 1 SECONDS, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
 
-	spawn(20.5 SECONDS)
+	spawn(22.5 SECONDS)
 		icon_state = "S.W.I.F.T 4"
 
 /mob/living/simple_animal/cutscene_character/naia/s2ep1/part2_2/do_stuff()
@@ -368,9 +460,17 @@
 	spawn(1 SECOND)
 		ISay("Пауль!")
 
+	spawn(44 SECOND)
+		ISay("А я удивлена тому, что у тебя ещё остались силы отшучиваться.")
+
 /mob/living/simple_animal/cutscene_character/kz/s2ep1/part2_2/do_stuff()
 	spawn(2 SECONDS)
 		ISay("!нервно протягивает трубку мужчине.")
+
+	spawn(40 SECONDS)
+		icon_state = "Abigail 3"
+		animate(src, pixel_x = 4, 1 SECONDS, easing = SINE_EASING|EASE_IN)
+		ISay("!паникующе протянула руку.")
 
 /mob/living/simple_animal/cutscene_character/amper/s2ep1/part2_2/do_stuff()
 	ISay("!сплёвывает кровь.")
@@ -383,7 +483,40 @@
 		ISay("!кашляет.")
 		ISay("Чего разоралась?")
 
-/mob/living/simple_animal/cutscene_character/amper/s2ep1/part2_1/do_stuff()
+	spawn(30 SECONDS)
+		ISay("Я не знал, что ты-...")
+
+	spawn(34 SECONDS)
+		ISay("!сжался от боли.")
+
+	spawn(38 SECONDS)
+		ISay("...записалась в оптимисты.")
+
+	spawn(52 SECONDS)
+		ISay("Нужно же смеяться, пока дают.")
+
+	spawn(54 SECONDS)
+		ISay("!кашляет.")
+
+	spawn(56 SECONDS)
+		ISay("Все двигатели выведены из строя. Никуда этот металлолом уже не доковыляет.")
+
+	spawn(64 SECONDS)
+		ISay("Советую паковать вещички и сваливать, пока ещё есть такая возможность.")
 
 	spawn(68 SECONDS)
+		ISay("!закрыл глаза, откинув голову назад.")
+
+/mob/living/simple_animal/cutscene_character/amper/s2ep1/part2_1/do_stuff()
+
+	spawn(83 SECONDS)
 		ISay("!болезненно смеётся.")
+
+	spawn(132 SECONDS)
+		ISay("Скоро здесь всё бенгальскими огнями загорится.")
+
+	spawn(138 SECONDS)
+		ISay("Сомневаюсь, что ты хочешь ощутить как кожа медленно слезает с твоего тела.")
+
+	spawn(144 SECONDS)
+		ISay("...")
