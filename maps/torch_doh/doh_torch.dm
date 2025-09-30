@@ -340,6 +340,8 @@
 
 	#include "../../mods/_fd/_maps/lab_campaign/_lab_campaign.dme"
 
+	#include "../../mods/_fd/_maps/bunker_hub/_bunker_hub.dme"
+
 	#define using_map_DATUM /datum/map/torch
 
 #elif !defined(MAP_OVERRIDE)

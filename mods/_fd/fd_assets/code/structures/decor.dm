@@ -491,6 +491,17 @@
 	pixel_x = -32
 	pixel_y = 0
 
+/obj/structure/flora/tree/beet_decorative
+	icon = 'mods/_fd/fd_assets/icons/structures/flora/beet_tree.dmi'
+	icon_state = "beet_tree"
+	pixel_x = -32
+	pixel_y = 0
+
+/obj/structure/flora/tree/beet_decorative/Initialize()
+	. = ..()
+
+	icon_state = "beet_tree[rand(1, 3)]"
+
 /obj/structure/flora/jungle
 	anchored = TRUE
 

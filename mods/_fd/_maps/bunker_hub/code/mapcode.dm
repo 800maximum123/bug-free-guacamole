@@ -1,3 +1,44 @@
+/obj/overmap/visitable/sector/bunker_hub
+	name = "TRK-17"
+	desc = "Green terraformed world with rich flora and fauna"
+	sector_flags = OVERMAP_SECTOR_KNOWN
+	icon_state = "globe"
+	color = "#63c2c2"
+	initial_generic_waypoints = list(
+		"nav_alab_1"
+	)
+	var/list/lightmain
+
+/obj/overmap/visitable/sector/bunker_hub/Initialize()
+	..()
+
+	lightmain = block(locate(world.maxx, world.maxy, max(map_z)), locate(1, 1, min(map_z)))
+	for(var/atom/A as anything in lightmain)
+		if(!istype(A.loc, /area/bunker/jungle) || !istype(A, /turf/) || A.density)
+			lightmain -= A
+	update_daynight()
+
+/obj/overmap/visitable/sector/bunker_hub/proc/update_daynight(light = 2, light_color_m = "#f7edb6")
+	for(var/turf/T as anything in lightmain)
+		T.set_light(1, light, l_color = light_color_m)
+
+/datum/map_template/ruin/away_site/bunker_hub
+	name = "TRK-17 HUB (Campaign)"
+	id = "awaysite_bunker_hub"
+	spawn_cost = 2
+	description = "..."
+	prefix = "mods/_fd/_maps/bunker_hub/map/"
+	suffixes = list("bunker.dmm")
+	area_usage_test_exempted_root_areas = list(/area/bunker)
+	apc_test_exempt_areas = list(
+		/area/bunker = NO_SCRUBBER|NO_VENT|NO_APC
+	)
+
+/obj/shuttle_landmark/nav_bunker_hub
+	name = "Nearest Beach"
+	landmark_tag = "nav_bunker_hub"
+	base_area = /area/bunker/jungle
+
 
 /area/bunker/
 
