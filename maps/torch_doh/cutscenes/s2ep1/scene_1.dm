@@ -112,6 +112,12 @@
 	spawn(175 SECONDS)
 		animate(src, 3 SECOND, alpha = 0)
 
+	spawn(560 SECONDS)
+		animate(src, 3 SECOND, alpha = 255)
+
+	spawn(572 SECONDS)
+		animate(src, 3 SECOND, alpha = 0)
+
 /proc/time_of_death()
 	var/novel_message = "ВРЕМЯ СМЕРТИ..."
 	var/colored = COLOR_SABER_RED
@@ -201,20 +207,14 @@
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 12 SECONDS)
 
-/proc/repeating_siren(atom/search_in)
-	var/atom/play_on_next = search_in
+/proc/repeating_siren(atom/play_it_on)
 
-	for(var/mob/all in search_in)
-		var/list/players_on_point = list()
-		players_on_point += all
+	playsound(get_turf(play_it_on), 'maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', 5, FALSE)
 
-		var/mob/choosen_player = pick(players_on_point)
-		playsound(choosen_player, 'maps/torch_doh/cutscenes/sounds/nuclear_klaxon.ogg', 40, FALSE)
-
-	spawn(14 SECONDS)
+	spawn(4 SECONDS)
 		if(GLOB.stop_the_siren)
 			return
-		repeating_siren(play_on_next)
+		repeating_siren(play_it_on)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // СКРИПТ СЦЕНЫ //
@@ -257,7 +257,6 @@
 			credits_author()
 
 		spawn(51 SECONDS)
-			sound_to(all.client, sound(null))
 
 			for(var/obj/structure/fd/players_geter/s2ep1/part1_2/G in world)
 				all.alpha = 0
@@ -281,7 +280,6 @@
 			all.move_cutscene_camera(all, 32, 0, 1 SECONDS)
 
 		spawn(136 SECONDS)
-			sound_to(all.client, sound(null))
 			GLOB.stop_the_siren = TRUE
 
 			for(var/obj/structure/fd/players_geter/s2ep1/part1_3/G in world)

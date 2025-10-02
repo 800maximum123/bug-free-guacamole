@@ -94,15 +94,42 @@
 	icon_living = "S.W.I.F.T 2"
 	icon_dead = "S.W.I.F.T 2"
 
+/mob/living/simple_animal/cutscene_character/froise
+	name = "Александр Ф."
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
+	icon_state = "Alexander"
+	icon_living = "Alexander"
+	icon_dead = "Alexander"
+
+/mob/living/simple_animal/cutscene_character/froise/s2ep1/part2_3
+	icon_state = "Alexander 2"
+	icon_living = "Alexander 2"
+	icon_dead = "Alexander 2"
+
+/mob/living/simple_animal/cutscene_character/froise/s2ep1/part2_3/Life()
+	. = ..()
+	layer = 4.3
+
+/mob/living/simple_animal/cutscene_character/wind
+	name = "Ветер"
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/characters_big.dmi'
+	icon_state = "Wind"
+	icon_living = "Wind"
+	icon_dead = "Wind"
+
+/mob/living/simple_animal/cutscene_character/wind/s2ep1/part2_3
+
 /obj/structure/fd/players_geter/s2ep1/part2_1 // Мостик
 
 /obj/structure/fd/players_geter/s2ep1/part2_2 // Инженерный отсек
 
-/obj/structure/fd/players_geter/s2ep1/part2_3 // Ядро ИИ
+/obj/structure/fd/players_geter/s2ep1/part2_3 // Коридор третьей
 
 /obj/structure/fd/players_geter/s2ep1/part2_4 // Медблок
 
-/obj/structure/fd/players_geter/s2ep1/part2_5 // Коридор третьей
+/obj/structure/fd/players_geter/s2ep1/part2_5 // Ядро
 
 /proc/credits_mapper()
 	var/novel_message = "РАБОТА НАД ЛОКАЦИЯМИ: PALERNO"
@@ -131,120 +158,40 @@
 	var/colored = COLOR_ASSEMBLY_BLACK
 
 	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
-	visuals.maptext_x = 100
+	visuals.maptext_x = 110
 	visuals.maptext_y = -10
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 16 SECONDS)
 
-//ПОКА ЧТО В СКРАП
-/proc/great_plan1()
-	var/novel_message = "ПОСТАВЬ ЭКИПАЖ В ИЗВЕСТНОСТЬ"
-	var/colored = COLOR_MEDICAL_BURN
+/proc/credits_investors()
+	var/novel_message = "ФИНАНСОВУЮ ПОМОЩЬ ОКАЗЫВАЛИ: TREESISS, VISTA1, TACKCARD, DELTA23, GRIGPASHTET"
+	var/colored = COLOR_ASSEMBLY_BLACK
 
-	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
-	visuals.maptext_y = -80
-	for(var/client/M in GLOB.clients)
-		M.screen += visuals
-		visuals.set_text(novel_message, colored, time = 6 SECONDS)
-
-/proc/great_plan2()
-	var/novel_message = "ЛЮДИ ДОЛЖНЫ ЗНАТЬ, С ЧЕМ МЫ ИМЕЕМ ДЕЛО"
-	var/colored = COLOR_MEDICAL_BURN
-
-	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
-	visuals.maptext_y = -90
-	for(var/client/M in GLOB.clients)
-		M.screen += visuals
-		visuals.set_text(novel_message, colored, time = 4 SECONDS)
-
-/proc/great_plan3()
-	var/novel_message = "И ВСЕХ ПОТЕРЯШЕК НАПРАВЛЯЙ В МЕДБЛОК"
-	var/colored = COLOR_MEDICAL_BURN
-
-	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
-	visuals.maptext_y = -80
-	for(var/client/M in GLOB.clients)
-		M.screen += visuals
-		visuals.set_text(novel_message, colored, time = 6 SECONDS)
-
-/proc/great_plan4()
-	var/novel_message = "ТАМ СЕЙЧАС БЕЗОПАСНЕЕ ВСЕГО"
-	var/colored = COLOR_MEDICAL_BURN
-
-	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
-	visuals.maptext_y = -90
-	for(var/client/M in GLOB.clients)
-		M.screen += visuals
-		visuals.set_text(novel_message, colored, time = 4 SECONDS)
-
-/proc/great_plan5()
-	var/novel_message = "И ЧТО ТЫ БУДЕШЬ ДЕЛАТЬ В ЭТО ВРЕМЯ?"
-	var/colored = COLOR_ASSEMBLY_GREEN
-
-	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
-	visuals.maptext_y = -90
-	for(var/client/M in GLOB.clients)
-		M.screen += visuals
-		visuals.set_text(novel_message, colored, time = 6 SECONDS)
-
-/proc/great_plan6()
-	var/novel_message = "ПОСТАРАЮСЬ НАЙТИ ФИДДЛЕРА И ШОФФИЛДА"
-	var/colored = COLOR_MEDICAL_BURN
-
-	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
-	visuals.maptext_y = -90
-	for(var/client/M in GLOB.clients)
-		M.screen += visuals
-		visuals.set_text(novel_message, colored, time = 6 SECONDS)
-
-/proc/great_plan7()
-	var/novel_message = "МОЖЕТ..."
-	var/colored = COLOR_MEDICAL_BURN
-
-	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
-	visuals.maptext_y = -90
+	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
 	visuals.maptext_x = 10
+	visuals.maptext_y = -410
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
-		visuals.set_text(novel_message, colored, time = 6 SECONDS)
-
-/proc/great_plan8()
-	var/novel_message = "ХОТЬ ОНИ ЗНАЮТ ЧТО НАМ ДЕЛАТЬ..."
-	var/colored = COLOR_MEDICAL_BURN
-
-	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
-	visuals.maptext_y = -90
-	visuals.maptext_x = 60
-	for(var/client/M in GLOB.clients)
-		M.screen += visuals
-		visuals.set_text(novel_message, colored, time = 4 SECONDS)
-
-/proc/great_plan9()
-	var/novel_message = "...ПОНАДЕЕМСЯ..."
-	var/colored = COLOR_ASSEMBLY_GREEN
-
-	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
-	visuals.maptext_y = -90
-	for(var/client/M in GLOB.clients)
-		M.screen += visuals
-		visuals.set_text(novel_message, colored, time = 6 SECONDS)
+		visuals.set_text(novel_message, colored, time = 16 SECONDS)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // СКРИПТ СЦЕНЫ //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /proc/fds2ep1_sc2()
+	var/sound/opening = sound('maps/torch_doh/cutscenes/sounds/opening.ogg', repeat = 0, wait = 1, channel = GLOB.admin_sound_channel)
+	opening.priority = 255
+	opening.volume = 2
 
 	for(var/mob/all in GLOB.player_list)
-		sound_to(all.client, sound(null))
 
 		for(var/obj/structure/fd/players_geter/s2ep1/part2_1/G in world)
 			all.alpha = 0
 			all.forceMove(G)
 			repeating_siren(G)
 
-		all.client.pixel_x = 160
+		all.client.pixel_x = 192
 
 		spawn(15 SECONDS)
 			credits_mapper()
@@ -254,55 +201,90 @@
 			all.move_cutscene_camera(all, 0, 0, 5 SECONDS)
 
 		spawn(67 SECONDS)
-			sound_to(all.client, sound(null))
 
 			for(var/obj/structure/fd/players_geter/s2ep1/part2_2/G in world)
 				all.alpha = 0
 				all.forceMove(G)
 				repeating_siren(G)
+
+				spawn(3 SECONDS)
+					playsound(get_turf(G), "sparks", 50, 1)
 
 		spawn(70 SECONDS)
 			credits_writers()
 
 		spawn(78 SECONDS)
-			sound_to(all.client, sound(null))
 
 			for(var/obj/structure/fd/players_geter/s2ep1/part2_1/G in world)
 				all.alpha = 0
 				all.forceMove(G)
-				repeating_siren(G)
 
 		spawn(93 SECONDS)
-			sound_to(all.client, sound(null))
 
 			for(var/obj/structure/fd/players_geter/s2ep1/part2_2/G in world)
 				all.alpha = 0
 				all.forceMove(G)
-				repeating_siren(G)
+
+		spawn(120 SECONDS)
+			credits_investors()
 
 		spawn(142 SECONDS)
-			sound_to(all.client, sound(null))
 
 			for(var/obj/structure/fd/players_geter/s2ep1/part2_1/G in world)
 				all.alpha = 0
 				all.forceMove(G)
-				repeating_siren(G)
 
-		spawn(192 SECONDS)
-			sound_to(all.client, sound(null))
+		spawn(178 SECONDS)
 
 			for(var/obj/structure/fd/players_geter/s2ep1/part2_2/G in world)
 				all.alpha = 0
 				all.forceMove(G)
-				repeating_siren(G)
 
-		spawn(210 SECONDS)
-			sound_to(all.client, sound(null))
+				spawn(2 SECONDS)
+					playsound(get_turf(G), "sparks", 50, 1)
+
+				spawn(8 SECONDS)
+					playsound(get_turf(G), "sparks", 50, 1)
+
+		spawn(222 SECONDS)
 
 			for(var/obj/structure/fd/players_geter/s2ep1/part2_1/G in world)
 				all.alpha = 0
 				all.forceMove(G)
+
+		spawn(288 SECONDS)
+
+			for(var/obj/structure/fd/players_geter/s2ep1/part2_2/G in world)
+				all.alpha = 0
+				all.forceMove(G)
+
+				spawn(4 SECONDS)
+					playsound(get_turf(G), "sparks", 50, 1)
+
+				spawn(6 SECONDS)
+					playsound(get_turf(G), "sparks", 50, 1)
+
+		spawn(318 SECONDS)
+
+			for(var/obj/structure/fd/players_geter/s2ep1/part2_1/G in world)
+				all.alpha = 0
+				all.forceMove(G)
+
+		spawn(320 SECONDS)
+			sound_to(all, opening)
+
+		spawn(395 SECONDS)
+			all.client.pixel_x = 288
+
+		spawn(400 SECONDS)
+
+			for(var/obj/structure/fd/players_geter/s2ep1/part2_3/G in world)
+				all.alpha = 0
+				all.forceMove(G)
 				repeating_siren(G)
+
+		spawn(405 SECONDS)
+			all.move_cutscene_camera(all, 0, 0, 5 SECONDS)
 
 	spawn(10 SECONDS)
 		for(var/mob/living/simple_animal/cutscene_character/C in world)
@@ -313,6 +295,12 @@
 	spawn(69 SECONDS)
 		for(var/mob/living/simple_animal/cutscene_character/C in world)
 			if(C.cutscene_id != "s2ep1sc1pt22")
+				continue
+			C.do_stuff()
+
+	spawn(405 SECONDS)
+		for(var/mob/living/simple_animal/cutscene_character/C in world)
+			if(C.cutscene_id != "s2ep1sc1pt23")
 				continue
 			C.do_stuff()
 
@@ -347,12 +335,15 @@
 /mob/living/simple_animal/cutscene_character/meat/s2ep1/part2_1/do_stuff()
 	spawn(1 SECOND)
 		forceMove(get_step(src, WEST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating3.ogg', 70)
 
 	spawn(2 SECONDS)
 		forceMove(get_step(src, WEST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating1.ogg', 70)
 
 	spawn(3 SECONDS)
 		forceMove(get_step(src, WEST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating4.ogg', 70)
 
 	spawn(3.5 SECONDS)
 		dir = SOUTH
@@ -372,6 +363,7 @@
 
 	spawn(23 SECONDS)
 		forceMove(get_step(src, SOUTH))
+		playsound(get_turf(src), 'sound/effects/footstep/plating5.ogg', 70)
 
 	spawn(24 SECONDS)
 		ISay("Сомневаюсь, что там осталось кому отвечать.")
@@ -379,12 +371,15 @@
 	spawn(25 SECONDS)
 		dir = WEST
 		forceMove(get_step(src, WEST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating1.ogg', 70)
 
 	spawn(26 SECONDS)
 		forceMove(get_step(src, WEST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating2.ogg', 70)
 
 	spawn(27 SECONDS)
 		forceMove(get_step(src, WEST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating5.ogg', 70)
 
 	spawn(28 SECONDS)
 		ISay("Да и мостика у нас, в целом-то, тоже не осталось.")
@@ -397,19 +392,29 @@
 
 	spawn(140 SECONDS)
 		forceMove(get_step(src, WEST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating3.ogg', 70)
 
 	spawn(141 SECONDS)
 		forceMove(get_step(src, WEST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating4.ogg', 70)
 
 	spawn(142 SECONDS)
 		dir = SOUTH
 		forceMove(get_step(src, SOUTH))
+		playsound(get_turf(src), 'sound/effects/footstep/plating1.ogg', 70)
 
-	spawn(200 SECONDS)
-		ISay("Что дальше, мисс-сама-уверенность?")
+	spawn(320 SECONDS)
+		ISay("Мы не могли ему помочь.")
 
-	spawn(215 SECONDS)
+	spawn(332 SECONDS)
+		ISay("На какие-то вещи мы просто неспособны повлиять.")
+
+	spawn(340 SECONDS)
+		ISay("Зациклишься на них лишний раз - быстро потеряешь себя.")
+
+	spawn(366 SECONDS)
 		dir = EAST
+		ISay("Куда ты собралась?")
 
 /mob/living/simple_animal/cutscene_character/naia/s2ep1/part2_1/do_stuff()
 	spawn(1.5 SECONDS)
@@ -432,28 +437,35 @@
 	spawn(10 SECONDS)
 		dir = WEST
 		forceMove(get_step(src, WEST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating3.ogg', 70)
 
 	spawn(11 SECONDS)
 		forceMove(get_step(src, WEST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating5.ogg', 70)
 
 	spawn(12 SECONDS)
 		ISay("...или обижаться на то, что ты недооцениваешь мои способности.")
 		forceMove(get_step(src, WEST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating2.ogg', 70)
 
 	spawn(13 SECONDS)
 		forceMove(get_step(src, WEST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating4.ogg', 70)
 
 	spawn(14 SECONDS)
 		forceMove(get_step(src, WEST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating1.ogg', 70)
 
 	spawn(15 SECONDS)
 		dir = SOUTH
 
 	spawn(17 SECONDS)
 		forceMove(get_step(src, SOUTH))
+		playsound(get_turf(src), 'sound/effects/footstep/plating4.ogg', 70)
 
 	spawn(18 SECONDS)
 		forceMove(get_step(src, SOUTH))
+		playsound(get_turf(src), 'sound/effects/footstep/plating1.ogg', 70)
 
 	spawn(18.5 SECONDS)
 		dir = WEST
@@ -510,10 +522,10 @@
 		ISay("У меня здесь корабль по швам трещит, а его штурман решил прикурнуть.")
 
 	spawn(76 SECONDS)
-		ISay("Я делаю всё что в моих силах, чтобы мы не пошли с ним ко дну.")
+		ISay("Есть немалые шансы пойти на дно вместе с ним, коли ничего не предпринять.")
 
 	spawn(80 SECONDS)
-		ISay("Скажи, Факел сможет доковылять хотя бы до берега?")
+		ISay("Скажи мне, Факел сможет доковылять хотя бы до берега?")
 
 	spawn(130 SECONDS)
 		ISay("!вздыхает.")
@@ -524,50 +536,76 @@
 	spawn(162 SECONDS)
 		ISay("Пауль.")
 
-	spawn(202 SECONDS)
+	spawn(216 SECONDS)
 		ISay("!нахмурилась.")
-		icon_state = "Naia"
+		ISay("Даже не вздумай, мы придумаем что-нибудь е-...")
+
+	spawn(238 SECONDS)
+		icon_state = "Naia 4"
+		ISay("!опускает голову.")
+
+	spawn(320 SECONDS)
+		icon_state = "Naia 5"
 		animate(src, pixel_x = -5, 0.5 SECONDS, easing = SINE_EASING|EASE_IN)
 
-	spawn(206 SECONDS)
-		ISay("Постараемся сделать так, чтобы их жертва не стала напрасной.")
+	spawn(325 SECONDS)
+		ISay("Ты так считаешь?")
 
-	spawn(212 SECONDS)
+	spawn(344 SECONDS)
+		dir = NORTH
+		ISay("Легко говорить об этом сидя на заборе.")
+
+	spawn(348 SECONDS)
+		dir = SOUTH
+		ISay("Без врагов...")
+
+	spawn(350 SECONDS)
 		pixel_x = 0
 		dir = EAST
 		forceMove(get_step(src, EAST))
-		ISay("В процессе не подохнув в твоих же отходах.")
+		playsound(get_turf(src), 'sound/effects/footstep/plating3.ogg', 70)
+		ISay("Или друзей, на которых можно было бы положиться.")
 
-	spawn(213 SECONDS)
+	spawn(354 SECONDS)
 		dir = NORTH
 		forceMove(get_step(src, NORTH))
+		playsound(get_turf(src), 'sound/effects/footstep/plating1.ogg', 70)
 
-	spawn(214 SECONDS)
+	spawn(356 SECONDS)
 		forceMove(get_step(src, NORTH))
+		playsound(get_turf(src), 'sound/effects/footstep/plating4.ogg', 70)
 
-	spawn(215 SECONDS)
+	spawn(358 SECONDS)
+		ISay("Придумай, что делать с железным.")
 		forceMove(get_step(src, NORTH))
+		playsound(get_turf(src), 'sound/effects/footstep/plating5.ogg', 70)
 
-	spawn(216 SECONDS)
+	spawn(360 SECONDS)
 		dir = EAST
 		forceMove(get_step(src, EAST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating2.ogg', 70)
 
-	spawn(218 SECONDS)
-		ISay("И ещё...")
+	spawn(362 SECONDS)
+		ISay("Мостик в твоём распоряжении.")
+		forceMove(get_step(src, EAST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating3.ogg', 70)
 
-	spawn(224 SECONDS)
-		dir = SOUTH
-		ISay("Мне необходим спикер и навигатор.")
+	spawn(364 SECONDS)
+		forceMove(get_step(src, EAST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating1.ogg', 70)
 
-	spawn(228 SECONDS)
-		ISay("Так что, как бы ты того не хотел, но пока нет других опций - нам придётся работать сообща.")
+	spawn(370 SECONDS)
+		ISay("Постараюсь сделать так, чтобы их жертва не стала напрасной.")
 
-	spawn(236 SECONDS)
-		dir = EAST
-		ISay("К тому же, меня уж точно не захотят слушать.")
+	spawn(372 SECONDS)
+		forceMove(get_step(src, EAST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating3.ogg', 70)
 
-	spawn(240 SECONDS)
-		ISay("...не после того, что случилось с Диной.")
+	spawn(374 SECONDS)
+		ISay("В процессе не подохнув в твоих же отходах.")
+		dir = NORTH
+		forceMove(get_step(src, EAST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating5.ogg', 70)
 
 /mob/living/simple_animal/cutscene_character/swift/s2ep1/part2_1/do_stuff()
 	spawn(19 SECONDS)
@@ -587,7 +625,7 @@
 	spawn(20.8 SECONDS)
 		animate(src, 0.4 SECONDS, transform = matrix(0, MATRIX_ROTATE), easing = BOUNCE_EASING|EASE_OUT)
 	spawn(21.2 SECONDS)
-		animate(src, 0.4 SECONDS, transform = matrix(-5, MATRIX_ROTATE), easing = BOUNCE_EASING|EASE_IN)
+		animate(src, 0.4 SECONDS, transform = matrix(-10, MATRIX_ROTATE), easing = BOUNCE_EASING|EASE_IN)
 	spawn(21.6 SECONDS)
 		animate(src, 0.4 SECONDS, transform = matrix(0, MATRIX_ROTATE), easing = BOUNCE_EASING|EASE_OUT)
 
@@ -602,41 +640,67 @@
 	ISay("Да не молчите же вы, как убитые!")
 
 	spawn(1 SECOND)
-		ISay("Пауль!")
+		ISay("Вольтанутый!")
 
 	spawn(44 SECOND)
 		ISay("А я удивлена тому, что у тебя ещё остались силы отшучиваться.")
 
-	spawn(118 SECOND)
+	spawn(130 SECONDS)
+		ISay("...словно сама вселенная нам смерти желает. Что насчёт переборок?")
+
+	spawn(134 SECONDS)
+		ISay("Мы можем как-то приуменьшить очаг возгорания?")
+
+	spawn(220 SECOND)
 		ISay("...")
 
-	spawn(124 SECOND)
-		ISay("Поняла.")
-
-	spawn(128 SECOND)
-		ISay("Рассчитываем на тебя...вольтанутый.")
+	spawn(225 SECOND)
+		ISay("Спасибо тебе. За всё.")
 
 /mob/living/simple_animal/cutscene_character/kz/s2ep1/part2_2/do_stuff()
 	spawn(2 SECONDS)
 		ISay("!нервно протягивает трубку мужчине.")
 
 	spawn(34 SECONDS)
-		animate(src, pixel_x = 4, 1 SECONDS, easing = SINE_EASING|EASE_IN)
-		ISay("!паникующе протянула руку.")
+		animate(src, pixel_x = 4, 0.5 SECONDS, easing = SINE_EASING|EASE_IN)
+		ISay("!паникующе поднесла руку.")
 
-	spawn(34.5 SECONDS)
+	spawn(34.3 SECONDS)
 		icon_state = "Abigail 3"
 
-	spawn(100 SECONDS)
+	spawn(160 SECONDS)
 		icon_state = "Abigail 4"
 
-	spawn(135 SECOND)
+	spawn(226 SECONDS)
 		icon_state = "Abigail 2"
 		animate(src, pixel_x = 15, 1 SECONDS, easing = SINE_EASING|EASE_IN)
 
-	spawn(138 SECOND)
+	spawn(234 SECOND)
+		icon_state = "Abigail 5"
+		ISay("!утирает нос.")
 		pixel_x = 0
 		forceMove(get_step(src, EAST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating2.ogg', 70)
+
+	spawn(236 SECOND)
+		icon_state = "Abigail 2"
+
+	spawn(238 SECOND)
+		forceMove(get_step(src, EAST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating1.ogg', 70)
+
+	spawn(242 SECOND)
+		dir = EAST
+		forceMove(get_step(src, EAST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating5.ogg', 70)
+
+	spawn(246 SECOND)
+		forceMove(get_step(src, EAST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating4.ogg', 70)
+
+	spawn(248 SECOND)
+		forceMove(get_step(src, EAST))
+		playsound(get_turf(src), 'sound/effects/footstep/plating3.ogg', 70)
 
 /mob/living/simple_animal/cutscene_character/amper/s2ep1/part2_2/do_stuff()
 	ISay("!сплёвывает кровь.")
@@ -667,22 +731,46 @@
 	spawn(56 SECONDS)
 		ISay("Все двигатели выведены из строя. Никуда этот металлолом уже не доковыляет.")
 
-	spawn(64 SECONDS)
+	spawn(66 SECONDS)
 		ISay("Советую паковать вещички и сваливать, пока ещё есть такая возможность.")
 
-	spawn(68 SECONDS)
-		ISay("!слегка опустил голову.")
-
-	spawn(100 SECONDS)
+	spawn(116 SECONDS)
 		icon_state = "Paul 3"
+
+		ISay("!кашляет.")
+		ISay("Час. Я рекомендую уложиться в минут тридцать.")
+
+	spawn(124 SECONDS)
+		ISay("Если пламя доберётся до топлива - станет ещё меньше.")
+
+	spawn(136 SECONDS)
+		ISay("!вздыхает.")
+
+	spawn(140 SECONDS)
+		ISay("...есть одна секция, правда...")
+		icon_state = "Paul 2"
+
+	spawn(144 SECONDS)
+		ISay("...перекрыть мы её сможем только изнутри.")
+
+	spawn(144 SECONDS)
+		animate(src, pixel_x = -15, 0.2 SECONDS, easing = SINE_EASING|EASE_OUT)
+	spawn(144.4 SECONDS)
+		animate(src, pixel_x = -14, 0.2 SECONDS, easing = SINE_EASING|EASE_IN)
+	spawn(144.8 SECONDS)
+		animate(src, pixel_x = -15, 0.2 SECONDS, easing = SINE_EASING|EASE_OUT)
+
+	spawn(145 SECONDS)
+		animate(src, pixel_x = -14, 0.2 SECONDS, easing = SINE_EASING|EASE_IN)
+		ISay("!сплёвывает кровь.")
+
+	spawn(160 SECONDS)
+		icon_state = "Paul 4"
 
 /mob/living/simple_animal/cutscene_character/amper/s2ep1/part2_1/do_stuff()
 
-	spawn(83 SECONDS)
-		ISay("!болезненно смеётся.")
-
 	spawn(132 SECONDS)
-		ISay("Скоро здесь всё бенгальскими огнями загорится.")
+		ISay("Потому что скоро здесь всё бенгальскими огнями загорится.")
 
 	spawn(138 SECONDS)
 		ISay("Сомневаюсь, что ты хочешь ощутить как кожа медленно слезает с твоего тела.")
@@ -694,13 +782,162 @@
 		ISay("Я бы очень хотел соврать, Фокс.")
 
 	spawn(154 SECONDS)
-		ISay("Но мы и правду исковеркать способны...")
+		ISay("Но у нас, Землян...")
 
 	spawn(160 SECONDS)
-		ISay("...так что и благой ложью...не отделаешься.")
+		ISay("...это всегда получается как-то паршиво.")
 
-	spawn(168 SECONDS)
-		ISay("Делайте свою работу.")
+	spawn(218 SECONDS)
+		ISay("...и поставим под угрозу очередную жизнь?")
 
-	spawn(175 SECONDS)
-		ISay("...а мы постараемся...выполнить свою.")
+	spawn(226 SECONDS)
+		ISay("!хрипит.")
+		ISay("Хрена-с два, чтоб из-за меня ещё кто-то помер. Мы с Каз уже всё решили.")
+
+	spawn(230 SECONDS)
+		ISay("Коли осталось недолго, хоть пользу принесу.")
+
+	spawn(236 SECONDS)
+		ISay("!болезненно смеётся.")
+		ISay("...звиняйте уж, что так получается.")
+
+	spawn(240 SECONDS)
+		ISay("Я бы ещё многое хотел повидать...жаль жизнь мест не выбирает.")
+
+	spawn(245 SECONDS)
+		ISay("...")
+
+	spawn(250 SECONDS)
+		ISay("Шеф...можно попросить вас об одолжении?")
+
+	spawn(258 SECONDS)
+		ISay("Если доживёте до того дня...когда человек снова станет свободным-...")
+
+	spawn(262 SECONDS)
+		ISay("...расскажете...п-потом...")
+
+	spawn(266 SECONDS)
+		ISay("...к-как оно было?")
+
+/mob/living/simple_animal/cutscene_character/wind/s2ep1/part2_3/do_stuff()
+	forceMove(get_step(src, WEST))
+
+	spawn(0.3 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(0.6 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(0.9 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(1.2 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(1.5 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(1.8 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(2.1 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(2.4 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(2.7 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(3 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(3.3 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(3.6 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(3.9 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(4.2 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(4.5 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(4.6 SECONDS)
+		animate(src, pixel_x = -16, 0.4 SECONDS, easing = SINE_EASING|EASE_OUT)
+
+	spawn(5 SECONDS)
+		animate(src, pixel_x = -8, 0.1 SECONDS, easing = SINE_EASING|EASE_IN)
+
+	spawn(7 SECONDS)
+		ISay("В чём. Дело?")
+
+/mob/living/simple_animal/cutscene_character/froise/s2ep1/part2_3/do_stuff()
+	forceMove(get_step(src, WEST))
+
+	spawn(0.3 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(0.6 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(0.9 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(1.2 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(1.5 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(1.8 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(2.1 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(2.4 SECONDS)
+		ISay("!хлопает по крышке меха.")
+		ISay("Ветерок! Притормози!")
+		forceMove(get_step(src, WEST))
+
+	spawn(2.7 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(3 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(3.3 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(3.6 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(3.9 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(4.2 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(4.5 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(4.6 SECONDS)
+		animate(src, pixel_x = 0, 0.4 SECONDS, easing = SINE_EASING|EASE_OUT)
+
+	spawn(5 SECONDS)
+		animate(src, pixel_x = 8, 0.1 SECONDS, easing = SINE_EASING|EASE_IN)
+
+	spawn(7 SECONDS)
+		icon_state = "Alexander 3"
+		ISay("!достаёт КПК из кармана.")
+
+	spawn(11 SECONDS)
+		ISay("Сообщение от Мяса.")
+
+	spawn(14 SECONDS)
+		ISay("Похоже, они смогли отчасти восстановить связь.")
