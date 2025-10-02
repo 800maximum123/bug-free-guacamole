@@ -8,93 +8,6 @@
 
 /obj/structure/fd/players_geter/s2ep1/part1_3 // Шот операционной
 
-/mob/living/simple_animal/cutscene_character/amelia
-	name = "Амелия Б."
-	desc = "..."
-	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
-	icon_state = "Amelia"
-	icon_living = "Amelia"
-	icon_dead = "Amelia"
-
-/mob/living/simple_animal/cutscene_character/amelia/s2ep1/part1_1
-/mob/living/simple_animal/cutscene_character/amelia/s2ep1/part1_2
-	icon_state = "Amelia 2"
-	icon_living = "Amelia 2"
-	icon_dead = "Amelia 2"
-
-/mob/living/simple_animal/cutscene_character/zlata
-	name = "Злата С."
-	desc = "..."
-	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
-	icon_state = "Zlata"
-	icon_living = "Zlata"
-	icon_dead = "Zlata"
-
-/mob/living/simple_animal/cutscene_character/zlata/s2ep1/part1_2
-/mob/living/simple_animal/cutscene_character/zlata/s2ep1/part1_3
-	icon_state = "Zlata 6"
-	icon_living = "Zlata 6"
-	icon_dead = "Zlata 6"
-
-/mob/living/simple_animal/cutscene_character/maxim
-	name = "Максим К."
-	desc = "..."
-	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
-	icon_state = "Maxim"
-	icon_living = "Maxim"
-	icon_dead = "Maxim"
-
-/mob/living/simple_animal/cutscene_character/maxim/s2ep1/part1_2
-
-/mob/living/simple_animal/cutscene_character/gora
-	name = "Гора М."
-	desc = "..."
-	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
-	icon_state = "Gora"
-	icon_living = "Gora"
-	icon_dead = "Gora"
-
-/mob/living/simple_animal/cutscene_character/gora/s2ep1/part1_2
-	icon_state = "Gora 2 (justincase)"
-	icon_living = "Gora 2 (justincase)"
-	icon_dead = "Gora 2 (justincase)"
-
-/mob/living/simple_animal/cutscene_character/datura
-	name = "Реймонд Д."
-	desc = "..."
-	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
-	icon_state = "Datura"
-	icon_living = "Datura"
-	icon_dead = "Datura"
-
-/mob/living/simple_animal/cutscene_character/datura/s2ep1/part1_3
-
-/mob/living/simple_animal/cutscene_character/perci
-	name = "Персиваль Э."
-	desc = "..."
-	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
-	icon_state = "Percival"
-	icon_living = "Percival"
-	icon_dead = "Percival"
-
-/mob/living/simple_animal/cutscene_character/perci/s2ep1/part1_3
-/mob/living/simple_animal/cutscene_character/perci/s2ep1/part1_3/Initialize()
-	. = ..()
-	SetTransform(rotation = 90)
-
-/mob/living/simple_animal/cutscene_character/luny
-	name = "Луни"
-	desc = "..."
-	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
-	icon_state = "Looney"
-	icon_living = "Looney"
-	icon_dead = "Looney"
-
-/mob/living/simple_animal/cutscene_character/luny/s2ep1/part1_3
-	icon_state = "Looney 2"
-	icon_living = "Looney 2"
-	icon_dead = "Looney 2"
-
 /obj/screen/fullscreen/fd/blackout/animated/s2ep1sc1/Initialize()
 	. = ..()
 	spawn(25 SECONDS)
@@ -211,7 +124,7 @@
 
 	playsound(get_turf(play_it_on), 'maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', 5, FALSE)
 
-	spawn(4 SECONDS)
+	spawn(5 SECONDS)
 		if(GLOB.stop_the_siren)
 			return
 		repeating_siren(play_it_on)
@@ -221,8 +134,13 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /proc/fds2ep1_sc1()
+	var/sound/opening_minus = sound('maps/torch_doh/cutscenes/sounds/opening2_inst.ogg', repeat = 0, wait = 1, channel = GLOB.admin_sound_channel)
+	opening_minus.priority = 255
+	opening_minus.volume = 3
 
 	for(var/mob/all in GLOB.player_list)
+		sound_to(all, opening_minus)
+
 		all.remember_position = get_turf(all.loc)
 		all.remember_camera_size = all.client.view
 
@@ -612,12 +530,39 @@
 	spawn(103 SECONDS)
 		CutOverlays(maptext_name)
 
-/mob/living/simple_animal/cutscene_character/datura/s2ep1/part1_3/do_stuff()
-	forceMove(get_step(src, NORTH))
+/mob/living/simple_animal/cutscene_character/zlata/s2ep1/part1_3/do_stuff()
+	ISay("!сжимает воротник мужчины.")
+	ISay("Ну не стой же ты столбом! Сделай что-нибудь!")
 
-	spawn(2 SECOND)
-		ISay("!роняет скальпель на пол.")
+/mob/living/simple_animal/cutscene_character/datura/s2ep1/part1_3/do_stuff()
+
+	spawn(0.2 SECONDS)
+		animate(src, pixel_x = -1, 0.2 SECONDS, easing = SINE_EASING|EASE_OUT)
+	spawn(0.4 SECONDS)
+		animate(src, pixel_x = 0, 0.2 SECONDS, easing = SINE_EASING|EASE_IN)
+	spawn(0.6 SECONDS)
+		animate(src, pixel_x = -1, 0.2 SECONDS, easing = SINE_EASING|EASE_OUT)
+	spawn(0.8 SECONDS)
+		animate(src, pixel_x = 0, 0.2 SECONDS, easing = SINE_EASING|EASE_IN)
+	spawn(1 SECONDS)
+		animate(src, pixel_x = -1, 0.2 SECONDS, easing = SINE_EASING|EASE_OUT)
+	spawn(1.2 SECONDS)
+		animate(src, pixel_x = 0, 0.2 SECONDS, easing = SINE_EASING|EASE_IN)
+	spawn(1.4 SECONDS)
+		animate(src, pixel_x = -1, 0.2 SECONDS, easing = SINE_EASING|EASE_OUT)
+	spawn(1.6 SECONDS)
+		animate(src, pixel_x = 0, 0.2 SECONDS, easing = SINE_EASING|EASE_IN)
+	spawn(1.8 SECONDS)
+		animate(src, pixel_x = -1, 0.2 SECONDS, easing = SINE_EASING|EASE_OUT)
+	spawn(2 SECONDS)
+		animate(src, pixel_x = 0, 0.2 SECONDS, easing = SINE_EASING|EASE_IN)
+
+	spawn(2.2 SECONDS)
+		icon_state = "Datura 2"
+
+	spawn(4 SECONDS)
+		ISay("Да не помочь ему уже! НИЧЕМ!")
 
 /mob/living/simple_animal/cutscene_character/luny/s2ep1/part1_3/do_stuff()
-	ISay("!дрожит.")
-	make_jittery(900)
+	spawn(2 SECONDS)
+		ISay("...")

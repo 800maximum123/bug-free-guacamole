@@ -27,109 +27,17 @@
 	opacity = TRUE
 	should_show_name = FALSE
 
-/mob/living/simple_animal/cutscene_character/amper
-	name = "Пауль А."
-	desc = "..."
-	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
-	icon_state = "Paul"
-	icon_living = "Paul"
-	icon_dead = "Paul"
-
-/mob/living/simple_animal/cutscene_character/amper/s2ep1/part2_1
-	alpha = 0
-	should_show_name = FALSE
-
-/mob/living/simple_animal/cutscene_character/amper/s2ep1/part2_2
-	icon_state = "Paul 2"
-	icon_living = "Paul 2"
-	icon_dead = "Paul 2"
-
-/mob/living/simple_animal/cutscene_character/kz
-	name = "Абигейл И."
-	desc = "..."
-	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
-	icon_state = "Abigail"
-	icon_living = "Abigail"
-	icon_dead = "Abigail"
-
-/mob/living/simple_animal/cutscene_character/kz/s2ep1/part2_2
-	icon_state = "Abigail 2"
-	icon_living = "Abigail 2"
-	icon_dead = "Abigail 2"
-
-/mob/living/simple_animal/cutscene_character/naia
-	name = "Ная Ф."
-	desc = "..."
-	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
-	icon_state = "Naia"
-	icon_living = "Naia"
-	icon_dead = "Naia"
-
-/mob/living/simple_animal/cutscene_character/naia/s2ep1/part2_1
-
-/mob/living/simple_animal/cutscene_character/naia/s2ep1/part2_2
-	alpha = 0
-	should_show_name = FALSE
-
-/mob/living/simple_animal/cutscene_character/meat
-	name = "Мр. Мясо"
-	desc = "..."
-	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
-	icon_state = "Meat"
-	icon_living = "Meat"
-	icon_dead = "Meat"
-
-/mob/living/simple_animal/cutscene_character/meat/s2ep1/part2_1
-
-/mob/living/simple_animal/cutscene_character/swift
-	name = "С.В.И.Ф.Т."
-	desc = "..."
-	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
-	icon_state = "S.W.I.F.T"
-	icon_living = "S.W.I.F.T"
-	icon_dead = "S.W.I.F.T"
-
-/mob/living/simple_animal/cutscene_character/swift/s2ep1/part2_1
-	icon_state = "S.W.I.F.T 2"
-	icon_living = "S.W.I.F.T 2"
-	icon_dead = "S.W.I.F.T 2"
-
-/mob/living/simple_animal/cutscene_character/froise
-	name = "Александр Ф."
-	desc = "..."
-	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
-	icon_state = "Alexander"
-	icon_living = "Alexander"
-	icon_dead = "Alexander"
-
-/mob/living/simple_animal/cutscene_character/froise/s2ep1/part2_3
-	icon_state = "Alexander 2"
-	icon_living = "Alexander 2"
-	icon_dead = "Alexander 2"
-
-/mob/living/simple_animal/cutscene_character/froise/s2ep1/part2_3/Life()
-	. = ..()
-	layer = 4.3
-
-/mob/living/simple_animal/cutscene_character/wind
-	name = "Ветер"
-	desc = "..."
-	icon = 'maps/torch_doh/cutscenes/icons/characters_big.dmi'
-	icon_state = "Wind"
-	icon_living = "Wind"
-	icon_dead = "Wind"
-
-/mob/living/simple_animal/cutscene_character/wind/s2ep1/part2_3
-
 /obj/structure/fd/players_geter/s2ep1/part2_1 // Мостик
 
 /obj/structure/fd/players_geter/s2ep1/part2_2 // Инженерный отсек
 
 /obj/structure/fd/players_geter/s2ep1/part2_3 // Коридор третьей
 
-/obj/structure/fd/players_geter/s2ep1/part2_4 // Медблок
+/obj/structure/fd/players_geter/s2ep1/part2_4 // Ганбоат
 
-/obj/structure/fd/players_geter/s2ep1/part2_5 // Ядро
+/obj/structure/fd/players_geter/s2ep1/part2_5 // Госпиталь
+
+/obj/structure/fd/players_geter/s2ep1/part2_6 // ???
 
 /proc/credits_mapper()
 	var/novel_message = "РАБОТА НАД ЛОКАЦИЯМИ: PALERNO"
@@ -180,11 +88,17 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /proc/fds2ep1_sc2()
-	var/sound/opening = sound('maps/torch_doh/cutscenes/sounds/opening.ogg', repeat = 0, wait = 1, channel = GLOB.admin_sound_channel)
-	opening.priority = 255
-	opening.volume = 2
+	var/sound/opening_minus = sound('maps/torch_doh/cutscenes/sounds/opening2_inst.ogg', repeat = 0, wait = 1, channel = GLOB.admin_sound_channel)
+	opening_minus.priority = 255
+	opening_minus.volume = 3
+
+	var/sound/opening_plus = sound('maps/torch_doh/cutscenes/sounds/opening2_vocal.ogg', repeat = 0, wait = 1, channel = GLOB.admin_sound_channel)
+	opening_plus.priority = 255
+	opening_plus.volume = 4
 
 	for(var/mob/all in GLOB.player_list)
+
+		sound_to(all, opening_minus)
 
 		for(var/obj/structure/fd/players_geter/s2ep1/part2_1/G in world)
 			all.alpha = 0
@@ -225,6 +139,9 @@
 				all.alpha = 0
 				all.forceMove(G)
 
+				spawn(2 SECONDS)
+					playsound(get_turf(G), 'sound/mecha/lowpowernano.ogg', 10)
+
 		spawn(120 SECONDS)
 			credits_investors()
 
@@ -264,14 +181,14 @@
 				spawn(6 SECONDS)
 					playsound(get_turf(G), "sparks", 50, 1)
 
+		spawn(314 SECONDS)
+			sound_to(all, opening_plus)
+
 		spawn(318 SECONDS)
 
 			for(var/obj/structure/fd/players_geter/s2ep1/part2_1/G in world)
 				all.alpha = 0
 				all.forceMove(G)
-
-		spawn(320 SECONDS)
-			sound_to(all, opening)
 
 		spawn(395 SECONDS)
 			all.client.pixel_x = 288
@@ -416,6 +333,9 @@
 		dir = EAST
 		ISay("Куда ты собралась?")
 
+	spawn(376 SECONDS)
+		CutOverlays(maptext_name)
+
 /mob/living/simple_animal/cutscene_character/naia/s2ep1/part2_1/do_stuff()
 	spawn(1.5 SECONDS)
 		ISay("Ты всегда так мог?")
@@ -427,7 +347,7 @@
 		ISay("!усмехается.")
 
 	spawn(8 SECONDS)
-		ISay("Даже не знаю, радоваться ли мне тому, что я для тебя недостаточная проблема...")
+		ISay("Даже не знаю, обижаться ли мне на то, что ты меня ни во что не ставишь...")
 		forceMove(get_step(src, WEST))
 
 	spawn(9 SECONDS)
@@ -444,7 +364,7 @@
 		playsound(get_turf(src), 'sound/effects/footstep/plating5.ogg', 70)
 
 	spawn(12 SECONDS)
-		ISay("...или обижаться на то, что ты недооцениваешь мои способности.")
+		ISay("...или радоваться тому, что я точно вне списка потенциальных жертв.")
 		forceMove(get_step(src, WEST))
 		playsound(get_turf(src), 'sound/effects/footstep/plating2.ogg', 70)
 
@@ -607,6 +527,9 @@
 		forceMove(get_step(src, EAST))
 		playsound(get_turf(src), 'sound/effects/footstep/plating5.ogg', 70)
 
+	spawn(376 SECONDS)
+		CutOverlays(maptext_name)
+
 /mob/living/simple_animal/cutscene_character/swift/s2ep1/part2_1/do_stuff()
 	spawn(19 SECONDS)
 		animate(src, 0.2 SECONDS, transform = matrix(-5, MATRIX_ROTATE), easing = BOUNCE_EASING|EASE_IN)
@@ -636,10 +559,13 @@
 	spawn(22.5 SECONDS)
 		icon_state = "S.W.I.F.T 4"
 
+	spawn(376 SECONDS)
+		CutOverlays(maptext_name)
+
 /mob/living/simple_animal/cutscene_character/naia/s2ep1/part2_2/do_stuff()
 	ISay("Да не молчите же вы, как убитые!")
 
-	spawn(1 SECOND)
+	spawn(2 SECOND)
 		ISay("Вольтанутый!")
 
 	spawn(44 SECOND)
@@ -655,7 +581,7 @@
 		ISay("...")
 
 	spawn(225 SECOND)
-		ISay("Спасибо тебе. За всё.")
+		ISay("Обязательно.")
 
 /mob/living/simple_animal/cutscene_character/kz/s2ep1/part2_2/do_stuff()
 	spawn(2 SECONDS)
@@ -720,7 +646,7 @@
 		ISay("!сжался от боли.")
 
 	spawn(38 SECONDS)
-		ISay("...записалась в оптимисты.")
+		ISay("...болеешь оптимизмом.")
 
 	spawn(52 SECONDS)
 		ISay("Нужно же смеяться, пока дают.")
@@ -939,5 +865,5 @@
 	spawn(11 SECONDS)
 		ISay("Сообщение от Мяса.")
 
-	spawn(14 SECONDS)
-		ISay("Похоже, они смогли отчасти восстановить связь.")
+	spawn(15 SECONDS)
+		ISay("Похоже, у них вышло восстановить связь.")

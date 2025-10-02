@@ -1,0 +1,224 @@
+/mob/living/simple_animal/cutscene_character/amelia
+	name = "Амелия Б."
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
+	icon_state = "Amelia"
+	icon_living = "Amelia"
+	icon_dead = "Amelia"
+
+/mob/living/simple_animal/cutscene_character/amelia/s2ep1/part1_1
+/mob/living/simple_animal/cutscene_character/amelia/s2ep1/part1_2
+	icon_state = "Amelia 2"
+	icon_living = "Amelia 2"
+	icon_dead = "Amelia 2"
+/mob/living/simple_animal/cutscene_character/amelia/s2ep1/part2_5
+
+/mob/living/simple_animal/cutscene_character/zlata
+	name = "Злата С."
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
+	icon_state = "Zlata"
+	icon_living = "Zlata"
+	icon_dead = "Zlata"
+
+/mob/living/simple_animal/cutscene_character/zlata/s2ep1/part1_2
+/mob/living/simple_animal/cutscene_character/zlata/s2ep1/part1_3
+	icon_state = "Zlata 6"
+	icon_living = "Zlata 6"
+	icon_dead = "Zlata 6"
+/mob/living/simple_animal/cutscene_character/zlata/s2ep1/part2_5
+	icon_state = "Zlata 3"
+	icon_living = "Zlata 3"
+	icon_dead = "Zlata 3"
+
+/mob/living/simple_animal/cutscene_character/olivia
+	name = "Оливия К."
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
+	icon_state = "Olivia"
+	icon_living = "Olivia"
+	icon_dead = "Olivia"
+
+/mob/living/simple_animal/cutscene_character/olivia/s2ep1/part2_4
+	icon_state = "Olivia 2"
+	icon_living = "Olivia 2"
+	icon_dead = "Olivia 2"
+
+/mob/living/simple_animal/cutscene_character/maxim
+	name = "Максим К."
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
+	icon_state = "Maxim"
+	icon_living = "Maxim"
+	icon_dead = "Maxim"
+
+/mob/living/simple_animal/cutscene_character/maxim/s2ep1/part1_2
+/mob/living/simple_animal/cutscene_character/maxim/s2ep1/part2_4
+	icon_state = "Maxim 4"
+	icon_living = "Maxim 4"
+	icon_dead = "Maxim 4"
+
+/mob/living/simple_animal/cutscene_character/gora
+	name = "Гора М."
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
+	icon_state = "Gora"
+	icon_living = "Gora"
+	icon_dead = "Gora"
+
+/mob/living/simple_animal/cutscene_character/gora/s2ep1/part1_2
+	icon_state = "Gora 2 (justincase)"
+	icon_living = "Gora 2 (justincase)"
+	icon_dead = "Gora 2 (justincase)"
+/mob/living/simple_animal/cutscene_character/gora/s2ep1/part2_5
+	icon_state = "Gora 3"
+	icon_living = "Gora 3"
+	icon_dead = "Gora 3"
+
+/mob/living/simple_animal/cutscene_character/datura
+	name = "Реймонд Д."
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
+	icon_state = "Datura"
+	icon_living = "Datura"
+	icon_dead = "Datura"
+
+/mob/living/simple_animal/cutscene_character/datura/s2ep1/part1_3
+/mob/living/simple_animal/cutscene_character/datura/s2ep1/part1_3/Life()
+	. = ..()
+	layer = 4.2
+/mob/living/simple_animal/cutscene_character/datura/s2ep1/part2_5
+
+/mob/living/simple_animal/cutscene_character/perci
+	name = "Персиваль Э."
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
+	icon_state = "Percival"
+	icon_living = "Percival"
+	icon_dead = "Percival"
+
+/mob/living/simple_animal/cutscene_character/perci/s2ep1/part1_3
+/mob/living/simple_animal/cutscene_character/perci/s2ep1/part1_3/Initialize()
+	. = ..()
+	SetTransform(rotation = 90)
+/mob/living/simple_animal/cutscene_character/perci/s2ep1/part2_5
+	icon_state = "Percival 3"
+	icon_living = "Percival 3"
+	icon_dead = "Percival 3"
+
+	should_show_name = FALSE
+/mob/living/simple_animal/cutscene_character/perci/s2ep1/part2_5/Initialize()
+	. = ..()
+	SetTransform(rotation = 90)
+
+/mob/living/simple_animal/cutscene_character/luny
+	name = "Луни"
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
+	icon_state = "Looney"
+	icon_living = "Looney"
+	icon_dead = "Looney"
+
+/mob/living/simple_animal/cutscene_character/luny/s2ep1/part1_3
+	icon_state = "Looney 2"
+	icon_living = "Looney 2"
+	icon_dead = "Looney 2"
+/mob/living/simple_animal/cutscene_character/luny/s2ep1/part2_5
+	icon_state = "Looney 4"
+	icon_living = "Looney 4"
+	icon_dead = "Looney 4"
+
+/mob/living/simple_animal/cutscene_character/amper
+	name = "Пауль А."
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
+	icon_state = "Paul"
+	icon_living = "Paul"
+	icon_dead = "Paul"
+
+/mob/living/simple_animal/cutscene_character/amper/s2ep1/part2_1
+	alpha = 0
+	should_show_name = FALSE
+/mob/living/simple_animal/cutscene_character/amper/s2ep1/part2_2
+	icon_state = "Paul 2"
+	icon_living = "Paul 2"
+	icon_dead = "Paul 2"
+
+/mob/living/simple_animal/cutscene_character/kz
+	name = "Абигейл И."
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
+	icon_state = "Abigail"
+	icon_living = "Abigail"
+	icon_dead = "Abigail"
+
+/mob/living/simple_animal/cutscene_character/kz/s2ep1/part2_2
+	icon_state = "Abigail 2"
+	icon_living = "Abigail 2"
+	icon_dead = "Abigail 2"
+
+/mob/living/simple_animal/cutscene_character/naia
+	name = "Ная Ф."
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
+	icon_state = "Naia"
+	icon_living = "Naia"
+	icon_dead = "Naia"
+
+/mob/living/simple_animal/cutscene_character/naia/s2ep1/part2_1
+/mob/living/simple_animal/cutscene_character/naia/s2ep1/part2_2
+	alpha = 0
+	should_show_name = FALSE
+/mob/living/simple_animal/cutscene_character/naia/s2ep1/part2_4
+	icon_state = "Naia 6"
+	icon_living = "Naia 6"
+	icon_dead = "Naia 6"
+
+/mob/living/simple_animal/cutscene_character/meat
+	name = "Мр. Мясо"
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
+	icon_state = "Meat"
+	icon_living = "Meat"
+	icon_dead = "Meat"
+
+/mob/living/simple_animal/cutscene_character/meat/s2ep1/part2_1
+
+/mob/living/simple_animal/cutscene_character/swift
+	name = "С.В.И.Ф.Т."
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
+	icon_state = "S.W.I.F.T"
+	icon_living = "S.W.I.F.T"
+	icon_dead = "S.W.I.F.T"
+
+/mob/living/simple_animal/cutscene_character/swift/s2ep1/part2_1
+	icon_state = "S.W.I.F.T 2"
+	icon_living = "S.W.I.F.T 2"
+	icon_dead = "S.W.I.F.T 2"
+
+/mob/living/simple_animal/cutscene_character/froise
+	name = "Александр Ф."
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
+	icon_state = "Alexander"
+	icon_living = "Alexander"
+	icon_dead = "Alexander"
+
+/mob/living/simple_animal/cutscene_character/froise/s2ep1/part2_3
+	icon_state = "Alexander 2"
+	icon_living = "Alexander 2"
+	icon_dead = "Alexander 2"
+/mob/living/simple_animal/cutscene_character/froise/s2ep1/part2_3/Life()
+	. = ..()
+	layer = 4.3
+
+/mob/living/simple_animal/cutscene_character/wind
+	name = "Ветер"
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/characters_big.dmi'
+	icon_state = "Wind"
+	icon_living = "Wind"
+	icon_dead = "Wind"
+
+/mob/living/simple_animal/cutscene_character/wind/s2ep1/part2_3
