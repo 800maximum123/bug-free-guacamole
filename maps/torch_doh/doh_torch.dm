@@ -321,6 +321,11 @@
 	#include "../../mods/_fd/_maps/trader_ship/_trader_ship.dme"
 	#include "../../mods/_fd/_maps/yacht/_yacht.dme"
 
+		// ~DANILCUS WIP~ //
+
+	#include "../../mods/_fd/fishing/_fishing.dme"
+	#include "../../mods/_fd/whitespace/_whitespace.dme"
+
 		// ~VOID'S MINI-GAMES~ //
 
 //	#include "../../mods/_fd/cat_alchemist/_cat_alchemist.dme"

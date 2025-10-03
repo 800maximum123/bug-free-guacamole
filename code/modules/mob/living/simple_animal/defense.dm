@@ -60,17 +60,17 @@
 
 /mob/living/simple_animal/use_tool(obj/item/tool, mob/user, list/click_params)
 	// Butcher's Cleaver - Butcher dead mob
-	if (istype(tool, /obj/item/material/knife/kitchen/cleaver))
+	if (istype(tool, /obj/item/material/knife))
 		if (stat != DEAD)
 			USE_FEEDBACK_FAILURE("\The [src] must be dead before you can butcher \him.")
 			return TRUE
 		if (!meat_type || !meat_amount)
 			USE_FEEDBACK_FAILURE("\The [src] can't be butchered.")
 			return TRUE
-		var/turf/turf = get_turf(src)
+		/*var/turf/turf = get_turf(src)
 		if (!locate(/obj/structure/table, turf))
 			USE_FEEDBACK_FAILURE("You need to place \the [src] on a table to butcher \him.")
-			return TRUE
+			return TRUE*/
 		var/time_to_butcher = mob_size
 		user.visible_message(
 			SPAN_WARNING("\The [user] begins butchering \the [src]'s corpse with \a [tool]."),
