@@ -11,7 +11,7 @@
 	icon_state = "Amelia 2"
 	icon_living = "Amelia 2"
 	icon_dead = "Amelia 2"
-/mob/living/simple_animal/cutscene_character/amelia/s2ep1/part2_5
+/mob/living/simple_animal/cutscene_character/amelia/s2ep1/part2_6
 
 /mob/living/simple_animal/cutscene_character/zlata
 	name = "Злата С."
@@ -22,11 +22,14 @@
 	icon_dead = "Zlata"
 
 /mob/living/simple_animal/cutscene_character/zlata/s2ep1/part1_2
+/mob/living/simple_animal/cutscene_character/zlata/s2ep1/part1_2/Life()
+	. = ..()
+	layer = 4.2
 /mob/living/simple_animal/cutscene_character/zlata/s2ep1/part1_3
 	icon_state = "Zlata 6"
 	icon_living = "Zlata 6"
 	icon_dead = "Zlata 6"
-/mob/living/simple_animal/cutscene_character/zlata/s2ep1/part2_5
+/mob/living/simple_animal/cutscene_character/zlata/s2ep1/part2_6
 	icon_state = "Zlata 3"
 	icon_living = "Zlata 3"
 	icon_dead = "Zlata 3"
@@ -39,7 +42,7 @@
 	icon_living = "Olivia"
 	icon_dead = "Olivia"
 
-/mob/living/simple_animal/cutscene_character/olivia/s2ep1/part2_4
+/mob/living/simple_animal/cutscene_character/olivia/s2ep1/part2_5
 	icon_state = "Olivia 2"
 	icon_living = "Olivia 2"
 	icon_dead = "Olivia 2"
@@ -53,7 +56,7 @@
 	icon_dead = "Maxim"
 
 /mob/living/simple_animal/cutscene_character/maxim/s2ep1/part1_2
-/mob/living/simple_animal/cutscene_character/maxim/s2ep1/part2_4
+/mob/living/simple_animal/cutscene_character/maxim/s2ep1/part2_5
 	icon_state = "Maxim 4"
 	icon_living = "Maxim 4"
 	icon_dead = "Maxim 4"
@@ -70,7 +73,7 @@
 	icon_state = "Gora 2 (justincase)"
 	icon_living = "Gora 2 (justincase)"
 	icon_dead = "Gora 2 (justincase)"
-/mob/living/simple_animal/cutscene_character/gora/s2ep1/part2_5
+/mob/living/simple_animal/cutscene_character/gora/s2ep1/part2_6
 	icon_state = "Gora 3"
 	icon_living = "Gora 3"
 	icon_dead = "Gora 3"
@@ -87,7 +90,7 @@
 /mob/living/simple_animal/cutscene_character/datura/s2ep1/part1_3/Life()
 	. = ..()
 	layer = 4.2
-/mob/living/simple_animal/cutscene_character/datura/s2ep1/part2_5
+/mob/living/simple_animal/cutscene_character/datura/s2ep1/part2_6
 
 /mob/living/simple_animal/cutscene_character/perci
 	name = "Персиваль Э."
@@ -101,13 +104,13 @@
 /mob/living/simple_animal/cutscene_character/perci/s2ep1/part1_3/Initialize()
 	. = ..()
 	SetTransform(rotation = 90)
-/mob/living/simple_animal/cutscene_character/perci/s2ep1/part2_5
+/mob/living/simple_animal/cutscene_character/perci/s2ep1/part2_6
 	icon_state = "Percival 3"
 	icon_living = "Percival 3"
 	icon_dead = "Percival 3"
 
 	should_show_name = FALSE
-/mob/living/simple_animal/cutscene_character/perci/s2ep1/part2_5/Initialize()
+/mob/living/simple_animal/cutscene_character/perci/s2ep1/part2_6/Initialize()
 	. = ..()
 	SetTransform(rotation = 90)
 
@@ -123,7 +126,7 @@
 	icon_state = "Looney 2"
 	icon_living = "Looney 2"
 	icon_dead = "Looney 2"
-/mob/living/simple_animal/cutscene_character/luny/s2ep1/part2_5
+/mob/living/simple_animal/cutscene_character/luny/s2ep1/part2_6
 	icon_state = "Looney 4"
 	icon_living = "Looney 4"
 	icon_dead = "Looney 4"
@@ -169,7 +172,7 @@
 /mob/living/simple_animal/cutscene_character/naia/s2ep1/part2_2
 	alpha = 0
 	should_show_name = FALSE
-/mob/living/simple_animal/cutscene_character/naia/s2ep1/part2_4
+/mob/living/simple_animal/cutscene_character/naia/s2ep1/part2_5
 	icon_state = "Naia 6"
 	icon_living = "Naia 6"
 	icon_dead = "Naia 6"
@@ -222,3 +225,35 @@
 	icon_dead = "Wind"
 
 /mob/living/simple_animal/cutscene_character/wind/s2ep1/part2_3
+
+/mob/living/simple_animal/cutscene_character/ashira
+	name = "Ашира М."
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
+	icon_state = "Ashira"
+	icon_living = "Ashira"
+	icon_dead = "Ashira"
+
+/mob/living/simple_animal/cutscene_character/ashira/s2ep1/part2_4
+	icon_state = "Ashira 2"
+	icon_living = "Ashira 2"
+	icon_dead = "Ashira 2"
+
+/mob/living/simple_animal/cutscene_character/miri
+	name = "Мири'ам Й."
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
+	icon_state = "Miri'am"
+	icon_living = "Miri'am"
+	icon_dead = "Miri'am"
+
+/mob/living/simple_animal/cutscene_character/miri/s2ep1/part2_4
+	icon_state = "Miri'am 2"
+	icon_living = "Miri'am 2"
+	icon_dead = "Miri'am 2"
+/mob/living/simple_animal/cutscene_character/miri/s2ep1/part2_4/Initialize()
+	. = ..()
+	SetTransform(rotation = 90)
+/mob/living/simple_animal/cutscene_character/miri/s2ep1/part2_4/Life()
+	. = ..()
+	layer = 4.2

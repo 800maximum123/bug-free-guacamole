@@ -304,10 +304,6 @@
 		forceMove(get_step(src, SOUTH))
 		playsound(get_turf(src), 'sound/effects/footstep/plating3.ogg', 70)
 
-/mob/living/simple_animal/cutscene_character/zlata/s2ep1/part1_2/Life()
-	. = ..()
-	layer = 4.2
-
 /mob/living/simple_animal/cutscene_character/zlata/s2ep1/part1_2/do_stuff()
 	forceMove(get_step(src, SOUTH))
 	playsound(get_turf(src), 'sound/effects/footstep/plating2.ogg', 70)

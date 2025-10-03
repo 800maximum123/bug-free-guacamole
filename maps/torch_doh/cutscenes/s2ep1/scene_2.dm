@@ -33,11 +33,15 @@
 
 /obj/structure/fd/players_geter/s2ep1/part2_3 // Коридор третьей
 
-/obj/structure/fd/players_geter/s2ep1/part2_4 // Ганбоат
+/obj/structure/fd/players_geter/s2ep1/part2_4 // Кошки помирают
 
-/obj/structure/fd/players_geter/s2ep1/part2_5 // Госпиталь
+/obj/structure/fd/players_geter/s2ep1/part2_5 // Ганбоат
 
-/obj/structure/fd/players_geter/s2ep1/part2_6 // ???
+/obj/structure/fd/players_geter/s2ep1/part2_6 // Госпиталь
+
+/obj/structure/fd/players_geter/s2ep1/part2_7 // Фиддлер
+
+/obj/structure/fd/players_geter/s2ep1/part2_8 // Неизвестные
 
 /proc/credits_mapper()
 	var/novel_message = "РАБОТА НАД ЛОКАЦИЯМИ: PALERNO"
@@ -203,6 +207,12 @@
 		spawn(405 SECONDS)
 			all.move_cutscene_camera(all, 0, 0, 5 SECONDS)
 
+		spawn(426 SECONDS)
+
+			for(var/obj/structure/fd/players_geter/s2ep1/part2_4/G in world)
+				all.alpha = 0
+				all.forceMove(G)
+
 	spawn(10 SECONDS)
 		for(var/mob/living/simple_animal/cutscene_character/C in world)
 			if(C.cutscene_id != "s2ep1sc1pt21")
@@ -218,6 +228,12 @@
 	spawn(405 SECONDS)
 		for(var/mob/living/simple_animal/cutscene_character/C in world)
 			if(C.cutscene_id != "s2ep1sc1pt23")
+				continue
+			C.do_stuff()
+
+	spawn(430 SECONDS)
+		for(var/mob/living/simple_animal/cutscene_character/C in world)
+			if(C.cutscene_id != "s2ep1sc1pt24")
 				continue
 			C.do_stuff()
 
@@ -863,7 +879,16 @@
 		ISay("!достаёт КПК из кармана.")
 
 	spawn(11 SECONDS)
-		ISay("Сообщение от Мяса.")
+		ISay("Это сообщение от Мяса.")
 
 	spawn(15 SECONDS)
-		ISay("Похоже, у них вышло восстановить связь.")
+		dir = EAST
+		icon_state = "Alexander 4"
+		animate(src, pixel_y = 0, 1 SECONDS, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
+		animate(src, pixel_x = 0, 1 SECONDS, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
+
+	spawn(16 SECONDS)
+		forceMove(get_step(src, EAST))
+
+	spawn(18 SECONDS)
+		ISay("Похоже, что они наконец восстановили связь.")

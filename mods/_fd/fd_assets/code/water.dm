@@ -62,7 +62,7 @@
 	var/random_watersound = pick('sound/effects/footstep/water1.ogg', 'sound/effects/footstep/water2.ogg', 'sound/effects/footstep/water3.ogg', 'sound/effects/footstep/water4.ogg')
 	playsound(get_turf(src), random_watersound, 20)
 
-	layer = 4.2
+	layer = 4.9
 
 /obj/fd_water/down/Uncrossed()
 	layer = initial(layer)
