@@ -207,14 +207,16 @@
 		spawn(405 SECONDS)
 			all.move_cutscene_camera(all, 0, 0, 5 SECONDS)
 
-		spawn(440 SECONDS)
-			all.move_cutscene_camera(all, 0, 160, 10 SECONDS)
-
 		spawn(445 SECONDS)
+			all.move_cutscene_camera(all, 0, 80, 5 SECONDS)
+
+		spawn(450 SECONDS)
 
 			for(var/obj/structure/fd/players_geter/s2ep1/part2_4/G in world)
 				all.alpha = 0
 				all.forceMove(G)
+
+			all.move_cutscene_camera(all, 0, 160, 5 SECONDS)
 
 	spawn(10 SECONDS)
 		for(var/mob/living/simple_animal/cutscene_character/C in world)
@@ -234,7 +236,7 @@
 				continue
 			C.do_stuff()
 
-	spawn(450 SECONDS)
+	spawn(455 SECONDS)
 		for(var/mob/living/simple_animal/cutscene_character/C in world)
 			if(C.cutscene_id != "s2ep1sc1pt24")
 				continue
@@ -924,7 +926,7 @@
 
 	spawn(43 SECONDS)
 		dir = NORTH
-		animate(src, pixel_y = 15, 1 SECONDS, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
+		animate(src, pixel_y = 10, 1 SECONDS, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
 
 /mob/living/simple_animal/cutscene_character/ashira/s2ep1/part2_4/do_stuff()
 	ISay("!скалится от боли.")
@@ -935,5 +937,119 @@
 	spawn(10 SECONDS)
 		ISay("...полным х-ходом.")
 
-	spawn(18 SECONDS)
-		ISay("Н-нам следует поторопиться. С-семеро явно одного ждать не будут...")
+	spawn(16.5 SECONDS)
+		icon_state = "Ashira 3"
+
+	spawn(16 SECONDS)
+		ISay("Н-нам следует поторропиться. С-семеро явно одного ждать не будут...")
+
+	spawn(21 SECONDS)
+		animate(src, 1 SECONDS, transform = matrix(30, MATRIX_ROTATE), easing = BACK_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
+		animate(src, pixel_x = -20, 1 SECONDS, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
+		icon_state = "Ashira 4"
+
+	spawn(22 SECONDS)
+		animate(src, 0.5 SECONDS, transform = matrix(0, MATRIX_ROTATE), easing = BOUNCE_EASING|EASE_OUT)
+
+	spawn(22.5 SECONDS)
+		pixel_x = 0
+
+	spawn(23 SECONDS)
+		ISay("Д-давай-...ещё немного, и мы-...")
+		forceMove(get_step(src, WEST))
+
+	spawn(23.5 SECONDS)
+		icon_state = "Ashira 5"
+		animate(src, pixel_x = -8, 0.5 SECONDS, easing = SINE_EASING|EASE_OUT)
+
+	spawn(29 SECONDS)
+		ISay("!повела ухом.")
+
+	spawn(34 SECONDS)
+		icon_state = "Ashira 6"
+		ISay("Р-рано опускать лапы!")
+
+	spawn(38 SECONDS)
+		ISay("Ты же сама говоррила, что духи нам с-сегодня благоволят!")
+
+	spawn(55 SECONDS)
+		ISay("Откуда ты...")
+
+	spawn(58 SECONDS)
+		icon_state = "Ashira 5"
+
+	spawn(62 SECONDS)
+		animate(src, pixel_x = -13, 0.5 SECONDS, easing = SINE_EASING|EASE_OUT)
+		icon_state = "Ashira 7"
+
+	spawn(88 SECONDS)
+		dir = EAST
+		icon_state = "Ashira 8"
+		ISay("...то я бы всё рравно не послушалась.")
+
+	spawn(90 SECONDS)
+		animate(src, pixel_y = -10, 5 SECONDS, easing = SINE_EASING|EASE_IN)
+
+	spawn(92 SECONDS)
+		icon_state = "Ashira 9"
+
+	spawn(96 SECONDS)
+		ISay("Не нужно винить себя за то, на ч-что ты изначально не могла повлиять...")
+
+	spawn(108 SECONDS)
+		ISay("!вздыхает.")
+
+	spawn(112 SECONDS)
+		ISay("...По крайней меррре, вопррос о существовании д-духов будет наконец закрррыт.")
+
+	spawn(118 SECONDS)
+		ISay("Ч-чт...что смешного?!")
+
+	spawn(120 SECONDS)
+		icon_state = "Ashira 8"
+		ISay("Надоррвёшься же!")
+		animate(src, pixel_y = 0, 0.5 SECONDS, easing = SINE_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
+		animate(src, pixel_x = 0, 0.5 SECONDS, easing = SINE_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
+
+/mob/living/simple_animal/cutscene_character/miri/s2ep1/part2_4/do_stuff()
+	spawn(28 SECONDS)
+		ISay("...это всё бессмысленно...")
+
+	spawn(44 SECONDS)
+		icon_state = "Miri'am 3"
+		ISay("!болезненно улыбается, поднимая одну лапу вверх.")
+
+	spawn(46 SECONDS)
+		ISay("Видишь эти фиолетовые полосы? Они медленно ррасходятся по всему нашему телу...")
+
+	spawn(52 SECONDS)
+		ISay("...коварррный внеземной яд медленно рразрушает клетки организма изнутри.")
+
+	spawn(57 SECONDS)
+		ISay("Ворронцов рассказывал.")
+
+	spawn(62 SECONDS)
+		ISay("О том-...как одного такого осколка хватало для того, чтобы извести даже самого здоррового человека.")
+
+	spawn(72 SECONDS)
+		ISay("Поэтому, даже при условии того, что мы выберрремся с корабля...даже если мы извлечём эти к-кристалы-...")
+
+	spawn(78 SECONDS)
+		icon_state = "Miri'am 4"
+		ISay("!закрывает лапой лицо, хныча.")
+
+	spawn(80 SECONDS)
+		ISay("П-пррости...-это всё м-моя вина.")
+
+	spawn(86 SECONDS)
+		ISay("Если бы я только возрразила на счёт твоего участия в бою...")
+
+	spawn(114 SECONDS)
+		ISay("!рассмеялась.")
+
+	spawn(124 SECONDS)
+		icon_state = "Miri'am 2"
+		ISay("Ты...")
+
+	spawn(126 SECONDS)
+		ISay("...т-такая дуррочка.")
