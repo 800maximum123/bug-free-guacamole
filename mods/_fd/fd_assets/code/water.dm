@@ -32,7 +32,7 @@
 
 /obj/fd_water/Crossed(atom/movable/A)
 	// нам похуй на тайпкастинг, потому что прок теперь может быть исполнен на любом атоме
-	A.toggle_water_overlay(TRUE)
+	A.toggle_water_overlay(src)
 
 	if(isliving(A))
 		var/random_watersound = pick('sound/effects/footstep/water1.ogg', 'sound/effects/footstep/water2.ogg', 'sound/effects/footstep/water3.ogg', 'sound/effects/footstep/water4.ogg')
@@ -52,18 +52,29 @@
 
 /atom/movable
 	var/image/water_overlay
-	var/do_submerge_overlay = FALSE
+	var/submerge_overlay_height = 0
 
-/atom/movable/proc/toggle_water_overlay(state)
-	if(state)
-		if(do_submerge_overlay)
+/atom/movable/proc/toggle_water_overlay(atom/source)
+	if(source)
+		if(submerge_overlay_height)
 			appearance_flags |= KEEP_TOGETHER
-			add_filter("underwater", 1, list("type" = "alpha", "icon" = icon('mods/_fd/fd_assets/icons/watermask.dmi', "watermask"), "flags" = MASK_INVERSE))
+
+			water_overlay = image(source.icon, src, source.icon_state)
+
+			water_overlay.appearance_flags |= KEEP_TOGETHER
+			water_overlay.blend_mode = BLEND_INSET_OVERLAY
+			water_overlay.alpha = source.alpha
+			water_overlay.color = source.color
+
+			water_overlay.pixel_y = submerge_overlay_height - 32
+			water_overlay.add_filter("alpha_mask", 1, list("type" = "alpha", "icon" = icon('icons/turf/space.dmi', "black")))
+
+			AddOverlays(water_overlay)
 	else
-		remove_filter("underwater")
+		CutOverlays(water_overlay)
 
 /mob/living
-	do_submerge_overlay = TRUE
+	submerge_overlay_height = 12
 
 /obj
-	do_submerge_overlay = TRUE
+	submerge_overlay_height = 12

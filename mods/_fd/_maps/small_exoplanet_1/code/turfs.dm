@@ -4,7 +4,7 @@
 
 /turf/simulated/floor/exoplanet/water/shallow/grim/Entered(atom/movable/A)
 	. = ..()
-	A.toggle_water_overlay(TRUE)
+	A.toggle_water_overlay(src)
 
 /turf/simulated/floor/exoplanet/water/shallow/grim/Exited(atom/movable/A)
 	. = ..()
