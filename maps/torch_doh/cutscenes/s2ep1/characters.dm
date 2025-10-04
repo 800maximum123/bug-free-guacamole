@@ -238,6 +238,9 @@
 	icon_state = "Ashira 2"
 	icon_living = "Ashira 2"
 	icon_dead = "Ashira 2"
+/mob/living/simple_animal/cutscene_character/ashira/s2ep1/part2_4/Initialize()
+	. = ..()
+	toggle_water_overlay(TRUE)
 
 /mob/living/simple_animal/cutscene_character/miri
 	name = "Мири'ам Й."
@@ -253,7 +256,8 @@
 	icon_dead = "Miri'am 2"
 /mob/living/simple_animal/cutscene_character/miri/s2ep1/part2_4/Initialize()
 	. = ..()
-	SetTransform(rotation = 90)
+	toggle_water_overlay(TRUE)
+
 /mob/living/simple_animal/cutscene_character/miri/s2ep1/part2_4/Life()
 	. = ..()
 	layer = 4.2

@@ -185,7 +185,7 @@
 				spawn(6 SECONDS)
 					playsound(get_turf(G), "sparks", 50, 1)
 
-		spawn(314 SECONDS)
+		spawn(305 SECONDS)
 			sound_to(all, opening_plus)
 
 		spawn(318 SECONDS)
@@ -207,7 +207,10 @@
 		spawn(405 SECONDS)
 			all.move_cutscene_camera(all, 0, 0, 5 SECONDS)
 
-		spawn(426 SECONDS)
+		spawn(440 SECONDS)
+			all.move_cutscene_camera(all, 0, 160, 10 SECONDS)
+
+		spawn(445 SECONDS)
 
 			for(var/obj/structure/fd/players_geter/s2ep1/part2_4/G in world)
 				all.alpha = 0
@@ -231,7 +234,7 @@
 				continue
 			C.do_stuff()
 
-	spawn(430 SECONDS)
+	spawn(450 SECONDS)
 		for(var/mob/living/simple_animal/cutscene_character/C in world)
 			if(C.cutscene_id != "s2ep1sc1pt24")
 				continue
@@ -818,6 +821,9 @@
 	spawn(7 SECONDS)
 		ISay("В чём. Дело?")
 
+	spawn(40 SECONDS)
+		ISay("Должен...вновь заставить друзей улыбаться. Быть похожим на собрата.")
+
 /mob/living/simple_animal/cutscene_character/froise/s2ep1/part2_3/do_stuff()
 	forceMove(get_step(src, WEST))
 
@@ -844,7 +850,7 @@
 
 	spawn(2.4 SECONDS)
 		ISay("!хлопает по крышке меха.")
-		ISay("Ветерок! Притормози!")
+		ISay("Притормози чуток!")
 		forceMove(get_step(src, WEST))
 
 	spawn(2.7 SECONDS)
@@ -891,4 +897,43 @@
 		forceMove(get_step(src, EAST))
 
 	spawn(18 SECONDS)
+		forceMove(get_step(src, EAST))
 		ISay("Похоже, что они наконец восстановили связь.")
+
+	spawn(26 SECONDS)
+		ISay("!хмурится.")
+
+	spawn(27 SECONDS)
+		icon_state = "Alexander 5"
+		ISay("...вот как. Снова в бега, значит?")
+
+	spawn(32 SECONDS)
+		ISay("Ветерок!")
+
+	spawn(36 SECONDS)
+		dir = SOUTH
+		ISay("Меняем маршрут, твоя помощь нужна на левой батарее!")
+
+	spawn(40 SECONDS)
+		ISay("!убирает КПК.")
+		dir = WEST
+		forceMove(get_step(src, WEST))
+
+	spawn(42 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(43 SECONDS)
+		dir = NORTH
+		animate(src, pixel_y = 15, 1 SECONDS, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
+
+/mob/living/simple_animal/cutscene_character/ashira/s2ep1/part2_4/do_stuff()
+	ISay("!скалится от боли.")
+
+	spawn(6 SECONDS)
+		ISay("П-похоже эвакуация идёт...гх-...")
+
+	spawn(10 SECONDS)
+		ISay("...полным х-ходом.")
+
+	spawn(18 SECONDS)
+		ISay("Н-нам следует поторопиться. С-семеро явно одного ждать не будут...")
