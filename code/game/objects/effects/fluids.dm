@@ -105,6 +105,22 @@
 		SET_FLUID_DEPTH(F, fluid_amount)
 	return INITIALIZE_HINT_QDEL
 
+/obj/fluid_mapped/infinite
+	name = "mapped flood source"
+	icon_state = "ocean-bubbles"
+	fluid_amount = FLUID_MAX_DEPTH
+
+/obj/fluid_mapped/infinite/Initialize()
+	. = ..()
+	var/turf/T = get_turf(src)
+	if(istype(T))
+		var/obj/fluid/F = locate() in T
+		if(!F) F = new(T)
+		F.infinite_source = TRUE
+		F.fluid_amount = fluid_amount
+		SSfluids.active_fluids[F] = TRUE
+	return INITIALIZE_HINT_QDEL
+
 // Permaflood overlay.
 /obj/flood
 	name = ""
@@ -125,19 +141,3 @@
 /obj/flood/New()
 	..()
 	verbs.Cut()
-
-/obj/fluid_mapped/infinite
-	name = "mapped flood source"
-	icon_state = "ocean-bubbles"
-	fluid_amount = FLUID_MAX_DEPTH
-
-/obj/fluid_mapped/infinite/Initialize()
-	. = ..()
-	var/turf/T = get_turf(src)
-	if(istype(T))
-		var/obj/fluid/F = locate() in T
-		if(!F) F = new(T)
-		F.infinite_source = TRUE
-		F.fluid_amount = fluid_amount
-		SSfluids.active_fluids[F] = TRUE
-	return INITIALIZE_HINT_QDEL
