@@ -3,7 +3,7 @@
 #define FLUID_SHALLOW 200                  // Depth shallow icon is used
 #define FLUID_OVER_MOB_HEAD 300
 #define FLUID_DEEP 800                     // Depth deep icon is used
-#define FLUID_MAX_DEPTH FLUID_DEEP*4       // Arbitrary max value for flooding.
+#define FLUID_MAX_DEPTH FLUID_DEEP*5       // Arbitrary max value for flooding.
 #define FLUID_PUSH_THRESHOLD 20            // Amount of water flow needed to push items.
 
 // Expects /turf for T.
@@ -16,10 +16,10 @@
 
 // Expects /obj/fluid for F, int for amt.
 #define LOSE_FLUID(F, amt) \
-	F:fluid_amount = max(-1, F:fluid_amount - amt); \
+	if(!F.infinite_source) F:fluid_amount = max(-1, F:fluid_amount - amt); \
 	ADD_ACTIVE_FLUID(F)
 #define SET_FLUID_DEPTH(F, amt) \
-	F:fluid_amount = min(FLUID_MAX_DEPTH, amt); \
+	if(!F.infinite_source) F:fluid_amount = min(FLUID_MAX_DEPTH, amt); \
 	ADD_ACTIVE_FLUID(F)
 
 // Expects turf for T,

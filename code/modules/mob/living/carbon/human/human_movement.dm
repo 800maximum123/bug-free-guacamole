@@ -71,6 +71,10 @@
 	if(mRun in mutations)
 		tally = 0
 
+	var/turf/turf = get_turf(src)
+	if(turf.check_fluid_depth(FLUID_PUSH_THRESHOLD))
+		tally += 6
+
 	return tally
 
 /mob/living/carbon/human/size_strength_mod()

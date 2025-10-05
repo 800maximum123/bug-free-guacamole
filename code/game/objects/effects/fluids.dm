@@ -16,6 +16,8 @@
 	var/equalize_avg_temp = 0
 	var/flow_amount = 0
 
+	var/infinite_source = FALSE
+
 /obj/fluid/ex_act()
 	return
 
@@ -68,6 +70,23 @@
 	else if(fluid_amount >= (FLUID_DEEP*2))
 		APPLY_FLUID_OVERLAY("ocean")
 
+/obj/screen/fullscreen/water
+	icon = 'icons/effects/liquids.dmi'
+	icon_state = "mid_still"
+	layer = FULLSCREEN_LAYER
+	color = COLOR_OCEAN
+	alpha = 100
+
+/obj/fluid/Crossed(mob/target)
+    . = ..()
+    if(istype(target) && fluid_amount >= (target.lying?FLUID_SHALLOW:FLUID_DEEP))
+        target.overlay_fullscreen("underwater", /obj/screen/fullscreen/water)
+
+/obj/fluid/Uncrossed(mob/target)
+    . = ..()
+    if(istype(target))
+        target.clear_fullscreen("underwater", animated = FALSE)
+
 // Map helper.
 /obj/fluid_mapped
 	name = "mapped flooded area"
@@ -106,3 +125,19 @@
 /obj/flood/New()
 	..()
 	verbs.Cut()
+
+/obj/fluid_mapped/infinite
+	name = "mapped flood source"
+	icon_state = "ocean-bubbles"
+	fluid_amount = FLUID_MAX_DEPTH
+
+/obj/fluid_mapped/infinite/Initialize()
+	. = ..()
+	var/turf/T = get_turf(src)
+	if(istype(T))
+		var/obj/fluid/F = locate() in T
+		if(!F) F = new(T)
+		F.infinite_source = TRUE
+		F.fluid_amount = fluid_amount
+		SSfluids.active_fluids[F] = TRUE
+	return INITIALIZE_HINT_QDEL
