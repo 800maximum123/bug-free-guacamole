@@ -73,6 +73,7 @@
 /obj/screen/fullscreen/water
 	icon = 'icons/effects/liquids.dmi'
 	icon_state = "mid_still"
+	screen_loc = "WEST,SOUTH to EAST,NORTH"
 	layer = FULLSCREEN_LAYER
 	color = COLOR_OCEAN
 	alpha = 100
