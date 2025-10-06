@@ -215,8 +215,32 @@
 			for(var/obj/structure/fd/players_geter/s2ep1/part2_4/G in world)
 				all.alpha = 0
 				all.forceMove(G)
+				repeating_siren(G)
 
+		spawn(452 SECONDS)
 			all.move_cutscene_camera(all, 0, 160, 5 SECONDS)
+
+		spawn(627 SECONDS)
+			all.client.pixel_y = 0
+
+		spawn(630 SECONDS)
+
+			for(var/obj/structure/fd/players_geter/s2ep1/part2_5/G in world)
+				all.alpha = 0
+				all.forceMove(G)
+
+		spawn(718 SECONDS)
+			all.move_cutscene_camera(all, 160, 0, 5 SECONDS)
+
+		spawn(725 SECONDS)
+
+			for(var/obj/structure/fd/players_geter/s2ep1/part2_6/G in world)
+				all.alpha = 0
+				all.forceMove(G)
+				repeating_siren(G)
+
+		spawn(728 SECONDS)
+			all.move_cutscene_camera(all, 192, 0, 5 SECONDS)
 
 	spawn(10 SECONDS)
 		for(var/mob/living/simple_animal/cutscene_character/C in world)
@@ -239,6 +263,12 @@
 	spawn(455 SECONDS)
 		for(var/mob/living/simple_animal/cutscene_character/C in world)
 			if(C.cutscene_id != "s2ep1sc1pt24")
+				continue
+			C.do_stuff()
+
+	spawn(634 SECONDS)
+		for(var/mob/living/simple_animal/cutscene_character/C in world)
+			if(C.cutscene_id != "s2ep1sc1pt25")
 				continue
 			C.do_stuff()
 
@@ -985,7 +1015,7 @@
 	spawn(88 SECONDS)
 		dir = EAST
 		icon_state = "Ashira 8"
-		ISay("...то я бы всё рравно не послушалась.")
+		ISay("...то я бы всё рравно не послушалась. Ни тебя, ни Свифта.")
 
 	spawn(90 SECONDS)
 		animate(src, pixel_y = -10, 5 SECONDS, easing = SINE_EASING|EASE_IN)
@@ -996,20 +1026,44 @@
 	spawn(96 SECONDS)
 		ISay("Не нужно винить себя за то, на ч-что ты изначально не могла повлиять...")
 
+	spawn(102 SECONDS)
+		ISay("Тем более, что...")
+
 	spawn(108 SECONDS)
-		ISay("!вздыхает.")
+		ISay("Я...даже не знаю, что бы я делала без тебя.")
 
 	spawn(112 SECONDS)
-		ISay("...По крайней меррре, вопррос о существовании д-духов будет наконец закрррыт.")
+		ISay("Мы стольких потерряли...и наверняка в будущем жеррртв было бы только больше...")
 
 	spawn(118 SECONDS)
+		ISay("Ты п-позволила мне сблизиться с тобой несмотря на пррошлые боли. Впустила меня в свою душу.")
+
+	spawn(126 SECONDS)
+		ISay("Может...я и н-не очень рразбираюсь в ваших обычаях, но даже так могу сказать, что это дорогого стоит-...")
+
+	spawn(130 SECONDS)
+		ISay("На вр-рряд ли я встрретила бы кого-то вроде тебя ещё рраз.")
+
+	spawn(146 SECONDS)
+		icon_state = "Ashira 10"
+		ISay("!вздыхает.")
+
+	spawn(148 SECONDS)
+		ISay("...По крайней меррре, вопррос о существовании д-духов будет наконец закрррыт.")
+
+	spawn(156 SECONDS)
+		icon_state = "Ashira 9"
 		ISay("Ч-чт...что смешного?!")
 
-	spawn(120 SECONDS)
+	spawn(158 SECONDS)
 		icon_state = "Ashira 8"
-		ISay("Надоррвёшься же!")
+		ISay("Надоррвёшься ве-...")
 		animate(src, pixel_y = 0, 0.5 SECONDS, easing = SINE_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
 		animate(src, pixel_x = 0, 0.5 SECONDS, easing = SINE_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
+
+	spawn(172 SECONDS)
+		ISay("!с трудом улыбнулась.")
+		playsound(get_turf(src), 'mods/emote_panel/sound/giggle_female_1.ogg', 20)
 
 /mob/living/simple_animal/cutscene_character/miri/s2ep1/part2_4/do_stuff()
 	spawn(28 SECONDS)
@@ -1029,12 +1083,12 @@
 		ISay("Ворронцов рассказывал.")
 
 	spawn(62 SECONDS)
-		ISay("О том-...как одного такого осколка хватало для того, чтобы извести даже самого здоррового человека.")
+		ISay("О том-...как один такой осколок был способен извести даже самого здоррового человека.")
 
 	spawn(72 SECONDS)
 		ISay("Поэтому, даже при условии того, что мы выберрремся с корабля...даже если мы извлечём эти к-кристалы-...")
 
-	spawn(78 SECONDS)
+	spawn(76 SECONDS)
 		icon_state = "Miri'am 4"
 		ISay("!закрывает лапой лицо, хныча.")
 
@@ -1044,12 +1098,168 @@
 	spawn(86 SECONDS)
 		ISay("Если бы я только возрразила на счёт твоего участия в бою...")
 
-	spawn(114 SECONDS)
-		ISay("!рассмеялась.")
+	spawn(100 SECONDS)
+		ISay("!шмыгает носом.")
 
-	spawn(124 SECONDS)
+	spawn(118 SECONDS)
+		ISay("...")
+
+	spawn(152 SECONDS)
+		ISay("!внезапно засмеялась.")
+		playsound(get_turf(src), 'mods/emote_panel/sound/laugh_female_2.ogg', 20)
+
+	spawn(158 SECONDS)
+		ISay("Аширра...")
+
+	spawn(164 SECONDS)
 		icon_state = "Miri'am 2"
-		ISay("Ты...")
+		ISay("...к-какая же ты всё-таки...")
 
-	spawn(126 SECONDS)
-		ISay("...т-такая дуррочка.")
+	spawn(170 SECONDS)
+		ISay("...дуррочка.")
+
+/mob/living/simple_animal/cutscene_character/naia/s2ep1/part2_5/do_stuff()
+	ISay("Теперь, пожалуйста, можно повторить для людей?")
+
+	spawn(22 SECONDS)
+		ISay("В карман предлагаешь его положить?")
+
+	spawn(28 SECONDS)
+		ISay("Это скреллианская техника тридцатилетней давности. То, что она в принципе всё ещё функционирует - чудо.")
+
+	spawn(34 SECONDS)
+		dir = EAST
+		ISay("Если мы попытаемся выключить её БЕЗ специалистов - это может аукнуться нам даже сильнее.")
+
+	spawn(52 SECONDS)
+		ISay("!скрестила руки на груди.")
+
+	spawn(57 SECONDS)
+		dir = EAST
+
+	spawn(72 SECONDS)
+		ISay("!кивает.")
+
+	spawn(74 SECONDS)
+		dir = SOUTH
+
+	spawn(75 SECONDS)
+		forceMove(get_step(src, SOUTH))
+
+	spawn(76 SECONDS)
+		dir = EAST
+
+	spawn(77 SECONDS)
+		icon_state = "Naia 7"
+		animate(src, pixel_x = 8, 0.5 SECONDS, easing = SINE_EASING|EASE_IN)
+
+	spawn(79 SECONDS)
+		ISay("Он прав. Мы можем озаботиться данным вопросом после того как будем уверены в общей безопасности.")
+
+	spawn(84 SECONDS)
+		ISay("Сейчас эти разногласия нам ни к чему.")
+
+/mob/living/simple_animal/cutscene_character/olivia/s2ep1/part2_5/do_stuff()
+	spawn(3 SECONDS)
+		ISay("!тяжело вздыхает.")
+
+	spawn(6 SECONDS)
+		ISay("Радиоактивные отходы - это МЕНЬШАЯ из наших проблем.")
+
+	spawn(10 SECONDS)
+		ISay("Мы не можем оставить на корабле в аварийном состоянии безхозный БСД, надеясь на то что с ним НИЧЕГО не случится!")
+
+	spawn(18 SECONDS)
+		ISay("Никто банально знать-не-знает что произойдёт, если его дестабилизировать!")
+
+	spawn(40 SECONDS)
+		dir = NORTH
+		ISay("Что если тот кто найдёт БСД после - попытается использовать его против нас?")
+
+	spawn(46 SECONDS)
+		ISay("Кто-то ведь должен был отключить планетарный щит, правильно?")
+
+	spawn(50 SECONDS)
+		ISay("Что если этот кто-то - ещё один враг?")
+
+	spawn(57 SECONDS)
+		dir = EAST
+
+	spawn(63 SECONDS)
+		forceMove(get_step(src, EAST))
+
+	spawn(64 SECONDS)
+		forceMove(get_step(src, EAST))
+		ISay("Н-но-!...")
+
+	spawn(77 SECONDS)
+		icon_state = "Olivia 3"
+		dir = SOUTH
+
+	spawn(85 SECONDS)
+		icon_state = "Olivia 4"
+		dir = EAST
+		ISay("!прикрывает лицо рукой.")
+
+	spawn(88 SECONDS)
+		icon_state = "Olivia 2"
+		ISay("Нам это точно аукнется.")
+
+/mob/living/simple_animal/cutscene_character/maxim/s2ep1/part2_5/do_stuff()
+
+	spawn(2 SECONDS)
+		playsound(get_turf(src), 'sound/items/welderactivate.ogg', 20)
+
+	spawn(4 SECONDS)
+		playsound(get_turf(src), 'sound/items/Welder2.ogg', 20)
+
+	spawn(6 SECONDS)
+		playsound(get_turf(src), 'sound/items/welderdeactivate.ogg', 20)
+
+	spawn(10 SECONDS)
+		playsound(get_turf(src), 'sound/items/rped.ogg', 20)
+
+	spawn(16 SECONDS)
+		playsound(get_turf(src), 'sound/items/welderactivate.ogg', 20)
+
+	spawn(18 SECONDS)
+		playsound(get_turf(src), 'sound/items/Welder.ogg', 20)
+
+	spawn(20 SECONDS)
+		playsound(get_turf(src), 'sound/items/welderdeactivate.ogg', 20)
+
+	spawn(30 SECONDS)
+		ISay("!что-то бубнит.")
+		playsound(get_turf(src), 'sound/items/welderactivate.ogg', 20)
+
+	spawn(32 SECONDS)
+		playsound(get_turf(src), 'sound/items/Welder2.ogg', 20)
+
+	spawn(34 SECONDS)
+		playsound(get_turf(src), 'sound/items/welderdeactivate.ogg', 20)
+
+	spawn(48 SECONDS)
+		ISay("!кивает сам себе.")
+		icon_state = "Maxim 5"
+
+	spawn(56 SECONDS)
+		dir = WEST
+		ISay("Вы закончили?")
+
+	spawn(60 SECONDS)
+		ISay("Прекрасно, теперь принесите мне ключ на шестнадцать.")
+
+	spawn(64 SECONDS)
+		ISay("И без ноканья.")
+
+	spawn(70 SECONDS)
+		ISay("Если этот кусок мусора не поплывёт - мы в любом случае покойники.")
+
+	spawn(76 SECONDS)
+		icon_state = "Maxim 6"
+		dir = NORTH
+		playsound(get_turf(src), 'sound/items/scrape_clunk.ogg', 20)
+		ISay("И где вообще Ветра носит?! Я сварщик, а не физик-ядерщик!")
+
+	spawn(80 SECONDS)
+		ISay("...и вообще шаттлы никогда не строил.")

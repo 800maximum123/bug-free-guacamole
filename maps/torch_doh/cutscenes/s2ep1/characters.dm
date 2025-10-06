@@ -74,9 +74,12 @@
 	icon_living = "Gora 2 (justincase)"
 	icon_dead = "Gora 2 (justincase)"
 /mob/living/simple_animal/cutscene_character/gora/s2ep1/part2_6
-	icon_state = "Gora 3"
-	icon_living = "Gora 3"
-	icon_dead = "Gora 3"
+	icon_state = "Gora 4"
+	icon_living = "Gora 4"
+	icon_dead = "Gora 4"
+/mob/living/simple_animal/cutscene_character/gora/s2ep1/part2_6/Life()
+	. = ..()
+	layer = 4.2
 
 /mob/living/simple_animal/cutscene_character/datura
 	name = "Реймонд Д."
@@ -91,6 +94,12 @@
 	. = ..()
 	layer = 4.2
 /mob/living/simple_animal/cutscene_character/datura/s2ep1/part2_6
+	icon_state = "Datura 4"
+	icon_living = "Datura 4"
+	icon_dead = "Datura 4"
+/mob/living/simple_animal/cutscene_character/datura/s2ep1/part2_6/Life()
+	. = ..()
+	layer = 4.2
 
 /mob/living/simple_animal/cutscene_character/perci
 	name = "Персиваль Э."
@@ -241,7 +250,8 @@
 
 /mob/living/simple_animal/cutscene_character/ashira/s2ep1/part2_4/Initialize()
 	. = ..()
-	toggle_water_overlay(src)
+	var/obj/fd_water/W = locate() in get_turf(src)
+	toggle_water_overlay(W)
 
 /mob/living/simple_animal/cutscene_character/miri
 	name = "Мири'ам Й."
@@ -258,8 +268,59 @@
 
 /mob/living/simple_animal/cutscene_character/miri/s2ep1/part2_4/Initialize()
 	. = ..()
-	toggle_water_overlay(src)
+	var/obj/fd_water/W = locate() in get_turf(src)
+	toggle_water_overlay(W)
 
 /mob/living/simple_animal/cutscene_character/miri/s2ep1/part2_4/Life()
 	. = ..()
 	layer = 4.2
+
+/mob/living/simple_animal/cutscene_character/lira
+	name = "Лира Ш."
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
+	icon_state = "Lira"
+	icon_living = "Lira"
+	icon_dead = "Lira"
+
+/mob/living/simple_animal/cutscene_character/lira/s2ep1/part2_6
+	icon_state = "Lira 3"
+	icon_living = "Lira 3"
+	icon_dead = "Lira 3"
+/mob/living/simple_animal/cutscene_character/lira/s2ep1/part2_6/Life()
+	. = ..()
+	layer = 4.2
+
+/mob/living/simple_animal/cutscene_character/kanaryss
+	name = "Вильгельм К."
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
+	icon_state = "Wilhelm"
+	icon_living = "Wilhelm"
+	icon_dead = "Wilhelm"
+
+/mob/living/simple_animal/cutscene_character/kanaryss/s2ep1/part2_6
+	icon_state = "Wilhelm 2"
+	icon_living = "Wilhelm 2"
+	icon_dead = "Wilhelm 2"
+
+	should_show_name = FALSE
+/mob/living/simple_animal/cutscene_character/kanaryss/s2ep1/part2_6/Initialize()
+	. = ..()
+	SetTransform(rotation = 90)
+
+/mob/living/simple_animal/cutscene_character/fiddler
+	name = "Джозеф Ф."
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/characters.dmi'
+	icon_state = "Fiddler"
+	icon_living = "Fiddler"
+	icon_dead = "Fiddler"
+
+/mob/living/simple_animal/cutscene_character/fiddler/s2ep1/part2_7
+	icon_state = "Fiddler 2"
+	icon_living = "Fiddler 2"
+	icon_dead = "Fiddler 2"
+/mob/living/simple_animal/cutscene_character/fiddler/s2ep1/part2_7/Initialize()
+	. = ..()
+	SetTransform(rotation = 90)
