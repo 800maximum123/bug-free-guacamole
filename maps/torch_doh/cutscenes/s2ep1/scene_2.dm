@@ -208,7 +208,7 @@
 			all.move_cutscene_camera(all, 0, 0, 5 SECONDS)
 
 		spawn(445 SECONDS)
-			all.move_cutscene_camera(all, 0, 80, 5 SECONDS)
+			all.move_cutscene_camera(all, 0, 80, 3 SECONDS)
 
 		spawn(450 SECONDS)
 
@@ -218,21 +218,21 @@
 				repeating_siren(G)
 
 		spawn(452 SECONDS)
-			all.move_cutscene_camera(all, 0, 160, 5 SECONDS)
+			all.move_cutscene_camera(all, 0, 160, 2 SECONDS)
 
-		spawn(627 SECONDS)
+		spawn(629 SECONDS)
 			all.client.pixel_y = 0
 
-		spawn(630 SECONDS)
+		spawn(632 SECONDS)
 
 			for(var/obj/structure/fd/players_geter/s2ep1/part2_5/G in world)
 				all.alpha = 0
 				all.forceMove(G)
 
-		spawn(718 SECONDS)
-			all.move_cutscene_camera(all, 160, 0, 5 SECONDS)
+		spawn(722 SECONDS)
+			all.move_cutscene_camera(all, 128, 0, 3 SECONDS)
 
-		spawn(725 SECONDS)
+		spawn(726 SECONDS)
 
 			for(var/obj/structure/fd/players_geter/s2ep1/part2_6/G in world)
 				all.alpha = 0
@@ -240,7 +240,17 @@
 				repeating_siren(G)
 
 		spawn(728 SECONDS)
-			all.move_cutscene_camera(all, 192, 0, 5 SECONDS)
+			all.move_cutscene_camera(all, 160, 0, 2 SECONDS)
+
+		spawn(762 SECONDS)
+			all.client.pixel_x = 0
+
+		spawn(766 SECONDS)
+
+			for(var/obj/structure/fd/players_geter/s2ep1/part2_7/G in world)
+				all.alpha = 0
+				all.forceMove(G)
+				repeating_siren(G)
 
 	spawn(10 SECONDS)
 		for(var/mob/living/simple_animal/cutscene_character/C in world)
@@ -266,9 +276,21 @@
 				continue
 			C.do_stuff()
 
-	spawn(634 SECONDS)
+	spawn(636 SECONDS)
 		for(var/mob/living/simple_animal/cutscene_character/C in world)
 			if(C.cutscene_id != "s2ep1sc1pt25")
+				continue
+			C.do_stuff()
+
+	spawn(730 SECONDS)
+		for(var/mob/living/simple_animal/cutscene_character/C in world)
+			if(C.cutscene_id != "s2ep1sc1pt26")
+				continue
+			C.do_stuff()
+
+	spawn(770 SECONDS)
+		for(var/mob/living/simple_animal/cutscene_character/C in world)
+			if(C.cutscene_id != "s2ep1sc1pt27")
 				continue
 			C.do_stuff()
 
@@ -756,13 +778,13 @@
 		ISay("...")
 
 	spawn(148 SECONDS)
-		ISay("Я бы очень хотел соврать, Фокс.")
+		ISay("Сейчас было бы самое время соврать.")
 
 	spawn(154 SECONDS)
-		ISay("Но у нас, Землян...")
+		ISay("Да только я вот...")
 
 	spawn(160 SECONDS)
-		ISay("...это всегда получается как-то паршиво.")
+		ISay("...короче, не по-Землянски как-...")
 
 	spawn(218 SECONDS)
 		ISay("...и поставим под угрозу очередную жизнь?")
@@ -1061,6 +1083,9 @@
 		animate(src, pixel_y = 0, 0.5 SECONDS, easing = SINE_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
 		animate(src, pixel_x = 0, 0.5 SECONDS, easing = SINE_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
 
+	spawn(168 SECONDS)
+		CutOverlays(maptext_name)
+
 	spawn(172 SECONDS)
 		ISay("!с трудом улыбнулась.")
 		playsound(get_turf(src), 'mods/emote_panel/sound/giggle_female_1.ogg', 20)
@@ -1114,6 +1139,9 @@
 	spawn(164 SECONDS)
 		icon_state = "Miri'am 2"
 		ISay("...к-какая же ты всё-таки...")
+
+	spawn(168 SECONDS)
+		CutOverlays(maptext_name)
 
 	spawn(170 SECONDS)
 		ISay("...дуррочка.")
@@ -1263,3 +1291,151 @@
 
 	spawn(80 SECONDS)
 		ISay("...и вообще шаттлы никогда не строил.")
+
+/mob/living/simple_animal/cutscene_character/lira/s2ep1/part2_6/do_stuff()
+	ISay("Поразительно...")
+
+	spawn(2 SECONDS)
+		ISay("...этот агент действительно настолько же опасен, насколько его и описывают...")
+
+	spawn(11 SECONDS)
+		ISay("В текущих реалиях-...")
+
+	spawn(12 SECONDS)
+		icon_state = "Lira 4"
+
+/mob/living/simple_animal/cutscene_character/gora/s2ep1/part2_6/do_stuff()
+	spawn(8 SECONDS)
+		ISay("Можем ли мы как-то помочь ему?")
+
+	spawn(12 SECONDS)
+		icon_state = "Gora 5"
+
+	spawn(23 SECONDS)
+		dir = SOUTH
+
+	spawn(24 SECONDS)
+		forceMove(get_step(src, SOUTH))
+
+/mob/living/simple_animal/cutscene_character/datura/s2ep1/part2_6/do_stuff()
+	spawn(12 SECONDS)
+		dir = SOUTH
+
+/mob/living/simple_animal/cutscene_character/amelia/s2ep1/part2_6/do_stuff()
+	spawn(2 SECONDS)
+		ISay("Н-нет...")
+
+	spawn(6 SECONDS)
+		ISay("Этого н-не может-...")
+		forceMove(get_step(src, WEST))
+
+	spawn(8 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(10 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(11 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(12 SECONDS)
+		animate(src, pixel_x = -25, 0.5 SECONDS, easing = SINE_EASING|EASE_IN)
+		icon_state = "Amelia 4"
+		ISay("ПЕРСИВАЛЬ!")
+
+	spawn(14 SECONDS)
+		ISay("!шмыгает носом.")
+		ISay("Луни! П-пусти меня к нему!")
+
+	spawn(28 SECONDS)
+		ISay("!утыкается парню в плечо, скалясь.")
+		icon_state = "Amelia"
+
+/mob/living/simple_animal/cutscene_character/zlata/s2ep1/part2_6/do_stuff()
+
+	spawn(9 SECONDS)
+		forceMove(get_step(src, WEST))
+
+	spawn(10 SECONDS)
+		icon_state = "Zlata 5"
+		ISay("Амелия-!")
+		animate(src, pixel_x = 0, 0.5 SECONDS, easing = SINE_EASING|EASE_IN)
+
+	spawn(11 SECONDS)
+		icon_state = "Zlata 7"
+		animate(src, pixel_x = 10, 0.5 SECONDS, easing = SINE_EASING|EASE_IN)
+
+/mob/living/simple_animal/cutscene_character/luny/s2ep1/part2_6/do_stuff()
+	spawn(10 SECONDS)
+		animate(src, pixel_x = 0, 0.5 SECONDS, easing = SINE_EASING|EASE_IN)
+
+	spawn(11 SECONDS)
+		dir = NORTH
+		forceMove(get_step(src, NORTH))
+
+	spawn(11.5 SECONDS)
+		dir = EAST
+		forceMove(get_step(src, NORTH))
+
+	spawn(12 SECONDS)
+		ISay("!перехватывает девушку.")
+
+	spawn(20 SECONDS)
+		ISay("Будет только больнее. Хватит.")
+
+	spawn(24 SECONDS)
+		ISay("Он не хотел бы чтобы ты видела его таким.")
+
+/mob/living/simple_animal/cutscene_character/fiddler/s2ep1/part2_7/do_stuff()
+	spawn(2 SECONDS)
+		icon_state = "Fiddler 3"
+
+	spawn(4 SECONDS)
+		icon_state = "Fiddler"
+		dir = SOUTH
+
+	spawn(6 SECONDS)
+		animate(src, 5 SECONDS, transform = matrix(0, MATRIX_ROTATE), easing = BOUNCE_EASING|EASE_OUT)
+
+	spawn(11 SECONDS)
+		ISay("!щёлкает затвор на шее.")
+		dir = NORTH
+
+	spawn(12 SECONDS)
+		icon_state = "Fiddler 4"
+
+	spawn(13 SECONDS)
+		dir = EAST
+
+	spawn(14 SECONDS)
+		forceMove(get_step(src, EAST))
+		ISay("Шо%ф--л1д?")
+
+	spawn(15 SECONDS)
+		dir = SOUTH
+
+	spawn(16 SECONDS)
+		dir = WEST
+		forceMove(get_step(src, EAST))
+
+	spawn(18 SECONDS)
+		ISay("М4йор!")
+
+	spawn(20 SECONDS)
+		ISay("!стучит по голове.")
+
+	spawn(22 SECONDS)
+		icon_state = "Fiddler 5"
+		animate(src, pixel_x = 5, 0.5 SECONDS, easing = SINE_EASING|EASE_IN)
+
+	spawn(23 SECONDS)
+		dir = NORTH
+
+	spawn(24 SECONDS)
+		ISay("...его трость.")
+		forceMove(get_step(src, NORTH))
+
+	spawn(28 SECONDS)
+		dir = EAST
+		animate(src, pixel_x = 0, 0.5 SECONDS, easing = SINE_EASING|EASE_IN)
+		ISay("Кайлер, где ты чёрт возьми?...")

@@ -34,7 +34,13 @@
 	spawn(792 SECONDS)
 		animate(src, 3 SECOND, alpha = 255)
 
-	spawn(796 SECONDS)
+	spawn(803 SECONDS)
+		animate(src, 3 SECOND, alpha = 0)
+
+	spawn(935 SECONDS)
+		animate(src, 3 SECOND, alpha = 255)
+
+	spawn(950 SECONDS)
 		animate(src, 3 SECOND, alpha = 0)
 
 /proc/time_of_death()

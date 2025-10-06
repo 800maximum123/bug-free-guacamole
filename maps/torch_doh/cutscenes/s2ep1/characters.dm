@@ -12,6 +12,9 @@
 	icon_living = "Amelia 2"
 	icon_dead = "Amelia 2"
 /mob/living/simple_animal/cutscene_character/amelia/s2ep1/part2_6
+/mob/living/simple_animal/cutscene_character/amelia/s2ep1/part2_6/Life()
+	. = ..()
+	layer = 4.2
 
 /mob/living/simple_animal/cutscene_character/zlata
 	name = "Злата С."
