@@ -4,8 +4,8 @@
 	desc = "A manky old cigar butt."
 	icon_state = "bcigbutt"
 
-/obj/item/clothing/mask/smokable/cigarette/blackwish
-	brand = "\improper blackwish"
+/obj/item/clothing/mask/smokable/cigarette/blackwhis
+	brand = "\improper blackwhisper"
 	icon = 'mods/_fd/fd_customs/customs/slivka/icon/masks.dmi'
 	icon_state = "bcigoff"
 	icon_on = "bcigon"
@@ -23,5 +23,5 @@
 	icon_state = "blackpacket"
 	item_state = "blackpacket"
 	startswith = list(
-		/obj/item/clothing/mask/smokable/cigarette/blackwish = 6
+		/obj/item/clothing/mask/smokable/cigarette/blackwhis = 6
 	)
