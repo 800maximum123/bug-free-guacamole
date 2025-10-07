@@ -1,12 +1,18 @@
 #define CALL(target, proc, args...) new Callback(target, PROC_REF(proc), ##args)
+#define CALL_TYPE(target, proc, args...) new Callback(target, TYPE_PROC_REF(target?:type, proc), ##args)
 #define CALL_GLOB(proc, args...) new Callback(GLOBAL_PROC, GLOBAL_PROC_REF(proc), ##args)
-#define CALL_TYPE(target, proc, type, args...) new Callback(target, TYPE_PROC_REF(type, proc), ##args)
 
-#define MOVE_CAMERA(id) CALL(src, move_camera, id)
-#define START_CUTSCENE(datum) CALL_GLOB(start_cutscene, datum, ckey2body)
+#define TP_CAMERA(id) CALL(src, teleport_camera, id)
+#define MOVE_CAMERA(args...) CALL(src, move_camera, ##args)
+#define NEW_CUTSCENE(type) CALL_GLOB(create_cutscene, type, ckey2body)
+#define START_CUTSCENE(datum) CALL_GLOB(start_cutscene, datum)
 
-/proc/start_cutscene(cutscene_type, list/old_viewers)
-	new cutscene_type(old_viewers)
+/proc/create_cutscene(cutscene_type, list/old_viewers, ...)
+	RETURN_TYPE(/datum/modular_cutscene)
+	return new cutscene_type(arglist(args.Copy(2)))
+
+/proc/start_cutscene(datum/modular_cutscene/cutscene_ref, ...)
+	return cutscene_ref.play(arglist(args))
 
 		///////////////////////
 		// Катсцены дани 101 //
@@ -35,23 +41,18 @@
 
 ///	Типичным примером списка действий будет что-то типа:
 /*
-/datum/modular_cutscene/s2ep1/New(list/old_viewers, ...)
+/datum/modular_cutscene/s2ep1/setup_actions(...)
 	actions = list(
-		MOVE_CAMERA("Сцена 1"),
+		TP_CAMERA("Сцена 1"),
 		CALL(actor("Нубик"), Move, NORTH) = 2 SECONDS,
 		START_CUTSCENE(/datum/modular_cutscene/s2ep2),
 	)
-	. = ..()
 */
 //	В данном примере мы перемещаем камеру нашей сцены на лендмарку с тэгом "Сцена 1"
 //	А потом СРАЗУ же вызываем прок Move() у актёра с тэгом "Нубик", после которого ждём 2 секунды.
 //	В конце, мы активируем новую катсцену, в которую для удобства перенесли часть этой.
 
 /datum/modular_cutscene
-	/// Список действий, которая должна произвести катсцена. !Необходимо заполнять его внутри прока /New()!
-	var/list/actions = list(
-		/* CALL = DURATION, */
-	)
 	/// Список сикеев участников и их оригинальных персонажей
 	var/list/ckey2body = list(
 		/* "ckey" = /mob, */
@@ -60,6 +61,8 @@
 	var/list/camera_mobs = list(
 		/* /mob/cutscene_pov, */
 	)
+	/// Список действий, которая должна произвести катсцена. !Необходимо заполнять его внутри прока /New()!
+	var/list/actions
 	/// Должны ли мы ждать, пока эта катсцена проиграется. Полезно, когда одна катсцена вызывает другую
 	var/wait_for = TRUE
 
@@ -71,25 +74,12 @@
 		for(var/client/viewer in GLOB.clients)
 			ckey2body[viewer.ckey] = viewer.mob
 
-	var/argument_list = args.Copy(2)
-	play(arglist(argument_list))
+	setup_actions(arglist(args.Copy(2)))
 
-/datum/modular_cutscene/Destroy()
-	for(var/ckey in ckey2body)
-		var/mob/viewer = ckey2body[ckey]
-		if(QDELETED(viewer))
-			message_admins("НЕ МОГУ ОБНАРУЖИТЬ ОРИГИНАЛЬНОГО МОБА [ckey], ОТПРАВЛЯЮ ЕГО В ЛОББИ...")
-			var/mob/new_player/M = new /mob/new_player()
-			M.ckey = ckey
-			continue
-		viewer.ckey = ckey
-	ckey2body.Cut()
-
-	for(var/camera in camera_mobs)
-		qdel(camera)
-	camera_mobs.Cut()
-
-	. = ..()
+/datum/modular_cutscene/proc/setup_actions(...)
+	actions = list(
+		/* CALL = DURATION, */
+	)
 
 /datum/modular_cutscene/proc/play(...)
 	if(!wait_for)
@@ -121,7 +111,7 @@
 		return pick(GLOB.alive_mobs)
 	return GLOB.cutscene_actors[id]
 
-/datum/modular_cutscene/proc/move_camera(camera_id)
+/datum/modular_cutscene/proc/teleport_camera(camera_id)
 	if(!GLOB.cutscene_cameras.Find(camera_id))
 		message_admins("КАМЕРА \"[camera_id]\" В [type] ОТСУТСТВУЕТ, ПРОПУСКАЮ")
 		return
@@ -131,10 +121,39 @@
 
 	camera_mobs.Cut()
 
+	var/turf/target_turf = get_turf(GLOB.cutscene_cameras[camera_id])
 	for(var/ckey in ckey2body)
-		var/mob/new_camera = new /mob/cutscene_pov(get_turf(GLOB.cutscene_cameras[camera_id]))
+		var/mob/new_camera = new /mob/cutscene_pov(target_turf)
 		new_camera.ckey = ckey
 		camera_mobs += new_camera
+
+/datum/modular_cutscene/proc/move_camera(...)
+	var/list/target_mobs
+	if(length(camera_mobs))
+		target_mobs = camera_mobs
+	else
+		target_mobs = list_values(ckey2body.Copy())
+
+	for(var/mob/viewer in target_mobs)
+		if(viewer.client)
+			animate(viewer, arglist(args))
+
+/datum/modular_cutscene/Destroy()
+	for(var/ckey in ckey2body)
+		var/mob/viewer = ckey2body[ckey]
+		if(QDELETED(viewer))
+			message_admins("НЕ МОГУ ОБНАРУЖИТЬ ОРИГИНАЛЬНОГО МОБА У [ckey], ОТПРАВЛЯЮ ЕГО В ЛОББИ...")
+			var/mob/new_player/M = new /mob/new_player()
+			M.ckey = ckey
+			continue
+		viewer.ckey = ckey
+	ckey2body.Cut()
+
+	for(var/camera in camera_mobs)
+		qdel(camera)
+	camera_mobs.Cut()
+
+	. = ..()
 
 GLOBAL_LIST_EMPTY(cutscene_actors)
 
