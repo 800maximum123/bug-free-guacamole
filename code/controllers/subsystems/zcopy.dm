@@ -116,9 +116,9 @@ SUBSYSTEM_DEF(zcopy)
 
 // If you add a new Zlevel or change Z-connections, call this.
 /datum/controller/subsystem/zcopy/proc/calculate_zstack_limits()
-	zlev_maximums = new(world.maxz+5) //megamind move to fix https://github.com/Baystation12/Baystation12/issues/32286
+	zlev_maximums = new(200)
 	var/start_zlev = 1
-	for (var/z in 1 to world.maxz+5)
+	for (var/z in 1 to 200)
 		if (!HasAbove(z))
 			for (var/member_zlev in start_zlev to z)
 				zlev_maximums[member_zlev] = z

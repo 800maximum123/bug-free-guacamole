@@ -2,6 +2,8 @@
 #define CALL_TYPE(target, type, proc, args...) new Callback(target, TYPE_PROC_REF(type, proc), ##args)
 #define CALL_GLOB(proc, args...) new Callback(GLOBAL_PROC, GLOBAL_PROC_REF(proc), ##args)
 
+#define DO_NOTHING CALL(src, do_nothing)
+
 #define TP_CAMERA(id) CALL(src, teleport_camera, id)
 #define MOVE_CAMERA(args...) CALL(src, move_camera, ##args)
 #define NEW_CUTSCENE(type) CALL_GLOB(create_cutscene, type, ckey2body)
@@ -25,7 +27,7 @@
 //	 - CALL() | CALL_GLOB() | CALL_TYPE()
 //	 * Вызывает прок соответствующего типа, с соответствующим названием (см. в начало файла для обзора аргументов).
 //
-//	 - null
+//	 - DO_NOTHING
 //	 * Не делает ничего, но всё ещё применяет ЗАДЕРЖКУ, назначенную этому элементу.
 
 ///	ЗАДЕРЖКА может быть:
@@ -78,6 +80,23 @@
 	setup_actions(arglist(arguments))
 	play(arglist(arguments))
 
+/datum/modular_cutscene/Destroy()
+	for(var/ckey in ckey2body)
+		var/mob/viewer = ckey2body[ckey]
+		if(QDELETED(viewer))
+			message_admins("НЕ МОГУ ОБНАРУЖИТЬ ОРИГИНАЛЬНОГО МОБА У [ckey], ОТПРАВЛЯЮ ЕГО В ЛОББИ...")
+			var/mob/new_player/M = new /mob/new_player()
+			M.ckey = ckey
+			continue
+		viewer.ckey = ckey
+	ckey2body.Cut()
+
+	for(var/camera in camera_mobs)
+		qdel(camera)
+	camera_mobs.Cut()
+
+	. = ..()
+
 /datum/modular_cutscene/proc/setup_actions(...)
 	actions = list(
 		/* CALL = DURATION, */
@@ -87,18 +106,14 @@
 	if(!wait_for)
 		set waitfor = FALSE
 
-	var/action_index = 0
 	var/next_sleep_delay = 0
-
 	for(var/cutscene_data in actions)
-		action_index++
-
 		if(!isnull(cutscene_data))
 			invoke(cutscene_data)
 
-		if(actions[action_index] != 0)
-			if(actions[action_index])
-				next_sleep_delay = actions[action_index]
+		if(actions[cutscene_data] != 0)
+			if(actions[cutscene_data])
+				next_sleep_delay = actions[cutscene_data]
 			else
 				next_sleep_delay = 0
 
@@ -149,22 +164,8 @@
 /datum/modular_cutscene/proc/rotate_actor(mob/living/actor, direction)
 	return actor.set_dir(direction)
 
-/datum/modular_cutscene/Destroy()
-	for(var/ckey in ckey2body)
-		var/mob/viewer = ckey2body[ckey]
-		if(QDELETED(viewer))
-			message_admins("НЕ МОГУ ОБНАРУЖИТЬ ОРИГИНАЛЬНОГО МОБА У [ckey], ОТПРАВЛЯЮ ЕГО В ЛОББИ...")
-			var/mob/new_player/M = new /mob/new_player()
-			M.ckey = ckey
-			continue
-		viewer.ckey = ckey
-	ckey2body.Cut()
-
-	for(var/camera in camera_mobs)
-		qdel(camera)
-	camera_mobs.Cut()
-
-	. = ..()
+/datum/modular_cutscene/proc/do_nothing()
+	return
 
 GLOBAL_LIST_EMPTY(cutscene_actors)
 
