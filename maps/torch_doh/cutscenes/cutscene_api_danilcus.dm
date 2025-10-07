@@ -1,6 +1,6 @@
-#define CALL(target, proc, args...) new Callback(target, PROC_REF(proc), ##args)
-#define CALL_TYPE(target, proc, args...) new Callback(target, TYPE_PROC_REF(initial(target.type), proc), ##args)
-#define CALL_GLOB(proc, args...) new Callback(GLOBAL_PROC, GLOBAL_PROC_REF(proc), ##args)
+#define CALL(target, procname, args...) new Callback(target, PROC_REF(procname), ##args)
+#define CALL_TYPE(target, procname, args...) new Callback(target, target::procname, ##args)
+#define CALL_GLOB(procname, args...) new Callback(GLOBAL_PROC, GLOBAL_PROC_REF(procname), ##args)
 
 #define TP_CAMERA(id) CALL(src, teleport_camera, id)
 #define MOVE_CAMERA(args...) CALL(src, move_camera, ##args)
@@ -44,7 +44,7 @@
 /datum/modular_cutscene/s2ep1/setup_actions(...)
 	actions = list(
 		TP_CAMERA("Сцена 1"),
-		CALL(actor("Нубик"), Move, NORTH) = 2 SECONDS,
+		CALL_TYPE(actor("Нубик"), Move, NORTH) = 2 SECONDS,
 		START_CUTSCENE(/datum/modular_cutscene/s2ep2),
 	)
 */
@@ -79,6 +79,7 @@
 /datum/modular_cutscene/proc/setup_actions(...)
 	actions = list(
 		/* CALL = DURATION, */
+		CALL_TYPE(actor("Нубик"), Move, NORTH) = 2 SECONDS,
 	)
 
 /datum/modular_cutscene/proc/play(...)
