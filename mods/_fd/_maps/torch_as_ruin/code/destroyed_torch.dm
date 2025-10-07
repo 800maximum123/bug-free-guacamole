@@ -35,6 +35,21 @@
 /area/dtorch
 	requires_power = 0
 
+/area/dtorch/atmosalert()
+	return
+
+/area/dtorch/fire_alert()
+	return
+
+/area/dtorch/fire_reset()
+	return
+
+/area/dtorch/readyalert()
+	return
+
+/area/dtorch/partyalert()
+	return
+
 /area/dtorch/deck1
 	name = "TORCH (DECK 1, INNER)"
 

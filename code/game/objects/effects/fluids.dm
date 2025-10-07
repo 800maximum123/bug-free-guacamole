@@ -34,7 +34,7 @@
 	if(istype(T))
 		T.unwet_floor(FALSE)
 	forceMove(start_loc)
-	update_icon()
+	queue_icon_update()
 
 /obj/fluid/Destroy()
 	if(start_loc)
@@ -71,12 +71,10 @@
 		APPLY_FLUID_OVERLAY("ocean")
 
 /obj/screen/fullscreen/water
-	icon = 'icons/effects/liquids.dmi'
-	icon_state = "mid_still"
-	screen_loc = "WEST,SOUTH to EAST,NORTH"
-	layer = FULLSCREEN_LAYER
-	color = COLOR_OCEAN
-	alpha = 100
+	icon_state = "fishbed"
+	allstate = 1
+	scale_to_view = TRUE
+	alpha = 200
 
 /obj/fluid/Crossed(mob/target)
     . = ..()
