@@ -8,12 +8,8 @@
 #define START_CUTSCENE(datum) CALL_GLOB(start_cutscene, datum)
 #define MOVE_ACTOR(actor, direction) CALL(src, move_actor, actor, direction)
 
-/proc/create_cutscene(cutscene_type, list/old_viewers, ...)
-	RETURN_TYPE(/datum/modular_cutscene)
+/proc/start_cutscene(cutscene_type, list/old_viewers, ...)
 	return new cutscene_type(arglist(args.Copy(2)))
-
-/proc/start_cutscene(datum/modular_cutscene/cutscene_ref, ...)
-	return cutscene_ref.play(arglist(args))
 
 		///////////////////////
 		// Катсцены дани 101 //
@@ -75,7 +71,10 @@
 		for(var/client/viewer in GLOB.clients)
 			ckey2body[viewer.ckey] = viewer.mob
 
-	setup_actions(arglist(args.Copy(2)))
+	var/list/arguments = args.Copy(2)
+
+	setup_actions(arglist(arguments))
+	play(arglist(arguments))
 
 /datum/modular_cutscene/proc/setup_actions(...)
 	actions = list(
