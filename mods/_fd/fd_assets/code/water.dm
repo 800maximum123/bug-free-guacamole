@@ -44,14 +44,7 @@
 	A.toggle_water_overlay(FALSE)
 
 /obj/fd_water/deep
-
-/obj/fd_water/deep/Crossed(atom/movable/A)
-	A.submerge_overlay_height = 23
-	. = ..()
-
-/obj/fd_water/deep/Uncrossed(atom/movable/A)
-	A.submerge_overlay_height = initial(A.submerge_overlay_height)
-	. = ..()
+	water_overlay_height = 23
 
 /obj/fd_water/alt_ver1
 	icon_state = "water3"
@@ -61,13 +54,16 @@
 	icon_state = "water4"
 	alpha = 70
 
+/atom
+	var/water_overlay_height = 12
+
 /atom/movable
 	var/image/water_overlay
-	var/submerge_overlay_height = 0
+	var/do_water_overlay = FALSE
 
 /atom/movable/proc/toggle_water_overlay(atom/source)
 	if(source)
-		if(submerge_overlay_height)
+		if(do_water_overlay)
 			appearance_flags |= KEEP_TOGETHER
 
 			water_overlay = image(source.icon, src, source.icon_state)
@@ -77,7 +73,7 @@
 			water_overlay.alpha = source.alpha
 			water_overlay.color = source.color
 
-			water_overlay.pixel_y = submerge_overlay_height - 32
+			water_overlay.pixel_y = source.water_overlay_height - 32
 			water_overlay.add_filter("alpha_mask", 1, list("type" = "alpha", "icon" = icon('icons/turf/space.dmi', "black")))
 
 			AddOverlays(water_overlay)
@@ -85,7 +81,7 @@
 		CutOverlays(water_overlay)
 
 /mob/living
-	submerge_overlay_height = 12
+	do_water_overlay = TRUE
 
 /obj
-	submerge_overlay_height = 12
+	do_water_overlay = TRUE

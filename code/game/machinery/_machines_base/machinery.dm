@@ -499,8 +499,10 @@
 // This is really pretty crap and should be overridden for specific machines.
 /obj/machinery/water_act(depth)
 	..()
+/* Ради всего святого не раскомменчивайте эту вещь пока мы не уберём всю воду с карты
 	if(operable() && !waterproof && (depth > FLUID_DEEP))
 		ex_act(EX_ACT_LIGHT)
+*/
 
 /obj/machinery/Move()
 	. = ..()
