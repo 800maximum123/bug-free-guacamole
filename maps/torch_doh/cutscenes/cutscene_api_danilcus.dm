@@ -1,11 +1,12 @@
-#define CALL(target, procname, args...) new Callback(target, PROC_REF(procname), ##args)
-#define CALL_TYPE(target, procname, args...) new Callback(target, target::procname, ##args)
-#define CALL_GLOB(procname, args...) new Callback(GLOBAL_PROC, GLOBAL_PROC_REF(procname), ##args)
+#define CALL(target, proc, args...) new Callback(target, PROC_REF(proc), ##args)
+#define CALL_TYPE(target, type, proc, args...) new Callback(target, TYPE_PROC_REF(type, proc), ##args)
+#define CALL_GLOB(proc, args...) new Callback(GLOBAL_PROC, GLOBAL_PROC_REF(proc), ##args)
 
 #define TP_CAMERA(id) CALL(src, teleport_camera, id)
 #define MOVE_CAMERA(args...) CALL(src, move_camera, ##args)
 #define NEW_CUTSCENE(type) CALL_GLOB(create_cutscene, type, ckey2body)
 #define START_CUTSCENE(datum) CALL_GLOB(start_cutscene, datum)
+#define MOVE_ACTOR(actor, direction) CALL(src, move_actor, direction, direction)
 
 /proc/create_cutscene(cutscene_type, list/old_viewers, ...)
 	RETURN_TYPE(/datum/modular_cutscene)
@@ -79,7 +80,6 @@
 /datum/modular_cutscene/proc/setup_actions(...)
 	actions = list(
 		/* CALL = DURATION, */
-		CALL_TYPE(actor("Нубик"), Move, NORTH) = 2 SECONDS,
 	)
 
 /datum/modular_cutscene/proc/play(...)
@@ -138,6 +138,9 @@
 	for(var/mob/viewer in target_mobs)
 		if(viewer.client)
 			animate(viewer, arglist(args))
+
+/datum/modular_cutscene/proc/move_actor(mob/living/actor, direction)
+	return actor.IMove(get_step(get_turf(actor), direction))
 
 /datum/modular_cutscene/Destroy()
 	for(var/ckey in ckey2body)
