@@ -1,5 +1,5 @@
 #define CALL(target, proc, args...) new Callback(target, PROC_REF(proc), ##args)
-#define CALL_TYPE(target, proc, args...) new Callback(target, TYPE_PROC_REF(target?:type, proc), ##args)
+#define CALL_TYPE(target, proc, args...) new Callback(target, TYPE_PROC_REF(initial(target.type), proc), ##args)
 #define CALL_GLOB(proc, args...) new Callback(GLOBAL_PROC, GLOBAL_PROC_REF(proc), ##args)
 
 #define TP_CAMERA(id) CALL(src, teleport_camera, id)
