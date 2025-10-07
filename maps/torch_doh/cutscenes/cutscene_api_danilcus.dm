@@ -6,7 +6,7 @@
 #define MOVE_CAMERA(args...) CALL(src, move_camera, ##args)
 #define NEW_CUTSCENE(type) CALL_GLOB(create_cutscene, type, ckey2body)
 #define START_CUTSCENE(datum) CALL_GLOB(start_cutscene, datum)
-#define MOVE_ACTOR(actor, direction) CALL(src, move_actor, direction, direction)
+#define MOVE_ACTOR(actor, direction) CALL(src, move_actor, actor, direction)
 
 /proc/create_cutscene(cutscene_type, list/old_viewers, ...)
 	RETURN_TYPE(/datum/modular_cutscene)
