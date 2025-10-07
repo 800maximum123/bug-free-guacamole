@@ -35,18 +35,20 @@
 
 ///	Типичным примером списка действий будет что-то типа:
 /*
+/datum/modular_cutscene/s2ep1/New(list/old_viewers, ...)
 	actions = list(
 		MOVE_CAMERA("Сцена 1"),
 		CALL(actor("Нубик"), Move, NORTH) = 2 SECONDS,
-		START_CUTSCENE(/datum/modular_cutscene/s2ep1),
+		START_CUTSCENE(/datum/modular_cutscene/s2ep2),
 	)
+	. = ..()
 */
 //	В данном примере мы перемещаем камеру нашей сцены на лендмарку с тэгом "Сцена 1"
 //	А потом СРАЗУ же вызываем прок Move() у актёра с тэгом "Нубик", после которого ждём 2 секунды.
 //	В конце, мы активируем новую катсцену, в которую для удобства перенесли часть этой.
 
 /datum/modular_cutscene
-	/// Список действий, которая должна произвести катсцена
+	/// Список действий, которая должна произвести катсцена. !Необходимо заполнять его внутри прока /New()!
 	var/list/actions = list(
 		/* CALL = DURATION, */
 	)
@@ -75,11 +77,18 @@
 /datum/modular_cutscene/Destroy()
 	for(var/ckey in ckey2body)
 		var/mob/viewer = ckey2body[ckey]
+		if(QDELETED(viewer))
+			message_admins("НЕ МОГУ ОБНАРУЖИТЬ ОРИГИНАЛЬНОГО МОБА [ckey], ОТПРАВЛЯЮ ЕГО В ЛОББИ...")
+			var/mob/new_player/M = new /mob/new_player()
+			M.ckey = ckey
+			continue
 		viewer.ckey = ckey
 	ckey2body.Cut()
+
 	for(var/camera in camera_mobs)
 		qdel(camera)
 	camera_mobs.Cut()
+
 	. = ..()
 
 /datum/modular_cutscene/proc/play(...)
