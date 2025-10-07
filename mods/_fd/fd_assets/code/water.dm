@@ -7,6 +7,7 @@
 	alpha = 100
 
 	anchored = TRUE
+	obj_flags = OBJ_FLAG_NOFALL
 
 	var/reagent_type = /datum/reagent/water
 
@@ -41,6 +42,16 @@
 /obj/fd_water/Uncrossed(atom/movable/A)
 	. = ..()
 	A.toggle_water_overlay(FALSE)
+
+/obj/fd_water/deep
+
+/obj/fd_water/deep/Crossed(atom/movable/A)
+	A.submerge_overlay_height = 23
+	. = ..()
+
+/obj/fd_water/deep/Uncrossed(atom/movable/A)
+	A.submerge_overlay_height = initial(A.submerge_overlay_height)
+	. = ..()
 
 /obj/fd_water/alt_ver1
 	icon_state = "water3"

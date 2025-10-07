@@ -252,6 +252,19 @@
 				all.forceMove(G)
 				repeating_siren(G)
 
+		spawn(790 SECONDS)
+			all.client.view = all.remember_camera_size
+			all.forceMove(all.remember_position)
+
+			all.alpha = 255
+			all.client.pixel_x = 0
+			all.client.pixel_y = 192
+
+			all.SetStunned(0)
+
+		spawn(800 SECONDS)
+			fds2ep1_sc3()
+
 	spawn(10 SECONDS)
 		for(var/mob/living/simple_animal/cutscene_character/C in world)
 			if(C.cutscene_id != "s2ep1sc1pt21")

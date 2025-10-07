@@ -180,11 +180,13 @@
 	#include "loadout/overrides.dm"
 
 	// --- CUTSCENES --- //
+	#include "cutscenes/cutscene_api_danilcus.dm"
 	#include "cutscenes/animations.dm"
 	#include "cutscenes/framework.dm"
 	#include "cutscenes/s2ep1/characters.dm"
 	#include "cutscenes/s2ep1/scene_1.dm"
 	#include "cutscenes/s2ep1/scene_2.dm"
+	#include "cutscenes/s2ep1/scene_3.dm"
 
 	// --- MAP FILES --- //
 
@@ -320,6 +322,8 @@
 	#include "../../mods/_fd/_maps/tartakan/_tartakan.dme"
 	#include "../../mods/_fd/_maps/trader_ship/_trader_ship.dme"
 	#include "../../mods/_fd/_maps/yacht/_yacht.dme"
+
+	#include "../../mods/_fd/_maps/torch_as_ruin/_torch_as_ruin.dme"
 
 		// ~DANILCUS WIP~ //
 

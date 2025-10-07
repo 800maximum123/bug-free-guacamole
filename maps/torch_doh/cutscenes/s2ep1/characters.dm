@@ -327,3 +327,49 @@
 /mob/living/simple_animal/cutscene_character/fiddler/s2ep1/part2_7/Initialize()
 	. = ..()
 	SetTransform(rotation = 90)
+
+/mob/living/simple_animal/cutscene_character/rifler
+	name = "Неизвестный"
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/partisans.dmi'
+	icon_state = "Leader"
+	icon_living = "Leader"
+	icon_dead = "Leader"
+
+	should_show_name = FALSE
+
+/mob/living/simple_animal/cutscene_character/rifler/s2ep1/part3_1
+	icon_state = "Leader 2"
+	icon_living = "Leader 2"
+	icon_dead = "Leader 2"
+
+/mob/living/simple_animal/cutscene_character/partisan
+	name = "Неизвестный"
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/partisans.dmi'
+	icon_state = "Goon with Cape"
+	icon_living = "Goon with Cape"
+	icon_dead = "Goon with Cape"
+
+	should_show_name = FALSE
+
+/mob/living/simple_animal/cutscene_character/partisan/alt1
+	icon_state = "Goon with Cape 2"
+	icon_living = "Goon with Cape 2"
+	icon_dead = "Goon with Cape 2"
+/mob/living/simple_animal/cutscene_character/partisan/alt1/s2ep1/part3_1
+/mob/living/simple_animal/cutscene_character/partisan/alt2
+	icon_state = "Goon with Cape 3"
+	icon_living = "Goon with Cape 3"
+	icon_dead = "Goon with Cape 3"
+/mob/living/simple_animal/cutscene_character/partisan/alt2/s2ep1/part3_1
+/mob/living/simple_animal/cutscene_character/partisan/alt3
+	icon_state = "Goon with Cape 4"
+	icon_living = "Goon with Cape 4"
+	icon_dead = "Goon with Cape 4"
+/mob/living/simple_animal/cutscene_character/partisan/alt3/s2ep1/part3_1
+/mob/living/simple_animal/cutscene_character/partisan/alt4
+	icon_state = "Goon with Cape 5"
+	icon_living = "Goon with Cape 5"
+	icon_dead = "Goon with Cape 5"
+/mob/living/simple_animal/cutscene_character/partisan/alt4/s2ep1/part3_1

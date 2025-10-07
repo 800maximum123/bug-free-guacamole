@@ -43,6 +43,12 @@
 	spawn(950 SECONDS)
 		animate(src, 3 SECOND, alpha = 0)
 
+	spawn(1000 SECONDS)
+		animate(src, 3 SECOND, alpha = 255)
+
+	spawn(1008 SECONDS)
+		animate(src, 3 SECOND, alpha = 0)
+
 /proc/time_of_death()
 	var/novel_message = "ВРЕМЯ СМЕРТИ..."
 	var/colored = COLOR_SABER_RED

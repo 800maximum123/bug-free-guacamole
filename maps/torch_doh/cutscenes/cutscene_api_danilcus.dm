@@ -7,6 +7,8 @@
 #define NEW_CUTSCENE(type) CALL_GLOB(create_cutscene, type, ckey2body)
 #define START_CUTSCENE(datum) CALL_GLOB(start_cutscene, datum)
 #define MOVE_ACTOR(actor, direction) CALL(src, move_actor, actor, direction)
+#define MAKE_ACTOR_TALK(actor, text) CALL(src, make_actor_talk, actor, text)
+#define ROTATE_ACTOR(actor, direction) CALL(src, rotate_actor, actor, direction)
 
 /proc/start_cutscene(cutscene_type, list/old_viewers, ...)
 	return new cutscene_type(arglist(args.Copy(2)))
@@ -139,7 +141,13 @@
 			animate(viewer, arglist(args))
 
 /datum/modular_cutscene/proc/move_actor(mob/living/actor, direction)
-	return actor.IMove(get_step(get_turf(actor), direction))
+	return actor.forceMove(get_step(get_turf(actor), direction))
+
+/datum/modular_cutscene/proc/make_actor_talk(mob/living/actor, text = "anything")
+	return actor.ISay(text)
+
+/datum/modular_cutscene/proc/rotate_actor(mob/living/actor, direction)
+	return actor.set_dir(direction)
 
 /datum/modular_cutscene/Destroy()
 	for(var/ckey in ckey2body)
