@@ -179,6 +179,9 @@ var/global/list/channel_to_radio_key = new
 	return html_encode(message)
 
 /mob/living/say(message, datum/language/speaking = null, verb="says", alt_name="", whispering)
+	if(!can_speak)
+		return
+
 	if(client)
 		if(client.prefs.muted & MUTE_IC)
 			to_chat(src, SPAN_WARNING("You cannot speak in IC (Muted)."))

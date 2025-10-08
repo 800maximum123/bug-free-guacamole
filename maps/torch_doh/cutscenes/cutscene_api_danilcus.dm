@@ -60,7 +60,7 @@
 	)
 	/// Список активных скибиди камерамэнов, участвующих в сцене
 	var/list/camera_mobs = list(
-		/* /mob/cutscene_pov, */
+		/* /mob/living/cutscene_pov, */
 	)
 	/// Список действий, которая должна произвести катсцена. !Необходимо заполнять его внутри прока /New()!
 	var/list/actions
@@ -140,7 +140,7 @@
 
 	var/turf/target_turf = get_turf(GLOB.cutscene_cameras[camera_id])
 	for(var/ckey in ckey2body)
-		var/mob/new_camera = new /mob/cutscene_pov(target_turf)
+		var/mob/new_camera = new /mob/living/cutscene_pov(target_turf)
 		new_camera.ckey = ckey
 		camera_mobs += new_camera
 
@@ -153,7 +153,7 @@
 
 	for(var/mob/viewer in target_mobs)
 		if(viewer.client)
-			animate(viewer, arglist(args))
+			animate(viewer.client, arglist(args))
 
 /datum/modular_cutscene/proc/move_actor(mob/living/actor, direction)
 	return actor.forceMove(get_step(get_turf(actor), direction))
@@ -186,10 +186,17 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 	alpha = 0
 	GLOB.cutscene_cameras[camera_id] = src
 
-/mob/cutscene_pov
+/mob
+	var/can_speak = TRUE
+
+/mob/living/cutscene_pov
 	stunned = INFINITY
 	paralysis = INFINITY
 	anchored = TRUE
 	density = FALSE
+	can_speak = FALSE
+	status_flags = GODMODE
+	mouse_opacity = MOUSE_OPACITY_UNCLICKABLE
+
 
 // PEAK cynema x3
