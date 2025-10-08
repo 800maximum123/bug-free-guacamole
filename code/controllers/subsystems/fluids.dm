@@ -4,7 +4,7 @@ SUBSYSTEM_DEF(fluids)
 	flags = SS_NO_INIT
 
 	var/next_water_act = 0
-	var/water_act_delay = 15 // A bit longer than machines.
+	var/water_act_delay = 15 SECONDS
 
 	var/list/active_fluids = list()
 	var/list/water_sources = list()
