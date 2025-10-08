@@ -80,7 +80,7 @@
 		return FALSE
 
 	var/new_fish_type = pickweight(fish_types)
-	var/mob/fish = new new_fish_type(src)
+	var/mob/fish = new new_fish_type(get_turf(src))
 
 	fish.kill_health()
 	fish.update_icon()
