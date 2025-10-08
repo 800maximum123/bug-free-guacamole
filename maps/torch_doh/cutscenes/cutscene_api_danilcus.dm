@@ -6,6 +6,12 @@
 
 #define TP_CAMERA(id) CALL(src, teleport_camera, id)
 #define MOVE_CAMERA(args...) CALL(src, move_camera, ##args)
+#define ADD_BLACKSCREEN(args...) CALL(src, add_blackscreen, ##args)
+#define ADD_BLACKSCREEN_NOFADE(args...) CALL(src, add_blackscreen_nofade, ##args)
+#define REMOVE_BLACKSCREEN(args...) CALL(src, remove_blackscreen, ##args)
+#define REMOVE_BLACKSCREEN_NOFADE(args...) CALL(src, remove_blackscreen_nofade, ##args)
+#define REMOVE_BLACKSCREEN_FAST(args...) CALL(src, remove_blackscreen_fast, ##args)
+#define REMOVE_BLACKSCREEN_NOFADE_FAST(args...) CALL(src, remove_blackscreen_nofade_fast, ##args)
 #define NEW_CUTSCENE(type) CALL_GLOB(create_cutscene, type, ckey2body)
 #define START_CUTSCENE(datum) CALL_GLOB(start_cutscene, datum)
 #define MOVE_ACTOR(actor, direction) CALL(src, move_actor, actor, direction)
@@ -170,6 +176,89 @@
 
 /mob/living/proc/change_visuals(new_state)
 	icon_state = new_state
+
+/datum/modular_cutscene/proc/add_blackscreen(...)
+	var/list/target_mobs
+	if(length(camera_mobs))
+		target_mobs = camera_mobs
+	else
+		target_mobs = list_values(ckey2body.Copy())
+
+	for(var/mob/viewer in target_mobs)
+		if(viewer.client)
+			viewer.overlay_fullscreen("fadescreen", /obj/screen/fullscreen/fd/blackout/animated_better)
+
+/datum/modular_cutscene/proc/remove_blackscreen(...)
+	var/list/target_mobs
+	if(length(camera_mobs))
+		target_mobs = camera_mobs
+	else
+		target_mobs = list_values(ckey2body.Copy())
+
+	for(var/mob/viewer in target_mobs)
+		for(var/obj/screen/fullscreen/fd/blackout/animated_better/A in viewer.client.screen)
+			A.remove_blackscreen()
+			spawn(3 SECONDS)
+				viewer.clear_fullscreen("fadescreen")
+
+/datum/modular_cutscene/proc/remove_blackscreen_fast(...)
+	var/list/target_mobs
+	if(length(camera_mobs))
+		target_mobs = camera_mobs
+	else
+		target_mobs = list_values(ckey2body.Copy())
+
+	for(var/mob/viewer in target_mobs)
+		for(var/obj/screen/fullscreen/fd/blackout/animated_better/A in viewer.client.screen)
+			viewer.clear_fullscreen("fadescreen")
+
+/datum/modular_cutscene/proc/add_blackscreen_nofade(...)
+	var/list/target_mobs
+	if(length(camera_mobs))
+		target_mobs = camera_mobs
+	else
+		target_mobs = list_values(ckey2body.Copy())
+
+	for(var/mob/viewer in target_mobs)
+		if(viewer.client)
+			viewer.overlay_fullscreen("blackscreen", /obj/screen/fullscreen/fd/blackout/animated_better/nofade)
+
+/datum/modular_cutscene/proc/remove_blackscreen_nofade(...)
+	var/list/target_mobs
+	if(length(camera_mobs))
+		target_mobs = camera_mobs
+	else
+		target_mobs = list_values(ckey2body.Copy())
+
+	for(var/mob/viewer in target_mobs)
+		for(var/obj/screen/fullscreen/fd/blackout/animated_better/nofade/A in viewer.client.screen)
+			A.remove_blackscreen()
+			spawn(3 SECONDS)
+				viewer.clear_fullscreen("blackscreen")
+
+/datum/modular_cutscene/proc/remove_blackscreen_nofade_fast(...)
+	var/list/target_mobs
+	if(length(camera_mobs))
+		target_mobs = camera_mobs
+	else
+		target_mobs = list_values(ckey2body.Copy())
+
+	for(var/mob/viewer in target_mobs)
+		for(var/obj/screen/fullscreen/fd/blackout/animated_better/nofade/A in viewer.client.screen)
+			viewer.clear_fullscreen("blackscreen")
+
+/obj/screen/fullscreen/fd/blackout/animated_better
+	alpha = 0
+
+/obj/screen/fullscreen/fd/blackout/animated_better/nofade
+	alpha = 255
+
+/obj/screen/fullscreen/fd/blackout/animated_better/Initialize()
+	. = ..()
+	animate(src, 3 SECOND, alpha = 255)
+
+/obj/screen/fullscreen/fd/blackout/animated_better/proc/remove_blackscreen()
+	animate(src, 3 SECOND, alpha = 0)
 
 /datum/modular_cutscene/proc/do_nothing()
 	return

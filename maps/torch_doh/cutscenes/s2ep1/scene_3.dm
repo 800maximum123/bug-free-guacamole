@@ -14,7 +14,11 @@
 
 /datum/modular_cutscene/s2ep1sc3/setup_actions(...)
 	actions = list(
-		TP_CAMERA("Сцена 3") = 3 SECONDS,
+		ADD_BLACKSCREEN() = 6 SECONDS,
+		REMOVE_BLACKSCREEN_FAST() = 0.2 SECONDS,
+		TP_CAMERA("Сцена 3"),
+		ADD_BLACKSCREEN_NOFADE() = 1 SECONDS,
+		REMOVE_BLACKSCREEN_NOFADE() = 1 SECONDS,
 		MOVE_ACTOR(actor("Неизвестный 2"), SOUTH) = 2 SECONDS,
 
 		MAKE_ACTOR_TALK(actor("Неизвестный 3"), "!запихивает самокрутку в щель шлема."),
@@ -29,14 +33,16 @@
 
 		MAKE_ACTOR_TALK(actor("Неизвестный 2"), "Капитан?"),
 
-		CHANGE_ACTOR_VISUALS(actor("Рифлер"), "Leader 3") = 4 SECONDS,
+		CHANGE_ACTOR_VISUALS(actor("Рифлер"), "Leader 3") = 2 SECONDS,
 		MAKE_ACTOR_TALK(actor("Рифлер"), "Перекур окончен.") = 4 SECONDS,
-		MAKE_ACTOR_TALK(actor("Рифлер"), "Мы выдвигаемся немедленно."),
 		ROTATE_ACTOR(actor("Рифлер"), NORTH),
 
 		ROTATE_ACTOR(actor("Неизвестный 2"), WEST),
 
 		MOVE_ACTOR(actor("Рифлер"), NORTH) = 1 SECONDS,
+		MAKE_ACTOR_TALK(actor("Рифлер"), "Выдвигаемся немедленно."),
+
+		ADD_BLACKSCREEN(),
 
 		MOVE_ACTOR(actor("Рифлер"), NORTH) = 1 SECONDS,
 		MOVE_ACTOR(actor("Рифлер"), NORTH) = 5 SECONDS,
