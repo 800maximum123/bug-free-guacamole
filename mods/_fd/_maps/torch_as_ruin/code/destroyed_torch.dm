@@ -5,20 +5,6 @@
 	sector_flags = OVERMAP_SECTOR_KNOWN
 	icon_state = "ship"
 	initial_generic_waypoints = list()
-	var/list/lightmain
-
-/obj/overmap/visitable/sector/destroyed_torch/Initialize()
-	..()
-
-	lightmain = block(locate(world.maxx, world.maxy, max(map_z)), locate(1, 1, min(map_z)))
-	for(var/atom/A as anything in lightmain)
-		if(!istype(A.loc, /area/dtorch/deck4/outer) || !istype(A, /turf/) || A.density)
-			lightmain -= A
-	update_daynight()
-
-/obj/overmap/visitable/sector/destroyed_torch/proc/update_daynight(light = 2, light_color_m = "#f7edb6")
-	for(var/turf/T as anything in lightmain)
-		T.set_light(1, light, l_color = light_color_m)
 
 /datum/map_template/ruin/away_site/destroyed_torch
 	name = "SUNKED TORCH (Campaign)"

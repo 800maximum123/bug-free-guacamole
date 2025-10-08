@@ -10,6 +10,7 @@
 #define START_CUTSCENE(datum) CALL_GLOB(start_cutscene, datum)
 #define MOVE_ACTOR(actor, direction) CALL(src, move_actor, actor, direction)
 #define MAKE_ACTOR_TALK(actor, text) CALL(src, make_actor_talk, actor, text)
+#define CHANGE_ACTOR_VISUALS(actor, icon_name) CALL(src, change_actor_visuals, actor, icon_name)
 #define ROTATE_ACTOR(actor, direction) CALL(src, rotate_actor, actor, direction)
 
 /proc/start_cutscene(cutscene_type, list/old_viewers, ...)
@@ -164,6 +165,12 @@
 /datum/modular_cutscene/proc/rotate_actor(mob/living/actor, direction)
 	return actor.set_dir(direction)
 
+/datum/modular_cutscene/proc/change_actor_visuals(mob/living/actor, icon_name = "anything")
+	return actor.change_visuals(icon_name)
+
+/mob/living/proc/change_visuals(new_state)
+	icon_state = new_state
+
 /datum/modular_cutscene/proc/do_nothing()
 	return
 
@@ -191,7 +198,7 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 
 /mob/living/cutscene_pov
 	stunned = INFINITY
-	paralysis = INFINITY
+//	paralysis = INFINITY
 	anchored = TRUE
 	density = FALSE
 	can_speak = FALSE
