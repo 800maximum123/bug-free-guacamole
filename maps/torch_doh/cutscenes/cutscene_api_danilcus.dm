@@ -2,25 +2,13 @@
 #define CALL_TYPE(target, type, proc, args...) new Callback(target, TYPE_PROC_REF(type, proc), ##args)
 #define CALL_GLOB(proc, args...) new Callback(GLOBAL_PROC, GLOBAL_PROC_REF(proc), ##args)
 
-#define DO_NOTHING CALL(src, do_nothing)
-
-#define TP_CAMERA(id) CALL(src, teleport_camera, id)
-#define MOVE_CAMERA(move_by_x, move_by_y, time_frame) CALL(src, move_camera, move_by_x, move_by_y, time_frame)
-#define ADD_BLACKSCREEN(args...) CALL(src, add_blackscreen, ##args)
-#define ADD_BLACKSCREEN_NOFADE(args...) CALL(src, add_blackscreen_nofade, ##args)
-#define REMOVE_BLACKSCREEN(args...) CALL(src, remove_blackscreen, ##args)
-#define REMOVE_BLACKSCREEN_NOFADE(args...) CALL(src, remove_blackscreen_nofade, ##args)
-#define REMOVE_BLACKSCREEN_FAST(args...) CALL(src, remove_blackscreen_fast, ##args)
-#define REMOVE_BLACKSCREEN_NOFADE_FAST(args...) CALL(src, remove_blackscreen_nofade_fast, ##args)
-#define NEW_CUTSCENE(type) CALL_GLOB(create_cutscene, type, ckey2body)
-#define START_CUTSCENE(datum) CALL_GLOB(start_cutscene, datum)
-#define MOVE_ACTOR(actor, direction) CALL(src, move_actor, actor, direction)
-#define MAKE_ACTOR_TALK(actor, text) CALL(src, make_actor_talk, actor, text)
-#define CHANGE_ACTOR_VISUALS(actor, icon_name) CALL(src, change_actor_visuals, actor, icon_name)
-#define ROTATE_ACTOR(actor, direction) CALL(src, rotate_actor, actor, direction)
-
+#define START_CUTSCENE(type) CALL_GLOB(start_cutscene, type, ckey2body)
 /proc/start_cutscene(cutscene_type, list/old_viewers, ...)
 	return new cutscene_type(arglist(args.Copy(2)))
+
+#define DO_NOTHING CALL_GLOB(src, do_nothing)
+/proc/do_nothing()
+	return
 
 		///////////////////////
 		// Катсцены дани 101 //
@@ -61,26 +49,30 @@
 //	В конце, мы активируем новую катсцену, в которую для удобства перенесли часть этой.
 
 /datum/modular_cutscene
-	/// Список сикеев участников и их оригинальных персонажей
+	/// Список сикеев участников, и их оригинальных персонажей.
 	var/list/ckey2body = list(
 		/* "ckey" = /mob, */
 	)
-	/// Список активных скибиди камерамэнов, участвующих в сцене
+	/// Список активных скибиди камерамэнов, участвующих в сцене.
 	var/list/camera_mobs = list(
 		/* /mob/living/cutscene_pov, */
 	)
 	/// Список действий, которая должна произвести катсцена. !Необходимо заполнять его внутри прока /New()!
 	var/list/actions
-	/// Должны ли мы ждать, пока эта катсцена проиграется. Полезно, когда одна катсцена вызывает другую
+	/// Должны ли мы ждать, пока эта катсцена проиграется до коца. !Полезно, когда одна катсцена вызывает другую!
 	var/wait_for = TRUE
 
 /datum/modular_cutscene/New(list/old_viewers, ...)
 	. = ..()
+	if(actions)
+		message_admins("Список actions должен быть заполнен через функцию setup_actions(), а не прописан в сабтайпе катсцены!")
+
 	if(old_viewers)
 		ckey2body = old_viewers.Copy()
 	else
 		for(var/client/viewer in GLOB.clients)
 			ckey2body[viewer.ckey] = viewer.mob
+			viewer.mob.no_ssd = TRUE
 
 	var/list/arguments = args.Copy(2)
 
@@ -96,6 +88,7 @@
 			M.ckey = ckey
 			continue
 		viewer.ckey = ckey
+		viewer.no_ssd = FALSE
 	ckey2body.Cut()
 
 	for(var/camera in camera_mobs)
@@ -110,6 +103,10 @@
 	)
 
 /datum/modular_cutscene/proc/play(...)
+	if(!actions)
+		message_admins("Катсцена должна иметь у себя заполненный список actions, установленный в setup_actions()")
+		CRASH("Катсцена должна иметь у себя заполненный список actions, установленный в setup_actions()")
+
 	if(!wait_for)
 		set waitfor = FALSE
 
@@ -128,140 +125,6 @@
 			sleep(next_sleep_delay)
 
 	invoke_async(CALL_GLOB(qdel, src))
-
-/datum/modular_cutscene/proc/actor(id)
-	if(!GLOB.cutscene_actors.Find(id))
-		message_admins("АКТЁР \"[id]\" В [type] ОТСУТСТВУЕТ, ПРОПУСКАЮ")
-		return pick(GLOB.alive_mobs)
-	return GLOB.cutscene_actors[id]
-
-/datum/modular_cutscene/proc/teleport_camera(camera_id)
-	if(!GLOB.cutscene_cameras.Find(camera_id))
-		message_admins("КАМЕРА \"[camera_id]\" В [type] ОТСУТСТВУЕТ, ПРОПУСКАЮ")
-		return
-
-	for(var/camera in camera_mobs)
-		qdel(camera)
-
-	camera_mobs.Cut()
-
-	var/turf/target_turf = get_turf(GLOB.cutscene_cameras[camera_id])
-	for(var/ckey in ckey2body)
-		var/mob/new_camera = new /mob/living/cutscene_pov(target_turf)
-		new_camera.ckey = ckey
-		camera_mobs += new_camera
-
-/datum/modular_cutscene/proc/move_camera(move_by_x, move_by_y, time_frame)
-	var/list/target_mobs
-	if(length(camera_mobs))
-		target_mobs = camera_mobs
-	else
-		target_mobs = list_values(ckey2body.Copy())
-
-	for(var/mob/viewer in target_mobs)
-		if(viewer.client)
-			animate(viewer.client, pixel_y = move_by_y, pixel_x = move_by_x, time = time_frame, easing = SINE_EASING|EASE_IN)
-
-/datum/modular_cutscene/proc/move_actor(mob/living/actor, direction)
-	return actor.forceMove(get_step(get_turf(actor), direction))
-
-/datum/modular_cutscene/proc/make_actor_talk(mob/living/actor, text = "anything")
-	return actor.ISay(text)
-
-/datum/modular_cutscene/proc/rotate_actor(mob/living/actor, direction)
-	return actor.set_dir(direction)
-
-/datum/modular_cutscene/proc/change_actor_visuals(mob/living/actor, icon_name = "anything")
-	return actor.change_visuals(icon_name)
-
-/mob/living/proc/change_visuals(new_state)
-	icon_state = new_state
-
-/datum/modular_cutscene/proc/add_blackscreen(...)
-	var/list/target_mobs
-	if(length(camera_mobs))
-		target_mobs = camera_mobs
-	else
-		target_mobs = list_values(ckey2body.Copy())
-
-	for(var/mob/viewer in target_mobs)
-		if(viewer.client)
-			viewer.overlay_fullscreen("fadescreen", /obj/screen/fullscreen/fd/blackout/animated_better)
-
-/datum/modular_cutscene/proc/remove_blackscreen(...)
-	var/list/target_mobs
-	if(length(camera_mobs))
-		target_mobs = camera_mobs
-	else
-		target_mobs = list_values(ckey2body.Copy())
-
-	for(var/mob/viewer in target_mobs)
-		for(var/obj/screen/fullscreen/fd/blackout/animated_better/A in viewer.client.screen)
-			A.remove_blackscreen()
-			spawn(3 SECONDS)
-				viewer.clear_fullscreen("fadescreen")
-
-/datum/modular_cutscene/proc/remove_blackscreen_fast(...)
-	var/list/target_mobs
-	if(length(camera_mobs))
-		target_mobs = camera_mobs
-	else
-		target_mobs = list_values(ckey2body.Copy())
-
-	for(var/mob/viewer in target_mobs)
-		for(var/obj/screen/fullscreen/fd/blackout/animated_better/A in viewer.client.screen)
-			viewer.clear_fullscreen("fadescreen")
-
-/datum/modular_cutscene/proc/add_blackscreen_nofade(...)
-	var/list/target_mobs
-	if(length(camera_mobs))
-		target_mobs = camera_mobs
-	else
-		target_mobs = list_values(ckey2body.Copy())
-
-	for(var/mob/viewer in target_mobs)
-		if(viewer.client)
-			viewer.overlay_fullscreen("blackscreen", /obj/screen/fullscreen/fd/blackout/animated_better/nofade)
-
-/datum/modular_cutscene/proc/remove_blackscreen_nofade(...)
-	var/list/target_mobs
-	if(length(camera_mobs))
-		target_mobs = camera_mobs
-	else
-		target_mobs = list_values(ckey2body.Copy())
-
-	for(var/mob/viewer in target_mobs)
-		for(var/obj/screen/fullscreen/fd/blackout/animated_better/nofade/A in viewer.client.screen)
-			A.remove_blackscreen()
-			spawn(3 SECONDS)
-				viewer.clear_fullscreen("blackscreen")
-
-/datum/modular_cutscene/proc/remove_blackscreen_nofade_fast(...)
-	var/list/target_mobs
-	if(length(camera_mobs))
-		target_mobs = camera_mobs
-	else
-		target_mobs = list_values(ckey2body.Copy())
-
-	for(var/mob/viewer in target_mobs)
-		for(var/obj/screen/fullscreen/fd/blackout/animated_better/nofade/A in viewer.client.screen)
-			viewer.clear_fullscreen("blackscreen")
-
-/obj/screen/fullscreen/fd/blackout/animated_better
-	alpha = 0
-
-/obj/screen/fullscreen/fd/blackout/animated_better/nofade
-	alpha = 255
-
-/obj/screen/fullscreen/fd/blackout/animated_better/Initialize()
-	. = ..()
-	animate(src, 3 SECOND, alpha = 255)
-
-/obj/screen/fullscreen/fd/blackout/animated_better/proc/remove_blackscreen()
-	animate(src, 3 SECOND, alpha = 0)
-
-/datum/modular_cutscene/proc/do_nothing()
-	return
 
 GLOBAL_LIST_EMPTY(cutscene_actors)
 
@@ -287,12 +150,104 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 
 /mob/living/cutscene_pov
 	stunned = INFINITY
-//	paralysis = INFINITY
 	anchored = TRUE
 	density = FALSE
 	can_speak = FALSE
 	status_flags = GODMODE
 	mouse_opacity = MOUSE_OPACITY_UNCLICKABLE
 
+/datum/modular_cutscene/proc/actor(id)
+	if(!GLOB.cutscene_actors.Find(id))
+		message_admins("АКТЁР \"[id]\" В [type] ОТСУТСТВУЕТ, ПРОПУСКАЮ")
+		return pick(GLOB.alive_mobs)
+	return GLOB.cutscene_actors[id]
+
+#define TP_CAMERA(id) CALL(src, teleport_camera, id)
+/datum/modular_cutscene/proc/teleport_camera(camera_id)
+	if(!GLOB.cutscene_cameras.Find(camera_id))
+		message_admins("КАМЕРА \"[camera_id]\" В [type] ОТСУТСТВУЕТ, ПРОПУСКАЮ")
+		return
+
+	for(var/camera in camera_mobs)
+		qdel(camera)
+
+	camera_mobs.Cut()
+
+	var/turf/target_turf = get_turf(GLOB.cutscene_cameras[camera_id])
+	for(var/ckey in ckey2body)
+		var/mob/new_camera = new /mob/living/cutscene_pov(target_turf)
+		new_camera.ckey = ckey
+		camera_mobs += new_camera
+
+#define MOVE_CAMERA(move_x, move_y, duration, easing) CALL(src, move_camera, move_x, move_y, duration, easing)
+/datum/modular_cutscene/proc/move_camera(move_x, move_y, duration, easing)
+	var/list/target_mobs
+	if(length(camera_mobs))
+		target_mobs = camera_mobs
+	else
+		target_mobs = list_values(ckey2body.Copy())
+
+	move_x *= 32
+	move_y *= 32
+
+	for(var/mob/viewer in target_mobs)
+		if(viewer.client)
+			animate(viewer.client, pixel_y = move_y, pixel_x = move_x, time = duration, easing = easing)
+
+#define MOVE_ACTOR(actor, direction) CALL(src, move_actor, actor, direction)
+/datum/modular_cutscene/proc/move_actor(mob/living/actor, direction)
+	return actor.forceMove(get_step(get_turf(actor), direction))
+
+#define TALK_ACTOR(actor, text) CALL(src, make_actor_talk, actor, text)
+/datum/modular_cutscene/proc/make_actor_talk(mob/living/actor, text = "anything")
+	return actor.ISay(text)
+
+#define TURN_ACTOR(actor, direction) CALL(src, turn_actor, actor, direction)
+/datum/modular_cutscene/proc/turn_actor(mob/living/actor, direction)
+	return actor.set_dir(direction)
+
+#define CHANGE_ACTOR_VISUALS(actor, icon_name) CALL(src, change_actor_visuals, actor, icon_name)
+/datum/modular_cutscene/proc/change_actor_visuals(mob/living/actor, icon_name = "anything")
+	return actor.change_visuals(icon_name)
+
+/mob/living/proc/change_visuals(new_state)
+	icon_state = new_state
+
+#define ADD_SCREEN(fullscreen) CALL(src, add_fullscreen, #fullscreen)
+/datum/modular_cutscene/proc/add_fullscreen(fullscreen)
+	var/list/target_mobs
+	if(length(camera_mobs))
+		target_mobs = camera_mobs
+	else
+		target_mobs = list_values(ckey2body.Copy())
+
+	for(var/mob/viewer in target_mobs)
+		viewer.overlay_fullscreen(fullscreen, text2path("/obj/screen/fullscreen/fd[fullscreen]"))
+
+#define REMOVE_SCREEN(fullscreen, time) CALL(src, remove_fullscreen, #fullscreen, time)
+/datum/modular_cutscene/proc/remove_fullscreen(fullscreen, time)
+	var/list/target_mobs
+	if(length(camera_mobs))
+		target_mobs = camera_mobs
+	else
+		target_mobs = list_values(ckey2body.Copy())
+
+	for(var/mob/viewer in target_mobs)
+		viewer.clear_fullscreen(fullscreen, time)
+
+/// Фуллскрины
+
+/obj/screen/fullscreen/fd/blackout/animated_better
+	alpha = 0
+
+/obj/screen/fullscreen/fd/blackout/animated_better/nofade
+	alpha = 255
+
+/obj/screen/fullscreen/fd/blackout/animated_better/Initialize()
+	. = ..()
+	animate(src, 3 SECOND, alpha = 255)
+
+/obj/screen/fullscreen/fd/blackout/animated_better/proc/remove_blackscreen()
+	animate(src, 3 SECOND, alpha = 0)
 
 // PEAK cynema x3
