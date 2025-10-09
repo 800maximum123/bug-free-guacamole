@@ -4,7 +4,8 @@
 
 #define START_CUTSCENE(type) CALL_GLOB(start_cutscene, type, ckey2body)
 /proc/start_cutscene(cutscene_type, list/old_viewers, ...)
-	return new cutscene_type(arglist(args.Copy(2)))
+	var/datum/modular_cutscene/scene = new cutscene_type(arglist(args.Copy(2)))
+	scene.play(arglist(args.Copy(3)))
 
 #define DO_NOTHING CALL_GLOB(src, do_nothing)
 /proc/do_nothing()
@@ -77,27 +78,9 @@
 	for(var/ckey in ckey2body)
 		camera_mobs += ckey2body[ckey]
 
-	var/list/arguments = args.Copy(2)
-
-	setup_actions(arglist(arguments))
-	play(arglist(arguments))
+	setup_actions(arglist(args.Copy(2)))
 
 /datum/modular_cutscene/Destroy()
-	for(var/ckey in ckey2body)
-		var/mob/viewer = ckey2body[ckey]
-		if(QDELETED(viewer))
-			message_admins("НЕ МОГУ ОБНАРУЖИТЬ ОРИГИНАЛЬНОГО МОБА У [ckey], ОТПРАВЛЯЮ ЕГО В ЛОББИ...")
-			var/mob/new_player/M = new /mob/new_player()
-			M.ckey = ckey
-			continue
-		viewer.ckey = ckey
-		viewer.no_ssd = FALSE
-	ckey2body.Cut()
-
-	for(var/camera in camera_mobs)
-		qdel(camera)
-	camera_mobs.Cut()
-
 	. = ..()
 
 /datum/modular_cutscene/proc/setup_actions(...)
@@ -196,7 +179,6 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 	if(reset)
 		actor.pixel_x = 0
 		actor.pixel_y = 0
-
 	else
 		animate(actor, pixel_y = shift_y, pixel_x = shift_x, time = duration, easing = easing, flags = flags)
 
@@ -238,6 +220,21 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 #define COPY_APPEARANCE(actor, target) CALL(src, copy_appearance, actor, target)
 /datum/modular_cutscene/proc/copy_appearance(mob/living/actor, mob/living/target)
 
+
+#define RETURN_VIEWERS CALL(src, return_viewers)
+/datum/modular_cutscene/proc/return_viewers()
+	for(var/ckey in ckey2body)
+		var/mob/viewer = ckey2body[ckey]
+		if(QDELETED(viewer))
+			message_admins("НЕ МОГУ ОБНАРУЖИТЬ ОРИГИНАЛЬНОГО МОБА У [ckey], ОТПРАВЛЯЮ ЕГО В ЛОББИ...")
+			var/mob/new_player/M = new /mob/new_player()
+			M.ckey = ckey
+			continue
+		viewer.ckey = ckey
+		viewer.no_ssd = FALSE
+
+	for(var/camera in camera_mobs)
+		qdel(camera)
 
 /// Фуллскрины
 
