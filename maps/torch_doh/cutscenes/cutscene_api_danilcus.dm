@@ -5,7 +5,7 @@
 #define DO_NOTHING CALL(src, do_nothing)
 
 #define TP_CAMERA(id) CALL(src, teleport_camera, id)
-#define MOVE_CAMERA(args...) CALL(src, move_camera, ##args)
+#define MOVE_CAMERA(move_by_x, move_by_y, time_frame) CALL(src, move_camera, move_by_x, move_by_y, time_frame)
 #define ADD_BLACKSCREEN(args...) CALL(src, add_blackscreen, ##args)
 #define ADD_BLACKSCREEN_NOFADE(args...) CALL(src, add_blackscreen_nofade, ##args)
 #define REMOVE_BLACKSCREEN(args...) CALL(src, remove_blackscreen, ##args)
@@ -151,7 +151,7 @@
 		new_camera.ckey = ckey
 		camera_mobs += new_camera
 
-/datum/modular_cutscene/proc/move_camera(...)
+/datum/modular_cutscene/proc/move_camera(move_by_x, move_by_y, time_frame)
 	var/list/target_mobs
 	if(length(camera_mobs))
 		target_mobs = camera_mobs
@@ -160,7 +160,7 @@
 
 	for(var/mob/viewer in target_mobs)
 		if(viewer.client)
-			animate(viewer.client, arglist(args))
+			animate(viewer.client, pixel_y = move_by_y, pixel_x = move_by_x, time = time_frame, easing = SINE_EASING|EASE_IN)
 
 /datum/modular_cutscene/proc/move_actor(mob/living/actor, direction)
 	return actor.forceMove(get_step(get_turf(actor), direction))
