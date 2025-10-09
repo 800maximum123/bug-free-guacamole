@@ -55,7 +55,7 @@
 	)
 	/// Список активных скибиди камерамэнов, участвующих в сцене.
 	var/list/camera_mobs = list(
-		/* /mob/living/cutscene_pov, */
+		/* /mob/living, */
 	)
 	/// Список действий, которая должна произвести катсцена. !Необходимо заполнять его внутри прока /New()!
 	var/list/actions
@@ -73,6 +73,9 @@
 		for(var/client/viewer in GLOB.clients)
 			ckey2body[viewer.ckey] = viewer.mob
 			viewer.mob.no_ssd = TRUE
+
+	for(var/ckey in ckey2body)
+		camera_mobs += ckey2body[ckey]
 
 	var/list/arguments = args.Copy(2)
 
@@ -181,16 +184,10 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 
 #define MOVE_CAMERA(move_x, move_y, duration, easing) CALL(src, move_camera, move_x, move_y, duration, easing)
 /datum/modular_cutscene/proc/move_camera(move_x, move_y, duration, easing)
-	var/list/target_mobs
-	if(length(camera_mobs))
-		target_mobs = camera_mobs
-	else
-		target_mobs = list_values(ckey2body.Copy())
-
 	move_x *= 32
 	move_y *= 32
 
-	for(var/mob/viewer in target_mobs)
+	for(var/mob/viewer as() in camera_mobs)
 		if(viewer.client)
 			animate(viewer.client, pixel_y = move_y, pixel_x = move_x, time = duration, easing = easing)
 
@@ -219,34 +216,28 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 /datum/modular_cutscene/proc/turn_actor(mob/living/actor, direction)
 	return actor.set_dir(direction)
 
-#define CHANGE_ACTOR_VISUALS(actor, icon_name) CALL(src, change_actor_visuals, actor, icon_name)
-/datum/modular_cutscene/proc/change_actor_visuals(mob/living/actor, icon_name = "anything")
-	return actor.change_visuals(icon_name)
-
-/mob/living/proc/change_visuals(new_state)
-	icon_state = new_state
+#define CHANGE_ACTOR_VISUALS(actor, new_state) CALL(src, change_actor_visuals, actor, new_state)
+/datum/modular_cutscene/proc/change_actor_visuals(mob/living/actor, new_state = "anything")
+	return actor.icon_state = new_state
 
 #define ADD_SCREEN(fullscreen) CALL(src, add_fullscreen, #fullscreen)
 /datum/modular_cutscene/proc/add_fullscreen(fullscreen)
-	var/list/target_mobs
-	if(length(camera_mobs))
-		target_mobs = camera_mobs
-	else
-		target_mobs = list_values(ckey2body.Copy())
-
-	for(var/mob/viewer in target_mobs)
+	for(var/mob/viewer as() in camera_mobs)
 		viewer.overlay_fullscreen(fullscreen, text2path("/obj/screen/fullscreen/fd[fullscreen]"))
 
 #define REMOVE_SCREEN(fullscreen, time) CALL(src, remove_fullscreen, #fullscreen, time)
 /datum/modular_cutscene/proc/remove_fullscreen(fullscreen, time)
-	var/list/target_mobs
-	if(length(camera_mobs))
-		target_mobs = camera_mobs
-	else
-		target_mobs = list_values(ckey2body.Copy())
-
-	for(var/mob/viewer in target_mobs)
+	for(var/mob/viewer as() in camera_mobs)
 		viewer.clear_fullscreen(fullscreen, time)
+
+#define PLAY_SOUND(sound) CALL(src, play_sound, sound)
+/datum/modular_cutscene/proc/play_sound(sound/sound)
+	for(var/viewer in camera_mobs)
+		sound_to(viewer, sound)
+
+#define COPY_APPEARANCE(actor, target) CALL(src, copy_appearance, actor, target)
+/datum/modular_cutscene/proc/copy_appearance(mob/living/actor, mob/living/target)
+
 
 /// Фуллскрины
 
