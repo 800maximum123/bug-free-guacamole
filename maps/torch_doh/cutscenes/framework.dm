@@ -120,6 +120,8 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 
 	maptext = STYLE_FDFONT_OUTLINE("[text]", 7, text_color, COLOR_WHITE)
 
+	spawn(time)
+		alpha = 0
 	QDEL_IN(src, time)
 
 /obj/screen/novel_message/start_credits/blinking

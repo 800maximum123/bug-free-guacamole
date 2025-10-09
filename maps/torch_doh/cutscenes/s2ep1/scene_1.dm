@@ -60,6 +60,28 @@
 		M.screen += visuals
 		visuals.set_text(novel_message, colored)
 
+/proc/perci_lastwords()
+	var/novel_message = "ТОЖЕ УМИРАТЬ СОБРАЛАСЬ?"
+	var/colored = "#e28d2b"
+
+	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
+	visuals.maptext_y = -90
+	visuals.maptext_x = 10
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 5 SECONDS)
+
+/proc/perci_lastwords2()
+	var/novel_message = "ДАВАЙ СО МНОЙ ХОТЬ, У МЕНЯ И ВЫПИТЬ ЕСТЬ"
+	var/colored = "#e28d2b"
+
+	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
+	visuals.maptext_y = -90
+	visuals.maptext_x = -50
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 8 SECONDS)
+
 /proc/credits_team()
 	var/novel_message = "КОМАНДА \"UNDERGROUND FRONT\""
 	var/colored = COLOR_ASSEMBLY_BLACK
@@ -150,6 +172,138 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // СКРИПТ СЦЕНЫ //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Новая катсцена порублена на более мелкие куски для более лёгкого управления. Спасибо Дане за очень удобную утилиту!
+
+/proc/fds2ep1_newcutscene()
+	start_cutscene(/datum/modular_cutscene/s2ep1sc1)
+
+/datum/modular_cutscene/s2ep1sc1/setup_actions(...)
+	actions = list(
+		ADD_SCREEN(/blackout/animated_better) = 5 SECONDS,
+		CALL_GLOB(perci_lastwords) = 6 SECONDS,
+		CALL_GLOB(perci_lastwords2) = 12 SECONDS,
+		REMOVE_SCREEN(/blackout/animated_better, 1 SECONDS) = 0.1 SECONDS,
+		TP_CAMERA("Сцена 1"),
+		ADD_SCREEN(/blackout/animated_better/nofade) = 1 SECONDS,
+		REMOVE_SCREEN(/blackout/animated_better/nofade, 3 SECONDS) = 1 SECONDS,
+
+		TALK_ACTOR(actor("Амелия - Сцена 1"), "М-мам?"),
+		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 3 SECONDS,
+
+		CALL_GLOB(credits_production),
+
+		MOVE_CAMERA(0, -96, 7 SECONDS, SINE_EASING|EASE_IN),
+
+		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 3 SECONDS,
+
+		CALL_GLOB(credits_author),
+
+		TALK_ACTOR(actor("Амелия - Сцена 1"), "...папа?"),
+		TURN_ACTOR(actor("Амелия - Сцена 1"), WEST),
+		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 3 SECONDS,
+
+		TURN_ACTOR(actor("Амелия - Сцена 1"), SOUTH),
+		TALK_ACTOR(actor("Амелия - Сцена 1"), "Кто-нибу-..."),
+		TALK_ACTOR(actor("Амелия - Сцена 1"), "!задевает выступ ногой."),
+		CHANGE_ACTOR_VISUALS(actor("Амелия - Сцена 1"), "Amelia 2"),
+		// как появится такое действие - анимировать здесь резкое пошатывание и падение лицом в пол //
+		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 9 SECONDS,
+
+		MOVE_CAMERA(0, -192, 20 SECONDS, SINE_EASING|EASE_IN),
+
+		TALK_ACTOR(actor("Амелия - Сцена 1"), "Д-должен же был..."),
+		TALK_ACTOR(actor("Амелия - Сцена 1"), "!придерживает правую руку."),
+		CHANGE_ACTOR_VISUALS(actor("Амелия - Сцена 1"), "Amelia 5"),
+		// тут мы встаём с пола и продолжаем шагать//
+		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 3 SECONDS,
+
+		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 3 SECONDS,
+		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 3 SECONDS,
+		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 3 SECONDS,
+
+		ADD_SCREEN(/blackout/animated_better),
+
+		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 3 SECONDS,
+
+		TALK_ACTOR(actor("Амелия - Сцена 1"), "...остаться х-хоть кто-то!"),
+		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 3 SECONDS,
+
+		CALL_GLOB(credits_team) = 5 SECONDS,
+		CALL_GLOB(credits_show) = 16 SECONDS,
+		REMOVE_SCREEN(/blackout/animated_better, 1 SECONDS) = 0.1 SECONDS,
+		START_CUTSCENE(/datum/modular_cutscene/s2ep1sc2)
+	)
+
+/datum/modular_cutscene/s2ep1sc2
+	actions = list()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /proc/fds2ep1_sc1()
 	var/sound/opening_minus = sound('maps/torch_doh/cutscenes/sounds/opening2_inst.ogg', repeat = 0, wait = 1, channel = GLOB.admin_sound_channel)
