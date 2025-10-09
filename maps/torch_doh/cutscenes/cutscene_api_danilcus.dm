@@ -194,6 +194,19 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 		if(viewer.client)
 			animate(viewer.client, pixel_y = move_y, pixel_x = move_x, time = duration, easing = easing)
 
+#define SHIFT_ACTOR(actor, shift_x, shift_y, duration, easing, flags, reset) CALL(src, shift_actor, actor, shift_x, shift_y, duration, easing, flags, reset)
+/datum/modular_cutscene/proc/shift_actor(mob/living/actor, shift_x, shift_y, duration, easing, flags, reset)
+	if(reset)
+		actor.pixel_x = 0
+		actor.pixel_y = 0
+
+	else
+		animate(actor, pixel_y = shift_y, pixel_x = shift_x, time = duration, easing = easing, flags = flags)
+
+#define CHANGE_ACTOR_MATRIX(actor, rotation, duration, easing, flags) CALL(src, change_actor_matrix, actor, rotation, duration, easing, flags)
+/datum/modular_cutscene/proc/change_actor_matrix(mob/living/actor, rotation, duration, easing, flags)
+	animate(actor, transform = matrix(rotation, MATRIX_ROTATE), time = duration, easing = easing, flags = flags)
+
 #define MOVE_ACTOR(actor, direction) CALL(src, move_actor, actor, direction)
 /datum/modular_cutscene/proc/move_actor(mob/living/actor, direction)
 	return actor.forceMove(get_step(get_turf(actor), direction))
