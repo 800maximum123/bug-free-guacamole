@@ -19,26 +19,26 @@
 	flags = GEAR_HAS_NO_CUSTOMIZATION
 
 /datum/gear/suit/unathi/savage_hunter
-	allowed_branches = CIVILIAN_BRANCHES
+//	allowed_branches = CIVILIAN_BRANCHES
 
 /datum/gear/head/skrell_helmet
-	allowed_roles = ARMORED_ROLES
+//	allowed_roles = ARMORED_ROLES
 
 /datum/gear/uniform/harness
 	allowed_branches = null
 
 /datum/gear/shoes/clogs_toeless
-	allowed_branches = CIVILIAN_BRANCHES
+//	allowed_branches = CIVILIAN_BRANCHES
 
 /datum/gear/shoes/flipflobsters_toeless
-	allowed_branches = CIVILIAN_BRANCHES
+//	allowed_branches = CIVILIAN_BRANCHES
 
 // Patches
 /datum/gear/accessory/cultex_patch
 	display_name = "Cultural Exchange patch"
 	path = /obj/item/clothing/accessory/solgov/cultex_patch
 	description = "A shoulder patch representing the Expeditionary Corps."
-	allowed_branches = list(/datum/mil_branch/expeditionary_corps)
+//	allowed_branches = list(/datum/mil_branch/expeditionary_corps)
 	whitelisted = list(
 		SPECIES_SKRELL,
 		SPECIES_UNATHI,

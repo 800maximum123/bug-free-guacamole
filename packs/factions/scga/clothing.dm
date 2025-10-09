@@ -623,7 +623,7 @@
 	display_name = "army beret selection"
 	description = "A beret denoting service in one of the divisions within the SCG Army."
 	path = /obj/item/clothing/head/scga/beret
-	allowed_branches = list(/datum/mil_branch/scga)
+//	allowed_branches = list(/datum/mil_branch/scga)
 
 /datum/gear/head/armyberet/New()
 	..()

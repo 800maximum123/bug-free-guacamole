@@ -3,9 +3,9 @@
 	description = "Uniform patches of the confederation navy."
 	path = /obj/item/clothing/accessory/iccgn_patch
 	flags = GEAR_HAS_SUBTYPE_SELECTION | GEAR_HAS_NO_CUSTOMIZATION
-	allowed_branches = list(
+/*	allowed_branches = list(
 		/datum/mil_branch/iccgn
-	)
+	)*/
 
 
 /obj/item/clothing/accessory/iccgn_patch

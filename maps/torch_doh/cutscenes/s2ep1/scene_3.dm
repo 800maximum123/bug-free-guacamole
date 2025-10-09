@@ -15,7 +15,7 @@
 /datum/modular_cutscene/s2ep1sc3/setup_actions(...)
 	actions = list(
 		ADD_BLACKSCREEN() = 6 SECONDS,
-		REMOVE_BLACKSCREEN_FAST() = 0.2 SECONDS,
+		REMOVE_BLACKSCREEN_FAST() = 0.1 SECONDS,
 		TP_CAMERA("Сцена 3"),
 		ADD_BLACKSCREEN_NOFADE() = 1 SECONDS,
 		REMOVE_BLACKSCREEN_NOFADE() = 1 SECONDS,
@@ -31,9 +31,9 @@
 
 		MAKE_ACTOR_TALK(actor("Неизвестный 4"), "...ты серьёзно?"),
 
-		MAKE_ACTOR_TALK(actor("Неизвестный 2"), "Капитан?"),
+		MAKE_ACTOR_TALK(actor("Неизвестный 2"), "Капитан?") = 2 SECONDS,
 
-		CHANGE_ACTOR_VISUALS(actor("Рифлер"), "Leader 3") = 2 SECONDS,
+		CHANGE_ACTOR_VISUALS(actor("Рифлер"), "Leader 3"),
 		MAKE_ACTOR_TALK(actor("Рифлер"), "Перекур окончен.") = 4 SECONDS,
 		ROTATE_ACTOR(actor("Рифлер"), NORTH),
 
