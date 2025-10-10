@@ -81,6 +81,9 @@
 	setup_actions(arglist(args.Copy(2)))
 
 /datum/modular_cutscene/Destroy()
+	for(var/camera in camera_mobs)
+		qdel(camera)
+
 	. = ..()
 
 /datum/modular_cutscene/proc/setup_actions(...)
@@ -228,9 +231,6 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 			continue
 		viewer.ckey = ckey
 		viewer.no_ssd = FALSE
-
-	for(var/camera in camera_mobs)
-		qdel(camera)
 
 /// Фуллскрины
 
