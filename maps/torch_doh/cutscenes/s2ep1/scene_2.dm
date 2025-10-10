@@ -90,9 +90,136 @@
 /obj/effect/cutscene_camera/s2ep1sc4
 	camera_id = "Сцена 4"
 
+#define CREATE_SPARK(actor) CALL(src, create_spark, actor) //используется только в этой катсцене потому сюда и вынес
+/datum/modular_cutscene/proc/create_spark(mob/living/actor)
+	var/datum/effect/spark_spread/spark_system = new /datum/effect/spark_spread()
+	spark_system.set_up(5, 0, actor)
+	spark_system.start()
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // СКРИПТ СЦЕНЫ //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/datum/modular_cutscene/s2ep1sc5/setup_actions(...)
+	actions = list(
+		TP_CAMERA("Сцена 4"),
+		ADD_SCREEN(/cinema_borders),
+		ADD_SCREEN(/blackout/animated_better/nofade) = 1 SECONDS,
+		REMOVE_SCREEN(/blackout/animated_better/nofade, 3 SECONDS) = 1 SECONDS,
+		CHANGE_ACTOR_VISUALS(actor("Дверь"), "construction"),
+		PLAY_SOUND(sound('sound/weapons/pushhiss.ogg', volume = 50)),
+		PLAY_SOUND(sound("sparks", volume = 50)),
+		CREATE_SPARK(actor("Дверь")),
+		MOVE_ACTOR(actor("Дверь"), WEST),
+		CHANGE_ACTOR_MATRIX(actor("Дверь"), 90, 0.2 SECONDS, SINE_EASING, null) = 0.2 SECONDS,
+		MOVE_ACTOR(actor("Дверь"), WEST),
+		CHANGE_ACTOR_MATRIX(actor("Дверь"), 90, 0.2 SECONDS, SINE_EASING, null) = 0.2 SECONDS,
+		MOVE_ACTOR(actor("Дверь"), WEST),
+		MOVE_ACTOR(actor("Мясо - Сцена 5"), WEST),
+		CHANGE_ACTOR_MATRIX(actor("Дверь"), 90, 0.2 SECONDS, SINE_EASING, null) = 0.2 SECONDS,
+		MOVE_ACTOR(actor("Дверь"), WEST),
+		CHANGE_ACTOR_MATRIX(actor("Дверь"), 90, 0.2 SECONDS, SINE_EASING, null) = 0.2 SECONDS,
+		MOVE_ACTOR(actor("Мясо - Сцена 5"), WEST) = 1 SECONDS,
+		MOVE_ACTOR(actor("Мясо - Сцена 5"), WEST) = 1 SECONDS,
+		TURN_ACTOR(actor("Мясо - Сцена 5"), SOUTH) = 0.5 SECONDS,
+		SHIFT_ACTOR(actor("Мясо - Сцена 5"), 0, 15, 0.5 SECONDS, SINE_EASING|EASE_IN, null),
+		MOVE_ACTOR(actor("Ная - Сцена 5"), WEST) = 1 SECONDS,
+		TALK_ACTOR(actor("Ная - Сцена 5"), "Церемониться ты не любишь, как погляжу?"),
+		MOVE_ACTOR(actor("Ная - Сцена 5"), WEST) = 1 SECONDS,
+		TURN_ACTOR(actor("Ная - Сцена 5"), SOUTH),
+		MOVE_ACTOR(actor("Ная - Сцена 5"), SOUTH) = 0.5 SECONDS,
+		TURN_ACTOR(actor("Ная - Сцена 5"), WEST) = 2 SECONDS,
+		TALK_ACTOR(actor("Ная - Сцена 5"), "!усмехается."),
+		TALK_ACTOR(actor("Ная - Сцена 5"), "А мне ещё говорили, что дионам свойственно терпение.") = 4 SECONDS,
+		TALK_ACTOR(actor("Мясо - Сцена 5"), "Уж точно не мне.") = 6 SECONDS,
+		MOVE_ACTOR(actor("Ная - Сцена 5"), WEST) = 1 SECONDS,
+		MOVE_ACTOR(actor("Ная - Сцена 5"), WEST) = 1 SECONDS,
+		MOVE_ACTOR(actor("Ная - Сцена 5"), WEST) = 1 SECONDS,
+		MOVE_ACTOR(actor("Ная - Сцена 5"), WEST) = 1 SECONDS,
+		MOVE_ACTOR(actor("Ная - Сцена 5"), WEST) = 1 SECONDS,
+		TURN_ACTOR(actor("Ная - Сцена 5"), SOUTH) = 2 SECONDS,
+		MOVE_ACTOR(actor("Ная - Сцена 5"), SOUTH) = 1 SECONDS,
+		MOVE_ACTOR(actor("Ная - Сцена 5"), SOUTH) = 1 SECONDS,
+		TURN_ACTOR(actor("Ная - Сцена 5"), WEST) = 2 SECONDS,
+		TALK_ACTOR(actor("Ная - Сцена 5"), "!наклонилась к роботу, водя взглядом по его монитору.") = 2 SECONDS,
+		TALK_ACTOR(actor("Ная - Сцена 5"), "Не думал податься в секс-индустрию?") = 6 SECONDS,
+		TALK_ACTOR(actor("Ная - Сцена 5"), "Уверена, твоим отросткам там бы точно нашли применение."),
+		SHIFT_ACTOR(actor("Ная - Сцена 5"), -15, -10, 0.5 SECONDS, SINE_EASING|EASE_IN, null) = 1 SECONDS,
+		TALK_ACTOR(actor("Мясо - Сцена 5"), "!угрюмо перекрестил корни.") = 4 SECONDS,
+		TALK_ACTOR(actor("Мясо - Сцена 5"), "Сосредоточься.") = 4 SECONDS
+	)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /proc/fds2ep1_sc2()
 	var/sound/opening_minus = sound('maps/torch_doh/cutscenes/sounds/opening2_inst.ogg', repeat = 0, wait = 1, channel = GLOB.admin_sound_channel)
@@ -310,19 +437,6 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // СКРИПТ ПЕРСОНАЖЕЙ В СЦЕНЕ //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-/datum/modular_cutscene/s2ep1sc5/setup_actions(...)
-	actions = list()
-
-
-
-
-
-
-
-
-
-
 
 /mob/living/simple_animal/cutscene_character/airlock/s2ep1/part2_1/do_stuff()
 	icon_state = "construction"

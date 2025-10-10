@@ -303,7 +303,7 @@
 		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 4 SECONDS,
 
 		CALL_GLOB(credits_team) = 5 SECONDS,
-		MOVE_CAMERA(0, 0, 0, null),
+		MOVE_CAMERA(6, 0, 0, null),
 		CALL_GLOB(credits_show) = 16 SECONDS,
 		REMOVE_SCREEN(/blackout/animated_better, 1 SECONDS) = 0.1 SECONDS,
 		START_CUTSCENE(/datum/modular_cutscene/s2ep1sc2)
