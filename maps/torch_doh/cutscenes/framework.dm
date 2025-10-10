@@ -41,8 +41,8 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 
 	if(should_show_name)
 
-		maptext_name = image(loc = src, layer = ABOVE_LIGHTING_LAYER)
-		maptext_name.plane = RUNECHAT_PLANE
+		maptext_name = image(loc = src, layer = HUD_BASE_LAYER)
+		maptext_name.plane = HUD_PLANE
 		maptext_name.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA | KEEP_APART
 		maptext_name.maptext = STYLE_SMALLFONTS_OUTLINE("<center>[name]</center>", 7, main_color, support_color)
 		maptext_name.maptext_height = 26
