@@ -66,7 +66,7 @@
 
 	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
 	visuals.maptext_y = -90
-	visuals.maptext_x = 10
+	visuals.maptext_x = 2
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 5 SECONDS)
@@ -169,6 +169,12 @@
 			return
 		repeating_siren(play_it_on)
 
+/obj/effect/cutscene_camera/s2ep1sc1
+	camera_id = "Сцена 1"
+
+/obj/effect/cutscene_camera/s2ep1sc2
+	camera_id = "Сцена 2"
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // СКРИПТ СЦЕНЫ //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -185,58 +191,144 @@
 		CALL_GLOB(perci_lastwords2) = 12 SECONDS,
 		REMOVE_SCREEN(/blackout/animated_better, 1 SECONDS) = 0.1 SECONDS,
 		TP_CAMERA("Сцена 1"),
+		ADD_SCREEN(/cinema_borders),
 		ADD_SCREEN(/blackout/animated_better/nofade) = 1 SECONDS,
 		REMOVE_SCREEN(/blackout/animated_better/nofade, 3 SECONDS) = 1 SECONDS,
 
+		PLAY_SOUND(sound('sound/mecha/lowpowernano.ogg', volume = 10)),
+
 		TALK_ACTOR(actor("Амелия - Сцена 1"), "М-мам?"),
-		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 3 SECONDS,
+		PLAY_SOUND(sound('sound/effects/footstep/plating1.ogg', volume = 70)),
+		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 4 SECONDS,
+
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
 
 		CALL_GLOB(credits_production),
 
-		MOVE_CAMERA(0, -96, 7 SECONDS, SINE_EASING|EASE_IN),
+		MOVE_CAMERA(0, -3, 15 SECONDS, SINE_EASING|EASE_IN),
 
-		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 3 SECONDS,
+		PLAY_SOUND(sound('sound/effects/footstep/plating4.ogg', volume = 70)),
+		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 4 SECONDS,
 
 		CALL_GLOB(credits_author),
 
 		TALK_ACTOR(actor("Амелия - Сцена 1"), "...папа?"),
+		TALK_ACTOR(actor("Амелия - Сцена 1"), "!слегка пошатывается."),
 		TURN_ACTOR(actor("Амелия - Сцена 1"), WEST),
-		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 3 SECONDS,
+		PLAY_SOUND(sound('sound/effects/footstep/plating5.ogg', volume = 70)),
+		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 4 SECONDS,
+
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
 
 		TURN_ACTOR(actor("Амелия - Сцена 1"), SOUTH),
+		PLAY_SOUND(sound('sound/effects/footstep/plating2.ogg', volume = 70)),
+		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 4 SECONDS,
+
+		PLAY_SOUND(sound('sound/effects/footstep/plating1.ogg', volume = 70)),
+		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH),
 		TALK_ACTOR(actor("Амелия - Сцена 1"), "Кто-нибу-..."),
 		TALK_ACTOR(actor("Амелия - Сцена 1"), "!задевает выступ ногой."),
-		CHANGE_ACTOR_VISUALS(actor("Амелия - Сцена 1"), "Amelia 2"),
-		// как появится такое действие - анимировать здесь резкое пошатывание и падение лицом в пол //
-		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 9 SECONDS,
 
-		MOVE_CAMERA(0, -192, 20 SECONDS, SINE_EASING|EASE_IN),
-
-		TALK_ACTOR(actor("Амелия - Сцена 1"), "Д-должен же был..."),
-		TALK_ACTOR(actor("Амелия - Сцена 1"), "!придерживает правую руку."),
+// ЛОЖИМСЯ //
 		CHANGE_ACTOR_VISUALS(actor("Амелия - Сцена 1"), "Amelia 5"),
-		// тут мы встаём с пола и продолжаем шагать//
-		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 3 SECONDS,
+		TURN_ACTOR(actor("Амелия - Сцена 1"), NORTH),
 
-		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 3 SECONDS,
-		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 3 SECONDS,
-		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 3 SECONDS,
+		SHIFT_ACTOR(actor("Амелия - Сцена 1"), 0, -5, 0.3 SECONDS, JUMP_EASING|EASE_IN, ANIMATION_PARALLEL),
+		CHANGE_ACTOR_MATRIX(actor("Амелия - Сцена 1"), 90, 0.5 SECONDS, SINE_EASING, ANIMATION_PARALLEL) = 0.3 SECONDS,
+// ЛОЖИМСЯ //
+
+		TALK_ACTOR(actor("Амелия - Сцена 1"), "!скалится.") = 3 SECONDS,
+		TALK_ACTOR(actor("Амелия - Сцена 1"), "!пытается приподняться.") = 2 SECONDS,
+
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
+
+// ПОЛЗЁМ //
+		SHIFT_ACTOR(actor("Амелия - Сцена 1"), 0, -10, 0.3 SECONDS, SINE_EASING|EASE_IN, null) = 2 SECONDS,
+		SHIFT_ACTOR(actor("Амелия - Сцена 1"), 0, -15, 0.3 SECONDS, SINE_EASING|EASE_IN, null) = 3 SECONDS,
+		TALK_ACTOR(actor("Амелия - Сцена 1"), "Д-должен же был..."),
+		SHIFT_ACTOR(actor("Амелия - Сцена 1"), 0, -20, 0.3 SECONDS, SINE_EASING|EASE_IN, null) = 4 SECONDS,
+// ПОЛЗЁМ //
+
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
+		MOVE_CAMERA(0, -6, 20 SECONDS, SINE_EASING|EASE_IN),
+
+// ПОВОРАЧИВАЕМСЯ НА БОК //
+		TALK_ACTOR(actor("Амелия - Сцена 1"), "!кашляет."),
+		TURN_ACTOR(actor("Амелия - Сцена 1"), EAST),
+// ПОВОРАЧИВАЕМСЯ НА БОК //
+
+// ВСТАЁМ //
+		PLAY_SOUND(sound('sound/effects/footstep/plating4.ogg', volume = 70)),
+		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 4 SECONDS,
+		TALK_ACTOR(actor("Амелия - Сцена 1"), "!придерживает правую руку."),
+
+		CHANGE_ACTOR_VISUALS(actor("Амелия - Сцена 1"), "Amelia 2"),
+		TURN_ACTOR(actor("Амелия - Сцена 1"), SOUTH),
+
+		CHANGE_ACTOR_MATRIX(actor("Амелия - Сцена 1"), 0, 2 SECONDS, SINE_EASING, null) = 6 SECONDS,
+// ВСТАЁМ //
+
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
+
+		PLAY_SOUND(sound('sound/effects/footstep/plating5.ogg', volume = 70)),
+		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 4 SECONDS,
+		SHIFT_ACTOR(actor("Амелия - Сцена 1"), 0, 0, 0, null, null),
+		PLAY_SOUND(sound('sound/effects/footstep/plating2.ogg', volume = 70)),
+		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 4 SECONDS,
+
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
 
 		ADD_SCREEN(/blackout/animated_better),
 
-		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 3 SECONDS,
+		PLAY_SOUND(sound('sound/effects/footstep/plating3.ogg', volume = 70)),
+		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 4 SECONDS,
 
 		TALK_ACTOR(actor("Амелия - Сцена 1"), "...остаться х-хоть кто-то!"),
-		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 3 SECONDS,
+		PLAY_SOUND(sound('sound/effects/footstep/plating1.ogg', volume = 70)),
+		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 4 SECONDS,
+
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
 
 		CALL_GLOB(credits_team) = 5 SECONDS,
+		MOVE_CAMERA(0, 0, 0, null),
 		CALL_GLOB(credits_show) = 16 SECONDS,
 		REMOVE_SCREEN(/blackout/animated_better, 1 SECONDS) = 0.1 SECONDS,
 		START_CUTSCENE(/datum/modular_cutscene/s2ep1sc2)
 	)
 
-/datum/modular_cutscene/s2ep1sc2
-	actions = list()
+/datum/modular_cutscene/s2ep1sc2/setup_actions(...)
+	actions = list(
+		TP_CAMERA("Сцена 2"),
+		ADD_SCREEN(/cinema_borders),
+		MOVE_CAMERA(0, 5, 0, null),
+		ADD_SCREEN(/blackout/animated_better/nofade) = 1 SECONDS,
+		REMOVE_SCREEN(/blackout/animated_better/nofade, 3 SECONDS) = 1 SECONDS,
+
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
+
+		MOVE_ACTOR(actor("Злата - Сцена 2"), SOUTH),
+		MOVE_ACTOR(actor("Максим - Сцена 2"), NORTH),
+		MOVE_ACTOR(actor("Гора - Сцена 2"), NORTH) = 2 SECONDS,
+		MOVE_ACTOR(actor("Злата - Сцена 2"), SOUTH) = 1 SECONDS,
+		TURN_ACTOR(actor("Злата - Сцена 2"), WEST),
+		TALK_ACTOR(actor("Злата - Сцена 2"), "Что с ней?") = 3 SECONDS,
+		TALK_ACTOR(actor("Максим - Сцена 2"), "Избранная. Шрам на лбу не видно?"),
+		TALK_ACTOR(actor("Максим - Сцена 2"), "!слегка подтягивает кошку.") = 4 SECONDS,
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
+		TALK_ACTOR(actor("Максим - Сцена 2"), "Нашёл уже в отключке.") = 5 SECONDS,
+		TALK_ACTOR(actor("Злата - Сцена 2"), "Наверное это самое безобидное ранение, которое я видела за сегодня...") = 2 SECONDS,
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
+		TALK_ACTOR(actor("Злата - Сцена 2"), "!достаёт сканер."),
+		CHANGE_ACTOR_VISUALS(actor("Злата - Сцена 2"), "Zlata 2") = 4 SECONDS,
+		PLAY_SOUND(sound('sound/effects/fastbeep.ogg', volume = 70)),
+		TALK_ACTOR(actor("Злата - Сцена 2"), "Привести в чувства пытался?") = 4 SECONDS,
+		TALK_ACTOR(actor("Максим - Сцена 2"), "Ага...абонент не отвечает.") = 2 SECONDS,
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
+		TALK_ACTOR(actor("Злата - Сцена 2"), "!вздыхает.") = 4 SECONDS,
+		TALK_ACTOR(actor("Злата - Сцена 2"), "Тащи её в зал.") = 2 SECONDS,
+		TALK_ACTOR(actor("Злата - Сцена 2"), "Лира разберётся...") = 2 SECONDS,
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
+	)
 
 
 
