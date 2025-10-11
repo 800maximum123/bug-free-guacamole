@@ -432,7 +432,7 @@
 	if(length(targets_in_range))
 		affecting = pick(targets_in_range)
 		affected_mobs += affecting
-		affecting.overlay_fullscreen("malf-scanline", /obj/screen/fullscreen/bluespace_affection)
+		affecting.overlay_fullscreen("malf-scanline", /obj/screen/fullscreen/fd/bluespace_affection)
 
 	for(affecting as anything in affected_mobs)
 		if(!in_range(src, affecting))

@@ -18,7 +18,7 @@
 			lightmain -= A
 	update_daynight()
 
-/obj/overmap/visitable/sector/bunker_hub/proc/update_daynight(light = 2, light_color_m = "#f7edb6")
+/obj/overmap/visitable/sector/bunker_hub/proc/update_daynight(light = 2, light_color_m = "#b3afab")
 	for(var/turf/T as anything in lightmain)
 		T.set_light(1, light, l_color = light_color_m)
 
@@ -45,6 +45,8 @@
 
 /area/bunker/jungle
 	name = "Jungle"
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi'
+	icon_state = "rain"
 	requires_power = 0
 
 /area/bunker/jungle/lz
