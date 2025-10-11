@@ -134,8 +134,8 @@
 			return qdel(src)
 	var/obj/fluid/F = locate() in T
 	if(!F) F = new(T)
-	F.infinite_source = TRUE
 	SET_FLUID_DEPTH(F, fluid_amount)
+	F.infinite_source = TRUE
 	return qdel(src)
 
 // Permaflood overlay.
