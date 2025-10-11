@@ -27,7 +27,8 @@
 /obj/fluid/Initialize()
 	. = ..()
 	start_loc = get_turf(src)
-	if(!istype(start_loc) || start_loc.flooded)
+	if(!start_loc || start_loc.flooded || start_loc.density)
+		start_loc = null
 		qdel(src)
 		return
 	var/turf/simulated/T = start_loc
@@ -78,7 +79,7 @@
 
 /obj/fluid/Crossed(mob/target)
     . = ..()
-    if(istype(target) && fluid_amount >= (target.lying?FLUID_SHALLOW:FLUID_DEEP))
+    if(isliving(target) && fluid_amount >= (target.lying?FLUID_SHALLOW:FLUID_DEEP))
         target.overlay_fullscreen("underwater", /obj/screen/fullscreen/water)
 
 /obj/fluid/Uncrossed(mob/target)
@@ -97,28 +98,45 @@
 
 /obj/fluid_mapped/Initialize()
 	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/fluid_mapped/LateInitialize()
 	var/turf/T = get_turf(src)
-	if(istype(T))
-		var/obj/fluid/F = locate() in T
-		if(!F) F = new(T)
-		SET_FLUID_DEPTH(F, fluid_amount)
-	return INITIALIZE_HINT_QDEL
+	for(var/atom/movable/object as anything in T)
+		if(istype(object, /obj/structure/window) && object.dir == 5)
+			return qdel(src)
+		if(istype(object, /obj/machinery/door/airlock))
+			return qdel(src)
+		if(istype(object, /obj/machinery/door/blast))
+			return qdel(src)
+		if(istype(object, /obj/structure/inflatable))
+			return qdel(src)
+	var/obj/fluid/F = locate() in T
+	if(!F) F = new(T)
+	SET_FLUID_DEPTH(F, fluid_amount)
+	return qdel(src)
 
 /obj/fluid_mapped/infinite
 	name = "mapped flood source"
 	icon_state = "ocean-bubbles"
 	fluid_amount = FLUID_MAX_DEPTH
 
-/obj/fluid_mapped/infinite/Initialize()
-	. = ..()
+/obj/fluid_mapped/infinite/LateInitialize()
 	var/turf/T = get_turf(src)
-	if(istype(T))
-		var/obj/fluid/F = locate() in T
-		if(!F) F = new(T)
-		F.infinite_source = TRUE
-		F.fluid_amount = fluid_amount
-		SSfluids.active_fluids[F] = TRUE
-	return INITIALIZE_HINT_QDEL
+	for(var/atom/movable/object as anything in T)
+		if(istype(object, /obj/structure/window) && object.dir == 5)
+			return qdel(src)
+		if(istype(object, /obj/machinery/door/airlock))
+			return qdel(src)
+		if(istype(object, /obj/machinery/door/blast))
+			return qdel(src)
+		if(istype(object, /obj/structure/inflatable))
+			return qdel(src)
+	var/obj/fluid/F = locate() in T
+	if(!F) F = new(T)
+	F.infinite_source = TRUE
+	SET_FLUID_DEPTH(F, fluid_amount)
+	return qdel(src)
 
 // Permaflood overlay.
 /obj/flood

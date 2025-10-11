@@ -92,7 +92,7 @@
 
 	var/display_verb = verb
 	if (!language)
-		display_message = {"[display_verb], [SPAN_CLASS("message", "[SPAN_CLASS("body", display_message)]")]"}
+		display_message = {"[display_verb], [SPAN_CLASS("message", "\"[SPAN_CLASS("body", display_message)]\"")]"}
 	else
 		var/hint_preference = get_preference_value(/datum/client_preference/language_display)
 		if (is_ghost)
