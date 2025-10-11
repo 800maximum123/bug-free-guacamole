@@ -201,3 +201,50 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 		animate(src, 0.2 SECOND, alpha = 0)
 
 	QDEL_IN(src, 6.8 SECONDS)
+
+/obj/structure/fd/bodybag
+	name = "body bag (UNKNOWN)"
+	desc = "A plastic bag designed for the storage and transportation of cadavers. There's lies UNKNOWN."
+	icon = 'icons/obj/closets/bodybag.dmi'
+	icon_state = "closed"
+	anchored = FALSE
+	density = FALSE
+
+/obj/structure/fd/bodybag/perci
+	name = "body bag (Персиваль Эндсли)"
+	desc = "A plastic bag designed for the storage and transportation of cadavers. В нём лежит Персиваль Эндсли."
+
+/obj/structure/fd/bodybag/amper
+	name = "body bag (Пауль Ампер)"
+	desc = "A plastic bag designed for the storage and transportation of cadavers. В нём лежит Пауль Ампер."
+
+/obj/structure/fd/bodybag/ranja
+	name = "body bag (Ранжна Миин'хша)"
+	desc = "A plastic bag designed for the storage and transportation of cadavers. В нём лежит Ранжна Миин'хша."
+
+/obj/structure/fd/bodybag/ashira
+	name = "body bag (Ашира Ми'Рахун)"
+	desc = "A plastic bag designed for the storage and transportation of cadavers. В нём лежит Ашира Ми'Рахун."
+
+/obj/structure/fd/bodybag/miriam
+	name = "body bag (Мири'ам Йир'Хаару)"
+	desc = "A plastic bag designed for the storage and transportation of cadavers. В нём лежит Мири'ам Йир'Хаару."
+
+/obj/structure/fd/bodybag/kassius
+	name = "body bag (Кассий Вейлдорн)"
+	desc = "A plastic bag designed for the storage and transportation of cadavers. В нём лежит Кассий Вейлдорн."
+
+/obj/structure/fd/bodybag/kassandra
+	name = "body bag (Кассандра Де Виго)"
+	desc = "A plastic bag designed for the storage and transportation of cadavers. В нём лежит Кассандра Де Виго."
+
+/obj/structure/fd/bodybag/numeri
+	name = "body bag (Нумерий Де Виго)"
+	desc = "A plastic bag designed for the storage and transportation of cadavers. В нём лежит Нумерий Де Виго."
+
+/obj/item/fd/perci_mvi
+	name = "MVI Implant"
+	desc = "Устройство, собранное Ампером и Мири'ам перед смертью. Что оно вообще делает?..."
+	icon = 'mods/_fd/fd_assets/icons/obj/items/stock_parts.dmi'
+	icon_state = "adv_scan_module"
+	w_class = ITEM_SIZE_TINY

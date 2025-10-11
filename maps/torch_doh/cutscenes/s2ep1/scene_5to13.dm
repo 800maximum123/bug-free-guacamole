@@ -103,7 +103,7 @@
 
 	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
 	visuals.maptext_x = 5
-	visuals.maptext_y = -415
+	visuals.maptext_y = -420
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 16 SECONDS)
@@ -339,7 +339,7 @@
 		ADD_SCREEN(/cinema_borders),
 		CHANGE_ACTOR_VISUALS(actor("Пауль - Сцена 6"), "Paul 3"),
 		TALK_ACTOR(actor("Пауль - Сцена 6"), "Час... от силы. М-может даже меньше.") = 4 SECONDS,
-		TALK_ACTOR(actor("Ная - Сцена 6"), "... Я рассчитывала даже на меньшее.") = 2 SECONDS,
+		TALK_ACTOR(actor("Ная - Сцена 6"), "... Бывало и хуже.") = 2 SECONDS,
 		PLAY_SOUND(sound("sparks", volume = 50)),
 		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
 		TALK_ACTOR(actor("Ная - Сцена 6"), "!вздыхает.") = 4 SECONDS,

@@ -4,6 +4,13 @@
 		/mob/living/simple_animal/aquatic/fish = 100,
 		/mob/living/simple_animal/aquatic/fish/grump = 100,
 		/mob/living/simple_animal/aquatic/fish/judge = 100,
+		/mob/living/simple_animal/aquatic/fish/pike = 100,
+		/mob/living/simple_animal/aquatic/fish/murkin = 100,
+		/mob/living/simple_animal/aquatic/fish/solarfin = 100,
+		/mob/living/simple_animal/aquatic/fish/sifbass = 100,
+		/mob/living/simple_animal/aquatic/fish/trout = 100,
+		/mob/living/simple_animal/aquatic/fish/salmon = 100,
+		/mob/living/simple_animal/aquatic/fish/bass = 100
 		)
 	var/currently_fishing = FALSE // Одновременно и время старта последней рыбалки.
 
@@ -88,3 +95,48 @@
 	fish.throw_at(get_turf(user), get_dist(src, user), fish.throw_speed, spin = TRUE)
 
 	playsound(get_turf(src), 'sound/effects/watersplash.ogg', 100, TRUE)
+
+// FISH TYPES
+
+/mob/living/simple_animal/aquatic/fish/bass
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "bass-swim"
+	icon_living = "bass-swim"
+	icon_dead = "bass-dead"
+
+/mob/living/simple_animal/aquatic/fish/trout
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "trout-swim"
+	icon_living = "trout-swim"
+	icon_dead = "trout-dead"
+
+/mob/living/simple_animal/aquatic/fish/salmon
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "salmon-swim"
+	icon_living = "salmon-swim"
+	icon_dead = "salmon-dead"
+
+/mob/living/simple_animal/aquatic/fish/sifbass
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "sifbass-swim"
+	icon_living = "sifbass-swim"
+	icon_dead = "sifbass-dead"
+	meat_amount = 2
+
+/mob/living/simple_animal/aquatic/fish/solarfin
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "solarfin-swim"
+	icon_living = "solarfin-swim"
+	icon_dead = "solarfin-dead"
+
+/mob/living/simple_animal/aquatic/fish/murkin
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "murkin-swim"
+	icon_living = "murkin-swim"
+	icon_dead = "murkin-dead"
+
+/mob/living/simple_animal/aquatic/fish/pike
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "pike-swim"
+	icon_living = "pike-swim"
+	icon_dead = "pike-dead"
