@@ -72,7 +72,7 @@
 		tally = 0
 
 	var/turf/turf = get_turf(src)
-	if(turf.check_fluid_depth(FLUID_PUSH_THRESHOLD))
+	if(turf.check_fluid_depth(FLUID_SHALLOW))
 		tally += 6
 
 	return tally
