@@ -233,6 +233,8 @@
 	forceMove(landing)
 	if(locate(/obj/structure/stairs) in landing)
 		return 1
+	if(locate(/obj/fd_water) in landing)
+		return 1
 	else if(landing.get_fluid_depth() >= FLUID_DEEP)
 		visible_message(SPAN_NOTICE("\The [src] falls into the water!"), SPAN_NOTICE("You fell into the water!"))
 		playsound(src,  'sound/effects/watersplash.ogg', 80, TRUE)
