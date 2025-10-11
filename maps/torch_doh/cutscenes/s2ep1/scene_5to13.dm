@@ -98,12 +98,12 @@
 		visuals.set_text(novel_message, colored, time = 16 SECONDS)
 
 /proc/credits_investors()
-	var/novel_message = "ФИНАНСОВУЮ ПОМОЩЬ ОКАЗЫВАЛИ: DENXAYS, TREESISS, VISTA1, TACKCARD, DELTA23, GRIGPASHTET"
+	var/novel_message = "ФИНАНСОВУЮ ПОМОЩЬ ОКАЗЫВАЛИ: DENXAYS, TREESISS, VISTA1, TACKCARD, DELTA23, GRIGPASHTET, KRABINATOR3000"
 	var/colored = COLOR_ASSEMBLY_BLACK
 
 	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
-	visuals.maptext_x = 10
-	visuals.maptext_y = -410
+	visuals.maptext_x = 5
+	visuals.maptext_y = -415
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 16 SECONDS)
@@ -238,7 +238,7 @@
 		TALK_ACTOR(actor("Мясо - Сцена 5"), "Что теперь?") = 4 SECONDS,
 		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
 		TALK_ACTOR(actor("Ная - Сцена 5"), "Так далеко я не думала.") = 4 SECONDS,
-		TALK_ACTOR(actor("Ная - Сцена 5"), "Ещё и Фиддлер молчит...как на зло.") = 2 SECONDS,
+		TALK_ACTOR(actor("Ная - Сцена 5"), "Ещё и Фиддлер молчит... Как назло.") = 2 SECONDS,
 		TALK_ACTOR(actor("Ная - Сцена 5"), "!тяжело вздыхает.") = 4 SECONDS,
 		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
 		TALK_ACTOR(actor("Ная - Сцена 5"), "!глядит на позитроника.") = 6 SECONDS,
@@ -247,7 +247,7 @@
 		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
 		PLAY_SOUND(sound('sound/effects/footstep/plating5.ogg', volume = 70)),
 		MOVE_ACTOR(actor("Ная - Сцена 5"), SOUTH),
-		TALK_ACTOR(actor("Ная - Сцена 5"), "...в подобной ситуации остаётся только смеяться.") = 6 SECONDS,
+		TALK_ACTOR(actor("Ная - Сцена 5"), "... В подобной ситуации остаётся только смеяться.") = 6 SECONDS,
 		TURN_ACTOR(actor("Ная - Сцена 5"), WEST),
 		TALK_ACTOR(actor("Ная - Сцена 5"), "Судьба - непостоянная сука, а?") = 2 SECONDS,
 		PLAY_SOUND(sound('sound/effects/footstep/plating3.ogg', volume = 70)),
@@ -271,7 +271,7 @@
 		TALK_ACTOR(actor("Ная - Сцена 6"), "Да не молчите же вы как убитые!") = 2 SECONDS,
 		TALK_ACTOR(actor("Абигейл - Сцена 6"), "!подносит трубку интеркома к мужчине.") = 1 SECONDS,
 		TALK_ACTOR(actor("Пауль - Сцена 6"), "!хрипит.") = 2 SECONDS,
-		TALK_ACTOR(actor("Пауль - Сцена 6"), "...да здесь я!") = 2 SECONDS,
+		TALK_ACTOR(actor("Пауль - Сцена 6"), "... Да здесь я!") = 2 SECONDS,
 		TALK_ACTOR(actor("Пауль - Сцена 6"), "!кашляет."),
 		TALK_ACTOR(actor("Пауль - Сцена 6"), "Ч-чего разорались-то?") = 4 SECONDS,
 		PLAY_SOUND(sound("sparks", volume = 50)),
@@ -283,7 +283,7 @@
 	actions = list(
 		TP_CAMERA("Сцена 4"),
 		ADD_SCREEN(/cinema_borders),
-		TALK_ACTOR(actor("Ная - Сцена 5"), "Слава Богу. В живых остался хотя бы один человек, на которого можно положиться.") = 6 SECONDS,
+		TALK_ACTOR(actor("Ная - Сцена 5"), "Слава Богам. В живых остался хотя бы один человек, на которого можно положиться.") = 6 SECONDS,
 		TALK_ACTOR(actor("Мясо - Сцена 5"), "Я бы закатил глаза, если бы мог."),
 		TURN_ACTOR(actor("Мясо - Сцена 5"), WEST) = 2 SECONDS,
 		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
@@ -304,7 +304,7 @@
 		CHANGE_ACTOR_VISUALS(actor("Абигейл - Сцена 6"), "Abigail 3"),
 		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
 		CALL_GLOB(credits_investors),
-		TALK_ACTOR(actor("Пауль - Сцена 6"), "...т-теперь мы точно знаем, что на инструктаже нам напиздели.") = 4 SECONDS,
+		TALK_ACTOR(actor("Пауль - Сцена 6"), "... Т-теперь мы точно знаем, что на инструктаже нам напиздели.") = 4 SECONDS,
 		TALK_ACTOR(actor("Пауль - Сцена 6"), "Сесть Факел всё-таки очень даже может.") = 4 SECONDS,
 		PLAY_SOUND(sound("sparks", volume = 50)),
 		TALK_ACTOR(actor("Ная - Сцена 6"), "То что ты ещё находишь силы отшучиваться - внушает надежду.") = 6 SECONDS,
@@ -312,11 +312,11 @@
 		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
 		TALK_ACTOR(actor("Пауль - Сцена 6"), "!болезненно улыбается.") = 4 SECONDS,
 		TALK_ACTOR(actor("Пауль - Сцена 6"), "От корабля остались одни рожки. Даже б-без ножек.") = 6 SECONDS,
-		TALK_ACTOR(actor("Пауль - Сцена 6"), "Вся...биомасса, которая держала к-корабль вместе - выгорела при входе в атмосферу планеты.") = 4 SECONDS,
+		TALK_ACTOR(actor("Пауль - Сцена 6"), "Вся... биомасса, которая держала к-корабль вместе - выгорела при входе в атмосферу планеты.") = 4 SECONDS,
 		TALK_ACTOR(actor("Пауль - Сцена 6"), "Кормы В ПРИНЦИПЕ больше нет.") = 4 SECONDS,
 		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
 		TALK_ACTOR(actor("Пауль - Сцена 6"), "А эта т-трёхсталетная радиоактивная куча, доверху набитая микрочастицами суперматерии и урана...") = 8 SECONDS,
-		TALK_ACTOR(actor("Пауль - Сцена 6"), "...теперь медленно спускается пеплом н-нам на головы.") = 4 SECONDS,
+		TALK_ACTOR(actor("Пауль - Сцена 6"), "... теперь медленно спускается пеплом н-нам на головы.") = 4 SECONDS,
 		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
 		START_CUTSCENE(/datum/modular_cutscene/s2ep1sc9)
 	)
@@ -338,8 +338,8 @@
 		TP_CAMERA("Сцена 5"),
 		ADD_SCREEN(/cinema_borders),
 		CHANGE_ACTOR_VISUALS(actor("Пауль - Сцена 6"), "Paul 3"),
-		TALK_ACTOR(actor("Пауль - Сцена 6"), "Час...от силы. М-может даже меньше.") = 4 SECONDS,
-		TALK_ACTOR(actor("Ная - Сцена 6"), "...я рассчитывала даже на меньшее.") = 2 SECONDS,
+		TALK_ACTOR(actor("Пауль - Сцена 6"), "Час... от силы. М-может даже меньше.") = 4 SECONDS,
+		TALK_ACTOR(actor("Ная - Сцена 6"), "... Я рассчитывала даже на меньшее.") = 2 SECONDS,
 		PLAY_SOUND(sound("sparks", volume = 50)),
 		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
 		TALK_ACTOR(actor("Ная - Сцена 6"), "!вздыхает.") = 4 SECONDS,
@@ -351,7 +351,7 @@
 		SHIFT_ACTOR(actor("Пауль - Сцена 6"), -14, 0, 0.2 SECONDS, SINE_EASING|EASE_IN, null) = 0.2 SECONDS,
 		SHIFT_ACTOR(actor("Пауль - Сцена 6"), -15, 0, 0.2 SECONDS, SINE_EASING|EASE_OUT, null) = 0.2 SECONDS,
 		SHIFT_ACTOR(actor("Пауль - Сцена 6"), -14, 0, 0.2 SECONDS, SINE_EASING|EASE_IN, null) = 0.2 SECONDS,
-		TALK_ACTOR(actor("Пауль - Сцена 6"), "...в этом нет необходимости.") = 2 SECONDS,
+		TALK_ACTOR(actor("Пауль - Сцена 6"), "... в этом нет необходимости.") = 2 SECONDS,
 		START_CUTSCENE(/datum/modular_cutscene/s2ep1sc11)
 	)
 
@@ -361,10 +361,10 @@
 		ADD_SCREEN(/cinema_borders),
 		TALK_ACTOR(actor("Ная - Сцена 5"), "Что ты-...") = 2 SECONDS,
 		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
-		TALK_ACTOR(actor("Пауль - Сцена 9"), "Осколок, к-кажется, мне позвоночник перебил. Абигейл сказала, что там...нарост какой-то.") = 8 SECONDS,
+		TALK_ACTOR(actor("Пауль - Сцена 9"), "Осколок, к-кажется, мне позвоночник перебил. Абигейл сказала, что там... нарост какой-то.") = 8 SECONDS,
 		TALK_ACTOR(actor("Пауль - Сцена 9"), "Ф-фиолетовый.") = 4 SECONDS,
 		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
-		TALK_ACTOR(actor("Пауль - Сцена 9"), "Не могу пошевелить ничем кроме головы...вот уже как минут двадцать точно.") = 6 SECONDS,
+		TALK_ACTOR(actor("Пауль - Сцена 9"), "Не могу пошевелить ничем кроме головы... Вот уже как минут двадцать точно.") = 6 SECONDS,
 		TALK_ACTOR(actor("Пауль - Сцена 9"), "!едва слышно смеётся.") = 2 SECONDS,
 		TALK_ACTOR(actor("Пауль - Сцена 9"), "Чувство такое, будто бы это то самое место.") = 4 SECONDS,
 		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
@@ -379,20 +379,20 @@
 		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
 		TALK_ACTOR(actor("Пауль - Сцена 9"), "Я покажу и расскажу ей в-всё, что нужно.") = 8 SECONDS,
 		TALK_ACTOR(actor("Пауль - Сцена 9"), "!вздыхает.") = 2 SECONDS,
-		TALK_ACTOR(actor("Пауль - Сцена 9"), "...знаю, жизнь сосёт.") = 4 SECONDS,
+		TALK_ACTOR(actor("Пауль - Сцена 9"), "... знаю, жизнь сосёт.") = 4 SECONDS,
 		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
 		TALK_ACTOR(actor("Пауль - Сцена 9"), "Вообще, я ещё столько х-хотел бы сделать...") = 6 SECONDS,
 		TALK_ACTOR(actor("Пауль - Сцена 9"), "Д-да и Мири запланировала не меньше...") = 4 SECONDS,
-		TALK_ACTOR(actor("Пауль - Сцена 9"), "...б-бедная кошка тяжелее всего переживёт этот переезд.") = 6 SECONDS,
+		TALK_ACTOR(actor("Пауль - Сцена 9"), "... Б-бедная кошка тяжелее всего переживёт этот переезд.") = 6 SECONDS,
 		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
-		TALK_ACTOR(actor("Ная - Сцена 5"), "...Пауль.") = 6 SECONDS,
-		TALK_ACTOR(actor("Пауль - Сцена 9"), "Столько пережито...и ради чего?") = 6 SECONDS,
+		TALK_ACTOR(actor("Ная - Сцена 5"), "... Пауль.") = 6 SECONDS,
+		TALK_ACTOR(actor("Пауль - Сцена 9"), "Столько пережито... И ради чего?") = 6 SECONDS,
 		ADD_SCREEN(/blackout/animated_better/nofade),
 		CALL_GLOB(amper_lastwords) = 2 SECONDS,
 		REMOVE_SCREEN(/blackout/animated_better/nofade, 0) = 1 SECONDS,
 		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
 		TALK_ACTOR(actor("Пауль - Сцена 9"), "...") = 4 SECONDS,
-		TALK_ACTOR(actor("Пауль - Сцена 9"), "...шеф.") = 6 SECONDS,
+		TALK_ACTOR(actor("Пауль - Сцена 9"), "... Шеф.") = 6 SECONDS,
 		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
 		TALK_ACTOR(actor("Пауль - Сцена 9"), "К-когда всё это наконец закончится...") = 6 SECONDS,
 		TALK_ACTOR(actor("Пауль - Сцена 9"), "Не забудьте о нас. Всех.") = 2 SECONDS,
@@ -440,7 +440,8 @@
 		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
 		TALK_ACTOR(actor("Мясо - Сцена 5"), "Не нужно строить из себя святую.") = 6 SECONDS,
 		TALK_ACTOR(actor("Мясо - Сцена 5"), "Ты и сама была готова пожертвовать многим и многим-и ради достижения собственных целей, разве я не прав?") = 10 SECONDS,
-		TALK_ACTOR(actor("Ная - Сцена 5"), "Тц-...") = 2 SECONDS,
+		TALK_ACTOR(actor("Ная - Сцена 5"), "!морщит нос") = 2 SECONDS,
+		TALK_ACTOR(actor("Ная - Сцена 5"), "Тц-...") = 1 SECONDS,
 		TURN_ACTOR(actor("Ная - Сцена 5"), EAST),
 		SHIFT_ACTOR(actor("Ная - Сцена 5"), 0, 0, 0.2 SECONDS, SINE_EASING|EASE_IN, null) = 0.5 SECONDS,
 		PLAY_SOUND(sound('sound/effects/footstep/plating3.ogg', volume = 70)),
@@ -450,7 +451,7 @@
 		PLAY_SOUND(sound('sound/effects/footstep/plating4.ogg', volume = 70)),
 		MOVE_ACTOR(actor("Ная - Сцена 5"), NORTH) = 3 SECONDS,
 		TURN_ACTOR(actor("Мясо - Сцена 5"), EAST),
-		TALK_ACTOR(actor("Ная - Сцена 5"), "...но это не значит, что до этих жизней мне не было никакого дела.") = 4 SECONDS,
+		TALK_ACTOR(actor("Ная - Сцена 5"), "... Но это не значит, что до этих жизней мне не было никакого дела.") = 4 SECONDS,
 		PLAY_SOUND(sound('sound/effects/footstep/plating5.ogg', volume = 70)),
 		MOVE_ACTOR(actor("Ная - Сцена 5"), NORTH) = 3 SECONDS,
 		PLAY_SOUND(sound('sound/effects/footstep/plating1.ogg', volume = 70)),
