@@ -20,6 +20,160 @@
 /obj/effect/cutscene_camera/s2ep1sc11
 	camera_id = "Сцена 11"
 
+/proc/swift_name()
+	var/novel_message = "СВИФТ:"
+	var/colored = "#129c00"
+
+	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
+	visuals.maptext_y = -10
+	visuals.maptext_x = -40
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 22 SECONDS)
+
+/proc/swift_status()
+	var/novel_message = "ПРИШЁЛ В СЕБЯ"
+	var/colored = "#eba100"
+
+	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
+	visuals.maptext_y = -10
+	visuals.maptext_x = -30
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 22 SECONDS)
+
+/proc/wilhelm_name()
+	var/novel_message = "ВИЛЬГЕЛЬМ:"
+	var/colored = "#129c00"
+
+	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
+	visuals.maptext_y = -20
+	visuals.maptext_x = -40
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 20 SECONDS)
+
+/proc/wilhelm_status()
+	var/novel_message = "СТАБИЛИЗИРОВАН"
+	var/colored = "#eba100"
+
+	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
+	visuals.maptext_y = -20
+	visuals.maptext_x = -30
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 20 SECONDS)
+
+/proc/fiddler_name()
+	var/novel_message = "ДЖОЗЕФ:"
+	var/colored = "#129c00"
+
+	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
+	visuals.maptext_y = -30
+	visuals.maptext_x = -40
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 18 SECONDS)
+
+/proc/fiddler_status()
+	var/novel_message = "МЕСТОПОЛОЖЕНИЕ НЕИЗВЕСТНО"
+	var/colored = "#b60000"
+
+	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
+	visuals.maptext_y = -30
+	visuals.maptext_x = -30
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 18 SECONDS)
+
+/proc/kyler_name()
+	var/novel_message = "КАЙЛЕР:"
+	var/colored = "#129c00"
+
+	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
+	visuals.maptext_y = -40
+	visuals.maptext_x = -40
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 16 SECONDS)
+
+/proc/kyler_status()
+	var/novel_message = "МЕСТОПОЛОЖЕНИЕ НЕИЗВЕСТНО"
+	var/colored = "#b60000"
+
+	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
+	visuals.maptext_y = -40
+	visuals.maptext_x = -30
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 16 SECONDS)
+
+/proc/abi_name()
+	var/novel_message = "АБИГЕЙЛ:"
+	var/colored = "#129c00"
+
+	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
+	visuals.maptext_y = -50
+	visuals.maptext_x = -40
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 14 SECONDS)
+
+/proc/abi_status()
+	var/novel_message = "МЕСТОПОЛОЖЕНИЕ НЕИЗВЕСТНО"
+	var/colored = "#b60000"
+
+	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
+	visuals.maptext_y = -50
+	visuals.maptext_x = -30
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 14 SECONDS)
+
+/proc/fuel_status()
+	var/novel_message = "ПОВРЕЖДЕНИЕ ТОПЛИВНОЙ СИСТЕМЫ"
+	var/colored = "#b60000"
+
+	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
+	visuals.maptext_y = -60
+	visuals.maptext_x = -40
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 12 SECONDS)
+
+/proc/fire_detected()
+	var/novel_message = "ВОЗГОРАНИЕ:"
+	var/colored = "#129c00"
+
+	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
+	visuals.maptext_y = -70
+	visuals.maptext_x = -40
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 10 SECONDS)
+
+/proc/fire_where()
+	var/novel_message = "ПАЛУБЫ 3 - 2 - 1"
+	var/colored = "#eba100"
+
+	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
+	visuals.maptext_y = -70
+	visuals.maptext_x = -30
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 10 SECONDS)
+
+/proc/radiation_incoming()
+	var/novel_message = "РИСК РАДИАЦИОННОГО ЗАРАЖЕНИЯ"
+	var/colored = "#eba100"
+
+	var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/big_nofade()
+	visuals.maptext_y = -80
+	visuals.maptext_x = -40
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 8 SECONDS)
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // СКРИПТ СЦЕНЫ //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -401,4 +555,22 @@
 	)
 
 /datum/modular_cutscene/s2ep1sc20/setup_actions(...)
-	actions = list()
+	actions = list(
+		ADD_SCREEN(/blackout/animated_better/nofade) = 2 SECONDS,
+		CALL_GLOB(swift_name),
+		CALL_GLOB(swift_status) = 2 SECONDS,
+		CALL_GLOB(wilhelm_name),
+		CALL_GLOB(wilhelm_status) = 2 SECONDS,
+		CALL_GLOB(fiddler_name),
+		CALL_GLOB(fiddler_status) = 2 SECONDS,
+		CALL_GLOB(kyler_name),
+		CALL_GLOB(kyler_status) = 2 SECONDS,
+		CALL_GLOB(abi_name),
+		CALL_GLOB(abi_status) = 2 SECONDS,
+		CALL_GLOB(fuel_status) = 2 SECONDS,
+		CALL_GLOB(fire_detected),
+		CALL_GLOB(fire_where) = 2 SECONDS,
+		CALL_GLOB(radiation_incoming) = 2 SECONDS,
+		REMOVE_SCREEN(/blackout/animated_better/nofade, 3 SECONDS) = 10 SECONDS,
+		RETURN_VIEWERS
+	)
