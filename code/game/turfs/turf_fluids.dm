@@ -1,12 +1,12 @@
 /turf/CanFluidPass(coming_from)
 	if(flooded || density)
 		return FALSE
-	if(isnull(fluid_can_pass))
-		fluid_can_pass = TRUE
-		for(var/atom/movable/AM in src)
-			if(AM.simulated && !AM.CanFluidPass(coming_from))
-				fluid_can_pass = FALSE
-				break
+//	if(isnull(fluid_can_pass))
+	fluid_can_pass = TRUE
+	for(var/atom/movable/AM as anything in src)
+		if(!AM.CanFluidPass(coming_from))
+			fluid_can_pass = FALSE
+			break
 	return fluid_can_pass
 
 /turf/proc/add_fluid(amount, fluid)
@@ -68,10 +68,10 @@
 			if(T) T.fluid_update(1)
 
 	// Wake up ourself!
-	var/dry_run = TRUE
+//	var/dry_run = TRUE
 	if(flooded)
 		var/flooded_a_neighbor = 0
-		FLOOD_TURF_NEIGHBORS(src, dry_run)
+//		FLOOD_TURF_NEIGHBORS(src, dry_run)
 		if(flooded_a_neighbor)
 			ADD_ACTIVE_FLUID_SOURCE(src)
 	else
