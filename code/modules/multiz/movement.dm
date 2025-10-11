@@ -161,13 +161,13 @@
 /atom/movable/proc/begin_falling(lastloc, below)
 	if (QDELETED(src))
 		return
-	addtimer(new Callback(src, TYPE_PROC_REF(/atom/movable, fall_callback), below), 0)
+	addtimer(new Callback(src, TYPE_PROC_REF(/atom/movable, fall_callback), below, lastloc), 0)
 
-/atom/movable/proc/fall_callback(turf/below)
+/atom/movable/proc/fall_callback(turf/below, turf/lastloc)
 	var/mob/M = src
 	var/is_client_moving = (ismob(M) && M.moving)
 	if(is_client_moving) M.moving = 1
-	handle_fall(below)
+	handle_fall(below, lastloc)
 	if(is_client_moving) M.moving = 0
 
 //For children to override
@@ -226,18 +226,18 @@
 //FD PSIONICS/
 		return species.can_fall(src)
 
-/atom/movable/proc/handle_fall(turf/landing)
+/atom/movable/proc/handle_fall(turf/landing, turf/lastloc)
 	forceMove(landing)
 	if(locate(/obj/structure/stairs) in landing)
 		return 1
 	else if(landing.get_fluid_depth() >= FLUID_DEEP)
-		visible_message(SPAN_NOTICE("\The [src] falls into the water!"), SPAN_NOTICE("What a splash!"))
+		visible_message(SPAN_NOTICE("\The [src] falls into the water!"), SPAN_NOTICE("You fell into the water!"))
 		playsound(src,  'sound/effects/watersplash.ogg', 80, TRUE)
 		return 1
 	else
-		handle_fall_effect(landing)
+		handle_fall_effect(landing, lastloc)
 
-/atom/movable/proc/handle_fall_effect(turf/landing)
+/atom/movable/proc/handle_fall_effect(turf/landing, turf/lastloc)
 	if(istype(landing, /turf/simulated/open))
 		visible_message("\The [src] falls through \the [landing]!", "You hear a whoosh of displaced air.")
 	else
