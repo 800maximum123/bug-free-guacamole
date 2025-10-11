@@ -133,7 +133,7 @@
 //FALLING STUFF
 
 //Holds fall checks that should not be overriden by children
-/atom/movable/proc/fall(lastloc)
+/atom/movable/proc/fall(turf/lastloc)
 	if(!isturf(loc))
 		return
 
@@ -150,6 +150,9 @@
 		return
 
 	if(throwing)
+		return
+
+	if(lastloc && (locate(/obj/fd_water) in T) && lastloc.z <= T.z)
 		return
 
 	if(can_fall())

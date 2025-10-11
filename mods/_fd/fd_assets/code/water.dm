@@ -7,7 +7,6 @@
 	alpha = 100
 
 	anchored = TRUE
-	obj_flags = OBJ_FLAG_NOFALL
 
 	var/reagent_type = /datum/reagent/water
 
