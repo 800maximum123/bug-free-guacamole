@@ -4,7 +4,7 @@
 #define FLUID_OVER_MOB_HEAD 300
 #define FLUID_DEEP 800                     // Depth deep icon is used
 #define FLUID_MAX_DEPTH FLUID_DEEP*2       // Arbitrary max value for flooding.
-#define FLUID_PUSH_THRESHOLD 20            // Amount of water flow needed to push items.
+#define FLUID_PUSH_THRESHOLD 10            // Amount of water flow needed to push items.
 
 // Expects /turf for T.
 #define ADD_ACTIVE_FLUID_SOURCE(T)    SSfluids.water_sources[T] = TRUE
