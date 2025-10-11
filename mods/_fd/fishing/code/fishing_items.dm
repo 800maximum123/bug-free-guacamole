@@ -13,3 +13,6 @@
 /obj/item/material/twohanded/spear
 	can_fish = TRUE
 	fishing_range = 0
+	fishing_timing = 1 SECOND
+	min_fishing_duration = 40 SECONDS
+	max_fishing_duration = 90 SECONDS

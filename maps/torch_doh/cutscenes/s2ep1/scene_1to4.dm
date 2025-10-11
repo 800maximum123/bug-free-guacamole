@@ -220,7 +220,7 @@
 
 		CALL_GLOB(credits_production),
 
-		MOVE_CAMERA(0, -3, 30 SECONDS, SINE_EASING|EASE_IN),
+		MOVE_CAMERA(0, -3, 33 SECONDS, SINE_EASING|EASE_IN),
 
 		PLAY_SOUND(sound('sound/effects/footstep/plating4.ogg', volume = 70)),
 		MOVE_ACTOR(actor("Амелия - Сцена 1"), SOUTH) = 4 SECONDS,
@@ -456,8 +456,8 @@
 	actions = list(
 		TP_CAMERA("Сцена 2"),
 		ADD_SCREEN(/cinema_borders),
-		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
 		TALK_ACTOR(actor("Злата - Сцена 2"), "!сжимает пальцы в кулак.") = 8 SECONDS,
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/shorter_siren.ogg', volume = 5)),
 		TURN_ACTOR(actor("Злата - Сцена 2"), WEST),
 		MOVE_ACTOR(actor("Амелия - Сцена 2"), WEST) = 4 SECONDS,
 		CHANGE_ACTOR_VISUALS(actor("Амелия - Сцена 2"), "Amelia 6"),

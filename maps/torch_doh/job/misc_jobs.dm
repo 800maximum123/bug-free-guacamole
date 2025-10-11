@@ -106,16 +106,16 @@ Civilian
 	)
 
 /datum/job/assistant
-	title = "Passenger"
+	title = "Viewer"
 	total_positions = -1
 	spawn_positions = -1
 	supervisors = "the Executive Officer"
 	economic_power = 6
 	loadout_allowed = TRUE
 	announced = FALSE
-	alt_titles = list("Gardener")
+	alt_titles = list()
 	skill_points = 52
-	outfit_type = /singleton/hierarchy/outfit/job/torch/passenger/passenger
+	outfit_type = /singleton/hierarchy/outfit/job/torch/passenger/passenger/campaign
 	allowed_branches = list(/datum/mil_branch/civilian)
 	allowed_ranks = list(
 		/datum/mil_rank/civ/civ,

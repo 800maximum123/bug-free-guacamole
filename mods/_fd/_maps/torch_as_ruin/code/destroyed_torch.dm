@@ -312,6 +312,8 @@
 /singleton/hierarchy/outfit/dtorch/zlata
 	name = "Zlata Savina"
 
+	r_hand = /obj/item/fd/perci_mvi
+
 	l_ear = /obj/item/device/radio/headset/headset_com
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
