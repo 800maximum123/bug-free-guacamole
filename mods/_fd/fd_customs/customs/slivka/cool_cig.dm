@@ -22,7 +22,7 @@
 	icon = 'mods/_fd/fd_customs/customs/slivka/icon/cigarettes.dmi'
 	icon_state = "blackpacket"
 	item_state = "blackpacket"
-	max_storage_space = 30
+	max_storage_space = 20
 	startswith = list(
-		/obj/item/clothing/mask/smokable/cigarette/blackwhis = 30 //надеюсь ты скуришься насмерть
+		/obj/item/clothing/mask/smokable/cigarette/blackwhis = 20 //надеюсь ты скуришься насмерть
 	)
