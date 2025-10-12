@@ -4,7 +4,7 @@
 "ah" = (/obj/structure/bed/chair/padded/blue{dir = 1},/obj/floor_decal/corner/darkblue/border{dir = 1},/turf/simulated/floor/tiled/dark,/area/bunker/command)
 "ai" = (/obj/floor_decal/messygrass,/turf/simulated/floor/exoplanet/fd/muddirt,/area/bunker/jungle)
 "aj" = (/turf/simulated/wall/r_wall,/area/bunker/command)
-"ak" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark/monotile,/area/bunker/eng)
+"ak" = (/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 4},/obj/structure/closet/crate{name = "Stuff crate"},/obj/item/storage/backpack/dufflebag/sec,/obj/item/material/shard/nullglass,/obj/item/material/shard/nullglass,/obj/item/material/shard/nullglass,/obj/item/material/shard/nullglass,/turf/simulated/floor/tiled/monotile,/area/bunker/eng)
 "al" = (/obj/structure/curtain/open/bed,/obj/floor_decal/step{color = "grey"; dir = 8},/turf/simulated/floor/wood/walnut,/area/bunker/barracks/gvardiya)
 "am" = (/obj/structure/flora/ausbushes/fullgrass,/turf/simulated/floor/exoplanet/fd/grass,/area/bunker/kitchen/bufet)
 "an" = (/obj/catwalk_plated/dark,/obj/structure/cable/green{d1 = 1; d2 = 4; icon_state = "1-4"},/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/bunker/corridors/south)
@@ -46,6 +46,7 @@
 "bt" = (/obj/floor_decal/messygrass{dir = 1},/obj/floor_decal/messygrass{dir = 8},/turf/simulated/floor/exoplanet/fd/muddirt,/area/bunker/jungle)
 "bu" = (/obj/floor_decal/corner_techfloor_gray{dir = 10},/obj/floor_decal/techfloor/corner{dir = 1},/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/eng/workshop)
 "bv" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
+"bx" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled,/area/bunker/corridors/center)
 "bA" = (/turf/simulated/floor/exoplanet/fd/waste,/area/bunker)
 "bE" = (/obj/structure/rubble/house,/turf/simulated/floor/exoplanet/fd/grass{color = "#6E8C44"},/area/bunker/jungle)
 "bF" = (/obj/structure/flora/ausbushes/fernybush,/obj/structure/vines/light3,/obj/fd_water/alt_ver1,/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
@@ -62,6 +63,7 @@
 "bV" = (/obj/floor_decal/messygrass{dir = 6},/turf/simulated/floor/exoplanet/fd/drought{color = "#bebebe"},/area/bunker/jungle)
 "bW" = (/obj/structure/table/steel,/obj/item/clothing/suit/storage/hazardvest,/obj/item/clothing/suit/storage/hazardvest{pixel_y = 6; pixel_x = 12},/obj/item/clothing/head/hardhat,/turf/simulated/floor/tiled/techfloor,/area/bunker/eng/workshop)
 "bZ" = (/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 4},/obj/structure/table/woodentable_reinforced,/obj/structure/window/reinforced{dir = 4},/obj/item/ammo_magazine/mil_rifle{pixel_x = 1; pixel_y = 4},/obj/machinery/door/window/northright,/obj/item/ammo_magazine/mil_rifle{pixel_x = 4; pixel_y = -8},/obj/item/ammo_magazine/mil_rifle{pixel_y = -9; pixel_x = -7},/obj/item/ammo_magazine/mil_rifle{pixel_x = -7; pixel_y = 7},/obj/item/ammo_magazine/mil_rifle{pixel_x = 7; pixel_y = 5},/turf/simulated/floor/tiled/dark,/area/bunker/rooms/room7)
+"ca" = (/obj/item/material/twohanded/fireaxe,/turf/simulated/floor/tiled/techfloor,/area/bunker/eng)
 "ce" = (/obj/decal/cleanable/dirt,/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 4},/turf/simulated/floor/plating,/area/bunker/eng)
 "cf" = (/obj/floor_decal/corner_steel_grid/diagonal,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/barracks/gvardiya)
 "cg" = (/obj/paint/black,/turf/simulated/wall/invincible,/area/bunker/corridors/north)
@@ -98,7 +100,7 @@
 "df" = (/obj/structure/flora/seaweed{layer = 2.21; pixel_x = -12; pixel_y = -14},/obj/structure/flora/seaweed,/obj/fd_water,/turf/simulated/floor/exoplanet/fd/whitesand{color = "#272727"},/area/bunker/jungle)
 "dg" = (/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled/dark,/area/bunker/command)
 "dl" = (/obj/structure/flora/ausbushes/dead_small_cacti,/obj/structure/fd/cave_flora{desc = "Just some grass, nothing more."; icon_state = "grass6"; name = "flora"},/turf/simulated/floor/exoplanet/fd/waste,/area/bunker/jungle)
-"dm" = (/turf/simulated/floor/tiled/dark/monotile,/area/bunker/rooms/room12)
+"dm" = (/obj/structure/table/standard,/turf/simulated/floor/tiled/dark/monotile,/area/bunker/eng)
 "dn" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/wood/walnut{icon_state = "wood_broken3"},/area/bunker/barracks/gvardiya)
 "do" = (/turf/simulated/floor/exoplanet/fd/grass,/area/bunker/jungle/lz)
 "dp" = (/obj/structure/table/marble,/obj/item/material/kitchen/rollingpin,/obj/item/book/manual/chef_recipes,/obj/machinery/light,/turf/simulated/floor/tiled/white/monotile,/area/bunker/kitchen)
@@ -109,13 +111,13 @@
 "dv" = (/obj/structure/vines/heavy1,/turf/simulated/floor/exoplanet/fd/grass{color = "#5F773B"},/area/bunker/jungle)
 "dw" = (/obj/machinery/constructable_frame/machine_frame,/turf/simulated/floor/plating,/area/bunker/eng/workshop)
 "dx" = (/obj/machinery/door/airlock/autoname{dir = 2},/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating,/area/bunker/command)
-"dy" = (/obj/decal/cleanable/generic,/turf/simulated/floor/wood/walnut{icon_state = "wood_broken3"},/area/bunker/barracks)
+"dy" = (/turf/simulated/floor/wood/walnut{icon_state = "wood_broken3"},/area/bunker/barracks)
 "dA" = (/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled/dark,/area/bunker/corridors/west)
 "dB" = (/obj/catwalk_plated/dark,/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/bunker/corridors/north)
 "dE" = (/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled/dark,/area/bunker/corridors/south)
-"dF" = (/obj/decal/cleanable/dirt,/obj/structure/bed/chair{dir = 4},/turf/simulated/floor/tiled/dark/monotile,/area/bunker/eng)
+"dF" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled,/area/bunker/eng)
 "dJ" = (/obj/structure/hygiene/drain,/obj/floor_decal/corner/green/diagonal,/turf/simulated/floor/tiled/dark,/area/bunker/rooms/room10)
-"dL" = (/turf/simulated/wall/r_wall,/area/bunker/rooms/room7)
+"dL" = (/obj/decal/cleanable/dirt,/obj/structure/table/standard,/turf/simulated/floor/tiled/monotile,/area/bunker/eng)
 "dN" = (/obj/structure/flora/tree/jungle/small,/turf/simulated/floor/exoplanet/fd/grass,/area/bunker/jungle)
 "dP" = (/obj/floor_decal/corner/grey/half{dir = 1},/turf/simulated/floor/tiled/freezer,/area/bunker/kitchen/freezer)
 "dQ" = (/obj/floor_decal/messygrass{dir = 6},/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
@@ -126,7 +128,7 @@
 "eb" = (/turf/simulated/floor/tiled/old_tile,/area/bunker/barracks/preporation_gvardiya)
 "ed" = (/obj/structure/vines/heavy2,/turf/simulated/floor/exoplanet/fd/grass{color = "#5F773B"},/area/bunker/jungle)
 "ee" = (/obj/floor_decal/borderfloorwhite,/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled/monotile,/area/bunker/kitchen/bufet)
-"ef" = (/obj/structure/table/glass,/obj/item/device/binoculars{pixel_x = 15; pixel_y = -6},/obj/item/storage/pill_bottle/paracetamol{pixel_y = -4; pixel_x = 1},/obj/item/pen{pixel_y = -9; pixel_x = 8},/obj/item/device/flashlight/maglight{pixel_y = 4; pixel_x = 4},/turf/simulated/floor/tiled/techmaint,/area/bunker/rooms/room7)
+"ef" = (/obj/structure/table/standard,/turf/simulated/floor/tiled/monotile,/area/bunker/eng)
 "eh" = (/turf/simulated/floor/tiled,/area/bunker/corridors/center)
 "ei" = (/obj/floor_decal/techfloor{dir = 8},/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/eng/workshop)
 "el" = (/obj/structure/bed/padded,/obj/floor_decal/corner/black/border{dir = 4},/turf/simulated/floor/wood/walnut,/area/bunker/barracks)
@@ -135,7 +137,7 @@
 "eq" = (/obj/structure/fd/building_stuff{anchored = 0; density = 1; icon_state = "2,1"; pixel_x = -16; pixel_y = -3},/turf/simulated/floor/exoplanet/fd/drought{color = "#bebebe"},/area/bunker/jungle)
 "er" = (/obj/structure/vines/heavy3,/turf/simulated/floor/plating,/area/bunker/jungle/lz)
 "es" = (/obj/structure/flora/jungle/bush,/obj/structure/vines/light2,/turf/simulated/floor/exoplanet/fd/grass{color = "#5F773B"},/area/bunker/jungle)
-"et" = (/obj/structure/closet/crate/freezer/rations,/turf/simulated/floor/tiled/freezer,/area/bunker/kitchen/freezer)
+"et" = (/obj/decal/cleanable/dirt,/obj/item/tank/air,/obj/item/tank/air{pixel_x = -11},/obj/item/tank/air{pixel_y = 10; pixel_x = -7},/obj/item/tank/air{pixel_x = 1; pixel_y = 7},/turf/simulated/floor/plating,/area/bunker/eng)
 "eu" = (/obj/floor_decal/asteroid,/turf/simulated/floor/exoplanet/fd/waste,/area/bunker/kpp)
 "ex" = (/obj/decal/cleanable/dirt,/obj/structure/cable/green{d1 = 1; d2 = 8; icon_state = "1-8"},/turf/simulated/floor/tiled/dark,/area/bunker/rooms/room14)
 "ez" = (/obj/floor_decal/techfloor/orange,/obj/machinery/power/apc{dir = 1; pixel_y = 24},/obj/structure/cable/green{d2 = 2; icon_state = "0-2"},/obj/machinery/light_switch{dir = 2; pixel_y = 28; pixel_x = 11},/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/eng)
@@ -147,6 +149,7 @@
 "eL" = (/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled/dark,/area/bunker/corridors/north)
 "eM" = (/obj/machinery/nav_light/port,/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/jungle)
 "eN" = (/obj/structure/closet,/turf/simulated/floor/tiled/dark/monotile,/area/bunker/kpp)
+"eS" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark/monotile,/area/bunker/eng)
 "eU" = (/turf/simulated/floor/tiled,/area/bunker/kitchen/bufet)
 "eV" = (/obj/floor_decal/borderfloor{dir = 4},/obj/machinery/light_switch{dir = 2; pixel_y = 27},/turf/simulated/floor/tiled/monotile,/area/bunker/kitchen/bufet)
 "eW" = (/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 8},/turf/simulated/floor/tiled/dark/monotile,/area/bunker/corridors/center)
@@ -202,13 +205,12 @@
 "gw" = (/obj/floor_decal/corner_techfloor_grid{dir = 4},/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 2},/turf/simulated/floor/plating,/area/bunker/eng/workshop)
 "gy" = (/obj/machinery/door/airlock/autoname,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating,/area/bunker/eng/workshop)
 "gz" = (/obj/decal/cleanable/dirt,/obj/machinery/door/airlock/autoname,/turf/simulated/floor/tiled/old_tile,/area/bunker/barracks/preporation_gvardiya)
-"gD" = (/obj/structure/vines,/turf/simulated/wall,/area/bunker/jungle/lz)
 "gE" = (/obj/structure/flora/seaweed/large{layer = 2.21},/obj/structure/flora/seaweed/large{layer = 2.21; pixel_y = 47; pixel_x = 7},/obj/fd_water,/turf/simulated/floor/exoplanet/fd/whitesand{color = "#868686"},/area/bunker/jungle)
 "gK" = (/obj/structure/flora/ausbushes/grassybush,/turf/simulated/floor/exoplanet/fd/grass{color = "#5F773B"},/area/bunker/jungle)
 "gM" = (/obj/structure/table/steel,/obj/random/clipboard,/obj/item/hand_labeler,/obj/item/paper_bin,/obj/structure/sign/warning/nosmoking_burned{pixel_y = 30},/turf/simulated/floor/plating,/area/bunker/eng/workshop)
 "gN" = (/obj/floor_decal/industrial/hatch/yellow,/turf/simulated/floor/tiled/dark/monotile,/area/bunker/rooms/room10)
 "gO" = (/obj/structure/vines/heavy5,/turf/simulated/floor/exoplanet/fd/grass,/area/bunker/jungle)
-"gQ" = (/obj/decal/cleanable/dirt,/obj/floor_decal/techfloor/orange,/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/eng)
+"gQ" = (/obj/decal/cleanable/dirt,/obj/floor_decal/techfloor/orange,/obj/structure/bed/chair/wheelchair{color = null},/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/eng)
 "gR" = (/obj/structure/table/steel,/obj/item/stack/nanopaste,/obj/item/device/radio/intercom/bunker{pixel_y = 24},/turf/simulated/floor/tiled/techfloor,/area/bunker/eng/workshop)
 "gT" = (/obj/structure/vines/light2,/obj/structure/vines/light2,/turf/simulated/floor/exoplanet/fd/grass,/area/bunker/jungle)
 "gX" = (/obj/structure/vines,/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/bunker/jungle/lz)
@@ -314,13 +316,14 @@
 "jS" = (/turf/simulated/floor/plating,/area/bunker/barracks)
 "jU" = (/obj/structure/window/basic{dir = 4},/obj/floor_decal/corner/blue/bordercorner{dir = 8},/obj/floor_decal/corner/blue/bordercorner{dir = 1},/obj/floor_decal/corner/blue/border{dir = 4},/turf/simulated/floor/tiled/old_tile,/area/bunker/barracks/preporation)
 "jV" = (/obj/floor_decal/corner/blue/mono,/obj/machinery/washing_machine,/obj/machinery/washing_machine{pixel_y = 19},/turf/simulated/floor/tiled/old_cargo,/area/bunker/barracks/preporation_gvardiya)
+"jW" = (/obj/structure/vines,/turf/simulated/wall,/area/bunker/jungle/lz)
 "jY" = (/obj/decal/cleanable/dirt,/obj/structure/closet/secure_closet/guncabinet{req_access = list("ACCESS_QUARTERMASTER")},/turf/simulated/floor/tiled/dark/monotile,/area/bunker/kpp)
 "ka" = (/obj/floor_decal/messygrass{dir = 6},/turf/simulated/floor/exoplanet/fd/desertsand,/area/bunker/jungle)
 "kb" = (/obj/structure/curtain/open/shower,/obj/structure/hygiene/shower{dir = 4; pixel_y = 0},/obj/floor_decal/floordetail/edgedrain{dir = 4},/turf/simulated/floor/tiled/old_cargo,/area/bunker/barracks/preporation_gvardiya)
 "kc" = (/obj/floor_decal/steeldecal/steel_decals_central2{dir = 1; pixel_y = -1},/turf/simulated/floor/exoplanet/fd/grass{color = "#6E8C44"},/area/bunker/jungle)
 "kd" = (/obj/floor_decal/messygrass{dir = 1},/obj/floor_decal/messygrass{dir = 4},/obj/floor_decal/messygrass{dir = 10},/turf/simulated/floor/exoplanet/fd/drought{color = "#bebebe"},/area/bunker/jungle)
 "kf" = (/obj/fd_water,/turf/simulated/floor/exoplanet/fd/whitesand{color = "#868686"},/area/bunker/jungle)
-"kg" = (/obj/floor_decal/corner/darkblue/mono,/turf/simulated/floor/tiled/white/monotile,/area/bunker/rooms/room6)
+"kg" = (/obj/floor_decal/corner/darkblue/mono,/obj/structure/reagent_dispensers/water_cooler{pixel_y = 9; pixel_x = -1},/turf/simulated/floor/tiled/white/monotile,/area/bunker/rooms/room6)
 "ki" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/bunker/corridors/west)
 "kl" = (/obj/structure/vines/light3,/turf/simulated/floor/exoplanet/fd/muddirt,/area/bunker)
 "km" = (/obj/machinery/door/blast/shutters/open{id_tag = "garage"},/turf/simulated/floor/plating,/area/bunker/eng/workshop)
@@ -329,6 +332,7 @@
 "kp" = (/obj/floor_decal/corner/grey/border{dir = 10},/turf/simulated/floor/tiled/white,/area/bunker/kitchen)
 "ks" = (/obj/structure/flora/seaweed{layer = 2.21; pixel_x = 17; pixel_y = -15},/obj/fd_water,/turf/simulated/floor/exoplanet/fd/whitesand{color = "#272727"},/area/bunker/jungle)
 "ku" = (/obj/structure/vines,/obj/structure/vines,/turf/simulated/floor/exoplanet/fd/muddirt,/area/bunker/jungle)
+"kv" = (/obj/machinery/power/terminal{dir = 1},/obj/structure/cable{d2 = 4; icon_state = "0-4"},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/bunker/eng)
 "kw" = (/obj/structure/fake_lattice{layer = 2.25},/obj/floor_decal/messygrass{dir = 8},/obj/floor_decal/messygrass,/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
 "kx" = (/obj/decal/cleanable/generic,/turf/simulated/floor/tiled,/area/bunker/command)
 "kB" = (/obj/structure/table/standard,/obj/floor_decal/corner/darkblue/mono,/turf/simulated/floor/tiled/dark,/area/bunker/command)
@@ -343,6 +347,7 @@
 "kP" = (/obj/machinery/power/apc{pixel_y = 0; dir = 4; pixel_x = 24},/obj/structure/cable/green{d2 = 2; icon_state = "0-2"},/turf/simulated/floor/plating,/area/bunker/rooms/room3)
 "kQ" = (/obj/structure/vines/light3,/obj/paint/dark_gunmetal,/turf/simulated/wall,/area/bunker/jungle)
 "kT" = (/obj/structure/flora/tree/jungle/small{color = "#bebebe"},/turf/simulated/floor/exoplanet/fd/muddirt,/area/bunker/jungle)
+"kU" = (/obj/structure/table/woodentable/walnut,/obj/floor_decal/corner/grey/border{dir = 1},/obj/floor_decal/corner/grey/border,/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/white/monotile,/area/bunker/kitchen)
 "kV" = (/obj/structure/table/woodentable_reinforced,/obj/structure/window/reinforced{dir = 8},/obj/machinery/door/window/northleft,/obj/item/gun/energy/gun/small/secure{pixel_y = -8; pixel_x = 9},/obj/item/gun/projectile/automatic/bullpup_rifle{pixel_y = 3; name = "bullpup assault rifle (Morikawa)"},/obj/item/gun/energy/gun/secure/preauthorized{pixel_y = -8; pixel_x = -7; name = "smartgun (Laser Disco)"},/turf/simulated/floor/tiled/dark,/area/bunker/rooms/room7)
 "kW" = (/obj/structure/table/standard,/obj/machinery/chemical_dispenser/bar_coffee{dir = 1},/turf/simulated/floor/tiled/monotile,/area/bunker/kitchen/bufet)
 "kX" = (/obj/decal/cleanable/dirt,/obj/structure/vines/light3,/obj/structure/gravemarker,/turf/simulated/floor/exoplanet/fd/muddirt,/area/bunker/jungle)
@@ -353,6 +358,7 @@
 "lg" = (/obj/floor_decal/techfloor/corner,/obj/floor_decal/techfloor/corner{dir = 1},/turf/simulated/floor/tiled/techfloor,/area/bunker/eng/workshop)
 "ll" = (/turf/simulated/floor/plating,/area/bunker/rooms/room4)
 "ln" = (/obj/structure/flora/tree/jungle/small,/turf/simulated/floor/exoplanet/fd/grass{color = "#5F773B"},/area/bunker/jungle)
+"lq" = (/obj/machinery/floor_light/mapped_on{color = "#46698c"},/turf/simulated/floor/tiled/white/monotile,/area/bunker/rooms/room5)
 "lt" = (/obj/paint/brown,/turf/simulated/wall/r_wall,/area/bunker/barracks)
 "lu" = (/obj/structure/fake_zlvl,/obj/structure/fake_zlvl,/obj/structure/girder/displaced,/turf/simulated/floor/plating,/area/bunker/corridors/north)
 "lx" = (/obj/machinery/door/airlock/autoname,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating,/area/bunker/kpp)
@@ -362,7 +368,7 @@
 "lD" = (/obj/fd_water/alt_ver1,/obj/floor_decal/messygrass{dir = 8},/obj/floor_decal/messygrass{dir = 4},/obj/floor_decal/messygrass,/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
 "lE" = (/turf/simulated/floor/tiled/dark,/area/bunker/rooms/room2)
 "lF" = (/obj/structure/bed/chair/padded/brown{dir = 4},/obj/floor_decal/borderfloor,/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 1},/turf/simulated/floor/tiled/monotile,/area/bunker/kitchen/bufet)
-"lI" = (/obj/floor_decal/corner/darkblue/mono,/obj/structure/table/woodentable,/turf/simulated/floor/tiled/white/monotile,/area/bunker/rooms/room5)
+"lI" = (/obj/floor_decal/corner/darkblue/mono,/turf/simulated/floor/tiled/white/monotile,/area/bunker/rooms/room5)
 "lK" = (/obj/paint/red/dark,/turf/simulated/wall/r_wall,/area/bunker/barracks)
 "lL" = (/obj/decal/cleanable/dirt,/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 1},/turf/simulated/floor/tiled/dark/monotile,/area/bunker/corridors/north)
 "lM" = (/obj/floor_decal/industrial/warning,/turf/simulated/floor/plating,/area/bunker/eng/workshop)
@@ -389,7 +395,6 @@
 "mp" = (/obj/structure/table,/obj/structure/vines/light2,/turf/simulated/floor/plating,/area/bunker/jungle/lz)
 "mt" = (/obj/floor_decal/messygrass{dir = 1},/obj/floor_decal/messygrass{dir = 8},/obj/floor_decal/messygrass{dir = 4},/turf/simulated/floor/exoplanet/fd/drought{color = "#bebebe"},/area/bunker/jungle)
 "mu" = (/obj/catwalk_plated/dark,/obj/decal/cleanable/dirt,/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/bunker/corridors/center)
-"mv" = (/obj/machinery/door/unpowered/simple/iron{dir = 4},/turf/simulated/floor/tiled/dark/monotile,/area/bunker/eng)
 "mw" = (/obj/structure/table/standard,/obj/structure/sign/poster/no_alcohol{pixel_x = -32},/turf/simulated/floor/tiled/monotile,/area/bunker/kitchen/bufet)
 "mx" = (/obj/structure/fd/junk{icon_state = "1,1"; pixel_y = -11},/turf/simulated/floor/exoplanet/fd/grass,/area/bunker/jungle)
 "my" = (/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 4},/obj/floor_decal/corner_steel_grid{dir = 1},/obj/decal/cleanable/dirt,/obj/floor_decal/techfloor{dir = 4},/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/barracks/gvardiya)
@@ -399,18 +404,20 @@
 "mD" = (/obj/structure/vines/heavy2,/turf/simulated/floor/exoplanet/fd/grass{color = "#526833"},/area/bunker/jungle)
 "mE" = (/obj/floor_decal/corner/grey/border,/turf/simulated/floor/tiled/white,/area/bunker/kitchen)
 "mF" = (/turf/simulated/floor/tiled,/area/bunker/rooms/room10)
+"mG" = (/obj/decal/cleanable/dirt,/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 4},/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating,/area/bunker/eng)
 "mH" = (/obj/structure/vines/light2,/obj/floor_decal/messygrass{dir = 1},/obj/floor_decal/messygrass,/obj/floor_decal/messygrass{dir = 8},/turf/simulated/floor/exoplanet/fd/drought{color = "#bebebe"},/area/bunker/jungle)
 "mI" = (/obj/floor_decal/messygrass,/turf/simulated/floor/exoplanet/fd/drought{color = "#bebebe"},/area/bunker/jungle)
 "mJ" = (/obj/machinery/constructable_frame/machine_frame,/obj/floor_decal/industrial/hatch/yellow,/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 1},/turf/simulated/floor/tiled/dark/monotile,/area/bunker/rooms/room10)
 "mK" = (/obj/structure/flora/jungle/bush,/obj/structure/flora/jungle/bush,/turf/simulated/floor/exoplanet/fd/grass,/area/bunker/jungle)
 "mL" = (/obj/structure/vines/light2,/turf/simulated/floor/exoplanet/fd/grass{color = "#526833"},/area/bunker/jungle)
-"mO" = (/obj/machinery/power/terminal{dir = 1},/obj/structure/cable{d2 = 4; icon_state = "0-4"},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/bunker/eng)
+"mO" = (/obj/machinery/power/terminal{dir = 1},/obj/structure/cable{d2 = 4; icon_state = "0-4"},/turf/simulated/floor/plating,/area/bunker/eng)
 "mQ" = (/obj/structure/flora/seaweed/mid{layer = 2.21},/obj/fd_water,/turf/simulated/floor/exoplanet/fd/whitesand{color = "#868686"},/area/bunker/jungle)
 "mR" = (/obj/machinery/cooker/oven,/turf/simulated/floor/tiled/white/monotile,/area/bunker/kitchen)
 "nb" = (/obj/floor_decal/messygrass{dir = 4},/obj/floor_decal/messygrass{dir = 1},/obj/floor_decal/messygrass{dir = 10},/turf/simulated/floor/exoplanet/fd/drought{color = "#bebebe"},/area/bunker/jungle)
 "nd" = (/obj/paint/black,/turf/simulated/wall/r_wall,/area/bunker/eng/workshop)
+"ne" = (/obj/structure/table/standard,/obj/item/clothing/suit/space/void/battlewizards/prepared,/turf/simulated/floor/tiled/monotile,/area/bunker/eng)
 "ni" = (/turf/simulated/floor/tiled/dark,/area/bunker/rooms/room14)
-"nj" = (/obj/floor_decal/industrial/hatch/yellow,/obj/machinery/portable_atmospherics/hydroponics,/turf/simulated/floor/tiled/dark/monotile,/area/bunker/rooms/room10)
+"nj" = (/obj/structure/vines/heavy3,/obj/structure/rubble/house,/turf/simulated/floor/plating,/area/bunker/jungle/lz)
 "nk" = (/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled/old_tile,/area/bunker/barracks/preporation)
 "nl" = (/obj/floor_decal/messygrass{dir = 8},/obj/floor_decal/messygrass{dir = 1},/obj/floor_decal/messygrass,/turf/simulated/floor/exoplanet/fd/drought{color = "#bebebe"},/area/bunker/jungle)
 "nm" = (/obj/paint/silver,/turf/simulated/wall/r_wall,/area/bunker/kitchen/freezer)
@@ -420,7 +427,7 @@
 "nv" = (/obj/machinery/power/apc{pixel_y = -24},/obj/structure/cable/green{d2 = 8; icon_state = "0-8"},/turf/simulated/floor/tiled/dark/monotile,/area/bunker/kpp)
 "nw" = (/obj/structure/curtain/open/shower,/obj/floor_decal/floordetail/edgedrain{dir = 4},/obj/structure/hygiene/shower{dir = 8; pixel_x = 7},/obj/item/soap/fire_soap,/turf/simulated/floor/tiled/old_cargo,/area/bunker/barracks/preporation_gvardiya)
 "nx" = (/obj/floor_decal/messygrass,/obj/floor_decal/messygrass{dir = 8},/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
-"ny" = (/obj/structure/table/standard,/obj/item/clothing/suit/space/void/battlewizards/prepared,/turf/simulated/floor/tiled/monotile,/area/bunker/eng)
+"ny" = (/turf/simulated/floor/tiled,/area/bunker/eng)
 "nB" = (/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 2},/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/bunker/kpp)
 "nC" = (/obj/catwalk_plated/dark,/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/bunker/corridors/west)
 "nE" = (/obj/structure/flora/jungle/bush,/turf/simulated/floor/exoplanet/fd/muddirt,/area/bunker/jungle)
@@ -455,7 +462,7 @@
 "oD" = (/obj/structure/wall_frame,/obj/paint/black,/turf/simulated/floor/plating,/area/bunker/command)
 "oF" = (/obj/structure/catwalk,/turf/simulated/floor/plating,/area/bunker/kpp)
 "oG" = (/obj/machinery/power/apc{pixel_y = 24; dir = 1},/obj/structure/cable/green{d2 = 2; icon_state = "0-2"},/obj/machinery/light_switch{dir = 2; pixel_y = 32; pixel_x = 11},/turf/simulated/floor/tiled/dark/monotile,/area/bunker/corridors/center)
-"oH" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled/techfloor,/area/bunker/eng)
+"oH" = (/obj/decal/cleanable/dirt,/obj/structure/bed{color = "#d5a66e"},/obj/item/bedsheet,/turf/simulated/floor/tiled/dark/monotile,/area/bunker/eng)
 "oK" = (/obj/decal/cleanable/dirt,/obj/machinery/light_switch{dir = 4; pixel_y = 0; pixel_x = -27},/obj/decal/cleanable/generic,/turf/simulated/floor/tiled/dark/monotile,/area/bunker/rooms/room12)
 "oL" = (/obj/floor_decal/corner/grey/border{dir = 1},/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled/white,/area/bunker/kitchen)
 "oM" = (/obj/floor_decal/corner/grey/border,/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled/white,/area/bunker/kitchen)
@@ -478,9 +485,9 @@
 "pp" = (/obj/machinery/recharge_station,/obj/floor_decal/industrial/hatch/grey,/turf/simulated/floor/tiled/techfloor,/area/bunker/eng)
 "pq" = (/obj/structure/flora/ausbushes/purple_bush,/turf/simulated/floor/exoplanet/fd/grass,/area/bunker/jungle)
 "ps" = (/obj/structure/vines/heavy1,/obj/structure/girder,/turf/simulated/floor/plating,/area/bunker/jungle)
-"pt" = (/obj/decal/cleanable/dirt,/obj/structure/bed{color = "#d5a66e"},/obj/item/bedsheet,/turf/simulated/floor/tiled/dark/monotile,/area/bunker/eng)
+"pt" = (/obj/floor_decal/corner_techfloor_grid/diagonal{dir = 4},/turf/simulated/floor/tiled/techfloor,/area/bunker/barracks)
 "pu" = (/obj/structure/fd/cave_flora{desc = "Just some grass, nothing more."; icon_state = "grass1"; name = "flora"},/turf/simulated/floor/exoplanet/fd/waste,/area/bunker/jungle)
-"pv" = (/obj/machinery/door/window/eastleft,/turf/simulated/floor/tiled,/area/bunker/kitchen/bufet)
+"pv" = (/obj/structure/flora/ausbushes/lavendergrass,/obj/structure/dogbed,/mob/living/simple_animal/passive/cat/fluff/Runtime,/turf/simulated/floor/exoplanet/fd/grass,/area/bunker/kitchen/bufet)
 "py" = (/obj/structure/table/marble,/obj/machinery/reagentgrinder/juicer,/obj/item/reagent_containers/glass/beaker/large,/turf/simulated/floor/tiled/white/monotile,/area/bunker/kitchen)
 "pA" = (/obj/decal/cleanable/dirt,/obj/structure/closet/secure_closet/personal/empty,/obj/floor_decal/corner_techfloor_grid/diagonal{dir = 4},/turf/simulated/floor/tiled/techfloor,/area/bunker/barracks)
 "pC" = (/obj/floor_decal/messygrass{dir = 1},/obj/floor_decal/messygrass{dir = 4},/turf/simulated/floor/exoplanet/fd/muddirt,/area/bunker/jungle)
@@ -516,7 +523,6 @@
 "qw" = (/obj/decal/cleanable/dirt,/obj/floor_decal/corner_steel_grid{dir = 9},/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 8},/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/barracks/gvardiya)
 "qx" = (/obj/machinery/light_construct{dir = 8},/turf/simulated/floor/tiled/dark/monotile,/area/bunker/rooms/room3)
 "qy" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/old_tile,/area/bunker/barracks/preporation)
-"qA" = (/obj/structure/closet/crate{name = "Ammo crate"},/obj/item/ammo_magazine/shotgun/iccgn/magnum,/obj/item/ammo_magazine/shotgun/iccgn/magnum,/obj/item/ammo_magazine/shotgun/iccgn/magnum,/obj/item/ammo_magazine/shotgun/iccgn/magnum,/obj/item/ammo_magazine/shotgun/iccgn,/obj/item/ammo_magazine/shotgun/iccgn,/obj/item/ammo_magazine/pistol/scg,/obj/item/ammo_magazine/pistol/scg,/obj/item/ammo_magazine/pistol/scg,/obj/item/ammo_magazine/pistol/scg,/obj/item/ammo_magazine/pistol/scg,/obj/item/ammo_magazine/pistol/scg,/obj/item/ammo_magazine/shotholder,/turf/simulated/floor/tiled/monotile,/area/bunker/eng)
 "qB" = (/obj/random/maintenance,/turf/simulated/floor/tiled/techfloor,/area/bunker/eng/workshop)
 "qC" = (/obj/structure/closet,/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 4},/turf/simulated/floor/tiled/dark/monotile,/area/bunker/rooms/room11)
 "qE" = (/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating,/area/bunker/kitchen)
@@ -536,7 +542,7 @@
 "re" = (/obj/structure/bed/chair/padded/brown{dir = 4},/turf/simulated/floor/tiled,/area/bunker/kitchen/bufet)
 "rf" = (/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating,/area/bunker/eng/workshop)
 "rg" = (/obj/structure/vines,/obj/floor_decal/messygrass{dir = 6},/turf/simulated/floor/exoplanet/fd/desertsand,/area/bunker/jungle)
-"rh" = (/turf/simulated/floor/tiled/white/monotile,/area/bunker/rooms/room6)
+"rh" = (/obj/floor_decal/industrial/outline/orange,/obj/machinery/power/smes/buildable,/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/structure/cable/green{d2 = 8; icon_state = "0-8"},/turf/simulated/floor/plating,/area/bunker/eng)
 "ri" = (/obj/structure/table/standard,/obj/machinery/microwave{pixel_y = 6},/obj/floor_decal/corner/darkblue/mono,/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 8},/turf/simulated/floor/tiled/dark,/area/bunker/command)
 "rj" = (/obj/structure/flora/ausbushes/fullgrass,/turf/simulated/floor/plating,/area/bunker/jungle/lz)
 "rk" = (/obj/structure/flora/ausbushes/fullgrass,/turf/simulated/floor/exoplanet/fd/grass{color = "#6E8C44"},/area/bunker/jungle)
@@ -549,10 +555,12 @@
 "rv" = (/obj/structure/flora/ausbushes/fullgrass,/turf/simulated/floor/exoplanet/fd/grass{color = "#6E8C44"},/area/bunker/jungle/lz)
 "rx" = (/obj/structure/grille/broken,/obj/floor_decal/messygrass{dir = 8},/obj/floor_decal/messygrass{dir = 1},/obj/floor_decal/messygrass{dir = 4},/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
 "ry" = (/obj/structure/flora/ausbushes/fernybush,/obj/fd_water/alt_ver1,/obj/floor_decal/messygrass{dir = 4},/obj/floor_decal/messygrass,/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
+"rB" = (/obj/machinery/light/golden{dir = 1},/obj/structure/closet/secure_closet/personal/empty,/turf/simulated/floor/wood/walnut,/area/bunker/barracks)
 "rC" = (/obj/structure/vines,/turf/simulated/floor/exoplanet/fd/grass{color = "#5F773B"},/area/bunker/jungle)
 "rD" = (/obj/decal/cleanable/dirt,/obj/structure/cable/green{d1 = 2; d2 = 4; icon_state = "2-4"},/turf/simulated/floor/plating,/area/bunker/corridors/west)
 "rF" = (/obj/structure/sign/directions/bridge{dir = 2; pixel_y = 8; pixel_x = 33},/obj/structure/sign/directions/engineering{pixel_y = 2; dir = 8; pixel_x = 33},/obj/structure/sign/directions/security{pixel_y = -4; dir = 1; pixel_x = 33},/obj/structure/sign/directions/supply{pixel_y = -10; dir = 1; pixel_x = 33},/turf/simulated/floor/tiled/dark/monotile,/area/bunker/corridors/center)
 "rG" = (/obj/machinery/vending/dinnerware{products = list(/obj/item/reagent_containers/glass/beaker/bowl=3,/obj/item/tray=8,/obj/item/material/knife/kitchen=3,/obj/item/material/kitchen/rollingpin=2,/obj/item/reagent_containers/food/drinks/pitcher=2,/obj/item/reagent_containers/food/drinks/flask/vacuumflask=4,/obj/item/reagent_containers/food/drinks/glass2/coffeecup=8,/obj/item/reagent_containers/food/drinks/glass2/coffeecup/teacup=8,/obj/item/reagent_containers/food/drinks/glass2/carafe=2,/obj/item/reagent_containers/food/drinks/glass2/square=8,/obj/item/clothing/suit/chef/classic=2,/obj/item/storage/lunchbox=3,/obj/item/storage/lunchbox/heart=3,/obj/item/storage/lunchbox/cat=3,/obj/item/storage/lunchbox/nt=3,/obj/item/storage/lunchbox/mars=3,/obj/item/storage/lunchbox/cti=3,/obj/item/storage/lunchbox/nymph=3,/obj/item/storage/lunchbox/syndicate=3,/obj/item/storage/lunchbox/dais=3,/obj/item/storage/lunchbox/picnic=3,/obj/item/material/knife/kitchen/cleaver=1); req_access = list("ACCESS_KITCHEN")},/turf/simulated/floor/tiled/white/monotile,/area/bunker/kitchen)
+"rH" = (/turf/simulated/floor/tiled/dark/monotile,/area/bunker/eng)
 "rJ" = (/obj/structure/extinguisher_cabinet{pixel_y = 0; pixel_x = -32},/turf/simulated/floor/tiled/white/monotile,/area/bunker/kitchen)
 "rK" = (/obj/structure/table,/turf/simulated/floor/plating,/area/bunker/rooms/room11)
 "rM" = (/obj/structure/table/standard,/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 2},/turf/simulated/floor/tiled/white/monotile,/area/bunker/rooms/room13)
@@ -560,9 +568,7 @@
 "rP" = (/obj/machinery/light_switch{dir = 1; pixel_y = -27},/turf/simulated/floor/tiled,/area/bunker/rooms/room10)
 "rR" = (/obj/structure/flora/ausbushes/reedbush,/obj/fd_water/alt_ver1,/obj/floor_decal/messygrass{dir = 8},/obj/floor_decal/messygrass,/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
 "rW" = (/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 4},/turf/simulated/floor/plating,/area/bunker/rooms/room8)
-"rY" = (/obj/decal/cleanable/dirt,/obj/structure/bed{color = "#d5a66e"},/obj/item/bedsheet,/turf/simulated/floor/tiled/monotile,/area/bunker/eng)
 "sb" = (/obj/structure/flora/seaweed{layer = 2.21},/obj/structure/flora/seaweed/glow{layer = 2.21},/obj/fd_water,/turf/simulated/floor/exoplanet/fd/whitesand{color = "#272727"},/area/bunker/jungle)
-"sd" = (/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/turf/simulated/floor/plating,/area/bunker/eng)
 "se" = (/obj/floor_decal/corner/blue/mono,/obj/structure/closet/crate/bin,/turf/simulated/floor/tiled/old_cargo,/area/bunker/barracks/preporation_gvardiya)
 "sf" = (/obj/decal/cleanable/dirt,/obj/catwalk_plated/dark,/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/structure/cable/green{d1 = 2; d2 = 4; icon_state = "2-4"},/obj/structure/cable/green{d1 = 1; d2 = 4; icon_state = "1-4"},/turf/simulated/floor/plating,/area/bunker/corridors/north)
 "sh" = (/obj/structure/rubble/house,/turf/simulated/floor/plating,/area/bunker/jungle)
@@ -609,6 +615,7 @@
 "tl" = (/obj/paint/green,/turf/simulated/wall/r_wall,/area/bunker/barracks)
 "tn" = (/obj/structure/flora/ausbushes/reedbush,/obj/fd_water/alt_ver1,/obj/floor_decal/messygrass{dir = 1},/obj/floor_decal/messygrass{dir = 4},/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
 "tp" = (/obj/structure/railing/mapped,/obj/floor_decal/steeldecal/steel_decals_central2{dir = 1; pixel_y = -1},/turf/simulated/floor/exoplanet/fd/grass,/area/bunker/jungle)
+"ts" = (/obj/floor_decal/corner/black/border{dir = 4},/turf/simulated/floor/wood/walnut,/area/bunker/barracks)
 "tw" = (/obj/floor_decal/techfloor/corner{dir = 1},/turf/simulated/floor/tiled/dark,/area/bunker/command)
 "ty" = (/obj/floor_decal/floordetail/edgedrain,/obj/structure/hygiene/shower{dir = 1},/obj/structure/curtain/open/shower,/turf/simulated/floor/tiled/old_cargo,/area/bunker/barracks/preporation)
 "tA" = (/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor,/area/bunker/eng)
@@ -616,7 +623,6 @@
 "tE" = (/obj/structure/table/marble,/obj/machinery/reagent_temperature{pixel_y = 8},/obj/machinery/reagent_temperature{pixel_y = -3},/turf/simulated/floor/tiled/white/monotile,/area/bunker/kitchen)
 "tF" = (/obj/machinery/door/blast/shutters/open{id_tag = "garage"},/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/bunker/eng/workshop)
 "tG" = (/obj/structure/table/marble,/turf/simulated/floor/plating,/area/bunker/kitchen)
-"tH" = (/turf/simulated/floor/tiled/white/monotile,/area/bunker/rooms/room5)
 "tL" = (/obj/floor_decal/messygrass{dir = 8},/obj/floor_decal/messygrass{dir = 4},/obj/floor_decal/messygrass{dir = 1},/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
 "tM" = (/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled/dark,/area/bunker/corridors/center)
 "tR" = (/obj/floor_decal/corner/grey/bordercorner{dir = 8},/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled/white,/area/bunker/kitchen)
@@ -631,7 +637,7 @@
 "uh" = (/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 4},/turf/simulated/floor/tiled/dark/monotile,/area/bunker/corridors/center)
 "ui" = (/obj/decal/cleanable/dirt,/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled/dark,/area/bunker/corridors/north)
 "uj" = (/obj/paint/black,/turf/simulated/wall/r_wall,/area/bunker/rooms/room1)
-"uk" = (/obj/structure/closet/secure_closet/guncabinet,/obj/item/gun/projectile/shotgun/doublebarrel/hammer,/obj/item/gun/projectile/pistol/scg,/obj/item/gun/projectile/pistol/scg,/obj/item/gun/energy/ionrifle/small/stupor,/obj/item/gun/projectile/automatic/shotgun/iccgn,/turf/simulated/floor/tiled/dark/monotile,/area/bunker/eng)
+"uk" = (/obj/structure/closet/crate{name = "Ammo crate"},/obj/item/ammo_magazine/shotgun/iccgn/magnum,/obj/item/ammo_magazine/shotgun/iccgn/magnum,/obj/item/ammo_magazine/shotgun/iccgn/magnum,/obj/item/ammo_magazine/shotgun/iccgn/magnum,/obj/item/ammo_magazine/shotgun/iccgn,/obj/item/ammo_magazine/shotgun/iccgn,/obj/item/ammo_magazine/pistol/scg,/obj/item/ammo_magazine/pistol/scg,/obj/item/ammo_magazine/pistol/scg,/obj/item/ammo_magazine/pistol/scg,/obj/item/ammo_magazine/pistol/scg,/obj/item/ammo_magazine/pistol/scg,/obj/item/ammo_magazine/shotholder,/turf/simulated/floor/tiled/monotile,/area/bunker/eng)
 "um" = (/obj/structure/table/standard,/obj/item/paper_bin,/obj/item/pen,/turf/simulated/floor/tiled/dark,/area/bunker/command)
 "un" = (/obj/floor_decal/techfloor{dir = 1},/obj/decal/cleanable/dirt,/obj/machinery/constructable_frame/machine_frame/deconstruct,/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/eng/workshop)
 "uo" = (/obj/floor_decal/corner/grey{dir = 10},/obj/machinery/light{dir = 2},/turf/simulated/floor/tiled/freezer,/area/bunker/kitchen/freezer)
@@ -661,7 +667,7 @@
 "vf" = (/obj/machinery/power/apc{pixel_y = -24},/obj/decal/cleanable/dirt,/obj/structure/cable/green{d2 = 8; icon_state = "0-8"},/turf/simulated/floor/plating,/area/bunker/rooms/room9)
 "vi" = (/obj/structure/fd/cave_flora{icon_state = "underwatergrass"; pixel_x = 11; pixel_y = 17},/turf/simulated/floor/exoplanet/fd/waste,/area/bunker/jungle)
 "vk" = (/turf/simulated/floor/tiled/techfloor,/area/bunker/eng/workshop)
-"vl" = (/obj/machinery/power/terminal{dir = 1},/obj/structure/cable{d2 = 4; icon_state = "0-4"},/turf/simulated/floor/plating,/area/bunker/eng)
+"vl" = (/turf/simulated/floor/tiled/white/monotile,/area/bunker/rooms/room5)
 "vm" = (/obj/structure/closet/secure_closet/personal/empty,/obj/floor_decal/corner_techfloor_grid/diagonal{dir = 4},/turf/simulated/floor/tiled/techfloor,/area/bunker/barracks/gvardiya)
 "vq" = (/obj/structure/table/woodentable/walnut,/obj/floor_decal/corner_steel_grid{dir = 9},/obj/machinery/power/apc{pixel_y = 0; dir = 8; pixel_x = -24},/obj/structure/cable/green{d2 = 4; icon_state = "0-4"},/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/barracks/gvardiya)
 "vr" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/bunker/rooms/room2)
@@ -717,10 +723,10 @@
 "wM" = (/obj/structure/railing/mapped{dir = 4},/turf/simulated/floor/tiled,/area/bunker/command)
 "wN" = (/obj/fd_water/alt_ver1,/obj/floor_decal/messygrass{dir = 6},/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
 "wO" = (/obj/floor_decal/corner/black/border{dir = 9},/turf/simulated/floor/tiled/dark,/area/bunker/command)
-"wQ" = (/obj/structure/bed/chair/padded/black{dir = 8},/obj/item/modular_computer/telescreen/preset/generic{pixel_y = 0; pixel_x = 32},/turf/simulated/floor/tiled/techmaint,/area/bunker/rooms/room7)
+"wQ" = (/obj/floor_decal/corner/darkblue/mono,/obj/structure/table/rack,/turf/simulated/floor/tiled/white/monotile,/area/bunker/rooms/room6)
 "wR" = (/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/command)
 "wS" = (/obj/floor_decal/corner/black/border{dir = 1},/obj/floor_decal/techfloor/corner{dir = 8},/turf/simulated/floor/tiled/dark,/area/bunker/command)
-"wT" = (/obj/decal/cleanable/dirt,/obj/structure/table/standard,/turf/simulated/floor/tiled/dark/monotile,/area/bunker/eng)
+"wT" = (/turf/simulated/floor/tiled/monotile,/area/bunker/eng)
 "wY" = (/obj/floor_decal/borderfloor{dir = 10},/turf/simulated/floor/tiled/monotile,/area/bunker/kitchen/bufet)
 "wZ" = (/obj/structure/flora/ausbushes/ywflowers,/turf/simulated/floor/exoplanet/fd/grass,/area/bunker/kitchen/bufet)
 "xa" = (/obj/item/shellfish/clam,/turf/simulated/floor/exoplanet/fd/desertsand,/area/bunker/jungle)
@@ -732,7 +738,6 @@
 "xl" = (/obj/catwalk_plated/dark,/obj/decal/cleanable/dirt,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating,/area/bunker/corridors/west)
 "xm" = (/obj/floor_decal/techfloor{dir = 4},/obj/floor_decal/corner_techfloor_gray{dir = 9},/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/eng/workshop)
 "xp" = (/obj/structure/flora/seaweed{layer = 2.21},/obj/structure/flora/seaweed{layer = 2.21},/obj/fd_water,/turf/simulated/floor/exoplanet/fd/whitesand{color = "#272727"},/area/bunker/jungle)
-"xq" = (/turf/simulated/floor/tiled,/area/bunker/eng)
 "xs" = (/obj/structure/window/reinforced{dir = 8},/obj/machinery/computer/modular/preset/civilian/professional{dir = 4},/obj/floor_decal/corner/darkblue/mono,/turf/simulated/floor/tiled/dark/monotile,/area/bunker/command)
 "xu" = (/obj/structure/window/basic{dir = 4},/obj/floor_decal/corner/blue/bordercorner{dir = 1},/obj/floor_decal/corner/blue/bordercorner{dir = 8},/obj/floor_decal/corner/blue/border{dir = 4},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/old_tile,/area/bunker/barracks/preporation)
 "xv" = (/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/jungle)
@@ -760,6 +765,7 @@
 "ye" = (/obj/floor_decal/industrial/hatch/yellow,/obj/decal/cleanable/dirt,/obj/machinery/portable_atmospherics/hydroponics,/turf/simulated/floor/tiled/dark/monotile,/area/bunker/rooms/room10)
 "yg" = (/obj/structure/fake_zlvl,/obj/structure/fake_zlvl,/obj/structure/girder,/turf/simulated/floor/plating,/area/bunker/corridors/north)
 "yi" = (/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 1},/turf/simulated/floor/wood/walnut,/area/bunker/barracks)
+"yj" = (/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/turf/simulated/floor/plating,/area/bunker/eng)
 "yk" = (/obj/decal/cleanable/dirt,/obj/structure/cable/green{d1 = 1; d2 = 4; icon_state = "1-4"},/turf/simulated/floor/tiled/dark,/area/bunker/rooms/room1)
 "yl" = (/obj/structure/flora/seaweed{layer = 2.21},/obj/structure/flora/seaweed{layer = 2.21; pixel_x = -15; pixel_y = -11},/obj/fd_water,/turf/simulated/floor/exoplanet/fd/whitesand{color = "#272727"},/area/bunker/jungle)
 "ym" = (/obj/floor_decal/iccglogo/corner{dir = 8},/obj/structure/closet/secure_closet/personal/empty,/obj/floor_decal/corner_techfloor_grid/diagonal{dir = 4},/turf/simulated/floor/tiled/techfloor,/area/bunker/barracks/gvardiya)
@@ -818,7 +824,9 @@
 "zG" = (/turf/simulated/floor/plating,/area/bunker/barracks/preporation)
 "zI" = (/obj/fd_water/alt_ver1,/obj/floor_decal/messygrass{dir = 4},/obj/floor_decal/messygrass{dir = 1},/obj/floor_decal/messygrass,/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
 "zJ" = (/obj/floor_decal/messygrass{dir = 6},/turf/simulated/floor/exoplanet/fd/muddirt,/area/bunker/jungle)
+"zK" = (/obj/floor_decal/industrial/hatch/yellow,/obj/machinery/seed_extractor,/turf/simulated/floor/tiled/dark/monotile,/area/bunker/rooms/room10)
 "zM" = (/obj/catwalk_plated/dark,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating,/area/bunker/corridors/north)
+"zP" = (/obj/paint/hull,/turf/simulated/wall/r_wall,/area/bunker/rooms/room5)
 "zQ" = (/obj/machinery/light_construct{dir = 4},/turf/simulated/floor/tiled/dark/monotile,/area/bunker/rooms/room12)
 "zR" = (/obj/floor_decal/corner/blue/bordercee,/obj/machinery/light_switch{dir = 4; pixel_y = 0; pixel_x = -27},/turf/simulated/floor/tiled/old_cargo,/area/bunker/barracks/preporation)
 "zS" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark/monotile,/area/bunker/corridors/center)
@@ -864,7 +872,7 @@
 "Bf" = (/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 4},/turf/simulated/floor/tiled/dark/monotile,/area/bunker/corridors/west)
 "Bi" = (/obj/wallframe_spawn/reinforced/no_grille,/obj/structure/vines/light3,/turf/simulated/floor/plating,/area/bunker/kitchen/bufet)
 "Bm" = (/turf/unsimulated/wall{color = "black"},/area/bunker/jungle)
-"Bn" = (/obj/structure/table/standard,/turf/simulated/floor/tiled/monotile,/area/bunker/eng)
+"Bn" = (/turf/simulated/wall/r_wall,/area/bunker/rooms/room7)
 "Bo" = (/obj/structure/flora/ausbushes/brflowers,/turf/simulated/floor/exoplanet/fd/grass,/area/bunker/kitchen/bufet)
 "Bq" = (/obj/decal/cleanable/dirt,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating,/area/bunker/corridors/south)
 "Br" = (/obj/structure/vines/heavy2,/turf/simulated/floor/exoplanet/fd/grass{color = "#6E8C44"},/area/bunker/jungle)
@@ -893,11 +901,12 @@
 "Cc" = (/obj/structure/vines/heavy2,/turf/simulated/floor/plating,/area/bunker/jungle/lz)
 "Cd" = (/obj/decal/cleanable/dirt,/obj/decal/cleanable/generic,/turf/simulated/floor/plating,/area/bunker/rooms/room12)
 "Ce" = (/obj/structure/flora/seaweed{layer = 2.21},/obj/structure/flora/seaweed{layer = 2.21; pixel_x = 13},/obj/structure/flora/seaweed{layer = 2.21; pixel_x = -14},/obj/fd_water,/turf/simulated/floor/exoplanet/fd/whitesand{color = "#272727"},/area/bunker/jungle)
-"Cf" = (/obj/structure/bed/padded{layer = 3.1; pixel_y = 8},/obj/structure/bed/padded,/obj/floor_decal/corner/black/border{dir = 4},/turf/simulated/floor/wood/walnut,/area/bunker/barracks)
+"Cf" = (/obj/floor_decal/corner/black/border{dir = 4},/obj/structure/table/standard,/turf/simulated/floor/wood/walnut,/area/bunker/barracks)
 "Cj" = (/obj/structure/vines,/obj/structure/fd/junk{icon_state = "4,3"},/obj/structure/fd/junk{icon_state = "4,4"; pixel_x = 10; pixel_y = -17},/turf/simulated/floor/plating,/area/bunker/jungle)
 "Ck" = (/obj/structure/flora/ausbushes/reedbush,/obj/fd_water/alt_ver1,/obj/floor_decal/messygrass,/obj/floor_decal/messygrass{dir = 4},/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
 "Co" = (/obj/floor_decal/borderfloor{dir = 9},/turf/simulated/floor/tiled/monotile,/area/bunker/kitchen/bufet)
 "Cq" = (/obj/floor_decal/borderfloorwhite,/obj/machinery/light/small{dir = 1},/obj/structure/hygiene/toilet,/turf/simulated/floor/tiled/old_tile,/area/bunker/barracks/preporation_gvardiya)
+"Cs" = (/obj/machinery/door/unpowered/simple/iron{dir = 4},/turf/simulated/floor/tiled/dark/monotile,/area/bunker/eng)
 "Ct" = (/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/bunker/rooms/room8)
 "Cu" = (/obj/machinery/power/apc{pixel_y = -24},/obj/structure/cable/green,/obj/machinery/light_switch{dir = 1; pixel_y = -21; pixel_x = -10},/turf/simulated/floor/tiled/dark/monotile,/area/bunker/corridors/south)
 "Cv" = (/obj/floor_decal/techfloor{dir = 4},/obj/floor_decal/corner_techfloor_gray{dir = 9},/obj/item/stool,/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/eng/workshop)
@@ -912,7 +921,7 @@
 "CH" = (/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating,/area/bunker/eng)
 "CI" = (/obj/machinery/door/airlock/autoname{dir = 4},/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/bunker/barracks/preporation)
 "CK" = (/obj/floor_decal/corner/darkblue/half,/turf/simulated/floor/tiled/dark,/area/bunker/command)
-"CL" = (/obj/floor_decal/industrial/hatch/yellow,/obj/machinery/seed_extractor,/turf/simulated/floor/tiled/dark/monotile,/area/bunker/rooms/room10)
+"CL" = (/turf/simulated/floor/tiled/dark/monotile,/area/bunker/rooms/room12)
 "CN" = (/obj/decal/cleanable/dirt,/obj/structure/railing/mapped{dir = 4},/obj/floor_decal/techfloor{dir = 4},/turf/simulated/floor/plating,/area/bunker/barracks/gvardiya)
 "CO" = (/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 1},/turf/simulated/floor/plating,/area/bunker/rooms/room14)
 "CP" = (/obj/decal/cleanable/dirt,/obj/machinery/door/airlock/hatch{dir = 4},/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled/dark,/area/bunker/corridors/north)
@@ -949,7 +958,7 @@
 "DP" = (/obj/item/shellfish/crab,/turf/simulated/floor/exoplanet/fd/desertsand,/area/bunker/jungle)
 "DQ" = (/obj/structure/table/glass,/obj/item/towel/random,/obj/floor_decal/corner/blue/border{dir = 1},/obj/floor_decal/corner/blue/border,/turf/simulated/floor/tiled/old_cargo,/area/bunker/barracks/preporation)
 "DR" = (/obj/decal/cleanable/dirt,/obj/catwalk_plated/dark,/obj/structure/cable/green{d1 = 2; d2 = 8; icon_state = "2-8"},/obj/structure/cable/green{d1 = 1; d2 = 8; icon_state = "1-8"},/obj/structure/cable/green{d1 = 2; d2 = 4; icon_state = "2-4"},/obj/structure/cable/green{d1 = 1; d2 = 4; icon_state = "1-4"},/turf/simulated/floor/plating,/area/bunker/corridors/north)
-"DS" = (/turf/simulated/floor/tiled/monotile,/area/bunker/eng)
+"DS" = (/obj/floor_decal/industrial/hatch/yellow,/obj/machinery/portable_atmospherics/hydroponics,/turf/simulated/floor/tiled/dark/monotile,/area/bunker/rooms/room10)
 "DU" = (/obj/paint/black,/turf/simulated/wall/r_wall,/area/bunker/rooms/room12)
 "DW" = (/obj/structure/fd/junk{icon_state = "3,2"},/turf/simulated/floor/exoplanet/fd/drought{color = "#bebebe"},/area/bunker/jungle)
 "DX" = (/obj/machinery/light_switch{dir = 4; pixel_y = 0; pixel_x = -27},/obj/structure/closet,/turf/simulated/floor/tiled/dark/monotile,/area/bunker/rooms/room11)
@@ -1024,14 +1033,13 @@
 "Gs" = (/obj/structure/flora/ausbushes/fernybush,/obj/fd_water/alt_ver1,/obj/floor_decal/messygrass{dir = 4},/obj/floor_decal/messygrass{dir = 1},/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
 "Gt" = (/obj/structure/reagent_dispensers/fueltank,/obj/floor_decal/industrial/outline/blood_red,/obj/floor_decal/corner_steel_grid{dir = 10},/obj/decal/cleanable/liquid_fuel,/turf/simulated/floor/tiled/techfloor,/area/bunker/eng/workshop)
 "Gv" = (/obj/machinery/door/airlock/hatch,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled/dark,/area/bunker/corridors/center)
-"Gx" = (/obj/structure/vines/heavy3,/obj/structure/rubble/house,/turf/simulated/floor/plating,/area/bunker/jungle/lz)
+"Gx" = (/obj/machinery/floor_light/mapped_on{color = "#46698c"},/turf/simulated/floor/tiled/white/monotile,/area/bunker/rooms/room6)
 "Gy" = (/obj/floor_decal/messygrass{dir = 8},/turf/simulated/floor/exoplanet/fd/drought{color = "#bebebe"},/area/bunker/jungle)
 "Gz" = (/obj/floor_decal/step{color = "grey"; dir = 4},/turf/simulated/floor/plating,/area/bunker/eng/workshop)
 "GC" = (/obj/structure/vines,/turf/simulated/mineral/volcanic,/area/bunker)
 "GE" = (/obj/fd_water/alt_ver1,/obj/floor_decal/messygrass,/obj/floor_decal/messygrass{dir = 4},/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
 "GF" = (/obj/floor_decal/techfloor/orange,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/eng/workshop)
 "GI" = (/obj/structure/flora/ausbushes/fullgrass,/obj/floor_decal/steeldecal/steel_decals_central2{dir = 4; pixel_x = -1},/turf/simulated/floor/exoplanet/fd/grass,/area/bunker/jungle)
-"GJ" = (/obj/structure/flora/ausbushes/lavendergrass,/obj/structure/dogbed,/mob/living/simple_animal/passive/cat/fluff/Runtime,/turf/simulated/floor/exoplanet/fd/grass,/area/bunker/kitchen/bufet)
 "GM" = (/obj/structure/flora/seaweed{layer = 2.21},/obj/structure/flora/seaweed{layer = 2.21; pixel_x = -17; pixel_y = -11},/obj/fd_water,/turf/simulated/floor/exoplanet/fd/whitesand{color = "#272727"},/area/bunker/jungle)
 "GN" = (/obj/decal/cleanable/dirt,/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/bunker/corridors/center)
 "GP" = (/obj/decal/cleanable/dirt,/obj/decal/cleanable/generic,/turf/simulated/floor/plating,/area/bunker/corridors/north)
@@ -1046,7 +1054,7 @@
 "Hi" = (/obj/structure/fd/cave_flora{desc = "Just some grass, nothing more."; icon_state = "tree_stump"; name = "flora"; icon = 'mods/_fd/fd_assets/icons/structures/jungletree.dmi'; pixel_x = -50; pixel_y = -25},/turf/simulated/floor/exoplanet/fd/grass,/area/bunker/jungle)
 "Hj" = (/obj/structure/flora/seaweed/large{layer = 2.21},/obj/structure/flora/seaweed/large{layer = 2.21; pixel_y = 13; pixel_x = 7},/obj/fd_water,/turf/simulated/floor/exoplanet/fd/whitesand{color = "#868686"},/area/bunker/jungle)
 "Hk" = (/obj/structure/railing/mapped{dir = 8; icon_state = "railing0-1"},/obj/floor_decal/steeldecal/steel_decals_central2{dir = 4; pixel_x = -1},/turf/simulated/floor/exoplanet/fd/grass,/area/bunker/jungle)
-"Ho" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/bunker/barracks/preporation_gvardiya)
+"Ho" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled,/area/bunker/barracks/preporation_gvardiya)
 "Hp" = (/obj/floor_decal/messygrass{dir = 8},/obj/floor_decal/messygrass{dir = 4},/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
 "Hq" = (/turf/simulated/floor/tiled/dark,/area/bunker/rooms/room11)
 "Ht" = (/obj/structure/bed/chair/padded/brown,/obj/structure/sign/warning/smoking{pixel_y = 32},/turf/simulated/floor/tiled/monotile,/area/bunker/kitchen/bufet)
@@ -1061,7 +1069,7 @@
 "HG" = (/turf/simulated/mineral/volcanic,/area/bunker/corridors/north)
 "HH" = (/obj/catwalk_plated/dark,/obj/decal/cleanable/dirt,/obj/structure/cable/green{d1 = 2; d2 = 4; icon_state = "2-4"},/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/bunker/corridors/south)
 "HI" = (/obj/floor_decal/messygrass{dir = 4},/obj/floor_decal/messygrass{dir = 8},/obj/floor_decal/messygrass{dir = 1},/turf/simulated/floor/exoplanet/fd/drought{color = "#bebebe"},/area/bunker/jungle)
-"HK" = (/obj/floor_decal/corner/darkblue/mono,/obj/structure/table/rack,/turf/simulated/floor/tiled/white/monotile,/area/bunker/rooms/room6)
+"HK" = (/turf/simulated/floor/tiled/white/monotile,/area/bunker/rooms/room6)
 "HL" = (/obj/floor_decal/messygrass{dir = 1},/obj/floor_decal/messygrass,/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
 "HM" = (/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
 "HN" = (/obj/floor_decal/corner/darkblue/border{dir = 4},/obj/floor_decal/corner/darkblue/border{dir = 8},/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 1},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark/monotile,/area/bunker/command)
@@ -1072,13 +1080,13 @@
 "HV" = (/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 4},/turf/simulated/floor/wood/walnut{icon_state = "wood_broken4"},/area/bunker/barracks/gvardiya)
 "HY" = (/obj/decal/cleanable/dirt,/obj/catwalk_plated/dark,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating,/area/bunker/corridors/south)
 "Ia" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/bunker/corridors/north)
-"Ib" = (/obj/machinery/power/apc{pixel_y = -24},/obj/structure/cable/green{d2 = 8; icon_state = "0-8"},/obj/floor_decal/corner/darkblue/mono,/turf/simulated/floor/tiled/white/monotile,/area/bunker/rooms/room5)
+"Ib" = (/obj/machinery/power/apc{pixel_y = -24},/obj/structure/cable/green{d2 = 8; icon_state = "0-8"},/obj/floor_decal/corner/darkblue/mono,/obj/item/storage/backpack/rucksack{pixel_x = 9; pixel_y = 19},/turf/simulated/floor/tiled/white/monotile,/area/bunker/rooms/room5)
 "Ic" = (/obj/structure/bed/chair/comfy/black{dir = 8},/turf/simulated/floor/tiled/dark,/area/bunker/command)
 "Id" = (/obj/structure/flora/seaweed{layer = 2.21},/obj/structure/flora/seaweed{layer = 2.21; pixel_x = -12; pixel_y = -11},/obj/fd_water,/turf/simulated/floor/exoplanet/fd/whitesand{color = "#272727"},/area/bunker/jungle)
 "Ie" = (/obj/structure/fd/junk{icon_state = "0,1"; pixel_x = -21; pixel_y = -18},/turf/simulated/floor/exoplanet/fd/waste,/area/bunker/jungle)
 "If" = (/obj/wallframe_spawn/reinforced,/turf/simulated/floor/plating,/area/bunker/eng)
-"Ih" = (/obj/decal/cleanable/dirt,/obj/structure/table/standard,/turf/simulated/floor/tiled/monotile,/area/bunker/eng)
-"Ik" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled,/area/bunker/corridors/center)
+"Ih" = (/obj/machinery/door/window/eastleft,/turf/simulated/floor/tiled,/area/bunker/kitchen/bufet)
+"Ik" = (/obj/decal/cleanable/dirt,/obj/structure/bed{color = "#d5a66e"},/obj/item/bedsheet,/turf/simulated/floor/tiled/monotile,/area/bunker/eng)
 "Il" = (/obj/structure/bed/chair/office,/turf/simulated/floor/plating,/area/bunker/jungle/lz)
 "Im" = (/obj/floor_decal/corner_steel_grid{dir = 9},/obj/structure/closet/crate/bin,/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/barracks/gvardiya)
 "In" = (/obj/structure/table/woodentable/walnut,/obj/floor_decal/corner/grey/border{dir = 1},/obj/machinery/fabricator/micro{pixel_x = -2; pixel_y = 1},/obj/floor_decal/corner/grey/border,/turf/simulated/floor/tiled/white/monotile,/area/bunker/kitchen)
@@ -1091,7 +1099,6 @@
 "IB" = (/obj/fd_water/alt_ver1,/obj/floor_decal/messygrass{dir = 1},/obj/floor_decal/messygrass{dir = 6},/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
 "ID" = (/obj/decal/cleanable/dirt,/obj/structure/closet/firecloset,/turf/simulated/floor/tiled/dark/monotile,/area/bunker/corridors/north)
 "IF" = (/turf/simulated/floor/plating,/area/bunker/corridors/center)
-"IG" = (/obj/machinery/light{dir = 8; icon_state = "tube1"},/turf/simulated/floor/tiled/monotile,/area/bunker/eng)
 "II" = (/obj/floor_decal/borderfloor{dir = 6},/turf/simulated/floor/tiled/monotile,/area/bunker/kitchen/bufet)
 "IJ" = (/obj/floor_decal/techfloor/orange{dir = 4},/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/eng/workshop)
 "IL" = (/obj/structure/bed/chair/padded/brown,/obj/decal/cleanable/cobweb,/turf/simulated/floor/tiled/monotile,/area/bunker/kitchen/bufet)
@@ -1101,7 +1108,7 @@
 "IS" = (/obj/decal/cleanable/dirt,/obj/floor_decal/techfloor/orange/corner{dir = 4},/turf/simulated/floor/plating,/area/bunker/eng/workshop)
 "IU" = (/obj/floor_decal/corner/black/border{dir = 8},/obj/structure/bed/chair/comfy/yellow{dir = 4},/turf/simulated/floor/tiled/dark,/area/bunker/command)
 "IW" = (/obj/paint/black,/turf/simulated/wall/r_wall,/area/bunker/command)
-"Ja" = (/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 4},/obj/structure/closet/crate{name = "Stuff crate"},/obj/item/storage/backpack/dufflebag/sec,/obj/item/material/shard/nullglass,/obj/item/material/shard/nullglass,/obj/item/material/shard/nullglass,/obj/item/material/shard/nullglass,/turf/simulated/floor/tiled/monotile,/area/bunker/eng)
+"Ja" = (/obj/floor_decal/corner/darkblue/mono,/obj/structure/table/woodentable,/turf/simulated/floor/tiled/white/monotile,/area/bunker/rooms/room5)
 "Jb" = (/obj/structure/flora/seaweed{layer = 2.21; pixel_x = 13},/obj/structure/flora/seaweed{layer = 2.21; pixel_x = -24; pixel_y = 20},/obj/fd_water,/turf/simulated/floor/exoplanet/fd/whitesand{color = "#272727"},/area/bunker/jungle)
 "Jc" = (/obj/structure/flora/seaweed{layer = 2.21; pixel_x = -14},/obj/structure/flora/seaweed{layer = 2.21; pixel_y = 21; pixel_x = 17},/obj/fd_water,/turf/simulated/floor/exoplanet/fd/whitesand{color = "#272727"},/area/bunker/jungle)
 "Je" = (/obj/floor_decal/iccglogo/corner{dir = 1},/obj/structure/closet/secure_closet/personal/empty,/obj/floor_decal/corner_techfloor_grid/diagonal{dir = 4},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor,/area/bunker/barracks/gvardiya)
@@ -1124,7 +1131,7 @@
 "JJ" = (/obj/floor_decal/iccglogo/corner,/obj/decal/cleanable/dirt,/obj/floor_decal/corner_steel_grid/diagonal,/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/barracks/gvardiya)
 "JK" = (/obj/structure/vines/heavy2,/obj/structure/vines/heavy2,/turf/simulated/floor/exoplanet/fd/grass{color = "#6E8C44"},/area/bunker/jungle)
 "JL" = (/turf/simulated/floor/tiled/white,/area/bunker/kitchen)
-"JM" = (/obj/floor_decal/corner/darkblue/bordercee{dir = 1},/obj/structure/reagent_dispensers/water_cooler{pixel_y = 9; pixel_x = -1},/turf/simulated/floor/tiled/dark/monotile,/area/bunker/command)
+"JM" = (/obj/floor_decal/corner/darkblue/bordercee{dir = 1},/turf/simulated/floor/tiled/dark/monotile,/area/bunker/command)
 "JN" = (/obj/decal/cleanable/dirt,/obj/floor_decal/corner/blue/bordercorner{dir = 4},/obj/floor_decal/corner/blue/border{dir = 8},/turf/simulated/floor/tiled/old_tile,/area/bunker/barracks/preporation_gvardiya)
 "JO" = (/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled/dark,/area/bunker/corridors/east)
 "JQ" = (/obj/paint/hull,/turf/simulated/wall/r_wall,/area/bunker/rooms/room6)
@@ -1152,7 +1159,6 @@
 "Kz" = (/obj/structure/closet,/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 8},/turf/simulated/floor/tiled/dark/monotile,/area/bunker/rooms/room11)
 "KA" = (/obj/structure/flora/tree/jungle{icon_state = "tree2"},/turf/simulated/floor/exoplanet/fd/grass{color = "#526833"},/area/bunker/jungle)
 "KB" = (/obj/structure/bed/chair/office/comfy/brown{dir = 8},/turf/simulated/floor/tiled/dark,/area/bunker/command)
-"KC" = (/obj/structure/table/standard,/turf/simulated/floor/tiled/dark/monotile,/area/bunker/eng)
 "KD" = (/obj/structure/grille/broken,/obj/floor_decal/messygrass{dir = 1},/obj/floor_decal/messygrass,/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
 "KF" = (/obj/decal/cleanable/dirt,/obj/machinery/power/apc{pixel_y = 0; dir = 8; pixel_x = -24},/obj/structure/cable/green{d2 = 2; icon_state = "0-2"},/turf/simulated/floor/tiled/dark/monotile,/area/bunker/rooms/room12)
 "KG" = (/obj/structure/closet/secure_closet/personal/empty,/obj/floor_decal/corner_techfloor_grid/diagonal{dir = 4},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor,/area/bunker/barracks/gvardiya)
@@ -1194,7 +1200,8 @@
 "LS" = (/turf/simulated/mineral/volcanic,/area/bunker)
 "LU" = (/obj/structure/window/basic{dir = 4},/obj/structure/table/rack,/obj/floor_decal/corner/blue/mono,/turf/simulated/floor/tiled/old_cargo,/area/bunker/barracks/preporation_gvardiya)
 "LW" = (/obj/structure/table/rack,/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 4},/turf/simulated/floor/plating,/area/bunker/rooms/room9)
-"LX" = (/turf/simulated/wall,/area/bunker/barracks)
+"LX" = (/obj/machinery/door/unpowered/simple/iron{dir = 4},/turf/simulated/floor/tiled/monotile,/area/bunker/eng)
+"Ma" = (/obj/machinery/light{dir = 1; icon_state = "tube1"},/obj/structure/bed/chair/wood/wings,/turf/simulated/floor/tiled/monotile,/area/bunker/eng)
 "Mb" = (/obj/structure/flora/seaweed{layer = 2.21},/obj/structure/flora/seaweed{layer = 2.21; pixel_y = 16},/obj/fd_water,/turf/simulated/floor/exoplanet/fd/whitesand{color = "#272727"},/area/bunker/jungle)
 "Me" = (/obj/structure/table/rack,/turf/simulated/floor/tiled/dark/monotile,/area/bunker/kpp)
 "Mg" = (/obj/structure/closet/secure_closet/guncabinet,/turf/simulated/floor/plating,/area/bunker/rooms/room14)
@@ -1215,7 +1222,6 @@
 "MB" = (/obj/decal/cleanable/dirt,/obj/floor_decal/techfloor/orange/corner,/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 8},/turf/simulated/floor/plating,/area/bunker/eng/workshop)
 "MD" = (/obj/structure/window/reinforced{dir = 4},/obj/machinery/constructable_frame/computerframe{dir = 8},/obj/floor_decal/corner/darkblue/mono,/obj/machinery/light_construct{dir = 1},/turf/simulated/floor/tiled/dark/monotile,/area/bunker/command)
 "ME" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/bunker/rooms/room9)
-"MG" = (/obj/floor_decal/corner/darkblue/mono,/turf/simulated/floor/tiled/white/monotile,/area/bunker/rooms/room5)
 "MH" = (/obj/structure/flora/ausbushes/fullgrass,/turf/simulated/floor/exoplanet/fd/muddirt,/area/bunker/jungle)
 "MI" = (/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 2},/obj/machinery/constructable_frame/machine_frame,/turf/simulated/floor/tiled/white/monotile,/area/bunker/rooms/room13)
 "ML" = (/obj/structure/flora/ausbushes/lavendergrass,/turf/simulated/floor/exoplanet/fd/grass,/area/bunker/kitchen/bufet)
@@ -1264,6 +1270,7 @@
 "Ol" = (/obj/structure/vines/heavy1,/turf/simulated/floor/exoplanet/fd/grass{color = "#6E8C44"},/area/bunker/jungle/lz)
 "Or" = (/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 4},/turf/simulated/floor/plating,/area/bunker/kpp)
 "Os" = (/obj/structure/flora/ausbushes/fernybush,/obj/fd_water/alt_ver1,/obj/floor_decal/messygrass{dir = 4},/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
+"Ov" = (/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/bunker/corridors/south)
 "Ox" = (/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-5"; dir = 2},/turf/simulated/floor/plating,/area/bunker/corridors/south)
 "Oy" = (/obj/structure/flora/tree/jungle,/turf/simulated/floor/exoplanet/fd/grass,/area/bunker/jungle)
 "Oz" = (/obj/structure/flora/tree/jungle/small{color = "#bebebe"},/turf/simulated/floor/exoplanet/fd/grass{color = "#526833"},/area/bunker/jungle)
@@ -1276,7 +1283,6 @@
 "OO" = (/obj/catwalk_plated/dark,/obj/decal/cleanable/dirt,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating,/area/bunker/corridors/south)
 "OP" = (/obj/decal/cleanable/dirt,/obj/structure/grille,/turf/simulated/floor/plating,/area/bunker/jungle)
 "OQ" = (/obj/structure/vines/heavy3,/turf/simulated/floor/exoplanet/fd/grass{color = "#526833"},/area/bunker/jungle)
-"OS" = (/obj/paint/hull,/turf/simulated/wall/r_wall,/area/bunker/rooms/room4)
 "OT" = (/obj/floor_decal/rocks,/turf/simulated/floor/exoplanet/fd/grass{color = "#6E8C44"},/area/bunker/jungle)
 "OX" = (/obj/floor_decal/industrial/warning{dir = 4},/turf/simulated/floor/plating,/area/bunker/eng/workshop)
 "OY" = (/obj/fd_water/alt_ver1,/obj/floor_decal/messygrass{dir = 1},/obj/floor_decal/messygrass,/obj/floor_decal/messygrass{dir = 8},/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
@@ -1288,13 +1294,14 @@
 "Pi" = (/obj/structure/grille,/obj/floor_decal/messygrass{dir = 4},/obj/floor_decal/messygrass{dir = 8},/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
 "Pj" = (/obj/fd_water,/turf/simulated/floor/exoplanet/fd/whitesand{color = "#272727"},/area/bunker/jungle)
 "Pk" = (/obj/floor_decal/messygrass{dir = 4},/obj/floor_decal/messygrass,/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
+"Pl" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled/techfloor,/area/bunker/eng)
 "Pn" = (/obj/structure/girder,/turf/simulated/floor/plating,/area/bunker/rooms/room1)
 "Po" = (/obj/floor_decal/industrial/warning/corner{dir = 1; icon_state = "warningcorner"},/obj/floor_decal/techfloor{dir = 6},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/eng/workshop)
 "Pp" = (/obj/structure/flora/tree/jungle{color = "#bebebe"},/turf/simulated/floor/exoplanet/fd/grass{color = "#526833"},/area/bunker/jungle)
 "Pq" = (/obj/floor_decal/techfloor/orange{dir = 5},/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/eng)
 "Pr" = (/obj/fd_water/alt_ver1,/obj/floor_decal/messygrass,/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
 "Ps" = (/obj/machinery/floor_light/mapped_off,/turf/simulated/floor/plating,/area/bunker/eng/workshop)
-"Pt" = (/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 8},/obj/structure/wall_frame{color = "darkred"; name = "Altar"},/obj/item/clothing/accessory/amulet,/turf/simulated/floor/tiled/monotile,/area/bunker/eng)
+"Pt" = (/obj/structure/bed/padded,/obj/floor_decal/corner/black/border{dir = 8},/turf/simulated/floor/wood/walnut,/area/bunker/barracks)
 "Pv" = (/obj/catwalk_plated/dark,/obj/decal/cleanable/ash,/obj/structure/cable/green{d1 = 1; d2 = 8; icon_state = "1-8"},/turf/simulated/floor/plating,/area/bunker/corridors/south)
 "Pw" = (/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/structure/cable/green{d1 = 2; d2 = 8; icon_state = "2-8"},/turf/simulated/floor/tiled/techfloor,/area/bunker/eng)
 "Px" = (/turf/simulated/floor/plating,/area/bunker/rooms/room9)
@@ -1324,7 +1331,7 @@
 "Qc" = (/obj/structure/flora/seaweed{layer = 2.21},/obj/structure/flora/seaweed{layer = 2.21; pixel_x = -10; pixel_y = 12},/obj/fd_water,/turf/simulated/floor/exoplanet/fd/whitesand{color = "#272727"},/area/bunker/jungle)
 "Qd" = (/obj/structure/vines/heavy6,/turf/simulated/floor/exoplanet/fd/grass{color = "#6E8C44"},/area/bunker/jungle/lz)
 "Qe" = (/obj/machinery/vending/lavatory,/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 2},/obj/floor_decal/corner/blue/bordercorner{dir = 1},/obj/floor_decal/corner/blue/border{dir = 6},/turf/simulated/floor/tiled/old_cargo,/area/bunker/barracks/preporation)
-"Qg" = (/turf/simulated/floor/plating,/area/bunker/barracks/preporation_gvardiya)
+"Qg" = (/turf/simulated/floor/tiled,/area/bunker/barracks/preporation_gvardiya)
 "Qh" = (/obj/structure/vines/heavy6,/turf/simulated/floor/exoplanet/fd/grass{color = "#6E8C44"},/area/bunker/jungle)
 "Qj" = (/obj/structure/cable/green{d1 = 2; d2 = 4; icon_state = "2-4"},/turf/simulated/floor/plating,/area/bunker/kpp)
 "Qk" = (/obj/structure/flora/tree/jungle/small{color = "#bebebe"},/turf/simulated/floor/exoplanet/fd/grass{color = "#6E8C44"},/area/bunker/jungle)
@@ -1346,11 +1353,11 @@
 "QD" = (/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 1},/obj/decal/cleanable/dirt,/obj/structure/closet/secure_closet/guncabinet{req_access = list("ACCESS_QUARTERMASTER")},/turf/simulated/floor/tiled/dark/monotile,/area/bunker/kpp)
 "QE" = (/obj/structure/flora/seaweed{layer = 2.21; pixel_y = 21; pixel_x = 17},/obj/structure/flora/seaweed,/obj/fd_water,/turf/simulated/floor/exoplanet/fd/whitesand{color = "#272727"},/area/bunker/jungle)
 "QG" = (/obj/fd_water/alt_ver1,/obj/floor_decal/messygrass{dir = 10},/obj/floor_decal/messygrass{dir = 5},/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
-"QI" = (/obj/machinery/door/unpowered/simple/iron{dir = 4},/turf/simulated/floor/tiled/monotile,/area/bunker/eng)
+"QI" = (/obj/machinery/light{dir = 8; icon_state = "tube1"},/turf/simulated/floor/tiled/monotile,/area/bunker/eng)
 "QK" = (/obj/machinery/power/apc{pixel_y = -24},/obj/structure/cable/green{d2 = 8; icon_state = "0-8"},/turf/simulated/floor/tiled/dark,/area/bunker/rooms/room7)
 "QL" = (/obj/floor_decal/techfloor/orange{dir = 1},/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/eng)
 "QN" = (/obj/floor_decal/techfloor/orange{dir = 4},/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/eng)
-"QO" = (/obj/structure/bed/padded{layer = 3.1; pixel_y = 8},/obj/structure/bed/padded,/turf/simulated/floor/wood/walnut,/area/bunker/barracks)
+"QO" = (/obj/structure/bed/padded,/turf/simulated/floor/wood/walnut,/area/bunker/barracks)
 "QP" = (/obj/floor_decal/corner_steel_grid{dir = 9},/obj/structure/bed/chair/wood/maple{dir = 4; pixel_y = 0},/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/barracks)
 "QQ" = (/obj/floor_decal/corner_steel_grid/diagonal,/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 8},/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/barracks/gvardiya)
 "QR" = (/turf/simulated/floor/plating,/area/bunker/rooms/room12)
@@ -1395,6 +1402,7 @@
 "Sf" = (/obj/fd_water/alt_ver1,/obj/floor_decal/messygrass{dir = 8},/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
 "Sh" = (/obj/machinery/door/blast/regular{id_tag = "bunker_exit1"},/obj/floor_decal/industrial/warning/fulltile,/turf/simulated/floor/plating,/area/bunker/kpp)
 "Sj" = (/obj/machinery/light_switch{dir = 4; pixel_y = 0; pixel_x = -27},/turf/simulated/floor/tiled/dark,/area/bunker/rooms/room7)
+"Sk" = (/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled,/area/bunker/corridors/center)
 "Sl" = (/obj/structure/flora/seaweed{layer = 2.21},/obj/fd_water,/turf/simulated/floor/exoplanet/fd/whitesand{color = "#272727"},/area/bunker/jungle)
 "Sm" = (/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 2},/turf/simulated/floor/tiled/dark/monotile,/area/bunker/corridors/east)
 "Sn" = (/obj/machinery/constructable_frame/machine_frame,/turf/simulated/floor/plating,/area/bunker/rooms/room12)
@@ -1404,7 +1412,6 @@
 "St" = (/obj/structure/flora/tree/jungle,/turf/simulated/floor/exoplanet/fd/grass{color = "#5F773B"},/area/bunker/jungle)
 "Sx" = (/obj/decal/cleanable/dirt,/obj/catwalk_plated/dark,/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/bunker/corridors/north)
 "Sy" = (/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 4},/turf/simulated/floor/plating,/area/bunker/eng)
-"Sz" = (/obj/paint/hull,/turf/simulated/wall/r_wall,/area/bunker/rooms/room5)
 "SC" = (/obj/machinery/door/airlock/hatch{dir = 4},/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/bunker/corridors/west)
 "SD" = (/obj/floor_decal/messygrass{dir = 1},/obj/floor_decal/messygrass{dir = 4},/turf/simulated/floor/exoplanet/fd/drought{color = "#bebebe"},/area/bunker/jungle)
 "SE" = (/obj/floor_decal/corner/grey/border{dir = 1},/obj/machinery/smartfridge/foods,/obj/floor_decal/corner/grey/border,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled/white/monotile,/area/bunker/kitchen)
@@ -1412,9 +1419,11 @@
 "SG" = (/obj/floor_decal/messygrass{dir = 4},/obj/floor_decal/messygrass{dir = 1},/obj/floor_decal/messygrass{dir = 10},/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
 "SH" = (/obj/paint/black,/turf/simulated/wall/r_wall,/area/bunker/rooms/room9)
 "SJ" = (/obj/structure/girder,/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/bunker/barracks)
+"SL" = (/obj/decal/cleanable/dirt,/obj/structure/table/standard,/turf/simulated/floor/tiled/dark/monotile,/area/bunker/eng)
 "SN" = (/obj/floor_decal/corner_steel_grid{dir = 9},/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 4},/obj/floor_decal/techfloor{dir = 4},/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/barracks/gvardiya)
 "SQ" = (/obj/machinery/door/airlock/hatch{dir = 4},/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/bunker/corridors/center)
 "SR" = (/obj/floor_decal/industrial/warning/corner,/obj/floor_decal/techfloor{dir = 1},/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/eng/workshop)
+"SS" = (/obj/structure/table/glass,/obj/item/device/binoculars{pixel_x = 15; pixel_y = -6},/obj/item/storage/pill_bottle/paracetamol{pixel_y = -4; pixel_x = 1},/obj/item/pen{pixel_y = -9; pixel_x = 8},/obj/item/device/flashlight/maglight{pixel_y = 4; pixel_x = 4},/turf/simulated/floor/tiled/techmaint,/area/bunker/rooms/room7)
 "SV" = (/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 8},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark/monotile,/area/bunker/corridors/center)
 "SX" = (/obj/floor_decal/steeldecal/steel_decals_central2{dir = 8; pixel_x = 1},/turf/simulated/floor/exoplanet/fd/grass,/area/bunker/jungle)
 "SY" = (/obj/floor_decal/messygrass{dir = 1},/obj/floor_decal/messygrass{dir = 4},/obj/floor_decal/messygrass,/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
@@ -1453,7 +1462,7 @@
 "TY" = (/obj/structure/flora/ausbushes/sparsegrass,/obj/structure/flora/ausbushes/ywflowers,/turf/simulated/floor/exoplanet/fd/grass,/area/bunker/jungle)
 "Ua" = (/obj/floor_decal/corner_steel_grid/diagonal,/obj/floor_decal/iccglogo/bottom_center,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/barracks/gvardiya)
 "Ud" = (/turf/simulated/floor/wood/walnut,/area/bunker/barracks/gvardiya)
-"Ue" = (/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/bunker/corridors/south)
+"Ue" = (/obj/paint/hull,/turf/simulated/wall/r_wall,/area/bunker/rooms/room4)
 "Ug" = (/obj/floor_decal/scglogo{dir = 8; icon_state = "top-center"},/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/barracks)
 "Uh" = (/obj/structure/flora/ausbushes/grassybush,/turf/simulated/floor/exoplanet/fd/grass{color = "#6E8C44"},/area/bunker/jungle)
 "Uj" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/bunker/rooms/room14)
@@ -1467,11 +1476,12 @@
 "Uw" = (/obj/paint/black,/turf/simulated/wall/r_wall,/area/bunker/rooms/room2)
 "Ux" = (/obj/structure/vines/light3,/turf/simulated/floor/exoplanet/fd/drought{color = "#bebebe"},/area/bunker/jungle)
 "Uz" = (/obj/structure/flora/ausbushes/fullgrass,/obj/structure/railing/mapped{dir = 8; icon_state = "railing0-1"},/obj/floor_decal/steeldecal/steel_decals_central2{dir = 4; pixel_x = -1},/turf/simulated/floor/exoplanet/fd/grass,/area/bunker/jungle)
-"UA" = (/turf/simulated/floor/tiled/dark/monotile,/area/bunker/eng)
-"UB" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/monotile,/area/bunker/eng)
+"UA" = (/obj/structure/bed/chair{dir = 4},/turf/simulated/floor/tiled/dark,/area/bunker/rooms/room7)
+"UB" = (/obj/decal/cleanable/dirt,/obj/structure/bed/chair{dir = 4},/turf/simulated/floor/tiled/dark/monotile,/area/bunker/eng)
 "UC" = (/obj/structure/vines/light3,/turf/simulated/floor/exoplanet/fd/muddirt,/area/bunker/jungle)
 "UD" = (/obj/floor_decal/messygrass{dir = 4},/obj/floor_decal/messygrass{dir = 1},/turf/simulated/floor/exoplanet/fd/drought{color = "#bebebe"},/area/bunker/jungle)
 "UE" = (/obj/fd_water/alt_ver1,/obj/floor_decal/messygrass{dir = 9},/obj/floor_decal/messygrass{dir = 10},/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
+"UF" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/monotile,/area/bunker/eng)
 "UG" = (/obj/machinery/light/golden,/obj/floor_decal/corner/darkblue/mono,/obj/structure/table/rack,/turf/simulated/floor/tiled/white/monotile,/area/bunker/rooms/room5)
 "UH" = (/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 8},/turf/simulated/floor/plating,/area/bunker/rooms/room8)
 "UI" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/bunker/rooms/room12)
@@ -1503,7 +1513,7 @@
 "Vz" = (/obj/catwalk_plated/dark,/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/bunker/corridors/west)
 "VB" = (/obj/structure/vines,/turf/simulated/floor/exoplanet/fd/grass{color = "#526833"},/area/bunker/jungle)
 "VC" = (/obj/structure/girder,/turf/simulated/floor/plating,/turf/simulated/floor/plating,/area/bunker/command)
-"VD" = (/obj/structure/table/woodentable/walnut,/obj/floor_decal/corner/grey/border{dir = 1},/obj/floor_decal/corner/grey/border,/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/white/monotile,/area/bunker/kitchen)
+"VD" = (/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 8},/obj/structure/wall_frame{color = "darkred"; name = "Altar"},/obj/item/clothing/accessory/amulet,/turf/simulated/floor/tiled/monotile,/area/bunker/eng)
 "VE" = (/obj/machinery/light_construct{dir = 8},/turf/simulated/floor/tiled/dark/monotile,/area/bunker/rooms/room1)
 "VF" = (/obj/paint/black,/obj/decal/cleanable/dirt,/turf/simulated/wall/r_wall,/area/bunker/rooms/room3)
 "VG" = (/obj/floor_decal/techfloor{dir = 1},/turf/simulated/floor/tiled/dark,/area/bunker/command)
@@ -1538,8 +1548,7 @@
 "Wv" = (/obj/decal/cleanable/dirt,/obj/catwalk_plated/dark,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating,/area/bunker/corridors/north)
 "Ww" = (/obj/floor_decal/messygrass{dir = 4},/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
 "Wx" = (/obj/structure/bed/chair/office/comfy/red{dir = 8},/turf/simulated/floor/tiled/white/monotile,/area/bunker/rooms/room6)
-"Wz" = (/obj/floor_decal/industrial/outline/orange,/obj/machinery/power/smes/buildable,/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/structure/cable/green{d2 = 8; icon_state = "0-8"},/turf/simulated/floor/plating,/area/bunker/eng)
-"WB" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled,/area/bunker/eng)
+"WB" = (/turf/simulated/wall,/area/bunker/barracks)
 "WC" = (/obj/paint/green,/turf/simulated/wall/r_wall,/area/bunker/barracks/preporation)
 "WD" = (/obj/structure/flora/ausbushes/ywflowers,/turf/simulated/floor/exoplanet/fd/grass,/area/bunker/jungle)
 "WE" = (/obj/structure/flora/ausbushes/fullgrass,/turf/simulated/floor/exoplanet/fd/grass,/area/bunker/jungle)
@@ -1561,14 +1570,14 @@
 "Xb" = (/obj/structure/flora/seaweed{layer = 2.21; pixel_x = -10; pixel_y = 12},/obj/fd_water,/turf/simulated/floor/exoplanet/fd/whitesand{color = "#272727"},/area/bunker/jungle)
 "Xf" = (/obj/paint/black,/obj/landmark/damager,/turf/simulated/wall/r_wall,/area/bunker/kpp)
 "Xg" = (/obj/floor_decal/messygrass,/obj/floor_decal/messygrass{dir = 4},/turf/simulated/floor/exoplanet/fd/drought{color = "#bebebe"},/area/bunker/jungle)
-"Xi" = (/obj/machinery/light{dir = 1; icon_state = "tube1"},/obj/structure/bed/chair/wood/wings,/turf/simulated/floor/tiled/monotile,/area/bunker/eng)
-"Xl" = (/obj/decal/cleanable/dirt,/obj/machinery/light{color = "#a1d2d6"; light_color = "#a1d2d6"; dir = 4},/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating,/area/bunker/eng)
+"Xi" = (/obj/structure/bed/chair/padded/black{dir = 8},/obj/item/modular_computer/telescreen/preset/generic{pixel_y = 0; pixel_x = 32},/turf/simulated/floor/tiled/techmaint,/area/bunker/rooms/room7)
+"Xl" = (/obj/structure/closet/secure_closet/guncabinet,/obj/item/gun/projectile/shotgun/doublebarrel/hammer,/obj/item/gun/projectile/pistol/scg,/obj/item/gun/projectile/pistol/scg,/obj/item/gun/energy/ionrifle/small/stupor,/obj/item/gun/projectile/automatic/shotgun/iccgn,/turf/simulated/floor/tiled/dark/monotile,/area/bunker/eng)
 "Xn" = (/obj/structure/vines/light2,/obj/floor_decal/messygrass{dir = 1},/obj/floor_decal/messygrass,/obj/floor_decal/messygrass{dir = 8},/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
 "Xo" = (/turf/simulated/floor/plating,/area/bunker/kpp)
 "Xp" = (/obj/floor_decal/messygrass{dir = 1},/obj/floor_decal/messygrass{dir = 8},/turf/simulated/floor/exoplanet/fd/drought{color = "#bebebe"},/area/bunker/jungle)
 "Xr" = (/obj/floor_decal/corner_steel_grid{dir = 10},/obj/floor_decal/techfloor{dir = 1},/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/barracks)
 "Xv" = (/obj/floor_decal/scglogo{dir = 8; icon_state = "center-left"},/turf/simulated/floor/tiled/techfloor/grid,/area/bunker/barracks)
-"Xx" = (/obj/structure/bed/chair{dir = 4},/turf/simulated/floor/tiled/dark,/area/bunker/rooms/room7)
+"Xx" = (/obj/structure/closet/crate/freezer/rations,/turf/simulated/floor/tiled/freezer,/area/bunker/kitchen/freezer)
 "Xy" = (/obj/structure/table/glass,/obj/item/clothing/glasses/sunglasses/big{pixel_y = 18; pixel_x = 4},/obj/item/flame/lighter/zippo{pixel_y = -4},/obj/item/material/knife/combat{pixel_y = 5; pixel_x = 9},/obj/item/reagent_containers/spray/cleaner{pixel_y = -6; pixel_x = -10},/obj/item/material/ashtray{pixel_y = 11},/turf/simulated/floor/tiled/techmaint,/area/bunker/rooms/room7)
 "XA" = (/obj/structure/flora/seaweed{layer = 2.21},/obj/structure/flora/seaweed{layer = 2.21; pixel_x = 17},/obj/structure/flora/seaweed{layer = 2.21; pixel_x = -14},/obj/fd_water,/turf/simulated/floor/exoplanet/fd/whitesand{color = "#272727"},/area/bunker/jungle)
 "XB" = (/obj/structure/flora/tree/jungle/small,/turf/simulated/floor/exoplanet/fd/muddirt,/area/bunker/jungle)
@@ -1601,6 +1610,7 @@
 "Yr" = (/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/bunker/jungle/lz)
 "Yu" = (/obj/floor_decal/messygrass,/obj/floor_decal/messygrass{dir = 1},/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
 "Yv" = (/obj/floor_decal/messygrass,/obj/floor_decal/messygrass{dir = 4},/obj/floor_decal/messygrass{dir = 9},/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/jungle)
+"Yy" = (/obj/floor_decal/corner/black/border{dir = 8},/obj/structure/table/standard,/turf/simulated/floor/wood/walnut,/area/bunker/barracks)
 "Yz" = (/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/fd/drought,/area/bunker/kpp)
 "YC" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/bunker/eng)
 "YG" = (/obj/structure/flora/seaweed{layer = 2.21; pixel_x = -15; pixel_y = -7},/obj/fd_water,/turf/simulated/floor/exoplanet/fd/whitesand{color = "#272727"},/area/bunker/jungle)
@@ -1634,7 +1644,6 @@
 "ZL" = (/obj/floor_decal/corner/blue/bordercee{dir = 4},/obj/machinery/door/unpowered/simple/plastic{dir = 4},/turf/simulated/floor/tiled/old_tile,/area/bunker/barracks/preporation)
 "ZM" = (/obj/structure/vines/light2,/turf/simulated/floor/exoplanet/fd/grass{color = "#6E8C44"},/area/bunker/jungle/lz)
 "ZO" = (/obj/structure/table,/turf/simulated/floor/plating,/area/bunker/rooms/room1)
-"ZP" = (/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled,/area/bunker/corridors/center)
 "ZR" = (/obj/structure/table/standard,/obj/floor_decal/corner/darkblue/mono,/turf/simulated/floor/tiled/white/monotile,/area/bunker/rooms/room6)
 "ZS" = (/obj/structure/reagent_dispensers/watertank,/obj/floor_decal/industrial/outline/blue,/turf/simulated/floor/tiled/techfloor,/area/bunker/eng/workshop)
 "ZU" = (/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/mineral/volcanic,/area/bunker/corridors/north)
@@ -1741,11 +1750,11 @@ BmTgTgTgfCJoTgTgrkTgTgzsfSfSAXawzJaigpKHKHKHvWvWdNKHTgrkgpgpKwgpTgTgbgBDKHKHBDKH
 BmTgzsTgSfKnEFXMTgzsTgfSfSfSfSawzEKHDdBDKHKHvWlzKHKHKHTggptWgpgpgpTgKHKHKHKHKHKHawKHKHKHKHKHKHTgTgDLDLESvWESvWTgKHTggpTgTgzsTgTgsYlBTgTgzsTgKHKHKHKHKHBDKHvWywzsKHKHTgTgTggpgpgOxEYprCtktktkTgTgtktktkKHTgTgawawawawawMTMTMTTgTgyWTgKHKHKHKHTgTgTgrkTgTggpgpTgKHKHKHTggpTgKHKHTgTgKHBDKHTgTggpgpWEgpgpgpgpWEgpgpgpgpgpXSgpgpTgTgTgTgASssdoZMOldoASTggpgpnsxvEODpEODpDpEOEOEOEOxvMQgpgpgpTgKHKHKHKHTgTgTgTgTgywBm
 BmawawJyKrfTfTNjLCTgdqzsfSAXfSaipPBwBDBDmzAXfSvWESKHKHTggpsUgpgpTgTgrkTggKKHawawawKHBDKHKHDdKHWETggpzsywESrCrCrCKHrkWETgKHKHKHYpBrlBTgKHKHKHKHTgTgTgKHUhTgzszszsTgTgTgTggpctgpkNgOxEYpYpMTTgTgTgKHTgTgTgawawawawawMTMTKiKitkTgTgTgTgTgTgTgTgTgKHKHKHKHTggpgpTgTgKHKHTgTgTgTgKHKHKHTgKHKHTgTggpgpgpgpyKyKgpgpgpyKyKgpgpgpTgTgTggpTgTghixgvzHcOlTQASTggpgpnsxvEOEOEOEODpEOEODpEOxvMQTggpgpTgKHBDBDKHTgTggpgplzlzBm
 BmawawzJaiPrPrPraiQsawTgTgywfSBDyAzEfSfSAXAXfSfSvWKHKHTggpgpTggpgpgprkKHKHKHTgawawKHzeBDKHKHgpTgTgTggpTgTgrCazYpTgTgTgTgKHBDrCYpTgGoYpKHBDKHKHTgdqgpgpTgTggplzlzlzlzlzmzgpgpgpWEWEgOgOkNgpgpdqTgTgTgWETgWEawKHKHtkMTedDdOQtkKHTgTgtkKHKHKHKHKHKHBDBDKHTggpgpTgKHKHKHKHKHUhTgKHazKHTgTgTgTggpgpgpgpgpyKyKgpgpgpyKyKgpgpWEvzvzvzYdYdvzvzqWhinHvzrvcxTggpgpnsxvEOEODpEOEOEOEODpEOxvHkTggpgpTgKHazBDKHKHTggpmzlzlzBm
-BmawawzETgTgTggpTgyAawawtUTgrkfCKrFpfSfSlzKiESfSKHKHTgTgtWgpTggpgpgpTgKHBDKHKHKHKHKHKHKHBDKHTgdqgprkWEgpTgrCrCYpTgTgTgKHKHPpVBTggpgpYprCazBDKHTgWEgpTgTgTggpgplzlzmzmzlzlzlzfCJoWEWEgOkNWEgpgpgpTgTgTgTgTgawKHBDKihVKiOQKitktkMTMTtkmDmDeFvWKHBDDdKHKHTgWEgpTgKHBDPpBDKHTgTgKHKHKHTggpgpTggpgpgpgpgpyKdlyKyKgpyKyKgpgpgphiHcZMvzdorjerGxereGcxcxcxTgTggpnsiWEOEODpEODpEOEODpEOiWMQgpgpgpTgKHBDKHKHKHTgWElzmzlzBm
+BmawawzETgTgTggpTgyAawawtUTgrkfCKrFpfSfSlzKiESfSKHKHTgTgtWgpTggpgpgpTgKHBDKHKHKHKHKHKHKHBDKHTgdqgprkWEgpTgrCrCYpTgTgTgKHKHPpVBTggpgpYprCazBDKHTgWEgpTgTgTggpgplzlzmzmzlzlzlzfCJoWEWEgOkNWEgpgpgpTgTgTgTgTgawKHBDKihVKiOQKitktkMTMTtkmDmDeFvWKHBDDdKHKHTgWEgpTgKHBDPpBDKHTgTgKHKHKHTggpgpTggpgpgpgpgpyKdlyKyKgpyKyKgpgpgphiHcZMvzdorjernjereGcxcxcxTgTggpnsiWEOEODpEODpEOEODpEOiWMQgpgpgpTgKHBDKHKHKHTgWElzmzlzBm
 BmTgBDmLMTTgzszsTgTgawawawTgfCKrfTKnXMGoKHKiKirCKHgpTggpKwgpTggpWEWETgKHazKHvWBDOzKHWEKHKHKHTggpgpTgTgWETggpYpgpzsgpTgTgTgBDBDTgWEWETgTgKHKHKHTgrkTgTgTgTgTgTggpgplzmzlzlzgvKrFpgpkNgOgOgpgpWETgTgKHKHTgTgawKHDdKiKHedededMTTgTgTgtkmDDdmDbgbgbgeFKHTgTgWEWETgKHESBDKHKHTgTgTgTgTgTgWEgpgpzcUDgpgpgpyKyKyKyKyKPzyKgpTgTgAShiASCcererererCcxgcxcxQdTggpgpohxvEODpEODpDpEODpEOEOxvMQTggpgpTgKHKHKHTgTgTgWElzmzlzBm
 BmawBDazmLMTMTMTMTTgTgawawLnKrfTfTfTFprClnrCrCVBBDTgTggpgpgpTgTggpWErkKHKHvWvWESKHKHrkWEWETgTggpKHgpTggpTggprCKHTggpdqyAawTgTggpgpWEWETgzsTggpTgTgKHTgTgTgKHTggpgpfCEFEFEFRTwNGEgpkNkNPCgpgpgpTgKHKHKHKHTgTgKuOQOQestkMTMTMTTggpTgbgedmDedbgKHKHKHTgTggpgpWETgTgKHKHKHTgTggpWEgpgpgpgpXpROuzPkgpgpgpyKyKyKyKsDyKgpTgTggpvzdoHcASerhsQyaVIlxgFAcxcxTggpTgohxvEOEOEOEOEOEODpEOEOxvGITggpgpTgTgTgTgTggpDYgplzlzmzBm
 BmawawawawtkMTtkmLPpmLKHWEWsPTfTfTfTKnXMdqVBrCVBDdVBgpgpgpAbRLgpgpgpTgTgawawywzszsgpawUhTgKHKHKHKHKHTgTggpKHrCKHKHfCLCskawTgTgTgTgWEWEWEgpgpWETgKHKHDdBDKHvWTgWEWESffTfTfTfTFpgplzlzkNMTTgTgTgTgKHazBDKHTgTgawtktktkTgTgTggpgpgpTgPPbgbgbgbgBDBDKHyWgpgpgpgpgpTgTgTgTggpgpgpBOgpgpgnYufJmIpFgpgpgprxgpgpyKyKpuyKgpTgTgTgDndoASerervzrvaVFAYdhinOhiTggpTgohxvDpEODpEOEODpEOEOEOxvfmWEgpgpgpgpgpgpgpgpgpgpgpmzmzBm
-BmawawawKHKHKHMTAqmLMTTgKHgpWsPTfTfTwNGEawawKHDmVBawawgpgpgpgpTgTggpTgTggpKHawawawgpawawawKHBDBDBDKHrkrkrCazrCKHWESffTfTawKHKHKHTgTggpgpgpgpTgTgKHKHKHKHKHKHTggpgpSffTfTwNPrGElzlzlzTgMTMTKHKHTgLIBDBDKHTgTgTgTgTgTgTggpWEWEWEgpgpTgTgTgvWeFazBDKHTggpgpgpgpgpgpgpgpgpgpBOgpgpTgTgTgTgTgTgTggpgpgpQxgpgpBYyKyKgpgpgpTgTgvzgpgpgDYpYpYpYpvJhihihivzTggpgpSXxvDpDpEOEOEODpEOEOEOxvGITggpTgTgTgTgTggpgpgpgpgplzlzBm
+BmawawawKHKHKHMTAqmLMTTgKHgpWsPTfTfTwNGEawawKHDmVBawawgpgpgpgpTgTggpTgTggpKHawawawgpawawawKHBDBDBDKHrkrkrCazrCKHWESffTfTawKHKHKHTgTggpgpgpgpTgTgKHKHKHKHKHKHTggpgpSffTfTwNPrGElzlzlzTgMTMTKHKHTgLIBDBDKHTgTgTgTgTgTgTggpWEWEWEgpgpTgTgTgvWeFazBDKHTggpgpgpgpgpgpgpgpgpgpBOgpgpTgTgTgTgTgTgTggpgpgpQxgpgpBYyKyKgpgpgpTgTgvzgpgpjWYpYpYpYpvJhihihivzTggpgpSXxvDpDpEOEOEODpEOEOEOxvGITggpTgTgTgTgTggpgpgpgpgplzlzBm
 BmawawawvWKHKHBDBDTgvWvWvWgfgpAAPTfTFpgpawawawawawawawgpTgGoGoVBKHTgMTtktktkmLawTgKHKHKHawKHKHPpBDKHKHKHrCVBrCKHfCKrfTfTawKHKHKHKHTggpgplzTgKHKHTgzsKHKHTgTgTgDYgpSffTwNGElzlzlzmzywMTtktkKHTgKHKHKHKHKHTgTgTgTgKHTgTggpgpgpTgTgTgTgTgTgKHbgeFKHKHTggpgpgpgpnSHLdYdYXQgpgpTgTgTgWEWEKHKHKHTggpgpgptcgpgpgpIeypWEgpgpgpTggpTggpgpgpTgTgGoYpTggpgpWETggpgpTgkwZAEOEODpDpEOEOEOEOxvGIgpTgKHKHKHKHTgWEgpgpTgTgdqlzBm
 BmawawawKHlaBDDdBDTgvWfSfSBDgpgpWsPrGEgpBDTgawawawawzsTggprCStrCtkMTMTKHBDDdmLKHrCrCVBKHTgWEKHBDKHlzgpgpKHKHKHLCKrfTfTawTggKazBDKHTglzlzzsKHKHKHKHTgKHTgTgKHTggpgpAAPrGEgpmzmzmzmzzstkDdtkKHTgTgKHKHKHKHKHKHKHKHKHKHTgDYgpTgTgKHKHKHKHTgTgbgbgbgTgTggpnSdYXQgpgpgpgpgpTgTgTgTgTgKHTgTgTgKHTgTgTggpPiWEgpgpgpyKyKgpgpgpTgTggpgpgpgpgpgpgpgpgpTggpTggpTggpqocAmbEOEOEODpEOEODpEOxvfmTgTgKHBDDdKHTgTgTgTgPNPNTgmzBm
 BmawawKHBDBDBDBDBDvWvWfSfSBDawTgTgTggpKHazBDKHKHTgawKHMTMTrCrCrCKHTgTgKHBDmLtkKHVBDdVBKHgpTgKHKHKHgpWEgpgpKHawawfTGgawawTgKHBDBDKHTgywzsKHtkazBDKHawKHKHKHKHTggpWEWEgpTgTgzslzmzmzzsKHBDtkKHTgTgTgTgTgTgTgTgBDBDTgTgTggpgpTgKHKHKHKHKHTgPPPPTgTgTggphFgpgpgpWEgpgpTgTgTgTggpTgKHKHKHvWTgTgTgTgTgTgPigpgpgpgpghyKgpgpgpVMgpWEgpgpgpgpgpgpgpTgTgTgTgTggpTgTgcAGyEOEOEODpDpEODpDpxvfmTgTgKHKHBDBDKHTgTgPNPNPNTgmzBm
@@ -1783,51 +1792,51 @@ BmgpKHBDgpvWvWmzSffTfTfTfTawawawawKHKHKHTgKHKHLIBDKHfSfSfSfSgpgpgpTggpgpgpgpTggp
 BmgpBDazlzvWESmzbPPTfTfTfTfTfTGgawawKHUhTgTgKHKHKHKHfSfSAXlzgpgpTgTggpgpgpAbkCRLgpTgTgTgTggpgpDYgpTgKHKHKHTgTggpawawjdawawTgTgTgTgTgTggpgpTgTggpBOgpBOgpgpgpgprkTgTgKHBDKHKHKHKHBDPpBDESywvWBDOzawawawawawKHKHPPMTOQhVcqkNgpgpgpWEgpgpBegpgpWEgpgpWDTgTgTgrkWErkKHazTgKHLSLSLSLSLSLSLSLSLSLSLSLSLSLSooNXNXNXfRNXNXNXNXtFHgkmHgkmndndndndndndnddsgydsndndndndndndndVchJxxooooooQlooQlooooooooooHGZUHGooLSLSLSLSOE
 BmazgpKHvWvWvWlzgpWsPTFpvWvWSffTznTgKHKHKHTgfSKHKHgpfSfSWEgpgpBDTggpgpTgTggpgpgpWEgpTgTggpTgTgTggpTgTgTgTgTgTgTgTgTgTgTgTgTgTgTggpgpTgTggpTgTgBOgpgpTgKHgpKHTgTgKHKHKHBDDdKHvWKHKHBDKHvWywvWKHKHawgpKHgpKHKHKHTgMThVhVhVkNMTTgTgTggpgpgpgpWDgpgpWETgTgKHKHTgTgTgKHBDRQLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSNXAKMpexzCCOwLNXQpCQJUCQQpndZSBtgMXJgRWbZpNEeiOXMZVxGFFYVxndooFaooooLSLSLSLSLSLSLSLSLSooHGZUHGooLSLSLSLSOE
 BmgpQBJoKHESESlzDmKHSfFpvWESlzSffTJoKHKHTgrkKHKHKHazKHKHKHrCDdBDTgTgTgTgTgTgTgTgTgTgTgTggpgpgpgpgpgpWDgpgpTgKHKHKHKHTgTgqYgpgpgpTgTgTgTgTgTggpgpDYTgTgKHKHPPTgKHKHawKHvWrCKHKHKHgpKHKHzsywlzTggpKHKHKHKHKHKHTgTgMTMThVhVhVMTmLMTTgifgpgpifgpgpgpgpyWKHKHKHKHTgKHKHvWLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSNXwLUjUjniUjMgNXwfwfNRwfwfndPGglTnHwvcbuzorfeiyQIJyORUbHyOndjzhJnXDUDUDUDUDUDUDULSLSLSooHGZUHGooLSLSLSLSOE
-BmPMKrKnEFeaEFJoBDgpSfFplzESvWSffTfTEFtnTgTgTgKHKHTgrCYpYpVBGoTgzsTgTgTgTgTgTgBOTggpgpgpgpgpqYgplzgpgpqYgpTgKHBDgpKHKHTggpgpgpgpTgTgTgTggpTggpgpgpTgTgBDazVBKHKHKHawawrCrCKHgpvWKHTgTgTgTgTgTgKHKHBDDdBDKHTgTgTgTgMTMThVhVmLazMTTggpgpgpgpgpgpifgpTgBDDdBDKHKHKHvWywLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSNXwLwLUjvCyZMgNXoCGluBuBRNhENzlgWcWcWcWcaxuLeiyQIJRUbHsXyOndjzeLnXDUTGCddmSnTwDULSLSLSooHGZUHGooLSLSLSLSOE
+BmPMKrKnEFeaEFJoBDgpSfFplzESvWSffTfTEFtnTgTgTgKHKHTgrCYpYpVBGoTgzsTgTgTgTgTgTgBOTggpgpgpgpgpqYgplzgpgpqYgpTgKHBDgpKHKHTggpgpgpgpTgTgTgTggpTggpgpgpTgTgBDazVBKHKHKHawawrCrCKHgpvWKHTgTgTgTgTgTgKHKHBDDdBDKHTgTgTgTgMTMThVhVmLazMTTggpgpgpgpgpgpifgpTgBDDdBDKHKHKHvWywLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSNXwLwLUjvCyZMgNXoCGluBuBRNhENzlgWcWcWcWcaxuLeiyQIJRUbHsXyOndjzeLnXDUTGCdCLSnTwDULSLSLSooHGZUHGooLSLSLSLSOE
 BmfTfTfTfTfTfTOsBDDdHhKnXMvWmzSffTfTPrFpTgTgTgYprCBrrCsIUhTgTgTgzsywTgTggpgpTgTghFTgTggpgpqYgpmzlzgpgpgpqYTgKHBDazBDKHTggpgpgpgpgpgpHITgTgTggpgpTgTgTgKHeFbgrCOQOQAooPoPawawgpdqgpgpgprkTgKHKHKHKHKHBDKHKHTgzsKHKHKHtktkmLmLMTMTTgTggpgpgpWDgpgpTgTgKHBDKHKHywESzsLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSNXpmUjUjGTdbuFNXNTScyJwGhOtfdwxmbWyIfYRpZjuLHxOXISbbZKwvcondYZhJDxDUWkUIQRSnQRDULSLSLSooHGHGHGooLSLSLSLSOE
 BmicfTfTfTfTfTqKEFEFKrfTKneaEFKrfThGTgzszsywvWKHYpYpBrBrrCrCrkTgTgzszsTggpgpgpTgTgBOTggpgpgpgplzlzmzgpgpgpTgKHKHBDKHKHTggpWDgpTgTgLoKLgpTgTgWEWETgTgTgLIvWKHYpYpDdYpawawawawgpTggpKHKHKHKHKHgpKHKHKHKHKHTgTgTgBDPpKHKHKHTgTgTgifgpgpTgTgifgpTgTgTgKHKHKHKHvWywywzsLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSNXNXNXNXNXNXNXNXNThOJUhnGrtflQCvqNndndndEtYlgcndMBVxVxVxVlsLZCWvjzDUKFOeQRCdeKDULSLSLSooooooooooLSLSLSLSOE
-BmgpWsPrPrFrGEgpSffTfTfTfTfTfTfTFpTgKHvWvWvWvWlnrCYpdvrCedrCKHKHTgTgTgqYgpgpgpgpTgKHKHTggpgpgplzgpqYgpgpgpTgTgNJKHKHKHTggpgpTgTggpTggpgpTgTgWEWETgTgTgTggpTgWEiDVBYpKHKHBDKHTgTgBDKHKHKHKHKHBDbgvWgpTgTgKHKHKHBDBDKHKHgpTgKHKHKHKHKHKHTgTgTgTgTgKHKHKHKHKHKHESzsLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSndpWaPPshniYtffixmGtndndndjMqBeiOXIJfHyOyOPFndHzxCdBhzidOeREOedmDULSLSLSLSLSLSLSLSLSLSLSLSOE
-BmKHgpKHKHKHgpQBfTfTfTGgfTfTfTfTGEKHywESvWvWvWYpYpKHrCrCYprCrCKHTgTgTggpgpqYgpgpTgTgKHTgTggpgpgpgpgpgpmzgpgpgpTgTgTgTgTggpTgTgnlCDTgTgTgTgTgWETgTgKHKHTgTgrkrkrkKHKHKHBDOzKHTgTgKHDdBDKHgpbgDdeFbgPPrkgpKHBDOzBDKHKHKHTgTgTgTgKHazBDgpKHgpTgBDKHKHTgKHBDKHKHvWLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSvGvGvGvGvGvGvGvGvGvGLSndNThOKgMlhOGzcDKZBEOjcZlUPovkeiOXIJyOgdyOyOndjzzMjzDUoKOeOeOedmDULSLSLSLSLSLSLSLSLSLSLSLSOE
-BmgpgpKHazBDKHSffTfTfTfTfTfTfTGEgpKHESESvWKHKHTgTgTgKHKHVBBDVBTgTgywTggpgpgpgpgpgpTgTgmtTggpgpgpgpWDgpgpgpgpWDgpgpTgTgBOTgTggpTgTgTggpgpTgTggpTgTgKHKHKHKHTggpKHKHKHKHKHKHWEgpTgKHBDBDKHWEbgbgbgPPPPTgTgTgKHKHKHKHTgTgDdBDgpTgKHBDKHKHDdBDPPbgDdKHTgKHOzBDKHTgLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSvGvmvmKGNgLvRHRHmivGLSndNTUJbMKcGrtfqBsAxYmAsAvkvkvkeiOXjuZKZKbbpYndhCeLxxDUhgdmdmdmzQDULSLSLSLSLSLSLSLSLSLSLSLSOE
+BmgpWsPrPrFrGEgpSffTfTfTfTfTfTfTFpTgKHvWvWvWvWlnrCYpdvrCedrCKHKHTgTgTgqYgpgpgpgpTgKHKHTggpgpgplzgpqYgpgpgpTgTgNJKHKHKHTggpgpTgTggpTggpgpTgTgWEWETgTgTgTggpTgWEiDVBYpKHKHBDKHTgTgBDKHKHKHKHKHBDbgvWgpTgTgKHKHKHBDBDKHKHgpTgKHKHKHKHKHKHTgTgTgTgTgKHKHKHKHKHKHESzsLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSndpWaPPshniYtffixmGtndndndjMqBeiOXIJfHyOyOPFndHzxCdBhzidOeREOeCLDULSLSLSLSLSLSLSLSLSLSLSLSOE
+BmKHgpKHKHKHgpQBfTfTfTGgfTfTfTfTGEKHywESvWvWvWYpYpKHrCrCYprCrCKHTgTgTggpgpqYgpgpTgTgKHTgTggpgpgpgpgpgpmzgpgpgpTgTgTgTgTggpTgTgnlCDTgTgTgTgTgWETgTgKHKHTgTgrkrkrkKHKHKHBDOzKHTgTgKHDdBDKHgpbgDdeFbgPPrkgpKHBDOzBDKHKHKHTgTgTgTgKHazBDgpKHgpTgBDKHKHTgKHBDKHKHvWLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSvGvGvGvGvGvGvGvGvGvGLSndNThOKgMlhOGzcDKZBEOjcZlUPovkeiOXIJyOgdyOyOndjzzMjzDUoKOeOeOeCLDULSLSLSLSLSLSLSLSLSLSLSLSOE
+BmgpgpKHazBDKHSffTfTfTfTfTfTfTGEgpKHESESvWKHKHTgTgTgKHKHVBBDVBTgTgywTggpgpgpgpgpgpTgTgmtTggpgpgpgpWDgpgpgpgpWDgpgpTgTgBOTgTggpTgTgTggpgpTgTggpTgTgKHKHKHKHTggpKHKHKHKHKHKHWEgpTgKHBDBDKHWEbgbgbgPPPPTgTgTgKHKHKHKHTgTgDdBDgpTgKHBDKHKHDdBDPPbgDdKHTgKHOzBDKHTgLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSvGvmvmKGNgLvRHRHmivGLSndNTUJbMKcGrtfqBsAxYmAsAvkvkvkeiOXjuZKZKbbpYndhCeLxxDUhgCLCLCLzQDULSLSLSLSLSLSLSLSLSLSLSLSOE
 BmBDBDKHKHLnEFGgfTfTfTfTfTPrGETgKHKHvWvWvWKmTgVJKHKHgKKHVBazVBTgTgTgTggpgpgpgpgpgpgpTgPfkdTggpgpqYgpgpgpTgTggpTgTggpBOgpgpTgTgTggpgpgpgpTgTgTgTgKHBDDdBDKHTgKHKHBDKHOYGWKHKHgpTgKHVJKHawjdLIKHTgPPbgKHKHTgTggpKHTgTgTgBDKHKHKHTgESKHKHBDPPiAKHKHTgTgKHKHKHKHLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSvGQQcfcfbSLpVvysQrvGLSndgwWGWGWGZGsKflsoPDWRZYunZYSRheoAlMlMlMojojndjzeLjzDUDUDUDUDUDUDULSLSLSLSLSLSLSLSLSLSLSLSOE
 BmPpBDMAEFfTfTfTPrPrPrPrFpTgTgKHBDBDgKKHcSfTeaJoTgVJKHKHKHBDKHVJTgTgTggpgpgpgpgpgpgpTgKHsUTggpgpgpgpgpTgTggpqYgpBOgpTgTgTggpgpgpgpgpqYgpTgTgTgTgKHBDKHKHKHgpKHazBDvWKHrtpVBCMvTgTgTgTgawawawTgTgKHKHTgTgTgTgKHKHTgTgTgKHKHBDKHKHKHKHKHKHTgTgKHKHKHawawKHKHLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSvGvmKGqfSNHFvGvGvGvGLSndndndndndndndndndndndndndndndztVsvFJUadVscjndooHSoobGLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSOE
 BmBDVJgpynfTfTFpKHgpawawSfEFGsrkBDzeBDKHSffTfTFpKHVJVJKHKHKHKHKHTgTgqYgpzsTgTgqYqYgpTgTgTgTggpgpgpTgTgTgFJXQgpTggpTgTggpgpgpgpgpqYgpgpgpgpTgTgTgKHKHESKHgpKHKHKHKHKHgpKHTgTgTgTggpKHKHawawawawawKHBDPpBDTgKHTgvWKHKHKHKHBDazBDKHgpKHKHKHKHTgTgTgTgawawawawLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSvGvmKGKGNgLvjjjjjjvGLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSndvFNKcjxHcjixVsndjzhJjzPcPcPcPcPcPcPcLSLSLSLSLSLSLSLSLSLSLSLSOE
 BmWEVJKHbPfTfTFpKHdNawECfTfTFpWEVJBDKHKHWsPrPrznKHrkTgfCeaJogpKHTgTggpTgKHTgTgTgTgTggpTgTgKHgpTgqYTggppLYvTgTgTggpgpgpgpgpWDgpgpgpgpgpgpTgTgrCrCgpgpgpKHgpKHTggpTggpKHKHgpvWgpgpKHKHKHKHawawawawKHKHBDKHTgTgTgKHBDDdBDKHLIKHKHKHTgKHBDDdKHTgTgTgawawawawLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSvGQQcfJJhkalUddnQrvGLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSndndndndndndndndndVchJxxPcKzZynQZyqCPcLSLSLSLSLSLSLSLSLSLSLSLSOE
 BmgKVJazBDbPfTFpgpawQBfTfTfTfTEFsxTgLnJoKHDdKHUnKHKHfCfTfTfTEFJoTgTggpTgKHBDBDKHTgTggpgpTgKHKHTggpTggpTgTggpgpgpgpgpgpgpgpgpgpgpgpqYgpgpTgTgrCOQazmLKHKHKHKHKHTgrkTgKHBDgplzzsgpKHDdKHLnawawKHKHKHWEKHKHKHKHKHKHKHKHawKHgpTgKHKHgpKHKHBDKHKHTgawawawawawLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSvGvmvmwDvyimvGvGvGvGLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSbGnXwinXPcDXGZVNHqnQPcLSLSLSLSLSLSLSLSLSLSLSLSOE
 BmKHKHBDgpgpSffTEFEFfTfTfTfTfTfTFpTgbPGgXMBDgfUnKHbtfTfTfTfTfTFpTgTgTgTgTgKHKABDKHTgTgTgTgTgzcSDTggpTggpgpgpgpgpqYqYgpBegpsOgpgpgpgpgpgpTgTgrCVBVBKikNtkDdBDKHWErkTgKHPpKHgpywvWvWKHKHbPPTFpKHBDrCrCdvWEKHBDKHKHawawawawawTgTggpTgTgKHKHKHKHKHawawawawLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSvGymiBzXAkLvjjjjjjvGLSSFSFSFSFSFSFSFSFJmSFSFSFSFSFSFSFvavavavavavavajzxCSxhWvDGZHqilfeHALSLSLSLSLSLSLSLSLSLSLSLSOE
-BmgpKHKHvWlzmzbPfTfTfTfTfTfTfTfTFprkKHbPznawgKHhLCawGgPrfTfTfTKOTgTgTggpNJKHBDBDKHTgTgTggpXpUuddgpTggpgpgpqYctgpgpgpgpBegpgpWDgpgpgpgpTgTgTggpvWKHWEWEtkKHKHKHWErkKHKHBDTgTgywvWvWKHgpTgbPGEKHDdVBrCrCrCrCBDKHKHawawawawgpKHKHKHKHTggpKHKHBDrCawawawLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSvGQQQXUafyalysUdckvGLSSFPWBKSFQOyiVUSFelKyVUSFyHyipdSFsMvAxuHEjFrrvaVcWvxxPcEBililfefeHALSLSLSLSLSLSLSLSLSLSLSLSOE
-BmKHazgpvWvWESgpSffTfTfTGgfTfTfTFpKHKHKHUnawawSfawaicQgpWsicGETgzsTggpTgTgTgKHKHKHKHTgTgzcPEXSWwDYgpgpgpqYgpgpNygpgpgpgpWDgpNygpgpgpqYgpTgWEWEWEKHWEWEPCKHgpKHKHKHawawawKHdqzsvWvWlzTggpKHKHiVOHKHESdvrCVBDdVBrCTgawawawgpKHBDDdKHgpKHKHBDazVBKHawLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSvGvmvmJeNgDGFxFxFxvGLSSFIsBKSFCfIsdyLXVrErVUSFyHIsQqSFvavaiaGjMmcGvanXhJcEPcrKililWhJnPcLSLSLSLSLSLSLSLSLSLSLSLSOE
-BmESvWvWvWBDBDgpasfTfTfTfTfTfTPrryVJOzDmWsEFeaGgawKHKHKHgpKHKHKHTgTggpTgTgTgTgTgTgTgTgTgnxmIZAWwTgTggpgpgpgpsOgpgpgpsOgpgpgpgpgpgpgpgpgpTgWEWEWEWEWEgpPCdqKHKHKHawfTfTawTgTgKHKHvWESKHKHbgbgbgKHKHKHgpUhdvdvihrCrCKHKHKHKHKHKHBDKHKHKHKHLIrCVBrCYpLSLSLSLSLSLSLSLSLSFXFXFXFXFXFXFXFXFXFXFXFXFXvGvGUovtmyimvGvGvGvGLSSFIsBKSFCfIsVUSFjiErVUSFyHEMpdSFwEZLjUtytytyvaaOGvaOPcRfbdnQnpqCPcLSLSLSLSLSLSLSLSLSLSLSLSOE
+BmgpKHKHvWlzmzbPfTfTfTfTfTfTfTfTFprkKHbPznawgKHhLCawGgPrfTfTfTKOTgTgTggpNJKHBDBDKHTgTgTggpXpUuddgpTggpgpgpqYctgpgpgpgpBegpgpWDgpgpgpgpTgTgTggpvWKHWEWEtkKHKHKHWErkKHKHBDTgTgywvWvWKHgpTgbPGEKHDdVBrCrCrCrCBDKHKHawawawawgpKHKHKHKHTggpKHKHBDrCawawawLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSvGQQQXUafyalysUdckvGLSSFPWBKSFQOrBPtSFelKyVUSFyHyipdSFsMvAxuHEjFrrvaVcWvxxPcEBililfefeHALSLSLSLSLSLSLSLSLSLSLSLSOE
+BmKHazgpvWvWESgpSffTfTfTGgfTfTfTFpKHKHKHUnawawSfawaicQgpWsicGETgzsTggpTgTgTgKHKHKHKHTgTgzcPEXSWwDYgpgpgpqYgpgpNygpgpgpgpWDgpNygpgpgpqYgpTgWEWEWEKHWEWEPCKHgpKHKHKHawawawKHdqzsvWvWlzTggpKHKHiVOHKHESdvrCVBDdVBrCTgawawawgpKHBDDdKHgpKHKHBDazVBKHawLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSvGvmvmJeNgDGFxFxFxvGLSSFIsBKSFtsIsdyWBVrErVUSFyHIsQqSFvavaiaGjMmcGvanXhJcEPcrKililWhJnPcLSLSLSLSLSLSLSLSLSLSLSLSOE
+BmESvWvWvWBDBDgpasfTfTfTfTfTfTPrryVJOzDmWsEFeaGgawKHKHKHgpKHKHKHTgTggpTgTgTgTgTgTgTgTgTgnxmIZAWwTgTggpgpgpgpsOgpgpgpsOgpgpgpgpgpgpgpgpgpTgWEWEWEWEWEgpPCdqKHKHKHawfTfTawTgTgKHKHvWESKHKHbgbgbgKHKHKHgpUhdvdvihrCrCKHKHKHKHKHKHBDKHKHKHKHLIrCVBrCYpLSLSLSLSLSLSLSLSLSFXFXFXFXFXFXFXFXFXFXFXFXFXvGvGUovtmyimvGvGvGvGLSSFIsBKSFCfIsYySFjiErVUSFyHEMpdSFwEZLjUtytytyvaaOGvaOPcRfbdnQnpqCPcLSLSLSLSLSLSLSLSLSLSLSLSOE
 BmvWvWvWESazBDdqgprRfTfTfTfTFpgpKHVJgKVJKHyAawawawlzvWazKHKHVJKHTgTgTggpgpgpgpgpgpgpTgTgTgTgnxXgTggpgpgpgpgpgpgpgpgpgpgpgpWDgpsOgpgpgpTgTgWEWEWEWEKHKHPCgpKHBDlnawfTfTawTgTgKHBDKHBDBDBDzebsKHgpTgawawTgTgKHKHKHKHVBKHBDKHTgKHKHKHPpBDKHKHTgKHrCYpLSLSLSLSLSLSLSLSLSFXUkLgSsMwhPNDLgUkUkUkUkNxLgvGImEGCNLvjjjjjjvGLSSFhpzvltFwhpsRlKFwhpsRRAFwhpsRSFvavaqmuOJERmvazSggjhPcPcPcPcPcPcPcLSLSLSLSLSLSLSLSLSLSLSLSOE
 BmVJgplzESvWvWKHWEgpSffTfTFplzvWKmVJVJKHLnawfTawvWvWKHKHKHfCJoTgTgTgTgTggplzgpqYgpgpTgTgKHTgTgKHTgTggpgpBegpgpgpsOgpBegpsOgpgpgpgpgpgpgpTggpWEWEKHkNtktkKHESKHawfTbUfTawTgTgKHDdBDVJKHKHrCrCKHgpTgawawawawawTgWEKHVBDdBDKHTggpvWKHKHBDKHKHTgTgTgLSLSLSLSLSLSLSLSLSLSFXUkDkVzkirDTrfxCSfxfxwyBMBfvGqwfVhwalysatHVvGLSSFMxXrzgXrXrXrzgMtXrIpDuvNXvIQtlDjDjkIhyzGpfWCeWXHhTaOLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSOE
-BmVJazgpvWESlzKHgpLnfTfTfTFpmzlzSfEFeaEFfTfTPraivWvWKHvWfCfTFprkTgTgTgTggpgpgpgpgpgpTgTgKHKHKHKHKHTggpgpgpgpWDgpgpgpNygpgpgpgpgpgpgpgpTgTgTgKHKHKHmLDdtkKHKHKHawfTawawKHKHKHKHBDKHKHTgTgTgrCKHKHKHgpawawawawawTgvWKHVBKHKHgpTgTgKHKHLIKHKHKHKHKHLSLSLSLSLSLSLSLSLSLSFXLgUkslnCxlslLgLgLgfpUkxlLgvGvqRSJfDGFxFxFxvGLSSFLiKILipAjSLipAKILivMVwobAIUgeXjtnKNfNfjtNfCIteURzSaOLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSOE
+BmVJazgpvWESlzKHgpLnfTfTfTFpmzlzSfEFeaEFfTfTPraivWvWKHvWfCfTFprkTgTgTgTggpgpgpgpgpgpTgTgKHKHKHKHKHTggpgpgpgpWDgpgpgpNygpgpgpgpgpgpgpgpTgTgTgKHKHKHmLDdtkKHKHKHawfTawawKHKHKHKHBDKHKHTgTgTgrCKHKHKHgpawawawawawTgvWKHVBKHKHgpTgTgKHKHLIKHKHKHKHKHLSLSLSLSLSLSLSLSLSLSFXLgUkslnCxlslLgLgLgfpUkxlLgvGvqRSJfDGFxFxFxvGLSSFLiKILipAjSptpAKILivMVwobAIUgeXjtnKNfNfjtNfCIteURzSaOLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSOE
 BmgpawawawawPMEFEFfTfTfTfTFplzfCfTfTfTfTfTFpKHgKKHKHdXvWSfGgFpTgTgTgTggpgpgpqYgpgpgpgpTgTgKHKHTgTgTggpqYgpgpgpgpgpgpgpgpgpWDgpBegpgpgpgpTgTgKHKHKHmLmLtkKHBDBDawawawawBDBDKHKHKHKHdqTgTgNkrCrCbsbsbsTgawawawawTgKHrCrCKHKHKHKHTgTggpTgTgKHazmLKHLSLSLSLSLSLSLSLSLSLSNvNvNvViAvCHViNvNvNvNvhtMhLgouJugzJuououououououSFLiKPLiLiiKLipAKILiQPNSTRjSlRtlzRnkMmsiqyToWCeWaJuhaOLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSOE
-BmawawfTGgfTfTfTfTPrfTFpnESfEFfTfTfTfTfTfTFpKHKHeplzKHvWWsfTGETgTgTgqYgpgpgpgpgpgpgpgpTgTgKHKHTgtLTgTggpgpsOgpgpsOgpgpsOgpgpgpgpgpgpgpgpTgTggpKHrkKHvWKHBDazBDTgTgKHKHBDazBDKHgpTgawTgTgjrKHVBPpVBrCYpQkGoawawTgrCrCKHBDazBDKHrkTgTgTgKHKHBDtkLSLSLSLSLSLSLSLSLSLSLSNvgQezqkZrpSirWzuXJxNvLgjILgousewbRPjVouCqouCqouSFphARLiLiHPpApAKIphQaMRuELBWMSFwBAtsuoNDQQevajhggjhaOLSLSLSLSLSLSciciciciciWXciciLSLSLSLSOE
-BmfTfTfTfTfTfTfTFpdqnEaUnElzbPfTfTfTGgfTfTFpESvWSfzIKHvWTgbLTgTgTgTggpgpgpgpgpgpgpgpqYgpTgKHTggpEqgpTggpWDgpgpWDgpgpgpgpgpgpsOgpgpgpqYgpTgWEWEWErkTgTgKHTgBDTgTgTgKHvWBDBDKHawWEawawTgNiVuKHVBrCgfKiKirCrCWETgKHrCKHKHKHBDKHKHTgKHKHKHKHKHKHtkLSLSLSLSLSLSLSLSLSLSLSNvppmlsjIyPwYCvlmOsdNvFXWSFXoumcBycpDMoufnoufnouSFSFSFSFSFSFSJSFSFSFSFSFSFSFSFSFvavazGvavavavaaOGvaOaOLSLSLSLSLSLSciYbmFmFyemFmJciLSLSLSLSOE
-BmfTfTfTfTfTfTfTfTEFEFeaJonEawSffTfTfTFgvWvWmzvWFuTgtiiLTggpTgTgTgTggplzlzmzgpgpgpgpgpgpTgTggpBOgpTggpgpgpNygpgpgpBeWDgpgpgpgpgpgpgpgpTgTgWEWEWErkTgTgKHTgTgTgKHKHKHvWvWKHKHawawawgpgpTgkHawawKHKHKHKHBDKHrCrCrCVBKHKHvWVJKHTgKHBDKHKHtkMTXGXGLSLSLSLSLSLSLSLSLSLSLSNvKULmLmZquJJxYCYCXlNvLgxlUkoutXTVucJNyUMrwuqMouLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSaOzSggjhaOLSLSLSLSLSLScimFmFgNgNdJgNciLSLSLSLSOE
-BmfTfTfTfTfTfTfTfTfTfTfTfTEFEFPrfTfTFpgpKHvWESbPFgTgTgTgTgKHKHKHzsgpTggplzmzlzlzgpgpgpgpgpTgTggpgpgpgpgpgpgpgpBegpgpgpgpBegpgpBegpgpgpTgTgWEWEWETgKHTgTgTggpKHKHKHKHvWvWgpTgawawKHKHKHKHTgKHTgawawKHBDazKHKHKHVBDdKHKHKHKHKHTgKHBDDdmLtkXGXGLSLSLSLSLSLSLSLSLSLSLSLSNvppycycTvLyycZqtAoHNvsCxlBfouZVHoucnPLUEdolDZouLSLSLSaOaOaOaOaOaOaOaOaOaOaOaOLSLSLSLSLSLSLSaOzSaJjhaOLSLSLSLSLSLScijPmFgNnjzaCLciLSLSLSLSOE
+BmawawfTGgfTfTfTfTPrfTFpnESfEFfTfTfTfTfTfTFpKHKHeplzKHvWWsfTGETgTgTgqYgpgpgpgpgpgpgpgpTgTgKHKHTgtLTgTggpgpsOgpgpsOgpgpsOgpgpgpgpgpgpgpgpTgTggpKHrkKHvWKHBDazBDTgTgKHKHBDazBDKHgpTgawTgTgjrKHVBPpVBrCYpQkGoawawTgrCrCKHBDazBDKHrkTgTgTgKHKHBDtkLSLSLSLSLSLSLSLSLSLSLSNvgQezqkZrpSirrhuXJxNvLgjILgousewbRPjVouCqouCqouSFphARLiLiHPpApAKIphQaMRuELBWMSFwBAtsuoNDQQevajhggjhaOLSLSLSLSLSLSciciciciciWXciciLSLSLSLSOE
+BmfTfTfTfTfTfTfTFpdqnEaUnElzbPfTfTfTGgfTfTFpESvWSfzIKHvWTgbLTgTgTgTggpgpgpgpgpgpgpgpqYgpTgKHTggpEqgpTggpWDgpgpWDgpgpgpgpgpgpsOgpgpgpqYgpTgWEWEWErkTgTgKHTgBDTgTgTgKHvWBDBDKHawWEawawTgNiVuKHVBrCgfKiKirCrCWETgKHrCKHKHKHBDKHKHTgKHKHKHKHKHKHtkLSLSLSLSLSLSLSLSLSLSLSNvppmlsjIyPwYCmOkvyjNvFXWSFXoumcBycpDMoufnoufnouSFSFSFSFSFSFSJSFSFSFSFSFSFSFSFSFvavazGvavavavaaOGvaOaOLSLSLSLSLSLSciYbmFmFyemFmJciLSLSLSLSOE
+BmfTfTfTfTfTfTfTfTEFEFeaJonEawSffTfTfTFgvWvWmzvWFuTgtiiLTggpTgTgTgTggplzlzmzgpgpgpgpgpgpTgTggpBOgpTggpgpgpNygpgpgpBeWDgpgpgpgpgpgpgpgpTgTgWEWEWErkTgTgKHTgTgTgKHKHKHvWvWKHKHawawawgpgpTgkHawawKHKHKHKHBDKHrCrCrCVBKHKHvWVJKHTgKHBDKHKHtkMTXGXGLSLSLSLSLSLSLSLSLSLSLSNvKULmLmZquJJxYCYCmGNvLgxlUkoutXTVucJNyUMrwuqMouLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSaOzSggjhaOLSLSLSLSLSLScimFmFgNgNdJgNciLSLSLSLSOE
+BmfTfTfTfTfTfTfTfTfTfTfTfTEFEFPrfTfTFpgpKHvWESbPFgTgTgTgTgKHKHKHzsgpTggplzmzlzlzgpgpgpgpgpTgTggpgpgpgpgpgpgpgpBegpgpgpgpBegpgpBegpgpgpTgTgWEWEWETgKHTgTgTggpKHKHKHKHvWvWgpTgawawKHKHKHKHTgKHTgawawKHBDazKHKHKHVBDdKHKHKHKHKHTgKHBDDdmLtkXGXGLSLSLSLSLSLSLSLSLSLSLSLSNvppcaycTvLyycZqtAPlNvsCxlBfouZVHoucnPLUEdolDZouLSLSLSaOaOaOaOaOaOaOaOaOaOaOaOLSLSLSLSLSLSLSaOzSaJjhaOLSLSLSLSLSLScijPmFgNDSzazKciLSLSLSLSOE
 BmfTfTGgfTfTfTfTfTfTfTfTfTfTFggpbPfTfTEFEFPMKHKHTgLnzTiLKHKHgpKHTggpTgqYlzlzmzgpgpgpgpgpgpTggpgpTggpgpgpgpgpgpgpsOgpsOgpgpgpgpgpgpgpgpTggpWEWEWErkTgKHKHgpTgKHBDDdBDKHWEawawawKHBDDdBDKHTgTgTgKHawawKHKHLIKHKHKHBDfSESTgTgTgTgTgBDBDBDKHrkXGLSLSLSLSLSLSLSLSLSLSLSLSNvQLCTPqycLyJxJxYCPhNvLgjILgoufBQgucVmBHEdebnwouLSLSLSaOjhuGjhjhjhjhjhuGEmzSaOLSLSLSLSLSLSLSaOSVgguhaOLSLSLSLSLSLScibJmFmFzamFRnciLSLSLSLSOE
-BmfTfTfTfTfTfTGgfTfTfTfTfTFgWEgpgpynfTfTfTfTEFtnKHvWKHKHBDDdBDVJTgTggpgpgplzlzmzgpgpgpgpqYTggpgpTggpgpgpqYgpgpgpgpgpWDgpgpsOgpgpWDgpTgTgTgWEWEWErkBDBDKHKHTgTgKHBDKHKHgplaTgTgKHKHBDgKvWKHKHKHgpKHawawawawrkrkzsESvWvWKHTgTgTgKHKHKHKHKHXGLSLSLSLSLSLSLSLSLSLSLSLSLSNvJxJxQNycLQEupMJxvSNvFXWSFXouPXzAucjGKpkbWODZouLSLSLSaOjhehIkIkjhjhehehIkIkaOLSLSLSLSLSLSLSaOjhggrFaOLSLSLSLSLSLScitDrPxixyDtpjciLSLSLSLSOE
-BmPrfTfTfTfTfTfTfTfTfTfTFpgpgpBDbtawbUfTfTfTfTFglzvWESKHDmBDDmVJTgTggpgpgpTgTgTggpgpmzgpgpTgTggpTggpgpqYqYqYTYgpgpgpgpgpgpctgpgpTgTgTgTggpTgKHTgTgKHDdKHTgTgTgKHKHKHKHKHKHKHKHKHKHKHKHgpKHKHBDDdKHTgawawawWEWEzszsESESKHKHKHKHKHKHKHKHTgXGLSLSLSLSLSLSLSLSLSLSLSLSLSNvJIZmYCZePHxqWBYCSyNvLgdALgououJuJtJuouououououFXaOaOaOzSZPehZPzSjhehIkIkehaOaOaOaOaOaOaOaOaOzSggzSaOaOaOQSQSQSQSciciciMjciciciciQSQSLSLSOE
-BmgpyAfTbUfTfTfTfTfTfTfTFpdqBDazyAawfTfTfTfTGEgpmzvWvWywKHKHVJWETgzsgpTgTgTgKHTgTggpgpgpTgTgyCTggpgpgpqYqYqYgpgpWDgpgpgpBegpgpTgqYTgTgTgTgTgKHTgTgKHBDKHTgzsTgKHKHKHBDKHawawKHKHBDBDKHKHKHKHBDBDKHgpTggpawawWEWEzsgKKHBDPpKHKHazKHTgszQnLSLSLSLSLSLSLSLSLSHMXSLSzzGesVJxJxYCxqxqxqxqYCYCIfLgxlLgLgSsLgxlLgLgNFSsUkUkFXjhuGjhZlZPehIkjhjhehehehlSjhoGuGjhjhaOjhjhuGjhaJjhuGjhjhQSTMTMjBTMTMrmxdxNTMjBTMTMQSLSLSOE
-BmlznJaiawfTfTfTfTGgfTbUfTeaLCLCawfTfTfTfTGEgpKHKHvWESzsgpBDvVVJYpTggpMTtkKHBDKHTgqYgpgpgpTgpETggpgpqYqYqYqYgpBegpgpsOctgpgpWDgpTgTggpTgTgTgTgTgTgTgKHKHTgKHTgTgTgTgDdBDKHawawBDPpfSvWESazKHKHKHKHKHKHTgTgKHgpKHTgKHKHKHBDBDKHKHszwtQZspzqzqLSUxXSXSHMHMHMgsXSxUxLOPsVJxJxJxxqxqxqxqYCYCIfUkmoTrfxCSwyzhTrCSCSfxfxCSSCsttMtMmutetetMtMtMtMtMstteteWastststSQososGNtepkmusttMtMEcJOJOJOJOuTuIblJOJOJOJOsEQSLSLSOE
-BmmzgpgpyAawfTfTfTfTfTfTfTfTbUfTfTfTfTfThGgpVJrkBDTgzszsBDazmDtkMTMTkNMTpGDdmLKHTggpgpgpTgTgpETggpgpqYqYgpgpgpgpgpgpgpgpNyTggpTgTgqYqYgpTgTgKHTgzsTgTgTgKHKHBDiVtkMTmLBDBDKHawawBDvWvWvWKHKHKHepKHlaKHKHKHgpTgKHTgTgKHKHKHESKHdeQZspspspLGzqxOxONZbvgsbvbvXSHMxUOPOPNvJxxqxqxqxqxqxqYCJxIfUkxlLgLgslLgLgLgUkUkslLgLgFXjhXKzSzSXKzSjhjhjhjcjOjhjhjhIFjOIFIFaOjhjhXKjhvRjhXKjhjhQSTMTMSmTMTMxdTMTMTMSmTMvEQSLSLSOE
-BmlzctgpnJawfTfTfTfTfTfTfTfTfTfTfTPrPrivgpKHKHTgeFazBDVJKHQCQCKHTgkNYpKHbspGmLKHTggpgpgpTggpBNTggpgpqYqYgpgpgpgpgpgpgpgpgpTgBeTggpqYgpTgTgTgKHTgTgTgKHKHKHOHOzmLtkKHKHrCazKHKHKHKHvWvWvWvWBDKHlDKHBDPpBDKHDdgpKHawawTgTgTgTgTgFTspspspspWZzqvTzqNZHMXSHMbvbvbvxUxLGeNvJIJxxqxqxqxqJxxqceNvLgMhLgSHSHSHSHSHSHFXFXFXFXFXaOaOaOjfjfjfjfjfjfOSSzSzSzSzSzSzJQJQJQJQJQJQjhFijhaOaOaOQSTyTyTyTyTyFHTyTyTyTyTyTyQSLSLSOE
-BmlzmzBDBDSffTfTfTfTfTfTfTfTfTfTOsWEgpazBDgpKHKHeFeFUhKHawawawawTgTgTgTgiVKHKHKHNJgpgpqYTggpgpTggpgpgpgpgpgpgpsOgpWDgpsOTgTgTgTggpgpgpTgTgTgKHKHTgTgKHTgKHtktktkKHTgKHKHVBrCawawawTgTgzszsazKHKHKHBDKHlaKHBDKHKHawawKHKHTgKHKHaHRlspspspxOxOxOzqNZHMgsgsfNbvbvDLBBBBNvNvNvNvNvNvNvNvNvNvNvLgMhhfSHEPFDFDLWSHLSLSLSLSLSLSLSLSjfWtWtwCWtzxOSgolIBPMGEISzEQxSrpkgAiJQQAFiuhaOLSLSLSTyILLEHteVHfeUpvwZZZGJfvLSLSLSOE
-BmlzAXDdECfTfTfTbUfTfTGgfTfTfTfTFgDYKHBDTgBDbgbgbgTgTgawawawawawTgTgTgYpPPTgTgTgTgDYgpTgTgTgTgTgTggpgpgpgpgpgpgpgpgpgpgpTgqYqYgpgpgpTgTgTgTgTggpTgTgKHtktkMTQhawawawUWKHKHrCawawawKHKHKHKHKHKHepKHKHKHKHKHKHKHKHKHawawKHKHKHKHKHFTspspspWZyvzqzqNZXSgsgsHMHMLSLSLSLSNvnywTIhKCXiptNvukqANvFXWSFXSHPxPxxXMESHLSLSLSLSLSLSLSLSjfaTllhrmnWtOSlItHtHtHOGSzZRWxrhrhHKJQjhggjhaOLSLSLSTynnzVzVjHHfCoBiamMLBofvLSLSLSOE
-BmlzBDLnfTfTfTfTfTfTfTfTfTfTfTGEKHKHKHUhrkBDDdeFbgKHgpGgfTfTGgawTgqYTgGoiAGogpgpgpgpgpTDSYTggpqcgpgpgpTgTgqYqYgpgpgpTggpTgTgTggpgpTgTgKHTgTgTgKHTgKHDdmLKHvWTgTgawawTgTgYpTgawawKHKHDdKHKHLnIBFgKHKHKHepKHKHBDDdBDawawBDDdKHKHKHaHLSspapWZWZzqUxXSXSHMHMHMHMLSLSLSLSNvUAUBdFBnakrYNvIGUAmvLgeBLgSHRYxXiwFDSHLSLSLSLSLSLSLSLSjfaTllhrweWtOSlItHtHtHtHYNrhrhrhrhHKJQgqTbgqaILSLSLSTymwKvzVjHHfHTTyWIvHvHTyLSLSLSOE
-BmWELnfTfTfTfTfTfTfTfTfTfTfTFpgpKHKHKHrkrkTgBDeFiAbFfTfTfTfTGgawTgTgYpPPiAgpqYgpqYctTgpEgpTggpHpTgTgTggpgpTggpgpgpTgTgTggpTgTgTgTgKHTgTgKHTgTggpTgKHBDKHKHKHyWawgpawawTgYpTgTgrkrCVBBDBDKHbPGEKHKHazKHUnKHvWKHKHKHKHawKHBDKHKHKHTgLSLSLSLSLSLSLSXSHMLSHMHMHMLSLSLSLSNvPtUAUBakDSUAQIUAJaNvLgqvwynLfgvfPxLqSHLSLSLSLSLSLSLSLSjflODEKlzrhoOSiPTxhKIbUGSzhNuNzUiTuSJQTIdETIaILSLSLSTyRGyEyEIIHfwYlFELELMoTyLSLSLSOE
-BmEFfTfTfTfTfTfTfTfTfTfTfTfTFggpDdBDazBDTgKHTgPPYhYhYhfTfTfTfTTgTgTgTgPPYpTgTgTgTgTgTgEqTgTgTDKLTgTgTgTgTgTgTgTgTgTgTgTgKHTgKHTgTgTgTgTgTgTggprkrkKHKHawawBDKHKHKHKHKHrCrCKHKHTgrCBDKHKHKHKHKHKHBDBDKHlDgpKHKHKHKHKHawawawKHKHKHTgLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSNvNvNvNvNvNvNvNvNvNvNvUkeBLgNnNnNnNnNnNnLSLScrcrcrcrcrcrjfjfjfzjjfjfOSSzSzSzSzSzSzJQJQBJJQJQJQhLdEAPaILSLSLSTyEYeUeUeUHfeUreKeKeavTyLSLSLSOE
+BmfTfTfTfTfTfTGgfTfTfTfTfTFgWEgpgpynfTfTfTfTEFtnKHvWKHKHBDDdBDVJTgTggpgpgplzlzmzgpgpgpgpqYTggpgpTggpgpgpqYgpgpgpgpgpWDgpgpsOgpgpWDgpTgTgTgWEWEWErkBDBDKHKHTgTgKHBDKHKHgplaTgTgKHKHBDgKvWKHKHKHgpKHawawawawrkrkzsESvWvWKHTgTgTgKHKHKHKHKHXGLSLSLSLSLSLSLSLSLSLSLSLSLSNvJxJxQNycLQEupMJxvSNvFXWSFXouPXzAucjGKpkbWODZouLSLSLSaOjhehbxbxjhjhehehbxbxaOLSLSLSLSLSLSLSaOjhggrFaOLSLSLSLSLSLScitDrPxixyDtpjciLSLSLSLSOE
+BmPrfTfTfTfTfTfTfTfTfTfTFpgpgpBDbtawbUfTfTfTfTFglzvWESKHDmBDDmVJTgTggpgpgpTgTgTggpgpmzgpgpTgTggpTggpgpqYqYqYTYgpgpgpgpgpgpctgpgpTgTgTgTggpTgKHTgTgKHDdKHTgTgTgKHKHKHKHKHKHKHKHKHKHKHKHgpKHKHBDDdKHTgawawawWEWEzszsESESKHKHKHKHKHKHKHKHTgXGLSLSLSLSLSLSLSLSLSLSLSLSLSNvJIZmYCZePHnydFYCSyNvLgdALgououJuJtJuouououououFXaOaOaOzSSkehSkzSjhehbxbxehaOaOaOaOaOaOaOaOaOzSggzSaOaOaOQSQSQSQSciciciMjciciciciQSQSLSLSOE
+BmgpyAfTbUfTfTfTfTfTfTfTFpdqBDazyAawfTfTfTfTGEgpmzvWvWywKHKHVJWETgzsgpTgTgTgKHTgTggpgpgpTgTgyCTggpgpgpqYqYqYgpgpWDgpgpgpBegpgpTgqYTgTgTgTgTgKHTgTgKHBDKHTgzsTgKHKHKHBDKHawawKHKHBDBDKHKHKHKHBDBDKHgpTggpawawWEWEzsgKKHBDPpKHKHazKHTgszQnLSLSLSLSLSLSLSLSLSHMXSLSzzGesVJxJxetnynynynyYCYCIfLgxlLgLgSsLgxlLgLgNFSsUkUkFXjhuGjhZlSkehbxjhjhehehehlSjhoGuGjhjhaOjhjhuGjhaJjhuGjhjhQSTMTMjBTMTMrmxdxNTMjBTMTMQSLSLSOE
+BmlznJaiawfTfTfTfTGgfTbUfTeaLCLCawfTfTfTfTGEgpKHKHvWESzsgpBDvVVJYpTggpMTtkKHBDKHTgqYgpgpgpTgpETggpgpqYqYqYqYgpBegpgpsOctgpgpWDgpTgTggpTgTgTgTgTgTgTgKHKHTgKHTgTgTgTgDdBDKHawawBDPpfSvWESazKHKHKHKHKHKHTgTgKHgpKHTgKHKHKHBDBDKHKHszwtQZspzqzqLSUxXSXSHMHMHMgsXSxUxLOPsVJxJxJxnynynynyYCYCIfUkmoTrfxCSwyzhTrCSCSfxfxCSSCsttMtMmutetetMtMtMtMtMstteteWastststSQososGNtepkmusttMtMEcJOJOJOJOuTuIblJOJOJOJOsEQSLSLSOE
+BmmzgpgpyAawfTfTfTfTfTfTfTfTbUfTfTfTfTfThGgpVJrkBDTgzszsBDazmDtkMTMTkNMTpGDdmLKHTggpgpgpTgTgpETggpgpqYqYgpgpgpgpgpgpgpgpNyTggpTgTgqYqYgpTgTgKHTgzsTgTgTgKHKHBDiVtkMTmLBDBDKHawawBDvWvWvWKHKHKHepKHlaKHKHKHgpTgKHTgTgKHKHKHESKHdeQZspspspLGzqxOxONZbvgsbvbvXSHMxUOPOPNvJxnynynynynynyYCJxIfUkxlLgLgslLgLgLgUkUkslLgLgFXjhXKzSzSXKzSjhjhjhjcjOjhjhjhIFjOIFIFaOjhjhXKjhvRjhXKjhjhQSTMTMSmTMTMxdTMTMTMSmTMvEQSLSLSOE
+BmlzctgpnJawfTfTfTfTfTfTfTfTfTfTfTPrPrivgpKHKHTgeFazBDVJKHQCQCKHTgkNYpKHbspGmLKHTggpgpgpTggpBNTggpgpqYqYgpgpgpgpgpgpgpgpgpTgBeTggpqYgpTgTgTgKHTgTgTgKHKHKHOHOzmLtkKHKHrCazKHKHKHKHvWvWvWvWBDKHlDKHBDPpBDKHDdgpKHawawTgTgTgTgTgFTspspspspWZzqvTzqNZHMXSHMbvbvbvxUxLGeNvJIJxnynynynyJxnyceNvLgMhLgSHSHSHSHSHSHFXFXFXFXFXaOaOaOjfjfjfjfjfjfUezPzPzPzPzPzPJQJQJQJQJQJQjhFijhaOaOaOQSTyTyTyTyTyFHTyTyTyTyTyTyQSLSLSOE
+BmlzmzBDBDSffTfTfTfTfTfTfTfTfTfTOsWEgpazBDgpKHKHeFeFUhKHawawawawTgTgTgTgiVKHKHKHNJgpgpqYTggpgpTggpgpgpgpgpgpgpsOgpWDgpsOTgTgTgTggpgpgpTgTgTgKHKHTgTgKHTgKHtktktkKHTgKHKHVBrCawawawTgTgzszsazKHKHKHBDKHlaKHBDKHKHawawKHKHTgKHKHaHRlspspspxOxOxOzqNZHMgsgsfNbvbvDLBBBBNvNvNvNvNvNvNvNvNvNvNvLgMhhfSHEPFDFDLWSHLSLSLSLSLSLSLSLSjfWtWtwCWtzxUegoJaBPlIEIzPEQxSrpkgAiJQQAFiuhaOLSLSLSTyILLEHteVHfeUIhwZZZpvfvLSLSLSOE
+BmlzAXDdECfTfTfTbUfTfTGgfTfTfTfTFgDYKHBDTgBDbgbgbgTgTgawawawawawTgTgTgYpPPTgTgTgTgDYgpTgTgTgTgTgTggpgpgpgpgpgpgpgpgpgpgpTgqYqYgpgpgpTgTgTgTgTggpTgTgKHtktkMTQhawawawUWKHKHrCawawawKHKHKHKHKHKHepKHKHKHKHKHKHKHKHKHawawKHKHKHKHKHFTspspspWZyvzqzqNZXSgsgsHMHMLSLSLSLSNvneSLdLdmMaoHNvXlukNvFXWSFXSHPxPxxXMESHLSLSLSLSLSLSLSLSjfaTllhrmnWtUeJavlvlvlOGzPZRWxHKHKwQJQjhggjhaOLSLSLSTynnzVzVjHHfCoBiamMLBofvLSLSLSOE
+BmlzBDLnfTfTfTfTfTfTfTfTfTfTfTGEKHKHKHUhrkBDDdeFbgKHgpGgfTfTGgawTgqYTgGoiAGogpgpgpgpgpTDSYTggpqcgpgpgpTgTgqYqYgpgpgpTggpTgTgTggpgpTgTgKHTgTgTgKHTgKHDdmLKHvWTgTgawawTgTgYpTgawawKHKHDdKHKHLnIBFgKHKHKHepKHKHBDDdBDawawBDDdKHKHKHaHLSspapWZWZzqUxXSXSHMHMHMHMLSLSLSLSNvrHUFUBefeSIkNvQIrHCsLgeBLgSHRYxXiwFDSHLSLSLSLSLSLSLSLSjfaTllhrweWtUeJavlvlvllqYNHKHKGxHKwQJQgqTbgqaILSLSLSTymwKvzVjHHfHTTyWIvHvHTyLSLSLSOE
+BmWELnfTfTfTfTfTfTfTfTfTfTfTFpgpKHKHKHrkrkTgBDeFiAbFfTfTfTfTGgawTgTgYpPPiAgpqYgpqYctTgpEgpTggpHpTgTgTggpgpTggpgpgpTgTgTggpTgTgTgTgKHTgTgKHTgTggpTgKHBDKHKHKHyWawgpawawTgYpTgTgrkrCVBBDBDKHbPGEKHKHazKHUnKHvWKHKHKHKHawKHBDKHKHKHTgLSLSLSLSLSLSLSXSHMLSHMHMHMLSLSLSLSNvVDrHUFeSwTrHLXrHakNvLgqvwynLfgvfPxLqSHLSLSLSLSLSLSLSLSjflODEKlzrhoUeiPTxhKIbUGzPhNuNzUiTuSJQTIdETIaILSLSLSTyRGyEyEIIHfwYlFELELMoTyLSLSLSOE
+BmEFfTfTfTfTfTfTfTfTfTfTfTfTFggpDdBDazBDTgKHTgPPYhYhYhfTfTfTfTTgTgTgTgPPYpTgTgTgTgTgTgEqTgTgTDKLTgTgTgTgTgTgTgTgTgTgTgTgKHTgKHTgTgTgTgTgTgTggprkrkKHKHawawBDKHKHKHKHKHrCrCKHKHTgrCBDKHKHKHKHKHKHBDBDKHlDgpKHKHKHKHKHawawawKHKHKHTgLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSNvNvNvNvNvNvNvNvNvNvNvUkeBLgNnNnNnNnNnNnLSLScrcrcrcrcrcrjfjfjfzjjfjfUezPzPzPzPzPzPJQJQBJJQJQJQhLdEAPaILSLSLSTyEYeUeUeUHfeUreKeKeavTyLSLSLSOE
 BmfTfTfTfTfTfTfTGgfTfTfTfTFpgpKHKHBDTgKHKHWQTgTgYhGSTgYpfTfTfTTgTgTgTgPPTgTgTgzsTgTgTgTgTgTgBNTgTgTgTgTgTgTgTgTgTgTgTgTgTgTgTgTgTgTgTgTgTgTgWErkrkKHKHawawBDBDBDBDKHKHBDDdVBKHrCrCOzBDKHKHKHBDDdKHKHKHKHKHKHWEWEKHazBDKHawawawTgLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSFXhtMhBfNnUHKQTmVINnLSLScrqxAaAavBDIVFTITIPyTITITIuMTIPyTITIuMTITIPyTIuMTITIHYTIaILSLSLSTyrqBbeUkWZueYeeeeeeqFTyLSLSLSOE
-BmfTfTPrPrfTfTfTfTfTfTfTfTKOBDKHKHTgvWmzmzawfTGgYhZHzeVBfTfTfTTgKHbgbgbgKHTgTgTgTgTggpKHTgTgTggpgpTgTgTgTggpgpgpgpWEWEgpKHTgTgKHTgKHKHKHWEWErkrkKHTgKHawawawKHPpVBYpKHBDBDVBrCrCBDBDKHKHlaKHKHBDBDKHKHKHBDKHKHWEKHKHKHKHgpawawTgLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSFXLgMhoTNnTmTmTmsSNnLSLScrAaCzJjEakPcrTIqtanYfYfYfYfVeanVeYfYfYfwkanHHYfYfTFPvTIaILSLSLSPRPRPRmaPRPRSEInAUAUVDPRLSLSLSOE
+BmfTfTPrPrfTfTfTfTfTfTfTfTKOBDKHKHTgvWmzmzawfTGgYhZHzeVBfTfTfTTgKHbgbgbgKHTgTgTgTgTggpKHTgTgTggpgpTgTgTgTggpgpgpgpWEWEgpKHTgTgKHTgKHKHKHWEWErkrkKHTgKHawawawKHPpVBYpKHBDBDVBrCrCBDBDKHKHlaKHKHBDBDKHKHKHBDKHKHWEKHKHKHKHgpawawTgLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSFXLgMhoTNnTmTmTmsSNnLSLScrAaCzJjEakPcrTIqtanYfYfYfYfVeanVeYfYfYfwkanHHYfYfTFPvTIaILSLSLSPRPRPRmaPRPRSEInAUAUkUPRLSLSLSOE
 BmPrhGrkrkSffTfTfTfTfTfTOsWEDmazTgvWzslzaUnEfTfTYhYpVBVBfTfTfTfTKHBDOzbgKHKHgprkTgTgTgKHTgTgTggpTgTggpgpgpTgTggpWEWEWEgpTgKHKHKHTgTgWEWEWEWErkTgKHKHKHawawawawBDTgrCrCKHKHKHKHKHKHKHKHKHawawKHawazBDKHBDDdBDKHKHKHKHKHKHKHawawLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSFXLgxlLgNnrOsSsSTmNnLSLScrBZCzEaSdEAjywknFTITITITIfuTITITITITITITITIOOfuTITITITIaILSLSLSPRmReZKxRMfFoLyVyVyVFRPRLSLSLSOE
 BmKHWEVJESywzsAAfTfTfTfTFpgprkrkTgvWESzsnEfTfTfTbUTgTgfTbUfTfTfTfTKHBDtkKHKHTgTggpgpyCTgTgKHKHTgTgTgTggpTgTgTggpawawgpTgKHTgTgTgTgTgKHWErkTgTgTgKHBDKHKHKHKHKHzsvWvWVBrCrkTgawUhTgKHgpKHdqawawKHBDKHKHBDBDKHKHTgKHBDDdBDKHTgTgLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSFXLgWpwyCwCtpTTmrWNnLSLScrBZJjEaCzPZcrTIdETIaIaIaIaIaIaIIWWoWoYOIWbodxbobhbooDWoIWLSLSLSPRrJKxvUJLTSqEtGXRXRDcPRLSLSLSOE
-BmVJrkKHESESzsTgSffTfTfTfTXMgpKHtktktkvWnEfTfTfTfTfTfTfTfTfTfTfTfTKHVJBDKHKHKHKHTgTDLDgpKHTgTgTgKHKHTgTggpWETgawawgpgpTgKHKHTgTgBDKHTgTgTgawawawKHDdBDKHywKHTgvWvWvWlnrCTgawawTgTgKHVBrCKHawawTgKHKHKHKHKHKHTgywKHKHBDKHKHKHTgLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSFXUkeBLgkFkFkFkFkFkFLSLScrsJEaEaAaQvcrTIUeTIaILSLSLSLSLSIWkBXTkBfGJMdgHNkxNsiythIWLSLSLSPRtEkponmEmEtRAYoQEhDcPRLSLSLSOE
-BmBDBDBDzszszsLnfTfTfTfTfTOsTgTgtkazedesnEawfTGgfTfTfTfTfTGgfTfTfTgpKHKHBDBDBDKHTgEqgpTgTgtLgpTgKHKHKHTgKHTgawawgpgpUhTgKHKHBDDdgpKHTgTgTgTgawawawBDKHKHKHKHzsvWzszsKHawawawawTgKHrCDdVBrCawTgTgKHKHKHTgTgrkTgUhKHKHBDKHBDKHLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSFXsCdABfkFFEFNefqikFLSLSUwUwUwUwUwUwUwqjhdAPaILSLSLSLSLSIWriTjOBOBTjdgxcTsYojEqRIWLSLSLSPRpydphARerGpgoMqqLbTlPRLSLSLSOE
-BmKHOzTgzsvWvWyAawfTfTfTfTzEKHKHMTmDBFKitkKuKuawgpfTbUfTfTfTfTfTbUTgTgKHKHazBDKHTgWEgpTgKHpETgTgBDPpKHKHvWgpawawgpgpTgKHTgTgBDBDBDvWTgTgBDTgYpawawKHKHUhTgTgzsvWvWfSBDBDawawawTgKHrCVBdvdvTgKHKHBDBDKHTgrkrkTgTgKHKHBDazBDLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSFXUkMhLgkFCEXxXywQdLLSLSUwVTpKhQpKqUUwTIhdTIaILSLSLSLSLSIWkBCKkBiyObdgFIOBOBahahIWLSLSLSPRPRPRPRnmnmxBnmnmnmnmnmLSLSLSOE
+BmVJrkKHESESzsTgSffTfTfTfTXMgpKHtktktkvWnEfTfTfTfTfTfTfTfTfTfTfTfTKHVJBDKHKHKHKHTgTDLDgpKHTgTgTgKHKHTgTggpWETgawawgpgpTgKHKHTgTgBDKHTgTgTgawawawKHDdBDKHywKHTgvWvWvWlnrCTgawawTgTgKHVBrCKHawawTgKHKHKHKHKHKHTgywKHKHBDKHKHKHTgLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSFXUkeBLgkFkFkFkFkFkFLSLScrsJEaEaAaQvcrTIOvTIaILSLSLSLSLSIWkBXTkBfGJMdgHNkxNsiythIWLSLSLSPRtEkponmEmEtRAYoQEhDcPRLSLSLSOE
+BmBDBDBDzszszsLnfTfTfTfTfTOsTgTgtkazedesnEawfTGgfTfTfTfTfTGgfTfTfTgpKHKHBDBDBDKHTgEqgpTgTgtLgpTgKHKHKHTgKHTgawawgpgpUhTgKHKHBDDdgpKHTgTgTgTgawawawBDKHKHKHKHzsvWzszsKHawawawawTgKHrCDdVBrCawTgTgKHKHKHTgTgrkTgUhKHKHBDKHBDKHLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSFXsCdABfkFFEFNSSqikFLSLSUwUwUwUwUwUwUwqjhdAPaILSLSLSLSLSIWriTjOBOBTjdgxcTsYojEqRIWLSLSLSPRpydphARerGpgoMqqLbTlPRLSLSLSOE
+BmKHOzTgzsvWvWyAawfTfTfTfTzEKHKHMTmDBFKitkKuKuawgpfTbUfTfTfTfTfTbUTgTgKHKHazBDKHTgWEgpTgKHpETgTgBDPpKHKHvWgpawawgpgpTgKHTgTgBDBDBDvWTgTgBDTgYpawawKHKHUhTgTgzsvWvWfSBDBDawawawTgKHrCVBdvdvTgKHKHBDBDKHTgrkrkTgTgKHKHBDazBDLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSFXUkMhLgkFCEUAXyXiBnLSLSUwVTpKhQpKqUUwTIhdTIaILSLSLSLSLSIWkBCKkBiyObdgFIOBOBahahIWLSLSLSPRPRPRPRnmnmxBnmnmnmnmnmLSLSLSOE
 BmvWAXzsvWywbtawawfTfTfTfTawpCDdmLmLBrKiOQDdmLzsvWlzgpfTfTfTfTfTKHKHKHKHKHBDKHKHtLgprkTgKHBNTgKHKHBDKHKHKHTgawawTgTgTgKHTgKHKHKHKHKHTgTgKHDdVBawawawawTgTggpzszsvWBDOzBDawawKHKHKHKHrkdvdvTgKHBDDdBDKHTgrkKHKHKHKHKHKHBDKHLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSFXLgxlLgkFSjCECECEkFLSLSUwfalEhQvrqQUwTIOOTIIWIWajajajIWIWWoWooDIWbodxbobhboWoWoIWLSLSLSLSLSLSLSnmbmYcDCMPdPMPnmLSLSLSOE
 BmvWvWvWEShlXBawawbUfTfTfTawawLCRstkBDtkMTmLMTzsvWvWKHrkrkTggpMTtkBDBDBDKHrkyWTgBNgpTgrkTggpTgKHKHKHvWywzsTgawTgKHKHKHTgTgTgKHKHKHgpgpKHTgBDrCrCBDawawKHTgTgBDBDKHKHBDBDTgawBDBDKHKHrkdvsIMTESBDBDBDKHTgKHKHBDKHESESvWzsTgLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSFXPYWpwyTkhcQKkVbZkFLSLSUwXLlEvrvrDrwmVeCyTIIWTjOBOBkxMDIOIqrdumIqrdEJLwkxxsKBIvIWLSLSLSLSLSLSLSnmqVcOaDaDaDhjnmLSLSLSOE
-BmBDBDzsEShlawawawawfTfTfTfTfTGgawBwzeTgvWvWzsvWKHKHKHWErkTgMTMTmLOzBDKHKHTggpgpTgTgTgWETgTgTggpzsKHvWzsywawgpTgKHKHKHKHBDKHgpgpKHawawKHTgLnEFXMXBawawawKHTgDdmLKHKHKHKHTgtkDdBDvWKHtktktktkKHKHKHKHKHKHKHBDPpKHESywzszsLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSFXbjtVYXkFkFkFkFkFkFLSLSUwXLlEUrhQQuUwKhPyTIIWOBOBOBOBitOBTjWeuUTjHDOBUOTscUOBOBIWLSLSLSLSLSLSLSnmgtcOaDetetetnmLSLSLSOE
+BmBDBDzsEShlawawawawfTfTfTfTfTGgawBwzeTgvWvWzsvWKHKHKHWErkTgMTMTmLOzBDKHKHTggpgpTgTgTgWETgTgTggpzsKHvWzsywawgpTgKHKHKHKHBDKHgpgpKHawawKHTgLnEFXMXBawawawKHTgDdmLKHKHKHKHTgtkDdBDvWKHtktktktkKHKHKHKHKHKHKHBDPpKHESywzszsLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSFXbjtVYXkFkFkFkFkFkFLSLSUwXLlEUrhQQuUwKhPyTIIWOBOBOBOBitOBTjWeuUTjHDOBUOTscUOBOBIWLSLSLSLSLSLSLSnmgtcOaDXxXxXxnmLSLSLSOE
 BmBDazBDTgyAfTGgfTfTfTfTfTfTfTfTbUFpgpKHESvWvWywWQKHrkrkTgazMTMTKHmLKHTgTgywgptLgpgpTggptLTgTgTgTgKHzslzawawgpUWKHTgBDPpBDlaKHawawawawdqMAUEfTKnGsgpKHKHKHiVmLtkKHzsKHKHyWtkOHKHKHTgKHmLmLmLKHKHTgKHKHKHKHBDBDBDESzszsywLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSFXFXFXFXFXLSLSLSLSLSLSLSUwRypKfavroWUwqjhdTIVCOBOBTjOBTjOBTjTjTjOBOBOBTsOBOBTsIrIWLSLSLSLSLSLSLSnmNVAhuoFtFtFtnmLSLSLSOE
 BmTgfCeaEFfTfTfTfTfTfTfTfTfTfTfTfTfTtngpywzszszstktkTgTgMTMTMTgpgKTgKHKHKHTggpEqgpgpTggpEqgprkTgTgTgywzsgpawgprkKHKHBDBDBDKHKHawawawgpgpKHSffTfTFpgpKHgpgpKHKHMTTgTgKHTgTgtktkKHTgTgKHBDDdmLKHKHKHKHBDBDKHKHKHvWvWzsgpLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSujujujujujujujTIOxTIVCOBOBTjIqTjTjTjTjOBTjTjOBOBTjOBUZTjIWLSLSLSLSLSLSLSnmnmnmnmnmnmnmnmLSLSLSOE
 BmPMfTfTfTfTfTfTfTfTfTPrPrPrfTfTfTfTfTEFJolzywESlzMTMTTgTgMTgpTgTgcSEFJoTgTgTgTggpTggpBOgpTgTgrkKHTgTgTggpawgpTgzsKHKHgKKHgpawawawTgTgTggpasPTfTKnXMKHKHawawvWtkTgTgTgKHKHiVMTgpKHKHKHKHBDBDKHKHKHBDOzBDKHKHTgTgTgTgWELSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSujVEXXXXXXRwujTIOOTIYOOBOBOBOBDeDejnDeDeDeDeiyiyiyDeDeDeIWLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSLSOE
