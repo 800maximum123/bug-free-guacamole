@@ -43,3 +43,12 @@
 		slot_l_hand_str = "syndicate-helm-green-dark",
 		slot_r_hand_str = "syndicate-helm-green-dark"
 		)
+
+/obj/item/storage/box/emmy
+	name = "box"
+	desc = "Time for war, 621"
+
+/obj/item/storage/box/emmy/New()
+	..()
+	new /obj/item/clothing/under/ibis(src)
+	new /obj/item/clothing/head/helmet/ibis(src)
