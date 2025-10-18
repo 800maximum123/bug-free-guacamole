@@ -115,7 +115,7 @@
 		A.forceMove(T)
 
 /obj/step_trigger/message_once
-    var/message = "<span class='warning'>You don't feel safe.</span>"
+    var/message = "<span class='warning'>You feel unsafe.</span>"
     var/list/activated_mobs = list()
 
 /obj/step_trigger/message_once/Crossed(atom/movable/AM)
