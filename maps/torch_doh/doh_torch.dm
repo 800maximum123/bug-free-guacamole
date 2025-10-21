@@ -188,6 +188,8 @@
 	#include "cutscenes/s2ep1/scene_5to13.dm"
 	#include "cutscenes/s2ep1/scene_14to20.dm"
 
+	#include "cutscenes/s2ep2/scene_1.dm"
+
 	// --- MAP FILES --- //
 
 		// ~TORCH~ //
