@@ -39,10 +39,11 @@
 	landmark_tag = "nav_bunker_hub"
 	base_area = /area/bunker/jungle
 
+//БАЗА
 
 /area/bunker/
 
-
+//ВНЕШНИЙ МИР
 /area/bunker/jungle
 	name = "Jungle"
 	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi'
@@ -52,6 +53,7 @@
 /area/bunker/jungle/lz
 	name = "Landing Zone"
 
+//ПЕРВЫЙ ЭТАЖ
 /area/bunker/kpp
 	name = "Bunker - KPP"
 
@@ -153,3 +155,74 @@
 
 /area/bunker/rooms/room14
 	name = "Bunker - Room 14"
+
+// НИЖНИЙ УРОВЕНЬ
+// Коридоры
+/area/bunker/lower/
+	name = "Bunker - Lower Level"
+
+/area/bunker/lower/corridos
+	name = "Bunker - Corridors"
+
+/area/bunker/lower/kpp1
+	name = "Bunker - Stairs KPP"
+
+/area/bunker/lower/kpp2
+	name = "Bunker - Science KPP"
+
+//Инженерка
+/area/bunker/lower/eng
+	name = "Bunker - Engineer Hub"
+
+/area/bunker/lower/eng/warehouse
+
+	name = "Bunker - Warehouse"
+
+/area/bunker/lower/eng/reactor
+	name = "Bunker - Reactor"
+
+//Монорельс
+/area/bunker/lower/monorail
+	name = "Bunker - Monorail"
+
+//Мед крыло
+/area/bunker/lower/med
+	name = "Bunker - Medical Wing"
+
+/area/bunker/lower/med/cryo
+	name = "Bunker - Cryocell"
+
+/area/bunker/lower/med/chem
+	name = "Bunker - Chem Lab"
+
+/area/bunker/lower/med/med_bay
+	name = "Bunker - Patient Room"
+
+/area/bunker/lower/med/warehouse
+	name = "Bunker - Medical Storage"
+
+/area/bunker/lower/med/lobby
+	name = "Bunker - Medical Lobby"
+
+/area/bunker/lower/med/mortuary
+	name = "Bunker - Mortuary"
+
+/area/bunker/lower/med/surgery
+	name = "Bunker - Surgery"
+
+//Лаборатория
+
+/area/bunker/lower/lab
+	name = "Bunker - Laboratory"
+
+/area/bunker/lower/lab/office
+	name = "Bunker - Office"
+
+/area/bunker/lower/lab/cryolab
+	name = "Bunker - VR Lab"
+
+/area/bunker/lower/lab/virology
+	name = "Bunker - Virology Lab"
+
+/area/bunker/lower/lab/bslab
+	name = "Bunker - Hydroponics Lab"
