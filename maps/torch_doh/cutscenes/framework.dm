@@ -100,6 +100,8 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 
 	QDEL_IN(src, countdown)
 
+/obj/screen/novel_message/start_credits/nofade
+	alpha = 255
 /obj/screen/novel_message/start_credits/nofade/set_text(text, text_color, time = 5 SECONDS)
 	maptext = STYLE_FDFONT_OUTLINE("[text]", 7, text_color, COLOR_WHITE)
 
