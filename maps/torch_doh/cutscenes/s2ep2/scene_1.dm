@@ -65,7 +65,73 @@
 		visuals.set_text(novel_message, colored, time = 8 SECONDS)
 
 /proc/episode2_meatteller5()
-	var/novel_message = "В груди как-то непривычно тревожно..."
+	var/novel_message = "Так неспокойно на душе..."
+	var/colored = MANIFEST_COLOR_EXPLORER
+
+	var/obj/screen/novel_message/start_credits/nofade/visuals = new /obj/screen/novel_message/start_credits/nofade()
+	visuals.maptext_x = 5
+	visuals.maptext_y = -410
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 8 SECONDS)
+
+/proc/episode2_meatteller6()
+	var/novel_message = "Я не удивлюсь тому, что твою жертву забудут уже через месяц."
+	var/colored = MANIFEST_COLOR_EXPLORER
+
+	var/obj/screen/novel_message/start_credits/nofade/visuals = new /obj/screen/novel_message/start_credits/nofade()
+	visuals.maptext_x = 5
+	visuals.maptext_y = -410
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 8 SECONDS)
+
+/proc/episode2_meatteller7()
+	var/novel_message = "Не расстраивайся. В движении - жизнь, и с этим мало что сделаешь."
+	var/colored = MANIFEST_COLOR_EXPLORER
+
+	var/obj/screen/novel_message/start_credits/nofade/visuals = new /obj/screen/novel_message/start_credits/nofade()
+	visuals.maptext_x = 5
+	visuals.maptext_y = -410
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 8 SECONDS)
+
+/proc/episode2_meatteller8()
+	var/novel_message = "Обещаю, что буду приносить на твою могилу цветы. Домашние."
+	var/colored = MANIFEST_COLOR_EXPLORER
+
+	var/obj/screen/novel_message/start_credits/nofade/visuals = new /obj/screen/novel_message/start_credits/nofade()
+	visuals.maptext_x = 5
+	visuals.maptext_y = -410
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 8 SECONDS)
+
+/proc/episode2_meatteller9()
+	var/novel_message = "Знаю, ты их любишь. Хоть и выделывался первое время."
+	var/colored = MANIFEST_COLOR_EXPLORER
+
+	var/obj/screen/novel_message/start_credits/nofade/visuals = new /obj/screen/novel_message/start_credits/nofade()
+	visuals.maptext_x = 5
+	visuals.maptext_y = -410
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 8 SECONDS)
+
+/proc/episode2_meatteller10()
+	var/novel_message = "А пока - отдохни. Ты и так превзошёл все возможные лимиты."
+	var/colored = MANIFEST_COLOR_EXPLORER
+
+	var/obj/screen/novel_message/start_credits/nofade/visuals = new /obj/screen/novel_message/start_credits/nofade()
+	visuals.maptext_x = 5
+	visuals.maptext_y = -410
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 8 SECONDS)
+
+/proc/episode2_meatteller11()
+	var/novel_message = "Пора бы и нам приложить чуточку усилий. Согласен?"
 	var/colored = MANIFEST_COLOR_EXPLORER
 
 	var/obj/screen/novel_message/start_credits/nofade/visuals = new /obj/screen/novel_message/start_credits/nofade()
@@ -173,7 +239,11 @@
 		TP_CAMERA("Сцена 2-1 - Кадр 3"),
 		MOVE_CAMERA(0, 0, 0, null),
 		ADD_SCREEN(/cinema_borders),
-		CALL_GLOB(episode2_meatteller3) = 8 SECONDS,
+		CALL_GLOB(episode2_meatteller3) = 0.5 SECONDS,
+		TURN_ACTOR(actor("Датура - 2-1-3"), SOUTH) = 2 SECONDS,
+		MOVE_ACTOR(actor("Датура - 2-1-3"), SOUTH) = 4 SECONDS,
+		MOVE_CAMERA(0, -5, 2 SECONDS, SINE_EASING|EASE_IN),
+		TURN_ACTOR(actor("Датура - 2-1-3"), WEST) = 2 SECONDS,
 		START_CUTSCENE(/datum/modular_cutscene/s2ep2sc4)
 	)
 
@@ -181,7 +251,27 @@
 	actions = list(
 		TP_CAMERA("Сцена 2-1 - Кадр 4"),
 		ADD_SCREEN(/cinema_borders),
-		CALL_GLOB(episode2_meatteller4) = 8 SECONDS,
+		MOVE_CAMERA(0, 5, 0, null),
+		MOVE_CAMERA(0, 0, 10 SECONDS, SINE_EASING|EASE_IN),
+		CALL_GLOB(episode2_meatteller4),
+		MOVE_ACTOR(actor("Ящик - 1"), SOUTH),
+		MOVE_ACTOR(actor("Злата - 2-1-4"), SOUTH),
+		MOVE_ACTOR(actor("Ящик - 2"), NORTH),
+		MOVE_ACTOR(actor("Фройз - 2-1-4"), NORTH) = 2 SECONDS,
+		MOVE_ACTOR(actor("Ящик - 3"), EAST),
+		MOVE_ACTOR(actor("Лира - 2-1-4"), EAST),
+		TURN_ACTOR(actor("Амелия - 2-1-4"), EAST),
+		MOVE_ACTOR(actor("Ящик - 1"), SOUTH),
+		MOVE_ACTOR(actor("Злата - 2-1-4"), SOUTH),
+		MOVE_ACTOR(actor("Ящик - 2"), NORTH),
+		MOVE_ACTOR(actor("Фройз - 2-1-4"), NORTH) = 2 SECONDS,
+		MOVE_ACTOR(actor("Ящик - 1"), SOUTH),
+		MOVE_ACTOR(actor("Злата - 2-1-4"), SOUTH),
+		MOVE_ACTOR(actor("Ящик - 2"), NORTH),
+		MOVE_ACTOR(actor("Фройз - 2-1-4"), NORTH) = 2 SECONDS,
+		MOVE_ACTOR(actor("Ящик - 3"), EAST),
+		MOVE_ACTOR(actor("Лира - 2-1-4"), EAST),
+		TURN_ACTOR(actor("Лира - 2-1-4"), EAST) = 2 SECONDS,
 		START_CUTSCENE(/datum/modular_cutscene/s2ep2sc5)
 	)
 
