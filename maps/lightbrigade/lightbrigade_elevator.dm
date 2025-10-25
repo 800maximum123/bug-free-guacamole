@@ -23,7 +23,7 @@
 
 /obj/machinery/computer/shuttle_control/lift/ammo_port
 	name = "munitions lift controls"
-	shuttle_tag = "Robotics Lift"
+	shuttle_tag = "Port Munitions Lift"
 	ui_template = "shuttle_control_console_lift.tmpl"
 	icon_state = "tiny"
 	icon_keyboard = "tiny_keyboard"
@@ -32,7 +32,7 @@
 
 /obj/machinery/computer/shuttle_control/lift/ammo_starboard
 	name = "munitions lift controls"
-	shuttle_tag = "Medical Lift"
+	shuttle_tag = "Starboard Munitions Lift"
 	ui_template = "shuttle_control_console_lift.tmpl"
 	icon_state = "tiny"
 	icon_keyboard = "tiny_keyboard"
