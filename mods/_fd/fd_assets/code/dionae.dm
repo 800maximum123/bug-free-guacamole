@@ -13,7 +13,7 @@
 	anchored = TRUE
 	density = TRUE
 
-/obj/overlay/diona/wall/Initialize()
+/obj/overlay/diona/wall/LateInitialize()
 	. = ..()
 	var/turf/simulated/wall/wall = locate(/turf/simulated/wall) in locs
 	if(isnull(wall))
@@ -58,7 +58,7 @@
 
 /turf/simulated/wall/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(locate(/obj/overlay/diona/wall) in src)
-		to_chat(user, SPAN_NOTICE("It's seems  that you can't use tools to make something on organic wall..."))
+		to_chat(user, SPAN_NOTICE("It's seems that you can't use tools to make something on organic wall..."))
 		return // We can't dismantle it, if it DIONAE
 	. = ..()
 
@@ -105,12 +105,12 @@
 	density = FALSE
 	mouse_opacity = FALSE
 
-/obj/overlay/diona/floor/Initialize()
+/obj/overlay/diona/floor/LateInitialize()
 	. = ..()
 
 	var/turf/simulated/floor/floor = locate(/turf/simulated/floor) in locs
 	if(isnull(floor))
-		crash_at("Dionae Floor can't been spawned without the wall")
+		crash_at("Dionae Floor can't been spawned without the floor")
 		qdel(src) // We can't find - then we can't exist
 		return
 

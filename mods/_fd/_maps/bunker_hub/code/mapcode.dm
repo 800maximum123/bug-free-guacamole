@@ -226,3 +226,368 @@
 
 /area/bunker/lower/lab/bslab
 	name = "Bunker - Hydroponics Lab"
+
+/singleton/submap_archetype/bunker
+	descriptor = "Abandoned Bunker."
+	map = "TRK-17 Torch Bunker"
+	crew_jobs = list(
+		/datum/job/submap/bunker/amelia,
+		/datum/job/submap/bunker/maxim,
+		/datum/job/submap/bunker/gora,
+		/datum/job/submap/bunker/olivia,
+		/datum/job/submap/bunker/naia,
+		/datum/job/submap/bunker/wilhelm,
+		/datum/job/submap/bunker/wind,
+		/datum/job/submap/bunker/joseph,
+		/datum/job/submap/bunker/froise,
+		/datum/job/submap/bunker/looney,
+		/datum/job/submap/bunker/meat,
+		/datum/job/submap/bunker/lira,
+		/datum/job/submap/bunker/zlata,
+		/datum/job/submap/bunker/swift,
+		/datum/job/submap/bunker/raymond,
+		/datum/job/submap/bunker/alma
+	)
+
+/obj/submap_landmark/joinable_submap/bunker
+	name = "TRK-17 Torch Bunker"
+	archetype = /singleton/submap_archetype/bunker
+
+/datum/job/submap/bunker
+	title = "Survivor"
+	total_positions = -1
+	create_record = TRUE
+	skill_points = 52
+	no_skill_buffs = TRUE
+	max_skill = list(
+		SKILL_BUREAUCRACY = SKILL_MAX,
+		SKILL_FINANCE = SKILL_MAX,
+		SKILL_EVA = SKILL_MAX,
+		SKILL_MECH = SKILL_MAX,
+		SKILL_PILOT = SKILL_MAX,
+		SKILL_HAULING = SKILL_MAX,
+		SKILL_COMPUTER = SKILL_MAX,
+		SKILL_BOTANY = SKILL_MAX,
+		SKILL_COOKING = SKILL_MAX,
+		SKILL_COMBAT = SKILL_MAX,
+		SKILL_WEAPONS = SKILL_MAX,
+		SKILL_FORENSICS = SKILL_MAX,
+		SKILL_CONSTRUCTION = SKILL_MAX,
+		SKILL_ELECTRICAL = SKILL_MAX,
+		SKILL_ATMOS = SKILL_MAX,
+		SKILL_ENGINES = SKILL_MAX,
+		SKILL_DEVICES = SKILL_MAX,
+		SKILL_SCIENCE = SKILL_MAX,
+		SKILL_MEDICAL = SKILL_MAX,
+		SKILL_ANATOMY = SKILL_MAX,
+		SKILL_CHEMISTRY = SKILL_MAX
+	)
+
+/datum/job/submap/bunker/raymond
+	title = "Raymond Datura"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/raymond
+
+/singleton/hierarchy/outfit/bunker/raymond
+	name = "Raymond Datura"
+
+	l_ear = /obj/item/device/radio/headset/headset_com
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/raymond
+	name = "Raymond Datura"
+
+/datum/job/submap/bunker/naia
+	title = "Naia Fox"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/naia
+
+/singleton/hierarchy/outfit/bunker/naia
+	name = "Naia Fox"
+
+	l_ear = /obj/item/device/radio/headset/headset_com
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/naia
+	name = "Naia Fox"
+
+/datum/job/submap/bunker/maxim
+	title = "Maxim Kuznetsov"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/maxim
+
+/singleton/hierarchy/outfit/bunker/maxim
+	name = "Maxim Kuznetsov"
+
+	belt = /obj/item/storage/belt/utility/full
+	gloves = /obj/item/clothing/gloves/insulated
+
+	head = /obj/item/clothing/head/welding
+	back = /obj/item/storage/backpack/weldpack
+
+	l_ear = /obj/item/device/radio/headset/headset_com
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/maxim
+	name = "Maxim Kuznetsov"
+
+/datum/job/submap/bunker/meat
+	title = "Mr Meat"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/meat
+
+/singleton/hierarchy/outfit/bunker/meat
+	name = "Mr Meat"
+
+	l_ear = /obj/item/device/radio/headset/headset_com
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/meat
+	name = "Mr Meat"
+
+/datum/job/submap/bunker/wind
+	title = "Wind in the Void"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/wind
+
+/singleton/hierarchy/outfit/bunker/wind
+	name = "Wind in the Void"
+
+	head = /obj/item/clothing/head/hardhat
+	belt = /obj/item/storage/belt/utility/full
+
+	l_ear = /obj/item/device/radio/headset
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/wind
+	name = "Wind in the Void"
+
+/datum/job/submap/bunker/olivia
+	title = "Olivia Kellong"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/olivia
+
+/singleton/hierarchy/outfit/bunker/olivia
+	name = "Olivia Kellong"
+
+	r_hand = /obj/item/clothing/accessory/wristwatch/null
+	belt = /obj/item/nullrod
+
+	l_ear = /obj/item/device/radio/headset/headset_com
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/olivia
+	name = "Olivia Kellong"
+
+/datum/job/submap/bunker/swift
+	title = "SWIFT"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/swift
+
+/singleton/hierarchy/outfit/bunker/swift
+	name = "SWIFT"
+
+	uniform = /obj/item/clothing/under/solgov/utility/expeditionary/officer
+
+	l_ear = /obj/item/device/radio/headset/headset_com
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/swift
+	name = "SWIFT"
+
+/datum/job/submap/bunker/zlata
+	title = "Zlata Savina"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/zlata
+
+/singleton/hierarchy/outfit/bunker/zlata
+	name = "Zlata Savina"
+
+	r_hand = /obj/item/fd/perci_mvi
+
+	l_ear = /obj/item/device/radio/headset/headset_com
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/zlata
+	name = "Zlata Savina"
+
+/datum/job/submap/bunker/froise
+	title = "Alexander Froise"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/froise
+
+/singleton/hierarchy/outfit/bunker/froise
+	name = "Alexander Froise"
+
+	r_hand = /obj/item/material/sword/makeshift
+
+	l_ear = /obj/item/device/radio/headset
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/froise
+	name = "Alexander Froise"
+
+/datum/job/submap/bunker/amelia
+	title = "Amelia Brown"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/amelia
+
+/singleton/hierarchy/outfit/bunker/amelia
+	name = "Amelia Brown"
+
+	uniform = /obj/item/clothing/under/color/black
+	suit = /obj/item/clothing/suit/storage/oversize_jacket
+	back = /obj/item/storage/backpack/satchel/pocketbook/gray
+	belt = /obj/item/storage/belt/utility/full
+
+	l_ear = /obj/item/device/radio/headset/headset_com
+	glasses = /obj/item/clothing/glasses/welding/superior
+
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/amelia
+	name = "Amelia Brown"
+
+/datum/job/submap/bunker/wilhelm
+	title = "Wilhelm Canaris"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/wilhelm
+
+/singleton/hierarchy/outfit/bunker/wilhelm
+	name = "Wilhelm Canaris"
+
+	uniform = /obj/item/clothing/under/solgov/utility
+	suit = /obj/item/clothing/accessory/cloakspace/willheim
+	head = /obj/item/clothing/head/helmet/willheim
+	back = /obj/item/storage/backpack/satchel/grey
+
+	r_hand = /obj/item/clothing/head/helmet/willheim
+	l_hand = /obj/item/gun/energy/laser/lasgun/kanarys
+
+	l_ear = /obj/item/device/radio/headset
+
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/wilhelm
+	name = "Wilhelm Canaris"
+
+/datum/job/submap/bunker/alma
+	title = "Alma Cointreau"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/alma
+
+/singleton/hierarchy/outfit/bunker/alma
+	name = "Alma Cointreau"
+
+	uniform = /obj/item/clothing/under/solgov/utility
+	suit = /obj/item/clothing/suit/armor/pcarrier/medium/security
+	back = /obj/item/storage/backpack/satchel/grey
+
+	r_hand = /obj/item/gun/projectile/automatic/bullpup_rifle
+	l_hand = /obj/item/clothing/accessory/storage/black_vest
+
+	l_ear = /obj/item/device/radio/headset
+
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/alma
+	name = "Alma Cointreau"
+
+/datum/job/submap/bunker/gora
+	title = "Gora MoRr"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/gora
+
+/singleton/hierarchy/outfit/bunker/gora
+	name = "Gora MoRr"
+
+	suit = /obj/item/clothing/suit/storage/hoscoat
+	back = /obj/item/gun/projectile/automatic/shotgun/scg
+
+	r_hand = /obj/item/clothing/suit/space/void/battlewizards/prepared
+	l_hand = /obj/item/clothing/accessory/storage/black_vest
+
+	l_ear = /obj/item/device/radio/headset/headset_com
+
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/gora
+	name = "Gora MoRr"
+
+/datum/job/submap/bunker/looney
+	title = "Looney"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/looney
+
+/singleton/hierarchy/outfit/bunker/looney
+	name = "Looney"
+
+	uniform = /obj/item/clothing/under/syndicate/tacticool
+	suit = /obj/item/clothing/suit/scga/hooded/wintercoat
+	back = /obj/item/gun/projectile/automatic/shotgun/scg
+	mask = /obj/item/clothing/mask/gas/half
+
+	r_hand = /obj/item/clothing/suit/space/void/battlewizards/captain/prepared
+	l_hand = /obj/item/storage/fancy/smokable/phosphor
+
+	l_ear = /obj/item/device/radio/headset
+
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/looney
+	name = "Looney"
+
+/datum/job/submap/bunker/joseph
+	title = "Joseph Fiddler"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/joseph
+
+/singleton/hierarchy/outfit/bunker/joseph
+	name = "Joseph Fiddler"
+
+	uniform = /obj/item/clothing/under/solgov/utility/expeditionary/officer/research
+	gloves = /obj/item/clothing/gloves/thick/duty/solgov/sci
+
+	l_ear = /obj/item/device/radio/headset/headset_com
+
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/joseph
+	name = "Joseph Fiddler"
+
+/datum/job/submap/bunker/lira
+	title = "Lira Schatten"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/lira
+
+/singleton/hierarchy/outfit/bunker/lira
+	name = "Lira Schatten"
+
+	uniform = /obj/item/clothing/under/scga/utility/urban/urban/medical/banded
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt
+	glasses = /obj/item/clothing/glasses/hud/health
+	belt = /obj/item/storage/belt/medical/emt
+	back = /obj/item/storage/backpack/satchel/pocketbook/brown
+
+	l_ear = /obj/item/device/radio/headset/headset_com
+
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/lira
+	name = "Lira Schatten"
