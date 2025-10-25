@@ -112,14 +112,10 @@
 	/obj/item/storage/firstaid/individual/military,
 	/obj/item/device/flashlight/maglight,
 	/obj/item/storage/box/emps,
-	
-obj/item/storage/box/smokes,
-	
-obj/item/storage/belt/utility/full,
-	
-obj/item/clothing/gloves/insulated/black,
-	
-obj/item/device/multitool
+	/obj/item/storage/box/smokes,
+	/obj/item/storage/belt/utility/full,
+	/obj/item/clothing/gloves/insulated/black,
+	/obj/item/device/multitool
 	)
 
 /obj/structure/closet/secure_closet/armsman_medic

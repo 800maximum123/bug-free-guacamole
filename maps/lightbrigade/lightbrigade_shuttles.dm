@@ -16,7 +16,7 @@
 	name = "Escaped"
 
 //Pods
-#define TORCH_ESCAPE_POD(NUMBER) \
+/*#define TORCH_ESCAPE_POD(NUMBER) \
 /datum/shuttle/autodock/ferry/escape_pod/torchpod/escape_pod##NUMBER { \
 	shuttle_area = /area/shuttle/escape_pod##NUMBER/station; \
 	name = "Escape Pod " + #NUMBER; \
@@ -47,7 +47,7 @@ TORCH_ESCAPE_POD(12)
 TORCH_ESCAPE_POD(13)
 TORCH_ESCAPE_POD(15)
 TORCH_ESCAPE_POD(16)
-TORCH_ESCAPE_POD(17)
+TORCH_ESCAPE_POD(17)*/
 
 //Petrov
 

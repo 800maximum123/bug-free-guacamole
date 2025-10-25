@@ -68,8 +68,6 @@
 	#include "../torch/datums/antags/raider.dm"
 	#include "../torch/datums/antags/renegade.dm"
 
-	#include "../torch/datums/uplink.dm"
-
 	#include "../torch/language/human/euro.dm"
 	#include "../torch/language/human/misc/spacer.dm"
 
