@@ -1,6 +1,6 @@
 #if !defined(using_map_DATUM)
 
-#include "../../packs/deepmaint/_pack.dm"
+	#include "../../packs/deepmaint/_pack.dm"
 	#include "../../packs/event_2022jul30/_pack.dm"
 	#include "../../packs/infinity/_pack.dm"
 
@@ -11,9 +11,6 @@
 	#include "../../packs/factions/scgec/_pack.dm"
 
 
-
-	// --- SIERRA INCLUDES --- //
-	#include "../sierra/sierra_npcs.dm"
 
 	// --- TORCH INCLUDES --- //
 	#include "../torch/torch_announcements.dm"
@@ -139,6 +136,12 @@
 	#include "../torch/structures/memorabilia.dm"
 	#include "../torch/structures/posters.dm"
 	#include "../torch/structures/signs.dm"
+
+	// --- FROM DOH - CUTSCENES --- //
+
+	#include "../torch_doh/cutscenes/animations.dm"
+	#include "../torch_doh/cutscenes/cutscene_api_danilcus.dm"
+	#include "../torch_doh/cutscenes/framework.dm"
 
 	//// ----- LIGHTBRIGADE STUFF ----- ////
 
@@ -318,6 +321,7 @@
 	#include "../../mods/_fd/_maps/smugglers_ship/_smugglers_ship.dme"
 	#include "../../mods/_fd/_maps/snow_cage/_snow_cage.dme"
 	#include "../../mods/_fd/_maps/sfv_dropship/_delman.dme"
+	#include "../../mods/_fd/_maps/sfv_manticore/_manticore.dme"
 //	#include "../../mods/_fd/_maps/sentinel_fd/_sentinel.dme"
 	#include "../../mods/_fd/_maps/trader_ship/_trader_ship.dme"
 	#include "../../mods/_fd/_maps/yacht/_yacht.dme"
