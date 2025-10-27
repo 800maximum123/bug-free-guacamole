@@ -113,18 +113,18 @@
 
 	psionic_control_level = PSI_IMPLANT_DISABLED
 
-	up_description = "All hands to action stations. Hostile contacts confirmed present. All non-critical crew and civilians are to seek shelter immediately."
-	down_description = "Action stations procedures are still in effect, all critical crew are to return to their designated stations."
+	up_description = "All hands to battle stations. Hostile contacts confirmed present. All non-critical crew and civilians are to seek shelter immediately."
+	down_description = "Battle stations procedures are still in effect, all critical crew are to return to their designated stations."
 
-	var/static/datum/announcement/priority/security/security_announcement_red = new(do_log = 0, do_newscast = 1, new_sound = sound('sound/misc/redalert1.ogg'))
+	var/static/datum/announcement/priority/security/security_announcement_red = new(do_log = 0, do_newscast = 1, new_sound = sound('sound/misc/generalquarters.ogg'))
 
 /singleton/security_level/default/lbrigdept/general_quarters/switching_up_to()
-	security_announcement_red.Announce(up_description, "Action stations! Action stations!")
+	security_announcement_red.Announce(up_description, "Battle stations! Battle stations!")
 	notify_station()
 	GLOB.using_map.unbolt_saferooms()
 
 /singleton/security_level/default/lbrigdept/general_quarters/switching_down_to()
-	security_announcement_red.Announce("Ship's self-destruct mechanism has been disengaged. Action stations procedures are still in effect, all critical crew are to return to their designated stations.", "Attention! Code red alert procedures now in effect!")
+	security_announcement_red.Announce("Ship's self-destruct mechanism has been disengaged. Battle stations procedures are still in effect, all critical crew are to return to their designated stations.", "Attention! Code red alert procedures now in effect!")
 	notify_station()
 
 /singleton/security_level/default/lbrigdept/code_red
