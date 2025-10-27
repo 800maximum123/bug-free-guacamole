@@ -20,6 +20,10 @@
 	should_show_name = FALSE
 
 /mob/living/simple_animal/cutscene_character/gora/s2ep2
+	icon = 'maps/torch_doh/cutscenes/icons/Character_Gora.dmi'
+	icon_state = "Current"
+	icon_living = "Current"
+	icon_dead = "Current"
 	should_show_name = FALSE
 
 /mob/living/simple_animal/cutscene_character/naia/s2ep2
@@ -47,9 +51,20 @@
 	should_show_name = FALSE
 
 /mob/living/simple_animal/cutscene_character/lira/s2ep2
+	icon = 'maps/torch_doh/cutscenes/icons/Character_Lira.dmi'
+	icon_state = "Current"
+	icon_living = "Current"
+	icon_dead = "Current"
 	should_show_name = FALSE
+/mob/living/simple_animal/cutscene_character/lira/s2ep2/Life()
+	. = ..()
+	layer = 4.2
 
 /mob/living/simple_animal/cutscene_character/kanaryss/s2ep2
+	icon = 'maps/torch_doh/cutscenes/icons/Character_Canaris.dmi'
+	icon_state = "Current"
+	icon_living = "Current"
+	icon_dead = "Current"
 	should_show_name = FALSE
 
 /mob/living/simple_animal/cutscene_character/zlata/s2ep2
@@ -72,14 +87,29 @@
 	icon_living = "Current"
 	icon_dead = "Current"
 	should_show_name = FALSE
+/mob/living/simple_animal/cutscene_character/swift/s2ep2/Life()
+	. = ..()
+	layer = 4.2
 
 /mob/living/simple_animal/cutscene_character/olivia/s2ep2
+	icon = 'maps/torch_doh/cutscenes/icons/Character_Olivia.dmi'
+	icon_state = "Current"
+	icon_living = "Current"
+	icon_dead = "Current"
 	should_show_name = FALSE
 
 /mob/living/simple_animal/cutscene_character/maxim/s2ep2
+	icon = 'maps/torch_doh/cutscenes/icons/Character_Maxim.dmi'
+	icon_state = "Current"
+	icon_living = "Current"
+	icon_dead = "Current"
 	should_show_name = FALSE
 
 /mob/living/simple_animal/cutscene_character/froise/s2ep2
+	icon = 'maps/torch_doh/cutscenes/icons/Character_Froise.dmi'
+	icon_state = "Current"
+	icon_living = "Current"
+	icon_dead = "Current"
 	should_show_name = FALSE
 
 /mob/living/simple_animal/cutscene_character/wind/s2ep2
