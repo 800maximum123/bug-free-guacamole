@@ -88,25 +88,25 @@
 /obj/shuttle_landmark/lift/ammopt_top
 	name = "Top Deck"
 	landmark_tag = "nav_ammopt_lift_top"
+	flags = SLANDMARK_FLAG_AUTOSET
 	base_area = /area/maintenance/middle/ptfin
 	base_turf = /turf/simulated/open
 
 /obj/shuttle_landmark/lift/ammopt_bottom
 	name = "Lower Deck"
 	landmark_tag = "nav_ammopt_lift_bottom"
-	flags = SLANDMARK_FLAG_AUTOSET
 	base_area = /area/quartermaster/ptammo_main
 	base_turf = /turf/simulated/floor/plating
 
 /obj/shuttle_landmark/lift/ammosb_top
 	name = "Top Deck"
 	landmark_tag = "nav_ammosb_lift_top"
+	flags = SLANDMARK_FLAG_AUTOSET
 	base_area = /area/maintenance/middle/sbfin
 	base_turf = /turf/simulated/open
 
 /obj/shuttle_landmark/lift/ammosb_bottom
 	name = "Lower Deck"
 	landmark_tag = "nav_ammosb_lift_bottom"
-	flags = SLANDMARK_FLAG_AUTOSET
 	base_area = /area/quartermaster/sbammo_main
 	base_turf = /turf/simulated/floor/plating
