@@ -189,6 +189,7 @@
 	#include "cutscenes/s2ep1/scene_14to20.dm"
 
 	#include "cutscenes/s2ep2/scene_1.dm"
+	#include "cutscenes/s2ep2/scene_2.dm"
 	#include "cutscenes/s2ep2/characters.dm"
 
 	// --- MAP FILES --- //

@@ -1,5 +1,16 @@
-/proc/episode2_name()
-	var/novel_message = "ЭП2:"
+/proc/episode2_team()
+	var/novel_message = "ПРОИЗВОДСТВО ТО \"UNDERGROUND FRONT\""
+	var/colored = COLOR_ASSEMBLY_BLACK
+
+	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
+	visuals.maptext_x = -110
+	visuals.maptext_y = -410
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 6 SECONDS)
+
+/proc/episode2_sponsors()
+	var/novel_message = "ДАННЫЙ ЗАПУСК СУЩЕСТВУЕТ БЛАГОДАРЯ:"
 	var/colored = COLOR_ASSEMBLY_BLACK
 
 	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
@@ -9,13 +20,13 @@
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 6 SECONDS)
 
-/proc/episode2_name2()
-	var/novel_message = "ОТГОЛОСКИ"
-	var/colored = COLOR_SABER_RED
+/proc/episode2_sponsors2()
+	var/novel_message = "Sliva, Aftik, Vista1, Farewellsainty, DenXays, Grigpashtet, RaviolliBorchevidze"
+	var/colored = COLOR_ORANGE
 
 	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
-	visuals.maptext_x = -85
-	visuals.maptext_y = -5
+	visuals.maptext_x = -110
+	visuals.maptext_y = -30
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 6 SECONDS)
@@ -98,7 +109,7 @@
 		visuals.set_text(novel_message, colored, time = 8 SECONDS)
 
 /proc/episode2_meatteller8()
-	var/novel_message = "Недоговариваю? Если только чуть-чуть"
+	var/novel_message = "Что-то недоговариваю? Не смеши меня"
 	var/colored = MANIFEST_COLOR_EXPLORER
 
 	var/obj/screen/novel_message/start_credits/nofade/visuals = new /obj/screen/novel_message/start_credits/nofade()
@@ -109,7 +120,7 @@
 		visuals.set_text(novel_message, colored, time = 8 SECONDS)
 
 /proc/episode2_meatteller9()
-	var/novel_message = "Нет никакого смысла держать лишние карты в рукаве, если исход партии предопределён задолго до нас"
+	var/novel_message = "Какой смысл держать лишние карты в рукаве, если исход партии предопределён задолго до нас?"
 	var/colored = MANIFEST_COLOR_EXPLORER
 
 	var/obj/screen/novel_message/start_credits/nofade/visuals = new /obj/screen/novel_message/start_credits/nofade()
@@ -120,7 +131,7 @@
 		visuals.set_text(novel_message, colored, time = 8 SECONDS)
 
 /proc/episode2_meatteller10()
-	var/novel_message = "Меньше всего хочется жалеть ПОТОМ, когда разыгрывать уже будет нечего"
+	var/novel_message = "Меньше всего я хочу жалеть о том, что не разыграл их когда была подобная возможность"
 	var/colored = MANIFEST_COLOR_EXPLORER
 
 	var/obj/screen/novel_message/start_credits/nofade/visuals = new /obj/screen/novel_message/start_credits/nofade()
@@ -131,7 +142,7 @@
 		visuals.set_text(novel_message, colored, time = 8 SECONDS)
 
 /proc/episode2_meatteller11()
-	var/novel_message = ""
+	var/novel_message = "Смотрите далее, в \"FINAL DESTINATION\""
 	var/colored = MANIFEST_COLOR_EXPLORER
 
 	var/obj/screen/novel_message/start_credits/nofade/visuals = new /obj/screen/novel_message/start_credits/nofade()
@@ -142,7 +153,7 @@
 		visuals.set_text(novel_message, colored, time = 8 SECONDS)
 
 /proc/episode2_meatteller12()
-	var/novel_message = ""
+	var/novel_message = "Эпизод второй, \"Отголоски\"!"
 	var/colored = MANIFEST_COLOR_EXPLORER
 
 	var/obj/screen/novel_message/start_credits/nofade/visuals = new /obj/screen/novel_message/start_credits/nofade()
@@ -179,14 +190,23 @@
 /obj/effect/cutscene_camera/s2ep2sc9
 	camera_id = "Сцена 2-1 - Кадр 9"
 
+/obj/effect/cutscene_camera/s2ep2sc10
+	camera_id = "Сцена 2-1 - Кадр 10"
+
+/obj/effect/cutscene_camera/s2ep2sc11
+	camera_id = "Сцена 2-1 - Кадр 11"
+
+/obj/effect/cutscene_camera/s2ep2sc12
+	camera_id = "Сцена 2-1 - Кадр 12"
+
 /proc/fds2ep2_cutscene1()
 	start_cutscene(/datum/modular_cutscene/s2ep2sc1)
 
 /datum/modular_cutscene/s2ep2sc1/setup_actions(...)
 	actions = list(
 		ADD_SCREEN(/blackout/animated_better) = 2 SECONDS,
-		CALL_GLOB(episode2_name),
-		CALL_GLOB(episode2_name2) = 6 SECONDS,
+		CALL_GLOB(episode2_sponsors),
+		CALL_GLOB(episode2_sponsors2) = 6 SECONDS,
 		REMOVE_SCREEN(/blackout/animated_better, 1 SECONDS),
 		TP_CAMERA("Сцена 2-1 - Кадр 1"),
 		ADD_SCREEN(/cinema_borders),
@@ -250,11 +270,11 @@
 		TP_CAMERA("Сцена 2-1 - Кадр 3"),
 		MOVE_CAMERA(0, 0, 0, null),
 		ADD_SCREEN(/cinema_borders),
-		CALL_GLOB(episode2_meatteller3) = 1 SECONDS,
-		TURN_ACTOR(actor("Датура - 2-1-3"), SOUTH) = 4 SECONDS,
-		MOVE_ACTOR(actor("Датура - 2-1-3"), SOUTH) = 2 SECONDS,
+		CALL_GLOB(episode2_meatteller3) = 2 SECONDS,
+		TURN_ACTOR(actor("Датура - 2-1-3"), SOUTH) = 3 SECONDS,
+		MOVE_ACTOR(actor("Датура - 2-1-3"), SOUTH) = 1 SECONDS,
 		MOVE_CAMERA(0, -5, 2 SECONDS, SINE_EASING|EASE_IN),
-		TURN_ACTOR(actor("Датура - 2-1-3"), WEST) = 2 SECONDS,
+		TURN_ACTOR(actor("Датура - 2-1-3"), WEST) = 3 SECONDS,
 		START_CUTSCENE(/datum/modular_cutscene/s2ep2sc4)
 	)
 
@@ -345,4 +365,65 @@
 	)
 
 /datum/modular_cutscene/s2ep2sc10/setup_actions(...)
-	actions = list()
+	actions = list(
+		TP_CAMERA("Сцена 2-1 - Кадр 10"),
+		MOVE_CAMERA(0, 0, 0, null),
+		ADD_SCREEN(/cinema_borders),
+		CALL_GLOB(episode2_meatteller10) = 1 SECONDS,
+		MOVE_ACTOR(actor("Райфлер - 2-1-10"), WEST) = 0.5 SECONDS,
+		MOVE_ACTOR(actor("Солдат 1 - 2-1-10"), WEST),
+		MOVE_ACTOR(actor("Солдат 2 - 2-1-10"), WEST) = 0.2 SECONDS,
+		MOVE_ACTOR(actor("Солдат 3 - 2-1-10"), WEST) = 0.5 SECONDS,
+		MOVE_ACTOR(actor("Солдат 4 - 2-1-10"), WEST),
+		MOVE_ACTOR(actor("Райфлер - 2-1-10"), WEST) = 1 SECONDS,
+		MOVE_ACTOR(actor("Солдат 2 - 2-1-10"), WEST),
+		MOVE_ACTOR(actor("Солдат 4 - 2-1-10"), WEST) = 0.2 SECONDS,
+		MOVE_ACTOR(actor("Солдат 1 - 2-1-10"), WEST) = 1 SECONDS,
+		MOVE_ACTOR(actor("Солдат 3 - 2-1-10"), WEST),
+		MOVE_ACTOR(actor("Райфлер - 2-1-10"), WEST) = 0.5 SECONDS,
+		MOVE_ACTOR(actor("Солдат 2 - 2-1-10"), WEST),
+		MOVE_ACTOR(actor("Солдат 1 - 2-1-10"), WEST) = 0.2 SECONDS,
+		MOVE_ACTOR(actor("Солдат 3 - 2-1-10"), WEST) = 1 SECONDS,
+		MOVE_ACTOR(actor("Солдат 4 - 2-1-10"), WEST),
+		MOVE_ACTOR(actor("Солдат 2 - 2-1-10"), WEST) = 0.5 SECONDS,
+		MOVE_ACTOR(actor("Солдат 4 - 2-1-10"), WEST),
+		MOVE_ACTOR(actor("Солдат 3 - 2-1-10"), WEST) = 0.2 SECONDS,
+		MOVE_ACTOR(actor("Солдат 1 - 2-1-10"), WEST) = 0.5 SECONDS,
+		MOVE_ACTOR(actor("Солдат 4 - 2-1-10"), WEST) = 0.2 SECONDS,
+		MOVE_ACTOR(actor("Солдат 2 - 2-1-10"), WEST) = 1 SECONDS,
+		MOVE_ACTOR(actor("Солдат 1 - 2-1-10"), WEST) = 0.5 SECONDS,
+		MOVE_ACTOR(actor("Солдат 3 - 2-1-10"), WEST),
+		START_CUTSCENE(/datum/modular_cutscene/s2ep2sc11)
+	)
+
+/datum/modular_cutscene/s2ep2sc11/setup_actions(...)
+	actions = list(
+		TP_CAMERA("Сцена 2-1 - Кадр 11"),
+		ADD_SCREEN(/cinema_borders),
+		CALL_GLOB(episode2_meatteller11),
+		MOVE_CAMERA(0, -5, 10 SECONDS, SINE_EASING|EASE_IN),
+		MOVE_ACTOR(actor("Оливия - 2-1-10"), NORTH) = 1 SECONDS,
+		TURN_ACTOR(actor("Фиддлер - 2-1-10"), SOUTH),
+		TURN_ACTOR(actor("Свифт - 2-1-10"), WEST),
+		MOVE_ACTOR(actor("Оливия - 2-1-10"), NORTH) = 1 SECONDS,
+		MOVE_ACTOR(actor("Гора - 2-1-10"), WEST),
+		MOVE_ACTOR(actor("Оливия - 2-1-10"), NORTH) = 1 SECONDS,
+		TURN_ACTOR(actor("Фиддлер - 2-1-10"), NORTH),
+		TURN_ACTOR(actor("Гора - 2-1-10"), NORTH),
+		MOVE_ACTOR(actor("Оливия - 2-1-10"), NORTH) = 1 SECONDS,
+		TURN_ACTOR(actor("Свифт - 2-1-10"), NORTH),
+		MOVE_ACTOR(actor("Оливия - 2-1-10"), NORTH) = 2 SECONDS,
+		TURN_ACTOR(actor("Оливия - 2-1-10"), WEST) = 1 SECONDS,
+		TURN_ACTOR(actor("Максим - 2-1-10"), EAST) = 0.5 SECONDS,
+		START_CUTSCENE(/datum/modular_cutscene/s2ep2sc12)
+	)
+
+/datum/modular_cutscene/s2ep2sc12/setup_actions(...)
+	actions = list(
+		TP_CAMERA("Сцена 2-1 - Кадр 12"),
+		ADD_SCREEN(/cinema_borders),
+		CALL_GLOB(episode2_meatteller12) = 8 SECONDS,
+		ADD_SCREEN(/blackout),
+		CALL_GLOB(episode2_team) = 6 SECONDS,
+		RETURN_VIEWERS
+	)
