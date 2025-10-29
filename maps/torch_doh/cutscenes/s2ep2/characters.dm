@@ -121,3 +121,6 @@
 	icon_living = "Current"
 	icon_dead = "Current"
 	should_show_name = FALSE
+
+/mob/living/simple_animal/cutscene_character/rifler/s2ep2
+/mob/living/simple_animal/cutscene_character/partisan/s2ep2

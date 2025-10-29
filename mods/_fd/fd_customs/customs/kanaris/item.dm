@@ -1,3 +1,14 @@
+// Infection
+
+/datum/sprite_accessory/marking/human/infection
+	name = "Crystal Infection (Willheim)"
+	icon_state = "infection"
+	icon = 'mods/_fd/fd_customs/customs/kanaris/infection.dmi'
+	draw_order = 50
+	do_coloration = DO_COLORATION_AUTO
+	body_parts = list(BP_HEAD, BP_R_ARM, BP_R_HAND, BP_R_LEG, BP_R_FOOT)
+	use_organ_tag = FALSE
+
 // Cloak
 
 /obj/item/clothing/accessory/cloakspace/willheim
