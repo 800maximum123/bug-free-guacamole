@@ -289,7 +289,7 @@
 /obj/item/psychic_power/psifire/IsFlameSource()
 	return TRUE
 
-/obj/item/psychic_power/psifire/IsWelder()
+/obj/item/psychic_power/psifire/_IsWelder()
 	return TRUE
 
 /mob/living/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)

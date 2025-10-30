@@ -134,15 +134,15 @@
 
 /obj/item/mech_component/proc/repair_brute_generic(obj/item/W, mob/user)
 	var/obj/item/weldingtool/WT = W
-	if(!IsWelder(W))
+	if(!isWelder(WT))
 		return
 	if(!brute_damage)
 		to_chat(user, SPAN_NOTICE("You inspect \the [src] but find nothing to weld."))
 		return
-	if(istype(W, /obj/item/weldingtool) && !WT.isOn())
+	if(istype(WT, /obj/item/weldingtool) && !WT.isOn())
 		to_chat(user, SPAN_WARNING("Turn \the [WT] on, first."))
 		return
-	if(istype(W, /obj/item/weldingtool) && !WT.can_use((SKILL_MAX + 1) - user.get_skill_value(SKILL_CONSTRUCTION), user)) return
+	if(istype(WT, /obj/item/weldingtool) && !WT.can_use((SKILL_MAX + 1) - user.get_skill_value(SKILL_CONSTRUCTION), user)) return
 	user.visible_message(
 		SPAN_NOTICE("\The [user] begins welding the damage on \the [src]..."),
 		SPAN_NOTICE("You begin welding the damage on \the [src]...")
