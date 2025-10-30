@@ -655,3 +655,69 @@
 
 			if(owner)
 				owner.update_icon()
+
+/obj/effect/coral
+	name = "coral trail"
+	icon_state = "pink_sparkles"
+	anchored = TRUE
+
+/datum/effect/trail/coral
+	trail_type = /obj/effect/coral
+	duration_of_effect = 0.5 SECONDS
+	specific_turfs = list(/turf)
+
+/obj/item/mech_equipment/ionjets/strafe
+	name = "exosuit strafing unit"
+	desc = "An exosuit-mounted propulsion engines for ground maneuers."
+	has_firing_arc = FALSE
+	slide_distance = 4
+
+	var/use_delay = 0.5 SECONDS
+
+/obj/item/mech_equipment/ionjets/strafe/Initialize()
+	. = ..()
+	ion_trail.stop()
+	ion_trail = new /datum/effect/trail/coral()
+	ion_trail.set_up(src)
+
+/obj/item/mech_equipment/ionjets/strafe/installed(mob/living/exosuit/_owner)
+	. = ..()
+	if(!(_owner.get_cell()?.check_charge(active_power_use * CELLRATE)))
+		return .
+	activate()
+
+/obj/item/mech_equipment/ionjets/strafe/attack_self(mob/user)
+	. = ..()
+	if(!.)
+		return
+
+	if (active)
+		playsound(src, 'sound/magic/ethereal_enter.ogg', 40, 0)
+	else
+		playsound(src, 'sound/magic/charge.ogg', 40, 1)
+
+/obj/item/mech_equipment/ionjets/strafe/on_update_icon()
+	. = ..()
+	if (active)
+		set_light(1, 1, l_color = COLOR_RED_LIGHT)
+
+/obj/item/mech_equipment/ionjets/strafe/get_hardpoint_maptext()
+	return null
+
+/obj/item/mech_equipment/ionjets/strafe/afterattack(atom/target, mob/living/user, inrange, params)
+	var/turf/target_turf = get_turf(target)
+	if (active)
+		playsound(src, 'sound/magic/forcewall.ogg', 30, 1)
+		owner.visible_message(
+			SPAN_WARNING("\The [src] charges up in preparation for a dash!"),
+			blind_message = SPAN_WARNING("You hear a loud hum and an intense crackling.")
+		)
+		new /obj/temporary(get_step(owner.loc, get_dir(target_turf, owner)), use_delay, 'icons/effects/effects.dmi',"pink_sparkles")
+		owner.setClickCooldown(use_delay*2)
+		if (do_after(owner, use_delay, target_turf, (DO_DEFAULT | DO_PUBLIC_PROGRESS | DO_USER_UNIQUE_ACT) & ~DO_USER_CAN_TURN))
+			owner.visible_message(SPAN_DANGER("Burning hard, \the [owner] thrusts backward!"))
+			owner.throw_at(target_turf, slide_distance, 1, owner, FALSE)
+		else
+			owner.visible_message(SPAN_DANGER("\The [src] sputters and powers down"))
+			owner.sparks.set_up(3,0,owner)
+			owner.sparks.start()

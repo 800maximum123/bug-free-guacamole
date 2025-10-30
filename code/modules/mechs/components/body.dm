@@ -22,7 +22,8 @@
 	icon_state = "loader_body"
 	gender = NEUTER
 
-	var/mech_health = 300
+	var/mech_health = 600
+	max_damage = 120
 	var/obj/item/cell/cell
 	var/obj/item/robot_parts/robot_component/diagnosis_unit/diagnostics
 	var/obj/item/robot_parts/robot_component/armour/exosuit/m_armour
@@ -318,8 +319,8 @@
 	pilot_coverage = 100
 	exosuit_desc_string = "a heavily armoured chassis"
 	icon_state = "heavy_body"
-	max_damage = 150
-	mech_health = 500
+	max_damage = 250
+	mech_health = 750
 	power_use = 50
 	has_hardpoints = list(HARDPOINT_BACK)
 

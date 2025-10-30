@@ -99,15 +99,18 @@
 	if(direction & (UP|DOWN))
 		var/txt_dir = direction & UP ? "upwards" : "downwards"
 		exosuit.visible_message(SPAN_NOTICE("\The [exosuit] moves [txt_dir]."))
+
 //[SIERRA-ADD] - Mechs-by-Shegar - STRAFE
-	if(exosuit.legs.can_strafe)
+	var/obj/item/mech_equipment/ionjets/strafe/J = exosuit.hardpoints[HARDPOINT_BACK]
+	var/strafe_jet = (istype(J) && J.active)
+	if(exosuit.legs.can_strafe || strafe_jet)
 		for(var/thing in exosuit.pilots) //Для всех пилотов внутри
 			var/mob/pilot = thing
 			if(pilot && pilot.client)
 				for(var/key in pilot.client.keys_held)
 					if (key == "Space")
 						var/move_speed = exosuit.legs.move_delay
-						if(!exosuit.legs.good_in_strafe)
+						if(!exosuit.legs.good_in_strafe && !istype(J))
 							move_speed = move_speed * 2.5
 						if(direction == NORTHWEST || direction == NORTHEAST || direction == SOUTHWEST || direction == SOUTHEAST)
 							move_speed = sqrt((move_speed*move_speed) + (move_speed * move_speed))
@@ -124,7 +127,8 @@
 	if(exosuit.dir != moving_dir && !(direction & (UP|DOWN)))
 		playsound(exosuit.loc, exosuit.legs.mech_turn_sound, 40,1)
 		exosuit.set_dir(moving_dir)
-		exosuit.SetMoveCooldown(exosuit.legs.turn_delay)
+		if(!strafe_jet)
+			exosuit.SetMoveCooldown(exosuit.legs.turn_delay)
 		exosuit.passenger_compartment.count_passengers()
 		if(exosuit.passengers_ammount > 0)
 			exosuit.update_passengers()

@@ -102,6 +102,8 @@
 	SetOverlays(new_overlays)
 
 /mob/living/exosuit/proc/update_pilots(update_overlays = TRUE)
+	if(dir in GLOB.diagonals)
+		return
 	if(update_overlays && LAZYLEN(pilot_overlays))
 		CutOverlays(pilot_overlays)
 	pilot_overlays = null

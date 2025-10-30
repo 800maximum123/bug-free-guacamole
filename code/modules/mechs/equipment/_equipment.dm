@@ -16,6 +16,7 @@
 	var/mech_layer = MECH_GEAR_LAYER //For the part where it's rendered as mech gear
 	var/require_adjacent = TRUE
 	var/active = FALSE //For gear that has an active state (ie, floodlights)
+	var/has_firing_arc = TRUE
 
 /obj/item/mech_equipment/afterattack(atom/target, mob/living/user, inrange, params)
 	if(require_adjacent)
