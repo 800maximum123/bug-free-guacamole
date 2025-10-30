@@ -670,7 +670,7 @@
 	name = "exosuit strafing unit"
 	desc = "An exosuit-mounted propulsion engines for ground maneuers."
 	has_firing_arc = FALSE
-	slide_distance = 4
+	slide_distance = 5
 
 	var/use_delay = 0.5 SECONDS
 
@@ -715,7 +715,7 @@
 		new /obj/temporary(get_step(owner.loc, get_dir(target_turf, owner)), use_delay, 'icons/effects/effects.dmi',"pink_sparkles")
 		owner.setClickCooldown(use_delay*2)
 		if (do_after(owner, use_delay, target_turf, (DO_DEFAULT | DO_PUBLIC_PROGRESS | DO_USER_UNIQUE_ACT) & ~DO_USER_CAN_TURN))
-			owner.visible_message(SPAN_DANGER("Burning hard, \the [owner] thrusts backward!"))
+			owner.visible_message(SPAN_DANGER("Burning hard, \the [owner] thrusts forward!"))
 			owner.throw_at(target_turf, slide_distance, 1, owner, FALSE)
 		else
 			owner.visible_message(SPAN_DANGER("\The [src] sputters and powers down"))
