@@ -341,7 +341,7 @@ var/global/list/channel_to_radio_key = new
 	else
 		log_say("[name]/[key] : [message]")
 
-	if (length(speech_bubble_recipients))
+	if (do_speech_bubble && length(speech_bubble_recipients))
 		var/speech_intent = say_test(message)
 		var/image/speech_bubble = image('icons/mob/talk.dmi', src, "h[speech_intent]")
 		speech_bubble.blend_mode = BLEND_OVERLAY

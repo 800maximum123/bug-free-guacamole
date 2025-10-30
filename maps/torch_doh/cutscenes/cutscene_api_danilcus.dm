@@ -54,14 +54,19 @@
 	var/list/ckey2body = list(
 		/* "ckey" = /mob, */
 	)
-	/// Список активных скибиди камерамэнов, участвующих в сцене.
+	/// Список текущих скибиди камерамэнов, участвующих в сцене.
 	var/list/camera_mobs = list(
 		/* /mob/living, */
 	)
-	/// Список действий, которая должна произвести катсцена. !Необходимо заполнять его внутри прока /New()!
+	/// Список действий, которые должна произвести катсцена. !Необходимо заполнять его внутри прока /setup_actions()!
 	var/list/actions
-	/// Должны ли мы ждать, пока эта катсцена проиграется до коца. !Полезно, когда одна катсцена вызывает другую!
+	/// Должны ли мы ждать, пока эта катсцена проиграется до конца. !Полезно, когда одна катсцена вызывает другую!
 	var/wait_for = TRUE
+
+/datum/modular_cutscene/proc/setup_actions(...)
+	actions = list(
+		/* CALL = DURATION, */
+	)
 
 /datum/modular_cutscene/New(list/old_viewers, ...)
 	. = ..()
@@ -82,14 +87,11 @@
 
 /datum/modular_cutscene/Destroy()
 	for(var/camera in camera_mobs)
+		if(camera in ckey2body)
+			continue // Мы НЕ хотим удалять наших изначальных мобов
 		qdel(camera)
 
 	. = ..()
-
-/datum/modular_cutscene/proc/setup_actions(...)
-	actions = list(
-		/* CALL = DURATION, */
-	)
 
 /datum/modular_cutscene/proc/play(...)
 	if(!actions)
@@ -136,14 +138,16 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 
 /mob
 	var/can_speak = TRUE
+	var/do_speech_bubble = TRUE
 
 /mob/living/cutscene_pov
 	stunned = INFINITY
 	anchored = TRUE
 	density = FALSE
-	can_speak = FALSE
 	status_flags = GODMODE
 	mouse_opacity = MOUSE_OPACITY_UNCLICKABLE
+	can_speak = FALSE
+	do_speech_bubble = FALSE
 
 /datum/modular_cutscene/proc/actor(id)
 	if(!GLOB.cutscene_actors.Find(id))
