@@ -5,6 +5,26 @@
 	icon_state = "closed"
 	should_show_name = FALSE
 
+/mob/living/simple_animal/cutscene_character/net
+	name = "Сетка"
+	desc = "..."
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "energynet"
+	should_show_name = FALSE
+/mob/living/simple_animal/cutscene_character/net/Life()
+	. = ..()
+	layer = 4.3
+
+/mob/living/simple_animal/cutscene_character/shock_impact
+	name = "Разряд"
+	desc = "..."
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "electricity_constant"
+	should_show_name = FALSE
+/mob/living/simple_animal/cutscene_character/shock_impact/Life()
+	. = ..()
+	layer = 4.3
+
 /mob/living/simple_animal/cutscene_character/meat/s2ep2
 	icon = 'maps/torch_doh/cutscenes/icons/Character_Meat.dmi'
 	icon_state = "Current"

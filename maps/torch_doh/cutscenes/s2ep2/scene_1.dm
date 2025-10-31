@@ -206,7 +206,8 @@
 	actions = list(
 		ADD_SCREEN(/blackout/animated_better) = 2 SECONDS,
 		CALL_GLOB(episode2_sponsors),
-		CALL_GLOB(episode2_sponsors2) = 6 SECONDS,
+		CALL_GLOB(episode2_sponsors2) = 4 SECONDS,
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/Steel.mp3', volume = 10)) = 2 SECONDS,
 		REMOVE_SCREEN(/blackout/animated_better, 1 SECONDS),
 		TP_CAMERA("Сцена 2-1 - Кадр 1"),
 		ADD_SCREEN(/cinema_borders),
@@ -339,7 +340,9 @@
 	actions = list(
 		TP_CAMERA("Сцена 2-1 - Кадр 7"),
 		ADD_SCREEN(/cinema_borders),
-		CALL_GLOB(episode2_meatteller7) = 8 SECONDS,
+		CALL_GLOB(episode2_meatteller7) = 2 SECONDS,
+		SHIFT_ACTOR(actor("Луни - 2-1-7"), -6, -3, 0.3 SECONDS, SINE_EASING|EASE_OUT, null) = 2 SECONDS,
+		TURN_ACTOR(actor("Луни - 2-1-7"), NORTH) = 4 SECONDS,
 		START_CUTSCENE(/datum/modular_cutscene/s2ep2sc8)
 	)
 

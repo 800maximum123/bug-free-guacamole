@@ -283,6 +283,12 @@
 		SKILL_CHEMISTRY = SKILL_MAX
 	)
 
+/singleton/hierarchy/outfit/bunker
+	name = "Default Bunker Appearance"
+
+	uniform = /obj/item/clothing/under/solgov/utility
+	shoes = /obj/item/clothing/shoes/jackboots
+
 /datum/job/submap/bunker/raymond
 	title = "Raymond Datura"
 	total_positions = 1
@@ -427,9 +433,9 @@
 /singleton/hierarchy/outfit/bunker/froise
 	name = "Alexander Froise"
 
-	r_hand = /obj/item/material/sword/makeshift
+	belt = /obj/item/storage/belt/security
 
-	l_ear = /obj/item/device/radio/headset
+	l_ear = /obj/item/device/radio/headset/headset_sec/alt
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 
@@ -514,11 +520,7 @@
 	name = "Gora MoRr"
 
 	suit = /obj/item/clothing/suit/storage/hoscoat
-	back = /obj/item/gun/projectile/automatic/shotgun/scg
-
-	r_hand = /obj/item/clothing/suit/space/void/battlewizards/prepared
 	l_hand = /obj/item/clothing/accessory/storage/black_vest
-
 	l_ear = /obj/item/device/radio/headset/headset_com
 
 	id_types = list(/obj/item/card/id/campaign)

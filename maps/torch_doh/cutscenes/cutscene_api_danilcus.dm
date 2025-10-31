@@ -185,6 +185,14 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 /datum/modular_cutscene/proc/shift_actor(mob/living/actor, shift_x, shift_y, duration, easing, flags)
 	animate(actor, pixel_y = shift_y, pixel_x = shift_x, time = duration, easing = easing, flags = flags)
 
+#define CHANGE_ACTOR_VISIBILITY(actor, alpha_change, duration, easing, flags) CALL(src, change_actor_alpha, actor, alpha_change, duration, easing, flags)
+/datum/modular_cutscene/proc/change_actor_alpha(mob/living/actor, alpha_change, duration, easing, flags)
+	animate(actor, alpha = alpha_change, time = duration, easing = easing, flags = flags)
+
+#define CHANGE_ACTOR_COLOR(actor, color_change, duration, easing, flags) CALL(src, change_actor_color, actor, color_change, duration, easing, flags)
+/datum/modular_cutscene/proc/change_actor_color(mob/living/actor, color_change, duration, easing, flags)
+	animate(actor, color = color_change, time = duration, easing = easing, flags = flags)
+
 #define CHANGE_ACTOR_MATRIX(actor, rotation, duration, easing, flags) CALL(src, change_actor_matrix, actor, rotation, duration, easing, flags)
 /datum/modular_cutscene/proc/change_actor_matrix(mob/living/actor, rotation, duration, easing, flags)
 	animate(actor, transform = matrix(rotation, MATRIX_ROTATE), time = duration, easing = easing, flags = flags)
