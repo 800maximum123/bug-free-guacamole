@@ -416,6 +416,9 @@
 /singleton/hierarchy/outfit/bunker/zlata
 	name = "Zlata Savina"
 
+	uniform = /obj/item/clothing/under/dark
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/dark
+	gloves = /obj/item/clothing/gloves/insulated/dark
 	r_hand = /obj/item/fd/perci_mvi
 
 	l_ear = /obj/item/device/radio/headset/headset_com
@@ -450,13 +453,12 @@
 /singleton/hierarchy/outfit/bunker/amelia
 	name = "Amelia Brown"
 
-	uniform = /obj/item/clothing/under/color/black
-	suit = /obj/item/clothing/suit/storage/oversize_jacket
+	uniform = /obj/item/clothing/under/rank/psych/turtleneck/sweater
+	suit = /obj/item/clothing/suit/storage/amelia_combatrig
 	back = /obj/item/storage/backpack/satchel/pocketbook/gray
-	belt = /obj/item/storage/belt/utility/full
 
 	l_ear = /obj/item/device/radio/headset/headset_com
-	glasses = /obj/item/clothing/glasses/welding/superior
+	glasses = /obj/item/clothing/glasses/prescription
 
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
@@ -538,7 +540,7 @@
 	name = "Looney"
 
 	uniform = /obj/item/clothing/under/syndicate/tacticool
-	suit = /obj/item/clothing/suit/scga/hooded/wintercoat
+	suit = /obj/item/clothing/suit/storage/looney_jacket
 	back = /obj/item/gun/projectile/automatic/shotgun/scg
 	mask = /obj/item/clothing/mask/gas/half
 
