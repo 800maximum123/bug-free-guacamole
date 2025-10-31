@@ -87,7 +87,7 @@
 
 /datum/modular_cutscene/Destroy()
 	for(var/camera in camera_mobs)
-		if(camera in ckey2body)
+		if(!istype(camera, /mob/living/cutscene_pov))
 			continue // Мы НЕ хотим удалять наших изначальных мобов
 		qdel(camera)
 
@@ -162,6 +162,8 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 		return
 
 	for(var/camera in camera_mobs)
+		if(!istype(camera, /mob/living/cutscene_pov))
+			continue // Мы НЕ хотим удалять наших изначальных мобов
 		qdel(camera)
 
 	camera_mobs.Cut()
@@ -230,7 +232,7 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 
 #define COPY_APPEARANCE(actor, target) CALL(src, copy_appearance, actor, target)
 /datum/modular_cutscene/proc/copy_appearance(mob/living/actor, mob/living/target)
-
+	message_admins("copy_appearance ещё не сделан я ленивая жопа")
 
 #define RETURN_VIEWERS CALL(src, return_viewers)
 /datum/modular_cutscene/proc/return_viewers()
@@ -260,3 +262,15 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 	animate(src, 3 SECOND, alpha = 0)
 
 // PEAK cynema x3
+
+/datum/modular_cutscene/test/setup_actions(...)
+	actions = list(
+		TP_CAMERA("Сцена 11") = 2 SECONDS,
+		START_CUTSCENE(/datum/modular_cutscene/test/second)
+	)
+
+/datum/modular_cutscene/test/second/setup_actions(...)
+	actions = list(
+		TP_CAMERA("Сцена 10") = 2 SECONDS,
+		RETURN_VIEWERS
+	)
