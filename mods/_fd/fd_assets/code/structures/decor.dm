@@ -16,11 +16,11 @@
 		STOP_PROCESSING(SSobj, src)
 
 /obj/structure/fd/campfire/on_update_icon()
+	. = ..()
 	if(lit)
 		icon_state = "campfire_lit"
-	if(!lit)
+	else
 		icon_state = "campfire"
-	return
 
 /obj/structure/fd/campfire/use_tool(obj/item/I, mob/living/user)
 	SHOULD_CALL_PARENT(FALSE)
