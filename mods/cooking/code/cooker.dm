@@ -1,3 +1,5 @@
+// ОТКОМЕНТИТЬ ПЕРЕД ЗАПУСКОМ
+
 /particles/cooking_smoke
 	width = 96
 	height = 512
@@ -5,15 +7,15 @@
 	spawning = 0.5
 	lifespan = 30
 	fade = 5
-	position = generator("box", vector(-4,0,0), vector(4,8,50))
-	gravity = vector(0, 1)
+//	position = generator("box", vector(-4,0,0), vector(4,8,50))
+//	gravity = vector(0, 1)
 	friction = 0.3
 	drift = generator("sphere", 0, 2)
 
 	icon = 'mods/cooking/icons/particles.dmi'
 	icon_state = list("1","2","3","4","5","6","7","8")
 
-	grow = vector(0.1, 0.1)
+//	grow = vector(0.1, 0.1)
 
 	color = "#fff"
 
