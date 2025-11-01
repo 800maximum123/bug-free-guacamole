@@ -21,7 +21,7 @@
 		visuals.set_text(novel_message, colored, time = 10 SECONDS)
 
 /proc/episode2_sponsors()
-	var/novel_message = "ДАННЫЙ ЗАПУСК СУЩЕСТВУЕТ БЛАГОДАРЯ:"
+	var/novel_message = "ЭПИЗОД ПРОФИНАНСИРОВАЛИ:"
 	var/colored = COLOR_ASSEMBLY_BLACK
 
 	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
@@ -29,10 +29,10 @@
 	visuals.maptext_y = -5
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
-		visuals.set_text(novel_message, colored, time = 6 SECONDS)
+		visuals.set_text(novel_message, colored, time = 8 SECONDS)
 
 /proc/episode2_sponsors2()
-	var/novel_message = "Sliva, Aftik, Vista1, Farewellsainty, DenXays, Grigpashtet, RaviolliBorchevidze"
+	var/novel_message = "Rogver Snott, Sliva, Aftik, Vista1, Farewellsainty, DenXays, Kvas, Grigpashtet, RaviolliBorchevidze"
 	var/colored = COLOR_ORANGE
 
 	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
@@ -40,7 +40,7 @@
 	visuals.maptext_y = -30
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
-		visuals.set_text(novel_message, colored, time = 6 SECONDS)
+		visuals.set_text(novel_message, colored, time = 8 SECONDS)
 
 /proc/episode2_meatteller1()
 	var/novel_message = "Сколько прошло? Лет двадцать?"
@@ -218,8 +218,8 @@
 	actions = list(
 		ADD_SCREEN(/blackout/animated_better) = 2 SECONDS,
 		CALL_GLOB(episode2_sponsors),
-		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/ambienceriver.ogg', volume = 50)),
-		CALL_GLOB(episode2_sponsors2) = 4 SECONDS,
+		CALL_GLOB(episode2_sponsors2) = 6 SECONDS,
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/ambienceriver.ogg', volume = 50)) = 2 SECONDS,
 		REMOVE_SCREEN(/blackout/animated_better, 1 SECONDS),
 		TP_CAMERA("Сцена 2-1 - Кадр 1"),
 		ADD_SCREEN(/cinema_borders),
