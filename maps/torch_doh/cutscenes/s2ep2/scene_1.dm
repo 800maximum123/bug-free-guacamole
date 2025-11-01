@@ -120,7 +120,7 @@
 		visuals.set_text(novel_message, colored, time = 4 SECONDS)
 
 /proc/episode2_meatteller8()
-	var/novel_message = "Лишь моё безразличие несёт ответственность за то, что их с нами больше нет."
+	var/novel_message = "Как ни оправдывайся - истина всё равно одна. Именно моё безразличие их и погубило."
 	var/colored = MANIFEST_COLOR_EXPLORER
 
 	var/obj/screen/novel_message/start_credits/nofade/visuals = new /obj/screen/novel_message/start_credits/nofade()
@@ -131,7 +131,7 @@
 		visuals.set_text(novel_message, colored, time = 4 SECONDS)
 
 /proc/episode2_meatteller9()
-	var/novel_message = "Может, если бы это осознание озарило меня чуточку раньше..."
+	var/novel_message = "Жаль... осознал я это слишком поздно."
 	var/colored = MANIFEST_COLOR_EXPLORER
 
 	var/obj/screen/novel_message/start_credits/nofade/visuals = new /obj/screen/novel_message/start_credits/nofade()
@@ -168,7 +168,7 @@
 	var/colored = COLOR_SABER_RED
 
 	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
-	visuals.maptext_x = -88
+	visuals.maptext_x = -85
 	visuals.maptext_y = -410
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
