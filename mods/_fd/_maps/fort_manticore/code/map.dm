@@ -49,11 +49,98 @@
 	icon_state = "rain"
 	requires_power = 0
 
+// Боевой эквип Мантикоры
+/obj/item/clothing/under/manticore_combat
+	name = "tactical turtleneck"
+	desc = "An modern military sweater."
+	icon = 'mods/_fd/_maps/fort_manticore/icons/clothing.dmi'
+	item_icons = list(slot_w_uniform_str = 'mods/_fd/_maps/fort_manticore/icons/clothing_mob.dmi')
+	icon_state = "uniform"
+	worn_state = "uniform"
+
+	gender_icons = TRUE
+
+/obj/item/clothing/suit/storage/vista_labcoat
+	name = "insulated labcoat"
+	desc = "For maximum security and your evil plans!"
+	icon = 'mods/_fd/_maps/fort_manticore/icons/clothing.dmi'
+	item_icons = list(slot_wear_suit_str = 'mods/_fd/_maps/fort_manticore/icons/clothing_mob.dmi')
+	icon_state = "vista_labcoat"
+	item_state = "vista_labcoat"
+	slots = 2
+	body_parts_covered = UPPER_TORSO|ARMS
+	allowed = list(/obj/item/device/scanner/gas,/obj/item/stack/medical,/obj/item/reagent_containers/dropper,/obj/item/reagent_containers/syringe,/obj/item/reagent_containers/hypospray,/obj/item/device/scanner/health,/obj/item/device/flashlight/pen,/obj/item/reagent_containers/glass/bottle,/obj/item/reagent_containers/glass/beaker,/obj/item/reagent_containers/pill,/obj/item/storage/pill_bottle,/obj/item/paper)
+	armor = list(
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+		)
+	valid_accessory_slots = list(ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_INSIGNIA, ACCESSORY_SLOT_RANK)
+	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMBAND)
+
+/obj/item/clothing/suit/storage/manticore_combat
+	name = "light armor plate"
+	desc = "Used by planet security and PMC."
+	icon = 'mods/_fd/_maps/fort_manticore/icons/clothing.dmi'
+	item_icons = list(slot_wear_suit_str = 'mods/_fd/_maps/fort_manticore/icons/clothing_mob.dmi')
+	icon_state = "armor"
+	item_state = "armor"
+
+	equip_delay = 2 SECONDS
+	slots = 4
+	body_parts_covered = FULL_TORSO
+	cold_protection = FULL_TORSO
+	heat_protection = FULL_TORSO
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_RESISTANT,
+		laser = ARMOR_LASER_HANDGUNS,
+		energy = ARMOR_ENERGY_STRONG,
+		bomb = ARMOR_BOMB_PADDED
+		)
+
+/obj/item/clothing/head/helmet/manticore_combat
+	name = "modern armored helmet"
+	desc = "Used by planet security and PMC."
+	icon = 'mods/_fd/_maps/fort_manticore/icons/clothing.dmi'
+	item_icons = list(slot_head_str = 'mods/_fd/_maps/fort_manticore/icons/clothing_mob.dmi')
+	icon_state = "helmet"
+	item_state = "helmet"
+
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_RESISTANT,
+		laser = ARMOR_LASER_HANDGUNS,
+		energy = ARMOR_ENERGY_STRONG,
+		bomb = ARMOR_BOMB_PADDED
+		)
+
+/obj/item/clothing/head/helmet/manticore_combat/rifler
+	icon_state = "helmet_rifler"
+	item_state = "helmet_rifler"
+
+/obj/item/clothing/head/beret/rifler
+	icon = 'mods/_fd/_maps/fort_manticore/icons/clothing.dmi'
+	item_icons = list(slot_head_str = 'mods/_fd/_maps/fort_manticore/icons/clothing_mob.dmi')
+	icon_state = "beret_rifler"
+	item_state = "beret_rifler"
+
+/obj/item/clothing/accessory/scarf/shouldercape/rifler
+	name = "old shoulder cloak"
+	desc = "Harshly used cloak, which obviously had seen some serious shit..."
+	icon = 'mods/_fd/_maps/fort_manticore/icons/clothing.dmi'
+	accessory_icons = list(
+		slot_w_uniform_str = 'mods/_fd/_maps/fort_manticore/icons/clothing_mob.dmi',
+		slot_wear_suit_str = 'mods/_fd/_maps/fort_manticore/icons/clothing_mob.dmi')
+	icon_state = "rifler_cloak"
+	item_state = "rifler_cloak"
+	slot = ACCESSORY_SLOT_INSIGNIA
+
 /singleton/submap_archetype/fort_manticore
 	descriptor = "Rebel camp."
 	map = "TRK-17 Fort \"Manticore\""
 	crew_jobs = list(
-		/datum/job/submap/fort_manticore/roku
+		/datum/job/submap/fort_manticore/roku,
+		/datum/job/submap/fort_manticore/rifler
 	)
 
 /obj/submap_landmark/joinable_submap/fort_manticore
@@ -93,7 +180,7 @@
 /singleton/hierarchy/outfit/fort_manticore
 	name = "Default Fort Appearance"
 
-	uniform = /obj/item/clothing/under/solgov/utility
+	uniform = /obj/item/clothing/under/manticore_combat
 	shoes = /obj/item/clothing/shoes/jackboots
 
 /datum/job/submap/fort_manticore/roku
@@ -135,8 +222,6 @@
 	name = "DAIS-Roku-2349"
 
 	glasses = /obj/item/clothing/glasses/hud/it
-
-	l_hand = /obj/item/storage/pill_bottle/foodpill
 	r_hand = /obj/item/fd/custom_implanter/roku
 
 	l_ear = /obj/item/device/radio/headset/headset_com
@@ -150,6 +235,9 @@
 
 /singleton/hierarchy/outfit/fort_manticore/rifler
 	name = "Christiana Rifler"
+
+	head = /obj/item/clothing/head/beret/rifler
+	mask = /obj/item/clothing/accessory/scarf/shouldercape/rifler
 
 	l_ear = /obj/item/device/radio/headset/headset_com
 	id_types = list(/obj/item/card/id/campaign)

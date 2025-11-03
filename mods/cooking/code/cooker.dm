@@ -47,6 +47,7 @@
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/chem_disp_cartridge,
 		/obj/item/reagent_containers/food/drinks/bottle,
+		/obj/item/reagent_containers/food/condiment,
 		/obj/item/reagent_containers/spray,
 		/obj/item/flame/lighter
 	)
