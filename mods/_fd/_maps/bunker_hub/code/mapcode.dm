@@ -23,7 +23,7 @@
 		T.set_light(1, light, l_color = light_color_m)
 
 /datum/map_template/ruin/away_site/bunker_hub
-	name = "TRK-17 HUB (Campaign)"
+	name = "TRK-17 BUNKER HUB (Campaign)"
 	id = "awaysite_bunker_hub"
 	spawn_cost = 2
 	description = "..."
@@ -257,7 +257,7 @@
 	title = "Survivor"
 	total_positions = -1
 	create_record = TRUE
-	skill_points = 52
+	skill_points = 62
 	no_skill_buffs = TRUE
 	max_skill = list(
 		SKILL_BUREAUCRACY = SKILL_MAX,
