@@ -7,15 +7,10 @@
 	spawning = 0.5
 	lifespan = 30
 	fade = 5
-//	position = generator("box", vector(-4,0,0), vector(4,8,50))
-//	gravity = vector(0, 1)
 	friction = 0.3
-	drift = generator("sphere", 0, 2)
 
 	icon = 'mods/cooking/icons/particles.dmi'
 	icon_state = list("1","2","3","4","5","6","7","8")
-
-//	grow = vector(0.1, 0.1)
 
 	color = "#fff"
 
@@ -135,6 +130,10 @@
 		cooking_smoke.spawning = 0.25
 		cooking_smoke.lifespan = 15
 		cooking_smoke.grow = vector(0, 0)
+		cooking_smoke.position = generator("box", vector(-4,0,0), vector(4,8,50))
+		cooking_smoke.gravity = vector(0, 1)
+		cooking_smoke.drift = generator("sphere", 0, 2)
+		cooking_smoke.grow = vector(0.1, 0.1)
 
 	if(progress == progress_cooked)
 		if(calc_total_volume() > volume)
@@ -201,7 +200,7 @@
 		to_chat(user, SPAN_WARNING("\The [I] is too large for \a [src]."))
 		return TRUE
 
-	if(istype(I, /obj/item/reagent_containers/food/drinks) || !istype(I, /obj/item/reagent_containers/food))
+	if(istype(I, /obj/item/reagent_containers/food/drinks) || istype(I, /obj/item/reagent_containers/food/condiment) || !istype(I, /obj/item/reagent_containers/food))
 		var/obj/item/reagent_containers/RC = I
 		return RC.standard_pour_into(user, src)
 
