@@ -140,7 +140,10 @@
 	map = "TRK-17 Fort \"Manticore\""
 	crew_jobs = list(
 		/datum/job/submap/fort_manticore/roku,
-		/datum/job/submap/fort_manticore/rifler
+		/datum/job/submap/fort_manticore/rifler,
+		/datum/job/submap/fort_manticore/ace,
+		/datum/job/submap/fort_manticore/krieger,
+		/datum/job/submap/fort_manticore/rain
 	)
 
 /obj/submap_landmark/joinable_submap/fort_manticore
@@ -214,8 +217,8 @@
 	icon_state = "pill4"
 /obj/item/reagent_containers/pill/foodpill/New()
 	..()
-	reagents.add_reagent(/datum/reagent/nutriment/protein, 10)
-	reagents.add_reagent(/datum/reagent/nutriment/coffee, 10)
+	reagents.add_reagent(/datum/reagent/nutriment/protein, 15)
+	reagents.add_reagent(/datum/reagent/nutriment/coffee, 15)
 	color = reagents.get_color()
 
 /singleton/hierarchy/outfit/fort_manticore/roku
@@ -224,7 +227,7 @@
 	glasses = /obj/item/clothing/glasses/hud/it
 	r_hand = /obj/item/fd/custom_implanter/roku
 
-	l_ear = /obj/item/device/radio/headset/headset_com
+	l_ear = /obj/item/device/radio/headset
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 
@@ -240,5 +243,86 @@
 	mask = /obj/item/clothing/accessory/scarf/shouldercape/rifler
 
 	l_ear = /obj/item/device/radio/headset/headset_com
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/datum/job/submap/fort_manticore/ace
+	title = "Mortimer Ace"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/fort_manticore/ace
+
+/singleton/hierarchy/outfit/fort_manticore/ace
+	name = "Mortimer Ace"
+
+	l_ear = /obj/item/device/radio/headset/headset_com
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/datum/job/submap/fort_manticore/krieger
+	title = "Aldegar Krieger"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/fort_manticore/krieger
+
+/singleton/hierarchy/outfit/fort_manticore/krieger
+	name = "Aldegar Krieger"
+
+	l_ear = /obj/item/device/radio/headset
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/datum/job/submap/fort_manticore/rain
+	title = "Emmy Rain"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/fort_manticore/rain
+
+/mob/living/exosuit/premade/rain_echo
+	name = "IB-ECHO"
+	desc = "Потрёпанный, но надёжный друг."
+/mob/living/exosuit/premade/rain_echo/Initialize()
+	if(!arms)
+		arms = new /obj/item/mech_component/manipulators/combat(src)
+		arms.color = "#BEBEC8"
+	if(!legs)
+		legs = new /obj/item/mech_component/propulsion/combat(src)
+		legs.color = "#BEBEC8"
+	if(!head)
+		head = new /obj/item/mech_component/sensors/combat(src)
+		head.color = "#BEBEC8"
+	if(!body)
+		body = new /obj/item/mech_component/chassis/combat(src)
+		body.color = "#BEBEC8"
+
+	. = ..()
+/mob/living/exosuit/premade/rain_echo/spawn_mech_equipment()
+	..()
+	install_system(new /obj/item/mech_equipment/mounted_system/taser/ballistic/rain_echo(src), HARDPOINT_LEFT_HAND)
+	install_system(new /obj/item/mech_equipment/mounted_system/taser/ballistic/smg(src), HARDPOINT_RIGHT_HAND)
+	install_system(new /obj/item/mech_equipment/light(src), HARDPOINT_HEAD)
+	install_system(new /obj/item/mech_equipment/ionjets/strafe(src), HARDPOINT_BACK)
+	install_system(new /obj/item/mech_equipment/camera(src), HARDPOINT_LEFT_SHOULDER)
+	install_system(new /obj/item/mech_equipment/shields/rain_echo(src), HARDPOINT_RIGHT_SHOULDER)
+/obj/item/gun/projectile/automatic/assault_rifle/mounted/rain_echo
+	burst = 1
+	can_autofire = TRUE
+	fire_delay = null
+	max_shells = 600
+	firemodes = list(
+		list(mode_name="autofire", burst=1, fire_delay=null, move_delay=null, one_hand_penalty=0, burst_accuracy=null, dispersion=null),
+		)
+/obj/item/mech_equipment/mounted_system/taser/ballistic/rain_echo
+	holding_type = /obj/item/gun/projectile/automatic/assault_rifle/mounted/rain_echo
+/obj/item/mech_equipment/shields/rain_echo
+	max_charge = 300
+	charge = 300
+	cooldown = 0.5 SECONDS
+	restricted_hardpoints = list(HARDPOINT_RIGHT_SHOULDER)
+
+/singleton/hierarchy/outfit/fort_manticore/rain
+	name = "Emmy Rain"
+
+	uniform = /obj/item/clothing/under/ibis
+	head = /obj/item/clothing/head/helmet/ibis
+
+	l_ear = /obj/item/device/radio/headset
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
