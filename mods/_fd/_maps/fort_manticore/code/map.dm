@@ -286,7 +286,7 @@
 		legs = new /obj/item/mech_component/propulsion/combat(src)
 		legs.color = "#BEBEC8"
 	if(!head)
-		head = new /obj/item/mech_component/sensors/combat(src)
+		head = new /obj/item/mech_component/sensors/rain_echo(src)
 		head.color = "#BEBEC8"
 	if(!body)
 		body = new /obj/item/mech_component/chassis/combat(src)
@@ -301,6 +301,20 @@
 	install_system(new /obj/item/mech_equipment/ionjets/strafe(src), HARDPOINT_BACK)
 	install_system(new /obj/item/mech_equipment/camera(src), HARDPOINT_LEFT_SHOULDER)
 	install_system(new /obj/item/mech_equipment/shields/rain_echo(src), HARDPOINT_RIGHT_SHOULDER)
+/obj/item/mech_component/sensors/rain_echo
+	name = "combat sensors"
+	gender = PLURAL
+	exosuit_desc_string = "high-resolution thermal sensors"
+	icon_state = "combat_head"
+	vision_flags = SEE_MOBS
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	power_use = 200
+
+/obj/item/mech_component/sensors/rain_echo/prebuild()
+	..()
+	software = new(src)
+	software.installed_software = list(MECH_SOFTWARE_UTILITY, MECH_SOFTWARE_ENGINEERING, MECH_SOFTWARE_WEAPONS, MECH_SOFTWARE_MEDICAL)
+
 /obj/item/gun/projectile/automatic/assault_rifle/mounted/rain_echo
 	burst = 1
 	can_autofire = TRUE
