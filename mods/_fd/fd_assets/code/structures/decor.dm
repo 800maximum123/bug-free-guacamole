@@ -510,6 +510,7 @@
 	icon = 'mods/_fd/fd_assets/icons/structures/largejungleflora.dmi'
 	icon_state = "bush1"
 	pixel_x = -16
+	layer = 4.07
 
 /obj/structure/flora/jungle/bush/New()
 	..()
