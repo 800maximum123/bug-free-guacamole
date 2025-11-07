@@ -49,6 +49,32 @@
 	icon_state = "rain"
 	requires_power = 0
 
+// Комнаты экипажа
+/area/fort_manticore/rooms
+	name = "Rooms"
+
+// Кубик
+/area/fort_manticore/rooms/cube
+	name = "Rooms - Qoobic"
+
+/area/fort_manticore/rooms/cube/fl2
+	name = "Rooms - Qoobic"
+
+//Склад + Эйс
+/area/fort_manticore/rooms/warehouse
+	name = "Warehouse"
+
+/area/fort_manticore/rooms/warehouse/ace
+	name = "Rooms - Ace"
+
+//Року
+/area/fort_manticore/rooms/roku
+	name = "Rooms - 2349"
+
+//Райфлё
+/area/fort_manticore/rooms/rifler
+	name = "Rooms - Rifler"
+
 // Боевой эквип Мантикоры
 /obj/item/clothing/under/manticore_combat
 	name = "tactical turtleneck"
