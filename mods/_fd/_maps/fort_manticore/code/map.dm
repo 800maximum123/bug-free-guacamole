@@ -53,6 +53,7 @@
 /area/fort_manticore/rooms
 	name = "Rooms"
 
+
 // Кубик
 /area/fort_manticore/rooms/cube
 	name = "Rooms - Qoobic"
@@ -74,6 +75,42 @@
 //Райфлё
 /area/fort_manticore/rooms/rifler
 	name = "Rooms - Rifler"
+
+//Ринили
+/area/fort_manticore/rooms/rinirili
+	name = "Rooms - Rinirili"
+
+//Рейн
+/area/fort_manticore/rooms/emmy
+	name = "Rooms - Rain"
+
+//Куази
+/area/fort_manticore/rooms/quazi
+	name = "Rooms - Quazi"
+
+//Кригер
+/area/fort_manticore/rooms/kriger
+	name = "Rooms - Krieger"
+
+//Мантикоров
+/area/fort_manticore/rooms/manticora
+	name = "Rooms - Manticora"
+
+//Клотхильд
+/area/fort_manticore/rooms/chlothilde
+	name = "Rooms - Chlothilde"
+
+//Уфур
+/area/fort_manticore/rooms/ufur
+	name = "Rooms - Ufur"
+
+//CF and RK
+/area/fort_manticore/rooms/cf_rk
+	name = "Rooms - CF & RK"
+
+//Martiesa
+/area/fort_manticore/rooms/martiesa
+	name = "Rooms - Martiesa"
 
 // Боевой эквип Мантикоры
 /obj/item/clothing/under/manticore_combat
