@@ -169,7 +169,17 @@
 		/datum/job/submap/fort_manticore/rifler,
 		/datum/job/submap/fort_manticore/ace,
 		/datum/job/submap/fort_manticore/krieger,
-		/datum/job/submap/fort_manticore/rain
+		/datum/job/submap/fort_manticore/rain,
+		/datum/job/submap/fort_manticore/lukash,
+		/datum/job/submap/fort_manticore/xrim,
+		/datum/job/submap/fort_manticore/victor,
+		/datum/job/submap/fort_manticore/kai,
+		/datum/job/submap/fort_manticore/cf355,
+		/datum/job/submap/fort_manticore/rk381,
+		/datum/job/submap/fort_manticore/pavel,
+		/datum/job/submap/fort_manticore/cubic,
+		/datum/job/submap/fort_manticore/luke,
+		/datum/job/submap/fort_manticore/adriano
 	)
 
 /obj/submap_landmark/joinable_submap/fort_manticore
@@ -362,6 +372,126 @@
 
 	uniform = /obj/item/clothing/under/ibis
 	head = /obj/item/clothing/head/helmet/ibis
+
+	l_ear = /obj/item/device/radio/headset
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/datum/job/submap/fort_manticore/lukash
+	title = "Lukash Prochazka"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/fort_manticore/lukash
+
+/singleton/hierarchy/outfit/fort_manticore/lukash
+	name = "Lukash Prochazka"
+
+	l_ear = /obj/item/device/radio/headset
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/datum/job/submap/fort_manticore/xrim
+	title = "Xrim Quazi'Morax"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/fort_manticore/xrim
+
+/singleton/hierarchy/outfit/fort_manticore/xrim
+	name = "Xrim Quazi'Morax"
+
+	l_ear = /obj/item/device/radio/headset
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/datum/job/submap/fort_manticore/victor
+	title = "Victor Manticora"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/fort_manticore/victor
+
+/singleton/hierarchy/outfit/fort_manticore/victor
+	name = "Victor Manticora"
+
+	l_ear = /obj/item/device/radio/headset
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/datum/job/submap/fort_manticore/kai
+	title = "Ufurzar Shuurr'kai"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/fort_manticore/kai
+
+/singleton/hierarchy/outfit/fort_manticore/kai
+	name = "Ufurzar Shuurr'kai"
+
+	l_ear = /obj/item/device/radio/headset
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/datum/job/submap/fort_manticore/cf355
+	title = "CF-355"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/fort_manticore/cf355
+
+/singleton/hierarchy/outfit/fort_manticore/cf355
+	name = "CF-355"
+
+	l_ear = /obj/item/device/radio/headset
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/datum/job/submap/fort_manticore/rk381
+	title = "RK-381"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/fort_manticore/rk381
+
+/singleton/hierarchy/outfit/fort_manticore/rk381
+	name = "RK-381"
+
+	l_ear = /obj/item/device/radio/headset
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/datum/job/submap/fort_manticore/pavel
+	title = "Pavel Strelkov"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/fort_manticore/pavel
+
+/singleton/hierarchy/outfit/fort_manticore/pavel
+	name = "Pavel Strelkov"
+
+	l_ear = /obj/item/device/radio/headset
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/datum/job/submap/fort_manticore/cubic
+	title = "Uxim'zu Qoobic"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/fort_manticore/cubic
+
+/singleton/hierarchy/outfit/fort_manticore/cubic
+	name = "Uxim'zu Qoobic"
+
+	l_ear = /obj/item/device/radio/headset
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/datum/job/submap/fort_manticore/luke
+	title = "Luke Liltroy"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/fort_manticore/luke
+
+/singleton/hierarchy/outfit/fort_manticore/luke
+	name = "Luke Liltroy"
+
+	l_ear = /obj/item/device/radio/headset
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/datum/job/submap/fort_manticore/adriano
+	title = "Adriano Martiesa"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/fort_manticore/adriano
+
+/singleton/hierarchy/outfit/fort_manticore/adriano
+	name = "Adriano Martiesa"
 
 	l_ear = /obj/item/device/radio/headset
 	id_types = list(/obj/item/card/id/campaign)

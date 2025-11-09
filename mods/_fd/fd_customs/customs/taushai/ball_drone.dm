@@ -79,3 +79,8 @@
 	can_pull_size = ITEM_SIZE_SMALL
 	can_pull_mobs = MOB_PULL_SAME
 	holder_type = /obj/item/holder/drone/recon
+
+/mob/living/silicon/robot/drone/recon/attack_ghost(mob/observer/ghost/user)
+	. = ..()
+	if(client.ckey == "taushai")
+		ckey = user.ckey
