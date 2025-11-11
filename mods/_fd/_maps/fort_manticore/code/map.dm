@@ -370,9 +370,8 @@
 	..()
 	install_system(new /obj/item/mech_equipment/mounted_system/taser/ballistic/rain_echo(src), HARDPOINT_LEFT_HAND)
 	install_system(new /obj/item/mech_equipment/mounted_system/taser/ballistic/smg(src), HARDPOINT_RIGHT_HAND)
-	install_system(new /obj/item/mech_equipment/light(src), HARDPOINT_HEAD)
 	install_system(new /obj/item/mech_equipment/ionjets/strafe(src), HARDPOINT_BACK)
-	install_system(new /obj/item/mech_equipment/camera(src), HARDPOINT_LEFT_SHOULDER)
+	install_system(new /obj/item/mech_equipment/light(src), HARDPOINT_LEFT_SHOULDER)
 	install_system(new /obj/item/mech_equipment/shields/rain_echo(src), HARDPOINT_RIGHT_SHOULDER)
 /obj/item/mech_component/sensors/rain_echo
 	name = "combat sensors"

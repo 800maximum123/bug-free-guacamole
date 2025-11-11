@@ -192,6 +192,9 @@
 	#include "cutscenes/s2ep2/scene_2.dm"
 	#include "cutscenes/s2ep2/characters.dm"
 
+	#include "cutscenes/s2ep3/scene_1.dm"
+	#include "cutscenes/s2ep3/characters.dm"
+
 	// --- MAP FILES --- //
 
 		// ~TORCH~ //
