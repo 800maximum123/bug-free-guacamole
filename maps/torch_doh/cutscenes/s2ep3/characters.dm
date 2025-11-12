@@ -6,9 +6,24 @@
 	icon_state = "impact_pulse"
 	should_show_name = FALSE
 	mouse_opacity = FALSE
+	alpha = 0
 /mob/living/simple_animal/cutscene_character/hit_impact/Life()
 	. = ..()
 	layer = 4.3
+/mob/living/simple_animal/cutscene_character/hit_impact/rotated/Initialize()
+	. = ..()
+	SetTransform(rotation = 180)
+/mob/living/simple_animal/cutscene_character/hit_impact/rotated/Life()
+	. = ..()
+	layer = 3.9
+
+/mob/living/simple_animal/cutscene_character/hit_impact/muzzle_norotation
+	alpha = 255
+/mob/living/simple_animal/cutscene_character/hit_impact/muzzle
+	alpha = 255
+/mob/living/simple_animal/cutscene_character/hit_impact/muzzle/Initialize()
+	. = ..()
+	SetTransform(rotation = 180)
 
 //ПЕРСОНАЖИ
 
@@ -65,3 +80,6 @@
 /mob/living/simple_animal/cutscene_character/mech3/Initialize()
 	. = ..()
 	SetTransform(2)
+/mob/living/simple_animal/cutscene_character/mech3/Life()
+	. = ..()
+	layer = 4.3
