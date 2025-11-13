@@ -183,6 +183,12 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 		if(viewer.client)
 			animate(viewer.client, pixel_y = move_y, pixel_x = move_x, time = duration, easing = easing)
 
+#define SHAKE_SCENE(time, force) CALL(src, shake_scene, time, force)
+/datum/modular_cutscene/proc/shake_scene(time, force)
+
+	for(var/mob/viewer as() in camera_mobs)
+		shake_camera(viewer, duration = time, strength = force)
+
 #define SHIFT_ACTOR(actor, shift_x, shift_y, duration, easing, flags) CALL(src, shift_actor, actor, shift_x, shift_y, duration, easing, flags)
 /datum/modular_cutscene/proc/shift_actor(mob/living/actor, shift_x, shift_y, duration, easing, flags)
 	animate(actor, pixel_y = shift_y, pixel_x = shift_x, time = duration, easing = easing, flags = flags)

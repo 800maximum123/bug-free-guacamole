@@ -36,6 +36,21 @@
 	icon_dead = "Current"
 	should_show_name = FALSE
 
+/mob/living/simple_animal/cutscene_character/fourth
+	name = "Четвёртая"
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/Character_IV.dmi'
+	icon_state = "Current"
+	icon_living = "Current"
+	icon_dead = "Current"
+	should_show_name = FALSE
+
+	alpha = 150
+	color = "#e40031"
+/mob/living/simple_animal/cutscene_character/fourth/Life()
+	. = ..()
+	layer = 3.9
+
 /mob/living/simple_animal/cutscene_character/soldier
 	name = "Солдат"
 	desc = "..."
@@ -43,6 +58,15 @@
 	icon_state = "Mech Pilot"
 	icon_living = "Mech Pilot"
 	icon_dead = "Mech Pilot"
+	should_show_name = FALSE
+
+/mob/living/simple_animal/cutscene_character/soldier_enemy
+	name = "Солдат"
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/soldiers.dmi'
+	icon_state = "Ascent Mech Pilot"
+	icon_living = "Ascent Mech Pilot"
+	icon_dead = "Ascent Mech Pilot"
 	should_show_name = FALSE
 
 /mob/living/simple_animal/cutscene_character/mech1
@@ -83,3 +107,18 @@
 /mob/living/simple_animal/cutscene_character/mech3/Life()
 	. = ..()
 	layer = 4.3
+
+/mob/living/simple_animal/cutscene_character/mech3_2
+	name = "Враг"
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/mecha_characters.dmi'
+	icon_state = "ascent"
+	icon_living = "ascent"
+	icon_dead = "ascent"
+	should_show_name = FALSE
+/mob/living/simple_animal/cutscene_character/mech3_2/Initialize()
+	. = ..()
+	SetTransform(2)
+/mob/living/simple_animal/cutscene_character/mech3_2/Life()
+	. = ..()
+	layer = 3.9
