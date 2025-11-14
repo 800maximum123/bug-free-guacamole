@@ -159,7 +159,7 @@
 	visuals.maptext_x = 15
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
-		visuals.set_text(novel_message, colored, time = 12 SECONDS)
+		visuals.set_text(novel_message, colored, time = 8 SECONDS)
 
 /proc/credits_name2()
 	var/novel_message = "АКТ II"

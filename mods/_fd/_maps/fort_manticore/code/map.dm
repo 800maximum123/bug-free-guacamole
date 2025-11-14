@@ -169,6 +169,8 @@
 	icon_state = "helmet"
 	item_state = "helmet"
 
+	flags_inv = HIDEEARS|BLOCKHAIR
+
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_RESISTANT,
@@ -186,6 +188,14 @@
 	item_icons = list(slot_head_str = 'mods/_fd/_maps/fort_manticore/icons/clothing_mob.dmi')
 	icon_state = "beret_rifler"
 	item_state = "beret_rifler"
+
+/obj/item/clothing/head/beret/lin
+	name = "peaked cap"
+	desc = "An military-like peaked cap with some gold on it."
+	icon = 'mods/_fd/_maps/fort_manticore/icons/clothing.dmi'
+	item_icons = list(slot_head_str = 'mods/_fd/_maps/fort_manticore/icons/clothing_mob.dmi')
+	icon_state = "cap_lin"
+	item_state = "cap_lin"
 
 /obj/item/clothing/accessory/scarf/shouldercape/rifler
 	name = "old shoulder cloak"
@@ -216,7 +226,8 @@
 		/datum/job/submap/fort_manticore/pavel,
 		/datum/job/submap/fort_manticore/cubic,
 		/datum/job/submap/fort_manticore/luke,
-		/datum/job/submap/fort_manticore/adriano
+		/datum/job/submap/fort_manticore/adriano,
+		/datum/job/submap/fort_manticore/lin
 	)
 
 /obj/submap_landmark/joinable_submap/fort_manticore
@@ -300,9 +311,11 @@
 	glasses = /obj/item/clothing/glasses/hud/it
 	r_hand = /obj/item/fd/custom_implanter/roku
 
-	l_ear = /obj/item/device/radio/headset
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/manticore/roku
+	name = "DAIS-Roku-2349"
 
 /datum/job/submap/fort_manticore/rifler
 	title = "Christiana Rifler"
@@ -315,9 +328,12 @@
 	head = /obj/item/clothing/head/beret/rifler
 	mask = /obj/item/clothing/accessory/scarf/shouldercape/rifler
 
-	l_ear = /obj/item/device/radio/headset/headset_com
+	l_ear = /obj/item/device/radio/headset/syndicate
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/manticore/rifler
+	name = "Christiana Rifler"
 
 /datum/job/submap/fort_manticore/ace
 	title = "Mortimer Ace"
@@ -327,9 +343,12 @@
 /singleton/hierarchy/outfit/fort_manticore/ace
 	name = "Mortimer Ace"
 
-	l_ear = /obj/item/device/radio/headset/headset_com
+	l_ear = /obj/item/device/radio/headset/syndicate
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/manticore/ace
+	name = "Mortimer Ace"
 
 /datum/job/submap/fort_manticore/krieger
 	title = "Aldegar Krieger"
@@ -339,9 +358,11 @@
 /singleton/hierarchy/outfit/fort_manticore/krieger
 	name = "Aldegar Krieger"
 
-	l_ear = /obj/item/device/radio/headset
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/manticore/krieger
+	name = "Aldegar Krieger"
 
 /datum/job/submap/fort_manticore/rain
 	title = "Emmy Rain"
@@ -409,9 +430,11 @@
 	uniform = /obj/item/clothing/under/ibis
 	head = /obj/item/clothing/head/helmet/ibis
 
-	l_ear = /obj/item/device/radio/headset
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/manticore/rain
+	name = "Emmy Rain"
 
 /datum/job/submap/fort_manticore/lukash
 	title = "Lukash Prochazka"
@@ -421,9 +444,12 @@
 /singleton/hierarchy/outfit/fort_manticore/lukash
 	name = "Lukash Prochazka"
 
-	l_ear = /obj/item/device/radio/headset
+	l_ear = /obj/item/device/radio/headset/syndicate
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/manticore/lukash
+	name = "Lukash Prochazka"
 
 /datum/job/submap/fort_manticore/xrim
 	title = "Xrim Quazi'Morax"
@@ -433,9 +459,12 @@
 /singleton/hierarchy/outfit/fort_manticore/xrim
 	name = "Xrim Quazi'Morax"
 
-	l_ear = /obj/item/device/radio/headset
+	l_ear = /obj/item/device/radio/headset/syndicate
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/manticore/xrim
+	name = "Xrim Quazi'Morax"
 
 /datum/job/submap/fort_manticore/victor
 	title = "Victor Manticora"
@@ -445,9 +474,11 @@
 /singleton/hierarchy/outfit/fort_manticore/victor
 	name = "Victor Manticora"
 
-	l_ear = /obj/item/device/radio/headset
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/manticore/victor
+	name = "Victor Manticora"
 
 /datum/job/submap/fort_manticore/kai
 	title = "Ufurzar Shuurr'kai"
@@ -457,9 +488,11 @@
 /singleton/hierarchy/outfit/fort_manticore/kai
 	name = "Ufurzar Shuurr'kai"
 
-	l_ear = /obj/item/device/radio/headset
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/manticore/kai
+	name = "Ufurzar Shuurr'kai"
 
 /datum/job/submap/fort_manticore/cf355
 	title = "CF-355"
@@ -469,9 +502,11 @@
 /singleton/hierarchy/outfit/fort_manticore/cf355
 	name = "CF-355"
 
-	l_ear = /obj/item/device/radio/headset
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/manticore/cf355
+	name = "CF-355"
 
 /datum/job/submap/fort_manticore/rk381
 	title = "RK-381"
@@ -481,9 +516,11 @@
 /singleton/hierarchy/outfit/fort_manticore/rk381
 	name = "RK-381"
 
-	l_ear = /obj/item/device/radio/headset
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/manticore/rk381
+	name = "RK-381"
 
 /datum/job/submap/fort_manticore/pavel
 	title = "Pavel Strelkov"
@@ -493,9 +530,12 @@
 /singleton/hierarchy/outfit/fort_manticore/pavel
 	name = "Pavel Strelkov"
 
-	l_ear = /obj/item/device/radio/headset
+	l_ear = /obj/item/device/radio/headset/syndicate
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/manticore/pavel
+	name = "Pavel Strelkov"
 
 /datum/job/submap/fort_manticore/cubic
 	title = "Uxim'zu Qoobic"
@@ -505,9 +545,11 @@
 /singleton/hierarchy/outfit/fort_manticore/cubic
 	name = "Uxim'zu Qoobic"
 
-	l_ear = /obj/item/device/radio/headset
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/manticore/cubic
+	name = "Uxim'zu Qoobic"
 
 /datum/job/submap/fort_manticore/luke
 	title = "Luke Liltroy"
@@ -517,9 +559,11 @@
 /singleton/hierarchy/outfit/fort_manticore/luke
 	name = "Luke Liltroy"
 
-	l_ear = /obj/item/device/radio/headset
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/manticore/luke
+	name = "Luke Liltroy"
 
 /datum/job/submap/fort_manticore/adriano
 	title = "Adriano Martiesa"
@@ -529,6 +573,25 @@
 /singleton/hierarchy/outfit/fort_manticore/adriano
 	name = "Adriano Martiesa"
 
-	l_ear = /obj/item/device/radio/headset
+	l_ear = /obj/item/device/radio/headset/syndicate
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/manticore/adriano
+	name = "Adriano Martiesa"
+
+/datum/job/submap/fort_manticore/lin
+	title = "Lin Mei"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/fort_manticore/lin
+
+/singleton/hierarchy/outfit/fort_manticore/lin
+	name = "Lin Mei"
+
+	head = /obj/item/clothing/head/beret/lin
+
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/manticore/lin
+	name = "Lin Mei"
