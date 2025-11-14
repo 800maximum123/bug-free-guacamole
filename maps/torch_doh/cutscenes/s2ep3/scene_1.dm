@@ -210,7 +210,7 @@
 	actions = list(
 		TP_CAMERA("Сцена 3-1 - Кадр 2"),
 		MOVE_CAMERA(0, 18, 0, null),
-		MOVE_CAMERA(0, -20, 4 SECONDS, SINE_EASING|EASE_OUT),
+		MOVE_CAMERA(0, -20, 4 SECONDS, SINE_EASING|EASE_IN),
 		ADD_SCREEN(/cinema_borders),
 		MOVE_ACTOR(actor("Мех 2 - 3-1-2"), SOUTH),
 		MOVE_ACTOR(actor("Мех 3 - 3-1-2"), SOUTH),
