@@ -112,6 +112,13 @@
 /area/fort_manticore/rooms/martiesa
 	name = "Rooms - Martiesa"
 
+/obj/item/fd/perci_robo_parts
+	name = "Часть робота"
+	desc = "Одна из запчастей диковиного робота, которого Коди нашёл на городской свалке. Ещё до того, как его забрали..."
+	icon = 'mods/_fd/_maps/fort_manticore/icons/zakterar_robot.dmi'
+	icon_state = "mister robato"
+	w_class = ITEM_SIZE_NORMAL
+
 // Боевой эквип Мантикоры
 /obj/item/clothing/under/manticore_combat
 	name = "tactical turtleneck"
@@ -284,9 +291,8 @@
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		new item_to_spawn(H)
+		qdel(src)
 /obj/item/fd/custom_implanter/roku
-	name = "Удаляется после инита так что похуй?"
-	desc = "Сейм щит"
 	item_to_spawn = /obj/item/organ/internal/augment/adrenalin_injection
 
 /obj/item/storage/pill_bottle/foodpill
@@ -342,6 +348,9 @@
 
 /singleton/hierarchy/outfit/fort_manticore/ace
 	name = "Mortimer Ace"
+
+	shoes = /obj/item/clothing/shoes/noble_boots
+	suit = /obj/item/clothing/suit/storage/toggle/edgecoat
 
 	l_ear = /obj/item/device/radio/headset/syndicate
 	id_types = list(/obj/item/card/id/campaign)
@@ -440,9 +449,40 @@
 	title = "Lukash Prochazka"
 	total_positions = 1
 	outfit_type = /singleton/hierarchy/outfit/fort_manticore/lukash
+/obj/item/clothing/accessory/badge/dog_tags_lukash
+	name = "Жетоны"
+	desc = "Поржавевшие военные жетоны."
+	gender = PLURAL
+	icon_state = "tags"
+	icon = 'mods/_fd/fd_assets/icons/obj/items/card.dmi'
+	accessory_icons = list(slot_w_uniform_str = 'maps/torch/icons/mob/onmob_accessories_solgov.dmi', slot_wear_suit_str = 'maps/torch/icons/mob/onmob_accessories_solgov.dmi')
+	badge_string = null
+	slot_flags = SLOT_MASK | SLOT_TIE
+/obj/item/clothing/accessory/badge/dog_tags_lukash/MouseEntered(location, control, params)
+	var/content_of_tooltip = get_additional_info()
+	openToolTip(user = usr, tip_src = src, params = params, title = name, content = content_of_tooltip)
+	..()
+/obj/item/clothing/accessory/badge/dog_tags_lukash/proc/get_additional_info() // Полностью оверрайдим на юните
+	var/list/info = list()
 
+	info += FONT_LARGE("SCG // SOL CENTRAL GOVERNMENT")
+	info += FONT_NORMAL("<li>VESSEL: [SPAN_COLOR("#ffffff","SCG-DDV-82 \"BELLENTAR\"")]</li>")
+	info += FONT_NORMAL("<br>")
+	info += FONT_NORMAL("<li>NAME: [SPAN_COLOR("#ffffff","PROCHAZKA LUKASH")]</li>")
+	info += FONT_NORMAL("<li>RANK: [SPAN_COLOR("#ffffff","PETTY OFICCER II CLASS")]</li>")
+	info += FONT_NORMAL("<br>")
+	info += FONT_NORMAL("<li>ID: [SPAN_COLOR("#ffffff","SCG-LNCH-022476")]</li>")
+	info += FONT_NORMAL("<li>BLOOD TYPE: [SPAN_COLOR("#ffffff","A-")]</li>")
+	info += FONT_NORMAL("<li>RELIGION: [SPAN_COLOR("#ffffff","NONE")]</li>")
+	info += FONT_NORMAL("<br>")
+	info += FONT_LARGE("<li>[SPAN_COLOR("#ff0000","MACHINA SERVIT HUMANITATI")]</li>")
+	info += FONT_SMALL("MACHINA SIBI SOLA SERVIT")
+
+	return jointext(info, "")
 /singleton/hierarchy/outfit/fort_manticore/lukash
 	name = "Lukash Prochazka"
+
+	mask = /obj/item/clothing/accessory/badge/dog_tags_lukash
 
 	l_ear = /obj/item/device/radio/headset/syndicate
 	id_types = list(/obj/item/card/id/campaign)
@@ -488,11 +528,24 @@
 /singleton/hierarchy/outfit/fort_manticore/kai
 	name = "Ufurzar Shuurr'kai"
 
+	r_hand = /obj/item/material/twohanded/spear/assashite
+
+	suit = /obj/item/clothing/suit/storage/hooded/assashite_raincoat
+	mask = /obj/item/clothing/accessory/assashite/amulet
+
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 
 /obj/submap_landmark/spawnpoint/manticore/kai
 	name = "Ufurzar Shuurr'kai"
+
+/obj/item/clothing/under/plugsuit_vatgrown
+	name = "pilot plugsuit"
+	desc = "An modern answer to pilot safety."
+	icon = 'mods/_fd/_maps/fort_manticore/icons/clothing.dmi'
+	item_icons = list(slot_w_uniform_str = 'mods/_fd/_maps/fort_manticore/icons/clothing_mob.dmi')
+	icon_state = "bodyglove"
+	worn_state = "bodyglove"
 
 /datum/job/submap/fort_manticore/cf355
 	title = "CF-355"
@@ -516,6 +569,7 @@
 /singleton/hierarchy/outfit/fort_manticore/rk381
 	name = "RK-381"
 
+	uniform = /obj/item/clothing/under/plugsuit_vatgrown
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 
@@ -572,6 +626,9 @@
 
 /singleton/hierarchy/outfit/fort_manticore/adriano
 	name = "Adriano Martiesa"
+
+	uniform = /obj/item/clothing/under/solgov/utility/fleet
+	suit = /obj/item/clothing/suit/storage/solgov/dress/fleet/command
 
 	l_ear = /obj/item/device/radio/headset/syndicate
 	id_types = list(/obj/item/card/id/campaign)
