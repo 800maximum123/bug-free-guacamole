@@ -131,6 +131,7 @@
 	response_harm = "kicks"
 
 	health = 30
+	maxHealth = 30
 	pass_flags = PASS_FLAG_TABLE
 	mob_size = MOB_MEDIUM
 
@@ -141,6 +142,47 @@
 	skin_material = MATERIAL_SKIN_LIZARD
 
 	ai_holder = /datum/ai_holder/simple_animal/ranged/kiting
+	faction = "TRK-17 ANIMALS"
+
+	pixel_x = -8
+
+/obj/structure/fd/radio_tower
+	name = "Вышка дальней связи"
+	desc = "Когда-то - эта антенна была нашим единственным способом оставаться в курсе событий. Теперь же, что целая, что сломанная - толку от неё ноль. Радио молчит."
+	icon = 'mods/_fd/_maps/fort_manticore/icons/motion_sensor_v2.dmi'
+	icon_state = "sensor_broken"
+	density = TRUE
+	anchored = TRUE
+
+/mob/living/simple_animal/hostile/retaliate/bob
+	name = "big turtle"
+	desc = "It's friendly. Just don't get in the way"
+
+	icon = 'mods/_fd/_maps/fort_manticore/icons/big_bobby.dmi'
+	icon_state = "bob"
+	icon_living = "bob"
+	icon_dead = "bob_dead"
+
+	turns_per_move = 2
+	movement_cooldown = 4
+	see_in_dark = 6
+
+	response_help = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm = "kicks"
+
+	health = 500
+	maxHealth = 500
+	mob_size = MOB_LARGE
+
+	natural_weapon = /obj/item/natural_weapon/giant
+	break_stuff_probability = 80
+
+	ai_holder = /datum/ai_holder/simple_animal/retaliate
+	faction = "TRK-17 ANIMALS"
+
+	pixel_x = -32
+	pixel_y = -16
 
 /obj/item/fd/perci_robo_parts
 	name = "Часть робота"
@@ -311,7 +353,6 @@
 	title = "DAIS-Roku-2349"
 	total_positions = 1
 	outfit_type = /singleton/hierarchy/outfit/fort_manticore/roku
-
 /obj/item/fd/custom_implanter
 	name = "Удаляется после инита так что похуй?"
 	desc = "Сейм щит"
@@ -324,7 +365,6 @@
 		qdel(src)
 /obj/item/fd/custom_implanter/roku
 	item_to_spawn = /obj/item/organ/internal/augment/adrenalin_injection
-
 /obj/item/storage/pill_bottle/foodpill
 	name = "pill bottle (Нутрименты)"
 	desc = "Баночка с пилюлями сомнительного вкуса. Зато питательно и сразу рвёшься в бой."
@@ -462,9 +502,12 @@
 	charge = 300
 	cooldown = 0.5 SECONDS
 	restricted_hardpoints = list(HARDPOINT_RIGHT_SHOULDER)
-
+/obj/item/fd/custom_implanter/rain
+	item_to_spawn = /obj/item/organ/internal/augment/ibis
 /singleton/hierarchy/outfit/fort_manticore/rain
 	name = "Emmy Rain"
+
+	r_hand = /obj/item/fd/custom_implanter/rain
 
 	uniform = /obj/item/clothing/under/ibis
 	head = /obj/item/clothing/head/helmet/ibis
