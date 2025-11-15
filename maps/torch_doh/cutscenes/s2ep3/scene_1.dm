@@ -42,6 +42,38 @@
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 8 SECONDS)
 
+/proc/mech1_lost()
+	var/novel_message = "C4-003 VITAL SIGNS LOST"
+	var/colored = PIPE_COLOR_RED
+
+	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	visuals.maptext_x = -110
+	visuals.maptext_y = -390
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 10 SECONDS)
+
+/proc/mech2_lost()
+	var/novel_message = "C4-004 VITAL SIGNS LOST"
+	var/colored = PIPE_COLOR_RED
+
+	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	visuals.maptext_x = -110
+	visuals.maptext_y = -400
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 8 SECONDS)
+
+/proc/awayoutforemmy()
+	var/novel_message = "CALCULATING POSSIBLE SOLUTION..."
+	var/colored = PIPE_COLOR_YELLOW
+
+	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	visuals.maptext_x = -120
+	visuals.maptext_y = -410
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 6 SECONDS)
 
 /proc/inthepast1()
 	var/novel_message = "2317-04-11 |"
@@ -147,7 +179,7 @@
 	actions = list(
 		ADD_SCREEN(/blackout/animated_better) = 2 SECONDS,
 		CALL_GLOB(episode2_sponsors),
-		CALL_GLOB(episode2_sponsors2) = 8 SECONDS,
+		CALL_GLOB(episode2_sponsors2) = 10 SECONDS,
 		CALL_GLOB(inthepast1) = 2 SECONDS,
 		CALL_GLOB(inthepast2) = 8 SECONDS,
 		REMOVE_SCREEN(/blackout/animated_better, 1 SECONDS),
@@ -192,17 +224,18 @@
 		PLAY_SOUND(sound('sound/machines/engine.ogg', volume = 5)) = 0.5 SECONDS,
 		PLAY_SOUND(sound('sound/effects/footstep/asteroid1.ogg', volume = 70)),
 		MOVE_ACTOR(actor("Солдат 1 - 3-1-1"), NORTH) = 1 SECONDS,
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/AC5.ogg', volume = 30)),
 		ADD_SCREEN(/blackout/animated_better),
 		PLAY_SOUND(sound('sound/effects/footstep/asteroid3.ogg', volume = 70)),
 		MOVE_ACTOR(actor("Солдат 1 - 3-1-1"), NORTH) = 2 SECONDS,
 		CHANGE_ACTOR_VISUALS(actor("Солдат 1 - 3-1-1"), "Mech Pilot"),
 		TURN_ACTOR(actor("Солдат 1 - 3-1-1"), WEST),
 		PLAY_SOUND(sound('sound/effects/footstep/asteroid4.ogg', volume = 70)),
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/ambienceriver.ogg', volume = 50)),
 		MOVE_ACTOR(actor("Солдат 1 - 3-1-1"), NORTH) = 2 SECONDS,
 		TURN_ACTOR(actor("Солдат 1 - 3-1-1"), NORTH),
 		PLAY_SOUND(sound('sound/effects/footstep/asteroid1.ogg', volume = 70)),
-		MOVE_ACTOR(actor("Солдат 1 - 3-1-1"), NORTH),
-		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/ambienceriver.ogg', volume = 50)) = 4 SECONDS,
+		MOVE_ACTOR(actor("Солдат 1 - 3-1-1"), NORTH) = 8 SECONDS,
 		START_CUTSCENE(/datum/modular_cutscene/s2ep3sc2)
 	)
 
@@ -215,6 +248,7 @@
 		MOVE_ACTOR(actor("Мех 2 - 3-1-2"), SOUTH),
 		MOVE_ACTOR(actor("Мех 3 - 3-1-2"), SOUTH),
 		MOVE_ACTOR(actor("Мех 4 - 3-1-2"), SOUTH),
+		PLAY_SOUND(sound('sound/weapons/Laser2.ogg', volume = 10)),
 		MOVE_ACTOR(actor("Выстрел 1 - 3-1-2"), NORTH),
 		MOVE_ACTOR(actor("Мех 1 - 3-1-2"), SOUTH) = 0.1 SECONDS,
 		MOVE_ACTOR(actor("Выстрел 1 - 3-1-2"), NORTH) = 0.1 SECONDS,
@@ -241,12 +275,14 @@
 		MOVE_ACTOR(actor("Мех 4 - 3-1-2"), SOUTH),
 		MOVE_ACTOR(actor("Выстрел 1 - 3-1-2"), NORTH),
 		PLAY_SOUND(sound('sound/machines/thruster.ogg', volume = 10)),
+		PLAY_SOUND(sound('sound/weapons/guns/miss4.ogg', volume = 30)),
 		MOVE_ACTOR(actor("Мех 1 - 3-1-2"), EAST) = 0.1 SECONDS,
 		MOVE_ACTOR(actor("Выстрел 1 - 3-1-2"), NORTH),
 		MOVE_ACTOR(actor("Мех 1 - 3-1-2"), SOUTH) = 0.1 SECONDS,
 		MOVE_ACTOR(actor("Мех 2 - 3-1-2"), SOUTH),
 		MOVE_ACTOR(actor("Мех 3 - 3-1-2"), SOUTH),
 		MOVE_ACTOR(actor("Мех 4 - 3-1-2"), SOUTH),
+		PLAY_SOUND(sound('sound/weapons/Laser2.ogg', volume = 10)),
 		MOVE_ACTOR(actor("Выстрел 2 - 3-1-2"), NORTH),
 		MOVE_ACTOR(actor("Выстрел 1 - 3-1-2"), NORTH),
 		MOVE_ACTOR(actor("Мех 1 - 3-1-2"), SOUTH) = 0.1 SECONDS,
@@ -314,6 +350,9 @@
 		MOVE_ACTOR(actor("Мех 2 - 3-1-2"), SOUTH),
 		MOVE_ACTOR(actor("Мех 1 - 3-1-2"), SOUTH) = 0.2 SECONDS,
 		ADD_SCREEN(/blackout) = 2 SECONDS,
+		CALL_GLOB(mech1_lost) = 2 SECONDS,
+		CALL_GLOB(mech2_lost) = 2 SECONDS,
+		CALL_GLOB(awayoutforemmy) = 8 SECONDS,
 		START_CUTSCENE(/datum/modular_cutscene/s2ep3sc3)
 	)
 
@@ -330,13 +369,13 @@
 		TALK_ACTOR(actor("Эмми - В мехе"), "Они помогут себе сами!") = 2 SECONDS,
 		PLAY_SOUND(sound('sound/mecha/mechstep01.ogg', volume = 10)),
 		CREATE_SPARK(actor("Солдат - 3-1-3")),
+		PLAY_SOUND(sound('sound/mecha/critdestrnano.ogg', volume = 30)),
 		SHAKE_SCENE(5, 1) = 2 SECONDS,
 		CHANGE_ACTOR_VISUALS(actor("Эмми - В мехе"), "EP3 PAGE 1 - 2"),
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/AC5.ogg', volume = 30)),
 		TALK_ACTOR(actor("Эмми - В мехе"), "У нас всё ещё есть ЗАДАЧА, которую нужно выполнить!") = 2 SECONDS,
-		PLAY_SOUND(sound('sound/mecha/critdestrnano.ogg', volume = 10)),
 		ADD_SCREEN(/blackout) = 4 SECONDS,
-		TALK_ACTOR(actor("Эмми - В мехе"), "Прошу...сконцентрируйся на ней.") = 4 SECONDS,
-		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/ambienceriver.ogg', volume = 50)) = 2 SECONDS,
+		TALK_ACTOR(actor("Эмми - В мехе"), "Прошу...сконцентрируйся на ней.") = 6 SECONDS,
 		START_CUTSCENE(/datum/modular_cutscene/s2ep3sc4)
 	)
 
@@ -344,12 +383,13 @@
 	actions = list(
 		TP_CAMERA("Сцена 3-1 - Кадр 4"),
 		ADD_SCREEN(/cinema_borders),
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/ambienceriver.ogg', volume = 50)),
 		TALK_ACTOR(actor("Мех 2 - 3-1-4"), "Командир...!"),
 		SHIFT_ACTOR(actor("Восхожденец 2 - 3-1-4"), -10, -11, 0.5 SECONDS, SINE_EASING|EASE_IN, null),
 		SHIFT_ACTOR(actor("Мех 2 - 3-1-4"), 5, 16, 0.5 SECONDS, SINE_EASING|EASE_IN, ANIMATION_PARALLEL),
 		CREATE_SPARK(actor("Мех 2 - 3-1-4")),
 		CHANGE_ACTOR_COLOR(actor("Мех 2 - 3-1-4"), "#ff0000", 0.5 SECONDS, SINE_EASING, ANIMATION_PARALLEL),
-
+		PLAY_SOUND(sound('sound/weapons/guns/casingfall1.ogg', volume = 10)),
 		PLAY_SOUND(sound('sound/weapons/gunshot/mech_autocannon.ogg', volume = 30)),
 		SHIFT_ACTOR(actor("Мех 1 - 3-1-4"), 8, 40, 0.1 SECONDS, SINE_EASING|EASE_IN, null),
 		CHANGE_ACTOR_VISIBILITY(actor("Снаряд 1 - 3-1-4"), 255, 0.2 SECONDS, SINE_EASING, null),
@@ -367,6 +407,7 @@
 		SHIFT_ACTOR(actor("Восхожденец 1 - 3-1-4"), 0, 0, 0.2 SECONDS, SINE_EASING|EASE_IN, null) = 0.3 SECONDS,
 		CHANGE_ACTOR_COLOR(actor("Восхожденец 1 - 3-1-4"), "#622ceb", 0.5 SECONDS, SINE_EASING, ANIMATION_PARALLEL) = 0.2 SECONDS,
 
+		PLAY_SOUND(sound('sound/weapons/guns/casingfall3.ogg', volume = 10)),
 		PLAY_SOUND(sound('sound/weapons/gunshot/mech_autocannon.ogg', volume = 30)),
 		SHIFT_ACTOR(actor("Мех 1 - 3-1-4"), 8, 40, 0.1 SECONDS, SINE_EASING|EASE_IN, null),
 		CHANGE_ACTOR_VISIBILITY(actor("Снаряд 2 - 3-1-4"), 255, 0.2 SECONDS, SINE_EASING, null),
@@ -386,6 +427,7 @@
 		MOVE_ACTOR(actor("Восхожденец 1 - 3-1-4"), SOUTH) = 0.2 SECONDS,
 		MOVE_ACTOR(actor("Мех 1 - 3-1-4"), SOUTH) = 0.2 SECONDS,
 
+		PLAY_SOUND(sound('sound/weapons/guns/casingfall2.ogg', volume = 10)),
 		PLAY_SOUND(sound('sound/weapons/gunshot/mech_autocannon.ogg', volume = 30)),
 		SHIFT_ACTOR(actor("Мех 1 - 3-1-4"), 8, 40, 0.1 SECONDS, SINE_EASING|EASE_IN, null),
 		CHANGE_ACTOR_VISIBILITY(actor("Снаряд 3 - 3-1-4"), 255, 0.2 SECONDS, SINE_EASING, null),
@@ -506,7 +548,7 @@
 		ADD_SCREEN(/blackout/animated_better) = 1 SECONDS,
 		MOVE_ACTOR(actor("Инженер - 3-1-9"), NORTH) = 0.2 SECONDS,
 		TURN_ACTOR(actor("Инженер - 3-1-9"), EAST),
-		TALK_ACTOR(actor("Инженер - 3-1-9"), "Да она в отключке, кому ты кричишь!?"),
+		TALK_ACTOR(actor("Инженер - 3-1-9"), "Да она в отключке, кому ты кричишь!?") = 2 SECONDS,
 		CALL_GLOB(credits_name) = 10 SECONDS,
 		CALL_GLOB(manticore_day) = 2 SECONDS,
 		CALL_GLOB(manticore_day2) = 8 SECONDS,
@@ -521,18 +563,23 @@
 		CHANGE_ACTOR_MATRIX(actor("Эмми - 3-1-10"), 90, 0, null, null),
 		TALK_ACTOR(actor("Четвёртая - 3-1-10"), "Я серьёзно. Ты вставать собираешься?") = 4 SECONDS,
 		REMOVE_SCREEN(/blackout, 2 SECONDS) = 2 SECONDS,
+		PLAY_SOUND(sound('sound/weapons/punchmiss.ogg', volume = 5)),
 		SHIFT_ACTOR(actor("Четвёртая - 3-1-10"), -10, 17, 0.5 SECONDS, SINE_EASING|EASE_IN, ANIMATION_PARALLEL),
 		CHANGE_ACTOR_MATRIX(actor("Четвёртая - 3-1-10"), -35, 0.5 SECONDS, SINE_EASING|EASE_IN, ANIMATION_PARALLEL) = 2 SECONDS,
 		TALK_ACTOR(actor("Четвёртая - 3-1-10"), "!недовольно щёлкает пальцами."),
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/Tekkadan.ogg', volume = 30)),
 		TALK_ACTOR(actor("Четвёртая - 3-1-10"), "Ау? Хьюстон? У нас проблемы?") = 2 SECONDS,
 		TURN_ACTOR(actor("Четвёртая - 3-1-10"), NORTH),
+		PLAY_SOUND(sound('sound/weapons/punchmiss.ogg', volume = 5)),
 		SHIFT_ACTOR(actor("Четвёртая - 3-1-10"), -24, -10, 1 SECONDS, SINE_EASING|EASE_IN, ANIMATION_PARALLEL),
 		CHANGE_ACTOR_MATRIX(actor("Четвёртая - 3-1-10"), 0, 1 SECONDS, SINE_EASING|EASE_IN, ANIMATION_PARALLEL),
 		TALK_ACTOR(actor("Эмми - 3-1-10"), "!морщится.") = 4 SECONDS,
 		TURN_ACTOR(actor("Эмми - 3-1-10"), SOUTH),
 		CHANGE_ACTOR_VISUALS(actor("Эмми - 3-1-10"), "EP3 PAGE 1 - 6"),
 		CHANGE_ACTOR_MATRIX(actor("Эмми - 3-1-10"), 0, 1 SECOND, SINE_EASING|EASE_IN, null) = 2 SECONDS,
+		PLAY_SOUND(sound('mods/emote_panel/sound/yawn_female_2.ogg', volume = 5)),
 		TALK_ACTOR(actor("Эмми - 3-1-10"), "!широко зевает.") = 2 SECONDS,
+		PLAY_SOUND(sound('sound/weapons/punchmiss.ogg', volume = 5)),
 		TURN_ACTOR(actor("Четвёртая - 3-1-10"), WEST),
 		SHIFT_ACTOR(actor("Четвёртая - 3-1-10"), 11, -5, 0.5 SECONDS, SINE_EASING|EASE_OUT, null),
 		TURN_ACTOR(actor("Эмми - 3-1-10"), EAST) = 2 SECONDS,
@@ -576,33 +623,78 @@
 		TALK_ACTOR(actor("Эмми - 3-1-10"), "...таращиться?") = 4 SECONDS,
 		MOVE_ACTOR(actor("Четвёртая - 3-1-10"), EAST),
 		TURN_ACTOR(actor("Четвёртая - 3-1-10"), SOUTH),
+		PLAY_SOUND(sound('sound/weapons/punchmiss.ogg', volume = 5)),
 		SHIFT_ACTOR(actor("Четвёртая - 3-1-10"), 32, 32, 2 SECONDS, SINE_EASING|EASE_IN, ANIMATION_PARALLEL),
 		CHANGE_ACTOR_MATRIX(actor("Четвёртая - 3-1-10"), 180, 2 SECONDS, SINE_EASING|EASE_OUT, ANIMATION_PARALLEL),
 		TALK_ACTOR(actor("Четвёртая - 3-1-10"), "Типа того. Ты делаешь это...каждый день.") = 6 SECONDS,
-		TALK_ACTOR(actor("Эмми - 3-1-10"), "!посмеивается, делая ещё один глоток."),
-		TALK_ACTOR(actor("Эмми - 3-1-10"), "Ритуал у меня такой. Пять минут, каждое утро, кофе с добавлением несбыточных мечтаний.") = 6 SECONDS,
+		PLAY_SOUND(sound('packs/infinity/sound/voice/giggle_female_3.ogg', volume = 30)),
+		TALK_ACTOR(actor("Эмми - 3-1-10"), "!посмеивается, делая ещё один сёрб."),
+		TALK_ACTOR(actor("Эмми - 3-1-10"), "Ритуал у меня такой. Пять минут, каждое утро...") = 4 SECONDS,
+		TALK_ACTOR(actor("Эмми - 3-1-10"), "...кофе с добавлением щепотки несбыточных мечтаний.") = 6 SECONDS,
 		MOVE_ACTOR(actor("Четвёртая - 3-1-10"), EAST),
 		TURN_ACTOR(actor("Четвёртая - 3-1-10"), WEST),
+		PLAY_SOUND(sound('sound/weapons/punchmiss.ogg', volume = 5)),
 		SHIFT_ACTOR(actor("Четвёртая - 3-1-10"), 32, 0, 2 SECONDS, SINE_EASING|EASE_IN, ANIMATION_PARALLEL),
 		CHANGE_ACTOR_MATRIX(actor("Четвёртая - 3-1-10"), 0, 2 SECONDS, SINE_EASING|EASE_OUT, ANIMATION_PARALLEL) = 4 SECONDS,
 		TALK_ACTOR(actor("Четвёртая - 3-1-10"), "Звучишь жалко.") = 4 SECONDS,
+		PLAY_SOUND(sound('mods/emote_panel/sound/sigh_female.ogg', volume = 30)),
 		TALK_ACTOR(actor("Эмми - 3-1-10"), "!вздыхает.") = 2 SECONDS,
 		TALK_ACTOR(actor("Эмми - 3-1-10"), "Иначе и не пыталась.") = 4 SECONDS,
 		TALK_ACTOR(actor("Эмми - 3-1-10"), "!бросает стакан за спину.") = 4 SECONDS,
-		TURN_ACTOR(actor("Эмми - 3-1-10"), WEST),
+
+		MOVE_ACTOR(actor("Эмми - 3-1-10"), EAST),
+		MOVE_ACTOR(actor("Эмми - 3-1-10"), EAST),
+		CHANGE_ACTOR_VISUALS(actor("Эмми - 3-1-10"), "EP3 PAGE 1 - 10"),
+
+		MOVE_ACTOR(actor("Четвёртая - 3-1-10"), SOUTH),
+		TURN_ACTOR(actor("Четвёртая - 3-1-10"), EAST),
+		SHIFT_ACTOR(actor("Четвёртая - 3-1-10"), -20, -20, 0, null, ANIMATION_PARALLEL),
+		CHANGE_ACTOR_MATRIX(actor("Четвёртая - 3-1-10"), -30, 0, null, ANIMATION_PARALLEL) = 1 SECONDS,
+
+		SHIFT_ACTOR(actor("Эмми - 3-1-10"), 10, 0, 0.5 SECONDS, SINE_EASING|EASE_OUT, null),
+		TALK_ACTOR(actor("Эмми - 3-1-10"), "!фиксирует бинт на руке.") = 4 SECONDS,
+
 		MOVE_ACTOR(actor("Эмми - 3-1-10"), NORTH),
 		MOVE_ACTOR(actor("Эмми - 3-1-10"), NORTH),
-		CHANGE_ACTOR_VISUALS(actor("Эмми - 3-1-10"), "Current"),
-		TALK_ACTOR(actor("Эмми - 3-1-10"), "!защёлкивает шлем на шее.") = 2 SECONDS,
-		TURN_ACTOR(actor("Эмми - 3-1-10"), SOUTH) = 2 SECONDS,
-		TALK_ACTOR(actor("Эмми - 3-1-10"), "Идёшь? Сама говорила - нас ждать не будут.") = 8 SECONDS,
-		TALK_ACTOR(actor("Четвёртая - 3-1-10"), "!закатила глаза.") = 4 SECONDS,
+		TURN_ACTOR(actor("Эмми - 3-1-10"), NORTH),
+		SHIFT_ACTOR(actor("Эмми - 3-1-10"), 0, 0, 0, null, null),
+		CHANGE_ACTOR_VISUALS(actor("Эмми - 3-1-10"), "EP3 PAGE 1 - 11"),
+
+		MOVE_ACTOR(actor("Четвёртая - 3-1-10"), NORTH),
+		MOVE_ACTOR(actor("Четвёртая - 3-1-10"), NORTH),
+		TURN_ACTOR(actor("Четвёртая - 3-1-10"), NORTH),
+		SHIFT_ACTOR(actor("Четвёртая - 3-1-10"), 0, -32, 0, null, ANIMATION_PARALLEL),
+		CHANGE_ACTOR_MATRIX(actor("Четвёртая - 3-1-10"), 180, 0, null, ANIMATION_PARALLEL) = 1 SECONDS,
+
+		SHIFT_ACTOR(actor("Четвёртая - 3-1-10"), 0, -48, 1 SECONDS, SINE_EASING|EASE_OUT, null),
+		TALK_ACTOR(actor("Эмми - 3-1-10"), "!натягивает рукав бомбера.") = 6 SECONDS,
+
+		MOVE_ACTOR(actor("Четвёртая - 3-1-10"), EAST),
+		MOVE_ACTOR(actor("Четвёртая - 3-1-10"), SOUTH),
+		MOVE_ACTOR(actor("Четвёртая - 3-1-10"), SOUTH),
+		TURN_ACTOR(actor("Четвёртая - 3-1-10"), WEST),
+		SHIFT_ACTOR(actor("Четвёртая - 3-1-10"), 0, 0, 0, null, ANIMATION_PARALLEL),
+		CHANGE_ACTOR_MATRIX(actor("Четвёртая - 3-1-10"), 0, 0, null, ANIMATION_PARALLEL),
+
 		TURN_ACTOR(actor("Эмми - 3-1-10"), WEST),
 		MOVE_ACTOR(actor("Эмми - 3-1-10"), WEST),
+		MOVE_ACTOR(actor("Эмми - 3-1-10"), WEST),
+		CHANGE_ACTOR_VISUALS(actor("Эмми - 3-1-10"), "Current"),
+		TALK_ACTOR(actor("Эмми - 3-1-10"), "!защёлкивает ремень шлема.") = 4 SECONDS,
+
+		TURN_ACTOR(actor("Эмми - 3-1-10"), SOUTH) = 2 SECONDS,
+		TALK_ACTOR(actor("Эмми - 3-1-10"), "Ты в нём точно дыру просверлишь.") = 4 SECONDS,
+
+		TURN_ACTOR(actor("Эмми - 3-1-10"), WEST),
+		MOVE_ACTOR(actor("Эмми - 3-1-10"), WEST),
+
+		TALK_ACTOR(actor("Четвёртая - 3-1-10"), "!бурчит.") = 2 SECONDS,
 		TALK_ACTOR(actor("Четвёртая - 3-1-10"), "Поумничай ещё."),
+		MOVE_ACTOR(actor("Эмми - 3-1-10"), WEST) = 1.5 SECONDS,
+
 		SHIFT_ACTOR(actor("Четвёртая - 3-1-10"), -96, 48, 4 SECONDS, SINE_EASING|EASE_IN, ANIMATION_PARALLEL),
 		CHANGE_ACTOR_MATRIX(actor("Четвёртая - 3-1-10"), -65, 4 SECONDS, SINE_EASING|EASE_OUT, ANIMATION_PARALLEL) = 2 SECONDS,
-		MOVE_ACTOR(actor("Эмми - 3-1-10"), WEST) = 1.5 SECONDS,
+
 		ADD_SCREEN(/blackout),
 		CALL_GLOB(episode3_name),
 		CALL_GLOB(episode3_name2) = 10 SECONDS,

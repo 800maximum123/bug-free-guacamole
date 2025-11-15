@@ -109,6 +109,15 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 		alpha = 0
 	QDEL_IN(src, time)
 
+/obj/screen/novel_message/start_credits/nofade_simple
+	alpha = 255
+/obj/screen/novel_message/start_credits/nofade_simple/set_text(text, text_color, time = 5 SECONDS)
+	maptext = "<span class='maptext' style='text-align: center; font-size: 300%; color: [text_color]'>[text]</span>"
+
+	spawn(time)
+		alpha = 0
+	QDEL_IN(src, time)
+
 /obj/screen/novel_message/start_credits/big/set_text(text, text_color, time = 5 SECONDS)
 	SetTransform(2)
 	var/countdown = time + 6 SECONDS

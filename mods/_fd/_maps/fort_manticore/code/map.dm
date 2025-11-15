@@ -112,6 +112,36 @@
 /area/fort_manticore/rooms/martiesa
 	name = "Rooms - Martiesa"
 
+/mob/living/simple_animal/passive/trk17/friendly_dino
+	name = "\improper creature"
+	desc = "Big, but stupid reptile, more close to the prey than predator."
+
+	icon = 'mods/_fd/_maps/fort_manticore/icons/dino.dmi'
+	icon_state = "dino"
+	icon_living = "dino"
+	icon_dead = "dino_dead"
+	icon_gib = "chick_gib"
+
+	speak_emote = list("hisses")
+	turns_per_move = 2
+	movement_cooldown = 1
+
+	response_help = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm = "kicks"
+
+	health = 30
+	pass_flags = PASS_FLAG_TABLE
+	mob_size = MOB_MEDIUM
+
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/chicken
+	meat_amount = 4
+	bone_amount = 6
+	skin_amount = 4
+	skin_material = MATERIAL_SKIN_LIZARD
+
+	ai_holder = /datum/ai_holder/simple_animal/ranged/kiting
+
 /obj/item/fd/perci_robo_parts
 	name = "Часть робота"
 	desc = "Одна из запчастей диковиного робота, которого Коди нашёл на городской свалке. Ещё до того, как его забрали..."
