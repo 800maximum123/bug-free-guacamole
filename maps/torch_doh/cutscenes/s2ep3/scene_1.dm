@@ -48,7 +48,7 @@
 
 	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
 	visuals.maptext_x = -100
-	visuals.maptext_y = 100
+	visuals.maptext_y = 0
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 10 SECONDS)
@@ -91,7 +91,7 @@
 	var/colored = CABLE_COLOR_GREEN
 
 	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
-	visuals.maptext_x = -65
+	visuals.maptext_x = -60
 	visuals.maptext_y = -410
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
