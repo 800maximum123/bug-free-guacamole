@@ -1175,6 +1175,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/bomber/main_deck/west_wing)
+"dp" = (
+/obj/structure/table/reinforced,
+/obj/item/clothing/glasses/welding{
+	pixel_y = 5
+	},
+/obj/item/weldingtool,
+/turf/simulated/floor/plating,
+/area/fort_manticore/jungle)
 "ds" = (
 /obj/paint/silver,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2944,6 +2952,11 @@
 /obj/structure/railing/mapped{
 	dir = 8;
 	icon_state = "railing0-1"
+	},
+/obj/floor_decal/step{
+	color = "grey";
+	dir = 8;
+	pixel_x = 17
 	},
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#6E8C44"
@@ -5299,6 +5312,15 @@
 /obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/armored,
 /area/fort_manticore/jungle)
+"pJ" = (
+/obj/structure/fd/radio_tower{
+	pixel_x = -13;
+	layer = 4.10;
+	pixel_y = 6
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/fort_manticore/jungle)
 "pL" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 10
@@ -5335,6 +5357,11 @@
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#6E8C44"
 	},
+/area/fort_manticore/jungle)
+"pO" = (
+/obj/structure/grille,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
 /area/fort_manticore/jungle)
 "pP" = (
 /obj/floor_decal/messygrass{
@@ -7467,6 +7494,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/bomber/main_deck/bridge)
+"vM" = (
+/obj/item/wrench{
+	pixel_y = 12
+	},
+/obj/decal/cleanable/generic,
+/turf/simulated/floor/plating,
+/area/fort_manticore/jungle)
 "vN" = (
 /obj/structure/fake_lattice,
 /obj/machinery/shield_diffuser,
@@ -13577,6 +13611,19 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/bomber/main_deck/west_wing)
+"Ov" = (
+/obj/floor_decal/hull{
+	dir = 1
+	},
+/obj/floor_decal/step{
+	color = "grey";
+	dir = 1;
+	pixel_y = -17
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
+	},
+/area/fort_manticore/jungle)
 "Ow" = (
 /obj/floor_decal/industrial/outline/yellow,
 /obj/structure/table/steel_reinforced{
@@ -13946,6 +13993,7 @@
 	dir = 4;
 	icon_state = "railing0-1"
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#5F773B"
 	},
@@ -13957,6 +14005,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/turf/simulated/floor/plating,
+/area/fort_manticore/jungle)
+"Ps" = (
+/obj/machinery/power/port_gen/pacman,
 /turf/simulated/floor/plating,
 /area/fort_manticore/jungle)
 "Pt" = (
@@ -14010,6 +14062,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/bomber/main_deck/shield)
+"PG" = (
+/obj/floor_decal/hull{
+	dir = 8
+	},
+/obj/floor_decal/step{
+	color = "grey";
+	dir = 8;
+	pixel_x = 17
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
+	},
+/area/fort_manticore/jungle)
 "PH" = (
 /obj/floor_decal/hull{
 	dir = 4
@@ -18438,10 +18503,10 @@ sL
 (5,1,1) = {"
 sL
 Oc
-Qc
+pO
 uW
-uW
-fR
+vM
+Ov
 EU
 po
 EU
@@ -18641,9 +18706,9 @@ sL
 sL
 Oc
 Qc
-uW
-uW
-fR
+pJ
+eU
+Ov
 EU
 EU
 EU
@@ -18843,9 +18908,9 @@ sL
 sL
 Oc
 Qc
-uW
-uW
-fR
+Ps
+dp
+Ov
 EU
 NB
 NB
@@ -19045,8 +19110,8 @@ sL
 sL
 PC
 hW
-uE
-uE
+PG
+PG
 sm
 NB
 NB
