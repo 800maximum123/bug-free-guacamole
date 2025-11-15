@@ -36,6 +36,51 @@
 	icon_dead = "Current"
 	should_show_name = FALSE
 
+/mob/living/simple_animal/cutscene_character/rifler_actual
+	name = "Кристиана Р."
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/Character_Rifler.dmi'
+	icon_state = "Current"
+	icon_living = "Current"
+	icon_dead = "Current"
+	should_show_name = FALSE
+
+/mob/living/simple_animal/cutscene_character/luke
+	name = "Люк Л."
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/Character_Luke.dmi'
+	icon_state = "Current"
+	icon_living = "Current"
+	icon_dead = "Current"
+	should_show_name = FALSE
+
+/mob/living/simple_animal/cutscene_character/kai
+	name = "Уфурзар"
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/Character_Kai.dmi'
+	icon_state = "Current"
+	icon_living = "Current"
+	icon_dead = "Current"
+	should_show_name = FALSE
+
+/mob/living/simple_animal/cutscene_character/pavel
+	name = "Павел С."
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/Character_Pavel.dmi'
+	icon_state = "Current"
+	icon_living = "Current"
+	icon_dead = "Current"
+	should_show_name = FALSE
+
+/mob/living/simple_animal/cutscene_character/cf355
+	name = "CF-355"
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/Character_CF.dmi'
+	icon_state = "Current"
+	icon_living = "Current"
+	icon_dead = "Current"
+	should_show_name = FALSE
+
 /mob/living/simple_animal/cutscene_character/fourth
 	name = "Четвёртая"
 	desc = "..."
@@ -122,3 +167,10 @@
 /mob/living/simple_animal/cutscene_character/mech3_2/Life()
 	. = ..()
 	layer = 3.9
+
+/mob/living/simple_animal/cutscene_character/radio
+	icon = 'icons/obj/machines/radio.dmi'
+	icon_state = "intercom"
+	name = "Радио"
+	mouse_opacity = FALSE
+	should_show_name = FALSE

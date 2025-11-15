@@ -47,8 +47,8 @@
 	var/colored = PIPE_COLOR_RED
 
 	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
-	visuals.maptext_x = -110
-	visuals.maptext_y = -390
+	visuals.maptext_x = -100
+	visuals.maptext_y = 100
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 10 SECONDS)
@@ -58,14 +58,14 @@
 	var/colored = PIPE_COLOR_RED
 
 	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
-	visuals.maptext_x = -110
-	visuals.maptext_y = -400
+	visuals.maptext_x = 100
+	visuals.maptext_y = -200
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 8 SECONDS)
 
 /proc/awayoutforemmy()
-	var/novel_message = "CALCULATING POSSIBLE SOLUTION..."
+	var/novel_message = "CALCULATING POSSIBLE ROUTE..."
 	var/colored = PIPE_COLOR_YELLOW
 
 	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
@@ -76,7 +76,7 @@
 		visuals.set_text(novel_message, colored, time = 6 SECONDS)
 
 /proc/inthepast1()
-	var/novel_message = "2317-04-11 |"
+	var/novel_message = "2317-08-03 |"
 	var/colored = CABLE_COLOR_GREEN
 
 	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
@@ -551,7 +551,9 @@
 		TALK_ACTOR(actor("Инженер - 3-1-9"), "Да она в отключке, кому ты кричишь!?") = 2 SECONDS,
 		CALL_GLOB(credits_name) = 10 SECONDS,
 		CALL_GLOB(manticore_day) = 2 SECONDS,
-		CALL_GLOB(manticore_day2) = 8 SECONDS,
+		CALL_GLOB(manticore_day2) = 4 SECONDS,
+		PLAY_SOUND(sound('sound/effects/3beep.ogg', volume = 5)) = 2 SECONDS,
+		PLAY_SOUND(sound('sound/effects/3beep.ogg', volume = 10)) = 2 SECONDS,
 		START_CUTSCENE(/datum/modular_cutscene/s2ep3sc10),
 	)
 
@@ -560,8 +562,10 @@
 		TP_CAMERA("Сцена 3-1 - Кадр 10"),
 		ADD_SCREEN(/blackout),
 		ADD_SCREEN(/cinema_borders),
+		PLAY_SOUND(sound('sound/effects/3beep.ogg', volume = 20)),
 		CHANGE_ACTOR_MATRIX(actor("Эмми - 3-1-10"), 90, 0, null, null),
-		TALK_ACTOR(actor("Четвёртая - 3-1-10"), "Я серьёзно. Ты вставать собираешься?") = 4 SECONDS,
+		TALK_ACTOR(actor("Четвёртая - 3-1-10"), "Я серьёзно. Ты вставать собираешься?") = 2 SECONDS,
+		PLAY_SOUND(sound('sound/effects/3beep.ogg', volume = 30)) = 2 SECONDS,
 		REMOVE_SCREEN(/blackout, 2 SECONDS) = 2 SECONDS,
 		PLAY_SOUND(sound('sound/weapons/punchmiss.ogg', volume = 5)),
 		SHIFT_ACTOR(actor("Четвёртая - 3-1-10"), -10, 17, 0.5 SECONDS, SINE_EASING|EASE_IN, ANIMATION_PARALLEL),
@@ -587,6 +591,7 @@
 		TALK_ACTOR(actor("Четвёртая - 3-1-10"), "!скрестила руки на груди.") = 4 SECONDS,
 		TALK_ACTOR(actor("Четвёртая - 3-1-10"), "На часах уже девять-тридцать. Ты и это собрание собралась пропустить?") = 6 SECONDS,
 		TALK_ACTOR(actor("Эмми - 3-1-10"), "!вздыхает, медленно сползая с кровати."),
+		PLAY_SOUND(sound('sound/effects/rustle4.ogg', volume = 50)),
 		SHIFT_ACTOR(actor("Эмми - 3-1-10"), 0, 0, 1 SECONDS, SINE_EASING|EASE_OUT, null) = 0.8 SECONDS,
 		ADD_SCREEN(/blackout) = 1 SECONDS,
 		START_CUTSCENE(/datum/modular_cutscene/s2ep3sc11),
@@ -616,6 +621,7 @@
 		MOVE_ACTOR(actor("Эмми - 3-1-10"), WEST),
 		MOVE_ACTOR(actor("Эмми - 3-1-10"), SOUTH),
 		MOVE_ACTOR(actor("Эмми - 3-1-10"), SOUTH),
+		PLAY_SOUND(sound('sound/items/drink.ogg', volume = 30)),
 		TALK_ACTOR(actor("Эмми - 3-1-10"), "!делает глоток кофе.") = 2 SECONDS,
 		MOVE_ACTOR(actor("Четвёртая - 3-1-10"), EAST) = 1 SECONDS,
 		SHIFT_ACTOR(actor("Четвёртая - 3-1-10"), 22, 0, 1 SECONDS, SINE_EASING|EASE_IN, null) = 2 SECONDS,
@@ -628,6 +634,7 @@
 		CHANGE_ACTOR_MATRIX(actor("Четвёртая - 3-1-10"), 180, 2 SECONDS, SINE_EASING|EASE_OUT, ANIMATION_PARALLEL),
 		TALK_ACTOR(actor("Четвёртая - 3-1-10"), "Типа того. Ты делаешь это...каждый день.") = 6 SECONDS,
 		PLAY_SOUND(sound('packs/infinity/sound/voice/giggle_female_3.ogg', volume = 30)),
+		PLAY_SOUND(sound('sound/items/drink.ogg', volume = 30)),
 		TALK_ACTOR(actor("Эмми - 3-1-10"), "!посмеивается, делая ещё один сёрб."),
 		TALK_ACTOR(actor("Эмми - 3-1-10"), "Ритуал у меня такой. Пять минут, каждое утро...") = 4 SECONDS,
 		TALK_ACTOR(actor("Эмми - 3-1-10"), "...кофе с добавлением щепотки несбыточных мечтаний.") = 6 SECONDS,
@@ -640,6 +647,7 @@
 		PLAY_SOUND(sound('mods/emote_panel/sound/sigh_female.ogg', volume = 30)),
 		TALK_ACTOR(actor("Эмми - 3-1-10"), "!вздыхает.") = 2 SECONDS,
 		TALK_ACTOR(actor("Эмми - 3-1-10"), "Иначе и не пыталась.") = 4 SECONDS,
+		PLAY_SOUND(sound('packs/infinity/sound/items/drinking_after.ogg', volume = 10)),
 		TALK_ACTOR(actor("Эмми - 3-1-10"), "!бросает стакан за спину.") = 4 SECONDS,
 
 		MOVE_ACTOR(actor("Эмми - 3-1-10"), EAST),
@@ -652,6 +660,7 @@
 		CHANGE_ACTOR_MATRIX(actor("Четвёртая - 3-1-10"), -30, 0, null, ANIMATION_PARALLEL) = 1 SECONDS,
 
 		SHIFT_ACTOR(actor("Эмми - 3-1-10"), 10, 0, 0.5 SECONDS, SINE_EASING|EASE_OUT, null),
+		PLAY_SOUND(sound('sound/effects/tape.ogg', volume = 50)),
 		TALK_ACTOR(actor("Эмми - 3-1-10"), "!фиксирует бинт на руке.") = 4 SECONDS,
 
 		MOVE_ACTOR(actor("Эмми - 3-1-10"), NORTH),
@@ -667,6 +676,7 @@
 		CHANGE_ACTOR_MATRIX(actor("Четвёртая - 3-1-10"), 180, 0, null, ANIMATION_PARALLEL) = 1 SECONDS,
 
 		SHIFT_ACTOR(actor("Четвёртая - 3-1-10"), 0, -48, 1 SECONDS, SINE_EASING|EASE_OUT, null),
+		PLAY_SOUND(sound('sound/effects/rustle2.ogg', volume = 50)),
 		TALK_ACTOR(actor("Эмми - 3-1-10"), "!натягивает рукав бомбера.") = 6 SECONDS,
 
 		MOVE_ACTOR(actor("Четвёртая - 3-1-10"), EAST),
@@ -680,6 +690,7 @@
 		MOVE_ACTOR(actor("Эмми - 3-1-10"), WEST),
 		MOVE_ACTOR(actor("Эмми - 3-1-10"), WEST),
 		CHANGE_ACTOR_VISUALS(actor("Эмми - 3-1-10"), "Current"),
+		PLAY_SOUND(sound('sound/effects/buckle.ogg', volume = 50)),
 		TALK_ACTOR(actor("Эмми - 3-1-10"), "!защёлкивает ремень шлема.") = 4 SECONDS,
 
 		TURN_ACTOR(actor("Эмми - 3-1-10"), SOUTH) = 2 SECONDS,
