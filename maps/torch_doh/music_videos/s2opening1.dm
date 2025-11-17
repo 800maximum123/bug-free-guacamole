@@ -90,9 +90,9 @@
 		CHANGE_ACTOR_VISIBILITY(actor("Браун - Опенинг-1"), 255, 1 SECONDS, SINE_EASING, null) = 1 SECONDS,
 		TURN_ACTOR(actor("Браун - Опенинг-1"), WEST) = 2 SECONDS,
 		ADD_SCREEN(/cinema_borders),
-		MOVE_CAMERA(0, 0, 3 SECONDS, SINE_EASING|EASE_OUT) = 6 SECONDS,
+		MOVE_CAMERA(0, 0, 3 SECONDS, CUBIC_EASING|EASE_OUT) = 6 SECONDS,
 		CALL_GLOB(fd_titledrop),
-		MOVE_CAMERA(0, 30, 5 SECONDS, SINE_EASING|EASE_IN) = 3 SECONDS,
+		MOVE_CAMERA(0, 30, 5 SECONDS, CUBIC_EASING|EASE_IN) = 3 SECONDS,
 		ADD_SCREEN(/blackout/animated_better) = 7 SECONDS,
 		REMOVE_SCREEN(/blackout/animated_better, 0)
 	)
