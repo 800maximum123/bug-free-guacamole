@@ -79,11 +79,10 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 	layer = HUD_ABOVE_HUD_LAYER
 
 	scale_to_view = TRUE
-	alpha = 0
 
-/obj/screen/fullscreen/fd/cinema_borders/Initialize()
+/*/obj/screen/fullscreen/fd/cinema_borders/Initialize()
 	. = ..()
-	animate(src, 3 SECOND, alpha = 255)
+	animate(src, 3 SECOND, alpha = 255)*/
 
 
 /obj/screen/novel_message/start_credits

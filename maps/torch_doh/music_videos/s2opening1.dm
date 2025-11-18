@@ -6,30 +6,296 @@
 00:07-00:12: Камера делает пролёт в направлении его взгляда, демонстрируя нам коридор. С одной стороны стоит экипаж Факела, с другой он же (и возможно его команда)
 00:13-00:22: Большой пролёт камеры наверх через окна над улицами. Появляется надпись "FINAL DESTINATION", и так же быстро исчезает
 
-- Всегда казалось мне, что за поворотом встречу свой рассвет
+- Во снах найти ответ я стремлюсь для того, чтобы вновь увидеть свет
 00:23-00:28: Камера справа налево летит мимо Эмми, стоящей около сломанного меха. Справа выскакивает она же крупным планом
 
-- Но осознала вдруг, что всю жизнь натыкаюсь на людской запрет
+- Среди простых людей я бессильно теряюсь на потоке дней...
 00:29-00:35: Кадр резко переключается на Лиру крупным планом(делать ли ей фейд?), которая чуть-чуть продолжает движение спрайта следом за Эмми.
 Затем, резко поворачивается направо и камера улетает
 
-- Пора оставить в покое дней минувших тени
+- Что было, то уже в прошлом, тот мир ушёл безнадёжно
 00:36-00:38: Окита в толпе смотрит направо. Поверх накидываем крупняк
 
-- Небо что-то да потеряло, манящее
+- Вот бы взглянуть было можно в те небеса
 00:39-00:42: Кадр резко переключается на другую сторону улицы и Луни. Он тянет руку в сторону Окиты и появляется его спрайт крупным планом
 
-- Зачем же горести утраты мне подкосили колени
+- Для них истина простая - то, что потери слезами
 00:43-00:45: Кладбище. Адриано стоит перед мемориалом
 
-- И омрачили сердце...
-00:46-00:47:
+- Не возвратить нам назад...
+00:46-00:47: Свифт стоит около мешков с трупами, как в той сцене в сиротках
 
-- ...ГОРЯЩЕЕ?
-00:48-00:49:
+- ТЫ ЗНАЕШЬ САМ
+00:48: Полуголая Злата крупным планом. ВОПРОСЫ??? МИЛФА
 
+- Увы, грехи не смоются в рыданьях,
+00:49-00:50: Датура и Мартин стоят в окружении чьих-то тел, пока камера пролетает налево
+
+- И в нас навеки будет боль воспоминаний
+00:51-00:52: Ная держит мёртвую Дину на руках
+
+- Опять блуждаю в тёмном лабиринте
+00:53-00:54: Нуль едет по вентиляции на юг и камера движется следом
+
+- В поисках лучшей жизни
+00:55: Нуль выезжает к Лин, и та поворачивается к нему, отрываясь от книги. Показываем её крупным планом
+
+- Хочу излить привычные заботы
+00:56-00:57: СиЭф и ЭрКа идут по коридору, резко поворачиваясь к камере
+
+- Пустым листам в потрёпанном блокноте
+00:58-00:59: Райфлер сидит за радио
+
+- И от сердца найти пропавший винтик
+01:00-01:01: Фиддлер стоит над такмапой
+
+- Чтобы страх забыть
+01:02:
 
 */
+
+/proc/opening1_line1()
+	var/novel_message = "Но прочь сомнения..."
+	var/colored = COLOR_WHITE
+
+	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	visuals.maptext_x = -100
+	visuals.maptext_y = 0
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 4 SECONDS)
+
+/proc/opening1_line2()
+	var/novel_message = "...я буду жить дальше!"
+	var/colored = COLOR_WHITE
+
+	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	visuals.maptext_x = 100
+	visuals.maptext_y = -410
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 2 SECONDS)
+
+/proc/opening1_line3()
+	var/novel_message = "И дышать без сожаления..."
+	var/colored = PIPE_COLOR_RED
+
+	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	visuals.maptext_x = 0
+	visuals.maptext_y = -200
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 2 SECONDS)
+
+/proc/opening1_line4()
+	var/novel_message = "Я немного стала старше,"
+	var/colored = COLOR_WHITE
+
+	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	visuals.maptext_x = 0
+	visuals.maptext_y = 0
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 2 SECONDS)
+
+/proc/opening1_line5()
+	var/novel_message = "начать хочу сначала со временем..."
+	var/colored = COLOR_WHITE
+
+	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	visuals.maptext_x = 0
+	visuals.maptext_y = -410
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 4 SECONDS)
+
+/proc/opening1_line6()
+	var/novel_message = "Во снах найти ответ..."
+	var/colored = COLOR_WHITE
+
+	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	visuals.maptext_x = -100
+	visuals.maptext_y = 0
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 6 SECONDS)
+
+/proc/opening1_line7()
+	var/novel_message = "...я стремлюсь для того, чтобы вновь увидеть свет"
+	var/colored = COLOR_WHITE
+
+	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	visuals.maptext_x = 100
+	visuals.maptext_y = -410
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 4 SECONDS)
+
+/proc/opening1_line8()
+	var/novel_message = "Среди простых людей"
+	var/colored = COLOR_WHITE
+
+	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	visuals.maptext_x = 0
+	visuals.maptext_y = 0
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 6 SECONDS)
+
+/proc/opening1_line9()
+	var/novel_message = "я бессильно теряюсь на потоке дней..."
+	var/colored = COLOR_WHITE
+
+	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	visuals.maptext_x = 0
+	visuals.maptext_y = -410
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 4 SECONDS)
+
+/proc/opening1_line10()
+	var/novel_message = "Что было, то уже в прошлом,"
+	var/colored = COLOR_WHITE
+
+	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	visuals.maptext_x = -30
+	visuals.maptext_y = -200
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 4 SECONDS)
+
+/proc/opening1_line11()
+	var/novel_message = "тот мир ушёл безнадёжно,"
+	var/colored = PIPE_COLOR_RED
+
+	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	visuals.maptext_x = 0
+	visuals.maptext_y = -210
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 2 SECONDS)
+
+/proc/opening1_line12()
+	var/novel_message = "Вот бы взглянуть было можно"
+	var/colored = COLOR_WHITE
+
+	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	visuals.maptext_x = 0
+	visuals.maptext_y = -200
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 4 SECONDS)
+
+/proc/opening1_line13()
+	var/novel_message = "в те небеса..."
+	var/colored = PIPE_COLOR_RED
+
+	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	visuals.maptext_x = 0
+	visuals.maptext_y = -210
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 2 SECONDS)
+
+/proc/opening1_line14()
+	var/novel_message = "Для них истина простая -"
+	var/colored = COLOR_WHITE
+
+	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	visuals.maptext_x = 0
+	visuals.maptext_y = 0
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 4 SECONDS)
+
+/proc/opening1_line15()
+	var/novel_message = "то что потери слезами"
+	var/colored = COLOR_WHITE
+
+	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	visuals.maptext_x = 0
+	visuals.maptext_y = -410
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 2 SECONDS)
+
+/proc/opening1_line16()
+	var/novel_message = "не возвратить нам назад..."
+	var/colored = COLOR_WHITE
+
+	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	visuals.maptext_x = 0
+	visuals.maptext_y = -200
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 2 SECONDS)
+
+/obj/screen/novel_message/start_credits/big_nofade_special
+	alpha = 255
+
+/obj/screen/novel_message/start_credits/big_nofade_special/set_text(text, text_color, time = 5 SECONDS)
+	SetTransform(3)
+
+	maptext = "<span class='maptext' style='text-align: center; font-size: 300%; color: [text_color]'>[text]</span>"
+
+	spawn(time)
+		alpha = 0
+	QDEL_IN(src, time)
+
+/proc/opening1_line17()
+	var/novel_message = "ТЫ ЗНАЕШЬ САМ"
+	var/colored = PIPE_COLOR_RED
+
+	var/obj/screen/novel_message/start_credits/big_nofade_special/visuals = new /obj/screen/novel_message/start_credits/big_nofade_special()
+	visuals.maptext_y = -70
+	visuals.maptext_x = -80
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 2 SECONDS)
+
+/proc/opening1_line18()
+	var/novel_message = "Увы, грехи не смоются в рыданьях,"
+	var/colored = COLOR_WHITE
+
+	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	visuals.maptext_x = -100
+	visuals.maptext_y = 0
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 2 SECONDS)
+
+/proc/opening1_line19()
+	var/novel_message = "и в нас навеки будет боль воспоминаний"
+	var/colored = COLOR_WHITE
+
+	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	visuals.maptext_x = 100
+	visuals.maptext_y = -410
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 2 SECONDS)
+
+/proc/opening1_line20()
+	var/novel_message = "Опять блуждаю в тёмном лабиринте..."
+	var/colored = COLOR_WHITE
+
+	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	visuals.maptext_x = -80
+	visuals.maptext_y = -200
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 3 SECONDS)
+
+/proc/opening1_line21()
+	var/novel_message = "...в поисках лучшей жизни"
+	var/colored = PIPE_COLOR_RED
+
+	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	visuals.maptext_x = -60
+	visuals.maptext_y = -210
+	for(var/client/M in GLOB.clients)
+		M.screen += visuals
+		visuals.set_text(novel_message, colored, time = 2 SECONDS)
 
 /proc/fd_titledrop()
 	var/novel_message = "\"FINAL DESTINATION\""
@@ -42,6 +308,18 @@
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 6 SECONDS)
 
+/mob/living/simple_animal/cutscene_character/zlata/s2ep2/big_version
+	plane = HUD_PLANE
+	mouse_opacity = FALSE
+	alpha = 0
+
+/mob/living/simple_animal/cutscene_character/zlata/s2ep2/big_version/Initialize()
+	. = ..()
+	SetTransform(30)
+
+/mob/living/simple_animal/cutscene_character/zlata/s2ep2/big_version/Life()
+	. = ..()
+	layer = 4.8
 
 /mob/living/simple_animal/cutscene_character/amelia/s2ep2/big_version
 	plane = HUD_PLANE
@@ -95,6 +373,22 @@
 	. = ..()
 	layer = 4.9
 
+/mob/living/simple_animal/cutscene_character/tears
+	name = "Слеза"
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/Character_Zlata.dmi'
+	icon_state = "tears"
+	icon_living = "tears"
+	icon_dead = "tears"
+	should_show_name = FALSE
+	alpha = 0
+
+	plane = HUD_PLANE
+
+/mob/living/simple_animal/cutscene_character/tears/Life()
+	. = ..()
+	layer = 4.9
+
 /mob/living/simple_animal/cutscene_character/actor
 	name = "Массовка"
 	desc = "..."
@@ -111,6 +405,24 @@
 /mob/living/simple_animal/cutscene_character/actor/downed/Initialize()
 	. = ..()
 	SetTransform(rotation = 90)
+
+/mob/living/simple_animal/cutscene_character/null_drone
+	name = "Нуль"
+	desc = "..."
+	icon = 'mods/_fd/fd_customs/customs/taushai/icon/omoikane.dmi'
+	icon_state = "omoikane"
+	icon_living = "omoikane"
+	icon_dead = "omoikane"
+	should_show_name = FALSE
+
+/mob/living/simple_animal/cutscene_character/martin
+	name = "Мартин Э."
+	desc = "..."
+	icon = 'maps/torch_doh/cutscenes/icons/npc_and_past_characters.dmi'
+	icon_state = "Martin"
+	icon_living = "Martin"
+	icon_dead = "Martin"
+	should_show_name = FALSE
 
 /mob/living/simple_animal/cutscene_character/okita
 	name = "Окита Т."
@@ -304,6 +616,24 @@
 /obj/effect/cutscene_camera/s2op1/sc5
 	camera_id = "Опенинг 1 - Кадр 5"
 
+/obj/effect/cutscene_camera/s2op1/sc6
+	camera_id = "Опенинг 1 - Кадр 6"
+
+/obj/effect/cutscene_camera/s2op1/sc7
+	camera_id = "Опенинг 1 - Кадр 7"
+
+/obj/effect/cutscene_camera/s2op1/sc8
+	camera_id = "Опенинг 1 - Кадр 8"
+
+/obj/effect/cutscene_camera/s2op1/sc9
+	camera_id = "Опенинг 1 - Кадр 9"
+
+/obj/effect/cutscene_camera/s2op1/sc10
+	camera_id = "Опенинг 1 - Кадр 10"
+
+/obj/effect/cutscene_camera/s2op1/sc11
+	camera_id = "Опенинг 1 - Кадр 11"
+
 /proc/fds2op1()
 	start_cutscene(/datum/modular_cutscene/fds2op1sc1)
 
@@ -314,16 +644,21 @@
 		TP_CAMERA("Опенинг 1 - Кадр 1"),
 		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/again.ogg', volume = 50)),
 		MOVE_CAMERA(40, -3, 0, null) = 1 SECOND,
+		CALL_GLOB(opening1_line1),
 		CHANGE_ACTOR_VISIBILITY(actor("Лого ЦПСС"), 255, 2 SECONDS, SINE_EASING, ANIMATION_PARALLEL),
 		SHIFT_ACTOR(actor("Лого ЦПСС"), 32, 352, 12 SECONDS, LINEAR_EASING|EASE_IN, ANIMATION_PARALLEL) = 2 SECONDS,
+		CALL_GLOB(opening1_line2),
 		CHANGE_ACTOR_VISIBILITY(actor("Лого ГКК"), 255, 2 SECONDS, SINE_EASING, ANIMATION_PARALLEL),
 		SHIFT_ACTOR(actor("Лого ГКК"), 32, -352, 12 SECONDS, LINEAR_EASING|EASE_IN, ANIMATION_PARALLEL) = 1 SECONDS,
 		CHANGE_ACTOR_VISIBILITY(actor("Тень Брауна - Опенинг-1"), 150, 1 SECONDS, SINE_EASING, null),
 		CHANGE_ACTOR_VISIBILITY(actor("Браун - Опенинг-1"), 255, 1 SECONDS, SINE_EASING, null) = 1 SECONDS,
+		CALL_GLOB(opening1_line3),
 		TURN_ACTOR(actor("Тень Брауна - Опенинг-1"), WEST),
 		TURN_ACTOR(actor("Браун - Опенинг-1"), WEST) = 2 SECONDS,
 		ADD_SCREEN(/cinema_borders),
-		MOVE_CAMERA(0, -3, 3 SECONDS, CUBIC_EASING|EASE_OUT) = 4 SECONDS,
+		MOVE_CAMERA(0, -3, 3 SECONDS, CUBIC_EASING|EASE_OUT) = 1 SECONDS,
+		CALL_GLOB(opening1_line4) = 2 SECONDS,
+		CALL_GLOB(opening1_line5) = 1 SECONDS,
 		MOVE_ACTOR(actor("Амелия - Опенинг-1"), EAST) = 0.5 SECONDS,
 		CHANGE_ACTOR_VISIBILITY(actor("Браун - Опенинг-2"), 255, 0.5 SECONDS, LINEAR_EASING, null),
 		CHANGE_ACTOR_VISIBILITY(actor("Амелия - Опенинг-2"), 255, 0.5 SECONDS, LINEAR_EASING, null) = 0.5 SECONDS,
@@ -343,7 +678,9 @@
 		TP_CAMERA("Опенинг 1 - Кадр 2"),
 		ADD_SCREEN(/cinema_borders),
 		MOVE_CAMERA(15, 0, 0, null),
+		CALL_GLOB(opening1_line6),
 		MOVE_CAMERA(-1, 0, 10 SECONDS, CUBIC_EASING|EASE_OUT) = 2 SECONDS,
+		CALL_GLOB(opening1_line7),
 		CHANGE_ACTOR_VISIBILITY(actor("Эмми - Опенинг-1"), 255, 0.5 SECONDS, SINE_EASING, ANIMATION_PARALLEL),
 		SHIFT_ACTOR(actor("Эмми - Опенинг-1"), 0, -96, 10 SECONDS, LINEAR_EASING|EASE_IN, ANIMATION_PARALLEL) = 4 SECONDS,
 		START_CUTSCENE(/datum/modular_cutscene/fds2op1sc3)
@@ -354,7 +691,9 @@
 		TP_CAMERA("Опенинг 1 - Кадр 3"),
 		ADD_SCREEN(/cinema_borders),
 		CHANGE_ACTOR_VISIBILITY(actor("Лира - Опенинг-1"), 255, 0, null, null),
-		SHIFT_ACTOR(actor("Лира - Опенинг-1"), 0, -32, 20 SECONDS, LINEAR_EASING|EASE_IN, ANIMATION_PARALLEL) = 3 SECONDS,
+		SHIFT_ACTOR(actor("Лира - Опенинг-1"), 0, -64, 20 SECONDS, LINEAR_EASING|EASE_IN, ANIMATION_PARALLEL) = 1 SECONDS,
+		CALL_GLOB(opening1_line8) = 2 SECONDS,
+		CALL_GLOB(opening1_line9),
 		TURN_ACTOR(actor("Лира - Опенинг-1"), EAST) = 1 SECONDS,
 		MOVE_CAMERA(20, 0, 5 SECONDS, SINE_EASING|EASE_OUT) = 3 SECONDS,
 		START_CUTSCENE(/datum/modular_cutscene/fds2op1sc4)
@@ -366,7 +705,10 @@
 		ADD_SCREEN(/cinema_borders),
 		MOVE_CAMERA(0, 0, 0, null),
 		MOVE_CAMERA(3, 0, 7 SECONDS, LINEAR_EASING|EASE_IN),
-		CHANGE_ACTOR_VISIBILITY(actor("Окита - Опенинг-1"), 255, 0, null, null) = 3 SECONDS,
+		CALL_GLOB(opening1_line10),
+		CHANGE_ACTOR_VISIBILITY(actor("Окита - Опенинг-1"), 255, 0, null, null) = 2 SECONDS,
+		CALL_GLOB(opening1_line11) = 1 SECONDS,
+		CHANGE_ACTOR_VISIBILITY(actor("Окита - Опенинг-1"), 0, 0, null, null),
 		START_CUTSCENE(/datum/modular_cutscene/fds2op1sc5)
 	)
 
@@ -374,9 +716,80 @@
 	actions = list(
 		TP_CAMERA("Опенинг 1 - Кадр 5"),
 		ADD_SCREEN(/cinema_borders),
+		CALL_GLOB(opening1_line12),
 		MOVE_ACTOR(actor("Луни - Опенинг-1"), WEST) = 1 SECONDS,
 		CHANGE_ACTOR_VISUALS(actor("Луни - Опенинг-1"), "OP 1 - 1"),
 		SHIFT_ACTOR(actor("Луни - Опенинг-1"), -16, 0, 2 SECONDS, SINE_EASING|EASE_IN, null) = 0.5 SECONDS,
 		CHANGE_ACTOR_VISIBILITY(actor("Луни - Опенинг-2"), 255, 1 SECONDS, SINE_EASING, ANIMATION_PARALLEL),
-		SHIFT_ACTOR(actor("Луни - Опенинг-2"), -16, -64, 2 SECONDS, SINE_EASING|EASE_IN, ANIMATION_PARALLEL) = 2.5 SECONDS,
+		SHIFT_ACTOR(actor("Луни - Опенинг-2"), -16, -64, 2 SECONDS, SINE_EASING|EASE_IN, ANIMATION_PARALLEL) = 0.5 SECONDS,
+		CALL_GLOB(opening1_line13) = 2 SECONDS,
+		CHANGE_ACTOR_VISIBILITY(actor("Луни - Опенинг-2"), 0, 0, null, null),
+		START_CUTSCENE(/datum/modular_cutscene/fds2op1sc6)
+	)
+
+/datum/modular_cutscene/fds2op1sc6/setup_actions(...)
+	actions = list(
+		TP_CAMERA("Опенинг 1 - Кадр 6"),
+		ADD_SCREEN(/cinema_borders),
+		MOVE_CAMERA(0, 6, 0, null),
+		CALL_GLOB(opening1_line14),
+		MOVE_CAMERA(0, -6, 5 SECONDS, LINEAR_EASING|EASE_IN) = 1 SECONDS,
+		CALL_GLOB(opening1_line15) = 2 SECONDS,
+		START_CUTSCENE(/datum/modular_cutscene/fds2op1sc7)
+	)
+
+/datum/modular_cutscene/fds2op1sc7/setup_actions(...)
+	actions = list(
+		TP_CAMERA("Опенинг 1 - Кадр 7"),
+		CALL_GLOB(opening1_line16),
+		ADD_SCREEN(/cinema_borders) = 2 SECONDS,
+		START_CUTSCENE(/datum/modular_cutscene/fds2op1sc8)
+	)
+
+/datum/modular_cutscene/fds2op1sc8/setup_actions(...)
+	actions = list(
+		TP_CAMERA("Опенинг 1 - Кадр 8"),
+		ADD_SCREEN(/cinema_borders),
+		CHANGE_ACTOR_VISIBILITY(actor("Злата - Опенинг-1"), 255, 0, null, null),
+		CHANGE_ACTOR_VISIBILITY(actor("Слеза"), 150, 0.5 SECONDS, SINE_EASING, ANIMATION_PARALLEL),
+		SHIFT_ACTOR(actor("Слеза"), 72, 0, 1 SECONDS, CUBIC_EASING|EASE_OUT, ANIMATION_PARALLEL),
+		CALL_GLOB(opening1_line17),
+		MOVE_CAMERA(0, 0, 0, null) = 1 SECONDS,
+		START_CUTSCENE(/datum/modular_cutscene/fds2op1sc9)
+	)
+
+/datum/modular_cutscene/fds2op1sc9/setup_actions(...)
+	actions = list(
+		TP_CAMERA("Опенинг 1 - Кадр 9"),
+		ADD_SCREEN(/cinema_borders),
+		MOVE_CAMERA(6, 0, 0, null),
+		CALL_GLOB(opening1_line18),
+		MOVE_CAMERA(-6, 0, 2 SECONDS, LINEAR_EASING|EASE_IN) = 2 SECONDS,
+		START_CUTSCENE(/datum/modular_cutscene/fds2op1sc10)
+	)
+
+/datum/modular_cutscene/fds2op1sc10/setup_actions(...)
+	actions = list(
+		TP_CAMERA("Опенинг 1 - Кадр 10"),
+		ADD_SCREEN(/cinema_borders),
+		MOVE_CAMERA(0, 6, 0, null),
+		CALL_GLOB(opening1_line19),
+		MOVE_CAMERA(0, -6, 6 SECONDS, LINEAR_EASING|EASE_IN) = 2 SECONDS,
+		START_CUTSCENE(/datum/modular_cutscene/fds2op1sc11)
+	)
+
+/datum/modular_cutscene/fds2op1sc11/setup_actions(...)
+	actions = list(
+		TP_CAMERA("Опенинг 1 - Кадр 11"),
+		ADD_SCREEN(/cinema_borders),
+		CALL_GLOB(opening1_line20),
+		MOVE_ACTOR(actor("Нуль - Опенинг-1"), SOUTH) = 0.2 SECONDS,
+		MOVE_ACTOR(actor("Нуль - Опенинг-1"), SOUTH) = 0.2 SECONDS,
+		MOVE_ACTOR(actor("Нуль - Опенинг-1"), SOUTH) = 0.2 SECONDS,
+		MOVE_ACTOR(actor("Нуль - Опенинг-1"), SOUTH) = 0.2 SECONDS,
+		MOVE_ACTOR(actor("Нуль - Опенинг-1"), SOUTH) = 0.2 SECONDS,
+		TURN_ACTOR(actor("Нуль - Опенинг-1"), EAST),
+		CHANGE_ACTOR_VISUALS(actor("Нуль - Опенинг-1"), "omoikane"),
+		MOVE_ACTOR(actor("Нуль - Опенинг-1"), SOUTH) = 1 SECONDS,
+		CALL_GLOB(opening1_line21) = 1 SECONDS,
 	)

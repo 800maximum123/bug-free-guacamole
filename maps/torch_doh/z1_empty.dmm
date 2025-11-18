@@ -1,4 +1,24 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/turf_fire/prop,
+/obj/landmark/light{
+	light_power = 0.8;
+	light_range = 5;
+	layer = 4.10;
+	light_color = "#b12b00"
+	},
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "ab" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/exoplanet/fd/grass{
@@ -92,6 +112,35 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/centcom{
 	name = "\improper SCENE 2";
+	dynamic_lighting = 1
+	})
+"ak" = (
+/obj/decal/cleanable/dirt{
+	icon_state = "thermite"
+	},
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"al" = (
+/obj/decal/cleanable/dirt,
+/obj/floor_decal/borderfloorblack{
+	dir = 10
+	},
+/obj/floor_decal/corner/brown/border{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "am" = (
@@ -265,6 +314,20 @@
 	name = "\improper CINEMA";
 	dynamic_lighting = 1
 	})
+"ay" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "az" = (
 /obj/landmark/light{
 	light_range = 2;
@@ -429,6 +492,15 @@
 	},
 /area/centcom{
 	name = "\improper SCENE 3";
+	dynamic_lighting = 1
+	})
+"aO" = (
+/obj/decal/cleanable/dirt,
+/obj/floor_decal/borderfloorblack,
+/obj/floor_decal/corner/brown/border,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "aP" = (
@@ -904,6 +976,27 @@
 	name = "\improper SCENE 2";
 	dynamic_lighting = 1
 	})
+"bE" = (
+/obj/landmark/light{
+	light_power = 0.3;
+	light_range = 10;
+	layer = 4.10;
+	light_color = "#afab9e"
+	},
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "bF" = (
 /obj/effect/cutscene_camera/s2ep1sc10,
 /turf/simulated/floor/blackgrid,
@@ -942,11 +1035,40 @@
 	name = "\improper EP2 SCENE 1";
 	dynamic_lighting = 1
 	})
+"bJ" = (
+/obj/structure/railing/mapped{
+	dir = 4;
+	icon_state = "railing0-1"
+	},
+/obj/machinery/light,
+/obj/item/gun/projectile/revolver/medium/captain{
+	pixel_x = -20;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "bK" = (
 /obj/machinery/status_display,
 /turf/simulated/wall/r_wall/hull,
 /area/centcom{
 	name = "\improper SCENE 2";
+	dynamic_lighting = 1
+	})
+"bM" = (
+/obj/turf_fire/prop,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "bN" = (
@@ -1416,6 +1538,22 @@
 	name = "\improper EP2 SCENE 1";
 	dynamic_lighting = 1
 	})
+"cx" = (
+/obj/structure/girder,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "cz" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/grim_ceramic{
@@ -1577,6 +1715,16 @@
 	name = "\improper EP3 SCENE 1";
 	dynamic_lighting = 1
 	})
+"cS" = (
+/obj/floor_decal/hull{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techfloor,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "cT" = (
 /obj/floor_decal/industrial/hatch/blue,
 /obj/machinery/door/firedoor,
@@ -1658,6 +1806,24 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/centcom{
 	name = "\improper SCENE 2";
+	dynamic_lighting = 1
+	})
+"da" = (
+/obj/structure/closet/body_bag{
+	pixel_y = 4
+	},
+/obj/floor_decal/hull{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/obj/landmark/light{
+	light_range = 2;
+	layer = 4.10;
+	light_color = "#e2943a"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "dc" = (
@@ -2330,6 +2496,28 @@
 	name = "\improper SCENE 2";
 	dynamic_lighting = 1
 	})
+"ei" = (
+/obj/decal/cleanable/dirt,
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = -14;
+	pixel_y = 8
+	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = -8;
+	pixel_y = 6
+	},
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "ej" = (
 /obj/structure/fd/junk{
 	icon_state = "0,1"
@@ -2390,6 +2578,20 @@
 	name = "\improper SCENE 1";
 	dynamic_lighting = 1
 	})
+"eq" = (
+/obj/decal/cleanable/blood,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "er" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -2441,6 +2643,36 @@
 /turf/simulated/floor/tiled/monotile,
 /area/centcom{
 	name = "\improper SCENE 2";
+	dynamic_lighting = 1
+	})
+"ew" = (
+/mob/living/simple_animal/cutscene_character/actor/downed{
+	dir = 4;
+	pixel_y = 16;
+	pixel_x = 7
+	},
+/mob/living/simple_animal/cutscene_character/actor/downed{
+	dir = 4;
+	pixel_y = 6;
+	pixel_x = -1
+	},
+/mob/living/simple_animal/cutscene_character/actor/downed{
+	dir = 8;
+	pixel_y = 14;
+	pixel_x = -2
+	},
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "ex" = (
@@ -2544,6 +2776,23 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/centcom{
 	name = "\improper EP3 SCENE 1";
+	dynamic_lighting = 1
+	})
+"eI" = (
+/obj/decal/cleanable/dirt,
+/obj/turf_fire/prop,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "eJ" = (
@@ -3029,6 +3278,37 @@
 	name = "\improper EP2 SCENE 1";
 	dynamic_lighting = 1
 	})
+"fO" = (
+/obj/catwalk_plated/dark,
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"fP" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/turf_fire/prop,
+/obj/landmark/light{
+	light_power = 0.8;
+	light_range = 5;
+	layer = 4.10;
+	light_color = "#b12b00"
+	},
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "fQ" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/industrial/hatch/grey,
@@ -3244,6 +3524,20 @@
 	name = "\improper CINEMA";
 	dynamic_lighting = 1
 	})
+"gk" = (
+/obj/floor_decal/techfloor{
+	dir = 4
+	},
+/obj/landmark/light{
+	light_range = 2;
+	layer = 4.10;
+	light_color = "#e2943a"
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "gm" = (
 /obj/structure/vines,
 /turf/simulated/floor/exoplanet/fd/grass{
@@ -3322,6 +3616,14 @@
 	name = "\improper EP3 SCENE 1";
 	dynamic_lighting = 1
 	})
+"gt" = (
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "gu" = (
 /obj/structure/showcase{
 	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
@@ -3361,6 +3663,15 @@
 /turf/simulated/floor/plating,
 /area/centcom{
 	name = "\improper EP2 SCENE 1";
+	dynamic_lighting = 1
+	})
+"gx" = (
+/obj/structure/fd/grim_walls/metal{
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "gy" = (
@@ -3575,7 +3886,7 @@
 	},
 /mob/living/simple_animal/cutscene_character/fourth{
 	pixel_y = 54;
-	pixel_x = -15;
+	pixel_x = -13;
 	icon_dead = "OP 1 - 1";
 	icon_living = "OP 1 - 1";
 	icon_state = "OP 1 - 1"
@@ -4126,6 +4437,25 @@
 	name = "\improper EP3 SCENE 1";
 	dynamic_lighting = 1
 	})
+"hI" = (
+/mob/living/simple_animal/cutscene_character/actor/downed{
+	pixel_x = -21;
+	pixel_y = 10
+	},
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "hJ" = (
 /obj/structure/table/marble,
 /obj/machinery/chemical_dispenser/bar_coffee{
@@ -4134,6 +4464,13 @@
 /turf/simulated/floor/lino,
 /area/centcom{
 	name = "\improper CINEMA";
+	dynamic_lighting = 1
+	})
+"hL" = (
+/obj/floor_decal/techfloor,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "hM" = (
@@ -4239,6 +4576,21 @@
 	},
 /area/centcom{
 	name = "\improper SCENE 3";
+	dynamic_lighting = 1
+	})
+"hV" = (
+/obj/structure/closet/body_bag{
+	pixel_y = 4
+	},
+/obj/catwalk_plated/dark,
+/obj/landmark/light{
+	light_range = 2;
+	layer = 4.10;
+	light_color = "#e2943a"
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "hW" = (
@@ -4403,6 +4755,19 @@
 	name = "\improper EP2 SCENE 1";
 	dynamic_lighting = 1
 	})
+"in" = (
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "io" = (
 /obj/structure/flora/jungle/bush{
 	color = "#bebebe";
@@ -4486,6 +4851,15 @@
 /obj/structure/fake_zlvl,
 /obj/structure/fake_zlvl,
 /turf/simulated/floor/exoplanet/concrete_pavement,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"iy" = (
+/obj/structure/fd/grim_walls/metal{
+	icon_state = "rusty_wall-12"
+	},
+/turf/simulated/floor/plating,
 /area/centcom{
 	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
@@ -4601,6 +4975,17 @@
 /turf/simulated/floor/plating,
 /area/centcom{
 	name = "\improper EP3 SCENE 1";
+	dynamic_lighting = 1
+	})
+"iK" = (
+/obj/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
+/obj/item/ammo_casing/pistol/used{
+	pixel_x = 22
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "iM" = (
@@ -4822,6 +5207,20 @@
 /obj/structure/fake_zlvl,
 /obj/structure/fake_zlvl,
 /turf/simulated/floor/exoplanet/fd/grass,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"jf" = (
+/obj/decal/cleanable/generic,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/plating,
 /area/centcom{
 	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
@@ -5397,6 +5796,24 @@
 	name = "\improper EP2 SCENE 1";
 	dynamic_lighting = 1
 	})
+"jX" = (
+/obj/floor_decal/techfloor{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/obj/item/flame/candle/grim{
+	icon_state = "candle1_lit";
+	light_range = 2;
+	light_power = 0.6;
+	light_color = "#da8302";
+	pixel_y = 14;
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "jY" = (
 /obj/decal/cleanable/dirt,
 /obj/landmark/light{
@@ -5460,6 +5877,23 @@
 /turf/simulated/floor/exoplanet/dead_sea_under,
 /area/centcom{
 	name = "\improper CINEMA";
+	dynamic_lighting = 1
+	})
+"kc" = (
+/obj/floor_decal/spline/plain/black,
+/obj/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/mob/living/simple_animal/cutscene_character/adriano{
+	icon_state = "Current Alt 2";
+	icon_dead = "Current Alt 2";
+	icon_living = "Current Alt 2";
+	dir = 1
+	},
+/obj/effect/cutscene_camera/s2op1/sc6,
+/turf/simulated/floor/exoplanet/concrete_pavement,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "ke" = (
@@ -5581,6 +6015,22 @@
 	name = "\improper EP2 SCENE 1";
 	dynamic_lighting = 1
 	})
+"kp" = (
+/obj/turf_fire/prop,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "kr" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt{
@@ -5618,6 +6068,26 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/centcom{
 	name = "\improper SCENE 3";
+	dynamic_lighting = 1
+	})
+"kw" = (
+/obj/floor_decal/messygrass,
+/obj/floor_decal/step{
+	color = "grey";
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/fd/drought{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"kx" = (
+/obj/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "ky" = (
@@ -5679,6 +6149,20 @@
 /turf/simulated/floor/tiled,
 /area/centcom{
 	name = "\improper SCENE 2";
+	dynamic_lighting = 1
+	})
+"kE" = (
+/obj/catwalk_plated/dark,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "kF" = (
@@ -5807,6 +6291,24 @@
 /turf/simulated/floor/plating,
 /area/centcom{
 	name = "\improper SCENE 2";
+	dynamic_lighting = 1
+	})
+"kO" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/obj/item/flame/candle/grim{
+	icon_state = "candle3_lit";
+	light_range = 2;
+	light_power = 0.6;
+	light_color = "#da8302";
+	pixel_x = -20;
+	pixel_y = -7
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "kP" = (
@@ -5956,6 +6458,30 @@
 	},
 /area/centcom{
 	name = "\improper EP3 SCENE 1";
+	dynamic_lighting = 1
+	})
+"lb" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt{
+	icon = 'icons/turf/flooring/tiles.dmi';
+	icon_state = "broken1"
+	},
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"lc" = (
+/turf/simulated/wall/prepainted,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "ld" = (
@@ -6120,6 +6646,25 @@
 /turf/simulated/floor/plating,
 /area/centcom{
 	name = "\improper SCENE 2";
+	dynamic_lighting = 1
+	})
+"lx" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/obj/item/clothing/accessory/badge/dog_tags{
+	pixel_x = 35;
+	pixel_y = -7
+	},
+/obj/landmark/light{
+	light_range = 2;
+	layer = 4.10;
+	light_color = "#e2943a"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "ly" = (
@@ -6556,6 +7101,15 @@
 	name = "\improper SCENE 2";
 	dynamic_lighting = 1
 	})
+"mi" = (
+/obj/structure/fd/grim_walls/metal{
+	icon_state = "rusty_wall-9"
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "mj" = (
 /obj/structure/fd/placeholder/better,
 /obj/catwalk_plated,
@@ -6748,6 +7302,22 @@
 	name = "\improper SCENE 3";
 	dynamic_lighting = 1
 	})
+"mC" = (
+/obj/decal/cleanable/blood,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "mD" = (
 /obj/landmark{
 	name = "JoinLateCryo"
@@ -6863,6 +7433,21 @@
 	name = "\improper SCENE 2";
 	dynamic_lighting = 1
 	})
+"mO" = (
+/obj/decal/cleanable/dirt,
+/obj/turf_fire/prop,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "mP" = (
 /obj/floor_decal/corner/paleblue/mono,
 /obj/machinery/door/airlock/autoname{
@@ -6893,6 +7478,13 @@
 	color = "#622ceb"
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"mR" = (
+/obj/decal/cleanable/blood,
+/turf/simulated/floor/tiled/dark,
 /area/centcom{
 	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
@@ -6940,6 +7532,15 @@
 /turf/simulated/wall/prepainted,
 /area/centcom{
 	name = "\improper EP2 SCENE 1";
+	dynamic_lighting = 1
+	})
+"mW" = (
+/obj/structure/fd/grim_walls/metal{
+	icon_state = "rusty_wall-5"
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "mX" = (
@@ -7195,6 +7796,15 @@
 	name = "\improper EP2 SCENE 1";
 	dynamic_lighting = 1
 	})
+"nt" = (
+/obj/floor_decal/techfloor{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "nu" = (
 /obj/structure/showcase{
 	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
@@ -7281,6 +7891,16 @@
 	light_color = "#afab9e"
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"nB" = (
+/obj/structure/closet/body_bag{
+	pixel_y = 4
+	},
+/obj/floor_decal/techfloor,
+/turf/simulated/floor/tiled/techfloor/grid,
 /area/centcom{
 	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
@@ -7385,6 +8005,23 @@
 	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
+"nL" = (
+/mob/living/simple_animal/cutscene_character/swift/s2ep2{
+	dir = 4;
+	icon_dead = "Current Alt 2";
+	icon_living = "Current Alt 2";
+	icon_state = "Current Alt 2"
+	},
+/obj/landmark/light{
+	light_range = 2;
+	layer = 4.10;
+	light_color = "#e2943a"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "nM" = (
 /obj/structure/fd/placeholder/better,
 /obj/floor_decal/industrial/warning/corner{
@@ -7414,6 +8051,14 @@
 /turf/simulated/floor/exoplanet/gravel{
 	color = "#bebebe"
 	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"nP" = (
+/obj/floor_decal/industrial/warning/fulltile,
+/obj/effect/cutscene_camera/s2op1/sc11,
+/turf/simulated/floor/tiled/dark,
 /area/centcom{
 	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
@@ -7851,6 +8496,20 @@
 	name = "\improper EP3 SCENE 1";
 	dynamic_lighting = 1
 	})
+"oA" = (
+/obj/structure/showcase{
+	icon = 'icons/obj/doors/hatch/door.dmi';
+	icon_state = "open"
+	},
+/obj/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/steel_grid,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "oB" = (
 /obj/landmark{
 	name = "JoinLateCryo"
@@ -8054,6 +8713,15 @@
 	name = "\improper SCENE 2";
 	dynamic_lighting = 1
 	})
+"oU" = (
+/obj/catwalk_plated/dark,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "oV" = (
 /obj/landmark{
 	name = "JoinLateCryo"
@@ -8081,6 +8749,25 @@
 /turf/simulated/floor/tiled/white,
 /area/centcom{
 	name = "\improper SCENE 2";
+	dynamic_lighting = 1
+	})
+"oZ" = (
+/obj/structure/catwalk,
+/mob/living/simple_animal/cutscene_character/actor/downed{
+	pixel_x = -21;
+	pixel_y = 10
+	},
+/mob/living/simple_animal/cutscene_character/actor/downed,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "pa" = (
@@ -8538,6 +9225,23 @@
 	name = "\improper CINEMA";
 	dynamic_lighting = 1
 	})
+"pO" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/girder/displaced,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "pP" = (
 /obj/floor_decal/spline/plain/brown{
 	dir = 9
@@ -8547,6 +9251,17 @@
 	},
 /area/centcom{
 	name = "\improper SCENE 3";
+	dynamic_lighting = 1
+	})
+"pQ" = (
+/obj/machinery/door/blast/shutters{
+	id_tag = "med_lift";
+	name = "Medical Lift Access"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "pR" = (
@@ -8684,6 +9399,20 @@
 /turf/simulated/floor/tiled/old_tile,
 /area/centcom{
 	name = "\improper SCENE 1";
+	dynamic_lighting = 1
+	})
+"qc" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "qe" = (
@@ -9003,6 +9732,14 @@
 	name = "\improper EP2 SCENE 1";
 	dynamic_lighting = 1
 	})
+"qE" = (
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#5F773B"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "qF" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
@@ -9140,6 +9877,21 @@
 	name = "\improper SCENE 1";
 	dynamic_lighting = 1
 	})
+"qR" = (
+/obj/floor_decal/messygrass{
+	dir = 1
+	},
+/obj/floor_decal/messygrass{
+	dir = 4
+	},
+/obj/floor_decal/messygrass,
+/turf/simulated/floor/exoplanet/fd/drought{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "qS" = (
 /obj/landmark/light{
 	light_power = 0.8;
@@ -9166,6 +9918,13 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/centcom{
 	name = "\improper EP2 SCENE 1";
+	dynamic_lighting = 1
+	})
+"qV" = (
+/obj/structure/crematorium,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "qW" = (
@@ -9269,6 +10028,16 @@
 	name = "\improper EP2 SCENE 1";
 	dynamic_lighting = 1
 	})
+"rg" = (
+/obj/floor_decal/techfloor,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/blood,
+/obj/decal/cleanable/cobweb,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "rh" = (
 /obj/floor_decal/corner/green/half{
 	dir = 4
@@ -9301,6 +10070,18 @@
 	name = "\improper CINEMA";
 	dynamic_lighting = 1
 	})
+"rk" = (
+/obj/structure/morgue{
+	dir = 2
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "rl" = (
 /obj/floor_decal/spline/plain/black{
 	dir = 4
@@ -9313,6 +10094,21 @@
 	},
 /area/centcom{
 	name = "\improper SCENE 3";
+	dynamic_lighting = 1
+	})
+"rm" = (
+/obj/structure/catwalk,
+/obj/decal/cleanable/dirt,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "ro" = (
@@ -9909,6 +10705,21 @@
 	name = "\improper SCENE 2";
 	dynamic_lighting = 1
 	})
+"sy" = (
+/obj/floor_decal/messygrass{
+	dir = 1
+	},
+/obj/floor_decal/messygrass{
+	dir = 8
+	},
+/obj/floor_decal/messygrass,
+/turf/simulated/floor/exoplanet/fd/drought{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "sz" = (
 /obj/floor_decal/borderfloorblack{
 	dir = 8
@@ -10231,6 +11042,22 @@
 	name = "\improper SCENE 2";
 	dynamic_lighting = 1
 	})
+"tf" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "tg" = (
 /obj/floor_decal/hull{
 	dir = 8
@@ -10404,6 +11231,12 @@
 /turf/simulated/floor/tiled/white/monotile,
 /area/centcom{
 	name = "\improper SCENE 1";
+	dynamic_lighting = 1
+	})
+"tu" = (
+/turf/simulated/wall/r_wall/hull,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "tv" = (
@@ -10623,6 +11456,13 @@
 	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
+"tR" = (
+/obj/decal/cleanable/generic,
+/turf/simulated/floor/tiled/dark,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "tT" = (
 /obj/structure/fd/placeholder/better,
 /obj/decal/cleanable/dirt,
@@ -10814,6 +11654,22 @@
 	name = "\improper EP2 SCENE 1";
 	dynamic_lighting = 1
 	})
+"uj" = (
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/mob/living/simple_animal/cutscene_character/actor,
+/turf/simulated/floor/exoplanet/gravel{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "uk" = (
 /obj/structure/bed/chair/wood/walnut{
 	dir = 1
@@ -10840,6 +11696,17 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"um" = (
+/obj/floor_decal/industrial/outline/grey,
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 24
+	},
+/turf/simulated/floor/tiled/dark/monotile,
 /area/centcom{
 	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
@@ -11033,6 +11900,13 @@
 	name = "\improper SCENE 3";
 	dynamic_lighting = 1
 	})
+"uD" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techfloor,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "uE" = (
 /obj/floor_decal/step{
 	color = "grey";
@@ -11132,6 +12006,21 @@
 	name = "\improper SCENE 2";
 	dynamic_lighting = 1
 	})
+"uK" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/girder/displaced,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "uL" = (
 /obj/machinery/button/blast_door{
 	id_tag = "scene_1"
@@ -11204,6 +12093,20 @@
 	alpha = 100
 	},
 /turf/simulated/floor/exoplanet/grim_asphalt2,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"uS" = (
+/obj/decal/cleanable/blood,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/centcom{
 	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
@@ -11301,6 +12204,19 @@
 	name = "\improper EP2 SCENE 1";
 	dynamic_lighting = 1
 	})
+"vk" = (
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "vm" = (
 /obj/machinery/door/airlock/glass/command{
 	name = "Auxiliary E.V.A.";
@@ -11326,6 +12242,19 @@
 /turf/simulated/floor/plating,
 /area/centcom{
 	name = "\improper SCENE 2";
+	dynamic_lighting = 1
+	})
+"vo" = (
+/obj/decal/cleanable/dirt,
+/obj/floor_decal/borderfloorblack{
+	dir = 6
+	},
+/obj/floor_decal/corner/brown/border{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "vq" = (
@@ -11355,6 +12284,20 @@
 	alpha = 100
 	},
 /turf/simulated/floor/exoplanet/grim_asphalt2,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"vs" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/landmark/light{
+	light_range = 2;
+	layer = 4.10;
+	light_color = "#e2943a"
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/centcom{
 	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
@@ -11402,6 +12345,19 @@
 /turf/simulated/floor/plating,
 /area/centcom{
 	name = "\improper EP2 SCENE 1";
+	dynamic_lighting = 1
+	})
+"vA" = (
+/obj/structure/morgue{
+	dir = 2
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/cutscene_camera/s2op1/sc10,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "vB" = (
@@ -11790,6 +12746,20 @@
 	name = "\improper SCENE 1";
 	dynamic_lighting = 1
 	})
+"wc" = (
+/obj/decal/cleanable/dirt,
+/obj/floor_decal/borderfloorblack{
+	dir = 8
+	},
+/obj/floor_decal/corner/brown/border{
+	dir = 8
+	},
+/obj/structure/bed/sauna_bench,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "wf" = (
 /obj/floor_decal/step{
 	color = "grey";
@@ -11867,6 +12837,21 @@
 /turf/simulated/floor/exoplanet/fd/muddirt,
 /area/centcom{
 	name = "\improper SCENE 3";
+	dynamic_lighting = 1
+	})
+"wk" = (
+/obj/floor_decal/messygrass{
+	dir = 1
+	},
+/obj/floor_decal/messygrass,
+/obj/floor_decal/messygrass{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/fd/drought{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "wn" = (
@@ -12263,6 +13248,15 @@
 	name = "\improper EP2 SCENE 1";
 	dynamic_lighting = 1
 	})
+"wV" = (
+/obj/floor_decal/hull{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "wW" = (
 /obj/paint/black,
 /obj/structure/fd/wall_decor2{
@@ -12347,6 +13341,36 @@
 	},
 /area/centcom{
 	name = "\improper EP2 SCENE 1";
+	dynamic_lighting = 1
+	})
+"xf" = (
+/obj/floor_decal/step{
+	color = "grey";
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#526833"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"xh" = (
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/mob/living/simple_animal/cutscene_character/actor{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/gravel{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "xi" = (
@@ -12503,6 +13527,28 @@
 	name = "\improper EP3 SCENE 1";
 	dynamic_lighting = 1
 	})
+"xv" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt{
+	icon = 'icons/turf/flooring/tiles.dmi';
+	icon_state = "broken1"
+	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = -4;
+	pixel_y = 16
+	},
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "xw" = (
 /obj/floor_decal/hull{
 	dir = 8
@@ -12583,6 +13629,29 @@
 "xC" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/grim_concrete_tile,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"xD" = (
+/obj/floor_decal/messygrass{
+	dir = 4
+	},
+/obj/floor_decal/messygrass{
+	dir = 1
+	},
+/obj/floor_decal/messygrass{
+	dir = 8
+	},
+/obj/landmark/light{
+	light_range = 8;
+	layer = 4.10;
+	light_color = "#afab9e";
+	light_power = 2
+	},
+/turf/simulated/floor/exoplanet/fd/drought{
+	color = "#bebebe"
+	},
 /area/centcom{
 	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
@@ -12875,7 +13944,7 @@
 	icon_state = "OP 1 - 1 - EYE";
 	pixel_x = 64;
 	cutscene_id = "Лира - Опенинг-1";
-	pixel_y = -32
+	pixel_y = -64
 	},
 /obj/effect/cutscene_camera/s2op1/sc3,
 /turf/simulated/floor/tiled,
@@ -12898,6 +13967,25 @@
 /turf/simulated/floor/exoplanet/fd/muddirt,
 /area/centcom{
 	name = "\improper EP2 SCENE 1";
+	dynamic_lighting = 1
+	})
+"yd" = (
+/obj/landmark/light{
+	light_power = 0.3;
+	light_range = 10;
+	layer = 4.10;
+	light_color = "#afab9e"
+	},
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "ye" = (
@@ -12940,6 +14028,12 @@
 	name = "\improper EP3 SCENE 1";
 	dynamic_lighting = 1
 	})
+"yj" = (
+/turf/simulated/floor/tiled/dark,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "yk" = (
 /obj/effect/cutscene_camera/s2ep1sc2,
 /turf/simulated/floor/tiled/monotile,
@@ -12950,6 +14044,26 @@
 "ym" = (
 /obj/structure/fd/placeholder/better,
 /turf/simulated/floor/exoplanet/concrete_pavement,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"yn" = (
+/obj/turf_fire/prop,
+/obj/landmark/light{
+	light_power = 0.8;
+	light_range = 5;
+	layer = 4.10;
+	light_color = "#b12b00"
+	},
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/plating,
 /area/centcom{
 	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
@@ -13160,6 +14274,17 @@
 	alpha = 100
 	},
 /turf/simulated/floor/exoplanet/grim_asphalt2,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"yH" = (
+/obj/floor_decal/techfloor{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techfloor/grid,
 /area/centcom{
 	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
@@ -13396,6 +14521,29 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/centcom{
 	name = "\improper SCENE 2";
+	dynamic_lighting = 1
+	})
+"zc" = (
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/mob/living/simple_animal/cutscene_character/actor{
+	dir = 4
+	},
+/mob/living/simple_animal/cutscene_character/actor{
+	dir = 4;
+	pixel_x = 20;
+	pixel_y = 23
+	},
+/turf/simulated/floor/exoplanet/gravel{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "zd" = (
@@ -13673,6 +14821,23 @@
 	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
+"zF" = (
+/obj/structure/rubble/war,
+/obj/decal/cleanable/dirt,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "zG" = (
 /obj/structure/fd/junk{
 	icon_state = "5,0"
@@ -13837,6 +15002,18 @@
 	name = "\improper EP3 SCENE 1";
 	dynamic_lighting = 1
 	})
+"zU" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 4
+	},
+/obj/floor_decal/corner/brown/border{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "zV" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular/open{
@@ -13849,6 +15026,12 @@
 /turf/simulated/floor/plating,
 /area/centcom{
 	name = "\improper SCENE 2";
+	dynamic_lighting = 1
+	})
+"zW" = (
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "zX" = (
@@ -13981,6 +15164,12 @@
 /turf/simulated/floor/plating,
 /area/centcom{
 	name = "\improper EP2 SCENE 1";
+	dynamic_lighting = 1
+	})
+"Ak" = (
+/turf/simulated/wall/r_wall/prepainted,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "Al" = (
@@ -14235,6 +15424,13 @@
 	name = "\improper SCENE 3";
 	dynamic_lighting = 1
 	})
+"AH" = (
+/obj/decal/cleanable/generic,
+/turf/simulated/floor/tiled/techfloor,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "AI" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -14360,6 +15556,16 @@
 /turf/simulated/floor/plating,
 /area/centcom{
 	name = "\improper SCENE 2";
+	dynamic_lighting = 1
+	})
+"AX" = (
+/obj/structure/fd/grim_walls/metal{
+	icon_state = "rusty_wall-3";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "AY" = (
@@ -14571,6 +15777,16 @@
 	name = "\improper CINEMA";
 	dynamic_lighting = 1
 	})
+"Bv" = (
+/obj/floor_decal/industrial/outline/grey,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "Bw" = (
 /obj/machinery/door/airlock/civilian{
 	name = "Emergency Storage"
@@ -14647,6 +15863,27 @@
 /turf/simulated/floor/exoplanet/fd/muddirt,
 /area/centcom{
 	name = "\improper EP2 SCENE 1";
+	dynamic_lighting = 1
+	})
+"BC" = (
+/obj/structure/catwalk,
+/mob/living/simple_animal/cutscene_character/actor/downed{
+	dir = 8
+	},
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/mob/living/simple_animal/cutscene_character/actor{
+	pixel_y = 24;
+	pixel_x = -4
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "BD" = (
@@ -15148,6 +16385,34 @@
 	name = "\improper SCENE 2";
 	dynamic_lighting = 1
 	})
+"Cv" = (
+/obj/decal/cleanable/dirt,
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = 18;
+	pixel_y = 14
+	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = 12;
+	pixel_y = -8
+	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "Cw" = (
 /turf/simulated/wall/r_wall/ascent,
 /area/centcom{
@@ -15471,6 +16736,18 @@
 	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
+"Db" = (
+/obj/floor_decal/step{
+	color = "grey";
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#5F773B"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "Dc" = (
 /obj/structure/cable/cyan{
 	d1 = 4;
@@ -15737,6 +17014,20 @@
 	name = "\improper SCENE 2";
 	dynamic_lighting = 1
 	})
+"Dz" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "DA" = (
 /obj/fluid_mapped,
 /mob/living/simple_animal/aquatic/fish,
@@ -15765,6 +17056,26 @@
 /turf/simulated/floor/plating,
 /area/centcom{
 	name = "\improper SCENE 2";
+	dynamic_lighting = 1
+	})
+"DC" = (
+/mob/living/simple_animal/cutscene_character/actor/downed{
+	pixel_y = -16
+	},
+/mob/living/simple_animal/cutscene_character/actor/downed{
+	dir = 8;
+	pixel_x = -11
+	},
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "DD" = (
@@ -16106,6 +17417,22 @@
 	name = "\improper CINEMA";
 	dynamic_lighting = 1
 	})
+"Eg" = (
+/obj/structure/closet/body_bag{
+	pixel_y = 4
+	},
+/obj/floor_decal/techfloor,
+/obj/decal/cleanable/dirt,
+/obj/landmark/light{
+	light_range = 2;
+	layer = 4.10;
+	light_color = "#e2943a"
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "Eh" = (
 /obj/structure/bed/chair/shuttle/black{
 	dir = 8
@@ -16322,6 +17649,13 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/centcom{
 	name = "\improper EP3 SCENE 1";
+	dynamic_lighting = 1
+	})
+"EB" = (
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "ED" = (
@@ -16564,6 +17898,37 @@
 /turf/simulated/floor/plating,
 /area/centcom{
 	name = "\improper SCENE 2";
+	dynamic_lighting = 1
+	})
+"EV" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/mob/living/simple_animal/cutscene_character/datura/s2ep2{
+	dir = 1;
+	pixel_y = 16;
+	icon_dead = "OP 1 - 1";
+	icon_living = "OP 1 - 1";
+	icon_state = "OP 1 - 1";
+	pixel_x = 13
+	},
+/obj/effect/cutscene_camera/s2op1/sc9,
+/mob/living/simple_animal/cutscene_character/martin{
+	pixel_x = -13;
+	icon_dead = "Martin 2";
+	icon_living = "Martin 2";
+	icon_state = "Martin 2"
+	},
+/turf/simulated/floor/exoplanet/gravel{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "EW" = (
@@ -17062,6 +18427,57 @@
 	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
+"FR" = (
+/obj/structure/closet/body_bag{
+	pixel_y = 4
+	},
+/obj/floor_decal/techfloor{
+	dir = 1
+	},
+/obj/landmark/light{
+	light_range = 2;
+	layer = 4.10;
+	light_color = "#e2943a"
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"FT" = (
+/obj/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"FU" = (
+/obj/effect/cutscene_camera/s2op1/sc7,
+/turf/simulated/floor/plating{
+	color = "black"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"FW" = (
+/obj/machinery/power/apc{
+	name = "south bump";
+	pixel_y = -24
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "FY" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/hull{
@@ -17400,6 +18816,15 @@
 	name = "\improper SCENE 2";
 	dynamic_lighting = 1
 	})
+"GB" = (
+/obj/floor_decal/industrial/hatch/yellow,
+/obj/structure/ladder/up,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "GC" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -17435,6 +18860,23 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom{
 	name = "\improper CINEMA";
+	dynamic_lighting = 1
+	})
+"GF" = (
+/obj/structure/closet/body_bag{
+	pixel_y = 4
+	},
+/obj/floor_decal/hull{
+	dir = 8
+	},
+/obj/landmark/light{
+	light_range = 2;
+	layer = 4.10;
+	light_color = "#e2943a"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "GG" = (
@@ -17692,6 +19134,21 @@
 /turf/simulated/floor/tiled,
 /area/centcom{
 	name = "\improper SCENE 1";
+	dynamic_lighting = 1
+	})
+"Hf" = (
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "Hg" = (
@@ -18182,6 +19639,16 @@
 	name = "\improper SCENE 2";
 	dynamic_lighting = 1
 	})
+"HT" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techfloor,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "HV" = (
 /obj/structure/fd/placeholder/better,
 /obj/landmark/light{
@@ -18268,6 +19735,20 @@
 /turf/simulated/floor/exoplanet/grim_asphalt1,
 /area/centcom{
 	name = "\improper CINEMA";
+	dynamic_lighting = 1
+	})
+"Ic" = (
+/obj/structure/catwalk,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "Id" = (
@@ -18487,6 +19968,14 @@
 	name = "\improper SCENE 2";
 	dynamic_lighting = 1
 	})
+"Iv" = (
+/obj/floor_decal/borderfloorblack,
+/obj/floor_decal/corner/brown/border,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "Iw" = (
 /obj/floor_decal/corner/green,
 /obj/item/device/radio/intercom{
@@ -18525,6 +20014,24 @@
 /turf/simulated/floor/plating{
 	color = "black"
 	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"Iz" = (
+/obj/structure/catwalk,
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 8
+	},
+/mob/living/simple_animal/cutscene_character/null_drone{
+	icon_dead = "omoikane_cutscene_moving";
+	icon_living = "omoikane_cutscene_moving";
+	icon_state = "omoikane_cutscene_moving";
+	cutscene_id = "Нуль - Опенинг-1"
+	},
+/turf/simulated/floor/plating,
 /area/centcom{
 	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
@@ -18619,6 +20126,44 @@
 	},
 /area/centcom{
 	name = "\improper SCENE 3";
+	dynamic_lighting = 1
+	})
+"IN" = (
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = -16;
+	pixel_y = 6
+	},
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"IO" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/structure/bed/sauna_bench,
+/turf/simulated/floor/tiled/dark,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"IP" = (
+/obj/floor_decal/techfloor{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "IQ" = (
@@ -18738,6 +20283,26 @@
 /turf/simulated/floor/plating,
 /area/centcom{
 	name = "\improper SCENE 2";
+	dynamic_lighting = 1
+	})
+"Jc" = (
+/obj/decal/cleanable/dirt{
+	icon = 'icons/turf/flooring/tiles.dmi';
+	icon_state = "broken1"
+	},
+/obj/turf_fire/prop,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "Jd" = (
@@ -19140,6 +20705,23 @@
 	name = "\improper SCENE 1";
 	dynamic_lighting = 1
 	})
+"JL" = (
+/obj/machinery/door/airlock/maintenance{
+	name = "Medical Storage Maintenance"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "JN" = (
 /obj/floor_decal/techfloor{
 	dir = 5
@@ -19297,6 +20879,15 @@
 	name = "\improper SCENE 2";
 	dynamic_lighting = 1
 	})
+"JZ" = (
+/obj/floor_decal/hull{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "Ka" = (
 /obj/floor_decal/corner/green{
 	dir = 10
@@ -19452,6 +21043,29 @@
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/grim_concrete_tile,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"Kp" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/obj/item/flame/candle/grim{
+	icon_state = "candle3_lit";
+	light_range = 2;
+	light_power = 0.6;
+	light_color = "#da8302";
+	pixel_x = 15;
+	pixel_y = -7
+	},
+/obj/landmark/light{
+	light_range = 2;
+	layer = 4.10;
+	light_color = "#e2943a"
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/centcom{
 	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
@@ -19666,6 +21280,26 @@
 	name = "\improper EP2 SCENE 1";
 	dynamic_lighting = 1
 	})
+"KG" = (
+/obj/structure/closet/body_bag{
+	pixel_y = 4
+	},
+/obj/floor_decal/hull{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
+/obj/landmark/light{
+	light_range = 2;
+	layer = 4.10;
+	light_color = "#e2943a"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "KH" = (
 /mob/living/simple_animal/cutscene_character/maxim/s2ep2{
 	dir = 1;
@@ -19766,6 +21400,18 @@
 /turf/simulated/wall/prepainted,
 /area/centcom{
 	name = "\improper SCENE 2";
+	dynamic_lighting = 1
+	})
+"KP" = (
+/obj/structure/catwalk,
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "KQ" = (
@@ -19885,6 +21531,16 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/centcom{
 	name = "\improper EP2 SCENE 1";
+	dynamic_lighting = 1
+	})
+"Ld" = (
+/obj/structure/fd/grim_walls/metal{
+	icon_state = "rusty_wall-1";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "Le" = (
@@ -20125,6 +21781,31 @@
 	name = "\improper CINEMA";
 	dynamic_lighting = 1
 	})
+"Lz" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/item/flame/candle/grim{
+	icon_state = "candle1_lit";
+	light_range = 2;
+	light_power = 0.6;
+	light_color = "#da8302";
+	pixel_x = -22;
+	pixel_y = -3
+	},
+/obj/item/flame/candle/grim{
+	icon_state = "candle1_lit";
+	light_range = 2;
+	light_power = 0.6;
+	light_color = "#da8302";
+	pixel_x = -29;
+	pixel_y = -10
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "LB" = (
 /obj/structure/table/marble,
 /obj/structure/window/reinforced,
@@ -20206,6 +21887,20 @@
 	name = "\improper SCENE 2";
 	dynamic_lighting = 1
 	})
+"LI" = (
+/obj/turf_fire/prop,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "LJ" = (
 /obj/structure/bed/chair/padded/brown{
 	dir = 4
@@ -20247,6 +21942,13 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/centcom{
 	name = "\improper EP2 SCENE 1";
+	dynamic_lighting = 1
+	})
+"LN" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "LP" = (
@@ -20826,6 +22528,19 @@
 /obj/floor_decal/corner/paleblue/full,
 /obj/structure/iv_stand,
 /turf/simulated/floor/tiled,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"MT" = (
+/obj/structure/closet/body_bag{
+	pixel_y = 4
+	},
+/obj/floor_decal/techfloor{
+	dir = 1
+	},
+/obj/decal/cleanable/blood,
+/turf/simulated/floor/tiled/techfloor/grid,
 /area/centcom{
 	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
@@ -21507,6 +23222,23 @@
 	name = "\improper CINEMA";
 	dynamic_lighting = 1
 	})
+"Oh" = (
+/obj/floor_decal/techfloor,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/generic,
+/obj/item/flame/candle/grim{
+	icon_state = "candle1_lit";
+	light_range = 2;
+	light_power = 0.6;
+	light_color = "#da8302";
+	pixel_x = -48;
+	pixel_y = 13
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "Oi" = (
 /obj/floor_decal/industrial/outline/grey,
 /obj/machinery/porta_turret{
@@ -21515,6 +23247,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom{
 	name = "\improper SCENE 2";
+	dynamic_lighting = 1
+	})
+"Oj" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/grille,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "Ok" = (
@@ -21749,6 +23496,21 @@
 	name = "\improper SCENE 2";
 	dynamic_lighting = 1
 	})
+"OE" = (
+/obj/floor_decal/messygrass{
+	dir = 4
+	},
+/obj/floor_decal/messygrass,
+/obj/floor_decal/messygrass{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/fd/drought{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "OF" = (
 /obj/floor_decal/step{
 	color = "grey";
@@ -21810,6 +23572,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom{
 	name = "\improper EP2 SCENE 1";
+	dynamic_lighting = 1
+	})
+"OL" = (
+/obj/floor_decal/step{
+	color = "grey";
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "OM" = (
@@ -22075,6 +23847,22 @@
 	name = "\improper EP2 SCENE 1";
 	dynamic_lighting = 1
 	})
+"Pn" = (
+/obj/structure/closet/body_bag{
+	pixel_y = 4
+	},
+/obj/catwalk_plated/dark,
+/obj/decal/cleanable/dirt,
+/obj/landmark/light{
+	light_range = 2;
+	layer = 4.10;
+	light_color = "#e2943a"
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "Pq" = (
 /obj/structure/flora/jungle/bush,
 /obj/structure/flora/ausbushes/fullgrass,
@@ -22289,6 +24077,17 @@
 	name = "\improper EP2 SCENE 1";
 	dynamic_lighting = 1
 	})
+"PG" = (
+/obj/structure/railing/mapped{
+	dir = 8;
+	icon_state = "railing0-1"
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "PH" = (
 /obj/structure/bed/chair/armchair/black{
 	pixel_y = 11
@@ -22390,6 +24189,20 @@
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/centcom{
 	name = "\improper EP3 SCENE 1";
+	dynamic_lighting = 1
+	})
+"PT" = (
+/obj/structure/wall_frame/standard,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "PU" = (
@@ -22741,12 +24554,6 @@
 /obj/structure/sign/memorial{
 	pixel_y = -5
 	},
-/obj/landmark/light{
-	light_range = 20;
-	layer = 4.10;
-	light_color = "#afab9e";
-	light_power = 2
-	},
 /obj/floor_decal/spline/plain/black,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/exoplanet/concrete_pavement,
@@ -23066,6 +24873,14 @@
 	alpha = 100
 	},
 /turf/simulated/floor/exoplanet/concrete_pavement,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"Rg" = (
+/obj/floor_decal/techfloor,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techfloor/grid,
 /area/centcom{
 	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
@@ -23679,6 +25494,15 @@
 	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
+"Se" = (
+/obj/structure/morgue{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "Sf" = (
 /obj/structure/bed/chair/wood/walnut{
 	dir = 4
@@ -23977,6 +25801,16 @@
 	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
+"SE" = (
+/obj/item/device/radio/intercom{
+	dir = 4;
+	pixel_x = -21
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "SF" = (
 /obj/structure/fd/placeholder/better,
 /obj/floor_decal/industrial/warning{
@@ -24072,6 +25906,23 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/centcom{
 	name = "\improper SCENE 2";
+	dynamic_lighting = 1
+	})
+"ST" = (
+/obj/structure/fd/cave_decor{
+	icon_state = "sign_left"
+	},
+/obj/landmark/light{
+	light_range = 20;
+	layer = 4.10;
+	light_color = "#afab9e";
+	light_power = 2
+	},
+/turf/simulated/floor/exoplanet/gravel{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "SV" = (
@@ -24186,6 +26037,24 @@
 	name = "\improper EP2 SCENE 1";
 	dynamic_lighting = 1
 	})
+"Tg" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt{
+	icon = 'icons/turf/flooring/tiles.dmi';
+	icon_state = "broken2"
+	},
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "Th" = (
 /obj/structure/flora/jungle/bush,
 /obj/structure/fd/placeholder/better,
@@ -24285,6 +26154,15 @@
 /turf/simulated/floor/exoplanet/fd/waste,
 /area/centcom{
 	name = "\improper EP3 SCENE 1";
+	dynamic_lighting = 1
+	})
+"Tp" = (
+/obj/structure/morgue{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "Tq" = (
@@ -24609,6 +26487,28 @@
 	name = "\improper SCENE 2";
 	dynamic_lighting = 1
 	})
+"TS" = (
+/obj/turf_fire/prop,
+/obj/landmark/light{
+	light_power = 0.8;
+	light_range = 5;
+	layer = 4.10;
+	light_color = "#b12b00"
+	},
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "TT" = (
 /obj/floor_decal/borderfloor{
 	dir = 9
@@ -24624,6 +26524,20 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/centcom{
 	name = "\improper EP2 SCENE 1";
+	dynamic_lighting = 1
+	})
+"TU" = (
+/obj/structure/rubble/war,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "TV" = (
@@ -24736,6 +26650,22 @@
 /turf/simulated/floor/plating,
 /area/centcom{
 	name = "\improper EP2 SCENE 1";
+	dynamic_lighting = 1
+	})
+"Uh" = (
+/mob/living/simple_animal/cutscene_character/actor/downed{
+	dir = 4
+	},
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "Ui" = (
@@ -24961,6 +26891,34 @@
 	name = "\improper EP2 SCENE 1";
 	dynamic_lighting = 1
 	})
+"UA" = (
+/obj/effect/cutscene_camera/s2op1/sc8,
+/mob/living/simple_animal/cutscene_character/zlata/s2ep2/big_version{
+	pixel_x = 128;
+	pixel_y = -192;
+	icon_dead = "OP 1 - 1";
+	icon_living = "OP 1 - 1";
+	icon_state = "OP 1 - 1";
+	cutscene_id = "Злата - Опенинг-1"
+	},
+/obj/landmark/light{
+	light_power = 2;
+	light_range = 7;
+	layer = 4.10;
+	light_color = "#ffffff"
+	},
+/mob/living/simple_animal/cutscene_character/tears{
+	cutscene_id = "Слеза";
+	pixel_x = 48;
+	pixel_y = 32
+	},
+/turf/simulated/floor/plating{
+	color = "black"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "UB" = (
 /obj/structure/closet/crate/large,
 /turf/simulated/floor/exoplanet/fd/desertsand{
@@ -24978,6 +26936,16 @@
 /turf/simulated/floor/tiled/steel_ridged,
 /area/centcom{
 	name = "\improper SCENE 2";
+	dynamic_lighting = 1
+	})
+"UD" = (
+/obj/structure/fd/grim_walls/metal{
+	icon_state = "rusty_wall-2";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "UE" = (
@@ -25217,6 +27185,16 @@
 	name = "\improper SCENE 2";
 	dynamic_lighting = 1
 	})
+"Va" = (
+/obj/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "Vb" = (
 /obj/machinery/door/firedoor,
 /obj/floor_decal/industrial/hatch/blue,
@@ -25302,6 +27280,45 @@
 	},
 /area/centcom{
 	name = "\improper EP2 SCENE 1";
+	dynamic_lighting = 1
+	})
+"Vi" = (
+/obj/decal/cleanable/dirt,
+/obj/turf_fire/prop,
+/obj/landmark/light{
+	light_power = 0.8;
+	light_range = 5;
+	layer = 4.10;
+	light_color = "#b12b00"
+	},
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"Vj" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "Vk" = (
@@ -25421,6 +27438,20 @@
 	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
+"Vv" = (
+/obj/structure/grille,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "Vx" = (
 /obj/structure/fd/placeholder/better,
 /obj/structure/railing/mapped,
@@ -25454,6 +27485,15 @@
 /turf/simulated/floor/plating,
 /area/centcom{
 	name = "\improper SCENE 2";
+	dynamic_lighting = 1
+	})
+"VC" = (
+/obj/machinery/alarm{
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "VD" = (
@@ -25530,12 +27570,51 @@
 	name = "\improper SCENE 3";
 	dynamic_lighting = 1
 	})
+"VI" = (
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/mob/living/simple_animal/cutscene_character/actor{
+	dir = 8;
+	pixel_x = -13;
+	pixel_y = 14
+	},
+/mob/living/simple_animal/cutscene_character/actor{
+	dir = 8;
+	pixel_x = -3;
+	pixel_y = 2
+	},
+/turf/simulated/floor/exoplanet/gravel{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "VJ" = (
 /obj/floor_decal/borderfloorwhite,
 /obj/structure/fd/placeholder/better,
 /turf/simulated/floor/tiled/monotile,
 /area/centcom{
 	name = "\improper EP2 SCENE 1";
+	dynamic_lighting = 1
+	})
+"VK" = (
+/obj/structure/grille/broken,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "VL" = (
@@ -26198,6 +28277,20 @@
 	name = "\improper EP3 SCENE 1";
 	dynamic_lighting = 1
 	})
+"WL" = (
+/obj/decal/cleanable/generic,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "WM" = (
 /obj/structure/flora/jungle/bush,
 /turf/simulated/floor/exoplanet/fd/grass{
@@ -26259,6 +28352,14 @@
 	name = "\improper EP2 SCENE 1";
 	dynamic_lighting = 1
 	})
+"WU" = (
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#526833"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "WV" = (
 /obj/structure/railing/mapped,
 /obj/floor_decal/industrial/warning/fulltile,
@@ -26303,6 +28404,15 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/centcom{
 	name = "\improper EP3 SCENE 1";
+	dynamic_lighting = 1
+	})
+"WZ" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "Xa" = (
@@ -26481,6 +28591,22 @@
 	name = "\improper EP3 SCENE 1";
 	dynamic_lighting = 1
 	})
+"Xp" = (
+/obj/structure/rubble/war,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "Xq" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt{
@@ -26600,6 +28726,21 @@
 /turf/simulated/floor/plating,
 /area/centcom{
 	name = "\improper SCENE 2";
+	dynamic_lighting = 1
+	})
+"Xz" = (
+/obj/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/landmark/light{
+	light_range = 20;
+	layer = 4.10;
+	light_color = "#afab9e";
+	light_power = 2
+	},
+/turf/simulated/floor/exoplanet/concrete_pavement,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "XA" = (
@@ -26741,6 +28882,23 @@
 	name = "\improper EP2 SCENE 1";
 	dynamic_lighting = 1
 	})
+"XL" = (
+/obj/decal/cleanable/dirt{
+	icon = 'icons/turf/flooring/tiles.dmi';
+	icon_state = "broken1"
+	},
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
 "XN" = (
 /turf/simulated/floor/exoplanet/fd/waste,
 /area/centcom{
@@ -26753,6 +28911,39 @@
 /turf/simulated/floor/plating,
 /area/centcom{
 	name = "\improper SCENE 2";
+	dynamic_lighting = 1
+	})
+"XQ" = (
+/obj/decal/cleanable/dirt{
+	icon = 'icons/turf/flooring/tiles.dmi';
+	icon_state = "broken2"
+	},
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/exoplanet/gravel{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper S2 OPENING 1";
+	dynamic_lighting = 1
+	})
+"XR" = (
+/obj/structure/girder,
+/obj/structure/showcase{
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi';
+	icon_state = "rain";
+	layer = 4.10;
+	mouse_opacity = 0;
+	alpha = 100
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "XS" = (
@@ -27521,6 +29712,15 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/centcom{
 	name = "\improper SCENE 2";
+	dynamic_lighting = 1
+	})
+"Zc" = (
+/obj/structure/fd/grim_walls/metal{
+	icon_state = "rusty_wall-3"
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper S2 OPENING 1";
 	dynamic_lighting = 1
 	})
 "Zd" = (
@@ -52849,34 +55049,34 @@ Li
 Li
 Li
 Li
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+EY
+EY
+EY
+EY
+EY
+EY
+EY
+EY
+EY
+EY
 Li
 EY
 EY
@@ -53051,34 +55251,34 @@ Li
 Li
 Li
 Li
+UN
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+UN
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+bE
+Hf
+Xp
+Hf
+Jc
+DC
+Hf
+eq
+yd
+EY
 Li
 EY
 Sc
@@ -53253,34 +55453,34 @@ Li
 Li
 Li
 Li
+UN
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+iy
+yj
+aO
+xf
+zW
+zW
+gt
+Fd
+UN
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+Xp
+tf
+pO
+xh
+aa
+Ic
+Oj
+Hf
+tf
+EY
 Li
 EY
 Sc
@@ -53455,34 +55655,34 @@ Li
 Li
 Li
 Li
+UN
+Fd
+Zc
+Zc
+Zc
+Zc
+Zc
+mi
+zU
+vo
+gx
+WU
+zW
+wk
+Fd
+UN
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+TU
+zF
+qc
+jf
+zc
+bM
+ay
+LI
+XL
+EY
 Li
 EY
 Sc
@@ -53657,34 +55857,34 @@ Li
 Li
 Li
 Li
+UN
+Fd
+Iz
+EB
+Va
+EB
+KP
+oA
+nP
+wV
+kw
+WU
+xD
+OE
+Fd
+UN
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+Hf
+Xp
+vk
+kE
+hI
+Uh
+eI
+eI
+vk
+EY
 Li
 EY
 Sc
@@ -53859,34 +56059,34 @@ Li
 Li
 Li
 Li
+UN
+Fd
+Zc
+Zc
+Zc
+Zc
+Zc
+mW
+wc
+al
+Db
+sy
+gt
+WU
+Fd
+UN
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+XQ
+vk
+LI
+Vj
+tf
+vk
+kp
+Vi
+Hf
+EY
 Li
 EY
 Sc
@@ -54061,34 +56261,34 @@ Li
 Li
 Li
 Li
+UN
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+iy
+IO
+Iv
+OL
+qR
+qE
+WU
+Fd
+UN
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+LI
+LI
+yn
+ei
+qc
+qc
+eI
+Hf
+LI
+EY
 Li
 EY
 Sc
@@ -54263,34 +56463,34 @@ Li
 Li
 Li
 Li
+UN
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+iy
+LN
+Iv
+gx
+qE
+zW
+qE
+Fd
+UN
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+LI
+Ic
+ak
+vk
+vk
+Hf
+Hf
+IN
+uj
+EY
 Li
 EY
 Sc
@@ -54465,34 +56665,34 @@ Li
 Li
 Li
 Li
+UN
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+UN
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+vk
+VK
+in
+vk
+EV
+qc
+WL
+PT
+Hf
+EY
 Li
 EY
 Sc
@@ -54667,34 +56867,34 @@ Li
 Li
 Li
 Li
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+vk
+XR
+oZ
+vk
+qc
+Tg
+uS
+Vv
+Hf
+EY
 Li
 EY
 Sc
@@ -54886,17 +57086,17 @@ Li
 Li
 Li
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+kp
+in
+Ic
+mO
+lb
+Dz
+Ic
+kp
+vk
+EY
 Li
 EY
 Sc
@@ -55088,17 +57288,17 @@ Li
 Li
 Li
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+mC
+TS
+kp
+Hf
+Cv
+rm
+BC
+aa
+TU
+EY
 Li
 EY
 Sc
@@ -55290,17 +57490,17 @@ Li
 Li
 Li
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+Hf
+kp
+kp
+VI
+cx
+XR
+mO
+qc
+vk
+EY
 Li
 EY
 Sc
@@ -55492,17 +57692,17 @@ Li
 Li
 Li
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+kp
+mO
+fP
+tf
+ew
+vk
+ay
+xv
+FT
+EY
 Li
 EY
 GL
@@ -55694,17 +57894,17 @@ Li
 Li
 Li
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+LI
+vk
+kp
+XQ
+mC
+Xp
+in
+uK
+vk
+EY
 Li
 EY
 bx
@@ -55896,17 +58096,17 @@ Li
 Li
 Li
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+yd
+vk
+Hf
+vk
+TU
+TU
+vk
+TU
+yd
+EY
 Li
 EY
 bx
@@ -56098,17 +58298,17 @@ Li
 Li
 Li
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+EY
+EY
+EY
+EY
+EY
+EY
+EY
+EY
+EY
+EY
 Li
 EY
 GL
@@ -56502,13 +58702,13 @@ Li
 Li
 Li
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+EY
+EY
+EY
+EY
+EY
+EY
 Li
 Li
 Li
@@ -56704,13 +58904,13 @@ Li
 Li
 Li
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+tu
+Ak
+Ak
+Ak
+Ak
+EY
 Li
 Li
 Li
@@ -56906,13 +59106,13 @@ Li
 Li
 Li
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+tu
+qV
+kx
+SE
+lc
+EY
 Li
 Li
 Li
@@ -57108,13 +59308,13 @@ Li
 Li
 Li
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+tu
+yj
+yj
+yj
+lc
+EY
 Li
 Li
 Li
@@ -57310,13 +59510,13 @@ Li
 Li
 Li
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+tu
+WZ
+yj
+GB
+lc
+EY
 Li
 Li
 Li
@@ -57512,13 +59712,13 @@ Li
 Li
 Li
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+tu
+Se
+kx
+FW
+lc
+EY
 Li
 Li
 Li
@@ -57714,13 +59914,13 @@ Li
 Li
 Li
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+tu
+Se
+kx
+yj
+JL
+EY
 Li
 Li
 Li
@@ -57916,14 +60116,14 @@ Li
 Li
 Li
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+tu
+Se
+kx
+iK
+lc
+EY
+EY
 Li
 Li
 Li
@@ -58118,14 +60318,14 @@ Li
 Li
 Li
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+tu
+vA
+kx
+bJ
+lc
+lc
+EY
 Li
 Li
 Li
@@ -58320,14 +60520,14 @@ Li
 Li
 Li
 Li
+EY
+tu
+yj
+mR
 Li
 Li
-Li
-Li
-Li
-Li
-Li
-Li
+pQ
+EY
 Li
 Li
 Li
@@ -58522,14 +60722,14 @@ Li
 Li
 Li
 Li
+EY
+tu
+VC
+tR
 Li
 Li
-Li
-Li
-Li
-Li
-Li
-Li
+pQ
+EY
 Li
 EY
 EY
@@ -58724,14 +60924,14 @@ Li
 Li
 Li
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+tu
+rk
+kx
+PG
+lc
+lc
+EY
 Li
 EY
 vH
@@ -58926,14 +61126,14 @@ Li
 Li
 Li
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+tu
+Se
+kx
+kx
+Tp
+lc
+EY
 Li
 EY
 vH
@@ -59128,14 +61328,14 @@ Li
 Li
 Li
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+tu
+Se
+Bv
+um
+Tp
+lc
+EY
 Li
 EY
 vH
@@ -59330,14 +61530,14 @@ Li
 Li
 Li
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+tu
+lc
+lc
+lc
+lc
+lc
+EY
 Li
 EY
 vH
@@ -59532,14 +61732,14 @@ Li
 Li
 Li
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+EY
+EY
+EY
+EY
+EY
+EY
+EY
+EY
 Li
 EY
 vH
@@ -64197,17 +66397,17 @@ Vu
 EY
 Li
 EY
-Tq
+ST
 lk
 IU
 JB
 Fa
 Qw
 ab
-Qq
+kc
 WI
 cz
-tb
+Xz
 EY
 Li
 UN
@@ -65422,21 +67622,21 @@ Li
 Li
 Li
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
 Li
 Li
 Li
@@ -65610,35 +67810,35 @@ ke
 rv
 EY
 Li
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+UN
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+UN
 Li
 Li
 Li
@@ -65812,35 +68012,35 @@ xz
 rv
 EY
 Li
+UN
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+UN
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+UN
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+UN
 Li
 Li
 Li
@@ -66014,35 +68214,35 @@ xz
 rv
 EY
 Li
+UN
+Fd
+Fd
+Fd
+Fd
+Fd
+AX
+Ld
+gk
+UD
+AX
+Fd
+UN
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+UN
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+UN
 Li
 Li
 Li
@@ -66216,35 +68416,35 @@ xz
 Jf
 EY
 Li
+UN
+Fd
+FU
+Fd
+Fd
+Fd
+rg
+uD
+nL
+AH
+nt
+Fd
+UN
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+UN
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+UN
 Li
 Li
 Li
@@ -66418,35 +68618,35 @@ xz
 Jf
 EY
 Li
+UN
+Fd
+Fd
+Fd
+Fd
+Fd
+hL
+Kp
+lx
+vs
+jX
+Fd
+UN
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+UN
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+UN
 Li
 Li
 Li
@@ -66620,35 +68820,35 @@ Ih
 Jf
 EY
 Li
+UN
+Fd
+Fd
+Fd
+Fd
+Fd
+nB
+Pn
+Pn
+hV
+MT
+Fd
+UN
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+UN
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+UA
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+UN
 Li
 Li
 Li
@@ -66822,35 +69022,35 @@ DW
 Jf
 EY
 Li
+UN
+Fd
+Fd
+Fd
+Fd
+Fd
+Eg
+da
+GF
+KG
+FR
+Fd
+UN
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+UN
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+UN
 Li
 Li
 Li
@@ -67024,35 +69224,35 @@ xz
 Yf
 EY
 Li
+UN
+Fd
+Fd
+Fd
+Fd
+Fd
+Oh
+HT
+Lz
+kO
+IP
+Fd
+UN
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+UN
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+UN
 Li
 Li
 Li
@@ -67226,35 +69426,35 @@ Ih
 xz
 EY
 Li
+UN
+Fd
+Fd
+Fd
+Fd
+Fd
+Rg
+oU
+fO
+fO
+yH
+Fd
+UN
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+UN
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+UN
 Li
 Li
 Li
@@ -67428,35 +69628,35 @@ EY
 EY
 EY
 Li
+UN
+Fd
+Fd
+Fd
+Fd
+Fd
+hL
+JZ
+cS
+JZ
+nt
+Fd
+UN
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+UN
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+UN
 Li
 Li
 Li
@@ -67630,35 +69830,35 @@ Li
 Li
 Li
 Li
+UN
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+UN
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+UN
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+UN
 Li
 Li
 Li
@@ -67832,35 +70032,35 @@ Li
 Li
 Li
 Li
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
 Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
+UN
 Li
 Li
 Li
