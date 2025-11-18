@@ -565,19 +565,19 @@
 	name = "Lukash Prochazka"
 
 /datum/job/submap/fort_manticore/xrim
-	title = "Xrim Quazi'Morax"
+	title = "Xrim QuaziMorax"
 	total_positions = 1
 	outfit_type = /singleton/hierarchy/outfit/fort_manticore/xrim
 
 /singleton/hierarchy/outfit/fort_manticore/xrim
-	name = "Xrim Quazi'Morax"
+	name = "Xrim QuaziMorax"
 
 	l_ear = /obj/item/device/radio/headset/syndicate
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 
 /obj/submap_landmark/spawnpoint/manticore/xrim
-	name = "Xrim Quazi'Morax"
+	name = "Xrim QuaziMorax"
 
 /datum/job/submap/fort_manticore/victor
 	title = "Victor Manticora"
@@ -594,12 +594,12 @@
 	name = "Victor Manticora"
 
 /datum/job/submap/fort_manticore/kai
-	title = "Ufurzar Shuurr'kai"
+	title = "Ufurzar Shuurrkai"
 	total_positions = 1
 	outfit_type = /singleton/hierarchy/outfit/fort_manticore/kai
 
 /singleton/hierarchy/outfit/fort_manticore/kai
-	name = "Ufurzar Shuurr'kai"
+	name = "Ufurzar Shuurrkai"
 
 	r_hand = /obj/item/material/twohanded/spear/assashite
 
@@ -610,7 +610,7 @@
 	id_slot = slot_wear_id
 
 /obj/submap_landmark/spawnpoint/manticore/kai
-	name = "Ufurzar Shuurr'kai"
+	name = "Ufurzar Shuurrkai"
 
 /obj/item/clothing/under/plugsuit_vatgrown
 	name = "pilot plugsuit"
@@ -665,18 +665,18 @@
 	name = "Pavel Strelkov"
 
 /datum/job/submap/fort_manticore/cubic
-	title = "Uxim'zu Qoobic"
+	title = "Uximzu Qoobic"
 	total_positions = 1
 	outfit_type = /singleton/hierarchy/outfit/fort_manticore/cubic
 
 /singleton/hierarchy/outfit/fort_manticore/cubic
-	name = "Uxim'zu Qoobic"
+	name = "Uximzu Qoobic"
 
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 
 /obj/submap_landmark/spawnpoint/manticore/cubic
-	name = "Uxim'zu Qoobic"
+	name = "Uximzu Qoobic"
 
 /datum/job/submap/fort_manticore/luke
 	title = "Luke Liltroy"
