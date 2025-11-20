@@ -282,7 +282,7 @@
 	icon = 'mods/_fd/_maps/fort_manticore/icons/clothing.dmi'
 	accessory_icons = list(
 		slot_w_uniform_str = 'mods/_fd/_maps/fort_manticore/icons/clothing_mob.dmi',
-		slot_wear_suit_str = 'mods/_fd/_maps/fort_manticore/icons/clothing_mob.dmi')
+		slot_wear_mask_str = 'mods/_fd/_maps/fort_manticore/icons/clothing_mob.dmi')
 	icon_state = "rifler_cloak"
 	item_state = "rifler_cloak"
 	slot = ACCESSORY_SLOT_INSIGNIA
