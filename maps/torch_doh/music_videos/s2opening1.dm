@@ -464,7 +464,7 @@
 		visuals.set_text(novel_message, colored, time = 2 SECONDS)
 
 /proc/opening1_line35()
-	var/novel_message = "(ПОСМОТРИ)"
+	var/novel_message = "(ПОСМОТРИ ЖЕ)"
 	var/colored = PIPE_COLOR_RED
 
 	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
@@ -1120,13 +1120,21 @@
 /obj/effect/cutscene_camera/s2op1/sc19
 	camera_id = "Опенинг 1 - Кадр 19"
 
+#define CHANGE_VISION CALL(src, change_vision)
+/datum/modular_cutscene/proc/change_vision()
+	for(var/mob/viewer as() in camera_mobs)
+		if (viewer.has_client_color(/datum/client_color/noir))
+			viewer.remove_client_color(/datum/client_color/noir)
+			viewer.update_client_color()
+		else
+			viewer.add_client_color(/datum/client_color/noir)
+			viewer.update_client_color()
+
 /proc/fds2op1()
 	start_cutscene(/datum/modular_cutscene/fds2op1sc1)
 
 /datum/modular_cutscene/fds2op1sc1/setup_actions(...)
 	actions = list(
-		ADD_SCREEN(/blackout/animated_better) = 4 SECONDS,
-		REMOVE_SCREEN(/blackout/animated_better, 1 SECONDS),
 		TP_CAMERA("Опенинг 1 - Кадр 1"),
 		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/again.ogg', volume = 50)),
 		MOVE_CAMERA(40, -3, 0, null) = 1 SECOND,
@@ -1539,12 +1547,16 @@
 		MOVE_CAMERA(0, -20, 0, null),
 		REMOVE_SCREEN(/blackout, 2 SECONDS),
 		CALL_GLOB(opening1_line36),
-		MOVE_CAMERA(0, 0, 4 SECONDS, SINE_EASING|EASE_IN) = 2 SECONDS,
-		CALL_GLOB(opening1_line37) = 5 SECONDS,
+		MOVE_CAMERA(0, 0, 4 SECONDS, SINE_EASING|EASE_IN) = 1 SECONDS,
+		CALL_GLOB(opening1_line37) = 3 SECONDS,
+		CHANGE_VISION = 2 SECONDS,
 		ADD_SCREEN(/blackout),
+		CHANGE_VISION,
 		CALL_GLOB(fd_openingstudio),
 		CALL_GLOB(fd_openingstudio2),
 		CALL_GLOB(fd_ourstudio),
 		CALL_GLOB(fd_ourstudio2) = 6 SECONDS,
-		RETURN_VIEWERS
+		CALL_GLOB(episode2_sponsors),
+		CALL_GLOB(episode2_sponsors2) = 8 SECONDS,
+		START_CUTSCENE(/datum/modular_cutscene/s2ep4sc2)
 	)
