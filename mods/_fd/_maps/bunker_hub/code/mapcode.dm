@@ -1,3 +1,5 @@
+#define STYLE_CHATBOXFONTS(X, S, C1) SPAN_STYLE("text-align: left; font-family: 'Small Fonts'; color: [C1]; font-size: [S]px", "[X]")
+
 /obj/overmap/visitable/sector/bunker_hub
 	name = "TRK-17"
 	desc = "Green terraformed world with rich flora and fauna"
@@ -227,6 +229,246 @@
 /area/bunker/lower/lab/bslab
 	name = "Bunker - Hydroponics Lab"
 
+/obj/structure/fd/wild_crops
+	name = "crop"
+	desc = "Some kind of harvestable crop. You can pull it out with your bare hands!"
+
+	icon = 'maps/torch_doh/growing_vegetables.dmi'
+	icon_state = "corn-harvest"
+
+	var/harvest_result = /obj/item/reagent_containers/food/snacks/fd_crops
+
+/obj/structure/fd/wild_crops/Initialize()
+	. = ..()
+	add_filter("harvestable", 1, list("type" = "outline", , "size" = 0.75, "color" = COLOR_LIME))
+
+/obj/structure/fd/wild_crops/attack_hand(mob/living/user)
+	. = ..()
+
+	if(do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
+
+		alpha = 0
+		mouse_opacity = 0
+
+		addtimer(new Callback(src, PROC_REF(refill)), 10 MINUTES)
+
+		if(!user.skill_check(SKILL_BOTANY, SKILL_TRAINED) && prob(50))
+			return
+		else
+			new harvest_result(get_turf(src))
+
+/obj/structure/fd/wild_crops/proc/refill()
+	animate(src, 1 SECONDS, alpha = 255)
+	mouse_opacity = 1
+
+/obj/item/reagent_containers/food/snacks/fd_crops
+	name = "crop"
+	desc = "Some kind of harvestable crop. Looks kinda tasty."
+	icon = 'maps/torch_doh/harvest.dmi'
+	icon_state = "berrypile"
+
+//КУКУРУЗА
+/obj/structure/fd/wild_crops/trk_corn
+	harvest_result = /obj/item/reagent_containers/food/snacks/fd_crops/corn
+
+/obj/item/reagent_containers/food/snacks/fd_crops/corn
+	icon_state = "corn"
+	nutriment_desc = list("corn" = 2)
+	nutriment_amt = 4
+	bitesize = 1
+/obj/item/reagent_containers/food/snacks/fd_crops/corn/Initialize()
+	.=..()
+	reagents.add_reagent(/datum/reagent/nutriment/cornoil, 5)
+
+//ПРОЧИЕ ФРУКТЫ И ОВОЩИ
+/obj/structure/fd/wild_crops/trk_saltygreen
+	icon = 'maps/torch_doh/growing_flowers.dmi'
+	icon_state = "corpse-flower-harvest"
+	harvest_result = /obj/item/reagent_containers/food/snacks/fd_crops/saltygreen
+
+/obj/item/reagent_containers/food/snacks/fd_crops/saltygreen
+	icon_state = "siti"
+	nutriment_desc = list("salt" = 5, "dryness" = 2)
+	nutriment_amt = 4
+	bitesize = 1
+/obj/item/reagent_containers/food/snacks/fd_crops/saltygreen/Initialize()
+	.=..()
+	reagents.add_reagent(/datum/reagent/sodiumchloride, 2)
+
+/obj/structure/fd/wild_crops/trk_tastycactus
+	icon = 'maps/torch_doh/growing_flowers.dmi'
+	icon_state = "galaxythistle-harvest"
+	harvest_result = /obj/item/reagent_containers/food/snacks/fd_crops/tastycactus
+
+/obj/item/reagent_containers/food/snacks/fd_crops/tastycactus
+	icon_state = "galaxythistle"
+	nutriment_desc = list("heartiness" = 2, "sweetness" = 5)
+	nutriment_amt = 2
+	bitesize = 1
+/obj/item/reagent_containers/food/snacks/fd_crops/tastycactus/Initialize()
+	.=..()
+	reagents.add_reagent(/datum/reagent/nutriment/honey, 5)
+	reagents.add_reagent(/datum/reagent/bicaridine, 5)
+
+//ПРИПРАВЫ
+/obj/structure/fd/wild_crops/trk_sugarcrop
+	icon = 'maps/torch_doh/growing_flowers.dmi'
+	icon_state = "moonflower-harvest"
+	harvest_result = /obj/item/reagent_containers/food/snacks/fd_crops/sugarcrop
+
+/obj/item/reagent_containers/food/snacks/fd_crops/sugarcrop
+	icon_state = "moonflower"
+	nutriment_desc = list("sugar" = 5)
+	nutriment_amt = 2
+	bitesize = 2
+/obj/item/reagent_containers/food/snacks/fd_crops/sugarcrop/Initialize()
+	.=..()
+	reagents.add_reagent(/datum/reagent/sugar, 5)
+
+/obj/structure/fd/wild_crops/trk_coldcrop
+	icon = 'maps/torch_doh/growing_fruits.dmi'
+	icon_state = "bluetomato-grow6"
+	harvest_result = /obj/item/reagent_containers/food/snacks/fd_crops/coldcrop
+
+/obj/item/reagent_containers/food/snacks/fd_crops/coldcrop
+	icon_state = "ambrosiadeus"
+	nutriment_desc = list("mint" = 5)
+	nutriment_amt = 2
+	bitesize = 2
+/obj/item/reagent_containers/food/snacks/fd_crops/coldcrop/Initialize()
+	.=..()
+	reagents.add_reagent(/datum/reagent/drink/ice, 2)
+	reagents.add_reagent(/datum/reagent/nutriment/mint, 2)
+	reagents.add_reagent(/datum/reagent/tricordrazine, 5)
+
+/obj/structure/fd/wild_crops/trk_firecrop
+	icon = 'maps/torch_doh/growing_fruits.dmi'
+	icon_state = "cherry_bomb-harvest"
+	harvest_result = /obj/item/reagent_containers/food/snacks/fd_crops/firecrop
+
+/obj/item/reagent_containers/food/snacks/fd_crops/firecrop
+	icon_state = "coffee_arabica"
+	nutriment_desc = list("pepper" = 2, "spicy!" = 5, "popcorn" = 2)
+	nutriment_amt = 1
+	bitesize = 1
+/obj/item/reagent_containers/food/snacks/fd_crops/firecrop/Initialize()
+	.=..()
+	reagents.add_reagent(/datum/reagent/capsaicin, 4)
+	reagents.add_reagent(/datum/reagent/blackpepper, 2)
+	reagents.add_reagent(/datum/reagent/dylovene, 4)
+
+/obj/structure/fd/wild_crops/trk_coffecrop
+	icon = 'maps/torch_doh/growing_fruits.dmi'
+	icon_state = "apple-grow5"
+	harvest_result = /obj/item/reagent_containers/food/snacks/fd_crops/coffecrop
+
+/obj/item/reagent_containers/food/snacks/fd_crops/coffecrop
+	icon_state = "coffee_robusta"
+	nutriment_desc = list("chocolate" = 4, "dryness" = 2)
+	nutriment_amt = 1
+	bitesize = 1
+/obj/item/reagent_containers/food/snacks/fd_crops/coffecrop/Initialize()
+	.=..()
+	reagents.add_reagent(/datum/reagent/drink/coffee/cafe_latte, 6)
+
+/obj/structure/fd/perci_console
+	icon = 'mods/_fd/fd_customs/customs/doctoralex/props.dmi'
+	icon_state = "oldcomp"
+	name = "old console"
+	desc = "Старьё, которое, по всем законам, кажется не должно работать."
+	var/mob/living/currently_connected_texter_1
+	var/mob/currently_connected_texter_2
+
+/obj/structure/fd/perci_console/attack_hand(mob/living/user)
+	. = ..()
+	if(!currently_connected_texter_1)
+		currently_connected_texter_1 = user
+		user.overlay_fullscreen("inchat", /obj/screen/fullscreen/blind)
+		START_PROCESSING(SSobj, src)
+
+	if(currently_connected_texter_1 != user)
+		return
+
+	if(currently_connected_texter_1 == user)
+		setup_message(user)
+
+/obj/structure/fd/perci_console/attack_ghost(mob/observer/ghost/user)
+	. = ..()
+	if(currently_connected_texter_2 != user)
+		return
+
+	if(currently_connected_texter_2 == user)
+		setup_message(user)
+
+/obj/structure/fd/perci_console/Process()
+
+	if(get_dist(currently_connected_texter_1, src) > 1)
+		currently_connected_texter_1.clear_fullscreen("inchat")
+		currently_connected_texter_1 = null
+		return PROCESS_KILL
+
+/obj/screen/novel_message/chat_message
+	alpha = 255
+
+/obj/screen/novel_message/chat_message/set_text(text)
+	SetTransform(2)
+	maptext = STYLE_CHATBOXFONTS("[text]", 7, COLOR_GREEN)
+
+	spawn(10 SECONDS)
+		animate(src, 1 SECOND, alpha = 0)
+
+	QDEL_IN(src, 11 SECONDS)
+
+/obj/structure/fd/perci_console/proc/setup_message(mob/user, text_to_show)
+	set waitfor = FALSE
+
+	var/list/should_see_text = list()
+	if(!text_to_show)
+		text_to_show = input(user, "Сообщение:", "Введите сообщение, которое вы хотели бы чтобы отобразилось компьютерному другу:", "...") as null|text
+
+	if(!text_to_show)
+		return
+
+	for(var/obj/screen/novel_message/chat_message/messages in world)
+		var/move_by_pixels = messages.maptext_y + 30
+		animate(messages, maptext_y = move_by_pixels, time = 1 SECOND, easing = SINE_EASING|EASE_IN)
+
+	sleep(1 SECOND)
+
+	should_see_text += currently_connected_texter_1
+	should_see_text += currently_connected_texter_2
+
+	var/final_message = "/...[text_to_show]"
+
+	var/obj/screen/novel_message/chat_message/visuals = new /obj/screen/novel_message/chat_message()
+	visuals.maptext_y = -200
+	visuals.maptext_x = -50
+	for(var/mob/M in should_see_text)
+		if(M.client)
+			M.client.screen += visuals
+
+	visuals.set_text(final_message)
+
+/mob/living/simple_animal/fd/perci_bot1
+	name = "drone"
+	desc = "Simple spider-like drone."
+	icon = 'mods/_fd/_maps/bunker_hub/icons/perci_bot.dmi'
+	maxHealth = 99999
+	health = 99999
+	icon_state = "blitz"
+
+	mob_size = MOB_SMALL
+	pass_flags = PASS_FLAG_TABLE
+	density = FALSE
+
+/mob/living/simple_animal/fd/perci_bot2
+	name = "creepy robot"
+	desc = "Shell of long-dead IPC."
+	icon = 'mods/_fd/_maps/bunker_hub/icons/perci_bot.dmi'
+	maxHealth = 99999
+	health = 99999
+	icon_state = "baseline_grey_off"
+
 /singleton/submap_archetype/bunker
 	descriptor = "Abandoned Bunker."
 	map = "TRK-17 Torch Bunker"
@@ -243,10 +485,22 @@
 		/datum/job/submap/bunker/looney,
 		/datum/job/submap/bunker/meat,
 		/datum/job/submap/bunker/lira,
-		/datum/job/submap/bunker/zlata,
-		/datum/job/submap/bunker/swift,
-		/datum/job/submap/bunker/raymond,
-		/datum/job/submap/bunker/alma
+		/datum/job/submap/bunker/alma,
+		///MANTICORE GUESTS///
+		/datum/job/submap/fort_manticore/roku,
+		/datum/job/submap/fort_manticore/rifler,
+		/datum/job/submap/fort_manticore/ace,
+		/datum/job/submap/fort_manticore/rain,
+		/datum/job/submap/fort_manticore/lukash,
+		/datum/job/submap/fort_manticore/xrim,
+		/datum/job/submap/fort_manticore/victor,
+		/datum/job/submap/fort_manticore/kai,
+		/datum/job/submap/fort_manticore/cf355,
+		/datum/job/submap/fort_manticore/rk381,
+		/datum/job/submap/fort_manticore/pavel,
+		/datum/job/submap/fort_manticore/luke,
+		/datum/job/submap/fort_manticore/adriano,
+		/datum/job/submap/fort_manticore/lin
 	)
 
 /obj/submap_landmark/joinable_submap/bunker

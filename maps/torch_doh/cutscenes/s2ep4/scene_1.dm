@@ -79,6 +79,9 @@
 		PLAY_SOUND(sound('sound/effects/footstep/asteroid2.ogg', volume = 70)),
 		MOVE_ACTOR(actor("Райфлер - 4-1-1"), WEST) = 2 SECONDS,
 		TURN_ACTOR(actor("Райфлер - 4-1-1"), EAST) = 2 SECONDS,
+
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/ambienceNV.ogg', volume = 40)),
+
 		TALK_ACTOR(actor("Райфлер - 4-1-1"), "!сверлит мужчину взглядом.") = 4 SECONDS,
 		TALK_ACTOR(actor("Канарис - 4-1-1"), "Послушай, я прекрасно понимаю твоё возможное разочарование, сметение...и не хочу сильно назидать, но...") = 6 SECONDS,
 		PLAY_SOUND(sound('sound/effects/footstep/asteroid1.ogg', volume = 70)),
@@ -88,9 +91,6 @@
 		TALK_ACTOR(actor("Эйс - 4-1-1"), "!поправляет ремень ружья."),
 		TALK_ACTOR(actor("Эйс - 4-1-1"), "Оружие здесь, всё-таки, у нас, приятель. Не нужно на меня так смотреть.") = 6 SECONDS,
 		TALK_ACTOR(actor("Райфлер - 4-1-1"), "Хватит, Эйс, они и мухи не обидят.") = 2 SECONDS,
-
-		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/ambienceNV.ogg', volume = 40)),
-
 		TURN_ACTOR(actor("Эйс - 4-1-1"), SOUTH),
 		TALK_ACTOR(actor("Эйс - 4-1-1"), "!разводит руки в стороны."),
 		MOVE_ACTOR(actor("Эйс - 4-1-1"), EAST) = 1 SECONDS,

@@ -85,9 +85,13 @@
 /obj/screen/fullscreen/fd/blackout/alt
 	layer = UNDER_HUD_LAYER
 
-/obj/screen/fullscreen/fishbed/fd
+/obj/screen/fullscreen/fd/fishbed
 	plane = HUD_PLANE
 	layer = 7
+
+	icon_state = "fishbed"
+	allstate = 1
+	scale_to_view = TRUE
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // OUTDATED, BUT CANNOT BE DELETED //

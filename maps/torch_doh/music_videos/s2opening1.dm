@@ -1120,16 +1120,6 @@
 /obj/effect/cutscene_camera/s2op1/sc19
 	camera_id = "Опенинг 1 - Кадр 19"
 
-#define CHANGE_VISION CALL(src, change_vision)
-/datum/modular_cutscene/proc/change_vision()
-	for(var/mob/viewer as() in camera_mobs)
-		if (viewer.has_client_color(/datum/client_color/noir))
-			viewer.remove_client_color(/datum/client_color/noir)
-			viewer.update_client_color()
-		else
-			viewer.add_client_color(/datum/client_color/noir)
-			viewer.update_client_color()
-
 /proc/fds2op1()
 	start_cutscene(/datum/modular_cutscene/fds2op1sc1)
 
@@ -1547,8 +1537,8 @@
 		MOVE_CAMERA(0, -20, 0, null),
 		REMOVE_SCREEN(/blackout, 2 SECONDS),
 		CALL_GLOB(opening1_line36),
-		MOVE_CAMERA(0, 0, 4 SECONDS, SINE_EASING|EASE_IN) = 1 SECONDS,
-		CALL_GLOB(opening1_line37) = 3 SECONDS,
+		MOVE_CAMERA(0, 0, 4 SECONDS, SINE_EASING|EASE_IN) = 1.5 SECONDS,
+		CALL_GLOB(opening1_line37) = 2.5 SECONDS,
 		CHANGE_VISION = 2 SECONDS,
 		ADD_SCREEN(/blackout),
 		CHANGE_VISION,

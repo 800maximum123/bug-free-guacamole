@@ -221,6 +221,17 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 /datum/modular_cutscene/proc/change_actor_visuals(mob/living/actor, new_state = "anything")
 	return actor.icon_state = new_state
 
+#define CHANGE_VISION CALL(src, change_vision)
+/datum/modular_cutscene/proc/change_vision()
+	for(var/mob/viewer as() in camera_mobs)
+		if (viewer.has_client_color(/datum/client_color/noir))
+			viewer.remove_client_color(/datum/client_color/noir)
+			viewer.update_client_color()
+		else
+			viewer.add_client_color(/datum/client_color/noir)
+			viewer.update_client_color()
+
+
 #define ADD_SCREEN(fullscreen) CALL(src, add_fullscreen, #fullscreen)
 /datum/modular_cutscene/proc/add_fullscreen(fullscreen)
 	for(var/mob/viewer as() in camera_mobs)

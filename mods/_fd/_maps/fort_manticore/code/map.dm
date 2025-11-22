@@ -270,7 +270,7 @@
 
 /obj/item/clothing/head/beret/lin
 	name = "peaked cap"
-	desc = "An military-like peaked cap with some gold on it."
+	desc = "Потрёпанный временем, местами помятый и выцветший головной убор с яркой многолучевой звездой. Для кого-то она - простой пережиток прошлого. Но для её владелицы это последний осколок мира, в который она когда-то верила."
 	icon = 'mods/_fd/_maps/fort_manticore/icons/clothing.dmi'
 	item_icons = list(slot_head_str = 'mods/_fd/_maps/fort_manticore/icons/clothing_mob.dmi')
 	icon_state = "cap_lin"
@@ -362,6 +362,7 @@
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		new item_to_spawn(H)
+
 		qdel(src)
 /obj/item/fd/custom_implanter/roku
 	item_to_spawn = /obj/item/organ/internal/augment/adrenalin_injection
@@ -699,9 +700,6 @@
 
 /singleton/hierarchy/outfit/fort_manticore/adriano
 	name = "Adriano Martiesa"
-
-	uniform = /obj/item/clothing/under/solgov/utility/fleet
-	suit = /obj/item/clothing/suit/storage/solgov/dress/fleet/command
 
 	l_ear = /obj/item/device/radio/headset/syndicate
 	id_types = list(/obj/item/card/id/campaign)

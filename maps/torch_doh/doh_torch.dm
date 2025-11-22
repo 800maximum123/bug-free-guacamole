@@ -196,8 +196,10 @@
 	#include "cutscenes/s2ep3/scene_2.dm"
 	#include "cutscenes/s2ep3/characters.dm"
 
+	#include "cutscenes/s2ep4/characters.dm"
 	#include "cutscenes/s2ep4/scene_1.dm"
 	#include "cutscenes/s2ep4/scene_2.dm"
+	#include "cutscenes/s2ep4/scene_3.dm"
 
 	#include "music_videos/s2opening1.dm"
 
