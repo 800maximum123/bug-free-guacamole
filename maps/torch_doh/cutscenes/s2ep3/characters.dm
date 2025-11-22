@@ -94,7 +94,7 @@
 	color = "#e40031"
 /mob/living/simple_animal/cutscene_character/fourth/Life()
 	. = ..()
-	layer = 4.10
+	layer = 3.9
 
 /mob/living/simple_animal/cutscene_character/soldier
 	name = "Солдат"

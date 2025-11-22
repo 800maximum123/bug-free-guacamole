@@ -32,7 +32,7 @@
 		visuals.set_text(novel_message, colored, time = 8 SECONDS)
 
 /proc/episode2_sponsors2()
-	var/novel_message = "Rogver Snott, Sliva, Aftik, Vista1, Farewellsainty, DenXays, Kvas, Grigpashtet, RaviolliBorchevidze"
+	var/novel_message = "Aftik, EvilDrawsNear, KRABINATIOR3000, DenXays, Kvas, Grigpashtet, RaviolliBorchevidze"
 	var/colored = COLOR_ORANGE
 
 	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
