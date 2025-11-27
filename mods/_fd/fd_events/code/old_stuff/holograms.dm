@@ -1,3 +1,5 @@
+// УСТАРЕЛО, НО ПОКА УБРАТЬ НЕ ПРЕДСТАВЛЯЕТСЯ ВОЗМОЖНЫМ //
+
 // Нужен исключительно для того, чтобы активировать остальные спавнеры
 
 /obj/structure/holo_starter
@@ -23,7 +25,7 @@
 /obj/holo_spawner
 	name = "ТЫ НЕ ДОЛЖЕН ЭТОГО ВИДЕТЬ"
 	desc = "Не, серьёзно, это баг!"
-	icon = 'mods/_fd/event_tools/icons/landmarks_static.dmi'
+	icon = 'mods/_fd/fd_events/icons/landmarks_static.dmi'
 	icon_state = "ai_spawn"
 	var/character_id = "test"
 	var/character_to_spawn = null
@@ -141,7 +143,7 @@
 /mob/living/simple_animal/holo_npc/alexey
 	name = "Alexey Dostoevsky"
 	desc = "Старый адмирал Экспедиционного Корпуса и последний официальный правитель ЦПСС. Похоже, он действительно был готов на всё, чтобы победить..."
-	icon = 'mods/_fd/event_tools/icons/holo_npc.dmi'
+	icon = 'mods/_fd/fd_events/icons/holo_npc.dmi'
 	icon_state = "alexey"
 	icon_living = "alexey"
 	icon_dead = "alexey"
@@ -222,7 +224,7 @@
 /mob/living/simple_animal/holo_npc/sahar
 	name = "SAHAR"
 	desc = "Высокая, хорошо сложенная девушка, кажущаяся...какой-то неживой. И этот штрихкод с именем на шее?..."
-	icon = 'mods/_fd/event_tools/icons/holo_npc.dmi'
+	icon = 'mods/_fd/fd_events/icons/holo_npc.dmi'
 	icon_state = "sahar"
 	icon_living = "sahar"
 	icon_dead = "sahar"
@@ -333,7 +335,7 @@
 /mob/living/simple_animal/holo_npc/avgust_real
 	name = "Avgust Mindeleev"
 	desc = "Гениальный учёный былых лет. Так значит, его последние моменты были на Факеле?.."
-	icon = 'mods/_fd/event_tools/icons/holo_npc.dmi'
+	icon = 'mods/_fd/fd_events/icons/holo_npc.dmi'
 	icon_state = "mindeleev"
 	icon_living = "mindeleev"
 	icon_dead = "mindeleev"
@@ -444,7 +446,7 @@
 /mob/living/simple_animal/holo_npc/avgust_fantom
 	name = "Avgust Mindeleev"
 	desc = "Гениальный учёный былых лет. Так значит, его последние моменты были на Факеле?.."
-	icon = 'mods/_fd/event_tools/icons/holo_npc.dmi'
+	icon = 'mods/_fd/fd_events/icons/holo_npc.dmi'
 	icon_state = "mindeleev"
 	icon_living = "mindeleev"
 	icon_dead = "mindeleev"
@@ -495,7 +497,7 @@
 /mob/living/simple_animal/holo_npc/meat
 	name = "Mr. Meat"
 	desc = "Диона...в костюме? Говорящая как человек?...Впервые вижу подобное."
-	icon = 'mods/_fd/event_tools/icons/holo_npc.dmi'
+	icon = 'mods/_fd/fd_events/icons/holo_npc.dmi'
 	icon_state = "meat"
 	icon_living = "meat"
 	icon_dead = "meat"
@@ -557,7 +559,7 @@
 /mob/living/simple_animal/holo_npc/brown
 	name = "Michael Brown"
 	desc = "Один из активистов, действия которого привели нас к тому, что мы имеем сегодня. Впрочем, ныне он является чуть ли не лидером человеческого сопротивления."
-	icon = 'mods/_fd/event_tools/icons/holo_npc.dmi'
+	icon = 'mods/_fd/fd_events/icons/holo_npc.dmi'
 	icon_state = "brown"
 	icon_living = "brown"
 	icon_dead = "brown"
@@ -631,7 +633,7 @@
 /mob/living/simple_animal/holo_npc/pierre
 	name = "Pierre Endsley"
 	desc = "Какой-то крайне неудачливый парень. Его положению явно не позавидуешь..."
-	icon = 'mods/_fd/event_tools/icons/holo_npc.dmi'
+	icon = 'mods/_fd/fd_events/icons/holo_npc.dmi'
 	icon_state = "pierre"
 	icon_living = "pierre"
 	icon_dead = "pierre"
@@ -896,7 +898,7 @@
 /mob/living/simple_animal/holo_npc/brown2
 	name = "Michael Brown"
 	desc = "Один из активистов, действия которого привели нас к тому, что мы имеем сегодня. Впрочем, ныне он является чуть ли не лидером человеческого сопротивления."
-	icon = 'mods/_fd/event_tools/icons/holo_npc.dmi'
+	icon = 'mods/_fd/fd_events/icons/holo_npc.dmi'
 	icon_state = "brown"
 	icon_living = "brown"
 	icon_dead = "brown"
@@ -941,7 +943,7 @@
 /mob/living/simple_animal/holo_npc/danil
 	name = "Danil Bassow"
 	desc = "Бывший пират, каким-то волшебным образом оказавшийся в управленческих рядах ЦПСС. Известен одновременно как убийца воров, так и их защитник."
-	icon = 'mods/_fd/event_tools/icons/holo_npc.dmi'
+	icon = 'mods/_fd/fd_events/icons/holo_npc.dmi'
 	icon_state = "danil_withgun"
 	icon_living = "danil_withgun"
 	icon_dead = "danil_withgun"
@@ -979,7 +981,7 @@
 /mob/living/simple_animal/holo_npc/meat2
 	name = "Mr. Meat"
 	desc = "Диона...в костюме? Говорящая как человек?...Впервые вижу подобное."
-	icon = 'mods/_fd/event_tools/icons/holo_npc.dmi'
+	icon = 'mods/_fd/fd_events/icons/holo_npc.dmi'
 	icon_state = "meat"
 	icon_living = "meat"
 	icon_dead = "meat"
@@ -1037,7 +1039,7 @@
 /mob/living/simple_animal/holo_npc/adamidi
 	name = "Andreas Adamidi"
 	desc = "Не безизвестный адмирал Второго Флота ЦПСС. Видимо, и он нашёл здесь свой конец."
-	icon = 'mods/_fd/event_tools/icons/holo_npc.dmi'
+	icon = 'mods/_fd/fd_events/icons/holo_npc.dmi'
 	icon_state = "adamidi"
 	icon_living = "adamidi"
 	icon_dead = "adamidi"
@@ -1102,7 +1104,7 @@
 /mob/living/simple_animal/holo_npc/nancy
 	name = "Nancy Roosevelt"
 	desc = "Героиня одноимённого сериала довоенных лет. Медийное лицо Сола, дочь одного из Сенаторов и действующий капитан Третьего Флота. Большой послужной список, и всё ради...подобной отвратительной кончины."
-	icon = 'mods/_fd/event_tools/icons/holo_npc.dmi'
+	icon = 'mods/_fd/fd_events/icons/holo_npc.dmi'
 	icon_state = "nancy"
 	icon_living = "nancy"
 	icon_dead = "nancy"
@@ -1149,7 +1151,7 @@
 /mob/living/simple_animal/holo_npc/alien1
 	name = "Unknown Alien"
 	desc = "Обычный алат в экзокостюме."
-	icon = 'mods/_fd/event_tools/icons/holo_npc.dmi'
+	icon = 'mods/_fd/fd_events/icons/holo_npc.dmi'
 	icon_state = "ascent"
 	icon_living = "ascent"
 	icon_dead = "ascent"
@@ -1182,7 +1184,7 @@
 /mob/living/simple_animal/holo_npc/alien2
 	name = "Unknown Alien"
 	desc = "Обычный алат в экзокостюме."
-	icon = 'mods/_fd/event_tools/icons/holo_npc.dmi'
+	icon = 'mods/_fd/fd_events/icons/holo_npc.dmi'
 	icon_state = "ascent"
 	icon_living = "ascent"
 	icon_dead = "ascent"
@@ -1218,7 +1220,7 @@
 /mob/living/simple_animal/npc_alive
 	name = "TEST"
 	desc = "TEST"
-	icon = 'mods/_fd/event_tools/icons/holo_npc.dmi'
+	icon = 'mods/_fd/fd_events/icons/holo_npc.dmi'
 	icon_state = "unk"
 	icon_living = "unk"
 	icon_dead = "unk"
@@ -1242,7 +1244,7 @@
 /mob/living/simple_animal/npc_alive/partisan1
 	name = "Soldier"
 	desc = "Его ноги слетели с орбиты, а из черепа торчит какой-то прут. Но он, по-крайней мере, умер быстро, да?..."
-	icon = 'mods/_fd/event_tools/icons/holo_npc.dmi'
+	icon = 'mods/_fd/fd_events/icons/holo_npc.dmi'
 	icon_state = "partisan_legs"
 	icon_living = "partisan_legs"
 	icon_dead = "partisan_legs"
@@ -1271,7 +1273,7 @@
 /mob/living/simple_animal/npc_alive/partisan2
 	name = "Soldier"
 	desc = "Да у него мозги наружу..."
-	icon = 'mods/_fd/event_tools/icons/holo_npc.dmi'
+	icon = 'mods/_fd/fd_events/icons/holo_npc.dmi'
 	icon_state = "partisan_headgib"
 	icon_living = "partisan_headgib"
 	icon_dead = "partisan_headgib"
@@ -1296,7 +1298,7 @@
 /mob/living/simple_animal/npc_alive/partisan3
 	name = "Soldier"
 	desc = "Её тело прибито к стене множеством металлических прутьев. Кто бы не сделал это - он явно желал ей долгой и мучительной смерти."
-	icon = 'mods/_fd/event_tools/icons/holo_npc.dmi'
+	icon = 'mods/_fd/fd_events/icons/holo_npc.dmi'
 	icon_state = "partisan_punctured"
 	icon_living = "partisan_punctured"
 	icon_dead = "partisan_punctured"
@@ -1321,3 +1323,5 @@
 		visible_message(SPAN_DANGER("[src], от усталости, опускает голову вниз, более не в силах поддерживать её."))
 	spawn(19 SECONDS)
 		ISay("...мне-")
+
+// УСТАРЕЛО, НО ПОКА УБРАТЬ НЕ ПРЕДСТАВЛЯЕТСЯ ВОЗМОЖНЫМ //

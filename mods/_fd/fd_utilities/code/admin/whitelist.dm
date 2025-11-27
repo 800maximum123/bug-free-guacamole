@@ -118,10 +118,10 @@ GLOBAL_VAR_INIT(fdserver_connect_whitelist, FALSE)
 
 	alert("I tried, at least",, "Yes", "Yes")
 
-	var/sound/uploaded_sound = sound('mods/_fd/event_tools/sounds/whitelist_all.ogg', repeat = 0, wait = 1, channel = GLOB.admin_sound_channel, volume = 50)
+	var/sound/uploaded_sound = sound('mods/_fd/fd_utilities/sounds/whitelist_all.ogg', repeat = 0, wait = 1, channel = GLOB.admin_sound_channel, volume = 50)
 	uploaded_sound.priority = 250
 
-	sounds_cache += 'mods/_fd/event_tools/sounds/whitelist_all.ogg'
+	sounds_cache += 'mods/_fd/fd_utilities/sounds/whitelist_all.ogg'
 
 	for(var/client/everyone in GLOB.clients)
 		var/ckey = ckey(everyone.ckey)

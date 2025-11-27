@@ -127,9 +127,7 @@
 		TP_CAMERA("Сцена 4-3 - Кадр 5"),
 		REMOVE_SCREEN(/fishbed, 0),
 		TALK_ACTOR(actor("Терра"), "!опускает голову к голограмме.") = 2 SECONDS,
-		PLAY_SOUND(sound('mods/_fd/event_tools/sounds/atlas_beep3.ogg', volume = 5)),
 		TALK_ACTOR(actor("Терра"), "Главнокомандующий...") = 4 SECONDS,
-		PLAY_SOUND(sound('mods/_fd/event_tools/sounds/atlas_beep1.ogg', volume = 5)),
 		TALK_ACTOR(actor("Терра"), "...в какую же странную игру вы со мной играете?") = 4 SECONDS,
 		ADD_SCREEN(/blackout) = 2 SECONDS,
 		START_CUTSCENE(/datum/modular_cutscene/s2ep4sc15)

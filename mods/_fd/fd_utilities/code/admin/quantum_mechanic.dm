@@ -198,7 +198,7 @@
 /obj/item/clothing/under/quantum
 	name = "quantum mechanic's uniform"
 	desc = "A quantum mechanic's uniform. There is a letter on front that reads 'Q'."
-	icon = 'mods/_fd/event_tools/icons/uniform_quantum.dmi'
+	icon = 'mods/_fd/fd_utilities/icons/uniform_quantum.dmi'
 	icon_state = "humanoid body-slot_w_uniform"
 	item_state = "humanoid body-slot_w_uniform"
 	worn_state = "humanoid body-slot_w_uniform"
