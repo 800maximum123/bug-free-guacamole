@@ -341,6 +341,7 @@
 	#include "../../mods/_fd/_maps/yacht/_yacht.dme"
 
 	#include "../../mods/_fd/_maps/torch_as_ruin/_torch_as_ruin.dme"
+	#include "../../mods/_fd/_maps/iccgn_samosbor/_samosbor.dme"
 
 		// ~DANILCUS WIP~ //
 

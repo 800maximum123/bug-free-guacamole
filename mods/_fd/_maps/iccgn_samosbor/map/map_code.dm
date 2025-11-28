@@ -631,51 +631,18 @@
 		user.visible_message(SPAN_WARNING("\The [user] smashes \the [src] with \the [I]!"))
 		shatter()
 
+/obj/structure/table/rack
+	var/no_autoalign = FALSE
+
+/obj/structure/table/rack/auto_align(obj/item/W, click_params)
+	if(!no_autoalign)
+		. = ..()
+
 /obj/structure/table/rack/samosbor
 	name = "furniture"
 	icon = 'mods/_fd/fd_assets/icons/structures/furniture/furniture_table.dmi'
 	icon_state = "table"
-
-/obj/structure/table/rack/samosbor/Initialize()
-	SHOULD_CALL_PARENT(FALSE)
-
-	// reset color/alpha, since they're set for nice map previews
-	color = "#ffffff"
-	alpha = 255
-	update_connections(1)
-	update_icon()
-	update_desc()
-	update_material()
-
-/obj/structure/table/rack/samosbor/use_tool(obj/item/tool, mob/user, list/click_params)
-	SHOULD_CALL_PARENT(FALSE)
-
-	// Unfinished table - Construction stuff
-	if (can_plate && !material)
-		// Material - Plate table
-		if (istype(tool, /obj/item/stack/material))
-			material = common_material_add(tool, user, "plat")
-			if (material)
-				update_connections(TRUE)
-				update_icon()
-				update_desc()
-				update_material()
-			return TRUE
-
-		// Wrench - Dismantle
-		if (isWrench(tool))
-			dismantle(tool, user)
-			return TRUE
-
-		// Anything else - Can't put it on an unfinished table
-		USE_FEEDBACK_FAILURE("\The [src] needs to be plated before you can put \the [tool] on it.")
-		return TRUE
-
-	// Put things on table
-	if (!user.unEquip(tool, loc))
-		FEEDBACK_UNEQUIP_FAILURE(user, tool)
-		return TRUE
-	return TRUE
+	no_autoalign = TRUE
 
 /obj/structure/table/rack/samosbor/mod
 	icon = 'mods/_fd/fd_assets/icons/structures/furniture/furniture_table_mod.dmi'
@@ -1047,112 +1014,3 @@
 	color = "#63ce00"
 
 /turf/simulated/floor/exoplanet/grim_asphalt2/teleport_point
-
-// intro
-
-/proc/samosbor_intro()
-	for(var/mob/all in GLOB.player_list)
-		all.overlay_fullscreen("blackscreen", /obj/screen/fullscreen/fd/blackout)
-		all.overlay_fullscreen("fishbed", /obj/screen/fullscreen/fishbed/fd)
-		all.Stun(99999)
-
-		spawn(36 SECONDS)
-			all.clear_fullscreen("blackscreen")
-			all.clear_fullscreen("fishbed")
-
-	spawn(1 SECOND)
-		samosbor_pt1()
-	spawn(5 SECONDS)
-		samosbor_pt2()
-	spawn(7 SECONDS)
-		samosbor_pt3()
-	spawn(9 SECONDS)
-		samosbor_pt4()
-
-	spawn(18 SECONDS)
-		samosbor_pt5()
-
-	spawn(36 SECONDS)
-		for(var/mob/all in world)
-			all.stunned = 0
-
-
-/proc/samosbor_pt1()
-	var/novel_message = "2315 год. Где-то далеко-далеко объединённые силы человечества уже несколько лет ведут войну с силами инопланетных захватчиков."
-	var/colored = "#4ec908"
-
-	var/obj/screen/novel_message/first = new /obj/screen/novel_message()
-	first.maptext_y = -140
-	for(var/client/M in GLOB.clients)
-		M.screen += first
-		first.set_text(novel_message, colored)
-
-	spawn(12 SECONDS)
-		for(var/obj/screen/novel_message/messages in world)
-			animate(messages, 1 SECOND, alpha = 0)
-			spawn(1 SECOND)
-				qdel(messages)
-
-/proc/samosbor_pt2()
-	var/novel_message = "Конец этой истории вам прекрасно известен, но на этот раз вы не являетесь её частью."
-	var/colored = "#4ec908"
-
-	var/obj/screen/novel_message/first = new /obj/screen/novel_message()
-	first.maptext_y = -190
-	for(var/client/M in GLOB.clients)
-		M.screen += first
-		first.set_text(novel_message, colored)
-
-	spawn(10 SECONDS)
-		for(var/obj/screen/novel_message/messages in world)
-			animate(messages, 1 SECOND, alpha = 0)
-			spawn(1 SECOND)
-				qdel(messages)
-
-/proc/samosbor_pt3()
-	var/novel_message = "Сегодня, вы обычный гражданин посёлка Прометьево. Терранской глубинки далеко в тылу."
-	var/colored = "#4ec908"
-
-	var/obj/screen/novel_message/first = new /obj/screen/novel_message()
-	first.maptext_y = -220
-	for(var/client/M in GLOB.clients)
-		M.screen += first
-		first.set_text(novel_message, colored)
-
-	spawn(8 SECONDS)
-		for(var/obj/screen/novel_message/messages in world)
-			animate(messages, 1 SECOND, alpha = 0)
-			spawn(1 SECOND)
-				qdel(messages)
-
-/proc/samosbor_pt4()
-	var/novel_message = "Вдали...уже слышится гул стальных машин."
-	var/colored = "#4ec908"
-
-	var/obj/screen/novel_message/first = new /obj/screen/novel_message()
-	first.maptext_y = -260
-	for(var/client/M in GLOB.clients)
-		M.screen += first
-		first.set_text(novel_message, colored)
-
-	spawn(6 SECONDS)
-		for(var/obj/screen/novel_message/messages in world)
-			animate(messages, 1 SECOND, alpha = 0)
-			spawn(1 SECOND)
-				qdel(messages)
-
-/proc/samosbor_pt5()
-	var/novel_message = "ВАЖНО: Позиционируйте этот запуск как посещение музея. Большую часть экспонатов вы сможете лишь осмотреть, но не потрогать. Если вы хотите сделать что-то, что не предполагается технически - оповестите мастера в ахелп. Мы всегда рады вам подыграть."
-	var/colored = "#c90808"
-
-	var/obj/screen/novel_message/first = new /obj/screen/novel_message()
-	first.maptext_y = -160
-	for(var/client/M in GLOB.clients)
-		M.screen += first
-		first.set_text(novel_message, colored)
-
-	spawn(16 SECONDS)
-		for(var/obj/screen/novel_message/messages in world)
-			animate(messages, 1 SECOND, alpha = 0)
-			spawn(1 SECOND)
-				qdel(messages)
