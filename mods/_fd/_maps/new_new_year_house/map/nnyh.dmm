@@ -5785,15 +5785,15 @@
 /obj/floor_decal/spline/plain/black{
 	dir = 4
 	},
+/obj/floor_decal/spline/plain/black{
+	dir = 1
+	},
 /obj/structure/fd/samosbor/furniture1{
 	icon_state = "sofa_dsmall";
 	dir = 1;
 	pixel_x = 0;
 	layer = 4.09;
 	pixel_y = 14
-	},
-/obj/floor_decal/spline/plain/black{
-	dir = 1
 	},
 /turf/simulated/floor/exoplanet/grim_wood_good2{
 	icon_state = "wood_pattern_alt"
@@ -11127,11 +11127,6 @@
 	layer = 6
 	},
 /obj/item/newspaper{
-	pixel_x = 2;
-	pixel_y = 5;
-	layer = s
-	},
-/obj/item/newspaper{
 	layer = 5.99;
 	pixel_x = -18;
 	pixel_y = 20
@@ -13625,7 +13620,7 @@
 	},
 /obj/structure/storage/chestdrawer{
 	pixel_x = 7;
-	density = s;
+	density = 0;
 	pixel_y = 11
 	},
 /turf/simulated/floor/exoplanet/samosbor/carpet{

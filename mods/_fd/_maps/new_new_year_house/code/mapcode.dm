@@ -13,6 +13,7 @@
 	description = "..."
 	prefix = "mods/_fd/_maps/new_new_year_house/map/"
 	suffixes = list("nnyh.dmm")
+//	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	area_usage_test_exempted_root_areas = list(/area/new_new_year_house)
 	apc_test_exempt_areas = list(
 		/area/new_new_year_house = NO_SCRUBBER|NO_VENT|NO_APC
@@ -81,3 +82,5 @@
 
 	uniform = /obj/item/clothing/under/suit_jacket/charcoal
 	shoes = /obj/item/clothing/shoes/dress
+
+#include "..\map\nnyh.dmm"
