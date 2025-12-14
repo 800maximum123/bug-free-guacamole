@@ -342,6 +342,7 @@
 
 	#include "../../mods/_fd/_maps/torch_as_ruin/_torch_as_ruin.dme"
 	#include "../../mods/_fd/_maps/iccgn_samosbor/_samosbor.dme"
+	#include "../../mods/_fd/_maps/new_new_year_house/_new_new_year_house.dme"
 
 		// ~DANILCUS WIP~ //
 

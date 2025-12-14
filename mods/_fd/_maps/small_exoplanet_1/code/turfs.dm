@@ -327,6 +327,8 @@
 	anchored = TRUE
 	opacity = TRUE
 
+	layer = TURF_LAYER
+
 /obj/structure/fd/grim_walls/brick
 	icon_state = "boss_wall-0"
 	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/boss_wall.dmi'
