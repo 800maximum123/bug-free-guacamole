@@ -279,6 +279,11 @@
 	pixel_y = 12;
 	pixel_x = 1
 	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#b87e28"
+	},
 /turf/simulated/floor/exoplanet/grim_wood_log,
 /area/new_new_year_house/inside)
 "aI" = (
@@ -492,7 +497,7 @@
 "bw" = (
 /obj/structure/fd/mapping/light_marker{
 	marker_power = 0.8;
-	marker_range = 5;
+	marker_range = 10;
 	color = "#b87e28"
 	},
 /turf/simulated/floor/exoplanet/samosbor/concrete{
@@ -607,6 +612,11 @@
 	pixel_x = -4;
 	density = 0
 	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#b87e28"
+	},
 /turf/simulated/floor/exoplanet/grim_wood_log,
 /area/new_new_year_house/inside)
 "bO" = (
@@ -710,6 +720,25 @@
 	},
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/new_new_year_house/inside)
+"cf" = (
+/obj/structure/fd/samosbor/outer_railings{
+	icon_state = "catwalk_black";
+	layer = 4.09;
+	density = 0
+	},
+/obj/structure/stairs/east{
+	alpha = 0
+	},
+/obj/structure/fd/samosbor/outer_railings{
+	icon_state = "catwalk_black";
+	dir = 1;
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_8";
+	dir = 8
+	},
+/area/new_new_year_house/inside)
 "cg" = (
 /obj/structure/bed/chair/pew/left/mahogany{
 	pixel_x = 0;
@@ -722,7 +751,7 @@
 "ch" = (
 /obj/structure/fd/mapping/light_marker{
 	marker_power = 0.8;
-	marker_range = 5;
+	marker_range = 10;
 	color = "#b87e28"
 	},
 /turf/simulated/open,
@@ -934,10 +963,8 @@
 /obj/floor_decal/spline/plain/black{
 	dir = 6
 	},
-/obj/structure/bed/sofa/l{
-	dir = 8;
-	pixel_x = 0;
-	pixel_y = 2
+/obj/structure/bed/sofa/l/black{
+	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grim_wood{
 	icon_state = "lino_black"
@@ -979,7 +1006,7 @@
 	},
 /area/new_new_year_house/inside)
 "cU" = (
-/obj/structure/bed/sofa/l{
+/obj/structure/bed/sofa/l/black{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/samosbor/carpet{
@@ -1208,6 +1235,16 @@
 	icon_state = "cafe"
 	},
 /area/new_new_year_house/inside)
+"dR" = (
+/obj/structure/fd/mapping/light_marker{
+	marker_range = 2;
+	color = "#13b310";
+	marker_power = 2
+	},
+/turf/simulated/floor/exoplanet/grim_wood_log{
+	icon_state = "carpet_dark"
+	},
+/area/new_new_year_house/inside)
 "dS" = (
 /obj/floor_decal/spline/plain/black{
 	dir = 8
@@ -1315,6 +1352,17 @@
 /turf/simulated/floor/exoplanet/grim_wood_log{
 	icon_state = "carpet_red"
 	},
+/area/new_new_year_house/inside)
+"eq" = (
+/obj/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#b87e28"
+	},
+/turf/simulated/floor/exoplanet/grim_wood_log,
 /area/new_new_year_house/inside)
 "er" = (
 /obj/structure/bed/chair/wood/grim/elite,
@@ -1507,6 +1555,12 @@
 	},
 /turf/simulated/floor/exoplanet/grim_wood2,
 /area/new_new_year_house/inside)
+"eX" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grim_wood_log{
+	icon_state = "full_dark_alt"
+	},
+/area/new_new_year_house/inside)
 "eZ" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/safe{
@@ -1527,7 +1581,9 @@
 	pixel_x = -6;
 	pixel_y = 6
 	},
-/turf/simulated/floor/exoplanet/grim_asphalt2,
+/turf/simulated/floor/exoplanet/grim_wood_log{
+	icon_state = "full_dark_alt"
+	},
 /area/new_new_year_house/inside)
 "fc" = (
 /obj/structure/table/rack/samosbor{
@@ -1559,11 +1615,12 @@
 /obj/structure/fd/samosbor/outer_railings{
 	icon_state = "catwalk_black";
 	layer = 4.09;
-	dir = 1
+	density = 0
 	},
 /obj/structure/fd/samosbor/outer_railings{
 	icon_state = "catwalk_black";
-	layer = 4.09
+	dir = 1;
+	density = 0
 	},
 /turf/simulated/floor/exoplanet/samosbor/stairs{
 	icon_state = "stairs_8";
@@ -1646,21 +1703,13 @@
 /turf/simulated/floor/exoplanet/grim_wood2,
 /area/new_new_year_house/inside)
 "fx" = (
-/obj/structure/fd/samosbor/outer_railings{
-	icon_state = "catwalk_black";
-	layer = 4.09
-	},
 /obj/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/structure/table/rack/grim/table_lfwb{
-	icon_state = "woodtable_2z";
-	pixel_x = 0;
-	pixel_y = -5
-	},
-/obj/machinery/jukebox/samosbor1{
-	pixel_x = 0;
-	pixel_y = 8
+/obj/structure/fd/samosbor/outer_railings{
+	icon_state = "catwalk_black";
+	layer = 4.09;
+	density = 0
 	},
 /turf/simulated/floor/exoplanet/grim_wood_good2{
 	icon_state = "wood_pattern_alt"
@@ -1673,7 +1722,8 @@
 /obj/structure/fd/samosbor/outer_railings{
 	icon_state = "catwalk_black";
 	layer = 4.09;
-	dir = 4
+	dir = 4;
+	density = 0
 	},
 /turf/simulated/floor/exoplanet/grim_wood_good2{
 	icon_state = "wood_pattern_alt"
@@ -1743,6 +1793,16 @@
 	pixel_x = 7;
 	pixel_y = 5
 	},
+/turf/simulated/floor/exoplanet/grim_wood_log{
+	icon_state = "full_dark"
+	},
+/area/new_new_year_house/inside)
+"ga" = (
+/obj/structure/fd/samosbor/outer_railings{
+	icon_state = "catwalk_black";
+	layer = 4.09;
+	density = 0
+	},
 /turf/simulated/floor/exoplanet/grim_wood_log,
 /area/new_new_year_house/inside)
 "gb" = (
@@ -1783,7 +1843,9 @@
 	pixel_x = -16;
 	pixel_y = -7
 	},
-/turf/simulated/floor/exoplanet/grim_wood_log,
+/turf/simulated/floor/exoplanet/grim_wood_log{
+	icon_state = "full_dark"
+	},
 /area/new_new_year_house/inside)
 "gg" = (
 /obj/floor_decal/spline/fancy/wood{
@@ -1871,7 +1933,9 @@
 	layer = 4
 	},
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/grim_asphalt2,
+/turf/simulated/floor/exoplanet/grim_wood_log{
+	icon_state = "full_dark_alt"
+	},
 /area/new_new_year_house/inside)
 "gw" = (
 /obj/structure/fd/library_bigart{
@@ -2003,6 +2067,14 @@
 	},
 /turf/simulated/floor/exoplanet/grim_wood_good,
 /area/new_new_year_house/inside)
+"gZ" = (
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#b87e28"
+	},
+/turf/simulated/floor/exoplanet/grim_wood_log,
+/area/new_new_year_house/inside)
 "ha" = (
 /obj/structure/table/rack/grim{
 	pixel_y = 16;
@@ -2078,6 +2150,20 @@
 "hq" = (
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/new_new_year_house/inside)
+"ht" = (
+/obj/floor_decal/spline/plain/black,
+/obj/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.6;
+	marker_range = 10;
+	color = "#dbaf00"
+	},
+/turf/simulated/floor/exoplanet/grim_wood_log{
+	icon_state = "carpet_red"
+	},
+/area/new_new_year_house/inside)
 "hu" = (
 /obj/item/storage/wooden_barrel,
 /turf/simulated/floor/exoplanet/grim_asphalt2,
@@ -2118,11 +2204,11 @@
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/new_new_year_house/inside)
 "hA" = (
-/obj/structure/bed/sofa/m{
-	dir = 6
-	},
 /obj/floor_decal/spline/fancy/wood{
 	dir = 1
+	},
+/obj/structure/bed/sofa/m/black{
+	dir = 6
 	},
 /turf/simulated/floor/exoplanet/samosbor/carpet{
 	icon_state = "ca_da_6"
@@ -2357,6 +2443,14 @@
 	icon_state = "co_ti_fa"
 	},
 /area/new_new_year_house/inside)
+"it" = (
+/obj/structure/fd/mapping/light_marker{
+	marker_range = 2;
+	color = "#13b310";
+	marker_power = 2
+	},
+/turf/simulated/floor/exoplanet/grim_wood2,
+/area/new_new_year_house/inside)
 "iv" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/filth,
@@ -2492,8 +2586,8 @@
 "iP" = (
 /obj/structure/fd/samosbor/outer_railings{
 	icon_state = "catwalk_black";
-	layer = 4.09;
-	dir = 1
+	dir = 1;
+	density = 0
 	},
 /turf/simulated/floor/exoplanet/samosbor/stairs{
 	icon_state = "stairs_8";
@@ -2525,7 +2619,7 @@
 	},
 /area/new_new_year_house/inside)
 "iV" = (
-/obj/structure/bed/sofa/r{
+/obj/structure/bed/sofa/r/black{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
@@ -2662,9 +2756,7 @@
 	},
 /area/new_new_year_house/inside)
 "jA" = (
-/obj/structure/fd/grim_walls/stone{
-	icon_state = "fwall_opening"
-	},
+/obj/structure/fd/grim_walls/stone,
 /turf/simulated/floor/plating,
 /area/new_new_year_house/inside)
 "jB" = (
@@ -2696,6 +2788,20 @@
 	},
 /turf/simulated/floor/exoplanet/grim_wood_good2{
 	icon_state = "wood_pattern_alt"
+	},
+/area/new_new_year_house/inside)
+"jN" = (
+/obj/structure/stairs/east{
+	alpha = 0
+	},
+/obj/structure/fd/samosbor/outer_railings{
+	icon_state = "catwalk_black";
+	dir = 1;
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_8";
+	dir = 8
 	},
 /area/new_new_year_house/inside)
 "jO" = (
@@ -2792,6 +2898,22 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grim_wood_log,
+/area/new_new_year_house/inside)
+"kd" = (
+/obj/floor_decal/spline/plain/black{
+	dir = 9
+	},
+/obj/floor_decal/spline/plain/black{
+	dir = 10
+	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.6;
+	marker_range = 10;
+	color = "#dbaf00"
+	},
+/turf/simulated/floor/exoplanet/grim_wood_log{
+	icon_state = "carpet_red"
+	},
 /area/new_new_year_house/inside)
 "ke" = (
 /obj/structure/showcase{
@@ -2912,7 +3034,7 @@
 /turf/simulated/open,
 /area/new_new_year_house/inside)
 "kE" = (
-/obj/structure/bed/sofa/l{
+/obj/structure/bed/sofa/l/black{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
@@ -3006,7 +3128,7 @@
 	},
 /obj/structure/fd/mapping/light_marker{
 	marker_power = 0.8;
-	marker_range = 5;
+	marker_range = 10;
 	color = "#b87e28"
 	},
 /turf/simulated/floor/exoplanet/samosbor/carpet{
@@ -3073,8 +3195,15 @@
 /turf/simulated/floor/exoplanet/grim_wood_log,
 /area/new_new_year_house/inside)
 "lo" = (
-/turf/simulated/floor/plating,
-/area/new_new_year_house/outside)
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 5;
+	color = "#a1b6af"
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t6"
+	},
+/area/new_new_year_house/inside)
 "lp" = (
 /obj/structure/showcase{
 	density = 0;
@@ -3103,14 +3232,8 @@
 /turf/simulated/floor/exoplanet/grim_wood_log,
 /area/new_new_year_house/inside)
 "lr" = (
-/obj/structure/bed/sofa/l{
-	dir = 4;
-	pixel_x = -7;
-	pixel_y = 11;
-	layer = 2.26
-	},
 /turf/simulated/floor/exoplanet/grim_wood_log{
-	icon_state = "carpet_red"
+	icon_state = "full_dark_alt"
 	},
 /area/new_new_year_house/inside)
 "ls" = (
@@ -3153,7 +3276,9 @@
 	pixel_x = -16;
 	pixel_y = -7
 	},
-/turf/simulated/floor/exoplanet/grim_wood_log,
+/turf/simulated/floor/exoplanet/grim_wood_log{
+	icon_state = "full_dark"
+	},
 /area/new_new_year_house/inside)
 "lG" = (
 /obj/floor_decal/spline/plain/black{
@@ -3180,7 +3305,7 @@
 	},
 /area/new_new_year_house/outside)
 "lL" = (
-/obj/structure/bed/sofa/m{
+/obj/structure/bed/sofa/m/black{
 	dir = 5
 	},
 /turf/simulated/floor/exoplanet/samosbor/carpet{
@@ -3252,7 +3377,7 @@
 	desc = "An old stone statue.";
 	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/miscobjs.dmi';
 	icon_state = "gargoyle";
-	layer = 2.24;
+	layer = 5;
 	name = "old statue";
 	pixel_x = 0;
 	pixel_y = 44;
@@ -3400,7 +3525,7 @@
 "mB" = (
 /obj/structure/fd/mapping/light_marker{
 	marker_power = 0.8;
-	marker_range = 5;
+	marker_range = 10;
 	color = "#b87e28"
 	},
 /turf/simulated/floor/exoplanet/samosbor/concrete{
@@ -3590,7 +3715,7 @@
 /turf/simulated/floor/exoplanet/grim_wood2,
 /area/new_new_year_house/inside)
 "ne" = (
-/obj/structure/bed/sofa/r{
+/obj/structure/bed/sofa/r/black{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/samosbor/carpet{
@@ -3660,10 +3785,10 @@
 "nn" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/pointybush,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/snow,
 /area/new_new_year_house/outside)
 "no" = (
-/obj/structure/bed/sofa/m{
+/obj/structure/bed/sofa/m/black{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/samosbor/carpet{
@@ -3785,12 +3910,6 @@
 	pixel_y = 15;
 	layer = 4.09;
 	dir = 1
-	},
-/obj/structure/fd/samosbor/furniture1{
-	icon_state = "chair_dwood_old";
-	pixel_x = 3;
-	pixel_y = 0;
-	layer = 4.1
 	},
 /turf/simulated/floor/exoplanet/grim_wood2,
 /area/new_new_year_house/inside)
@@ -4242,7 +4361,8 @@
 /obj/structure/fd/samosbor/outer_railings{
 	icon_state = "catwalk_black";
 	layer = 4.09;
-	dir = 1
+	dir = 1;
+	density = 0
 	},
 /turf/simulated/floor/exoplanet/grim_wood_log,
 /area/new_new_year_house/inside)
@@ -4268,7 +4388,7 @@
 	},
 /area/new_new_year_house/inside)
 "pm" = (
-/obj/structure/bed/sofa/r{
+/obj/structure/bed/sofa/r/black{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/samosbor/carpet{
@@ -4276,7 +4396,9 @@
 	},
 /area/new_new_year_house/inside)
 "pp" = (
-/obj/machinery/cooker/oven/samosbor,
+/obj/machinery/cooker/oven/samosbor2{
+	pixel_y = 14
+	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t2"
 	},
@@ -4527,10 +4649,8 @@
 /turf/simulated/floor/exoplanet/grim_wood_log,
 /area/new_new_year_house/inside)
 "qe" = (
-/obj/structure/bed/sofa/m{
-	dir = 4;
-	pixel_x = 0;
-	pixel_y = 2
+/obj/structure/bed/sofa/m/black{
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grim_wood{
 	icon_state = "lino_black"
@@ -4543,17 +4663,13 @@
 /turf/simulated/floor/exoplanet/wet_stone,
 /area/new_new_year_house/outside)
 "qh" = (
-/obj/structure/fd/samosbor/outer_railings{
-	icon_state = "catwalk_black";
-	layer = 4.09
-	},
 /obj/floor_decal/spline/fancy/wood/corner{
 	dir = 4
 	},
-/obj/structure/table/rack/grim/table_lfwb{
-	icon_state = "woodtable_2z";
-	pixel_x = 0;
-	pixel_y = -5
+/obj/structure/fd/samosbor/outer_railings{
+	icon_state = "catwalk_black";
+	layer = 4.09;
+	density = 0
 	},
 /turf/simulated/floor/exoplanet/grim_wood_good2{
 	icon_state = "wood_pattern_alt"
@@ -4665,6 +4781,11 @@
 	pixel_x = -13;
 	pixel_y = 5
 	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#b87e28"
+	},
 /turf/simulated/floor/exoplanet/grim_wood_log{
 	icon_state = "carpet_red"
 	},
@@ -4672,12 +4793,13 @@
 "qD" = (
 /obj/structure/fd/samosbor/outer_railings{
 	icon_state = "catwalk_black";
-	layer = 4.09
+	layer = 4.09;
+	density = 0
 	},
 /obj/structure/fd/samosbor/outer_railings{
 	icon_state = "catwalk_black";
-	layer = 4.09;
-	dir = 1
+	dir = 1;
+	density = 0
 	},
 /turf/simulated/floor/exoplanet/samosbor/stairs{
 	icon_state = "stairs_8";
@@ -4965,10 +5087,8 @@
 /obj/floor_decal/spline/plain/black{
 	dir = 5
 	},
-/obj/structure/bed/sofa/r{
-	dir = 8;
-	pixel_x = 0;
-	pixel_y = 2
+/obj/structure/bed/sofa/r/black{
+	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grim_wood{
 	icon_state = "lino_black"
@@ -5226,7 +5346,9 @@
 	pixel_x = -16;
 	pixel_y = -7
 	},
-/turf/simulated/floor/exoplanet/grim_wood_log,
+/turf/simulated/floor/exoplanet/grim_wood_log{
+	icon_state = "full_dark"
+	},
 /area/new_new_year_house/inside)
 "sr" = (
 /obj/structure/fd/grim_walls/brick{
@@ -5375,7 +5497,7 @@
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/new_new_year_house/inside)
 "sT" = (
-/obj/structure/bed/sofa/r{
+/obj/structure/bed/sofa/r/black{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/samosbor/carpet{
@@ -5409,9 +5531,19 @@
 /turf/simulated/floor/exoplanet/grim_wood2,
 /area/new_new_year_house/inside)
 "sY" = (
-/obj/structure/flora/tree/dead,
-/turf/simulated/floor/plating,
-/area/new_new_year_house/outside)
+/obj/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.6;
+	marker_range = 10;
+	color = "#dbaf00"
+	},
+/turf/simulated/floor/exoplanet/grim_wood2,
+/area/new_new_year_house/inside)
 "sZ" = (
 /obj/structure/fd/topdown_walls/wood{
 	icon_state = "wood_6";
@@ -5539,6 +5671,14 @@
 	icon_state = "carpet_red"
 	},
 /area/new_new_year_house/inside)
+"tw" = (
+/obj/structure/stairs/north{
+	alpha = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_left"
+	},
+/area/new_new_year_house/inside)
 "tx" = (
 /obj/overmap/visitable/sector/new_new_year_house,
 /obj/landmark/map_data{
@@ -5573,13 +5713,24 @@
 	icon_state = "carpet_green"
 	},
 /area/new_new_year_house/inside)
+"tD" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 5;
+	color = "#a1b6af"
+	},
+/turf/simulated/floor/exoplanet/grim_asphalt2,
+/area/new_new_year_house/inside)
 "tH" = (
 /obj/machinery/door/unpowered/simple/grim/metal{
 	dir = 1;
 	pixel_x = -16;
 	pixel_y = -7
 	},
-/turf/simulated/floor/exoplanet/grim_wood_log,
+/turf/simulated/floor/exoplanet/grim_wood_log{
+	icon_state = "full_dark"
+	},
 /area/new_new_year_house/inside)
 "tI" = (
 /obj/decal/cleanable/snow/side{
@@ -5603,6 +5754,16 @@
 	pixel_y = -6
 	},
 /turf/simulated/floor/exoplanet/grim_wood2,
+/area/new_new_year_house/inside)
+"tN" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 5;
+	color = "#a1b6af"
+	},
+/turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/new_new_year_house/inside)
 "tP" = (
 /obj/floor_decal/spline/plain/black{
@@ -5635,8 +5796,12 @@
 	},
 /area/new_new_year_house/inside)
 "tS" = (
-/obj/structure/flora/tree/pine,
-/turf/simulated/floor/plating,
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#b87e28"
+	},
+/turf/simulated/floor/exoplanet/grim_wood2,
 /area/new_new_year_house/outside)
 "tT" = (
 /obj/structure/fd/samosbor/furniture3{
@@ -5686,10 +5851,16 @@
 /turf/simulated/floor/exoplanet/wet_stone2,
 /area/new_new_year_house/outside)
 "ul" = (
-/obj/structure/flora/tree/pine,
-/obj/structure/flora/grass/green,
-/turf/simulated/floor/plating,
-/area/new_new_year_house/outside)
+/obj/floor_decal/spline/plain/black{
+	dir = 9
+	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.6;
+	marker_range = 10;
+	color = "#dbaf00"
+	},
+/turf/simulated/floor/exoplanet/grim_wood2,
+/area/new_new_year_house/inside)
 "up" = (
 /obj/structure/table/rack/samosbor{
 	icon_state = "table_fancy_cloth";
@@ -5719,7 +5890,7 @@
 /area/new_new_year_house/inside)
 "uv" = (
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/snow,
 /area/new_new_year_house/outside)
 "uy" = (
 /obj/structure/fd/grim_bookshelf{
@@ -6122,11 +6293,11 @@
 /turf/simulated/floor/exoplanet/grim_wood_log,
 /area/new_new_year_house/inside)
 "wd" = (
-/obj/structure/bed/sofa/m{
-	dir = 10
-	},
 /obj/floor_decal/spline/fancy/wood{
 	dir = 1
+	},
+/obj/structure/bed/sofa/m/black{
+	dir = 10
 	},
 /turf/simulated/floor/exoplanet/samosbor/carpet{
 	icon_state = "ca_da_10"
@@ -6147,10 +6318,8 @@
 /obj/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/obj/structure/bed/sofa/m{
-	dir = 8;
-	pixel_x = 0;
-	pixel_y = 2
+/obj/structure/bed/sofa/m/black{
+	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grim_wood{
 	icon_state = "lino_black"
@@ -6168,7 +6337,7 @@
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/new_new_year_house/inside)
 "wl" = (
-/obj/structure/bed/sofa/m{
+/obj/structure/bed/sofa/m/black{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/samosbor/carpet{
@@ -6182,6 +6351,13 @@
 	light_color = "#a1805c"
 	},
 /turf/simulated/floor/exoplanet/grim_wood_log,
+/area/new_new_year_house/inside)
+"wq" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grim_wood_log{
+	icon_state = "full_dark_alt"
+	},
 /area/new_new_year_house/inside)
 "wr" = (
 /obj/decal/cleanable/snow/side{
@@ -6233,9 +6409,13 @@
 	},
 /area/new_new_year_house/inside)
 "wz" = (
-/obj/structure/flora/grass/brown,
-/turf/simulated/floor/plating,
-/area/new_new_year_house/outside)
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 5;
+	color = "#a1b6af"
+	},
+/turf/simulated/floor/exoplanet/gravel,
+/area/new_new_year_house/inside)
 "wB" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/samosbor/outer_railings{
@@ -6277,10 +6457,12 @@
 	pixel_x = -16;
 	pixel_y = -7
 	},
-/turf/simulated/floor/exoplanet/grim_wood_log,
+/turf/simulated/floor/exoplanet/grim_wood_log{
+	icon_state = "full_dark"
+	},
 /area/new_new_year_house/inside)
 "wJ" = (
-/obj/structure/bed/sofa/m{
+/obj/structure/bed/sofa/m/black{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/samosbor/carpet{
@@ -6339,6 +6521,20 @@
 	icon_state = "iron_wall-6"
 	},
 /turf/simulated/floor/plating,
+/area/new_new_year_house/inside)
+"wU" = (
+/obj/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/floor_decal/spline/plain/black,
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.6;
+	marker_range = 10;
+	color = "#dbaf00"
+	},
+/turf/simulated/floor/exoplanet/grim_wood_log{
+	icon_state = "carpet_red"
+	},
 /area/new_new_year_house/inside)
 "wV" = (
 /obj/floor_decal/spline/fancy/wood{
@@ -6584,15 +6780,13 @@
 /turf/simulated/floor/exoplanet/grim_wood_good2,
 /area/new_new_year_house/inside)
 "xF" = (
-/obj/structure/bed/sofa/r{
-	dir = 4;
-	pixel_x = -7;
-	pixel_y = 0
-	},
 /obj/item/storage/backpack/satchel/pocketbook/brown{
 	pixel_x = -7;
 	pixel_y = -15;
 	layer = 2.24
+	},
+/obj/structure/bed/sofa/r/black{
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grim_wood_log{
 	icon_state = "carpet_red"
@@ -6663,7 +6857,7 @@
 "xS" = (
 /obj/structure/flora/grass/both,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/snow,
 /area/new_new_year_house/outside)
 "xT" = (
 /obj/floor_decal/spline/fancy/wood/cee{
@@ -7112,10 +7306,10 @@
 /turf/simulated/floor/plating,
 /area/new_new_year_house/inside)
 "zv" = (
-/obj/structure/bed/sofa/r,
 /obj/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
+/obj/structure/bed/sofa/r/black,
 /turf/simulated/floor/exoplanet/samosbor/carpet{
 	icon_state = "ca_da_14"
 	},
@@ -7178,7 +7372,7 @@
 /turf/simulated/floor/exoplanet/grim_wood_log,
 /area/new_new_year_house/inside)
 "zE" = (
-/obj/structure/bed/sofa/m{
+/obj/structure/bed/sofa/m/black{
 	dir = 9
 	},
 /turf/simulated/floor/exoplanet/samosbor/carpet{
@@ -7243,6 +7437,11 @@
 	pixel_y = 20;
 	pixel_x = 8
 	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#b87e28"
+	},
 /turf/simulated/floor/exoplanet/grim_wood_log,
 /area/new_new_year_house/inside)
 "zQ" = (
@@ -7304,10 +7503,8 @@
 /turf/simulated/open,
 /area/new_new_year_house/inside)
 "zY" = (
-/obj/structure/bed/sofa/r{
-	dir = 4;
-	pixel_x = -7;
-	pixel_y = 13
+/obj/structure/bed/sofa/r/black{
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grim_wood_log{
 	icon_state = "carpet_red"
@@ -7349,6 +7546,18 @@
 	},
 /turf/simulated/floor/exoplanet/grim_wood_log,
 /area/new_new_year_house/inside)
+"Ah" = (
+/obj/floor_decal/spline/plain/black,
+/obj/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.6;
+	marker_range = 10;
+	color = "#dbaf00"
+	},
+/turf/simulated/floor/exoplanet/grim_wood2,
+/area/new_new_year_house/inside)
 "Ai" = (
 /obj/structure/table/rack/samosbor{
 	icon_state = "table_steel"
@@ -7389,6 +7598,11 @@
 "Ap" = (
 /obj/structure/fd/grim_walls/stone{
 	icon_state = "iron_wall-38-d"
+	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#b87e28"
 	},
 /turf/simulated/floor/exoplanet/grim_wood2,
 /area/new_new_year_house/outside)
@@ -7596,6 +7810,11 @@
 	pixel_x = -2;
 	pixel_y = 16
 	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#b87e28"
+	},
 /turf/simulated/floor/exoplanet/grim_wood_log,
 /area/new_new_year_house/inside)
 "Bc" = (
@@ -7627,7 +7846,9 @@
 /area/new_new_year_house/inside)
 "Bg" = (
 /obj/structure/scrap_cube,
-/turf/simulated/floor/exoplanet/grim_asphalt2,
+/turf/simulated/floor/exoplanet/grim_wood_log{
+	icon_state = "full_dark_alt"
+	},
 /area/new_new_year_house/inside)
 "Bh" = (
 /obj/floor_decal/spline/plain/black,
@@ -7689,6 +7910,20 @@
 	},
 /turf/simulated/floor/exoplanet/grim_wood_log,
 /area/new_new_year_house/inside)
+"Br" = (
+/obj/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.6;
+	marker_range = 10;
+	color = "#dbaf00"
+	},
+/turf/simulated/floor/exoplanet/grim_wood2,
+/area/new_new_year_house/inside)
 "Bu" = (
 /obj/structure/fd/grim_bookshelf{
 	icon_state = "b15";
@@ -7735,6 +7970,17 @@
 /obj/structure/fd/samosbor/outer_railings{
 	icon_state = "catwalk_black";
 	layer = 4.09
+	},
+/turf/simulated/floor/exoplanet/grim_wood_log,
+/area/new_new_year_house/inside)
+"BD" = (
+/obj/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#b87e28"
 	},
 /turf/simulated/floor/exoplanet/grim_wood_log,
 /area/new_new_year_house/inside)
@@ -7850,7 +8096,9 @@
 	pixel_x = -16;
 	pixel_y = -7
 	},
-/turf/simulated/floor/exoplanet/grim_wood_log,
+/turf/simulated/floor/exoplanet/grim_wood_log{
+	icon_state = "full_dark"
+	},
 /area/new_new_year_house/inside)
 "Cc" = (
 /obj/floor_decal/spline/plain/black{
@@ -8046,7 +8294,7 @@
 	},
 /area/new_new_year_house/inside)
 "CU" = (
-/obj/machinery/cooker/oven/samosbor3,
+/obj/structure/fd/stove,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t2"
 	},
@@ -8221,10 +8469,8 @@
 /obj/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/obj/structure/bed/sofa/l{
-	dir = 4;
-	pixel_x = 0;
-	pixel_y = 2
+/obj/structure/bed/sofa/l/black{
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grim_wood{
 	icon_state = "lino_black"
@@ -8267,6 +8513,11 @@
 	icon_state = "5,2"
 	},
 /obj/decal/cleanable/liquid_fuel,
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 5;
+	color = "#a1b6af"
+	},
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/new_new_year_house/inside)
 "DR" = (
@@ -8353,6 +8604,26 @@
 	},
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/new_new_year_house/inside)
+"Eh" = (
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#b87e28"
+	},
+/turf/simulated/floor/exoplanet/grim_wood_good2{
+	icon_state = "wood_pattern_alt"
+	},
+/area/new_new_year_house/inside)
+"Ei" = (
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 5;
+	color = "#a1b6af"
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_pi_10"
+	},
+/area/new_new_year_house/inside)
 "Es" = (
 /obj/structure/fd/samosbor/table_decor13{
 	icon_state = "mop";
@@ -8363,6 +8634,11 @@
 /obj/structure/storage/grim3{
 	pixel_x = -13;
 	pixel_y = -1
+	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#b87e28"
 	},
 /turf/simulated/floor/exoplanet/samosbor/ceramic{
 	icon_state = "ce_ci"
@@ -8480,6 +8756,10 @@
 /turf/simulated/floor/exoplanet/grim_wood_good2{
 	icon_state = "wood_pattern_alt"
 	},
+/area/new_new_year_house/inside)
+"EF" = (
+/obj/structure/ladder/up,
+/turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/new_new_year_house/inside)
 "EG" = (
 /obj/structure/fd/samosbor/furniture1{
@@ -8738,7 +9018,9 @@
 	dir = 8;
 	icon_state = "railing0-1"
 	},
-/turf/simulated/floor/exoplanet/grim_wood_log,
+/turf/simulated/floor/exoplanet/grim_wood_log{
+	icon_state = "full_dark"
+	},
 /area/new_new_year_house/inside)
 "FI" = (
 /obj/floor_decal/spline/plain/black{
@@ -8748,7 +9030,7 @@
 /turf/simulated/floor/exoplanet/grim_wood_log,
 /area/new_new_year_house/outside)
 "FL" = (
-/obj/structure/bed/sofa/l{
+/obj/structure/bed/sofa/l/black{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/samosbor/carpet{
@@ -8982,6 +9264,11 @@
 	pixel_x = 0;
 	pixel_y = 0
 	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 5;
+	color = "#a1b6af"
+	},
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/new_new_year_house/inside)
 "Gt" = (
@@ -9017,7 +9304,7 @@
 /turf/simulated/floor/exoplanet/grim_wood_log,
 /area/new_new_year_house/inside)
 "Gy" = (
-/obj/structure/bed/sofa/l{
+/obj/structure/bed/sofa/l/black{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/samosbor/carpet{
@@ -9043,10 +9330,8 @@
 /area/new_new_year_house/inside)
 "GE" = (
 /obj/floor_decal/spline/plain/black,
-/obj/structure/bed/sofa/r{
-	dir = 4;
-	pixel_x = 0;
-	pixel_y = 2
+/obj/structure/bed/sofa/r/black{
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grim_wood{
 	icon_state = "lino_black"
@@ -9288,7 +9573,7 @@
 /turf/simulated/floor/exoplanet/wet_stone2,
 /area/new_new_year_house/outside)
 "HQ" = (
-/obj/machinery/cooker/oven/samosbor,
+/obj/structure/fd/samosbor/furniture2,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_12"
 	},
@@ -9380,9 +9665,18 @@
 /turf/simulated/floor/exoplanet/grim_wood2,
 /area/new_new_year_house/inside)
 "Id" = (
-/obj/structure/flora/grass/both,
-/turf/simulated/floor/plating,
-/area/new_new_year_house/outside)
+/obj/floor_decal/borderfloorblack{
+	dir = 4
+	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#b87e28"
+	},
+/turf/simulated/floor/exoplanet/grim_wood_log{
+	icon_state = "carpet_dark"
+	},
+/area/new_new_year_house/inside)
 "Ih" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/ceramic{
@@ -9390,10 +9684,8 @@
 	},
 /area/new_new_year_house/inside)
 "Ii" = (
-/obj/structure/bed/sofa/l{
-	dir = 4;
-	pixel_x = -7;
-	pixel_y = 0
+/obj/structure/bed/sofa/l/black{
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grim_wood_log{
 	icon_state = "carpet_red"
@@ -9815,15 +10107,23 @@
 /turf/simulated/floor/exoplanet/grim_wood_log,
 /area/new_new_year_house/inside)
 "JF" = (
-/obj/structure/flora/grass/green,
-/turf/simulated/floor/plating,
-/area/new_new_year_house/outside)
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 5;
+	color = "#a1b6af"
+	},
+/turf/simulated/floor/exoplanet/grim_asphalt2,
+/area/new_new_year_house/inside)
 "JH" = (
 /obj/structure/fd/wall_decor{
 	icon_state = "painting_1";
 	layer = 2.24;
 	pixel_y = 34;
 	pixel_x = 1
+	},
+/obj/structure/table/rack/grim/table_lfwb{
+	icon_state = "woodtable_2z";
+	pixel_x = 0
 	},
 /turf/simulated/floor/exoplanet/grim_wood_log,
 /area/new_new_year_house/inside)
@@ -9857,7 +10157,7 @@
 /obj/floor_decal/spline/plain/black,
 /obj/structure/fd/mapping/light_marker{
 	marker_power = 0.8;
-	marker_range = 5;
+	marker_range = 10;
 	color = "#b87e28"
 	},
 /turf/simulated/floor/exoplanet/samosbor/wood{
@@ -10005,6 +10305,11 @@
 	icon_state = "pinepresents";
 	pixel_x = 0;
 	pixel_y = 4
+	},
+/obj/structure/fd/mapping/light_marker{
+	marker_range = 2;
+	color = "#b90303";
+	marker_power = 2
 	},
 /turf/simulated/floor/exoplanet/grim_wood_log{
 	icon_state = "carpet_dark"
@@ -10213,6 +10518,11 @@
 	pixel_y = 16;
 	layer = 4
 	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#b87e28"
+	},
 /turf/simulated/floor/exoplanet/samosbor/ceramic{
 	icon_state = "ce_pa"
 	},
@@ -10276,24 +10586,15 @@
 	layer = 4.09;
 	dir = 1
 	},
-/obj/structure/fd/samosbor/furniture1{
-	icon_state = "chair_dwood_old";
-	pixel_x = 5;
-	pixel_y = 0;
-	layer = 4.1
-	},
 /turf/simulated/floor/exoplanet/grim_wood2,
 /area/new_new_year_house/inside)
 "Lk" = (
-/obj/structure/fd/samosbor/outer_railings{
-	icon_state = "catwalk_black";
-	layer = 4.09
+/obj/structure/stairs/east{
+	alpha = 0
 	},
-/obj/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/grim_wood_good2{
-	icon_state = "wood_pattern_alt"
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_8";
+	dir = 8
 	},
 /area/new_new_year_house/inside)
 "Ll" = (
@@ -10323,6 +10624,15 @@
 /turf/simulated/floor/exoplanet/grim_wood_log{
 	icon_state = "carpet_dark"
 	},
+/area/new_new_year_house/inside)
+"Lo" = (
+/obj/floor_decal/spline/plain/black,
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#b87e28"
+	},
+/turf/simulated/floor/exoplanet/grim_wood_log,
 /area/new_new_year_house/inside)
 "Lp" = (
 /obj/decal/cleanable/snow/side/corner{
@@ -10459,6 +10769,11 @@
 	pixel_y = 6;
 	layer = 2.24;
 	dir = 4
+	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#b87e28"
 	},
 /turf/simulated/floor/exoplanet/grim_wood_good2{
 	icon_state = "wood_pattern_alt"
@@ -10695,10 +11010,20 @@
 "Ms" = (
 /obj/structure/fd/samosbor/outer_railings{
 	icon_state = "catwalk_black";
-	layer = 4.09
+	layer = 4.09;
+	density = 0
 	},
 /obj/floor_decal/spline/fancy/wood/corner{
 	dir = 1
+	},
+/obj/structure/table/rack/grim/table_lfwb{
+	icon_state = "woodtable_2z";
+	pixel_x = 0;
+	pixel_y = -5
+	},
+/obj/machinery/jukebox/samosbor1{
+	pixel_x = 0;
+	pixel_y = 10
 	},
 /turf/simulated/floor/exoplanet/grim_wood_good2{
 	icon_state = "wood_pattern_alt"
@@ -10848,6 +11173,11 @@
 	icon_state = "whiskey";
 	pixel_y = 17
 	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#b87e28"
+	},
 /turf/simulated/floor/exoplanet/samosbor/carpet{
 	icon_state = "ca_da_10"
 	},
@@ -10916,7 +11246,8 @@
 	},
 /obj/structure/fd/samosbor/outer_railings{
 	icon_state = "catwalk_black";
-	layer = 4.09
+	layer = 4.09;
+	density = 0
 	},
 /turf/simulated/floor/exoplanet/grim_wood_good2{
 	icon_state = "wood_pattern_alt"
@@ -10930,6 +11261,16 @@
 	},
 /obj/structure/fd/samosbor/light,
 /turf/simulated/floor/exoplanet/grim_wood_good,
+/area/new_new_year_house/inside)
+"Nd" = (
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 5;
+	color = "#a1b6af"
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_da"
+	},
 /area/new_new_year_house/inside)
 "Nh" = (
 /obj/structure/table/rack/samosbor/mod{
@@ -11038,12 +11379,31 @@
 	icon_state = "carpet_red"
 	},
 /area/new_new_year_house/inside)
+"Nu" = (
+/obj/floor_decal/spline/fancy/wood,
+/obj/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#b87e28"
+	},
+/turf/simulated/floor/exoplanet/grim_wood_log{
+	icon_state = "carpet_red"
+	},
+/area/new_new_year_house/inside)
 "Nv" = (
 /obj/structure/fd/samosbor/machinery1{
 	icon_state = "j_machine_3";
 	layer = 5;
 	pixel_x = 9;
 	pixel_y = 17
+	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 5;
+	color = "#a1b6af"
 	},
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/new_new_year_house/inside)
@@ -11120,6 +11480,18 @@
 	},
 /turf/simulated/floor/exoplanet/grim_wood_good,
 /area/new_new_year_house/inside)
+"NP" = (
+/obj/structure/fd/samosbor/outer_railings{
+	icon_state = "catwalk_black";
+	layer = 4.09;
+	dir = 1;
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_8";
+	dir = 8
+	},
+/area/new_new_year_house/inside)
 "NT" = (
 /obj/item/material/ashtray/bronze{
 	pixel_x = -16;
@@ -11133,6 +11505,14 @@
 	},
 /turf/simulated/floor/exoplanet/grim_wood2,
 /area/new_new_year_house/outside)
+"NX" = (
+/obj/structure/stairs/north{
+	alpha = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_right"
+	},
+/area/new_new_year_house/inside)
 "NZ" = (
 /obj/floor_decal/spline/plain/black{
 	dir = 9
@@ -11915,6 +12295,11 @@
 /area/new_new_year_house/inside)
 "QP" = (
 /obj/structure/disposalpipe/diversion_junction,
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 5;
+	color = "#a1b6af"
+	},
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/new_new_year_house/inside)
 "QT" = (
@@ -11927,6 +12312,11 @@
 	name = "colored lights";
 	pixel_x = -1;
 	pixel_y = -1
+	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#b87e28"
 	},
 /turf/simulated/floor/exoplanet/grim_wood2,
 /area/new_new_year_house/inside)
@@ -12018,7 +12408,14 @@
 "Ri" = (
 /obj/structure/closet/grim/wood{
 	pixel_x = 1;
-	pixel_y = 20
+	pixel_y = 20;
+	layer = 5
+	},
+/obj/structure/fd/samosbor/outer_railings{
+	icon_state = "catwalk_black";
+	layer = 4.09;
+	dir = 1;
+	density = 0
 	},
 /turf/simulated/floor/exoplanet/grim_wood_log,
 /area/new_new_year_house/inside)
@@ -12418,6 +12815,11 @@
 "SH" = (
 /obj/floor_decal/spline/fancy/wood{
 	dir = 1
+	},
+/obj/structure/fd/mapping/light_marker{
+	marker_range = 2;
+	color = "#b90303";
+	marker_power = 2
 	},
 /turf/simulated/floor/exoplanet/grim_wood2,
 /area/new_new_year_house/inside)
@@ -12975,6 +13377,10 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/snow,
 /area/new_new_year_house/outside)
+"UJ" = (
+/obj/structure/ladder,
+/turf/simulated/floor/exoplanet/grim_asphalt2,
+/area/new_new_year_house/inside)
 "UL" = (
 /obj/floor_decal/spline/fancy/wood,
 /obj/floor_decal/spline/fancy/wood{
@@ -13019,7 +13425,9 @@
 	},
 /area/new_new_year_house/inside)
 "US" = (
-/obj/machinery/cooker/oven/samosbor2,
+/obj/machinery/cooker/oven/samosbor3{
+	pixel_x = 6
+	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t2"
 	},
@@ -13038,6 +13446,19 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/snow,
 /area/new_new_year_house/outside)
+"UV" = (
+/obj/floor_decal/spline/plain/black{
+	dir = 10
+	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.6;
+	marker_range = 10;
+	color = "#dbaf00"
+	},
+/turf/simulated/floor/exoplanet/grim_wood_log{
+	icon_state = "carpet_red"
+	},
+/area/new_new_year_house/inside)
 "UZ" = (
 /obj/floor_decal/spline/plain/black{
 	dir = 8
@@ -13126,7 +13547,7 @@
 /area/new_new_year_house/inside)
 "Vl" = (
 /obj/structure/flora/ausbushes/pointybush,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/snow,
 /area/new_new_year_house/outside)
 "Vm" = (
 /turf/simulated/floor/exoplanet/grim_wood2,
@@ -13219,6 +13640,20 @@
 	},
 /turf/simulated/floor/exoplanet/grim_wood2,
 /area/new_new_year_house/outside)
+"VE" = (
+/obj/floor_decal/spline/plain/black,
+/obj/floor_decal/spline/plain/black{
+	dir = 5
+	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.6;
+	marker_range = 10;
+	color = "#dbaf00"
+	},
+/turf/simulated/floor/exoplanet/grim_wood_log{
+	icon_state = "carpet_red"
+	},
+/area/new_new_year_house/inside)
 "VF" = (
 /obj/structure/fd/grim_walls/brick{
 	icon_state = "boss_wall-203"
@@ -13353,7 +13788,7 @@
 	},
 /obj/structure/fd/mapping/light_marker{
 	marker_power = 0.8;
-	marker_range = 5;
+	marker_range = 10;
 	color = "#b87e28"
 	},
 /turf/simulated/floor/exoplanet/grim_wood_log,
@@ -13455,10 +13890,10 @@
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/new_new_year_house/inside)
 "Wx" = (
-/obj/structure/bed/sofa/l,
 /obj/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
+/obj/structure/bed/sofa/l/black,
 /turf/simulated/floor/exoplanet/samosbor/carpet{
 	icon_state = "ca_da_14"
 	},
@@ -13527,6 +13962,11 @@
 	pixel_x = 13;
 	pixel_y = -2
 	},
+/obj/structure/fd/mapping/light_marker{
+	marker_range = 2;
+	color = "#13b310";
+	marker_power = 2
+	},
 /turf/simulated/floor/exoplanet/grim_wood2,
 /area/new_new_year_house/inside)
 "WK" = (
@@ -13590,6 +14030,14 @@
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "cafe"
 	},
+/area/new_new_year_house/inside)
+"WR" = (
+/obj/structure/fd/mapping/light_marker{
+	marker_range = 2;
+	color = "#b90303";
+	marker_power = 2
+	},
+/turf/simulated/floor/exoplanet/grim_wood2,
 /area/new_new_year_house/inside)
 "WS" = (
 /obj/floor_decal/spline/plain/black{
@@ -13733,6 +14181,12 @@
 	icon_state = "carpet_green"
 	},
 /area/new_new_year_house/inside)
+"Xo" = (
+/obj/structure/fd/grim_walls/stone{
+	icon_state = "iron_wall-139"
+	},
+/turf/simulated/floor/plating,
+/area/new_new_year_house/inside)
 "Xp" = (
 /obj/decal/cleanable/dirt,
 /obj/item/storage/backpack/cultpack,
@@ -13850,6 +14304,11 @@
 	pixel_y = 35
 	},
 /obj/floor_decal/spline/plain/black,
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#b87e28"
+	},
 /turf/simulated/floor/exoplanet/grim_wood_log{
 	icon_state = "carpet_dark"
 	},
@@ -14188,7 +14647,9 @@
 	pixel_x = 2;
 	pixel_y = 6
 	},
-/turf/simulated/floor/exoplanet/grim_wood_log,
+/turf/simulated/floor/exoplanet/grim_wood_log{
+	icon_state = "full_dark"
+	},
 /area/new_new_year_house/inside)
 "YG" = (
 /obj/structure/fd/samosbor/light{
@@ -14320,6 +14781,11 @@
 	pixel_x = -4;
 	pixel_y = 0
 	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#b87e28"
+	},
 /turf/simulated/floor/exoplanet/grim_wood_good2,
 /area/new_new_year_house/inside)
 "Zb" = (
@@ -14368,6 +14834,14 @@
 	icon_state = "sa_bl_2"
 	},
 /area/new_new_year_house/outside)
+"Zi" = (
+/obj/structure/stairs/north{
+	alpha = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_center"
+	},
+/area/new_new_year_house/inside)
 "Zk" = (
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "concrete_tile_7"
@@ -14397,7 +14871,7 @@
 "Zo" = (
 /obj/structure/fd/mapping/light_marker{
 	marker_power = 0.8;
-	marker_range = 5;
+	marker_range = 10;
 	color = "#b87e28"
 	},
 /turf/simulated/floor/exoplanet/samosbor/concrete{
@@ -14514,6 +14988,11 @@
 /obj/floor_decal/spline/plain/black{
 	pixel_x = 4;
 	pixel_y = 0
+	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#b87e28"
 	},
 /turf/simulated/floor/exoplanet/grim_wood_good2,
 /area/new_new_year_house/inside)
@@ -22252,7 +22731,7 @@ xC
 Uq
 hq
 hq
-hq
+lr
 hq
 ie
 hq
@@ -22268,8 +22747,8 @@ hq
 hq
 hq
 hq
-hq
-xC
+lr
+tD
 xC
 fj
 Kd
@@ -22454,12 +22933,12 @@ hq
 Eu
 hq
 WB
-hq
+lr
 hq
 ie
 JS
 xC
-hq
+JF
 Pc
 hq
 hq
@@ -22470,7 +22949,7 @@ JS
 hq
 hq
 hq
-hq
+lr
 hq
 hq
 fj
@@ -22654,8 +23133,8 @@ hq
 LN
 Ds
 tQ
-hq
-hq
+lr
+lr
 wT
 of
 of
@@ -22673,7 +23152,7 @@ of
 of
 of
 It
-hq
+lr
 Bg
 fj
 Kd
@@ -22862,7 +23341,7 @@ Uq
 hq
 xC
 xC
-xC
+tD
 Xp
 hq
 Lf
@@ -24693,7 +25172,7 @@ of
 of
 of
 nt
-Qf
+wq
 fa
 fj
 Kd
@@ -24882,20 +25361,20 @@ fj
 Py
 Dk
 xC
-hq
+JF
 xN
 KM
 Qh
 fj
 FT
 JS
-hq
+lr
 eV
 hq
 hq
 hq
-xC
-Qf
+eX
+tN
 sB
 fj
 Kd
@@ -25079,7 +25558,7 @@ gS
 hq
 ZV
 hq
-hq
+JF
 YU
 of
 of
@@ -25091,7 +25570,7 @@ of
 nt
 hq
 hq
-hq
+lr
 hq
 hq
 JS
@@ -25289,7 +25768,7 @@ Kd
 Kd
 Kd
 fj
-yN
+tw
 yN
 hq
 hq
@@ -25491,9 +25970,9 @@ Kd
 Kd
 Kd
 fj
+Zi
 BK
-BK
-hq
+JF
 hq
 fj
 wO
@@ -25693,7 +26172,7 @@ Kd
 Kd
 Kd
 fj
-Qk
+NX
 Qk
 hq
 hq
@@ -26289,11 +26768,11 @@ Kd
 Kd
 Kd
 Kd
-wt
-of
-of
-of
-nt
+fj
+hq
+hq
+Yv
+Ph
 Kd
 Kd
 Kd
@@ -26491,13 +26970,13 @@ Kd
 Kd
 Kd
 Kd
-Kd
-Kd
-Kd
-Kd
-Kd
-Kd
-Kd
+fj
+lr
+lr
+yo
+Xo
+of
+iN
 Kd
 Kd
 Kd
@@ -26693,13 +27172,13 @@ Kd
 Kd
 Kd
 Kd
-Kd
-Kd
-Kd
-Kd
-Kd
-Kd
-Kd
+fj
+hq
+hq
+lr
+hq
+hq
+fj
 Kd
 Kd
 Kd
@@ -26895,13 +27374,13 @@ Kd
 Kd
 Kd
 Kd
-Kd
-Kd
-Kd
-Kd
-Kd
-Kd
-Kd
+fj
+hq
+JF
+lr
+hq
+EF
+fj
 Kd
 Kd
 Kd
@@ -27097,13 +27576,13 @@ Kd
 Kd
 Kd
 Kd
-Kd
-Kd
-Kd
-Kd
-Kd
-Kd
-Kd
+fj
+hq
+hq
+wT
+of
+of
+nt
 Kd
 Kd
 Kd
@@ -27299,10 +27778,10 @@ Kd
 Kd
 Kd
 Kd
-Kd
-Kd
-Kd
-Kd
+wt
+of
+of
+nt
 Kd
 Kd
 Kd
@@ -55369,55 +55848,55 @@ yW
 yW
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (3,1,2) = {"
@@ -55570,56 +56049,56 @@ yW
 yW
 yW
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (4,1,2) = {"
@@ -55772,56 +56251,56 @@ yW
 yW
 yW
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (5,1,2) = {"
@@ -55976,54 +56455,54 @@ yW
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (6,1,2) = {"
@@ -56178,54 +56657,54 @@ yW
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (7,1,2) = {"
@@ -56379,55 +56858,55 @@ yW
 yW
 yW
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (8,1,2) = {"
@@ -56581,55 +57060,55 @@ yW
 yW
 yW
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (9,1,2) = {"
@@ -56786,52 +57265,52 @@ FA
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-sY
-lo
-lo
-lo
-wz
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+Yp
+ai
+ai
+ai
+Me
+ai
+ai
+ai
 Is
 "}
 (10,1,2) = {"
@@ -56989,51 +57468,51 @@ FA
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 uv
-lo
-wz
-lo
-lo
-lo
-JF
-lo
-lo
-lo
-Id
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+Me
+ai
+ai
+ai
+dL
+ai
+ai
+ai
+IB
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (11,1,2) = {"
@@ -57190,52 +57669,52 @@ yW
 yW
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-wz
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-Id
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+Me
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+IB
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (12,1,2) = {"
@@ -57392,52 +57871,52 @@ yW
 yW
 yW
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-wz
-lo
-sY
-lo
-lo
-lo
-lo
-tS
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+Me
+ai
+Yp
+ai
+ai
+ai
+ai
+Cw
 uv
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (13,1,2) = {"
@@ -57597,49 +58076,49 @@ FA
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 lm
-lo
-lo
-tS
-JF
-lo
-sY
-lo
-lo
-lo
-lo
+ai
+ai
+Cw
+dL
+ai
+Yp
+ai
+ai
+ai
+ai
 Is
 "}
 (14,1,2) = {"
@@ -57799,49 +58278,49 @@ yW
 yW
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 xS
-lo
+ai
 GG
 lm
-wz
+Me
 lm
-lo
-tS
+ai
+Cw
 Vl
-lo
-JF
-lo
-lo
-lo
+ai
+dL
+ai
+ai
+ai
 Is
 "}
 (15,1,2) = {"
@@ -58001,36 +58480,36 @@ yW
 yW
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 uv
-JF
-lo
-lo
-lo
-tS
+dL
+ai
+ai
+ai
+Cw
 jD
 lm
 jD
@@ -58038,12 +58517,12 @@ jD
 jD
 jD
 jD
-lo
-wz
-lo
-lo
-lo
-lo
+ai
+Me
+ai
+ai
+ai
+ai
 Is
 "}
 (16,1,2) = {"
@@ -58196,18 +58675,18 @@ yW
 yW
 yW
 yW
-yW
+ch
 yW
 yW
 yW
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
 Kg
 KY
 KY
@@ -58242,10 +58721,10 @@ SM
 jD
 jD
 uv
-lo
-lo
-lo
-sY
+ai
+ai
+ai
+Yp
 Is
 "}
 (17,1,2) = {"
@@ -58404,12 +58883,12 @@ Fu
 PX
 Ev
 FA
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
 aV
 qS
 Ea
@@ -58443,11 +58922,11 @@ FY
 yx
 jD
 jD
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (18,1,2) = {"
@@ -58624,7 +59103,7 @@ kL
 Ii
 xF
 yz
-lr
+Ii
 zY
 ey
 OG
@@ -58645,11 +59124,11 @@ hq
 jD
 jD
 jD
-lo
-lo
-lo
+ai
+ai
+ai
 uv
-lo
+ai
 Is
 "}
 (19,1,2) = {"
@@ -58804,7 +59283,7 @@ yW
 Gu
 nf
 Vm
-Vm
+tS
 Kg
 xt
 Tf
@@ -58847,11 +59326,11 @@ hq
 Sh
 jD
 jD
-wz
-lo
-lo
-tS
-Id
+Me
+ai
+ai
+Cw
+IB
 Is
 "}
 (20,1,2) = {"
@@ -59049,11 +59528,11 @@ Zg
 jD
 jD
 jD
-lo
-Id
-lo
-wz
-lo
+ai
+IB
+ai
+Me
+ai
 Is
 "}
 (21,1,2) = {"
@@ -59217,9 +59696,9 @@ nm
 ji
 Tq
 jI
-VA
+gZ
 OG
-Ax
+BD
 RU
 RU
 RU
@@ -59252,10 +59731,10 @@ jD
 jD
 jD
 jD
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
 Is
 "}
 (22,1,2) = {"
@@ -59454,10 +59933,10 @@ jD
 jD
 jD
 jD
-sY
-lo
-lo
-lo
+Yp
+ai
+ai
+ai
 Is
 "}
 (23,1,2) = {"
@@ -59605,7 +60084,7 @@ yW
 yW
 yW
 yW
-yW
+ch
 yW
 Gu
 Vm
@@ -59613,7 +60092,7 @@ Vm
 QO
 VA
 Xs
-tb
+dR
 tb
 nD
 SG
@@ -59656,9 +60135,9 @@ jD
 jD
 jD
 jD
-lo
-lo
-lo
+ai
+ai
+ai
 Vl
 Is
 "}
@@ -59835,7 +60314,7 @@ hl
 fJ
 OG
 Wu
-mI
+Eh
 mI
 mI
 VA
@@ -59857,11 +60336,11 @@ Zg
 jD
 jD
 jD
-lo
-lo
-JF
-lo
-lo
+ai
+ai
+dL
+ai
+ai
 Is
 "}
 (25,1,2) = {"
@@ -60059,11 +60538,11 @@ WD
 jD
 jD
 jD
-tS
-wz
-lo
+Cw
+Me
+ai
 lm
-lo
+ai
 Is
 "}
 (26,1,2) = {"
@@ -60236,7 +60715,7 @@ RF
 Li
 cG
 jr
-fJ
+Wc
 xs
 WJ
 bH
@@ -60261,11 +60740,11 @@ FY
 jD
 Sh
 jD
-lo
-lo
+ai
+ai
 lm
-lo
-lo
+ai
+ai
 Is
 "}
 (27,1,2) = {"
@@ -60442,9 +60921,9 @@ KY
 JO
 fw
 kI
+fx
+jN
 Lk
-iP
-uN
 aV
 VA
 kI
@@ -60463,11 +60942,11 @@ Zg
 jD
 Sh
 jD
-lo
+ai
 lm
 GG
-lo
-wz
+ai
+Me
 Is
 "}
 (28,1,2) = {"
@@ -60643,8 +61122,8 @@ VA
 VA
 OG
 By
-kI
-Lk
+WR
+fx
 iP
 uN
 aV
@@ -60665,11 +61144,11 @@ Zg
 Sh
 jD
 jD
-lo
+ai
 lm
 lm
-lo
-lo
+ai
+ai
 Is
 "}
 (29,1,2) = {"
@@ -60836,7 +61315,7 @@ QT
 iE
 aV
 gw
-eW
+ul
 qj
 Rm
 ff
@@ -60867,11 +61346,11 @@ Zg
 jD
 jD
 jD
-sY
-lo
-lo
+Yp
+ai
+ai
 uv
-lo
+ai
 Is
 "}
 (30,1,2) = {"
@@ -61047,8 +61526,8 @@ VA
 VA
 xs
 JH
-zi
-BC
+eq
+ga
 bv
 FM
 YO
@@ -61069,11 +61548,11 @@ WD
 SM
 jD
 jD
-lo
-Id
-lo
-lo
-lo
+ai
+IB
+ai
+ai
+ai
 Is
 "}
 (31,1,2) = {"
@@ -61225,7 +61704,7 @@ yW
 yW
 vC
 Vm
-Vm
+tS
 CO
 ju
 Cb
@@ -61271,11 +61750,11 @@ FY
 yx
 jD
 jD
-wz
-lo
-tS
-lo
-lo
+Me
+ai
+Cw
+ai
+ai
 Is
 "}
 (32,1,2) = {"
@@ -61472,12 +61951,12 @@ jD
 jD
 jD
 jD
-lo
-lo
-tS
-lo
-lo
-lo
+ai
+ai
+Cw
+ai
+ai
+ai
 Is
 "}
 (33,1,2) = {"
@@ -61625,14 +62104,14 @@ yW
 yW
 yW
 yW
-yW
+ch
 yW
 vC
 Vm
 yw
 sq
 MZ
-qj
+Br
 qj
 qj
 IU
@@ -61640,7 +62119,7 @@ BM
 ff
 mZ
 mZ
-mZ
+sY
 mZ
 mZ
 IU
@@ -61649,19 +62128,19 @@ VA
 Rb
 aa
 ru
-ru
+lo
 YT
 aV
 VA
 pF
 qj
 YR
-FV
+UV
 Xd
 aV
 aa
 ru
-ru
+lo
 YT
 aV
 eu
@@ -61675,11 +62154,11 @@ jD
 jD
 jD
 uv
-lo
-lo
-lo
-sY
-lo
+ai
+ai
+ai
+Yp
+ai
 Is
 "}
 (34,1,2) = {"
@@ -61869,19 +62348,19 @@ aV
 qM
 GC
 aV
-Id
+IB
 jD
 jD
 jD
 jD
 jD
-lo
-lo
-JF
-lo
-lo
-lo
-lo
+ai
+ai
+dL
+ai
+ai
+ai
+ai
 Is
 "}
 (35,1,2) = {"
@@ -62033,7 +62512,7 @@ yW
 yW
 vC
 Vm
-Vm
+tS
 fT
 Vz
 Vz
@@ -62071,19 +62550,19 @@ Lg
 Xr
 GC
 aV
-sY
+Yp
 jD
 jD
 jD
 jD
 jD
 jD
-lo
-lo
-lo
-lo
-lo
-JF
+ai
+ai
+ai
+ai
+ai
+dL
 Is
 "}
 (36,1,2) = {"
@@ -62273,19 +62752,19 @@ lG
 EM
 GC
 aV
-lo
+ai
 nn
-wz
+Me
 jD
 jD
 jD
 jD
-lo
-lo
-lo
-lo
-JF
-lo
+ai
+ai
+ai
+ai
+dL
+ai
 Is
 "}
 (37,1,2) = {"
@@ -62444,7 +62923,7 @@ Do
 iM
 tu
 oG
-oG
+Id
 oG
 CC
 Do
@@ -62461,7 +62940,7 @@ Tq
 LD
 pt
 PO
-cj
+Lo
 lC
 fJ
 Wj
@@ -62475,19 +62954,19 @@ mC
 eD
 JP
 aV
-lo
-ul
+ai
+Hh
 lm
 jD
 lm
 jD
 jD
 jD
-lo
-wz
-lo
-lo
-lo
+ai
+Me
+ai
+ai
+ai
 Is
 "}
 (38,1,2) = {"
@@ -62678,18 +63157,18 @@ oU
 GC
 aV
 lm
-lo
-sY
+ai
+Yp
 jD
 Sh
 Sh
 jD
 jD
-Id
-lo
-lo
-lo
-lo
+IB
+ai
+ai
+ai
+ai
 Is
 "}
 (39,1,2) = {"
@@ -62837,7 +63316,7 @@ yW
 yW
 yW
 yW
-yW
+ch
 yW
 vC
 Vm
@@ -62856,7 +63335,7 @@ qi
 KO
 Rb
 VZ
-SP
+kd
 VA
 Rb
 XM
@@ -62880,18 +63359,18 @@ Gc
 xz
 aV
 MB
-lo
-Id
+ai
+IB
 jD
 jD
 Sh
 Sh
 jD
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (40,1,2) = {"
@@ -63081,19 +63560,19 @@ bU
 Lw
 Wn
 aV
-lo
-lo
+ai
+ai
 pq
-lo
+ai
 jD
 Sh
 Sh
 jD
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (41,1,2) = {"
@@ -63245,7 +63724,7 @@ yW
 yW
 vC
 Vm
-Vm
+tS
 aV
 oZ
 oJ
@@ -63272,7 +63751,7 @@ KY
 KY
 JO
 Ys
-Wj
+Ah
 VA
 CO
 KY
@@ -63283,19 +63762,19 @@ TM
 KY
 KY
 JO
-lo
+ai
 GG
 lm
-sY
+Yp
 jD
 jD
 jD
 jD
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (42,1,2) = {"
@@ -63486,18 +63965,18 @@ sh
 pQ
 aV
 uv
-lo
+ai
 lm
 Vl
 jD
 jD
 jD
 jD
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (43,1,2) = {"
@@ -63656,7 +64135,7 @@ Ip
 ad
 Pg
 GW
-UL
+Nu
 ad
 Pg
 GW
@@ -63669,7 +64148,7 @@ VA
 Rb
 aa
 ru
-ru
+lo
 YT
 aV
 tR
@@ -63681,25 +64160,25 @@ VA
 aV
 aa
 ru
-ru
+lo
 YT
 aV
 aw
 iR
 aV
-lo
-lo
-lo
-lo
-JF
+ai
+ai
+ai
+ai
+dL
 jD
 jD
 jD
 jD
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
 Is
 "}
 (44,1,2) = {"
@@ -63889,19 +64368,19 @@ aV
 zH
 hU
 aV
-lo
-wz
-lo
-wz
-lo
+ai
+Me
+ai
+Me
+ai
 jD
 jD
 jD
 jD
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
 Is
 "}
 (45,1,2) = {"
@@ -64091,19 +64570,19 @@ Lg
 VA
 VA
 aV
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
 uv
-lo
+ai
 jD
 jD
 jD
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
 Is
 "}
 (46,1,2) = {"
@@ -64293,19 +64772,19 @@ SS
 zi
 Rz
 aV
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 lm
 jD
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
 Is
 "}
 (47,1,2) = {"
@@ -64457,7 +64936,7 @@ yW
 yW
 vC
 Vm
-Vm
+tS
 pA
 pg
 Ip
@@ -64495,19 +64974,19 @@ mI
 mI
 bN
 aV
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 lm
 jD
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
 Is
 "}
 (48,1,2) = {"
@@ -64674,7 +65153,7 @@ sJ
 Kn
 Rb
 VA
-kR
+ht
 VA
 Rb
 uJ
@@ -64697,19 +65176,19 @@ wN
 av
 Vf
 aV
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 jD
 jD
-lo
-lo
-lo
+ai
+ai
+ai
 Is
 "}
 (49,1,2) = {"
@@ -64857,7 +65336,7 @@ yW
 yW
 yW
 yW
-yW
+ch
 yW
 vC
 Vm
@@ -64873,7 +65352,7 @@ hl
 VJ
 hF
 Au
-kI
+it
 Rb
 VA
 kR
@@ -64899,19 +65378,19 @@ kz
 tb
 IN
 aV
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 Sh
 Sh
 jD
-lo
-lo
-lo
+ai
+ai
+ai
 Is
 "}
 (50,1,2) = {"
@@ -65070,7 +65549,7 @@ zi
 VA
 VA
 VA
-VA
+gZ
 VA
 VA
 SH
@@ -65090,7 +65569,7 @@ oD
 lR
 xs
 VA
-PI
+VE
 VA
 xs
 Hf
@@ -65101,19 +65580,19 @@ WW
 Jk
 CR
 aV
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 Sh
 jD
-lo
-lo
-lo
+ai
+ai
+ai
 Is
 "}
 (51,1,2) = {"
@@ -65303,19 +65782,19 @@ KY
 KY
 KY
 Lg
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 Sh
 Sh
 jD
-lo
-lo
-lo
+ai
+ai
+ai
 Is
 "}
 (52,1,2) = {"
@@ -65497,27 +65976,27 @@ sr
 WD
 qD
 aV
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 Sh
 Sh
 jD
-lo
-lo
-lo
+ai
+ai
+ai
 Is
 "}
 (53,1,2) = {"
@@ -65676,7 +66155,7 @@ Jo
 Jo
 Jo
 Jo
-Jo
+Nd
 gT
 jZ
 ID
@@ -65699,27 +66178,27 @@ gq
 vG
 qD
 aV
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 Sh
 jD
 jD
-lo
-lo
-lo
+ai
+ai
+ai
 Is
 "}
 (54,1,2) = {"
@@ -65890,7 +66369,7 @@ mi
 VA
 aV
 CH
-CH
+wz
 BK
 PD
 PD
@@ -65901,27 +66380,27 @@ gq
 vG
 qD
 aV
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 jD
 jD
-lo
-lo
-lo
+ai
+ai
+ai
 Is
 "}
 (55,1,2) = {"
@@ -66080,7 +66559,7 @@ Jo
 kT
 CU
 US
-US
+CU
 WF
 Jo
 Jo
@@ -66088,7 +66567,7 @@ HQ
 yo
 FY
 VA
-mi
+wU
 VA
 OG
 hq
@@ -66101,29 +66580,29 @@ gq
 gq
 gq
 vG
-qD
+cf
 aV
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 jD
 jD
-lo
-lo
-lo
+ai
+ai
+ai
 Is
 "}
 (56,1,2) = {"
@@ -66278,7 +66757,7 @@ yW
 yW
 aV
 FE
-Jo
+Nd
 kT
 Ma
 rI
@@ -66286,7 +66765,7 @@ pp
 WF
 Jo
 Jo
-gT
+Ei
 cX
 lC
 fJ
@@ -66305,27 +66784,27 @@ xG
 FY
 qD
 aV
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 jD
 jD
-lo
-lo
-lo
+ai
+ai
+ai
 Is
 "}
 (57,1,2) = {"
@@ -66507,27 +66986,27 @@ vG
 gP
 yh
 aV
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 jD
 jD
-lo
-lo
-lo
+ai
+ai
+ai
 Is
 "}
 (58,1,2) = {"
@@ -66709,27 +67188,27 @@ vG
 bv
 FM
 aV
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 jD
 jD
-lo
-lo
-lo
+ai
+ai
+ai
 Is
 "}
 (59,1,2) = {"
@@ -66911,27 +67390,27 @@ Gl
 KY
 KY
 Lg
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 jD
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
 Is
 "}
 (60,1,2) = {"
@@ -67101,39 +67580,39 @@ Ql
 Gs
 hq
 aV
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 lm
 jD
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
 Is
 "}
 (61,1,2) = {"
@@ -67299,43 +67778,43 @@ FA
 FA
 FA
 aV
+EF
 hq
-hq
-hq
+UJ
 aV
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 lm
 lm
 jD
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
 Is
 "}
 (62,1,2) = {"
@@ -67505,39 +67984,39 @@ KY
 KY
 KY
 Lg
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 lm
 lm
 jD
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
 Is
 "}
 (63,1,2) = {"
@@ -67705,41 +68184,41 @@ FA
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 lm
 lm
 jD
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
 Is
 "}
 (64,1,2) = {"
@@ -67907,31 +68386,31 @@ FA
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 jD
@@ -67939,9 +68418,9 @@ Sh
 lm
 jD
 jD
-lo
-lo
-lo
+ai
+ai
+ai
 Is
 "}
 (65,1,2) = {"
@@ -68110,30 +68589,30 @@ FA
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 Sh
@@ -68141,9 +68620,9 @@ Sh
 Sh
 jD
 jD
-lo
-lo
-lo
+ai
+ai
+ai
 Is
 "}
 (66,1,2) = {"
@@ -68312,29 +68791,29 @@ FA
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 jD
@@ -68343,9 +68822,9 @@ Sh
 jD
 jD
 jD
-lo
-lo
-lo
+ai
+ai
+ai
 Is
 "}
 (67,1,2) = {"
@@ -68515,28 +68994,28 @@ FA
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 jD
@@ -68545,9 +69024,9 @@ Sh
 jD
 jD
 jD
-lo
-lo
-lo
+ai
+ai
+ai
 Is
 "}
 (68,1,2) = {"
@@ -68717,28 +69196,28 @@ FA
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 Sh
@@ -68746,10 +69225,10 @@ Sh
 Sh
 jD
 jD
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
 Is
 "}
 (69,1,2) = {"
@@ -68920,27 +69399,27 @@ FA
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 jD
@@ -68948,10 +69427,10 @@ Sh
 jD
 jD
 jD
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
 Is
 "}
 (70,1,2) = {"
@@ -69122,38 +69601,38 @@ FA
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 jD
 jD
 jD
 jD
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
 Is
 "}
 (71,1,2) = {"
@@ -69323,28 +69802,28 @@ FA
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 jD
@@ -69352,10 +69831,10 @@ jD
 jD
 jD
 jD
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
 Is
 "}
 (72,1,2) = {"
@@ -69525,27 +70004,27 @@ FA
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 jD
@@ -69553,11 +70032,11 @@ jD
 lm
 lm
 jD
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (73,1,2) = {"
@@ -69727,25 +70206,25 @@ FA
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 jD
@@ -69755,11 +70234,11 @@ lm
 lm
 lm
 jD
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (74,1,2) = {"
@@ -69930,22 +70409,22 @@ FA
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 jD
@@ -69958,10 +70437,10 @@ lm
 lm
 jD
 jD
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
 Is
 "}
 (75,1,2) = {"
@@ -70131,22 +70610,22 @@ FA
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 jD
@@ -70160,10 +70639,10 @@ lm
 jD
 jD
 jD
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
 Is
 "}
 (76,1,2) = {"
@@ -70333,21 +70812,21 @@ FA
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 jD
@@ -70361,11 +70840,11 @@ jD
 jD
 jD
 jD
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (77,1,2) = {"
@@ -70535,21 +71014,21 @@ FA
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 Sh
@@ -70563,11 +71042,11 @@ jD
 jD
 jD
 jD
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (78,1,2) = {"
@@ -70736,21 +71215,21 @@ FA
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 jD
@@ -70765,11 +71244,11 @@ Sh
 jD
 jD
 jD
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (79,1,2) = {"
@@ -70938,21 +71417,21 @@ FA
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 jD
@@ -70967,11 +71446,11 @@ Sh
 Sh
 jD
 jD
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (80,1,2) = {"
@@ -71138,22 +71617,22 @@ yW
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 jD
@@ -71168,12 +71647,12 @@ Sh
 Sh
 Sh
 jD
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (81,1,2) = {"
@@ -71338,22 +71817,22 @@ yW
 yW
 yW
 yW
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 jD
@@ -71370,12 +71849,12 @@ Sh
 Sh
 jD
 jD
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (82,1,2) = {"
@@ -71541,16 +72020,16 @@ yW
 yW
 yW
 yW
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 jD
@@ -71572,12 +72051,12 @@ jD
 jD
 jD
 jD
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (83,1,2) = {"
@@ -71743,16 +72222,16 @@ yW
 yW
 yW
 yW
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 jD
@@ -71771,15 +72250,15 @@ Sh
 Sh
 jD
 jD
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (84,1,2) = {"
@@ -71946,14 +72425,14 @@ yW
 yW
 yW
 yW
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
 Sh
@@ -71972,16 +72451,16 @@ jD
 jD
 jD
 jD
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (85,1,2) = {"
@@ -72171,19 +72650,19 @@ Sh
 jD
 jD
 jD
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (86,1,2) = {"
@@ -72372,20 +72851,20 @@ Sh
 jD
 jD
 jD
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (87,1,2) = {"
@@ -72572,22 +73051,22 @@ Sh
 Sh
 jD
 jD
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (88,1,2) = {"
@@ -72762,34 +73241,34 @@ jD
 jD
 jD
 jD
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
 jD
 jD
 jD
 jD
 jD
 jD
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (89,1,2) = {"
@@ -72962,36 +73441,36 @@ jD
 jD
 jD
 jD
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 jD
 jD
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (90,1,2) = {"
@@ -73162,38 +73641,38 @@ lm
 jD
 jD
 jD
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (91,1,2) = {"
@@ -73361,41 +73840,41 @@ yW
 yW
 yW
 lm
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (92,1,2) = {"
@@ -73562,42 +74041,42 @@ yW
 yW
 yW
 yW
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (93,1,2) = {"
@@ -73761,45 +74240,45 @@ yW
 yW
 yW
 yW
-lo
+ai
 yW
 yW
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (94,1,2) = {"
@@ -73963,45 +74442,45 @@ yW
 yW
 yW
 yW
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (95,1,2) = {"
@@ -74165,45 +74644,45 @@ yW
 yW
 yW
 yW
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (96,1,2) = {"
@@ -74369,43 +74848,43 @@ yW
 yW
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (97,1,2) = {"
@@ -74572,42 +75051,42 @@ FA
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (98,1,2) = {"
@@ -74774,42 +75253,42 @@ FA
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (99,1,2) = {"
@@ -74978,40 +75457,40 @@ FA
 FA
 FA
 FA
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
-lo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 Is
 "}
 (100,1,2) = {"
@@ -101046,7 +101525,7 @@ PD
 PD
 PD
 kD
-iP
+NP
 uN
 mV
 PD
