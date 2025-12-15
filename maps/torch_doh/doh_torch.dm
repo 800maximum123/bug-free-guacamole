@@ -374,6 +374,9 @@
 
 	#define using_map_DATUM /datum/map/torch
 
+	//DOH STARLIGHT OVERRIDE
+	#define STARLIGHT_OFF
+
 #elif !defined(MAP_OVERRIDE)
 
 	#warn A map has already been included, ignoring Torch
