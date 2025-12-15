@@ -116,7 +116,7 @@
 	up_description = "All hands to battle stations. Hostile contacts confirmed present. All non-critical crew and civilians are to seek shelter immediately."
 	down_description = "Battle stations procedures are still in effect, all critical crew are to return to their designated stations."
 
-	var/static/datum/announcement/priority/security/security_announcement_red = new(do_log = 0, do_newscast = 1, new_sound = sound('sound/misc/generalquarters.ogg'))
+	var/static/datum/announcement/priority/security/security_announcement_red = new(do_log = 0, do_newscast = 1, new_sound = sound('generalquarters.ogg'))
 
 /singleton/security_level/default/lbrigdept/general_quarters/switching_up_to()
 	security_announcement_red.Announce(up_description, "Battle stations! Battle stations!")
