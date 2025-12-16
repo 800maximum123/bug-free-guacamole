@@ -1,6 +1,6 @@
 /area/tempeterra
-	icon = 'maps/event/sfv_tempeterra/tempeterra.dmi'
-	req_access = list(access_fleet_crew)
+	icon = 'maps/!maps_stash/sfv_tempterra/tempeterra.dmi'
+//	req_access = list(access_fleet_crew)
 
 /area/tempeterra/hangar
 	name = "Capanaeus Hangar"
@@ -175,7 +175,13 @@
 	icon_state = "toxstorage"
 
 //deck 3
+/area/tempeterra/shuttle/airlock
 
+/obj/structure/wall_frame/ocp
+	material = MATERIAL_OSMIUM_CARBIDE_PLASTEEL
+
+/obj/wallframe_spawn/reinforced_phoron/ocp
+	frame_path = /obj/structure/wall_frame/ocp
 
 /area/tempeterra/engineering/it/sensors
 	name = "Capanaeus Forward Sensor Array"

@@ -46,10 +46,10 @@
 	)
 
 /obj/machinery/power/apc/tempeterra
-	req_access = list(access_fleet_engineering)
+//	req_access = list(access_fleet_engineering)
 
 /obj/machinery/alarm/tempeterra
-	req_access = list(access_fleet_engineering)
+//	req_access = list(access_fleet_engineering)
 
 /obj/machinery/alarm/tempeterra/cold
 	target_temperature = T0C+4
