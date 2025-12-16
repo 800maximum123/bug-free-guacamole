@@ -53,3 +53,50 @@
 
 /obj/machinery/alarm/tempeterra/cold
 	target_temperature = T0C+4
+
+/obj/structure/closet/secure_closet/weapon
+	name = "weapon closet"
+	desc = "It's a secure wall-mounted storage unit for weapon"
+	closet_appearance = /singleton/closet_appearance/wall/bomb
+	anchored = TRUE
+	density = FALSE
+	wall_mounted = TRUE
+	storage_types = CLOSET_STORAGE_ITEMS
+//	req_access = list(access_medical_equip)
+
+/singleton/closet_appearance/wall/bomb
+	color = COLOR_DARK_GREEN_GRAY
+	extra_decals = list(
+		"stripes_closed" = COLOR_GREEN_GRAY
+	)
+
+/obj/machinery/door/airlock/hatch
+	airlock_type = "hatch"
+	name = "\improper Airtight Hatch"
+	icon = 'icons/obj/doors/hatch/door.dmi'
+	fill_file = 'icons/obj/doors/hatch/fill_steel.dmi'
+	stripe_file = 'icons/obj/doors/hatch/stripe.dmi'
+	stripe_fill_file = 'icons/obj/doors/hatch/fill_stripe.dmi'
+	bolts_file = 'icons/obj/doors/hatch/lights_bolts.dmi'
+	deny_file = 'icons/obj/doors/hatch/lights_deny.dmi'
+	lights_file = 'icons/obj/doors/hatch/lights_green.dmi'
+	panel_file = 'icons/obj/doors/hatch/panel.dmi'
+	welded_file = 'icons/obj/doors/hatch/welded.dmi'
+	emag_file = 'icons/obj/doors/hatch/emag.dmi'
+	explosion_resistance = 20
+	opacity = 1
+	assembly_type = /obj/structure/door_assembly/door_assembly_hatch
+	paintable = AIRLOCK_PAINTABLE_STRIPE
+
+/obj/machinery/door/airlock/hatch/maintenance
+	name = "Maintenance Hatch"
+	stripe_color = COLOR_AMBER
+
+/obj/machinery/door/airlock/hatch/medbay
+	stripe_color = COLOR_CYAN
+
+/obj/machinery/door/airlock/hatch/security
+	stripe_color = "#9d2300"
+
+/obj/machinery/door/airlock/hatch/civilian
+	stripe_color = COLOR_CIVIE_GREEN
