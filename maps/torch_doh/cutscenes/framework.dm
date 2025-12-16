@@ -55,12 +55,6 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 /mob/living/simple_animal/cutscene_character/proc/do_stuff() //Сюда писать всё что должен этот моб в сцене сделать
 	return
 
-/obj/structure/fd/players_geter // Для каждой катсцены создаём свой отдельный сабтайп!!! Нужен только для того чтобы телепортировать на него
-	icon = 'mods/_fd/event_tools/icons/landmarks_static.dmi'
-	icon_state = "generic_event"
-
-	invisibility = 50
-
 /obj/screen/fullscreen/fd/blackout/animated // Отдельный вид блэкскрина, который нужен для плавного перехода сцены
 	alpha = 0
 

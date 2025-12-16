@@ -240,6 +240,7 @@
 	#include "../event/iccgn_ship/icgnv_hound.dm"
 	#include "../event/sfv_arbiter/sfv_arbiter.dm"
 	#include "../event/placeholders/placeholders.dm"
+	#include "../event/e14b_station/northstar.dm"
 	#include "../event/empty/empty.dm"
 
 	// USED MODS
@@ -274,6 +275,9 @@
 	#include "../../mods/_fd/old_space_cannons/_old_space_cannons.dme"
 	#include "../../mods/_fd/runechat/_runechat.dme"
 
+	#include "../../mods/_fd/fd_events/_fd_events.dme"
+	#include "../../mods/_fd/fd_utilities/_fd_utilities.dme"
+
 	#include "../../mods/_fd/accent_labels/_accent_labels.dme"
 	#include "../../mods/_fd/additional_biomods/_additional_biomods.dme"
 	#include "../../mods/_fd/ai_overmap_objects/_ai_overmap_objects.dme"
@@ -285,7 +289,6 @@
 	#include "../../mods/_fd/complementary_xeno_ablities/_complementary_xeno_ablities.dme"
 	#include "../../mods/_fd/conference_holopads/_conference_holopads.dme"
 	#include "../../mods/_fd/cyberware_mayhem/_cyberware_mayhem.dme"
-	#include "../../mods/_fd/event_tools/_event_tools.dme"
 	#include "../../mods/_fd/expanded_traders/_expanded_traders.dme"
 	#include "../../mods/_fd/export_to_dmi/_export_to_dmi.dme"
 	#include "../../mods/_fd/hestia_missiles/_hestia_missiles.dme"
@@ -339,6 +342,8 @@
 	#include "../../mods/_fd/_maps/yacht/_yacht.dme"
 
 	#include "../../mods/_fd/_maps/torch_as_ruin/_torch_as_ruin.dme"
+	#include "../../mods/_fd/_maps/iccgn_samosbor/_samosbor.dme"
+	#include "../../mods/_fd/_maps/new_new_year_house/_new_new_year_house.dme"
 
 		// ~DANILCUS WIP~ //
 
@@ -369,6 +374,9 @@
 	#include "../../mods/_fd/_maps/fort_manticore/_fort_manticore.dme"
 
 	#define using_map_DATUM /datum/map/torch
+
+	//DOH STARLIGHT OVERRIDE
+	#define STARLIGHT_OFF
 
 #elif !defined(MAP_OVERRIDE)
 

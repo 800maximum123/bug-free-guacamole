@@ -2,12 +2,6 @@
 // АССЕТЫ, НЕОБХОДИМЫЕ СЦЕНЕ //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/obj/structure/fd/players_geter/s2ep1/part1_1 // Шот коридора
-
-/obj/structure/fd/players_geter/s2ep1/part1_2 // Шот предбанника медблока
-
-/obj/structure/fd/players_geter/s2ep1/part1_3 // Шот операционной
-
 /obj/screen/fullscreen/fd/blackout/animated/s2ep1sc1/Initialize()
 	. = ..()
 	spawn(25 SECONDS)

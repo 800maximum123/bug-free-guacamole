@@ -27,22 +27,6 @@
 	opacity = TRUE
 	should_show_name = FALSE
 
-/obj/structure/fd/players_geter/s2ep1/part2_1 // Мостик
-
-/obj/structure/fd/players_geter/s2ep1/part2_2 // Инженерный отсек
-
-/obj/structure/fd/players_geter/s2ep1/part2_3 // Коридор третьей
-
-/obj/structure/fd/players_geter/s2ep1/part2_4 // Кошки помирают
-
-/obj/structure/fd/players_geter/s2ep1/part2_5 // Ганбоат
-
-/obj/structure/fd/players_geter/s2ep1/part2_6 // Госпиталь
-
-/obj/structure/fd/players_geter/s2ep1/part2_7 // Фиддлер
-
-/obj/structure/fd/players_geter/s2ep1/part2_8 // Неизвестные
-
 /proc/amper_lastwords()
 	var/novel_message = "НОВОГО ЦИКЛА?"
 	var/colored = "#ebac00"
