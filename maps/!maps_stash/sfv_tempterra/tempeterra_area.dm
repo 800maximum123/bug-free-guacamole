@@ -3,51 +3,51 @@
 //	req_access = list(access_fleet_crew)
 
 /area/tempeterra/hangar
-	name = "Capanaeus Hangar"
+	name = "Hangar"
 	icon_state = "hangar"
 
 // First Deck Start Change to Third Deck
 
 /area/tempeterra/thirddeck/hallway/fore/port
-	name = "Capanaeus Brig Storage"
+	name = "Brig Storage"
 	icon_state = "hallp"
 
 /area/tempeterra/thirddeck/hallway/stairs
-	name = "Capanaeus Third Deck Stairwell"
+	name = "Third Deck Stairwell"
 	icon_state = "stairs"
 
 /area/tempeterra/thirddeck/hallway/ladder/port
-	name = "Capanaeus Third Deck Port Ladders"
+	name = "Third Deck Port Ladders"
 	icon_state = "stairs"
 
 /area/tempeterra/thirddeck/hallway/ladder/starboard
-	name = "Capanaeus Third Deck Starboard Ladders"
+	name = "Third Deck Starboard Ladders"
 	icon_state = "stairs"
 
 /area/tempeterra/thirddeck/medical
-	name = "Capanaeus Third Deck Auxilary Medical"
+	name = "Third Deck Auxilary Medical"
 	icon_state = "medbay"
 //First Deck End
 
 /area/tempeterra/brig/port
-	name = "Capanaeus Port Holding Cell"
+	name = "Port Holding Cell"
 	icon_state = "brig"
 
 /area/tempeterra/meeting
-	name = "Capanaeus Meeting Room"
+	name = "Meeting Room"
 	icon_state = "briefing_room"
 
 /area/tempeterra/robotics
-	name = "Capanaeus Robotics Workshop"
+	name = "Robotics Workshop"
 	icon_state = "robotics"
 
 /area/tempeterra/atmos/monitoring
-	name = "Capanaeus Damage Control Central"
+	name = "Damage Control Central"
 	icon_state = "atmos_monitoring"
 
 /area/tempeterra/atmos/atmos
 	name = "TempeTerra Atmospherics"
-	name = "Capanaeus Atmospherics"
+	name = "Atmospherics"
 	icon_state = "atmos"
 
 //deck 2
@@ -55,123 +55,123 @@
 //medical
 
 /area/tempeterra/medical/sugery
-	name = "Capanaeus Medical Surgery"
+	name = "Medical Surgery"
 	icon_state = "surgery"
 
 /area/tempeterra/medical/lockers
-	name = "Capanaeus Medical Locker Room"
+	name = "Medical Locker Room"
 	icon_state = "locker"
 
 /area/tempeterra/medical/chemistry
-	name = "Capanaeus Chemistry"
+	name = "Chemistry"
 	icon_state = "chem"
 
 /area/tempeterra/medical/hallway
-	name = "Capanaeus Medical Hallway"
+	name = "Medical Hallway"
 	icon_state = "medbay2"
 
 /area/tempeterra/medical/treatment
-	name = "Capanaeus Medical Treatment Center"
+	name = "Medical Treatment Center"
 	icon_state = "medbay"
 
 /area/tempeterra/medical/storage
-	name = "Capanaeus Medical Storage"
+	name = "Medical Storage"
 	icon_state = "medbay4"
 
 /area/tempeterra/command/bunks
-	name = "Capanaeus Crew Locker Room"
+	name = "Crew Locker Room"
 	icon_state = "locker"
 
 /area/tempeterra/armsmen/locker
-	name = "Capanaeus Armsmen Locker Room"
+	name = "Armsmen Locker Room"
 	icon_state = "locker"
 
 /area/tempeterra/armsmen/armory
-	name = "Capanaeus Armory"
+	name = "Armory"
 	icon_state = "armory"
 
 /area/tempeterra/crew/lounge
-	name = "Capanaeus Crew Racks"
+	name = "Crew Racks"
 	icon_state = "crew_quarters"
 
 /area/tempeterra/crew/head
-	name = "Capanaeus Head"
+	name = "Head"
 	icon_state = "restrooms"
 
 /area/tempeterra/seconddeck/hallway/fore/midships
-	name = "Capanaeus Second Deck Fore Midships Hallway"
+	name = "Second Deck Fore Midships Hallway"
 	icon_state = "hallc"
 
 /area/tempeterra/seconddeck/hallway/aft/midships
-	name = "Capanaeus Second Deck Aft Midships Hallway"
+	name = "Second Deck Aft Midships Hallway"
 	icon_state = "hallc"
 
 /area/tempeterra/crew/laundry
-	name = "Capanaeus Laundry Room"
+	name = "Laundry Room"
 	icon_state = "fitness"
 
 /area/tempeterra/crew/washroom
-	name = "Capanaeus Laundrey Room"
+	name = "Laundrey Room"
 	icon_state = "fitness"
 
 /area/tempeterra/crew/chiefmess
-	name = "Capanaeus Chief's Mess"
+	name = "Chief's Mess"
 	icon_state = "eva"
 
 /area/tempeterra/command/cic
-	name = "Capanaeus CIC"
+	name = "CIC"
 	icon_state = "cic"
 
 /area/tempeterra/seconddeck/armaments/port
-	name = "Capanaeus Port Missile Tubes"
+	name = "Port Missile Tubes"
 	icon_state = "missile_port"
 
 /area/tempeterra/seconddeck/armaments/starboard
-	name = "Capanaeus Starboard Missile Tubes"
+	name = "Starboard Missile Tubes"
 	icon_state = "missile_starboard"
 
 /area/tempeterra/seconddeck/hallway/ladder/port
-	name = "Capanaeus Second Deck Port Ladders"
+	name = "Second Deck Port Ladders"
 	icon_state = "stairs"
 
 /area/tempeterra/seconddeck/hallway/ladder/starboard
-	name = "Capanaeus Second Deck Starboard Ladders"
+	name = "Second Deck Starboard Ladders"
 	icon_state = "stairs"
 
 /area/tempeterra/engineering/foyer
-	name = "Capanaeus Engineering Foyer"
+	name = "Engineering Foyer"
 	icon_state = "engineering_foyer"
 
 /area/tempeterra/engineering/tool
-	name = "Capanaeus Engineering Tool Storage"
+	name = "Engineering Tool Storage"
 	icon_state = "engineering_workshop"
 
 /area/tempeterra/engineering/material
-	name = "Capanaeus Engineering Material Storage"
+	name = "Engineering Material Storage"
 	icon_state = "engineering_storage"
 
 /area/tempeterra/engineering/reactor/powerdistone
-	name = "Capanaeus Reactor One Power Distribution"
+	name = "Reactor One Power Distribution"
 	icon_state = "engine_smes"
 
 /area/tempeterra/engineering/reactor/powerdisttwo
-	name = "Capanaeus Reactor Two Power Distribution"
+	name = "Reactor Two Power Distribution"
 	icon_state = "engine_smes"
 
 /area/tempeterra/engineering/reactor/onecore
-	name = "Capanaeus Reactor One"
+	name = "Reactor One"
 	icon_state = "rust_reactor"
 
 /area/tempeterra/engineering/reactor/twocore
-	name = "Capanaeus Reactor Two"
+	name = "Reactor Two"
 	icon_state = "rust_reactor"
 
 /area/tempeterra/engineering/reactor/control
-	name = "Capanaeus Reactor Control Room"
+	name = "Reactor Control Room"
 	icon_state = "engine_monitoring"
 
 /area/tempeterra/engineering/reactor/fuel
-	name = "Capanaeus Reactor Fuel Access"
+	name = "Reactor Fuel Access"
 	icon_state = "toxstorage"
 
 //deck 3
@@ -184,77 +184,77 @@
 	frame_path = /obj/structure/wall_frame/ocp
 
 /area/tempeterra/engineering/it/sensors
-	name = "Capanaeus Forward Sensor Array"
+	name = "Forward Sensor Array"
 	icon_state = "sensors"
 
 /area/tempeterra/engineering/it/maint
-	name = "Capanaeus Forward Maintenance"
+	name = "Forward Maintenance"
 	icon_state = "fmaint"
 
 /area/tempeterra/engineering/it/telecomms
-	name = "Capanaeus Telecomms Array"
+	name = "Telecomms Array"
 	icon_state = "tcommsat"
 
 /area/tempeterra/armaments/storage/port
-	name = "Capanaeus Armaments Port Storage"
+	name = "Armaments Port Storage"
 	icon_state = "missile_port"
 
 /area/tempeterra/armaments/storage/starboard
-	name = "Capanaeus Armaments Starboard Storage"
+	name = "Armaments Starboard Storage"
 	icon_state = "missile_starboard"
 
 /area/tempeterra/command/flight
-	name = "Capanaeus Flight Deck"
+	name = "Flight Deck"
 	icon_state = "flight_deck"
 
 /area/tempeterra/firstdeck/hallway/ladder/port
-	name = "Capanaeus First Deck Port Ladders"
+	name = "First Deck Port Ladders"
 	icon_state = "stairs"
 
 /area/tempeterra/firstdeck/hallway/ladder/starboard
-	name = "Capanaeus First Deck Starboard Ladders"
+	name = "First Deck Starboard Ladders"
 	icon_state = "stairs"
 
 /area/tempeterra/firstdeck/hallway/aft/midships
-	name = "Capanaeus First Deck Aft Midships Hallway"
+	name = "First Deck Aft Midships Hallway"
 	icon_state = "hallc"
 
 /area/tempeterra/firstdeck/hallway/fore/midships
-	name = "Capanaeus First Deck Fore Midships Hallway"
+	name = "First Deck Fore Midships Hallway"
 	icon_state = "hallc"
 
 /area/tempeterra/crew/kitchen
-	name = "Capanaeus Kitchen"
+	name = "Kitchen"
 	icon_state = "kitchen"
 
 /area/tempeterra/crew/mess
-	name = "Capanaeus Crew Mess"
+	name = "Crew Mess"
 	icon_state = "cafeteria"
 
 /area/tempeterra/crew/storage
-	name = "Capanaeus Wardroom"
+	name = "Wardroom"
 	icon_state = "storage"
 
 /area/tempeterra/crew/disposals
-	name = "Capanaeus Disposals"
+	name = "Disposals"
 	icon_state = "disposal"
 
 /area/tempeterra/crew/janitorial
-	name = "Capanaeus Custodial"
+	name = "Custodial"
 	icon_state = "janitor"
 
 /area/tempeterra/command/eva
-	name = "Capanaeus EVA Prep"
+	name = "EVA Prep"
 	icon_state = "eva"
 
 /area/tempeterra/airlock
-	name = "Capanaeus Primary External Access"
+	name = "Primary External Access"
 	icon_state = "eva"
 
 /area/tempeterra/crew/hydro
-	name = "Capanaeus Hydroponics"
+	name = "Hydroponics"
 	icon_state = "hydro"
 
 /area/tempeterra/crew/fridge
-	name = "Capanaeus Cold Storage"
+	name = "Cold Storage"
 	icon_state = "kitchen"
