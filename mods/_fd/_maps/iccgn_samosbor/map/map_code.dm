@@ -631,9 +631,11 @@
 		user.visible_message(SPAN_WARNING("\The [user] smashes \the [src] with \the [I]!"))
 		shatter()
 
+/obj/structure/table
+	var/canbestacked = FALSE
+
 /obj/structure/table/rack
 	var/no_autoalign = FALSE
-	var/canbestacked = FALSE
 
 /obj/structure/table/rack/auto_align(obj/item/W, click_params)
 	if(!no_autoalign)
