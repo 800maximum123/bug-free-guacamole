@@ -34,6 +34,15 @@
 	name = "ALASKA - INSIDE"
 	requires_power = 0
 
+/area/new_new_year_house/inside/lower_level
+	name = "ALASKA - INSIDE (ZERO)"
+
+/area/new_new_year_house/inside/main_level
+	name = "ALASKA - INSIDE (FIRST)"
+
+/area/new_new_year_house/inside/upper_level
+	name = "ALASKA - INSIDE (SECOND)"
+
 /singleton/submap_archetype/new_new_year_house
 	descriptor = "New Year Map 2"
 	map = "Snowy House"
@@ -46,7 +55,7 @@
 	archetype = /singleton/submap_archetype/new_new_year_house
 
 /datum/job/submap/new_new_year_house
-	title = "Actor"
+	title = "FD Actor"
 	total_positions = -1
 	create_record = TRUE
 	skill_points = 62
@@ -82,5 +91,8 @@
 
 	uniform = /obj/item/clothing/under/suit_jacket/charcoal
 	shoes = /obj/item/clothing/shoes/dress
+
+/obj/submap_landmark/spawnpoint/new_new_year_house/fd_actor
+	name = "FD Actor"
 
 #include "..\map\nnyh.dmm"
