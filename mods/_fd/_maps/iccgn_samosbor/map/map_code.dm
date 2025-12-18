@@ -631,6 +631,9 @@
 		user.visible_message(SPAN_WARNING("\The [user] smashes \the [src] with \the [I]!"))
 		shatter()
 
+/obj/structure/table
+	var/canbestacked = FALSE
+
 /obj/structure/table/rack
 	var/no_autoalign = FALSE
 
@@ -643,6 +646,7 @@
 	icon = 'mods/_fd/fd_assets/icons/structures/furniture/furniture_table.dmi'
 	icon_state = "table"
 	no_autoalign = TRUE
+	canbestacked = TRUE
 
 /obj/structure/table/rack/samosbor/mod
 	icon = 'mods/_fd/fd_assets/icons/structures/furniture/furniture_table_mod.dmi'
