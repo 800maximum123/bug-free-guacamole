@@ -1,7 +1,18 @@
 // Yeah
 /obj/overmap/visitable/ship/gccv_ulyanovsk
 	name = "GCCV - Ulyanovsk"
-	desc = "Waterloo-Class Heavy Cruiser broadcasting codes 'GCCV - Ulyanovsk', belonging to the Confederation."
+	desc = {"%#0&#%01#<br>
+			RECEIVING CODES... ... ...<br>
+			GCCV - ULYANOVSK<br>
+			REQUESTING TECHNICAL PARAMETERS... ... ...<br>
+			BASE:<br>
+			1.1143.7-Project Heavy Cruiser<br>
+			(The closest SCG Database Match: Waterloo-Class)<br>
+			Gilgamesh Colonial Confederation<br>
+			C.O.L Shipyards<br>
+			OTHER:<br>
+			%# RECEIVING INTERRUPTED... ... ...<br>
+			ABORTING... ... COMPLETED"}
 	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi'
 	icon_state = "gccv-ulyanovsk"
 	moving_state = "gccv-ulyanovsk_moving"
@@ -9,7 +20,12 @@
 	color = "#c76a6a"
 	scannable = TRUE
 	hide_from_reports = TRUE
-	initial_generic_waypoints = list()
+	initial_generic_waypoints = list(
+		"nav_ul_typhoon_start",
+		"nav_ul_uragan_start",
+		"nav_ul_hyacinth_start",
+		"nav_ul_tachyon_start"
+	)
 	initial_restricted_waypoints = list(
 
 	)
@@ -21,7 +37,10 @@
 	prefix = "mods/_fd/_maps/gccv_ulyanovsk/maps/"
 	suffixes = list("gccv_ulyanovsk1.dmm", "gccv_ulyanovsk2.dmm", "gccv_ulyanovsk3.dmm")
 	spawn_cost = 99
-	shuttles_to_initialise = list()
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/ul_typhoon,
+								/datum/shuttle/autodock/overmap/ul_uragan,
+								/datum/shuttle/autodock/overmap/ul_hyacinth,
+								/datum/shuttle/autodock/overmap/ul_tachyon)
 	area_usage_test_exempted_root_areas = list()
 	apc_test_exempt_areas = list()
 
@@ -1224,6 +1243,10 @@
 	name = "blood red outline"
 	color = "#940004"
 
+/obj/floor_decal/ul_decals/outline/black
+	name = "black outline"
+	color = "#333333"
+
 /obj/floor_decal/step
 	name = "step"
 	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi'
@@ -1329,4 +1352,29 @@
 	icon_state = "paint_in_c"
 
 /obj/floor_decal/paint/navy/diagonal
+	icon_state = "paint_diag"
+
+/obj/floor_decal/paint/black
+	name = "black paint"
+	color = "#333333"
+
+/obj/floor_decal/paint/black/corner
+	icon_state = "paint_corner"
+
+/obj/floor_decal/paint/black/triangle
+	icon_state = "paint_triangle"
+
+/obj/floor_decal/paint/black/side
+	icon_state = "paint_side"
+
+/obj/floor_decal/paint/black/quarter
+	icon_state = "paint_quarter"
+
+/obj/floor_decal/paint/black/side_corner
+	icon_state = "paint_side_corner"
+
+/obj/floor_decal/paint/black/in_corner
+	icon_state = "paint_in_c"
+
+/obj/floor_decal/paint/black/diagonal
 	icon_state = "paint_diag"
