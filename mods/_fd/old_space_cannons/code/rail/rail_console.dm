@@ -1,8 +1,10 @@
 /obj/machinery/computer/ship/ship_weapon/rail_gun
 	name = "OA-99 railgun control"
+	desc = "Railgun Control Console."
 	caldigit = 5
 	coolinterval = 45 SECONDS
 	gun_name = "rail gun"
+	link_range = 15
 
 	front_type = /obj/machinery/ship_weapon/front_part/rail
 	middle_type = /obj/machinery/ship_weapon/middle_part/rail

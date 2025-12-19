@@ -10,8 +10,7 @@
 		<br>A sign on it reads: <i>EXPLOSIVE! DO NOT OVERHEAT!</i>"
 	icon_state = "middle"
 	var/link_range = 7
-	var/list/modules
-	var/modules_amount = 0
+	var/list/modules = list()
 
 /obj/machinery/ship_weapon/back_part/rail
 	name = "OA-99 munition rack"
@@ -23,6 +22,7 @@
 	desc = "Velocity Accelerator."
 	icon_state = "accelerator"
 	density = FALSE
+	idle_power_usage = 1000
 
 /obj/machinery/ship_weapon/module_part/rail/Initialize()
 	. = ..()
@@ -33,16 +33,23 @@
 	Connect()
 
 /obj/machinery/ship_weapon/middle_part/rail/proc/Connect()
+	message_admins("Trying to Connect...")
 	for(var/obj/machinery/ship_weapon/module_part/rail/part in orange(link_range,src))
+		message_admins("Located part [part]")
 		if(part in modules)
+			message_admins("Part already in list")
 			continue
 		modules += part
+		message_admins("!Added part!")
 
 	for(var/obj/machinery/ship_weapon/module_part/rail/part in modules)
+		message_admins("Pick part in our list")
 		if(!part)
+			message_admins("Part doesn't exist, deleting.")
 			modules -= part
-
+	message_admins("Writing Modules_Amount...")
 	modules_amount = length(modules)
+	message_admins("Modules Calculation Complete: [modules_amount]")
 
 /obj/machinery/ship_weapon/middle_part/rail/use_tool(obj/item/O, mob/user)
 	if(istype(O, /obj/item/device/multitool))
@@ -95,5 +102,6 @@
 	req_components = list (
 		/obj/item/stack/material/rods = 10,
 		/obj/item/stock_parts/capacitor = 1,
-		/obj/item/stack/material/plasteel = 2
+		/obj/item/stack/material/plasteel = 2,
+		/obj/item/stock_parts/power/terminal
 	)

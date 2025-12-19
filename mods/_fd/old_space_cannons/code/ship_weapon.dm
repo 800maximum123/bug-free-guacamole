@@ -33,6 +33,7 @@
 		<br>A sign on it reads: <i>EXPLOSIVE! DO NOT OVERHEAT!</i>"
 	icon_state = "magazine"
 	maximum_component_parts = list(/obj/item/stock_parts = 15)
+	var/modules_amount = 0
 
 /obj/machinery/ship_weapon/back_part
 	name = "ship weapon breech end"

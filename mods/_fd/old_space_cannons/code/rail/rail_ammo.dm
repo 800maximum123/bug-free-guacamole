@@ -1,7 +1,7 @@
 #define CALIBER_SHIP_RAILGUN "uranium rod"
 
 /obj/item/ammo_magazine/ammobox/railgun
-	name = "ammo box"
+	name = "compressed uranium rods box"
 	desc = "Ammo box that contains compressed railgun rods."
 	icon_state = "ammocrate_autocannon1"
 	caliber = CALIBER_SHIP_RAILGUN
