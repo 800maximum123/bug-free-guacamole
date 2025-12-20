@@ -45,7 +45,7 @@
 	name = "Damage Control Central"
 	icon_state = "atmos_monitoring"
 
-/area/tempeterra/atmos/atmos
+/area/tempeterra/atmos
 	name = "TempeTerra Atmospherics"
 	name = "Atmospherics"
 	icon_state = "atmos"

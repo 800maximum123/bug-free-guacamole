@@ -100,3 +100,42 @@
 
 /obj/machinery/door/airlock/hatch/civilian
 	stripe_color = COLOR_CIVIE_GREEN
+
+/area/turbolift/tempeterralift
+	name = "Engineer Bay Lift"
+	icon_state = "shuttle3"
+	base_turf = /turf/simulated/open
+	lighting_tone = AREA_LIGHTING_COOL
+
+/datum/shuttle/autodock/ferry/tempeterralift
+	name = "Engineer Bay Lift"
+	shuttle_area = /area/turbolift/medical_lift
+	warmup_time = 3
+	waypoint_station = "nav_tempterra_lift_top"
+	waypoint_offsite = "nav_tempterra_lift_bottom"
+	sound_takeoff = 'sound/effects/lift_heavy_start.ogg'
+	sound_landing = 'sound/effects/lift_heavy_stop.ogg'
+	ceiling_type = null
+	knockdown = 0
+
+/obj/machinery/computer/shuttle_control/lift/tempeterra
+	name = "engineer lift controls"
+	shuttle_tag = "Engineer Bay Lift"
+	ui_template = "shuttle_control_console_lift.tmpl"
+	icon_state = "tiny"
+	icon_keyboard = "tiny_keyboard"
+	icon_screen = "lift"
+	density = FALSE
+
+/obj/shuttle_landmark/lift/tempeterralift_top
+	name = "Top Deck"
+	landmark_tag = "nav_tempterra_lift_top"
+	base_area = /area/tempeterra/engineering/reactor/fuel
+	base_turf = /turf/simulated/open
+
+/obj/shuttle_landmark/lift/tempeterralift_bottom
+	name = "Lower Deck"
+	landmark_tag = "nav_tempterra_lift_bottom"
+	flags = SLANDMARK_FLAG_AUTOSET
+	base_area = /area/tempeterra/atmos
+	base_turf = /turf/simulated/floor/plating
