@@ -69,8 +69,10 @@
 
 	// One table per turf.
 	for(var/obj/structure/table/T in loc)
+// [FD-ADD]
 		if(canbestacked)
 			continue
+// [FD-ADD]
 		if(T != src)
 			// There's another table here that's not us, break to metal.
 			// break_to_parts calls qdel(src)

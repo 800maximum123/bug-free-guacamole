@@ -5,8 +5,10 @@
 	return (..() && !(silent && emote_type == AUDIBLE_MESSAGE))
 
 /mob/proc/emote(act, m_type, message)
+	// [FD-ADD]
 	if(!can_speak)
 		return
+	// [/FD-ADD]
 	// s-s-snowflake
 	if((src.stat == DEAD || status_flags & FAKEDEATH) && act != "deathgasp")
 		return
