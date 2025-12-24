@@ -17,6 +17,10 @@
 	icon_state = "gccv-ulyanovsk"
 	moving_state = "gccv-ulyanovsk_moving"
 
+	fore_dir = WEST
+	vessel_size = SHIP_SIZE_LARGE
+	vessel_mass = 150000
+
 	color = "#c76a6a"
 	scannable = TRUE
 	hide_from_reports = TRUE
@@ -124,6 +128,81 @@
 /turf/simulated/wall/r_iccg/get_explosion_resistance()
 	return health_current * explosion_resistance
 
+// New Alloy and walls from it
+
+#define MATERIAL_TITANIUM_PLASTEEL "osmium-carbide plasteel"
+
+
+/material/titanium_plasteel
+	name = MATERIAL_TITANIUM_PLASTEEL
+	lore_text = "An alloy of plasteel and titanium. When Terrans are given the task of doing the most for the least amount of money again, they come up with overpowered crap again."
+	wall_name = "armored plate"
+	stack_type = /obj/item/stack/material/titanium_plasteel
+	integrity = 900
+	melting_point = 7000
+	sheet_icon_base = "sheet-reinf"
+	wall_icon_base = "solid"
+	wall_icon_reinf = "reinf_over"
+	icon_colour = "#a8a9b2"
+	explosion_resistance = 12
+	brute_armor = 18
+	burn_armor = 18
+	hardness = MATERIAL_VERY_HARD
+	weight = 25
+	stack_origin_tech = list(TECH_MATERIAL = 4)
+	hitsound = 'sound/weapons/smash.ogg'
+	construction_difficulty = MATERIAL_VERY_HARD_DIY
+	alloy_materials = list(MATERIAL_PLASTEEL = 2500, MATERIAL_TITANIUM = 1250)
+	alloy_product = TRUE
+	sale_price = 5
+	ore_smelts_to = MATERIAL_TITANIUM_PLASTEEL
+	value = 18
+
+
+/obj/item/stack/material/titanium_plasteel
+	name = "titanium plasteel"
+	item_state = "sheet-reinf-mult"
+	default_type = MATERIAL_TITANIUM_PLASTEEL
+
+/obj/item/stack/material/titanium_plasteel/fifty
+	amount = 50
+
+/turf/simulated/wall/titaplast
+	icon_state = "titaplast"
+
+/turf/simulated/wall/titaplast/New(newloc)
+	..(newloc, MATERIAL_TITANIUM_PLASTEEL)
+
+/turf/simulated/wall/titaplast/iccg
+	paint_color = COLOR_DARK_BLUE_GRAY
+
+/turf/simulated/wall/r_titaplast//god bless us
+	icon_state = "r_titaplast"
+
+/turf/simulated/wall/r_titaplast/New(newloc)
+	..(newloc, MATERIAL_TITANIUM_PLASTEEL,MATERIAL_TITANIUM_PLASTEEL)
+
+/turf/simulated/wall/r_titaplast/iccg
+	paint_color = COLOR_DARK_BLUE_GRAY
+	floor_type = /turf/simulated/floor/armored
+
+/turf/simulated/wall/r_titaplast/iccg/Initialize()
+	. = ..()
+	color = null //color is just for mapping
+	if(prob(90))
+		var/spacefacing = FALSE
+		for(var/direction in GLOB.cardinal)
+			var/turf/T = get_step(src, direction)
+			var/area/A = get_area(T)
+			if(A && (A.area_flags & AREA_FLAG_EXTERNAL))
+				spacefacing = TRUE
+				break
+		if(spacefacing)
+			var/bleach_factor = rand(10,50)
+			paint_color = "[pick("#420d0d", COLOR_DARK_GRAY)]"
+			paint_color = adjust_brightness(paint_color, bleach_factor)
+	update_icon()
+
 /obj/structure/grille/plasteel
 	init_material = MATERIAL_PLASTEEL
 
@@ -207,8 +286,8 @@
 	item_state = "rig_suit_wear"
 	icon_override = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi'
 	item_state_slots = list(
-		slot_l_hand_str = "sec_voidsuit",
-		slot_r_hand_str = "sec_voidsuit",
+		slot_l_hand_str = "sec_voidsuit_l",
+		slot_r_hand_str = "sec_voidsuit_r",
 	)
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
@@ -229,8 +308,8 @@
 	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi'
 	icon_override = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi'
 	item_state_slots = list(
-		slot_l_hand_str = "sec_helm",
-		slot_r_hand_str = "sec_helm",
+		slot_l_hand_str = "sec_helm_l",
+		slot_r_hand_str = "sec_helm_r",
 		)
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
@@ -244,7 +323,8 @@
 
 /obj/item/clothing/suit/space/void/iccg/engineering
 	name = "armored engineering voidsuit"
-	icon_state = "rig_iccg_engi"
+	icon_state = "rig_engi_suit"
+	item_state = "rig_engi_suit_wear"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_RESISTANT,
@@ -259,8 +339,8 @@
 
 /obj/item/clothing/head/helmet/space/void/iccg/engineering
 	name = "armored engineering voidsuit helmet"
-	icon_state = "rig_iccg_engi"
-	item_state = "rig_iccg_engi"
+	icon_state = "rig_engi_helmet"
+	item_state = "rig_engi_helmet_wear"
 	flash_protection = FLASH_PROTECTION_MAJOR
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
@@ -276,7 +356,8 @@
 
 /obj/item/clothing/suit/space/void/iccg/security
 	name = "armored security voidsuit"
-	icon_state = "rig_iccg_sec"
+	icon_state = "rig_sec_suit"
+	item_state = "rig_sec_suit_wear"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_RIFLE,
@@ -289,8 +370,8 @@
 
 /obj/item/clothing/head/helmet/space/void/iccg/security
 	name = "armored security voidsuit helmet"
-	icon_state = "rig_iccg_sec"
-	item_state = "rig_iccg_sec"
+	icon_state = "rig_sec_helmet"
+	item_state = "rig_sec_helmet_wear"
 	flash_protection = FLASH_PROTECTION_MAJOR
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
@@ -304,7 +385,8 @@
 
 /obj/item/clothing/suit/space/void/iccg/command
 	name = "armored command voidsuit"
-	icon_state = "rig_iccg_com"
+	icon_state = "rig_com"
+	item_state = "rig_com_wear"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_RESISTANT,
@@ -321,8 +403,8 @@
 
 /obj/item/clothing/head/helmet/space/void/iccg/command
 	name = "armored command voidsuit helmet"
-	icon_state = "rig_iccg_com"
-	item_state = "rig_iccg_com"
+	icon_state = "rig_com"
+	item_state = "rig_com_wear"
 	flash_protection = FLASH_PROTECTION_MAJOR
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
@@ -338,6 +420,20 @@
 	cell_type =  /obj/item/cell/hyper
 	air_type =   /obj/item/tank/oxygen/full
 	req_access = list(access_iccg)
+
+/obj/item/rig/light/ninja/gcc/ulyanovsk
+	name = "Ulyanovsk heavy suit control module"
+	initial_modules = list(
+		/obj/item/rig_module/vision,
+		/obj/item/rig_module/mounted/energy/lcannon,
+		/obj/item/rig_module/chem_dispenser/ninja,
+		/obj/item/rig_module/grenade_launcher/ninja,
+		/obj/item/rig_module/power_sink,
+		/obj/item/rig_module/mounted/power_fist,
+		/obj/item/rig_module/cooling_unit,
+		/obj/item/rig_module/maneuvering_jets
+		)
+
 
 /obj/machinery/suit_storage_unit/iccg
 	name = "Voidsuit Storage Unit"

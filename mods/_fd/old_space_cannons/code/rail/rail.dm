@@ -33,23 +33,15 @@
 	Connect()
 
 /obj/machinery/ship_weapon/middle_part/rail/proc/Connect()
-	message_admins("Trying to Connect...")
 	for(var/obj/machinery/ship_weapon/module_part/rail/part in orange(link_range,src))
-		message_admins("Located part [part]")
 		if(part in modules)
-			message_admins("Part already in list")
 			continue
 		modules += part
-		message_admins("!Added part!")
 
 	for(var/obj/machinery/ship_weapon/module_part/rail/part in modules)
-		message_admins("Pick part in our list")
 		if(!part)
-			message_admins("Part doesn't exist, deleting.")
 			modules -= part
-	message_admins("Writing Modules_Amount...")
 	modules_amount = length(modules)
-	message_admins("Modules Calculation Complete: [modules_amount]")
 
 /obj/machinery/ship_weapon/middle_part/rail/use_tool(obj/item/O, mob/user)
 	if(istype(O, /obj/item/device/multitool))
