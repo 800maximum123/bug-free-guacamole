@@ -184,7 +184,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_RESISTANT,
 		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_BIO_SHIELDED
+		rad = ARMOR_RAD_MINOR
 		)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.3
@@ -212,7 +212,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_RESISTANT,
 		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED
+		rad = ARMOR_RAD_MINOR
 		)
 	siemens_coefficient = 0.3
 	species_restricted = list(SPECIES_SKRELL)
@@ -373,6 +373,8 @@
 				pixel_y -= 32
 	return TRUE
 
+//
+
 /obj/item/fd/crew_photo
 	name = "Памятная фотография"
 	desc = "Слегка потрёпанная фотография с последним зарегистрированным экипажем корабля ГЭК \"Факел\"."
@@ -404,3 +406,103 @@
 	info += FONT_SMALL("</ul></li>")
 
 	return jointext(info, "")
+
+//
+
+/obj/item/clothing/accessory/wristwatch/null
+	name = "expensive null-clock"
+	desc = "An expensive-looking watch with a zero-glass dial. High-quality assembly ensures the mechanism is waterproof, and the dial under the glass is backlit for better time orientation at any time of day and for viewing dark corners of your bag. The Sanurian Manufactures logo is located in the centre of the dial."
+	icon = 'mods/_fd/fd_customs/customs/newyear/addon.dmi'
+	icon_state = "icon"
+	accessory_icons = list(
+		slot_w_uniform_str = 'addon.dmi',
+		slot_wear_suit_str = 'addon.dmi'
+		)
+
+//
+
+/obj/item/handwatch
+	name = "archaic pocket watches"
+	desc = "Pocket watch, bronze, with the letter ‘V’ on the front. On the top of the case, there is a ring through which a chain was previously threaded, but it is now missing. You have bad feeling about them..."
+	icon = 'mods/_fd/fd_customs/customs/newyear/addon.dmi'
+	icon_state = "closed"
+	var/open = FALSE
+
+/obj/item/handwatch/attack_self(mob/user)
+	open = !open
+	update_icon()
+	if(open)
+		user.visible_message(SPAN_WARNING("\The [user] opens \the [src]."))
+		playsound(user, 'sound/weapons/flipblade.ogg', 15, 1)
+		icon_state = "open"
+	else
+		user.visible_message(SPAN_NOTICE("\The [user] closes \the [src]."))
+		icon_state = initial(icon_state)
+	add_fingerprint(user)
+
+/obj/item/handwatch/examine(mob/user, distance)
+	. = ..()
+	if (distance > 1 || !open )
+		return
+	var/list/date = text2numlist(realtimewatch(), "-")
+	var/year = date[1]
+	var/month = GLOB.month_names[date[2]]
+	var/day = date[3]
+	var/time = stationtime2text()
+	to_chat(user, "You check \the [src]. It is [time] on the [day]\th of [month], [year]. Strange. It must be broken")
+
+/proc/realtimewatch(mob/user)
+	var/update_time = FALSE
+	if(station_time_in_ticks > next_station_date_change)
+		next_station_date_change += 1 DAY
+		update_time = TRUE
+	if(!station_date || update_time)
+		var/timeofday = world.timeofday
+		station_date = "2025-[time2text(timeofday, "MM-DD", user.client.timezone)]"
+	return station_date
+
+//
+
+/obj/item/luckycoin // CODE IT!!!!
+	name = "Gref's Coin"
+	desc = "An odd gold coin, with a clover on it. On the flip side there is a text ingraved on the gold surface \"Our final hope, our one more chance\""
+	icon = 'addon.dmi'
+	icon_state =  "coin"
+	var/reroll = FALSE
+
+/obj/item/storage/bible/bible
+	name = "Humility"
+	desc = "A Christian Bible with a hardcover binding. The cover features golden and coral patterns with a cross on its cover."
+	icon = 'addon.dmi'
+	icon_state = "holy_bible"
+	item_icons = list(
+		slot_l_hand_str = 'addon.dmi',
+		slot_r_hand_str = 'addon.dmi',
+		)
+	item_state_slots = list(
+		slot_l_hand_str = "onmob_book_l",
+		slot_r_hand_str = "onmob_book_r",
+		)
+
+/obj/item/nullrod/holycross
+	name = "Repentance"
+	desc = "Repentance — an ornate Orthodox hand cross with gold and coral patterns, and the ends of the cross are decorated with small inlaid crystals that give off a strong blue glow."
+	icon = 'addon.dmi'
+	icon_state = "holy_cross"
+	item_icons = list(
+		slot_l_hand_str = 'addon.dmi',
+		slot_r_hand_str = 'addon.dmi',
+		)
+	item_state_slots = list(
+		slot_l_hand_str = "onmob_cross_l",
+		slot_r_hand_str = "onmob_cross_r",
+		)
+
+
+// GET IN BAG!!!
+
+/obj/item/storage/backpack/santabag/newnewyear
+	startswith = list(
+
+
+	)
