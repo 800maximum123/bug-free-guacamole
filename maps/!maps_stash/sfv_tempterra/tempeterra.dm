@@ -70,24 +70,6 @@
 		"stripes_closed" = COLOR_GREEN_GRAY
 	)
 
-/obj/machinery/door/airlock/hatch
-	airlock_type = "hatch"
-	name = "\improper Airtight Hatch"
-	icon = 'icons/obj/doors/hatch/door.dmi'
-	fill_file = 'icons/obj/doors/hatch/fill_steel.dmi'
-	stripe_file = 'icons/obj/doors/hatch/stripe.dmi'
-	stripe_fill_file = 'icons/obj/doors/hatch/fill_stripe.dmi'
-	bolts_file = 'icons/obj/doors/hatch/lights_bolts.dmi'
-	deny_file = 'icons/obj/doors/hatch/lights_deny.dmi'
-	lights_file = 'icons/obj/doors/hatch/lights_green.dmi'
-	panel_file = 'icons/obj/doors/hatch/panel.dmi'
-	welded_file = 'icons/obj/doors/hatch/welded.dmi'
-	emag_file = 'icons/obj/doors/hatch/emag.dmi'
-	explosion_resistance = 20
-	opacity = 1
-	assembly_type = /obj/structure/door_assembly/door_assembly_hatch
-	paintable = AIRLOCK_PAINTABLE_STRIPE
-
 /obj/machinery/door/airlock/hatch/maintenance
 	name = "Maintenance Hatch"
 	stripe_color = COLOR_AMBER
@@ -108,7 +90,7 @@
 	lighting_tone = AREA_LIGHTING_COOL
 
 /datum/shuttle/autodock/ferry/tempeterralift
-	name = "Engineer Bay Lift"
+	name = "engineer lift controls"
 	shuttle_area = /area/turbolift/medical_lift
 	warmup_time = 3
 	waypoint_station = "nav_tempterra_lift_top"
@@ -120,7 +102,7 @@
 
 /obj/machinery/computer/shuttle_control/lift/tempeterra
 	name = "engineer lift controls"
-	shuttle_tag = "Engineer Bay Lift"
+	shuttle_tag = "engineer lift controls"
 	ui_template = "shuttle_control_console_lift.tmpl"
 	icon_state = "tiny"
 	icon_keyboard = "tiny_keyboard"
@@ -139,3 +121,33 @@
 	flags = SLANDMARK_FLAG_AUTOSET
 	base_area = /area/tempeterra/atmos
 	base_turf = /turf/simulated/floor/plating
+
+/obj/machinery/atmospherics/unary/engine/big
+	icon = 'maps/!maps_stash/sfv_tempterra/3x3_engine.dmi'
+	icon_state = "huge_engine"
+	moles_per_burn = 8.0
+	boot_time = 70
+	bound_width = 96
+	bound_height = 96
+	bound_y = -32
+	pixel_y = -32
+
+/obj/engine_exhaust/big
+	name = "engine exhaust"
+	icon = 'icons/obj/machines/ship_engine.dmi'
+	icon_state = "nozzle_burn"
+	light_color = "#00a2ff"
+	anchored = TRUE
+
+/obj/engine_exhaust/big/New(turf/nloc, ndir)
+	..(nloc)
+	nloc.hotspot_expose(1000,125)
+	set_light(4, 0.5)
+	set_dir(ndir)
+	SetTransform(3)
+	bound_width = 96
+	bound_height = 96
+//	spawn(20)
+// 3 вправо
+// 1 вверх
+//		qdel(src)
