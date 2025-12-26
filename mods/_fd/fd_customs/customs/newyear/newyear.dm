@@ -280,7 +280,7 @@
 		return FALSE
 
 
-	if(!in_range(user, A) || istype(A, /obj/machinery/door))
+	if(!in_range(user, A) || istype(A, /obj/machinery/door) || !stuck)
 		return FALSE
 
 	var/turf/target_turf = get_turf(A)

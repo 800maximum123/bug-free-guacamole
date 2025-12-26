@@ -1,7 +1,7 @@
 /obj/item/organ/internal/augment/ibis
 	name = "IBIS-C4-45"
 	augment_slots = AUGMENT_CHEST
-	icon = 'mods/_fd/fd_customs/customs/palerno/icon/implant.dmi'
+	icon = '../icon/implant.dmi'
 	icon_state = "implant"
 	item_state = "onmobimplant"
 	desc = "An implant embedded in the CNS to enhance the efficiency of combat mech pilots. Its basis consists of a titanium frame with nanofibers for neural connections and an unknown red substance. "
@@ -20,7 +20,7 @@
 
 /datum/sprite_accessory/marking/ibis // Временная заглушка, дабы не ебать себе мозги TODO: Сделать круто
 	name = "IBIS-C4-45"
-	icon = 'mods/_fd/fd_customs/customs/palerno/icon/implant.dmi'
+	icon = '../icon/implant.dmi'
 	icon_state = "onmobimplant"
 	species_allowed = list(SPECIES_HUMAN)
 	body_parts = BP_CHEST
