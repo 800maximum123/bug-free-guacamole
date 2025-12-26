@@ -497,12 +497,3 @@
 		slot_l_hand_str = "onmob_cross_l",
 		slot_r_hand_str = "onmob_cross_r",
 		)
-
-
-// GET IN BAG!!!
-
-/obj/item/storage/backpack/santabag/newnewyear
-	startswith = list(
-
-
-	)
