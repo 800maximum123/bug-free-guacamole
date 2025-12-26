@@ -261,3 +261,57 @@
 	hoodtype = /obj/item/clothing/head/sithmantlehood
 	suittoggled = 0
 	action_button_name = "Toggle Mantle Hood"
+
+/obj/item/clothing/accessory/flag
+	name = "UFH flag"
+	desc = "A flag flown by the United Forces of Humanity in the war against the Ascent. This one specifically has a lot of crosses drawn out on the shield's center - one per each fallen colony, no doubt."
+	var/attachmode = FALSE
+	icon = 'flagonmob.dmi'
+	icon_state = "flag"
+	accessory_icons = list(
+		slot_w_uniform_str = 'newyear.dmi',
+		slot_wear_suit_str = 'newyear.dmi'
+		)
+	accessory_flags = ACCESSORY_REMOVABLE | ACCESSORY_HIGH_VISIBILITY
+
+/obj/item/clothing/accessory/flag/use_after(atom/A, mob/living/user, click_parameters)
+	..()
+	if(!attachmode)
+		return FALSE
+
+
+	if(!in_range(user, A) || istype(A, /obj/machinery/door) || !stuck)
+		return FALSE
+
+	var/turf/target_turf = get_turf(A)
+	var/turf/source_turf = get_turf(user)
+
+	var/dir_offset = 0
+	if(target_turf != source_turf)
+		dir_offset = get_dir(source_turf, target_turf)
+		if(!(dir_offset in GLOB.cardinal))
+			to_chat(user, "You cannot reach that from here.")
+			return TRUE
+
+	if(!user.unEquip(src, source_turf))
+		FEEDBACK_UNEQUIP_FAILURE(user, src)
+		return TRUE
+
+	playsound(src, 'sound/effects/tape.ogg',25)
+	layer = ABOVE_WINDOW_LAYER
+	anchored = TRUE
+
+	if(click_parameters)
+		if(click_parameters["icon-x"])
+			pixel_x = text2num(click_parameters["icon-x"]) - 16
+			if(dir_offset & EAST)
+				pixel_x += 32
+			else if(dir_offset & WEST)
+				pixel_x -= 32
+		if(click_parameters["icon-y"])
+			pixel_y = text2num(click_parameters["icon-y"]) - 16
+			if(dir_offset & NORTH)
+				pixel_y += 32
+			else if(dir_offset & SOUTH)
+				pixel_y -= 32
+	return TRUE
