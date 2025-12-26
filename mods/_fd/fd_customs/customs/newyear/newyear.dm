@@ -161,6 +161,63 @@
 	req_access = list()
 	authorized_modes = list(ALWAYS_AUTHORIZED, ALWAYS_AUTHORIZED, ALWAYS_AUTHORIZED)
 
+/obj/item/clothing/suit/space/void/captaincustom
+	icon_state = "sanityarmor"
+	name = "military-grade skrell voidsuit"
+	desc = "An advanced suit that protects against injuries during special operations."
+	item_state_slots = list(
+		slot_wear_suit_str = "sanityarmor-onmob",
+		slot_l_hand_str = "syndicate-green-dark",
+		slot_r_hand_str = "syndicate-green-dark",
+	)
+	icon = 'newyear.dmi'
+	item_icons = list(
+		slot_wear_suit_str = 'newyear.dmi',
+		slot_l_hand_str = 'icons/mob/onmob/items/lefthand_spacesuits.dmi',
+		slot_r_hand_str = 'icons/mob/onmob/items/righthand_spacesuits.dmi',
+		)
+	w_class = ITEM_SIZE_LARGE
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_BIO_SHIELDED
+		)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	siemens_coefficient = 0.3
+	species_restricted = list(SPECIES_SKRELL)
+
+/obj/item/clothing/head/helmet/space/void/captaincustom
+	name = "military-grade skrell voidsuit helmet"
+	desc = "An advanced helmet designed for work in special operations."
+	icon = 'newyear.dmi'
+	item_icons = list(
+		slot_head_str = 'newyear.dmi',
+		slot_l_hand_str = 'icons/mob/onmob/items/lefthand_hats.dmi',
+		slot_r_hand_str = 'icons/mob/onmob/items/righthand_hats.dmi',
+		)
+	icon_state = "sanityhelmet"
+	item_state_slots = list(
+		slot_head_str = "sanityhelmet-onmob",
+		slot_l_hand_str = "syndicate-helm-green",
+		slot_r_hand_str = "ssyndicate-helm-green",
+	)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+		)
+	siemens_coefficient = 0.3
+	species_restricted = list(SPECIES_SKRELL)
+	light_overlay = "explorer_light"
+
 //
 
 /obj/item/clothing/glasses/welding/weldingrock // Допиздеца для развития механа
@@ -207,7 +264,7 @@
 /obj/item/knuckle
 	name = "brass knuckles"
 	desc = "Heavy gold-plated brass knuckles with an engraved Christian cross. By some miracle, the paint is still on it. Or maybe it's real gold?"
-	icon = 'newyear.dmi'
+	icon = 'bioplan.dmi'
 	icon_state = "brasskknuckles"
 	item_icons = list(
 		slot_l_hand_str = 'newyear.dmi',
@@ -238,7 +295,7 @@
 /obj/item/material/sword/psysword // TODO: Впилить механ
 	name = "Nemesis forse sword"
 	desc = "An unusual long sword, resembling both a work of art and a sinister modification of an alien weapon, with an ancient ΨΔ7 logo carved on the guard and a strange button on the hilt."
-	icon = 'newyear.dmi'
+	icon = 'nik.dmi'
 	icon_state = "psysword"
 	item_icons = list(
 		slot_l_hand_str = "psysword-l",
@@ -315,3 +372,35 @@
 			else if(dir_offset & SOUTH)
 				pixel_y -= 32
 	return TRUE
+
+/obj/item/fd/crew_photo
+	name = "Памятная фотография"
+	desc = "Слегка потрёпанная фотография с последним зарегистрированным экипажем корабля ГЭК \"Факел\"."
+	icon_state = "photo"
+	icon = 'mods/_fd/fd_assets/icons/obj/items/items.dmi'
+	w_class = ITEM_SIZE_TINY
+/obj/item/fd/crew_photo/MouseEntered(location, control, params)
+	var/content_of_tooltip = get_additional_info()
+	openToolTip(user = usr, tip_src = src, params = params, title = name, content = content_of_tooltip)
+	..()
+/obj/item/fd/crew_photo/proc/get_additional_info() // Полностью оверрайдим на юните
+	var/list/info = list()
+
+	info += FONT_LARGE("[SPAN_COLOR("#ffffff","ОПИСАНИЕ:")]")
+	info += FONT_NORMAL("<li>На фото изображена свора людей в весьма узнаваемой чёрно-фиолетовой форме Экспедиционного Корпуса, перемешавшаяся с другими, \
+	более распущенными личностями в обычной гражданской одежде, или напротив - строгой парадке флота ЦПСС. Некоторые из присутствующих лиц перечёркнуты красным, \
+	или зарисованы большим количеством вопросительных знаков, словно отмечая тех, с кем точно покончено, а кто ещё может быть жив. В самом низу есть подпись - [SPAN_COLOR("#ffffff","ГЭК \"Факел\", 2311-02-10")].</li>")
+	info += FONT_SMALL("Заступая на пост, выполняя приказ, без права вернуться.")
+	info += FONT_NORMAL("<br>")
+	info += FONT_LARGE("[SPAN_COLOR("#ffffff","С ОБРАТНОЙ СТОРОНЫ:")]")
+	info += FONT_NORMAL("<li>С обратной стороны фотографии находится удивительно большое количество ручных подписей, едва умещающихся на листке. Среди них...</li>")
+	info += FONT_SMALL("</ul></li>")
+	info += FONT_NORMAL("<br>")
+	info += FONT_SMALL("<li>[SPAN_COLOR("#ffffff","Кристиана Райфлё, Август Менделеев, Нэнси Рузвельт, Алекс Смит")]</li>")
+	info += FONT_SMALL("<li>[SPAN_COLOR("#ffffff","Во-Лей, Вильгельм Канарис, Анна Ортиз, Чичи, Мистер Мясо")]</li>")
+	info += FONT_SMALL("<li>[SPAN_COLOR("#ffffff","Фёдор Яблочкин, Мия Триш, Рэймонд Датура, Алекс Рид, Иван Мантров")]</li>")
+	info += FONT_SMALL("<li>[SPAN_COLOR("#ffffff","R-700-МC-Кейт, Декстер Бакстер, Майкл Браун, Мартин Эндсли,")]</li>")
+	info += FONT_SMALL("<li>[SPAN_COLOR("#ffffff","Пьер Эндсли, Лира Шаттен, С.В.И.Ф.Т, Злата Савина")]</li>")
+	info += FONT_SMALL("</ul></li>")
+
+	return jointext(info, "")

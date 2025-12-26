@@ -43,11 +43,19 @@
 /area/new_new_year_house/inside/upper_level
 	name = "ALASKA - INSIDE (SECOND)"
 
+/obj/item/device/radio/intercom/syndicate/new_new_year_house
+	alpha = 0
+	on = TRUE
+	canhear_range = 10
+
 /singleton/submap_archetype/new_new_year_house
 	descriptor = "New Year Map 2"
 	map = "Snowy House"
 	crew_jobs = list(
 		/datum/job/submap/new_new_year_house,
+		/datum/job/submap/new_new_year_house/waiter,
+		/datum/job/submap/new_new_year_house/bartender,
+		/datum/job/submap/new_new_year_house/chef
 	)
 
 /obj/submap_landmark/joinable_submap/new_new_year_house
@@ -94,5 +102,23 @@
 
 /obj/submap_landmark/spawnpoint/new_new_year_house/fd_actor
 	name = "FD Actor"
+
+/datum/job/submap/new_new_year_house/waiter
+	title = "Waiter"
+
+/obj/submap_landmark/spawnpoint/new_new_year_house/waiter
+	name = "Waiter"
+
+/datum/job/submap/new_new_year_house/bartender
+	title = "Bartender"
+
+/obj/submap_landmark/spawnpoint/new_new_year_house/bartender
+	name = "Bartender"
+
+/datum/job/submap/new_new_year_house/chef
+	title = "Chef"
+
+/obj/submap_landmark/spawnpoint/new_new_year_house/chef
+	name = "Chef"
 
 #include "..\map\nnyh.dmm"
