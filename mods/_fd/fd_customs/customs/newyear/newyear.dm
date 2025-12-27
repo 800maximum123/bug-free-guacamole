@@ -9,6 +9,10 @@
 		slot_r_hand_str = "ritualknife-r",
 		)
 	icon = 'aftik.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'aftik.dmi',
+		slot_r_hand_str = 'aftik.dmi'
+		)
 
 	lunge_delay = 10 SECONDS
 	lunge_dist = 3
@@ -40,6 +44,10 @@
 		slot_l_hand_str = "galacticbook-l",
 		slot_r_hand_str = "galacticbook-r",
 		)
+	item_icons = list(
+		slot_l_hand_str = 'newyear.dmi',
+		slot_r_hand_str = 'newyear.dmi'
+		)
 	var/open = FALSE
 	unique = TRUE
 	author = "My Honest Hatred"
@@ -49,11 +57,13 @@
 		icon_state += "-open"
 		visible_message(SPAN_NOTICE("\The [user], with hands shaking from the effort, opens the book \the [src]."), range = 2)
 		open = TRUE
+		return TRUE
 	if(open)
 		icon_state = initial(icon_state)
 		visible_message(SPAN_NOTICE("\The [user] closes the book with loud sound! \the [src]."), range = 4)
 		playsound(src, 'bigbookclose.ogg', 50)
 		open = FALSE
+		return TRUE
 
 /obj/item/book/manual/autostopgalactic/examine(mob/user, distance, is_adjacent)
 	. = ..()
@@ -267,12 +277,12 @@
 	icon = 'bioplan.dmi'
 	icon_state = "brasskknuckles"
 	item_icons = list(
-		slot_l_hand_str = 'newyear.dmi',
-		slot_r_hand_str = 'newyear.dmi',
+		slot_l_hand_str = 'bioplan.dmi',
+		slot_r_hand_str = 'bioplan.dmi',
 	)
 	item_state_slots = list(
-		slot_l_hand_str = "sliva-l",
-		slot_r_hand_str = "sliva-r",
+		slot_l_hand_str = "brasskknuckles-l",
+		slot_r_hand_str = "brasskknuckles-r",
 	)
 
 //
@@ -280,12 +290,13 @@
 /obj/item/clothing/head/welding/techpriest
 	name = "decorated welding mask"
 	desc = "An old-style welding mask. Instead of paint, the metal itself was painted over. The black and red canvas is covered with small scratches, and in some places even small dents are visible. On the front side, two blood-coloured carp can be seen circling around the centre. At the bottom of the mask, you can see very small symbols that were laser-engraved there: ‘2295 | TORMENTRESS’."
-	icon_state = "weldinghelm"
+	icon = 'tech.dmi'
+	icon_state = "techhelm"
 	item_icons = list(
-		slot_head_str = 'newyear.dmi'
+		slot_head_str = 'tech_onmob.dmi'
 	)
 	item_state_slots = list(
-//		slot_head_str = "weldinghelm",
+		slot_head_str = "techhelm",
 		slot_l_hand_str = "welding",
 		slot_r_hand_str = "welding",
 	)
@@ -298,9 +309,13 @@
 	icon = 'nik.dmi'
 	icon_state = "psysword"
 	item_icons = list(
+		slot_l_hand_str = 'nik.dmi',
+		slot_r_hand_str = 'nik.dmi',
+		)
+	item_state_slots = list(
 		slot_l_hand_str = "psysword-l",
 		slot_r_hand_str = "psysword-r",
-	)
+		)
 
 //
 
@@ -323,11 +338,13 @@
 	name = "UFH flag"
 	desc = "A flag flown by the United Forces of Humanity in the war against the Ascent. This one specifically has a lot of crosses drawn out on the shield's center - one per each fallen colony, no doubt."
 	var/attachmode = FALSE
-	icon = 'flagonmob.dmi'
+	icon = 'newyear.dmi'
 	icon_state = "flag"
 	accessory_icons = list(
-		slot_w_uniform_str = 'newyear.dmi',
-		slot_wear_suit_str = 'newyear.dmi'
+		slot_w_uniform_str = 'flagonmob.dmi',
+		slot_wear_suit_str = 'flagonmob.dmi',
+		slot_l_hand_str = 'flagonmob.dmi',
+		slot_r_hand_str = 'flagonmob.dmi',
 		)
 	accessory_flags = ACCESSORY_REMOVABLE | ACCESSORY_HIGH_VISIBILITY
 
@@ -394,6 +411,7 @@
 	или зарисованы большим количеством вопросительных знаков, словно отмечая тех, с кем точно покончено, а кто ещё может быть жив. В самом низу есть подпись - [SPAN_COLOR("#ffffff","ГЭК \"Факел\", 2311-02-10")].</li>")
 	info += FONT_SMALL("Заступая на пост, выполняя приказ, без права вернуться.")
 	info += FONT_NORMAL("<br>")
+	info += FONT_NORMAL("<br>")
 	info += FONT_LARGE("[SPAN_COLOR("#ffffff","С ОБРАТНОЙ СТОРОНЫ:")]")
 	info += FONT_NORMAL("<li>С обратной стороны фотографии находится удивительно большое количество ручных подписей, едва умещающихся на листке. Среди них...</li>")
 	info += FONT_SMALL("</ul></li>")
@@ -409,14 +427,14 @@
 
 //
 
-/obj/item/clothing/accessory/wristwatch/null
+/obj/item/clothing/accessory/wristwatch/nullwatch
 	name = "expensive null-clock"
 	desc = "An expensive-looking watch with a zero-glass dial. High-quality assembly ensures the mechanism is waterproof, and the dial under the glass is backlit for better time orientation at any time of day and for viewing dark corners of your bag. The Sanurian Manufactures logo is located in the centre of the dial."
-	icon = 'mods/_fd/fd_customs/customs/newyear/addon.dmi'
-	icon_state = "icon"
+	icon = 'addon.dmi'
+	icon_state = "nullwatch"
 	accessory_icons = list(
-		slot_w_uniform_str = 'addon.dmi',
-		slot_wear_suit_str = 'addon.dmi'
+		slot_w_uniform_str = 'watchesonmob.dmi',
+		slot_wear_suit_str = 'watchesonmob.dmi'
 		)
 
 //
