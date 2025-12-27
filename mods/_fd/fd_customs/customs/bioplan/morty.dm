@@ -28,5 +28,5 @@
 	desc = "Very good shoes that still look good even after so much time."
 	icon = 'mods/_fd/fd_customs/customs/bioplan/nobleboots.dmi'
 	icon_state = "noble_boots"
-	item_icons = list(slot_shoes = 'mods/_fd/fd_customs/customs/bioplan/nobleboots_onmob.dmi')
+	item_icons = list(slot_shoes_str = 'mods/_fd/fd_customs/customs/bioplan/nobleboots_onmob.dmi')
 	item_state = "noble_boots"
