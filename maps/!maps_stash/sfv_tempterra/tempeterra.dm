@@ -133,11 +133,10 @@
 	pixel_y = -32
 
 /obj/engine_exhaust/big
-	name = "engine exhaust"
-	icon = 'icons/obj/machines/ship_engine.dmi'
-	icon_state = "nozzle_burn"
-	light_color = "#00a2ff"
-	anchored = TRUE
+	bound_width = 96
+	bound_height = 96
+	bound_y = 32
+	pixel_x = 32
 
 /obj/engine_exhaust/big/New(turf/nloc, ndir)
 	..(nloc)
@@ -151,3 +150,6 @@
 // 3 вправо
 // 1 вверх
 //		qdel(src)
+
+/obj/machinery/atmospherics/unary/engine/big/check_blockage()
+	blockage = FALSE
