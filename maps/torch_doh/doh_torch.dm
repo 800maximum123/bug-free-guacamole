@@ -342,7 +342,7 @@
 	#include "../../mods/_fd/_maps/yacht/_yacht.dme"
 
 	#include "../../mods/_fd/_maps/torch_as_ruin/_torch_as_ruin.dme"
-//	#include "../../mods/_fd/_maps/iccgn_samosbor/_samosbor.dme" // We don't need it for now
+	#include "../../mods/_fd/_maps/iccgn_samosbor/_samosbor.dme" // We don't need it for now -- Окей, эта штука не дает запустить иные. Оставлю, пока не будет лень пофиксить
 //	#include "../../mods/_fd/_maps/new_new_year_house/_new_new_year_house.dme" // We don't need it for now
 
 		// ~DANILCUS WIP~ //

@@ -259,6 +259,9 @@
 	#include "../../mods/_fd/old_space_cannons/_old_space_cannons.dme"
 	#include "../../mods/_fd/runechat/_runechat.dme"
 
+	#include "../../mods/_fd/fd_events/_fd_events.dme"
+	#include "../../mods/_fd/fd_utilities/_fd_utilities.dme"
+
 	#include "../../mods/_fd/accent_labels/_accent_labels.dme"
 	#include "../../mods/_fd/additional_biomods/_additional_biomods.dme"
 	#include "../../mods/_fd/ai_overmap_objects/_ai_overmap_objects.dme"
@@ -270,7 +273,6 @@
 	#include "../../mods/_fd/complementary_xeno_ablities/_complementary_xeno_ablities.dme"
 	#include "../../mods/_fd/conference_holopads/_conference_holopads.dme"
 	#include "../../mods/_fd/cyberware_mayhem/_cyberware_mayhem.dme"
-	#include "../../mods/_fd/fd_utilities/_fd_utilities.dme"
 	#include "../../mods/_fd/expanded_traders/_expanded_traders.dme"
 	#include "../../mods/_fd/export_to_dmi/_export_to_dmi.dme"
 	#include "../../mods/_fd/hestia_missiles/_hestia_missiles.dme"
@@ -292,13 +294,6 @@
 	#include "../../mods/_fd/tartakans/_tartakans.dme"
 	#include "../../mods/_fd/v_posters/_v_posters.dme"
 
-		// ~VOID'S MINI-GAMES~ //
-
-//	#include "../../mods/_fd/cat_alchemist/_cat_alchemist.dme"
-//	#include "../../mods/_fd/fd_tbs/_fd_tbs.dme"
-
-		// ~FD-MAPS All in one ~ \\
-
 	#include "../../mods/_fd/_maps/a_destroyer/_a_destroyer.dme"
 	#include "../../mods/_fd/_maps/airfield/_airfield.dme"
 	#include "../../mods/_fd/_maps/ares/_ares.dme"
@@ -313,13 +308,11 @@
 	#include "../../mods/_fd/_maps/farfleet_fd/_map_farfleet.dme"
 	#include "../../mods/_fd/_maps/fluffy_biscuit/_fluffy_biscuit.dme"
 	#include "../../mods/_fd/_maps/gccv_ulyanovsk/_ulyanovsk.dme"
-//	#include "../../mods/_fd/_maps/iccgn_samosbor/_samosbor.dme"
-//	#include "../../mods/_fd/_maps/baycore_foranswer/_baycore.dme"
 	#include "../../mods/_fd/_maps/khizriel/_khizriel.dme"
 	#include "../../mods/_fd/_maps/kitsune/_kitsune.dme"
 	#include "../../mods/_fd/_maps/lighthouse/_lighthouse.dme"
 	#include "../../mods/_fd/_maps/new_blueriver/_new_blueriver.dme"
-//	#include "../../mods/_fd/_maps/new_year_house/_new_year_house.dme"
+//	#include "../../mods/_fd/_maps/new_year_house/_new_year_house.dme" // We don't need it for now
 	#include "../../mods/_fd/_maps/prison_ship/_prison_ship.dme"
 	#include "../../mods/_fd/_maps/providence/_providence.dme"
 //	#include "../../mods/_fd/_maps/sentinel_fd/_sentinel.dme"
@@ -330,8 +323,22 @@
 	#include "../../mods/_fd/_maps/snow_cage/_snow_cage.dme"
 	#include "../../mods/_fd/_maps/tartakan/_tartakan.dme"
 	#include "../../mods/_fd/_maps/trader_ship/_trader_ship.dme"
-	#include "../../mods/_fd/_maps/venera/venera.dme"
 	#include "../../mods/_fd/_maps/yacht/_yacht.dme"
+
+	#include "../../mods/_fd/_maps/torch_as_ruin/_torch_as_ruin.dme"
+	#include "../../mods/_fd/_maps/iccgn_samosbor/_samosbor.dme" // We don't need it for now -- Окей, эта штука не дает запустить иные. Оставлю, пока не будет лень пофиксить
+//	#include "../../mods/_fd/_maps/new_new_year_house/_new_new_year_house.dme" // We don't need it for now
+
+		// ~DANILCUS WIP~ //
+
+	#include "../../mods/_fd/fishing/_fishing.dme"
+	#include "../../mods/_fd/whitespace/_whitespace.dme"
+
+		// ~VOID'S MINI-GAMES~ //
+
+//	#include "../../mods/_fd/cat_alchemist/_cat_alchemist.dme"
+//	#include "../../mods/_fd/fd_tbs/_fd_tbs.dme"
+
 
 		// ~EXOPLANET RUINS~ //
 
