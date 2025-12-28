@@ -5,7 +5,7 @@
 	icon_state = "globe"
 	color = "#69d13f"
 	initial_generic_waypoints = list()
-
+/*
 /datum/map_template/ruin/away_site/new_new_year_house
 	name = "New Year Map 2"
 	id = "awaysite_new_new_year_house"
@@ -18,7 +18,7 @@
 	apc_test_exempt_areas = list(
 		/area/new_new_year_house = NO_SCRUBBER|NO_VENT|NO_APC
 	)
-
+*/
 //БАЗА
 
 /area/new_new_year_house/
@@ -121,4 +121,4 @@
 /obj/submap_landmark/spawnpoint/new_new_year_house/chef
 	name = "Chef"
 
-#include "..\map\nnyh.dmm"
+// #include "..\map\nnyh.dmm"
