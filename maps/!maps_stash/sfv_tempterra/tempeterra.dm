@@ -70,24 +70,6 @@
 		"stripes_closed" = COLOR_GREEN_GRAY
 	)
 
-/obj/machinery/door/airlock/hatch
-	airlock_type = "hatch"
-	name = "\improper Airtight Hatch"
-	icon = 'icons/obj/doors/hatch/door.dmi'
-	fill_file = 'icons/obj/doors/hatch/fill_steel.dmi'
-	stripe_file = 'icons/obj/doors/hatch/stripe.dmi'
-	stripe_fill_file = 'icons/obj/doors/hatch/fill_stripe.dmi'
-	bolts_file = 'icons/obj/doors/hatch/lights_bolts.dmi'
-	deny_file = 'icons/obj/doors/hatch/lights_deny.dmi'
-	lights_file = 'icons/obj/doors/hatch/lights_green.dmi'
-	panel_file = 'icons/obj/doors/hatch/panel.dmi'
-	welded_file = 'icons/obj/doors/hatch/welded.dmi'
-	emag_file = 'icons/obj/doors/hatch/emag.dmi'
-	explosion_resistance = 20
-	opacity = 1
-	assembly_type = /obj/structure/door_assembly/door_assembly_hatch
-	paintable = AIRLOCK_PAINTABLE_STRIPE
-
 /obj/machinery/door/airlock/hatch/maintenance
 	name = "Maintenance Hatch"
 	stripe_color = COLOR_AMBER
@@ -100,3 +82,74 @@
 
 /obj/machinery/door/airlock/hatch/civilian
 	stripe_color = COLOR_CIVIE_GREEN
+
+/area/turbolift/tempeterralift
+	name = "Engineer Bay Lift"
+	icon_state = "shuttle3"
+	base_turf = /turf/simulated/open
+	lighting_tone = AREA_LIGHTING_COOL
+
+/datum/shuttle/autodock/ferry/tempeterralift
+	name = "engineer lift controls"
+	shuttle_area = /area/turbolift/medical_lift
+	warmup_time = 3
+	waypoint_station = "nav_tempterra_lift_top"
+	waypoint_offsite = "nav_tempterra_lift_bottom"
+	sound_takeoff = 'sound/effects/lift_heavy_start.ogg'
+	sound_landing = 'sound/effects/lift_heavy_stop.ogg'
+	ceiling_type = null
+	knockdown = 0
+
+/obj/machinery/computer/shuttle_control/lift/tempeterra
+	name = "engineer lift controls"
+	shuttle_tag = "engineer lift controls"
+	ui_template = "shuttle_control_console_lift.tmpl"
+	icon_state = "tiny"
+	icon_keyboard = "tiny_keyboard"
+	icon_screen = "lift"
+	density = FALSE
+
+/obj/shuttle_landmark/lift/tempeterralift_top
+	name = "Top Deck"
+	landmark_tag = "nav_tempterra_lift_top"
+	base_area = /area/tempeterra/engineering/reactor/fuel
+	base_turf = /turf/simulated/open
+
+/obj/shuttle_landmark/lift/tempeterralift_bottom
+	name = "Lower Deck"
+	landmark_tag = "nav_tempterra_lift_bottom"
+	flags = SLANDMARK_FLAG_AUTOSET
+	base_area = /area/tempeterra/atmos
+	base_turf = /turf/simulated/floor/plating
+
+/obj/machinery/atmospherics/unary/engine/big
+	icon = 'maps/!maps_stash/sfv_tempterra/3x3_engine.dmi'
+	icon_state = "huge_engine"
+	moles_per_burn = 8.0
+	boot_time = 70
+	bound_width = 96
+	bound_height = 96
+	bound_y = -32
+	pixel_y = -32
+
+/obj/engine_exhaust/big
+	bound_width = 96
+	bound_height = 96
+	bound_y = 32
+	pixel_x = 32
+
+/obj/engine_exhaust/big/New(turf/nloc, ndir)
+	..(nloc)
+	nloc.hotspot_expose(1000,125)
+	set_light(4, 0.5)
+	set_dir(ndir)
+	SetTransform(3)
+	bound_width = 96
+	bound_height = 96
+//	spawn(20)
+// 3 вправо
+// 1 вверх
+//		qdel(src)
+
+/obj/machinery/atmospherics/unary/engine/big/check_blockage()
+	blockage = FALSE

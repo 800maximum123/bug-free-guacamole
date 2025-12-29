@@ -17,3 +17,13 @@
 	item_state = "trad_cape"
 	item_icons = list(slot_wear_suit_str = 'mods/_fd/tajaran_stuff/icons/onmob/onmob_suit.dmi')
 	slot_flags = SLOT_TIE | SLOT_OCLOTHING
+
+/obj/item/clothing/accessory/tajaran/maika
+	name = "assashite traditional maika"
+	desc = "National assassin clothing - maika."
+	icon = 'mods/_fd/tajaran_stuff/icons/clothing.dmi'
+	icon_state = "maika_f"
+	item_state = "maika"
+	accessory_icons = list(slot_w_uniform_str = 'mods/_fd/tajaran_stuff/icons/clothing.dmi')
+	item_icons = list(slot_wear_uniform_str = 'mods/_fd/tajaran_stuff/icons/clothing.dmi')
+	slot_flags = SLOT_TIE | SLOT_ICLOTHING

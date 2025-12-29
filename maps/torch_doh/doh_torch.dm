@@ -328,7 +328,7 @@
 	#include "../../mods/_fd/_maps/kitsune/_kitsune.dme"
 	#include "../../mods/_fd/_maps/lighthouse/_lighthouse.dme"
 	#include "../../mods/_fd/_maps/new_blueriver/_new_blueriver.dme"
-	#include "../../mods/_fd/_maps/new_year_house/_new_year_house.dme"
+//	#include "../../mods/_fd/_maps/new_year_house/_new_year_house.dme" // We don't need it for now
 	#include "../../mods/_fd/_maps/prison_ship/_prison_ship.dme"
 	#include "../../mods/_fd/_maps/providence/_providence.dme"
 //	#include "../../mods/_fd/_maps/sentinel_fd/_sentinel.dme"
@@ -342,8 +342,8 @@
 	#include "../../mods/_fd/_maps/yacht/_yacht.dme"
 
 	#include "../../mods/_fd/_maps/torch_as_ruin/_torch_as_ruin.dme"
-	#include "../../mods/_fd/_maps/iccgn_samosbor/_samosbor.dme"
-	#include "../../mods/_fd/_maps/new_new_year_house/_new_new_year_house.dme"
+	#include "../../mods/_fd/_maps/iccgn_samosbor/_samosbor.dme" // We don't need it for now -- Окей, эта штука не дает запустить иные. Оставлю, пока не будет лень пофиксить
+//	#include "../../mods/_fd/_maps/new_new_year_house/_new_new_year_house.dme" // We don't need it for now
 
 		// ~DANILCUS WIP~ //
 
