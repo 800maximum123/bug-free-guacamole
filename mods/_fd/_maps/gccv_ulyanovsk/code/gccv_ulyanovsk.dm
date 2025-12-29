@@ -130,7 +130,7 @@
 
 // New Alloy and walls from it
 
-#define MATERIAL_TITANIUM_PLASTEEL "osmium-carbide plasteel"
+#define MATERIAL_TITANIUM_PLASTEEL "titanium plasteel"
 
 
 /material/titanium_plasteel
@@ -138,21 +138,21 @@
 	lore_text = "An alloy of plasteel and titanium. When Terrans are given the task of doing the most for the least amount of money again, they come up with overpowered crap again."
 	wall_name = "armored plate"
 	stack_type = /obj/item/stack/material/titanium_plasteel
-	integrity = 900
+	integrity = 600
 	melting_point = 7000
 	sheet_icon_base = "sheet-reinf"
 	wall_icon_base = "solid"
 	wall_icon_reinf = "reinf_over"
 	icon_colour = "#a8a9b2"
-	explosion_resistance = 12
-	brute_armor = 18
-	burn_armor = 18
+	explosion_resistance = 10
+	brute_armor = 12
+	burn_armor = 16
 	hardness = MATERIAL_VERY_HARD
-	weight = 25
+	weight = 27
 	stack_origin_tech = list(TECH_MATERIAL = 4)
 	hitsound = 'sound/weapons/smash.ogg'
 	construction_difficulty = MATERIAL_VERY_HARD_DIY
-	alloy_materials = list(MATERIAL_PLASTEEL = 2500, MATERIAL_TITANIUM = 1250)
+	alloy_materials = list(MATERIAL_PLASTEEL = 2500, MATERIAL_TITANIUM = 1500)
 	alloy_product = TRUE
 	sale_price = 5
 	ore_smelts_to = MATERIAL_TITANIUM_PLASTEEL
