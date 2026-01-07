@@ -65,9 +65,9 @@
 //	req_access = list(access_medical_equip)
 
 /singleton/closet_appearance/wall/bomb
-	color = COLOR_DARK_GREEN_GRAY
+//	color = COLOR_DARK_GREEN_GRAY
 	extra_decals = list(
-		"stripes_closed" = COLOR_GREEN_GRAY
+		"stripes_closed" = COLOR_RED_GRAY
 	)
 
 /obj/machinery/door/airlock/hatch/maintenance
@@ -153,3 +153,68 @@
 
 /obj/machinery/atmospherics/unary/engine/big/check_blockage()
 	blockage = FALSE
+
+
+/obj/item/storage/backpack/dufflebag/sec/pcarrier
+	name = "navy plate carrier's bag"
+	desc = "A large bag for holding full armor kit."
+	startswith = list(
+		/obj/item/clothing/suit/armor/pcarrier/navy,
+		/obj/item/clothing/head/helmet,
+		/obj/item/clothing/accessory/storage/pouches/navy,
+		/obj/item/clothing/accessory/armor_plate/tactical,
+		/obj/item/clothing/accessory/helmet_cover/navy,
+		/obj/item/clothing/accessory/leg_guards/navy,
+		/obj/item/clothing/accessory/arm_guards/navy
+	)
+	contents_allowed = list(
+		/obj/item/clothing/suit/armor/pcarrier,
+		/obj/item/clothing/head/helmet,
+		/obj/item/clothing/accessory/storage/pouches,
+		/obj/item/clothing/accessory/armor_plate,
+		/obj/item/clothing/accessory/helmet_cover,
+		/obj/item/clothing/accessory/leg_guards,
+		/obj/item/clothing/accessory/arm_guards
+	)
+
+/obj/item/folder/envelope/rtb
+	desc = "A thick envelope. The 3th Fleet crest is stamped in the corner, along with 'DO NOT DISSEMINATE.'"
+
+/obj/item/folder/envelope/rtb/Initialize()
+	. = ..()
+	new /obj/item/paper/rtb(src)
+
+/obj/item/paper/rtb
+	name = "Letter from Admiral Henry Lau"
+	info = {"\
+<center><h3>EXPEDITIONARY COMMAND - OBSERVATORY</h3>
+<img src="eclogo.png" /></center>
+<p><tt><tt><strong>FROM:</strong> Admiral Henry Lau, Observatory<br /><strong>TO:</strong> Expeditionary Corps Vessel #3, SEV Torch<br /><strong>CC:</strong> Flag Admiral Magny Khan, Commandant of the Expeditionary Corps<br /><strong>SUBJECT:</strong> Update to the SEV Torch<br /></tt></tt></p>
+<hr />
+<p>Good day, SEV Torch. For the purposes of reality this document can be disseminated to anyone within your retinue of Line Officers and support staff, but try to keep things secure, and need-to-know where applicable. And, please, most importantly, make sure this doesn't need to be scrubbed from the ship's systems again.</p>
+<p>You'll pardon me for the colloquialisms, but things aren't in a particularly great state as it stands right now. The SEV Torch is at the center of a controversy in regards to what is happening within the governance right now, and doubly so within the Fleet. A lot of pressure is coming from the Senate and the Assembly both to put us in a tight spot.</p>
+<p>It's been difficult for Admiral Khan to keep things running smoothly with other organizations due to this. And to do so, we've had to make some concessions in regards to how things are being ran for now. Particularly, the Fleet has to be placated rather heavily for us to continue operating in the way we are. For the time being this doesn't effect you, at least directly, and if this changes you will be informed via fax or direct report.</p>
+<p>As always, we have staff on standby to answer your faxes and offer order clarification in the event it's required, and you should also remember to ask for clarifications&nbsp;<em>before&nbsp;</em>following orders you may view as strange, cruel or unusual. We are counting on you to be an example right now, do not let us down Torch.</p>
+<p>Updates on the encroaching situation will be sent to you on a need-to-know basis with the approval of Admiral Khan. For the time being, continue operations as normal. Record the status of your bluespace drive regularly, report any fleet vessels that may contact you to us, and remember the oaths you all took. Avoid danger, but don't run away. Godspeed.</p>
+<hr />
+<p>&nbsp;<em>This paper has been stamped with the insignia of the Admiral Henry Lau.</em></p>
+<hr /><center><img src="eclogo.png" /></center>
+"}
+
+/obj/item/paper/expcorpstatus
+	name = "Classified Report: Status of the Fleets"
+	info = {"\
+<center><strong><span style="color: red;">ЗАСЕКРЕЧЕННЫЙ ОТЧЕТ. СЕКЦИЯ #314-E</span></strong>
+<h3>MARSCOM - HIGH COMMAND OFFICES</h3>
+<img src="fleetlogo.png"/></center>
+<p><tt><tt><strong>ОТ:</strong> Контр-Адмирал <span style="background-color: #000000; color: #000000;">XXXXXXXX</span> <span style="color: #000000; background-color: #000000;">XXXXXXXXXXXX</span>, SFV <span style="color: #000000; background-color: #000000;">XXXXXXXXXXXXXXX</span> <br /><strongДЛЯ:</strong> Адмирал Флота Кристофер Гернандз<br /><strong>CC:</strong>Администрация Генерального Секретаря<br /><strong>ТЕМА:</strong> Отчет о Статусе Флота<br /></tt></tt></p>
+<hr/>
+<p>Адмирал Генри Лау и Адмирал <span style="color: #000000; background-color: #000000;">XXXXXXXXX XXXXX</span>&nbsp;, которые осуществляют надзор за действующими судами Проекта "Гелиос", подтвердили что Экспедиционный Корпус не намерен останавливать свои операции. Согласно отчетам, Проекты XXXXXXXXX</span>&nbsp; и XXXXXXXXX</span>&nbsp;, действуют согласно стандартным протоколам. Администрация Корпуса запросила приток новых инструкторов Флота для помощи в обучении своих сотрудников службы безопасности для предупреждения подобных инцидентов.</p>
+<hr/>
+<p>&nbsp;<em>This paper has been stamped with the stamp of MARSCOM - HIGH COMMAND OFFICES.</em></p>
+<hr/><center><img src="fleetlogo.png"/></center>
+"}
+
+// Адмирал Генри Лау и Адмирал XXXXXXXXX XXXXX, которые осуществляют надзор за действующими судами Проекта "Гелиос", подтвердили что Экспедиционный Корпус не намерен останавливать свои операции. Согласно отчетам, Проекты XXXXXXXXX и XXXXXXXXX, действуют согласно стандартным протоколам. Администрация Корпуса запросила приток нового персонала Флота для помощи в обучении своих сотрудников службы безопасности для предупреждения подобных инцидентов.
+// The Expeditionary Corps and their staffing have been confirmed to continue operations by Admiral Henry Lau, and Admiral XXXXXXXXX XXXXX who are keeping oversight of the active vessels of the Helios Project. XXXXXXXXX Project, and the XXXXXXXX Project continue to operate as standard by report.  The Expeditionary Administration has requested an influx of new Fleet personnel to assist in training for their security and engineering divisions in the event of further attack.
+// <span style="color: #000000; background-color: #000000;">XXXXXXXXX</span>&nbsp;
