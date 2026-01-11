@@ -21,17 +21,29 @@
 	vessel_size = SHIP_SIZE_LARGE
 	vessel_mass = 150000
 
-	color = "#c76a6a"
+	color = "#dd3a3a"
 	scannable = TRUE
 	hide_from_reports = TRUE
+
+	known_ships = list(
+		/obj/overmap/visitable/ship/landable/ul_typhoon,
+		/obj/overmap/visitable/ship/landable/ul_uragan,
+		/obj/overmap/visitable/ship/landable/ul_hyacinth,
+		/obj/overmap/visitable/ship/landable/ul_tachyon
+	)
+
 	initial_generic_waypoints = list(
 		"nav_ul_typhoon_start",
 		"nav_ul_uragan_start",
 		"nav_ul_hyacinth_start",
 		"nav_ul_tachyon_start"
 	)
-	initial_restricted_waypoints = list(
 
+	initial_restricted_waypoints = list(
+		"GCCS TYPHOON" = list("nav_ul_typhoon_start"),
+		"GCCS URAGAN" = list("nav_ul_uragan_start"),
+		"GCCS HYACINTH" = list("nav_ul_hyacinth_start"),
+		"GCCS TACHYON" = list("nav_ul_tachyon_start")
 	)
 
 /datum/map_template/ruin/away_site/gccv_ulyanovsk
@@ -41,14 +53,40 @@
 	prefix = "mods/_fd/_maps/gccv_ulyanovsk/maps/"
 	suffixes = list("gccv_ulyanovsk1.dmm", "gccv_ulyanovsk2.dmm", "gccv_ulyanovsk3.dmm")
 	spawn_cost = 99
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/ul_typhoon,
-								/datum/shuttle/autodock/overmap/ul_uragan,
-								/datum/shuttle/autodock/overmap/ul_hyacinth,
-								/datum/shuttle/autodock/overmap/ul_tachyon)
-	area_usage_test_exempted_root_areas = list()
+	shuttles_to_initialise = list(
+		/datum/shuttle/autodock/overmap/ul_typhoon,
+		/datum/shuttle/autodock/overmap/ul_uragan,
+		/datum/shuttle/autodock/overmap/ul_hyacinth,
+		/datum/shuttle/autodock/overmap/ul_tachyon
+		)
+	area_usage_test_exempted_root_areas = list(/area/ship/ulyanovsk, /area/map_template/gccv_ulyanovsk)
 	apc_test_exempt_areas = list()
 
+/obj/overmap/visitable/ship/gccv_ulyanovsk/Initialize()
+	. = ..()
+	radiochannels += "UL CIC"
+	radiochannels += "UL SPECOPS"
+	radiochannels += "UL ENGINEERING"
+	radiochannels += "UL MEDICAL"
+	radiochannels += "UL PUBLIC"
 
+	radiochannels["UL CIC"] = UL_CIC_FREQ
+	radiochannels["UL SPECOPS"] = UL_SPECOPS_FREQ
+	radiochannels["UL ENGINEERING"] = UL_ENG_FREQ
+	radiochannels["UL MEDICAL"] = UL_MED_FREQ
+	radiochannels["UL PUBLIC"] = UL_PUB_FREQ
+
+	department_radio_keys += ":2"
+	department_radio_keys += ":3"
+	department_radio_keys += ":4"
+	department_radio_keys += ":5"
+	department_radio_keys += ":1"
+
+	department_radio_keys[":2"] = "UL CIC"
+	department_radio_keys[":3"] = "UL SPECOPS"
+	department_radio_keys[":4"] = "UL ENGINEERING"
+	department_radio_keys[":5"] = "UL MEDICAL"
+	department_radio_keys[":1"] = "UL PUBLIC"
 
 // Misc
 
@@ -299,17 +337,18 @@
 		)
 	siemens_coefficient = 0.3
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	species_restricted = list(SPECIES_HUMAN, SPECIES_VATGROWN, SPECIES_SPACER, SPECIES_GRAVWORLDER, SPECIES_MULE, SPECIES_IPC, SPECIES_FBP)/// no fckng XENO SCUM in my suit!!!
 
 /obj/item/clothing/head/helmet/space/void/iccg
 	name = "armored terran voidsuit helmet"
-	desc = "A comfortable voidsuit helmet with cranial armor and eight-channel surround sound."
+	desc = "A comfortable voidsuit helmet with thick armor and eight-channel surround sound. Has ICCGN insignia on it."
 	icon_state = "rig_helmet"
 	item_state = "rig_helmet_wear"
 	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi'
 	icon_override = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi'
 	item_state_slots = list(
-		slot_l_hand_str = "sec_helm_l",
-		slot_r_hand_str = "sec_helm_r",
+		slot_l_hand_str = "sec_helm",
+		slot_r_hand_str = "sec_helm",
 		)
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
@@ -320,6 +359,13 @@
 		rad = ARMOR_RAD_RESISTANT
 		)
 	siemens_coefficient = 0.3
+	light_overlay = "light"///icon_state for emissive overlay
+	var/head_light_range = 4///l_range for flashlight
+	var/emmission_overlay = null
+	light_wedge = LIGHT_WIDE
+	brightness_on = 0.8
+	light_color = "#00CC00"
+	species_restricted = list(SPECIES_HUMAN, SPECIES_VATGROWN, SPECIES_SPACER, SPECIES_GRAVWORLDER, SPECIES_MULE, SPECIES_IPC, SPECIES_FBP)/// no fckng XENO SCUM in my suit!!!
 
 /obj/item/clothing/suit/space/void/iccg/engineering
 	name = "armored engineering voidsuit"
@@ -353,6 +399,11 @@
 		)
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 	max_pressure_protection = ENG_VOIDSUIT_MAX_PRESSURE
+	light_overlay = "light_e"
+	light_color = "#EDDE73"
+	head_light_range = 6
+	brightness_on = 1
+	light_wedge = LIGHT_WIDE
 
 /obj/item/clothing/suit/space/void/iccg/security
 	name = "armored security voidsuit"
@@ -382,11 +433,16 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
 		)
+	light_overlay = "light_s"
+	light_color = "#DD0000"
+	head_light_range = 3
+	brightness_on = 0.5
+	light_wedge = LIGHT_NARROW
 
 /obj/item/clothing/suit/space/void/iccg/command
 	name = "armored command voidsuit"
-	icon_state = "rig_com"
-	item_state = "rig_com_wear"
+	icon_state = "rig_com_suit"
+	item_state = "rig_com_suit_wear"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_RESISTANT,
@@ -403,8 +459,8 @@
 
 /obj/item/clothing/head/helmet/space/void/iccg/command
 	name = "armored command voidsuit helmet"
-	icon_state = "rig_com"
-	item_state = "rig_com_wear"
+	icon_state = "rig_com_helmet"
+	item_state = "rig_com_helmet_wear"
 	flash_protection = FLASH_PROTECTION_MAJOR
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
@@ -415,6 +471,52 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
 		)
+	light_overlay = "light_c"
+	light_color = "#2369D0"
+	head_light_range = 3
+	brightness_on = 0.8
+	light_wedge = LIGHT_VERY_WIDE
+
+/obj/item/clothing/head/helmet/space/void/iccg/equipped(mob/user, slot)
+	light_overlay_image = null
+	emmission_overlay = null
+	..(user, slot)
+/*
+/obj/item/clothing/head/helmet/space/void/iccg/get_mob_overlay(mob/user_mob, slot)
+	var/image/ret = ..()
+	if(light_overlay_image)
+		ret.CutOverlays(light_overlay_image)
+	if(on && slot == slot_head_str)
+		if(!light_overlay_image)
+			light_overlay_image = overlay_image(icon, "[light_overlay]", color, RESET_COLOR)
+			emmission_overlay = emissive_appearance(icon, "[light_overlay]")
+		ret.AddOverlays(list(light_overlay_image, emmission_overlay))
+	return ret
+*/
+/obj/item/clothing/head/helmet/space/void/iccg/get_mob_overlay(mob/user_mob, slot)
+	var/image/ret = ..()
+	if(light_overlay_image)
+		ret.CutOverlays(light_overlay_image)
+	if(on && slot == slot_head_str)
+		if(!light_overlay_image)
+			if(ishuman(user_mob))
+				var/mob/living/carbon/human/user_human = user_mob
+				light_overlay_image = user_human.species.get_offset_overlay_image(FALSE, icon, "[light_overlay]", color, slot)
+			else
+				light_overlay_image = overlay_image(icon, "[light_overlay]", null, RESET_COLOR)
+		emmission_overlay = emissive_appearance(icon, "[light_overlay]")
+		ret.AddOverlays(list(light_overlay_image, emmission_overlay))
+	return ret
+
+/obj/item/clothing/head/helmet/space/void/iccg/update_flashlight(mob/user = null)
+	if(on && !light_applied)
+		set_light(head_light_range, brightness_on, light_color, light_wedge)
+		light_applied = 1
+	else if(!on && light_applied)
+		set_light(0)
+		light_applied = 0
+	update_icon(user)
+	user.update_action_buttons()
 
 /obj/item/rig/combat/equipped/iccg
 	cell_type =  /obj/item/cell/hyper
@@ -423,6 +525,7 @@
 
 /obj/item/rig/light/ninja/gcc/ulyanovsk
 	name = "Ulyanovsk heavy suit control module"
+	req_access = list(access_iccg)
 	initial_modules = list(
 		/obj/item/rig_module/vision,
 		/obj/item/rig_module/mounted/energy/lcannon,
@@ -1006,7 +1109,7 @@
 	allowed += /obj/item/device/flashlight
 
 /obj/item/ammo_magazine/box/shotgun
-	name = "shell box"
+	name = "slug box"
 	icon_state = "slbox"
 	origin_tech = list(TECH_COMBAT = 2)
 	caliber = CALIBER_SHOTGUN

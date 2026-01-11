@@ -1,8 +1,8 @@
 /obj/machinery/computer/ship/ship_weapon/rail_gun
 	name = "OA-99 railgun control"
 	desc = "Railgun Control Console."
-	caldigit = 5
-	coolinterval = 45 SECONDS
+	caldigit = 4
+	coolinterval = 30 SECONDS
 	gun_name = "rail gun"
 	link_range = 15
 
@@ -11,8 +11,8 @@
 	back_type = /obj/machinery/ship_weapon/back_part/rail
 	munition_type = /obj/item/ammo_magazine/ammobox/railgun
 
-	burst_size = 1
-	fire_interval = 0
+	burst_size = 3
+	fire_interval = 1
 
 	fire_sound = 'mods/_fd/old_space_cannons/sounds/strong_shot.ogg'
 
@@ -76,10 +76,13 @@
 	pew.enter_sound = far_fire_sound
 	pew.cal_accuracy = cal_accuracy()
 
+	pew.damage += accelerator_amount*1.5
 	pew.armor_penetration += accelerator_amount
 	pew.penetrating += accelerator_amount / 2
 	pew.penetration_modifier += accelerator_amount / 10
 	pew.shoot_range += accelerator_amount
+	if(pew.shoot_range > 80)
+		pew.shoot_range = 80
 
 	pew.launch(get_step(front.loc, front.dir), pick(BP_ALL_LIMBS))
 
