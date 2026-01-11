@@ -33,6 +33,7 @@
 		<br>A sign on it reads: <i>EXPLOSIVE! DO NOT OVERHEAT!</i>"
 	icon_state = "magazine"
 	maximum_component_parts = list(/obj/item/stock_parts = 15)
+	var/modules_amount = 0
 
 /obj/machinery/ship_weapon/back_part
 	name = "ship weapon breech end"
@@ -40,6 +41,12 @@
 	icon_state = "ammo_loader"
 	density = FALSE
 //	layer = BELOW_DOOR_LAYER //So the charges go above us.
+
+/obj/machinery/ship_weapon/module_part
+	name = "ship weapon module"
+	desc = "Ship weapon module"
+	icon_state = "magazine"
+	maximum_component_parts = list(/obj/item/stock_parts = 15)
 
 ////////////////////////////////CIRCUIT////////////////////////////////
 
@@ -74,4 +81,13 @@
 	req_components = list (
 		/obj/item/stock_parts/capacitor/super = 5,
 		/obj/item/stock_parts/manipulator/pico = 5
+	)
+
+/obj/item/stock_parts/circuitboard/ship_weapon_module
+	name = "circuit board (ship weapon module)"
+	build_path = /obj/machinery/ship_weapon/module_part
+	board_type = "machine"
+	origin_tech = list(TECH_ENGINEERING = 2)
+	req_components = list (
+		/obj/item/stack/cable_coil = 5
 	)
