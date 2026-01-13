@@ -138,6 +138,23 @@
 	bound_y = 32
 	pixel_x = 32
 
+
+/obj/placeholder/big
+	name = "engine exhaust"
+	icon = 'icons/obj/machines/ship_engine.dmi'
+	icon_state = "nozzle_burn"
+	light_color = "#00a2ff"
+	anchored = TRUE
+
+/obj/placeholder/big/New(turf/nloc, ndir)
+	..(nloc)
+	nloc.hotspot_expose(1000,125)
+	set_light(4, 0.5)
+	set_dir(ndir)
+	SetTransform(3)
+	bound_width = 96
+	bound_height = 96
+
 /obj/engine_exhaust/big/New(turf/nloc, ndir)
 	..(nloc)
 	nloc.hotspot_expose(1000,125)
@@ -209,7 +226,7 @@
 <img src="fleetlogo.png"/></center>
 <p><tt><tt><strong>ОТ:</strong> Контр-Адмирал <span style="background-color: #000000; color: #000000;">XXXXXXXX</span> <span style="color: #000000; background-color: #000000;">XXXXXXXXXXXX</span>, SFV <span style="color: #000000; background-color: #000000;">XXXXXXXXXXXXXXX</span> <br /><strongДЛЯ:</strong> Адмирал Флота Кристофер Гернандз<br /><strong>CC:</strong>Администрация Генерального Секретаря<br /><strong>ТЕМА:</strong> Отчет о Статусе Флота<br /></tt></tt></p>
 <hr/>
-<p>Адмирал Генри Лау и Адмирал <span style="color: #000000; background-color: #000000;">XXXXXXXXX XXXXX</span>&nbsp;, которые осуществляют надзор за действующими судами Проекта "Гелиос", подтвердили что Экспедиционный Корпус не намерен останавливать свои операции. Согласно отчетам, Проекты XXXXXXXXX</span>&nbsp; и XXXXXXXXX</span>&nbsp;, действуют согласно стандартным протоколам. Администрация Корпуса запросила приток новых инструкторов Флота для помощи в обучении своих сотрудников службы безопасности для предупреждения подобных инцидентов.</p>
+<p>Адмирал Генри Лау и Адмирал <span style="color: #000000; background-color: #000000;">XXXXXXXXX XXXXX</span>&nbsp;,  осуществляющие надзор за действующими судами Проекта "Гелиос", подтвердили что Экспедиционный Корпус не намерен останавливать свои операции. Согласно отчетам, Проекты XXXXXXXXX</span>&nbsp; и XXXXXXXXX</span>&nbsp;, действуют согласно стандартным протоколам. Администрация Корпуса запросила приток новых инструкторов Флота для помощи в обучении своих сотрудников службы безопасности для предупреждения подобных инцидентов.</p>
 <hr/>
 <p>&nbsp;<em>This paper has been stamped with the stamp of MARSCOM - HIGH COMMAND OFFICES.</em></p>
 <hr/><center><img src="fleetlogo.png"/></center>

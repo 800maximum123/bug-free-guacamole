@@ -403,6 +403,13 @@
 /obj/structure/handrail,
 /turf/simulated/floor,
 /area/tempeterra/armaments/storage/port)
+"aW" = (
+/obj/paint/black,
+/obj/structure/fd/mapping/dev_tip{
+	text_to_show = "Моторный отдел"
+	},
+/turf/simulated/wall/r_wall,
+/area/tempeterra/command/cic)
 "aX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -924,6 +931,16 @@
 "ca" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/tempeterra/engineering/tool)
+"cb" = (
+/obj/structure/table/rack,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = -3
+	},
+/obj/item/storage/toolbox/emergency{
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/tempeterra/armsmen/locker)
 "cc" = (
 /obj/machinery/door/airlock/hatch/civilian{
 	name = "Hydroponics Bay"
@@ -3811,6 +3828,12 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/tempeterra/engineering/foyer)
+"hE" = (
+/obj/machinery/light/navigation/delay4{
+	color = "#2020f0"
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
 "hF" = (
 /obj/machinery/firealarm{
 	pixel_y = 24
@@ -6019,6 +6042,13 @@
 /obj/item/storage/backpack/dufflebag/sec/pcarrier,
 /turf/simulated/floor/tiled/techfloor,
 /area/tempeterra/armsmen/locker)
+"lL" = (
+/obj/paint/black,
+/obj/structure/fd/mapping/dev_tip{
+	text_to_show = "Капитан и ИО"
+	},
+/turf/simulated/wall/r_wall,
+/area/tempeterra/command/cic)
 "lO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7140,7 +7170,6 @@
 /obj/floor_decal/corner/paleblue/half{
 	dir = 1
 	},
-/obj/structure/handrail,
 /turf/simulated/floor/tiled/dark,
 /area/tempeterra/crew/mess)
 "nZ" = (
@@ -7965,7 +7994,9 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/crew/janitorial)
 "pB" = (
-/obj/machinery/nav_light/port,
+/obj/machinery/light/navigation/delay2{
+	color = "#f02020"
+	},
 /turf/simulated/floor/reinforced,
 /area/space)
 "pC" = (
@@ -9318,6 +9349,13 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/firstdeck/hallway/aft/midships)
+"sp" = (
+/obj/floor_decal/corner/black/mono,
+/obj/structure/bed/padded,
+/obj/floor_decal/industrial/outline/grey,
+/obj/item/bedsheet/brown,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/tempeterra/crew/lounge)
 "sq" = (
 /obj/floor_decal/techfloor/orange{
 	dir = 10
@@ -9684,13 +9722,6 @@
 	},
 /turf/simulated/floor/reinforced/hydrogen,
 /area/tempeterra/atmos)
-"sZ" = (
-/obj/paint/black,
-/obj/structure/fd/mapping/dev_tip{
-	text_to_show = "Связь, Сонар, Пиздабольство"
-	},
-/turf/simulated/wall/r_wall,
-/area/tempeterra/command/cic)
 "tb" = (
 /obj/floor_decal/steeldecal/steel_decals_central2,
 /obj/floor_decal/industrial/warning{
@@ -9775,6 +9806,13 @@
 /obj/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/thirddeck/medical)
+"tq" = (
+/obj/paint/black,
+/obj/structure/fd/mapping/dev_tip{
+	text_to_show = "Связь, Сонар, Пиздабольство"
+	},
+/turf/simulated/wall/r_wall,
+/area/tempeterra/command/cic)
 "ts" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -9808,6 +9846,26 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/tempeterra/engineering/reactor/powerdisttwo)
+"tv" = (
+/obj/structure/table/rack,
+/obj/item/storage/box/handcuffs,
+/obj/item/storage/box/handcuffs,
+/obj/item/storage/box/flashbangs{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/obj/item/storage/box/flashbangs{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/obj/item/storage/box/smokes,
+/obj/item/storage/box/smokes,
+/obj/item/storage/box/teargas{
+	pixel_x = 3;
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/tempeterra/armsmen/locker)
 "tw" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -12214,7 +12272,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/tempeterra/atmos)
 "xT" = (
-/obj/structure/bed,
+/obj/structure/bed/padded,
 /obj/floor_decal/corner/black/mono,
 /obj/floor_decal/industrial/outline/grey,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -12470,19 +12528,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tempeterra/hangar)
-"yx" = (
-/obj/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/secure_closet/security_torch{
-	name = "armsmens' locker"
-	},
-/obj/machinery/rotating_alarm/door{
-	id_tag = "tempterra_armory";
-	name = "Armory Alarm";
-	pixel_y = -16;
-	dir = 1
-	},
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/tempeterra/armsmen/locker)
 "yy" = (
 /obj/floor_decal/industrial/warning{
 	dir = 1
@@ -15188,11 +15233,6 @@
 	dir = 4;
 	icon_state = "railing0-1"
 	},
-/obj/structure/handrail{
-	dir = 8;
-	pixel_x = -8;
-	pixel_y = 0
-	},
 /turf/simulated/floor/tiled/dark,
 /area/tempeterra/crew/mess)
 "DG" = (
@@ -17152,13 +17192,6 @@
 /obj/catwalk_plated/dark,
 /turf/simulated/floor,
 /area/tempeterra/armsmen/armory)
-"Hx" = (
-/obj/paint/black,
-/obj/structure/fd/mapping/dev_tip{
-	text_to_show = "Капитан и ИО"
-	},
-/turf/simulated/wall/r_wall,
-/area/tempeterra/command/cic)
 "Hz" = (
 /obj/structure/bed/chair/shuttle/blue{
 	dir = 8
@@ -17684,7 +17717,9 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/armsmen/armory)
 "IC" = (
-/obj/machinery/nav_light/ventral,
+/obj/machinery/light/navigation/delay5{
+	color = "#e0c020"
+	},
 /turf/simulated/floor/reinforced,
 /area/space)
 "ID" = (
@@ -17957,15 +17992,12 @@
 /turf/simulated/open,
 /area/tempeterra/engineering/reactor/fuel)
 "Jb" = (
-/obj/structure/table/rack,
-/obj/item/storage/toolbox/mechanical{
-	pixel_y = -3
+/obj/paint/black,
+/obj/structure/fd/mapping/dev_tip{
+	text_to_show = "Орудийный и Безопасность"
 	},
-/obj/item/storage/toolbox/emergency{
-	pixel_y = 3
-	},
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/tempeterra/armsmen/locker)
+/turf/simulated/wall/r_wall,
+/area/tempeterra/command/cic)
 "Jd" = (
 /obj/structure/table/steel_reinforced,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -18327,9 +18359,9 @@
 /area/tempeterra/atmos)
 "JQ" = (
 /obj/floor_decal/corner/black/mono,
-/obj/structure/bed,
 /obj/floor_decal/industrial/outline/grey,
 /obj/item/bedsheet/brown,
+/obj/structure/bed/padded,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/crew/lounge)
 "JS" = (
@@ -18561,7 +18593,9 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/engineering/it/sensors)
 "Kn" = (
-/obj/machinery/nav_light/dorsal,
+/obj/machinery/light/navigation/delay2{
+	color = "#2020f0"
+	},
 /turf/simulated/floor/reinforced,
 /area/space)
 "Kp" = (
@@ -19331,13 +19365,6 @@
 /obj/structure/ladder/updown,
 /turf/simulated/open,
 /area/tempeterra/seconddeck/hallway/ladder/port)
-"LY" = (
-/obj/paint/black,
-/obj/structure/fd/mapping/dev_tip{
-	text_to_show = "Орудийный и Безопасность"
-	},
-/turf/simulated/wall/r_wall,
-/area/tempeterra/command/cic)
 "LZ" = (
 /obj/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -20419,12 +20446,12 @@
 /area/tempeterra/thirddeck/hallway/stairs)
 "Ob" = (
 /obj/floor_decal/corner/black/mono,
-/obj/structure/bed,
 /obj/floor_decal/industrial/outline/grey,
 /obj/machinery/rotating_alarm/security_alarm{
 	dir = 1
 	},
 /obj/item/bedsheet/brown,
+/obj/structure/bed/padded,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/crew/lounge)
 "Oc" = (
@@ -21844,7 +21871,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tempeterra/engineering/it/sensors)
 "QV" = (
-/obj/structure/bed,
+/obj/structure/bed/padded,
 /obj/floor_decal/corner/black/mono,
 /obj/floor_decal/industrial/outline/grey,
 /obj/item/bedsheet/brown,
@@ -22483,6 +22510,19 @@
 /obj/structure/catwalk,
 /turf/simulated/floor,
 /area/tempeterra/hangar)
+"Sp" = (
+/obj/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/secure_closet/security_torch{
+	name = "armsmens' locker"
+	},
+/obj/machinery/rotating_alarm/door{
+	id_tag = "tempterra_armory";
+	name = "Armory Alarm";
+	pixel_y = -16;
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/tempeterra/armsmen/locker)
 "Sr" = (
 /obj/floor_decal/techfloor/orange,
 /obj/floor_decal/industrial/warning,
@@ -22520,18 +22560,17 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/thirddeck/medical)
-"Sx" = (
-/obj/paint/black,
-/obj/structure/fd/mapping/dev_tip{
-	text_to_show = "Моторный отдел"
+"Sy" = (
+/obj/machinery/light/navigation/delay4{
+	color = "#f02020"
 	},
-/turf/simulated/wall/r_wall,
-/area/tempeterra/command/cic)
+/turf/simulated/floor/reinforced,
+/area/space)
 "Sz" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/tempeterra/firstdeck/hallway/ladder/starboard)
 "SA" = (
-/obj/structure/bed,
+/obj/structure/bed/padded,
 /obj/floor_decal/corner/black/mono,
 /obj/floor_decal/industrial/outline/grey,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -22906,7 +22945,6 @@
 	dir = 4;
 	icon_state = "railing0-1"
 	},
-/obj/structure/handrail,
 /turf/simulated/floor/tiled/dark,
 /area/tempeterra/crew/mess)
 "Tj" = (
@@ -25190,7 +25228,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/tempeterra/thirddeck/hallway/ladder/port)
 "XE" = (
-/obj/machinery/nav_light/starboard,
+/obj/machinery/light/navigation/delay4{
+	color = "#20f020"
+	},
 /turf/simulated/floor/reinforced,
 /area/space)
 "XF" = (
@@ -25277,9 +25317,10 @@
 /area/tempeterra/crew/hydro)
 "XN" = (
 /obj/floor_decal/corner/black/mono,
-/obj/structure/bed,
+/obj/structure/bed/padded,
 /obj/floor_decal/industrial/outline/grey,
 /obj/machinery/rotating_alarm/security_alarm,
+/obj/item/bedsheet/brown,
 /obj/item/bedsheet/brown,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/crew/lounge)
@@ -25383,6 +25424,12 @@
 "Yb" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/tempeterra/engineering/reactor/twocore)
+"Yd" = (
+/obj/machinery/light/navigation/delay2{
+	color = "#20f020"
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
 "Ye" = (
 /obj/structure/table/standard,
 /obj/item/bodybag/rescue/loaded,
@@ -25632,26 +25679,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/tempeterra/atmos)
-"YG" = (
-/obj/structure/table/rack,
-/obj/item/storage/box/handcuffs,
-/obj/item/storage/box/handcuffs,
-/obj/item/storage/box/flashbangs{
-	pixel_x = -2;
-	pixel_y = -2
-	},
-/obj/item/storage/box/flashbangs{
-	pixel_x = -2;
-	pixel_y = -2
-	},
-/obj/item/storage/box/smokes,
-/obj/item/storage/box/smokes,
-/obj/item/storage/box/teargas{
-	pixel_x = 3;
-	pixel_y = 2
-	},
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/tempeterra/armsmen/locker)
 "YH" = (
 /obj/structure/closet/firecloset,
 /obj/floor_decal/industrial/outline/red,
@@ -26142,6 +26169,14 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/tempeterra/engineering/reactor/twocore)
+"ZI" = (
+/obj/floor_decal/corner/black/mono,
+/obj/structure/bed/padded,
+/obj/floor_decal/industrial/outline/grey,
+/obj/machinery/rotating_alarm/security_alarm,
+/obj/item/bedsheet/brown,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/tempeterra/crew/lounge)
 "ZJ" = (
 /obj/floor_decal/techfloor{
 	dir = 8
@@ -42535,10 +42570,10 @@ KQ
 OM
 YM
 yS
-YG
+tv
 jj
 bO
-Jb
+cb
 uT
 uT
 No
@@ -43030,7 +43065,7 @@ Ei
 fj
 YP
 je
-yx
+Sp
 uT
 uT
 No
@@ -43349,7 +43384,7 @@ wM
 gD
 fr
 Do
-JQ
+sp
 RF
 QV
 sr
@@ -43513,7 +43548,7 @@ Ex
 Di
 QE
 Do
-JQ
+sp
 RF
 QV
 oE
@@ -43677,7 +43712,7 @@ FV
 jH
 lu
 Do
-JQ
+sp
 qx
 QV
 jO
@@ -43759,7 +43794,7 @@ Do
 zF
 Do
 Do
-XN
+ZI
 AB
 SA
 sr
@@ -43841,7 +43876,7 @@ ko
 ID
 Cp
 ra
-JQ
+sp
 rE
 QV
 yu
@@ -44660,7 +44695,7 @@ fq
 iS
 fq
 Aa
-sZ
+tq
 Sl
 Pw
 jh
@@ -44832,7 +44867,7 @@ Xf
 UT
 dd
 QF
-Hx
+lL
 Aa
 MV
 Fb
@@ -45488,7 +45523,7 @@ gI
 vx
 yZ
 Sl
-LY
+Jb
 Aa
 tR
 uM
@@ -45563,7 +45598,7 @@ Yg
 yr
 Aa
 Aa
-Sx
+aW
 Sl
 gr
 Ec
@@ -56627,7 +56662,7 @@ No
 No
 No
 No
-XE
+Yd
 Xc
 Xc
 vM
@@ -56647,7 +56682,7 @@ vM
 vM
 Xc
 Xc
-pB
+Sy
 No
 No
 No
@@ -60479,7 +60514,7 @@ No
 No
 No
 No
-Kn
+hE
 Xc
 Xc
 Xc
@@ -60503,7 +60538,7 @@ Xc
 Xc
 Xc
 Xc
-Kn
+hE
 No
 No
 No
