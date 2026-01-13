@@ -39,11 +39,11 @@
 				sound_to(current_mob.client, 'bonk.ogg' )
 				sound_to(current_mob.client, 'meteorimpact.ogg' )
 				sound_to(current_mob.client, 'slam2.ogg' )
-				addtimer(new Callback(GLOBAL_PROC, GLOBAL_PROC_REF(sound_to), current_mob.client, 'sound/effects/doorcreaky.ogg', 20), 1 SECONDS)
+//				addtimer(new Callback(GLOBAL_PROC, GLOBAL_PROC_REF(sound_to), current_mob.client, 'sound/effects/doorcreaky.ogg', 20), 1 SECONDS)
 		if(sstrength > 7)
 			if(current_mob.client && osound)
 				sound_to(current_mob.client, 'metal_crash.ogg' )
-				sound_to(current_mob.client, 'bigboom3.ogg')
+//				sound_to(current_mob.client, 'bigboom3.ogg')
 
 			if(drop)
 /*				invoke_async(current_mob,  TYPE_PROC_REF(/atom/movable, throw_atom), get_ranged_target_turf(current_mob, pick(GLOB.cardinal), sstrength), pick(GLOB.cardinal), sstrength)
@@ -52,5 +52,5 @@
 */
 			to_chat(current_mob, FONT_GIANT(SPAN_DANGER("YOU ARE THROWN AROUND VIOLENTLY AND HIT THE DECK WITH FULL FORCE!!")))
 			if(current_mob.client && osound)
-				addtimer(new Callback(GLOBAL_PROC, GLOBAL_PROC_REF(sound_to), current_mob.client, 'pry2.ogg', 20), 1 SECONDS)
-				addtimer(new Callback(GLOBAL_PROC, GLOBAL_PROC_REF(sound_to), current_mob.client, 'double_klaxon.ogg'), 2 SECONDS)
+//				addtimer(new Callback(GLOBAL_PROC, GLOBAL_PROC_REF(sound_to), current_mob.client, 'pry2.ogg', 20), 1 SECONDS)
+//				addtimer(new Callback(GLOBAL_PROC, GLOBAL_PROC_REF(sound_to), current_mob.client, 'double_klaxon.ogg'), 2 SECONDS)
