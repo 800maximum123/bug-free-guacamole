@@ -43,7 +43,7 @@
 		if(sstrength > 7)
 			if(current_mob.client && osound)
 				sound_to(current_mob.client, 'metal_crash.ogg' )
-//				sound_to(current_mob.client, 'bigboom3.ogg')
+				sound_to(current_mob.client, 'bigboom3.ogg')
 
 			if(drop)
 /*				invoke_async(current_mob,  TYPE_PROC_REF(/atom/movable, throw_atom), get_ranged_target_turf(current_mob, pick(GLOB.cardinal), sstrength), pick(GLOB.cardinal), sstrength)
