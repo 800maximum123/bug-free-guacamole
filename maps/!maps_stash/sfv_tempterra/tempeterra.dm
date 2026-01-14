@@ -182,7 +182,8 @@
 		/obj/item/clothing/accessory/armor_plate/tactical,
 		/obj/item/clothing/accessory/helmet_cover/navy,
 		/obj/item/clothing/accessory/leg_guards/navy,
-		/obj/item/clothing/accessory/arm_guards/navy
+		/obj/item/clothing/accessory/arm_guards/navy,
+		/obj/item/clothing/glasses/ballistic
 	)
 	contents_allowed = list(
 		/obj/item/clothing/suit/armor/pcarrier,
@@ -191,7 +192,8 @@
 		/obj/item/clothing/accessory/armor_plate,
 		/obj/item/clothing/accessory/helmet_cover,
 		/obj/item/clothing/accessory/leg_guards,
-		/obj/item/clothing/accessory/arm_guards
+		/obj/item/clothing/accessory/arm_guards,
+		/obj/item/clothing/glasses/ballistic
 	)
 
 /obj/item/folder/envelope/rtb
