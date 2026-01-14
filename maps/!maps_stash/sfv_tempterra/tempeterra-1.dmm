@@ -230,7 +230,6 @@
 /obj/item/clothing/accessory/glassesmod/nvg,
 /obj/item/clothing/accessory/glassesmod/nvg,
 /obj/structure/table/rack,
-/obj/machinery/light,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/tempeterra/armsmen/locker)
 "aw" = (
@@ -498,10 +497,10 @@
 /obj/floor_decal/corner/paleblue/border{
 	dir = 1
 	},
-/obj/machinery/computer/modular/preset/cardslot/command,
 /obj/item/device/radio/intercom{
 	pixel_y = 23
 	},
+/obj/machinery/computer/modular/preset/aislot/sysadmin,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/command/cic)
 "bl" = (
@@ -643,8 +642,7 @@
 "by" = (
 /obj/machinery/door/airlock/vault{
 	dir = 4;
-	name = "Armory";
-	locked = 1
+	name = "Armory"
 	},
 /obj/machinery/door/firedoor{
 	dir = 4
@@ -933,11 +931,24 @@
 /area/tempeterra/engineering/tool)
 "cb" = (
 /obj/structure/table/rack,
-/obj/item/storage/toolbox/mechanical{
-	pixel_y = -3
+/obj/item/storage/box/handcuffs,
+/obj/item/storage/box/handcuffs,
+/obj/item/storage/box/flashbangs{
+	pixel_x = -2;
+	pixel_y = -2
 	},
-/obj/item/storage/toolbox/emergency{
-	pixel_y = 3
+/obj/item/storage/box/flashbangs{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/obj/item/storage/box/smokes,
+/obj/item/storage/box/smokes,
+/obj/item/storage/box/teargas{
+	pixel_x = 3;
+	pixel_y = 2
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/tempeterra/armsmen/locker)
@@ -1221,7 +1232,7 @@
 /obj/item/device/radio/intercom{
 	pixel_y = 23
 	},
-/obj/machinery/computer/rcon,
+/obj/machinery/computer/modular/preset/cardslot/command,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/command/cic)
 "cH" = (
@@ -1783,18 +1794,42 @@
 /turf/simulated/floor,
 /area/tempeterra/airlock)
 "dQ" = (
-/obj/structure/table/rack,
-/obj/item/barrier,
-/obj/item/barrier,
-/obj/item/barrier,
-/obj/item/barrier,
-/obj/item/barrier,
-/obj/item/barrier,
-/obj/item/barrier,
-/obj/item/barrier,
 /obj/machinery/rotating_alarm/security_alarm,
-/obj/machinery/light{
-	dir = 1
+/obj/structure/showcase{
+	bound_width = 64;
+	desc = "Simple and soft...pretty grounded workbench for little weapon modifications";
+	icon = 'mods/_fd/fd_customs/customs/doctoralex/workbenches.dmi';
+	icon_state = "tinkerbench";
+	name = "workbench";
+	pixel_x = -3;
+	pixel_y = 0
+	},
+/obj/item{
+	anchored = 1;
+	desc = "Just some stuff for work.";
+	icon = 'mods/_fd/fd_customs/customs/doctoralex/materials_world.dmi';
+	icon_state = "thread";
+	name = "materials";
+	pixel_x = 3;
+	pixel_y = 29
+	},
+/obj/item{
+	anchored = 1;
+	desc = "Just some stuff for work.";
+	icon = 'mods/_fd/fd_customs/customs/doctoralex/materials_world.dmi';
+	icon_state = "scrap_parts_3";
+	name = "materials";
+	pixel_x = 0;
+	pixel_y = 10
+	},
+/obj/item{
+	anchored = 1;
+	desc = "Aren't it...a bit small?";
+	icon = 'mods/_fd/fd_customs/customs/doctoralex/props.dmi';
+	icon_state = "fusion_core";
+	name = "fusion cell";
+	pixel_x = 4;
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/tempeterra/armsmen/locker)
@@ -1912,6 +1947,16 @@
 /area/tempeterra/engineering/it/telecomms)
 "eb" = (
 /obj/structure/table/rack,
+/obj/item/barrier,
+/obj/item/barrier,
+/obj/item/barrier,
+/obj/item/barrier,
+/obj/item/barrier,
+/obj/item/barrier,
+/obj/item/barrier,
+/obj/item/barrier,
+/obj/item/barrier,
+/obj/item/barrier,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/tempeterra/armsmen/locker)
 "ec" = (
@@ -4073,6 +4118,9 @@
 /obj/structure/closet/secure_closet/security_torch{
 	name = "armsmens' locker"
 	},
+/obj/machinery/light{
+	dir = 2
+	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/tempeterra/armsmen/locker)
 "ic" = (
@@ -4842,7 +4890,8 @@
 "js" = (
 /obj/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/valve{
-	dir = 8
+	dir = 8;
+	name = "CO2 to Engine"
 	},
 /obj/floor_decal/spline/fancy/black{
 	dir = 1
@@ -5950,11 +5999,11 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/computer/modular/preset/security{
-	dir = 1
-	},
 /obj/machinery/oxygen_pump{
 	pixel_y = -32
+	},
+/obj/machinery/computer/ship/missiles{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/command/cic)
@@ -6040,6 +6089,18 @@
 /obj/item/storage/backpack/dufflebag/sec/pcarrier,
 /obj/item/storage/backpack/dufflebag/sec/pcarrier,
 /obj/item/storage/backpack/dufflebag/sec/pcarrier,
+/obj/item/clothing/head/helmet/ballistic,
+/obj/item/clothing/head/helmet/ballistic,
+/obj/item/clothing/head/helmet/ballistic,
+/obj/item/clothing/head/helmet/ballistic,
+/obj/item/clothing/head/helmet/ballistic,
+/obj/item/clothing/head/helmet/ballistic,
+/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/bulletproof,
 /turf/simulated/floor/tiled/techfloor,
 /area/tempeterra/armsmen/locker)
 "lL" = (
@@ -6844,6 +6905,7 @@
 "no" = (
 /obj/structure/table/rack,
 /obj/floor_decal/industrial/outline/yellow,
+/obj/item/storage/toolbox/electrical,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/engineering/it/sensors)
 "nq" = (
@@ -8101,11 +8163,18 @@
 	dir = 1;
 	pixel_y = -28
 	},
-/obj/item/pen/fancy/quill,
 /obj/structure/table/steel_reinforced,
 /obj/item/paper/memo/command/concurrentmissions{
-	pixel_x = -13;
-	pixel_y = 4
+	pixel_x = -21;
+	pixel_y = 1
+	},
+/obj/item/paper_bin{
+	pixel_x = 2;
+	pixel_y = -2
+	},
+/obj/item/pen/fancy{
+	pixel_x = -5;
+	pixel_y = -4
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/command/cic)
@@ -9848,21 +9917,16 @@
 /area/tempeterra/engineering/reactor/powerdisttwo)
 "tv" = (
 /obj/structure/table/rack,
-/obj/item/storage/box/handcuffs,
-/obj/item/storage/box/handcuffs,
-/obj/item/storage/box/flashbangs{
-	pixel_x = -2;
-	pixel_y = -2
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = -4;
+	pixel_x = -3
 	},
-/obj/item/storage/box/flashbangs{
-	pixel_x = -2;
-	pixel_y = -2
+/obj/item/storage/toolbox/emergency{
+	pixel_y = 12;
+	pixel_x = 3
 	},
-/obj/item/storage/box/smokes,
-/obj/item/storage/box/smokes,
-/obj/item/storage/box/teargas{
-	pixel_x = 3;
-	pixel_y = 2
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/tempeterra/armsmen/locker)
@@ -11527,15 +11591,16 @@
 /obj/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/obj/machinery/atmospherics/valve{
-	dir = 8
-	},
 /obj/structure/railing/mapped,
 /obj/floor_decal/industrial/warning,
 /obj/structure/cable/yellow{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/valve{
+	dir = 8;
+	name = "CO2 to Hangar"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/tempeterra/engineering/reactor/fuel)
@@ -11758,10 +11823,10 @@
 /obj/floor_decal/corner/paleblue/border{
 	dir = 1
 	},
-/obj/machinery/computer/power_monitor,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/computer/modular/preset/dock,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/command/cic)
 "xj" = (
@@ -11873,6 +11938,8 @@
 	},
 /obj/item/reagent_containers/hypospray/vial,
 /obj/item/reagent_containers/hypospray/vial,
+/obj/item/auto_cpr,
+/obj/item/defibrillator/loaded,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/medical/storage)
 "xs" = (
@@ -11968,11 +12035,10 @@
 	dir = 8
 	},
 /obj/item/modular_computer/laptop/preset/custom_loadout/advanced,
-/obj/machinery/alarm/tempeterra{
-	dir = 4;
-	pixel_x = -23
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/machinery/rotating_alarm/security_alarm{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel_ridged,
@@ -13777,6 +13843,10 @@
 	dir = 4;
 	icon_state = "map_vent_out"
 	},
+/obj/item/wirecutters{
+	pixel_x = -15;
+	pixel_y = 16
+	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/tempeterra/engineering/it/sensors)
 "AK" = (
@@ -14003,7 +14073,6 @@
 /obj/structure/table/rack{
 	dir = 8
 	},
-/obj/item/storage/box/lights/mixed,
 /obj/item/hand_labeler,
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_x = -5
@@ -14660,7 +14729,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/alarm/tempeterra/cold{
+/obj/machinery/alarm/cold{
 	dir = 4;
 	pixel_x = -23
 	},
@@ -14750,10 +14819,10 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/computer/modular/preset/engineering,
 /obj/machinery/oxygen_pump{
 	pixel_y = 32
 	},
+/obj/machinery/computer/ship/navigation,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/command/cic)
 "CN" = (
@@ -16328,6 +16397,7 @@
 /obj/structure/closet/walllocker{
 	pixel_x = 32
 	},
+/obj/item/storage/box/trackimp,
 /turf/simulated/floor/carpet/blue2,
 /area/tempeterra/command/bunks)
 "FJ" = (
@@ -16483,6 +16553,10 @@
 /obj/floor_decal/corner/paleblue/border{
 	dir = 1
 	},
+/obj/item/laserframe{
+	pixel_x = 27;
+	pixel_y = 42
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/armsmen/locker)
 "Gb" = (
@@ -16630,19 +16704,27 @@
 /obj/machinery/firealarm{
 	pixel_y = 24
 	},
-/obj/structure/table/rack,
-/obj/item/clothing/suit/armor/bulletproof,
-/obj/item/clothing/suit/armor/bulletproof,
-/obj/item/clothing/suit/armor/bulletproof,
-/obj/item/clothing/suit/armor/bulletproof,
-/obj/item/clothing/suit/armor/bulletproof,
-/obj/item/clothing/suit/armor/bulletproof,
-/obj/item/clothing/head/helmet/ballistic,
-/obj/item/clothing/head/helmet/ballistic,
-/obj/item/clothing/head/helmet/ballistic,
-/obj/item/clothing/head/helmet/ballistic,
-/obj/item/clothing/head/helmet/ballistic,
-/obj/item/clothing/head/helmet/ballistic,
+/obj/item{
+	anchored = 1;
+	desc = "Just some stuff for work.";
+	icon = 'mods/_fd/fd_customs/customs/doctoralex/materials_world.dmi';
+	icon_state = "nail_4";
+	name = "materials";
+	pixel_x = 2;
+	pixel_y = -11
+	},
+/obj/item{
+	anchored = 1;
+	desc = "Simple old alarm clock.";
+	icon = 'mods/_fd/fd_customs/customs/doctoralex/props.dmi';
+	icon_state = "alarm";
+	name = "clock";
+	pixel_x = -15;
+	pixel_y = 27
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/tempeterra/armsmen/locker)
 "GB" = (
@@ -17614,6 +17696,14 @@
 	dir = 1
 	},
 /obj/structure/table/steel_reinforced,
+/obj/item/storage/fancy/pencilcase{
+	pixel_x = 10;
+	pixel_y = 0
+	},
+/obj/item/paper_bin{
+	pixel_x = -3;
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/command/cic)
 "Is" = (
@@ -18716,15 +18806,16 @@
 /obj/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/atmospherics/valve{
-	dir = 8
-	},
 /obj/floor_decal/spline/fancy/black,
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 8
 	},
 /obj/floor_decal/techfloor/corner{
 	dir = 8
+	},
+/obj/machinery/atmospherics/valve{
+	dir = 8;
+	name = "CO2 to Engine"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/tempeterra/engineering/reactor/fuel)
@@ -20922,7 +21013,7 @@
 	},
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
-	id = "rust_injector";
+	id = "tempterra_rust_injector2";
 	injecting = 1;
 	use_power = 1;
 	dir = 8
@@ -21153,9 +21244,6 @@
 "Pw" = (
 /obj/floor_decal/borderfloorblack/corner,
 /obj/floor_decal/corner/paleblue/bordercorner,
-/obj/machinery/computer/modular/preset/cardslot/command{
-	dir = 4
-	},
 /obj/structure/window/reinforced,
 /obj/machinery/light/spot{
 	dir = 8
@@ -21164,6 +21252,9 @@
 	dir = 8;
 	pixel_x = -36;
 	pixel_y = 0
+	},
+/obj/machinery/computer/modular/preset/merchant{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/command/cic)
@@ -22145,7 +22236,7 @@
 	dir = 6
 	},
 /obj/machinery/air_sensor{
-	id_tag = "rust_sensor"
+	id_tag = "tempterra_rust_sensor2"
 	},
 /turf/simulated/floor/reinforced,
 /area/tempeterra/engineering/reactor/twocore)
@@ -22536,7 +22627,7 @@
 	dir = 10
 	},
 /obj/machinery/air_sensor{
-	id_tag = "rust_sensor"
+	id_tag = "tempterra_rust_sensor"
 	},
 /turf/simulated/floor/reinforced,
 /area/tempeterra/engineering/reactor/onecore)
@@ -22984,7 +23075,8 @@
 /obj/floor_decal/techfloor/corner,
 /obj/floor_decal/industrial/warning/corner,
 /obj/machinery/atmospherics/valve{
-	dir = 8
+	dir = 8;
+	name = "CO2 to Hangar"
 	},
 /obj/structure/railing/mapped{
 	dir = 1;
@@ -25190,6 +25282,11 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
+/obj/machinery/photocopier{
+	pixel_x = 12;
+	pixel_y = 8;
+	density = 0
+	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/tempeterra/crew/chiefmess)
 "XC" = (
@@ -26362,7 +26459,7 @@
 	},
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
-	id = "rust_injector";
+	id = "tempterra_rust_injector";
 	injecting = 1;
 	use_power = 1;
 	dir = 8
