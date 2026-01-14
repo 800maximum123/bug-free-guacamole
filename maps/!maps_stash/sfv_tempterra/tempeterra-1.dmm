@@ -327,6 +327,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
+/obj/structure/flora/pottedplant/flower{
+	pixel_x = -13;
+	pixel_y = 60
+	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/tempeterra/crew/chiefmess)
 "aI" = (
@@ -1336,9 +1340,15 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/firealarm{
-	dir = 8;
-	pixel_x = -21
+/obj/structure/sign/warning/internals_required{
+	dir = 4;
+	pixel_x = -48;
+	pixel_y = 0
+	},
+/obj/structure/sign/warning/compressed_gas{
+	dir = 4;
+	pixel_x = -35;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/tempeterra/engineering/reactor/twocore)
@@ -3543,16 +3553,9 @@
 /obj/structure/disposalpipe/segment/bent{
 	dir = 4
 	},
-/obj/machinery/button/blast_door/indicator{
-	pixel_x = 4;
-	pixel_y = 2;
-	id_tag = "tempterra_hangar"
-	},
-/obj/machinery/button/blast_door/indicator{
+/obj/machinery/computer/ship/navigation/telescreen{
 	pixel_x = -8;
-	pixel_y = 2;
-	name = "Bridge Lockdown";
-	id_tag = "tempterra_bridge"
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/command/flight)
@@ -4406,6 +4409,10 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/structure/sign/warning/nosmoking_1{
+	dir = 2;
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tempeterra/engineering/reactor/powerdisttwo)
 "iC" = (
@@ -4889,10 +4896,6 @@
 /area/tempeterra/crew/chiefmess)
 "js" = (
 /obj/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/valve{
-	dir = 8;
-	name = "CO2 to Engine"
-	},
 /obj/floor_decal/spline/fancy/black{
 	dir = 1
 	},
@@ -4901,6 +4904,11 @@
 	},
 /obj/floor_decal/techfloor/corner{
 	dir = 1
+	},
+/obj/machinery/atmospherics/valve/digital{
+	id_tag = "tempterra_co2engine1";
+	dir = 4;
+	name = "CO2 to Engine"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/tempeterra/engineering/reactor/fuel)
@@ -6198,7 +6206,19 @@
 /obj/structure/disposalpipe/segment/bent{
 	dir = 1
 	},
-/obj/structure/fd/mapping/placeholder,
+/obj/structure/table/steel_reinforced,
+/obj/machinery/button/blast_door/indicator{
+	pixel_x = -6;
+	pixel_y = 2;
+	name = "Bridge Lockdown";
+	id_tag = "tempterra_bridge"
+	},
+/obj/machinery/button/blast_door/indicator{
+	pixel_x = 6;
+	pixel_y = 2;
+	name = "Airlock Lockdown";
+	id_tag = "tempterra_airlock"
+	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/tempeterra/command/flight)
 "lX" = (
@@ -6731,7 +6751,8 @@
 /obj/airlock_helper/door/ext_door,
 /obj/machinery/door/blast/regular{
 	dir = 4;
-	name = "Airlock Shutters"
+	name = "Airlock Shutters";
+	id_tag = "tempterra_airlock"
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/tempeterra/airlock)
@@ -7740,9 +7761,15 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/firealarm{
-	dir = 8;
-	pixel_x = -21
+/obj/structure/sign/warning/internals_required{
+	dir = 4;
+	pixel_x = -48;
+	pixel_y = 0
+	},
+/obj/structure/sign/warning/compressed_gas{
+	dir = 4;
+	pixel_x = -35;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/tempeterra/engineering/reactor/onecore)
@@ -8096,24 +8123,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/tempeterra/thirddeck/hallway/stairs)
 "pE" = (
-/obj/structure/table/steel_reinforced,
 /obj/floor_decal/corner/paleblue/mono,
-/obj/item/flame/lighter/zippo/gunmetal{
-	pixel_x = -4;
-	pixel_y = 6
-	},
-/obj/item/storage/fancy/smokable/transstellar{
-	pixel_x = -3
-	},
-/obj/item/storage/fancy/smokable/transstellar{
-	pixel_x = 7
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	level = 2
 	},
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/vending/cigarette,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/crew/lounge)
 "pF" = (
@@ -8180,7 +8197,6 @@
 /area/tempeterra/command/cic)
 "pJ" = (
 /obj/structure/window/boron_reinforced,
-/obj/machinery/telecomms/broadcaster,
 /obj/floor_decal/corner/green/half{
 	dir = 4
 	},
@@ -8188,6 +8204,7 @@
 	dir = 8;
 	pixel_x = 32
 	},
+/obj/machinery/telecomms/broadcaster/map_preset/northstar,
 /turf/simulated/floor/tiled/white/monotile,
 /area/tempeterra/engineering/it/telecomms)
 "pK" = (
@@ -8992,6 +9009,12 @@
 /obj/floor_decal/industrial/outline/grey,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	level = 2
+	},
+/obj/structure/bed/padded/raised,
+/obj/item/bedsheet/blue{
+	layer = 3.11;
+	pixel_x = 0;
+	pixel_y = 9
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/command/bunks)
@@ -10312,6 +10335,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/plating,
 /area/tempeterra/thirddeck/hallway/stairs)
 "ul" = (
@@ -11389,7 +11413,6 @@
 /obj/structure/window/boron_reinforced{
 	dir = 1
 	},
-/obj/machinery/telecomms/receiver,
 /obj/floor_decal/corner/green/half{
 	dir = 4
 	},
@@ -11397,6 +11420,7 @@
 	dir = 8;
 	pixel_x = 32
 	},
+/obj/machinery/telecomms/receiver/map_preset/northstar,
 /turf/simulated/floor/tiled/white/monotile,
 /area/tempeterra/engineering/it/telecomms)
 "ws" = (
@@ -11801,6 +11825,10 @@
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
+	},
+/obj/machinery/firealarm{
+	pixel_x = 0;
+	pixel_y = 22
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/tempeterra/engineering/reactor/onecore)
@@ -12530,7 +12558,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/fd/mapping/placeholder,
+/obj/structure/table/steel_reinforced,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/tempeterra/command/flight)
 "yr" = (
@@ -12643,6 +12671,10 @@
 /obj/item/inducer{
 	pixel_y = 7
 	},
+/obj/structure/sign/atmosplaque{
+	pixel_x = 0;
+	pixel_y = 28
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/tempeterra/engineering/tool)
 "yF" = (
@@ -12707,9 +12739,6 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/tempeterra/engineering/foyer)
 "yM" = (
-/obj/machinery/power/smes/buildable/preset/torch/substation_full{
-	RCon_tag = "Substation - Atmospherics"
-	},
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
@@ -12723,6 +12752,9 @@
 	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/machinery/power/smes/buildable/preset/torch/substation_full{
+	RCon_tag = "Engine - Starboard"
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/engineering/reactor/powerdistone)
@@ -13945,7 +13977,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/fd/mapping/placeholder,
+/obj/structure/table/steel_reinforced,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/tempeterra/command/flight)
 "AS" = (
@@ -14466,6 +14498,10 @@
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
+	},
+/obj/structure/sign/warning/nosmoking_1{
+	dir = 1;
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tempeterra/engineering/reactor/powerdistone)
@@ -15181,6 +15217,11 @@
 /obj/item/reagent_containers/chem_disp_cartridge/coffee,
 /obj/item/reagent_containers/chem_disp_cartridge/coffee,
 /obj/item/reagent_containers/chem_disp_cartridge/coffee,
+/obj/item/storage/box/canned_beef,
+/obj/item/storage/box/canned_berries,
+/obj/item/storage/box/canned_spinach,
+/obj/item/storage/box/canned_tomato,
+/obj/item/storage/box/canned_beans,
 /turf/simulated/floor/tiled,
 /area/tempeterra/crew/fridge)
 "Dv" = (
@@ -15653,8 +15694,8 @@
 /obj/structure/window/boron_reinforced{
 	dir = 8
 	},
-/obj/machinery/telecomms/hub,
 /obj/floor_decal/corner/green/mono,
+/obj/machinery/telecomms/hub/map_preset/northstar,
 /turf/simulated/floor/tiled/white/monotile,
 /area/tempeterra/engineering/it/telecomms)
 "Ef" = (
@@ -17050,7 +17091,9 @@
 /turf/simulated/floor/tiled,
 /area/tempeterra/command/eva)
 "Hi" = (
-/obj/machinery/atmospherics/valve,
+/obj/machinery/atmospherics/valve{
+	name = "Emergency Combine Thrust"
+	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -17377,7 +17420,6 @@
 /turf/simulated/floor,
 /area/tempeterra/command/cic)
 "HJ" = (
-/obj/machinery/telecomms/processor,
 /obj/floor_decal/corner/green/half{
 	dir = 4
 	},
@@ -17387,6 +17429,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/telecomms/processor/map_preset/northstar,
 /turf/simulated/floor/tiled/white/monotile,
 /area/tempeterra/engineering/it/telecomms)
 "HK" = (
@@ -17945,7 +17988,6 @@
 /turf/simulated/wall/r_wall/prepainted,
 /area/tempeterra/engineering/foyer)
 "IQ" = (
-/obj/machinery/telecomms/bus,
 /obj/floor_decal/corner/green/half{
 	dir = 4
 	},
@@ -17955,6 +17997,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/telecomms/bus/map_preset/northstar,
 /turf/simulated/floor/tiled/white/monotile,
 /area/tempeterra/engineering/it/telecomms)
 "IS" = (
@@ -18813,8 +18856,9 @@
 /obj/floor_decal/techfloor/corner{
 	dir = 8
 	},
-/obj/machinery/atmospherics/valve{
-	dir = 8;
+/obj/machinery/atmospherics/valve/digital{
+	id_tag = "tempterra_co2engine2";
+	dir = 4;
 	name = "CO2 to Engine"
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -18943,6 +18987,12 @@
 /obj/machinery/firealarm{
 	dir = 8;
 	pixel_x = -21
+	},
+/obj/machinery/vending/coffee{
+	pixel_x = -5;
+	pixel_y = 12;
+	density = 0;
+	desc = "A vending machine which dispenses hot drinks and hot drinks accessories. This one is clearly SHOULD NOT BE here."
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tempeterra/seconddeck/hallway/fore/midships)
@@ -20649,6 +20699,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/plating,
 /area/tempeterra/thirddeck/hallway/stairs)
 "Oi" = (
@@ -20888,7 +20939,19 @@
 /obj/floor_decal/corner/paleblue/border{
 	dir = 1
 	},
-/obj/structure/fd/mapping/placeholder,
+/obj/structure/table/steel_reinforced,
+/obj/machinery/button/blast_door/indicator{
+	pixel_x = 6;
+	pixel_y = 2;
+	name = "Airlock Lockdown";
+	id_tag = "tempterra_airlock"
+	},
+/obj/machinery/button/blast_door/indicator{
+	pixel_x = -8;
+	pixel_y = 2;
+	name = "Bridge Lockdown";
+	id_tag = "tempterra_bridge"
+	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/tempeterra/command/flight)
 "OL" = (
@@ -22039,7 +22102,7 @@
 "Rc" = (
 /obj/floor_decal/techfloor,
 /obj/machinery/power/smes/buildable/preset/torch/substation_full{
-	RCon_tag = "Substation - Atmospherics"
+	RCon_tag = "Substation - Port"
 	},
 /obj/structure/cable{
 	d2 = 8;
@@ -22860,7 +22923,19 @@
 	},
 /obj/item/paper/memo/engineering/ladder{
 	pixel_x = 2;
-	pixel_y = 6
+	pixel_y = 13
+	},
+/obj/machinery/button/toggle/valve{
+	id_tag = "tempterra_co2engine1";
+	name = "Starboard Engine Fuel";
+	pixel_x = -6;
+	pixel_y = -3
+	},
+/obj/machinery/button/toggle/valve{
+	id_tag = "tempterra_co2engine2";
+	name = "Port Engine Fuel";
+	pixel_x = 6;
+	pixel_y = -3
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/command/cic)
@@ -22924,7 +22999,8 @@
 /obj/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	dir = 4;
-	name = "Airlock Shutters"
+	name = "Airlock Shutters";
+	id_tag = "tempterra_airlock"
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/tempeterra/airlock)
@@ -23992,7 +24068,6 @@
 /turf/simulated/floor,
 /area/tempeterra/command/cic)
 "UW" = (
-/obj/machinery/telecomms/server,
 /obj/floor_decal/corner/green/half{
 	dir = 4
 	},
@@ -24004,6 +24079,7 @@
 	pixel_x = 0;
 	pixel_y = 7
 	},
+/obj/machinery/telecomms/server/map_preset/northstar,
 /turf/simulated/floor/tiled/white/monotile,
 /area/tempeterra/engineering/it/telecomms)
 "UX" = (
@@ -24875,10 +24951,10 @@
 /obj/floor_decal/corner/orange/border{
 	dir = 4
 	},
-/obj/machinery/power/smes/buildable/preset/torch/substation_full{
-	RCon_tag = "Substation - Atmospherics"
-	},
 /obj/structure/cable/green,
+/obj/machinery/power/smes/buildable/preset/torch/substation_full{
+	RCon_tag = "Engine - Port"
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/engineering/reactor/powerdisttwo)
 "WP" = (
@@ -25285,6 +25361,12 @@
 /obj/machinery/photocopier{
 	pixel_x = 12;
 	pixel_y = 8;
+	density = 0
+	},
+/obj/structure/filingcabinet/chestdrawer{
+	dir = 1;
+	pixel_x = -11;
+	pixel_y = 11;
 	density = 0
 	},
 /turf/simulated/floor/tiled/steel_grid,
@@ -26263,6 +26345,11 @@
 /obj/machinery/power/sensor{
 	name = "R-UST Power Generation - Powernet Sensor";
 	name_tag = "R-UST Power Generation"
+	},
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_x = 0;
+	pixel_y = -28
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/tempeterra/engineering/reactor/twocore)
