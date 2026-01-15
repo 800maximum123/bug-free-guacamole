@@ -675,10 +675,14 @@
 	dir = 5
 	},
 /obj/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
 /obj/machinery/alarm{
 	pixel_y = 24
 	},
+/obj/item/stack/material/deuterium/fifty,
+/obj/item/stack/material/deuterium/fifty,
+/obj/item/stack/material/tritium/fifty,
+/obj/item/stack/material/tritium/fifty,
+/obj/structure/closet/crate/radiation,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/tempeterra/atmos)
 "bC" = (
@@ -9376,6 +9380,17 @@
 /obj/structure/handrail,
 /turf/simulated/floor/reinforced,
 /area/tempeterra/airlock)
+"si" = (
+/obj/floor_decal/spline/fancy/black{
+	dir = 8
+	},
+/obj/machinery/fusion_fuel_compressor,
+/obj/structure/railing/mapped{
+	dir = 4;
+	layer = 4.1
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/tempeterra/engineering/reactor/fuel)
 "sk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -13201,6 +13216,10 @@
 	},
 /obj/floor_decal/corner/orange/border{
 	dir = 4
+	},
+/obj/structure/sign/warning/radioactive{
+	dir = 8;
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/engineering/reactor/powerdisttwo)
@@ -17099,6 +17118,10 @@
 	},
 /obj/floor_decal/corner/orange/border{
 	dir = 4
+	},
+/obj/structure/sign/warning/radioactive{
+	dir = 8;
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/engineering/reactor/powerdistone)
@@ -48223,7 +48246,7 @@ QD
 wt
 mw
 mw
-cn
+si
 Pj
 cn
 mw
