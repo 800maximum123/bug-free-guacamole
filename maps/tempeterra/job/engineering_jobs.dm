@@ -66,7 +66,7 @@
 		)
 	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/engineering/engineer/fleet
 	allowed_branches = list(
-		/datum/mil_branch/fleet
+		/datum/mil_branch/fleet,
 		/datum/mil_branch/civilian = /singleton/hierarchy/outfit/job/torch/crew/engineering/contractor
 	)
 	allowed_ranks = list(

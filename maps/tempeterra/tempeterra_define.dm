@@ -1,0 +1,63 @@
+/datum/map/tempterra
+	name = "\improper Tempterra"
+	full_name = "\improper SFV Tempterra"
+	path = "torch" // Эта штука должна менять сейв слоты. Не думаю что стоит
+	flags = MAP_HAS_BRANCH | MAP_HAS_RANK
+	config_path = "config/torch_config.txt"
+
+	admin_levels = list(2)
+	empty_levels = list(3)
+	accessible_z_levels = list("1"=1, "3"=30)
+	overmap_size = 10
+	overmap_event_areas = 5
+	usable_email_tlds = list("tempterra.ec.scg", "tempterra.fleet.mil", "freemail.net", "tempterra.scg")
+
+	allowed_spawns = list("Cryogenic Storage", "Cyborg Storage")
+	default_spawn = "Cryogenic Storage"
+
+	station_name  = "\improper SFV Tempterra"
+	station_short = "\improper Tempterra"
+	dock_name     = "TBD"
+	boss_name     = "Third Fleet Command"
+	boss_short    = "Command"
+	company_name  = "Sol Central Government"
+	company_short = "SolGov"
+
+	map_admin_faxes = list(
+		"Expeditionary Corps Command",
+		"Expeditionary Corps Logistics",
+		"EXO Head Office",
+		"EXO Internal Affairs",
+		"SFP Territory Support",
+		"SFP Special Investigations",
+		"SFP Fugitive Recovery",
+		"Sol Fleet Mars Commmand",
+		"Sol Army Commmand",
+		"Bureau of Diplomatic Affairs",
+		"Emergency Management Bureau",
+		"Secure Routing Service"
+	)
+
+	//These should probably be moved into the evac controller...
+	shuttle_docked_message = "Внимание всему персоналу: подготовка к подпространственному прыжку завершена. Начата процедура безопасной активации генератора подпространства. Расчетное время до начала прыжка: %ETD%."
+	shuttle_leaving_dock = "Внимание всему персоналу: прыжок начат. Примерное время окончания прыжка: %ETA%. Сохраняйте спокойствие и трезвость мышления."
+	shuttle_called_message = "Внимание всему персоналу: запущена процедура подготовки к подпространственному прыжку в следующий сектор. Расчетное время окончания зарядки генератора блюспейса: %ETA%."
+	shuttle_recall_message = "Внимание всему персоналу: процедура подготовки к подпространственному прыжку отменена. Возвращайтесь к исполнению своих рабочих обязанностей."
+
+	evac_controller_type = /datum/evacuation_controller/starship
+	default_law_type = /datum/ai_laws/solgov
+
+	use_overmap = 1
+	num_exoplanets = 0
+	num_junkyards = 0
+	num_traders = 0
+
+	away_site_budget = 0
+	min_offmap_players = 12
+
+
+	id_hud_icons = 'maps/torch/icons/assignment_hud.dmi'
+
+	welcome_sound = 'sound/AI/welcome.ogg'
+
+	use_bluespace_interlude = TRUE

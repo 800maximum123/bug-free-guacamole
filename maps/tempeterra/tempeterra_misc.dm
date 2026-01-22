@@ -1,6 +1,6 @@
-#include "tempeterra_area.dm"
+/*#include "tempeterra_area.dm"
 #include "tempeterra_shuttles.dm"
-
+*/
 /datum/map_template/ruin/sfv_tempeterra
 	name = "SFV Tempe Terra"
 	id = "sfv_tempeterra"
