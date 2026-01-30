@@ -1,5 +1,5 @@
 /datum/job/warden
-	title = "Brig Chief"
+	title = "Fireteam Leader"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the Chief of Security"
@@ -7,9 +7,9 @@
 	minimal_player_age = 7
 	ideal_character_age = 35
 	minimum_character_age = list(SPECIES_HUMAN = 27)
-	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/security/brig_chief
+	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/security/brig_chief/fleet
 	allowed_branches = list(
-		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/torch/crew/security/brig_chief/fleet,
+		/datum/mil_branch/fleet
 	)
 	allowed_ranks = list(
 		/datum/mil_rank/fleet/e6,
@@ -47,21 +47,14 @@
 	minimum_character_age = list(SPECIES_HUMAN = 18)
 	ideal_character_age = 25
 	alt_titles = list() // This is a hack. Overriding a list var with null does not actually override it due to the particulars of dm list init. Do not "clean up" without testing.
-	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/security/maa
+	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/security/maa/fleet
 	allowed_branches = list(
-		/datum/mil_branch/expeditionary_corps,
-		/datum/mil_branch/fleet = /singleton/hierarchy/outfit/job/torch/crew/security/maa/fleet,
-		/datum/mil_branch/scga = /singleton/hierarchy/outfit/job/torch/crew/security/maa/army
+		/datum/mil_branch/fleet
 	)
 	allowed_ranks = list(
-		/datum/mil_rank/ec/e3,
 		/datum/mil_rank/fleet/e3,
 		/datum/mil_rank/fleet/e4,
 		/datum/mil_rank/fleet/e5,
-		/datum/mil_rank/scga/e3,
-		/datum/mil_rank/scga/e4,
-		/datum/mil_rank/scga/e5
-
 	)
 	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
 	                    SKILL_EVA         = SKILL_BASIC,
