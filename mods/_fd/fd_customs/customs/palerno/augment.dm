@@ -23,5 +23,5 @@
 	icon = 'mods/_fd/fd_customs/customs/palerno/icon/implant.dmi'
 	icon_state = "onmobimplant"
 	species_allowed = list(SPECIES_HUMAN)
-	body_parts = BP_CHEST
-	do_coloration = null
+	body_parts = list(BP_CHEST)
+	do_coloration = 0
