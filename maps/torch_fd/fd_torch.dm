@@ -182,6 +182,11 @@
 	#include "../torch/loadout/~defines.dm"
 	#include "loadout/overrides.dm"
 
+	// --- CUTSCENES --- //
+	#include "../torch_doh/cutscenes/cutscene_api_danilcus.dm"
+	#include "../torch_doh/cutscenes/animations.dm"
+	#include "../torch_doh/cutscenes/framework.dm"
+
 	// --- MAP FILES --- //
 
 		// ~TORCH~ //

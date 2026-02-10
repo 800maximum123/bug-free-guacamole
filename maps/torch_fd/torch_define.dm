@@ -9,8 +9,8 @@
 	escape_levels = list(8)
 	empty_levels  = list(9)
 	accessible_z_levels = list("1"=1,"2"=3,"3"=1,"4"=1,"5"=1,"6"=1,"9"=30)
-	overmap_size = 10 // DOH - 195
-	overmap_event_areas = 52
+	overmap_size = 59 // DOH - 195
+	overmap_event_areas = 62
 	usable_email_tlds = list("torch.ec.scg", "torch.fleet.mil", "freemail.net", "torch.scg")
 
 	allowed_spawns = list("Cryogenic Storage", "Cyborg Storage")
@@ -49,8 +49,8 @@
 	default_law_type = /datum/ai_laws/solgov
 
 	use_overmap = 1
-	num_exoplanets = 0
-	num_junkyards = 0
+	num_exoplanets = 1
+	num_junkyards = 1
 	num_traders = 0
 
 	away_site_budget = 0
