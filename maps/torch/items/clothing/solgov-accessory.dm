@@ -547,6 +547,7 @@ department tags
 	icon_state = "dept_fleet"
 	desc = "Insignia denoting assignment to the command department. These fit Fleet uniforms."
 	on_rolled_sleeves = "dept_fleet_sleeves"
+	on_rolled_down = "dept_fleet_rolled"
 
 
 /obj/item/clothing/accessory/solgov/department/engineering
@@ -561,6 +562,7 @@ department tags
 	icon_state = "dept_fleet"
 	desc = "Insignia denoting assignment to the engineering department. These fit Fleet uniforms."
 	on_rolled_sleeves = "dept_fleet_sleeves"
+	on_rolled_down = "dept_fleet_rolled"
 
 
 /obj/item/clothing/accessory/solgov/department/security
@@ -575,6 +577,7 @@ department tags
 	icon_state = "dept_fleet"
 	desc = "Insignia denoting assignment to the security department. These fit Fleet uniforms."
 	on_rolled_sleeves = "dept_fleet_sleeves"
+	on_rolled_down = "dept_fleet_rolled"
 
 
 /obj/item/clothing/accessory/solgov/department/medical
@@ -590,6 +593,7 @@ department tags
 	icon_state = "dept_fleet"
 	desc = "Insignia denoting assignment to the medical department. These fit Fleet uniforms."
 	on_rolled_sleeves = "dept_fleet_sleeves"
+	on_rolled_down = "dept_fleet_rolled"
 
 
 /obj/item/clothing/accessory/solgov/department/supply
@@ -604,6 +608,7 @@ department tags
 	icon_state = "dept_fleet"
 	desc = "Insignia denoting assignment to the supply department. These fit Fleet uniforms."
 	on_rolled_sleeves = "dept_fleet_sleeves"
+	on_rolled_down = "dept_fleet_rolled"
 
 
 /obj/item/clothing/accessory/solgov/department/service
@@ -618,6 +623,7 @@ department tags
 	icon_state = "dept_fleet"
 	desc = "Insignia denoting assignment to the service department. These fit Fleet uniforms."
 	on_rolled_sleeves = "dept_fleet_sleeves"
+	on_rolled_down = "dept_fleet_rolled"
 
 
 /obj/item/clothing/accessory/solgov/department/exploration
@@ -632,6 +638,7 @@ department tags
 	icon_state = "dept_fleet"
 	desc = "Insignia denoting assignment to the exploration department. These fit Fleet uniforms."
 	on_rolled_sleeves = "dept_fleet_sleeves"
+	on_rolled_down = "dept_fleet_rolled"
 
 
 /obj/item/clothing/accessory/solgov/department/research

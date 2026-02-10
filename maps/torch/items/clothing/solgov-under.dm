@@ -158,6 +158,12 @@
 	accessories = list(/obj/item/clothing/accessory/solgov/department/exploration/fleet)
 	item_flags = ITEM_FLAG_WASHER_ALLOWED | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
+/obj/item/clothing/under/solgov/utility/fleet/combat
+	name = "fleet fatigues"
+	desc = "Alternative utility uniform of the SCG Fleet, for when coveralls are impractical."
+	icon_state = "navycombat"
+	worn_state = "navycombat"
+
 /obj/item/clothing/under/solgov/utility/fleet/combat/security
 	accessories = list(/obj/item/clothing/accessory/solgov/department/security/fleet)
 	item_flags = ITEM_FLAG_WASHER_ALLOWED | ITEM_FLAG_INVALID_FOR_CHAMELEON
