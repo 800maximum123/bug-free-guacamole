@@ -1,5 +1,5 @@
 /area/tempeterra
-	icon = 'maps/!maps_stash/sfv_tempeterra/tempeterra.dmi'
+	icon = 'tempeterra.dmi'
 //	req_access = list(access_fleet_crew)
 
 /area/tempeterra/hangar

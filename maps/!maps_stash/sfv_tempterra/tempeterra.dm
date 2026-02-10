@@ -123,7 +123,7 @@
 	base_turf = /turf/simulated/floor/plating
 
 /obj/machinery/atmospherics/unary/engine/big
-	icon = 'maps/!maps_stash/sfv_tempeterra/3x3_engine.dmi'
+	icon = '3x3_engine.dmi'
 	icon_state = "huge_engine"
 	moles_per_burn = 8.0
 	boot_time = 70
