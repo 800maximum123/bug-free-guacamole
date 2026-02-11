@@ -201,7 +201,7 @@
 		/obj/item/grenade/chem_grenade/teargas,
 		/obj/item/melee/baton/loaded,
 		/obj/item/taperoll/police,
-		/obj/item/storage/firstaid/individual/military,
+		/obj/item/storage/firstaid/light,
 		/obj/item/device/hailer,
 		/obj/item/clothing/accessory/storage/black_vest,
 		/obj/item/device/megaphone,

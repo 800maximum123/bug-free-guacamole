@@ -66,7 +66,7 @@
 		/obj/item/grenade/chem_grenade/teargas,
 		/obj/item/melee/baton/loaded,
 		/obj/item/taperoll/police,
-		/obj/item/storage/firstaid/individual/military,
+		/obj/item/storage/firstaid/light,
 		/obj/item/device/hailer,
 		/obj/item/clothing/accessory/storage/black_vest,
 		/obj/item/gun/energy/gun/small/secure,
@@ -94,7 +94,7 @@
 	/obj/item/ammo_magazine/pistol/double,
 	/obj/item/rig/ert/fleet/armsman,
 	/obj/item/device/radio/headset/armsman,
-	/obj/item/storage/firstaid/individual/military,
+	/obj/item/storage/firstaid/light,
 	/obj/item/device/flashlight/maglight
 	)
 
@@ -109,7 +109,7 @@
 	/obj/item/ammo_magazine/pistol/double,
 	/obj/item/rig/ert/fleet/armsman,
 	/obj/item/device/radio/headset/armsman,
-	/obj/item/storage/firstaid/individual/military,
+	/obj/item/storage/firstaid/light,
 	/obj/item/device/flashlight/maglight,
 	/obj/item/storage/box/emps,
 	/obj/item/storage/box/smokes,
@@ -129,7 +129,7 @@
 	/obj/item/ammo_magazine/pistol/double,
 	/obj/item/rig/ert/fleet/armsman,
 	/obj/item/device/radio/headset/armsman,
-	/obj/item/storage/firstaid/individual/military,
+	/obj/item/storage/firstaid/light,
 	/obj/item/device/flashlight/maglight,
 	)
 
@@ -144,7 +144,7 @@
 	/obj/item/ammo_magazine/pistol/double,
 	/obj/item/rig/ert/fleet/armsman,
 	/obj/item/device/radio/headset/armsman/lead,
-	/obj/item/storage/firstaid/individual/military,
+	/obj/item/storage/firstaid/light,
 	/obj/item/device/flashlight/maglight,
 	)
 
