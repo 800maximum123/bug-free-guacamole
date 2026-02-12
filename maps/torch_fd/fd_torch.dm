@@ -143,7 +143,6 @@
 	#include "job/addition/exploration_jobs.dm"
 	#include "job/addition/research_jobs.dm"
 	#include "job/addition/service_jobs.dm"
-	#include "job/addition/security.dm"
 
 	// --- MACHINERY --- //
 	#include "../torch/machinery/apc_shuttle.dm"
@@ -158,7 +157,7 @@
 	#include "../torch/structures/closets/medical.dm"
 	#include "../torch/structures/closets/misc.dm"
 	#include "../torch/structures/closets/research.dm"
-//	#include "../torch/structures/closets/security.dm"
+	#include "../torch/structures/closets/security.dm"
 	#include "../torch/structures/closets/services.dm"
 	#include "../torch/structures/closets/supply.dm"
 	#include "../torch/structures/closets/exploration.dm"
