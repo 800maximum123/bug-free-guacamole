@@ -179,6 +179,11 @@ var/global/list/channel_to_radio_key = new
 	return html_encode(message)
 
 /mob/living/say(message, datum/language/speaking = null, verb="says", alt_name="", whispering)
+// [FD-ADD]
+	if(!can_speak)
+		return
+// [/FD-ADD]
+
 	if(client)
 		if(client.prefs.muted & MUTE_IC)
 			to_chat(src, SPAN_WARNING("You cannot speak in IC (Muted)."))
@@ -338,7 +343,8 @@ var/global/list/channel_to_radio_key = new
 	else
 		log_say("[name]/[key] : [message]")
 
-	if (length(speech_bubble_recipients))
+// [FD-ADD]
+	if (do_speech_bubble && length(speech_bubble_recipients))
 		var/speech_intent = say_test(message)
 		var/image/speech_bubble = image('icons/mob/talk.dmi', src, "h[speech_intent]")
 		speech_bubble.blend_mode = BLEND_OVERLAY
@@ -350,7 +356,7 @@ var/global/list/channel_to_radio_key = new
 		animate(time = 1 SECOND)
 		animate(alpha = 0, pixel_y = 8, time = 1 SECOND, easing = QUAD_EASING)
 	return 1
-
+// [/FD-ADD]
 
 /mob/living/proc/say_signlang(message, verb="gestures", datum/language/language)
 	for (var/mob/O in viewers(src, null))

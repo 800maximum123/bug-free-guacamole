@@ -16,11 +16,11 @@
 		STOP_PROCESSING(SSobj, src)
 
 /obj/structure/fd/campfire/on_update_icon()
+	. = ..()
 	if(lit)
 		icon_state = "campfire_lit"
-	if(!lit)
+	else
 		icon_state = "campfire"
-	return
 
 /obj/structure/fd/campfire/use_tool(obj/item/I, mob/living/user)
 	SHOULD_CALL_PARENT(FALSE)
@@ -432,7 +432,7 @@
 	if(length(targets_in_range))
 		affecting = pick(targets_in_range)
 		affected_mobs += affecting
-		affecting.overlay_fullscreen("malf-scanline", /obj/screen/fullscreen/bluespace_affection)
+		affecting.overlay_fullscreen("malf-scanline", /obj/screen/fullscreen/fd/bluespace_affection)
 
 	for(affecting as anything in affected_mobs)
 		if(!in_range(src, affecting))
@@ -491,6 +491,17 @@
 	pixel_x = -32
 	pixel_y = 0
 
+/obj/structure/flora/tree/beet_decorative
+	icon = 'mods/_fd/fd_assets/icons/structures/flora/beet_tree.dmi'
+	icon_state = "beet_tree"
+	pixel_x = -32
+	pixel_y = 0
+
+/obj/structure/flora/tree/beet_decorative/Initialize()
+	. = ..()
+
+	icon_state = "beet_tree[rand(1, 3)]"
+
 /obj/structure/flora/jungle
 	anchored = TRUE
 
@@ -499,6 +510,7 @@
 	icon = 'mods/_fd/fd_assets/icons/structures/largejungleflora.dmi'
 	icon_state = "bush1"
 	pixel_x = -16
+	layer = 4.07
 
 /obj/structure/flora/jungle/bush/New()
 	..()

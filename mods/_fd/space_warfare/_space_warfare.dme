@@ -1,0 +1,22 @@
+#ifndef MODPACK_SPACE_WARFARE
+#define MODPACK_SPACE_WARFARE
+
+#include "_space_warfare.dm"
+
+#include "code/_defines.dm"
+#include "code/helpers.dm"
+#include "code/subsystem.dm"
+
+#include "code/_ammunition/ammo_fabricator.dm"
+#include "code/_ammunition/weapon_ammunition.dm"
+#include "code/_ammunition/weapon_bullet.dm"
+
+#include "code/_overmap_projectile/overmap_projectile_interactions.dm"
+#include "code/_overmap_projectile/overmap_projectile_motion.dm"
+#include "code/_overmap_projectile/overmap_projectile.dm"
+
+#include "code/_space_weapon/weapon_console.dm"
+#include "code/_space_weapon/weapon_datum.dm"
+#include "code/_space_weapon/weapon.dm"
+
+#endif

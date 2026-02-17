@@ -105,6 +105,8 @@ var/global/list/admin_verbs_admin = list(
 // 	[FD-ADD]
 	/client/proc/remove_slot_crew_full,
 	/client/proc/allow_to_join,
+	/datum/admins/proc/addserverwhitelist,
+	/datum/admins/proc/removeserverwhitelist,
 
 //	[/FD-ADD]
 	/datum/admins/proc/togglemoderequirementchecks,
@@ -174,6 +176,9 @@ var/global/list/admin_verbs_server = list(
 	/datum/admins/proc/adspawn,
 	/datum/admins/proc/adjump,
 	/client/proc/toggle_random_events,
+		// [FD-ADD]
+	/datum/admins/proc/startserverwhitelist,
+	// [/FD-ADD]
 	/client/proc/nanomapgen_DumpImage
 	)
 var/global/list/admin_verbs_debug = list(

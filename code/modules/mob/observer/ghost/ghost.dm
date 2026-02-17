@@ -521,7 +521,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/observer/ghost/MayRespawn(feedback = 0, respawn_time = 0)
 	if(!client)
 		return 0
-	if(mind && mind.current && mind.current.stat != DEAD && can_reenter_corpse == CORPSE_CAN_REENTER)
+	if(mind && !QDELETED(mind.current) && mind.current.stat != DEAD && can_reenter_corpse == CORPSE_CAN_REENTER)
 		if(feedback)
 			to_chat(src, SPAN_WARNING("Your non-dead body prevents you from respawning."))
 		return 0

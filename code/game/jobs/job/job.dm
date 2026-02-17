@@ -303,6 +303,8 @@
 	var/spawn_branches = GLOB.mil_branches.spawn_branches(S)
 	for(var/branch_type in allowed_branches)
 		var/datum/mil_branch/branch = GLOB.mil_branches.get_branch_by_type(branch_type)
+		if(!branch)
+			continue
 		if(branch.name in spawn_branches)
 			if(!allowed_ranks || !(GLOB.using_map.flags & MAP_HAS_RANK))
 				LAZYADD(., branch.name)

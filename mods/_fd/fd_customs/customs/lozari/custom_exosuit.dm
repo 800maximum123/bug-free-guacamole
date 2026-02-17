@@ -65,3 +65,29 @@
 	install_system(new /obj/item/mech_equipment/sleeper(src), HARDPOINT_BACK)
 	install_system(new /obj/item/mech_equipment/flash(src), HARDPOINT_LEFT_SHOULDER)
 	install_system(new /obj/item/mech_equipment/mounted_system/taser/plasma(src), HARDPOINT_RIGHT_SHOULDER)
+
+/mob/living/exosuit/premade/friend
+	name = "F.R.I.E.N.D"
+	desc = "A heavily armored combat exosuit."
+
+/mob/living/exosuit/premade/friend/Initialize()
+	if(!arms)
+		arms = new /obj/item/mech_component/manipulators/light(src)
+		arms.color = "#168500"
+	if(!legs)
+		legs = new /obj/item/mech_component/propulsion/light(src)
+		legs.color = "#168500"
+	if(!head)
+		head = new /obj/item/mech_component/sensors/light(src)
+		head.color = "#6ac992"
+	if(!body)
+		body = new /obj/item/mech_component/chassis/light(src)
+		body.color = "#6ac992"
+
+	. = ..()
+
+/mob/living/exosuit/premade/friend/spawn_mech_equipment()
+	..()
+	install_system(new /obj/item/mech_equipment/drill(src), HARDPOINT_LEFT_HAND)
+	install_system(new /obj/item/mech_equipment/clamp(src), HARDPOINT_RIGHT_HAND)
+	install_system(new /obj/item/mech_equipment/light(src), HARDPOINT_HEAD)

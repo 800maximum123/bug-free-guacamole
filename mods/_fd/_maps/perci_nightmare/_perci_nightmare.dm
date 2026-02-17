@@ -1,4 +1,4 @@
 /singleton/modpack/perci_nightmare
-	name = "..."
+	name = "Nightmares"
 	desc = "..."
 	author = "Doctor Alex"

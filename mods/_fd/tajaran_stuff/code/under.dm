@@ -45,7 +45,7 @@
 	item_state = "jaggypants"
 
 /obj/item/clothing/under/taj_jumpsuit
-	name = "tribal_suit"
+	name = "assashite jumpsuit"
 	desc =  "An intriguing invention of the Assashites after prolonged contact with Humanity—their own jumpsuits. The felines have greatly appreciated the durability of such clothing against any kind of weather, which is so common in Pirx’s jungles."
 	icon = 'mods/_fd/tajaran_stuff/icons/clothes/under.dmi'
 	icon_state = "jumpsuit"

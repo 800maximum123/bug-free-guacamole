@@ -8,37 +8,37 @@
 /datum/gear/clothing/cloak_captain
 	display_name = "cloak, command (captain)"
 	path = /obj/item/clothing/accessory/cloak/captain
-	allowed_roles = list(/datum/job/captain)
+//	allowed_roles = list(/datum/job/captain)
 
 /datum/gear/clothing/cloak_hop
 	display_name = "cloak, command (head of personnel)"
 	path = /obj/item/clothing/accessory/cloak/hop
-	allowed_roles = list(/datum/job/hop)
+//	allowed_roles = list(/datum/job/hop)
 
 /datum/gear/clothing/cloak_hos
 	display_name = "cloak, command (head of security)"
 	path = /obj/item/clothing/accessory/cloak/hos
-	allowed_roles = list(/datum/job/hos)
+//	allowed_roles = list(/datum/job/hos)
 
 /datum/gear/clothing/cloak_cmo
 	display_name = "cloak, command (chief medical officer)"
 	path = /obj/item/clothing/accessory/cloak/cmo
-	allowed_roles = list(/datum/job/cmo)
+//	allowed_roles = list(/datum/job/cmo)
 
 /datum/gear/clothing/cloak_ce
 	display_name = "cloak, command (chief engineer)"
 	path = /obj/item/clothing/accessory/cloak/ce
-	allowed_roles = list(/datum/job/chief_engineer)
+//	allowed_roles = list(/datum/job/chief_engineer)
 
 /datum/gear/clothing/cloak_rd
 	display_name = "cloak, command (research director)"
 	path = /obj/item/clothing/accessory/cloak/rd
-	allowed_roles = list(/datum/job/rd)
+//	allowed_roles = list(/datum/job/rd)
 
 /datum/gear/clothing/cloak_qm
 	display_name = "cloak, command (quartermaster)"
 	path = /obj/item/clothing/accessory/cloak/qm
-	allowed_roles = list(/datum/job/qm)
+//	allowed_roles = list(/datum/job/qm)
 
 // departaments cloaks
 
@@ -87,8 +87,8 @@
 /datum/gear/clothing/cloak_zpci
 	display_name = "cloak, ZPCI"
 	path = /obj/item/clothing/accessory/cloak/zpci
-	allowed_branches = list(/datum/mil_branch/contractor)
-	allowed_factions = list(FACTION_ZPCI)
+//	allowed_branches = list(/datum/mil_branch/contractor)
+//	allowed_factions = list(FACTION_ZPCI)
 
 //Aurora stuff
 /datum/gear/clothing/cloak_avalon

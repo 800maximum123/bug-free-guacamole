@@ -1,4 +1,4 @@
-/singleton/modpack/delman
+/singleton/modpack/manticore
 	name = "SFV \"Manticore\""
 	desc = ""
 	author = ""

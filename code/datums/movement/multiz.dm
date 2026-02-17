@@ -27,7 +27,7 @@
 			return MOVEMENT_HANDLED
 
 	area = get_area(destination)
-	if(direction == UP && area.has_gravity() && mob.can_fall(FALSE, destination))
+	if(!(locate(/obj/fd_water) in destination) && direction == UP && area.has_gravity() && mob.can_fall(FALSE, destination))
 		to_chat(mover, SPAN_WARNING("You see nothing to hold on to."))
 		return MOVEMENT_HANDLED
 

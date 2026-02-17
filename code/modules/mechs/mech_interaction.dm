@@ -111,7 +111,8 @@
 
 	// Are we facing the target?
 	if(A.loc != src && !(get_dir(src, A) & dir))
-		return
+		if(!selected_system || selected_system.has_firing_arc)
+			return
 
 	if(!arms && arms_chosen)
 		to_chat(user, SPAN_WARNING("\The [src] has no manipulators!"))

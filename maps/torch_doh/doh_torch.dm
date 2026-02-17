@@ -14,7 +14,6 @@
 	#include "../torch/torch_announcements.dm"
 	#include "../torch/torch_antagonism.dm"
 	#include "../torch/torch_areas.dm"
-	#include "../torch/torch_elevator.dm"
 	#include "../torch/torch_events.dm"
 	#include "../torch/torch_holodecks.dm"
 	#include "../torch/torch_lobby.dm"
@@ -27,7 +26,6 @@
 	#include "torch_ranks.dm"
 	#include "../torch/torch_security_state.dm"
 	#include "../torch/torch_setup.dm"
-	#include "torch_shuttles.dm"
 	#include "../torch/torch_submaps.dm"
 	#include "../torch/torch_turfs.dm"
 	#include "../torch/torch_unit_testing.dm"
@@ -181,17 +179,35 @@
 	#include "../torch/loadout/~defines.dm"
 	#include "loadout/overrides.dm"
 
+	// --- CUTSCENES --- //
+	#include "cutscenes/cutscene_api_danilcus.dm"
+	#include "cutscenes/animations.dm"
+	#include "cutscenes/framework.dm"
+	#include "cutscenes/s2ep1/characters.dm"
+	#include "cutscenes/s2ep1/scene_1to4.dm"
+	#include "cutscenes/s2ep1/scene_5to13.dm"
+	#include "cutscenes/s2ep1/scene_14to20.dm"
+
+	#include "cutscenes/s2ep2/scene_1.dm"
+	#include "cutscenes/s2ep2/scene_2.dm"
+	#include "cutscenes/s2ep2/characters.dm"
+
+	#include "cutscenes/s2ep3/scene_1.dm"
+	#include "cutscenes/s2ep3/scene_2.dm"
+	#include "cutscenes/s2ep3/characters.dm"
+
+	#include "cutscenes/s2ep4/characters.dm"
+	#include "cutscenes/s2ep4/scene_1.dm"
+	#include "cutscenes/s2ep4/scene_2.dm"
+	#include "cutscenes/s2ep4/scene_3.dm"
+
+	#include "music_videos/s2opening1.dm"
+
 	// --- MAP FILES --- //
 
 		// ~TORCH~ //
-	#include "torch1_deck5.dmm"
-	#include "torch2_deck4.dmm"
-	#include "torch3_deck3.dmm"
-	#include "torch4_deck2.dmm"
-	#include "torch5_deck1.dmm"
-	#include "torch6_bridge.dmm"
-	#include "z7_admin.dmm"
-	#include "z8_transit.dmm"
+	#include "z1_empty.dmm"
+	#include "z2_admin.dmm"
 
 	#include "../bluespace_interlude/bluespace_interlude.dm"
 	#include "../bluespace_interlude/bluespace_interlude.dmm"
@@ -224,6 +240,7 @@
 	#include "../event/iccgn_ship/icgnv_hound.dm"
 	#include "../event/sfv_arbiter/sfv_arbiter.dm"
 	#include "../event/placeholders/placeholders.dm"
+	#include "../event/e14b_station/northstar.dm"
 	#include "../event/empty/empty.dm"
 
 	// USED MODS
@@ -258,6 +275,9 @@
 	#include "../../mods/_fd/old_space_cannons/_old_space_cannons.dme"
 	#include "../../mods/_fd/runechat/_runechat.dme"
 
+	#include "../../mods/_fd/fd_events/_fd_events.dme"
+	#include "../../mods/_fd/fd_utilities/_fd_utilities.dme"
+
 	#include "../../mods/_fd/accent_labels/_accent_labels.dme"
 	#include "../../mods/_fd/additional_biomods/_additional_biomods.dme"
 	#include "../../mods/_fd/ai_overmap_objects/_ai_overmap_objects.dme"
@@ -269,7 +289,6 @@
 	#include "../../mods/_fd/complementary_xeno_ablities/_complementary_xeno_ablities.dme"
 	#include "../../mods/_fd/conference_holopads/_conference_holopads.dme"
 	#include "../../mods/_fd/cyberware_mayhem/_cyberware_mayhem.dme"
-	#include "../../mods/_fd/event_tools/_event_tools.dme"
 	#include "../../mods/_fd/expanded_traders/_expanded_traders.dme"
 	#include "../../mods/_fd/export_to_dmi/_export_to_dmi.dme"
 	#include "../../mods/_fd/hestia_missiles/_hestia_missiles.dme"
@@ -309,7 +328,7 @@
 	#include "../../mods/_fd/_maps/kitsune/_kitsune.dme"
 	#include "../../mods/_fd/_maps/lighthouse/_lighthouse.dme"
 	#include "../../mods/_fd/_maps/new_blueriver/_new_blueriver.dme"
-	#include "../../mods/_fd/_maps/new_year_house/_new_year_house.dme"
+//	#include "../../mods/_fd/_maps/new_year_house/_new_year_house.dme" // We don't need it for now
 	#include "../../mods/_fd/_maps/prison_ship/_prison_ship.dme"
 	#include "../../mods/_fd/_maps/providence/_providence.dme"
 //	#include "../../mods/_fd/_maps/sentinel_fd/_sentinel.dme"
@@ -322,9 +341,18 @@
 	#include "../../mods/_fd/_maps/trader_ship/_trader_ship.dme"
 	#include "../../mods/_fd/_maps/yacht/_yacht.dme"
 
+	#include "../../mods/_fd/_maps/torch_as_ruin/_torch_as_ruin.dme"
+	#include "../../mods/_fd/_maps/iccgn_samosbor/_samosbor.dme" // We don't need it for now -- Окей, эта штука не дает запустить иные. Оставлю, пока не будет лень пофиксить
+//	#include "../../mods/_fd/_maps/new_new_year_house/_new_new_year_house.dme" // We don't need it for now
+
+		// ~DANILCUS WIP~ //
+
+	#include "../../mods/_fd/fishing/_fishing.dme"
+	#include "../../mods/_fd/whitespace/_whitespace.dme"
+
 		// ~VOID'S MINI-GAMES~ //
 
-	#include "../../mods/_fd/cat_alchemist/_cat_alchemist.dme"
+//	#include "../../mods/_fd/cat_alchemist/_cat_alchemist.dme"
 //	#include "../../mods/_fd/fd_tbs/_fd_tbs.dme"
 
 
@@ -342,7 +370,13 @@
 
 	#include "../../mods/_fd/_maps/lab_campaign/_lab_campaign.dme"
 
+	#include "../../mods/_fd/_maps/bunker_hub/_bunker_hub.dme"
+	#include "../../mods/_fd/_maps/fort_manticore/_fort_manticore.dme"
+
 	#define using_map_DATUM /datum/map/torch
+
+	//DOH STARLIGHT OVERRIDE
+	#define STARLIGHT_OFF
 
 #elif !defined(MAP_OVERRIDE)
 

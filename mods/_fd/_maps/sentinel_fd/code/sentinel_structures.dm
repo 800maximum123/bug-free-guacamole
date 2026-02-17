@@ -111,7 +111,6 @@
 	return list(
 		/obj/item/storage/firstaid/sleekstab,
 		/obj/item/clothing/mask/gas,
-		/obj/item/clothing/under/solgov/utility/fleet/polopants/command,
 		/obj/item/clothing/head/solgov/dress/fleet,
 		/obj/item/clothing/head/beret/solgov/fleet/command,
 		/obj/item/clothing/accessory/solgov/department/command/fleet,
@@ -134,7 +133,6 @@
 		/obj/item/clothing/suit/storage/hazardvest,
 		/obj/item/clothing/head/beret/solgov/fleet/engineering,
 		/obj/item/clothing/head/solgov/dress/fleet/garrison,
-		/obj/item/clothing/under/solgov/utility/fleet/polopants,
 		/obj/item/clothing/accessory/solgov/department/engineering/fleet,
 		/obj/item/clothing/suit/storage/solgov/service/fleet
 	)
@@ -159,7 +157,6 @@
 		/obj/item/clothing/head/surgery/black,
 		/obj/item/clothing/suit/storage/hazardvest/white,
 		/obj/item/clothing/head/solgov/dress/fleet,
-		/obj/item/clothing/under/solgov/utility/fleet/polopants/command,
 		/obj/item/clothing/accessory/solgov/department/medical/fleet,
 		/obj/item/clothing/suit/storage/solgov/service/fleet/officer
 	)
@@ -180,7 +177,6 @@
 		/obj/item/storage/fancy/smokable/cigar,
 		/obj/item/flame/lighter/zippo/gunmetal,
 		/obj/item/clothing/head/beret/solgov/fleet/command,
-		/obj/item/clothing/under/solgov/utility/fleet/polopants/command,
 		/obj/item/gun/projectile/revolver/medium,
 		/obj/item/clothing/gloves/wristwatch/gold,
 		/obj/item/clothing/head/solgov/dress/fleet,

@@ -5,3 +5,5 @@
 //#include "torch_fd\map.dm" // Basic Torch of FD
 // #include "torch_doh\map.dm" // DEATH OF HOPE
 #include "gaia\map.dm" // GAIAN CONFLICT MAP
+// #include "lightbrigade\map.dm"
+// #include "tempeterra\map.dm"

@@ -85,9 +85,6 @@
 				if(owner.client.ckey == "techpriest34")
 					next_aura_size = 1.0
 					next_aura_alpha = 128
-				if(owner.client.ckey == "brunoru")
-					next_aura_size = 1.0
-					next_aura_alpha = 128
 	//EDITED
 
 

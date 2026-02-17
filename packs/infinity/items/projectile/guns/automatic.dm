@@ -33,13 +33,14 @@
 	..()
 	icon_state = (ammo_magazine)? "nt41" : "nt41-e"
 
-
+/* 		[FD-REMOVE]
 /obj/item/gun/projectile/automatic/bullpup_rifle/light
 	firemodes = list(
 		list(
 			mode_name="semi auto", burst=1, fire_delay=null,
 			use_launcher=null, one_hand_penalty=6,
-			burst_accuracy=null, dispersion=null
+			burst_accuracy=null, dispersion=null,
+			can_autofire = 0
 		),
 		list(
 			mode_name="2-round bursts", burst=2, fire_delay=null,
@@ -55,10 +56,10 @@
 			mode_name="full auto", burst=1, fire_delay=2, burst_delay=2,
 			use_launcher=null, one_hand_penalty=7,
 			burst_accuracy = list(0,-1,-1), dispersion=list(0.2, 0.6, 1.2),
-			autofire_enabled=1
+			can_autofire=1
 		)
 	)
-
+*/ //	[/FD-REMOVE]
 
 /obj/item/gun/projectile/sniper/garand
 	firemodes = list(

@@ -1,17 +1,49 @@
 // Yeah
 /obj/overmap/visitable/ship/gccv_ulyanovsk
 	name = "GCCV - Ulyanovsk"
-	desc = "Waterloo-Class Heavy Cruiser broadcasting codes 'GCCV - Ulyanovsk', belonging to the Confederation."
+	desc = {"%#0&#%01#<br>
+			RECEIVING CODES... ... ...<br>
+			GCCV - ULYANOVSK<br>
+			REQUESTING TECHNICAL PARAMETERS... ... ...<br>
+			BASE:<br>
+			1.1143.7-Project Heavy Cruiser<br>
+			(The closest SCG Database Match: Waterloo-Class)<br>
+			Gilgamesh Colonial Confederation<br>
+			C.O.L Shipyards<br>
+			OTHER:<br>
+			%# RECEIVING INTERRUPTED... ... ...<br>
+			ABORTING... ... COMPLETED"}
 	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi'
 	icon_state = "gccv-ulyanovsk"
 	moving_state = "gccv-ulyanovsk_moving"
 
-	color = "#c76a6a"
+	fore_dir = WEST
+	vessel_size = SHIP_SIZE_LARGE
+	vessel_mass = 150000
+
+	color = "#dd3a3a"
 	scannable = TRUE
 	hide_from_reports = TRUE
-	initial_generic_waypoints = list()
-	initial_restricted_waypoints = list(
 
+	known_ships = list(
+		/obj/overmap/visitable/ship/landable/ul_typhoon,
+		/obj/overmap/visitable/ship/landable/ul_uragan,
+		/obj/overmap/visitable/ship/landable/ul_hyacinth,
+		/obj/overmap/visitable/ship/landable/ul_tachyon
+	)
+
+	initial_generic_waypoints = list(
+		"nav_ul_typhoon_start",
+		"nav_ul_uragan_start",
+		"nav_ul_hyacinth_start",
+		"nav_ul_tachyon_start"
+	)
+
+	initial_restricted_waypoints = list(
+		"GCCS TYPHOON" = list("nav_ul_typhoon_start"),
+		"GCCS URAGAN" = list("nav_ul_uragan_start"),
+		"GCCS HYACINTH" = list("nav_ul_hyacinth_start"),
+		"GCCS TACHYON" = list("nav_ul_tachyon_start")
 	)
 
 /datum/map_template/ruin/away_site/gccv_ulyanovsk
@@ -21,11 +53,40 @@
 	prefix = "mods/_fd/_maps/gccv_ulyanovsk/maps/"
 	suffixes = list("gccv_ulyanovsk1.dmm", "gccv_ulyanovsk2.dmm", "gccv_ulyanovsk3.dmm")
 	spawn_cost = 99
-	shuttles_to_initialise = list()
-	area_usage_test_exempted_root_areas = list()
+	shuttles_to_initialise = list(
+		/datum/shuttle/autodock/overmap/ul_typhoon,
+		/datum/shuttle/autodock/overmap/ul_uragan,
+		/datum/shuttle/autodock/overmap/ul_hyacinth,
+		/datum/shuttle/autodock/overmap/ul_tachyon
+		)
+	area_usage_test_exempted_root_areas = list(/area/ship/ulyanovsk, /area/map_template/gccv_ulyanovsk)
 	apc_test_exempt_areas = list()
 
+/obj/overmap/visitable/ship/gccv_ulyanovsk/Initialize()
+	. = ..()
+	radiochannels += "UL CIC"
+	radiochannels += "UL SPECOPS"
+	radiochannels += "UL ENGINEERING"
+	radiochannels += "UL MEDICAL"
+	radiochannels += "UL PUBLIC"
 
+	radiochannels["UL CIC"] = UL_CIC_FREQ
+	radiochannels["UL SPECOPS"] = UL_SPECOPS_FREQ
+	radiochannels["UL ENGINEERING"] = UL_ENG_FREQ
+	radiochannels["UL MEDICAL"] = UL_MED_FREQ
+	radiochannels["UL PUBLIC"] = UL_PUB_FREQ
+
+	department_radio_keys += ":2"
+	department_radio_keys += ":3"
+	department_radio_keys += ":4"
+	department_radio_keys += ":5"
+	department_radio_keys += ":1"
+
+	department_radio_keys[":2"] = "UL CIC"
+	department_radio_keys[":3"] = "UL SPECOPS"
+	department_radio_keys[":4"] = "UL ENGINEERING"
+	department_radio_keys[":5"] = "UL MEDICAL"
+	department_radio_keys[":1"] = "UL PUBLIC"
 
 // Misc
 
@@ -111,6 +172,81 @@
 /turf/simulated/wall/r_iccg/get_explosion_resistance()
 	return health_current * explosion_resistance
 
+// New Alloy and walls from it
+
+#define MATERIAL_TITANIUM_PLASTEEL "titanium plasteel"
+
+
+/material/titanium_plasteel
+	name = MATERIAL_TITANIUM_PLASTEEL
+	lore_text = "An alloy of plasteel and titanium. When Terrans are given the task of doing the most for the least amount of money again, they come up with overpowered crap again."
+	wall_name = "armored plate"
+	stack_type = /obj/item/stack/material/titanium_plasteel
+	integrity = 600
+	melting_point = 7000
+	sheet_icon_base = "sheet-reinf"
+	wall_icon_base = "solid"
+	wall_icon_reinf = "reinf_over"
+	icon_colour = "#a8a9b2"
+	explosion_resistance = 10
+	brute_armor = 12
+	burn_armor = 16
+	hardness = MATERIAL_VERY_HARD
+	weight = 27
+	stack_origin_tech = list(TECH_MATERIAL = 4)
+	hitsound = 'sound/weapons/smash.ogg'
+	construction_difficulty = MATERIAL_VERY_HARD_DIY
+	alloy_materials = list(MATERIAL_PLASTEEL = 2500, MATERIAL_TITANIUM = 1500)
+	alloy_product = TRUE
+	sale_price = 5
+	ore_smelts_to = MATERIAL_TITANIUM_PLASTEEL
+	value = 18
+
+
+/obj/item/stack/material/titanium_plasteel
+	name = "titanium plasteel"
+	item_state = "sheet-reinf-mult"
+	default_type = MATERIAL_TITANIUM_PLASTEEL
+
+/obj/item/stack/material/titanium_plasteel/fifty
+	amount = 50
+
+/turf/simulated/wall/titaplast
+	icon_state = "titaplast"
+
+/turf/simulated/wall/titaplast/New(newloc)
+	..(newloc, MATERIAL_TITANIUM_PLASTEEL)
+
+/turf/simulated/wall/titaplast/iccg
+	paint_color = COLOR_DARK_BLUE_GRAY
+
+/turf/simulated/wall/r_titaplast//god bless us
+	icon_state = "r_titaplast"
+
+/turf/simulated/wall/r_titaplast/New(newloc)
+	..(newloc, MATERIAL_TITANIUM_PLASTEEL,MATERIAL_TITANIUM_PLASTEEL)
+
+/turf/simulated/wall/r_titaplast/iccg
+	paint_color = COLOR_DARK_BLUE_GRAY
+	floor_type = /turf/simulated/floor/armored
+
+/turf/simulated/wall/r_titaplast/iccg/Initialize()
+	. = ..()
+	color = null //color is just for mapping
+	if(prob(90))
+		var/spacefacing = FALSE
+		for(var/direction in GLOB.cardinal)
+			var/turf/T = get_step(src, direction)
+			var/area/A = get_area(T)
+			if(A && (A.area_flags & AREA_FLAG_EXTERNAL))
+				spacefacing = TRUE
+				break
+		if(spacefacing)
+			var/bleach_factor = rand(10,50)
+			paint_color = "[pick("#420d0d", COLOR_DARK_GRAY)]"
+			paint_color = adjust_brightness(paint_color, bleach_factor)
+	update_icon()
+
 /obj/structure/grille/plasteel
 	init_material = MATERIAL_PLASTEEL
 
@@ -194,8 +330,8 @@
 	item_state = "rig_suit_wear"
 	icon_override = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi'
 	item_state_slots = list(
-		slot_l_hand_str = "sec_voidsuit",
-		slot_r_hand_str = "sec_voidsuit",
+		slot_l_hand_str = "sec_voidsuit_l",
+		slot_r_hand_str = "sec_voidsuit_r",
 	)
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
@@ -207,10 +343,11 @@
 		)
 	siemens_coefficient = 0.3
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	species_restricted = list(SPECIES_HUMAN, SPECIES_VATGROWN, SPECIES_SPACER, SPECIES_GRAVWORLDER, SPECIES_MULE, SPECIES_IPC, SPECIES_FBP)/// no fckng XENO SCUM in my suit!!!
 
 /obj/item/clothing/head/helmet/space/void/iccg
 	name = "armored terran voidsuit helmet"
-	desc = "A comfortable voidsuit helmet with cranial armor and eight-channel surround sound."
+	desc = "A comfortable voidsuit helmet with thick armor and eight-channel surround sound. Has ICCGN insignia on it."
 	icon_state = "rig_helmet"
 	item_state = "rig_helmet_wear"
 	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi'
@@ -228,10 +365,18 @@
 		rad = ARMOR_RAD_RESISTANT
 		)
 	siemens_coefficient = 0.3
+	light_overlay = "light"///icon_state for emissive overlay
+	var/head_light_range = 4///l_range for flashlight
+	var/emmission_overlay = null
+	light_wedge = LIGHT_WIDE
+	brightness_on = 0.8
+	light_color = "#00CC00"
+	species_restricted = list(SPECIES_HUMAN, SPECIES_VATGROWN, SPECIES_SPACER, SPECIES_GRAVWORLDER, SPECIES_MULE, SPECIES_IPC, SPECIES_FBP)/// no fckng XENO SCUM in my suit!!!
 
 /obj/item/clothing/suit/space/void/iccg/engineering
 	name = "armored engineering voidsuit"
-	icon_state = "rig_iccg_engi"
+	icon_state = "rig_engi_suit"
+	item_state = "rig_engi_suit_wear"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_RESISTANT,
@@ -246,8 +391,8 @@
 
 /obj/item/clothing/head/helmet/space/void/iccg/engineering
 	name = "armored engineering voidsuit helmet"
-	icon_state = "rig_iccg_engi"
-	item_state = "rig_iccg_engi"
+	icon_state = "rig_engi_helmet"
+	item_state = "rig_engi_helmet_wear"
 	flash_protection = FLASH_PROTECTION_MAJOR
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
@@ -260,10 +405,16 @@
 		)
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 	max_pressure_protection = ENG_VOIDSUIT_MAX_PRESSURE
+	light_overlay = "light_e"
+	light_color = "#EDDE73"
+	head_light_range = 6
+	brightness_on = 1
+	light_wedge = LIGHT_WIDE
 
 /obj/item/clothing/suit/space/void/iccg/security
 	name = "armored security voidsuit"
-	icon_state = "rig_iccg_sec"
+	icon_state = "rig_sec_suit"
+	item_state = "rig_sec_suit_wear"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_RIFLE,
@@ -276,8 +427,8 @@
 
 /obj/item/clothing/head/helmet/space/void/iccg/security
 	name = "armored security voidsuit helmet"
-	icon_state = "rig_iccg_sec"
-	item_state = "rig_iccg_sec"
+	icon_state = "rig_sec_helmet"
+	item_state = "rig_sec_helmet_wear"
 	flash_protection = FLASH_PROTECTION_MAJOR
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
@@ -288,10 +439,16 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
 		)
+	light_overlay = "light_s"
+	light_color = "#DD0000"
+	head_light_range = 3
+	brightness_on = 0.5
+	light_wedge = LIGHT_NARROW
 
 /obj/item/clothing/suit/space/void/iccg/command
 	name = "armored command voidsuit"
-	icon_state = "rig_iccg_com"
+	icon_state = "rig_com_suit"
+	item_state = "rig_com_suit_wear"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_RESISTANT,
@@ -308,8 +465,8 @@
 
 /obj/item/clothing/head/helmet/space/void/iccg/command
 	name = "armored command voidsuit helmet"
-	icon_state = "rig_iccg_com"
-	item_state = "rig_iccg_com"
+	icon_state = "rig_com_helmet"
+	item_state = "rig_com_helmet_wear"
 	flash_protection = FLASH_PROTECTION_MAJOR
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
@@ -320,11 +477,72 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
 		)
+	light_overlay = "light_c"
+	light_color = "#2369D0"
+	head_light_range = 3
+	brightness_on = 0.8
+	light_wedge = LIGHT_VERY_WIDE
+
+/obj/item/clothing/head/helmet/space/void/iccg/equipped(mob/user, slot)
+	light_overlay_image = null
+	emmission_overlay = null
+	..(user, slot)
+/*
+/obj/item/clothing/head/helmet/space/void/iccg/get_mob_overlay(mob/user_mob, slot)
+	var/image/ret = ..()
+	if(light_overlay_image)
+		ret.CutOverlays(light_overlay_image)
+	if(on && slot == slot_head_str)
+		if(!light_overlay_image)
+			light_overlay_image = overlay_image(icon, "[light_overlay]", color, RESET_COLOR)
+			emmission_overlay = emissive_appearance(icon, "[light_overlay]")
+		ret.AddOverlays(list(light_overlay_image, emmission_overlay))
+	return ret
+*/
+/obj/item/clothing/head/helmet/space/void/iccg/get_mob_overlay(mob/user_mob, slot)
+	var/image/ret = ..()
+	if(light_overlay_image)
+		ret.CutOverlays(light_overlay_image)
+	if(on && slot == slot_head_str)
+		if(!light_overlay_image)
+			if(ishuman(user_mob))
+				var/mob/living/carbon/human/user_human = user_mob
+				light_overlay_image = user_human.species.get_offset_overlay_image(FALSE, icon, "[light_overlay]", color, slot)
+			else
+				light_overlay_image = overlay_image(icon, "[light_overlay]", null, RESET_COLOR)
+		emmission_overlay = emissive_appearance(icon, "[light_overlay]")
+		ret.AddOverlays(list(light_overlay_image, emmission_overlay))
+	return ret
+
+/obj/item/clothing/head/helmet/space/void/iccg/update_flashlight(mob/user = null)
+	if(on && !light_applied)
+		set_light(head_light_range, brightness_on, light_color, light_wedge)
+		light_applied = 1
+	else if(!on && light_applied)
+		set_light(0)
+		light_applied = 0
+	update_icon(user)
+	user.update_action_buttons()
 
 /obj/item/rig/combat/equipped/iccg
 	cell_type =  /obj/item/cell/hyper
 	air_type =   /obj/item/tank/oxygen/full
 	req_access = list(access_iccg)
+
+/obj/item/rig/light/ninja/gcc/ulyanovsk
+	name = "Ulyanovsk heavy suit control module"
+	req_access = list(access_iccg)
+	initial_modules = list(
+		/obj/item/rig_module/vision,
+		/obj/item/rig_module/mounted/energy/lcannon,
+		/obj/item/rig_module/chem_dispenser/ninja,
+		/obj/item/rig_module/grenade_launcher/ninja,
+		/obj/item/rig_module/power_sink,
+		/obj/item/rig_module/mounted/power_fist,
+		/obj/item/rig_module/cooling_unit,
+		/obj/item/rig_module/maneuvering_jets
+		)
+
 
 /obj/machinery/suit_storage_unit/iccg
 	name = "Voidsuit Storage Unit"
@@ -529,7 +747,7 @@
 		/obj/item/device/radio/map_preset/ulyanovsk,
 		/obj/item/storage/belt/general,
 		/obj/item/device/flashlight/maglight,
-		/obj/item/storage/firstaid/individual/military,
+		/obj/item/storage/firstaid/light,
 		/obj/item/material/knife/combat,
 		/obj/item/device/binoculars/random,
 		/obj/item/device/gps,
@@ -548,7 +766,7 @@
 		/obj/item/storage/belt/utility/full,
 		/obj/item/storage/belt/holster/security,
 		/obj/item/device/flashlight/maglight,
-		/obj/item/storage/firstaid/individual/military,
+		/obj/item/storage/firstaid/light,
 		/obj/item/material/knife/combat,
 		/obj/item/device/binoculars/nvg,
 		/obj/item/device/gps,
@@ -572,7 +790,7 @@
 		/obj/item/device/radio/map_preset/ulyanovsk,
 		/obj/item/storage/belt/holster/security,
 		/obj/item/device/flashlight/maglight,
-		/obj/item/storage/firstaid/individual/military,
+		/obj/item/storage/firstaid/light,
 		/obj/item/material/knife/combat,
 		/obj/item/device/binoculars/nvg,
 		/obj/item/clothing/suit/iccgn/service_enlisted,
@@ -603,7 +821,7 @@
 		/obj/item/clothing/suit/surgicalapron,
 		/obj/item/device/radio/headset/map_preset/ulyanovsk,
 		/obj/item/device/radio/map_preset/ulyanovsk,
-		/obj/item/storage/firstaid/individual/military,
+		/obj/item/storage/firstaid/light,
 		/obj/item/device/flashlight/pen,
 		/obj/item/clothing/glasses/hud/health,
 		/obj/item/clothing/accessory/stethoscope,
@@ -905,7 +1123,7 @@
 	allowed += /obj/item/device/flashlight
 
 /obj/item/ammo_magazine/box/shotgun
-	name = "shell box"
+	name = "slug box"
 	icon_state = "slbox"
 	origin_tech = list(TECH_COMBAT = 2)
 	caliber = CALIBER_SHOTGUN
@@ -1238,6 +1456,10 @@
 	name = "blood red outline"
 	color = "#940004"
 
+/obj/floor_decal/ul_decals/outline/black
+	name = "black outline"
+	color = "#333333"
+
 /obj/floor_decal/step
 	name = "step"
 	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi'
@@ -1343,4 +1565,29 @@
 	icon_state = "paint_in_c"
 
 /obj/floor_decal/paint/navy/diagonal
+	icon_state = "paint_diag"
+
+/obj/floor_decal/paint/black
+	name = "black paint"
+	color = "#333333"
+
+/obj/floor_decal/paint/black/corner
+	icon_state = "paint_corner"
+
+/obj/floor_decal/paint/black/triangle
+	icon_state = "paint_triangle"
+
+/obj/floor_decal/paint/black/side
+	icon_state = "paint_side"
+
+/obj/floor_decal/paint/black/quarter
+	icon_state = "paint_quarter"
+
+/obj/floor_decal/paint/black/side_corner
+	icon_state = "paint_side_corner"
+
+/obj/floor_decal/paint/black/in_corner
+	icon_state = "paint_in_c"
+
+/obj/floor_decal/paint/black/diagonal
 	icon_state = "paint_diag"

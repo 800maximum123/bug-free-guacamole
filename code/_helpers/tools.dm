@@ -11,15 +11,15 @@
 
 
 /// True when this atom can be used as a Welder.
-/atom/proc/IsWelder()
+/atom/proc/_IsWelder()
 	return FALSE
 
 /// Defines the base welder as useable as a welder.
-/obj/item/weldingtool/IsWelder()
+/obj/item/weldingtool/_IsWelder()
 	return TRUE
 
 /// True when A exists and can be used as a welder.
-#define isWelder(A) (A?.IsWelder())
+#define isWelder(A) (A?._IsWelder())
 
 
 /// True when this atom can be used as a cable coil.

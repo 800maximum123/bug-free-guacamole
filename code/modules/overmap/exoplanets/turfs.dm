@@ -86,6 +86,9 @@
 			turf_to_check.update_icon()
 
 //WAter
+/turf/simulated/floor/exoplanet/water
+	diggable = FALSE
+
 /turf/simulated/floor/exoplanet/water/on_update_icon()
 	return
 

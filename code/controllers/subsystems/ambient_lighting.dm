@@ -206,6 +206,11 @@ SUBSYSTEM_DEF(ambient_lighting) //A simple SS that handles updating ambient ligh
 /datum/controller/subsystem/ambient_lighting/fire(resumed = FALSE, no_mc_tick = FALSE)
 	var/list/curr = queued
 	var/starlight_enabled = config.starlight
+	// [FD-ADD] - DOH Starlight Override [doh_torch.dm]
+	#ifdef STARLIGHT_OFF
+	var/starlight_enabled = FALSE
+	#endif
+	// [/FD-ADD]
 
 	var/needs_ambience
 	while (length(curr))

@@ -4,7 +4,7 @@ SUBSYSTEM_DEF(fluids)
 	flags = SS_NO_INIT
 
 	var/next_water_act = 0
-	var/water_act_delay = 15 // A bit longer than machines.
+	var/water_act_delay = 10
 
 	var/list/active_fluids = list()
 	var/list/water_sources = list()
@@ -28,13 +28,22 @@ SUBSYSTEM_DEF(fluids)
 		)
 
 
+/datum/controller/subsystem/fluids/proc/reboot()
+	active_fluids.Cut()
+	water_sources.Cut()
+	pushing_atoms.Cut()
+	hygiene_props.Cut()
+
+	processing_sources = water_sources.Copy()
+	processing_fluids = active_fluids.Copy()
+
 /datum/controller/subsystem/fluids/UpdateStat(time)
 	if (PreventUpdateStat(time))
 		return ..()
 	..("Sources: [length(water_sources)] Active Fluids: [length(active_fluids)]")
 
 
-/datum/controller/subsystem/fluids/fire(resumed = 0)
+/datum/controller/subsystem/fluids/fire(resumed = 0, no_mc_tick)
 	if (!resumed)
 		processing_sources = water_sources.Copy()
 		active_fluids_copied_yet = FALSE
@@ -49,7 +58,9 @@ SUBSYSTEM_DEF(fluids)
 
 		FLOOD_TURF_NEIGHBORS(T, dry_run)
 
-		if (MC_TICK_CHECK)
+		if (no_mc_tick)
+			CHECK_TICK
+		else if (MC_TICK_CHECK)
 			return
 
 	if (!active_fluids_copied_yet)
@@ -75,24 +86,24 @@ SUBSYSTEM_DEF(fluids)
 			// Flood downwards if there's open space below us.
 			if(HasBelow(F.z))
 				var/turf/current = get_turf(F)
-				if(istype(current, /turf/simulated/open))
+				if(current.is_open())
 					var/turf/T = GetBelow(F)
 					var/obj/fluid/other = locate() in T
-					if((!istype(other) || other.fluid_amount < FLUID_MAX_DEPTH) && T.CanFluidPass(UP))
+					if((!other || other.fluid_amount < FLUID_MAX_DEPTH) && T.CanFluidPass(UP))
 						if(!other)
 							other = new /obj/fluid(T)
 						F.equalizing_fluids += other
 						downward_fluid_overlay_position = length(F.equalizing_fluids)
-			UPDATE_FLUID_BLOCKED_DIRS(F.start_loc)
+//			UPDATE_FLUID_BLOCKED_DIRS(F.start_loc)
 			for(var/spread_dir in GLOB.cardinal)
-				if(F.start_loc.fluid_blocked_dirs & spread_dir)
-					continue
+//				if(F.start_loc.fluid_blocked_dirs & spread_dir)
+//					continue
 				var/turf/T = get_step(F.start_loc, spread_dir)
 				var/coming_from = GLOB.reverse_dir[spread_dir]
-				if(!istype(T) || T.flooded)
+				if(!T || T.density || T.flooded)
 					continue
-				UPDATE_FLUID_BLOCKED_DIRS(T)
-				if((T.fluid_blocked_dirs & coming_from) || !T.CanFluidPass(coming_from))
+//				UPDATE_FLUID_BLOCKED_DIRS(T)
+				if(!T.CanFluidPass(coming_from))
 					continue
 				var/turf/current = get_turf(F)
 				if((F.fluid_amount + current.height) <= T.height) //Water cannot flow up height differences
@@ -102,10 +113,12 @@ SUBSYSTEM_DEF(fluids)
 					continue
 				if(!other)
 					other = new /obj/fluid(T)
-					other.temperature = F.temperature
+//					other.temperature = F.temperature
 				F.equalizing_fluids += other
 
-		if (MC_TICK_CHECK)
+		if (no_mc_tick)
+			CHECK_TICK
+		else if (MC_TICK_CHECK)
 			return
 
 	af_index = 1
@@ -116,7 +129,7 @@ SUBSYSTEM_DEF(fluids)
 			processing_fluids -= F
 		else
 			// Equalize across our neighbors. Hardcoded here for performance reasons.
-			if(!F.loc || F.loc != F.start_loc || !F.equalizing_fluids || !length(F.equalizing_fluids) || F.fluid_amount <= FLUID_EVAPORATION_POINT)
+			if(!F.loc || !F.equalizing_fluids || !length(F.equalizing_fluids) || F.fluid_amount <= FLUID_EVAPORATION_POINT)
 				continue
 
 			F.equalize_avg_depth = 0
@@ -137,12 +150,12 @@ SUBSYSTEM_DEF(fluids)
 
 			var/setting_dir = 0
 
-			for(var/obj/fluid/other in F.equalizing_fluids)
-				if(!istype(other) || QDELETED(other) || other.fluid_amount <= FLUID_DELETING)
+			for(var/obj/fluid/other as anything in F.equalizing_fluids)
+				if(QDELETED(other) || other.fluid_amount <= FLUID_DELETING)
 					F.equalizing_fluids -= other
 					continue
 				F.equalize_avg_depth += other.fluid_amount
-				F.equalize_avg_temp += other.temperature
+//				F.equalize_avg_temp += other.temperature
 
 				var/flow_amount = F.fluid_amount - other.fluid_amount
 				if(F.flow_amount < flow_amount && flow_amount >= FLUID_PUSH_THRESHOLD)
@@ -152,18 +165,20 @@ SUBSYSTEM_DEF(fluids)
 			F.set_dir(setting_dir)
 
 			if(islist(F.equalizing_fluids) && length(F.equalizing_fluids) > 1)
-				F.equalize_avg_depth = floor(F.equalize_avg_depth/length(F.equalizing_fluids))
-				F.equalize_avg_temp = floor(F.equalize_avg_temp/length(F.equalizing_fluids))
+				F.equalize_avg_depth = ceil(F.equalize_avg_depth/length(F.equalizing_fluids))
+//				F.equalize_avg_temp = floor(F.equalize_avg_temp/length(F.equalizing_fluids))
 				for(var/thing in F.equalizing_fluids)
 					var/obj/fluid/other = thing
 					if(!QDELETED(other))
 						SET_FLUID_DEPTH(other, F.equalize_avg_depth)
-						other.temperature = F.equalize_avg_temp
+//						other.temperature = F.equalize_avg_temp
 			F.equalizing_fluids.Cut()
 			if(istype(F.loc, /turf/space))
 				LOSE_FLUID(F, max((FLUID_EVAPORATION_POINT-1),F.fluid_amount * 0.5))
 
-		if (MC_TICK_CHECK)
+		if (no_mc_tick)
+			CHECK_TICK
+		else if (MC_TICK_CHECK)
 			return
 
 	af_index = 1
@@ -178,10 +193,10 @@ SUBSYSTEM_DEF(fluids)
 
 			if(F.flow_amount >= 10)
 				if(prob(1))
-					playsound(F.loc, 'sound/effects/slosh.ogg', 25, 1)
-				for(var/atom/movable/AM in F.loc.contents)
-					if(isnull(pushing_atoms[AM]) && AM.is_fluid_pushable(F.flow_amount))
-						pushing_atoms[AM] = TRUE
+					playsound(F.loc, 'sound/effects/slosh.ogg', 50, 1)
+				for(var/atom/movable/AM as anything in F.loc.contents)
+					pushing_atoms[AM] = TRUE
+					if(isnull(pushing_atoms[AM]) && AM.is_fluid_pushable(F.fluid_amount/10))
 						step(AM, F.dir)
 
 			if (F.fluid_amount <= FLUID_EVAPORATION_POINT & prob(10))
@@ -190,9 +205,11 @@ SUBSYSTEM_DEF(fluids)
 			if (F.fluid_amount <= FLUID_DELETING)
 				qdel(F)
 			else
-				F.update_icon()
+				F.queue_icon_update()
 
-		if (MC_TICK_CHECK)
+		if (no_mc_tick)
+			CHECK_TICK
+		else if (MC_TICK_CHECK)
 			return
 
 	pushing_atoms.Cut()
@@ -204,9 +221,11 @@ SUBSYSTEM_DEF(fluids)
 		while (af_index <= length(processing_fluids))
 			var/obj/fluid/F = processing_fluids[af_index++]
 			var/turf/T = get_turf(F)
-			if(istype(T) && !QDELETED(F))
-				for(var/atom/movable/A in T.contents)
+			if(T && !QDELETED(F))
+				for(var/atom/movable/A as anything in T.contents)
 					if(A.simulated && !A.waterproof)
 						A.water_act(F.fluid_amount)
-			if (MC_TICK_CHECK)
+			if (no_mc_tick)
+				CHECK_TICK
+			else if (MC_TICK_CHECK)
 				return

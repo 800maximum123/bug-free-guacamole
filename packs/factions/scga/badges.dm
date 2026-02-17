@@ -81,4 +81,4 @@
 	display_name = "army patch"
 	path = /obj/item/clothing/accessory/solgov/army_patch
 	flags = GEAR_HAS_TYPE_SELECTION
-	allowed_branches = list(/datum/mil_branch/scga)
+//	allowed_branches = list(/datum/mil_branch/scga)

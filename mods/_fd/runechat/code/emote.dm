@@ -76,6 +76,8 @@
 	do_extra(user, target)
 
 /mob/custom_emote(m_type = VISIBLE_MESSAGE, message = null)
+	if(!can_speak)
+		return
 
 	if((usr && stat) || (!use_me && usr == src))
 		to_chat(src, "You are unable to emote.")

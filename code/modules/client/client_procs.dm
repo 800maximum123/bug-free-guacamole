@@ -177,7 +177,7 @@
 	fps = prefs.clientfps
 
 	// [SIERRA-ADD] - EX666_ECOSYSTEM
-	load_player_discord(src)
+	//load_player_discord(src)
 	// [SIERRA-ADD]
 
 	. = ..()	//calls mob.Login()

@@ -3,8 +3,8 @@
 #define FLUID_SHALLOW 200                  // Depth shallow icon is used
 #define FLUID_OVER_MOB_HEAD 300
 #define FLUID_DEEP 800                     // Depth deep icon is used
-#define FLUID_MAX_DEPTH FLUID_DEEP*4       // Arbitrary max value for flooding.
-#define FLUID_PUSH_THRESHOLD 20            // Amount of water flow needed to push items.
+#define FLUID_MAX_DEPTH FLUID_DEEP*2       // Arbitrary max value for flooding.
+#define FLUID_PUSH_THRESHOLD 10            // Amount of water flow needed to push items.
 
 // Expects /turf for T.
 #define ADD_ACTIVE_FLUID_SOURCE(T)    SSfluids.water_sources[T] = TRUE
@@ -16,11 +16,13 @@
 
 // Expects /obj/fluid for F, int for amt.
 #define LOSE_FLUID(F, amt) \
-	F:fluid_amount = max(-1, F:fluid_amount - amt); \
-	ADD_ACTIVE_FLUID(F)
+	if(!F.infinite_source) F:fluid_amount = max(-1, F:fluid_amount - amt); \
+	if(F.fluid_amount >= FLUID_MAX_DEPTH) REMOVE_ACTIVE_FLUID(F); \
+	else ADD_ACTIVE_FLUID(F)
 #define SET_FLUID_DEPTH(F, amt) \
-	F:fluid_amount = min(FLUID_MAX_DEPTH, amt); \
-	ADD_ACTIVE_FLUID(F)
+	if(!F.infinite_source) F:fluid_amount = min(FLUID_MAX_DEPTH, amt); \
+	if(F.fluid_amount >= FLUID_MAX_DEPTH) REMOVE_ACTIVE_FLUID(F); \
+	else ADD_ACTIVE_FLUID(F)
 
 // Expects turf for T,
 #define UPDATE_FLUID_BLOCKED_DIRS(T) \
@@ -40,16 +42,16 @@
 		UPDATE_FLUID_BLOCKED_DIRS(T); \
 		if(T:fluid_blocked_dirs & spread_dir) continue; \
 		var/turf/next = get_step(T, spread_dir); \
-		if(!istype(next) || next.flooded) continue; \
+		if(!next || next.flooded) continue; \
 		UPDATE_FLUID_BLOCKED_DIRS(next); \
 		if((next.fluid_blocked_dirs & GLOB.reverse_dir[spread_dir]) || !next.CanFluidPass(spread_dir)) continue; \
 		flooded_a_neighbor = TRUE; \
 		var/obj/fluid/F = locate() in next; \
 		if(!F && !dry_run) {\
 			F = new /obj/fluid(next); \
-			var/datum/gas_mixture/GM = T:return_air(); \
+/*			var/datum/gas_mixture/GM = T:return_air(); \
 			if(GM) F.temperature = GM.temperature; \
-		} \
+*/		} \
 		if(F) { \
 			if(F.fluid_amount >= FLUID_MAX_DEPTH) continue; \
 			if(!dry_run) SET_FLUID_DEPTH(F, FLUID_MAX_DEPTH); \

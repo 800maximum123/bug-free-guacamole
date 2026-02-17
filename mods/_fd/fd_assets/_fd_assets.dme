@@ -27,26 +27,30 @@
 #include "code/mobs/pureevil.dm"
 
 #include "code/obj/items/encryption_key_boxes.dm"
-#include "code/obj/items/firstaid_indiv.dm"
 #include "code/obj/items/grown_food.dm"
 #include "code/obj/items/items.dm"
 #include "code/obj/items/music_tape.dm"
 #include "code/obj/items/storage_backpacks.dm"
 #include "code/obj/items/tile_types.dm"
+#include "code/obj/items/bunker_intecrom.dm"
 
 #include "code/obj/landmarks.dm"
 #include "code/obj/random.dm"
+#include "code/obj/vines.dm"
 
 #include "code/structures/decor.dm"
 #include "code/structures/mag_table_fd.dm"
+#include "code/structures/portals.dm"
 #include "code/structures/secure_lockers.dm"
 #include "code/structures/shooting_range.dm"
 #include "code/structures/wallframe_types.dm"
 #include "code/structures/tent.dm"
+#include "code/structures/2fl_bed.dm"
 
 #include "code/turfs/turfs.dm"
 #include "code/turfs/wall_paint.dm"
 #include "code/turfs/wall_types.dm"
+#include "code/turfs/jungle.dm"
 
 
 #include "code/accessory.dm"
@@ -61,6 +65,7 @@
 #include "code/psistuff.dm"
 #include "code/skills.dm"
 #include "code/ssinput_vent_fix.dm"
+#include "code/water.dm"
 #include "code/~TO_MAKE.dm"
 
 #include "code/trauma/code.dm"

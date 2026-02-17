@@ -9,6 +9,11 @@
 		message_admins(SPAN_NOTICE("Failed Login: [key] - Guests not allowed"))
 		return list("reason"="guest", "desc"="\nReason: Guests not allowed. Please sign in with a byond account.")
 
+	if(GLOB.fdserver_connect_whitelist && !check_server_whitelist(ckey(key)))
+		log_access("Failed Login: [key] - Not server whitelisted")
+		message_admins("<span class='notice'>Failed Login: [key] - Not server whitelisted</span>")
+		return list("reason"="whitelist", "desc"="\nReason: This server requires players to be whitelisted to join.")
+
 	if(config.ban_legacy_system)
 
 		//Ban Checking

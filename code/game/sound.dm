@@ -150,6 +150,7 @@ var/global/const/FALLOFF_SOUNDS = 0.5
 				S.environment = UNDERWATER
 			else if (T?.is_flooded(M.lying))
 				S.environment = UNDERWATER
+				S.volume *= 0.2
 			else if (pressure_factor < 0.5)
 				S.environment = SPACE
 			else

@@ -1,8 +1,9 @@
 /area/map_template/gccv_ulyanovsk
 	name = "\improper GCCV Ulyanovsk"
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/areas.dmi'
 	icon_state = "green"
 	req_access = list(access_iccg)
-	requires_power = FALSE // FOR DEBUGGING
+//	requires_power = FALSE // FOR DEBUGGING
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED // this is the fucking flying bar of plasteel
 
 /area/turbolift/ulyanovsk1
@@ -561,6 +562,24 @@
 	name = "\improper GCCV - Ulyanovsk - Teleport"
 	icon_state = "a"
 	req_access = list(access_iccg, access_iccg_com)
+
+// RAILGUN
+
+/area/map_template/gccv_ulyanovsk/deck2/railgun
+	name = "\improper Railgun Accelerator"
+	icon_state = "guns"
+
+/area/map_template/gccv_ulyanovsk/deck2/railgun/ammo
+	name = "\improper Railgun Munition Storage"
+	icon_state = "ammo"
+
+/area/map_template/gccv_ulyanovsk/deck2/railgun/tech
+	name = "\improper Railgun Maintenance"
+	icon_state = "13"
+
+/area/map_template/gccv_ulyanovsk/deck2/railgun/control
+	name = "\improper Railgun Control"
+	icon_state = "11"
 
 // HALLWAY
 

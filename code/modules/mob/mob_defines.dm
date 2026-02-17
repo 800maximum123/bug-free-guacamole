@@ -98,6 +98,8 @@
 	var/lying = 0
 	var/lying_prev = 0
 
+	var/no_ssd = FALSE
+
 	var/radio_interrupt_cooldown = 0
 
 	var/unacidable = FALSE

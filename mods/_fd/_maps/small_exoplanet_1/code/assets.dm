@@ -432,46 +432,8 @@
 	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/structure.dmi'
 	icon_state = "shelf_big"
 
-/obj/structure/table/rack/grim/Initialize()
-	SHOULD_CALL_PARENT(FALSE)
-
-	// reset color/alpha, since they're set for nice map previews
-	color = "#ffffff"
-	alpha = 255
-	update_connections(1)
-	update_icon()
-	update_desc()
-	update_material()
-
-/obj/structure/table/rack/grim/use_tool(obj/item/tool, mob/user, list/click_params)
-	SHOULD_CALL_PARENT(FALSE)
-
-	// Unfinished table - Construction stuff
-	if (can_plate && !material)
-		// Material - Plate table
-		if (istype(tool, /obj/item/stack/material))
-			material = common_material_add(tool, user, "plat")
-			if (material)
-				update_connections(TRUE)
-				update_icon()
-				update_desc()
-				update_material()
-			return TRUE
-
-		// Wrench - Dismantle
-		if (isWrench(tool))
-			dismantle(tool, user)
-			return TRUE
-
-		// Anything else - Can't put it on an unfinished table
-		USE_FEEDBACK_FAILURE("\The [src] needs to be plated before you can put \the [tool] on it.")
-		return TRUE
-
-	// Put things on table
-	if (!user.unEquip(tool, loc))
-		FEEDBACK_UNEQUIP_FAILURE(user, tool)
-		return TRUE
-	return TRUE
+	no_autoalign = TRUE
+	canbestacked = TRUE
 
 /obj/structure/table/rack/grim/table_rouge
 	name = "table"

@@ -1,0 +1,52 @@
+// Jinx
+
+/area/jinx
+	name = "\improper Jinx"
+	icon_state = "shuttle"
+
+/area/jinx/main
+	name = "\improper Jinx Airlock Compartment"
+
+/area/jinx/cockpit
+	name = "\improper Jinx Cockpit"
+
+/area/jinx/engine
+	name = "\improper Jinx Engine"
+
+/obj/overmap/visitable/ship/landable/jinx
+	name = "Jinx"
+	shuttle = "Jinx"
+	desc = "A small utility vessel with some armament."
+	fore_dir = NORTH
+	color = "#0751f3"
+	skill_needed = SKILL_BASIC
+	vessel_mass = 750
+	vessel_size = SHIP_SIZE_SMALL
+
+/obj/machinery/computer/shuttle_control/explore/jinx
+	name = "landing control console"
+	shuttle_tag = "Jinx"
+
+/datum/shuttle/autodock/overmap/jinx
+	name = "Jinx"
+	move_time = 20
+	shuttle_area = list(/area/jinx/main, /area/jinx/cockpit, /area/jinx/engine)
+	current_location = "nav_hangar_jinx"
+	landmark_transition = "nav_transit_jinx"
+	dock_target = "jinx_shuttle_dock_airlock"
+	range = 0 //range = 2
+	fuel_consumption = 1
+//	logging_home_tag = "nav_hangar_jinx"
+	ceiling_type = /turf/simulated/floor/shuttle_ceiling
+	flags = SHUTTLE_FLAGS_PROCESS
+	defer_initialisation = TRUE
+
+/obj/shuttle_landmark/jinx
+	name = "jinx Hangar"
+	landmark_tag = "nav_hangar_jinx"
+	docking_controller = "jinx_shuttle_dock_airlock"
+	base_area = /area/venera/hallway/eva
+
+/obj/shuttle_landmark/transit/jinx
+	name = "In transit"
+	landmark_tag = "nav_transit_jinx"

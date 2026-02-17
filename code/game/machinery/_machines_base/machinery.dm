@@ -499,8 +499,10 @@
 // This is really pretty crap and should be overridden for specific machines.
 /obj/machinery/water_act(depth)
 	..()
+/*
 	if(operable() && !waterproof && (depth > FLUID_DEEP))
 		ex_act(EX_ACT_LIGHT)
+*/
 
 /obj/machinery/Move()
 	. = ..()
@@ -515,3 +517,6 @@
 /// Called by `/mob/Login()` if the mob has an associated `machine`.
 /obj/machinery/proc/on_user_login(mob/M)
 	return
+
+/obj/machinery/proc/set_id_tag(new_id_tag)
+	id_tag = new_id_tag

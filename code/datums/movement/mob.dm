@@ -260,10 +260,16 @@
 	var/turf/old_turf = get_turf(mob)
 
 	if(direction & (UP|DOWN))
+		var/turf/new_turf = direction & UP ? GetAbove(old_turf) : GetBelow(old_turf)
 		var/txt_dir = direction & UP ? "upwards" : "downwards"
-		old_turf.visible_message(SPAN_NOTICE("[mob] moves [txt_dir]."))
-		if(mob.pulling)
-			mob.zPull(direction)
+		mob.visible_message(SPAN_NOTICE("[mob] starts moving [txt_dir]!"), SPAN_NOTICE("You start moving [txt_dir]!"))
+		if(do_after(mob, 5 SECONDS, new_turf, DO_PUBLIC_UNIQUE))
+			mob.visible_message(SPAN_NOTICE("[mob] moves [txt_dir]!"), SPAN_NOTICE("You moved [txt_dir]!"))
+			if(mob.pulling)
+				mob.zPull(direction)
+		else
+			mob.visible_message(SPAN_WARNING("[mob] gives up on trying to move [txt_dir]!"), SPAN_WARNING("You give up on trying to move [txt_dir]!"))
+			return
 
 	step(mob, direction)
 	// In case mobs ceased existing during the step. Silly edge case but it does happen.

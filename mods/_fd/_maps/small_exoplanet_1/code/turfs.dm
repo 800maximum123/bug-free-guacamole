@@ -2,22 +2,13 @@
 	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/water.dmi'
 	icon_state = "water_medium"
 
-/mob/living/proc/update_water_overlay()
-	if(istype(loc, /turf/simulated/floor/exoplanet/water/shallow/grim))
-		if(!get_filter("underwater"))
-			add_filter("underwater", 1, list("type" = "alpha", "icon" = icon('mods/_fd/_maps/small_exoplanet_1/icons/watermask.dmi')))
-	else
-		remove_filter("underwater")
+/turf/simulated/floor/exoplanet/water/shallow/grim/Entered(atom/movable/A)
+	. = ..()
+	A.toggle_water_overlay(src)
 
-/turf/simulated/floor/exoplanet/water/shallow/grim/Entered(mob/living/L)
-	..()
-	if(istype(L))
-		L.update_water_overlay()
-
-/turf/simulated/floor/exoplanet/water/shallow/grim/Exited(mob/living/L)
-	..()
-	if(istype(L))
-		L.update_water_overlay()
+/turf/simulated/floor/exoplanet/water/shallow/grim/Exited(atom/movable/A)
+	. = ..()
+	A.toggle_water_overlay(FALSE)
 
 /turf/simulated/open/water
 	name = "deep water"
@@ -335,6 +326,8 @@
 	density = TRUE
 	anchored = TRUE
 	opacity = TRUE
+
+	layer = TURF_LAYER
 
 /obj/structure/fd/grim_walls/brick
 	icon_state = "boss_wall-0"

@@ -113,3 +113,15 @@
 	var/turf/T = locate(rand(teleport_x, teleport_x_offset), rand(teleport_y, teleport_y_offset), rand(teleport_z, teleport_z_offset))
 	if(T)
 		A.forceMove(T)
+
+/obj/step_trigger/message_once
+    var/message = "<span class='warning'>You feel unsafe.</span>"
+    var/list/activated_mobs = list()
+
+/obj/step_trigger/message_once/Crossed(atom/movable/AM)
+    if(ismob(AM))
+        var/mob/M = AM
+        if(!(M in activated_mobs))
+            activated_mobs += M
+            to_chat(M, message)
+    ..()

@@ -1,6 +1,6 @@
 /datum/gear/uniform/pmc //Some of that is duplicate of standart Torch uniforms selection. But who cares.
 	display_name = "PMC uniform selection"
-	allowed_roles = list(/datum/job/detective, /datum/job/officer, /datum/job/hos)
+//	allowed_roles = list(/datum/job/detective, /datum/job/officer, /datum/job/hos)
 	path = /obj/item/clothing/under
 
 /datum/gear/uniform/pmc/New()
@@ -22,8 +22,8 @@
 
 /datum/gear/uniform/sierra_scg
 	display_name = "SCG uniform selection"
-	allowed_branches = list(/datum/mil_branch/contractor)
-	allowed_factions = list(FACTION_EXPEDITIONARY, FACTION_CORPORATE)
+//	allowed_branches = list(/datum/mil_branch/contractor)
+//	allowed_factions = list(FACTION_EXPEDITIONARY, FACTION_CORPORATE)
 	path = /obj/item/clothing/under
 
 /datum/gear/uniform/sierra_scg/New()
