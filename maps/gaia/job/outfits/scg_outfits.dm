@@ -8,6 +8,8 @@
 	pda_type = null
 	id_types = list(/obj/item/card/id/gaia/scg)
 
+	flags = OUTFIT_FLAGS_JOB_DEFAULT | OUTFIT_EXTENDED_SURVIVAL
+
 // -- COMMAND --
 // COMMANDING OFFICER
 /singleton/hierarchy/outfit/job/gaia/scg/command

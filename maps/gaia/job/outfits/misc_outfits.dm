@@ -6,6 +6,8 @@
 	r_pocket = /obj/item/device/radio/hailing
 	id_types = list(/obj/item/card/id/gaia)
 
+	flags = OUTFIT_FLAGS_JOB_DEFAULT | OUTFIT_ADJUSTMENT_SKIP_SURVIVAL_GEAR
+
 /singleton/hierarchy/outfit/job/gaia/police
 	name = OUTFIT_JOB_NAME("Gaian Police Officer")
 	uniform = /obj/item/clothing/under/rank/security/alt/police

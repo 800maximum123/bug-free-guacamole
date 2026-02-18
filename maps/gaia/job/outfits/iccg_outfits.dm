@@ -7,6 +7,8 @@
 	pda_type = /obj/item/modular_computer/pda/syndicate
 	id_types = list(/obj/item/card/id/gaia/iccg)
 
+	flags = OUTFIT_FLAGS_JOB_DEFAULT | OUTFIT_EXTENDED_SURVIVAL
+
 // -- COMMAND --
 // COMMANDING OFFICER
 /singleton/hierarchy/outfit/job/gaia/iccg/command
