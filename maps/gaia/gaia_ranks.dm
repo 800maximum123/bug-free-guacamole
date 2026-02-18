@@ -106,7 +106,7 @@
 /datum/mil_branch/fleet
 	name = "Fleet"
 	name_short = "SCGF"
-	email_domain = "scg.mil.scg"
+	email_domain = "fleet.mil.scg"
 
 	rank_types = list(
 		/datum/mil_rank/fleet/e1,
@@ -160,7 +160,7 @@
 /datum/mil_branch/civilian
 	name = "Civilian"
 	name_short = "Civ"
-	email_domain = "gaiamail.net"
+	email_domain = "freemail.gaia"
 	allow_custom_email = TRUE
 
 	rank_types = list(
@@ -180,7 +180,7 @@
 /datum/mil_branch/solgov
 	name = "SolGov Employee"
 	name_short = "SCG"
-	email_domain = "gaiamission.dip.scg"
+	email_domain = "gaia.scg"
 
 	rank_types = list(
 		/datum/mil_rank/sol/gov,
