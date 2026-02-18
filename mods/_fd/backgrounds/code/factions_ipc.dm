@@ -121,11 +121,11 @@
 /singleton/cultural_info/faction/ipc/first
 	name = FACTION_POSITRONICS_FIRSTGEN
 	description = "Ты принадлежишь корпорации, человеку, или государству. Первое поколение не столь умно, как их младшие братья, но обладает большим периодом износа и в целом стоит значительно дешевле."
-	valid_jobs = list(/datum/job/scg_engineer, /datum/job/scg_medic, /datum/job/scg_trooper, /datum/job/scg_squad_medic, /datum/job/scg_squad_grenadier, /datum/job/scg_squad_marksman)
+	valid_jobs = list(/datum/job/scg_engineer, /datum/job/scg_medic, /datum/job/scg_trooper)
 
 //SECOND
 /singleton/cultural_info/faction/ipc/second
-	valid_jobs = list(/datum/job/scg_engineer, /datum/job/scg_medic, /datum/job/scg_trooper, /datum/job/scg_squad_medic, /datum/job/scg_squad_grenadier, /datum/job/scg_squad_marksman)
+	valid_jobs = list(/datum/job/scg_engineer, /datum/job/scg_medic, /datum/job/scg_trooper)
 
 /singleton/cultural_info/faction/ipc/second/owned
 	name = FACTION_POSITRONICS_SECONDGEN_OWNED

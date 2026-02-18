@@ -45,9 +45,8 @@
 
 /datum/job/iccg_xo
 	title = "Nachalnik Shtaba"
-	total_positions = 0 //temporary
-	spawn_positions = 0
-	available_by_default = FALSE
+	total_positions = 1
+	spawn_positions = 1
 	supervisors = "Komandiru Vzvoda"
 	department = "Gilgamesh Colonial Confederation"
 	department_flag = SEC
@@ -197,9 +196,8 @@
 		/datum/mil_branch/iccgn,
 	)
 	allowed_ranks = list(
-		/datum/mil_rank/iccgn/or3,
-		/datum/mil_rank/iccgn/or4,
-		/datum/mil_rank/iccgn/or5
+		/datum/mil_rank/iccgn/or5,
+		/datum/mil_rank/iccgn/or6,
 	)
 	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
 	                    SKILL_HAULING     = SKILL_BASIC,
@@ -223,8 +221,8 @@
 // -- COMBAT (meatshields) --
 /datum/job/iccg_squad_leader
 	title = "Komandir Otdeleniya"
-	total_positions = 2 //we won't need more
-	spawn_positions = 2
+	total_positions = 3
+	spawn_positions = 3
 	supervisors = "Nachalniku Shtaba i Komandiru Vzvoda"
 	department = "Gilgamesh Colonial Confederation"
 	department_flag = SEC
