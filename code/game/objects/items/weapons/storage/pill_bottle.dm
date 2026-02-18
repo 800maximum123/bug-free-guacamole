@@ -215,3 +215,16 @@
 		/obj/item/reagent_containers/pill/kelotane = 2,
 		/obj/item/reagent_containers/pill/hyronalin
 	)
+
+// GAIA
+/obj/item/storage/pill_bottle/coagulant
+	name = "pill bottle (Coagulant)"
+	desc = "A pill bottle containing a Coagulant that helps stop arterial and external bleeding."
+	startswith = list(/obj/item/reagent_containers/pill/coagulant = 14)
+	wrapper_color = COLOR_BLOOD_HUMAN
+
+/obj/item/storage/pill_bottle/peridaxon
+	name = "pill bottle (Peridaxon)"
+	desc = "A pill bottle containing Peridaxon, a powerful organ healing agent."
+	startswith = list(/obj/item/reagent_containers/pill/peridaxon = 14)
+	wrapper_color = COLOR_PURPLE_GRAY

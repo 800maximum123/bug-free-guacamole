@@ -446,7 +446,6 @@
 	reagent_state = LIQUID
 	color = "#561ec3"
 	metabolism = REM * 0.5
-	overdose = 10
 	scannable = 1
 	flags = IGNORE_MOB_SIZE
 	value = 6
@@ -463,7 +462,7 @@
 					// peridaxon only heals minor brain damage
 					if(I.damage >= I.min_bruised_damage)
 						continue
-				I.heal_damage(3 * removed)
+				I.heal_damage(7 * removed)
 
 /datum/reagent/ryetalyn
 	name = "Ryetalyn"

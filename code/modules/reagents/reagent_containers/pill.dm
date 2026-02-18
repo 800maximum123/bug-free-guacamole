@@ -396,6 +396,26 @@
 	reagents.add_reagent(/datum/reagent/nutriment/mint, 1) //mint is used as a catalyst in all reactions as of writing
 	color = reagents.get_color()
 
+// GAIA
+/obj/item/reagent_containers/pill/coagulant
+	name = "Coagulant (1u)"
+	desc = "Used to stop arterial and external bleeding, contains additional 4 units of nanoblood."
+	icon_state = "pill1"
+/obj/item/reagent_containers/pill/coagulant/New()
+	..()
+	reagents.add_reagent(/datum/reagent/coagulant, 1)
+	reagents.add_reagent(/datum/reagent/nanoblood, 4)
+	color = reagents.get_color()
+
+/obj/item/reagent_containers/pill/peridaxon
+	name = "Peridaxon (5u)"
+	desc = "Used to heal organ damage."
+	icon_state = "pill1"
+/obj/item/reagent_containers/pill/peridaxon/New()
+	..()
+	reagents.add_reagent(/datum/reagent/peridaxon, 5)
+	color = reagents.get_color()
+
 // Chopping up pills
 
 /obj/item/reagent_containers/pill/use_tool(obj/item/W, mob/living/user, list/click_params)

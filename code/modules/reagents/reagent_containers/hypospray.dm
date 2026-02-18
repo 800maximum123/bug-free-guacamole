@@ -246,3 +246,7 @@
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline
 	name = "autoinjector (inaprovaline)"
 	starts_with = list(/datum/reagent/inaprovaline = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/peridaxon
+	name = "autoinjector (peridaxon)"
+	starts_with = list(/datum/reagent/peridaxon = 5)

@@ -267,7 +267,7 @@
 	max_amount = 5
 	animal_heal = 0
 	can_treat_robots = TRUE
-	var/list/splintable_organs = list(BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG, BP_L_HAND, BP_R_HAND, BP_L_FOOT, BP_R_FOOT)	//List of organs you can splint, natch.
+	var/list/splintable_organs = list(BP_ALL_LIMBS)	//List of organs you can splint, natch. Switched to all limbs for Gaia
 
 /obj/item/stack/medical/splint/use_after(mob/living/carbon/M, mob/user)
 	if (..())

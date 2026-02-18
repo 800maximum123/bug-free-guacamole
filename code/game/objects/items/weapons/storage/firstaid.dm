@@ -93,13 +93,16 @@
 		/obj/item/stack/medical/splint
 	)
 
-
+// GAIA
 /obj/item/storage/firstaid/combat
 	name = "combat medical kit"
 	desc = "Contains advanced medical treatments."
 	icon_state = "fak-combat"
 	item_state = "firstaid-combat"
+	storage_slots = 9
 	startswith = list(
+		/obj/item/storage/pill_bottle/coagulant,
+		/obj/item/storage/pill_bottle/peridaxon,
 		/obj/item/storage/pill_bottle/bicaridine,
 		/obj/item/storage/pill_bottle/dermaline,
 		/obj/item/storage/pill_bottle/dexalin_plus,
@@ -139,6 +142,25 @@
 		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline,
 		/obj/item/reagent_containers/hypospray/autoinjector/dexalin_plus,
 		/obj/item/reagent_containers/hypospray/autoinjector/detox
+	)
+
+// GAIA
+/obj/item/storage/firstaid/small_combat
+	name = "combat stabilisation kit"
+	desc = "A sleek individual combat medical kit."
+	icon_state = "fak-combat-small"
+	item_state = "firstaid-advanced"
+	w_class = ITEM_SIZE_SMALL
+	storage_slots = 8
+	startswith = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/coagulant,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
+		/obj/item/reagent_containers/hypospray/autoinjector/combatpain,
+		/obj/item/reagent_containers/hypospray/autoinjector/combatstim,
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+		/obj/item/reagent_containers/hypospray/autoinjector/dexalin_plus,
+		/obj/item/reagent_containers/hypospray/autoinjector/detox,
 	)
 
 
