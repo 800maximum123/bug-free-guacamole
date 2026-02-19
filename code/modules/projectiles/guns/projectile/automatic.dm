@@ -593,6 +593,7 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/caseless_box
 	allowed_magazines = list(/obj/item/ammo_magazine/caseless_box, /obj/item/ammo_magazine/caseless_rifle)
+	handle_casings = CLEAR_CASINGS
 	one_hand_penalty = 10
 	mag_insert_sound = 'sound/weapons/guns/interaction/lmg_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/lmg_magout.ogg'
