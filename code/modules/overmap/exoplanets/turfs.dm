@@ -64,7 +64,7 @@
 	update_icon(1)
 
 /turf/simulated/floor/exoplanet/on_update_icon(update_neighbors)
-	//ClearOverlays() Gaia lazy fix
+	ClearOverlays()
 	if(LAZYLEN(decals))
 		AddOverlays(decals)
 	for(var/direction in GLOB.cardinal)
@@ -212,11 +212,15 @@
 	diggable = FALSE
 
 /turf/simulated/floor/exoplanet/concrete/on_update_icon()
-	//ClearOverlays() Lazy Fix GAIA
+	ClearOverlays()
 	if(burnt)
 		AddOverlays(get_damage_overlay("burned[(x + y) % 3]", BLEND_MULTIPLY))
 	if(broken)
 		AddOverlays(get_damage_overlay("broken[(x + y) % 5]", BLEND_MULTIPLY))
+
+	// Ensure floor decals are added for concrete exoplanet tiles
+	if(LAZYLEN(decals))
+		AddOverlays(decals)
 
 /turf/simulated/floor/exoplanet/concrete/melt()
 	burnt = TRUE

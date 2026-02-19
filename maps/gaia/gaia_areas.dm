@@ -10,6 +10,7 @@
 
 /area/gaia
 	name = "\improper Gaian Surface"
+	icon = 'maps/gaia/icons/areas.dmi'
 	icon_state = "gaia"
 	requires_power = 0
 	sound_env = ASTEROID
@@ -23,6 +24,16 @@
 	name = "\improper Maricarbonia"
 	icon_state = "gaia_city"
 	ambience = list('sound/ambience/ominous1.ogg', 'sound/ambience/ominous2.ogg', 'sound/ambience/ominous3.ogg',)
+
+/area/gaia/mineshafts
+	name = "\improper Maricarbonia's Mineshafts Outskirts"
+	icon_state = "gaia_mineshafts_outskirts"
+
+/area/gaia/mineshafts/shafts
+	name = "\improper Maricarbonia's Mineshafts"
+	icon_state = "gaia_mineshafts"
+	forced_ambience = list('sound/ambience/maintambience.ogg')
+	ambience = list('sound/ambience/spookyspace1.ogg', 'sound/ambience/spookyspace2.ogg',)
 
 /*
 * -- SCG Camp "Boxcutters" Platoon camp --
@@ -105,7 +116,6 @@
 
 /area/gaia/scg/hospital/surgery
 	name = "\improper SCG Camp - Surgical"
-	icon_state = "scg_hospital"
 	sound_env = SMALL_SOFTFLOOR
 
 // Command
