@@ -56,6 +56,7 @@
 
 	#include "../gaia/turf/moving.dm"
 	#include "../gaia/turf/walls.dm"
+	#include "../gaia/turf/mineral.dm"
 
 	#include "../gaia/job/iccg_jobs.dm"
 	#include "../gaia/job/scg_jobs.dm"
@@ -70,7 +71,8 @@
 	#include "../gaia/z4_admin.dmm"
 	#include "../gaia/z5_transit.dmm"
 	//CHANGE THIS DEPENDING ON THE MISSION!!
-	#include "../gaia/area_of_op/city.dmm"
+	#include "../gaia/area_of_op/shaftmines.dmm"
+	//#include "../gaia/area_of_op/city.dmm"
 	//#include "../gaia/area_of_op/outskirts.dmm"
 
 	// --- MAP MAINTENANCE --- //
