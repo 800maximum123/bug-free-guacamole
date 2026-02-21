@@ -459,8 +459,8 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/gaia/city)
 "aEP" = (
-/obj/shuttle_landmark/lift/iccg_stopa_shuttle_op,
 /obj/decal/cleanable/dirt,
+/obj/shuttle_landmark/lift/iccg_stopa_shuttle/op,
 /turf/simulated/floor/armored,
 /area/gaia/city)
 "aEU" = (
@@ -2758,7 +2758,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/city)
 "dtI" = (
-/obj/shuttle_landmark/lift/scg_truck_areaofop/bravo,
+/obj/shuttle_landmark/lift/scg_truck/areaofop,
 /turf/simulated/floor/exoplanet/barren,
 /area/gaia/city)
 "dtY" = (
@@ -12751,10 +12751,6 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/gaia/city)
-"pZb" = (
-/obj/shuttle_landmark/lift/scg_truck_areaofop,
-/turf/simulated/floor/exoplanet/barren,
-/area/gaia/city)
 "qau" = (
 /obj/structure/girder/displaced,
 /turf/simulated/floor/plating,
@@ -18771,6 +18767,10 @@
 	icon_state = "railing0-1"
 	},
 /turf/simulated/floor/plating,
+/area/gaia/city)
+"xTB" = (
+/obj/shuttle_landmark/lift/scg_truck/areaofop/bravo,
+/turf/simulated/floor/exoplanet/barren,
 /area/gaia/city)
 "xTD" = (
 /obj/floor_decal/corner/grey{
@@ -74702,7 +74702,7 @@ ezh
 ezh
 bPm
 bPm
-pZb
+dtI
 bPm
 bPm
 nvk
@@ -74714,7 +74714,7 @@ qDV
 nvk
 bPm
 bPm
-dtI
+xTB
 bPm
 ezh
 ezh

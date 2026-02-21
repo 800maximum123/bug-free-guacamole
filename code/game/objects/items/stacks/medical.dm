@@ -277,9 +277,11 @@
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting) //nullchecked by ..()
 		var/limb = affecting.name
+		/*
 		if (!(affecting.organ_tag in splintable_organs))
 			to_chat(user, SPAN_DANGER("You can't use \the [src] to apply a splint there!"))
 			return TRUE
+			*/
 		if (affecting.splinted)
 			to_chat(user, SPAN_DANGER("[M]'s [limb] is already splinted!"))
 			return TRUE

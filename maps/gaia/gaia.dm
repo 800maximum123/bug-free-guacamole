@@ -54,6 +54,7 @@
 	#include "../gaia/structures/signs.dm"
 	#include "../gaia/structures/truck.dm"
 
+	#include "../gaia/turf/floor.dm"
 	#include "../gaia/turf/moving.dm"
 	#include "../gaia/turf/walls.dm"
 	#include "../gaia/turf/mineral.dm"

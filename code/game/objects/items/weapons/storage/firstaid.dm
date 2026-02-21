@@ -99,7 +99,7 @@
 	desc = "Contains advanced medical treatments."
 	icon_state = "fak-combat"
 	item_state = "firstaid-combat"
-	storage_slots = 9
+	storage_slots = 10
 	startswith = list(
 		/obj/item/storage/pill_bottle/coagulant,
 		/obj/item/storage/pill_bottle/peridaxon,

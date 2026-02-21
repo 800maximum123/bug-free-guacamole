@@ -106,3 +106,69 @@
 	paint_color = COLOR_GUNMETAL
 	basestate = "windshield_right"
 	reinf_basestate = "windshield_right"
+
+/obj/machinery/rotating_alarm/emergency_vehicle
+	name = "emergency sirens"
+	desc = "An rotating alarm light with built-in speakers to get priority on the road."
+	icon_state = "code blue"
+	alarm_light_color = COLOR_BLUE
+
+	public_methods = list(/singleton/public_access/public_method/emergency_vehicle_toggle)
+
+	stock_part_presets = list(/singleton/stock_part_preset/radio/receiver/emergency_vehicle = 1)
+
+	// Sound handling
+	var/datum/sound_token/sound_token = null
+	var/sound_name = "maps/gaia/sounds/apc_siren.ogg"
+
+/obj/machinery/rotating_alarm/emergency_vehicle/proc/start_alarm_sound()
+	if(sound_token)
+		return
+	// Play a looping 3D sound via the global sound player and keep the token
+	sound_token = GLOB.sound_player.PlayLoopingSound(src, "\ref[src]", sound_name, volume = 80, range = 25, falloff = 1, prefer_mute = TRUE)
+
+/obj/machinery/rotating_alarm/emergency_vehicle/proc/stop_alarm_sound()
+	if(sound_token)
+		sound_token.Stop()
+		sound_token = null
+
+// Receiver-friendly public method used by radio receivers. Expects a boolean-like value.
+
+/obj/machinery/rotating_alarm/emergency_vehicle/proc/set_alarm_active()
+	if(on)
+		set_off()
+	else
+		set_on()
+	return
+
+// Ensure sound starts/stops when the alarm state changes
+/obj/machinery/rotating_alarm/emergency_vehicle/set_on()
+	..()
+	start_alarm_sound()
+
+/obj/machinery/rotating_alarm/emergency_vehicle/set_off()
+	..()
+	stop_alarm_sound()
+
+/obj/machinery/rotating_alarm/emergency_vehicle/set_dir(ndir)
+	. = ..()
+	if(dir == NORTH)
+		pixel_y = 19
+	if(dir == SOUTH)
+		pixel_y = -19
+	if(dir == WEST)
+		pixel_x = -18
+	if(dir == EAST)
+		pixel_x = 18
+
+// Public access and radio receiver preset for external buttons
+/singleton/public_access/public_method/emergency_vehicle_toggle
+	name = "toggle emergency vehicle sirens"
+	desc = "Toggles or sets the emergency vehicle sirens"
+	call_proc = TYPE_PROC_REF(/obj/machinery/rotating_alarm/emergency_vehicle, set_on)
+
+/singleton/stock_part_preset/radio/receiver/emergency_vehicle
+	frequency = BUTTON_FREQ
+	receive_and_call = list(
+		"button_active" = /singleton/public_access/public_method/emergency_vehicle_toggle,
+	)

@@ -16,11 +16,16 @@
 
 /obj/lock_helper/LateInitialize(mapload)
 	var/turf/current_turf = get_turf(src)
-	for(var/obj/machinery/door/unpowered/simple/door in current_turf)
-		if(!lock_data)
-			door.initial_lock_value = TRUE
-			qdel(src)
-		. = new /datum/lock(door, lock_data, start_locked)
+	for(var/obj/thing in current_turf)
+		if(istype(thing, /obj/machinery/door/unpowered/simple))
+			var/obj/machinery/door/unpowered/simple/door = thing
+			// Always create a lock datum on the door. If `lock_data` is null, the lock will
+			// be created without a specific key (i.e. a simple locked door).
+			var/datum/lock/created_lock = new /datum/lock()
+			created_lock.holder = door
+			created_lock.lock_data = lock_data
+			created_lock.status = start_locked
+			message_admins("A lock helper has created a [created_lock] on [door] with lock data [lock_data] and start_locked set to [start_locked].")
 	qdel(src)
 
 /obj/lock_helper/unlocked
@@ -36,7 +41,7 @@
 /obj/lock_helper/gaia_iccg
 	name = "ICCG door locker helper"
 	color = COLOR_RED_GRAY
-	lock_data = "GAIA_SCG_MASTER_KEY"
+	lock_data = "GAIA_ICCG_MASTER_KEY"
 
 /obj/lock_helper/unlocked/gaia_scg
 	name = "SCG door locker helper"
@@ -46,4 +51,4 @@
 /obj/lock_helper/unlocked/gaia_iccg
 	name = "ICCG door locker helper"
 	color = COLOR_RED_GRAY
-	lock_data = "GAIA_SCG_MASTER_KEY"
+	lock_data = "GAIA_ICCG_MASTER_KEY"

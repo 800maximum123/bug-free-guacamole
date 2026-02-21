@@ -178,10 +178,19 @@
 	icon_state = "rifle_caseless"
 
 /obj/item/ammo_casing/rocket
-	name = "rocket shell"
-	desc = "A high explosive designed to be fired from a launcher."
-	icon_state = "rocketshell"
-	projectile_type = /obj/item/missile
+	name = "HE rocket shell"
+	desc = "A high-explosive rocket designed to be fired from a launcher."
+	icon_state = "rocket_he"
+	projectile_type = /obj/item/projectile/missile
+	caliber = "rocket"
+	w_class = ITEM_SIZE_NORMAL
+
+//GAIA ADD
+/obj/item/ammo_casing/rocket/aphe
+	name = "APHE rocket shell"
+	desc = "A armor-piercing high-explosive rocket designed to be fired from a launcher."
+	icon_state = "rocket_aphe"
+	projectile_type = /obj/item/projectile/missile/aphe
 	caliber = "rocket"
 
 /obj/item/ammo_casing/cap

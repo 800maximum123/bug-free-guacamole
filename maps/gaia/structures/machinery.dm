@@ -25,6 +25,11 @@
 	name = "\improper SCGDF radio encryption key"
 	channels = list("SCGDF" = 1, "Hailing" = 1)
 
+/obj/item/device/radio/headset/gaia_scg/command
+	name = "SCGDF command headset"
+	desc = "A headset used by the 'Solar Central Government Defense Force' leaders, allowing them to command their troops."
+	command = TRUE
+
 /obj/item/device/radio/off/gaia_scg
 	name = "shortwave radio (SCGDF)"
 	listening = 0
@@ -56,6 +61,11 @@
 /obj/item/device/encryptionkey/gaia_iccg
 	name = "\improper ICCGN radio encryption key"
 	channels = list("ICCGN" = 1, "Hailing" = 1)
+
+/obj/item/device/radio/headset/gaia_iccg/command
+	name = "ICCGN command headset"
+	desc = "A headset used by the 'Independent Colonial Confederation of Gilgamesh Navy' leaders, allowing them to command their troops."
+	command = TRUE
 
 /obj/item/device/radio/off/gaia_iccg
 	name = "shortwave radio (ICCGN)"

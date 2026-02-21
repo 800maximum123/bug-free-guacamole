@@ -1,10 +1,11 @@
 // Generates a simple HTML crew manifest for use in various places
+// Changed for GAIA
 /proc/html_crew_manifest(monochrome, OOC)
 	var/list/dept_data = list(
 		list("names" = list(), "header" = "Heads of Staff", "flag" = COM, "color" = MANIFEST_COLOR_COMMAND),
-		list("names" = list(), "header" = "Command Support", "flag" = SPT, "color" = MANIFEST_COLOR_SUPPORT),
+		list("names" = list(), "header" = "Sol Central Government", "flag" = SPT, "color" = MANIFEST_COLOR_SUPPORT), //Gaia
 		list("names" = list(), "header" = "Research", "flag" = SCI, "color" = MANIFEST_COLOR_SCIENCE),
-		list("names" = list(), "header" = "Security", "flag" = SEC, "color" = MANIFEST_COLOR_SECURITY),
+		list("names" = list(), "header" = "Independent Colonial Confederation of Gilgamesh", "flag" = SEC, "color" = MANIFEST_COLOR_SECURITY), //Gaia
 		list("names" = list(), "header" = "Medical", "flag" = MED, "color" = MANIFEST_COLOR_MEDICAL),
 		list("names" = list(), "header" = "Engineering", "flag" = ENG, "color" = MANIFEST_COLOR_ENGINEER),
 		list("names" = list(), "header" = "Supply", "flag" = SUP, "color" = MANIFEST_COLOR_SUPPLY),

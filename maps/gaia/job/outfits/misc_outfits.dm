@@ -24,6 +24,15 @@
 	head = /obj/item/clothing/head/hardhat
 	belt = /obj/item/storage/belt/utility/full
 
+/singleton/hierarchy/outfit/job/gaia/worker
+	name = OUTFIT_JOB_NAME("Gaian Shaft Miner")
+	uniform = /obj/item/clothing/under/rank/miner
+	suit = /obj/item/clothing/suit/storage/hazardvest
+	shoes = /obj/item/clothing/shoes/workboots
+	head = /obj/item/clothing/head/hardhat
+	belt = /obj/item/storage/belt/archaeology
+	l_hand = /obj/item/pickaxe/drill
+
 /singleton/hierarchy/outfit/job/gaia/paramedic
 	name = OUTFIT_JOB_NAME("Gaian Paramedic")
 	uniform = /obj/item/clothing/under/rank/medical/scrubs/blue

@@ -100,7 +100,7 @@
 		commanders += "SCG Commander ([scg_commander.name])"
 	if(iccg_commander)
 		commanders += "ICCG Commander ([iccg_commander.name])"
-	var/mob/living/carbon/human/choice = input("Which commander do you want to speak as?", "Commander Message") as null|anything in commanders
+	var/mob/living/carbon/human/choice = input("Which commander do you want to speak as? (NOTE: The message will be automatically said on the radio)", "Commander Message") as null|anything in commanders
 	if(!choice)
 		return
 
@@ -113,5 +113,42 @@
 	if(!msg)
 		return
 
+	var/will_display = input("Do you want to display the message on the screen of all players of the same faction as the commander? This will also play a soundeffect.", "Commander Message") as null|anything in list("Yes", "No")
+
 	// Force the speech
-	choice.say(msg)
+	choice.say(";[msg]")
+
+	// Show a text on screen if the admin wants to, with a different color and sound depending on the faction of the commander
+	if(!will_display||will_display == "No")
+		return
+
+	var/colored = COLOR_WHITE
+	var/sound = 'sound/misc/null.ogg'
+	if(choice == scg_commander)
+		colored = COLOR_CYAN_BLUE
+		sound = 'maps/gaia/sounds/scg_commander_msg.ogg'
+	else if(choice == iccg_commander)
+		colored = COLOR_RED
+		sound = 'maps/gaia/sounds/iccg_commander_msg.ogg'
+
+	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	visuals.maptext_x = -10
+	visuals.maptext_y = -40
+
+	// Finds all players of the same faction as the commander and shows them the message on their screen
+	var/list/listeners = list()
+
+	var/commander_faction = MOB_FACTION_NEUTRAL
+	if(choice == scg_commander)
+		commander_faction = MOB_FACTION_SCG
+	else if(choice == iccg_commander)
+		commander_faction = MOB_FACTION_ICCG
+
+	for(var/mob/living/PrePlayer in GLOB.living_players)
+		if(PrePlayer.mind && PrePlayer.faction == commander_faction)
+			listeners += PrePlayer
+
+	for(var/mob/living/Player in listeners)
+		Player.client.screen += visuals
+		playsound(Player, sound, 50, 0, -1)
+	visuals.set_text("[choice]: [msg]", colored, time = 20 SECONDS)

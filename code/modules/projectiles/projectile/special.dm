@@ -204,19 +204,33 @@
 	if(L.reagents)
 		L.reagents.add_reagent(/datum/reagent/toxin/venom, 5)
 
-/obj/item/missile
+/obj/item/projectile/missile
+	name = "HE rocket"
 	icon = 'icons/obj/weapons/grenade.dmi'
 	icon_state = "missile"
-	var/primed = null
-	throwforce = 15
+	damage = 40
+	damage_type = DAMAGE_EXPLODE
+	var/explosion_power = 200
+	var/explosion_falloff = 50
+	var/armor_piercing = FALSE
 
-/obj/item/missile/throw_impact(atom/hit_atom)
-	if(primed)
-		explosion(hit_atom, 3, EX_ACT_HEAVY)
-		qdel(src)
-	else
-		..()
-	return
+/obj/item/projectile/missile/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+	var/turf/T = get_turf(src)
+	if(T)
+		cell_explosion(T, explosion_power, explosion_falloff)
+		visible_message(SPAN_DANGER("The [src] explodes on impact!"), SPAN_DANGER("You hear a loud explosion!"))
+	if(armor_piercing)
+		var/mob/living/exosuit/M = target
+		if(M && istype(M, /mob/living/exosuit))
+			visible_message(SPAN_DANGER("The [src] pierces through the armor of [M]!"), SPAN_DANGER("You hear a loud metallic sound!"))
+			M.death() // Bye-bye mech
+
+/obj/item/projectile/missile/aphe
+	name = "APHE rocket"
+	explosion_power = 150
+	explosion_falloff = 75
+	armor_piercing = TRUE
 
 /obj/item/projectile/hotgas
 	name = "gas vent"

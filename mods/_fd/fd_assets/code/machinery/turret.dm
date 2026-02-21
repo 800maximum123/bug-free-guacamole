@@ -28,7 +28,7 @@
 	installation = /obj/item/gun/projectile/automatic/shotgun
 
 /obj/machinery/porta_turret/ballistic/rocket // no way bro, what the fuck are you doing
-	installation = /obj/item/gun/launcher/rocket
+	installation = /obj/item/gun/projectile/rocket_launcher
 	health_max = 60
 	shot_delay = 45
 
@@ -52,9 +52,9 @@
 			eprojectile = /obj/item/projectile/bullet/shotgun
 			shot_sound = 'sound/weapons/gunshot/shotgun/shot.ogg'
 
-		if(/obj/item/gun/launcher/rocket)
-			projectile = /obj/item/missile
-			eprojectile = /obj/item/missile
+		if(/obj/item/gun/projectile/rocket_launcher)
+			projectile = /obj/item/ammo_casing/rocket
+			eprojectile = /obj/item/ammo_casing/rocket
 			shot_sound = 'sound/weapons/gunshot/general/rocket_launch.ogg'
 
 		if(/obj/item/gun/magnetic/railgun/automatic/mmi)

@@ -95,18 +95,18 @@
 /obj/floor_decal/hull,
 /obj/structure/closet/secure_closet/guncabinet,
 /obj/decal/cleanable/dirt,
-/obj/item/gun/projectile/pistol/m19,
-/obj/item/gun/projectile/pistol/m19,
-/obj/item/gun/projectile/pistol/m19,
-/obj/item/gun/projectile/pistol/m22f,
-/obj/item/gun/projectile/pistol/m22f,
-/obj/item/gun/projectile/pistol/m22f,
 /obj/item/gun/projectile/pistol/sec/lethal,
 /obj/item/gun/projectile/pistol/sec/lethal,
 /obj/item/gun/projectile/revolver/medium,
 /obj/item/gun/projectile/revolver/medium,
 /obj/item/gun/energy/gun,
 /obj/item/gun/energy/gun,
+/obj/item/gun/projectile/pistol/sol_compact,
+/obj/item/gun/projectile/pistol/sol_compact,
+/obj/item/gun/projectile/pistol/sol_compact,
+/obj/item/gun/projectile/pistol/sol_service,
+/obj/item/gun/projectile/pistol/sol_service,
+/obj/item/gun/projectile/pistol/sol_service,
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "aT" = (
@@ -158,9 +158,17 @@
 	dir = 1
 	},
 /obj/structure/extinguisher_cabinet{
-	pixel_y = 26
+	pixel_y = 26;
+	pixel_x = -7
 	},
 /obj/machinery/door/window/westleft,
+/obj/machinery/vending/wallmed2{
+	pixel_y = 30;
+	pixel_x = 5
+	},
+/obj/structure/closet/walllocker{
+	pixel_y = -32
+	},
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck)
 "bi" = (
@@ -329,7 +337,8 @@
 /area/gaia/scg/security/prison)
 "cj" = (
 /obj/machinery/door/blast/shutters/open{
-	dir = 4
+	dir = 4;
+	id_tag = "scg_truck_alpha_shutters"
 	},
 /obj/floor_decal/steeldecal/steel_decals_central3{
 	dir = 4
@@ -358,12 +367,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/gaia/scg/command/briefing)
 "cA" = (
-/obj/paint/hull,
-/obj/paint_stripe/gunmetal,
+/obj/floor_decal/steeldecal/steel_decals_central2,
+/obj/floor_decal/steeldecal/steel_decals_central2{
+	dir = 1
+	},
+/obj/structure/handrail{
+	dir = 1
+	},
 /obj/machinery/button/blast_door{
+	pixel_y = 23
+	},
+/obj/structure/storage/table{
 	pixel_y = -10
 	},
-/turf/simulated/wall/titanium,
+/turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck)
 "cC" = (
 /obj/structure/flora/pottedplant/dead,
@@ -401,6 +418,12 @@
 	},
 /obj/structure/handrail{
 	dir = 1
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 23
+	},
+/obj/structure/storage/table{
+	pixel_y = -10
 	},
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck)
@@ -736,7 +759,9 @@
 	},
 /obj/structure/window/reinforced/windshield,
 /obj/structure/wall_frame/titanium,
-/obj/structure/table/wallf,
+/obj/structure/table/wallf{
+	pixel_x = -3
+	},
 /obj/structure/gaia/wheel{
 	layer = 3.06;
 	pixel_y = -16
@@ -823,10 +848,10 @@
 /obj/item/clothing/accessory/glassesmod/nvg,
 /obj/item/clothing/accessory/glassesmod/nvg,
 /obj/item/clothing/accessory/glassesmod/nvg,
-/obj/item/clothing/accessory/glassesmod/nvg,
-/obj/item/clothing/accessory/glassesmod/nvg,
-/obj/item/clothing/accessory/glassesmod/nvg,
-/obj/item/clothing/accessory/glassesmod/nvg,
+/obj/item/storage/box/greenglowsticks,
+/obj/item/storage/box/greenglowsticks,
+/obj/item/storage/box/greenglowsticks,
+/obj/item/gun/projectile/flare/loaded,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "fU" = (
@@ -989,12 +1014,18 @@
 	dir = 8
 	},
 /obj/floor_decal/spline/plain/black{
-	dir = 8
-	},
-/obj/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/obj/shuttle_landmark/lift/scg_truck_camp/bravo,
+/obj/shuttle_landmark/lift/scg_truck/base/bravo,
+/obj/item/device/radio/intercom/hailing{
+	dir = 1;
+	layer = 2.23;
+	pixel_y = -32
+	},
+/obj/structure/storage/vehicles{
+	dir = 4;
+	layer = 2.0
+	},
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck/bravo)
 "hJ" = (
@@ -1343,6 +1374,20 @@
 /obj/lock_helper/unlocked/gaia_scg,
 /turf/simulated/floor/steel_dirty,
 /area/gaia/scg/barracks/officer)
+"kF" = (
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_extended,
+/obj/item/tank/oxygen_emergency_extended,
+/obj/item/tank/oxygen_emergency_extended,
+/obj/item/tank/oxygen_emergency,
+/obj/item/tank/oxygen_emergency,
+/obj/item/tank/oxygen_emergency,
+/obj/item/tank/oxygen_emergency,
+/obj/structure/closet/crate/internals,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/scg/armory)
 "kI" = (
 /obj/floor_decal/industrial/outline/yellow,
 /obj/structure/reagent_dispensers/watertank,
@@ -1474,13 +1519,16 @@
 	},
 /obj/structure/window/reinforced/windshield/left,
 /obj/structure/wall_frame/titanium,
-/obj/structure/table/wallf,
+/obj/structure/table/wallf{
+	pixel_x = 3
+	},
 /obj/structure/window/reinforced/windshield/right{
 	dir = 8
 	},
 /obj/machinery/light/small/headlight{
 	dir = 8
 	},
+/obj/item/storage/firstaid/o2,
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck)
 "lB" = (
@@ -1695,6 +1743,9 @@
 /obj/structure/handrail{
 	dir = 1
 	},
+/obj/structure/storage/table{
+	pixel_y = -10
+	},
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck)
 "np" = (
@@ -1789,9 +1840,9 @@
 /obj/item/storage/belt/medical,
 /obj/item/storage/belt/medical/emt,
 /obj/item/storage/belt/medical/emt,
-/obj/item/storage/firstaid/light,
-/obj/item/storage/firstaid/light,
-/obj/item/storage/firstaid/light,
+/obj/item/storage/firstaid/small_combat,
+/obj/item/storage/firstaid/small_combat,
+/obj/item/storage/firstaid/small_combat,
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "oh" = (
@@ -1892,12 +1943,26 @@
 /area/gaia/scg/outskirts)
 "oT" = (
 /obj/machinery/computer/shuttle_control/scg_truck/bravo{
-	dir = 4
+	dir = 4;
+	pixel_x = 5
 	},
 /obj/structure/window/reinforced/windshield{
 	dir = 8
 	},
 /obj/structure/wall_frame/titanium,
+/obj/structure/table/wallf{
+	pixel_y = -6
+	},
+/obj/item/tableflag/gaia{
+	pixel_y = -14;
+	pixel_x = 2
+	},
+/obj/machinery/button/blast_door{
+	dir = 4;
+	pixel_x = 10;
+	pixel_y = 17;
+	id_tag = "scg_truck_bravo_shutters"
+	},
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck/bravo)
 "oX" = (
@@ -2309,7 +2374,9 @@
 /area/gaia/scg/barracks)
 "sZ" = (
 /obj/floor_decal/spline/fancy/black,
-/obj/machinery/uniform_vendor,
+/obj/machinery/uniform_vendor{
+	dir = 4
+	},
 /obj/machinery/light{
 	dir = 8
 	},
@@ -2443,6 +2510,12 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/gaia/scg/security/prison)
+"uc" = (
+/obj/structure/sign/greencross{
+	pixel_x = 32
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/gaia/scg)
 "uf" = (
 /obj/structure/closet/firecloset,
 /obj/floor_decal/borderfloor{
@@ -2868,6 +2941,21 @@
 /obj/floor_decal/industrial/warning/dust/corner,
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/scg)
+"wC" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/security/alt/prepared,
+/obj/item/clothing/suit/space/void/security/alt/prepared,
+/obj/item/clothing/suit/space/void/security/alt/prepared,
+/obj/item/clothing/suit/space/void/atmos/alt/sol/prepared,
+/obj/item/clothing/suit/space/void/atmos/alt/sol/prepared,
+/obj/item/clothing/suit/space/void/pilot/sol/prepared,
+/obj/item/clothing/suit/space/void/engineering/alt/sol/prepared,
+/obj/item/clothing/suit/space/void/engineering/alt/sol/prepared,
+/obj/item/clothing/suit/space/void/command/prepared,
+/obj/item/clothing/suit/space/void/command/prepared,
+/obj/item/clothing/suit/space/void/command/prepared,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/scg/armory)
 "wD" = (
 /obj/structure/closet/crate/secure/weapon,
 /obj/item/ammo_magazine/speedloader/clip,
@@ -2926,6 +3014,9 @@
 /obj/structure/window/reinforced/windshield/left{
 	dir = 8
 	},
+/obj/structure/table/wallf{
+	pixel_y = -15
+	},
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck/bravo)
 "wW" = (
@@ -2951,12 +3042,29 @@
 /area/turbolift/scg_truck)
 "xa" = (
 /obj/machinery/computer/shuttle_control/scg_truck{
-	dir = 4
+	dir = 4;
+	pixel_x = 5
 	},
 /obj/structure/window/reinforced/windshield{
 	dir = 8
 	},
 /obj/structure/wall_frame/titanium,
+/obj/structure/table/wallf{
+	pixel_y = -6
+	},
+/obj/machinery/button/blast_door{
+	dir = 4;
+	pixel_x = 10;
+	pixel_y = 17;
+	id_tag = "scg_truck_alpha_shutters"
+	},
+/obj/item/gun/projectile/pistol/sec/empty{
+	pixel_y = -17;
+	pixel_x = 11
+	},
+/obj/item/toy/desk/fan{
+	pixel_y = 17
+	},
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck)
 "xb" = (
@@ -3310,6 +3418,9 @@
 "At" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/hop,
+/obj/structure/sign/goldenplaque{
+	pixel_x = -32
+	},
 /turf/simulated/floor/steel_dirty,
 /area/gaia/scg/command)
 "Ay" = (
@@ -3385,10 +3496,12 @@
 	},
 /obj/structure/window/reinforced/windshield,
 /obj/structure/wall_frame/titanium,
-/obj/structure/table/wallf,
 /obj/structure/gaia/wheel{
 	layer = 3.06;
 	pixel_y = -16
+	},
+/obj/structure/table/wallf{
+	pixel_x = -3
 	},
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck/bravo)
@@ -4155,6 +4268,9 @@
 /obj/structure/window/reinforced/windshield/left{
 	dir = 8
 	},
+/obj/structure/table/wallf{
+	pixel_y = -15
+	},
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck)
 "He" = (
@@ -4410,12 +4526,21 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/shooting_range)
 "Jg" = (
-/obj/paint_stripe/gunmetal,
-/obj/paint/palegreengray,
+/obj/floor_decal/steeldecal/steel_decals_central2{
+	dir = 1
+	},
+/obj/floor_decal/steeldecal/steel_decals_central2,
+/obj/structure/handrail{
+	dir = 1
+	},
 /obj/machinery/button/blast_door{
+	pixel_y = 23;
+	id_tag = "scg_truck_bravo_shutters"
+	},
+/obj/structure/storage/table{
 	pixel_y = -10
 	},
-/turf/simulated/wall/titanium,
+/turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck/bravo)
 "Jk" = (
 /obj/machinery/light/small{
@@ -4505,6 +4630,12 @@
 /obj/floor_decal/steeldecal/steel_decals_central2,
 /obj/structure/handrail{
 	dir = 1
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 23
+	},
+/obj/structure/storage/table{
+	pixel_y = -10
 	},
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck/bravo)
@@ -4739,17 +4870,22 @@
 /obj/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/obj/structure/window/reinforced/windshield/left{
-	dir = 4
-	},
 /obj/structure/window/reinforced/windshield/left,
 /obj/structure/wall_frame/titanium,
-/obj/structure/table/wallf,
 /obj/structure/window/reinforced/windshield/right{
 	dir = 8
 	},
 /obj/machinery/light/small/headlight{
 	dir = 8
+	},
+/obj/structure/table/wallf{
+	pixel_x = 3
+	},
+/obj/item/modular_computer/tablet/preset/custom_loadout/cheap,
+/obj/item/clothing/head/flatcap{
+	pixel_x = 9;
+	pixel_y = 9;
+	color = "#964B00"
 	},
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck/bravo)
@@ -4804,6 +4940,12 @@
 /obj/landmark/light/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg/outskirts)
+"LZ" = (
+/obj/structure/sign/greencross{
+	pixel_x = -32
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/gaia/scg)
 "Ma" = (
 /obj/structure/table/rack,
 /obj/item/storage/box/scga_badges,
@@ -4818,6 +4960,22 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/item/storage/box/ammo/flashshells,
+/obj/item/storage/box/ammo/flashshells,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/scg/armory)
+"Mf" = (
+/obj/structure/table/rack,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas/budget,
+/obj/item/clothing/mask/gas/budget,
+/obj/item/clothing/mask/gas/budget,
+/obj/item/clothing/mask/gas/budget,
+/obj/item/clothing/mask/gas/budget,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "Mm" = (
@@ -4977,6 +5135,14 @@
 /obj/floor_decal/step,
 /turf/simulated/floor/steel_dirty,
 /area/gaia/scg/command/briefing)
+"NG" = (
+/obj/structure/closet/crate/large,
+/obj/structure/sign/warning/detailed{
+	pixel_y = 25;
+	name = "\improper ARMORY"
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/gaia/scg)
 "NN" = (
 /obj/floor_decal/hull,
 /obj/structure/target_stake,
@@ -5025,7 +5191,8 @@
 /area/gaia/scg/outskirts)
 "On" = (
 /obj/machinery/door/blast/shutters/open{
-	dir = 4
+	dir = 4;
+	id_tag = "scg_truck_bravo_shutters"
 	},
 /obj/floor_decal/steeldecal/steel_decals_central3{
 	dir = 4
@@ -5178,12 +5345,18 @@
 	dir = 8
 	},
 /obj/floor_decal/spline/plain/black{
-	dir = 8
-	},
-/obj/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/obj/shuttle_landmark/lift/scg_truck_camp,
+/obj/shuttle_landmark/lift/scg_truck/base,
+/obj/item/device/radio/intercom/hailing{
+	dir = 1;
+	layer = 2.23;
+	pixel_y = -32
+	},
+/obj/structure/storage/vehicles{
+	dir = 4;
+	layer = 2.0
+	},
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck)
 "Pz" = (
@@ -5202,6 +5375,9 @@
 	},
 /obj/machinery/light/small/red{
 	dir = 1
+	},
+/obj/structure/storage/table{
+	pixel_y = -10
 	},
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck/bravo)
@@ -5707,6 +5883,13 @@
 /obj/machinery/light/spot,
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/scg/hospital)
+"Ul" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/uniform_vendor{
+	dir = 4
+	},
+/turf/simulated/floor/steel_dirty,
+/area/gaia/scg/command/briefing)
 "Um" = (
 /obj/floor_decal/industrial/warning/dust{
 	dir = 4
@@ -6010,6 +6193,9 @@
 "WB" = (
 /obj/structure/table/rack,
 /obj/item/storage/box/cdeathalarm_kit,
+/obj/item/storage/box/armband,
+/obj/item/storage/box/armband/engine,
+/obj/item/storage/box/armband/med,
 /turf/simulated/floor/plating,
 /area/gaia/scg/command)
 "WD" = (
@@ -6366,10 +6552,18 @@
 /obj/structure/handrail{
 	dir = 1
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 26
-	},
 /obj/machinery/door/window/westleft,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 26;
+	pixel_x = -7
+	},
+/obj/machinery/vending/wallmed2{
+	pixel_y = 30;
+	pixel_x = 5
+	},
+/obj/structure/closet/walllocker{
+	pixel_y = -32
+	},
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck/bravo)
 "Zd" = (
@@ -6391,7 +6585,8 @@
 /obj/item/shovel,
 /obj/item/shovel,
 /obj/item/shovel,
-/obj/item/pickaxe/drill,
+/obj/item/pickaxe,
+/obj/item/pickaxe,
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "Zh" = (
@@ -6473,11 +6668,6 @@
 "ZB" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/item/gun/projectile/pistol/m19,
-/obj/item/gun/projectile/pistol/m19,
-/obj/item/gun/projectile/pistol/m19,
-/obj/item/gun/projectile/pistol/m19,
-/obj/item/gun/projectile/pistol/m19,
 /obj/item/storage/box/ammo/pistol,
 /obj/item/storage/box/ammo/pistol,
 /obj/item/storage/box/ammo/pistol,
@@ -10477,7 +10667,7 @@ um
 ug
 VM
 MA
-GK
+Ul
 rx
 DF
 mz
@@ -10897,11 +11087,11 @@ Sv
 Sv
 jS
 KZ
-JR
+Jg
 Wm
 MX
 eg
-cR
+cA
 wY
 NT
 dV
@@ -10998,11 +11188,11 @@ nc
 mB
 nc
 BP
-Jg
+KZ
 On
 Yu
 Wr
-cA
+eg
 cj
 qZ
 MZ
@@ -12409,7 +12599,7 @@ DF
 DF
 DF
 DF
-DF
+uc
 ef
 ef
 ef
@@ -14435,13 +14625,13 @@ Eg
 oh
 oe
 Al
-ga
+wC
 Sz
 cd
 Vi
 EJ
 IJ
-Sw
+NG
 mz
 nc
 nc
@@ -14537,7 +14727,7 @@ Qz
 tz
 CZ
 wD
-ga
+kF
 Sz
 ie
 Vi
@@ -14639,7 +14829,7 @@ Vs
 yd
 zv
 xY
-ga
+Mf
 Sz
 cd
 Vi
@@ -15163,7 +15353,7 @@ DF
 DF
 DF
 DF
-DF
+LZ
 ef
 ef
 ef

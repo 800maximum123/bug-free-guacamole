@@ -14,6 +14,7 @@
 /singleton/hierarchy/outfit/job/gaia/iccg/command
 	name = OUTFIT_JOB_NAME("ICCG Gaia Command Outfit")
 	hierarchy_type = /singleton/hierarchy/outfit/job/gaia/iccg/command
+	l_ear = /obj/item/device/radio/headset/gaia_iccg/command
 	l_pocket = /obj/item/key/gaia/iccg
 
 /singleton/hierarchy/outfit/job/gaia/iccg/command/CO

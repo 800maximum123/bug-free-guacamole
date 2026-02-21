@@ -28,12 +28,32 @@
 /area/gaia/mineshafts
 	name = "\improper Maricarbonia's Mineshafts Outskirts"
 	icon_state = "gaia_mineshafts_outskirts"
+	req_access = list(access_mining)
+
+/area/gaia/mineshafts/inside
+	name = "\improper Maricarbonia's Mineshafts Building"
+	icon_state = "gaia_mineshafts_inside"
+	sound_env = STANDARD_STATION
+
+/area/gaia/mineshafts/inside/big
+	name = "\improper Maricarbonia's Mineshafts Big Building"
+	sound_env = LARGE_ENCLOSED
 
 /area/gaia/mineshafts/shafts
 	name = "\improper Maricarbonia's Mineshafts"
 	icon_state = "gaia_mineshafts"
 	forced_ambience = list('sound/ambience/maintambience.ogg')
 	ambience = list('sound/ambience/spookyspace1.ogg', 'sound/ambience/spookyspace2.ogg',)
+	sound_env = HALLWAY
+
+/area/gaia/mineshafts/shafts/phoron_room
+	name = "\improper Maricarbonia's Mineshafts Phoron Storage"
+	icon_state = "gaia_mineshafts_phoron"
+
+/area/gaia/mineshafts/shafts/chasm
+	name = "\improper Maricarbonia's Mineshafts Chasm"
+	icon_state = "gaia_mineshafts_chasm"
+	sound_env = FOREST
 
 /*
 * -- SCG Camp "Boxcutters" Platoon camp --
