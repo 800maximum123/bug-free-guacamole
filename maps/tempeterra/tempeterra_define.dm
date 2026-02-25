@@ -1,6 +1,6 @@
-/datum/map/tempterra
-	name = "\improper Tempterra"
-	full_name = "\improper SFV Tempterra"
+/datum/map/tempeterra
+	name = "\improper Tempeterra"
+	full_name = "\improper SFV Tempeterra"
 	path = "torch" // Эта штука должна менять сейв слоты. Не думаю что стоит
 	flags = MAP_HAS_BRANCH | MAP_HAS_RANK
 	config_path = "config/torch_config.txt"
@@ -10,13 +10,13 @@
 	accessible_z_levels = list("1"=1, "3"=30)
 	overmap_size = 10
 	overmap_event_areas = 5
-	usable_email_tlds = list("tempterra.ec.scg", "tempterra.fleet.mil", "freemail.net", "tempterra.scg")
+	usable_email_tlds = list("tempeterra.ec.scg", "tempeterra.fleet.mil", "freemail.net", "tempeterra.scg")
 
 	allowed_spawns = list("Cryogenic Storage", "Cyborg Storage")
 	default_spawn = "Cryogenic Storage"
 
-	station_name  = "\improper SFV Tempterra"
-	station_short = "\improper Tempterra"
+	station_name  = "\improper SFV Tempeterra"
+	station_short = "\improper Tempeterra"
 	dock_name     = "TBD"
 	boss_name     = "Third Fleet Command"
 	boss_short    = "Command"

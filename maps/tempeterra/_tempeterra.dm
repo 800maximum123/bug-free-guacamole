@@ -13,7 +13,7 @@
 	// --- MAP MAINTENANCE --- //
 	#include "../torch/torch_announcements.dm"
 	#include "../torch/torch_antagonism.dm"
-	#include "../torch/torch_areas.dm"
+	#include "tempeterra_area.dm"
 	#include "../torch/torch_elevator.dm"
 	#include "../torch/torch_events.dm"
 	#include "../torch/torch_holodecks.dm"
@@ -21,26 +21,24 @@
 	#include "../torch/torch_machinery.dm"
 	#include "../torch/torch_map_templates.dm"
 	#include "../torch/torch_npcs.dm"
-//	#include "tempterra_overmap.dm"
+	#include "tempeterra_overmap.dm"
 	#include "tempeterra_misc.dm"
 	#include "../torch/torch_presets.dm"
 	#include "../torch/torch_procs.dm"
-	#include "../torch_fd/torch_ranks.dm"
-	#include "../torch/torch_security_state.dm"
-	#include "../torch/torch_setup.dm"
-//	#include "tempterra_shuttles.dm"
-	#include "../torch/torch_submaps.dm"
-	#include "../torch/torch_turfs.dm"
-	#include "../torch/torch_unit_testing.dm"
-	#include "../torch/torch_simplemobs.dm"
+	#include "../torch_fd/torch_ranks.dm" //
+	#include "../torch/torch_security_state.dm" // Подходит и это.
+	#include "tempeterra_setup.dm" //
+//	#include "tempeterra_shuttles.dm"
+	#include "../torch/torch_submaps.dm" //
+	#include "../torch/torch_turfs.dm" //
+	#include "../torch/torch_unit_testing.dm" //
+	#include "../torch/torch_simplemobs.dm" //
 
-//	#include "torch_areas.dm"
-//	#include "torch_cameras.dm"
-	#include "../torch_fd/torch_decals.dm"
+	#include "../torch_fd/torch_decals.dm" //
 
 
 	// --- INCLUDES FROM ANOTHER MAPS --- //
-	#include "../sierra/sierra_npcs.dm"
+	#include "../sierra/sierra_npcs.dm" //
 
 	// --- DATUMS SECTION --- //
 	#include "../torch/datums/uniforms.dm"
@@ -184,6 +182,11 @@
 	#include "loadout/overrides.dm"
 
 	// --- MAP FILES --- //
+
+	// --- CUTSCENES --- //
+	#include "../torch_doh/cutscenes/cutscene_api_danilcus.dm"
+	#include "../torch_doh/cutscenes/animations.dm"
+	#include "../torch_doh/cutscenes/framework.dm"
 
 		// ~TORCH~ //
 	#include "tempeterra-1.dmm"
@@ -350,10 +353,10 @@
 
 	#include "../../mods/_fd/_maps/lab_campaign/_lab_campaign.dme"
 
-	#define using_map_DATUM /datum/map/tempterra
+	#define using_map_DATUM /datum/map/tempeterra
 
 #elif !defined(MAP_OVERRIDE)
 
-	#warn A map has already been included, ignoring Tempterra
+	#warn A map has already been included, ignoring Tempeterra
 
 #endif

@@ -1,32 +1,3 @@
-/obj/overmap/visitable/ship/sfv_tempeterra
-	name = "SFV Tempe Terra"
-	desc = "A small, fairly modern dagger-shaped Lexington-class corvette, broadcasting SCGF codes and the designation 'SFV Tempe-Terra, LXC-7, Battle Group Bravo'"
-	fore_dir = WEST
-	vessel_size = SHIP_SIZE_SMALL
-	vessel_mass = 40000
-
-	initial_generic_waypoints = list(
-		"nav_tempeterra_one",
-		"nav_tempeterra_two",
-		"nav_tempeterra_three",
-		"nav_tempeterra_four",
-		"nav_tempeterra_five",
-		"nav_tempeterra_six"
-	)
-
-	initial_restricted_waypoints = list(
-		"SFC Wolfe" = list("nav_hangar_tempeterra")
-	)
-/*
-/obj/machinery/power/apc
-//	req_access = list(access_fleet_engineering)
-
-/obj/machinery/alarm
-//	req_access = list(access_fleet_engineering)
-
-/obj/machinery/alarm/cold
-	target_temperature = T0C+4
-*/
 /obj/structure/closet/secure_closet/weapon
 	name = "weapon closet"
 	desc = "It's a secure wall-mounted storage unit for weapon"
