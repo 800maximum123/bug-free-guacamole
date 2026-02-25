@@ -45,13 +45,13 @@
 		"SFC Wolfe" = list("nav_hangar_tempeterra")
 	)
 
-/obj/machinery/power/apc/tempeterra
+/obj/machinery/power/apc
 //	req_access = list(access_fleet_engineering)
 
-/obj/machinery/alarm/tempeterra
+/obj/machinery/alarm
 //	req_access = list(access_fleet_engineering)
 
-/obj/machinery/alarm/tempeterra/cold
+/obj/machinery/alarm/cold
 	target_temperature = T0C+4
 
 /obj/structure/closet/secure_closet/weapon

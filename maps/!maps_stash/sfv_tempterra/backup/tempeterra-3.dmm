@@ -378,7 +378,7 @@
 /obj/floor_decal/corner/green/mono,
 /obj/floor_decal/industrial/hatch/yellow,
 /obj/structure/railing/mapped,
-/obj/machinery/power/apc/tempeterra{
+/obj/machinery/power/apc{
 	dir = 8;
 	pixel_x = -24
 	},
@@ -755,7 +755,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm/tempeterra{
+/obj/machinery/alarm{
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -882,7 +882,7 @@
 /obj/item/reagent_containers/glass/rag{
 	pixel_y = 2
 	},
-/obj/machinery/power/apc/tempeterra{
+/obj/machinery/power/apc{
 	dir = 1;
 	pixel_y = 24
 	},
@@ -1101,7 +1101,7 @@
 /area/tempeterra/crew/kitchen)
 "iS" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/power/apc/tempeterra{
+/obj/machinery/power/apc{
 	dir = 1;
 	pixel_y = 24
 	},
@@ -1467,7 +1467,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm/tempeterra{
+/obj/machinery/alarm{
 	pixel_y = 24
 	},
 /obj/floor_decal/spline/fancy/wood/corner{
@@ -1625,7 +1625,7 @@
 "oM" = (
 /obj/floor_decal/borderfloorblack,
 /obj/floor_decal/corner/paleblue/border,
-/obj/machinery/power/apc/tempeterra{
+/obj/machinery/power/apc{
 	pixel_y = -24
 	},
 /obj/structure/cable,
@@ -1657,7 +1657,7 @@
 /obj/structure/bed/chair/shuttle/blue{
 	dir = 8
 	},
-/obj/machinery/alarm/tempeterra{
+/obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 24
 	},
@@ -2032,7 +2032,7 @@
 /turf/simulated/floor/carpet/blue2,
 /area/tempeterra/crew/storage)
 "sJ" = (
-/obj/machinery/alarm/tempeterra{
+/obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 24
 	},
@@ -2141,7 +2141,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/catwalk_plated/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/power/apc/tempeterra{
+/obj/machinery/power/apc{
 	dir = 4;
 	pixel_x = 24
 	},
@@ -2476,7 +2476,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/tempeterra/command/eva)
 "wc" = (
-/obj/machinery/power/apc/tempeterra{
+/obj/machinery/power/apc{
 	dir = 1;
 	pixel_y = 24
 	},
@@ -2500,7 +2500,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/obj/machinery/alarm/tempeterra{
+/obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -22
 	},
@@ -2520,7 +2520,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/alarm/tempeterra{
+/obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -23
 	},
@@ -2720,7 +2720,7 @@
 	dir = 4;
 	pixel_x = 21
 	},
-/obj/machinery/alarm/tempeterra{
+/obj/machinery/alarm{
 	pixel_y = 24
 	},
 /obj/machinery/fabricator/micro/bartender,
@@ -2740,7 +2740,7 @@
 "yq" = (
 /obj/structure/ladder,
 /obj/catwalk_plated/dark,
-/obj/machinery/alarm/tempeterra{
+/obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -22
 	},
@@ -2826,7 +2826,7 @@
 /obj/structure/bed/chair/shuttle/blue{
 	dir = 8
 	},
-/obj/machinery/power/apc/tempeterra{
+/obj/machinery/power/apc{
 	dir = 4;
 	pixel_x = 24
 	},
@@ -2927,7 +2927,7 @@
 	name = "disposal conveyor"
 	},
 /obj/floor_decal/industrial/hatch/yellow,
-/obj/machinery/power/apc/tempeterra{
+/obj/machinery/power/apc{
 	dir = 1;
 	pixel_y = 24
 	},
@@ -2986,7 +2986,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/alarm/tempeterra/cold{
+/obj/machinery/alarm/cold{
 	dir = 4;
 	pixel_x = -23
 	},
@@ -3029,7 +3029,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/alarm/tempeterra{
+/obj/machinery/alarm{
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3243,7 +3243,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tempeterra/firstdeck/hallway/fore/midships)
 "Df" = (
-/obj/machinery/alarm/tempeterra{
+/obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -22
 	},
@@ -3552,7 +3552,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/tempeterra{
+/obj/machinery/power/apc{
 	dir = 8;
 	pixel_x = -24
 	},
@@ -3640,7 +3640,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/power/apc/tempeterra{
+/obj/machinery/power/apc{
 	dir = 1;
 	pixel_y = 24
 	},
@@ -3748,7 +3748,7 @@
 "Ib" = (
 /obj/machinery/door/window/brigdoor/southleft,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/power/apc/tempeterra{
+/obj/machinery/power/apc{
 	dir = 8;
 	pixel_x = -24
 	},
@@ -3759,7 +3759,7 @@
 /turf/simulated/wall/r_wall/prepainted,
 /area/tempeterra/crew/mess)
 "Iq" = (
-/obj/machinery/alarm/tempeterra{
+/obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -23
 	},
@@ -3830,7 +3830,7 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/command/eva)
 "Jc" = (
-/obj/machinery/alarm/tempeterra{
+/obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -23
 	},
@@ -4054,7 +4054,7 @@
 	dir = 5
 	},
 /obj/structure/cable,
-/obj/machinery/alarm/tempeterra{
+/obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -22
 	},
@@ -4122,7 +4122,7 @@
 /obj/floor_decal/corner/paleblue/border{
 	dir = 1
 	},
-/obj/machinery/power/apc/tempeterra{
+/obj/machinery/power/apc{
 	dir = 1;
 	pixel_y = 24
 	},
@@ -4144,7 +4144,7 @@
 	dir = 1
 	},
 /obj/floor_decal/industrial/loading,
-/obj/machinery/power/apc/tempeterra{
+/obj/machinery/power/apc{
 	dir = 8;
 	pixel_x = -24
 	},
@@ -4198,7 +4198,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/alarm/tempeterra{
+/obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -22
 	},
@@ -4327,7 +4327,7 @@
 /obj/floor_decal/corner/paleblue/border{
 	dir = 1
 	},
-/obj/machinery/power/apc/tempeterra{
+/obj/machinery/power/apc{
 	dir = 4;
 	pixel_x = 24
 	},
@@ -4398,7 +4398,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm/tempeterra{
+/obj/machinery/alarm{
 	pixel_y = 24
 	},
 /obj/floor_decal/techfloor{
@@ -4531,7 +4531,7 @@
 	dir = 1;
 	level = 2
 	},
-/obj/machinery/alarm/tempeterra{
+/obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -22
 	},
@@ -4620,7 +4620,7 @@
 /obj/floor_decal/corner/paleblue/border{
 	dir = 8
 	},
-/obj/machinery/alarm/tempeterra{
+/obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -23
 	},
@@ -4638,7 +4638,7 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/engineering/it/sensors)
 "PL" = (
-/obj/machinery/alarm/tempeterra{
+/obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -22
 	},
@@ -4711,7 +4711,7 @@
 /turf/simulated/floor/reinforced,
 /area/space)
 "Qo" = (
-/obj/machinery/power/apc/tempeterra{
+/obj/machinery/power/apc{
 	dir = 4;
 	pixel_x = 24
 	},
@@ -4825,7 +4825,7 @@
 /obj/item/reagent_containers/food/condiment/enzyme,
 /obj/floor_decal/borderfloor,
 /obj/floor_decal/corner/paleblue/border,
-/obj/machinery/alarm/tempeterra/cold{
+/obj/machinery/alarm/cold{
 	dir = 8;
 	pixel_x = 24
 	},
@@ -4958,7 +4958,7 @@
 	dir = 1;
 	icon_state = "railing0-1"
 	},
-/obj/machinery/power/apc/tempeterra{
+/obj/machinery/power/apc{
 	dir = 8;
 	pixel_x = -24
 	},
@@ -5057,7 +5057,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm/tempeterra{
+/obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -22
 	},
@@ -5246,7 +5246,7 @@
 /obj/floor_decal/corner_techfloor_grid,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/power/apc/tempeterra{
+/obj/machinery/power/apc{
 	dir = 8;
 	pixel_x = -24
 	},
@@ -5315,7 +5315,7 @@
 "Vq" = (
 /obj/structure/ladder,
 /obj/catwalk_plated/dark,
-/obj/machinery/alarm/tempeterra{
+/obj/machinery/alarm{
 	pixel_y = 24
 	},
 /turf/simulated/open,
@@ -5486,7 +5486,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/tempeterra/engineering/it/sensors)
 "WK" = (
-/obj/machinery/power/apc/tempeterra{
+/obj/machinery/power/apc{
 	pixel_y = -24
 	},
 /obj/structure/cable{
@@ -5801,7 +5801,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/power/apc/tempeterra{
+/obj/machinery/power/apc{
 	dir = 1;
 	pixel_y = 24
 	},
