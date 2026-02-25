@@ -11,20 +11,20 @@
 	#include "../../packs/factions/scgec/_pack.dm"
 
 	// --- MAP MAINTENANCE --- //
-	#include "../torch/torch_announcements.dm"
-	#include "../torch/torch_antagonism.dm"
-	#include "tempeterra_area.dm"
-	#include "../torch/torch_elevator.dm"
-	#include "../torch/torch_events.dm"
-	#include "../torch/torch_holodecks.dm"
-	#include "../torch/torch_lobby.dm"
-	#include "../torch/torch_machinery.dm"
-	#include "../torch/torch_map_templates.dm"
-	#include "../torch/torch_npcs.dm"
+	#include "../torch/torch_announcements.dm" //
+	#include "../torch/torch_antagonism.dm" //
+	#include "tempeterra_area.dm" //
+	#include "../torch/torch_elevator.dm" //
+	#include "../torch/torch_events.dm" //
+	#include "../torch/torch_holodecks.dm" //
+	#include "../torch/torch_lobby.dm" //
+	#include "../torch/torch_machinery.dm" //
+	#include "../torch/torch_map_templates.dm" //
+	#include "../torch/torch_npcs.dm" //
 	#include "tempeterra_overmap.dm"
 	#include "tempeterra_misc.dm"
-	#include "../torch/torch_presets.dm"
-	#include "../torch/torch_procs.dm"
+	#include "../torch/torch_presets.dm" //
+	#include "../torch/torch_procs.dm" //
 	#include "../torch_fd/torch_ranks.dm" //
 	#include "../torch/torch_security_state.dm" // Подходит и это.
 	#include "tempeterra_setup.dm" //
