@@ -117,7 +117,6 @@
 		LANGUAGE_SIGN,
 	)
 
-#ifdef MAP_FD_TORCH
 //FIRST
 /singleton/cultural_info/faction/ipc/first
 	name = FACTION_POSITRONICS_FIRSTGEN
@@ -159,7 +158,6 @@
 		/datum/job/submap/scavver, /datum/job/submap/scavver_pilot, /datum/job/submap/scavver_doctor, /datum/job/submap/scavver_engineer, /datum/job/submap/smuggler,
 		/datum/job/submap/venera/pilot, /datum/job/submap/venera/gunner, /datum/job/submap/venera/rifleman, /datum/job/submap/CTI_engineer*/)
 
-#endif
 
 /singleton/cultural_info/faction/ipc/second/owned
 	name = FACTION_POSITRONICS_SECONDGEN_OWNED

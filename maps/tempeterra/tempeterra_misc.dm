@@ -34,8 +34,8 @@
 	lighting_tone = AREA_LIGHTING_COOL
 
 /datum/shuttle/autodock/ferry/tempeterralift
-	name = "engineer lift controls"
-	shuttle_area = /area/turbolift/medical_lift
+	name = "tempeterraengilift"
+	shuttle_area = /area/turbolift/tempeterralift
 	warmup_time = 3
 	waypoint_station = "nav_tempeterra_lift_top"
 	waypoint_offsite = "nav_tempeterra_lift_bottom"
@@ -46,7 +46,7 @@
 
 /obj/machinery/computer/shuttle_control/lift/tempeterra
 	name = "engineer lift controls"
-	shuttle_tag = "engineer lift controls"
+	shuttle_tag = "tempeterraengilift"
 	ui_template = "shuttle_control_console_lift.tmpl"
 	icon_state = "tiny"
 	icon_keyboard = "tiny_keyboard"

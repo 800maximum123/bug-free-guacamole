@@ -12,9 +12,11 @@
 
 	// --- MAP MAINTENANCE --- //
 	#include "../torch/torch_announcements.dm" //
-	#include "../torch/torch_antagonism.dm" //
+//	#include "../torch/torch_antagonism.dm" // ОтключеН, не вижу смысла в нем
+	#include "../torch_fd/torch_areas.dm" // Нужен для существования голодека
 	#include "tempeterra_area.dm" //
-	#include "../torch/torch_elevator.dm" //
+	#include "../torch/torch_areas.dm"
+//	#include "../torch/torch_elevator.dm" //
 	#include "../torch/torch_events.dm" //
 	#include "../torch/torch_holodecks.dm" //
 	#include "../torch/torch_lobby.dm" //
@@ -28,10 +30,9 @@
 	#include "../torch_fd/torch_ranks.dm" //
 	#include "../torch/torch_security_state.dm" // Подходит и это.
 	#include "tempeterra_setup.dm" //
-//	#include "tempeterra_shuttles.dm"
 	#include "../torch/torch_submaps.dm" //
 	#include "../torch/torch_turfs.dm" //
-	#include "../torch/torch_unit_testing.dm" //
+//	#include "../torch/torch_unit_testing.dm" //
 	#include "../torch/torch_simplemobs.dm" //
 
 	#include "../torch_fd/torch_decals.dm" //
@@ -77,7 +78,8 @@
 
 	// --- ITEMS --- //
 	#include "../torch_fd/items/agencylogo.dm"
-	#include "../torch/items/cards_ids.dm"
+	#include "items/cards_ids.dm"
+	// #include "../torch/items/cards_ids.dm"
 	#include "../torch/items/coins.dm"
 	#include "../torch/items/encryption_keys.dm"
 	#include "../torch/items/selection.dm"
@@ -109,18 +111,18 @@
 
 	// --- JOB SECTION --- //
 	#include "../torch/job/torch_access.dm"
-	#include "job/torch_jobs.dm"
+	#include "job/tempeterra_jobs.dm"
 
-	#include "job/command_jobs.dm"
-//	#include "job/corporate_jobs.dm"
-	#include "job/engineering_jobs.dm"
-//	#include "job/exploration_jobs.dm"
-	#include "job/medical_jobs.dm"
-//	#include "job/misc_jobs.dm"
-//	#include "job/research_jobs.dm"
-	#include "job/security_jobs.dm"
-	#include "job/service_jobs.dm"
-	#include "job/supply_jobs.dm"
+	#include "../torch/job/command_jobs.dm"
+	#include "../torch/job/corporate_jobs.dm"
+	#include "../torch/job/engineering_jobs.dm"
+	#include "../torch/job/exploration_jobs.dm"
+	#include "../torch/job/medical_jobs.dm"
+	#include "../torch/job/misc_jobs.dm"
+	#include "../torch/job/research_jobs.dm"
+	#include "../torch/job/security_jobs.dm"
+	#include "../torch/job/service_jobs.dm"
+	#include "../torch/job/supply_jobs.dm"
 //	#include "job/posttorch/misc_job.dm"
 
 	#include "../torch/outfits/scgec.dm"
@@ -142,7 +144,6 @@
 	#include "job/addition/exploration_jobs.dm"
 	#include "job/addition/research_jobs.dm"
 	#include "job/addition/service_jobs.dm"
-	#include "job/addition/security.dm"
 
 	// --- MACHINERY --- //
 	#include "../torch/machinery/apc_shuttle.dm"
@@ -157,7 +158,7 @@
 	#include "../torch/structures/closets/medical.dm"
 	#include "../torch/structures/closets/misc.dm"
 	#include "../torch/structures/closets/research.dm"
-//	#include "../torch/structures/closets/security.dm"
+	#include "../torch/structures/closets/security.dm"
 	#include "../torch/structures/closets/services.dm"
 	#include "../torch/structures/closets/supply.dm"
 	#include "../torch/structures/closets/exploration.dm"
@@ -221,6 +222,7 @@
 	#include "../away/abandoned_hotel/abandoned_hotel.dm"
 
 		// ~EVENT SHIPS~ //
+	#include "../event/e14b_station/northstar.dm"
 	#include "../event/iccgn_ship/icgnv_hound.dm"
 	#include "../event/sfv_arbiter/sfv_arbiter.dm"
 	#include "../event/placeholders/placeholders.dm"
@@ -308,7 +310,7 @@
 	#include "../../mods/_fd/_maps/fluffy_biscuit/_fluffy_biscuit.dme"
 	#include "../../mods/_fd/_maps/gccv_ulyanovsk/_ulyanovsk.dme"
 	#include "../../mods/_fd/_maps/khizriel/_khizriel.dme"
-	#include "../../mods/_fd/_maps/kitsune/_kitsune.dme"
+	// #include "../../mods/_fd/_maps/kitsune/_kitsune.dme"
 	#include "../../mods/_fd/_maps/lighthouse/_lighthouse.dme"
 	#include "../../mods/_fd/_maps/new_blueriver/_new_blueriver.dme"
 //	#include "../../mods/_fd/_maps/new_year_house/_new_year_house.dme" // We don't need it for now

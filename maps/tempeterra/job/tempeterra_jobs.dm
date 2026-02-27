@@ -1,4 +1,4 @@
-/datum/map/torch
+/datum/map/tempeterra
 	species_to_job_whitelist = list(
 		/datum/species/adherent = list(/datum/job/ai, /datum/job/cyborg, /datum/job/assistant, /datum/job/janitor, /datum/job/chef, /datum/job/cargo_tech,
 										/datum/job/engineer, /datum/job/roboticist, /datum/job/chemist, /datum/job/scientist_assistant, /datum/job/scientist, /datum/job/nt_pilot,
@@ -49,6 +49,7 @@
 	)
 
 // Some jobs for nabber grades defined here due to map-specific job datums.
+/*
 /singleton/cultural_info/culture/nabber/New()
 	LAZYADD(valid_jobs, /datum/job/scientist_assistant)
 	..()
@@ -64,7 +65,7 @@
 /singleton/cultural_info/culture/nabber/a/plus/New()
 	LAZYADD(valid_jobs, /datum/job/doctor)
 	..()
-
+*/
 /datum/job
 	allowed_branches = list(
 		/datum/mil_branch/civilian
@@ -74,5 +75,5 @@
 	)
 	required_language = LANGUAGE_HUMAN_EURO
 
-/datum/map/torch
+/datum/map/tempeterra
 	default_assistant_title = "Passenger"
