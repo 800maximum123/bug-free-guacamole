@@ -14,20 +14,20 @@
 	#include "../torch/torch_announcements.dm" //
 //	#include "../torch/torch_antagonism.dm" // ОтключеН, не вижу смысла в нем
 	#include "../torch_fd/torch_areas.dm" // Нужен для существования голодека
-	#include "tempeterra_area.dm" //
+	#include "tempeterra_areas.dm" //
 	#include "../torch/torch_areas.dm"
 //	#include "../torch/torch_elevator.dm" //
 	#include "../torch/torch_events.dm" //
 	#include "../torch/torch_holodecks.dm" //
-	#include "../torch/torch_lobby.dm" //
+	#include "tempeterra_lobby.dm" //
 	#include "../torch/torch_machinery.dm" //
 	#include "../torch/torch_map_templates.dm" //
 	#include "../torch/torch_npcs.dm" //
 	#include "tempeterra_overmap.dm"
 	#include "tempeterra_misc.dm"
-	#include "../torch/torch_presets.dm" //
-	#include "../torch/torch_procs.dm" //
-	#include "../torch_fd/torch_ranks.dm" //
+	#include "tempeterra_presets.dm"
+	#include "tempeterra_procs.dm" //
+	#include "tempeterra_ranks.dm" //
 	#include "../torch/torch_security_state.dm" // Подходит и это.
 	#include "tempeterra_setup.dm" //
 	#include "../torch/torch_submaps.dm" //

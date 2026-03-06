@@ -6,6 +6,10 @@
 	fore_dir = WEST
 	vessel_size = SHIP_SIZE_LARGE
 	vessel_mass = 40000
+	sector_flags = OVERMAP_SECTOR_KNOWN|OVERMAP_SECTOR_IN_SPACE|OVERMAP_SECTOR_BASE
+	known_ships = list(
+
+	)
 
 	initial_generic_waypoints = list(
 		"nav_tempeterra_one",
@@ -15,11 +19,8 @@
 		"nav_tempeterra_five",
 		"nav_tempeterra_six"
 	)
-
+/*
 	initial_restricted_waypoints = list(
 		"SFC Wolfe" = list("nav_hangar_tempeterra")
 	)
-
-	known_ships = list(
-
-	)
+*/

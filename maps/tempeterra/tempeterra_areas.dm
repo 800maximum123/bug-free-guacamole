@@ -1,3 +1,20 @@
+/datum/map/tempeterra
+
+	base_floor_type = /turf/simulated/floor/reinforced
+	base_floor_area = /area/torchexterior
+
+	post_round_safe_areas = list (
+		/area/centcom,
+		/area/shuttle/escape/centcom,
+		/area/shuttle/escape_pod1/centcom,
+		/area/shuttle/escape_pod2/centcom,
+		/area/shuttle/escape_pod3/centcom,
+		/area/shuttle/escape_pod5/centcom,
+		/area/shuttle/transport1/centcom,
+		/area/shuttle/administration/centcom,
+		/area/shuttle/specops/centcom,
+	)
+
 /area/tempeterra
 	icon = 'tempeterra.dmi'
 //	req_access = list(access_fleet_crew)
