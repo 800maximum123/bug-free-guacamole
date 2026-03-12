@@ -113,16 +113,16 @@
 	var/image/dash_charging_overlay
 
 	var/attached_to_surface = FALSE
-	var/grapple_str = 30
-	var/grapple_str_max = 30
+/*	var/grapple_str = 30
+	var/grapple_str_max = 30*/
 
 /mob/living/Life()
 
 	if(attached_to_surface)
 		check_grapple_conditions()
 
-	if(!attached_to_surface && grapple_str != grapple_str_max)
-		grapple_str += 1
+/*	if(!attached_to_surface && grapple_str != grapple_str_max)
+		grapple_str += 1*/
 
 	if(preparing_to_dash)
 
@@ -210,7 +210,8 @@
 	if(!grappling_object)
 		unattach_mob()
 
-	if(grapple_str <= 0)
+//	if(grapple_str <= 0)
+	if(get_stamina() <= 0)
 		unattach_mob()
 
 	if(l_hand && r_hand)
@@ -218,15 +219,19 @@
 
 	// Мы соскальзываем лишь при условии того, что нам есть куда
 	if(isopenspace(placed_on))
-		grapple_str -= 1
+		adjust_stamina(-5)
+//		grapple_str -= 1
 
 	if(C in placed_on.loc)
-		grapple_str -= 1
+		adjust_stamina(-5)
+//		grapple_str -= 1
 
 /mob/living/proc/unattach_mob()
 	attached_to_surface = FALSE
-	if(grapple_str < 10)
-		grapple_str += 5
+//	if(grapple_str < 10)
+	if(get_stamina() < 10)
+		adjust_stamina(10)
+//		grapple_str += 5
 
 	dash_bonus_points_max = initial(dash_bonus_points_max)
 
