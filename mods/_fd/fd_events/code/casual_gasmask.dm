@@ -84,21 +84,83 @@
 
 /obj/item/clothing/mask/gas
 	var/filter_stored_air = 0
+	var/filter_max_air = 100
+	var/current_status
+
+/obj/item/clothing/mask/gas/MouseEntered(location, control, params)
+	. = ..()
+
+	if(loc == usr.loc)
+
+		switch(filter_stored_air)
+			if(0)
+				current_status = "gas_empty"
+			if(1 to 20)
+				current_status = "gas_low"
+			if(21 to 50)
+				current_status = "gas_half"
+			if(51 to 75)
+				current_status = "gas_notsofull"
+			if(76 to 100)
+				current_status = "gas_full"
+
+		overlays += image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status)
+
+/obj/item/clothing/mask/gas/MouseExited(location, control, params)
+	. = ..()
+	overlays -= image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status)
 
 /obj/item/clothing/mask/gas/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	. = ..()
 
 	if(istype(tool, /obj/item/fd/filter))
 		var/obj/item/fd/filter/F = tool
+		if(F.additional_air <= 0)
+			to_chat(user, SPAN_WARNING("Наполнитель пуст!"))
+			return FALSE
+
 		if(do_after(src, 5 SECONDS, F, DO_PUBLIC_UNIQUE, DO_BOTH_CAN_MOVE))
-			visible_message("[user] вкручивает новый фильтр в [src].", "Ты вкрутил новый фильтр в [src].")
-			filter_stored_air += F.additional_air
-			qdel(F)
+			visible_message("[user] наполняет фильтр используя [F].", "Ты наполнил фильтр [src].")
+
+			var/how_empty = filter_max_air - filter_stored_air
+			var/refill_with = F.additional_air - how_empty
+
+			if(refill_with <= 0)
+				filter_stored_air += F.additional_air
+				F.additional_air = 0
+			else
+				filter_stored_air += refill_with
+				F.additional_air -= refill_with
 
 /obj/item/fd/filter
-	name = "filter"
+	name = "НАПОЛНИТЕЛЬ"
+	desc = "Специализированная канистра с ограниченными запасами смеси внутри."
 	icon = 'mods/_fd/fd_assets/icons/obj/items/device_eris.dmi'
 	icon_state = "nanorepair_tank"
 	var/additional_air = 50
+	var/current_status
 
 	w_class = ITEM_SIZE_SMALL
+
+/obj/item/fd/filter/MouseEntered(location, control, params)
+	. = ..()
+
+	if(loc == usr.loc)
+
+		switch(additional_air)
+			if(0)
+				current_status = "gas_empty"
+			if(1 to 10)
+				current_status = "gas_low"
+			if(11 to 25)
+				current_status = "gas_half"
+			if(26 to 40)
+				current_status = "gas_notsofull"
+			if(41 to 50)
+				current_status = "gas_full"
+
+		overlays += image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status)
+
+/obj/item/clothing/mask/gas/MouseExited(location, control, params)
+	. = ..()
+	overlays -= image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status)
