@@ -69,13 +69,17 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/datum/keybinding/living/dash
+#define CATEGORY_FD "FINAL DESTINATION"
+/datum/keybinding/living/fd
+	category = CATEGORY_FD
+
+/datum/keybinding/living/fd/dash
 	hotkey_keys = list("Alt") // Мы не можем настроить хоткей на пробел
 	name = "dash"
 	full_name = "General: DASH"
 	description = ""
 
-/datum/keybinding/living/dash/can_use(client/user)
+/datum/keybinding/living/fd/dash/can_use(client/user)
 	var/mob/living/L = user.mob
 	if(!L.dash_allowed)
 		return FALSE
@@ -84,12 +88,12 @@
 		return FALSE
 	. = ..()
 
-/datum/keybinding/living/dash/down(client/user)
+/datum/keybinding/living/fd/dash/down(client/user)
 	var/mob/living/L = user.mob
 	L.preparing_to_dash = TRUE
 	return TRUE
 
-/datum/keybinding/living/dash/up(client/user)
+/datum/keybinding/living/fd/dash/up(client/user)
 	var/mob/living/L = user.mob
 	L.preparing_to_dash = FALSE
 	L.update_dash_visuals()
