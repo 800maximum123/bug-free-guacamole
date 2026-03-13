@@ -9472,6 +9472,9 @@
 /obj/structure/bed/padded,
 /obj/floor_decal/industrial/outline/grey,
 /obj/item/bedsheet/brown,
+/obj/landmark{
+	name = "JoinLateCryo"
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/crew/lounge)
 "sq" = (
@@ -10994,11 +10997,12 @@
 	},
 /obj/floor_decal/corner/paleblue/mono,
 /obj/floor_decal/industrial/outline/yellow,
-/obj/structure/closet,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
 	},
+/obj/structure/closet/secure_closet/engineering_chief_torch,
+/obj/item/device/holopad,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/firstdeck/hallway/aft/midships)
 "vs" = (
@@ -12401,6 +12405,9 @@
 /obj/floor_decal/industrial/outline/grey,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/item/bedsheet/brown,
+/obj/landmark{
+	name = "JoinLateCryo"
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/crew/lounge)
 "xV" = (
@@ -18548,6 +18555,9 @@
 /obj/floor_decal/industrial/outline/grey,
 /obj/item/bedsheet/brown,
 /obj/structure/bed/padded,
+/obj/landmark{
+	name = "JoinLateCryo"
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/crew/lounge)
 "JS" = (
@@ -20654,6 +20664,9 @@
 	},
 /obj/item/bedsheet/brown,
 /obj/structure/bed/padded,
+/obj/landmark{
+	name = "JoinLateCryo"
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/crew/lounge)
 "Oc" = (
@@ -22097,6 +22110,9 @@
 /obj/floor_decal/corner/black/mono,
 /obj/floor_decal/industrial/outline/grey,
 /obj/item/bedsheet/brown,
+/obj/landmark{
+	name = "JoinLateCryo"
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/crew/lounge)
 "QW" = (
@@ -22800,6 +22816,9 @@
 	dir = 1
 	},
 /obj/item/bedsheet/brown,
+/obj/landmark{
+	name = "JoinLateCryo"
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/crew/lounge)
 "SB" = (
@@ -25573,6 +25592,9 @@
 /obj/machinery/rotating_alarm/security_alarm,
 /obj/item/bedsheet/brown,
 /obj/item/bedsheet/brown,
+/obj/landmark{
+	name = "JoinLateCryo"
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/crew/lounge)
 "XQ" = (
@@ -26437,6 +26459,9 @@
 /obj/floor_decal/industrial/outline/grey,
 /obj/machinery/rotating_alarm/security_alarm,
 /obj/item/bedsheet/brown,
+/obj/landmark{
+	name = "JoinLateCryo"
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/crew/lounge)
 "ZJ" = (
