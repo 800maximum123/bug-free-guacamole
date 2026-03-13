@@ -10,7 +10,8 @@
 		/datum/mil_branch/fleet
 	)
 	allowed_ranks = list(
-		/datum/mil_rank/fleet/o6
+		/datum/mil_rank/fleet/o6,
+		/datum/mil_rank/fleet/o5
 	)
 	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
 	                    SKILL_SCIENCE     = SKILL_TRAINED,
@@ -223,3 +224,44 @@
 
 /datum/job/bridgeofficer/get_description_blurb()
 	return "You are a Bridge Officer. You are a very junior officer. You do not give orders of your own. You are subordinate to all of command. You handle matters on the bridge and report directly to the CO and XO. You take the Torch's helm and pilot the Aquila if needed. You monitor bridge computer programs and communications and report relevant information to command."
+
+/datum/job/qm
+	title = "Deck Chief"
+	department = "Supply"
+	department_flag = SPT
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "the Executive Officer"
+	economic_power = 5
+	minimal_player_age = 0
+	minimum_character_age = list(SPECIES_HUMAN = 27)
+	ideal_character_age = 35
+	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/supply/deckofficer/fleet
+	allowed_branches = list(
+		/datum/mil_branch/fleet
+	)
+	allowed_ranks = list(
+		/datum/mil_rank/fleet/e6,
+		/datum/mil_rank/fleet/e7,
+		/datum/mil_rank/fleet/e8
+	)
+	min_skill = list(   SKILL_BUREAUCRACY = SKILL_TRAINED,
+	                    SKILL_FINANCE     = SKILL_BASIC,
+	                    SKILL_HAULING     = SKILL_BASIC,
+	                    SKILL_EVA         = SKILL_BASIC,
+	                    SKILL_PILOT       = SKILL_BASIC,
+						SKILL_MECH        =	SKILL_BASIC)
+
+	max_skill = list(   SKILL_PILOT       = SKILL_MAX)
+	skill_points = 18
+
+	access = list(
+		access_maint_tunnels, access_bridge, access_emergency_storage, access_tech_storage,  access_cargo, access_guppy_helm,
+		access_cargo_bot, access_qm, access_mailsorting, access_solgov_crew, access_expedition_shuttle, access_guppy, access_hangar,
+		access_mining, access_mining_office, access_mining_station, access_commissary, access_teleporter, access_eva, access_torch_fax,
+		access_radio_sup, access_radio_exp, access_radio_comm
+	)
+
+	software_on_spawn = list(// /datum/computer_file/program/supply,
+							 /datum/computer_file/program/deck_management,
+							 /datum/computer_file/program/reports)

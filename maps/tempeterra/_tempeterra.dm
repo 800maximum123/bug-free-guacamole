@@ -125,6 +125,12 @@
 	#include "../torch/job/supply_jobs.dm"
 //	#include "job/posttorch/misc_job.dm"
 
+	// --- TEMPETERRA JOB OVERRIDE -- //
+	#include "job/command_jobs.dm"
+	#include "job/engineering_jobs.dm"
+	#include "job/medical_jobs.dm"
+	#include "job/security_jobs.dm"
+
 	#include "../torch/outfits/scgec.dm"
 	#include "../torch/robot/module_flying_surveyor.dm"
 
@@ -245,6 +251,7 @@
 	#include "../../mods/tajara/_tajara.dme"
 	#include "../../mods/sauna_props/_sauna_props.dme"
 	#include "../../mods/wyccbay_optimization/_wyccbay_optimization.dme"
+	// #include ".../../mods/vision_cone/_vision_cone.dme"
 
 //	#include "../../mods/_maps/sentinel/_map_sentinel.dme" // К чёрту оверрайдит все ранги флота ЦПСС, ломает роль SEA
 //	#include "../../mods/_maps/farfleet/_map_farfleet.dme" // Не совсем работает без карты Стража (инклюд выше)
