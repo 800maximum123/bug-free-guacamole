@@ -90,7 +90,7 @@
 /obj/item/clothing/mask/gas/MouseEntered(location, control, params)
 	. = ..()
 
-	if(loc == usr.loc)
+	if(loc == usr)
 
 		switch(filter_stored_air)
 			if(0)
@@ -119,7 +119,7 @@
 			to_chat(user, SPAN_WARNING("Наполнитель пуст!"))
 			return FALSE
 
-		if(do_after(src, 5 SECONDS, F, DO_PUBLIC_UNIQUE, DO_BOTH_CAN_MOVE))
+		if(do_after(user, 5 SECONDS, F, DO_PUBLIC_UNIQUE, DO_BOTH_CAN_MOVE))
 			visible_message("[user] наполняет фильтр используя [F].", "Ты наполнил фильтр [src].")
 
 			var/how_empty = filter_max_air - filter_stored_air
@@ -145,7 +145,7 @@
 /obj/item/fd/filter/MouseEntered(location, control, params)
 	. = ..()
 
-	if(loc == usr.loc)
+	if(loc == usr)
 
 		switch(additional_air)
 			if(0)
@@ -161,6 +161,6 @@
 
 		overlays += image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status)
 
-/obj/item/clothing/mask/gas/MouseExited(location, control, params)
+/obj/item/fd/filter/MouseExited(location, control, params)
 	. = ..()
 	overlays -= image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status)

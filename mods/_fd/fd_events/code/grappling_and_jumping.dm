@@ -109,6 +109,7 @@
 	var/preparing_to_dash = FALSE // Для хоткеев
 	var/dash_bonus_points = 0 // Дополнительные очки от удержания пробела, максимум прописан ниже
 	var/dash_bonus_points_max = 5
+	var/dash_stamina_use = -20
 
 	var/image/dash_charging_overlay
 
@@ -146,6 +147,8 @@
 		CutOverlays(dash_charging_overlay)
 
 /mob/living/proc/dash()
+	adjust_stamina(dash_stamina_use)
+
 	pass_flags |= PASS_FLAG_TABLE
 	var/direction = dir
 
