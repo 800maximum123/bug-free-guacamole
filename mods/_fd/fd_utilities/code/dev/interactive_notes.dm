@@ -1,7 +1,7 @@
-/obj/screen/novel_message/start_credits/note_name
+/obj/screen/novel_message/note_name
 	alpha = 255
 
-/obj/screen/novel_message/start_credits/note_name/set_text(text, text_color)
+/obj/screen/novel_message/note_name/set_text(text, text_color)
 	SetTransform(3)
 	maptext = "<span class='maptext' style='text-align: center; font-size: 300%; color: [text_color]'>[text]</span>"
 
@@ -35,8 +35,8 @@
 
 /obj/screen/fullscreen/paperwork/Initialize()
 	. = ..()
-	animate(src, transform = matrix(0, 600, MATRIX_TRANSLATE), time = 0.5 SECONDS, easing = LINEAR_EASING, flags = ANIMATION_PARALLEL)
-	animate(src, transform = matrix(3, MATRIX_SCALE), time = 0.5 SECONDS, easing = LINEAR_EASING, flags = ANIMATION_PARALLEL)
+	animate(src, transform = matrix(0, 600, MATRIX_TRANSLATE), time = 1 SECONDS, easing = LINEAR_EASING, flags = ANIMATION_PARALLEL)
+	animate(src, transform = matrix(3, MATRIX_SCALE), time = 1 SECONDS, easing = LINEAR_EASING, flags = ANIMATION_PARALLEL)
 
 /obj/screen/fullscreen/shade
 	icon = 'mods/_fd/fd_assets/icons/screen_full.dmi'
@@ -127,7 +127,10 @@
 		var/message_name = "[name]"
 
 		var/obj/screen/player_message/maintext = new /obj/screen/player_message()
-		var/obj/screen/novel_message/start_credits/note_name/nameplate = new /obj/screen/novel_message/start_credits/note_name()
+		var/obj/screen/novel_message/note_name/nameplate = new /obj/screen/novel_message/note_name()
+		maintext.layer = 5.4
+		nameplate.layer = 5.4
+
 		nameplate.maptext_x = -75
 		nameplate.maptext_y = -15
 		maintext.maptext_x = 0
@@ -148,7 +151,7 @@
 		if(istype(messages, /obj/screen/player_message))
 			user.client.screen -= messages
 			qdel(messages)
-		if(istype(messages, /obj/screen/novel_message/start_credits/note_name))
+		if(istype(messages, /obj/screen/novel_message/note_name))
 			user.client.screen -= messages
 			qdel(messages)
 

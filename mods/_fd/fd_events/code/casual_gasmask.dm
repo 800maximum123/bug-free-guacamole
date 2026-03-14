@@ -45,42 +45,42 @@
 
 /mob/living/proc/show_lowair_warning()
 	var/text_message = "В глазах мутнеет...чувствую себя не очень хорошо..."
-	var/colored = "#ffff"
+	var/colored = "#000f"
 
-	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
 	visuals.maptext_x = 0
 	visuals.maptext_y = -210
 
 	client.screen += visuals
-	visuals.set_text(text_message, colored, time = 10 SECONDS)
+	visuals.set_text(text_message, colored, time = 5 SECONDS)
 
 /mob/living/proc/show_danger()
 	var/text_message = "Что-то не так. Чувствую себя как-то неправильно..."
-	var/colored = "#ffff"
+	var/colored = "#000f"
 
 	if(wear_mask && wear_mask.item_flags & ITEM_FLAG_AIRTIGHT)
 		text_message = "Чувствую, что фильтры закрутились..."
 
-	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
 	visuals.maptext_x = 0
 	visuals.maptext_y = -210
 
 	client.screen += visuals
-	visuals.set_text(text_message, colored, time = 10 SECONDS)
+	visuals.set_text(text_message, colored, time = 5 SECONDS)
 
 /mob/living/proc/hide_danger()
 	var/text_message = "Что бы то ни было, но оно миновало..."
-	var/colored = "#ffff"
+	var/colored = "#000f"
 
 	if(wear_mask && wear_mask.item_flags & ITEM_FLAG_AIRTIGHT)
 		text_message = "Похоже, тут можно безопасно снять снаряжение!"
 
-	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
 	visuals.maptext_x = 0
 	visuals.maptext_y = -210
 
 	client.screen += visuals
-	visuals.set_text(text_message, colored, time = 10 SECONDS)
+	visuals.set_text(text_message, colored, time = 5 SECONDS)
 
 /obj/item/clothing/mask/gas
 	var/filter_stored_air = 0
@@ -119,7 +119,7 @@
 			to_chat(user, SPAN_WARNING("Наполнитель пуст!"))
 			return FALSE
 
-		if(do_after(user, 5 SECONDS, F, DO_PUBLIC_UNIQUE, DO_BOTH_CAN_MOVE))
+		if(do_after(user, 5 SECONDS, F, DO_PUBLIC_UNIQUE))
 			visible_message("[user] наполняет фильтр используя [F].", "Ты наполнил фильтр [src].")
 
 			var/how_empty = filter_max_air - filter_stored_air
