@@ -6,23 +6,7 @@
 	maptext = "<span class='maptext' style='text-align: center; font-size: 300%; color: [text_color]'>[text]</span>"
 
 /mob/
-	var/reading_note = FALSE
-	var/datum/interactive_note/currently_reading
-
 	var/list/datum/interactive_note/note_archive = list()
-
-/datum/keybinding/mob/hide_note
-	category = CATEGORY_FD
-	hotkey_keys = list("Escape")
-	name = "hide_note"
-	full_name = "General: HIDE NOTE"
-	description = ""
-
-/datum/keybinding/mob/hide_note/down(client/user)
-	var/mob/M = user.mob
-
-	M.currently_reading.hide_note_from_player(M)
-	return TRUE
 
 /obj/screen/fullscreen/paperwork
 	icon = 'mods/_fd/fd_utilities/icons/note_backgrounds.dmi'
@@ -47,7 +31,7 @@
 	plane = HUD_PLANE
 	layer = 5.3
 
-/obj/item/fd/interactive_note
+/obj/sturcture/fd/interactive/note
 	name = "Записка"
 	desc = "Содержит в себе всякое!"
 
@@ -55,9 +39,10 @@
 	icon_state = "torn_words"
 
 	anchored = TRUE
+	density = FALSE
 	var/list/datum/interactive_note/attached_text = list()
 
-/obj/item/fd/interactive_note/Initialize(mapload, ...)
+/obj/sturcture/fd/interactive/note/Initialize(mapload, ...)
 	. = ..()
 
 	var/list/note_creation = attached_text.Copy()
@@ -65,30 +50,30 @@
 	for(var/notes in note_creation)
 		new notes(src)
 
-/obj/item/fd/interactive_note/attack_hand(mob/user)
+/obj/sturcture/fd/interactive/note/interact_with(mob/user)
 	. = ..()
 
-	if(user.reading_note)
+	if(user.reading)
 		return FALSE
 
-	if(length(attached_text) < 2)
-		var/datum/interactive_note/text_to_show = attached_text[1]
-		text_to_show.reveal_note_to_player(user)
+	var/list/options = list()
+	var/list/actions = list()
+	for(var/datum/interactive_note/pages as anything in attached_text)
+		options[pages.name] = image(icon, icon_state)
+		actions[pages.name] = pages
 
-		for(var/datum/interactive_note/archive_entries in user.note_archive)
-			if(!text_to_show)
-				user.note_archive += text_to_show
+	var/chosen_option = show_radial_menu(user, src, options, radius = 25, require_near = TRUE)
+	if(!chosen_option)
+		return TRUE
 
-	else
-		var/datum/interactive_note/option = input(user, "Выберите страницу, которую хотите прочесть") as null | anything in attached_text
-		if(!option)
-			return FALSE
+	var/datum/interactive_note/page = actions[chosen_option]
+	page.reveal_note_to_player(user)
 
-		option.reveal_note_to_player(user)
+	for(var/datum/interactive_note/archive_entries in user.note_archive)
+		if(!page)
+			user.note_archive += page
 
-		for(var/datum/interactive_note/archive_entries in user.note_archive)
-			if(!option)
-				user.note_archive += option
+	user.currently_interacting = src
 
 /datum/interactive_note
 	var/name = "ЗАГОЛОВОК ДОКУМЕНТА"
@@ -96,9 +81,9 @@
 
 	var/note_overlay = /obj/screen/fullscreen/paperwork
 
-	var/obj/item/fd/interactive_note/connected_note
+	var/obj/sturcture/fd/interactive/note/connected_note
 
-/datum/interactive_note/New(obj/item/fd/interactive_note/note)
+/datum/interactive_note/New(obj/sturcture/fd/interactive/note/note)
 	. = ..()
 	connected_note = note
 	note.attached_text += src
@@ -115,8 +100,7 @@
 	. = ..()
 
 /datum/interactive_note/proc/reveal_note_to_player(mob/user)
-	user.reading_note = TRUE
-	user.currently_reading = src
+	user.reading = TRUE
 
 	user.overlay_fullscreen("background_note", note_overlay)
 	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
@@ -142,8 +126,8 @@
 		nameplate.set_text(message_name, COLOR_WHITE)
 
 /datum/interactive_note/proc/hide_note_from_player(mob/user)
-	user.reading_note = FALSE
-	user.currently_reading = null
+	user.reading = FALSE
+	user.currently_interacting = null
 
 	user.clear_fullscreen("background_note")
 	user.clear_fullscreen("smallshade")
@@ -156,7 +140,7 @@
 			qdel(messages)
 
 ////TEST///
-/obj/item/fd/interactive_note/test
+/obj/sturcture/fd/interactive/note/test
 	name = "ТЕСТОВАЯ ЗАПИСКА"
 	attached_text = list(/datum/interactive_note/test, /datum/interactive_note/test2)
 
