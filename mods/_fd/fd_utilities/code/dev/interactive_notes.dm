@@ -50,7 +50,7 @@
 	for(var/notes in note_creation)
 		new notes(src)
 
-/obj/sturcture/fd/interactive/note/interact_with(mob/user)
+/obj/sturcture/fd/interactive/note/interact_with(mob/living/user)
 	. = ..()
 
 	if(user.reading)
@@ -99,7 +99,7 @@
 	connected_note = null
 	. = ..()
 
-/datum/interactive_note/proc/reveal_note_to_player(mob/user)
+/datum/interactive_note/proc/reveal_note_to_player(mob/living/user)
 	user.reading = TRUE
 
 	user.overlay_fullscreen("background_note", note_overlay)
@@ -125,7 +125,7 @@
 		maintext.set_text(message, COLOR_WHITE)
 		nameplate.set_text(message_name, COLOR_WHITE)
 
-/datum/interactive_note/proc/hide_note_from_player(mob/user)
+/datum/interactive_note/proc/hide_note_from_player(mob/living/user)
 	user.reading = FALSE
 	user.currently_interacting = null
 

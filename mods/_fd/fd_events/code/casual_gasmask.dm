@@ -121,6 +121,7 @@
 
 		if(do_after(user, 5 SECONDS, F, DO_PUBLIC_UNIQUE))
 			visible_message("[user] наполняет фильтр используя [F].", "Ты наполнил фильтр [src].")
+			playsound(user, 'sound/machines/pump.ogg', 30)
 
 			var/how_empty = filter_max_air - filter_stored_air
 			var/refill_with = F.additional_air - how_empty

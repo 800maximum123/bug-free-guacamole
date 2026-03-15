@@ -1,16 +1,26 @@
-/mob/
+/mob/living
 	var/reading = FALSE
 	var/atom/currently_interacting
 
-/datum/keybinding/mob/hide_interaction
+/datum/keybinding/living/fd/hide_interaction
 	category = CATEGORY_FD
 	hotkey_keys = list("Escape")
 	name = "hide_interaction"
 	full_name = "General: HIDE INTERACTION"
 	description = ""
 
-/datum/keybinding/mob/hide_interaction/down(client/user)
-	var/mob/M = user.mob
+/datum/keybinding/living/fd/hide_interaction/can_use(client/user)
+	. = ..()
+
+	var/mob/living/L = user.mob
+	if(L.stat != CONSCIOUS)
+		return FALSE
+
+	if(L.resting)
+		return FALSE
+
+/datum/keybinding/living/fd/hide_interaction/down(client/user)
+	var/mob/living/M = user.mob
 
 	if(istype(M.currently_interacting, /obj/sturcture/fd/interactive/note))
 		var/obj/sturcture/fd/interactive/note/N = M.currently_interacting
@@ -22,14 +32,24 @@
 		M.currently_interacting.hide_description(M)
 	return TRUE
 
-/datum/keybinding/mob/start_interaction
+/datum/keybinding/living/fd/start_interaction
 	category = CATEGORY_FD
 	hotkey_keys = list("E")
 	name = "start_interaction"
 	full_name = "General: START INTERACTION"
 	description = ""
 
-/datum/keybinding/mob/start_interaction/down(client/user)
+/datum/keybinding/living/fd/start_interaction/can_use(client/user)
+	. = ..()
+
+	var/mob/living/L = user.mob
+	if(L.stat != CONSCIOUS)
+		return FALSE
+
+	if(L.resting)
+		return FALSE
+
+/datum/keybinding/living/fd/start_interaction/down(client/user)
 	var/mob/M = user.mob
 
 	var/turf/T = get_turf(get_step(M, M.dir))
@@ -45,11 +65,11 @@
 	var/desc_special_show = FALSE
 	var/desc_special = {"ВИЗУАЛЬНЫЙ ТЕКСТ"}
 
-/atom/proc/interact_with(mob/user)
+/atom/proc/interact_with(mob/living/user)
 	if(desc_special_show && !user.reading)
 		reveal_description(user)
 
-/atom/proc/reveal_description(mob/user)
+/atom/proc/reveal_description(mob/living/user)
 	user.reading = TRUE
 	user.currently_interacting = src
 
@@ -64,7 +84,7 @@
 	user.client.screen += maintext
 	maintext.set_text(message, COLOR_WHITE)
 
-/atom/proc/hide_description(mob/user)
+/atom/proc/hide_description(mob/living/user)
 	user.reading = FALSE
 	user.currently_interacting = null
 
