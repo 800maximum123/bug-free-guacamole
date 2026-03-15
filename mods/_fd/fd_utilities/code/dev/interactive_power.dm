@@ -39,7 +39,7 @@
 	desc = "Коробка с разными проводками и микросхемами."
 
 	icon = 'mods/_fd/fd_utilities/icons/power_source.dmi'
-	icon_state = "fusebox_empty"
+	icon_state = "fusebox"
 
 	var/obj/item/fd/basic_power/fuse/fuse
 	var/prefit = FALSE
@@ -77,6 +77,7 @@
 			return TRUE
 
 		if(istype(I, /obj/item/fd/basic_power/fuse))
+			user.drop_from_inventory(I)
 			I.forceMove(src)
 			fuse = I
 
@@ -101,7 +102,7 @@
 				fuse = null
 
 				turn_off(user)
-				icon_state = "fusebox_empty"
+				icon_state = "fusebox"
 				return TRUE
 
 			if("ДЁРНУТЬ РУБИЛЬНИК")
