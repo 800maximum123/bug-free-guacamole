@@ -10,17 +10,21 @@
 /area/metro/maintain
 	name = "Technical Area"
 
-// Технические тунели
+// Технические тунели (Так ещё и безопасная зона, безопасна пока работает генератора)
 /area/metro/maintain/tunnel
 	name = "Tehcnical Tunnels"
+
+/area/metro/maintain/south
+	name = "South Tunnels"
+
+/area/metro/maintain/south/chasm1
+	name = "Shaft"
 
 // Задымлённый коридор (низя дышать)
 /area/metro/maintain/gas
 	name = "Techinal Area"
+	icon_state = "green"
 	unbreathable = TRUE
-
-// Вход в технические
-	name = "Tehnical Area - Warehouse"
 
 //Первый генератор
 /area/metro/maintain/gen1
