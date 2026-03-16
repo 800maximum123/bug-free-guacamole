@@ -121,7 +121,6 @@
 
 		if(do_after(user, 5 SECONDS, F, DO_PUBLIC_UNIQUE))
 			visible_message("[user] наполняет фильтр используя [F].", "Ты наполнил фильтр [src].")
-			playsound(user, 'sound/machines/pump.ogg', 30)
 
 			var/how_empty = filter_max_air - filter_stored_air
 			var/refill_with = F.additional_air - how_empty
@@ -165,3 +164,8 @@
 /obj/item/fd/filter/MouseExited(location, control, params)
 	. = ..()
 	overlays -= image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status)
+// Gasmask overlay stuff
+/obj/screen/fullscreen/gasmask
+	icon = 'mods/_fd/fd_events/icons/gasmask_fullscreen.dmi'
+	scale_to_view = FALSE
+	icon_state = "gasmaskbetter"
