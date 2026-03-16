@@ -7,6 +7,13 @@
 	var/correctcode = "909"
 	var/keycode = ""
 
+/obj/machinery/button/alternate/door/on_update_icon()
+	if(operating)
+		icon_state = "[initial(icon_state)]1"
+	else
+		icon_state = "[initial(icon_state)]"
+
+
 
 /obj/machinery/button/alternate/door/keypad/interface_interact(user)
 	if(!CanInteract(user, DefaultTopicState()))
