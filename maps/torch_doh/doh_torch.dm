@@ -372,6 +372,7 @@
 
 	#include "../../mods/_fd/_maps/bunker_hub/_bunker_hub.dme"
 	#include "../../mods/_fd/_maps/fort_manticore/_fort_manticore.dme"
+	#include "../../mods/_fd/_maps/metro/_metro.dme"
 
 	#define using_map_DATUM /datum/map/torch
 
