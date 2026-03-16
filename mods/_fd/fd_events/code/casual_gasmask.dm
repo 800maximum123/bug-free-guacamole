@@ -167,6 +167,36 @@
 
 
 // Gasmask overlay stuff
+
+/obj/item/clothing/mask/gas
+	var/gasmaskoverlay = FALSE
+
+/obj/item/clothing/mask/gas/equipped(mob/user, slot)
+	. = ..()
+	if(gasmaskoverlay)
+		GLOB.mob_equipped_event.register(user, src, PROC_REF(update_terribleoverlay))
+		GLOB.mob_unequipped_event.register(user, src, PROC_REF(update_terribleoverlay))
+
+/obj/item/clothing/mask/gas/dropped(mob/user, slot)
+	. = ..()
+	if(gasmaskoverlay)
+		GLOB.mob_equipped_event.unregister(user, src, PROC_REF(update_terribleoverlay))
+		GLOB.mob_unequipped_event.unregister(user, src, PROC_REF(update_terribleoverlay))
+
+/obj/item/clothing/mask/gas/proc/update_terribleoverlay(mob/user)
+	if(!ishuman(user))
+		return
+	var/mob/living/carbon/human/player = user
+	var/obj/item/clothing/mask/gas/gasmask = player.wear_mask
+	player.clear_fullscreen("gasmaskoverlay")
+	if(gasmask.gasmaskoverlay)
+		player.overlay_fullscreen("gasmaskoverlay", /obj/screen/fullscreen/gasmask)
+	/*if(istype(user.wear_mask, /obj/item/clothing/mask/gas))
+		var/obj/item/clothing/mask/gas/gasmask = user.wear_mask
+	if(!gasmask.gasmaskoverlay)
+		user.clear_fullscreen("gasmaskoverlay")
+	user.overlay_fullscreen("gasmaskoverlay", /obj/screen/fullscreen/gasmask)
+*/
 /obj/screen/fullscreen/gasmask
 	icon = 'mods/_fd/fd_events/icons/gasmask_fullscreen.dmi'
 	scale_to_view = FALSE
