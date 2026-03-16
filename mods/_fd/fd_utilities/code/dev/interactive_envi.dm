@@ -28,6 +28,10 @@
 		for(var/datum/interactive_note/I in N.attached_text)
 			I.hide_note_from_player(M)
 
+	if(istype(M.currently_interacting, /obj/sturcture/fd/interactive/basic_power/cool_gen))
+		var/obj/sturcture/fd/interactive/basic_power/cool_gen/C = M.currently_interacting
+		C.hide_ui(M)
+
 	else
 		M.currently_interacting.hide_description(M)
 	return TRUE
@@ -51,13 +55,24 @@
 
 /datum/keybinding/living/fd/start_interaction/down(client/user)
 	var/mob/M = user.mob
+	var/atom/choosen_atom
 
 	var/turf/T = get_turf(get_step(M, M.dir))
 	for(var/atom/I in T)
 		if(!I.interactive)
 			continue
-		I.interact_with(M)
 
+		choosen_atom = I
+
+	if(!choosen_atom)
+		T = get_turf(M)
+		for(var/atom/A in T)
+			if(!A.interactive)
+				continue
+
+			choosen_atom = A
+
+	choosen_atom.interact_with(M)
 	return TRUE
 
 /atom/

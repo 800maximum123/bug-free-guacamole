@@ -45,6 +45,7 @@
 			return
 
 		else
+			L.Stun(10)
 			animate(L, transform = matrix(0.01, MATRIX_SCALE), time = 1 SECOND, easing = BOUNCE_EASING)
 
 			spawn(1 SECONDS)
@@ -224,7 +225,7 @@
 		unattach_mob()
 
 //	if(grapple_str <= 0)
-	if(get_stamina() <= 0)
+	if(get_stamina() < 5)
 		unattach_mob()
 
 	if(l_hand && r_hand)
@@ -232,19 +233,15 @@
 
 	// Мы соскальзываем лишь при условии того, что нам есть куда
 	if(isopenspace(placed_on))
-		adjust_stamina(-5)
+		adjust_stamina(-10)
 //		grapple_str -= 1
 
-	if(C in placed_on.loc)
-		adjust_stamina(-5)
+	if(C in placed_on)
+		adjust_stamina(-10)
 //		grapple_str -= 1
 
 /mob/living/proc/unattach_mob()
 	attached_to_surface = FALSE
-//	if(grapple_str < 10)
-	if(get_stamina() < 10)
-		adjust_stamina(10)
-//		grapple_str += 5
 
 	dash_bonus_points_max = initial(dash_bonus_points_max)
 

@@ -5,8 +5,11 @@
 	SetTransform(3)
 	maptext = "<span class='maptext' style='text-align: center; font-size: 300%; color: [text_color]'>[text]</span>"
 
-/mob/
+/mob/living
 	var/list/datum/interactive_note/note_archive = list()
+
+/mob/living/proc/add_to_archive(datum/interactive_note/note)
+	LAZYDISTINCTADD(note_archive, note)
 
 /obj/screen/fullscreen/paperwork
 	icon = 'mods/_fd/fd_utilities/icons/note_backgrounds.dmi'
@@ -67,11 +70,9 @@
 		return TRUE
 
 	var/datum/interactive_note/page = actions[chosen_option]
-	page.reveal_note_to_player(user)
 
-	for(var/datum/interactive_note/archive_entries in user.note_archive)
-		if(!page)
-			user.note_archive += page
+	user.add_to_archive(page)
+	page.reveal_note_to_player(user)
 
 	user.currently_interacting = src
 
