@@ -7,16 +7,22 @@
 	var/correctcode = "909"
 	var/keycode = ""
 
-/obj/machinery/button/alternate/door/keypad/attack_hand(mob/user)
-	if(!operable())
-		to_chat(user, "<span class='warning'>Панель не работает.</span>")
-		return
-	add_fingerprint(user)
-	if(!allowed(user))
-		to_chat(user, "<span class='danger'>Access Denied</span>")
-		flick("[icon_state]-denied", src)
-		return
-	ShowKeypad(user)
+
+/obj/machinery/button/alternate/door/keypad/interface_interact(user)
+	if(!CanInteract(user, DefaultTopicState()))
+		return FALSE
+	if(istype(user, /mob/living/carbon))
+		if(!operable())
+			to_chat(user, "<span class='warning'>Панель не работает.</span>")
+			return
+		add_fingerprint(user)
+		if(!allowed(user))
+			to_chat(user, "<span class='danger'>Access Denied</span>")
+			flick("[icon_state]-denied", src)
+			return
+		ShowKeypad(user)
+	return TRUE
+
 
 /obj/machinery/button/alternate/door/keypad/proc/ShowKeypad(mob/living/user)
 	var/html = {"<html><body><div align='center'>
@@ -61,19 +67,8 @@
 			keycode = ""
 		if("pulse")
 			if(keycode == correctcode)
-				if(!id_tag)
-					to_chat(user, "<span class='warning'>Панель не привязана к двери!</span>")
-				else
-					var/success = FALSE
-					for(var/obj/machinery/door/airlock/D in world)
-						if(D.id_tag == id_tag)
-							D.toggle()
-							success = TRUE
-							break
-					if(success)
-						playsound(loc, 'sound/machines/defib_success.ogg', 40, 1)
-					else
-						to_chat(user, "<span class='warning'>Дверь с ID [id_tag] не найдена!</span>")
+				activate()
+				playsound(loc, 'sound/machines/defib_success.ogg', 40, 1)
 			else
 				playsound(loc, 'sound/machines/buzz-two.ogg', 40, 1)
 			keycode = ""
