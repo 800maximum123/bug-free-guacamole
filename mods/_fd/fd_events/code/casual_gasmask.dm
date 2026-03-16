@@ -164,6 +164,8 @@
 /obj/item/fd/filter/MouseExited(location, control, params)
 	. = ..()
 	overlays -= image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status)
+
+
 // Gasmask overlay stuff
 /obj/screen/fullscreen/gasmask
 	icon = 'mods/_fd/fd_events/icons/gasmask_fullscreen.dmi'
