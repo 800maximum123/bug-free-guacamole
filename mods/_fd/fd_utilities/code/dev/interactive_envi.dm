@@ -2,22 +2,23 @@
 	var/reading = FALSE
 	var/atom/currently_interacting
 
+/mob/living/Life()
+	for(var/atom/A in range(2,src))
+		if(A.interactive && !A.revealed)
+			A.show_hint(src)
+
+	for(var/atom/A in view(src))
+		if(get_dist(src,A) > 2 && A.revealed)
+			A.hide_hint(src)
+
+	. = ..()
+
 /datum/keybinding/living/fd/hide_interaction
 	category = CATEGORY_FD
 	hotkey_keys = list("Escape")
 	name = "hide_interaction"
 	full_name = "General: HIDE INTERACTION"
 	description = ""
-
-/datum/keybinding/living/fd/hide_interaction/can_use(client/user)
-	. = ..()
-
-	var/mob/living/L = user.mob
-	if(L.stat != CONSCIOUS)
-		return FALSE
-
-	if(L.resting)
-		return FALSE
 
 /datum/keybinding/living/fd/hide_interaction/down(client/user)
 	var/mob/living/M = user.mob
@@ -80,6 +81,9 @@
 	var/desc_special_show = FALSE
 	var/desc_special = {"ВИЗУАЛЬНЫЙ ТЕКСТ"}
 
+	var/image/hint
+	var/revealed = FALSE
+
 /atom/proc/interact_with(mob/living/user)
 	if(desc_special_show && !user.reading)
 		reveal_description(user)
@@ -108,6 +112,22 @@
 		if(istype(messages, /obj/screen/player_message))
 			user.client.screen -= messages
 			qdel(messages)
+
+/atom/proc/generate_hint()
+	var/icon/T = new('mods/_fd/fd_utilities/icons/actions.dmi')
+	return image(T, "loopa", layer = HUD_PLANE)
+
+/atom/proc/show_hint(mob/living/user)
+	hint = generate_hint()
+	revealed = TRUE
+
+	hint.loc = get_turf(src)
+	user.client.images += hint
+
+/atom/proc/hide_hint(mob/living/user)
+	if(user.client)
+		user.client.images -= hint
+		revealed = FALSE
 
 /obj/sturcture/fd/interactive
 	interactive = TRUE

@@ -125,16 +125,11 @@
 	var/image/dash_charging_overlay
 
 	var/attached_to_surface = FALSE
-/*	var/grapple_str = 30
-	var/grapple_str_max = 30*/
 
 /mob/living/Life()
 
 	if(attached_to_surface)
 		check_grapple_conditions()
-
-/*	if(!attached_to_surface && grapple_str != grapple_str_max)
-		grapple_str += 1*/
 
 	if(preparing_to_dash)
 
@@ -213,8 +208,6 @@
 
 /mob/living/proc/check_grapple_conditions(atom/A)
 	var/turf/placed_on = get_turf(src)
-	var/obj/structure/fd/chasm/C
-
 	var/grappling_object = FALSE
 
 	for(A in placed_on)
@@ -224,7 +217,6 @@
 	if(!grappling_object)
 		unattach_mob()
 
-//	if(grapple_str <= 0)
 	if(get_stamina() < 5)
 		unattach_mob()
 
@@ -234,11 +226,10 @@
 	// Мы соскальзываем лишь при условии того, что нам есть куда
 	if(isopenspace(placed_on))
 		adjust_stamina(-10)
-//		grapple_str -= 1
 
-	if(C in placed_on)
+	var/obj/structure/fd/chasm/C = locate() in placed_on
+	if(C)
 		adjust_stamina(-10)
-//		grapple_str -= 1
 
 /mob/living/proc/unattach_mob()
 	attached_to_surface = FALSE

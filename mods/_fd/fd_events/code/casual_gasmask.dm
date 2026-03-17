@@ -22,24 +22,38 @@
 /mob/living/Life()
 
 	var/area/A = get_area(src)
-	if(A.unbreathable)
-		var/obj/item/clothing/mask/gas/gasmask = wear_mask
-
-		if(!istype(gasmask, /obj/item/clothing/mask/gas) || gasmask.filter_stored_air <= 0 || A.mask_wont_help)
-			if(currently_stored_air > 0)
-				currently_stored_air -= 1
-		else
-			if(gasmask.filter_stored_air > 0)
-				gasmask.filter_stored_air -= 1
-
-	if(!A.unbreathable && currently_stored_air < naturally_stored_air)
-		currently_stored_air += 1
 
 	if(A.unbreathable && currently_stored_air == 5)
 		show_lowair_warning()
 
-	if(A.unbreathable && currently_stored_air <= 0)
-		apply_damage(10, A.damage_type)
+	if(!A.unbreathable && currently_stored_air < naturally_stored_air)
+		currently_stored_air += 1
+
+	if(ishuman(src))
+		var/mob/living/carbon/human/H = src
+		var/obj/item/organ/internal/cell/E = H.internal_organs_by_name[BP_CELL]
+
+		if(A.unbreathable)
+			if(E && E.cell.charge >= 10)
+				E.cell.charge -= 10
+			else
+				var/obj/item/clothing/mask/gas/gasmask = wear_mask
+
+				if(gasmask || istype(gasmask, /obj/item/clothing/mask/gas) || gasmask.filter_stored_air > 0 || !A.mask_wont_help)
+					gasmask.filter_stored_air -= 1
+				else
+					if(currently_stored_air > 0)
+						currently_stored_air -= 1
+					if(currently_stored_air <= 0)
+						emote("gasp")
+						apply_damage(10, A.damage_type)
+
+	if(A.unbreathable && !ishuman(src))
+		if(currently_stored_air > 0)
+			currently_stored_air -= 1
+		if(currently_stored_air <= 0)
+			emote("gasp")
+			apply_damage(10, A.damage_type)
 
 	. = ..()
 
@@ -121,6 +135,7 @@
 
 		if(do_after(user, 5 SECONDS, F, DO_PUBLIC_UNIQUE))
 			visible_message("[user] наполняет фильтр используя [F].", "Ты наполнил фильтр [src].")
+			playsound(user, 'sound/machines/pump.ogg', 30)
 
 			var/how_empty = filter_max_air - filter_stored_air
 			var/refill_with = F.additional_air - how_empty
