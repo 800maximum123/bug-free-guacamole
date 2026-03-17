@@ -3,13 +3,15 @@
 	var/atom/currently_interacting
 
 /mob/living/Life()
-	for(var/atom/A in range(2,src))
-		if(A.interactive && !A.revealed)
-			A.show_hint(src)
 
-	for(var/atom/A in view(src))
-		if(get_dist(src,A) > 2 && A.revealed)
-			A.hide_hint(src)
+	if(client)
+		for(var/atom/A in range(2,src))
+			if(A.interactive && !A.revealed)
+				A.show_hint(src)
+
+		for(var/atom/A in view(src))
+			if(get_dist(src,A) > 2 && A.revealed)
+				A.hide_hint(src)
 
 	. = ..()
 
