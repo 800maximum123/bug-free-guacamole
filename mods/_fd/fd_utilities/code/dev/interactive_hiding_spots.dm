@@ -17,6 +17,12 @@
 	var/hiding_viewpoint = SOUTH
 	var/mob/living/hidden_mob
 
+/obj/attack_animal(mob/user)
+	if(hidden_mob)
+		reveal_player()
+
+	. = ..()
+
 /obj/attack_hand(mob/living/user)
 	if(hidden_mob)
 		reveal_player()

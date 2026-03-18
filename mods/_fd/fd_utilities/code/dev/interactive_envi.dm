@@ -10,9 +10,12 @@
 				if(!A.interactive)
 					continue
 
-				if(get_dist(src,A) <= 2 && !A.revealed)
-					A.show_hint(src)
-				if((get_dist(src,A) > 2 && A.revealed) || hiding_spot)
+				if(!hiding_spot)
+					if(get_dist(src,A) <= 2 && !A.revealed)
+						A.show_hint(src)
+					if(get_dist(src,A) > 2 && A.revealed)
+						A.hide_hint(src)
+				else
 					A.hide_hint(src)
 
 	. = ..()

@@ -1,5 +1,6 @@
 /obj/
 	var/image/revealed_mob
+	var/show_mob_to_monster = FALSE
 
 /obj/proc/show_insides()
 	var/icon/T = new('mods/_fd/fd_utilities/icons/actions.dmi')
@@ -8,12 +9,15 @@
 /obj/proc/show_player_inside(mob/living/user)
 	revealed_mob = show_insides()
 
+	show_mob_to_monster = TRUE
+
 	revealed_mob.loc = get_turf(src)
 	user.client.images += revealed_mob
 
 /obj/proc/hide_player_inside(mob/living/user)
 	if(user.client)
 		user.client.images -= revealed_mob
+		show_mob_to_monster = FALSE
 
 /datum/keybinding/living/fd/monster
 	category = CATEGORY_FD
@@ -22,7 +26,7 @@
 	. = ..()
 
 	var/mob/living/L = user.mob
-	if(!istype(L, /mob/living/simple_animal/hostile/metro_jeff))
+	if(!istype(L, /mob/living/simple_animal/metro_jeff))
 		return FALSE
 
 /datum/keybinding/living/fd/monster/reveal_hiding_players
@@ -33,22 +37,16 @@
 	description = ""
 
 /datum/keybinding/living/fd/monster/reveal_hiding_players/down(client/user)
-	var/mob/living/simple_animal/hostile/metro_jeff/M = user.mob
-	M.sniffing = TRUE
+	var/mob/living/simple_animal/metro_jeff/M = user.mob
 
-	return TRUE
+	if(M.sniffing)
+		M.sniffing = FALSE
+		return TRUE
+	else
+		M.sniffing = TRUE
+		return TRUE
 
-/datum/keybinding/living/fd/monster/reveal_hiding_players/up(client/user)
-	var/mob/living/simple_animal/hostile/metro_jeff/M = user.mob
-	M.sniffing = FALSE
-
-	for(var/obj/A in M.hidespots)
-		A.hide_player_inside(M)
-		M.hidespots -= A
-
-	return TRUE
-
-/mob/living/simple_animal/hostile/metro_jeff
+/mob/living/simple_animal/metro_jeff
 	name = "WIP"
 	desc = "WIP"
 
@@ -59,19 +57,21 @@
 	var/sniffing = FALSE
 	var/list/obj/hidespots = list()
 
-/mob/living/simple_animal/hostile/metro_jeff/Move()
-	. = ..()
-	if(.)
-		if(sniffing && client)
-			for(var/obj/A in view(src))
-				if(!A.can_hide_inside)
-					continue
-				if(!A.hidden_mob)
-					continue
-				if(A in hidespots)
-					continue
-				hidespots += A
+/mob/living/simple_animal/metro_jeff/Life()
 
-			for(var/obj/A in hidespots)
-				if(A.hidden_mob)
+	if(client)
+
+		if(sniffing)
+			for(var/obj/A in view(src))
+				if(A.hidden_mob && !A.show_mob_to_monster)
 					A.show_player_inside(src)
+					hidespots += A
+				if(!A.hidden_mob && A.show_mob_to_monster)
+					A.hide_player_inside(src)
+
+		if(!sniffing)
+			for(var/obj/A in hidespots)
+				if(A.hidden_mob && A.show_mob_to_monster)
+					A.hide_player_inside(src)
+
+	. = ..()
