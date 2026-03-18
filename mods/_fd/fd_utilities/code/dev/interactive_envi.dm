@@ -4,14 +4,16 @@
 
 /mob/living/Life()
 
-	if(client)
-		for(var/atom/A in range(2,src))
-			if(A.interactive && !A.revealed)
-				A.show_hint(src)
+	if(ishuman(src))
+		if(client)
+			for(var/atom/A in view(src))
+				if(!A.interactive)
+					continue
 
-		for(var/atom/A in view(src))
-			if(get_dist(src,A) > 2 && A.revealed)
-				A.hide_hint(src)
+				if(get_dist(src,A) <= 2 && !A.revealed)
+					A.show_hint(src)
+				if((get_dist(src,A) > 2 && A.revealed) || hiding_spot)
+					A.hide_hint(src)
 
 	. = ..()
 
@@ -57,7 +59,7 @@
 		return FALSE
 
 /datum/keybinding/living/fd/start_interaction/down(client/user)
-	var/mob/M = user.mob
+	var/mob/living/M = user.mob
 	var/atom/choosen_atom
 
 	var/turf/T = get_turf(get_step(M, M.dir))
