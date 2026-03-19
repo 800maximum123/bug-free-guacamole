@@ -6,13 +6,13 @@
 /area/Entered(mob/living/user)
 	. = ..()
 
-	if(unbreathable)
+	if(unbreathable && user.client)
 		user.show_danger()
 
 /area/Exited(mob/living/user)
 	. = ..()
 
-	if(unbreathable)
+	if(unbreathable && user.client)
 		user.hide_danger()
 
 /mob/living
@@ -23,7 +23,7 @@
 
 	var/area/A = get_area(src)
 
-	if(A.unbreathable && currently_stored_air == 5)
+	if(A.unbreathable && currently_stored_air == 5 && client)
 		show_lowair_warning()
 
 	if(!A.unbreathable && currently_stored_air < naturally_stored_air)
@@ -39,8 +39,10 @@
 			else
 				var/obj/item/clothing/mask/gas/gasmask = wear_mask
 
-				if(gasmask || istype(gasmask, /obj/item/clothing/mask/gas) || gasmask.filter_stored_air > 0 || !A.mask_wont_help)
-					gasmask.filter_stored_air -= 1
+				if(gasmask && istype(gasmask, /obj/item/clothing/mask/gas))
+					if(gasmask.filter_stored_air > 0 && !A.mask_wont_help)
+						gasmask.filter_stored_air -= 1
+						playsound_local(get_turf(src), 'sound/machines/pump.ogg', 20)
 				else
 					if(currently_stored_air > 0)
 						currently_stored_air -= 1
@@ -73,6 +75,7 @@
 	var/colored = "#000f"
 
 	if(wear_mask && wear_mask.item_flags & ITEM_FLAG_AIRTIGHT)
+		playsound(src, 'sound/effects/internals.ogg', 50)
 		text_message = "Чувствую, что фильтры закрутились..."
 
 	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
@@ -135,7 +138,7 @@
 
 		if(do_after(user, 5 SECONDS, F, DO_PUBLIC_UNIQUE))
 			visible_message("[user] наполняет фильтр используя [F].", "Ты наполнил фильтр [src].")
-			playsound(user, 'sound/machines/pump.ogg', 30)
+			playsound(user, 'sound/effects/refill.ogg', 50)
 
 			var/how_empty = filter_max_air - filter_stored_air
 			var/refill_with = F.additional_air - how_empty
