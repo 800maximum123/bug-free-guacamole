@@ -163,11 +163,11 @@
 
 	jump_layer_shift()
 
-	animate(client, pixel_y = 10, time = 3, easing = BACK_EASING | EASE_IN)
-	animate(src, pixel_z = 16, time = 3, easing = SINE_EASING | EASE_IN)
+	animate(client, pixel_y = 10, time = 7, easing = BACK_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
+	animate(src, pixel_z = 16, time = 7, easing = SINE_EASING | EASE_IN)
 
-	animate(client, pixel_y = default_pixel_y, time = 3, easing = SINE_EASING | EASE_IN)
-	animate(src, pixel_z = default_pixel_z, time = 3, easing = SINE_EASING | EASE_OUT)
+	animate(client, pixel_y = default_pixel_y, time = 7, easing = SINE_EASING | EASE_IN)
+	animate(src, pixel_z = default_pixel_z, time = 7, easing = SINE_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
 
 	throw_at(get_edge_target_turf(src, direction), dash_distance, 1, src, FALSE, new Callback(src, PROC_REF(resolve_dash)))
 	addtimer(new Callback(src, TYPE_PROC_REF(/mob/living, jump_layer_shift_end)), 4.5)

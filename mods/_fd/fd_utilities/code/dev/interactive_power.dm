@@ -277,6 +277,6 @@
 	attached_text = list(/datum/interactive_note/gen_note)
 
 /datum/interactive_note/gen_note
-	name = "ИНСТРУКЦИЯ ПО ВКЛЮЧЕНИЮ ГЕНЕРАТОРА"
+	name = "ВКЛЮЧЕНИЕ ГЕНЕРАТОРА"
 	note_info = {"Сначала переведите <span style="color: green;">ползунок</span> давления в положение <span style="color: green;">"ВВЕРХ"</span>. Затем, <span style="color: green;">переключите</span> первый и третий <span style="color: green;">тумблеры</span>, <span style="color: red;">пропуская второй</span>. \
 	Если вы сделали всё правильно - на генераторе загорится зелёный индикатор."}

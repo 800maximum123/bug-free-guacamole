@@ -6,58 +6,74 @@
 /area/Entered(mob/living/user)
 	. = ..()
 
-	if(unbreathable && user.client)
-		user.show_danger()
+	if(isliving(user) && user.need_to_breath)
+		if(unbreathable && user.client)
+			user.show_danger()
 
 /area/Exited(mob/living/user)
 	. = ..()
 
-	if(unbreathable && user.client)
-		user.hide_danger()
+	if(isliving(user) && user.need_to_breath)
+		if(unbreathable && user.client)
+			user.hide_danger()
 
 /mob/living
 	var/naturally_stored_air = 20
 	var/currently_stored_air = 20
 
+	var/need_to_breath = TRUE
+
 /mob/living/Life()
 
+	var/obj/item/clothing/mask/gas/gasmask = wear_mask
 	var/area/A = get_area(src)
 
-	if(A.unbreathable && currently_stored_air == 5 && client)
-		show_lowair_warning()
+	if(need_to_breath)
 
-	if(!A.unbreathable && currently_stored_air < naturally_stored_air)
-		currently_stored_air += 1
+		if(A.unbreathable && currently_stored_air == 5 && client)
+			show_lowair_warning()
 
-	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
-		var/obj/item/organ/internal/cell/E = H.internal_organs_by_name[BP_CELL]
+		if(!A.unbreathable && currently_stored_air < naturally_stored_air)
+			currently_stored_air += 1
 
-		if(A.unbreathable)
-			if(E && E.cell.charge >= 10)
-				E.cell.charge -= 10
-			else
-				var/obj/item/clothing/mask/gas/gasmask = wear_mask
+		if(ishuman(src))
+			var/mob/living/carbon/human/H = src
+			var/obj/item/organ/internal/cell/E = H.internal_organs_by_name[BP_CELL]
 
-				if(gasmask && istype(gasmask, /obj/item/clothing/mask/gas))
-					if(gasmask.filter_stored_air > 0 && !A.mask_wont_help)
+			if(A.unbreathable)
+				if(E && E.cell.charge >= 10)
+					E.cell.charge -= 10
+				else
+
+					if(breath_protected(gasmask, A))
 						gasmask.filter_stored_air -= 1
 						playsound_local(get_turf(src), 'sound/machines/pump.ogg', 20)
-				else
-					if(currently_stored_air > 0)
-						currently_stored_air -= 1
-					if(currently_stored_air <= 0)
-						emote("gasp")
-						apply_damage(10, A.damage_type)
+					else
+						if(currently_stored_air > 0)
+							currently_stored_air -= 1
+						if(currently_stored_air <= 0)
+							emote("gasp")
+							apply_damage(10, A.damage_type)
 
-	if(A.unbreathable && !ishuman(src))
-		if(currently_stored_air > 0)
-			currently_stored_air -= 1
-		if(currently_stored_air <= 0)
-			emote("gasp")
-			apply_damage(10, A.damage_type)
+		if(A.unbreathable && !ishuman(src))
+			if(currently_stored_air > 0)
+				currently_stored_air -= 1
+			if(currently_stored_air <= 0)
+				apply_damage(10, A.damage_type)
 
 	. = ..()
+
+/mob/living/proc/breath_protected(obj/item/clothing/mask/gas/protection, area/infested_zone)
+	if(!protection)
+		return FALSE
+	if(!istype(protection, /obj/item/clothing/mask/gas))
+		return FALSE
+	if(protection.filter_stored_air <= 0)
+		return FALSE
+	if(infested_zone.mask_wont_help)
+		return FALSE
+
+	return TRUE
 
 /mob/living/proc/show_lowair_warning()
 	var/text_message = "В глазах мутнеет...чувствую себя не очень хорошо..."

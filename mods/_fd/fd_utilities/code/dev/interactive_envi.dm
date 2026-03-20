@@ -11,9 +11,9 @@
 					continue
 
 				if(!hiding_spot)
-					if(get_dist(src,A) <= 2 && !A.revealed)
+					if(get_dist(src,A) <= 1 && !A.revealed)
 						A.show_hint(src)
-					if(get_dist(src,A) > 2 && A.revealed)
+					if(get_dist(src,A) > 1 && A.revealed)
 						A.hide_hint(src)
 				else
 					A.hide_hint(src)
@@ -128,13 +128,21 @@
 	hint = generate_hint()
 	revealed = TRUE
 
+	hint.alpha = 0
+	hint.pixel_x = pixel_x - 10
+	hint.pixel_y = pixel_y - 10
+	hint.plane = HUD_PLANE
+
 	hint.loc = get_turf(src)
+	animate(hint, alpha = 255, pixel_x = src.pixel_x, pixel_y = src.pixel_y, time = 0.3 SECONDS, easing = SINE_EASING|EASE_OUT)
 	user.client.images += hint
 
 /atom/proc/hide_hint(mob/living/user)
 	if(user.client)
-		user.client.images -= hint
-		revealed = FALSE
+		animate(hint, alpha = 0, pixel_x = src.pixel_x, pixel_y = src.pixel_y - 10, time = 0.3 SECONDS, easing = SINE_EASING|EASE_IN)
+		spawn(0.3 SECONDS)
+			user.client.images -= hint
+			revealed = FALSE
 
 /obj/sturcture/fd/interactive
 	interactive = TRUE
