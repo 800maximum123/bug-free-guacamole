@@ -17,8 +17,27 @@
 /area/metro/maintain/south
 	name = "South Tunnels"
 
+/area/metro/maintain/south/blast_door
+
 /area/metro/maintain/south/chasm1
 	name = "Shaft"
+	unbreathable = TRUE
+	icon_state = "green"
+
+/area/metro/maintain/south/kpp
+	name = "South KPPs"
+
+
+// Западное крыло
+/area/metro/maintain/west
+	name = "West Wing"
+
+
+
+
+// Восточное крыло
+/area/metro/maintain/east
+	name = "East Wing"
 
 // Задымлённый коридор (низя дышать)
 /area/metro/maintain/gas
