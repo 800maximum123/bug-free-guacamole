@@ -26,7 +26,7 @@
 	name = "Замки"
 	attached_text = list(/datum/interactive_note/locks)
 
-/datum/interactive_note/brigade
+/datum/interactive_note/locks
 	name = "Замки?"
 	note_info = {"Это конечно отлично что мы сделали что-то на вроде анклава, но зачем ставить <span style="color: blue;">кодовые замки</span>? Старшие инженеры думают, что роботы попросту не выпилят двери с петлями??? Хрень собачья. Листки с паролями раздали каждому лично в руки. Если закончится туалетная бумага, подтирусь ими."}
 
