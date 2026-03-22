@@ -4,7 +4,7 @@
 /mob/living/Life()
 
 	var/area/A = get_area(src)
-	if(A.adventure_mode && psi)
+	if(A.adventure_mode && client && psi)
 		psi.stunned(5)
 
 	. = ..()

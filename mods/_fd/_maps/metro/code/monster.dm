@@ -178,6 +178,123 @@
 	M.change_monster_vis()
 	return TRUE
 
+/obj/screen/visibility_status
+	name = "ГЛАЗ"
+	desc = "Смотрит..."
+	icon = 'mods/_fd/_maps/metro/icons/monster_additional.dmi'
+	icon_state = "visible"
+
+	mouse_opacity = FALSE
+	alpha = 0
+
+	plane = HUD_PLANE
+	layer = 5.3
+
+	screen_loc = "CENTER,CENTER"
+
+/obj/screen/dbd_health_status
+	name = "СОСТОЯНИЕ"
+	desc = "..."
+	icon = 'mods/_fd/_maps/metro/icons/monster_additional.dmi'
+	icon_state = "1_dmg"
+
+	mouse_opacity = FALSE
+
+	plane = HUD_PLANE
+	layer = 5.3
+
+	screen_loc = "CENTER+1,CENTER"
+	alpha = 0
+	var/mob/living/carbon/connected_mob
+	var/revealed_tip = FALSE
+	var/regenerate_after = 10
+
+/obj/screen/dbd_health_status/Initialize()
+	. = ..()
+	START_PROCESSING(SSobj, src)
+
+/obj/screen/dbd_health_status/Process()
+	if(regenerate_after <= 0)
+		connected_mob.chances_to_escape += 1
+		regenerate_after = 10
+
+	if(connected_mob.chances_to_escape < 3 && regenerate_after > 0)
+		regenerate_after -= 1
+
+	if(connected_mob.chances_to_escape >= 3 && revealed_tip)
+		animate(src, alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT)
+		revealed = FALSE
+
+	if(connected_mob.chances_to_escape == 2 && icon_state != "1_dmg")
+		if(!revealed_tip)
+			animate(src, alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+			revealed = TRUE
+		icon_state = "1_dmg"
+
+	if(connected_mob.chances_to_escape <= 1 && icon_state != "2_dmg")
+		if(!revealed_tip)
+			animate(src, alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+			revealed = TRUE
+		icon_state = "2_dmg"
+
+	if(connected_mob.stat == DEAD)
+		animate(src, alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT)
+		connected_mob.client.screen -= src
+
+/mob/living/carbon
+	var/chances_to_escape = 3
+	var/obj/screen/dbd_health_status/dbd
+
+/mob/living/carbon/proc/resolve_dbd_damage(mob/living/monster)
+	if(chances_to_escape <= 1)
+		perform_execution(monster)
+	else
+		if(client)
+			if(!dbd)
+				dbd = new /obj/screen/dbd_health_status()
+				dbd.connected_mob = src
+				client.screen += dbd
+		chances_to_escape -= 1
+
+/mob/living/carbon/proc/perform_execution(mob/living/simple_animal/metro_jeff/attacker)
+	attacker.stunned = 99999
+	stunned = 99999
+	var/obj/item/organ/external/E
+	for(var/thing in shuffle(organs_by_name))
+		var/obj/item/organ/external/limb = organs_by_name[thing]
+		if(!istype(limb) || limb.is_stump() || !(limb.limb_flags & ORGAN_FLAG_CAN_AMPUTATE))
+			continue
+		E = thing
+		break
+
+	var/x_offset = (attacker.x - x) * 16
+	var/y_offset = (attacker.y - y) * 16
+	animate(src, pixel_x = x_offset, pixel_y = y_offset, time = 6 SECONDS, easing = CUBIC_EASING)
+
+	E.droplimb(0, DROPLIMB_EDGE) // вставить сюда звук отрывания конечности
+	spawn(1 SECONDS)
+		throw_at(get_edge_target_turf(attacker, attacker.dir), 5, 1, attacker, TRUE)
+
+	spawn(2 SECONDS)
+		if(stat != DEAD)
+			chances_to_escape = 2
+		stunned = 0
+		attacker.stunned = 0
+
+/obj/item/natural_weapon/claws/metro_jeff
+	name = "claws"
+	attack_verb = list("mauled", "clawed", "slashed")
+	force = 30
+	sharp = TRUE
+	edge = TRUE
+
+/obj/item/natural_weapon/claws/metro_jeff/afterattack(atom/target, mob/user, is_adjacent, click_params)
+	. = ..()
+
+	if(istype(target, /mob/living))
+		var/mob/living/carbon/L = target
+		L.resolve_dbd_damage(user)
+
 /mob/living/simple_animal/metro_jeff
 	name = "WIP"
 	desc = "WIP"
@@ -189,12 +306,17 @@
 	var/sniffing = FALSE
 	var/in_shadow = FALSE
 	var/list/obj/hidespots = list()
+	var/obj/screen/visibility_status/seen
+	natural_weapon = /obj/item/natural_weapon/claws/metro_jeff
 
 	need_to_breath = FALSE
+	health = 999999
+	maxHealth = 999999
 
 /mob/living/simple_animal/metro_jeff/Initialize()
 	. = ..()
 	set_light(3, 1, l_color = "#00f7ff", angle = LIGHT_WIDE)
+	seen = new /obj/screen/visibility_status()
 
 /mob/living/simple_animal/metro_jeff/Life()
 
@@ -221,14 +343,35 @@
 
 /mob/living/simple_animal/metro_jeff/proc/change_monster_vis()
 	if(!in_shadow)
+		if(client)
+			client.screen += seen
+			animate(seen, alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+			spawn(1 SECONDS)
+				seen.icon_state = "invisible"
+			spawn(3 SECONDS)
+				animate(seen, alpha = 0, time = 3, easing = SINE_EASING|EASE_IN)
+
 		in_shadow = TRUE
 		set_light(0)
+		set_see_in_dark(7)
 		set_invisibility(INVISIBILITY_OBSERVER)
 		AddMovementHandler(/datum/movement_handler/mob/incorporeal)
+		add_filter("invisible_monster", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_WHITE))
 		return TRUE
 	else
+		if(client)
+			animate(seen, alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+			spawn(1 SECONDS)
+				seen.icon_state = "visible"
+			spawn(3 SECONDS)
+				animate(seen, alpha = 0, time = 3, easing = SINE_EASING|EASE_IN)
+			spawn(3.5 SECONDS)
+				client.screen -= seen
+
 		in_shadow = FALSE
-		set_light(3, 1, l_color = "#00f7ff", angle = LIGHT_WIDE)
+		set_light(3, 1, l_color = "#202424", angle = LIGHT_WIDE)
+		set_see_in_dark(initial(see_in_dark))
 		set_invisibility(0)
 		RemoveMovementHandler(/datum/movement_handler/mob/incorporeal)
+		remove_filter("invisible_monster")
 		return TRUE
