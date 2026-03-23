@@ -1,6 +1,6 @@
 "aa" = (/obj/decal/cleanable/dirt,/obj/structure/closet/crate,/turf/simulated/floor/plating,/area/metro/maintain)
 "ac" = (/obj/floor_decal/corner_techfloor_grid{dir = 5},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gen1)
-"ae" = (/obj/fd_water/alt_ver1{layer = 2.1},/obj/machinery/door/blast/grim{can_use_tools = 0; begins_closed = 0; icon_state = "shutter1"; identifier = "metro_south_lockdown"},/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/blast_door)
+"ae" = (/obj/fd_water/alt_ver1{layer = 2.1},/obj/machinery/door/blast/grim{can_use_tools = 0; begins_closed = 0; icon_state = "shutter1"; id_tag = "metro_south_lockdown"},/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/blast_door)
 "ah" = (/obj/floor_decal/corner/lightgrey/border{dir = 1},/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled,/area/metro)
 "ak" = (/obj/structure/platform/shiva,/obj/structure/platform/shiva{dir = 8},/obj/structure/platform_decoration/shiva{dir = 10},/obj/floor_decal/industrial/outline/yellow,/obj/structure/closet/crate,/obj/random/junkyard/toolbox,/obj/random/junkyard/tool,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "an" = (/turf/simulated/floor/tiled/techmaint,/area/metro/main_tunel)
@@ -13,7 +13,7 @@
 "aB" = (/obj/structure/platform/shiva,/obj/fd_water/alt_ver1{layer = 2.1},/obj/machinery/light/small/readylight,/turf/simulated/floor/plating,/area/metro/maintain/south)
 "aC" = (/obj/floor_decal/corner_techfloor_grid{dir = 5},/obj/structure/fd/building_stuff{anchored = 0; icon_state = "1,1"; pixel_y = 3; pixel_x = -2},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
 "aF" = (/obj/decal/cleanable/dirt,/obj/structure/fd/junk{icon_state = "2,3"},/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
-"aG" = (/obj/floor_decal/industrial/radiation,/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
+"aG" = (/obj/floor_decal/industrial/warning,/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "aM" = (/obj/floor_decal/techfloor/orange{dir = 1},/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/gen1)
 "aR" = (/obj/paint/merc,/turf/simulated/wall/r_wall,/area/metro/maintain/south)
 "aS" = (/obj/machinery/conveyor{dir = 4; id = "sklad"},/obj/structure/closet/crate,/turf/simulated/floor/plating,/area/metro/maintain)
@@ -22,6 +22,7 @@
 "bd" = (/obj/floor_decal/corner_techfloor_grid{dir = 10},/obj/structure/fd/building_stuff{anchored = 0; icon_state = "1,1"; pixel_y = 3; pixel_x = -2},/obj/structure/fd/building_stuff{pixel_x = 28},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
 "bi" = (/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "bj" = (/obj/floor_decal/hull{dir = 4},/obj/machinery/door/blast/regular/open,/turf/simulated/floor/plating,/area/metro/main_tunel)
+"bp" = (/obj/structure/fd/grim_walls/brick{icon_state = "boss_wall-12"},/turf/unsimulated/mineral,/area/metro)
 "bq" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/samosbor/stairs,/area/metro)
 "br" = (/obj/paint/silver,/turf/simulated/wall/r_wall,/area/metro/maintain/gen3)
 "bs" = (/obj/machinery/door/airlock/hatch{dir = 4; welded = 1},/turf/simulated/floor/plating,/area/metro/maintain/gen1)
@@ -33,7 +34,6 @@
 "bJ" = (/obj/structure/railing/mapped{dir = 4; icon_state = "railing0-1"},/obj/floor_decal/techfloor{dir = 4},/obj/floor_decal/techfloor{dir = 1},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/gen1)
 "bM" = (/obj/decal/cleanable/dirt,/obj/floor_decal/step{color = "grey"; dir = 4},/turf/simulated/floor/plating,/area/metro/maintain/gas)
 "bO" = (/obj/decal/cleanable/dirt,/obj/machinery/door/blast/shutters/open,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/gas)
-"bU" = (/obj/decal/cleanable/dirt,/obj/machinery/door/blast/shutters/open,/turf/simulated/floor/tiled/dark,/area/metro)
 "bX" = (/obj/floor_decal/hull{dir = 8},/obj/fd_water/alt_ver1,/turf/simulated/floor/plating,/area/metro/main_tunel)
 "bZ" = (/obj/machinery/light,/obj/decal/cleanable/dirt,/obj/structure/fd/junk{icon_state = "5,0"; pixel_x = -9; pixel_y = -4},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
 "ca" = (/obj/machinery/light{pixel_x = 16; dir = 2},/obj/floor_decal/industrial/outline/dark_red,/obj/decal/cleanable/dirt,/obj/structure/table/reinforced,/obj/item/fd/filter{pixel_x = -3; pixel_y = 7},/obj/item/fd/filter{pixel_x = 8; pixel_y = 6},/obj/item/fd/filter{pixel_x = -5; pixel_y = 1},/obj/item/fd/filter{pixel_x = 7; pixel_y = -2},/turf/simulated/floor/plating,/area/metro/maintain/gen1)
@@ -69,7 +69,7 @@
 "dr" = (/obj/structure/table/rack,/obj/floor_decal/borderfloorblack{dir = 4},/obj/item/crowbar/red,/obj/machinery/light{dir = 8},/turf/simulated/floor/tiled/dark/monotile,/area/metro/maintain)
 "ds" = (/obj/fd_water/alt_ver1{layer = 2.1},/obj/structure/platform/shiva{dir = 4},/turf/simulated/floor/plating,/area/metro/maintain/south)
 "dz" = (/obj/structure/table/rack,/obj/floor_decal/industrial/hatch/grey,/obj/random/bomb_supply,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
-"dA" = (/obj/structure/platform/shiva{dir = 4},/obj/fd_water/alt_ver1{layer = 2.1},/obj/machinery/door/blast/grim{can_use_tools = 0; begins_closed = 0; icon_state = "shutter1"; identifier = "metro_south_lockdown"},/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/blast_door)
+"dA" = (/obj/structure/platform/shiva{dir = 4},/obj/fd_water/alt_ver1{layer = 2.1},/obj/machinery/door/blast/grim{can_use_tools = 0; begins_closed = 0; icon_state = "shutter1"; id_tag = "metro_south_lockdown"},/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/blast_door)
 "dB" = (/obj/floor_decal/corner_techfloor_grid{dir = 6},/obj/decal/cleanable/dirt{icon_state = "thermite"},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gas)
 "dC" = (/obj/floor_decal/corner_techfloor_grid{dir = 5},/obj/decal/cleanable/dirt,/obj/structure/closet/crate,/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "dF" = (/obj/floor_decal/corner_techfloor_grid/full{dir = 8},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor,/area/metro/maintain/gas)
@@ -80,10 +80,9 @@
 "dQ" = (/obj/decal/cleanable/dirt,/obj/decal/cleanable/blood{icon_state = "tracks"},/obj/decal/cleanable/blood{icon_state = "u_ketchup_l"},/turf/simulated/floor/plating,/area/metro/maintain/south)
 "dS" = (/obj/machinery/light{dir = 8; pixel_y = 16},/turf/simulated/floor/tiled/dark,/area/metro)
 "dT" = (/obj/decal/cleanable/dirt,/obj/floor_decal/industrial/outline/orange,/obj/machinery/portable_atmospherics/powered/scrubber/huge,/turf/simulated/floor/tiled/techfloor,/area/metro/maintain/gas)
-"dV" = (/obj/paint/merc,/turf/simulated/wall/r_wall,/area/metro/maintain/south/chasm1{unbreathable = 1})
+"dV" = (/obj/paint/merc,/turf/simulated/wall/r_wall,/area/metro/maintain/south/chasm1{unbreathable = 1; adventure_mode = 0})
 "dZ" = (/obj/floor_decal/corner_techfloor_grid{dir = 5},/obj/structure/fd/building_stuff{anchored = 0; icon_state = "1,1"; pixel_y = 3; pixel_x = -2; name = "Barrel"; density = 1; desc = "Just an iron barrel."},/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "eb" = (/obj/floor_decal/corner_techfloor_grid{dir = 5},/obj/floor_decal/corner_techfloor_grid{dir = 2},/obj/structure/table/reinforced,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
-"ec" = (/obj/paint/dark_blue_gray,/turf/simulated/wall/invincible,/area/metro)
 "eg" = (/obj/floor_decal/corner_techfloor_grid{dir = 4},/obj/machinery/computer/dummy{dir = 1},/turf/simulated/floor/tiled/techfloor,/area/metro/maintain/gas)
 "ei" = (/obj/floor_decal/corner/lightgrey/half,/obj/machinery/light{dir = 1; icon_state = "tube1"},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/monotile,/area/metro)
 "ej" = (/obj/floor_decal/corner_techfloor_grid{dir = 5},/obj/structure/fd/fuse_box{dir = 2; pixel_y = 26},/obj/structure/table/reinforced,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
@@ -105,13 +104,14 @@
 "fa" = (/obj/decal/cleanable/dirt,/turf/simulated/mineral,/area/metro/maintain/gas)
 "fl" = (/obj/random/trash,/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/gas)
 "fn" = (/obj/structure/table/rack,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south)
+"fp" = (/obj/floor_decal/industrial/warning,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/kpp)
 "fs" = (/obj/machinery/door/airlock/lift{dir = 4},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south/kpp)
 "ft" = (/obj/floor_decal/corner_techfloor_grid{dir = 10},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gen1)
 "fu" = (/obj/floor_decal/industrial/warning{dir = 1},/turf/simulated/floor/plating,/area/metro/main_tunel)
 "fz" = (/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "fI" = (/obj/floor_decal/corner_techfloor_grid/full,/obj/floor_decal/industrial/warning,/obj/machinery/light{dir = 8},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/kpp)
 "fK" = (/obj/structure/platform_decoration/shiva{layer = 2.23},/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/gas)
-"fL" = (/obj/structure/platform/shiva{dir = 8},/obj/fd_water/alt_ver1{layer = 2.1},/obj/machinery/door/blast/grim{can_use_tools = 0; begins_closed = 0; icon_state = "shutter1"; identifier = "metro_south_lockdown"},/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/blast_door)
+"fL" = (/obj/structure/platform/shiva{dir = 8},/obj/fd_water/alt_ver1{layer = 2.1},/obj/machinery/door/blast/grim{can_use_tools = 0; begins_closed = 0; icon_state = "shutter1"; id_tag = "metro_south_lockdown"},/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/blast_door)
 "fP" = (/obj/machinery/power/port_gen/pacman,/turf/simulated/floor/plating,/area/metro/maintain)
 "fS" = (/obj/machinery/door/blast/regular{can_use_tools = 0},/obj/floor_decal/corner_techfloor_grid{dir = 6},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/kpp)
 "gb" = (/obj/floor_decal/corner_techfloor_grid{dir = 6},/obj/floor_decal/corner_techfloor_grid{dir = 8},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
@@ -123,7 +123,7 @@
 "gn" = (/obj/floor_decal/corner_techfloor_grid{dir = 6},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gas)
 "gr" = (/obj/floor_decal/corner_techfloor_grid{dir = 5},/obj/structure/table/steel,/obj/machinery/cell_charger,/obj/item/clothing/head/hardhat{pixel_x = 2},/obj/item/clothing/head/hardhat{pixel_x = -5; pixel_y = 16},/obj/item/clothing/head/hardhat{pixel_x = 4; pixel_y = 11},/turf/simulated/floor/tiled/techfloor,/area/metro/maintain/gas)
 "gx" = (/obj/floor_decal/industrial/warning,/obj/item/ammo_casing/rifle/used,/turf/simulated/floor/plating,/area/metro/main_tunel)
-"gy" = (/obj/structure/plasticflaps{mobs_can_pass = list(/mob/living/bot,/mob/living/carbon/slime,/mob/living/simple_animal/passive/mouse,/mob/living/silicon/robot/drone,/mob/living/carbon/human); color = "grey"; interactive = 1; desc_special_show = 1; desc_special = "Кажется тут можно пролезть"},/obj/machinery/conveyor{dir = 4},/obj/floor_decal/industrial/warning/half,/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
+"gy" = (/obj/structure/plasticflaps{color = "grey"; interactive = 1; desc_special_show = 1; desc_special = "Кажется тут можно пролезть"},/obj/machinery/conveyor{dir = 4},/obj/floor_decal/industrial/warning/half,/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "gz" = (/obj/fd_water/alt_ver1{layer = 2.1},/obj/structure/platform/shiva{dir = 1},/obj/structure/platform/shiva,/obj/structure/fake_zlvl{density = 0},/turf/simulated/floor/plating,/area/metro/maintain/south)
 "gB" = (/obj/floor_decal/corner_techfloor_grid{dir = 6},/obj/machinery/light{dir = 4},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gas)
 "gF" = (/obj/machinery/light,/obj/structure/table/rack,/obj/item/fd/filter,/obj/item/fd/filter,/obj/item/fd/filter,/obj/item/fd/filter,/turf/simulated/floor/tiled/techfloor,/area/metro/maintain/gas)
@@ -131,7 +131,6 @@
 "gO" = (/turf/unsimulated/mineral,/area/metro)
 "gR" = (/obj/floor_decal/corner_techfloor_grid/full{dir = 1},/obj/structure/closet/crate,/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "gW" = (/obj/structure/fake_zlvl{density = 0},/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
-"gZ" = (/obj/decal/cleanable/dirt,/obj/machinery/light,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "hg" = (/obj/floor_decal/corner/grey/border{dir = 6},/turf/simulated/floor/tiled/freezer,/area/metro/maintain/gas)
 "hi" = (/obj/floor_decal/corner_techfloor_grid{dir = 9},/obj/structure/fd/junk{icon_state = "3,2"},/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "hj" = (/obj/machinery/door/airlock/freezer,/turf/simulated/floor/plating,/area/metro/maintain/gas)
@@ -160,12 +159,12 @@
 "iG" = (/obj/floor_decal/borderfloorblack{dir = 8},/obj/floor_decal/step{color = "grey"; dir = 8},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south)
 "iI" = (/obj/structure/closet,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "iL" = (/obj/machinery/door/airlock/multi_tile/engineering,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
-"iM" = (/obj/machinery/door/blast/regular{can_use_tools = 0; identifier = "metro_south_lockdown"},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/metro/maintain/south/blast_door)
+"iM" = (/obj/machinery/door/blast/regular{can_use_tools = 0; id_tag = "metro_south_lockdown"},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/metro/maintain/south/blast_door)
 "iO" = (/obj/floor_decal/corner_techfloor_grid/full{dir = 4},/obj/machinery/light,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/kpp)
 "iU" = (/obj/structure/platform/shiva{dir = 4},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/monotile,/area/metro/maintain/gas)
 "iV" = (/obj/machinery/door/blast/regular{can_use_tools = 0},/obj/floor_decal/corner_techfloor_grid{dir = 9},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/kpp)
 "ja" = (/obj/structure/railing/mapped{dir = 4; icon_state = "railing0-1"},/obj/floor_decal/techfloor{dir = 4},/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/gen1)
-"jb" = (/obj/floor_decal/corner_techfloor_grid{dir = 9},/obj/machinery/door/blast/regular{id_tag = "kpp1_2"},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/kpp)
+"jb" = (/obj/floor_decal/corner_techfloor_grid{dir = 9},/obj/machinery/door/blast/regular{id_tag = "kpp1_2"; can_use_tools = 0},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/kpp)
 "je" = (/obj/floor_decal/techfloor/orange,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/gen1)
 "jf" = (/obj/floor_decal/corner_techfloor_grid{dir = 10},/obj/floor_decal/corner_techfloor_grid{dir = 4},/obj/decal/cleanable/dirt,/obj/structure/table/reinforced,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
 "ji" = (/obj/structure/closet,/obj/item/fd/basic_power/fuse,/turf/simulated/floor/plating,/area/metro/maintain/south)
@@ -179,18 +178,18 @@
 "js" = (/obj/floor_decal/corner_techfloor_grid{dir = 6},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/kpp)
 "jt" = (/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/south/kpp)
 "jv" = (/obj/floor_decal/corner_techfloor_grid/full{dir = 8},/obj/decal/cleanable/dirt,/obj/random/trash,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gas)
+"jw" = (/obj/paint/black,/obj/paint_stripe/brown,/turf/simulated/wall/invincible,/area/metro/maintain/south)
 "jA" = (/obj/structure/railing/mapped{dir = 8; icon_state = "railing0-1"},/obj/floor_decal/borderfloorblack{dir = 8},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
 "jB" = (/obj/floor_decal/borderfloorblack{dir = 8},/obj/floor_decal/step{color = "grey"; dir = 8},/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south)
 "jC" = (/obj/sturcture/fd/decorative_pipes{dir = 4; pixel_y = 12; anchored = 1},/obj/sturcture/fd/decorative_pipes{dir = 4; anchored = 1},/obj/sturcture/fd/decorative_pipes{dir = 4; anchored = 1},/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "jD" = (/obj/floor_decal/corner_techfloor_grid{dir = 6},/obj/machinery/light{dir = 4; icon_state = "tube1"},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gas)
 "jJ" = (/obj/floor_decal/corner_techfloor_grid{dir = 9},/obj/machinery/light{dir = 8},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/kpp)
 "jN" = (/obj/structure/platform_decoration/shiva{dir = 8},/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/gas)
-"jO" = (/obj/structure/fd/building_stuff,/obj/structure/fd/building_stuff{desc = "Just an pile of bricks."; icon_state = "0,1"; name = "bricks"; pixel_y = 2; density = 1; pixel_x = 2},/turf/simulated/floor/tiled/dark,/area/metro)
 "jP" = (/obj/floor_decal/corner_techfloor_grid/full{dir = 4},/obj/structure/closet,/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "jS" = (/obj/floor_decal/hull/corner,/obj/floor_decal/hull/corner{dir = 8},/turf/simulated/floor/plating,/area/metro/main_tunel)
 "jV" = (/obj/decal/cleanable/cobweb2{dir = 2},/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "jX" = (/obj/structure/fd/fuse_box{dir = 8},/turf/simulated/floor/tiled/dark,/area/metro)
-"jZ" = (/obj/structure/fd/fuse_box{dir = 2; pixel_y = 26},/obj/structure/table/reinforced,/obj/machinery/button/blast_door{name = "Lockdown control"},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/blast_door)
+"jZ" = (/obj/structure/fd/fuse_box{dir = 2; pixel_y = 26},/obj/structure/table/reinforced,/obj/machinery/button/blast_door{name = "Lockdown control"; id_tag = "metro_south_lockdown"},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/blast_door)
 "kb" = (/obj/floor_decal/step{color = "grey"},/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south)
 "kf" = (/obj/structure/fd/grim_walls/metal{icon_state = "rusty_wall-3"},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/kpp)
 "kh" = (/obj/floor_decal/corner_techfloor_grid{dir = 10},/obj/machinery/light,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
@@ -200,7 +199,6 @@
 "kw" = (/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/obj/machinery/light_construct{dir = 1},/turf/simulated/floor/plating,/area/metro/maintain/south)
 "ky" = (/obj/structure/barricade,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "kB" = (/obj/machinery/light{pixel_x = 16; dir = 1},/obj/structure/largecrate,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
-"kD" = (/obj/decal/cleanable/dirt,/obj/machinery/door/blast/shutters{can_use_tools = 0},/turf/simulated/floor/tiled/dark,/area/metro)
 "kE" = (/obj/floor_decal/corner_techfloor_grid{dir = 10},/obj/structure/fd/building_stuff{desc = "Just an pile of bricks."; icon_state = "0,1"; name = "bricks"; pixel_y = 2; pixel_x = -1; density = 1},/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "kF" = (/obj/fd_water/alt_ver1{layer = 2.1},/obj/structure/platform_decoration/shiva{dir = 8},/turf/simulated/floor/plating,/area/metro/maintain/south)
 "kG" = (/turf/simulated/mineral,/area/metro/maintain/gas)
@@ -216,7 +214,6 @@
 "lk" = (/obj/fd_water/alt_ver1{layer = 2.1},/obj/structure/platform_decoration/shiva{dir = 4},/turf/simulated/floor/plating,/area/metro/maintain/south)
 "lm" = (/obj/floor_decal/corner_techfloor_grid/full{dir = 8},/obj/structure/closet,/obj/item/clothing/head/warden,/obj/item/ammo_magazine/shotholder/stun,/obj/item/ammo_magazine/shotholder/stun,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/kpp)
 "lp" = (/obj/floor_decal/corner_techfloor_grid{dir = 10},/obj/structure/railing/mapped,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
-"lq" = (/obj/structure/fd/building_stuff{desc = "Just an pile of bricks."; icon_state = "0,1"; name = "bricks"; pixel_y = 1; density = 1; interactive = 1; can_hide_inside = 1; pixel_x = 15},/obj/structure/fd/building_stuff{icon_state = "1,1"; pixel_y = -4; pixel_x = -8; name = "Barrel"; desc = "Just an iron barrel."},/turf/simulated/floor/tiled/dark,/area/metro)
 "ls" = (/obj/floor_decal/corner_techfloor_grid{dir = 10},/obj/floor_decal/corner_techfloor_grid{dir = 1},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
 "lC" = (/obj/item/trash/cigbutt{pixel_x = -11; pixel_y = -12},/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "lH" = (/obj/sturcture/fd/decorative_pipes{icon_state = "large_pipe_straight"; layer = 2.08; anchored = 1},/obj/catwalk_plated/dark,/turf/simulated/floor/exoplanet/grim_metal2,/area/metro)
@@ -231,7 +228,7 @@
 "ml" = (/obj/structure/platform/shiva{dir = 4},/obj/floor_decal/step{color = "grey"; dir = 1},/obj/fd_water/alt_ver1{layer = 2.1},/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south)
 "mr" = (/obj/floor_decal/techfloor/orange,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/gen1)
 "ms" = (/obj/floor_decal/corner_techfloor_grid{dir = 1},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gas)
-"my" = (/obj/paint/black,/obj/paint_stripe/brown,/turf/simulated/wall/invincible,/area/metro/maintain/south)
+"my" = (/obj/paint/black,/turf/simulated/wall/invincible,/area/metro/maintain/south)
 "mE" = (/obj/machinery/light{dir = 8},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/gen1)
 "mG" = (/obj/floor_decal/techfloor{dir = 8},/obj/machinery/door/airlock/multi_tile/engineering,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/gen1)
 "mI" = (/obj/decal/cleanable/dirt,/obj/machinery/light{pixel_x = 16; dir = 1},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
@@ -288,7 +285,7 @@
 "pD" = (/obj/structure/railing/mapped{dir = 8; icon_state = "railing0-1"},/obj/floor_decal/borderfloorblack{dir = 8},/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south)
 "pF" = (/obj/floor_decal/corner_techfloor_grid{dir = 6},/obj/structure/fd/fuse_box{dir = 8},/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "pH" = (/obj/floor_decal/corner_techfloor_grid{dir = 9},/obj/decal/cleanable/dirt,/obj/structure/fd/junk{icon_state = "2,4"},/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
-"pK" = (/obj/structure/platform/shiva,/obj/machinery/light_construct,/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/chasm1{unbreathable = 1})
+"pK" = (/obj/machinery/light_construct,/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/chasm1{unbreathable = 1; adventure_mode = 0})
 "pL" = (/obj/machinery/door/airlock/hatch{dir = 4},/turf/simulated/floor/plating,/area/metro/maintain/gas)
 "pM" = (/obj/floor_decal/corner_techfloor_grid{dir = 9},/obj/machinery/light{dir = 8; icon_state = "tube1"},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gas)
 "pP" = (/obj/floor_decal/techfloor/orange,/obj/structure/barricade,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/gen1)
@@ -303,11 +300,11 @@
 "qf" = (/obj/structure/railing/mapped,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south)
 "qi" = (/turf/unsimulated/wall{color = "black"; name = "void"},/area/metro/maintain/gas)
 "qn" = (/obj/structure/girder,/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/south)
-"qr" = (/obj/structure/platform/shiva{dir = 1},/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/chasm1{unbreathable = 1})
+"qr" = (/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/chasm1{unbreathable = 1; adventure_mode = 0})
 "qA" = (/obj/machinery/light{dir = 4},/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "qE" = (/obj/floor_decal/corner_techfloor_grid{dir = 10},/obj/floor_decal/corner_techfloor_grid{dir = 1},/obj/structure/fd/junk{icon_state = "0,4"; pixel_x = 7; pixel_y = -18},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
 "qH" = (/obj/floor_decal/techfloor/orange{dir = 1},/obj/machinery/computer/fusion/fuel_control,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/gen1)
-"qM" = (/obj/structure/platform/shiva,/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/chasm1{unbreathable = 1})
+"qM" = (/obj/structure/platform/shiva,/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/chasm1{unbreathable = 1; adventure_mode = 0})
 "qP" = (/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "qR" = (/obj/structure/platform/shiva{dir = 8},/obj/floor_decal/industrial/outline/yellow,/obj/structure/closet/crate,/obj/random/junkyard/tool,/obj/random/junkyard/tool,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "qS" = (/obj/structure/railing/mapped{dir = 8; icon_state = "railing0-1"},/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south/kpp)
@@ -316,7 +313,7 @@
 "qX" = (/obj/decal/cleanable/dirt{icon = 'icons/turf/flooring/tiles.dmi'; icon_state = "broken1"},/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/gas)
 "ra" = (/obj/floor_decal/borderfloorblack{dir = 1},/obj/structure/railing/mapped{dir = 1; icon_state = "railing0-1"},/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south)
 "rc" = (/obj/machinery/light{dir = 8; icon_state = "tube1"},/turf/simulated/floor/tiled/dark,/area/metro)
-"rd" = (/obj/structure/platform/shiva,/obj/machinery/light_construct,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/chasm1{unbreathable = 1})
+"rd" = (/obj/structure/platform/shiva,/obj/machinery/light_construct,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/chasm1{unbreathable = 1; adventure_mode = 0})
 "re" = (/obj/decal/cleanable/dirt,/obj/machinery/light{dir = 8; icon_state = "tube1"},/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "ri" = (/obj/structure/bed/chair/padded/brown{dir = 8},/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/lino,/area/metro/maintain/gas)
 "rn" = (/obj/structure/table/reinforced,/obj/floor_decal/corner_techfloor_grid/full{dir = 8},/obj/random/junkyard/advdevice,/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
@@ -339,12 +336,14 @@
 "so" = (/obj/structure/bed/chair/padded/brown{dir = 8},/turf/simulated/floor/lino,/area/metro/maintain/gas)
 "sy" = (/obj/machinery/door/airlock/lift{dir = 4},/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/south/kpp)
 "sB" = (/obj/floor_decal/corner_techfloor_grid{dir = 5},/obj/floor_decal/corner_techfloor_grid{dir = 8},/obj/decal/cleanable/dirt,/obj/structure/fd/fuse_box{dir = 4},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
+"sD" = (/obj/floor_decal/corner_techfloor_grid{dir = 5},/obj/decal/cleanable/dirt,/obj/machinery/light{pixel_x = 16; dir = 1},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gen1)
+"sE" = (/obj/structure/fd/building_stuff,/obj/structure/fd/building_stuff{desc = "Just an pile of bricks."; icon_state = "0,1"; name = "bricks"; pixel_y = 2; density = 1; pixel_x = 2},/turf/simulated/floor/tiled/dark,/area/metro)
 "sF" = (/obj/floor_decal/hull{dir = 2},/turf/simulated/floor/plating,/area/metro/main_tunel)
-"sK" = (/obj/structure/platform/shiva,/obj/decal/cleanable/dirt,/obj/particle_emitter/gasleak,/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/chasm1{unbreathable = 1})
+"sK" = (/obj/decal/cleanable/dirt,/obj/particle_emitter/gasleak,/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/chasm1{unbreathable = 1; adventure_mode = 0})
 "sL" = (/obj/structure/fd/building_stuff{anchored = 0; density = 1; icon_state = "1,1"; pixel_y = 3; pixel_x = -2; name = "Barrel"},/obj/floor_decal/corner_techfloor_grid{dir = 6},/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "sM" = (/obj/decal/cleanable/cobweb{dir = 1},/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "sN" = (/obj/floor_decal/corner_techfloor_grid{dir = 6},/obj/decal/cleanable/dirt,/obj/machinery/light{dir = 4; icon_state = "tube1"},/obj/structure/closet,/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
-"sO" = (/obj/map_effect/portal/master/side_b{dir = 1; portal_id = "south"},/turf/simulated/floor/exoplanet/samosbor/stairs,/area/metro)
+"sO" = (/obj/map_effect/portal/master/side_b{dir = 2; portal_id = "south"},/turf/simulated/floor/exoplanet/samosbor/stairs,/area/metro)
 "sS" = (/obj/floor_decal/corner/grey/border{dir = 1},/obj/floor_decal/corner/grey/border,/obj/structure/extinguisher_cabinet{pixel_y = 0; pixel_x = -32},/turf/simulated/floor/tiled/white,/area/metro/maintain/gas)
 "sT" = (/obj/structure/platform/shiva{dir = 4},/obj/structure/platform/shiva,/obj/structure/platform_decoration/shiva{dir = 6},/obj/decal/cleanable/dirt,/obj/fd_water/alt_ver1{layer = 2.1},/turf/simulated/floor/plating,/area/metro/maintain/south)
 "sW" = (/obj/structure/platform_decoration/shiva{dir = 1},/turf/simulated/floor/plating,/area/metro/maintain/gen1)
@@ -352,19 +351,21 @@
 "tb" = (/obj/fd_water/alt_ver1{layer = 2.1},/obj/structure/platform/shiva{dir = 1},/turf/simulated/floor/plating,/area/metro/maintain/south)
 "tc" = (/obj/machinery/conveyor_switch,/obj/decal/cleanable/dirt,/obj/item/trash/berries{pixel_x = 8; pixel_y = 8},/obj/item/trash/croutons{pixel_x = -9; pixel_y = 7},/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "tg" = (/obj/floor_decal/corner_techfloor_grid/full{dir = 1},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gas)
+"tj" = (/obj/paint/merc,/turf/simulated/wall/invincible,/area/metro/maintain/south/kpp)
 "tk" = (/obj/floor_decal/corner_techfloor_grid{dir = 6},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
 "to" = (/obj/structure/platform/shiva{dir = 8},/obj/decal/cleanable/dirt,/obj/machinery/door/blast/shutters/open,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/gas)
-"tp" = (/obj/machinery/door/blast/regular{can_use_tools = 0; identifier = "metro_south_lockdown"},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/blast_door)
+"tp" = (/obj/machinery/door/blast/regular{can_use_tools = 0; id_tag = "metro_south_lockdown"},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/blast_door)
 "tr" = (/obj/floor_decal/industrial/warning{dir = 5},/obj/floor_decal/hull/corner{dir = 4},/obj/floor_decal/hull/corner{dir = 1},/turf/simulated/floor/plating,/area/metro/main_tunel)
 "ts" = (/obj/floor_decal/techfloor/orange{dir = 1},/obj/structure/barricade,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/gen1)
 "tu" = (/obj/structure/table/reinforced,/obj/random/clipboard,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
+"tw" = (/turf/simulated/floor/plating,/area/metro)
 "tx" = (/obj/structure/fake_zlvl{density = 0},/turf/simulated/floor/plating,/area/metro/maintain)
 "tD" = (/obj/structure/table/standard,/obj/item/reagent_containers/food/snacks/semki,/obj/structure/sign/poster/humpost{pixel_x = 0; pixel_y = 32},/obj/floor_decal/corner/lightgrey/half,/turf/simulated/floor/tiled/monotile,/area/metro)
 "tE" = (/obj/floor_decal/corner_techfloor_grid{dir = 5},/obj/decal/cleanable/dirt,/obj/structure/table/rack,/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "tF" = (/obj/floor_decal/industrial/outline/dark_red,/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
-"tG" = (/obj/structure/platform/shiva{dir = 1},/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/chasm1{unbreathable = 1})
+"tG" = (/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/obj/structure/platform_decoration/shiva{dir = 4},/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/chasm1{unbreathable = 1; adventure_mode = 0})
 "tJ" = (/obj/decal/cleanable/dirt,/obj/structure/grille,/turf/simulated/floor/plating,/area/metro/maintain/south)
-"tL" = (/obj/floor_decal/corner_techfloor_grid{dir = 6},/obj/machinery/door/blast/regular{id_tag = "kpp1_2"},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/kpp)
+"tL" = (/obj/floor_decal/corner_techfloor_grid{dir = 6},/obj/machinery/door/blast/regular{id_tag = "kpp1_2"; can_use_tools = 0},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/kpp)
 "tM" = (/obj/paint/merc,/obj/paint_stripe/brown,/turf/simulated/wall/r_wall,/area/metro/maintain/south)
 "tT" = (/obj/structure/fd/junk{pixel_x = 3; pixel_y = 15},/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/gas)
 "tV" = (/obj/floor_decal/corner_techfloor_grid{dir = 10},/obj/floor_decal/corner_techfloor_grid{dir = 4},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
@@ -376,7 +377,7 @@
 "ul" = (/turf/unsimulated/mineral,/area/metro/main_tunel)
 "un" = (/obj/floor_decal/step{color = "grey"},/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "us" = (/obj/decal/cleanable/dirt,/obj/structure/ore_box,/turf/simulated/floor/plating,/area/metro/maintain)
-"uu" = (/obj/map_effect/portal/line/side_b{dir = 1},/turf/simulated/floor/exoplanet/samosbor/stairs,/area/metro)
+"uu" = (/obj/map_effect/portal/line/side_b{dir = 2},/turf/simulated/floor/exoplanet/samosbor/stairs,/area/metro)
 "ux" = (/obj/decal/cleanable/dirt,/obj/structure/bed/chair/office/brown,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "uG" = (/obj/machinery/light{dir = 1},/obj/floor_decal/corner_techfloor_grid{dir = 9},/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "uL" = (/obj/structure/fd/grim_walls/metal{icon_state = "rusty_wall-14"},/turf/unsimulated/mineral,/area/metro)
@@ -391,16 +392,15 @@
 "ve" = (/obj/structure/grille,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "vj" = (/obj/floor_decal/industrial/warning{dir = 5},/turf/simulated/floor/plating,/area/metro/main_tunel)
 "vk" = (/obj/floor_decal/corner_techfloor_grid{dir = 5},/obj/structure/fd/junk,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
-"vm" = (/obj/decal/cleanable/dirt,/turf/simulated/mineral,/area/metro/maintain/south/chasm1{unbreathable = 1})
+"vm" = (/obj/decal/cleanable/dirt,/turf/simulated/mineral,/area/metro/maintain/south/chasm1{unbreathable = 1; adventure_mode = 0})
 "vo" = (/obj/structure/closet/fridge,/turf/simulated/floor/tiled/freezer,/area/metro/maintain/gas)
 "vv" = (/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south)
 "vB" = (/obj/decal/cleanable/dirt{icon = 'icons/turf/flooring/tiles.dmi'; icon_state = "broken2"},/turf/simulated/floor/plating,/area/metro/maintain/gas)
 "vD" = (/obj/structure/reagent_dispensers/fueltank/empty,/obj/floor_decal/corner_techfloor_grid{dir = 9},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "vE" = (/obj/item/airlock_electronics,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gas)
-"vG" = (/obj/paint/black,/turf/simulated/wall/invincible,/area/metro/maintain/south)
 "vI" = (/obj/structure/closet,/turf/simulated/floor/plating,/area/metro/maintain/gas)
 "vK" = (/obj/floor_decal/corner_techfloor_grid{dir = 5},/obj/structure/fd/junk{icon_state = "3,2"},/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
-"vL" = (/obj/decal/cleanable/dirt,/obj/machinery/door/blast/regular{can_use_tools = 0; identifier = "metro_south_lockdown"},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/blast_door)
+"vL" = (/obj/decal/cleanable/dirt,/obj/machinery/door/blast/regular{can_use_tools = 0; id_tag = "metro_south_lockdown"},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/blast_door)
 "vM" = (/obj/decal/cleanable/dirt,/obj/structure/inflatable/door,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "vO" = (/obj/machinery/light{dir = 1; icon_state = "tube1"},/obj/floor_decal/corner_techfloor_grid{dir = 5},/obj/structure/fd/building_stuff{desc = "Just an pile of bricks."; icon_state = "0,1"; name = "bricks"; pixel_y = 1; pixel_x = 29},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
 "vS" = (/obj/floor_decal/industrial/warning{dir = 9},/obj/fd_water/alt_ver1,/turf/simulated/floor/plating,/area/metro/main_tunel)
@@ -421,6 +421,7 @@
 "wI" = (/obj/structure/table/rack,/obj/random/mre,/obj/random/mre,/obj/random/mre,/turf/simulated/floor/tiled/white/monotile,/area/metro/maintain/gas)
 "wP" = (/obj/machinery/light{dir = 1},/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "wR" = (/obj/decal/cleanable/dirt,/obj/decal/cleanable/cobweb2{dir = 1},/turf/simulated/floor/plating,/area/metro/maintain/south)
+"wS" = (/obj/decal/cleanable/dirt,/obj/structure/fd/chasm{teleport_to = /area/metro/maintain/south/chasm1},/turf/simulated/floor/plating,/area/metro/maintain/gas)
 "wW" = (/obj/floor_decal/corner_techfloor_grid{dir = 10},/obj/random/trash,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gas)
 "wX" = (/obj/decal/cleanable/dirt,/turf/unsimulated/mineral,/area/metro/maintain/south)
 "wY" = (/obj/structure/fd/grim_walls/metal{icon_state = "rusty_wall-13"},/turf/unsimulated/mineral,/area/metro)
@@ -430,6 +431,8 @@
 "xf" = (/obj/machinery/light{dir = 1; icon_state = "tube1"},/obj/structure/table/steel{can_hide_inside = 1; interactive = 1},/obj/structure/fd/junk{icon_state = "3,4"; pixel_x = -10},/obj/structure/fd/junk{icon_state = "2,0"; pixel_y = 5; pixel_x = -3},/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/gas)
 "xv" = (/obj/machinery/door/airlock/hatch/maintenance,/turf/simulated/floor/plating,/area/metro/maintain)
 "xw" = (/obj/item/toy/plushie/crow{name = "Mapper Assistent"; desc = "По всей видимости он следит за этими лампочками. Лучше не мешать ему"},/obj/item/stamp/supply{pixel_x = -1; pixel_y = 8; name = "Cool hat"; desc = "Totaly not a supply rubber stamp"},/obj/item/gun/projectile/revolver/rsh21{pixel_x = -11; pixel_y = -4},/obj/item/ammo_casing/rifle/russia{pixel_x = -10; pixel_y = -10},/turf/simulated/floor/tiled/techmaint,/area/metro/main_tunel)
+"xx" = (/obj/structure/fd/grim_walls/brick{icon_state = "boss_wall-3"},/turf/simulated/floor/tiled/dark,/area/metro)
+"xC" = (/obj/floor_decal/corner_techfloor_grid/full,/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "xD" = (/obj/floor_decal/corner_techfloor_grid/full{dir = 4},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/kpp)
 "xE" = (/obj/structure/grille,/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/south)
 "xH" = (/obj/structure/fd/mapping/light_marker,/turf/unsimulated/mineral,/area/metro)
@@ -442,7 +445,7 @@
 "ya" = (/obj/floor_decal/corner_techfloor_grid{dir = 9},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "yd" = (/obj/floor_decal/step{dir = 8},/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south/kpp)
 "yf" = (/obj/machinery/door/airlock/lift{dir = 4},/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south/kpp)
-"yk" = (/obj/floor_decal/industrial/radiation,/obj/structure/railing/mapped{broken = 1},/turf/simulated/floor/plating,/area/metro/maintain/gen1)
+"yk" = (/obj/floor_decal/industrial/warning,/obj/structure/railing/mapped{broken = 1},/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "yl" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/gas)
 "ym" = (/obj/decal/cleanable/generic,/turf/simulated/floor/plating,/area/metro/maintain)
 "yn" = (/obj/floor_decal/industrial/warning{dir = 1},/turf/simulated/floor/tiled/dark,/area/metro/maintain)
@@ -470,7 +473,7 @@
 "zl" = (/obj/structure/grille,/turf/simulated/floor/plating,/area/metro/maintain/south)
 "zm" = (/obj/floor_decal/hull,/turf/simulated/floor/plating,/area/metro/main_tunel)
 "zp" = (/obj/structure/table/standard,/obj/random/single/cola,/turf/simulated/floor/lino,/area/metro/maintain/gas)
-"zt" = (/turf/unsimulated/mineral,/area/metro/maintain/south/chasm1{unbreathable = 1})
+"zt" = (/turf/unsimulated/mineral,/area/metro/maintain/south/chasm1{unbreathable = 1; adventure_mode = 0})
 "zu" = (/obj/machinery/conveyor{dir = 4; id = "sklad"},/obj/structure/plasticflaps{mobs_can_pass = list(/mob/living/bot,/mob/living/carbon/slime,/mob/living/simple_animal/passive/mouse,/mob/living/silicon/robot/drone,/mob/living/carbon/human); color = "grey"; interactive = 1; desc_special_show = 1; desc_special = "Кажется тут можно пролезть"},/turf/simulated/floor/plating,/area/metro/maintain)
 "zv" = (/obj/floor_decal/corner_techfloor_grid{dir = 10},/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "zw" = (/obj/decal/cleanable/dirt{icon_state = "thermite"},/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south/kpp)
@@ -480,16 +483,16 @@
 "zG" = (/obj/machinery/light{dir = 1; icon_state = "tube1"},/turf/simulated/floor/tiled/techmaint,/area/metro/main_tunel)
 "zH" = (/obj/floor_decal/step{color = "grey"; dir = 8},/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "zL" = (/obj/structure/fd/monster_trigger,/turf/unsimulated/mineral,/area/metro)
-"zM" = (/obj/structure/platform/shiva{dir = 1},/obj/item/pickaxe/hammer,/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/chasm1{unbreathable = 1})
+"zM" = (/obj/item/pickaxe/hammer,/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/chasm1{unbreathable = 1; adventure_mode = 0})
 "zP" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/samosbor/stairs{dir = 1},/area/metro)
-"zS" = (/turf/simulated/mineral,/area/metro/maintain/south/chasm1{unbreathable = 1})
+"zS" = (/turf/simulated/mineral,/area/metro/maintain/south/chasm1{unbreathable = 1; adventure_mode = 0})
 "zT" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/south/kpp)
 "zV" = (/obj/structure/railing/mapped{dir = 8; icon_state = "railing0-1"},/obj/floor_decal/borderfloorblack{dir = 8},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south)
 "zY" = (/obj/structure/platform/shiva,/obj/fd_water/alt_ver1{layer = 2.1},/obj/structure/platform/shiva{dir = 8},/obj/structure/platform_decoration/shiva{dir = 10},/turf/simulated/floor/plating,/area/metro/maintain/south)
 "Ad" = (/obj/structure/fd/grim_walls/metal{icon_state = "rusty_wall-2"},/turf/unsimulated/mineral,/area/metro)
 "Ag" = (/turf/simulated/floor/tiled/dark,/area/metro)
 "Ai" = (/obj/floor_decal/corner_techfloor_grid{dir = 9},/obj/random/trash,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gas)
-"Am" = (/obj/structure/platform/shiva,/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/chasm1{unbreathable = 1})
+"Am" = (/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/chasm1{unbreathable = 1; adventure_mode = 0})
 "Ao" = (/obj/structure/fd/stove,/turf/simulated/floor/tiled/white/monotile,/area/metro/maintain/gas)
 "Ar" = (/obj/floor_decal/industrial/warning{dir = 9},/turf/simulated/floor/plating,/area/metro/maintain)
 "Aw" = (/obj/floor_decal/hull/corner{dir = 4},/turf/simulated/floor/plating,/area/metro/main_tunel)
@@ -497,6 +500,7 @@
 "AC" = (/obj/floor_decal/corner_techfloor_grid{dir = 10},/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gas)
 "AD" = (/obj/structure/fd/mapping/placeholder,/turf/unsimulated/mineral,/area/metro)
 "AF" = (/obj/structure/railing/mapped{dir = 1; icon_state = "railing0-1"},/obj/structure/bed/chair/pew/left,/turf/simulated/floor/plating,/area/metro/maintain/gas)
+"AG" = (/obj/paint/merc,/obj/sturcture/fd/interactive/basic_power/fuse_box/filtration{dir = 4},/turf/simulated/wall/r_wall,/area/metro/maintain/gas)
 "AJ" = (/obj/structure/platform/shiva{dir = 8},/turf/simulated/floor/tiled/monotile,/area/metro/maintain/gas)
 "AL" = (/obj/floor_decal/hull{dir = 8},/obj/item/ammo_casing/rifle/used,/turf/simulated/floor/plating,/area/metro/maintain)
 "AM" = (/obj/machinery/light,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
@@ -506,13 +510,11 @@
 "AY" = (/obj/map_effect/portal/line/side_b{dir = 4},/turf/simulated/floor/plating,/area/metro/main_tunel)
 "AZ" = (/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/obj/floor_decal/corner_techfloor_grid{dir = 9},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
 "Ba" = (/obj/machinery/vending/dinnerware{products = list(/obj/item/reagent_containers/glass/beaker/bowl=3,/obj/item/tray=8,/obj/item/material/knife/kitchen=3,/obj/item/material/kitchen/rollingpin=2,/obj/item/reagent_containers/food/drinks/pitcher=2,/obj/item/reagent_containers/food/drinks/flask/vacuumflask=4,/obj/item/reagent_containers/food/drinks/glass2/coffeecup=8,/obj/item/reagent_containers/food/drinks/glass2/coffeecup/teacup=8,/obj/item/reagent_containers/food/drinks/glass2/carafe=2,/obj/item/reagent_containers/food/drinks/glass2/square=8,/obj/item/clothing/suit/chef/classic=2,/obj/item/storage/lunchbox=3,/obj/item/storage/lunchbox/heart=3,/obj/item/storage/lunchbox/cat=3,/obj/item/storage/lunchbox/nt=3,/obj/item/storage/lunchbox/mars=3,/obj/item/storage/lunchbox/cti=3,/obj/item/storage/lunchbox/nymph=3,/obj/item/storage/lunchbox/syndicate=3,/obj/item/storage/lunchbox/dais=3,/obj/item/storage/lunchbox/picnic=3,/obj/item/material/knife/kitchen/cleaver=1); req_access = list("ACCESS_KITCHEN")},/turf/simulated/floor/tiled/white/monotile,/area/metro/maintain/gas)
-"Bg" = (/obj/structure/table/reinforced,/obj/machinery/button/blast_door{dir = 4; id_tag = "kpp1_1"},/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south/kpp)
-"Bh" = (/obj/paint/merc,/turf/simulated/wall/invincible,/area/metro/maintain/south/kpp)
+"Bg" = (/obj/structure/table/reinforced,/obj/machinery/button/blast_door{dir = 4; id_tag = "kpp1_1"; pixel_x = -1; pixel_y = -2},/obj/machinery/button/blast_door{dir = 4; id_tag = "kpp1_2"; pixel_x = -1; pixel_y = 9},/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south/kpp)
 "Bi" = (/obj/structure/fake_zlvl{density = 0},/obj/structure/fake_zlvl{density = 0},/turf/simulated/floor/plating,/area/metro/maintain/south)
-"Bo" = (/obj/structure/fd/chasm{teleport_to = "chasm1"},/obj/structure/platform_decoration/shiva{layer = 2.23},/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/gas)
+"Bo" = (/obj/structure/fd/chasm{teleport_to = /area/metro/maintain/south/chasm1},/obj/structure/platform_decoration/shiva{layer = 2.23},/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/gas)
 "Bv" = (/obj/structure/platform/shiva{dir = 8},/obj/machinery/light_construct{dir = 8},/obj/sturcture/fd/decorative_pipes{icon_state = "large_pipe_straight"; pixel_x = 8; pixel_y = 1; anchored = 1},/obj/sturcture/fd/decorative_pipes{icon_state = "large_pipe_straight"; pixel_x = -5; pixel_y = 0; anchored = 1},/obj/item/weldingtool{pixel_x = 9; pixel_y = 9},/turf/simulated/floor/tiled/monotile,/area/metro/maintain/gas)
-"Bw" = (/obj/floor_decal/industrial/radiation,/obj/structure/railing/mapped,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
-"By" = (/obj/machinery/door/blast/shutters{can_use_tools = 0},/turf/simulated/floor/tiled/dark,/area/metro)
+"Bw" = (/obj/floor_decal/industrial/warning,/obj/structure/railing/mapped,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "BB" = (/obj/catwalk_plated,/turf/simulated/floor/plating,/area/metro/maintain/south)
 "BC" = (/obj/structure/table/rack,/obj/item/clothing/mask/gas/radical{gasmaskoverlay = 1},/obj/item/clothing/mask/gas/radical{gasmaskoverlay = 1},/turf/simulated/floor/tiled/techfloor,/area/metro/maintain/gas)
 "BD" = (/obj/floor_decal/hull{dir = 4},/obj/machinery/light/small/readylight{dir = 8},/obj/structure/platform_decoration/shiva{dir = 4},/turf/simulated/floor/plating,/area/metro/maintain)
@@ -528,6 +530,7 @@
 "Ca" = (/obj/paint/black,/obj/decal/cleanable/dirt,/turf/simulated/wall/r_wall,/area/metro/maintain/south)
 "Cb" = (/obj/structure/platform/shiva{dir = 8},/obj/fd_water/alt_ver1{layer = 2.1},/turf/simulated/floor/plating,/area/metro/maintain/south)
 "Cc" = (/obj/floor_decal/industrial/outline/green,/obj/item/trash/beans{pixel_x = 3; pixel_y = -3},/obj/item/trash/beans{pixel_x = -2; pixel_y = 11},/obj/item/trash/beans{pixel_x = -7; pixel_y = -3},/turf/simulated/floor/plating,/area/metro/maintain/gen1)
+"Cd" = (/obj/paint/dark_blue_gray,/turf/simulated/wall/invincible,/area/metro)
 "Ce" = (/obj/floor_decal/techfloor/orange{dir = 1},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/gen1)
 "Cg" = (/obj/floor_decal/corner_techfloor_grid{dir = 9},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
 "Ch" = (/obj/floor_decal/corner_techfloor_grid{dir = 6},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
@@ -548,12 +551,13 @@
 "CQ" = (/obj/floor_decal/step{color = "grey"},/turf/simulated/floor/plating,/area/metro/maintain/gas)
 "CR" = (/obj/floor_decal/corner_techfloor_grid/full{dir = 1},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
 "CU" = (/obj/decal/cleanable/dirt,/obj/decal/cleanable/cobweb{dir = 1},/turf/simulated/floor/plating,/area/metro/maintain/south)
+"CV" = (/obj/floor_decal/corner_techfloor_grid{dir = 9},/obj/floor_decal/industrial/warning,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/kpp)
 "CX" = (/obj/machinery/floor_light/mapped_on,/obj/machinery/alarm,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gen2)
 "CY" = (/obj/structure/platform/shiva{dir = 4},/obj/structure/platform/shiva,/obj/structure/platform_decoration/shiva{dir = 6},/obj/fd_water/alt_ver1{layer = 2.1},/turf/simulated/floor/plating,/area/metro/maintain/south)
 "CZ" = (/obj/floor_decal/corner_techfloor_grid/full{dir = 8},/obj/machinery/light{dir = 8; icon_state = "tube1"},/obj/structure/fd/grim_bookshelf{icon_state = "b3"; can_hide_inside = 1; pixel_x = 2},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gas)
 "Da" = (/obj/floor_decal/hull{dir = 4},/obj/item/ammo_casing/rifle/used,/turf/simulated/floor/plating,/area/metro/main_tunel)
 "Db" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain)
-"Di" = (/obj/structure/fd/grim_walls/brick{icon_state = "boss_wall-12"},/turf/unsimulated/mineral,/area/metro)
+"Dg" = (/obj/decal/cleanable/dirt,/obj/machinery/door/blast/shutters/open,/turf/simulated/floor/tiled/dark,/area/metro)
 "Dk" = (/obj/floor_decal/techfloor/orange{dir = 8},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/gen1)
 "Dq" = (/obj/floor_decal/corner_techfloor_grid{dir = 8},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gas)
 "Dr" = (/obj/paint/merc,/turf/simulated/wall/r_wall,/area/metro)
@@ -567,7 +571,7 @@
 "DS" = (/obj/structure/railing/mapped{dir = 1},/obj/floor_decal/corner_techfloor_grid{dir = 5},/obj/floor_decal/corner_techfloor_grid{dir = 8},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
 "DW" = (/obj/floor_decal/step,/obj/structure/platform/shiva{dir = 8},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/monotile,/area/metro/maintain/gas)
 "DX" = (/obj/floor_decal/corner_techfloor_grid/full{dir = 8},/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
-"DY" = (/obj/structure/fd/chasm{teleport_to = "chasm1"},/obj/structure/platform/shiva{layer = 2.24},/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/gas)
+"DY" = (/obj/structure/fd/chasm{teleport_to = /area/metro/maintain/south/chasm1},/obj/structure/platform/shiva{layer = 2.24},/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/gas)
 "DZ" = (/obj/floor_decal/corner_techfloor_grid{dir = 5},/obj/structure/table/steel,/obj/item/storage/box/greenglowsticks,/turf/simulated/floor/tiled/techfloor,/area/metro/maintain/gas)
 "Ea" = (/obj/structure/platform/shiva{dir = 1},/obj/structure/platform/shiva{dir = 4},/obj/structure/platform_decoration/shiva{dir = 9},/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/obj/fd_water/alt_ver1{layer = 2.1},/turf/simulated/floor/plating,/area/metro/maintain/south)
 "Eb" = (/obj/structure/platform/shiva{dir = 4},/obj/decal/cleanable/dirt,/obj/particle_emitter/gasleak,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/gas)
@@ -587,7 +591,7 @@
 "EU" = (/obj/structure/railing/mapped{dir = 4; icon_state = "railing0-1"},/obj/floor_decal/borderfloorblack{dir = 4},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
 "EX" = (/obj/decal/cleanable/dirt,/obj/sturcture/fd/decorative_pipes{dir = 8; anchored = 1},/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/gas)
 "Fb" = (/obj/structure/grille,/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/gas)
-"Fc" = (/obj/machinery/door/blast/regular{id_tag = "kpp1_1"},/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south/kpp)
+"Fc" = (/obj/machinery/door/blast/regular{id_tag = "kpp1_1"; can_use_tools = 0},/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south/kpp)
 "Ff" = (/obj/item/trash/cigbutt{pixel_x = -21; pixel_y = 2},/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "Fg" = (/obj/floor_decal/techfloor{dir = 9},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/gen1)
 "Fh" = (/obj/decal/cleanable/dirt,/obj/sturcture/fd/interactive/basic_power/fuse_box{pixel_y = 26; area = "maintain"},/turf/simulated/floor/plating,/area/metro/maintain)
@@ -609,6 +613,7 @@
 "Gc" = (/obj/floor_decal/corner_techfloor_grid{dir = 10},/obj/floor_decal/corner_techfloor_grid{dir = 1},/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "Ge" = (/obj/floor_decal/industrial/outline/dark_red,/obj/structure/table/rack,/obj/item/flame/lighter/random,/obj/random/junkyard/smokes,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "Gg" = (/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gen1)
+"Gj" = (/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/metro)
 "Go" = (/obj/structure/largecrate,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "Gp" = (/obj/paint/silver,/turf/simulated/wall/r_wall,/area/metro/main_tunel)
 "Gr" = (/obj/paint/black,/obj/paint_stripe/brown,/turf/simulated/wall/r_wall,/area/metro/maintain)
@@ -623,10 +628,10 @@
 "GL" = (/obj/structure/bookcase/manuals/engineering,/obj/floor_decal/borderfloorblack/corner{dir = 1},/turf/simulated/floor/tiled/dark/monotile,/area/metro/maintain)
 "GM" = (/obj/decal/cleanable/dirt,/obj/decal/cleanable/generic,/turf/simulated/floor/plating,/area/metro/maintain/south)
 "GP" = (/obj/decal/cleanable/dirt,/obj/floor_decal/corner_techfloor_grid{dir = 6},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
-"GQ" = (/obj/structure/table/reinforced,/obj/machinery/button/blast_door{dir = 4; id_tag = "kpp1_2"},/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south/kpp)
+"GQ" = (/obj/structure/table/reinforced,/obj/sturcture/fd/interactive/note/locks,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south/kpp)
 "GR" = (/obj/floor_decal/corner_techfloor_grid{dir = 6},/obj/floor_decal/corner_techfloor_grid{dir = 1},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
 "GU" = (/obj/structure/closet/crate/large,/obj/item/clothing/mask/gas/budget{pixel_x = 4; pixel_y = 8; gasmaskoverlay = 1},/obj/item/clothing/mask/gas/budget{pixel_x = 4; pixel_y = 8; gasmaskoverlay = 1},/obj/item/fd/filter,/obj/item/fd/filter,/turf/simulated/floor/plating,/area/metro/maintain/south)
-"GV" = (/obj/structure/platform/shiva{dir = 1},/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/chasm1{unbreathable = 1})
+"GV" = (/obj/structure/platform/shiva{dir = 1},/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/chasm1{unbreathable = 1; adventure_mode = 0})
 "GW" = (/obj/floor_decal/corner_techfloor_grid{dir = 10},/obj/machinery/light,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south)
 "GX" = (/obj/structure/platform/shiva{dir = 4},/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/gas)
 "GZ" = (/obj/floor_decal/corner_techfloor_grid{dir = 5},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
@@ -634,7 +639,7 @@
 "Hh" = (/obj/floor_decal/techfloor/orange{dir = 8},/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/gen1)
 "Hi" = (/obj/floor_decal/corner_techfloor_grid{dir = 1},/obj/structure/closet,/turf/simulated/floor/tiled/techfloor,/area/metro/maintain/gas)
 "Hk" = (/obj/floor_decal/techfloor/corner{dir = 4},/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
-"Hm" = (/obj/structure/fd/chasm{teleport_to = "chasm1"},/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/gas)
+"Hm" = (/obj/structure/fd/chasm{teleport_to = /area/metro/maintain/south/chasm1},/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/gas)
 "Hn" = (/obj/floor_decal/industrial/warning,/turf/simulated/floor/plating,/area/metro/main_tunel)
 "Hr" = (/obj/floor_decal/corner_techfloor_grid{dir = 5},/obj/floor_decal/corner_techfloor_grid{dir = 8},/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "Hs" = (/obj/structure/platform/shiva{dir = 1},/obj/fd_water/alt_ver1{layer = 2.1},/turf/simulated/floor/plating,/area/metro/maintain/south)
@@ -673,9 +678,11 @@
 "Ji" = (/obj/floor_decal/step{color = "grey"; dir = 1},/turf/simulated/floor/plating,/area/metro/maintain/south)
 "Jk" = (/obj/floor_decal/corner_techfloor_grid{dir = 9},/obj/machinery/light{dir = 8; icon_state = "tube1"},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
 "Jm" = (/obj/decal/cleanable/dirt,/obj/structure/rubble,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/gas)
+"Jr" = (/obj/structure/fd/building_stuff{desc = "Just an pile of bricks."; icon_state = "0,1"; name = "bricks"; pixel_y = 1; density = 1; interactive = 1; can_hide_inside = 1; pixel_x = 15},/obj/structure/fd/building_stuff{icon_state = "1,1"; pixel_y = -4; pixel_x = -8; name = "Barrel"; desc = "Just an iron barrel."},/turf/simulated/floor/tiled/dark,/area/metro)
 "Jx" = (/obj/sturcture/fd/decorative_pipes{icon_state = "large_pipe_straight"; layer = 2.08; anchored = 1},/obj/catwalk_plated/dark,/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/grim_metal2,/area/metro)
 "JB" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark/monotile,/area/metro)
 "JH" = (/obj/floor_decal/industrial/outline/blue,/obj/structure/table/rack,/obj/item/airlock_brace,/obj/item/airlock_brace{pixel_x = 8; pixel_y = 9},/turf/simulated/floor/plating,/area/metro/maintain/gen1)
+"JQ" = (/obj/machinery/door/blast/shutters/open,/turf/simulated/floor/tiled/dark,/area/metro)
 "JS" = (/obj/structure/platform/shiva,/obj/structure/platform/shiva{dir = 1},/obj/machinery/light{dir = 1},/obj/structure/railing/mapped,/turf/simulated/floor/plating,/area/metro/maintain)
 "JU" = (/obj/floor_decal/industrial/warning/corner{dir = 4; icon_state = "warningcorner"},/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain)
 "JX" = (/obj/structure/table/rack,/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south)
@@ -693,7 +700,7 @@
 "Kq" = (/obj/floor_decal/corner_techfloor_grid{dir = 9},/obj/machinery/light{dir = 8},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
 "Kr" = (/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/gas)
 "Kt" = (/obj/floor_decal/corner_techfloor_grid,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
-"Ku" = (/obj/floor_decal/industrial/radiation,/obj/machinery/fusion_fuel_injector{dir = 1},/obj/floor_decal/industrial/radiation/fulltile,/obj/structure/railing/mapped,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
+"Ku" = (/obj/floor_decal/industrial/warning,/obj/machinery/fusion_fuel_injector{dir = 1},/obj/floor_decal/industrial/radiation/fulltile,/obj/structure/railing/mapped,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "Kx" = (/obj/structure/storage/cargo,/turf/simulated/floor/plating,/area/metro/maintain/gas)
 "Kz" = (/obj/floor_decal/corner/grey/border{dir = 1},/obj/floor_decal/corner/grey/border,/obj/decal/cleanable/flour,/turf/simulated/floor/tiled/white,/area/metro/maintain/gas)
 "KB" = (/obj/structure/fd/grim_walls/metal{icon_state = "rusty_wall-5"},/turf/unsimulated/mineral,/area/metro)
@@ -714,12 +721,13 @@
 "Lo" = (/turf/unsimulated/wall{color = "black"; name = "void"},/area/metro/maintain)
 "Lr" = (/obj/structure/bed/padded,/obj/structure/bed/padded/raised,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
 "Lw" = (/obj/decal/cleanable/dirt,/obj/machinery/light{pixel_x = 16; dir = 1},/obj/floor_decal/corner_techfloor_grid{dir = 6},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
+"LC" = (/obj/floor_decal/corner_techfloor_grid{dir = 6},/obj/floor_decal/industrial/warning,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/kpp)
 "LD" = (/obj/structure/table/rack,/obj/random/junkyard/medical/lite,/obj/item/storage/box/greenglowsticks,/turf/simulated/floor/plating,/area/metro/maintain)
 "LG" = (/obj/floor_decal/corner_techfloor_grid{dir = 5},/obj/structure/storage/cargo,/obj/structure/storage/cargo{pixel_y = 23},/obj/floor_decal/corner_techfloor_grid{dir = 8},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
 "LH" = (/obj/structure/fd/building_stuff{anchored = 0; icon_state = "1,1"; pixel_y = 11; pixel_x = 8; name = "Barrel"; density = 1; desc = "Just an iron barrel."},/turf/simulated/floor/plating,/area/metro/maintain/south)
 "LI" = (/turf/unsimulated/wall{color = "black"; name = "void"},/area/metro)
 "LL" = (/obj/floor_decal/techfloor/orange{dir = 1},/obj/floor_decal/industrial/outline/blue,/obj/structure/reagent_dispensers/watertank,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/gen1)
-"LM" = (/obj/structure/fd/chasm{teleport_to = "chasm1"},/obj/structure/railing/mapped{dir = 4},/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/gas)
+"LM" = (/obj/structure/fd/chasm{teleport_to = /area/metro/maintain/south/chasm1},/obj/structure/railing/mapped{dir = 4},/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/gas)
 "LR" = (/obj/structure/platform/shiva,/obj/structure/platform/shiva{dir = 1},/obj/decal/cleanable/liquid_fuel,/obj/structure/railing/mapped,/turf/simulated/floor/plating,/area/metro/maintain)
 "LS" = (/obj/decal/cleanable/dirt,/obj/decal/cleanable/blood{icon_state = "u_ketchup"; pixel_y = -7; pixel_x = 10},/turf/simulated/floor/plating,/area/metro/maintain/south)
 "LU" = (/obj/item/trash/cigbutt{pixel_x = -7; pixel_y = 14},/turf/simulated/floor/plating,/area/metro/maintain/gen1)
@@ -732,7 +740,6 @@
 "Ml" = (/obj/paint/merc,/turf/simulated/wall/r_wall,/area/metro/maintain/south/kpp)
 "Mm" = (/obj/wallframe_spawn/reinforced,/turf/simulated/floor/plating,/area/metro/maintain/south/kpp)
 "Ms" = (/obj/floor_decal/industrial/warning/corner{dir = 1; icon_state = "warningcorner"},/turf/simulated/floor/plating,/area/metro/main_tunel)
-"Mt" = (/obj/floor_decal/corner_techfloor_grid{dir = 5},/obj/decal/cleanable/dirt,/obj/machinery/light{pixel_x = 16; dir = 1},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gen1)
 "Mv" = (/obj/decal/cleanable/dirt,/obj/structure/table/rack,/obj/random/junkyard/powercell,/obj/item/fd/basic_power/fuse{pixel_x = -1; pixel_y = 12},/turf/simulated/floor/plating,/area/metro/maintain)
 "Mw" = (/obj/structure/railing/mapped{dir = 4; icon_state = "railing0-1"},/obj/floor_decal/borderfloorblack{dir = 4},/obj/structure/fd/junk{icon_state = "5,0"},/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "My" = (/obj/floor_decal/corner_techfloor_grid/full{dir = 8},/obj/floor_decal/industrial/warning{dir = 1; icon_state = "warning"},/obj/machinery/light{dir = 8},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/kpp)
@@ -750,7 +757,7 @@
 "Na" = (/obj/floor_decal/borderfloorblack,/obj/structure/railing/mapped,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south)
 "Nc" = (/obj/floor_decal/hull/corner{dir = 8},/obj/floor_decal/industrial/warning{dir = 1},/obj/fd_water/alt_ver1,/turf/simulated/floor/plating,/area/metro/main_tunel)
 "Ne" = (/obj/floor_decal/hull{dir = 1},/obj/machinery/light/small/readylight,/turf/simulated/floor/plating,/area/metro/main_tunel)
-"Nf" = (/obj/map_effect/portal/master/side_a{portal_id = "south"},/turf/simulated/floor/exoplanet/samosbor/stairs,/area/metro)
+"Nf" = (/obj/map_effect/portal/master/side_a{portal_id = "south"; dir = 1},/turf/simulated/floor/exoplanet/samosbor/stairs,/area/metro)
 "Ng" = (/obj/floor_decal/corner_techfloor_grid{dir = 1},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
 "Nh" = (/obj/floor_decal/corner_techfloor_grid{dir = 5},/obj/decal/cleanable/dirt,/obj/structure/sign/directions/medical{pixel_y = 37; dir = 4},/obj/structure/sign/directions/supply{pixel_y = 31; dir = 8},/obj/structure/sign/directions/evac{pixel_y = 25; dir = 1},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gas)
 "Ni" = (/obj/fd_water/alt_ver1{layer = 2.1},/obj/structure/platform/shiva{dir = 8},/turf/simulated/floor/plating,/area/metro/maintain/south)
@@ -765,7 +772,6 @@
 "NI" = (/obj/structure/table/rack,/obj/floor_decal/borderfloorblack/corner{dir = 4},/obj/random/junkyard/tech_supply,/turf/simulated/floor/tiled/dark/monotile,/area/metro/maintain)
 "NL" = (/obj/structure/closet,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south/kpp)
 "NM" = (/obj/machinery/light,/turf/simulated/floor/plating,/area/metro/maintain/gas)
-"NN" = (/obj/structure/fd/grim_walls/brick{icon_state = "boss_wall-3"},/turf/unsimulated/mineral,/area/metro)
 "NO" = (/obj/machinery/conveyor{dir = 4; id = "sklad"},/turf/simulated/floor/plating,/area/metro/maintain)
 "NP" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/freezer,/area/metro/maintain/gas)
 "NS" = (/obj/floor_decal/corner_techfloor_grid/full{dir = 8},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
@@ -779,12 +785,14 @@
 "On" = (/obj/floor_decal/industrial/warning/corner{dir = 4; icon_state = "warningcorner"},/turf/simulated/floor/plating,/area/metro/main_tunel)
 "Oq" = (/obj/floor_decal/hull{dir = 1},/obj/decal/cleanable/blood{icon_state = "u_guilty_l"},/turf/simulated/floor/plating,/area/metro/main_tunel)
 "Or" = (/obj/paint/merc,/obj/landmark/damager,/turf/simulated/wall/r_wall,/area/metro/maintain/gas)
+"Os" = (/obj/structure/door_assembly{name = "Broken airlock"},/turf/simulated/floor/plating,/area/metro/maintain/gas)
 "Ot" = (/obj/decal/cleanable/dirt,/obj/structure/platform/shiva,/obj/structure/platform/shiva{dir = 1},/obj/decal/cleanable/liquid_fuel,/obj/structure/railing/mapped,/turf/simulated/floor/plating,/area/metro/maintain)
 "Ov" = (/obj/decal/cleanable/dirt,/obj/structure/table/rack,/obj/sturcture/fd/interactive/note/gen_note,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/gas)
 "OA" = (/obj/floor_decal/industrial/warning{dir = 4},/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain)
 "OC" = (/obj/catwalk_plated,/obj/decal/cleanable/dirt,/obj/structure/fd/junk{icon_state = "0,4"},/turf/simulated/floor/plating,/area/metro/maintain/south)
 "OG" = (/obj/machinery/light{dir = 4},/obj/floor_decal/techfloor/orange,/obj/item/storage/briefcase/inflatable,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/gen1)
 "OJ" = (/obj/floor_decal/step{color = "grey"},/turf/simulated/floor/plating,/area/metro/maintain/gen1)
+"OK" = (/obj/decal/cleanable/dirt,/obj/machinery/door/blast/shutters{can_use_tools = 0},/turf/simulated/floor/tiled/dark,/area/metro)
 "OL" = (/obj/structure/table/reinforced,/obj/machinery/light{dir = 8},/obj/floor_decal/corner_techfloor_grid{dir = 9},/obj/random/junkyard/tool,/obj/machinery/recharger,/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "OO" = (/obj/floor_decal/corner_techfloor_grid/full{dir = 2},/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "OV" = (/obj/floor_decal/hull{dir = 1},/turf/simulated/floor/plating,/area/metro/main_tunel)
@@ -826,7 +834,7 @@
 "QL" = (/obj/floor_decal/corner_techfloor_grid{dir = 4},/obj/structure/table/rack,/obj/item/clothing/mask/gas/radical{gasmaskoverlay = 1},/obj/item/clothing/mask/gas/radical{gasmaskoverlay = 1},/turf/simulated/floor/tiled/techfloor,/area/metro/maintain/gas)
 "QM" = (/obj/floor_decal/borderfloorblack{dir = 8},/obj/structure/closet/secure_closet,/obj/item/device/flashlight/maglight,/obj/random/junkyard/powercell,/obj/item/device/radio,/turf/simulated/floor/tiled/dark/monotile,/area/metro/maintain)
 "QP" = (/obj/machinery/light,/obj/floor_decal/corner_techfloor_grid{dir = 4},/turf/simulated/floor/tiled/techmaint,/area/metro/main_tunel)
-"QQ" = (/obj/floor_decal/industrial/radiation,/obj/decal/cleanable/dirt,/obj/structure/railing/mapped{dir = 4; icon_state = "railing0-1"},/turf/simulated/floor/plating,/area/metro/maintain/gen1)
+"QQ" = (/obj/floor_decal/industrial/warning,/obj/decal/cleanable/dirt,/obj/structure/railing/mapped{dir = 4; icon_state = "railing0-1"},/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "QS" = (/obj/floor_decal/corner/lightgrey/border{dir = 1},/turf/simulated/floor/tiled,/area/metro)
 "QT" = (/obj/floor_decal/corner_techfloor_grid{dir = 5},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "QZ" = (/obj/floor_decal/hull/corner,/obj/floor_decal/industrial/warning{dir = 1},/obj/fd_water/alt_ver1,/turf/simulated/floor/plating,/area/metro/main_tunel)
@@ -844,7 +852,7 @@
 "Rr" = (/obj/structure/table/rack,/obj/floor_decal/industrial/hatch/grey,/obj/item/storage/box/lights/tubes/random,/obj/item/device/lightreplacer,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "Rt" = (/obj/structure/platform/shiva{dir = 4},/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/gas)
 "Rv" = (/obj/structure/largecrate,/obj/decal/cleanable/cobweb2{dir = 2},/turf/simulated/floor/plating,/area/metro/maintain/gas)
-"Rw" = (/obj/map_effect/portal/line/side_a,/turf/simulated/floor/exoplanet/samosbor/stairs,/area/metro)
+"Rw" = (/obj/map_effect/portal/line/side_a{dir = 1},/turf/simulated/floor/exoplanet/samosbor/stairs,/area/metro)
 "Rx" = (/obj/structure/platform/shiva{dir = 8},/obj/decal/cleanable/dirt,/obj/fd_water/alt_ver1{layer = 2.1},/turf/simulated/floor/plating,/area/metro/maintain/south)
 "Ry" = (/obj/floor_decal/hull/corner{dir = 8},/obj/floor_decal/hull/corner,/turf/simulated/floor/plating,/area/metro/main_tunel)
 "RA" = (/obj/fd_water/alt_ver1{layer = 2.1},/obj/structure/platform/shiva{dir = 1},/obj/structure/platform/shiva{dir = 4},/obj/structure/platform_decoration/shiva{dir = 9},/turf/simulated/floor/plating,/area/metro/maintain/south)
@@ -854,6 +862,7 @@
 "RM" = (/obj/floor_decal/corner_techfloor_grid{dir = 10},/obj/structure/fd/building_stuff{anchored = 0; icon_state = "1,1"; pixel_y = 3; pixel_x = -2; name = "Barrel"; density = 1; desc = "Just an iron barrel."},/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "RO" = (/obj/floor_decal/corner_techfloor_grid{dir = 9},/obj/structure/fd/junk{icon_state = "4,4"; pixel_x = 8; pixel_y = -4},/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "RU" = (/obj/structure/closet,/obj/random/junkyard/material,/turf/simulated/floor/plating,/area/metro/maintain/gas)
+"RV" = (/obj/decal/cleanable/dirt,/obj/machinery/light,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "RW" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled,/area/metro)
 "RY" = (/obj/floor_decal/corner_techfloor_grid/full,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor,/area/metro/maintain/gas)
 "RZ" = (/obj/structure/bed/chair/padded/brown{dir = 1},/obj/decal/cleanable/dirt,/turf/simulated/floor/lino,/area/metro/maintain/gas)
@@ -872,9 +881,8 @@
 "Su" = (/obj/structure/closet,/obj/machinery/light{pixel_x = 16},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
 "SB" = (/turf/simulated/floor/plating,/area/metro/maintain/gas)
 "SF" = (/obj/machinery/light{pixel_x = 16; dir = 1},/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
-"SL" = (/turf/simulated/floor/plating,/area/metro)
 "SN" = (/obj/structure/railing/mapped{dir = 1; icon_state = "railing0-1"},/obj/floor_decal/techfloor{dir = 5},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/gen1)
-"SO" = (/obj/floor_decal/industrial/hatch/grey,/obj/machinery/computer/power_monitor,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
+"SO" = (/obj/floor_decal/industrial/hatch/grey,/obj/machinery/computer/dummy,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "SU" = (/obj/floor_decal/borderfloorblack{dir = 4},/obj/floor_decal/step{color = "grey"; dir = 4},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south)
 "SW" = (/obj/floor_decal/corner_techfloor_grid/full{dir = 8},/obj/machinery/light{dir = 8},/obj/floor_decal/industrial/warning/corner{dir = 4; icon_state = "warningcorner"},/obj/decal/cleanable/generic,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/kpp)
 "SX" = (/obj/structure/platform/shiva{dir = 8},/obj/floor_decal/step{color = "grey"},/obj/fd_water/alt_ver1{layer = 2.1},/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south)
@@ -891,16 +899,15 @@
 "TD" = (/obj/floor_decal/borderfloorblack{dir = 8},/obj/floor_decal/step{color = "grey"; dir = 8},/obj/structure/fd/junk{icon_state = "1,2"; pixel_x = 10; pixel_y = 19},/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south)
 "TE" = (/obj/structure/platform/shiva{dir = 4},/obj/fd_water/alt_ver1{layer = 2.1},/turf/simulated/floor/plating,/area/metro/maintain/south)
 "TG" = (/obj/floor_decal/corner/grey/border{dir = 1},/obj/floor_decal/corner/grey/border,/turf/simulated/floor/tiled/white,/area/metro/maintain/gas)
-"TH" = (/obj/structure/platform/shiva,/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/chasm1{unbreathable = 1})
+"TH" = (/obj/decal/cleanable/dirt,/obj/structure/platform_decoration/shiva{dir = 1},/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/chasm1{unbreathable = 1; adventure_mode = 0})
 "TJ" = (/turf/simulated/floor/tiled,/area/metro)
 "TK" = (/obj/floor_decal/corner_techfloor_grid{dir = 5},/obj/floor_decal/corner_techfloor_grid{dir = 5},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gas)
 "TL" = (/obj/floor_decal/techfloor/orange{dir = 1},/obj/decal/cleanable/dirt,/obj/item/device/scanner/gas,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/gen1)
 "TQ" = (/obj/decal/cleanable/dirt,/obj/floor_decal/industrial/warning{dir = 1},/turf/simulated/floor/tiled/techfloor,/area/metro/maintain/gas)
-"TT" = (/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/metro)
 "TW" = (/obj/decal/cleanable/dirt,/obj/floor_decal/corner_techfloor_grid{dir = 6},/obj/machinery/light,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
 "TY" = (/obj/floor_decal/corner_techfloor_grid{dir = 9},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
 "Ua" = (/obj/floor_decal/corner_techfloor_grid{dir = 10},/obj/floor_decal/corner_techfloor_grid{dir = 4},/obj/structure/closet/crate,/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
-"Ud" = (/obj/floor_decal/industrial/radiation,/obj/structure/railing/mapped,/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
+"Ud" = (/obj/floor_decal/industrial/warning,/obj/structure/railing/mapped,/obj/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "Ue" = (/obj/structure/railing/mapped{dir = 1; icon_state = "railing0-1"},/obj/floor_decal/techfloor{dir = 1},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/gen1)
 "Ug" = (/obj/structure/platform/shiva{dir = 8},/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/gas)
 "Uh" = (/obj/floor_decal/industrial/hatch/grey,/obj/machinery/computer/modular/preset/engineering,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
@@ -910,7 +917,6 @@
 "Uu" = (/obj/floor_decal/industrial/warning{dir = 10},/obj/floor_decal/hull/corner{dir = 8},/obj/floor_decal/hull/corner,/turf/simulated/floor/plating,/area/metro/main_tunel)
 "Uv" = (/obj/machinery/door/airlock/hatch,/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "Ux" = (/obj/floor_decal/corner_techfloor_grid{dir = 1},/obj/floor_decal/industrial/warning{dir = 1},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/kpp)
-"UB" = (/obj/structure/fd/grim_walls/brick{icon_state = "boss_wall-3"},/turf/simulated/floor/tiled/dark,/area/metro)
 "UF" = (/obj/fd_water/alt_ver1{layer = 2.1},/obj/structure/platform/shiva{dir = 8},/obj/machinery/light/small/readylight{dir = 8},/turf/simulated/floor/plating,/area/metro/maintain/south)
 "UH" = (/obj/floor_decal/techfloor/corner,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/gen1)
 "UJ" = (/obj/machinery/door/airlock/multi_tile/maintenance{dir = 8},/turf/simulated/floor/plating,/area/metro/maintain)
@@ -922,7 +928,7 @@
 "Vd" = (/obj/floor_decal/corner/grey/border{dir = 9},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/white,/area/metro/maintain/gas)
 "Vk" = (/obj/floor_decal/corner_techfloor_grid{dir = 9},/obj/machinery/light{dir = 8; icon_state = "tube1"},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gas)
 "Vl" = (/obj/structure/fd/junk{icon_state = "2,4"},/turf/simulated/floor/lino,/area/metro/maintain/gas)
-"Vo" = (/obj/structure/platform/shiva{dir = 1},/obj/machinery/light_construct{dir = 1},/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/chasm1{unbreathable = 1})
+"Vo" = (/obj/structure/platform/shiva{dir = 1},/obj/machinery/light_construct{dir = 1},/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/chasm1{unbreathable = 1; adventure_mode = 0})
 "Vq" = (/obj/floor_decal/corner_techfloor_grid{dir = 9},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gas)
 "Vr" = (/obj/floor_decal/corner_techfloor_grid{dir = 9},/turf/simulated/floor/tiled/techmaint,/area/metro/main_tunel)
 "Vs" = (/obj/floor_decal/corner_techfloor_grid/full{dir = 4},/obj/structure/fd/building_stuff{pixel_y = 5; pixel_x = -4},/obj/structure/fd/building_stuff{pixel_y = 10; pixel_x = -4},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
@@ -931,6 +937,7 @@
 "Vv" = (/obj/floor_decal/industrial/hatch/orange,/obj/machinery/computer/atmoscontrol,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "Vw" = (/obj/fd_water/alt_ver1{layer = 2.1},/obj/structure/platform_decoration/shiva{dir = 8},/obj/structure/platform_decoration/shiva{layer = 2.23},/turf/simulated/floor/plating,/area/metro/maintain/south)
 "Vx" = (/obj/decal/cleanable/dirt,/turf/unsimulated/mineral,/area/metro/maintain/gen1)
+"VA" = (/obj/floor_decal/corner_techfloor_grid{dir = 10},/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/obj/machinery/light,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gen1)
 "VC" = (/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/obj/sturcture/fd/decorative_pipes{dir = 4; anchored = 1},/turf/simulated/floor/plating,/area/metro/maintain/gas)
 "VF" = (/obj/structure/platform/shiva,/obj/structure/platform/shiva{dir = 1},/obj/structure/platform/shiva{dir = 8},/obj/structure/platform_decoration/shiva{dir = 10},/obj/structure/platform_decoration/shiva{dir = 5},/obj/structure/railing/mapped,/turf/simulated/floor/plating,/area/metro/maintain)
 "VH" = (/obj/paint/black,/turf/simulated/wall/r_wall,/area/metro/maintain)
@@ -973,14 +980,14 @@
 "XH" = (/obj/paint/merc,/obj/landmark/damager,/turf/simulated/wall/r_wall,/area/metro/maintain/south)
 "XK" = (/obj/floor_decal/corner_techfloor_grid{dir = 10},/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gen1)
 "XL" = (/obj/machinery/light{dir = 1; icon_state = "tube1"},/obj/floor_decal/corner_techfloor_grid{dir = 9},/obj/structure/closet,/turf/simulated/floor/tiled/techfloor,/area/metro/maintain/gas)
-"XM" = (/obj/floor_decal/industrial/radiation,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
+"XM" = (/obj/floor_decal/industrial/warning,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "XN" = (/obj/floor_decal/borderfloorblack,/obj/floor_decal/step{color = "grey"},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south)
 "XQ" = (/obj/machinery/light{dir = 4; icon_state = "tube1"},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/metro)
 "XW" = (/obj/floor_decal/corner_techfloor_grid{dir = 5},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gas)
 "XX" = (/obj/structure/railing/mapped,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techfloor/grid,/area/metro/maintain/south/kpp)
 "XY" = (/obj/structure/fd/junk{icon_state = "2,3"},/obj/structure/fd/junk{icon_state = "2,0"; pixel_y = -11},/turf/simulated/floor/plating,/area/metro/maintain/south)
 "Yb" = (/obj/floor_decal/corner_techfloor_grid{dir = 5},/obj/item/wrench,/obj/item/screwdriver{pixel_x = 18; pixel_y = 2},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gas)
-"Yd" = (/obj/machinery/door/blast/regular{can_use_tools = 0; identifier = "metro_south_lockdown"},/turf/simulated/floor/tiled/dark,/area/metro/maintain/south/blast_door)
+"Yd" = (/obj/machinery/door/blast/regular{can_use_tools = 0; id_tag = "metro_south_lockdown"},/turf/simulated/floor/tiled/dark,/area/metro/maintain/south/blast_door)
 "Ye" = (/obj/structure/table/rack,/obj/floor_decal/borderfloorblack{dir = 4},/obj/random/junkyard/tech_supply,/turf/simulated/floor/tiled/dark/monotile,/area/metro/maintain)
 "Yf" = (/obj/fd_water/alt_ver1{layer = 2.1},/obj/structure/platform/shiva{dir = 1},/obj/machinery/light/small/readylight{dir = 1; pixel_x = 16},/turf/simulated/floor/plating,/area/metro/maintain/south)
 "Yj" = (/obj/structure/platform/shiva{dir = 4},/obj/decal/cleanable/dirt,/obj/decal/cleanable/generic,/turf/simulated/floor/plating,/area/metro/maintain/south/kpp)
@@ -990,7 +997,7 @@
 "Yt" = (/obj/structure/platform/shiva{dir = 1},/obj/structure/platform/shiva{dir = 4},/obj/structure/platform_decoration/shiva{dir = 9},/obj/fd_water/alt_ver1{layer = 2.1},/turf/simulated/floor/plating,/area/metro/maintain/south)
 "Yx" = (/obj/floor_decal/corner_techfloor_grid{dir = 5},/obj/structure/railing/mapped{dir = 8; icon_state = "railing0-1"},/obj/floor_decal/corner_techfloor_grid{dir = 8},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
 "Yy" = (/obj/floor_decal/corner_techfloor_grid{dir = 4},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south)
-"YA" = (/obj/machinery/door/blast/shutters/open,/turf/simulated/floor/tiled/dark,/area/metro)
+"Yz" = (/obj/structure/fd/grim_walls/brick{icon_state = "boss_wall-3"},/turf/unsimulated/mineral,/area/metro)
 "YB" = (/obj/structure/fd/grim_walls/metal{icon_state = "rusty_wall-12"},/turf/unsimulated/mineral,/area/metro)
 "YC" = (/obj/machinery/light{dir = 1},/obj/machinery/fusion_fuel_injector,/obj/floor_decal/industrial/radiation/fulltile,/turf/simulated/floor/plating,/area/metro/maintain/gen1)
 "YF" = (/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/turf/simulated/floor/exoplanet/samosbor/stairs{dir = 1},/area/metro)
@@ -1008,7 +1015,8 @@
 "Zn" = (/obj/floor_decal/corner_techfloor_grid{dir = 10},/obj/decal/cleanable/dirt,/obj/structure/rubble,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gas)
 "Zo" = (/obj/machinery/light{dir = 1; icon_state = "tube1"},/turf/simulated/floor/tiled/freezer,/area/metro/maintain/gas)
 "Zq" = (/obj/floor_decal/corner/lightgrey/half,/turf/simulated/floor/tiled/monotile,/area/metro)
-"Zs" = (/obj/structure/platform/shiva{dir = 1},/obj/item/clothing/head/hardhat,/obj/structure/closet/crate,/obj/item/fd/filter,/obj/item/fd/filter,/obj/item/clothing/mask/gas/radical{gasmaskoverlay = 1},/obj/item/cell/device/high,/obj/item/cell/device/high,/obj/item/device/radio,/obj/item/device/flashlight/lantern,/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/chasm1{unbreathable = 1})
+"Zr" = (/obj/machinery/door/blast/shutters{can_use_tools = 0},/turf/simulated/floor/tiled/dark,/area/metro)
+"Zs" = (/obj/item/clothing/head/hardhat,/obj/structure/closet/crate,/obj/item/fd/filter,/obj/item/fd/filter,/obj/item/clothing/mask/gas/radical{gasmaskoverlay = 1},/obj/item/cell/device/high,/obj/item/cell/device/high,/obj/item/device/radio,/obj/item/device/flashlight/lantern,/obj/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/gravel,/area/metro/maintain/south/chasm1{unbreathable = 1; adventure_mode = 0})
 "Zu" = (/obj/machinery/light{dir = 1; icon_state = "tube1"},/obj/structure/closet,/obj/floor_decal/corner_techfloor_grid{dir = 6},/turf/simulated/floor/tiled/techfloor,/area/metro/maintain/gas)
 "Zw" = (/obj/floor_decal/corner_techfloor_grid/full{dir = 8},/obj/structure/fd/junk{icon_state = "4,0"},/turf/simulated/floor/tiled/dark,/area/metro/maintain/south)
 "Zz" = (/obj/floor_decal/corner_techfloor_grid/full{dir = 8},/obj/floor_decal/industrial/warning{dir = 1},/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gas)
@@ -1018,9 +1026,8 @@
 "ZP" = (/obj/floor_decal/corner_techfloor_grid{dir = 9},/obj/decal/cleanable/dirt,/obj/structure/sign/noidle{pixel_x = -32; pixel_y = 0; dir = 4},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/kpp)
 "ZQ" = (/obj/paint/black,/obj/paint_stripe/gunmetal,/turf/simulated/wall/r_wall,/area/metro/main_tunel)
 "ZR" = (/obj/floor_decal/corner/lightgrey/border{dir = 5},/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled,/area/metro)
-"ZU" = (/obj/floor_decal/corner_techfloor_grid{dir = 6},/obj/structure/fd/grim_bookshelf{icon_state = "b15"; can_hide_inside = 1; pixel_x = -3; interactive = 1},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/kpp)
+"ZU" = (/obj/floor_decal/corner_techfloor_grid{dir = 6},/obj/structure/fd/grim_bookshelf{icon_state = "b15"; pixel_x = -3},/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/south/kpp)
 "ZX" = (/obj/floor_decal/hull{dir = 8},/obj/machinery/door/blast/regular/open{id_tag = "metro1"},/turf/simulated/floor/plating,/area/metro/main_tunel)
-"ZY" = (/obj/floor_decal/corner_techfloor_grid{dir = 10},/obj/decal/cleanable/dirt,/obj/decal/cleanable/dirt,/obj/machinery/light,/turf/simulated/floor/tiled/techmaint,/area/metro/maintain/gen1)
 
 (1,1,1) = {"
 LILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILILI
@@ -1028,25 +1035,25 @@ LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgO
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOhmgOgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOjmjmjmjmgOgOgOgOgOgOgOgOgOgOgOgOgOjmjmjmjmgOgOgOgOLI
-LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOjmyCyCjmgOgOgOgOgOgOgOgOgOgOgOgOgOecsOuuecgOgOgOgOLI
+LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOjmyCyCjmgOgOgOgOgOgOgOgOgOgOgOgOgOCdsOuuCdgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOjmbqyCjmgOgOgOgOgOgOgOgOgOgOgOgOgOjmbqyCjmgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMVMVMVMVMVMVMVMVMVMVMVgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOjmAgnrjmgOgOgOgOgOgOgOgOgOgOgOgOgOjmAgnrjmgOgOgOgOLI
-LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMVAgAgAgAgAgAgAgAgAgMVgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOecBykDecgOgOgOgOgOgOgOgOgOgOgOgOgOecYAbUecgOgOgOgOLI
+LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMVAgAgAgAgAgAgAgAgAgMVgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOCdZrOKCdgOgOgOgOgOgOgOgOgOgOgOgOgOCdJQDgCdgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMVAgAgAgAgAgAgAgAgAgMVgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOjmnrnrjmgOgOgOgOgOgOgOgOgOgOgOgOgOjmAgnrjmgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMVAgAgMVMVMVMVMVAgAgMVMVMVMVMVMVMVMVMVMVMVMVMVMVMVMVMVMVgOgOgOgOjmnrAgjmgOgOgOgOgOgOgOgOgOgOgOgOgOjmnrAgjmgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMVAgAgMVgOgOgOMVAgAgAgAgAgAgAgAgAgAgAgAgAgAgAgAgAgAgAgMVgOgOgOgOjmnrAgjmjmjmjmjmgOgOgOgOgOgOgOgOgOjmAgAgjmgOgOgOgOLI
-LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMVAgAgMVgOgOgOMVAgAgAgAgAgAgAgAgAgAgAgAgAgAgAgAgAgAgAgMVgOgOgOgOjmnrAgjmSLSLSLjmgOgOgOgODigOgOgOgOjmAgnrjmgOgOgOgOLI
-LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMVAgAgMVgOgOgOMVMVMVAgAgAgMVMVMVMVAgMVMVMVMVMVMVMVAgAgMVgOgOgOgOjmnrAgAgSLSLSLjmgOgOgOgOgOgOgOgOgOjmnrnrjmgOgOgOgOLI
-LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMVAgAgMVgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOMVgOgOgOAgAgAgMVgOgOgOgOjmnrnrjmSLSLSLjmgOgOgOgONNgOgOgOgOjmnrAgjmgOgOgOgOLI
-LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOMVMVMVMVMVMVMVMVMVMVMVMVMVMVMVMVAgAgMVgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOMVgOgOgOMVAgAgMVgOgOgOgOjmAgnrjmjmjmjmjmgOgOgOgONNgOgOgOgOjmnrAgjmgOgOgOgOLI
+LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMVAgAgMVgOgOgOMVAgAgAgAgAgAgAgAgAgAgAgAgAgAgAgAgAgAgAgMVgOgOgOgOjmnrAgjmtwtwtwjmgOgOgOgObpgOgOgOgOjmAgnrjmgOgOgOgOLI
+LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMVAgAgMVgOgOgOMVMVMVAgAgAgMVMVMVMVAgMVMVMVMVMVMVMVAgAgMVgOgOgOgOjmnrAgAgtwtwtwjmgOgOgOgOgOgOgOgOgOjmnrnrjmgOgOgOgOLI
+LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMVAgAgMVgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOMVgOgOgOAgAgAgMVgOgOgOgOjmnrnrjmtwtwtwjmgOgOgOgOYzgOgOgOgOjmnrAgjmgOgOgOgOLI
+LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOMVMVMVMVMVMVMVMVMVMVMVMVMVMVMVMVAgAgMVgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOMVgOgOgOMVAgAgMVgOgOgOgOjmAgnrjmjmjmjmjmgOgOgOgOYzgOgOgOgOjmnrAgjmgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOMVAgAgAgAgAgAgAgAgAgAgAgAgAgAgAgAgAgMVgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOMVgOgOgOMVAgAgMVgOgOgOgOjmAgnrjmgOgOgOgOgOgOgOgOgOgOgOgOgOjmnrAgjmgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOMVAgAgAgAgAgAgAgAgAgAgAgAgAgAgAgAgAgMVgOgOgOgOgOMVAgAgAgMVMVMVMVMVMVMVMVgOgOgOMVAgAgMVgOjmjmjmjmAgnrjmjmjmjmgOgOgOgOgOgOgOjmjmjmjmnrAgjmjmjmjmgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOMVAgAgMVMVMVMVMVMVMVMVMVAgAgAgMVMVMVMVgOMVMVMVMVMVAgAgAgMVgOgOgOgOgOgOgOgOgOgOMVAgAgMVgOjmAgAgAgAgAgnrnrAgjmgOgOgOgOgOgOgOjmAgAgAgnrAgnrAgAgjmgOLI
-LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOMVAgAgMVgOgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOgOgOgOgOAgAgAgMVgOjmAgAgAgnrnrnrAgAgjmjmjmjmecjmjmjmjmAgAgnrnrnrAgnrAgjmgOLI
-LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOMVAgAgMVgOgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOMVMVMVMVMVAgAgMVMVjmAgAgnrAgnrAgAgAgAgAgAgAgUBjOlqAgAgnrnrAgAgAgnrAgAgjmgOLI
-LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOMVAgAgMVgOgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOMVAgAgAgAgAgAgAgAgAgAgnrnrAgAgAgAgnrAgAgAgAgUBAgnrnrnrAgAgAgnrnrAgAgAgjmgOLI
-LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOMVAgAgMVgOgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOMVAgAgAgAgAgAgAgAgAgAgnrnrAgnrAgAgnrAgAgAgAgUBAgnrnrnrnrnrnrAgAgAgnrAgjmgOLI
-LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOMVAgAggOgOgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOgOgOMVAgAgAgMVMVMVMVMVMVMVMVAgAgMVMVMVMVMVMVjmAgAgnrnrnrnrTTAgjmjmjmjmecjmjmjmjmAgAgnrnrAgAgnrAgjmgOLI
+LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOMVAgAgMVgOgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOgOgOgOgOAgAgAgMVgOjmAgAgAgnrnrnrAgAgjmjmjmjmCdjmjmjmjmAgAgnrnrnrAgnrAgjmgOLI
+LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOMVAgAgMVgOgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOMVMVMVMVMVAgAgMVMVjmAgAgnrAgnrAgAgAgAgAgAgAgxxsEJrAgAgnrnrAgAgAgnrAgAgjmgOLI
+LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOMVAgAgMVgOgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOMVAgAgAgAgAgAgAgAgAgAgnrnrAgAgAgAgnrAgAgAgAgxxAgnrnrnrAgAgAgnrnrAgAgAgjmgOLI
+LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOMVAgAgMVgOgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOMVAgAgAgAgAgAgAgAgAgAgnrnrAgnrAgAgnrAgAgAgAgxxAgnrnrnrnrnrnrAgAgAgnrAgjmgOLI
+LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOMVAgAggOgOgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOgOgOMVAgAgAgMVMVMVMVMVMVMVMVAgAgMVMVMVMVMVMVjmAgAgnrnrnrnrGjAgjmjmjmjmCdjmjmjmjmAgAgnrnrAgAgnrAgjmgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOMVAgAggOgOgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOMVAgAgMVgOgOgOgOgOjmAgnrAgAgAgAgnrAgjmgOgOgOgOgOgOgOjmAgnrAgAgAgnrnrnrjmgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOMVAgAgMVgOgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOgOgOAgAgAgAgAggOgOgOgOgOgOMVAgAgMVgOgOgOgOgOjmAgAgAgAgAgAgnrAgjmgOgOgOgOgOgOgOjmAgAgAgAgAgAgnrnrjmgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOMVAgAgMVgOgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOgOgOAgAgAgAgMVgOgOgOgOgOgOMVAgAgMVgOgOgOgOgOjmjmjmjmAgAgjmjmjmjmgOgOgOgOgOgOgOjmjmjmjmAgAgjmjmjmjmgOLI
@@ -1063,8 +1070,8 @@ LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgO
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMlHXijjsMlgOgOgOgOgOgOgOgOgOjmKDahaholQSQSZRjmgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOgOMVgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOgOgOgOgOMVAgAgAgAgAgAgAgAgAgAgAgAgAgAgMVgOMVgOgOgOgOgOgOgOgOgOMVgOMVAgAgMVgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMlHXijjsMlgOgOgOgOgOgOgOgOgOjmTJTJTJRWTJRWTJjmgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOgOMVgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOgOgOgOgOMVAgAgAgAgAgAgAgAgAgAgAgAgAgAgMVgOMVgOgOgOgOgOgOgOgOgOMVgOMVAgAgMVgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMlHXijjsMlgOgOgOgOgOgOgOgOgOjmzPMbjmjmjmyCbqjmgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOMVAgAgAgMVMVgOMVMVMVMVMVMVMVMVgOMVMVAgAgAgMVgOgOgOgOgOgOgOgOgOgOMVAgAgMVMVMVMVMVMVgOgOMVMVAgAgMVgOMVgOgOgOgOgOgOgOgOgOMVgOMVAgAgMVgOgOgOgOLI
-LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMlHXijjsMlgOgOgOgOgOgOgOgOgOjmzPMbjmgOjmbqbqjmgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOMVAgAgAgMVgOgOgOgOgOMVgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOgOgOgOgOMVAgAgMVgOgOgOgOgOgOgOgOMVAgAgMVgOMVgOgOgOgOgOgOgOgOgOMVgOMVAgAgMVgOgOgOgOLI
-LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMlMlMlMlMlMlMlMliVIkfSMlgOgOgOgOgOgOgOgOgOjmzPzPjmgOecNfRwecgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOMVAgAgAgMVgOgOgOgOgOMVgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOgOgOgOgOMVAgAgMVgOgOgOgOgOgOgOgOMVAgAgMVgOMVMVMVMVMVgOMVMVMVMVMVgOMVAgAgMVgOgOgOgOLI
+LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMlCVfpLCMlgOgOgOgOgOgOgOgOgOjmzPMbjmgOjmbqbqjmgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOMVAgAgAgMVgOgOgOgOgOMVgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOgOgOgOgOMVAgAgMVgOgOgOgOgOgOgOgOMVAgAgMVgOMVgOgOgOgOgOgOgOgOgOMVgOMVAgAgMVgOgOgOgOLI
+LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMlMlMlMlMlMlMltjiVIkfStjgOgOgOgOgOgOgOgOgOjmzPzPjmgOCdNfRwCdgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOMVAgAgAgMVgOgOgOgOgOMVgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOgOgOgOgOMVAgAgMVgOgOgOgOgOgOgOgOMVAgAgMVgOMVMVMVMVMVgOMVMVMVMVMVgOMVAgAgMVgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMlkRyAyAyAwdMlSWUxzdThMlMlMlMlMlMlMlDrDrDrDrnCYFDrgOjmyCyCjmgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOMVAgAgAgMVgOgOgOgOgOMVgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOgOgOgOgOMVAgAgMVgOgOgOgOgOgOgOgOMVAgAgMVgOMVgOgOgOgOgOgOgOgOgOMVgOMVAgAgMVgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMlkfCyNzpoyfsyCjHDijjsIzIzIzMcIzgfMlrclHAgJBnroxDrgOjmAgAgjmgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOMVAgAgAgMVgOgOgOgOgOMVgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOgOgOgOgOgOgOMVAgAgMVgOgOgOgOgOgOgOgOMVAgAgMVgOMVgOgOMVgOgOgOgOgOgOMVgOMVAgAgMVgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMlkfOdqdxDyfYXCjijijARXXXXXXXXIzIzMlAglHnrJBAgAgDrgOjmAgAgjmgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOMVAgAgAgMVgOgOgOgOgOMVgOgOgOgOgOgOMVAgAgAgMVgOgOgOgOMVMVMVMVMVMVMVAgAgMVgOgOgOgOgOgOgOgOMVAgAgMVgOMVgOMVMVgOgOgOgOgOgOMVgOMVAgAgMVgOgOgOgOLI
@@ -1079,17 +1086,17 @@ LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgO
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMlBGjsMlgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOSpdNmrmrPTyLjpbIjejemrmrmrwaSppPjeSljeOGSqDrDrDrgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOMVgOgOgOMVgOgOgOgOMVgOgOgOMVgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMlHXARMlgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOSpVvSOUhyDHhjppyqPEHqPRrqPooSpCcWcnytFGeSpgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOMVgOgOgOMVgOgOgOgOMVgOgOgOMVgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMlfIoiMlgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOSpqPDsuxDsHhjppyqPdzxaFrqPooSpnaWceRcaJHSpgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOMVMVMVMVMVgOgOgOgOMVMVMVMVMVgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
-LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOBhjbtLBhMlMlMlMlgOgOgOgOgOgOgOgOgOgOgOgOgOSpHzSpgOgOgOgOSpnIqPqPqPHhpjiwSpSpSpSpSpSpSpSpSpSpSpSpSpgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
+LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOtjjbtLtjMlMlMlMlgOgOgOgOgOgOgOgOgOgOgOgOgOSpHzSpgOgOgOgOSpnIqPqPqPHhpjiwSpSpSpSpSpSpSpSpSpSpSpSpSpgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMlMyPpMmGBlmXnMlgOgOgOgOgOgOgOgOgOgOgOgOgOSpziSpgOgOgOgOSpeLtuiIiIDkUHbESpgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOMlHXARMmGQLZjsMlgOgOgOgOgOgOgOgOgOgOgOgOgOSpgWSpgOgOgOgOSpSpSpSpSpmGkUSpSpgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgORoRokGkGdVdVdVdVdVdVdVdVdVdVdVgOgOMlZPARMmBgHXZUMlgOgOgOgOGDGDGDGDGDGDGDGDSpSpveSpSpSpSpgOgOSpZDlCLUarHkdoSpgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
-LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgORokGkGjNvmvmGVGVVotGqrzMZsztztgOgOMlfIRaMmNLZmnvMlgOgOgOgOqiIAofFbQKididTtetbibiDsvMjVSpgOgOSpOJunsWFfDsDsSpgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
-LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOGDVJiEfKvmzSrdqMqMTHpKqMAmsKztgOgOMlFcFcMlMlVWMlMlgOgOgOgOGDGDGDGDidGDGDGDSpSpSpSpSpDsSpgOgOSpFgbJqRTyDsjCSpgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
+LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgORokGkGjNvmvmGVGVVotGqrzMZsztztgOgOMlfIRaMmNLZmnvMlgOgOgOgOqiIAofFbQKididTtetbibiDsvMjVSpgOgOSpOJunsWFfDsDsAGgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
+LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOGDVJiEfKvmzSrdqMqMTHpKqrAmsKztgOgOMlFcFcMlMlVWMlMlgOgOgOgOGDGDGDGDidGDGDGDSpSpSpSpSpDsSpgOgOSpFgbJqRTyDsjCSpgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOGDUgylGXGDdVdVdVdVdVdVdVdVdVdVgOgOGDZzrWGDCZMMBUGDgOgOgOgOgOgOgOGDidGDgOgOgOgOgOgOSpDsSpgOgOSpivjaakXluSjCSpgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOGDhDFTNXGDgOgOgOgOgOgOgOgOgOgOgOgOGDAygnGDmYMMnwGDgOgOgOgOgOgOgOGDidGDgOgOgOgOgOgOSpsMSpgOgOSpmEpjUeSNzHqAIugOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
-LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOGDBvnjcNGDgOPZPZOrOrOrOrGDGDGDGDGDGDVqgnVtGDSaGDGDOrOrOrOrOrOrGDjnFbpiOrOrgONuNuNurUHxSqSpSpSpiLqPSpSpIuIuIugOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
-LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOGDojzERtGDgOPZHmHmHmHmSBidididRHRHXWmspXRHXWMMRHRHRHidididHmHmHmRHIIidPZRogOBWVxDsacGgacMtacacnFqPMtacDsBWgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
-LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOGDhyFTiUGDgOOrHmLMBoDYDYATPZididqTqTMMqTrzpBpBrzqTACSBRoHmHmHmrzrzHmHmPZRogOBWVxDsXKZYftftftftgZDsDsDsDsBWgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
+LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOGDBvnjcNGDgOPZPZOrOrOrOrGDGDGDGDGDGDVqgnVtGDOsGDGDOrOrOrOrOrOrGDjnFbpiOrOrgONuNuNurUHxSqSpSpSpiLqPSpSpIuIuIugOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
+LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOGDojzERtGDgOPZHmHmHmHmSBwSididRHRHXWmspXRHXWMMRHRHRHidididHmHmHmRHIIidPZRogOBWVxDsacGgacsDacacnFqPsDacDsBWgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
+LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOGDhyFTiUGDgOOrHmLMBoDYDYATPZididqTqTMMqTrzpBpBrzqTACSBRoHmHmHmrzrzHmHmPZRogOBWVxDsXKVAftftftftRVDsDsDsDsBWgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOVtUgyliUGDgOOrCQIFOrZdAFPZPZGDGDGDjnprjnGDGDGDGDGDOrOrRoOrOrOrOrGDGDOrOrRogOBWIuIuIuSpSpSpSpSpSpSpSpSpIuIugOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOGDlgyZQFGDgOOrAyMMRHWaSBOrgOgOgOgOGDFjGDgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOkGfazEGXGDgOGDAiIIIIMMgnOrgOgOgOgOGDIAGDgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
@@ -1146,11 +1153,11 @@ LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjOjOjOjOjmPzlmPOjOjOjOjOjgOgOgOgOgOgOgOgOgO
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjZwJhZcZceMQTgiQTtEtEaxOjgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjNSGZaCLGGZxJxJFSxJxJCROjgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjuVRFRFWVvZRFdcRFRFRFDyOjgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjJkayayCgWzOWWzGPayayeYOjgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjyaRFmZzvGchTUazvQifzdcOjgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjCgayKtwgHWkhophIWNBBtkOjgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
-LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjyafzpYOjOjOjOjOjPCfzdcOjOjOjOjOjOjOjOjOjOjOjOjOjOjvGOjOjOjOjOjOjvGOjCgZbChOjOjOjOjOjCgZbtkOjgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
+LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjyafzpYOjOjOjOjOjPCfzdcOjOjOjOjOjOjOjOjOjOjOjOjOjOjmyOjOjOjOjOjOjmyOjCgZbChOjOjOjOjOjCgZbtkOjgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjHrJhciOjgOgOgOOjzkQTXqLfdJHvHvHvCYpcPkLfdJHvLjCYzVvLcuzFnojZLwzhvLtkKmGZKeOjgOgOgOOjsBxJebOjgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjyaRFewOjgOgOgOOjBHfzdcPqyXyXyXyXyXjBvvSULiFMFMFMiGvLGPrpTYWzGPAZvLChCgayZkOjgOgOgOOjJkBBdgOjgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjGcIJtVOjgOgOgOOjGcIJtVLfoEXwXwXwmipcfzsdoEXwXwmipDtpTWvvzhWzHKzhtpChlsHWeKOjgOgOgOOjlsHWjfOjgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
-LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjSmfzpFOjOjOjOjOjpHvbdcOjOjOjOjOjOjmPXfmPOjOjOjOjOjvGmPzlmPOjOjOjvGOjTYZbChOjOjOjOjOjCJWztkOjgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
+LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjSmfzpFOjOjOjOjOjpHvbdcOjOjOjOjOjOjmPXfmPOjOjOjOjOjmymPzlmPOjOjOjmyOjTYZbChOjOjOjOjOjCJWztkOjgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjhiRFmNQTgRxTDXJhBQRFpYOjgOgOgOgOgOOjhxCagOgOgOgOgOgOCahxCagOgOgOgOOjTYayYyxJWhvOqbGZNgayChOjgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjBHfzRFRFRFrpfzlNaFfzewOjgOgOgOgOgOCaQJCagOgOgOgOgOgOCaQJCagOgOgOgOOjJkBBayWzWzWzZbOWayBBZkOjgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjhnLdkEzvKloMOOzvzvRMjPOjgOgOgOgOgOCaQJCagOgOgOgOgOgOCaQJCagOgOgOgOOjhEcQopoplplplpopopbdVsOjgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
@@ -1163,9 +1170,9 @@ LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjSbyXRxOjgOgOgOgOgOgOgOgOgOCaerCagO
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjSbyXRxOjgOgOgOgOgOgOgOgOgOCaerCagOgOgOgOgOgOCaQJCagOgOgOgOgOgOgOgOOjNiazdsOjOjOjOjgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjsTyXdJOjgOgOgOgOgOgOgOgOgOCaerCagOgOgOgOgOgOCaQJCagOgOgOgOgOgOgOgOOjUFazKKOjgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjyOoJyOOjgOgOgOgOgOgOgOgOgOCatJCaCaCaCaCaCaCaCaQJCagOgOgOgOgOgOgOgOOjNiazdsOjgOgOgOgOgOGpGprPGpvXGpbrGpGpgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
-LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOvGYdiMYdmyOjCaCaCaCaCaCaCaCaCaLhkwertJQJQJQJQJerCUCagOgOgOgOgOgOgOgOOjwkZHmlOjgOgOgOgOgOGpzGVuanCXancszGGpgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
-LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjreRFRFzlwRQJGMQJQJQJQJererQDPVWnaUCaCaCaCaCaCaCaCagOgOgOgOgOgOgOgOvGfLaedAvGgOgOgOgOgOGpaniaanSianKHanGpgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
-LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOvGYdYdYdmyOjOjCaCaCaCaCaCaCaCacoQJCaCagOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjSXCkRqOjgOgOgOgOgOGpananananananxwGpgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
+LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOmyYdiMYdjwOjCaCaCaCaCaCaCaCaCaLhkwertJQJQJQJQJerCUCagOgOgOgOgOgOgOgOOjwkZHmlOjgOgOgOgOgOGpzGVuanCXancszGGpgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
+LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjreRFRFzlwRQJGMQJQJQJQJererQDPVWnaUCaCaCaCaCaCaCaCagOgOgOgOgOgOgOgOmyfLaedAmygOgOgOgOgOGpaniaanSianKHanGpgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
+LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOmyYdYdYdjwOjOjCaCaCaCaCaCaCaCacoQJCaCagOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjSXCkRqOjgOgOgOgOgOGpananananananxwGpgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjNaXNTmOjgOgOgOgOgOgOgOgOgOCaCaelCagOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjUFazKKOjgOgOgOgOgOGpananananVrKkSnGpgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjmiFMoEOjgOgOgOgOgOgOgOgOgOgOCaQJCagOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjNiazdsOjgOgOgOgOgOGpPnananQPvavaIiGpgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOOjSbFMCbOjgOgOgOgOgOgOgOgOgOgOCaQJCagOgOgOgOgOgOgOgOgOgOgOgOgOgOOjOjOjNiazdsOjgOgOgOgOgOGpGpGpGpGpGpGpGpGpgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
@@ -1176,9 +1183,9 @@ LIgOgOgOOjcDhsKPmgzlIShxjiOjgOgOgOgOOjZwJhdZJhHrQTgiQTQTdCgROjgOgOgOgOgOgOCadQCa
 LIgOgOgOOjhxhxQJLHzloaQJhxOjgOgOgOgOOjuVRFRFfzRORFdcRFRFRFsNOjgOgOgOgOgOgOCaQJCagOgOgOgOgOgOgOgOgOgOgOgOOjUFazazazazazazTEcyOCceOjgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOVHfPngasDbaaEDGrotIypfqWKbyUEDmdyUGrgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOOjGUQJhxcDzlcDhxoaOjgOgOgOgOOjyavbmZzvGchTUaXeQifzHIOjgOgOgOgOgOgOCaQJCagOgOgOgOgOgOgOgOgOgOgOgOOjzYLjLjLjLjaBLjCYcyCHtkOjgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOVHVHVHVHVHVHKOGrRjIypfqWKbyUEDmdyUGrgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOOjOjdiOfOjOjOjOfOjOjOjOjOjOjOjyafzpYOjOjOjOjOjyafzdcOjOjOjOjOjOjOjmPWsmPOjOjOjOjOjOjOiOiOjOjOjOjOjDSMfJfOjOjOjOjOjTYZbtkOjOjOjOjOiOiOiOjOjOjOjOjOjOiOjOjVHVFLRJSOtFzLWGrLlIypfqWhMALEDmdyUGrgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
-LIgOgOgOOjrnfzRFBRJXyafzfzdcrpuGfzAXoMHrJhciOjgOgOgOOjzkQTGEpQzDLjHvHvrXGvlbRFMwdJLjLjHvrXXdLfzDHvHvHvCYpDTYBBChOjgOgOgOOjKmGZURpQzDHvHvHvsTjAmIWzEUdJHvLjLjsTVYVHHLphLWLWLWLWEDIypfIyVIKbmaEDmdyUGrgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
+LIgOgOgOOjrnfzRFBRJXyafzfzdcrpuGfzAXoMDXJhciOjgOgOgOOjzkQTGEpQzDLjHvHvrXGvlbRFMwdJLjLjHvrXXdLfzDHvHvHvCYpDTYBBChOjgOgOgOOjKmGZURpQzDHvHvHvsTjAmIWzEUdJHvLjLjsTVYVHHLphLWLWLWLWEDIypfIyVIKbmaEDmdyUGrgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOOjOLfzRFpYrpyaRFRFdcfnvDRFJcrpyaRFewOjgOgOgOOjBHfzdcPqyXyXyXyXyXTDrpucPqyXyXyXyXyXiGPqyXLiLiLiLiFyTYBBceOjgOgOgOOjKqBBtkNlLiLiLiyXyXFyoMrpNlyXyXyXyXyXFyYQKMKMUiUiphLWUJIypfIyVIKbyUEDmdyUGrgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
-LIgOgOgOOjWJRFRFdcbwvZRFfzsLRdCiRFAXoMGcIJtVOjgOgOgOOjGcIJtVDvPKXwXwBOEapcRFAMLfoEHsXwXwEawGLfPKXwXwXwYtpDlsHWhIOjgOgOgOOjqEHWhIpQPKHsHsHsYtjASuZbEUoEHsXwXwYtVYVHVZicTeWikSRBGrDDpfpfqWKbyUEDmdRhGrgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
+LIgOgOgOOjWJRFRFdcbwvZRFfzsLRdCiRFAXoMxCIJtVOjgOgOgOOjGcIJtVDvPKXwXwBOEapcRFAMLfoEHsXwXwEawGLfPKXwXwXwYtpDlsHWhIOjgOgOgOOjqEHWhIpQPKHsHsHsYtjASuZbEUoEHsXwXwYtVYVHVZicTeWikSRBGrDDpfpfqWKbyUEDmdRhGrgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOOjOjdiOfOjOjOjOfOjOjOjOjOjOjOjvZfzpFOjOjOjOjOjpHRFdcOjOjOjOjOjOjOjUvOjOjOjOjOjOiOjOiOjOjOjOjOjOjOjTYWztkOjOjOjOjOjTYWzChOjOjOjOjOjOiOjOjOjOiOjOjOjOjOjOjVHVHOlOlVHKOVHGrRjIypfVIKbyUEDmdyUGrgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOOjQJQJhxXYzlQJQJhxOjgOgOgOgOOjvZRFbtQTgRoMDXvKBQRFpYOjgOgOgOgOOjcDJidhOjgOgOgOgOgOgOgOgOgOgOgOgOOjTYCHYyvkNUVbejFONgCHChOjgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOVHcWcmMXwvpfQMGrRjIypfVIKbyUEDmdyUGrgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
 LIgOgOgOOjcDhxQJhxzlQJQJcDOjgOgOgOgOOjBHfzRFRFRFrpfzlNaFfzewOjgOgOgOgOOjcDIfrxOjgOgOgOgOgOgOgOgOgOgOgOgOOjKqBBpSZbWzrpWzZbBBhzceOjgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOVHdrIyIypfpfHGGrLlpfIyqWKbyUEDmdyUGrgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLIgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOLI
