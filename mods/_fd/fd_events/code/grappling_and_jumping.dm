@@ -15,19 +15,21 @@
 
 /obj/structure/fd/chasm/Initialize()
 	. = ..()
-	START_PROCESSING(SSobj, src)
 
 	for(var/area/A in world)
-		if(teleport_to == A)
-			connected_area = A
-			break
-
-	for(var/turf/T in connected_area)
-		if(T.density)
+		if(teleport_to != A)
 			continue
-		possible_points += T
+		connected_area = A
+
+	START_PROCESSING(SSobj, src)
 
 /obj/structure/fd/chasm/proc/check_fall(mob/living/user)
+	if(!length(possible_points))
+		for(var/turf/T in connected_area.contents)
+			if(T.density)
+				continue
+			possible_points += T
+
 	if(abyss)
 		qdel(user)
 	else
