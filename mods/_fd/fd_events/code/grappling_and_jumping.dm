@@ -8,15 +8,21 @@
 	icon_state = "tools/black"
 	alpha = 100
 
-	var/area/teleport_to = null
-	var/list/possible_points = list()
+	var/teleport_to = /area/metro
+	var/area/connected_area
+	var/list/turf/possible_points = list()
 	var/abyss = FALSE
 
 /obj/structure/fd/chasm/Initialize()
 	. = ..()
 	START_PROCESSING(SSobj, src)
 
-	for(var/turf/T in teleport_to)
+	for(var/area/A in world)
+		if(teleport_to == A)
+			connected_area = A
+			break
+
+	for(var/turf/T in connected_area)
 		if(T.density)
 			continue
 		possible_points += T
