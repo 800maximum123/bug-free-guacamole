@@ -8,24 +8,19 @@
 	icon_state = "tools/black"
 	alpha = 100
 
-	var/teleport_to = /area/metro
-	var/area/connected_area
+	var/area/teleport_to = /area/metro
 	var/list/turf/possible_points = list()
 	var/abyss = FALSE
 
 /obj/structure/fd/chasm/Initialize()
 	. = ..()
-
-	for(var/area/A in world)
-		if(teleport_to != A)
-			continue
-		connected_area = A
-
 	START_PROCESSING(SSobj, src)
 
 /obj/structure/fd/chasm/proc/check_fall(mob/living/user)
 	if(!length(possible_points))
-		for(var/turf/T in connected_area.contents)
+		var/area/A = locate(teleport_to)
+
+		for(var/turf/T in get_area_turfs(A))
 			if(T.density)
 				continue
 			possible_points += T
@@ -60,7 +55,7 @@
 				check_fall(L)
 
 /obj/structure/fd/chasm/Crossed(atom/A)
-	if(ismob(A))
+	if(isliving(A))
 		var/mob/living/L = A
 
 		if(L.in_dash)

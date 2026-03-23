@@ -5,6 +5,7 @@
 
 	anchored = TRUE
 	density = FALSE
+	var/other_area
 	var/area/area
 
 	var/datum/sound_token/sound_token
@@ -12,7 +13,10 @@
 
 /obj/sturcture/fd/interactive/basic_power/Initialize()
 	. = ..()
-	area = get_area(src)
+	if(other_area)
+		area = locate(other_area)
+	else
+		area = get_area(src)
 
 /obj/sturcture/fd/interactive/basic_power/Process()
 	update_sound()
