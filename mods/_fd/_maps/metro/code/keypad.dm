@@ -89,12 +89,21 @@
 	ShowKeypad(user)
 	return
 
-/obj/machinery/button/alternate/door/keypad
+/obj/machinery/button/alternate/door/keypad/airlock
 	stock_part_presets = list(/singleton/stock_part_preset/radio/basic_transmitter/button/airlock_keypad)
 
 /singleton/stock_part_preset/radio/basic_transmitter/button/airlock_keypad
 	frequency = AIRLOCK_FREQ
 	transmit_on_change = list(
 		"toggle_bolts" = /singleton/public_access/public_variable/button_active,
+		"toggle_door" = /singleton/public_access/public_variable/button_active
+		)
+
+/obj/machinery/button/alternate/door/keypad/blast
+		stock_part_presets = list(/singleton/stock_part_preset/radio/basic_transmitter/button/blastdoor_keypad)
+
+/singleton/stock_part_preset/radio/basic_transmitter/button/blastdoor_keypad
+	frequency = BLAST_DOORS_FREQ
+	transmit_on_change = list(
 		"toggle_door" = /singleton/public_access/public_variable/button_active
 		)

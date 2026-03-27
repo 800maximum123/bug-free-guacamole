@@ -14,8 +14,10 @@
 /area/metro/maintain/tunnel
 	name = "Tehcnical Tunnels"
 
+
 /area/metro/maintain/south
 	name = "South Tunnels"
+	adventure_mode = TRUE
 
 /area/metro/maintain/south/blast_door
 
