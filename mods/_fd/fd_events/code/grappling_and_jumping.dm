@@ -12,22 +12,24 @@
 	var/list/turf/possible_points = list()
 	var/abyss = FALSE
 
+	anchored = TRUE
+
 /obj/structure/fd/chasm/Initialize()
 	. = ..()
 	START_PROCESSING(SSobj, src)
 
 /obj/structure/fd/chasm/proc/check_fall(mob/living/user)
-	if(!length(possible_points))
-		var/area/A = locate(teleport_to)
-
-		for(var/turf/T in get_area_turfs(A))
-			if(T.density)
-				continue
-			possible_points += T
-
 	if(abyss)
 		qdel(user)
 	else
+		if(!length(possible_points))
+			var/area/A = locate(teleport_to)
+
+			for(var/turf/T in get_area_turfs(A))
+				if(T.density)
+					continue
+				possible_points += T
+
 		user.alpha = 0
 		user.pixel_z = 128
 		user.forceMove(pick(possible_points))
@@ -65,6 +67,7 @@
 			return
 
 		else
+			L.Stun(10)
 			animate(L, transform = matrix(0.01, MATRIX_SCALE), time = 1 SECOND, easing = BOUNCE_EASING)
 			spawn(1 SECONDS)
 				check_fall(L)
@@ -72,6 +75,32 @@
 	. = ..()
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/obj/screen/cancel_dash
+	name = "ПРЕРВАТЬ ПРЫЖОК"
+	desc = "Отменяет..."
+	icon = 'mods/_fd/fd_events/icons/dash_info.dmi'
+	icon_state = "jump_cancel_button"
+
+	plane = HUD_PLANE
+	layer = 5.4
+	alpha = 0
+
+	screen_loc = "CENTER,CENTER"
+	var/mob/living/connected_mob
+	var/image/jumplay
+
+/obj/screen/cancel_dash/Click()
+	connected_mob.preparing_to_dash = FALSE
+
+	spawn(4)
+		connected_mob.client.screen -= src
+		connected_mob.client.screen -= connected_mob.dashing_overlay
+		CutOverlays(jumplay)
+	animate(src, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
+	animate(connected_mob.dashing_overlay, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT)
+
+	return TRUE
 
 #define CATEGORY_FD "FINAL DESTINATION"
 /datum/keybinding/living/fd
@@ -82,6 +111,9 @@
 	name = "dash"
 	full_name = "General: DASH"
 	description = ""
+
+	var/image/dash_indication
+	var/obj/screen/cancel_dash/cd
 
 /datum/keybinding/living/fd/dash/can_use(client/user)
 	. = ..()
@@ -105,14 +137,78 @@
 /datum/keybinding/living/fd/dash/down(client/user)
 	var/mob/living/L = user.mob
 	L.preparing_to_dash = TRUE
+
+	L.CutOverlays(dash_indication)
+
+	dash_indication = image('mods/_fd/fd_events/icons/dash_info.dmi', icon_state = "jump_indicator")
+	dash_indication.mouse_opacity = FALSE
+	dash_indication.pixel_y = 32
+
+	if(!L.dashing_overlay)
+		L.dashing_overlay = new /obj/screen/dash_charging_overlay()
+		L.dashing_overlay.connected_mob = L
+		L.client.screen += L.dashing_overlay
+
+	if(!cd)
+		cd = new /obj/screen/cancel_dash()
+		cd.connected_mob = L
+		cd.jumplay = dash_indication
+	L.client.screen += cd
+	animate(cd, transform = matrix(0, -48, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+	L.AddOverlays(dash_indication)
+
 	return TRUE
 
 /datum/keybinding/living/fd/dash/up(client/user)
 	var/mob/living/L = user.mob
+
+	if(!L.preparing_to_dash)
+		L.dash_distance = initial(L.dash_distance)
+		L.dash_bonus_points = initial(L.dash_bonus_points)
+		spawn(4)
+			L.client.screen -= cd
+		animate(cd, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
+		animate(L.dashing_overlay, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT)
+		L.CutOverlays(dash_indication)
+		return TRUE
+
 	L.preparing_to_dash = FALSE
-	L.update_dash_visuals()
 	L.dash()
+
+	spawn(4)
+		L.client.screen -= cd
+	L.CutOverlays(dash_indication)
+	animate(cd, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
+	animate(L.dashing_overlay, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT)
 	return TRUE
+
+/obj/screen/dash_charging_overlay
+	name = "ЗАРЯДКА"
+	desc = "..."
+	icon = 'mods/_fd/fd_events/icons/dash_info.dmi'
+	icon_state = "0_bonus"
+
+	mouse_opacity = FALSE
+
+	plane = HUD_PLANE
+	layer = 5.3
+
+	screen_loc = "CENTER,CENTER-0.5"
+	var/mob/living/connected_mob
+
+/obj/screen/dash_charging_overlay/Initialize()
+	. = ..()
+	START_PROCESSING(SSobj, src)
+
+/obj/screen/dash_charging_overlay/Process()
+	if(!connected_mob.preparing_to_dash && icon_state != "0_bonus")
+		icon_state = "0_bonus"
+
+	if(connected_mob.preparing_to_dash)
+		screen_loc = "CENTER,CENTER-0.5"
+		alpha = 255
+
+		icon_state = "[connected_mob.dash_bonus_points]_bonus"
 
 /mob/living
 	var/dash_allowed = TRUE
@@ -125,7 +221,7 @@
 	var/dash_bonus_points_max = 5
 	var/dash_stamina_use = 20
 
-	var/image/dash_charging_overlay
+	var/obj/screen/dash_charging_overlay/dashing_overlay
 
 	var/attached_to_surface = FALSE
 
@@ -138,22 +234,14 @@
 
 		if(dash_bonus_points < dash_bonus_points_max)
 			dash_bonus_points += 1
-			update_dash_visuals()
 
 	. = ..()
 
-/mob/living/proc/update_dash_visuals()
-	if(preparing_to_dash)
-		CutOverlays(dash_charging_overlay)
+/mob/living/proc/client_jump_shift()
+	set waitfor = FALSE
 
-		dash_charging_overlay = image('mods/_fd/fd_events/icons/dash_info.dmi', icon_state = "[dash_bonus_points]_bonus")
-		dash_charging_overlay.mouse_opacity = FALSE
-		dash_charging_overlay.pixel_y = -10
-
-		AddOverlays(dash_charging_overlay)
-
-	else
-		CutOverlays(dash_charging_overlay)
+	animate(client, pixel_y = 10, time = 7, easing = BACK_EASING | EASE_IN)
+	animate(pixel_y = 0, time = 7, easing = SINE_EASING | EASE_IN)
 
 /mob/living/proc/dash()
 	adjust_stamina(-dash_stamina_use)
@@ -165,12 +253,11 @@
 	dash_distance += dash_bonus_points
 
 	jump_layer_shift()
+	if(client)
+		client_jump_shift()
 
-	animate(client, pixel_y = 10, time = 7, easing = BACK_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
 	animate(src, pixel_z = 16, time = 7, easing = SINE_EASING | EASE_IN)
-
-	animate(client, pixel_y = default_pixel_y, time = 7, easing = SINE_EASING | EASE_IN)
-	animate(src, pixel_z = default_pixel_z, time = 7, easing = SINE_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
+	animate(pixel_z = default_pixel_z, time = 7, easing = SINE_EASING | EASE_OUT)
 
 	throw_at(get_edge_target_turf(src, direction), dash_distance, 1, src, FALSE, new Callback(src, PROC_REF(resolve_dash)))
 	addtimer(new Callback(src, TYPE_PROC_REF(/mob/living, jump_layer_shift_end)), 4.5)

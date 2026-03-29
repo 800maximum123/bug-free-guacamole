@@ -1,6 +1,40 @@
+/obj/screen/cancel_interaction
+	name = "ПРЕРВАТЬ ПРОСМОТР"
+	desc = "Отменяет..."
+	icon = 'mods/_fd/fd_utilities/icons/actions.dmi'
+	icon_state = "close_interaction"
+
+	plane = HUD_PLANE
+	layer = 5.4
+	alpha = 0
+
+	screen_loc = "CENTER,CENTER"
+	var/mob/living/connected_mob
+
+/obj/screen/cancel_interaction/Click()
+	spawn(4)
+		connected_mob.client.screen -= src
+	animate(src, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
+
+	if(istype(connected_mob.currently_interacting, /obj/sturcture/fd/interactive/note))
+		var/obj/sturcture/fd/interactive/note/N = connected_mob.currently_interacting
+
+		for(var/datum/interactive_note/I in N.attached_text)
+			I.hide_note_from_player(connected_mob)
+
+	if(istype(connected_mob.currently_interacting, /obj/sturcture/fd/interactive/basic_power/cool_gen))
+		var/obj/sturcture/fd/interactive/basic_power/cool_gen/C = connected_mob.currently_interacting
+		C.hide_ui(connected_mob)
+
+	else
+		connected_mob.currently_interacting.hide_description(connected_mob)
+
+	return TRUE
+
 /mob/living
 	var/reading = FALSE
 	var/atom/currently_interacting
+	var/obj/screen/cancel_interaction/cancel_button
 
 /mob/living/Life()
 
@@ -30,6 +64,10 @@
 /datum/keybinding/living/fd/hide_interaction/down(client/user)
 	var/mob/living/M = user.mob
 
+	spawn(4)
+		M.client.screen -= M.cancel_button
+	animate(M.cancel_button, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
+
 	if(istype(M.currently_interacting, /obj/sturcture/fd/interactive/note))
 		var/obj/sturcture/fd/interactive/note/N = M.currently_interacting
 
@@ -50,6 +88,7 @@
 	name = "start_interaction"
 	full_name = "General: START INTERACTION"
 	description = ""
+	var/obj/screen/cancel_interaction/ci
 
 /datum/keybinding/living/fd/start_interaction/can_use(client/user)
 	. = ..()
@@ -80,7 +119,15 @@
 
 			choosen_atom = A
 
-	choosen_atom.interact_with(M)
+	if(choosen_atom)
+		choosen_atom.interact_with(M)
+		if(!ci)
+			ci = new /obj/screen/cancel_interaction()
+			ci.connected_mob = M
+			M.cancel_button = ci
+		M.client.screen += ci
+		animate(ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+
 	return TRUE
 
 /atom/
