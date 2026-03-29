@@ -24,7 +24,7 @@
 
 /proc/shakeship(sstrength, stime, drop, osound = TRUE, region)
 	for(var/mob/living/carbon/current_mob in GLOB.human_mobs)
-		if (!get_z(current_mob) in z_levels)
+		if (!get_z(current_mob) in region)
 			continue
 		shake_camera(current_mob, stime, sstrength)
 		if(drop)
