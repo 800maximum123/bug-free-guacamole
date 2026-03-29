@@ -8,7 +8,7 @@
 	icon_state = "tools/black"
 	alpha = 100
 
-	var/area/teleport_to = /area/metro
+	var/area/teleport_to // = /area/metro // Вызывает кучу не нужных конфликтов. Перенесено в файл fine_additions.dm Метрошки
 	var/list/turf/possible_points = list()
 	var/abyss = FALSE
 
