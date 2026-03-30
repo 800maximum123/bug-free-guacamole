@@ -41,6 +41,24 @@
 /area/metro/maintain/east
 	name = "East Wing"
 
+/area/metro/maintain/east/security
+	name = "East Security Point"
+
+/area/metro/maintain/east/med
+	name = "East Medical Wing"
+
+/area/metro/maintain/east/warehouse
+	name = "East Warehouse"
+
+/area/metro/maintain/east/pump
+	name = "Shaft 4"
+
+/area/metro/maintain/east/corridors1
+	name = "East Wing"
+
+/area/metro/maintain/east/corridors2
+
+
 // Задымлённый коридор (низя дышать)
 /area/metro/maintain/gas
 	name = "Techinal Area"
