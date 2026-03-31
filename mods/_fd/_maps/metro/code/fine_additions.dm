@@ -53,13 +53,13 @@
 	var/obj/particle_emitter/P
 	var/area/A
 
-/obj/sturcture/fd/interactive/leak/Initialize()
+/obj/structure/fd/interactive/leak/Initialize()
 	. = ..()
 
 	A = get_area(src)
 	START_PROCESSING(SSobj,src)
 
-/obj/sturcture/fd/interactive/leak/Process()
+/obj/structure/fd/interactive/leak/Process()
 	update_sound()
 
 	if(A.unbreathable && !P)
@@ -80,7 +80,7 @@
 	if(!A.unbreathable && P)
 		qdel(P)
 
-/obj/sturcture/fd/interactive/leak/proc/update_sound()
+/obj/structure/fd/interactive/leak/proc/update_sound()
 	if(!sound_id)
 		sound_id = "[type]_[sequential_id(/obj/sturcture/fd/interactive/leak)]"
 	if(A.unbreathable)

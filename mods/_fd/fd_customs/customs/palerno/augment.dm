@@ -18,10 +18,12 @@
 			return FALSE
 	. = ..()
 
-/datum/sprite_accessory/marking/ibis // Временная заглушка, дабы не ебать себе мозги TODO: Сделать круто
+// /datum/sprite_accessory/marking/ibis // Временная заглушка, дабы не ебать себе мозги TODO: Сделать круто
+/datum/sprite_accessory/marking/tattoo/chest/ibis
 	name = "IBIS-C4-45"
 	icon = 'mods/_fd/fd_customs/customs/palerno/icon/implant.dmi'
 	icon_state = "onmobimplant"
-	species_allowed = list(SPECIES_HUMAN)
-	body_parts = list(BP_CHEST)
+//	draw_order = 60
+//	species_allowed = list(SPECIES_HUMAN)
+//	body_parts = list(BP_CHEST)
 	do_coloration = 0
