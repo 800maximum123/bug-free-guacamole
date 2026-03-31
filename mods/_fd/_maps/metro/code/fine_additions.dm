@@ -6,7 +6,7 @@
 	area.unbreathable = TRUE
 	. = ..()
 
-/obj/sturcture/fd/decorative_pipes
+/obj/structure/fd/decorative_pipes
 	name = "pipe"
 	desc = "Simple pipe."
 	icon = 'mods/_fd/_maps/metro/icons/pipes.dmi'
@@ -37,7 +37,7 @@
 	layer = FIRE_LAYER
 	alpha = 100
 
-/obj/sturcture/fd/interactive/leak
+/obj/structure/fd/interactive/leak
 	name = "pipe"
 	desc = "Шипит...."
 
