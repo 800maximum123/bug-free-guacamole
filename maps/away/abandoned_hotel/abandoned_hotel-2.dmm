@@ -150,6 +150,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_hotel/evac)
+"ba" = (
+/obj/structure/bed,
+/obj/item/bedsheet,
+/obj/structure/curtain/open/bed,
+/obj/landmark/corpse/fleet/warspite/utility,
+/turf/simulated/floor/pool,
+/area/abandoned_hotel/rooms)
 "be" = (
 /obj/item/stack/material/tritium,
 /turf/simulated/floor/plating,
@@ -300,6 +307,10 @@
 /obj/structure/cable/yellow,
 /turf/simulated/floor/airless,
 /area/space)
+"cm" = (
+/obj/item/gun/projectile/automatic/bullpup_rifle/light,
+/turf/space,
+/area/space)
 "cw" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -336,6 +347,7 @@
 /obj/structure/bed,
 /obj/structure/curtain/open/bed,
 /obj/item/bedsheet,
+/obj/landmark/corpse/fleet/warspite,
 /turf/simulated/floor/pool,
 /area/abandoned_hotel/rooms)
 "db" = (
@@ -472,6 +484,17 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"ef" = (
+/obj/structure/curtain/open/bed{
+	pixel_y = -32
+	},
+/obj/structure/roller_bed,
+/obj/structure/fd/body/bluespace_infected{
+	pixel_x = 0;
+	pixel_y = -4
+	},
+/turf/simulated/floor/pool,
+/area/abandoned_hotel/rooms)
 "ei" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -518,6 +541,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/mob/living/simple_animal/hostile/human/fleet/warspite/random,
 /turf/simulated/floor/carpet/green,
 /area/abandoned_hotel/rooms)
 "eM" = (
@@ -562,12 +586,42 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_hotel/rooms)
+"fb" = (
+/obj/structure/closet/crate/secure/weapon,
+/obj/item/gun/projectile/automatic/bullpup_rifle/light{
+	starts_loaded = 0
+	},
+/obj/item/gun/projectile/automatic/bullpup_rifle{
+	starts_loaded = 0
+	},
+/obj/item/gun/projectile/automatic/assault_rifle/heltek{
+	starts_loaded = 0
+	},
+/obj/item/gun/projectile/automatic/mr735{
+	starts_loaded = 0
+	},
+/obj/item/clothing/accessory/storage/webbing_large,
+/obj/item/gun/projectile/pistol/sol_service/empty,
+/obj/item/gun/projectile/pistol/sol_service/empty,
+/obj/item/gun/projectile/automatic/l6_saw{
+	starts_loaded = 0
+	},
+/obj/item/gun/projectile/pistol/optimus{
+	starts_loaded = 0
+	},
+/turf/space,
+/area/space)
 "fd" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_hotel/atmos)
+"fg" = (
+/obj/item/clothing/accessory/storage/bandolier,
+/obj/item/clothing/accessory/storage/holster/waist,
+/turf/space,
+/area/space)
 "fh" = (
 /obj/structure/hygiene/toilet,
 /obj/machinery/light/small{
@@ -700,6 +754,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_hotel/solar)
+"gd" = (
+/obj/structure/closet/crate/secure/weapon,
+/obj/item/storage/box/ammo/light_bullpup,
+/obj/item/storage/box/ammo/doublestack,
+/obj/item/storage/box/ammo/heavy_bullpup,
+/obj/item/storage/box/fragshells,
+/obj/item/storage/box/ammo/doublestack,
+/obj/item/storage/box/frags,
+/obj/item/storage/box/ammo/assault_rifle,
+/obj/item/storage/box/ammo/assault_rifle,
+/turf/space,
+/area/space)
 "ge" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/wood,
@@ -1064,10 +1130,21 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/grass/cut,
 /area/abandoned_hotel/rooms)
+"iG" = (
+/obj/item/storage/backpack/rucksack/green,
+/turf/space,
+/area/space)
 "iI" = (
 /obj/structure/lattice,
 /turf/space,
 /area/space)
+"iK" = (
+/obj/floor_decal/spline/fancy/black{
+	dir = 1
+	},
+/mob/living/simple_animal/hostile/human/fleet/warspite/random,
+/turf/simulated/floor/wood/walnut,
+/area/abandoned_hotel/rooms)
 "ja" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -1084,6 +1161,21 @@
 /obj/structure/lattice,
 /turf/space,
 /area/space)
+"jr" = (
+/obj/structure/bed/chair/comfy/green{
+	dir = 4
+	},
+/mob/living/simple_animal/hostile/human/fleet/warspite/random{
+	dir = 4;
+	ai_holder = null
+	},
+/obj/item/clothing/suit/space/void/pilot/scgf/prepared{
+	pixel_x = 12;
+	pixel_y = -6;
+	anchored = 1
+	},
+/turf/simulated/floor/wood/walnut,
+/area/abandoned_hotel/rooms)
 "jv" = (
 /obj/structure/missile/he{
 	dir = 2;
@@ -1139,6 +1231,24 @@
 	},
 /turf/simulated/floor/tiled/old_cargo,
 /area/abandoned_hotel/overlook)
+"kc" = (
+/obj/item/clothing/suit/armor/pcarrier/green/heavy_saare{
+	accessories = list(/obj/item/clothing/accessory/armor_plate/medium,/obj/item/clothing/accessory/arm_guards/green,/obj/item/clothing/accessory/leg_guards/green,/obj/item/clothing/accessory/storage/pouches/green)
+	},
+/turf/space,
+/area/space)
+"ko" = (
+/obj/structure/table/rack,
+/obj/item/clothing/glasses/ballistic,
+/obj/item/clothing/accessory/helmet_cover/green,
+/obj/item/clothing/head/helmet/tactical,
+/obj/item/clothing/suit/armor/pcarrier/green/heavy_saare{
+	accessories = list(/obj/item/clothing/accessory/armor_plate/medium,/obj/item/clothing/accessory/arm_guards/green,/obj/item/clothing/accessory/leg_guards/green,/obj/item/clothing/accessory/storage/pouches/green)
+	},
+/obj/item/storage/belt/holster/security/tactical,
+/obj/item/storage/backpack/rucksack/green,
+/turf/simulated/floor/wood,
+/area/abandoned_hotel/rooms)
 "kw" = (
 /obj/structure/cable{
 	d1 = 5;
@@ -1211,6 +1321,12 @@
 /obj/structure/bed/chair,
 /turf/simulated/floor/tiled,
 /area/abandoned_hotel/evac)
+"lJ" = (
+/obj/submap_landmark/joinable_submap/sfv_tigris/iccgn{
+	name = "Leader"
+	},
+/turf/simulated/floor/wood,
+/area/abandoned_hotel/rooms)
 "lL" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/bed,
@@ -1218,6 +1334,18 @@
 /obj/item/bedsheet,
 /turf/simulated/floor/pool,
 /area/abandoned_hotel/rooms)
+"lM" = (
+/obj/structure/table/rack,
+/obj/item/clothing/glasses/ballistic,
+/obj/item/clothing/accessory/helmet_cover/green,
+/obj/item/clothing/head/helmet/tactical,
+/obj/item/clothing/suit/armor/pcarrier/green/heavy_saare{
+	accessories = list(/obj/item/clothing/accessory/armor_plate/medium,/obj/item/clothing/accessory/arm_guards/green,/obj/item/clothing/accessory/leg_guards/green,/obj/item/clothing/accessory/storage/pouches/green)
+	},
+/obj/item/storage/belt/holster/security/tactical,
+/obj/item/storage/backpack/rucksack/green,
+/turf/simulated/floor/wood,
+/area/space)
 "lW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -1234,6 +1362,18 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/abandoned_hotel/evac)
+"ma" = (
+/obj/structure/bed{
+	pixel_y = 4
+	},
+/obj/structure/bed/padded/raised,
+/obj/item/bedsheet/blue{
+	layer = 3.11;
+	pixel_x = 0;
+	pixel_y = 9
+	},
+/turf/simulated/floor/wood,
+/area/abandoned_hotel/rooms)
 "mb" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1436,6 +1576,13 @@
 /obj/overmap/visitable/sector/abandoned_hotel,
 /turf/space,
 /area/space)
+"oD" = (
+/obj/item/ammo_magazine/box/machinegun/empty{
+	pixel_x = 6;
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/abandoned_hotel/rooms)
 "oE" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1462,6 +1609,25 @@
 	},
 /turf/simulated/open,
 /area/abandoned_hotel/rooms)
+"oZ" = (
+/obj/structure/table/rack,
+/obj/item/clothing/accessory/glassesmod/nvg,
+/obj/item/clothing/accessory/helmet_cover/green,
+/obj/item/clothing/accessory/helmet_cover/lead,
+/obj/item/clothing/head/helmet/tactical,
+/obj/item/clothing/suit/armor/pcarrier/green/heavy_saare{
+	accessories = list(/obj/item/clothing/accessory/armor_plate/medium,/obj/item/clothing/accessory/arm_guards/green,/obj/item/clothing/accessory/leg_guards/green,/obj/item/clothing/accessory/storage/pouches/green)
+	},
+/obj/item/clothing/accessory/armor_tag/solgov/lead,
+/obj/item/storage/belt/holster/security/tactical,
+/obj/item/storage/backpack/rucksack/green,
+/turf/simulated/floor/wood,
+/area/abandoned_hotel/rooms)
+"pn" = (
+/obj/structure/fd/bodybag,
+/obj/landmark/corpse/fleet/warspite/utility/engi,
+/turf/simulated/floor/pool,
+/area/abandoned_hotel/rooms)
 "pq" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/largecrate,
@@ -1473,6 +1639,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_hotel/atmos)
+"pA" = (
+/obj/item/clothing/suit/armor/pcarrier/green/heavy_saare{
+	accessories = list(/obj/item/clothing/accessory/armor_plate/medium,/obj/item/clothing/accessory/arm_guards/green,/obj/item/clothing/accessory/leg_guards/green,/obj/item/clothing/accessory/storage/pouches/green)
+	},
+/obj/item/clothing/accessory/armor_tag/solgov/medic,
+/turf/space,
+/area/space)
 "pK" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1491,6 +1664,10 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/wood,
 /area/abandoned_hotel/rooms)
+"pT" = (
+/obj/item/clothing/glasses/ballistic/medic,
+/turf/space,
+/area/space)
 "pY" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1549,6 +1726,15 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_hotel/rooms)
+"qk" = (
+/obj/structure/table/rack,
+/obj/item/clothing/accessory/glassesmod/nvg,
+/obj/item/clothing/head/helmet/ballistic,
+/obj/item/clothing/suit/armor/bulletproof/armsman,
+/obj/item/storage/belt/holster/security/tactical,
+/obj/item/storage/backpack/rucksack/green,
+/turf/simulated/floor/wood,
+/area/space)
 "qo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -1681,6 +1867,10 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/abandoned_hotel/rooms)
+"rQ" = (
+/obj/decal/cleanable/blood,
+/turf/simulated/floor/pool,
+/area/abandoned_hotel/rooms)
 "rT" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/grass/cut,
@@ -1713,6 +1903,17 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/abandoned_hotel/rooms)
+"sy" = (
+/obj/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/human/fleet/warspite/crewman{
+	pixel_y = -18;
+	ai_holder = null;
+	dir = 4;
+	pixel_x = -1;
+	layer = 2
+	},
+/turf/simulated/floor/wood,
+/area/abandoned_hotel/rooms)
 "sA" = (
 /obj/random/junk{
 	pixel_y = 16;
@@ -1740,7 +1941,7 @@
 /obj/floor_decal/spline/fancy/black{
 	dir = 4
 	},
-/obj/item/ammo_casing/pistol/small,
+/obj/item/ammo_casing/pistol/used,
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_hotel/rooms)
 "sN" = (
@@ -1755,6 +1956,20 @@
 	},
 /turf/simulated/floor/pool,
 /area/abandoned_hotel/rooms)
+"sQ" = (
+/obj/structure/table/rack,
+/obj/item/clothing/accessory/glassesmod/nvg,
+/obj/item/clothing/accessory/helmet_cover/green,
+/obj/item/clothing/accessory/helmet_cover/lead,
+/obj/item/clothing/head/helmet/tactical,
+/obj/item/clothing/suit/armor/pcarrier/green/heavy_saare{
+	accessories = list(/obj/item/clothing/accessory/armor_plate/medium,/obj/item/clothing/accessory/arm_guards/green,/obj/item/clothing/accessory/leg_guards/green,/obj/item/clothing/accessory/storage/pouches/green)
+	},
+/obj/item/clothing/accessory/armor_tag/solgov/lead,
+/obj/item/storage/belt/holster/security/tactical,
+/obj/item/storage/backpack/rucksack/green,
+/turf/simulated/floor/wood,
+/area/space)
 "sR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1763,6 +1978,26 @@
 	dir = 6
 	},
 /turf/simulated/floor/pool,
+/area/abandoned_hotel/rooms)
+"sS" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/clothing/head/helmet/solgov/pilot/fleet{
+	pixel_x = 5;
+	pixel_y = 4;
+	anchored = 1
+	},
+/obj/item/storage/mre/menu3{
+	pixel_x = -7;
+	pixel_y = -3;
+	anchored = 1;
+	icon_state = "mre1"
+	},
+/obj/item/storage/mrebag/dessert{
+	pixel_x = -13;
+	pixel_y = 12;
+	icon_state = "pouch_small1"
+	},
+/turf/simulated/floor/wood/walnut,
 /area/abandoned_hotel/rooms)
 "sW" = (
 /obj/item/stack/material/cloth,
@@ -1790,6 +2025,18 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/abandoned_hotel/rooms)
+"tk" = (
+/obj/structure/table/rack,
+/obj/item/clothing/glasses/ballistic/engi,
+/obj/item/clothing/accessory/helmet_cover/green,
+/obj/item/clothing/head/helmet/tactical,
+/obj/item/clothing/suit/armor/pcarrier/green/heavy_saare{
+	accessories = list(/obj/item/clothing/accessory/armor_plate/medium,/obj/item/clothing/accessory/arm_guards/green,/obj/item/clothing/accessory/leg_guards/green,/obj/item/clothing/accessory/storage/pouches/green)
+	},
+/obj/item/storage/belt/holster/security/tactical,
+/obj/item/storage/backpack/rucksack/green,
+/turf/simulated/floor/wood,
+/area/abandoned_hotel/rooms)
 "tm" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -1805,31 +2052,18 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_hotel/evac)
 "tu" = (
-/obj/structure/table/rack,
-/obj/item/ammo_magazine/rifle/mech_machinegun{
-	pixel_y = -7;
-	pixel_x = -9
-	},
-/obj/item/ammo_magazine/rifle/mech_machinegun{
-	pixel_x = -10;
-	pixel_y = 6
-	},
-/obj/item/ammo_magazine/rifle/mech_machinegun{
-	pixel_x = 8;
-	pixel_y = -6
-	},
-/obj/item/ammo_magazine/rifle/mech_machinegun{
-	pixel_y = 6;
-	pixel_x = 8
-	},
-/obj/item/ammo_magazine/rifle/mech_machinegun{
-	pixel_y = 7;
-	pixel_x = -2
-	},
-/obj/item/ammo_magazine/rifle/mech_machinegun{
-	pixel_y = -9;
-	pixel_x = -2
-	},
+/obj/structure/closet/crate/secure/weapon,
+/obj/item/ammo_magazine/box/machinegun,
+/obj/item/ammo_magazine/box/machinegun,
+/obj/item/ammo_magazine/box/machinegun,
+/obj/item/ammo_magazine/box/machinegun,
+/obj/item/ammo_magazine/box/machinegun,
+/obj/item/ammo_magazine/box/machinegun,
+/obj/item/ammo_magazine/box/machinegun,
+/obj/item/ammo_magazine/box/machinegun,
+/obj/item/ammo_magazine/box/machinegun,
+/obj/item/ammo_magazine/box/machinegun,
+/obj/item/ammo_magazine/box/machinegun,
 /turf/simulated/floor/tiled/freezer,
 /area/abandoned_hotel/rooms)
 "tC" = (
@@ -1840,6 +2074,10 @@
 /obj/structure/ladder,
 /turf/simulated/floor/wood,
 /area/abandoned_hotel/rooms)
+"tJ" = (
+/obj/item/gun/projectile/pistol/sol_service/empty,
+/turf/space,
+/area/space)
 "tL" = (
 /obj/structure/curtain/open/bed{
 	pixel_y = -32
@@ -1854,6 +2092,10 @@
 /obj/item/storage/firstaid/fire,
 /turf/simulated/floor/pool,
 /area/abandoned_hotel/rooms)
+"tO" = (
+/obj/item/storage/belt/holster/security/tactical,
+/turf/space,
+/area/space)
 "tW" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -2001,6 +2243,36 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/abandoned_hotel/evac)
+"vs" = (
+/obj/decal/cleanable/blood/drip,
+/turf/simulated/floor/pool,
+/area/abandoned_hotel/rooms)
+"vu" = (
+/obj/structure/closet/crate/secure/weapon,
+/obj/item/storage/box/ammo/light_bullpup,
+/obj/item/storage/box/ammo/doublestack,
+/obj/item/storage/box/ammo/heavy_bullpup,
+/obj/item/storage/box/fragshells,
+/obj/item/storage/box/ammo/doublestack,
+/obj/item/storage/box/frags,
+/obj/item/storage/box/ammo/assault_rifle,
+/obj/item/storage/box/ammo/assault_rifle,
+/obj/item/ammo_magazine/box/machinegun,
+/obj/item/ammo_magazine/box/machinegun,
+/obj/item/ammo_magazine/box/machinegun,
+/obj/item/ammo_magazine/box/machinegun,
+/obj/item/ammo_magazine/box/machinegun,
+/obj/item/ammo_magazine/box/machinegun,
+/obj/item/ammo_magazine/box/machinegun,
+/obj/item/ammo_magazine/box/machinegun,
+/turf/space,
+/area/space)
+"vw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/decal/cleanable/blood/drip,
+/turf/simulated/floor/carpet/green,
+/area/abandoned_hotel/rooms)
 "vW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet/green,
@@ -2071,6 +2343,10 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/freezer,
 /area/abandoned_hotel/rooms)
+"xi" = (
+/obj/item/gun/projectile/automatic/mr735,
+/turf/space,
+/area/space)
 "xy" = (
 /obj/item/stack/material/tritium,
 /obj/structure/cable/yellow{
@@ -2083,8 +2359,17 @@
 "xL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/pool,
 /area/abandoned_hotel/rooms)
+"xQ" = (
+/obj/item/storage/backpack/dufflebag/syndie/med,
+/turf/space,
+/area/space)
+"xX" = (
+/obj/item/clothing/glasses/ballistic/engi,
+/turf/space,
+/area/space)
 "xZ" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 1
@@ -2093,6 +2378,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/wood/walnut,
+/area/abandoned_hotel/rooms)
+"yk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/mob/living/simple_animal/hostile/human/fleet/warspite/random,
+/turf/simulated/floor/carpet/green,
 /area/abandoned_hotel/rooms)
 "ym" = (
 /obj/decal/cleanable/dirt,
@@ -2112,6 +2403,11 @@
 /obj/floor_decal/spline/fancy/black,
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_hotel/rooms)
+"yK" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/blood/drip,
+/turf/simulated/floor/carpet/green,
+/area/abandoned_hotel/rooms)
 "yR" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -2120,22 +2416,9 @@
 /turf/simulated/floor/wood,
 /area/abandoned_hotel/rooms)
 "yV" = (
-/obj/structure/table/rack,
-/obj/item/gun/energy/machingegun{
-	pixel_y = -3
-	},
-/obj/item/gun/energy/machingegun{
-	pixel_y = -10
-	},
-/obj/item/gun/energy/machingegun{
-	pixel_y = 5
-	},
-/obj/item/gun/energy/machingegun{
-	pixel_x = 1;
-	pixel_y = 14
-	},
-/turf/simulated/floor/tiled/freezer,
-/area/abandoned_hotel/rooms)
+/obj/item/gun/projectile/pistol/optimus,
+/turf/space,
+/area/space)
 "ze" = (
 /obj/structure/closet/crate,
 /obj/item/stack/material/tritium,
@@ -2196,6 +2479,10 @@
 /area/abandoned_hotel/rooms)
 "Ac" = (
 /obj/structure/grille,
+/turf/space,
+/area/space)
+"Af" = (
+/obj/item/clothing/accessory/storage/webbing_large,
 /turf/space,
 /area/space)
 "Ai" = (
@@ -2283,6 +2570,21 @@
 /obj/structure/bed,
 /turf/simulated/floor/wood,
 /area/abandoned_hotel/rooms)
+"BH" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/mob/living/simple_animal/hostile/human/fleet/warspite/random,
+/turf/simulated/floor/carpet/green,
+/area/abandoned_hotel/rooms)
 "BL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -2329,9 +2631,39 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_hotel/rooms)
+"CD" = (
+/obj/structure/bed{
+	pixel_y = 4
+	},
+/obj/structure/bed/padded/raised,
+/obj/item/bedsheet/blue{
+	layer = 3.11;
+	pixel_x = 0;
+	pixel_y = 9
+	},
+/obj/item/bedsheet/blue,
+/mob/living/simple_animal/hostile/human/fleet/warspite/crewman{
+	pixel_y = -8;
+	ai_holder = null;
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/abandoned_hotel/rooms)
+"CF" = (
+/obj/item/clothing/suit/armor/pcarrier/green/heavy_saare{
+	accessories = list(/obj/item/clothing/accessory/armor_plate/medium,/obj/item/clothing/accessory/arm_guards/green,/obj/item/clothing/accessory/leg_guards/green,/obj/item/clothing/accessory/storage/pouches/green)
+	},
+/obj/item/clothing/accessory/armor_tag/solgov/lead,
+/turf/space,
+/area/space)
 "CG" = (
 /obj/structure/table/rack,
-/obj/item/gun/energy/machingegun/mounted/mech,
+/obj/item/gun/projectile/automatic/l6_saw{
+	starts_loaded = 0;
+	desc_special_show = 1;
+	interactive = 1;
+	desc_special = "Определенно сломан. Вот было бы кто-то, чтобы починить его..."
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/abandoned_hotel/rooms)
 "CK" = (
@@ -2377,6 +2709,7 @@
 /obj/structure/bed,
 /obj/structure/curtain/open/bed,
 /obj/item/bedsheet,
+/obj/landmark/corpse/fleet/warspite/utility,
 /turf/simulated/floor/pool,
 /area/abandoned_hotel/rooms)
 "Ds" = (
@@ -2400,6 +2733,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/carpet/green,
 /area/abandoned_hotel/rooms)
 "DL" = (
@@ -2411,6 +2748,22 @@
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/dead_plant,
 /turf/simulated/floor/plating,
+/area/abandoned_hotel/rooms)
+"DS" = (
+/obj/structure/table/rack,
+/obj/item/clothing/accessory/storage/holster/waist,
+/obj/item/clothing/accessory/storage/bandolier,
+/obj/item/clothing/accessory/glassesmod/nvg,
+/obj/item/clothing/glasses/ballistic/medic,
+/obj/item/clothing/accessory/helmet_cover/green,
+/obj/item/clothing/head/helmet/tactical,
+/obj/item/clothing/accessory/armor_tag/solgov/medic,
+/obj/item/clothing/suit/armor/pcarrier/green/heavy_saare{
+	accessories = list(/obj/item/clothing/accessory/armor_plate/medium,/obj/item/clothing/accessory/arm_guards/green,/obj/item/clothing/accessory/leg_guards/green,/obj/item/clothing/accessory/storage/pouches/green)
+	},
+/obj/item/storage/belt/medical/emt,
+/obj/item/storage/backpack/dufflebag/syndie/med/full,
+/turf/simulated/floor/wood,
 /area/abandoned_hotel/rooms)
 "Ex" = (
 /obj/item/stool/bar/padded,
@@ -2445,6 +2798,13 @@
 /obj/structure/flora/pottedplant/dead,
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_hotel/rooms)
+"Fa" = (
+/obj/decal/cleanable/dirt,
+/obj/submap_landmark/joinable_submap/sfv_tigris/iccgn{
+	name = "Engi"
+	},
+/turf/simulated/floor/wood,
+/area/abandoned_hotel/rooms)
 "Ff" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 4
@@ -2478,6 +2838,13 @@
 /obj/structure/bed{
 	pixel_y = 4
 	},
+/obj/structure/bed/padded/raised,
+/obj/item/bedsheet/blue{
+	layer = 3.11;
+	pixel_x = 0;
+	pixel_y = 9
+	},
+/obj/item/bedsheet/blue,
 /turf/simulated/floor/wood,
 /area/abandoned_hotel/rooms)
 "Fq" = (
@@ -2521,6 +2888,10 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/abandoned_hotel/rooms)
+"FX" = (
+/obj/item/gun/projectile/automatic/l6_saw,
+/turf/space,
+/area/space)
 "Gb" = (
 /turf/simulated/open,
 /area/abandoned_hotel/rooms)
@@ -2542,6 +2913,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet,
 /obj/structure/curtain/open/bed,
+/obj/landmark/corpse/fleet/warspite,
 /turf/simulated/floor/pool,
 /area/abandoned_hotel/rooms)
 "Gv" = (
@@ -2579,6 +2951,18 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_hotel/rooms)
+"GD" = (
+/obj/floor_decal/spline/fancy/black{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/human/fleet/warspite/pilot/vest{
+	pixel_x = 2;
+	pixel_y = -6;
+	ai_holder = null
+	},
+/turf/simulated/floor/wood/walnut,
+/area/abandoned_hotel/rooms)
 "GV" = (
 /obj/machinery/power/smes/buildable/preset,
 /obj/structure/cable{
@@ -2587,6 +2971,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_hotel/solar)
+"GY" = (
+/obj/structure/table/rack,
+/obj/item/clothing/accessory/storage/holster/waist,
+/obj/item/clothing/accessory/storage/bandolier,
+/obj/item/clothing/accessory/glassesmod/nvg,
+/obj/item/clothing/glasses/ballistic/medic,
+/obj/item/clothing/accessory/helmet_cover/green,
+/obj/item/clothing/head/helmet/tactical,
+/obj/item/clothing/accessory/armor_tag/solgov/medic,
+/obj/item/clothing/suit/armor/pcarrier/green/heavy_saare{
+	accessories = list(/obj/item/clothing/accessory/armor_plate/medium,/obj/item/clothing/accessory/arm_guards/green,/obj/item/clothing/accessory/leg_guards/green,/obj/item/clothing/accessory/storage/pouches/green)
+	},
+/obj/item/storage/belt/medical/emt,
+/obj/item/storage/backpack/dufflebag/syndie/med/full,
+/turf/simulated/floor/wood,
+/area/space)
 "Hh" = (
 /obj/structure/table/woodentable/walnut,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -2665,6 +3065,7 @@
 /obj/structure/bed,
 /obj/structure/curtain/open/bed,
 /obj/item/bedsheet,
+/obj/landmark/corpse/fleet/warspite,
 /turf/simulated/floor/pool,
 /area/abandoned_hotel/rooms)
 "Ie" = (
@@ -2692,6 +3093,14 @@
 	},
 /turf/simulated/floor/pool,
 /area/abandoned_hotel/rooms)
+"JH" = (
+/obj/item/storage/belt/medical/emt,
+/turf/space,
+/area/space)
+"JR" = (
+/obj/item/gun/projectile/automatic/bullpup_rifle,
+/turf/space,
+/area/space)
 "Kk" = (
 /obj/machinery/light{
 	dir = 4
@@ -2732,6 +3141,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/pool,
 /area/abandoned_hotel/rooms)
 "KX" = (
@@ -2757,6 +3167,18 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet/green,
 /area/abandoned_hotel/rooms)
+"Ln" = (
+/obj/structure/table/rack,
+/obj/item/clothing/glasses/ballistic/engi,
+/obj/item/clothing/accessory/helmet_cover/green,
+/obj/item/clothing/head/helmet/tactical,
+/obj/item/clothing/suit/armor/pcarrier/green/heavy_saare{
+	accessories = list(/obj/item/clothing/accessory/armor_plate/medium,/obj/item/clothing/accessory/arm_guards/green,/obj/item/clothing/accessory/leg_guards/green,/obj/item/clothing/accessory/storage/pouches/green)
+	},
+/obj/item/storage/belt/holster/security/tactical,
+/obj/item/storage/backpack/rucksack/green,
+/turf/simulated/floor/wood,
+/area/space)
 "LE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2772,10 +3194,20 @@
 /obj/item/stack/material/iron,
 /turf/simulated/floor/tiled/old_cargo,
 /area/abandoned_hotel/overlook)
+"LP" = (
+/obj/structure/fd/bodybag,
+/obj/landmark/corpse/fleet/warspite/utility,
+/turf/simulated/floor/carpet/green,
+/area/abandoned_hotel/rooms)
 "LT" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/abandoned_hotel/overlook)
+"Ma" = (
+/obj/item/clothing/head/helmet/tactical,
+/obj/item/clothing/accessory/helmet_cover/green,
+/turf/space,
+/area/space)
 "MA" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -2999,6 +3431,11 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/abandoned_hotel/overlook)
+"Ox" = (
+/obj/item/clothing/head/helmet/ballistic,
+/obj/item/clothing/accessory/glassesmod/nvg,
+/turf/space,
+/area/space)
 "OC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3032,6 +3469,11 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/abandoned_hotel/rooms)
+"OU" = (
+/obj/structure/fd/bodybag,
+/obj/landmark/corpse/fleet/warspite/utility,
+/turf/simulated/floor/pool,
+/area/abandoned_hotel/rooms)
 "Pf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3043,7 +3485,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_hotel/atmos)
 "Pw" = (
-/obj/item/ammo_casing/pistol/small,
+/obj/item/ammo_casing/pistol/used,
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_hotel/rooms)
 "PH" = (
@@ -3053,6 +3495,19 @@
 /obj/structure/cable/yellow,
 /turf/simulated/floor/plating,
 /area/abandoned_hotel/solar)
+"PW" = (
+/obj/item/clothing/head/helmet/tactical,
+/obj/item/clothing/accessory/helmet_cover/lead,
+/obj/item/clothing/accessory/helmet_cover/green,
+/obj/item/clothing/accessory/glassesmod/nvg,
+/turf/space,
+/area/space)
+"Qb" = (
+/obj/item/clothing/head/helmet/tactical,
+/obj/item/clothing/accessory/helmet_cover/green,
+/obj/item/clothing/accessory/glassesmod/nvg,
+/turf/space,
+/area/space)
 "Qe" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
@@ -3144,6 +3599,10 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/abandoned_hotel/rooms)
+"Rr" = (
+/obj/item/gun/projectile/automatic/assault_rifle/heltek,
+/turf/space,
+/area/space)
 "RJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -3190,7 +3649,13 @@
 	pixel_y = -32
 	},
 /obj/structure/roller_bed,
+/obj/landmark/corpse/fleet/warspite/pilot/armor,
+/obj/structure/fd/bodybag,
 /turf/simulated/floor/pool,
+/area/abandoned_hotel/rooms)
+"SG" = (
+/obj/item/ammo_casing/rifle/used,
+/turf/simulated/floor/carpet/green,
 /area/abandoned_hotel/rooms)
 "SL" = (
 /obj/structure/cable/yellow{
@@ -3200,11 +3665,22 @@
 /obj/machinery/power/port_gen/pacman/mrs,
 /turf/simulated/floor/plating,
 /area/abandoned_hotel/solar)
+"SU" = (
+/obj/structure/closet/crate/secure/weapon,
+/turf/space,
+/area/space)
 "SX" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/bed{
 	pixel_y = 4
 	},
+/obj/structure/bed/padded/raised,
+/obj/item/bedsheet/blue{
+	layer = 3.11;
+	pixel_x = 0;
+	pixel_y = 9
+	},
+/obj/item/bedsheet/blue,
 /turf/simulated/floor/wood,
 /area/abandoned_hotel/rooms)
 "SZ" = (
@@ -3256,6 +3732,10 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/green,
 /area/abandoned_hotel/rooms)
+"TS" = (
+/mob/living/simple_animal/hostile/human/fleet/warspite/random,
+/turf/simulated/floor/plating,
+/area/abandoned_hotel/overlook)
 "TT" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -3289,6 +3769,10 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/abandoned_hotel/rooms)
+"Un" = (
+/obj/item/clothing/glasses/ballistic,
+/turf/space,
+/area/space)
 "Uo" = (
 /obj/structure/window/reinforced/full,
 /obj/machinery/door/firedoor,
@@ -3320,11 +3804,16 @@
 "UZ" = (
 /turf/simulated/floor/pool,
 /area/abandoned_hotel/rooms)
+"Ve" = (
+/obj/item/clothing/suit/armor/bulletproof/armsman,
+/turf/space,
+/area/space)
 "Vh" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/human/fleet/warspite/random,
 /turf/simulated/floor/carpet/green,
 /area/abandoned_hotel/rooms)
 "Vp" = (
@@ -3373,6 +3862,13 @@
 /obj/structure/bed{
 	pixel_y = 4
 	},
+/obj/structure/bed/padded/raised,
+/obj/item/bedsheet/blue{
+	layer = 3.11;
+	pixel_x = 0;
+	pixel_y = 9
+	},
+/obj/item/bedsheet/blue,
 /turf/simulated/floor/wood,
 /area/abandoned_hotel/rooms)
 "VZ" = (
@@ -3461,6 +3957,10 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/abandoned_hotel/evac)
+"Ye" = (
+/obj/structure/closet/crate/secure/large,
+/turf/space,
+/area/space)
 "Yf" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -3509,6 +4009,11 @@
 /obj/machinery/body_scanconsole{
 	dir = 8
 	},
+/mob/living/simple_animal/hostile/human/fleet/warspite/crewman{
+	pixel_x = 0;
+	pixel_y = 13;
+	ai_holder = null
+	},
 /turf/simulated/floor/pool,
 /area/abandoned_hotel/rooms)
 "Ze" = (
@@ -3521,6 +4026,18 @@
 "Zk" = (
 /turf/simulated/wall/prepainted,
 /area/abandoned_hotel/overlook)
+"Zr" = (
+/obj/structure/bed/chair/comfy/green{
+	dir = 8
+	},
+/mob/living/simple_animal/hostile/human/fleet/warspite/crewman/utility{
+	pixel_x = -6;
+	pixel_y = 0;
+	dir = 8;
+	ai_holder = null
+	},
+/turf/simulated/floor/wood/walnut,
+/area/abandoned_hotel/rooms)
 "ZE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -5169,13 +5686,13 @@ aa
 aa
 aa
 aa
+cm
+tJ
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+PW
+CF
+tO
+iG
 aa
 aa
 aa
@@ -5370,14 +5887,14 @@ aa
 aa
 aa
 aa
+SU
+JR
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Un
+Ma
+kc
+tO
+iG
 aa
 aa
 aa
@@ -5572,14 +6089,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+gd
+Rr
+Af
+xX
+Ma
+kc
+tO
+iG
 aa
 aa
 aa
@@ -5775,14 +6292,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+xi
+tJ
+pT
+Qb
+pA
+JH
+fg
+xQ
 aa
 aa
 "}
@@ -5977,13 +6494,13 @@ aa
 aa
 aa
 aa
+FX
+yV
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+Ox
+Ve
+tO
+iG
 aa
 aa
 aa
@@ -21033,9 +21550,9 @@ kY
 QQ
 nH
 QQ
-pM
-mO
-pM
+oZ
+Fa
+tk
 Uq
 Bw
 QQ
@@ -21232,11 +21749,11 @@ Uq
 VT
 QQ
 VT
-mO
+sy
 VT
 QQ
 SX
-QQ
+lJ
 VT
 Uq
 Xq
@@ -21639,9 +22156,9 @@ pM
 QQ
 pM
 QQ
-pM
+ko
 QQ
-pM
+DS
 Uq
 wt
 Yu
@@ -21837,7 +22354,7 @@ zF
 Uq
 VT
 QQ
-VT
+CD
 QQ
 VT
 QQ
@@ -22446,7 +22963,7 @@ MS
 yR
 Fp
 gY
-VT
+ma
 pM
 MS
 QQ
@@ -22864,7 +23381,7 @@ Gb
 Gb
 EF
 Qr
-mT
+jr
 Uo
 aa
 aa
@@ -23065,8 +23582,8 @@ Gb
 Gb
 Gb
 EF
-Qr
-Vv
+GD
+sS
 Uo
 aa
 aa
@@ -23268,7 +23785,7 @@ Gb
 Gb
 EF
 Qr
-MT
+Zr
 Uo
 aa
 aa
@@ -23443,7 +23960,7 @@ ZN
 ax
 jZ
 gl
-Ft
+TS
 gl
 Ov
 qi
@@ -23663,8 +24180,8 @@ ig
 UF
 Wj
 Zg
-Yu
-kM
+SG
+iK
 HE
 HE
 fa
@@ -23865,7 +24382,7 @@ ii
 fC
 Wj
 Yu
-Yu
+SG
 kM
 sq
 sq
@@ -24268,7 +24785,7 @@ Wj
 Wj
 Wj
 Wj
-Yu
+SG
 Zg
 bT
 uj
@@ -24458,7 +24975,7 @@ mw
 Ov
 tc
 qq
-ip
+yk
 ip
 Tr
 ip
@@ -25469,7 +25986,7 @@ lW
 Ce
 Zk
 tu
-fH
+oD
 qo
 Od
 cU
@@ -25677,7 +26194,7 @@ Nm
 Rj
 Uq
 pK
-Zg
+yK
 hY
 Dh
 Dh
@@ -25874,7 +26391,7 @@ si
 Zk
 qu
 fH
-yV
+qu
 qu
 fH
 Uq
@@ -26298,7 +26815,7 @@ aa
 aa
 aa
 aa
-aa
+Ye
 aa
 aa
 aa
@@ -26485,7 +27002,7 @@ jv
 fH
 Uq
 QZ
-zY
+vw
 uV
 xL
 Ts
@@ -26500,7 +27017,7 @@ aa
 aa
 aa
 aa
-aa
+sQ
 aa
 aa
 aa
@@ -26690,7 +27207,7 @@ pK
 Yu
 Uq
 Yf
-UZ
+vs
 UZ
 UZ
 QM
@@ -26700,9 +27217,9 @@ vZ
 aa
 aa
 aa
+fb
 aa
-aa
-aa
+lM
 aa
 aa
 aa
@@ -26892,9 +27409,9 @@ TT
 Yu
 Uq
 Go
-UZ
-Go
-Go
+vs
+ba
+ba
 Uq
 Uq
 aa
@@ -26902,9 +27419,9 @@ vZ
 aa
 aa
 aa
+vu
 aa
-aa
-aa
+Ln
 aa
 aa
 aa
@@ -27091,7 +27608,7 @@ mh
 mh
 dz
 dF
-Zg
+yK
 Uq
 Uq
 zX
@@ -27106,7 +27623,7 @@ aa
 aa
 aa
 aa
-aa
+GY
 aa
 aa
 aa
@@ -27296,8 +27813,8 @@ pK
 Yu
 Uq
 sA
-UZ
-UZ
+rQ
+OU
 wI
 Uq
 Uq
@@ -27308,7 +27825,7 @@ aa
 aa
 aa
 aa
-aa
+qk
 aa
 aa
 aa
@@ -27899,7 +28416,7 @@ fy
 Ds
 dC
 pK
-Yu
+LP
 Uq
 YS
 jA
@@ -28101,12 +28618,12 @@ be
 fy
 dC
 pK
-Yu
+LP
 Uq
 tZ
+pn
 UZ
-UZ
-Su
+ef
 qv
 Kn
 aa
@@ -28706,7 +29223,7 @@ GV
 uZ
 qI
 dC
-pK
+BH
 Zg
 Uq
 CZ
