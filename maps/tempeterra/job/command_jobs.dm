@@ -5,7 +5,7 @@
 	economic_power = 16
 	minimum_character_age = list(SPECIES_HUMAN = 40)
 	ideal_character_age = 50
-	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/command/CO
+	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/command/CO/fleet
 	allowed_branches = list(
 		/datum/mil_branch/fleet
 	)
