@@ -20,8 +20,12 @@
 /turf/simulated/floor/tiled/old_tile,
 /area/abandoned_hotel/buffet)
 "ak" = (
-/obj/structure/window/reinforced,
-/turf/simulated/floor/grass/cut,
+/obj/structure/table/steel,
+/obj/random/documents{
+	pixel_x = 6;
+	pixel_y = 3
+	},
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "al" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -49,6 +53,13 @@
 /obj/structure/stairs/north,
 /turf/simulated/floor/tiled/old_cargo,
 /area/abandoned_hotel/pool)
+"av" = (
+/obj/floor_decal/scglogo{
+	icon_state = "top-right";
+	dir = 8
+	},
+/turf/simulated/floor/wood/ebony,
+/area/abandoned_hotel/pool)
 "az" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -60,32 +71,31 @@
 /turf/simulated/floor/tiled/freezer,
 /area/abandoned_hotel/lobby)
 "aB" = (
-/obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass/cut,
+/obj/structure/bed/chair/office/dark{
+	dir = 1;
+	pixel_x = 4
+	},
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "aD" = (
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/floor_decal/borderfloorwhite{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/old_cargo,
+/obj/machinery/papershredder,
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "aE" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/floor_decal/borderfloorwhite{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/old_cargo,
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "aH" = (
-/obj/structure/hygiene/faucet{
-	dir = 8
+/obj/structure/bed/chair/office/dark{
+	dir = 4;
+	pixel_y = -10
 	},
-/turf/simulated/floor/pool,
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "aO" = (
 /obj/structure/bedsheetbin,
@@ -98,21 +108,22 @@
 /area/abandoned_hotel/pool)
 "aS" = (
 /obj/structure/window/reinforced,
-/obj/structure/flora/ausbushes/genericbush,
-/turf/simulated/floor/grass/cut,
+/turf/simulated/floor/glass,
 /area/abandoned_hotel/pool)
 "aV" = (
 /turf/simulated/floor/plating,
 /area/space)
 "aW" = (
-/obj/floor_decal/borderfloorwhite{
-	dir = 8
+/obj/structure/bed{
+	pixel_y = 3
 	},
-/turf/simulated/floor/tiled/old_cargo,
-/area/abandoned_hotel/pool)
+/obj/item/bedsheet/red{
+	pixel_y = 3
+	},
+/turf/simulated/floor/wood,
+/area/abandoned_hotel/lobby)
 "aX" = (
-/obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/grass/cut,
+/turf/simulated/floor/glass,
 /area/abandoned_hotel/pool)
 "aY" = (
 /obj/structure/lattice,
@@ -138,8 +149,10 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/bed,
-/turf/simulated/floor/tiled/old_cargo,
+/obj/machinery/computer{
+	dir = 8
+	},
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "bo" = (
 /obj/structure/closet/athletic_mixed,
@@ -180,28 +193,23 @@
 /turf/simulated/floor/wood,
 /area/abandoned_hotel/buffet)
 "bx" = (
-/obj/floor_decal/borderfloorwhite/corner{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/turf/simulated/floor/tiled/old_cargo,
+/obj/structure/bed/chair/office/dark{
+	dir = 1;
+	pixel_y = 4
+	},
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "by" = (
-/obj/floor_decal/borderfloorwhite/corner{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/turf/simulated/floor/tiled/old_cargo,
+/turf/simulated/floor/wood/walnut,
 /area/abandoned_hotel/pool)
 "bA" = (
-/obj/floor_decal/borderfloorwhite{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/old_cargo,
+/turf/simulated/floor/wood/walnut,
 /area/abandoned_hotel/pool)
 "bF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -220,8 +228,11 @@
 /area/abandoned_hotel/buffet)
 "bI" = (
 /obj/structure/window/reinforced,
-/obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass/cut,
+/obj/structure/cospiracy{
+	pixel_y = 0;
+	pixel_x = -64
+	},
+/turf/simulated/floor/glass,
 /area/abandoned_hotel/pool)
 "bK" = (
 /obj/decal/cleanable/cobweb2{
@@ -246,6 +257,16 @@
 /obj/structure/hygiene/toilet,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_hotel/buffet)
+"ce" = (
+/obj/floor_decal/scglogo{
+	dir = 8;
+	icon_state = "bottom-center"
+	},
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/turf/simulated/floor/wood/ebony,
+/area/abandoned_hotel/pool)
 "cg" = (
 /obj/floor_decal/corner/black/diagonal,
 /obj/machinery/cooker/fryer,
@@ -254,6 +275,14 @@
 	},
 /turf/simulated/floor/tiled/kafel_full,
 /area/abandoned_hotel/kitchen)
+"cl" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 1;
+	pixel_x = 2;
+	pixel_y = 1
+	},
+/turf/simulated/floor/wood/walnut,
+/area/abandoned_hotel/pool)
 "cm" = (
 /obj/structure/closet/fridge,
 /turf/simulated/floor/tiled/freezer,
@@ -291,6 +320,10 @@
 /obj/machinery/cooker/oven,
 /turf/simulated/floor/tiled/kafel_full,
 /area/abandoned_hotel/kitchen)
+"cL" = (
+/obj/machinery/light,
+/turf/simulated/floor/wood/walnut,
+/area/abandoned_hotel/pool)
 "cT" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -456,6 +489,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/abandoned_hotel/lobby)
+"fl" = (
+/obj/machinery/computer/ship/navigation,
+/turf/simulated/floor/wood/ebony,
+/area/abandoned_hotel/pool)
 "fq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -562,6 +599,11 @@
 /obj/shuttle_landmark/abandoned_hotel/two,
 /turf/space,
 /area/space)
+"gD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/wood/ebony,
+/area/abandoned_hotel/pool)
 "gG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -635,6 +677,10 @@
 	dir = 8
 	},
 /obj/decal/cleanable/dirt,
+/obj/item/tableflag{
+	pixel_y = 12;
+	pixel_x = -5
+	},
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_hotel/reception)
 "hd" = (
@@ -721,7 +767,12 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/old_cargo,
+/obj/structure/bed/chair/office/dark{
+	dir = 4;
+	pixel_y = 6;
+	pixel_x = -2
+	},
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "hx" = (
 /obj/structure/table/woodentable_reinforced/walnut,
@@ -817,6 +868,16 @@
 /obj/random/maintenance,
 /turf/simulated/floor/carpet/blue2,
 /area/abandoned_hotel/lobby)
+"ic" = (
+/obj/floor_decal/scglogo{
+	dir = 8;
+	icon_state = "center-left"
+	},
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/turf/simulated/floor/wood/ebony,
+/area/abandoned_hotel/pool)
 "ii" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 6
@@ -845,8 +906,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass/cut,
+/turf/simulated/floor/glass,
 /area/abandoned_hotel/pool)
 "iG" = (
 /obj/structure/flora/ausbushes/ywflowers,
@@ -925,6 +985,10 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/abandoned_hotel/lobby)
+"je" = (
+/obj/structure/window/reinforced/full,
+/turf/simulated/floor/glass,
+/area/abandoned_hotel/pool)
 "jf" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 4
@@ -978,6 +1042,14 @@
 /obj/decal/cleanable/cobweb,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_hotel/buffet)
+"kA" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 8;
+	pixel_x = -4;
+	pixel_y = -2
+	},
+/turf/simulated/floor/wood/ebony,
+/area/abandoned_hotel/pool)
 "kG" = (
 /obj/structure/table/rack,
 /turf/simulated/floor/wood,
@@ -996,6 +1068,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/abandoned_hotel/buffet)
+"kN" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/wood/ebony,
+/area/abandoned_hotel/pool)
 "li" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1242,8 +1318,7 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_hotel/pool)
 "oW" = (
-/obj/structure/bed,
-/turf/simulated/floor/tiled/old_cargo,
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "pa" = (
 /obj/floor_decal/borderfloorwhite{
@@ -1254,6 +1329,15 @@
 /obj/structure/table/steel_reinforced,
 /turf/simulated/floor/tiled/old_tile,
 /area/abandoned_hotel/buffet)
+"pc" = (
+/obj/structure/bed{
+	pixel_y = 3
+	},
+/obj/item/bedsheet{
+	pixel_y = 3
+	},
+/turf/simulated/floor/wood,
+/area/abandoned_hotel/lobby)
 "pd" = (
 /obj/floor_decal/corner/pink/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1409,9 +1493,16 @@
 /turf/simulated/floor/wood,
 /area/abandoned_hotel/buffet)
 "qt" = (
-/obj/structure/window/reinforced,
-/obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass/cut,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "qB" = (
 /obj/structure/cable{
@@ -1436,13 +1527,10 @@
 /turf/simulated/floor/carpet/green,
 /area/abandoned_hotel/lobby)
 "qO" = (
-/obj/floor_decal/borderfloorwhite{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/old_cargo,
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "qU" = (
 /obj/structure/cable{
@@ -1464,6 +1552,23 @@
 	},
 /turf/simulated/floor/tiled/kafel_full,
 /area/abandoned_hotel/kitchen)
+"ri" = (
+/obj/structure/bed{
+	pixel_y = 3
+	},
+/obj/item/bedsheet/orange{
+	pixel_y = 3
+	},
+/turf/simulated/floor/wood,
+/area/abandoned_hotel/lobby)
+"rm" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 1;
+	pixel_y = 5;
+	pixel_x = 1
+	},
+/turf/simulated/floor/wood/ebony,
+/area/abandoned_hotel/pool)
 "rr" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 8
@@ -1477,6 +1582,19 @@
 	},
 /turf/simulated/floor/wood,
 /area/abandoned_hotel/lobby)
+"rz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/bed/chair/office/dark{
+	dir = 1;
+	pixel_y = 4
+	},
+/turf/simulated/floor/wood/ebony,
+/area/abandoned_hotel/pool)
 "rC" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -1524,6 +1642,10 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/abandoned_hotel/reception)
+"sk" = (
+/obj/machinery/computer/account_database,
+/turf/simulated/floor/wood/ebony,
+/area/abandoned_hotel/pool)
 "sO" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1564,6 +1686,13 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/abandoned_hotel/lobby)
+"tb" = (
+/obj/floor_decal/scglogo{
+	dir = 8;
+	icon_state = "top-left"
+	},
+/turf/simulated/floor/wood/ebony,
+/area/abandoned_hotel/pool)
 "ti" = (
 /obj/floor_decal/corner/black/diagonal,
 /obj/machinery/light{
@@ -1585,13 +1714,17 @@
 /obj/structure/table/woodentable_reinforced/walnut,
 /obj/floor_decal/spline/fancy/black,
 /obj/decal/cleanable/dirt,
+/obj/item/tableflag{
+	pixel_x = 2
+	},
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_hotel/reception)
 "tt" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/old_cargo,
+/obj/structure/storage,
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "ty" = (
 /obj/floor_decal/corner/black/diagonal,
@@ -1606,11 +1739,9 @@
 /turf/simulated/floor/carpet/green,
 /area/abandoned_hotel/lobby)
 "tW" = (
-/obj/floor_decal/borderfloorwhite{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/old_cargo,
+/obj/structure/table/steel,
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "tX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1707,16 +1838,13 @@
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_hotel/reception)
 "vo" = (
-/obj/floor_decal/borderfloorwhite{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/old_cargo,
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "vr" = (
 /obj/structure/lattice,
@@ -1904,13 +2032,11 @@
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_hotel/lobby)
 "yy" = (
-/obj/floor_decal/borderfloorwhite{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/old_cargo,
+/obj/structure/bed/chair/office/dark,
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "yH" = (
 /turf/simulated/floor/tiled,
@@ -2057,8 +2183,10 @@
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_hotel/lobby)
 "AX" = (
-/obj/item/towel/random,
-/turf/simulated/floor/tiled/old_cargo,
+/obj/machinery/computer/crew{
+	dir = 1
+	},
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "Bg" = (
 /obj/floor_decal/corner/black/diagonal,
@@ -2091,16 +2219,13 @@
 /turf/simulated/floor/carpet/green,
 /area/abandoned_hotel/lobby)
 "BE" = (
-/obj/floor_decal/borderfloorwhite{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/old_cargo,
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "BI" = (
 /obj/structure/curtain/open/shower,
@@ -2131,6 +2256,14 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/old_tile,
 /area/abandoned_hotel/buffet)
+"Cg" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 8;
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/turf/simulated/floor/wood/walnut,
+/area/abandoned_hotel/pool)
 "Ch" = (
 /obj/structure/curtain/open/shower,
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -2199,14 +2332,29 @@
 	},
 /turf/simulated/floor/carpet/blue2,
 /area/abandoned_hotel/lobby)
+"Dp" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/turf/simulated/floor/wood/walnut,
+/area/abandoned_hotel/pool)
 "Dt" = (
 /obj/item/trash/chips,
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_hotel/lobby)
 "Dv" = (
-/obj/structure/window/reinforced,
-/obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/grass/cut,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/bed/chair/office/dark{
+	dir = 1;
+	pixel_y = 5;
+	pixel_x = 10
+	},
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "Dw" = (
 /obj/decal/cleanable/dirt,
@@ -2304,6 +2452,12 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/wood,
 /area/abandoned_hotel/lobby)
+"EQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/table/steel,
+/obj/item/paper/abandoned_hotel/note_1,
+/turf/simulated/floor/wood/ebony,
+/area/abandoned_hotel/pool)
 "ET" = (
 /obj/structure/lattice,
 /turf/simulated/wall/titanium,
@@ -2367,11 +2521,14 @@
 /turf/simulated/floor/wood,
 /area/abandoned_hotel/buffet)
 "FK" = (
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/structure/bed{
+	pixel_y = 3
 	},
-/turf/simulated/floor/grass/cut,
-/area/abandoned_hotel/pool)
+/obj/item/bedsheet/brown{
+	pixel_y = 2
+	},
+/turf/simulated/floor/wood,
+/area/abandoned_hotel/lobby)
 "FQ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -2398,6 +2555,13 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/abandoned_hotel/buffet)
+"Gn" = (
+/obj/floor_decal/scglogo{
+	dir = 8;
+	icon_state = "top-center"
+	},
+/turf/simulated/floor/wood/ebony,
+/area/abandoned_hotel/pool)
 "Gu" = (
 /obj/floor_decal/corner/black/diagonal,
 /obj/decal/cleanable/cobweb2{
@@ -2409,7 +2573,10 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/old_cargo,
+/obj/structure/reagent_dispensers/water_cooler{
+	dir = 1
+	},
+/turf/simulated/floor/wood/walnut,
 /area/abandoned_hotel/pool)
 "GA" = (
 /obj/structure/cable,
@@ -2493,7 +2660,21 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/pool,
+/turf/simulated/floor/wood/ebony,
+/area/abandoned_hotel/pool)
+"HU" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/turf/simulated/floor/wood/ebony,
+/area/abandoned_hotel/pool)
+"Ii" = (
+/obj/structure/table/steel,
+/obj/item/pen{
+	pixel_x = -4;
+	pixel_y = 12
+	},
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "Io" = (
 /obj/structure/window/reinforced{
@@ -2525,6 +2706,12 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/abandoned_hotel/lobby)
+"IV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock,
+/turf/simulated/floor/tiled/old_cargo,
+/area/abandoned_hotel/pool)
 "IX" = (
 /obj/floor_decal/borderfloorwhite{
 	dir = 8
@@ -2680,7 +2867,8 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/old_cargo,
+/obj/structure/bed/chair/office/dark,
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "KQ" = (
 /obj/structure/table/woodentable/walnut,
@@ -2735,11 +2923,16 @@
 /turf/simulated/floor/tiled/kafel_full,
 /area/abandoned_hotel/kitchen)
 "Lo" = (
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/floor_decal/scglogo{
+	icon_state = "top-right";
+	dir = 1
 	},
-/obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass/cut,
+/obj/structure/bed/chair/office/dark{
+	dir = 1;
+	pixel_x = -6;
+	pixel_y = -2
+	},
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "Lv" = (
 /obj/structure/table/standard,
@@ -2796,6 +2989,14 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/abandoned_hotel/buffet)
+"Mb" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4;
+	pixel_y = 6;
+	pixel_x = -6
+	},
+/turf/simulated/floor/wood/walnut,
+/area/abandoned_hotel/pool)
 "Me" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -2853,6 +3054,14 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/green,
 /area/abandoned_hotel/lobby)
+"MV" = (
+/obj/structure/table/steel,
+/obj/item/form_printer{
+	pixel_x = -14;
+	pixel_y = 22
+	},
+/turf/simulated/floor/wood/ebony,
+/area/abandoned_hotel/pool)
 "MX" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2912,6 +3121,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_hotel/lobby)
+"NY" = (
+/obj/floor_decal/scglogo{
+	icon_state = "bottom-left";
+	dir = 8
+	},
+/obj/structure/bed/chair/office/dark{
+	dir = 1;
+	pixel_x = -2;
+	pixel_y = 3
+	},
+/turf/simulated/floor/wood/ebony,
+/area/abandoned_hotel/pool)
 "Oa" = (
 /turf/simulated/floor/wood/maple,
 /area/abandoned_hotel/pool)
@@ -3009,7 +3230,7 @@
 /area/abandoned_hotel/lobby)
 "Px" = (
 /obj/machinery/light,
-/turf/simulated/floor/tiled/old_cargo,
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "PD" = (
 /obj/machinery/door/firedoor,
@@ -3030,10 +3251,9 @@
 /area/abandoned_hotel/lobby)
 "Qi" = (
 /obj/structure/window/reinforced{
-	dir = 4
+	dir = 1
 	},
-/obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/grass/cut,
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "Qk" = (
 /obj/structure/cable{
@@ -3060,9 +3280,15 @@
 /turf/simulated/floor/carpet/blue,
 /area/abandoned_hotel/buffet)
 "QD" = (
-/obj/structure/bed,
-/obj/item/towel/random,
-/turf/simulated/floor/tiled/old_cargo,
+/obj/structure/showcase{
+	icon_state = "h_maptable";
+	icon = 'mods\_fd\fd_assets\icons\structures\almayer_props96.dmi';
+	desc = "It's a maptable, for putting things on. Or standing on, if you really want to. It's broken, maybe";
+	bound_width = 96;
+	bound_height = 64;
+	name = "Maptable"
+	},
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "QE" = (
 /obj/structure/bed{
@@ -3090,6 +3316,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
+/area/abandoned_hotel/pool)
+"Rn" = (
+/obj/machinery/computer/ship/sensors{
+	dir = 1
+	},
+/turf/simulated/floor/wood/walnut,
 /area/abandoned_hotel/pool)
 "Rr" = (
 /obj/structure/window/reinforced{
@@ -3151,6 +3383,9 @@
 /obj/structure/bed{
 	pixel_y = 3
 	},
+/obj/item/bedsheet{
+	pixel_y = 3
+	},
 /turf/simulated/floor/wood,
 /area/abandoned_hotel/lobby)
 "Sn" = (
@@ -3175,8 +3410,11 @@
 /turf/simulated/floor/tiled/steel_ridged,
 /area/abandoned_hotel/lobby)
 "Sw" = (
-/obj/structure/hygiene/drain/bath,
-/turf/simulated/floor/pool,
+/obj/floor_decal/scglogo,
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "Sx" = (
 /obj/item/trash/plate,
@@ -3215,12 +3453,23 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/abandoned_hotel/lobby)
-"SZ" = (
-/obj/structure/window/reinforced{
-	dir = 4
+"SL" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 1;
+	pixel_x = -1;
+	pixel_y = -3
 	},
-/obj/structure/flora/ausbushes/genericbush,
-/turf/simulated/floor/grass/cut,
+/turf/simulated/floor/wood/ebony,
+/area/abandoned_hotel/pool)
+"SZ" = (
+/obj/structure/bed/chair/office/dark,
+/turf/simulated/floor/wood/ebony,
+/area/abandoned_hotel/pool)
+"Tj" = (
+/obj/machinery/computer{
+	dir = 8
+	},
+/turf/simulated/floor/wood/walnut,
 /area/abandoned_hotel/pool)
 "Tk" = (
 /obj/structure/cable{
@@ -3243,8 +3492,11 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/grass/cut,
+/obj/floor_decal/scglogo{
+	dir = 8;
+	icon_state = "top-left"
+	},
+/turf/simulated/floor/glass,
 /area/abandoned_hotel/pool)
 "TX" = (
 /obj/machinery/door/airlock,
@@ -3285,13 +3537,10 @@
 /turf/simulated/floor/carpet/green,
 /area/abandoned_hotel/lobby)
 "UG" = (
-/obj/floor_decal/borderfloorwhite{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/old_cargo,
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "UI" = (
 /turf/simulated/floor/tiled/freezer,
@@ -3359,8 +3608,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass/cut,
+/turf/simulated/floor/glass,
 /area/abandoned_hotel/pool)
 "VI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3373,11 +3621,8 @@
 /turf/simulated/floor/wood/maple,
 /area/abandoned_hotel/pool)
 "VK" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/flora/ausbushes/genericbush,
-/turf/simulated/floor/grass/cut,
+/obj/structure/flora/pottedplant/thinbush,
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "VL" = (
 /turf/simulated/floor/tiled/old_cargo,
@@ -3429,16 +3674,16 @@
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_hotel/lobby)
 "Wy" = (
-/obj/floor_decal/borderfloorwhite{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/old_cargo,
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "WQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3452,16 +3697,13 @@
 /turf/simulated/floor/tiled/freezer,
 /area/abandoned_hotel/lobby)
 "WR" = (
-/obj/floor_decal/borderfloorwhite{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/old_cargo,
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "WU" = (
 /obj/structure/window/reinforced/full,
@@ -3499,13 +3741,15 @@
 /turf/simulated/floor/carpet/green,
 /area/abandoned_hotel/lobby)
 "Xo" = (
-/obj/floor_decal/borderfloorwhite{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/old_cargo,
+/obj/structure/bed/chair/office/dark{
+	dir = 1;
+	pixel_y = 4;
+	pixel_x = -3
+	},
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "Xq" = (
 /obj/structure/window/reinforced{
@@ -3580,11 +3824,16 @@
 /turf/simulated/floor/tiled/old_tile,
 /area/abandoned_hotel/buffet)
 "Ya" = (
-/obj/structure/window/reinforced{
+/obj/floor_decal/scglogo{
+	icon_state = "center-right";
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass/cut,
+/obj/structure/bed/chair/office/dark{
+	dir = 1;
+	pixel_y = 2;
+	pixel_x = 3
+	},
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "Yc" = (
 /obj/machinery/power/apc{
@@ -3625,17 +3874,18 @@
 "Zb" = (
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_hotel/lobby)
+"Zi" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/wood/walnut,
+/area/abandoned_hotel/pool)
 "Zw" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/carpet/blue,
 /area/abandoned_hotel/buffet)
 "ZB" = (
-/obj/floor_decal/borderfloorwhite{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/old_cargo,
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "ZK" = (
 /turf/simulated/floor/carpet/green,
@@ -3645,7 +3895,12 @@
 /turf/simulated/floor/wood/maple,
 /area/abandoned_hotel/pool)
 "ZQ" = (
-/turf/simulated/floor/pool,
+/obj/structure/bed/chair/office/dark{
+	dir = 1;
+	pixel_x = -3;
+	pixel_y = 4
+	},
+/turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
 "ZU" = (
 /turf/simulated/wall/prepainted,
@@ -21325,15 +21580,15 @@ Cb
 oo
 An
 cv
-QE
+pc
 CB
 Sm
 CB
-QE
+ri
 CB
-QE
+aW
 CB
-QE
+FK
 cv
 lB
 Pn
@@ -21931,13 +22186,13 @@ ur
 WQ
 Lv
 cv
-QE
+FK
 CB
 Sm
 CB
-QE
+pc
 qi
-QE
+pc
 CB
 Sm
 cv
@@ -22540,7 +22795,7 @@ cv
 FQ
 HB
 Oq
-QE
+pc
 ll
 QE
 Oq
@@ -22725,9 +22980,9 @@ aa
 Vf
 Vf
 Vf
-Qi
-Lo
-SZ
+iF
+iF
+iF
 iF
 iF
 ZU
@@ -22925,13 +23180,13 @@ aa
 aa
 aa
 Vf
-aB
-SZ
-bf
-VL
+aX
+iF
+Qi
+aH
 oW
-VL
-QD
+oW
+bA
 Rr
 ZU
 yX
@@ -23127,13 +23382,13 @@ aa
 aa
 Vf
 Vf
-Dv
-VL
+aS
+bA
 KM
-VL
-VL
-VL
-VL
+ak
+kN
+rm
+bA
 Pf
 ZU
 xi
@@ -23333,9 +23588,9 @@ aD
 bA
 yy
 tW
-tW
+EQ
 bx
-VL
+bA
 ZU
 ZU
 No
@@ -23531,13 +23786,13 @@ aa
 aa
 Vf
 aS
-ZQ
-ZQ
-ZQ
-ZQ
-ZQ
+oW
+oW
+SZ
+Ii
+MV
 Xo
-VL
+bA
 ZU
 LQ
 Xb
@@ -23732,12 +23987,12 @@ aa
 aa
 aa
 Vf
-bI
-ZQ
-Sw
-ZQ
-Sw
-ZQ
+aS
+oW
+oW
+oW
+Cg
+kA
 WR
 tt
 ZU
@@ -23934,14 +24189,14 @@ aa
 aa
 aa
 Vf
-Dv
-ZQ
-ZQ
-ZQ
-ZQ
-ZQ
+aS
+oW
+oW
+oW
+bA
+oW
 vo
-VL
+oW
 ZU
 LQ
 UJ
@@ -24135,14 +24390,14 @@ aa
 aa
 aa
 aa
-ZU
-ZU
-HQ
-ZQ
-ZQ
-ZQ
-ZQ
-vo
+je
+aS
+oW
+oW
+SL
+Dp
+aB
+Dv
 Px
 ZU
 OS
@@ -24337,15 +24592,15 @@ aa
 aa
 aa
 aa
-Vf
-Dv
+ZU
+ZU
+oW
+oW
+HU
+cl
 ZQ
-ZQ
-ZQ
-ZQ
-ZQ
-vo
-VL
+qt
+oW
 ZU
 bo
 Rm
@@ -24539,15 +24794,15 @@ aa
 aa
 aa
 aa
-Vf
-aS
-ZQ
-ZQ
-ZQ
-ZQ
-ZQ
-vo
-VL
+ZU
+ZU
+oW
+oW
+NY
+ce
+Lo
+rz
+oW
 ZU
 ZU
 PD
@@ -24743,14 +24998,14 @@ aa
 aa
 Vf
 bI
-ZQ
+oW
+oW
+ic
 Sw
-ZQ
-Sw
-ZQ
+Ya
 Wy
-XQ
-XQ
+gD
+IV
 XQ
 AL
 FZ
@@ -24944,14 +25199,14 @@ aa
 aa
 aa
 Vf
-bI
-ZQ
-ZQ
-ZQ
-ZQ
-ZQ
+aS
+oW
+oW
+tb
+Gn
+av
 vo
-VL
+oW
 ZU
 as
 VL
@@ -25146,14 +25401,14 @@ aa
 aa
 aa
 Vf
-qt
-ZQ
-ZQ
-ZQ
-ZQ
-ZQ
+aS
+oW
+oW
+oW
+oW
+oW
 vo
-VL
+oW
 ZU
 ZU
 ZU
@@ -25350,12 +25605,12 @@ aa
 ZU
 ZU
 HQ
-ZQ
-ZQ
-ZQ
-ZQ
+oW
+oW
+QD
+oW
 vo
-Px
+cL
 ZU
 Oa
 Oa
@@ -25550,14 +25805,14 @@ aa
 aa
 aa
 Vf
-qt
-ZQ
-ZQ
-ZQ
-ZQ
-ZQ
+aS
+oW
+oW
+oW
+oW
+oW
 vo
-VL
+Zi
 uz
 ZN
 wZ
@@ -25752,12 +26007,12 @@ aa
 aa
 aa
 Vf
-bI
-ZQ
-Sw
-ZQ
-Sw
-ZQ
+aS
+oW
+oW
+oW
+oW
+oW
 BE
 Gv
 wR
@@ -25954,14 +26209,14 @@ aa
 aa
 aa
 Vf
-Dv
-ZQ
-aH
-ZQ
-ZQ
-ZQ
+aS
+oW
+oW
+oW
+oW
+oW
 UG
-VL
+bA
 uz
 Oa
 wZ
@@ -26156,14 +26411,14 @@ aa
 aa
 aa
 Vf
-ak
+aS
 aE
-aW
+oW
 qO
 ZB
 ZB
 by
-VL
+bA
 uz
 wZ
 CV
@@ -26359,13 +26614,13 @@ aa
 aa
 Vf
 Vf
-qt
-VL
+aS
+sk
 hv
 AX
-VL
-VL
-VL
+fl
+Mb
+Rn
 wR
 cz
 Oa
@@ -26562,12 +26817,12 @@ aa
 aa
 Vf
 aX
-FK
+VA
 bf
-VL
 oW
-VL
-oW
+VK
+Tj
+bA
 wR
 RH
 JW
@@ -26766,9 +27021,9 @@ Vf
 Vf
 Vf
 TF
-VK
 VA
-Ya
+VA
+VA
 VA
 ZU
 ZU
