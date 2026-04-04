@@ -369,7 +369,3 @@
 	#warn A map has already been included, ignoring Tempeterra
 
 #endif
-
-#include "mods\_fd\_maps\gccv_ulyanovsk\maps\gccv_ulyanovsk1.dmm"
-#include "mods\_fd\_maps\gccv_ulyanovsk\maps\gccv_ulyanovsk2.dmm"
-#include "mods\_fd\_maps\gccv_ulyanovsk\maps\gccv_ulyanovsk3.dmm"

@@ -24,23 +24,12 @@
 
 
 /proc/boreas_cutscene()
-	var/message_ambush = "<span style='color:red; font-size: 20px;'>На сенсорах происходит странная активность...</span>"
-	for(var/mob/M in GLOB.player_list)
-		to_chat(M, message_ambush)
-
-	sleep(50)
-
-	everyone_look_at_overmap()
-
-	sleep(120)
-
 	var/list/map_turfs = block(locate(2,2,GLOB.using_map.overmap_z),locate(GLOB.using_map.overmap_size-2,GLOB.using_map.overmap_size-2,GLOB.using_map.overmap_z))
 	for(var/turf/T in map_turfs)
 		for(var/obj/npc_ship_spawner/npc in T)
 			if(npc)
 				npc.appear()
 
-	sleep(90)
 	start_cutscene(/datum/modular_cutscene/boreas_cutscene)
 
 /datum/modular_cutscene/boreas_cutscene/setup_actions(...)
