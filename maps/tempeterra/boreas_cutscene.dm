@@ -35,9 +35,9 @@
 
 /datum/modular_cutscene/boreas_cutscene/setup_actions(...)
 	actions = list(
-		PLAY_SOUND(sound('wolfindark.ogg', volume = 50)),
+		PLAY_SOUND(sound('maps/tempeterra/wolfindark.mp3', volume = 50)),
 		TP_CAMERA("Опенинг 1 - Кадр 2") = 5 SECONDS,
-		CALL_GLOB(spawnboreas) = 20 SECONDS
+		CALL_GLOB(spawnboreas) = 20 SECONDS,
 		TP_CAMERA("Опенинг 1 - Кадр 1"),
 		// CALL_GLOB()
 		// CALL_GLOB()
