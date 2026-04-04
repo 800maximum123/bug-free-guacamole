@@ -46,7 +46,7 @@
 /datum/modular_cutscene/boreas_cutscene/setup_actions(...)
 	actions = list(
 		TP_CAMERA("Опенинг 1 - Кадр 1"),
-		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/again.ogg', volume = 50)), // Fuck!!
+		// PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/again.ogg', volume = 50)), // Fuck!!
 		// CALL_GLOB()
 		// CALL_GLOB()
 		MOVE_CAMERA(160, -4, 40 SECONDS, null),
