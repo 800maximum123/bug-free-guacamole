@@ -9,7 +9,7 @@
 	minimum_character_age = list(SPECIES_HUMAN = 27)
 	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/security/brig_chief/fleet
 	allowed_branches = list(
-		/datum/mil_branch/fleet
+		/datum/mil_branch/fleet,
 	)
 	allowed_ranks = list(
 		/datum/mil_rank/fleet/e6,
@@ -49,12 +49,16 @@
 	alt_titles = list() // This is a hack. Overriding a list var with null does not actually override it due to the particulars of dm list init. Do not "clean up" without testing.
 	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/security/maa/fleet
 	allowed_branches = list(
-		/datum/mil_branch/fleet
+		/datum/mil_branch/fleet,
+		/datum/mil_branch/scga,
 	)
 	allowed_ranks = list(
 		/datum/mil_rank/fleet/e3,
 		/datum/mil_rank/fleet/e4,
 		/datum/mil_rank/fleet/e5,
+		/datum/mil_rank/scga/e3,
+		/datum/mil_rank/scga/e4,
+		/datum/mil_rank/scga/e5,
 	)
 	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
 	                    SKILL_EVA         = SKILL_BASIC,
