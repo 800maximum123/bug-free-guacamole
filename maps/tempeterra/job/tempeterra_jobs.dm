@@ -26,7 +26,7 @@
 		// /datum/job/expeng, /datum/job/expmed,
 		/datum/job/senior_engineer, /datum/job/engineer, ///datum/job/roboticist, /datum/job/engineer_trainee,
 		/datum/job/officer, /datum/job/warden, ///datum/job/detective,
-		/datum/job/senior_doctor, /datum/job/doctor ///datum/job/junior_doctor, /datum/job/chemist, /datum/job/medical_trainee,
+		/datum/job/senior_doctor, /datum/job/doctor, ///datum/job/junior_doctor, /datum/job/chemist, /datum/job/medical_trainee,
 		// /datum/job/psychiatrist,
 		//datum/job/cargo_tech, /datum/job/mining,
 		// /datum/job/senior_scientist, /datum/job/scientist, /datum/job/scientist_assistant, /datum/job/research_guard,
@@ -35,6 +35,7 @@
 		// /datum/job/chaplain,
 		// /datum/job/assistant,
 		// /datum/job/merchant
+		/datum/job/sofleader, /datum/job/sofgrunt
 	)
 
 	access_modify_region = list(

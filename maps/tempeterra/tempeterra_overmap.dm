@@ -54,9 +54,9 @@
 	warmup_time = 5
 	move_time = 30
 	shuttle_area = list(/area/butterfly_hangar,/area/butterfly_hangar/cockpit)
-	dock_target ="butterfly_shuttle"
+	dock_target = "butterfly_shuttle"
 	current_location = "nav_hangar_butterfly"
-	landmark_transition = "nav_transit_butterfly"
+	// landmark_transition = "nav_transit_butterfly"
 	sound_takeoff = 'sound/effects/rocket.ogg'
 	sound_landing = 'sound/effects/rocket_backwards.ogg'
 	fuel_consumption = 2

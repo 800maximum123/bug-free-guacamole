@@ -586,31 +586,6 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_hotel/rooms)
-"fb" = (
-/obj/structure/closet/crate/secure/weapon,
-/obj/item/gun/projectile/automatic/bullpup_rifle/light{
-	starts_loaded = 0
-	},
-/obj/item/gun/projectile/automatic/bullpup_rifle{
-	starts_loaded = 0
-	},
-/obj/item/gun/projectile/automatic/assault_rifle/heltek{
-	starts_loaded = 0
-	},
-/obj/item/gun/projectile/automatic/mr735{
-	starts_loaded = 0
-	},
-/obj/item/clothing/accessory/storage/webbing_large,
-/obj/item/gun/projectile/pistol/sol_service/empty,
-/obj/item/gun/projectile/pistol/sol_service/empty,
-/obj/item/gun/projectile/automatic/l6_saw{
-	starts_loaded = 0
-	},
-/obj/item/gun/projectile/pistol/optimus{
-	starts_loaded = 0
-	},
-/turf/space,
-/area/space)
 "fd" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 5
@@ -1321,12 +1296,6 @@
 /obj/structure/bed/chair,
 /turf/simulated/floor/tiled,
 /area/abandoned_hotel/evac)
-"lJ" = (
-/obj/submap_landmark/joinable_submap/sfv_tigris/iccgn{
-	name = "Leader"
-	},
-/turf/simulated/floor/wood,
-/area/abandoned_hotel/rooms)
 "lL" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/bed,
@@ -1334,18 +1303,6 @@
 /obj/item/bedsheet,
 /turf/simulated/floor/pool,
 /area/abandoned_hotel/rooms)
-"lM" = (
-/obj/structure/table/rack,
-/obj/item/clothing/glasses/ballistic,
-/obj/item/clothing/accessory/helmet_cover/green,
-/obj/item/clothing/head/helmet/tactical,
-/obj/item/clothing/suit/armor/pcarrier/green/heavy_saare{
-	accessories = list(/obj/item/clothing/accessory/armor_plate/medium,/obj/item/clothing/accessory/arm_guards/green,/obj/item/clothing/accessory/leg_guards/green,/obj/item/clothing/accessory/storage/pouches/green)
-	},
-/obj/item/storage/belt/holster/security/tactical,
-/obj/item/storage/backpack/rucksack/green,
-/turf/simulated/floor/wood,
-/area/space)
 "lW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -1726,15 +1683,6 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_hotel/rooms)
-"qk" = (
-/obj/structure/table/rack,
-/obj/item/clothing/accessory/glassesmod/nvg,
-/obj/item/clothing/head/helmet/ballistic,
-/obj/item/clothing/suit/armor/bulletproof/armsman,
-/obj/item/storage/belt/holster/security/tactical,
-/obj/item/storage/backpack/rucksack/green,
-/turf/simulated/floor/wood,
-/area/space)
 "qo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -1956,20 +1904,6 @@
 	},
 /turf/simulated/floor/pool,
 /area/abandoned_hotel/rooms)
-"sQ" = (
-/obj/structure/table/rack,
-/obj/item/clothing/accessory/glassesmod/nvg,
-/obj/item/clothing/accessory/helmet_cover/green,
-/obj/item/clothing/accessory/helmet_cover/lead,
-/obj/item/clothing/head/helmet/tactical,
-/obj/item/clothing/suit/armor/pcarrier/green/heavy_saare{
-	accessories = list(/obj/item/clothing/accessory/armor_plate/medium,/obj/item/clothing/accessory/arm_guards/green,/obj/item/clothing/accessory/leg_guards/green,/obj/item/clothing/accessory/storage/pouches/green)
-	},
-/obj/item/clothing/accessory/armor_tag/solgov/lead,
-/obj/item/storage/belt/holster/security/tactical,
-/obj/item/storage/backpack/rucksack/green,
-/turf/simulated/floor/wood,
-/area/space)
 "sR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2053,9 +1987,14 @@
 /area/abandoned_hotel/evac)
 "tu" = (
 /obj/structure/closet/crate/secure/weapon,
-/obj/item/ammo_magazine/box/machinegun,
-/obj/item/ammo_magazine/box/machinegun,
-/obj/item/ammo_magazine/box/machinegun,
+/obj/item/storage/box/ammo/light_bullpup,
+/obj/item/storage/box/ammo/doublestack,
+/obj/item/storage/box/ammo/heavy_bullpup,
+/obj/item/storage/box/fragshells,
+/obj/item/storage/box/ammo/doublestack,
+/obj/item/storage/box/frags,
+/obj/item/storage/box/ammo/assault_rifle,
+/obj/item/storage/box/ammo/assault_rifle,
 /obj/item/ammo_magazine/box/machinegun,
 /obj/item/ammo_magazine/box/machinegun,
 /obj/item/ammo_magazine/box/machinegun,
@@ -2247,26 +2186,6 @@
 /obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/pool,
 /area/abandoned_hotel/rooms)
-"vu" = (
-/obj/structure/closet/crate/secure/weapon,
-/obj/item/storage/box/ammo/light_bullpup,
-/obj/item/storage/box/ammo/doublestack,
-/obj/item/storage/box/ammo/heavy_bullpup,
-/obj/item/storage/box/fragshells,
-/obj/item/storage/box/ammo/doublestack,
-/obj/item/storage/box/frags,
-/obj/item/storage/box/ammo/assault_rifle,
-/obj/item/storage/box/ammo/assault_rifle,
-/obj/item/ammo_magazine/box/machinegun,
-/obj/item/ammo_magazine/box/machinegun,
-/obj/item/ammo_magazine/box/machinegun,
-/obj/item/ammo_magazine/box/machinegun,
-/obj/item/ammo_magazine/box/machinegun,
-/obj/item/ammo_magazine/box/machinegun,
-/obj/item/ammo_magazine/box/machinegun,
-/obj/item/ammo_magazine/box/machinegun,
-/turf/space,
-/area/space)
 "vw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2657,12 +2576,27 @@
 /turf/space,
 /area/space)
 "CG" = (
-/obj/structure/table/rack,
+/obj/structure/closet/crate/secure/weapon,
+/obj/item/gun/projectile/automatic/bullpup_rifle/light{
+	starts_loaded = 0
+	},
+/obj/item/gun/projectile/automatic/bullpup_rifle{
+	starts_loaded = 0
+	},
+/obj/item/gun/projectile/automatic/assault_rifle/heltek{
+	starts_loaded = 0
+	},
+/obj/item/gun/projectile/automatic/mr735{
+	starts_loaded = 0
+	},
+/obj/item/clothing/accessory/storage/webbing_large,
+/obj/item/gun/projectile/pistol/sol_service/empty,
+/obj/item/gun/projectile/pistol/sol_service/empty,
 /obj/item/gun/projectile/automatic/l6_saw{
-	starts_loaded = 0;
-	desc_special_show = 1;
-	interactive = 1;
-	desc_special = "Определенно сломан. Вот было бы кто-то, чтобы починить его..."
+	starts_loaded = 0
+	},
+/obj/item/gun/projectile/pistol/optimus{
+	starts_loaded = 0
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/abandoned_hotel/rooms)
@@ -2797,13 +2731,6 @@
 "EN" = (
 /obj/structure/flora/pottedplant/dead,
 /turf/simulated/floor/wood/walnut,
-/area/abandoned_hotel/rooms)
-"Fa" = (
-/obj/decal/cleanable/dirt,
-/obj/submap_landmark/joinable_submap/sfv_tigris/iccgn{
-	name = "Engi"
-	},
-/turf/simulated/floor/wood,
 /area/abandoned_hotel/rooms)
 "Ff" = (
 /obj/floor_decal/spline/fancy/black{
@@ -2971,22 +2898,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_hotel/solar)
-"GY" = (
-/obj/structure/table/rack,
-/obj/item/clothing/accessory/storage/holster/waist,
-/obj/item/clothing/accessory/storage/bandolier,
-/obj/item/clothing/accessory/glassesmod/nvg,
-/obj/item/clothing/glasses/ballistic/medic,
-/obj/item/clothing/accessory/helmet_cover/green,
-/obj/item/clothing/head/helmet/tactical,
-/obj/item/clothing/accessory/armor_tag/solgov/medic,
-/obj/item/clothing/suit/armor/pcarrier/green/heavy_saare{
-	accessories = list(/obj/item/clothing/accessory/armor_plate/medium,/obj/item/clothing/accessory/arm_guards/green,/obj/item/clothing/accessory/leg_guards/green,/obj/item/clothing/accessory/storage/pouches/green)
-	},
-/obj/item/storage/belt/medical/emt,
-/obj/item/storage/backpack/dufflebag/syndie/med/full,
-/turf/simulated/floor/wood,
-/area/space)
 "Hh" = (
 /obj/structure/table/woodentable/walnut,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -3167,18 +3078,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet/green,
 /area/abandoned_hotel/rooms)
-"Ln" = (
-/obj/structure/table/rack,
-/obj/item/clothing/glasses/ballistic/engi,
-/obj/item/clothing/accessory/helmet_cover/green,
-/obj/item/clothing/head/helmet/tactical,
-/obj/item/clothing/suit/armor/pcarrier/green/heavy_saare{
-	accessories = list(/obj/item/clothing/accessory/armor_plate/medium,/obj/item/clothing/accessory/arm_guards/green,/obj/item/clothing/accessory/leg_guards/green,/obj/item/clothing/accessory/storage/pouches/green)
-	},
-/obj/item/storage/belt/holster/security/tactical,
-/obj/item/storage/backpack/rucksack/green,
-/turf/simulated/floor/wood,
-/area/space)
 "LE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3957,10 +3856,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/abandoned_hotel/evac)
-"Ye" = (
-/obj/structure/closet/crate/secure/large,
-/turf/space,
-/area/space)
 "Yf" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -21551,7 +21446,7 @@ QQ
 nH
 QQ
 oZ
-Fa
+mO
 tk
 Uq
 Bw
@@ -21753,7 +21648,7 @@ sy
 VT
 QQ
 SX
-lJ
+QQ
 VT
 Uq
 Xq
@@ -21961,7 +21856,7 @@ Uq
 Xq
 QQ
 ym
-QQ
+Tv
 Tv
 jG
 aa
@@ -22163,7 +22058,7 @@ Uq
 wt
 Yu
 Zg
-Yu
+Tv
 Tv
 jG
 aa
@@ -26815,7 +26710,7 @@ aa
 aa
 aa
 aa
-Ye
+aa
 aa
 aa
 aa
@@ -27017,7 +26912,7 @@ aa
 aa
 aa
 aa
-sQ
+aa
 aa
 aa
 aa
@@ -27217,9 +27112,9 @@ vZ
 aa
 aa
 aa
-fb
 aa
-lM
+aa
+aa
 aa
 aa
 aa
@@ -27419,9 +27314,9 @@ vZ
 aa
 aa
 aa
-vu
 aa
-Ln
+aa
+aa
 aa
 aa
 aa
@@ -27623,7 +27518,7 @@ aa
 aa
 aa
 aa
-GY
+aa
 aa
 aa
 aa
@@ -27825,7 +27720,7 @@ aa
 aa
 aa
 aa
-qk
+aa
 aa
 aa
 aa

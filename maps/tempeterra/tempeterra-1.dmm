@@ -11412,14 +11412,13 @@
 /obj/floor_decal/corner/green/border{
 	dir = 4
 	},
-/obj/machinery/computer/ship/helm{
-	dir = 8
-	},
 /obj/item/device/binoculars{
 	pixel_x = 7;
 	pixel_y = 7
 	},
-/obj/overmap/visitable/ship/landable/butterfly,
+/obj/machinery/computer/ship/helm{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/butterfly_hangar/cockpit)
 "va" = (
@@ -14203,6 +14202,13 @@
 /obj/paint/black,
 /turf/simulated/wall/ocp_wall,
 /area/tempeterra/command/cic)
+"Ab" = (
+/obj/wallframe_spawn/reinforced/titanium,
+/obj/paint/silver,
+/obj/shuttle_landmark/torch/hangar/butterfly,
+/obj/overmap/visitable/ship/landable/butterfly,
+/turf/simulated/floor/plating,
+/area/butterfly_hangar/cockpit)
 "Ac" = (
 /obj/item/arrow/rod,
 /turf/space,
@@ -44948,7 +44954,7 @@ Pf
 GI
 Ce
 Dw
-GI
+Ab
 XS
 sM
 bG

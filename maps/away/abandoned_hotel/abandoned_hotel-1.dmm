@@ -1809,6 +1809,10 @@
 	},
 /turf/simulated/floor/tiled/kafel_full,
 /area/abandoned_hotel/kitchen)
+"uP" = (
+/obj/structure/catwalk,
+/turf/space,
+/area/space)
 "uY" = (
 /obj/floor_decal/spline/fancy/black,
 /obj/decal/cleanable/dirt,
@@ -1888,6 +1892,11 @@
 /obj/decal/cleanable/blood,
 /turf/simulated/floor/tiled/freezer,
 /area/abandoned_hotel/kitchen)
+"vT" = (
+/obj/structure/catwalk,
+/obj/structure/lattice,
+/turf/space,
+/area/space)
 "vW" = (
 /obj/machinery/door/airlock,
 /turf/simulated/wall/prepainted,
@@ -1930,6 +1939,12 @@
 /obj/structure/window/reinforced/full,
 /turf/simulated/floor/airless,
 /area/abandoned_hotel/lobby)
+"wv" = (
+/obj/structure/catwalk,
+/obj/structure/catwalk,
+/obj/structure/lattice,
+/turf/space,
+/area/space)
 "wA" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1991,6 +2006,11 @@
 /obj/floor_decal/spline/fancy/black,
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_hotel/lobby)
+"xN" = (
+/obj/structure/lattice,
+/obj/structure/catwalk,
+/turf/space,
+/area/space)
 "xT" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -2217,6 +2237,10 @@
 	icon_state = "railing0-1"
 	},
 /turf/simulated/floor/carpet/green,
+/area/abandoned_hotel/lobby)
+"BC" = (
+/obj/wallframe_spawn/reinforced/hull,
+/turf/simulated/wall/r_wall,
 /area/abandoned_hotel/lobby)
 "BE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2651,6 +2675,9 @@
 	},
 /turf/simulated/floor/wood,
 /area/abandoned_hotel/lobby)
+"HD" = (
+/turf/simulated/floor/forcefield,
+/area/abandoned_hotel/lobby)
 "HK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2910,6 +2937,10 @@
 /obj/decal/cleanable/dirt,
 /obj/structure/roller_bed,
 /turf/simulated/floor/wood/walnut,
+/area/abandoned_hotel/lobby)
+"Lg" = (
+/obj/wallframe_spawn/reinforced/hull,
+/turf/space,
 /area/abandoned_hotel/lobby)
 "Lk" = (
 /turf/simulated/wall/prepainted,
@@ -3270,6 +3301,11 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/green,
 /area/abandoned_hotel/lobby)
+"Qn" = (
+/obj/wallframe_spawn/reinforced/hull,
+/obj/wallframe_spawn/reinforced/hull,
+/turf/simulated/wall/r_wall,
+/area/abandoned_hotel/lobby)
 "Qo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3439,6 +3475,10 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/abandoned_hotel/pool)
+"SI" = (
+/obj/structure/catwalk,
+/turf/space,
+/area/abandoned_hotel/lobby)
 "SJ" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -3465,6 +3505,10 @@
 /obj/structure/bed/chair/office/dark,
 /turf/simulated/floor/wood/ebony,
 /area/abandoned_hotel/pool)
+"Tc" = (
+/obj/wallframe_spawn/reinforced/hull,
+/turf/simulated/floor/shuttle/white,
+/area/abandoned_hotel/lobby)
 "Tj" = (
 /obj/machinery/computer{
 	dir = 8
@@ -3571,8 +3615,8 @@
 /turf/simulated/floor/carpet/blue,
 /area/abandoned_hotel/buffet)
 "Va" = (
-/turf/simulated/floor/airless,
-/area/space)
+/turf/simulated/wall/r_wall,
+/area/abandoned_hotel/lobby)
 "Vc" = (
 /obj/floor_decal/borderfloorwhite{
 	dir = 4
@@ -20598,13 +20642,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SI
+Va
+Va
+Va
+Va
+Va
+uP
 aa
 aa
 aa
@@ -20800,13 +20844,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+uP
+Va
+HD
+HD
+HD
+Va
+uP
 aa
 aa
 aa
@@ -21003,11 +21047,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+Va
+HD
+HD
+HD
+Va
 aa
 aa
 aa
@@ -21205,11 +21249,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+Tc
+HD
+HD
+HD
+Tc
 aa
 aa
 aa
@@ -21407,11 +21451,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+Tc
+HD
+HD
+HD
+Tc
 aa
 aa
 aa
@@ -21609,11 +21653,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+Tc
+HD
+HD
+HD
+Tc
 aa
 aa
 aa
@@ -21811,11 +21855,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+Tc
+HD
+HD
+HD
+Tc
 aa
 aa
 aa
@@ -22012,13 +22056,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+uP
+Va
+HD
+HD
+HD
+Va
+uP
 aa
 aa
 aa
@@ -22214,13 +22258,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+uP
+Va
+HD
+HD
+HD
+Va
+uP
 aa
 aa
 aa
@@ -22417,11 +22461,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+Tc
+HD
+HD
+HD
+Tc
 aa
 aa
 aa
@@ -22619,11 +22663,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+Tc
+HD
+HD
+HD
+Tc
 aa
 aa
 aa
@@ -22821,11 +22865,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+Tc
+HD
+HD
+HD
+Tc
 aa
 aa
 aa
@@ -23023,11 +23067,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+Tc
+HD
+HD
+HD
+Tc
 aa
 aa
 aa
@@ -23225,11 +23269,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+Tc
+HD
+HD
+HD
+Tc
 aa
 aa
 aa
@@ -23426,13 +23470,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+uP
+Va
+HD
+HD
+HD
+Va
+uP
 aa
 aa
 aa
@@ -23623,18 +23667,18 @@ iN
 cv
 cv
 Kr
-Kr
+xN
+vT
+uP
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+uP
+uP
+Va
+Va
+HD
+Va
+Va
+uP
 aa
 aa
 aa
@@ -23826,16 +23870,16 @@ cv
 cv
 cv
 Va
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Lg
+Lg
+Lg
+Va
+Va
+Va
+HD
+HD
+HD
+Va
 aa
 aa
 aa
@@ -24027,17 +24071,17 @@ NM
 fK
 fK
 NM
+HD
+HD
+HD
+HD
+HD
+HD
+HD
+HD
+HD
+HD
 Va
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -24229,17 +24273,17 @@ NM
 Vc
 Vc
 NM
+HD
+HD
+HD
+HD
+HD
+HD
+HD
+HD
+HD
+HD
 Va
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -24432,16 +24476,16 @@ cv
 cv
 cv
 Va
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Lg
+Lg
+Lg
+Va
+Va
+Va
+HD
+HD
+HD
+Va
 aa
 aa
 aa
@@ -24633,17 +24677,17 @@ Bq
 cv
 cv
 Kr
-Kr
+xN
+wv
+uP
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Va
+BC
+Qn
+BC
+Va
 aa
 aa
 aa

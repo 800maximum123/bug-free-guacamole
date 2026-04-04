@@ -48,6 +48,7 @@ var/global/list/admin_verbs_admin = list(
 	/client/proc/cmd_admin_audible_narrate,
 	/client/proc/cmd_admin_local_narrate,
 	/client/proc/cmd_admin_world_narrate,	//sends text to all players with no padding,
+	/client/proc/screen_alert_menu, // [FD-ADD] - FD-EVENTS, screentext_marine.dm
 	/client/proc/cmd_admin_create_centcom_report,
 	/client/proc/check_ai_laws,			//shows AI and borg laws,
 	/client/proc/rename_silicon,		//properly renames silicons,
@@ -268,6 +269,7 @@ var/global/list/admin_verbs_hideable = list(
 	/client/proc/cmd_admin_audible_narrate,
 	/client/proc/cmd_admin_local_narrate,
 	/client/proc/cmd_admin_world_narrate,
+	/client/proc/screen_alert_menu, // [FD-ADD] - FD-EVENTS, screentext_marine.dm
 	/client/proc/play_local_sound,
 	/client/proc/play_sound,
 	/client/proc/play_server_sound,

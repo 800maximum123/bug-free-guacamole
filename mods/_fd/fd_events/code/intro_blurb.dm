@@ -1,7 +1,7 @@
 /proc/intro_sequence()
 	for(var/mob/living/carbon/human/human as anything in GLOB.player_list)
 		human.play_screen_text(
-			"<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>\[ШТУРМ УЛЬЯНОВСКА\]</u><br>" + "\[Ремонтная станция глубоко в тылу врага\]<br>" + "█:█, ██<br>" + "\[ Третий Флот \]<br>" + "\[Капитан\], [human]<br> </span>", /atom/movable/screen/screen_text/picture/fleetlogo)
+			"<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>\[ШТУРМ УЛЬЯНОВСКА\]</u><br>" + "\[Ремонтная станция глубоко в тылу врага\]<br>" + "█:█, ██<br>" + "[human.char_branch]<br>" + "[human.char_rank], [human]<br> </span>", /atom/movable/screen/screen_text/picture/fleetlogo)
 		var/admin_names
 		for(var/client/admin in GLOB.admins)
 			admin_names += "[admin.ckey]<br>"

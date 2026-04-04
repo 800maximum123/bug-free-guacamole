@@ -51,7 +51,7 @@
 	var/letters_per_update = 1
 
 	///opening styling for the message
-	var/style_open = "<span class='langchat' style=text-align:center valign='top'>"
+	var/style_open = "<span class='maptext' style=text-align:center valign='top'>"
 	///closing styling for the message
 	var/style_close = "</span>"
 	///var for the text we are going to play
@@ -131,7 +131,7 @@
 	letters_per_update = 1
 	fade_out_delay = 5 SECONDS
 	screen_loc = "WEST:6,1:5"
-	style_open = "<span class='langchat' style=font-size:20pt;text-align:left valign='top'>"
+	style_open = "<span class='maptext' style=font-size:20pt;text-align:left valign='top'>"
 	style_close = "</span>"
 	icon = 'mods/_fd/fd_events/icons/screen_alert_images.dmi' // Оно продолжало ныть что это плохой файл.
 	///image that will display on the left of the screen alert
@@ -149,7 +149,44 @@
 
 /atom/movable/screen/screen_text/picture/fleetlogo
 	image_to_play = "fleetlogo"
-/*
+
+
+/atom/movable/screen/screen_text/potrait
+	screen_loc = "LEFT,TOP-3"
+	maptext_height = 64
+	maptext_width = 400
+	maptext_x = 66
+	maptext_y = 0
+	letters_per_update = 2
+	fade_out_delay = 10 SECONDS
+	style_open = "<span class='mapchat' style=font-size:20pt;text-align:left valign='top'>"
+	style_close = "</span>"
+
+/atom/movable/screen/screen_text/potrait/Initialize(mapload, datum/hud/hud_owner, name, icon_to_use, image_to_play)
+	. = ..()
+	var/image/alertimage = image(icon_to_use, icon_state = image_to_play)
+	alertimage.appearance_flags = APPEARANCE_UI
+	overlays += alertimage
+	var/atom/movable/holding_movable = new
+	holding_movable.appearance_flags = APPEARANCE_UI|KEEP_TOGETHER
+	holding_movable.mouse_opacity = FALSE
+
+	var/mutable_appearance/mugshot_name = mutable_appearance()
+	mugshot_name.appearance_flags = APPEARANCE_UI
+	mugshot_name.maptext_width = 66 // 64 (the icon) + 1 buffer each side
+	mugshot_name.maptext_x = -1
+	mugshot_name.maptext_y = -1
+	mugshot_name.plane = plane
+	mugshot_name.layer = layer+0.3
+
+	if(!name)
+		name = ""
+	mugshot_name.maptext = "<span class='maptext' style=font-size:6px;text-align:center>[name]</span>"
+
+	holding_movable.overlays += mugshot_name
+
+	vis_contents += holding_movable
+
 /client/proc/screen_alert_menu()
 	set name = "Send Screen Alert"
 	set category = "Special Verbs"
@@ -188,35 +225,111 @@
 	var/portrait_color
 	var/name
 
-	icon_choice = tgui_input_list(src, "Upload Icon? (64x64 for best result)", "Icon", list("Yes","No"))
+	icon_choice = input(usr, "Upload Icon? (64x64 for best result)", "Icon") in list("Yes","No")
 	if(icon_choice == "Yes")
 		icon_choice = input(usr, "Choose an icon", "Upload Icon") as null|file
-		icon_choice_state = tgui_input_text(src, "Portrait icon state, leave blank for unknown.", "Icon state")
+		icon_choice_state = input(src, "Portrait icon state, leave blank for unknown.", "Icon state")
 	else
-		icon_choice = 'icons/ui_icons/screen_alert_images.dmi'
-		icon_choice_state = tgui_input_list(src, "Portrait icon state.", "Icon state", selectable_icons)
-		portrait_color = tgui_input_list(src, "Portrait color, leave blank for default.", "Icon state", list("red", "green", "blue"))
+		icon_choice = 'mods/_fd/fd_events/icons/screen_alert_images.dmi'
+		icon_choice_state = input(src, "Portrait icon state.", "Icon state") as null|anything in selectable_icons
+		portrait_color = input(src, "Portrait color, leave blank for default.", "Icon state") in list("red", "green", "blue")
 		if(!portrait_color)
 			portrait_color = "green"
 		icon_choice_state = icon_choice_state + "_[portrait_color]"
 	if(!icon_choice_state)
 		icon_choice_state = "unknown"
-	var/text = tgui_input_text(src, "Enter the body text for the screen alert.", title = "Announcement Body", multiline = TRUE, encode = FALSE)
+	var/text = input(src, "Enter the body text for the screen alert.", "Announcement Body") as null|text
 	if(!text)
 		return
-	name = tgui_input_text(src, "Enter the name to be put inside the portrait.", title = "Name")
-	var/title = tgui_input_text(src, "Enter the title of the screen alert. Leave blank for the default title.", title = "Announcement Title")
+	name = input(src, "Enter the name to be put inside the portrait.", "Name") as null|text
+	var/title = input(src, "Enter the title of the screen alert. Leave blank for the default title.", "Announcement Title") as null|text
 	if(!title)
 		title = "Command Announce"
-	var/list/alert_receivers = list()
-	for(var/mob/living/carbon/human/human as anything in GLOB.alive_human_list)
-		if(!faction_to_send)
-			alert_receivers += human
-		else if(faction_to_send == human.faction)
-			alert_receivers += human
-	alert_receivers += GLOB.observer_list
-	for(var/mob/mob_receiver in alert_receivers)
-		mob_receiver.play_screen_text("<span class='langchat' style=font-size:24pt;text-align:left valign='top'><u>[uppertext(title)]</u></span><br>" + text, new /atom/movable/screen/screen_text/potrait(null, null, name, icon_choice, icon_choice_state))
+	for(var/mob/mob_receiver in GLOB.player_list)
+		mob_receiver.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>[uppertext(title)]</u></span><br>" + text, new /atom/movable/screen/screen_text/potrait(null, null, name, icon_choice, icon_choice_state))
 	message_admins("[key_name_admin(src)] has made an admin screen alert.")
 	log_admin("[key_name_admin(src)] made an admin screen alert: [text]")
+
+/proc/shitcoded_screenalert(name, title = "Command Announce", text, icon_choice = 'mods/_fd/fd_events/icons/screen_alert_images.dmi', icon_choice_state)
+	if(!icon_choice_state)
+		icon_choice_state = "unknown"
+	for(var/mob/mob_receiver in GLOB.player_list)
+		mob_receiver.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>[uppertext(title)]</u></span><br>" + text, new /atom/movable/screen/screen_text/potrait(null, null, name, icon_choice, icon_choice_state))
+
+/atom/movable/screen/screen_text/potrait/faster
+	fade_out_delay = 4 SECONDS
+
+/*
+/atom/movable/screen/text/screen_text/picture/potrait_custom_mugshot
+	image_to_play = "custom"
+	screen_loc = "LEFT,TOP-3"
+	maptext_width = 400
+	image_to_play_offset_y = 0
+	maptext_y = 0
+	letters_per_update = 2
+
+#define MAX_NON_COMMTITLE_LEN 9
+
+/atom/movable/screen/text/screen_text/picture/potrait_custom_mugshot/Initialize(mapload, datum/hud/hud_owner, mob/living/mugshottee)
+	. = ..()
+	var/atom/movable/holding_movable = new
+	holding_movable.appearance_flags = APPEARANCE_UI|KEEP_TOGETHER
+	holding_movable.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
+	var/mutable_appearance/mugshot = mutable_appearance()
+	mugshot.appearance = mugshottee.appearance
+	mugshot.pixel_x = image_to_play_offset_x + 17
+	mugshot.pixel_y = image_to_play_offset_y - 1 //scale shittery meant this didn't line up exactly without the -1
+	mugshot.layer = layer+0.1
+	mugshot.plane = plane
+	mugshot.transform = matrix().Scale(3) //only need to scale once, although this can actually be after as well alpha filter stuff, makes no diff. we use a NEW matrix to also fix things like people lying down
+	mugshot.dir = SOUTH
+
+	var/mutable_appearance/alphafilter = mutable_appearance('icons/effects/alphacolors.dmi', "announcement")
+	alphafilter.appearance_flags = APPEARANCE_UI
+	alphafilter.render_target = "*mugshots"
+
+	mugshot.overlays += alphafilter
+	mugshot.filters += filter(arglist(alpha_mask_filter(0, 0, null, "*mugshots")))
+
+	holding_movable.overlays += mugshot
+
+	var/image/static_overlay = image('icons/UI_Icons/screen_alert_images.dmi', icon_state = image_to_play+"_static", pixel_y = image_to_play_offset_y, pixel_x = image_to_play_offset_x)
+	static_overlay.appearance_flags = APPEARANCE_UI
+	static_overlay.alpha = 75
+	static_overlay.layer = layer+0.2
+	static_overlay.plane = plane
+	holding_movable.overlays += static_overlay
+
+	var/mutable_appearance/mugshot_name = mutable_appearance()
+	mugshot_name.appearance_flags = APPEARANCE_UI
+	mugshot_name.maptext_width = 66 // 64 (the icon) + 1 buffer each side
+	mugshot_name.maptext_x = -1
+	mugshot_name.maptext_y = -1
+	mugshot_name.plane = plane
+	mugshot_name.layer = layer+0.3
+
+	var/cleaned_realname = mugshottee.real_name
+	var/firstname = copytext(cleaned_realname, 1, findtext(cleaned_realname, " "))
+	var/lastname = trim(copytext(cleaned_realname, findtext(cleaned_realname, " ")))
+	var/nametouse
+	if(length(lastname) >= 1 && length(lastname) <= MAX_NON_COMMTITLE_LEN)
+		nametouse = lastname
+	else if(length(firstname) >= 1 && length(firstname) <= MAX_NON_COMMTITLE_LEN)
+		nametouse = firstname
+	else if(length(cleaned_realname) >= 1)
+		if(length(cleaned_realname) > MAX_NON_COMMTITLE_LEN)
+			//cleans too long clone names down to a better fitting length
+			cleaned_realname = replacetext(cleaned_realname, regex(@"CS-.-"), "")
+		nametouse = copytext(cleaned_realname, 1, MAX_NON_COMMTITLE_LEN+1)
+	else
+		nametouse = "UNKNOWN"
+	var/user_name = trim(mugshottee.comm_title + " " + nametouse)
+	mugshot_name.maptext = "<span class='maptext' style=font-size:6px;text-align:center>[user_name]</span>"
+
+	holding_movable.overlays += mugshot_name
+
+	vis_contents += holding_movable
+
+#undef MAX_NON_COMMTITLE_LEN
 */
