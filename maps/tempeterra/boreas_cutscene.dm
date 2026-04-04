@@ -23,23 +23,26 @@
 
 
 
-/proc/boreas_cutscene()
+/proc/spawnboreas()
 	var/list/map_turfs = block(locate(2,2,GLOB.using_map.overmap_z),locate(GLOB.using_map.overmap_size-2,GLOB.using_map.overmap_size-2,GLOB.using_map.overmap_z))
 	for(var/turf/T in map_turfs)
 		for(var/obj/npc_ship_spawner/npc in T)
 			if(npc)
 				npc.appear()
 
+/proc/boreas_cutscene()
 	start_cutscene(/datum/modular_cutscene/boreas_cutscene)
 
 /datum/modular_cutscene/boreas_cutscene/setup_actions(...)
 	actions = list(
+		PLAY_SOUND(sound('wolfindark.ogg', volume = 50)),
+		TP_CAMERA("Опенинг 1 - Кадр 2") = 5 SECONDS,
+		CALL_GLOB(spawnboreas) = 20 SECONDS
 		TP_CAMERA("Опенинг 1 - Кадр 1"),
-		// PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/again.ogg', volume = 50)), // Fuck!!
 		// CALL_GLOB()
 		// CALL_GLOB()
-		MOVE_CAMERA(160, -4, 40 SECONDS, null),
-		MOVE_CAMERA(160, 5, 40 SECONDS, null),
+		MOVE_CAMERA(160, 0, 40 SECONDS, null),
+		MOVE_CAMERA(160, 0, 40 SECONDS, null),
 		// CALL_GLOB(greetingfromboreas)
 		MOVE_CAMERA(384, 0, 100 SECONDS, CUBIC_EASING|EASE_OUT),
 		MOVE_CAMERA(64, 0, 50 SECONDS, null),
