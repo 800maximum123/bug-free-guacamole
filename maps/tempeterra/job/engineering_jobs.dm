@@ -12,16 +12,12 @@
 	ideal_character_age = 40
 	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/engineering/senior_engineer/fleet
 	allowed_branches = list(
-		/datum/mil_branch/fleet,
-		/datum/mil_branch/scga
+		/datum/mil_branch/fleet
 	)
 	allowed_ranks = list(
 		/datum/mil_rank/fleet/e6,
 		/datum/mil_rank/fleet/e7,
 		/datum/mil_rank/fleet/e8,
-		/datum/mil_rank/scga/e6,
-		/datum/mil_rank/scga/e7,
-		/datum/mil_rank/scga/e8
 	)
 	min_skill = list(   SKILL_COMPUTER     = SKILL_TRAINED,
 						SKILL_EVA          = SKILL_TRAINED,
@@ -71,16 +67,12 @@
 	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/engineering/engineer/fleet
 	allowed_branches = list(
 		/datum/mil_branch/fleet,
-		/datum/mil_branch/scga,
 		// /datum/mil_branch/civilian = /singleton/hierarchy/outfit/job/torch/crew/engineering/contractor
 	)
 	allowed_ranks = list(
 		/datum/mil_rank/fleet/e3,
 		/datum/mil_rank/fleet/e4,
 		/datum/mil_rank/fleet/e5,
-		/datum/mil_rank/scga/e3,
-		/datum/mil_rank/scga/e4,
-		/datum/mil_rank/scga/e5,
 		// /datum/mil_rank/civ/contractor
 	)
 	min_skill = list(   SKILL_COMPUTER     = SKILL_BASIC,

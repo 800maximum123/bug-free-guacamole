@@ -135,14 +135,11 @@
 	minimal_player_age = 14
 	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/command/chief_engineer/fleet
 	allowed_branches = list(
-		/datum/mil_branch/fleet,
-		/datum/mil_branch/scga
+		/datum/mil_branch/fleet
 	)
 	allowed_ranks = list(
 		/datum/mil_rank/fleet/o2,
-		/datum/mil_rank/fleet/o3,
-		/datum/mil_rank/scga/o2,
-		/datum/mil_rank/scga/o3
+		/datum/mil_rank/fleet/o3
 	)
 	min_skill = list(   SKILL_BUREAUCRACY  = SKILL_BASIC,
 	                    SKILL_COMPUTER     = SKILL_TRAINED,
@@ -195,12 +192,10 @@
 	ideal_character_age = 24
 	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/command/bridgeofficer/fleet
 	allowed_branches = list(
-		/datum/mil_branch/fleet,
-		/datum/mil_branch/scga
+		/datum/mil_branch/fleet
 	)
 	allowed_ranks = list(
-		/datum/mil_rank/fleet/o1,
-		/datum/mil_rank/scga/o1
+		/datum/mil_rank/fleet/o1
 	)
 	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
 	                    SKILL_PILOT       = SKILL_TRAINED)
@@ -243,16 +238,12 @@
 	ideal_character_age = 35
 	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/supply/deckofficer/fleet
 	allowed_branches = list(
-		/datum/mil_branch/fleet,
-		/datum/mil_branch/scga
+		/datum/mil_branch/fleet
 	)
 	allowed_ranks = list(
 		/datum/mil_rank/fleet/e6,
 		/datum/mil_rank/fleet/e7,
-		/datum/mil_rank/fleet/e8,
-		/datum/mil_rank/scga/e6,
-		/datum/mil_rank/scga/e7,
-		/datum/mil_rank/scga/e8
+		/datum/mil_rank/fleet/e8
 	)
 	min_skill = list(   SKILL_BUREAUCRACY = SKILL_TRAINED,
 	                    SKILL_FINANCE     = SKILL_BASIC,
