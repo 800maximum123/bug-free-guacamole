@@ -176,9 +176,9 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 
 #define MOVE_CAMERA(move_x, move_y, duration, easing) CALL(src, move_camera, move_x, move_y, duration, easing)
 /datum/modular_cutscene/proc/move_camera(move_x, move_y, duration, easing)
-	/*move_x *= 32
+	move_x *= 32
 	move_y *= 32
-*/
+
 	for(var/mob/viewer as() in camera_mobs)
 		if(viewer.client)
 			animate(viewer.client, pixel_y = move_y, pixel_x = move_x, time = duration, easing = easing)
