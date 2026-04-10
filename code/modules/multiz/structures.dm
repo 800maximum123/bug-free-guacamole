@@ -227,6 +227,72 @@
 	allowed_directions = UP|DOWN
 	icon_state = "ladder11"
 
+/obj/structure/ladder/dirt
+	icon_state = "dirt_ladder01"
+
+/obj/structure/ladder/dirt/on_update_icon()
+	//TODO: up and down-up icons for dirt_ladder
+	icon_state = "dirt_ladder[!!(allowed_directions & UP)][!!(allowed_directions & DOWN)]"
+
+/obj/structure/ladder/hatch
+	name = "ladder hatch"
+	desc = "A hatch with ladder. You can climb it up and down, if its open of course."
+	icon_state = "hatchdown00"
+	var/list/opensounds = list('sound/effects/stonedoor_openclose.ogg')
+	var/list/closesounds = list('sound/effects/stonedoor_openclose.ogg')
+	var/obj/item/required_tool = /obj/item/crowbar
+	var/base_state = "hatchdown"
+	var/open_time = 3 SECONDS
+	var/closed = TRUE
+
+/obj/structure/ladder/hatch/LateExamine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(required_tool && is_adjacent)
+		to_chat(user, SPAN_INFO("It looks like you need a [required_tool.name] to open it."))
+	if(closed)
+		to_chat(user, SPAN_INFO("Its closed."))
+	else
+		to_chat(user, SPAN_INFO("Its open."))
+
+/obj/structure/ladder/hatch/on_update_icon()
+	icon_state = "[base_state][!!(closed)]0"
+
+/obj/structure/ladder/hatch/use_tool(obj/item/tool, mob/user, list/click_params)
+	if(required_tool && tool && istype(tool, required_tool))
+		if(!do_after(user, open_time, src))
+			to_chat(user, SPAN_WARNING("You've been interrupted!"))
+			return FALSE
+		if(closed)
+			to_chat(user, SPAN_INFO("You open [src] with [tool]."))
+			playsound(src, pick(opensounds), 50)
+			flick("[base_state]-open", src)
+			update_icon()
+			closed = FALSE
+		else
+			to_chat(user, SPAN_INFO("You close [src] with [tool]."))
+			playsound(src, pick(closesounds), 50)
+			flick("[base_state]-close", src)
+			update_icon()
+			closed = TRUE
+		return TRUE
+	return ..()
+
+/obj/structure/ladder/hatch/climb(mob/M, obj/item/I = null)
+	if(closed)
+		to_chat(M, SPAN_WARNING("[src] is closed!"))
+		return FALSE
+	return ..()
+
+/obj/structure/ladder/hatch/up
+	name = "fire drop-ladder"
+	desc = "A drop-down fire ladder. You can climb it up and down, if its put down of course."
+	icon_state = "hatchup00"
+	allowed_directions = UP
+	opensounds = list('sound/machines/shutters_close.ogg') // Opposite sounds fit better
+	closesounds = list('sound/machines/shutters_open.ogg')
+	base_state = "hatchup"
+	open_time = 5 SECONDS
+
 /obj/structure/stairs
 	name = "stairs"
 	desc = "Stairs leading to another deck.  Not too useful if the gravity goes out."

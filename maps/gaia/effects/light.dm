@@ -10,6 +10,5 @@
 
 /obj/landmark/light/gaia
 	light_range = 20
-//	light_power = 0.7 TEMPORARY
-	light_power = 0
+	light_power = 0.7
 	light_color = COLOR_WHITE

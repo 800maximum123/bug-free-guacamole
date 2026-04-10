@@ -379,7 +379,7 @@
 /datum/mil_rank/civ/synthetic
 	name = "Synthetic"
 
-/datum/mil_rank/civ/partisan // SolGov sympathizers, ICCG ones are fully integrted into their army.
+/datum/mil_rank/civ/partisan // SolGov sympathizers, ICCG ones are fully integrated into their army.
 	name = "Partisan"
 	accessory = list(/obj/item/clothing/accessory/scga_rank/e1)
 

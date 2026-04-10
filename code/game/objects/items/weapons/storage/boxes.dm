@@ -266,14 +266,32 @@
 	name = "box of light bullpup magazines"
 	startswith = list(/obj/item/ammo_magazine/mil_rifle/light = 6)
 
-/obj/item/storage/box/ammo/rifle // GAIA
+// GAIA
+/obj/item/storage/box/ammo/rifle
 	name = "box of rifle magazines"
 	startswith = list(/obj/item/ammo_magazine/rifle = 6)
 
-/obj/item/storage/box/ammo/caseless // GAIA
+/obj/item/storage/box/ammo/caseless
 	name = "box of caseless magazines"
 	startswith = list(/obj/item/ammo_magazine/caseless_rifle = 6)
 
+/obj/item/storage/box/ammo/shotgunmags
+	name = "box of shotgun slug magazines"
+	startswith = list(/obj/item/ammo_magazine/shotgunmag = 7)
+
+/obj/item/storage/box/ammo/shotgunmags/buckshot
+	name = "box of shotgun buckshot magazines"
+	startswith = list(/obj/item/ammo_magazine/shotgunmag/shot = 7)
+
+/obj/item/storage/box/ammo/shotgunmags/flechette
+	name = "box of shotgun flechette magazines"
+	startswith = list(/obj/item/ammo_magazine/shotgunmag/flechette = 7)
+
+/obj/item/storage/box/ammo/shotgunmags/beanbag
+	name = "box of shotgun beanbag magazines"
+	startswith = list(/obj/item/ammo_magazine/shotgunmag/beanbag = 7)
+
+// GAIA END
 
 /obj/item/storage/box/flashbangs
 	name = "box of flashbangs"
