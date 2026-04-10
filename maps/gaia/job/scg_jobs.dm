@@ -149,6 +149,7 @@
 	)
 	min_skill = list(   SKILL_MEDICAL     = SKILL_BASIC,
 	                    SKILL_ANATOMY     = SKILL_BASIC,
+						SKILL_CHEMISTRY   = SKILL_BASIC,
 	                    SKILL_HAULING     = SKILL_BASIC,
 	                    SKILL_WEAPONS     = SKILL_BASIC)
 
@@ -163,7 +164,7 @@
 		access_surgery, access_medical_equip, access_solgov_crew,
 	)
 
-	skill_points = 22
+	skill_points = 25
 
 /datum/job/scg_engineer
 	title = "Field Engineer"

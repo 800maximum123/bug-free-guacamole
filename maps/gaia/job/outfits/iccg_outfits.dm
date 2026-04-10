@@ -88,7 +88,7 @@
 	l_pocket = /obj/item/handcuffs
 	r_pocket = /obj/item/device/flash
 	id_types = list(/obj/item/card/id/gaia/iccg/mp)
-	backpack_contents = list(/obj/item/clothing/accessory/armband/solgov/mp = 1, /obj/item/key/gaia/iccg = 1)
+	backpack_contents = list(/obj/item/clothing/accessory/armband/solgov/mp = 1, /obj/item/clothing/accessory/badge/holo/iccg = 1, /obj/item/key/gaia/iccg = 1)
 
 /singleton/hierarchy/outfit/job/gaia/iccg/mp/New()
 	..()

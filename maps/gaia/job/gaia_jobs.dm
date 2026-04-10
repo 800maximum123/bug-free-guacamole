@@ -51,15 +51,16 @@
 	department = "Civilian"
 	department_flag = CIV
 	total_positions = -1
-	spawn_positions = 0
+	spawn_positions = -1
 	supervisors = "the authorities and survival instincts"
 	alt_titles = list(
 				"Police Officer" = /singleton/hierarchy/outfit/job/gaia/police,
-				"Construction Worker" = /singleton/hierarchy/outfit/job/gaia/worker,
 				"Paramedic" = /singleton/hierarchy/outfit/job/gaia/paramedic,
+				"Firefighter" = /singleton/hierarchy/outfit/job/gaia/firefighter,
+				"Construction Worker" = /singleton/hierarchy/outfit/job/gaia/worker,
 				"Mayor" = /singleton/hierarchy/outfit/job/gaia/mayor,
 				"Chaplain" = /singleton/hierarchy/outfit/job/gaia/chaplain,
-				"Shaft Miner" = /singleton/hierarchy/outfit/job/gaia/worker,
+				"Shaft Miner" = /singleton/hierarchy/outfit/job/gaia/miner,
 				)
 	economic_power = 1
 	faction = MOB_FACTION_NEUTRAL

@@ -116,6 +116,7 @@
 	)
 	min_skill = list(   SKILL_MEDICAL     = SKILL_BASIC,
 	                    SKILL_ANATOMY     = SKILL_BASIC,
+						SKILL_CHEMISTRY   = SKILL_BASIC,
 	                    SKILL_HAULING     = SKILL_BASIC,
 	                    SKILL_WEAPONS     = SKILL_BASIC)
 
@@ -129,7 +130,7 @@
 		access_iccg, access_iccg_med,
 	)
 
-	skill_points = 22
+	skill_points = 25
 
 /datum/job/iccg_engineer
 	title = "Voyennyy Inzhener"
