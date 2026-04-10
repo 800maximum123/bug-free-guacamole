@@ -304,7 +304,7 @@
 	author = "DrTuxedo"
 	collection = "Gaian Shenanigans"
 	license = /singleton/license/cc_by_sa_3_0
-	url = "https://bluetuxedo.bandcamp.com/track/hellmet"
+	url = "https://drtuxedo.bandcamp.com/track/hellmet"
 
 /singleton/audio/track/blackhawk_of_space
 	source = 'sound/music/tuxedo/BlackhawkOfSpace.ogg'
@@ -329,6 +329,27 @@
 	collection = "Urban Noir"
 	license = /singleton/license/fair_use
 	url = "https://www.youtube.com/watch?v=znKpZKiQhpE"
+
+/singleton/audio/track/gla_remix
+	source = 'sound/music/edmara/GLA_Remix.ogg'
+	title = "Guesan Liberation Army - Remix"
+	author = "Edmara"
+	license = /singleton/license/fair_use
+	url = "https://www.youtube.com/watch?v=nt64PT9jquI"
+
+/singleton/audio/track/ngf_remix
+	source = 'sound/music/edmara/NGF_Remix.ogg'
+	title = "Nuesan Ground Forces - Remix"
+	author = "Edmara"
+	license = /singleton/license/fair_use
+	url = "https://www.youtube.com/watch?v=xO6E4gQ9tEE"
+
+/singleton/audio/track/wcrs_remix
+	source = 'sound/music/edmara/WCRS_Remix.ogg'
+	title = "White Coast Royal Security - Remix"
+	author = "Edmara"
+	license = /singleton/license/fair_use
+	url = "https://www.youtube.com/watch?v=ZBdgZCYg-_A"
 
 /singleton/audio/track/ambience
 	source = 'sound/music/ambience.ogg'
