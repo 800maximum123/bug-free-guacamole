@@ -80,3 +80,11 @@
 	else
 		qdel(H) //If no teleport coordinates are set, the character just gets deleted (falls into the void)
 	. = ..()
+
+/turf/simulated/floor/exoplanet/water/shallow/sewers
+	name = "shallow sewers"
+	icon = 'icons/turf/chlorine.dmi'
+	icon_state = "chlorine_liquid"
+	desc = "A pool of foul smelling contaminated water. Better not step into it."
+	dirt_color = "#d2e0b7"
+	reagent_type = /datum/reagent/acid/stomach
