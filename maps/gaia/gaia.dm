@@ -13,6 +13,7 @@
 	// --- GAIA --- //
 	#include "../gaia/gaia_areas.dm"
 	#include "../gaia/gaia_ranks.dm"
+	#include "../gaia/gaia_antagonism.dm"
 	#include "../gaia/gaia_setup.dm"
 	#include "../gaia/gaia_shuttles.dm"
 	#include "../gaia/gaia_spawnpoints.dm"
@@ -42,6 +43,7 @@
 	#include "../gaia/items/bell.dm"
 	#include "../gaia/items/cards_ids.dm"
 	#include "../gaia/items/clothes.dm"
+	#include "../gaia/items/pcarriers.dm"
 	#include "../gaia/items/key.dm"
 	#include "../gaia/items/shooting_range.dm"
 
@@ -50,6 +52,7 @@
 	#include "../gaia/structures/lockers.dm"
 	#include "../gaia/structures/machinery.dm"
 	#include "../gaia/structures/military.dm"
+	#include "../gaia/structures/posters.dm"
 	#include "../gaia/structures/rubble.dm"
 	#include "../gaia/structures/signs.dm"
 	#include "../gaia/structures/truck.dm"
