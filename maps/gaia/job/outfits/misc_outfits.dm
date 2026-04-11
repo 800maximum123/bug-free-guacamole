@@ -9,11 +9,18 @@
 	flags = OUTFIT_FLAGS_JOB_DEFAULT | OUTFIT_ADJUSTMENT_SKIP_SURVIVAL_GEAR
 
 /singleton/hierarchy/outfit/job/gaia/police
-	name = OUTFIT_JOB_NAME("Gaian Police Officer")
-	uniform = /obj/item/clothing/under/rank/security/alt/police
-	suit = /obj/item/clothing/suit/storage/hazardvest/blue
-	shoes = /obj/item/clothing/shoes/dutyboots
-	head = /obj/item/clothing/head/caphat/cap/police
+	name = OUTFIT_JOB_NAME("Gaian Town Police Officer")
+	uniform = /obj/item/clothing/under/gaiacop/officer
+	shoes = /obj/item/clothing/shoes/leather
+	head = /obj/item/clothing/head/gaiacop
+	l_pocket = /obj/item/device/flash/advanced
+	r_pocket = /obj/item/handcuffs
+
+/singleton/hierarchy/outfit/job/gaia/policesergeant
+	name = OUTFIT_JOB_NAME("Gaian Town Police Sergeant")
+	uniform = /obj/item/clothing/under/gaiacop/sergeant
+	shoes = /obj/item/clothing/shoes/leather
+	head = /obj/item/clothing/head/gaiacop
 	l_pocket = /obj/item/device/flash/advanced
 	r_pocket = /obj/item/handcuffs
 
