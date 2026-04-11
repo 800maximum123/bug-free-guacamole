@@ -76,7 +76,8 @@
 	#include "../gaia/z4_admin.dmm"
 	#include "../gaia/z5_transit.dmm"
 	//CHANGE THIS DEPENDING ON THE MISSION!!
-	#include "../gaia/area_of_op/shaftmines.dmm"
+	#include "../gaia/area_of_op/urbanrebels.dmm"
+	//#include "../gaia/area_of_op/shaftmines.dmm"
 	//#include "../gaia/area_of_op/city.dmm"
 	//#include "../gaia/area_of_op/outskirts.dmm"
 

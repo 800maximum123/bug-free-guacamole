@@ -40,6 +40,7 @@
 /obj/decal/cleanable/crayon/random_gaia/New(location, main = "#ffffff", shade = "#000000", type = "gaia-protestor graffiti")
 	if(type)
 		type = "gaia-protestor graffiti"
+		icon_state = ""
 	if(main && shade)
 		main = "#[num2hex(rand(64,255))]"
 		shade = "#[num2hex(rand(64,255))]"
