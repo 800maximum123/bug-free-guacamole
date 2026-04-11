@@ -1,8 +1,8 @@
-/obj/sturcture/fd/interactive/basic_power/fuse_box/filtration/turn_on()
+/obj/structure/fd/interactive/basic_power/fuse_box/filtration/turn_on()
 	area.unbreathable = FALSE
 	. = ..()
 
-/obj/sturcture/fd/interactive/basic_power/fuse_box/filtration/turn_off()
+/obj/structure/fd/interactive/basic_power/fuse_box/filtration/turn_off()
 	area.unbreathable = TRUE
 	. = ..()
 

@@ -34,7 +34,7 @@
 	plane = HUD_PLANE
 	layer = 5.3
 
-/obj/sturcture/fd/interactive/note
+/obj/structure/fd/interactive/note
 	name = "Записка"
 	desc = "Содержит в себе всякое!"
 
@@ -45,7 +45,7 @@
 	density = FALSE
 	var/list/datum/interactive_note/attached_text = list()
 
-/obj/sturcture/fd/interactive/note/Initialize(mapload, ...)
+/obj/structure/fd/interactive/note/Initialize(mapload, ...)
 	. = ..()
 
 	var/list/note_creation = attached_text.Copy()
@@ -53,7 +53,7 @@
 	for(var/notes in note_creation)
 		new notes(src)
 
-/obj/sturcture/fd/interactive/note/interact_with(mob/living/user)
+/obj/structure/fd/interactive/note/interact_with(mob/living/user)
 	. = ..()
 
 	if(user.reading)
@@ -82,9 +82,9 @@
 
 	var/note_overlay = /obj/screen/fullscreen/paperwork
 
-	var/obj/sturcture/fd/interactive/note/connected_note
+	var/obj/structure/fd/interactive/note/connected_note
 
-/datum/interactive_note/New(obj/sturcture/fd/interactive/note/note)
+/datum/interactive_note/New(obj/structure/fd/interactive/note/note)
 	. = ..()
 	connected_note = note
 	note.attached_text += src
@@ -141,7 +141,7 @@
 			qdel(messages)
 
 ////TEST///
-/obj/sturcture/fd/interactive/note/test
+/obj/structure/fd/interactive/note/test
 	name = "ТЕСТОВАЯ ЗАПИСКА"
 	attached_text = list(/datum/interactive_note/test, /datum/interactive_note/test2)
 

@@ -16,14 +16,14 @@
 		connected_mob.client.screen -= src
 	animate(src, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
 
-	if(istype(connected_mob.currently_interacting, /obj/sturcture/fd/interactive/note))
-		var/obj/sturcture/fd/interactive/note/N = connected_mob.currently_interacting
+	if(istype(connected_mob.currently_interacting, /obj/structure/fd/interactive/note))
+		var/obj/structure/fd/interactive/note/N = connected_mob.currently_interacting
 
 		for(var/datum/interactive_note/I in N.attached_text)
 			I.hide_note_from_player(connected_mob)
 
-	if(istype(connected_mob.currently_interacting, /obj/sturcture/fd/interactive/basic_power/cool_gen))
-		var/obj/sturcture/fd/interactive/basic_power/cool_gen/C = connected_mob.currently_interacting
+	if(istype(connected_mob.currently_interacting, /obj/structure/fd/interactive/basic_power/cool_gen))
+		var/obj/structure/fd/interactive/basic_power/cool_gen/C = connected_mob.currently_interacting
 		C.hide_ui(connected_mob)
 
 	else
@@ -68,14 +68,14 @@
 		M.client.screen -= M.cancel_button
 	animate(M.cancel_button, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
 
-	if(istype(M.currently_interacting, /obj/sturcture/fd/interactive/note))
-		var/obj/sturcture/fd/interactive/note/N = M.currently_interacting
+	if(istype(M.currently_interacting, /obj/structure/fd/interactive/note))
+		var/obj/structure/fd/interactive/note/N = M.currently_interacting
 
 		for(var/datum/interactive_note/I in N.attached_text)
 			I.hide_note_from_player(M)
 
-	if(istype(M.currently_interacting, /obj/sturcture/fd/interactive/basic_power/cool_gen))
-		var/obj/sturcture/fd/interactive/basic_power/cool_gen/C = M.currently_interacting
+	if(istype(M.currently_interacting, /obj/structure/fd/interactive/basic_power/cool_gen))
+		var/obj/structure/fd/interactive/basic_power/cool_gen/C = M.currently_interacting
 		C.hide_ui(M)
 
 	else
@@ -191,5 +191,5 @@
 			user.client.images -= hint
 			revealed = FALSE
 
-/obj/sturcture/fd/interactive
+/obj/structure/fd/interactive
 	interactive = TRUE

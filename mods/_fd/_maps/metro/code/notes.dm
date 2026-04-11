@@ -1,4 +1,4 @@
-/obj/sturcture/fd/interactive/note/gasmask
+/obj/structure/fd/interactive/note/gasmask
 	name = "Новые средства защиты"
 	attached_text = list(/datum/interactive_note/gasmask, /datum/interactive_note/gasmask1)
 
@@ -14,7 +14,7 @@
 	Время может варьироваться от степени концетрации ядовитых паров. Убедительная просьба отписать своё мнение Мэдсену для последующег- "}
 
 
-/obj/sturcture/fd/interactive/note/brigade
+/obj/structure/fd/interactive/note/brigade
 	name = "Пометки"
 	attached_text = list(/datum/interactive_note/brigade)
 
@@ -22,7 +22,7 @@
 	name = "Новые приказы"
 	note_info = {"Мэдсен приказал всем начать полную изоляцию от внешнего мира, теперь мы сами по себе. Последняя беседа с майором должно быть поставило его в патовую ситуацию. Ничего, благо у нас достаточно ресурсов что-бы обеспечить себя как минимум на год беззаботного проживания тут. Кто-то шутит что Терра будет искать нас словно тех парней с Земли. Которые укопались в джунглях с огромной сетью туннелей. Ну-ну."}
 
-/obj/sturcture/fd/interactive/note/locks
+/obj/structure/fd/interactive/note/locks
 	name = "Замки"
 	attached_text = list(/datum/interactive_note/locks)
 

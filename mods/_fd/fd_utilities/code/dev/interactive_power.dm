@@ -1,4 +1,4 @@
-/obj/sturcture/fd/interactive/basic_power
+/obj/structure/fd/interactive/basic_power
 	name = "TEST SOURCE"
 	desc = "SIMPLE POWER SWITCH"
 	var/currently_working = FALSE
@@ -11,17 +11,17 @@
 	var/datum/sound_token/sound_token
 	var/sound_id
 
-/obj/sturcture/fd/interactive/basic_power/Initialize()
+/obj/structure/fd/interactive/basic_power/Initialize()
 	. = ..()
 	if(other_area)
 		area = locate(other_area)
 	else
 		area = get_area(src)
 
-/obj/sturcture/fd/interactive/basic_power/Process()
+/obj/structure/fd/interactive/basic_power/Process()
 	update_sound()
 
-/obj/sturcture/fd/interactive/basic_power/proc/turn_on()
+/obj/structure/fd/interactive/basic_power/proc/turn_on()
 	icon_state = "[initial(icon_state)]_on"
 	currently_working = TRUE
 
@@ -30,7 +30,7 @@
 
 	START_PROCESSING(SSobj, src)
 
-/obj/sturcture/fd/interactive/basic_power/proc/turn_off()
+/obj/structure/fd/interactive/basic_power/proc/turn_off()
 	icon_state = "[initial(icon_state)]_off"
 	currently_working = FALSE
 
@@ -40,9 +40,9 @@
 	STOP_PROCESSING(SSobj, src)
 	QDEL_NULL(sound_token)
 
-/obj/sturcture/fd/interactive/basic_power/proc/update_sound()
+/obj/structure/fd/interactive/basic_power/proc/update_sound()
 	if(!sound_id)
-		sound_id = "[type]_[sequential_id(/obj/sturcture/fd/interactive/basic_power)]"
+		sound_id = "[type]_[sequential_id(/obj/structure/fd/interactive/basic_power)]"
 	if(currently_working)
 		if(!sound_token)
 			sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id, 'sound/machines/engine.ogg', volume = 50)
@@ -57,7 +57,7 @@
 	icon = 'mods/_fd/fd_utilities/icons/power_source.dmi'
 	icon_state = "fuse"
 
-/obj/sturcture/fd/interactive/basic_power/fuse_box
+/obj/structure/fd/interactive/basic_power/fuse_box
 	name = "ЭЛЕКТРОЩИТОК"
 	desc = "Коробка с разными проводками и микросхемами."
 
@@ -68,7 +68,7 @@
 	var/prefit = FALSE
 	var/prelit = FALSE
 
-/obj/sturcture/fd/interactive/basic_power/fuse_box/Initialize()
+/obj/structure/fd/interactive/basic_power/fuse_box/Initialize()
 	. = ..()
 	if(prefit)
 		fuse = new /obj/item/fd/basic_power/fuse()
@@ -77,7 +77,7 @@
 		if(prelit)
 			turn_on()
 
-/obj/sturcture/fd/interactive/basic_power/fuse_box/interact_with(mob/living/user)
+/obj/structure/fd/interactive/basic_power/fuse_box/interact_with(mob/living/user)
 
 	if(!fuse)
 		var/obj/item/I = user.get_active_hand()
@@ -187,7 +187,7 @@
 /obj/screen/tumbler/techswitch
 	icon_state = "switch"
 
-/obj/sturcture/fd/interactive/basic_power/cool_gen
+/obj/structure/fd/interactive/basic_power/cool_gen
 	name = "ГЕНЕРАТОР"
 	desc = "Блок с огромным количеством энергии внутри себя."
 
@@ -204,7 +204,7 @@
 
 	var/combination = "2122"
 
-/obj/sturcture/fd/interactive/basic_power/cool_gen/Initialize()
+/obj/structure/fd/interactive/basic_power/cool_gen/Initialize()
 	. = ..()
 
 	back = new /obj/screen/gen_background()
@@ -221,10 +221,10 @@
 
 	START_PROCESSING(SSobj, src)
 
-/obj/sturcture/fd/interactive/basic_power/cool_gen/interact_with(mob/living/user)
+/obj/structure/fd/interactive/basic_power/cool_gen/interact_with(mob/living/user)
 	show_ui(user)
 
-/obj/sturcture/fd/interactive/basic_power/cool_gen/proc/show_ui(mob/living/user)
+/obj/structure/fd/interactive/basic_power/cool_gen/proc/show_ui(mob/living/user)
 	user.stunned = 99999
 
 	user.reading = TRUE
@@ -239,7 +239,7 @@
 	user.client.screen += button3
 	user.client.screen += button4
 
-/obj/sturcture/fd/interactive/basic_power/cool_gen/proc/hide_ui(mob/living/user)
+/obj/structure/fd/interactive/basic_power/cool_gen/proc/hide_ui(mob/living/user)
 	user.stunned = 0
 
 	user.reading = FALSE
@@ -253,7 +253,7 @@
 		if(istype(T, /obj/screen/gen_background))
 			user.client.screen -= T
 
-/obj/sturcture/fd/interactive/basic_power/cool_gen/Process()
+/obj/structure/fd/interactive/basic_power/cool_gen/Process()
 	. = ..()
 
 	if(combination == "[button1.turned][button2.turned][button3.turned][button4.turned]" && !currently_working)
@@ -262,21 +262,21 @@
 	if(combination != "[button1.turned][button2.turned][button3.turned][button4.turned]" && currently_working)
 		turn_off()
 
-/obj/sturcture/fd/interactive/basic_power/cool_gen/turn_on()
+/obj/structure/fd/interactive/basic_power/cool_gen/turn_on()
 	icon_state = "[initial(icon_state)]_on"
 	currently_working = TRUE
 
 	area.requires_power = FALSE
 	area.power_change()
 
-/obj/sturcture/fd/interactive/basic_power/cool_gen/turn_off()
+/obj/structure/fd/interactive/basic_power/cool_gen/turn_off()
 	icon_state = "[initial(icon_state)]_off"
 	currently_working = FALSE
 
 	area.requires_power = TRUE
 	area.power_change()
 
-/obj/sturcture/fd/interactive/note/gen_note
+/obj/structure/fd/interactive/note/gen_note
 	name = "ГЕНЕРАТОР"
 	attached_text = list(/datum/interactive_note/gen_note)
 
