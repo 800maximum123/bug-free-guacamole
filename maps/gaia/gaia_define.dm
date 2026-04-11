@@ -10,7 +10,7 @@
 	empty_levels  = list(10)
 	accessible_z_levels = list(1, 2, 3, 4, 5, 6, 7, 8, 9) // 1-2 - SCG Camp, 3-4 ICCG Camp, 5 - Admin, 6 - Transit, 7-9 - Area of Operations
 	station_levels = list(1, 2, 3, 4, 7, 8, 9) // 1-2 - SCG Camp, 3-4 ICCG Camp, 7-9 - Area of Operations
-	usable_email_tlds = list("army.mil.scg", "fleet.mil.scg", "gaia.scg", "freemail.gaia", "freemail.net", "navy.gcc")
+	usable_email_tlds = list("army.mil.scg", "fleet.mil.scg", "gaia.scg", "nrpf.gaia.scg", "freemail.gaia", "freemail.net", "navy.gcc")
 
 	base_floor_area = /area/gaia
 	base_floor_type = /turf/simulated/floor/exoplanet/barren

@@ -122,7 +122,7 @@ GLOBAL_LIST_EMPTY(latejoin_area_of_operations)
 // -- Miscellaneous Spawnpoints --
 /datum/spawnpoint/area_of_operations
 	display_name = "Area of Operations"
-	restrict_job = list("Citizen")
+	restrict_job = list("Citizen", "Town Mayor", "Policeman", "Paramedic", "Firefighter", "Construction Worker", "Priest")
 
 /datum/spawnpoint/area_of_operations/New()
 	..()

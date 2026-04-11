@@ -12,6 +12,7 @@
 		/datum/mil_branch/alien,
 		/datum/mil_branch/iccgn,
 		/datum/mil_branch/scga,
+		/datum/mil_branch/police
 	)
 
 	spawn_branch_types = list(
@@ -20,6 +21,7 @@
 		/datum/mil_branch/alien,
 		/datum/mil_branch/iccgn,
 		/datum/mil_branch/scga,
+		/datum/mil_branch/police
 	)
 
 	species_to_branch_blacklist = list(
@@ -415,3 +417,43 @@
 
 /datum/mil_rank/alien
 	name = "Alien"
+
+/*
+ *  Gaian Police
+ *	===== ======
+ */
+
+/datum/mil_branch/police
+	name = "Napoleon Region Police Force"
+	name_short = "NRPF"
+	email_domain = "nrpf.gaia.scg"
+
+	rank_types = list(
+		/datum/mil_rank/police/officer,
+		/datum/mil_rank/police/sergeant,
+		/datum/mil_rank/police/detective
+	)
+
+	spawn_rank_types = list(
+		/datum/mil_rank/police/officer,
+		/datum/mil_rank/police/sergeant,
+		/datum/mil_rank/police/detective
+	)
+
+/datum/mil_rank/police/officer
+	name = "Patrol Officer"
+	name_short = "POFC"
+	accessory = list(/obj/item/clothing/accessory/badge/holo/gaiacop)
+	sort_order = 2
+
+/datum/mil_rank/police/sergeant
+	name = "Patrol Sergeant"
+	name_short = "PSGT"
+	accessory = list(/obj/item/clothing/accessory/badge/holo/gaiacop/sergeant)
+	sort_order = 4
+
+/datum/mil_rank/police/detective
+	name = "Detective Officer"
+	name_short = "DOFC"
+	accessory = list(/obj/item/clothing/accessory/badge/holo/gaiacop/detective)
+	sort_order = 3

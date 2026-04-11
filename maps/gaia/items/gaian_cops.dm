@@ -13,7 +13,7 @@
 	on_rolled_down = ACCESSORY_ROLLED_NONE
 
 /obj/item/clothing/accessory/badge/holo/gaiacop
-	name = "gaian police officer badge"
+	name = "police officer badge"
 	desc = "A shiny gold-plated badge of the Napoleon Region Police Force. Denotes the wearer as Patrol Officer."
 	icon = 'maps/gaia/icons/gaian_cops.dmi'
 	accessory_icons = list(slot_w_uniform_str = 'maps/gaia/icons/gaian_cops_mob.dmi', slot_wear_suit_str = 'maps/gaia/icons/gaian_cops_mob.dmi')
@@ -23,8 +23,12 @@
 	badge_access = access_maint_tunnels
 
 /obj/item/clothing/accessory/badge/holo/gaiacop/sergeant
-	name = "gaian police sergeant badge"
+	name = "police sergeant badge"
 	desc = "A shiny gold-plated badge of the Napoleon Region Police Force. Denotes the wearer as Patrol Sergeant."
+
+/obj/item/clothing/accessory/badge/holo/gaiacop/detective
+	name = "police detective badge"
+	desc = "A shiny gold-plated badge of the Napoleon Region Police Force. Denotes the wearer as Detective Officer."
 
 /obj/item/clothing/under/gaiacop
 	name = "gaian police uniform"
@@ -46,13 +50,10 @@
 	worn_state = "gaiacop"
 	gender_icons = 1
 
-/obj/item/clothing/under/gaiacop/officer
-	accessories = list(/obj/item/clothing/accessory/badge/holo/gaiacop,/obj/item/clothing/accessory/gaiacop/townribbon, /obj/item/clothing/accessory/blue_clip)
+/obj/item/clothing/under/gaiacop/towner
+	accessories = list(/obj/item/clothing/accessory/gaiacop/townribbon, /obj/item/clothing/accessory/blue_clip)
 	item_flags = ITEM_FLAG_WASHER_ALLOWED | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
-/obj/item/clothing/under/gaiacop/sergeant
-	accessories = list(/obj/item/clothing/accessory/badge/holo/gaiacop/sergeant,/obj/item/clothing/accessory/gaiacop/townribbon, /obj/item/clothing/accessory/blue_clip)
-	item_flags = ITEM_FLAG_WASHER_ALLOWED | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/head/gaiacop
 	name = "gaian police hat"

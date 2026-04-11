@@ -10,17 +10,10 @@
 
 /singleton/hierarchy/outfit/job/gaia/police
 	name = OUTFIT_JOB_NAME("Gaian Town Police Officer")
-	uniform = /obj/item/clothing/under/gaiacop/officer
+	uniform = /obj/item/clothing/under/gaiacop/towner
 	shoes = /obj/item/clothing/shoes/leather
 	head = /obj/item/clothing/head/gaiacop
-	l_pocket = /obj/item/device/flash/advanced
-	r_pocket = /obj/item/handcuffs
-
-/singleton/hierarchy/outfit/job/gaia/policesergeant
-	name = OUTFIT_JOB_NAME("Gaian Town Police Sergeant")
-	uniform = /obj/item/clothing/under/gaiacop/sergeant
-	shoes = /obj/item/clothing/shoes/leather
-	head = /obj/item/clothing/head/gaiacop
+	id_types = list(/obj/item/card/id/gaia/cop)
 	l_pocket = /obj/item/device/flash/advanced
 	r_pocket = /obj/item/handcuffs
 
@@ -32,6 +25,7 @@
 	head = /obj/item/clothing/head/hardhat/firefighter
 	gloves = /obj/item/clothing/gloves/fire
 	belt = /obj/item/storage/belt/fire_belt/full
+	id_types = list(/obj/item/card/id/gaia/firefighter)
 	backpack_contents = list(/obj/item/clothing/accessory/fire_overpants, /obj/item/extinguisher)
 
 /singleton/hierarchy/outfit/job/gaia/paramedic
@@ -41,6 +35,7 @@
 	shoes = /obj/item/clothing/shoes/white
 	head = /obj/item/clothing/head/hardhat/light/medic
 	gloves = /obj/item/clothing/gloves/latex
+	id_types = list(/obj/item/card/id/gaia/paramedic)
 	l_pocket = /obj/item/device/scanner/health
 	l_hand = /obj/item/storage/firstaid/stab
 
@@ -67,6 +62,7 @@
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/monocle
 	l_pocket = /obj/item/device/megaphone
+	id_types = list(/obj/item/card/id/gaia/mayor)
 
 /singleton/hierarchy/outfit/job/gaia/chaplain
 	name = OUTFIT_JOB_NAME("Gaian Chaplain")

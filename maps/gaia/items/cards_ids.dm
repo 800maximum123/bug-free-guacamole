@@ -2,8 +2,28 @@
 
 /obj/item/card/id/gaia
 	name = "identification card"
-	desc = "A national identification card issued by Gaian Republic"
+	desc = "A national identification card issued by Gaian Republic."
 	job_access_type = DEFAULT_JOB_TYPE
+
+/obj/item/card/id/gaia/mayor
+	name = "identification card"
+	desc = "A national identification card issued by the Gaian Republic."
+	job_access_type = /datum/job/mayor
+
+/obj/item/card/id/gaia/cop
+	name = "identification card"
+	desc = "A national identification card issued by the Gaian Republic."
+	job_access_type = /datum/job/policeman
+
+/obj/item/card/id/gaia/firefighter
+	name = "identification card"
+	desc = "A national identification card issued by the Gaian Republic."
+	job_access_type = /datum/job/firefighter
+
+/obj/item/card/id/gaia/paramedic
+	name = "identification card"
+	desc = "A national identification card issued by the Gaian Republic."
+	job_access_type = /datum/job/paramedic
 
 // SCG
 /obj/item/card/id/gaia/scg
