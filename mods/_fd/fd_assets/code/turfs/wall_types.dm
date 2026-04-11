@@ -36,3 +36,10 @@
 
 /turf/simulated/wall/invincible/prepainted
 	paint_color = COLOR_GUNMETAL
+
+// GAIA STUFF
+/turf/simulated/wall/invincible/concrete
+	floor_type = /turf/simulated/floor/exoplanet/concrete/reinforced
+
+/turf/simulated/wall/invincible/concrete/New(newloc)
+	..(newloc, MATERIAL_CONCRETE, MATERIAL_STEEL)
