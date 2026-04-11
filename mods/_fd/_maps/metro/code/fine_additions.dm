@@ -82,7 +82,7 @@
 
 /obj/structure/fd/interactive/leak/proc/update_sound()
 	if(!sound_id)
-		sound_id = "[type]_[sequential_id(/obj/sturcture/fd/interactive/leak)]"
+		sound_id = "[type]_[sequential_id(/obj/structure/fd/interactive/leak)]"
 	if(A.unbreathable)
 		if(!sound_token)
 			sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id, 'sound/machines/pipeleak.ogg', volume = 50)
