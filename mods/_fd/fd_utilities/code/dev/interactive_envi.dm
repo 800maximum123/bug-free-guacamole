@@ -13,21 +13,25 @@
 
 /obj/screen/cancel_interaction/Click()
 	spawn(4)
-		connected_mob.client.screen -= src
+		if(connected_mob.client)
+			connected_mob.client.screen -= src
 	animate(src, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
 
-	if(istype(connected_mob.currently_interacting, /obj/structure/fd/interactive/note))
-		var/obj/structure/fd/interactive/note/N = connected_mob.currently_interacting
+	if(connected_mob.currently_interacting)
 
-		for(var/datum/interactive_note/I in N.attached_text)
-			I.hide_note_from_player(connected_mob)
+		if(istype(connected_mob.currently_interacting, /obj/structure/fd/interactive/note))
+			var/obj/structure/fd/interactive/note/N = connected_mob.currently_interacting
 
-	if(istype(connected_mob.currently_interacting, /obj/structure/fd/interactive/basic_power/cool_gen))
-		var/obj/structure/fd/interactive/basic_power/cool_gen/C = connected_mob.currently_interacting
-		C.hide_ui(connected_mob)
+			for(var/datum/interactive_note/I in N.attached_text)
+				I.hide_note_from_player(connected_mob)
+
+		if(istype(connected_mob.currently_interacting, /obj/structure/fd/interactive/basic_power/cool_gen))
+			var/obj/structure/fd/interactive/basic_power/cool_gen/C = connected_mob.currently_interacting
+			C.hide_ui(connected_mob)
 
 	else
-		connected_mob.currently_interacting.hide_description(connected_mob)
+		if(connected_mob.currently_interacting)
+			connected_mob.currently_interacting.hide_description(connected_mob)
 
 	return TRUE
 

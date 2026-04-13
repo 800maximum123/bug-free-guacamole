@@ -1,5 +1,27 @@
+/proc/stop_all_shadows()
+	for(var/obj/structure/fd/shadow_follower/S in world)
+		S.reset_shadow()
+		S.currently_active = FALSE
+
+/proc/make_all_shadows_creep_aware()
+	for(var/obj/structure/fd/shadow_follower/S in world)
+		S.unaware_to_crawl = FALSE
+
 /area/
 	var/safe_zone = FALSE // чтобы от теней была передышка хоть где-то
+
+/obj/temporary/shadow_aware/Initialize(mapload, duration = 6, _icon = 'icons/obj/overmap.dmi', _state)
+	. = ..()
+
+	alpha = 0
+	icon = _icon
+	icon_state = "sensor_range"
+	color = COLOR_BLACK
+
+	animate(src, transform = matrix(3, MATRIX_SCALE), alpha = 255, time = 4, SINE_EASING|EASE_IN)
+	animate(alpha = 0, time = 2, SINE_EASING|EASE_OUT)
+
+	QDEL_IN(src, duration)
 
 /obj/temporary/shadow_consumed/Initialize(mapload, duration = 5, _icon = 'icons/effects/effects.dmi', _state)
 	. = ..()
@@ -24,7 +46,6 @@
 
 	QDEL_IN(src, duration)
 
-
 /obj/temporary/shadow_attack/Initialize(mapload, mob/user, duration = 10, _icon = 'mods/_fd/_maps/collective_nightmare/icons/effects.dmi', _state)
 	. = ..()
 
@@ -34,16 +55,35 @@
 	spawn(5)
 		icon_state = "static_base"
 		for(var/mob/living/carbon/human/H in get_turf(src))
-			if(H.current_connection_to_reality > 0)
-				H.current_connection_to_reality -= 1
-				animation_flash_color(H, "#000000")
+			H.recalculate_reality_connection(1)
 
 	QDEL_IN(src, duration)
 
 /obj/screen/fullscreen/screamer
-	icon = 'mods/_fd/_maps/collective_nightmare/icons/effects.dmi'
-	icon_state = "static_base"
-	screen_loc = ui_entire_screen
+	icon = 'mods/_fd/_maps/collective_nightmare/icons/largenoise.dmi'
+	icon_state = "1"
+	scale_to_view = TRUE
+
+/obj/screen/fullscreen/connection_damage
+	icon = 'mods/_fd/_maps/collective_nightmare/icons/is12_screens.dmi'
+	icon_state = "ghost2"
+	scale_to_view = TRUE
+
+/obj/screen/fullscreen/underworld_vision
+	icon = 'mods/_fd/_maps/collective_nightmare/icons/is12_screens.dmi'
+	icon_state = "ghost1"
+	scale_to_view = TRUE
+
+/obj/screen/fullscreen/almost_done
+	icon = 'mods/_fd/_maps/collective_nightmare/icons/tgmc_screens.dmi'
+	icon_state = "bloodlust"
+	color = COLOR_BLACK
+	scale_to_view = TRUE
+	alpha = 0
+
+/obj/screen/fullscreen/almost_done/Initialize()
+	. = ..()
+	animate(src, alpha = 255, time = 5, LINEAR_EASING)
 
 /obj/structure/fd/shadow_follower/proc/face_atom(atom/A)
 	if(!A || !x || !y || !A.x || !A.y) return
@@ -71,6 +111,7 @@
 	density = TRUE
 
 	var/currently_active = FALSE // таких теней будет много, и если каждая тень будет постоянно чекать пространство вокруг себя - это будет явно нехорошо
+	var/unaware_to_crawl = TRUE
 
 	var/let_player_go_after = 100
 	var/let_player_go_how_fast = 100
@@ -134,6 +175,12 @@
 					continue
 				if(!H.client)
 					continue
+
+				if(unaware_to_crawl)
+					if(istype(H.move_intent, /singleton/move_intent/creep) && prob(98)) // очень небольшой шанс того что тень услышит даже крадущегося
+						continue
+
+				new /obj/temporary/shadow_aware(get_turf(src))
 				hunted_players += H
 				hunting_any_player = TRUE
 
@@ -172,12 +219,15 @@
 	for(var/mob/living/carbon/human/H in hunted_players)
 		if(H.stat != CONSCIOUS)
 			hunted_players -= H
+			continue
 		if(!H.client)
 			hunted_players -= H
+			continue
 
 		var/area/A = get_area(H)
 		if(A.safe_zone)
 			hunted_players -= H
+			continue
 
 	if(!length(hunted_players))
 		reset_shadow()
@@ -207,8 +257,9 @@
 
 	var/x_offset = (x - target.x) * 32
 	var/y_offset = (y - target.y) * 32
-	target.client.pixel_y = y_offset
-	target.client.pixel_x = x_offset
+	if(target.client)
+		target.client.pixel_y = y_offset
+		target.client.pixel_x = x_offset
 
 	remove_filter("shadow_moving")
 	alpha = 255
@@ -220,7 +271,9 @@
 			H.clear_fullscreen("screamer", 0)
 
 	sleep(0.5 SECONDS)
-	animate(target.client, pixel_x = 0, pixel_y = 0, time = 2 SECONDS, easing = SINE_EASING|EASE_OUT)
+
+	if(target.client)
+		animate(target.client, pixel_x = 0, pixel_y = 0, time = 2 SECONDS, easing = SINE_EASING|EASE_OUT)
 	tp_in_process = FALSE
 
 /obj/structure/fd/shadow_follower/proc/do_attack()
@@ -243,6 +296,7 @@
 	animate(src, alpha = 0, time = 0.5 SECONDS, LINEAR_EASING)
 
 	flashed = TRUE
+	density = FALSE
 
 	let_player_go_after = let_player_go_how_fast
 
@@ -268,6 +322,7 @@
 			remove_overlay_later += H
 
 	alpha = 255
+	density = TRUE
 
 	sleep(0.5 SECONDS)
 
@@ -376,15 +431,16 @@
 	var/make_shadow_after = 100
 
 	var/glitching = FALSE
-	var/glitches_freq = 50
-	var/glitches_freq_base = 50
+	var/glitches_freq = 40
+	var/glitches_freq_base = 40
 
 /mob/living/carbon/human/Life()
-	. = ..()
-
 	if(current_connection_to_reality < max_connection_to_reality && !lost_in_nightmare)
 		if(glitches_freq > 0)
 			glitches_freq -= 1
+
+		if(glitches_freq == 10)
+			warn_player_about_glitch()
 
 		if(glitches_freq <= 0 && !glitching)
 			glitch_out()
@@ -394,19 +450,49 @@
 
 	if(lost_in_nightmare && make_shadow_after > 0)
 		make_shadow_after -= 1
+		maptext = STYLE_SMALLFONTS_OUTLINE("[make_shadow_after]", 7, COLOR_WHITE, COLOR_BLACK)
 
 	if(make_shadow_after <= 0 && lost_in_nightmare)
-		ghostize(0)
+		if(ckey || client)
+			ghostize(0)
 		new /obj/structure/fd/shadow_follower(get_turf(src))
 
 		qdel(src)
 
-/mob/living/carbon/human/proc/disconnected_from_reality()
+	. = ..()
+
+/mob/living/carbon/human/proc/warn_player_about_glitch()
 	set waitfor = FALSE
 
+	var/text_message = "Ощущаю себя как-то вяло...в чём дело?"
+	var/colored = "#000f"
+	overlay_fullscreen("underworld_vision",/obj/screen/fullscreen/connection_damage)
+
+	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
+	visuals.maptext_x = 0
+	visuals.maptext_y = -210
+
+	client.screen += visuals
+	visuals.set_text(text_message, colored, time = 2 SECONDS)
+	sleep(3 SECONDS)
+	clear_fullscreen("underworld_vision")
+
+/mob/living/carbon/human/proc/disconnected_from_reality()
 	lost_in_nightmare = TRUE
 	stunned = 999999
 	overlays += image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static", dir = dir)
+
+	maptext_height = 16
+	maptext_width = 96
+	maptext_x = 4
+	maptext_y = 2
+
+	maptext = STYLE_SMALLFONTS_OUTLINE("[make_shadow_after]", 7, COLOR_WHITE, COLOR_BLACK)
+
+	var/mob/living/simple_animal/connected_player_soul/player_soul = new /mob/living/simple_animal/connected_player_soul(get_turf(src))
+	teleop = player_soul
+
+	player_soul.ckey = ckey
 
 /mob/living/carbon/human/proc/glitch_out()
 	set waitfor = FALSE
@@ -416,12 +502,116 @@
 
 	overlays += image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static", dir = dir)
 	say(pick("⮸⮌⌥⮎⮃⮃⮀⌃⮌⎋⌥⮎","⮄⮃⮏⭮⮍⮃","⮆⌃⌤⮄⮃⎋⮃","⮆⮍⮆⮎⮑⭿⮌⮎⮸","⮆⌃⮓⮑⮎⮄⮃⮑⎋⌥⌤"))
-	sleep(5)
+	sleep(10)
 	overlays -= image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static")
 	glitching = FALSE
 
+/mob/living/carbon/human/proc/recalculate_reality_connection(amount)
+	var/before_calculation = current_connection_to_reality
+
+	current_connection_to_reality = clamp(current_connection_to_reality - amount, 0, max_connection_to_reality)
+	if(before_calculation > current_connection_to_reality)
+		animation_flash_color(src, "#000000")
+
+		var/obj/screen/fullscreen/screen = screens["connection_damage"]
+		if(!screen)
+			overlay_fullscreen("connection_damage",/obj/screen/fullscreen/connection_damage)
+
+		sleep(0.5 SECONDS)
+
+		clear_fullscreen("connection_damage", 0)
+
+	if(current_connection_to_reality < 2)
+		var/obj/screen/fullscreen/screen = screens["almost_done"]
+		if(!screen)
+			overlay_fullscreen("almost_done",/obj/screen/fullscreen/almost_done)
+
+	if(current_connection_to_reality > 1)
+		var/obj/screen/fullscreen/screen = screens["almost_done"]
+		if(screen)
+			clear_fullscreen("almost_done")
+
 /mob/living/carbon/human/say(message, datum/language/speaking, whispering)
-	if(glitching)
+	if(current_connection_to_reality < max_connection_to_reality && prob(10) && !glitching)
+		message = pick("⮸⮌⌥⮎⮃⮃⮀⌃⮌⎋⌥⮎","⮄⮃⮏⭮⮍⮃","⮆⌃⌤⮄⮃⎋⮃","⮆⮍⮆⮎⮑⭿⮌⮎⮸","⮆⌃⮓⮑⮎⮄⮃⮑⎋⌥⌤")
+
+	if(glitching || lost_in_nightmare)
 		message = pick("⮸⮌⌥⮎⮃⮃⮀⌃⮌⎋⌥⮎","⮄⮃⮏⭮⮍⮃","⮆⌃⌤⮄⮃⎋⮃","⮆⮍⮆⮎⮑⭿⮌⮎⮸","⮆⌃⮓⮑⮎⮄⮃⮑⎋⌥⌤")
 
 	. = ..()
+
+/mob/living/simple_animal/connected_player_soul
+	var/mob/living/carbon/human/soul
+	var/last_seconds = FALSE
+
+	name = "soul"
+	desc = "Literally your soul!"
+
+	icon = 'mods/_fd/_maps/collective_nightmare/icons/actions_ecult.dmi'
+	icon_state = "voidblink"
+
+	density = FALSE
+	plane = OBSERVER_PLANE
+	invisibility = INVISIBILITY_OBSERVER
+	see_invisible = SEE_INVISIBLE_OBSERVER
+	sight = SEE_TURFS|SEE_MOBS|SEE_OBJS|SEE_SELF
+	simulated = FALSE
+
+	need_to_breath = FALSE
+
+	glide_size = 6
+	alpha = 0
+	movement_handlers = list(/datum/movement_handler/mob/multiz_connected, /datum/movement_handler/delay = list(0.35), /datum/movement_handler/mob/incorporeal)
+
+/mob/living/simple_animal/connected_player_soul/Initialize()
+	. = ..()
+
+	overlay_fullscreen("underworld_vision",/obj/screen/fullscreen/underworld_vision)
+
+	animate(src, transform = matrix(0.01, MATRIX_SCALE), time = 0)
+	animate(src, transform = matrix(1, MATRIX_SCALE), alpha = 255, time = 10, BOUNCE_EASING|EASE_IN)
+
+	for(var/mob/living/carbon/human/H in get_turf(src))
+		soul = H
+
+/mob/living/simple_animal/connected_player_soul/Life()
+	if(soul.make_shadow_after <= 10 && !last_seconds)
+		dissapear()
+
+	. = ..()
+
+/mob/living/simple_animal/connected_player_soul/proc/dissapear()
+	last_seconds = TRUE
+
+	animate(src, alpha = 0, time = 3 SECONDS, LINEAR_EASING)
+	spawn(3.5 SECONDS)
+		soul.ckey = ckey
+		soul.teleop = null
+
+	QDEL_IN(src, 5 SECONDS)
+
+/mob/living/simple_animal/connected_player_soul/say(message)
+	return
+
+/obj/structure/fd/interactive/savepoint_record
+	name = "suit record"
+	desc = "Vinyl player, used a few generations ago"
+
+	icon = 'mods/_fd/_maps/collective_nightmare/icons/suitrecord.dmi'
+	icon_state = "suitrecordbr_closed"
+	anchored = TRUE
+	density = FALSE
+
+	var/activated = FALSE
+	var/regenerative_disc_amount = 0
+
+/obj/structure/fd/interactive/savepoint_record/Click(location, control, params)
+	. = ..()
+
+	if(istype(usr, /mob/living/simple_animal/connected_player_soul))
+		var/mob/living/simple_animal/connected_player_soul/vessel = usr
+		vessel.soul.lost_in_nightmare = FALSE
+
+		animate(vessel.soul, transform = matrix(0.01, MATRIX_SCALE), alpha = 0, time = 10, SINE_EASING|EASE_IN)
+		sleep(10)
+		vessel.soul.forceMove(get_turf(src))
