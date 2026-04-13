@@ -1,3 +1,6 @@
+/area/
+	var/safe_zone = FALSE // чтобы от теней была передышка хоть где-то
+
 /obj/temporary/shadow_consumed/Initialize(mapload, duration = 5, _icon = 'icons/effects/effects.dmi', _state)
 	. = ..()
 
@@ -22,18 +25,18 @@
 	QDEL_IN(src, duration)
 
 
-/obj/temporary/shadow_attack/Initialize(mapload, mob/user, duration = 8, _icon = 'mods/_fd/_maps/collective_nightmare/icons/effects.dmi', _state)
+/obj/temporary/shadow_attack/Initialize(mapload, mob/user, duration = 10, _icon = 'mods/_fd/_maps/collective_nightmare/icons/effects.dmi', _state)
 	. = ..()
 
 	icon = _icon
 	icon_state = "target_tile"
 
 	spawn(5)
-	icon_state = "static_base"
-	for(var/mob/living/carbon/human/H in get_turf(src))
-		if(H.current_connection_to_reality > 0)
-			H.current_connection_to_reality -= 1
-			animation_flash_color(H, "#000000")
+		icon_state = "static_base"
+		for(var/mob/living/carbon/human/H in get_turf(src))
+			if(H.current_connection_to_reality > 0)
+				H.current_connection_to_reality -= 1
+				animation_flash_color(H, "#000000")
 
 	QDEL_IN(src, duration)
 
@@ -69,8 +72,8 @@
 
 	var/currently_active = FALSE // таких теней будет много, и если каждая тень будет постоянно чекать пространство вокруг себя - это будет явно нехорошо
 
-	var/let_player_go_after = 50
-	var/let_player_go_how_fast = 50
+	var/let_player_go_after = 100
+	var/let_player_go_how_fast = 100
 
 	var/flashed = FALSE
 	var/flashed_for = 10 SECONDS
@@ -78,12 +81,12 @@
 	var/hunting_any_player = FALSE
 
 	var/tp_in_process = FALSE
-	var/next_tp_to_player = 30
-	var/next_tp_to_player_how_fast = 30
+	var/next_tp_to_player = 10
+	var/next_tp_to_player_how_fast = 10
 
 	var/preparing_attack = FALSE
-	var/try_to_attack_player_in = 40
-	var/try_to_attack_player_how_fast = 40
+	var/try_to_attack_player_in = 60
+	var/try_to_attack_player_how_fast = 60
 
 	var/list/mob/living/carbon/human/hunted_players = list()
 	var/turf/home
@@ -109,18 +112,18 @@
 			if(next_tp_to_player <= 0 && !preparing_attack && !tp_in_process)
 				try_to_move()
 
-			if(try_to_attack_player_in <= 0 && !preparing_attack)
+			if(try_to_attack_player_in <= 0 && !preparing_attack && !tp_in_process)
 				do_attack()
 
-			if(try_to_attack_player_in > 0)
+			if(next_tp_to_player > 0)
+				next_tp_to_player -= 1
+
+			if(try_to_attack_player_in >= 2)
 				var/list/someone_near = list()
 				for(var/mob/living/carbon/human/H in view(src))
 					someone_near += H
 				if(length(someone_near))
-					try_to_attack_player_in -= 5
-
-			if(next_tp_to_player > 0)
-				next_tp_to_player -= 1
+					try_to_attack_player_in -= 2
 
 			if(let_player_go_after > 0 && !preparing_attack)
 				let_player_go_after -= 1
@@ -171,6 +174,14 @@
 			hunted_players -= H
 		if(!H.client)
 			hunted_players -= H
+
+		var/area/A = get_area(H)
+		if(A.safe_zone)
+			hunted_players -= H
+
+	if(!length(hunted_players))
+		reset_shadow()
+		return
 
 	var/mob/living/carbon/human/target = pick(hunted_players)
 
@@ -407,3 +418,10 @@
 	say(pick("⮸⮌⌥⮎⮃⮃⮀⌃⮌⎋⌥⮎","⮄⮃⮏⭮⮍⮃","⮆⌃⌤⮄⮃⎋⮃","⮆⮍⮆⮎⮑⭿⮌⮎⮸","⮆⌃⮓⮑⮎⮄⮃⮑⎋⌥⌤"))
 	sleep(5)
 	overlays -= image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static")
+	glitching = FALSE
+
+/mob/living/carbon/human/say(message, datum/language/speaking, whispering)
+	if(glitching)
+		message = pick("⮸⮌⌥⮎⮃⮃⮀⌃⮌⎋⌥⮎","⮄⮃⮏⭮⮍⮃","⮆⌃⌤⮄⮃⎋⮃","⮆⮍⮆⮎⮑⭿⮌⮎⮸","⮆⌃⮓⮑⮎⮄⮃⮑⎋⌥⌤")
+
+	. = ..()
