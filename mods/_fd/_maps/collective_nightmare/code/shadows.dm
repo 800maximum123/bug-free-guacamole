@@ -176,6 +176,9 @@
 				if(!H.client)
 					continue
 
+				if(H.lost_in_nightmare)
+					continue
+
 				if(unaware_to_crawl)
 					if(istype(H.move_intent, /singleton/move_intent/creep) && prob(98)) // очень небольшой шанс того что тень услышит даже крадущегося
 						continue
@@ -221,6 +224,10 @@
 			hunted_players -= H
 			continue
 		if(!H.client)
+			hunted_players -= H
+			continue
+
+		if(H.lost_in_nightmare)
 			hunted_players -= H
 			continue
 
@@ -669,8 +676,9 @@
 
 /obj/structure/fd/interactive/savepoint_record/interact_with(mob/living/carbon/human/user)
 
+	var/obj/item/I = user.get_active_hand()
+
 	if(floppies_amount <= 0)
-		var/obj/item/I = user.get_active_hand()
 		if(!I)
 			desc_special = {"Тут есть разъём под <span style="color: yellow;">дискеты</span>. Может, я смогу использовать его для чего-то?"}
 			desc_special_show = TRUE
@@ -694,8 +702,21 @@
 				desc_special_show = FALSE
 
 				qdel(I)
+				return TRUE
 
 	if(floppies_amount > 0)
+		if(I)
+			if(istype(I, /obj/item/fd/floppy))
+				playsound(user, 'sound/items/rped.ogg', 50)
+				if(do_after(user, 1 SECONDS, src, DO_PUBLIC_UNIQUE))
+					user.drop_from_inventory(I)
+					I.forceMove(src)
+					floppies_amount += 1
+					maptext = STYLE_SMALLFONTS_OUTLINE("[floppies_amount]", 7, COLOR_WHITE, COLOR_BLACK)
+
+					qdel(I)
+					return TRUE
+
 		playsound(user, 'sound/machines/keyboard/keystroke4.ogg', 50)
 		var/list/options = list(
 			"СОХРАНИТЬ ПРОГРЕСС" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "radial_damage")

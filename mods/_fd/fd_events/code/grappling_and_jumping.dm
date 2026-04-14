@@ -93,15 +93,6 @@
 /obj/screen/cancel_dash/Click()
 	connected_mob.preparing_to_dash = FALSE
 
-	spawn(4)
-		connected_mob.client.screen -= src
-		connected_mob.client.screen -= connected_mob.dashing_overlay
-
-		CutOverlays(jumplay)
-
-		qdel(connected_mob.dashing_overlay)
-		qdel(src)
-
 	animate(src, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
 	animate(connected_mob.dashing_overlay, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT)
 
@@ -172,10 +163,8 @@
 		L.dash_bonus_points = initial(L.dash_bonus_points)
 		spawn(4)
 			L.client.screen -= cd
-		animate(cd, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
-		animate(L.dashing_overlay, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT)
 		L.CutOverlays(dash_indication)
-		return TRUE
+		return FALSE
 
 	L.preparing_to_dash = FALSE
 	L.dash()

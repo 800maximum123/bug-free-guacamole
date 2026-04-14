@@ -123,20 +123,61 @@
 			choosen_atom = A
 
 	if(choosen_atom)
-		choosen_atom.interact_with(M)
 		if(!ci)
 			ci = new /obj/screen/cancel_interaction()
 			ci.connected_mob = M
 			M.cancel_button = ci
+
 		M.client.screen += ci
 		animate(ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+		choosen_atom.interact_with(M)
 
 	return TRUE
+
+/obj/screen/hidden_item
+	name = "ЧТО-ТО СТРАННОЕ"
+	desc = "Нажми..."
+	icon = 'mods/_fd/fd_utilities/icons/newsource.dmi'
+	icon_state = "sequence"
+	alpha = 1
+
+	plane = HUD_PLANE
+	layer = 5.4
+
+	var/atom/connected_object
+	var/obj/screen/player_message/screentext
+	var/item_revealed = FALSE
+	screen_loc = "CENTER-7,CENTER-7"
+
+/obj/screen/hidden_item/Initialize()
+	. = ..()
+	SetTransform(3)
+
+/obj/screen/hidden_item/MouseEntered(location, control, params)
+	. = ..()
+
+	if(!item_revealed)
+		item_revealed = TRUE
+		usr.playsound_local(null, pick('sound/effects/clue1.ogg','sound/effects/clue2.ogg'), 60)
+		animate(src, alpha = 255, time = 1 SECONDS, SINE_EASING|EASE_OUT)
+
+/obj/screen/hidden_item/Click()
+	connected_object.reveal_item_inside(usr, screentext)
+
+	for(var/obj/screen/H in usr.client.screen)
+		if(istype(H, /obj/screen/hidden_item))
+			usr.client.screen -= H
+			qdel(H)
+
 
 /atom/
 	var/interactive = FALSE
 	var/desc_special_show = FALSE
 	var/desc_special = {"ВИЗУАЛЬНЫЙ ТЕКСТ"}
+
+	var/obj/item/hidden_loot
+	var/has_something_inside = FALSE
+	var/obj/screen/hidden_item/hidden_ui
 
 	var/image/hint
 	var/revealed = FALSE
@@ -159,6 +200,37 @@
 
 	user.client.screen += maintext
 	maintext.set_text(message, COLOR_WHITE)
+
+	if(has_something_inside)
+		hidden_ui = new /obj/screen/hidden_item()
+
+		var/ui_position = rand(1,4)
+		switch(ui_position)
+			if(1)
+				hidden_ui.screen_loc = "CENTER-3,CENTER+1"
+			if(2)
+				hidden_ui.screen_loc = "CENTER,CENTER-2"
+			if(3)
+				hidden_ui.screen_loc = "CENTER+2,CENTER+2"
+			if(4)
+				hidden_ui.screen_loc = "CENTER-2,CENTER"
+
+		user.client.screen += hidden_ui
+		hidden_ui.screentext = maintext
+		hidden_ui.connected_object = src
+
+/atom/proc/reveal_item_inside(mob/living/user, obj/screen/player_message/textonscreen)
+	if(user.reading && user.currently_interacting == src)
+		if(textonscreen)
+			var/newreveal = {"Тщательно осмотрев [name], ты находишь <span style="color: green;">[hidden_loot.name]</span>!"}
+			textonscreen.set_text(newreveal, COLOR_WHITE)
+
+		hidden_loot = new hidden_loot(get_turf(src))
+
+		has_something_inside = FALSE
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			H.put_in_hands(hidden_loot)
 
 /atom/proc/hide_description(mob/living/user)
 	user.reading = FALSE
