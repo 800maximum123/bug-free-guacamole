@@ -341,12 +341,12 @@
 	. = ..()
 	animate(src, alpha = 255, time = 0.8 SECONDS, BOUNCE_EASING|EASE_IN)
 
-/obj/item/fd/magic_camera_chip
-	name = "camera chip"
+/obj/item/fd/magic_camera_film
+	name = "camera film"
 	desc = "Resets camera memory space with fresh slots."
 
-	icon = 'mods/_fd/_maps/collective_nightmare/icons/pda.dmi'
-	icon_state = "cart-chem_world"
+	icon = 'mods/_fd/_maps/collective_nightmare/icons/items.dmi'
+	icon_state = "film"
 
 	w_class = ITEM_SIZE_TINY
 
@@ -354,8 +354,8 @@
 	name = "camera"
 	desc = "Simple camera in which you can put cartridges."
 
-	icon = 'mods/_fd/_maps/collective_nightmare/icons/pda.dmi'
-	icon_state = "pda_world"
+	icon = 'mods/_fd/_maps/collective_nightmare/icons/items.dmi'
+	icon_state = "polaroid"
 
 	w_class = ITEM_SIZE_SMALL
 	var/uses = 0
@@ -370,18 +370,19 @@
 
 /obj/item/fd/magic_camera/use_tool(obj/item/item, mob/living/user, list/click_params)
 	. = ..()
-	if(istype(item, /obj/item/fd/magic_camera_chip))
-		var/obj/item/fd/magic_camera_chip/C = item
+	if(istype(item, /obj/item/fd/magic_camera_film))
+		var/obj/item/fd/magic_camera_film/F = item
 
 		if(uses >= uses_max)
 			return FALSE
 
-		if(do_after(user, 2 SECONDS, C, DO_PUBLIC_UNIQUE))
-			user.drop_from_inventory(C)
-			C.forceMove(src)
+		if(do_after(user, 2 SECONDS, F, DO_PUBLIC_UNIQUE))
+			user.drop_from_inventory(F)
+			F.forceMove(src)
 			uses += 1
+			playsound(user, 'sound/weapons/guns/interaction/shotgun_instert.ogg', 50)
 			visible_message("[user] вставляет в камеру новый чип.", "Ты вставил в [src] новый чип.")
-			qdel(C)
+			qdel(F)
 			return TRUE
 		return FALSE
 
@@ -403,6 +404,7 @@
 	if(uses > 0 && not_in_use)
 		not_in_use = FALSE
 
+		playsound(user, 'sound/items/polaroid2.ogg', 50)
 		for(var/obj/structure/fd/shadow_follower/S in view(user))
 			S.flashed()
 
@@ -521,6 +523,9 @@
 
 		clear_fullscreen("connection_damage", 0)
 
+	if(before_calculation <= current_connection_to_reality)
+		animation_flash_color(src, "#00d6e6")
+
 	if(current_connection_to_reality < 2)
 		var/obj/screen/fullscreen/screen = screens["almost_done"]
 		if(!screen)
@@ -593,25 +598,150 @@
 /mob/living/simple_animal/connected_player_soul/say(message)
 	return
 
-/obj/structure/fd/interactive/savepoint_record
-	name = "suit record"
-	desc = "Vinyl player, used a few generations ago"
+/obj/effect/savepoint_screen
+	icon = 'mods/_fd/_maps/collective_nightmare/icons/computer.dmi'
+	icon_state = "oldcomp_off"
+	alpha = 0
 
-	icon = 'mods/_fd/_maps/collective_nightmare/icons/suitrecord.dmi'
-	icon_state = "suitrecordbr_closed"
+	mouse_opacity = FALSE
+	anchored = TRUE
+	layer = 3.3
+
+/obj/item/fd/floppy
+	name = "floppy disk"
+	desc = "For very old computers only!"
+
+	icon = 'mods/_fd/_maps/collective_nightmare/icons/disks.dmi'
+	icon_state = "datadisk1_world"
+
+	w_class = ITEM_SIZE_TINY
+
+/obj/structure/fd/interactive/savepoint_record
+	name = "old computer"
+	desc = "Very old personal computer, used a few generations ago."
+
+	icon = 'mods/_fd/_maps/collective_nightmare/icons/computer.dmi'
+	icon_state = "oldcomp"
 	anchored = TRUE
 	density = FALSE
 
+	layer = 3.2
+
 	var/activated = FALSE
-	var/regenerative_disc_amount = 0
+	var/floppies_amount = 0
+	var/area/area_placement
+	var/obj/effect/savepoint_screen/connected_screen
+
+	maptext_height = 16
+	maptext_width = 96
+	maptext_x = 4
+	maptext_y = 2
+
+/obj/structure/fd/interactive/savepoint_record/Initialize()
+	. = ..()
+	area_placement = get_area(src)
+	area_placement.safe_zone = TRUE
+
+	connected_screen = new /obj/effect/savepoint_screen(get_turf(src))
+	START_PROCESSING(SSobj,src)
+
+/obj/structure/fd/interactive/savepoint_record/Process()
+
+	if(!activated)
+		var/list/somebody = list()
+		for(var/mob/living/carbon/human/H in area_placement)
+			somebody += H
+
+		if(length(somebody))
+			activated = TRUE
+			launch_savepoint()
+
+/obj/structure/fd/interactive/savepoint_record/proc/launch_savepoint()
+	set waitfor = FALSE
+
+	connected_screen.icon_state = "oldcomp_launching"
+	animate(connected_screen, alpha = 255, time = 2 SECONDS, LINEAR_EASING)
+
+	sleep(4 SECONDS)
+
+	maptext = STYLE_SMALLFONTS_OUTLINE("[floppies_amount]", 7, COLOR_WHITE, COLOR_BLACK)
+	connected_screen.icon_state = "oldcomp_on"
+
+/obj/structure/fd/interactive/savepoint_record/interact_with(mob/living/carbon/human/user)
+
+	if(floppies_amount <= 0)
+		var/obj/item/I = user.get_active_hand()
+		if(!I)
+			desc_special = {"Тут есть разъём под <span style="color: yellow;">дискеты</span>. Может, я смогу использовать его для чего-то?"}
+			desc_special_show = TRUE
+			. = ..()
+			return TRUE
+
+		if(!istype(I, /obj/item/fd/floppy))
+			desc_special = {"<span style="color: red;">Не уверен, что я могу втсавить это в дисковод</span>."}
+			desc_special_show = TRUE
+			. = ..()
+			return TRUE
+
+		if(istype(I, /obj/item/fd/floppy))
+			playsound(user, 'sound/items/rped.ogg', 50)
+			if(do_after(user, 1 SECONDS, src, DO_PUBLIC_UNIQUE))
+				user.drop_from_inventory(I)
+				I.forceMove(src)
+				floppies_amount += 1
+				maptext = STYLE_SMALLFONTS_OUTLINE("[floppies_amount]", 7, COLOR_WHITE, COLOR_BLACK)
+
+				desc_special_show = FALSE
+
+				qdel(I)
+
+	if(floppies_amount > 0)
+		playsound(user, 'sound/machines/keyboard/keystroke4.ogg', 50)
+		var/list/options = list(
+			"СОХРАНИТЬ ПРОГРЕСС" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "radial_damage")
+		)
+		var/chosen_option = show_radial_menu(user, src, options, radius = 25, require_near = TRUE)
+		if(!chosen_option)
+			return 0
+		if(chosen_option == "СОХРАНИТЬ ПРОГРЕСС")
+			user.recalculate_reality_connection(-3)
+			floppies_amount -= 1
+			playsound(user, 'sound/machines/keyboard/keystroke2.ogg', 50)
+			playsound(user, 'sound/machines/ping.ogg', 70)
+			maptext = STYLE_SMALLFONTS_OUTLINE("[floppies_amount]", 7, COLOR_WHITE, COLOR_BLACK)
+			return TRUE
 
 /obj/structure/fd/interactive/savepoint_record/Click(location, control, params)
 	. = ..()
 
-	if(istype(usr, /mob/living/simple_animal/connected_player_soul))
-		var/mob/living/simple_animal/connected_player_soul/vessel = usr
-		vessel.soul.lost_in_nightmare = FALSE
+	if(activated)
 
-		animate(vessel.soul, transform = matrix(0.01, MATRIX_SCALE), alpha = 0, time = 10, SINE_EASING|EASE_IN)
-		sleep(10)
-		vessel.soul.forceMove(get_turf(src))
+		if(istype(usr, /mob/living/simple_animal/connected_player_soul))
+			var/mob/living/simple_animal/connected_player_soul/vessel = usr
+			vessel.soul.lost_in_nightmare = FALSE
+
+			animate(vessel.soul, transform = matrix(0.01, MATRIX_SCALE), alpha = 0, time = 2 SECONDS, SINE_EASING|EASE_IN)
+			vessel.soul.maptext = ""
+			sleep(2 SECONDS)
+			vessel.soul.forceMove(get_turf(src))
+
+			vessel.soul.ckey = vessel.ckey
+			vessel.soul.teleop = null
+
+			vessel.soul.max_connection_to_reality -= 1
+			vessel.soul.recalculate_reality_connection(-vessel.soul.max_connection_to_reality)
+
+			vessel.soul.make_shadow_after = 100
+
+			vessel.soul.glitching = FALSE
+			vessel.soul.glitches_freq_base -= 10
+			vessel.soul.glitches_freq = vessel.soul.glitches_freq_base
+
+			vessel.soul.overlays -= image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static", dir = vessel.soul.dir)
+			animate(vessel.soul, transform = matrix(1, MATRIX_SCALE), alpha = 255, time = 2 SECONDS, SINE_EASING|EASE_OUT, ANIMATION_PARALLEL)
+			animate(vessel, alpha = 0, time = 2 SECONDS, LINEAR_EASING)
+
+			sleep(2 SECONDS)
+			vessel.soul.stunned = 0
+			vessel.soul.Move(get_step(loc,SOUTH), SOUTH)
+			qdel(vessel)

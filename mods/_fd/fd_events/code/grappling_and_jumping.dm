@@ -96,7 +96,12 @@
 	spawn(4)
 		connected_mob.client.screen -= src
 		connected_mob.client.screen -= connected_mob.dashing_overlay
+
 		CutOverlays(jumplay)
+
+		qdel(connected_mob.dashing_overlay)
+		qdel(src)
+
 	animate(src, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
 	animate(connected_mob.dashing_overlay, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT)
 

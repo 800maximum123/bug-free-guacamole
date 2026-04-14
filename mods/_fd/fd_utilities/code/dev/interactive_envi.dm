@@ -29,8 +29,7 @@
 			var/obj/structure/fd/interactive/basic_power/cool_gen/C = connected_mob.currently_interacting
 			C.hide_ui(connected_mob)
 
-	else
-		if(connected_mob.currently_interacting)
+		else
 			connected_mob.currently_interacting.hide_description(connected_mob)
 
 	return TRUE
