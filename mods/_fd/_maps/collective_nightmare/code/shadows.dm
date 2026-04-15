@@ -110,6 +110,8 @@
 	anchored = TRUE
 	density = TRUE
 
+	layer = 4.09
+
 	var/currently_active = FALSE // таких теней будет много, и если каждая тень будет постоянно чекать пространство вокруг себя - это будет явно нехорошо
 	var/unaware_to_crawl = TRUE
 

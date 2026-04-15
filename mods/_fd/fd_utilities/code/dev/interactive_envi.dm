@@ -179,6 +179,9 @@
 	var/has_something_inside = FALSE
 	var/obj/screen/hidden_item/hidden_ui
 
+	var/remain_interactive_after_finding = FALSE
+	var/desc_special_after_finding = {"ВИЗУАЛЬНЫЙ ТЕКСТ"}
+
 	var/image/hint
 	var/revealed = FALSE
 
@@ -231,6 +234,12 @@
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			H.put_in_hands(hidden_loot)
+
+		if(!remain_interactive_after_finding)
+			interactive = FALSE
+
+		else
+			desc_special = desc_special_after_finding
 
 /atom/proc/hide_description(mob/living/user)
 	user.reading = FALSE

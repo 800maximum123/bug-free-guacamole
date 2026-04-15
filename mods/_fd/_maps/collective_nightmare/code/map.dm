@@ -1,5 +1,18 @@
 
+/obj/effect/reality_tear
+	name = "trap"
+	desc = "trap"
+	icon = 'mods/_fd/_maps/collective_nightmare/icons/effects.dmi'
+	icon_state = "void_conduit"
+	mouse_opacity = FALSE
+	anchored = TRUE
+
+/obj/effect/reality_tear/Initialize()
+	. = ..()
+	SetTransform(2)
+
 /area/nightmare/
+	adventure_mode = TRUE
 
 /area/nightmare/streets
 	name = "City Streets - Real World"
@@ -8,6 +21,58 @@
 /area/nightmare/bar_real
 	name = "Bar - Real World"
 	requires_power = 1
+
+/area/nightmare/nightmare
+	name = "Dark Abyss - Nightmare"
+	requires_power = 0
+
+/area/nightmare/bar_nightmare
+	name = "Bar - Nightmare"
+	requires_power = 1
+
+/area/nightmare/bar_nightmare/storage_room
+	name = "Bar (Storage) - Nightmare"
+
+/obj/structure/fd/interactive/barricade
+	name = "barricade"
+	desc = "Wooden barricade."
+
+	anchored = TRUE
+	density = TRUE
+
+	icon = 'mods/_fd/_maps/collective_nightmare/icons/trench_bridge.dmi'
+	icon_state = "trench_bridge1"
+
+/obj/structure/fd/interactive/barricade/interact_with(mob/living/user)
+
+	var/obj/item/I = user.get_active_hand()
+	if(!I)
+		desc_special = {"Крепкая деревянная барикада. Я бы мог сломать её, будь у меня <span style="color: yellow;">лом</span>."}
+		desc_special_show = TRUE
+		. = ..()
+		return TRUE
+	if(!istype(I, /obj/item/crowbar))
+		desc_special = {"Этим я её не сломаю. Мне нужен <span style="color: yellow;">лом</span>, или что-то на подобии."}
+		desc_special_show = TRUE
+		. = ..()
+		return TRUE
+	if(istype(I, /obj/item/crowbar))
+		playsound(user, 'mods/_fd/_maps/collective_nightmare/sounds/woodhit.ogg', 100)
+		throw_planks()
+		if(do_after(user, 3 SECONDS, src, DO_PUBLIC_UNIQUE))
+			qdel(src)
+			return TRUE
+
+/obj/structure/fd/interactive/barricade/proc/throw_planks()
+	set waitfor = FALSE
+	var/turf/T = get_turf(src)
+
+	for(var/i=1; i <= 3; i++)
+		var/obj/structure/fd/samosbor/table_decor12/planks = new /obj/structure/fd/samosbor/table_decor12(get_turf(src))
+		planks.icon_state = "0,23"
+
+		sleep(1 SECONDS)
+		planks.throw_at(get_step(T, GLOB.alldirs),1,4)
 
 /obj/screen/interactive_door
 	name = "Дверь"
@@ -44,6 +109,10 @@
 	var/obj/item/door_key = null
 	var/doorsound = 'mods/_fd/_maps/collective_nightmare/sounds/wooden_door_open.wav'
 
+	var/needs_power = FALSE
+	var/powered = FALSE
+	var/area/current_location
+
 	var/obj/screen/interactive_door/door
 
 /obj/structure/fd/interactive/door/Initialize()
@@ -53,8 +122,29 @@
 	door.icon = icon
 	door.icon_state = icon_state
 
+	if(needs_power)
+		current_location = get_area(src)
+		START_PROCESSING(SSobj,src)
+
+/obj/structure/fd/interactive/door/Process()
+	if(current_location.requires_power && powered)
+		powered = FALSE
+
+	if(!current_location.requires_power && !powered)
+		powered = TRUE
+
 /obj/structure/fd/interactive/door/interact_with(mob/living/user)
 	if(!opened)
+		if(needs_power)
+			if(powered)
+				open_door(user)
+				return TRUE
+			if(!powered)
+				desc_special = {"К двери подведено множество проводов, но не похоже чтобы хотя бы по одному из них шло напряжение. Возможно, я смогу найти <span style="color: yellow;">источник питания</span> поблизости?"}
+				desc_special_show = TRUE
+				. = ..()
+				return TRUE
+
 		if(locked)
 			if(key_needed)
 				var/obj/item/I = user.get_active_hand()
@@ -171,6 +261,12 @@
 /obj/item/fd/door_key/kitchen
 	name = "ключ от морозилки"
 
+/obj/item/fd/door_key/outer
+	name = "ключ от заведения"
+
+/obj/item/fd/door_key/firstzerofirst
+	name = "ключ от комнаты %^$##^#*!#"
+
 /obj/structure/fd/interactive/door/test_locked
 
 	key_needed = TRUE
@@ -229,3 +325,19 @@
 	locked = TRUE
 	door_key = /obj/item/fd/door_key/kitchen
 	doorsound = 'mods/_fd/_maps/collective_nightmare/sounds/metal_door_open.wav'
+
+/obj/structure/fd/interactive/door/nightmare/outer
+	icon_state = "fancy_alt"
+	opacity = FALSE
+
+	key_needed = TRUE
+	locked = TRUE
+	door_key = /obj/item/fd/door_key/outer
+
+/obj/structure/fd/interactive/door/nightmare/firstzerofirst
+	icon_state = "wood_alt"
+	opacity = FALSE
+
+	key_needed = TRUE
+	locked = TRUE
+	door_key = /obj/item/fd/door_key/firstzerofirst
