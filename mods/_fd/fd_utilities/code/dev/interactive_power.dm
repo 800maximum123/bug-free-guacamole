@@ -225,10 +225,17 @@
 	show_ui(user)
 
 /obj/structure/fd/interactive/basic_power/cool_gen/proc/show_ui(mob/living/user)
-	user.stunned = 99999
+	user.anchored = TRUE
 
 	user.reading = TRUE
 	user.currently_interacting = src
+
+	if(!ci)
+		ci = new /obj/screen/cancel_interaction()
+
+	ci.connected_mob = user
+	user.client.screen += ci
+	animate(ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
 
 	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
 
@@ -240,10 +247,15 @@
 	user.client.screen += button4
 
 /obj/structure/fd/interactive/basic_power/cool_gen/proc/hide_ui(mob/living/user)
-	user.stunned = 0
+	user.anchored = FALSE
 
 	user.reading = FALSE
 	user.currently_interacting = null
+
+	spawn(4)
+		ci.connected_mob = null
+		user.client.screen -= ci
+	animate(ci, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
 
 	user.clear_fullscreen("smallshade")
 	for(var/obj/screen/T in user.client.screen)

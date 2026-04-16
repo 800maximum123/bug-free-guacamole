@@ -75,6 +75,7 @@
 	page.reveal_note_to_player(user)
 
 	user.currently_interacting = src
+	user.anchored = TRUE
 
 /datum/interactive_note
 	var/name = "ЗАГОЛОВОК ДОКУМЕНТА"
@@ -106,6 +107,13 @@
 	user.overlay_fullscreen("background_note", note_overlay)
 	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
 
+	if(!connected_note.ci)
+		connected_note.ci = new /obj/screen/cancel_interaction()
+
+	connected_note.ci.connected_mob = user
+	user.client.screen += connected_note.ci
+	animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+
 	spawn(0.5 SECONDS)
 
 		var/message = "[note_info]"
@@ -129,9 +137,16 @@
 /datum/interactive_note/proc/hide_note_from_player(mob/living/user)
 	user.reading = FALSE
 	user.currently_interacting = null
+	user.anchored = FALSE
 
 	user.clear_fullscreen("background_note")
 	user.clear_fullscreen("smallshade")
+
+	spawn(4)
+		connected_note.ci.connected_mob = null
+		user.client.screen -= connected_note.ci
+	animate(connected_note.ci, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
+
 	for(var/obj/screen/messages in user.client.screen)
 		if(istype(messages, /obj/screen/player_message))
 			user.client.screen -= messages

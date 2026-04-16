@@ -12,12 +12,9 @@
 	var/mob/living/connected_mob
 
 /obj/screen/cancel_interaction/Click()
-	spawn(4)
-		if(connected_mob.client)
-			connected_mob.client.screen -= src
-	animate(src, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
 
 	if(connected_mob.currently_interacting)
+		connected_mob.overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_generic", pixel_x = 5)
 
 		if(istype(connected_mob.currently_interacting, /obj/structure/fd/interactive/note))
 			var/obj/structure/fd/interactive/note/N = connected_mob.currently_interacting
@@ -27,6 +24,7 @@
 
 		if(istype(connected_mob.currently_interacting, /obj/structure/fd/interactive/basic_power/cool_gen))
 			var/obj/structure/fd/interactive/basic_power/cool_gen/C = connected_mob.currently_interacting
+
 			C.hide_ui(connected_mob)
 
 		else
@@ -34,52 +32,77 @@
 
 	return TRUE
 
+/image/hint
 /mob/living
 	var/reading = FALSE
 	var/atom/currently_interacting
-	var/obj/screen/cancel_interaction/cancel_button
-	var/image/hint
-
-/mob/living/proc/generate_hint(atom/A)
-	var/icon/T = new('mods/_fd/fd_utilities/icons/actions.dmi')
-	return image(T, A, "loopa", layer = HUD_PLANE)
+	var/list/revealed_hints = list()
+	var/clean_client_clutter = FALSE
 
 /mob/living/proc/show_hint(atom/A)
-	hint = generate_hint(A)
-	A.revealers += src
+	if(!client || (A in revealed_hints))
+		return
 
-	hint.alpha = 0
-	hint.pixel_x = pixel_x - 10
-	hint.pixel_y = pixel_y - 10
-	hint.plane = HUD_PLANE
+	var/image/hint/new_hint = new /image/hint('mods/_fd/fd_utilities/icons/actions.dmi', A, "loopa", layer = HUD_PLANE)
 
-	animate(hint, alpha = 255, pixel_x = src.pixel_x, pixel_y = src.pixel_y, time = 0.3 SECONDS, easing = SINE_EASING|EASE_OUT)
-	client.images += hint
+	new_hint.alpha = 0
+	new_hint.pixel_x = pixel_x - 10
+	new_hint.pixel_y = pixel_y - 10
+	new_hint.plane = HUD_PLANE
+
+	animate(new_hint, alpha = 255, pixel_x = src.pixel_x, pixel_y = src.pixel_y, time = 0.3 SECONDS, easing = SINE_EASING|EASE_OUT)
+
+	client.images += new_hint
+	revealed_hints[A] = new_hint
 
 /mob/living/proc/hide_hint(atom/A)
-	if(client)
-		animate(hint, alpha = 0, pixel_x = src.pixel_x, pixel_y = src.pixel_y - 10, time = 0.3 SECONDS, easing = SINE_EASING|EASE_IN)
-		spawn(0.3 SECONDS)
-			client.images -= hint
-			A.revealers -= src
+	if(!client || !(A in revealed_hints))
+		return
 
-			qdel(hint)
+	var/image/hint/the_hint = revealed_hints[A]
+
+	animate(the_hint, alpha = 0, pixel_x = src.pixel_x, pixel_y = src.pixel_y - 10, time = 0.3 SECONDS, easing = SINE_EASING|EASE_IN)
+
+	spawn(0.3 SECONDS)
+		if(client)
+			client.images -= the_hint
+		revealed_hints -= A
 
 /mob/living/Life()
 
-	if(ishuman(src))
-		if(client)
+	if(!client && !clean_client_clutter && currently_interacting)
+		clean_client_clutter = TRUE
+		anchored = FALSE
+
+	if(client && clean_client_clutter)
+		if(istype(currently_interacting, /obj/structure/fd/interactive/note))
+			var/obj/structure/fd/interactive/note/N = currently_interacting
+
+			for(var/datum/interactive_note/I in N.attached_text)
+				I.hide_note_from_player(src)
+
+		if(istype(currently_interacting, /obj/structure/fd/interactive/basic_power/cool_gen))
+			var/obj/structure/fd/interactive/basic_power/cool_gen/C = currently_interacting
+
+			C.hide_ui(src)
+
+		else
+			currently_interacting.hide_description(src)
+
+	if(ishuman(src) && client)
+		if(!hiding_spot)
+			for(var/atom/A as anything in revealed_hints)
+				if(get_dist(src, A) > 1)
+					hide_hint(A)
+
 			for(var/atom/A in view(src))
 				if(!A.interactive)
 					continue
-
-				if(!hiding_spot)
-					if(get_dist(src,A) <= 1 && !(src in A.revealers))
-						show_hint(A)
-					if(get_dist(src,A) > 1 && (src in A.revealers))
-						hide_hint(A)
-				else
-					hide_hint(A)
+				if(get_dist(src, A) <= 1 && !(A in revealed_hints))
+					show_hint(A)
+		else
+			for(var/atom/A as anything in revealed_hints)
+				hide_hint(A)
 
 	. = ..()
 
@@ -92,10 +115,7 @@
 
 /datum/keybinding/living/fd/hide_interaction/down(client/user)
 	var/mob/living/M = user.mob
-
-	spawn(4)
-		M.client.screen -= M.cancel_button
-	animate(M.cancel_button, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
+	M.overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_generic", pixel_x = 5)
 
 	if(istype(M.currently_interacting, /obj/structure/fd/interactive/note))
 		var/obj/structure/fd/interactive/note/N = M.currently_interacting
@@ -105,11 +125,10 @@
 
 	if(istype(M.currently_interacting, /obj/structure/fd/interactive/basic_power/cool_gen))
 		var/obj/structure/fd/interactive/basic_power/cool_gen/C = M.currently_interacting
+
 		C.hide_ui(M)
 
 	else
-		M.currently_interacting.taken_by = null
-		M.overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_generic")
 		M.currently_interacting.hide_description(M)
 	return TRUE
 
@@ -139,7 +158,13 @@
 	for(var/atom/I in T)
 		if(!I.interactive)
 			continue
-		if(I.taken_by)
+
+		var/list/people_interacting_with_it = list()
+		for(var/mob/living/L in range(1,I))
+			if(L.currently_interacting == I)
+				people_interacting_with_it += L
+
+		if(length(people_interacting_with_it))
 			continue
 
 		choosen_atom = I
@@ -149,22 +174,19 @@
 		for(var/atom/A in T)
 			if(!A.interactive)
 				continue
-			if(A.taken_by)
+
+			var/list/people_interacting_with_it = list()
+			for(var/mob/living/L in range(1,A))
+				if(L.currently_interacting == A)
+					people_interacting_with_it += L
+
+			if(length(people_interacting_with_it))
 				continue
 
 			choosen_atom = A
 
 	if(choosen_atom)
-		if(!ci)
-			ci = new /obj/screen/cancel_interaction()
-			ci.connected_mob = M
-			M.cancel_button = ci
-
-		M.client.screen += ci
-		animate(ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
-
-		choosen_atom.taken_by = M
-		M.overlays += image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_generic")
+		M.overlays += image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_generic", pixel_x = 5)
 
 		choosen_atom.interact_with(M)
 
@@ -211,16 +233,13 @@
 	var/desc_special_show = FALSE
 	var/desc_special = {"ВИЗУАЛЬНЫЙ ТЕКСТ"}
 
-	var/mob/living/taken_by
-
 	var/obj/item/hidden_loot
 	var/has_something_inside = FALSE
 	var/obj/screen/hidden_item/hidden_ui
+	var/obj/screen/cancel_interaction/ci
 
 	var/remain_interactive_after_finding = FALSE
 	var/desc_special_after_finding = {"ВИЗУАЛЬНЫЙ ТЕКСТ"}
-
-	var/list/revealers = list()
 
 /atom/proc/interact_with(mob/living/user)
 	if(desc_special_show && !user.reading)
@@ -229,6 +248,14 @@
 /atom/proc/reveal_description(mob/living/user)
 	user.reading = TRUE
 	user.currently_interacting = src
+	user.anchored = TRUE
+
+	if(!ci)
+		ci = new /obj/screen/cancel_interaction()
+
+	ci.connected_mob = user
+	user.client.screen += ci
+	animate(ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
 
 	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
 	var/message = "[desc_special]"
@@ -282,6 +309,12 @@
 /atom/proc/hide_description(mob/living/user)
 	user.reading = FALSE
 	user.currently_interacting = null
+	user.anchored = FALSE
+
+	spawn(4)
+		ci.connected_mob = null
+		user.client.screen -= ci
+	animate(ci, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
 
 	user.clear_fullscreen("smallshade")
 	for(var/obj/screen/messages in user.client.screen)

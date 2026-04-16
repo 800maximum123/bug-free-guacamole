@@ -483,7 +483,8 @@
 	visuals.maptext_x = 0
 	visuals.maptext_y = -210
 
-	client.screen += visuals
+	if(client)
+		client.screen += visuals
 	visuals.set_text(text_message, colored, time = 2 SECONDS)
 	sleep(3 SECONDS)
 	clear_fullscreen("underworld_vision")
@@ -741,15 +742,6 @@
 
 		if(istype(usr, /mob/living/simple_animal/connected_player_soul))
 			var/mob/living/simple_animal/connected_player_soul/vessel = usr
-			vessel.soul.lost_in_nightmare = FALSE
-
-			animate(vessel.soul, transform = matrix(0.01, MATRIX_SCALE), alpha = 0, time = 2 SECONDS, SINE_EASING|EASE_IN)
-			vessel.soul.maptext = ""
-			sleep(2 SECONDS)
-			vessel.soul.forceMove(get_turf(src))
-
-			vessel.soul.ckey = vessel.ckey
-			vessel.soul.teleop = null
 
 			vessel.soul.max_connection_to_reality -= 1
 			vessel.soul.recalculate_reality_connection(-vessel.soul.max_connection_to_reality)
@@ -759,6 +751,16 @@
 			vessel.soul.glitching = FALSE
 			vessel.soul.glitches_freq_base -= 10
 			vessel.soul.glitches_freq = vessel.soul.glitches_freq_base
+
+			vessel.soul.lost_in_nightmare = FALSE
+
+			animate(vessel.soul, transform = matrix(0.01, MATRIX_SCALE), alpha = 0, time = 2 SECONDS, SINE_EASING|EASE_IN)
+			vessel.soul.maptext = ""
+			sleep(2 SECONDS)
+			vessel.soul.forceMove(get_turf(src))
+
+			vessel.soul.ckey = vessel.ckey
+			vessel.soul.teleop = null
 
 			vessel.soul.overlays -= image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static", dir = vessel.soul.dir)
 			animate(vessel.soul, transform = matrix(1, MATRIX_SCALE), alpha = 255, time = 2 SECONDS, SINE_EASING|EASE_OUT, ANIMATION_PARALLEL)

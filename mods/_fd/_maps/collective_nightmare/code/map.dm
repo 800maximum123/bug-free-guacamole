@@ -35,7 +35,7 @@
 		nameplate.maptext_x = -75
 		nameplate.maptext_y = -15
 		maintext.maptext_x = 0
-		maintext.maptext_y = -250
+		maintext.maptext_y = -300
 
 		user.client.screen += maintext
 		user.client.screen += nameplate
@@ -239,7 +239,7 @@
 	for(var/obj/screen/T in user.client.screen)
 		if(istype(T, /obj/screen/cancel_interaction))
 			user.client.screen -= T
-	user.stunned = 99999
+	user.anchored = TRUE
 
 	user.reading = TRUE
 	user.currently_interacting = src
@@ -259,7 +259,7 @@
 	door.icon_state = "[initial(icon_state)]open"
 
 	sleep(1 SECONDS)
-	user.stunned = 0
+	user.anchored = FALSE
 
 	user.reading = FALSE
 	user.currently_interacting = null
@@ -273,7 +273,7 @@
 	for(var/obj/screen/T in user.client.screen)
 		if(istype(T, /obj/screen/cancel_interaction))
 			user.client.screen -= T
-	user.stunned = 99999
+	user.anchored = TRUE
 
 	user.reading = TRUE
 	user.currently_interacting = src
@@ -292,7 +292,7 @@
 	door.icon_state = "[initial(icon_state)]"
 
 	sleep(1 SECONDS)
-	user.stunned = 0
+	user.anchored = FALSE
 
 	user.reading = FALSE
 	user.currently_interacting = null

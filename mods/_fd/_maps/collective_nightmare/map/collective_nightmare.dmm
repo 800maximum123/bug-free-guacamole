@@ -3847,7 +3847,9 @@
 	},
 /area/nightmare/bar_nightmare/storage_room)
 "vg" = (
-/obj/structure/fd/interactive/door/fancy,
+/obj/structure/fd/interactive/door/fancy{
+	locked = 1
+	},
 /turf/simulated/floor/exoplanet/samosbor/lino{
 	icon_state = "li_bk"
 	},
@@ -4523,6 +4525,33 @@
 	},
 /turf/simulated/floor/exoplanet/samosbor/plating{
 	icon_state = "plating"
+	},
+/area/nightmare/bar_nightmare)
+"zA" = (
+/obj/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "arrow";
+	name = "arrow decal";
+	pixel_x = 12;
+	pixel_y = 6
+	},
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "arrow";
+	name = "arrow decal";
+	pixel_y = -1;
+	pixel_x = 6
+	},
+/turf/simulated/floor/exoplanet/samosbor/wood{
+	icon_state = "wood_alt"
 	},
 /area/nightmare/bar_nightmare)
 "zB" = (
@@ -6327,33 +6356,6 @@
 /obj/structure/fd/interactive/door/wood_alt,
 /turf/simulated/floor/exoplanet/samosbor/wood,
 /area/nightmare/bar_real)
-"Jp" = (
-/obj/floor_decal/spline/plain/black{
-	dir = 4
-	},
-/obj/decal/cleanable/dirt,
-/obj/structure/fd/samosbor{
-	anchored = 1;
-	mouse_opacity = 0;
-	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
-	icon_state = "arrow";
-	name = "arrow decal";
-	pixel_x = 12;
-	pixel_y = 6
-	},
-/obj/structure/fd/samosbor{
-	anchored = 1;
-	mouse_opacity = 0;
-	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
-	icon_state = "arrow";
-	name = "arrow decal";
-	pixel_y = -1;
-	pixel_x = 6
-	},
-/turf/simulated/floor/exoplanet/samosbor/wood{
-	icon_state = "wood_alt"
-	},
-/area/nightmare/bar_nightmare)
 "Jq" = (
 /obj/machinery/light{
 	color = "#4aadc3";
@@ -15599,7 +15601,7 @@ GW
 VO
 wE
 vY
-Jp
+zA
 WB
 VO
 fc
