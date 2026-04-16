@@ -108,6 +108,8 @@
 		C.hide_ui(M)
 
 	else
+		M.currently_interacting.taken_by = null
+		M.overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_generic")
 		M.currently_interacting.hide_description(M)
 	return TRUE
 
@@ -137,6 +139,8 @@
 	for(var/atom/I in T)
 		if(!I.interactive)
 			continue
+		if(I.taken_by)
+			continue
 
 		choosen_atom = I
 
@@ -144,6 +148,8 @@
 		T = get_turf(M)
 		for(var/atom/A in T)
 			if(!A.interactive)
+				continue
+			if(A.taken_by)
 				continue
 
 			choosen_atom = A
@@ -156,6 +162,10 @@
 
 		M.client.screen += ci
 		animate(ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+
+		choosen_atom.taken_by = M
+		M.overlays += image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_generic")
+
 		choosen_atom.interact_with(M)
 
 	return TRUE
@@ -201,6 +211,8 @@
 	var/desc_special_show = FALSE
 	var/desc_special = {"ВИЗУАЛЬНЫЙ ТЕКСТ"}
 
+	var/mob/living/taken_by
+
 	var/obj/item/hidden_loot
 	var/has_something_inside = FALSE
 	var/obj/screen/hidden_item/hidden_ui
@@ -208,7 +220,6 @@
 	var/remain_interactive_after_finding = FALSE
 	var/desc_special_after_finding = {"ВИЗУАЛЬНЫЙ ТЕКСТ"}
 
-	var/revealed = FALSE
 	var/list/revealers = list()
 
 /atom/proc/interact_with(mob/living/user)

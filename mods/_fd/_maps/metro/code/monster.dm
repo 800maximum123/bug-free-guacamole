@@ -223,18 +223,18 @@
 
 	if(connected_mob.chances_to_escape >= 3 && revealed_tip)
 		animate(src, alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT)
-		revealed = FALSE
+		revealed_tip = FALSE
 
 	if(connected_mob.chances_to_escape == 2 && icon_state != "1_dmg")
 		if(!revealed_tip)
 			animate(src, alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
-			revealed = TRUE
+			revealed_tip = TRUE
 		icon_state = "1_dmg"
 
 	if(connected_mob.chances_to_escape <= 1 && icon_state != "2_dmg")
 		if(!revealed_tip)
 			animate(src, alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
-			revealed = TRUE
+			revealed_tip = TRUE
 		icon_state = "2_dmg"
 
 	if(connected_mob.stat == DEAD)
