@@ -185,23 +185,17 @@
 	},
 /area/nightmare/bar_real)
 "bj" = (
-/obj/structure/fd/interactive/barricade{
-	pixel_x = -6;
-	pixel_y = 32;
-	layer = 4.09
+/obj/structure/fd/placeholder,
+/obj/structure/fake_zlvl,
+/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	dir = 4
 	},
-/obj/structure/table/rack/samosbor{
-	icon_state = "table_fancy_wood"
+/obj/structure/platform/kutjevo/rock{
+	dir = 8
 	},
-/obj/structure/fd/samosbor/table_decor9{
-	icon_state = "bust_1";
-	pixel_y = -16;
-	pixel_x = 8
-	},
-/turf/simulated/floor/exoplanet/samosbor/lino{
-	icon_state = "li_bk"
-	},
-/area/nightmare/bar_nightmare)
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "bo" = (
 /obj/structure/closet/fridge,
 /obj/item/reagent_containers/food/condiment/soysauce,
@@ -320,10 +314,13 @@
 	},
 /area/nightmare/streets)
 "ci" = (
-/turf/simulated/floor/exoplanet/samosbor/carpet{
-	icon_state = "ca_da_re_5"
+/obj/structure/fake_zlvl,
+/obj/structure/fake_zlvl,
+/obj/structure/platform/kutjevo/rock{
+	dir = 1
 	},
-/area/nightmare/bar_nightmare)
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "ck" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
@@ -633,6 +630,17 @@
 	icon_state = "co_br"
 	},
 /area/nightmare/streets)
+"dF" = (
+/obj/structure/fd/placeholder,
+/obj/structure/fake_zlvl,
+/obj/structure/platform/kutjevo/rock{
+	dir = 1
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "dG" = (
 /obj/floor_decal/spline/plain/black{
 	dir = 4
@@ -941,6 +949,15 @@
 	},
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/streets)
+"fL" = (
+/obj/structure/fd/placeholder,
+/obj/structure/fake_zlvl,
+/obj/structure/platform/kutjevo/rock{
+	dir = 1
+	},
+/obj/structure/platform/kutjevo/rock,
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "fU" = (
 /obj/structure/table/rack/samosbor/mod{
 	icon_state = "table_steel_o_3"
@@ -1157,6 +1174,7 @@
 "gX" = (
 /obj/structure/fd/placeholder,
 /obj/structure/fake_zlvl,
+/obj/structure/platform/kutjevo/rock,
 /turf/simulated/floor/exoplanet/wet_stone,
 /area/nightmare/nightmare)
 "he" = (
@@ -1206,15 +1224,14 @@
 	},
 /area/nightmare/bar_real)
 "hp" = (
-/obj/structure/fd/samosbor/table_decor2{
-	icon_state = "alarm";
-	pixel_y = 4;
-	pixel_x = -5
+/obj/structure/fd/placeholder,
+/obj/structure/fake_zlvl,
+/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	dir = 4
 	},
-/turf/simulated/floor/exoplanet/samosbor/lino{
-	icon_state = "li_bk"
-	},
-/area/nightmare/bar_nightmare)
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "hq" = (
 /obj/structure/fd/samosbor/neon_signs/large{
 	icon_state = "options";
@@ -1606,6 +1623,17 @@
 /obj/structure/fd/placeholder,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
+"jr" = (
+/obj/structure/hygiene/toilet{
+	dir = 1
+	},
+/obj/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security"
+	},
+/area/nightmare/bar_nightmare)
 "js" = (
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_gd_bi"
@@ -1794,7 +1822,9 @@
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/nightmare)
 "ks" = (
-/obj/structure/fd/grim_bookshelf,
+/obj/structure/fd/grim_bookshelf{
+	opacity = 0
+	},
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/samosbor/table_decor9{
 	icon_state = "bust_2";
@@ -1817,6 +1847,38 @@
 	density = 0;
 	opacity = 0
 	},
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "arrow";
+	name = "arrow decal";
+	pixel_y = -11;
+	pixel_x = -23;
+	dir = 8
+	},
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "arrow";
+	name = "arrow decal";
+	pixel_y = -5;
+	pixel_x = -5;
+	dir = 8;
+	layer = 2.20
+	},
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "arrow";
+	name = "arrow decal";
+	pixel_y = 12;
+	pixel_x = -14;
+	dir = 8;
+	layer = 2.20
+	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "security_bi"
 	},
@@ -1832,6 +1894,26 @@
 	icon_state = "gd"
 	},
 /area/nightmare/nightmare)
+"kE" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/wall_decor{
+	icon_state = "walldec1";
+	pixel_y = 31;
+	pixel_x = -8
+	},
+/obj/structure/fd/junk{
+	pixel_x = -1;
+	interactive = 1;
+	desc_special_show = 1;
+	desc_special = "Коробки с разным мусором. Внутри что-то блестит.";
+	name = "коробки";
+	has_something_inside = 1;
+	hidden_loot = /obj/item/fd/magic_camera_film
+	},
+/turf/simulated/floor/exoplanet/samosbor/lino{
+	icon_state = "li_bk"
+	},
+/area/nightmare/bar_nightmare)
 "kJ" = (
 /obj/decal/cleanable/flour,
 /obj/decal/cleanable/fruit_smudge,
@@ -1855,14 +1937,28 @@
 	icon_state = "me_pi_3"
 	},
 /area/nightmare/streets)
-"ld" = (
+"kX" = (
 /obj/floor_decal/spline/plain/black{
-	dir = 1
+	dir = 5
+	},
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/junk{
+	icon_state = "0,4";
+	pixel_x = -5;
+	pixel_y = -15
 	},
 /turf/simulated/floor/exoplanet/samosbor/wood{
 	icon_state = "wood_brown"
 	},
 /area/nightmare/bar_nightmare)
+"ld" = (
+/obj/structure/fd/placeholder,
+/obj/structure/fake_zlvl,
+/obj/structure/platform/kutjevo/rock{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "li" = (
 /obj/floor_decal/spline/plain/black{
 	dir = 1
@@ -1949,7 +2045,8 @@
 	desc_special = "Нарисованная от руки карта. Изображённый на ней ландшафт и обозначения не имеют никакого смысла...";
 	interactive = 1;
 	pixel_x = 6;
-	pixel_y = -11
+	pixel_y = -11;
+	desc_special_show = 1
 	},
 /obj/structure/fd/samosbor/table_decor2{
 	icon_state = "lampgreen-on";
@@ -1969,6 +2066,18 @@
 	icon_state = "plating"
 	},
 /area/nightmare/bar_real)
+"lA" = (
+/obj/floor_decal/spline/plain/black,
+/obj/decal/cleanable/dirt,
+/obj/item/reagent_containers/pill/happy{
+	pixel_x = -8;
+	pixel_y = -8
+	},
+/obj/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security"
+	},
+/area/nightmare/bar_nightmare)
 "lC" = (
 /obj/floor_decal/spline/plain/black{
 	dir = 1
@@ -2020,6 +2129,21 @@
 	},
 /turf/simulated/floor/exoplanet/samosbor/plating{
 	icon_state = "plating"
+	},
+/area/nightmare/bar_nightmare)
+"lS" = (
+/obj/machinery/microwave{
+	pixel_x = -8;
+	pixel_y = -4;
+	layer = 2.24
+	},
+/obj/structure/fd/samosbor/table_decor9{
+	icon_state = "pens_bin";
+	pixel_y = 3;
+	pixel_x = 12
+	},
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_14"
 	},
 /area/nightmare/bar_nightmare)
 "lV" = (
@@ -2074,43 +2198,80 @@
 	layer = 4.11
 	},
 /obj/decal/cleanable/dirt,
-/obj/floor_decal/ul_decals/arrow{
-	dir = 1;
-	pixel_x = -1
-	},
-/obj/floor_decal/ul_decals/arrow{
-	dir = 1;
-	pixel_x = -9;
-	pixel_y = 8
-	},
-/obj/floor_decal/ul_decals/arrow{
-	dir = 1;
-	pixel_x = 2;
-	pixel_y = 7
-	},
-/obj/floor_decal/ul_decals/arrow{
-	dir = 1;
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "arrow";
+	name = "arrow decal";
 	pixel_x = 12;
-	pixel_y = -5
+	pixel_y = 6;
+	dir = 1
 	},
-/obj/floor_decal/ul_decals/arrow{
-	dir = 1;
-	pixel_x = -15;
-	pixel_y = -10
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "arrow";
+	name = "arrow decal";
+	pixel_x = 8;
+	pixel_y = -3;
+	dir = 1
 	},
-/obj/floor_decal/ul_decals/arrow{
-	dir = 1;
-	pixel_x = 12;
-	pixel_y = 12
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "arrow";
+	name = "arrow decal";
+	pixel_x = -10;
+	pixel_y = 8;
+	dir = 1
+	},
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "arrow";
+	name = "arrow decal";
+	pixel_y = 11;
+	dir = 1
+	},
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "arrow";
+	name = "arrow decal";
+	pixel_x = -2;
+	pixel_y = 6;
+	dir = 1
+	},
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "arrow";
+	name = "arrow decal";
+	pixel_x = -4;
+	pixel_y = -17;
+	dir = 1
 	},
 /turf/simulated/floor/exoplanet/samosbor/plating{
 	icon_state = "plating"
 	},
 /area/nightmare/bar_nightmare)
 "md" = (
-/obj/floor_decal/symbol/s{
-	pixel_x = -8;
-	pixel_y = 3
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "s";
+	name = "s";
+	pixel_y = 1;
+	pixel_x = -7;
+	dir = 1;
+	layer = 2.20
 	},
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/nightmare)
@@ -2152,8 +2313,24 @@
 /obj/structure/window/reinforced/tinted{
 	dir = 4
 	},
-/obj/structure/curtain/black,
-/obj/structure/hygiene/drain,
+/obj/structure/hygiene/shower{
+	dir = 1;
+	on = 1
+	},
+/obj/structure/fd/body{
+	icon_state = "TNCDead7";
+	pixel_y = 9;
+	pixel_x = -2;
+	desc_special = "Он держит в руках камеру.";
+	desc_special_after_finding = "Здесь больше не на что смотреть.";
+	desc_special_show = 1;
+	interactive = 1;
+	remain_interactive_after_finding = 1;
+	has_something_inside = 1;
+	name = "тело";
+	mouse_opacity = 0;
+	hidden_loot = /obj/item/fd/magic_camera
+	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "security_sm"
 	},
@@ -2190,6 +2367,17 @@
 	icon_state = "ca_da_gy_11"
 	},
 /area/nightmare/bar_real)
+"mv" = (
+/obj/structure/fake_zlvl,
+/obj/structure/fake_zlvl,
+/obj/structure/platform/kutjevo/rock{
+	dir = 1
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "mw" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
@@ -2368,6 +2556,20 @@
 	icon_state = "plating"
 	},
 /area/nightmare/bar_real)
+"nO" = (
+/obj/structure/fd/samosbor/table_decor2{
+	icon_state = "alarm";
+	pixel_y = 4;
+	pixel_x = -5
+	},
+/obj/structure/fd/wall_decor{
+	icon_state = "walldec4";
+	pixel_x = 27
+	},
+/turf/simulated/floor/exoplanet/samosbor/lino{
+	icon_state = "li_bk"
+	},
+/area/nightmare/bar_nightmare)
 "nS" = (
 /turf/simulated/floor/exoplanet/samosbor/carpet{
 	icon_state = "ca_da_gy_12"
@@ -2617,6 +2819,18 @@
 	icon_state = "me_ti_da"
 	},
 /area/nightmare/streets)
+"po" = (
+/obj/structure/fake_zlvl,
+/obj/structure/fake_zlvl,
+/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	dir = 4
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "pt" = (
 /obj/structure/fd/topdown_walls/concrete{
 	icon_state = "co_ge_dr_1"
@@ -2673,6 +2887,21 @@
 /obj/floor_decal/spline/plain/black,
 /turf/simulated/floor/exoplanet/samosbor/wood{
 	icon_state = "wood_fancy"
+	},
+/area/nightmare/bar_nightmare)
+"pI" = (
+/obj/decal/cleanable/generic,
+/obj/structure/fd/building_stuff{
+	pixel_x = -3;
+	pixel_y = -1
+	},
+/obj/structure/fd/samosbor/table_decor12{
+	icon_state = "0,23";
+	pixel_y = -14;
+	pixel_x = -10
+	},
+/turf/simulated/floor/exoplanet/samosbor/plating{
+	icon_state = "plating"
 	},
 /area/nightmare/bar_nightmare)
 "pL" = (
@@ -2778,6 +3007,30 @@
 	icon_state = "ca_da_6"
 	},
 /area/nightmare/bar_real)
+"qn" = (
+/obj/structure/fd/interactive/barricade{
+	pixel_x = -6;
+	pixel_y = 32;
+	layer = 4.09
+	},
+/obj/structure/table/rack/samosbor{
+	icon_state = "table_fancy_wood"
+	},
+/obj/structure/fd/samosbor/table_decor9{
+	icon_state = "bust_1";
+	pixel_y = -16;
+	pixel_x = 8
+	},
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/samosbor/table_decor13{
+	icon_state = "wrench";
+	pixel_y = -20;
+	pixel_x = -11
+	},
+/turf/simulated/floor/exoplanet/samosbor/lino{
+	icon_state = "li_bk"
+	},
+/area/nightmare/bar_nightmare)
 "qo" = (
 /obj/structure/storage/chest/wardrobe{
 	pixel_x = -4;
@@ -2860,7 +3113,8 @@
 	name = "box";
 	pixel_y = 22;
 	opacity = 1;
-	layer = 4.09
+	layer = 4.09;
+	density = 0
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t5"
@@ -2921,6 +3175,15 @@
 	icon_state = "wood_fancy"
 	},
 /area/nightmare/bar_nightmare)
+"rs" = (
+/obj/structure/fd/placeholder,
+/obj/structure/fake_zlvl,
+/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "rt" = (
 /obj/decal/cleanable/generic,
 /turf/simulated/floor/exoplanet/samosbor/metal{
@@ -3013,6 +3276,18 @@
 	icon_state = "gl"
 	},
 /area/nightmare/bar_nightmare)
+"rT" = (
+/obj/structure/fd/placeholder,
+/obj/structure/fake_zlvl,
+/obj/structure/platform/kutjevo/rock{
+	dir = 1
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 8
+	},
+/obj/structure/platform/kutjevo/rock,
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "rW" = (
 /obj/structure/fake_zlvl,
 /turf/simulated/floor/exoplanet/grim_asphalt2,
@@ -3290,6 +3565,31 @@
 	icon_state = "me_ti_da_t4"
 	},
 /area/nightmare/bar_real)
+"tl" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_steel_o_8"
+	},
+/obj/structure/hygiene/sink/modern{
+	dir = 1
+	},
+/obj/structure/fd/samosbor/table_decor8{
+	icon_state = "ramen_open";
+	pixel_x = -15;
+	pixel_y = 14
+	},
+/obj/structure/fd/samosbor/table_decor7{
+	icon_state = "rum";
+	pixel_x = -26;
+	pixel_y = 10
+	},
+/obj/machinery/light{
+	color = "#800b0b";
+	light_color = "#800b0b"
+	},
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_9"
+	},
+/area/nightmare/bar_nightmare)
 "tp" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 1
@@ -3622,10 +3922,7 @@
 	},
 /obj/structure/fd/junk{
 	icon_state = "3,3";
-	pixel_y = 5;
-	interactive = 1;
-	desc_special_show = 1;
-	desc_special = "Вырезки из разных газет. Везде пишут об недавних пропажах."
+	pixel_y = 5
 	},
 /obj/structure/fd/junk{
 	icon_state = "4,4";
@@ -3809,15 +4106,13 @@
 	},
 /area/nightmare/bar_real)
 "wL" = (
-/obj/floor_decal/spline/plain/black,
-/obj/item/towel/random{
-	pixel_y = 10;
-	pixel_x = 18
+/obj/structure/fd/placeholder,
+/obj/structure/fake_zlvl,
+/obj/structure/platform/kutjevo/rock{
+	dir = 1
 	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "security"
-	},
-/area/nightmare/bar_nightmare)
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "wM" = (
 /obj/structure/fd/topdown_walls/concrete{
 	icon_state = "co_ge_dr_10"
@@ -3860,28 +4155,11 @@
 	},
 /area/nightmare/nightmare)
 "xd" = (
-/obj/structure/hygiene/sink{
-	dir = 1;
-	pixel_y = 16;
-	layer = 3.01
-	},
-/obj/item/storage/mirror/grim/iron{
-	pixel_y = 30
-	},
-/obj/floor_decal/spline/plain/black,
-/obj/item/haircomb/brush{
-	pixel_x = -12;
-	pixel_y = 9
-	},
-/obj/machinery/light{
-	color = "#a1d2d6";
-	dir = 4;
-	light_color = "#a1d2d6"
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "security"
-	},
-/area/nightmare/bar_nightmare)
+/obj/structure/fd/placeholder,
+/obj/structure/fake_zlvl,
+/obj/structure/platform_decoration/kutjevo/rock,
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "xf" = (
 /obj/structure/fake_zlvl,
 /obj/structure/fd/placeholder,
@@ -3917,6 +4195,14 @@
 	},
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
+"xm" = (
+/obj/structure/fd/placeholder,
+/obj/structure/fake_zlvl,
+/obj/structure/platform_decoration/kutjevo/rock{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "xo" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 1
@@ -4073,6 +4359,14 @@
 	icon_state = "me_pi_12"
 	},
 /area/nightmare/nightmare)
+"ys" = (
+/obj/structure/fake_zlvl,
+/obj/structure/fake_zlvl,
+/obj/structure/platform/kutjevo/rock{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "yw" = (
 /obj/floor_decal/spline/plain/black{
 	dir = 10
@@ -4141,6 +4435,24 @@
 	},
 /turf/simulated/floor/exoplanet/samosbor/lino{
 	icon_state = "li_bk"
+	},
+/area/nightmare/bar_nightmare)
+"yY" = (
+/obj/structure/fd/building_stuff{
+	pixel_x = -6;
+	pixel_y = 10
+	},
+/obj/structure/fd/building_stuff{
+	pixel_x = 2;
+	pixel_y = -10
+	},
+/obj/structure/fd/samosbor/table_decor12{
+	icon_state = "0,34";
+	pixel_x = 14;
+	pixel_y = 11
+	},
+/turf/simulated/floor/exoplanet/samosbor/plating{
+	icon_state = "plating"
 	},
 /area/nightmare/bar_nightmare)
 "yZ" = (
@@ -4226,18 +4538,14 @@
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/streets)
 "zN" = (
-/obj/structure/table/rack/samosbor/mod{
-	icon_state = "table_steel_o_4"
+/obj/structure/fd/placeholder,
+/obj/structure/fake_zlvl,
+/obj/structure/platform_decoration/kutjevo/rock{
+	dir = 1
 	},
-/obj/machinery/microwave{
-	pixel_x = -1;
-	pixel_y = 5;
-	layer = 2.24
-	},
-/turf/simulated/floor/exoplanet/samosbor/carpet{
-	icon_state = "ca_da_re_13"
-	},
-/area/nightmare/bar_nightmare)
+/obj/structure/platform_decoration/kutjevo/rock,
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "zT" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/samosbor/floor_cable{
@@ -4249,6 +4557,18 @@
 	icon_state = "me_ti_da_t5"
 	},
 /area/nightmare/bar_real)
+"zV" = (
+/obj/structure/fd/placeholder,
+/obj/structure/fake_zlvl,
+/obj/structure/platform/kutjevo/rock{
+	dir = 1
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 4
+	},
+/obj/structure/platform/kutjevo/rock,
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "zX" = (
 /obj/decal/cleanable/generic,
 /obj/structure/fake_zlvl,
@@ -4662,16 +4982,10 @@
 	},
 /area/nightmare/bar_nightmare)
 "BR" = (
-/obj/structure/window/reinforced/tinted{
-	dir = 4
+/turf/unsimulated/wall{
+	color = "red"
 	},
-/obj/structure/hygiene/shower{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "security_sm"
-	},
-/area/nightmare/bar_nightmare)
+/area/space)
 "BY" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
@@ -4778,10 +5092,13 @@
 	},
 /area/nightmare/nightmare)
 "CG" = (
-/turf/simulated/floor/exoplanet/samosbor/carpet{
-	icon_state = "ca_da_re_10"
+/obj/structure/fd/placeholder,
+/obj/structure/fake_zlvl,
+/obj/structure/platform/kutjevo/rock{
+	dir = 8
 	},
-/area/nightmare/bar_nightmare)
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "CH" = (
 /obj/decal/cleanable/generic,
 /turf/simulated/floor/exoplanet/samosbor/metal{
@@ -5566,6 +5883,15 @@
 	icon_state = "me_gd_bi"
 	},
 /area/nightmare/bar_nightmare)
+"GJ" = (
+/obj/structure/fd/placeholder,
+/obj/structure/fake_zlvl,
+/obj/structure/platform_decoration/kutjevo/rock{
+	dir = 8
+	},
+/obj/structure/platform_decoration/kutjevo/rock,
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "GN" = (
 /obj/structure/fd/topdown_walls/concrete{
 	icon_state = "co_ap_r_7"
@@ -5588,6 +5914,10 @@
 	},
 /obj/structure/table/rack/samosbor{
 	icon_state = "table_fancy"
+	},
+/obj/structure/fd/interactive/note/nightmare/keys{
+	pixel_x = -6;
+	pixel_y = 5
 	},
 /obj/structure/fd/samosbor/table_decor12{
 	pixel_y = 9;
@@ -5663,6 +5993,17 @@
 	icon_state = "bronze_warning"
 	},
 /area/nightmare/bar_nightmare)
+"Ha" = (
+/obj/structure/fd/placeholder,
+/obj/structure/fake_zlvl,
+/obj/structure/platform_decoration/kutjevo/rock{
+	dir = 4
+	},
+/obj/structure/platform_decoration/kutjevo/rock{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "Hg" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 4
@@ -5920,13 +6261,11 @@
 	},
 /area/nightmare/bar_nightmare)
 "IL" = (
-/obj/floor_decal/spline/plain/black{
-	dir = 5
-	},
-/turf/simulated/floor/exoplanet/samosbor/wood{
-	icon_state = "wood_brown"
-	},
-/area/nightmare/bar_nightmare)
+/obj/structure/fake_zlvl,
+/obj/structure/fake_zlvl,
+/obj/structure/platform/kutjevo/rock,
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "IN" = (
 /obj/structure/fd/bs_vines,
 /obj/structure/fd/bs_spikes,
@@ -5988,6 +6327,33 @@
 /obj/structure/fd/interactive/door/wood_alt,
 /turf/simulated/floor/exoplanet/samosbor/wood,
 /area/nightmare/bar_real)
+"Jp" = (
+/obj/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "arrow";
+	name = "arrow decal";
+	pixel_x = 12;
+	pixel_y = 6
+	},
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "arrow";
+	name = "arrow decal";
+	pixel_y = -1;
+	pixel_x = 6
+	},
+/turf/simulated/floor/exoplanet/samosbor/wood{
+	icon_state = "wood_alt"
+	},
+/area/nightmare/bar_nightmare)
 "Jq" = (
 /obj/machinery/light{
 	color = "#4aadc3";
@@ -6186,7 +6552,8 @@
 	icon_state = "a15";
 	pixel_y = 17;
 	pixel_x = -9;
-	density = 0
+	density = 0;
+	opacity = 0
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/wood{
@@ -6476,6 +6843,32 @@
 	icon_state = "gl"
 	},
 /area/nightmare/nightmare)
+"LF" = (
+/obj/structure/hygiene/sink{
+	dir = 1;
+	pixel_y = 16;
+	layer = 3.01
+	},
+/obj/item/storage/mirror/grim/iron{
+	pixel_y = 30
+	},
+/obj/floor_decal/spline/plain/black,
+/obj/structure/fd/wall_decor2{
+	icon_state = "bloodprint";
+	pixel_y = 31;
+	pixel_x = 2;
+	layer = 3.01
+	},
+/obj/decal/cleanable/dirt,
+/obj/machinery/light{
+	color = "#800b0b";
+	dir = 4;
+	light_color = "#800b0b"
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security"
+	},
+/area/nightmare/bar_nightmare)
 "LH" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -6512,6 +6905,31 @@
 	icon_state = "ca_da_gy_4"
 	},
 /area/nightmare/bar_real)
+"LT" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_steel_o_4"
+	},
+/obj/structure/fd/samosbor/table_decor3{
+	icon_state = "ketchup_empty";
+	pixel_y = 10;
+	pixel_x = -5
+	},
+/obj/structure/fd/samosbor/table_decor3{
+	icon_state = "rice_empty";
+	pixel_y = 8;
+	pixel_x = -9
+	},
+/obj/structure/fd/wall_decor{
+	icon_state = "walldec6";
+	pixel_y = -30
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_x = 4
+	},
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_13"
+	},
+/area/nightmare/bar_nightmare)
 "LW" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 1
@@ -6591,6 +7009,20 @@
 	icon_state = "plating"
 	},
 /area/nightmare/nightmare)
+"Mm" = (
+/obj/structure/fd/wall_decor{
+	icon_state = "walldec3";
+	pixel_x = -30
+	},
+/obj/structure/fd/wall_decor{
+	icon_state = "walldec5";
+	pixel_y = 29;
+	pixel_x = -26
+	},
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_5"
+	},
+/area/nightmare/bar_nightmare)
 "Mv" = (
 /obj/structure/fd/junk{
 	icon_state = "0,1"
@@ -6726,6 +7158,15 @@
 	icon_state = "plating"
 	},
 /area/nightmare/bar_nightmare)
+"Nc" = (
+/obj/structure/fake_zlvl,
+/obj/structure/fake_zlvl,
+/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "Nf" = (
 /obj/structure/closet/fridge,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
@@ -7151,10 +7592,16 @@
 	},
 /area/nightmare/streets)
 "OY" = (
-/turf/simulated/floor/exoplanet/samosbor/carpet{
-	icon_state = "ca_da_re_14"
+/obj/structure/fd/placeholder,
+/obj/structure/fake_zlvl,
+/obj/structure/platform/kutjevo/rock{
+	dir = 1
 	},
-/area/nightmare/bar_nightmare)
+/obj/structure/platform/kutjevo/rock{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "OZ" = (
 /obj/structure/fd/samosbor/furniture1{
 	icon_state = "sofa_dyellow";
@@ -7297,6 +7744,19 @@
 	icon_state = "me_pi_3"
 	},
 /area/nightmare/streets)
+"PW" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/building_stuff{
+	pixel_y = 21
+	},
+/obj/structure/fd/building_stuff{
+	pixel_y = 1
+	},
+/obj/item/fd/basic_power/fuse,
+/turf/simulated/floor/exoplanet/samosbor/plating{
+	icon_state = "plating"
+	},
+/area/nightmare/bar_nightmare)
 "PY" = (
 /obj/floor_decal/industrial/hatch/yellow,
 /obj/structure/closet/crate/trashcart,
@@ -7477,7 +7937,7 @@
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_3"
 	},
-/area/nightmare/nightmare)
+/area/nightmare/bar_nightmare)
 "QU" = (
 /obj/structure/fd/samosbor/furniture1{
 	icon_state = "stool_cafe";
@@ -7837,21 +8297,13 @@
 	},
 /area/nightmare/bar_nightmare)
 "Tc" = (
-/obj/structure/hygiene/toilet{
-	dir = 1
+/obj/structure/fd/placeholder,
+/obj/structure/fake_zlvl,
+/obj/structure/platform_decoration/kutjevo/rock{
+	dir = 8
 	},
-/obj/floor_decal/spline/plain/black{
-	dir = 1
-	},
-/obj/structure/fd/samosbor/table_decor9{
-	icon_state = "pens_bin";
-	pixel_y = 9;
-	pixel_x = -12
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "security"
-	},
-/area/nightmare/bar_nightmare)
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "Te" = (
 /obj/floor_decal/spline/fancy/black,
 /turf/simulated/floor/exoplanet/samosbor/metal{
@@ -7878,6 +8330,15 @@
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da"
 	},
+/area/nightmare/nightmare)
+"To" = (
+/obj/structure/fake_zlvl,
+/obj/structure/fake_zlvl,
+/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wet_stone,
 /area/nightmare/nightmare)
 "Tu" = (
 /obj/decal/cleanable/dirt,
@@ -8096,6 +8557,16 @@
 	icon_state = "me_ti_da_t4"
 	},
 /area/nightmare/bar_real)
+"UK" = (
+/obj/structure/fd/samosbor/table_decor3{
+	icon_state = "flour_empty";
+	pixel_x = 10;
+	pixel_y = -8
+	},
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_10"
+	},
+/area/nightmare/bar_nightmare)
 "UL" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/env{
@@ -8168,6 +8639,14 @@
 	icon_state = "wood_log"
 	},
 /area/nightmare/bar_nightmare)
+"Vl" = (
+/obj/structure/fd/placeholder,
+/obj/structure/fake_zlvl,
+/obj/structure/platform_decoration/kutjevo/rock{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "Vn" = (
 /obj/floor_decal/spline/plain/black{
 	dir = 4
@@ -8253,6 +8732,15 @@
 	icon_state = "wood_fancy"
 	},
 /area/nightmare/bar_nightmare)
+"VK" = (
+/obj/structure/fd/placeholder,
+/obj/structure/fake_zlvl,
+/obj/structure/platform/kutjevo/rock{
+	dir = 8
+	},
+/obj/structure/platform/kutjevo/rock,
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "VO" = (
 /turf/simulated/floor/exoplanet/samosbor/plating{
 	icon_state = "plating"
@@ -8319,6 +8807,24 @@
 	icon_state = "me_pa_8"
 	},
 /area/nightmare/bar_nightmare)
+"Wi" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/generic,
+/obj/structure/fd/samosbor/table_decor13{
+	pixel_y = 18;
+	pixel_x = 7;
+	icon_state = "handsaw"
+	},
+/obj/structure/fd/wall_decor{
+	icon_state = "walldec2";
+	pixel_x = 31;
+	pixel_y = 7
+	},
+/obj/item/crowbar/emergency_forcing_tool,
+/turf/simulated/floor/exoplanet/samosbor/lino{
+	icon_state = "li_bk"
+	},
+/area/nightmare/bar_nightmare)
 "Wj" = (
 /obj/structure/fd/samosbor/flora{
 	icon_state = "gplant_1";
@@ -8381,30 +8887,20 @@
 	},
 /area/nightmare/bar_real)
 "WB" = (
-/obj/floor_decal/ul_decals/arrow{
-	dir = 8;
-	pixel_x = -29;
-	pixel_y = 8
-	},
-/obj/floor_decal/ul_decals/arrow{
-	dir = 8;
-	pixel_x = -22;
-	pixel_y = 2
-	},
-/obj/floor_decal/ul_decals/arrow{
-	dir = 8;
-	pixel_x = -50;
-	pixel_y = -10
-	},
-/obj/floor_decal/ul_decals/arrow{
-	dir = 8;
-	pixel_x = 4;
-	pixel_y = -4
-	},
 /obj/structure/fd/samosbor/table_decor12{
 	icon_state = "0,23";
 	pixel_y = -14;
 	pixel_x = -10
+	},
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "arrow";
+	name = "arrow decal";
+	pixel_y = 4;
+	pixel_x = -12;
+	dir = 8
 	},
 /turf/simulated/floor/exoplanet/samosbor/plating{
 	icon_state = "plating"
@@ -8442,6 +8938,10 @@
 	pixel_y = 16;
 	pixel_x = 10;
 	icon_state = "3,2"
+	},
+/obj/structure/fd/interactive/note/nightmare/fred{
+	pixel_x = -7;
+	pixel_y = 4
 	},
 /obj/structure/fd/samosbor/table_decor12{
 	icon_state = "3,3";
@@ -8493,6 +8993,17 @@
 	icon_state = "wood_common"
 	},
 /area/nightmare/bar_real)
+"WY" = (
+/obj/structure/fake_zlvl,
+/obj/structure/fake_zlvl,
+/obj/structure/platform/kutjevo/rock{
+	dir = 1
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "Xd" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fake_zlvl,
@@ -8541,7 +9052,9 @@
 /obj/structure/fd/samosbor/machinery2{
 	icon_state = "PCno";
 	pixel_y = 12;
-	pixel_x = 15
+	pixel_x = 15;
+	light_range = 3;
+	light_color = "#800b0b"
 	},
 /obj/structure/fd/junk{
 	icon_state = "1,4";
@@ -8639,8 +9152,18 @@
 	},
 /area/nightmare/bar_nightmare)
 "Yb" = (
-/obj/map_effect/portal/master/side_a,
-/turf/simulated/floor/exoplanet/samosbor/ceramic,
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/samosbor/table_decor3{
+	icon_state = "enzyme_empty"
+	},
+/obj/structure/fd/samosbor/table_decor12{
+	icon_state = "4,7";
+	pixel_y = 11;
+	pixel_x = 37
+	},
+/turf/simulated/floor/exoplanet/samosbor/plating{
+	icon_state = "plating"
+	},
 /area/nightmare/bar_nightmare)
 "Yd" = (
 /obj/structure/fd/junk{
@@ -8651,20 +9174,14 @@
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "Yf" = (
-/obj/structure/table/rack/samosbor/mod{
-	icon_state = "table_steel_o_8"
+/obj/structure/fake_zlvl,
+/obj/structure/fake_zlvl,
+/obj/structure/platform/kutjevo/rock{
+	dir = 8
 	},
-/obj/structure/hygiene/sink/modern{
-	dir = 1
-	},
-/obj/machinery/light{
-	color = "#c38f3f";
-	light_color = "#c38f3f"
-	},
-/turf/simulated/floor/exoplanet/samosbor/carpet{
-	icon_state = "ca_da_re_9"
-	},
-/area/nightmare/bar_nightmare)
+/obj/structure/platform/kutjevo/rock,
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/nightmare/nightmare)
 "Yg" = (
 /turf/simulated/floor/exoplanet/samosbor/env{
 	icon_state = "gl"
@@ -8794,6 +9311,25 @@
 	icon_state = "plating"
 	},
 /area/nightmare/streets)
+"YL" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/obj/structure/hygiene/drain,
+/obj/decal/cleanable/dirt,
+/obj/item/storage/pill_bottle/happy{
+	pixel_x = -12;
+	pixel_y = 13
+	},
+/obj/item/reagent_containers/pill/happy{
+	pixel_y = 5;
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/pill/happy,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security_sm"
+	},
+/area/nightmare/bar_nightmare)
 "YN" = (
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_14"
@@ -9010,12 +9546,27 @@
 /area/nightmare/bar_real)
 "ZY" = (
 /obj/decal/cleanable/dirt,
-/obj/floor_decal/symbol/s{
-	pixel_y = 5;
-	pixel_x = -4
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "s";
+	name = "s";
+	pixel_y = 10;
+	pixel_x = -3;
+	dir = 1;
+	layer = 2.20
 	},
-/obj/floor_decal/symbol/o{
-	pixel_x = 9
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "o";
+	name = "s";
+	pixel_y = -1;
+	pixel_x = 12;
+	dir = 1;
+	layer = 2.20
 	},
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/nightmare)
@@ -9102,7 +9653,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -9254,7 +9805,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -9406,7 +9957,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -9558,7 +10109,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -9710,7 +10261,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -9862,7 +10413,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -10014,7 +10565,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -10166,7 +10717,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -10318,7 +10869,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -10470,7 +11021,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -10622,7 +11173,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -10774,7 +11325,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -10926,7 +11477,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -11078,7 +11629,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -11230,7 +11781,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -11382,7 +11933,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -11534,7 +12085,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -11686,7 +12237,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -11838,7 +12389,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -11990,7 +12541,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -12142,7 +12693,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -12294,7 +12845,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -12446,7 +12997,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -12598,7 +13149,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -12750,7 +13301,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -12902,7 +13453,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -13054,7 +13605,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -13206,7 +13757,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -13358,7 +13909,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -13510,7 +14061,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -13662,7 +14213,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -13814,7 +14365,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -13966,7 +14517,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -14118,7 +14669,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -14270,75 +14821,75 @@ UR
 UR
 UR
 UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
+BR
+UR
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
 "}
 (36,1,1) = {"
 UR
@@ -14422,75 +14973,75 @@ UR
 UR
 UR
 UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
+BR
+UR
+Dw
+qc
+IL
+za
+Im
+Rl
+Rl
+Rl
+Rl
+Rl
+Rl
+zu
+zu
+zu
+zu
+zu
+Rl
+Rl
+Rl
+zu
+Rl
+JO
+MS
+za
+tt
+Dw
+Dw
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+Dw
 "}
 (37,1,1) = {"
 UR
@@ -14574,75 +15125,75 @@ UR
 UR
 UR
 UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
+BR
+UR
+Dw
+qc
+IL
+za
+Vx
+Qz
+TA
+iO
+AR
+AR
+Yh
+GO
+zB
+zB
+zB
+Na
+eD
+Ld
+tS
+Vx
+VO
+Vx
+jg
+YQ
+bM
+Dw
+Dw
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+Dw
 "}
 (38,1,1) = {"
 UR
@@ -14726,75 +15277,75 @@ UR
 UR
 UR
 UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
+BR
+UR
+Dw
+qc
+Nc
+vu
+Vx
+lr
+ip
+Os
+Ri
+AR
+Yv
+Vx
+SW
+SW
+SW
+gL
+mb
+jN
+ql
+Vx
+VO
+Vx
+MS
+Am
+gx
+Dw
+Dw
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+Dw
 "}
 (39,1,1) = {"
 UR
@@ -14878,75 +15429,75 @@ UR
 UR
 UR
 UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
+BR
+UR
+Dw
+Nc
+sf
+nB
+FF
+fz
+fz
+sN
+Rl
+Rl
+Rl
+zB
+Rl
+Rl
+Rl
+zB
+pt
+ky
+sN
+zB
+zu
+yQ
+DK
+uQ
+XK
+Dw
+Dw
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+Dw
 "}
 (40,1,1) = {"
 UR
@@ -15030,75 +15581,75 @@ UR
 UR
 UR
 UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
+BR
+UR
+Dw
+BH
+LH
+Ti
+Zg
+Ot
+yw
+tW
+Sw
+Mi
+Hg
+Dl
+GW
+VO
+wE
+vY
+Jp
+WB
+VO
+fc
+FF
+ts
+qi
+uQ
+jh
+Dw
+Dw
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+Dw
 "}
 (41,1,1) = {"
 UR
@@ -15182,75 +15733,75 @@ UR
 UR
 UR
 UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
+BR
+UR
+Dw
+Ly
+XF
+Ti
+Zg
+JQ
+aO
+iO
+RP
+GA
+GA
+GA
+dt
+Hp
+VO
+vK
+BM
+jb
+Gk
+Zz
+vg
+TU
+Nh
+je
+jh
+Dw
+Dw
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+xd
+ld
+ld
+Tc
+QA
+QA
+xd
+ld
+ld
+ld
+ld
+ld
+ld
+Tc
+QA
+xd
+ld
+ld
+ld
+ld
+Tc
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+Dw
 "}
 (42,1,1) = {"
 UR
@@ -15334,75 +15885,75 @@ UR
 UR
 UR
 UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
+BR
+UR
+Dw
+dx
+wx
+Ti
+vK
+Os
+iO
+Im
+Rl
+vf
+DM
+DM
+Ol
+Qd
+Lf
+Vx
+hJ
+lN
+Fp
+dt
+vK
+ji
+DK
+jh
+je
+Dw
+Dw
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+xd
+hp
+cn
+cn
+OY
+ld
+GJ
+hp
+gB
+vI
+Ja
+kD
+cn
+tB
+OY
+ld
+hp
+cn
+sZ
+lW
+gB
+OY
+Tc
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+Dw
 "}
 (43,1,1) = {"
 UR
@@ -15486,75 +16037,75 @@ UR
 UR
 UR
 UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
+BR
+UR
+Dw
+BO
+hi
+za
+Vx
+dq
+yw
+Vx
+VO
+IY
+lD
+Ep
+JA
+Dg
+mW
+Vx
+OI
+dk
+zc
+VO
+Vx
+ji
+MJ
+za
+je
+Dw
+Dw
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+xd
+hp
+GQ
+DP
+uj
+Iv
+eC
+zV
+ck
+UL
+Pp
+gR
+xb
+tX
+eC
+KB
+Od
+di
+mw
+Kr
+aE
+cn
+uW
+OY
+Tc
+QA
+QA
+QA
+QA
+QA
+QA
+Dw
 "}
 (44,1,1) = {"
 UR
@@ -15638,75 +16189,75 @@ UR
 UR
 UR
 UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
+BR
+UR
+Dw
+Yf
+eL
+VF
+Vx
+BP
+VO
+Vx
+VO
+IY
+SV
+MC
+NO
+VO
+Km
+GO
+Rl
+Rl
+Rl
+zu
+zB
+JO
+MK
+mI
+sG
+Dw
+Dw
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+gX
+gB
+gB
+gB
+Dm
+ea
+gB
+gB
+OM
+Ce
+QT
+Kt
+gB
+mw
+gB
+bO
+ea
+Dm
+Wy
+Wa
+IQ
+mJ
+uW
+DG
+wL
+QA
+bs
+QA
+QA
+QA
+QA
+Dw
 "}
 (45,1,1) = {"
 UR
@@ -15790,75 +16341,75 @@ UR
 UR
 UR
 UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
+BR
+UR
+Dw
+qc
+po
+Ti
+FF
+Kf
+fo
+Vx
+VO
+IY
+ZI
+SO
+Xe
+GA
+Km
+Vx
+lA
+YL
+ml
+Vx
+VO
+Vx
+MS
+Ls
+tr
+Dw
+Dw
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+gX
+gB
+Im
+Rl
+zu
+Rl
+Rl
+Rl
+Rl
+Rl
+Rl
+Rl
+Rl
+Rl
+Rl
+Rl
+Rl
+Rl
+Rl
+JO
+IQ
+ct
+Wq
+DG
+wL
+QA
+Hi
+LD
+QA
+QA
+QA
+Dw
 "}
 (46,1,1) = {"
 UR
@@ -15942,75 +16493,75 @@ UR
 UR
 UR
 UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
+BR
+UR
+Dw
+Nc
+je
+Bn
+Zg
+gF
+iJ
+Vx
+VO
+IY
+ax
+WI
+Xe
+fI
+VO
+Vx
+LF
+yl
+jr
+Vx
+VO
+Vx
+jg
+za
+tr
+Dw
+Dw
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+gX
+gB
+Vx
+VO
+Vx
+RR
+AR
+AR
+Pr
+jw
+VE
+NR
+mr
+aA
+ZF
+rD
+Di
+lC
+or
+FF
+pa
+oO
+JJ
+dF
+Vl
+QA
+IJ
+Fy
+IQ
+ry
+QA
+Dw
 "}
 (47,1,1) = {"
 UR
@@ -16094,74 +16645,74 @@ UR
 UR
 UR
 UR
+BR
 UR
-UR
 Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
+jh
+sG
+nB
+Zg
+VO
+BA
+GO
+Rl
+Gm
+vf
+DM
+Jz
+hm
+VO
+GO
+pt
+kh
+sN
+zB
+zu
+Na
+MS
+za
+XK
+Dw
+Dw
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+xd
+hp
+gB
+Vx
+VO
+Vx
+sn
+AR
+AR
+Bf
+Dd
+xL
+IK
+du
+cX
+mr
+Ns
+uT
+lC
+Sy
+Nw
+IQ
+Bp
+bs
+wL
+QA
+QA
+Pp
+nb
+IN
+ry
+QA
 Dw
 "}
 (48,1,1) = {"
@@ -16246,33 +16797,33 @@ UR
 UR
 UR
 UR
+BR
 UR
-UR
 Dw
-qc
-qc
-za
-Im
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
-zu
-zu
-zu
-zu
-zu
-Rl
-Rl
-Rl
-zu
-Rl
-JO
-MS
-za
-tt
+ys
+To
+jV
+vK
+dI
+rr
+Vx
+TD
+cS
+Vx
+VO
+Vx
+Aa
+BB
+Vx
+kE
+pI
+XW
+Mm
+GO
+Na
+pM
+dw
+WY
 Dw
 Dw
 QA
@@ -16281,37 +16832,37 @@ QA
 QA
 QA
 QA
+xd
+hp
+kS
+gB
+GO
+Rl
+zB
+jH
+ae
+KY
+yZ
+VI
+EF
+PH
+SZ
+XQ
+nx
+vx
+EF
+GP
+sT
+vK
+mn
+mw
+sl
+wL
 QA
 QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
+UL
+VY
+DL
 QA
 QA
 Dw
@@ -16398,33 +16949,33 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 Dw
 qc
-qc
-za
+IL
+sS
 Vx
-Qz
-TA
-iO
-AR
-AR
-Yh
-GO
-zB
-zB
-zB
-Na
-eD
-Ld
-tS
+Os
+ks
+FF
+er
+er
 Vx
 VO
 Vx
-jg
-YQ
-bM
+sd
+LW
+Vx
+yY
+Yb
+lS
+LT
+GO
+Na
+pM
+FI
+mv
 Dw
 Dw
 QA
@@ -16432,37 +16983,37 @@ QA
 QA
 QA
 QA
+xd
+hp
+Zi
+yn
+mw
+Vx
+Qi
+tc
+FF
+EY
+gV
+mr
+BA
+xr
+lC
+Cb
+Zf
+mE
+iJ
+Gb
+Uh
+Yz
+FF
+Pp
+mw
+Yg
+wL
 QA
 QA
 QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
+mw
 QA
 QA
 QA
@@ -16550,33 +17101,33 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 Dw
 qc
-qc
-vu
+IL
+za
 Vx
-lr
-ip
-Os
-Ri
-AR
-Yv
-Vx
-Yb
-SW
-SW
-gL
-mb
-jN
-ql
+hW
+RB
+fu
+dt
+Ot
 Vx
 VO
 Vx
-MS
-Am
-gx
+Dg
+Qp
+FF
+DZ
+kX
+UK
+tl
+GO
+Na
+Wl
+gK
+iF
 Dw
 Dw
 QA
@@ -16584,34 +17135,34 @@ QA
 QA
 QA
 QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
+gX
+lY
+CB
+bS
+mw
+Vx
+sq
+JK
+AI
+oW
+ST
+Qw
+aO
+Gx
+qW
+VO
+DO
+Yz
+pF
+wr
+oW
+dG
+Zg
+IQ
+kD
+Yg
+OY
+Tc
 QA
 QA
 QA
@@ -16702,31 +17253,31 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 Dw
 qc
-sf
-nB
-FF
-fz
-fz
-sN
-Rl
-Rl
-Rl
-zB
-Rl
-Rl
-Rl
-zB
-pt
-ky
-sN
-zB
-zu
-yQ
-DK
+IL
+uQ
+Vx
+Qg
+NC
+dt
+NL
+hn
+Vx
+VO
+Vx
+RP
+mW
+sA
+qn
+nO
+Wi
+PW
+GO
+Na
+Wl
 uQ
 XK
 Dw
@@ -16736,35 +17287,35 @@ QA
 QA
 QA
 QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
+gX
+gg
+gz
+CY
+mw
+GO
+Rl
+Rl
+zu
+Rl
+Rl
+JO
+DB
+EF
+Vk
+yH
+ly
+fU
+XS
+vK
+lu
+sN
+JO
+qw
+Yg
+kD
+UL
+OY
+Tc
 QA
 QA
 QA
@@ -16854,69 +17405,69 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 Dw
-BH
-LH
-Ti
-Zg
-Ot
-yw
-tW
-Sw
-Mi
-Hg
-Dl
-GW
+qc
+qc
+To
+GO
+Rl
+Rl
+Rl
+Rl
+Rl
+yQ
 VO
-wE
-vY
-fc
-WB
+HT
+Rl
+Rl
+Rl
+Rl
+Rl
+Rl
+Rl
+zB
+Na
+Wl
+EN
+XK
+Dw
+Dw
+QA
+QA
+QA
+QA
+QA
+gX
+un
+VC
+CT
+gB
+Vx
 VO
-fc
+VO
+Vx
+jP
+OC
 FF
-ts
-qi
-uQ
-jh
-Dw
-Dw
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
+Ds
+hq
+AG
+js
+XZ
+XZ
+zn
+Vx
+li
+Da
+Vx
+aE
+NH
+kD
+FC
+TT
+wL
 QA
 QA
 QA
@@ -17006,33 +17557,33 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 Dw
-Ly
-XF
-Ti
-Zg
-JQ
-aO
-iO
-RP
-GA
-GA
-GA
-dt
-Hp
+qc
+qc
+IL
+Vx
 VO
-vK
-BM
-jb
-Gk
-Zz
-vg
-TU
-Nh
-je
-jh
+VO
+VO
+VO
+VO
+VO
+VO
+VO
+VO
+VO
+VO
+VO
+VO
+VO
+VO
+VO
+Vx
+zX
+WY
+ys
 Dw
 Dw
 QA
@@ -17040,35 +17591,35 @@ QA
 QA
 QA
 QA
-QA
-QA
-QA
-QA
-QA
-gX
-gX
-gX
-gX
-QA
-QA
-gX
-gX
-gX
-gX
-gX
-gX
-gX
-gX
-QA
-gX
-gX
-gX
-gX
-gX
-gX
-QA
-QA
-QA
+xm
+CG
+rs
+YN
+aU
+GO
+Rl
+Rl
+yQ
+yg
+li
+lu
+Vo
+Ao
+oG
+BF
+Ql
+NI
+eG
+Vx
+zm
+bW
+Vx
+IQ
+gB
+vI
+DG
+uW
+wL
 QA
 QA
 QA
@@ -17158,69 +17709,69 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 Dw
-dx
-wx
-Ti
-vK
-Os
-iO
-Im
+qc
+qc
+IL
+HT
 Rl
-vf
-DM
-DM
-Ol
-Qd
-Lf
+Rl
+Rl
+Rl
+Rl
+Rl
+Rl
+Rl
+Rl
+Rl
+Rl
+Rl
+Rl
+Rl
+Rl
+Rl
+yQ
+MS
+ci
+qc
+Dw
+Dw
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+zN
+bj
+mw
+FF
+Jm
+Fj
+yg
+yg
+li
+sN
+Rl
+Rl
+Rl
+Rl
+Rl
+Rl
+Rl
+yQ
+OC
+lk
 Vx
-hJ
-lN
-Fp
-dt
-vK
-ji
-DK
-jh
-je
-Dw
-Dw
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-gX
-gX
+IQ
 cn
-cn
-gX
-gX
-gX
-gX
-gB
-vI
-Ja
-kD
-cn
-tB
-gX
-gX
-gX
-cn
-sZ
-lW
-gB
-gX
-gX
-QA
-QA
+DG
+DG
+VP
+wL
 QA
 QA
 QA
@@ -17310,69 +17861,69 @@ UR
 UR
 UR
 UR
+BR
 UR
-UR
-Dw
-BO
-hi
-za
-Vx
-dq
-yw
-Vx
-VO
-IY
-lD
-Ep
-JA
-Dg
-mW
-Vx
-OI
-dk
-zc
-VO
-Vx
-ji
-MJ
-za
-je
 Dw
 Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
 QA
 QA
 QA
 QA
 QA
 QA
-QA
-QA
-gX
-gX
-GQ
-DP
-uj
-Iv
-eC
-gX
-ck
-UL
+xd
+hp
+kD
 Pp
-gR
-xb
-tX
-eC
-KB
-Od
-di
-mw
-Kr
-aE
-cn
-uW
-gX
-gX
-QA
+ND
+MV
+Lt
+Qb
+Qb
+zY
+xB
+Sg
+Cx
+sh
+VO
+kA
+ma
+DS
+bW
+OC
+Fl
+Vx
+rJ
+gB
+DG
+dF
+CG
+Vl
 QA
 QA
 QA
@@ -17462,74 +18013,74 @@ UR
 UR
 UR
 UR
+BR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 UR
 UR
 Dw
-qc
-eL
-VF
-Vx
-BP
-VO
-Vx
-VO
-IY
-SV
-MC
-NO
-VO
-Km
-GO
+QA
+QA
+QA
+QA
+QA
+QA
+gX
+Yg
+vI
+gB
+Im
 Rl
 Rl
-Rl
-zu
-zB
 JO
-MK
-mI
-sG
-Dw
-Dw
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-gX
+bW
+bW
+xB
+ub
+bW
+PO
+bW
+VO
+rS
+qW
+oJ
+ih
+jD
+Vx
+cU
 gB
-gB
-gB
-Dm
-ea
-gB
-gB
-OM
-Ce
-QT
-Kt
-gB
-mw
-gB
-bO
-ea
-Dm
-Wy
-Wa
-IQ
-mJ
-uW
-DG
-gX
-QA
-bs
+sl
+wL
 QA
 QA
 QA
 QA
+KS
+cn
+cY
 Dw
 "}
 (57,1,1) = {"
@@ -17614,74 +18165,74 @@ UR
 UR
 UR
 UR
-UR
-UR
-Dw
-qc
-qc
-Ti
-FF
-Kf
-fo
-Vx
-VO
-IY
-ZI
-SO
-Xe
-GA
-Km
-Vx
-wL
-ml
 BR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+Dw
+QA
+QA
+QA
+QA
+QA
+QA
+xm
+CG
+VK
+kD
 Vx
 VO
+VO
 Vx
-MS
-Ls
-tr
-Dw
-Dw
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-gX
-gB
+er
+er
 Im
-Rl
-zu
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
 JO
-IQ
-ct
-Wq
-DG
-gX
+dd
+qV
+bW
+Im
+zu
+JO
+Hr
+CQ
+hy
+Vx
+RS
+mL
+dF
+Vl
 QA
-Hi
-LD
 QA
 QA
 QA
+aE
+Mk
+Tx
 Dw
 "}
 (58,1,1) = {"
@@ -17766,74 +18317,74 @@ UR
 UR
 UR
 UR
+BR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 UR
 UR
 Dw
-qc
-je
-Bn
-Zg
-gF
-iJ
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+gX
+mw
 Vx
 VO
-IY
-ax
-WI
-Xe
-fI
 VO
 Vx
-xd
-yl
+er
+er
+Vx
+GO
+pt
+GH
+sN
+te
+zB
+zB
+pt
+tU
+sN
+Na
+RS
+Ex
+OY
 Tc
-Vx
-VO
-Vx
-jg
-za
-tr
+QA
+QA
+bs
+qu
+eh
+oe
 Dw
-Dw
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-gX
-gB
-Vx
-VO
-Vx
-RR
-AR
-AR
-Pr
-jw
-VE
-NR
-mr
-aA
-ZF
-rD
-Di
-lC
-or
-FF
-pa
-oO
-JJ
-gX
-gX
-QA
-IJ
-Fy
-IQ
-ry
-QA
 Dw
 "}
 (59,1,1) = {"
@@ -17918,35 +18469,35 @@ UR
 UR
 UR
 UR
+BR
 UR
 UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 Dw
-jh
-sG
-nB
-Zg
-VO
-BA
-GO
-Rl
-Gm
-vf
-DM
-Jz
-hm
-VO
-GO
-pt
-kh
-sN
-zB
-zu
-Na
-MS
-za
-XK
-Dw
-Dw
 QA
 QA
 QA
@@ -17954,38 +18505,38 @@ QA
 QA
 QA
 QA
-gX
+QA
 gX
 gB
 Vx
 VO
+VO
 Vx
-sn
-AR
-AR
-Bf
-Dd
-xL
-IK
-du
-cX
-mr
-Ns
-uT
-lC
-Sy
-Nw
+qR
+py
+Vx
+Vx
+Ai
+SR
+YH
+Vx
+Zm
+VO
+VO
+sm
+VR
+Vx
+aE
+cY
+ZY
+wL
+QA
+QA
+kl
+cn
 IQ
-Bp
-bs
-gX
-QA
-QA
-Pp
-nb
-IN
-ry
-QA
+Jr
+Dw
 Dw
 "}
 (60,1,1) = {"
@@ -18070,74 +18621,74 @@ UR
 UR
 UR
 UR
+BR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 UR
 UR
 Dw
-qc
-qc
-jV
-vK
-dI
-rr
-Vx
-TD
-cS
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+gX
+mw
 Vx
 VO
-Vx
-Aa
-BB
-Vx
-ji
-ld
-XW
-ci
-GO
-Na
-pM
-dw
-qc
-Dw
-Dw
-QA
-QA
-QA
-QA
-QA
-QA
-gX
-gX
-kS
-gB
-GO
+VO
+HT
 Rl
-zB
-jH
-ae
-KY
-yZ
-VI
-EF
-PH
-SZ
-XQ
-nx
-vx
-EF
-GP
-sT
-vK
-mn
+Rl
+yQ
+Vx
+oj
+tq
+nH
+Vx
+Xl
+Bo
+VO
+VR
+VR
+Vx
+aE
 mw
-sl
-gX
+md
+OY
+Tc
 QA
-QA
-UL
-VY
+uW
+gB
 DL
-QA
-QA
+Ii
+Dw
 Dw
 "}
 (61,1,1) = {"
@@ -18222,74 +18773,74 @@ UR
 UR
 UR
 UR
+BR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 UR
 UR
 Dw
-qc
-qc
-sS
-Vx
-Os
-ks
-FF
-er
-er
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+xm
+VK
 Vx
 VO
+VO
+VO
+VO
+VO
+VO
 Vx
-sd
-LW
+Wf
+mO
+oH
 Vx
-ji
-ld
-OY
-zN
-GO
-Na
-pM
-FI
-qc
+su
+tA
+GZ
+Tv
+VO
+Vx
+aE
+hY
+sl
+DG
+wL
+QA
+Px
+mw
+IQ
+tG
 Dw
-Dw
-QA
-QA
-QA
-QA
-QA
-gX
-gX
-Zi
-yn
-mw
-Vx
-Qi
-tc
-FF
-EY
-gV
-mr
-BA
-xr
-lC
-Cb
-Zf
-mE
-iJ
-Gb
-Uh
-Yz
-FF
-Pp
-mw
-Yg
-gX
-QA
-QA
-QA
-mw
-QA
-QA
-QA
 Dw
 "}
 (62,1,1) = {"
@@ -18374,74 +18925,74 @@ UR
 UR
 UR
 UR
+BR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 UR
 UR
 Dw
-qc
-qc
-za
-Vx
-hW
-RB
-fu
-dt
-Ot
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+gX
 Vx
 VO
+VO
+VO
+VO
+VO
+VO
 Vx
-Dg
-Qp
-FF
-DZ
-IL
+zn
+xS
+SR
+Vx
+iZ
+ji
+yS
+VO
+TY
+Vx
+TC
+dF
 CG
-Yf
-GO
-Na
-Wl
-gK
-iF
-Dw
-Dw
+CG
+Vl
 QA
 QA
-QA
-QA
-QA
-gX
-lY
-CB
-bS
-mw
-Vx
-sq
-JK
-AI
-oW
-ST
-Qw
-aO
-Gx
-qW
-VO
-DO
-Yz
-pF
-wr
-oW
-dG
-Zg
+cY
 IQ
-kD
-Yg
-gX
-gX
-QA
-QA
-QA
-QA
-QA
-QA
+oe
+Dw
 Dw
 "}
 (63,1,1) = {"
@@ -18526,74 +19077,74 @@ UR
 UR
 UR
 UR
+BR
 UR
 UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 Dw
-qc
-qc
-uQ
-Vx
-Qg
-NC
-dt
-NL
-hn
-Vx
-VO
-Vx
-RP
-mW
-sA
-bj
-hp
-ji
-ji
-GO
-Na
-Wl
-uQ
-XK
-Dw
-Dw
+QA
+QA
+QA
+QA
 QA
 QA
 QA
 QA
 QA
 gX
-gg
-gz
-CY
-mw
-GO
+HT
 Rl
 Rl
-zu
 Rl
 Rl
-JO
-DB
-EF
-Vk
-yH
-ly
-fU
-XS
-vK
-lu
-sN
-JO
-qw
-Yg
-kD
-UL
-gX
-gX
+Rl
+Rl
+zB
+Rl
+Rl
+Rl
+zB
+Rl
+Rl
+Rl
+Rl
+Rl
+yQ
+IQ
+OY
+Tc
 QA
 QA
 QA
 QA
 QA
+DL
+oe
+Dw
 Dw
 "}
 (64,1,1) = {"
@@ -18678,69 +19229,69 @@ UR
 UR
 UR
 UR
+BR
 UR
 UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 Dw
-qc
-qc
-qc
-GO
-Rl
-Rl
-Rl
-Rl
-Rl
-yQ
-VO
-HT
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
-zB
-Na
-Wl
-EN
-XK
-Dw
-Dw
+QA
+QA
+QA
+QA
 QA
 QA
 QA
 QA
 QA
 gX
-un
-VC
-CT
+nk
+OF
+nk
+WM
+cb
+wz
+nk
+dp
+Tj
+nk
+nk
+Tj
+dA
+di
+Tj
+nk
+nk
 gB
-Vx
-VO
-VO
-Vx
-jP
-OC
-FF
-Ds
-hq
-AG
-js
-XZ
-XZ
-zn
-Vx
-li
-Da
-Vx
-aE
-NH
-kD
-FC
-TT
-gX
+IQ
+oO
+OY
+Tc
+QA
+QA
 QA
 QA
 QA
@@ -18830,69 +19381,69 @@ UR
 UR
 UR
 UR
+BR
 UR
 UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 Dw
-qc
-qc
-qc
-Vx
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-Vx
-zX
-qc
-qc
-Dw
-Dw
 QA
 QA
 QA
 QA
 QA
-gX
-gX
-gX
-YN
-aU
-GO
-Rl
-Rl
-yQ
-yg
-li
-lu
-Vo
-Ao
-oG
-BF
-Ql
-NI
-eG
-Vx
-zm
-bW
-Vx
-IQ
+QA
+QA
+QA
+xd
+hp
+mw
+pz
+Sh
+mw
+Wy
 gB
-vI
-DG
-uW
-gX
+oF
+dF
+CG
+VK
+mw
+cY
+mw
+mw
+Qs
+Dm
+gB
+rT
+IQ
+Bp
+bs
+wL
+QA
+QA
 QA
 QA
 QA
@@ -18982,35 +19533,36 @@ UR
 UR
 UR
 UR
+BR
 UR
 UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 Dw
-qc
-qc
-qc
-HT
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
-yQ
-MS
-qc
-qc
-Dw
-Dw
+QA
 QA
 QA
 QA
@@ -19019,32 +19571,31 @@ QA
 QA
 QA
 gX
-gX
-mw
-FF
-Jm
-Fj
-yg
-yg
-li
-sN
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
-yQ
-OC
-lk
-Vx
-IQ
-cn
-DG
-DG
-VP
-gX
+GN
+GN
+GN
+GN
+GN
+GN
+GN
+GN
+wL
+QA
+xm
+CG
+CG
+VK
+GN
+GN
+GN
+GN
+fL
+aE
+gA
+EA
+wL
+QA
+QA
 QA
 QA
 QA
@@ -19134,34 +19685,34 @@ UR
 UR
 UR
 UR
+BR
 UR
 UR
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 Dw
 QA
 QA
@@ -19169,34 +19720,34 @@ QA
 QA
 QA
 QA
-gX
-gX
-kD
-Pp
-ND
-MV
-Lt
-Qb
-Qb
-zY
-xB
-Sg
-Cx
-sh
-VO
-kA
-ma
-DS
-bW
-OC
-Fl
-Vx
-rJ
-gB
-DG
-gX
-gX
-gX
+QA
+QA
+xm
+CG
+CG
+CG
+CG
+CG
+CG
+CG
+CG
+Vl
+QA
+QA
+QA
+QA
+xm
+CG
+CG
+CG
+CG
+Ha
+VK
+mw
+NX
+wL
+QA
+QA
 QA
 QA
 QA
@@ -19286,7 +19837,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -19321,39 +19872,39 @@ QA
 QA
 QA
 QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
 gX
-Yg
-vI
-gB
-Im
-Rl
-Rl
-JO
-bW
-bW
-xB
-ub
-bW
-PO
-bW
-VO
-rS
-qW
-oJ
-ih
-jD
-Vx
-cU
-gB
-sl
-gX
+Aw
+dF
+Vl
 QA
 QA
 QA
 QA
-KS
-cn
-cY
+QA
+QA
+QA
 Dw
 "}
 (69,1,1) = {"
@@ -19438,7 +19989,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -19473,39 +20024,39 @@ QA
 QA
 QA
 QA
-gX
-gX
-gX
-kD
-Vx
-VO
-VO
-Vx
-er
-er
-Im
-JO
-dd
-qV
-bW
-Im
-zu
-JO
-Hr
-CQ
-hy
-Vx
-RS
-mL
-gX
-gX
 QA
 QA
 QA
 QA
-aE
-Mk
-Tx
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+xm
+CG
+Vl
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
 Dw
 "}
 (70,1,1) = {"
@@ -19590,7 +20141,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -19627,37 +20178,37 @@ QA
 QA
 QA
 QA
-gX
-mw
-Vx
-VO
-VO
-Vx
-er
-er
-Vx
-GO
-pt
-GH
-sN
-te
-zB
-zB
-pt
-tU
-sN
-Na
-RS
-Ex
-gX
-gX
 QA
 QA
-bs
-qu
-eh
-oe
-Dw
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
 Dw
 "}
 (71,1,1) = {"
@@ -19742,7 +20293,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -19779,37 +20330,37 @@ QA
 QA
 QA
 QA
-gX
-gB
-Vx
-VO
-VO
-Vx
-qR
-py
-Vx
-Vx
-Ai
-SR
-YH
-Vx
-Zm
-VO
-VO
-sm
-VR
-Vx
-aE
-cY
-ZY
-gX
 QA
 QA
-kl
-cn
-IQ
-Jr
-Dw
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
 Dw
 "}
 (72,1,1) = {"
@@ -19894,7 +20445,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -19931,37 +20482,37 @@ QA
 QA
 QA
 QA
-gX
-mw
-Vx
-VO
-VO
-HT
-Rl
-Rl
-yQ
-Vx
-oj
-tq
-nH
-Vx
-Xl
-Bo
-VO
-VR
-VR
-Vx
-aE
-mw
-md
-gX
-gX
 QA
-uW
-gB
-DL
-Ii
-Dw
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
+QA
 Dw
 "}
 (73,1,1) = {"
@@ -20046,7 +20597,7 @@ UR
 UR
 UR
 UR
-UR
+BR
 UR
 UR
 UR
@@ -20075,44 +20626,44 @@ UR
 UR
 UR
 Dw
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-gX
-gX
-Vx
-VO
-VO
-VO
-VO
-VO
-VO
-Vx
-Wf
-mO
-oH
-Vx
-su
-tA
-GZ
-Tv
-VO
-Vx
-aE
-hY
-sl
-DG
-gX
-QA
-Px
-mw
-IQ
-tG
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
+Dw
 Dw
 Dw
 "}
@@ -20198,6 +20749,7 @@ UR
 UR
 UR
 UR
+BR
 UR
 UR
 UR
@@ -20226,47 +20778,46 @@ UR
 UR
 UR
 UR
-Dw
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-gX
-Vx
-VO
-VO
-VO
-VO
-VO
-VO
-Vx
-zn
-xS
-SR
-Vx
-iZ
-ji
-yS
-VO
-TY
-Vx
-TC
-gX
-gX
-gX
-gX
-QA
-QA
-cY
-IQ
-oe
-Dw
-Dw
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 "}
 (75,1,1) = {"
 UR
@@ -20350,75 +20901,75 @@ UR
 UR
 UR
 UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-Dw
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-gX
-HT
-Rl
-Rl
-Rl
-Rl
-Rl
-Rl
-zB
-Rl
-Rl
-Rl
-zB
-Rl
-Rl
-Rl
-Rl
-Rl
-yQ
-IQ
-gX
-gX
-QA
-QA
-QA
-QA
-QA
-DL
-oe
-Dw
-Dw
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
 "}
 (76,1,1) = {"
 UR
@@ -20530,47 +21081,47 @@ UR
 UR
 UR
 UR
-Dw
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-gX
-nk
-OF
-nk
-WM
-cb
-wz
-nk
-dp
-Tj
-nk
-nk
-Tj
-dA
-di
-Tj
-nk
-nk
-gB
-IQ
-oO
-gX
-gX
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-Dw
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 "}
 (77,1,1) = {"
 UR
@@ -20682,47 +21233,47 @@ UR
 UR
 UR
 UR
-Dw
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-gX
-gX
-mw
-pz
-Sh
-mw
-Wy
-gB
-oF
-gX
-gX
-gX
-mw
-cY
-mw
-mw
-Qs
-Dm
-gB
-gX
-IQ
-Bp
-bs
-gX
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-Dw
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 "}
 (78,1,1) = {"
 UR
@@ -20834,47 +21385,47 @@ UR
 UR
 UR
 UR
-Dw
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-gX
-GN
-GN
-GN
-GN
-GN
-GN
-GN
-GN
-gX
-QA
-gX
-gX
-gX
-gX
-GN
-GN
-GN
-GN
-gX
-aE
-gA
-EA
-gX
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-Dw
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 "}
 (79,1,1) = {"
 UR
@@ -20986,47 +21537,47 @@ UR
 UR
 UR
 UR
-Dw
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-gX
-gX
-gX
-gX
-gX
-gX
-gX
-gX
-gX
-gX
-QA
-QA
-QA
-QA
-gX
-gX
-gX
-gX
-gX
-gX
-gX
-mw
-NX
-gX
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-Dw
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 "}
 (80,1,1) = {"
 UR
@@ -21138,47 +21689,47 @@ UR
 UR
 UR
 UR
-Dw
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-gX
-Aw
-gX
-gX
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-Dw
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 "}
 (81,1,1) = {"
 UR
@@ -21290,47 +21841,47 @@ UR
 UR
 UR
 UR
-Dw
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-gX
-gX
-gX
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-Dw
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 "}
 (82,1,1) = {"
 UR
@@ -21442,47 +21993,47 @@ UR
 UR
 UR
 UR
-Dw
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-Dw
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 "}
 (83,1,1) = {"
 UR
@@ -21594,47 +22145,47 @@ UR
 UR
 UR
 UR
-Dw
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-Dw
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 "}
 (84,1,1) = {"
 UR
@@ -21746,47 +22297,47 @@ UR
 UR
 UR
 UR
-Dw
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-QA
-Dw
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 "}
 (85,1,1) = {"
 UR
@@ -21898,47 +22449,47 @@ UR
 UR
 UR
 UR
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
-Dw
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 "}
 (86,1,1) = {"
 UR

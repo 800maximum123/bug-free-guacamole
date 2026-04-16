@@ -237,6 +237,7 @@
 
 		if(!remain_interactive_after_finding)
 			interactive = FALSE
+			hide_hint(src)
 
 		else
 			desc_special = desc_special_after_finding

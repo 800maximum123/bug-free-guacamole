@@ -1,4 +1,58 @@
 
+/datum/interactive_note/nightmare/keys
+	name = "Новые замки"
+	note_info = {"Недавнее проникновение вышло мне в копейку. Так что, дабы избежать подобного в будущем, я распорядился поменять замки в съёмных комнатах. \
+				Ключи, пока что, есть только у меня, сегодня <span style="color: yellow;">поеду</span> делать слепок. Не забудьте предупредить об этом клиентов. Если они <span style="color: yellow;">закроются внутри</span> - вы не откроете их без меня!"}
+
+/obj/structure/fd/interactive/note/nightmare/keys
+	name = "Для всех"
+	attached_text = list(/datum/interactive_note/nightmare/keys)
+
+/datum/interactive_note/nightmare/fred
+	name = "Подонок Фред"
+	note_info = {"Сижу я тут уже прилично. День или около того. Стены настолько плотные, что ребята даже не в курсе, что этот мудак меня здесь запер. И на вряд ли они найдут меня в ближайшее время. \
+				Стоило мне только запреметить неладное, как от меня тут же избавились. Наверняка, он уже придумал 100 и 1 причину моего исчезновения. Забавно, не думал что закончу вот так. Из всех возможных вариантов. \
+				Кто бы вам что не доказывал, прошу, запомните, <span style="color: yellow;">ФРЕД ИЗ 102-Й - ВАМ НЕ ДРУГ</span>. \
+				Он готов продать что угодно и кого угодно, лишь бы выжить самому. Неудивительно, что поймал я его именно на краже еды. У него вся <span style="color: yellow;">комната</span> завалена ею! А ведь, если бы не эта сука, \
+				мы бы могли целый день никого не посылать. Впрочем, в каком-то роде, это и моя вина тоже."}
+
+/datum/interactive_note/nightmare/fred/reveal_note_to_player(mob/living/user)
+	user.reading = TRUE
+
+	user.overlay_fullscreen("background_note", note_overlay)
+	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
+
+	spawn(0.5 SECONDS)
+
+		var/message = "[note_info]"
+		var/message_name = "[name]"
+
+		var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+		var/obj/screen/novel_message/note_name/nameplate = new /obj/screen/novel_message/note_name()
+		maintext.layer = 5.4
+		nameplate.layer = 5.4
+
+		nameplate.maptext_x = -75
+		nameplate.maptext_y = -15
+		maintext.maptext_x = 0
+		maintext.maptext_y = -250
+
+		user.client.screen += maintext
+		user.client.screen += nameplate
+		maintext.set_text(message, COLOR_WHITE)
+		nameplate.set_text(message_name, COLOR_WHITE)
+
+/datum/interactive_note/nightmare/fred_ending
+	name = "Помогите"
+	note_info = {"Не знаю, что пугает меня сильнее. Смерть от голода, или неизвестность, таящаяся за дверью. Может быть, меня просто забыли здесь? Всех спасли, а я, блять, застрял в этом персональном Аду навсегда? \
+				Это несправедливо. Но такова жизнь. Мне стоит просто смириться, однако мозг всё крутит и крутит эти кадры в моей голове. Кадры того, что могло быть. А может и было. \
+				Я схожу с ума. Я хочу пить. В туалет. Много чего хочу. Да только судьба распорядилась иначе. \
+				Надеюсь, что для теней двери помехой не являются."}
+
+/obj/structure/fd/interactive/note/nightmare/fred
+	name = "Тем, кто остался"
+	attached_text = list(/datum/interactive_note/nightmare/fred,/datum/interactive_note/nightmare/fred_ending)
+
 /obj/effect/reality_tear
 	name = "trap"
 	desc = "trap"
@@ -57,6 +111,8 @@
 		. = ..()
 		return TRUE
 	if(istype(I, /obj/item/crowbar))
+		interactive = FALSE
+		hide_hint(src)
 		playsound(user, 'mods/_fd/_maps/collective_nightmare/sounds/woodhit.ogg', 100)
 		throw_planks()
 		if(do_after(user, 3 SECONDS, src, DO_PUBLIC_UNIQUE))
@@ -250,8 +306,8 @@
 	name = "key"
 	desc = "This one has particular shape!"
 
-	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/keys.dmi'
-	icon_state = "mazekey"
+	icon = 'mods/_fd/_maps/collective_nightmare/icons/item_access.dmi'
+	icon_state = "key_alt"
 
 	w_class = ITEM_SIZE_TINY
 
@@ -260,12 +316,14 @@
 
 /obj/item/fd/door_key/kitchen
 	name = "ключ от морозилки"
+	icon_state = "key"
 
 /obj/item/fd/door_key/outer
 	name = "ключ от заведения"
 
 /obj/item/fd/door_key/firstzerofirst
 	name = "ключ от комнаты %^$##^#*!#"
+	icon_state = "key_yellow"
 
 /obj/structure/fd/interactive/door/test_locked
 
@@ -336,7 +394,6 @@
 
 /obj/structure/fd/interactive/door/nightmare/firstzerofirst
 	icon_state = "wood_alt"
-	opacity = FALSE
 
 	key_needed = TRUE
 	locked = TRUE
