@@ -38,6 +38,32 @@
 	var/reading = FALSE
 	var/atom/currently_interacting
 	var/obj/screen/cancel_interaction/cancel_button
+	var/image/hint
+
+/mob/living/proc/generate_hint(atom/A)
+	var/icon/T = new('mods/_fd/fd_utilities/icons/actions.dmi')
+	return image(T, A, "loopa", layer = HUD_PLANE)
+
+/mob/living/proc/show_hint(atom/A)
+	hint = generate_hint(A)
+	A.revealers += src
+
+	hint.alpha = 0
+	hint.pixel_x = pixel_x - 10
+	hint.pixel_y = pixel_y - 10
+	hint.plane = HUD_PLANE
+
+	animate(hint, alpha = 255, pixel_x = src.pixel_x, pixel_y = src.pixel_y, time = 0.3 SECONDS, easing = SINE_EASING|EASE_OUT)
+	client.images += hint
+
+/mob/living/proc/hide_hint(atom/A)
+	if(client)
+		animate(hint, alpha = 0, pixel_x = src.pixel_x, pixel_y = src.pixel_y - 10, time = 0.3 SECONDS, easing = SINE_EASING|EASE_IN)
+		spawn(0.3 SECONDS)
+			client.images -= hint
+			A.revealers -= src
+
+			qdel(hint)
 
 /mob/living/Life()
 
@@ -48,12 +74,12 @@
 					continue
 
 				if(!hiding_spot)
-					if(get_dist(src,A) <= 1 && !A.revealed)
-						A.show_hint(src)
-					if(get_dist(src,A) > 1 && A.revealed)
-						A.hide_hint(src)
+					if(get_dist(src,A) <= 1 && !(src in A.revealers))
+						show_hint(A)
+					if(get_dist(src,A) > 1 && (src in A.revealers))
+						hide_hint(A)
 				else
-					A.hide_hint(src)
+					hide_hint(A)
 
 	. = ..()
 
@@ -182,8 +208,8 @@
 	var/remain_interactive_after_finding = FALSE
 	var/desc_special_after_finding = {"ВИЗУАЛЬНЫЙ ТЕКСТ"}
 
-	var/image/hint
 	var/revealed = FALSE
+	var/list/revealers = list()
 
 /atom/proc/interact_with(mob/living/user)
 	if(desc_special_show && !user.reading)
@@ -237,7 +263,7 @@
 
 		if(!remain_interactive_after_finding)
 			interactive = FALSE
-			hide_hint(src)
+			user.hide_hint(src)
 
 		else
 			desc_special = desc_special_after_finding
@@ -251,30 +277,6 @@
 		if(istype(messages, /obj/screen/player_message))
 			user.client.screen -= messages
 			qdel(messages)
-
-/atom/proc/generate_hint()
-	var/icon/T = new('mods/_fd/fd_utilities/icons/actions.dmi')
-	return image(T, "loopa", layer = HUD_PLANE)
-
-/atom/proc/show_hint(mob/living/user)
-	hint = generate_hint()
-	revealed = TRUE
-
-	hint.alpha = 0
-	hint.pixel_x = pixel_x - 10
-	hint.pixel_y = pixel_y - 10
-	hint.plane = HUD_PLANE
-
-	hint.loc = get_turf(src)
-	animate(hint, alpha = 255, pixel_x = src.pixel_x, pixel_y = src.pixel_y, time = 0.3 SECONDS, easing = SINE_EASING|EASE_OUT)
-	user.client.images += hint
-
-/atom/proc/hide_hint(mob/living/user)
-	if(user.client)
-		animate(hint, alpha = 0, pixel_x = src.pixel_x, pixel_y = src.pixel_y - 10, time = 0.3 SECONDS, easing = SINE_EASING|EASE_IN)
-		spawn(0.3 SECONDS)
-			user.client.images -= hint
-			revealed = FALSE
 
 /obj/structure/fd/interactive
 	interactive = TRUE

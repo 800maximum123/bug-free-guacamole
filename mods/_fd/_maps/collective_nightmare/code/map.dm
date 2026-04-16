@@ -112,7 +112,7 @@
 		return TRUE
 	if(istype(I, /obj/item/crowbar))
 		interactive = FALSE
-		hide_hint(src)
+		user.hide_hint(src)
 		playsound(user, 'mods/_fd/_maps/collective_nightmare/sounds/woodhit.ogg', 100)
 		throw_planks()
 		if(do_after(user, 3 SECONDS, src, DO_PUBLIC_UNIQUE))
