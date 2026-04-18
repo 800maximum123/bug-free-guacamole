@@ -86,14 +86,15 @@
 
 /obj/structure/fd/placeholder
 	name = "there is nothing"
-	icon = 'icons/mob/screen1.dmi'
-	icon_state = "x2"
+	icon = 'mods/_fd/fd_utilities/icons/newsource.dmi'
+	icon_state = "blue"
 	invisibility = 101
 	anchored = TRUE
 	density = TRUE
 
 /obj/structure/fd/placeholder/better
 	opacity = 1
+	icon_state = "red"
 
 /obj/item/storage/cargo_containers
 	name = "cargo container"

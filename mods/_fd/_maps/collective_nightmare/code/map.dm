@@ -22,6 +22,13 @@
 	user.overlay_fullscreen("background_note", note_overlay)
 	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
 
+	if(!connected_note.ci)
+		connected_note.ci = new /obj/screen/cancel_interaction()
+
+	connected_note.ci.connected_mob = user
+	user.client.screen += connected_note.ci
+	animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+
 	spawn(0.5 SECONDS)
 
 		var/message = "[note_info]"
@@ -76,16 +83,23 @@
 	name = "Bar - Real World"
 	requires_power = 1
 
-/area/nightmare/nightmare
+/area/nightmare/unreal
 	name = "Dark Abyss - Nightmare"
 	requires_power = 0
 
-/area/nightmare/bar_nightmare
+/area/nightmare/unreal/bar_nightmare
 	name = "Bar - Nightmare"
 	requires_power = 1
 
-/area/nightmare/bar_nightmare/storage_room
+/area/nightmare/unreal/bar_nightmare/storage_room
 	name = "Bar (Storage) - Nightmare"
+
+/area/nightmare/unreal/hospital
+	name = "Hospital - Nightmare"
+	requires_power = 0
+
+/area/nightmare/unreal/hospital/ward1
+	name = "Hospital (Ward 1, Safe Room) - Nightmare"
 
 /obj/structure/fd/interactive/barricade
 	name = "barricade"
