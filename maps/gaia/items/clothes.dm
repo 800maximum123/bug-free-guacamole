@@ -31,13 +31,10 @@
 	badge_access = access_iccg_sec
 
 // MISC CLOTHING
-/obj/item/clothing/head/caphat/cap/police
-	name = "police cap"
-	desc = "Somehow it emits both safety and fear."
-
-/obj/item/clothing/under/rank/security/alt/police
-	name = "police officer's jumpsuit"
-	accessories = list(/obj/item/clothing/accessory/badge/holo/police, /obj/item/clothing/accessory/storage/black_vest)
+/obj/item/clothing/under/rank/atmospheric_technician/firefighter
+	desc = "It's a jumpsuit worn by firefighters."
+	name = "firefighter's jumpsuit"
+	accessories = list(/obj/item/clothing/accessory/fire_overpants)
 
 // MISC ARMOR
 /obj/item/clothing/head/helmet/riot/iccg

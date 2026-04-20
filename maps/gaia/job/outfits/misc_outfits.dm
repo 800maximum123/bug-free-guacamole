@@ -19,14 +19,14 @@
 
 /singleton/hierarchy/outfit/job/gaia/firefighter
 	name = OUTFIT_JOB_NAME("Gaian Firefighter")
-	uniform = /obj/item/clothing/under/rank/atmospheric_technician
+	uniform = /obj/item/clothing/under/rank/atmospheric_technician/firefighter
 	suit = /obj/item/clothing/suit/fire/firefighter
 	shoes = /obj/item/clothing/shoes/workboots
 	head = /obj/item/clothing/head/hardhat/firefighter
 	gloves = /obj/item/clothing/gloves/fire
 	belt = /obj/item/storage/belt/fire_belt/full
 	id_types = list(/obj/item/card/id/gaia/firefighter)
-	backpack_contents = list(/obj/item/clothing/accessory/fire_overpants, /obj/item/extinguisher)
+	backpack_contents = list(/obj/item/extinguisher)
 
 /singleton/hierarchy/outfit/job/gaia/paramedic
 	name = OUTFIT_JOB_NAME("Gaian Paramedic")
