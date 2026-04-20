@@ -32,6 +32,14 @@
 	icon_state = "me_gd_sm"
 	},
 /area/space)
+"ah" = (
+/obj/structure/fd/topdown_walls/concrete{
+	icon_state = "co_me_13"
+	},
+/turf/simulated/floor/exoplanet/samosbor/plating{
+	icon_state = "plating"
+	},
+/area/space)
 "ak" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
@@ -47,6 +55,15 @@
 	},
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
+"an" = (
+/obj/machinery/light{
+	color = "#800b0b";
+	light_color = "#800b0b"
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_pi_2"
+	},
+/area/nightmare/unreal/hospital)
 "ao" = (
 /turf/simulated/floor/exoplanet/samosbor/lino{
 	icon_state = "li_bk"
@@ -198,6 +215,17 @@
 	icon_state = "wood_fancy"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"aP" = (
+/obj/decal/cleanable/dirt,
+/obj/item/ammo_casing/pistol/used{
+	dir = 9;
+	pixel_x = -17;
+	pixel_y = 6
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t2"
+	},
+/area/nightmare/unreal/hospital)
 "aQ" = (
 /obj/floor_decal/spline/fancy/black,
 /turf/simulated/floor/exoplanet/samosbor/ceramic{
@@ -301,6 +329,35 @@
 	icon_state = "apartments"
 	},
 /area/space)
+"bi" = (
+/obj/structure/fd/shadow_follower{
+	dir = 8;
+	currently_active = 1
+	},
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "nt_treason";
+	pixel_x = -35;
+	pixel_y = 21
+	},
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "nt_treason";
+	pixel_x = -29;
+	pixel_y = 5
+	},
+/obj/structure/fd/junk{
+	icon_state = "0,3";
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/obj/structure/fd/junk{
+	icon_state = "1,4";
+	pixel_x = -5;
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
 "bj" = (
 /obj/structure/fd/placeholder,
 /obj/structure/fake_zlvl,
@@ -327,6 +384,12 @@
 	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
+"bn" = (
+/obj/structure/fd/interactive/door/fancy,
+/turf/simulated/floor/exoplanet/samosbor/wood{
+	icon_state = "wood_fancy"
 	},
 /area/nightmare/unreal/hospital)
 "bo" = (
@@ -376,6 +439,23 @@
 	},
 /turf/simulated/floor/exoplanet/samosbor/plating{
 	icon_state = "plating"
+	},
+/area/nightmare/unreal/hospital)
+"bC" = (
+/obj/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "sofa_y_end";
+	pixel_y = 12
+	},
+/obj/structure/fd/samosbor/table_decor13{
+	icon_state = "scissors";
+	pixel_y = 4;
+	pixel_x = -1
+	},
+/turf/simulated/floor/exoplanet/samosbor/wood{
+	icon_state = "wood_fancy"
 	},
 /area/nightmare/unreal/hospital)
 "bJ" = (
@@ -443,6 +523,34 @@
 	icon_state = "me_pi_12"
 	},
 /area/nightmare/unreal)
+"bT" = (
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "nt_treason";
+	pixel_x = 27;
+	pixel_y = -29
+	},
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "nt_treason";
+	pixel_x = -35;
+	pixel_y = 21
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
+"bV" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/generic,
+/obj/structure/closet/grim/metal{
+	pixel_x = -9
+	},
+/obj/structure/closet/grim/metal{
+	pixel_x = 7
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t2"
+	},
+/area/nightmare/unreal/hospital)
 "bW" = (
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t5"
@@ -538,6 +646,21 @@
 	icon_state = "me_pi_13"
 	},
 /area/nightmare/unreal)
+"cm" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/samosbor/neon_signs/large{
+	icon_state = "sol-future";
+	pixel_x = -32;
+	pixel_y = 0;
+	layer = 4.09;
+	alpha = 200;
+	color_of = "#59aaa3";
+	range_of = 6
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_gd_sm"
+	},
+/area/space)
 "cn" = (
 /obj/structure/fd/bs_vines,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
@@ -588,6 +711,29 @@
 /obj/decal/cleanable/generic,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
+"cB" = (
+/obj/structure/fd/samosbor/machinery3{
+	icon_state = "teleb"
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t1"
+	},
+/area/space)
+"cG" = (
+/obj/machinery/vending/soda{
+	light_max_bright_on = 0.8;
+	light_outer_range_on = 4
+	},
+/obj/structure/fd/samosbor/flora{
+	icon_state = "gplant_6";
+	layer = 4.09;
+	pixel_y = -8;
+	pixel_x = 15
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "bronze_floor"
+	},
+/area/nightmare/unreal/hospital)
 "cI" = (
 /turf/simulated/floor/exoplanet/samosbor/carpet{
 	icon_state = "ca_da_gy_5"
@@ -631,13 +777,20 @@
 	},
 /area/nightmare/unreal/bar_nightmare)
 "cT" = (
-/obj/floor_decal/corner/black{
-	dir = 8
+/obj/floor_decal/corner/black/half,
+/obj/structure/fd/samosbor/neon_signs/large{
+	icon_state = "sol-future";
+	pixel_x = -32;
+	pixel_y = 0;
+	layer = 4.09;
+	alpha = 200;
+	color_of = "#59aaa3";
+	range_of = 6
 	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "apartments"
 	},
-/area/space)
+/area/nightmare/unreal/hospital)
 "cU" = (
 /obj/structure/fd/samosbor/furniture3{
 	icon_state = "bench_ws_end";
@@ -670,6 +823,23 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/unreal)
+"dc" = (
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "chair_folding_blue";
+	pixel_y = 6;
+	pixel_x = 2;
+	layer = 2.24;
+	dir = 4
+	},
+/obj/structure/fd/samosbor/table_decor9{
+	icon_state = "pens_bin";
+	pixel_x = 14;
+	pixel_y = -10
+	},
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_14"
+	},
+/area/nightmare/unreal/hospital)
 "dd" = (
 /obj/structure/fd/samosbor/dark_signs1{
 	icon_state = "kitchen";
@@ -893,6 +1063,24 @@
 	icon_state = "gl"
 	},
 /area/nightmare/unreal)
+"dz" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "sofa_y_start";
+	pixel_y = 12
+	},
+/obj/structure/fd/samosbor/table_decor1{
+	icon_state = "satchel";
+	pixel_x = 6;
+	pixel_y = 11
+	},
+/obj/structure/fd/samosbor/table_decor12{
+	pixel_y = 8;
+	icon_state = "3,2"
+	},
+/turf/simulated/floor/exoplanet/samosbor/wood{
+	icon_state = "wood_log"
+	},
+/area/nightmare/unreal/hospital)
 "dA" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/junk{
@@ -1004,6 +1192,31 @@
 	icon_state = "security_sm"
 	},
 /area/nightmare/bar_real)
+"dN" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "arrow";
+	name = "arrow decal";
+	pixel_y = 4;
+	pixel_x = -12;
+	dir = 8
+	},
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "arrow";
+	name = "arrow decal";
+	pixel_y = -5;
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments_bi"
+	},
+/area/nightmare/unreal/hospital)
 "dO" = (
 /obj/structure/fd/topdown_walls/concrete{
 	icon_state = "co_me_3"
@@ -1050,6 +1263,16 @@
 	icon_state = "me_pi_12"
 	},
 /area/nightmare/streets)
+"ec" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/junk{
+	icon_state = "1,1";
+	layer = 2.21
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments_bi"
+	},
+/area/nightmare/unreal/hospital)
 "ee" = (
 /obj/structure/fd/topdown_walls/concrete{
 	icon_state = "co_me_7"
@@ -1080,12 +1303,69 @@
 	icon_state = "co_br"
 	},
 /area/nightmare/unreal)
+"ej" = (
+/obj/structure/fd/topdown_walls/concrete{
+	icon_state = "co_me"
+	},
+/turf/simulated/floor/exoplanet/samosbor/plating{
+	icon_state = "plating"
+	},
+/area/space)
+"ek" = (
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "info";
+	pixel_y = 31;
+	pixel_x = -1
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_pi_2"
+	},
+/area/nightmare/unreal/hospital)
 "el" = (
 /obj/structure/fd/topdown_walls/concrete{
 	icon_state = "co_me_12"
 	},
 /turf/simulated/floor/exoplanet/samosbor/plating{
 	icon_state = "plating"
+	},
+/area/nightmare/unreal/hospital)
+"eo" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments_bi"
+	},
+/area/nightmare/unreal/hospital)
+"eq" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_da_g_2"
+	},
+/obj/structure/fd/samosbor/machinery3{
+	icon_state = "oldb";
+	pixel_y = 14;
+	pixel_x = -1
+	},
+/obj/structure/fd/samosbor/machinery2{
+	icon_state = "vhs";
+	pixel_y = -2;
+	pixel_x = 1
+	},
+/obj/structure/fd/samosbor/table_decor12{
+	icon_state = "4,7";
+	pixel_y = 1;
+	pixel_x = 6
+	},
+/obj/structure/fd/samosbor/table_decor12{
+	icon_state = "0,32";
+	pixel_x = -5;
+	pixel_y = -17
+	},
+/obj/structure/fd/samosbor/table_decor13{
+	icon_state = "screwdriver";
+	pixel_y = -9
+	},
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_10"
 	},
 /area/nightmare/unreal/hospital)
 "er" = (
@@ -1189,10 +1469,37 @@
 /obj/floor_decal/corner/black{
 	dir = 4
 	},
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "arrow";
+	name = "arrow decal";
+	pixel_y = -15;
+	pixel_x = -7
+	},
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "arrow";
+	name = "arrow decal";
+	pixel_y = 4;
+	pixel_x = -2
+	},
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "arrow";
+	name = "arrow decal";
+	pixel_y = -2;
+	pixel_x = 11
+	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "apartments"
 	},
-/area/space)
+/area/nightmare/unreal/hospital)
 "eI" = (
 /obj/floor_decal/spline/plain/black{
 	dir = 1
@@ -1228,7 +1535,7 @@
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "apartments_bi"
 	},
-/area/space)
+/area/nightmare/unreal/hospital)
 "eV" = (
 /obj/structure/fd/junk{
 	icon_state = "2,0";
@@ -1296,6 +1603,8 @@
 /obj/structure/platform/kutjevo/rock{
 	dir = 8
 	},
+/obj/structure/fake_zlvl,
+/obj/structure/fd/placeholder,
 /turf/simulated/floor/exoplanet/wet_stone,
 /area/space)
 "fi" = (
@@ -1308,6 +1617,12 @@
 	icon_state = "me_ti_da_t5"
 	},
 /area/nightmare/bar_real)
+"fj" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/ceramic{
+	icon_state = "ce_gy_3"
+	},
+/area/nightmare/unreal/hospital)
 "fl" = (
 /obj/structure/fd/samosbor/flora{
 	icon_state = "gplant_1";
@@ -1405,12 +1720,32 @@
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 1
 	},
+/obj/structure/fake_zlvl,
+/obj/structure/fd/placeholder,
 /turf/simulated/floor/exoplanet/wet_stone,
 /area/space)
 "fE" = (
 /obj/floor_decal/corner/black/half{
 	dir = 1
 	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
+"fF" = (
+/obj/floor_decal/corner/black/half,
+/obj/structure/ore_box{
+	desc = "A heavy box used for storing stuff.";
+	name = "box";
+	opacity = 1;
+	interactive = 1;
+	desc_special_show = 1;
+	desc_special = "Я могу подвинуть это.";
+	pixel_y = 9;
+	pixel_x = -5;
+	layer = 2.24
+	},
+/obj/structure/fd/placeholder,
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "apartments"
 	},
@@ -1432,6 +1767,16 @@
 	},
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/streets)
+"fK" = (
+/obj/structure/fd/samosbor/table_decor12{
+	icon_state = "3,10";
+	pixel_y = -18;
+	pixel_x = -5
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments_bi"
+	},
+/area/nightmare/unreal/hospital)
 "fL" = (
 /obj/structure/fd/placeholder,
 /obj/structure/fake_zlvl,
@@ -1444,6 +1789,16 @@
 "fR" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
+/obj/structure/reagent_dispensers/water_cooler{
+	pixel_x = -10;
+	dir = 1;
+	pixel_y = -1
+	},
+/obj/structure/fd/samosbor/table_decor9{
+	icon_state = "pens_bin";
+	pixel_y = 14;
+	pixel_x = 11
+	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "bronze_warning"
 	},
@@ -1474,6 +1829,25 @@
 /obj/decal/cleanable/cobweb2,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
+"gd" = (
+/obj/structure/fd/junk{
+	icon_state = "0,1";
+	pixel_y = 3;
+	pixel_x = -20
+	},
+/obj/structure/fd/junk{
+	pixel_x = 3;
+	pixel_y = 6;
+	icon_state = "1,0"
+	},
+/obj/structure/fd/samosbor/dark_signs1{
+	icon_state = "floor_1";
+	pixel_y = 27
+	},
+/turf/simulated/floor/exoplanet/samosbor/ceramic{
+	icon_state = "ce_br_t3"
+	},
+/area/nightmare/unreal/hospital)
 "gf" = (
 /obj/floor_decal/corner/black/half{
 	dir = 1
@@ -1510,16 +1884,6 @@
 /obj/floor_decal/corner/black/half{
 	dir = 4
 	},
-/obj/structure/fd/samosbor/neon_signs/large{
-	icon_state = "med1";
-	pixel_x = -3;
-	pixel_y = 30;
-	layer = 4.09;
-	mouse_opacity = 0;
-	alpha = 200;
-	color_of = "#59aaa3";
-	range_of = 6
-	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "apartments"
 	},
@@ -1554,6 +1918,11 @@
 	dir = 1
 	},
 /obj/floor_decal/techfloor,
+/obj/structure/fd/junk{
+	icon_state = "0,4";
+	pixel_x = -5;
+	pixel_y = -6
+	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "apartments"
 	},
@@ -1630,6 +1999,36 @@
 	icon_state = "li_bk"
 	},
 /area/nightmare/bar_real)
+"gE" = (
+/obj/floor_decal/corner/black/half,
+/obj/structure/ore_box{
+	desc = "A heavy box used for storing stuff.";
+	name = "box";
+	opacity = 1;
+	interactive = 1;
+	desc_special_show = 1;
+	desc_special = "Я могу подвинуть это.";
+	pixel_y = 0;
+	layer = 2.22
+	},
+/obj/structure/fd/samosbor/dark_signs1{
+	icon_state = "medical_old";
+	pixel_y = 31
+	},
+/obj/structure/ore_box{
+	desc = "A heavy box used for storing stuff.";
+	name = "box";
+	opacity = 1;
+	interactive = 1;
+	desc_special_show = 1;
+	desc_special = "Я могу подвинуть это.";
+	pixel_y = 23
+	},
+/obj/structure/fd/placeholder,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
 "gF" = (
 /obj/decal/cleanable/generic,
 /obj/structure/table/rack/samosbor{
@@ -1650,6 +2049,15 @@
 	icon_state = "wood_fancy"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"gG" = (
+/obj/structure/closet/grim/metal{
+	pixel_x = -3;
+	layer = 2.20
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
+/area/nightmare/unreal/hospital)
 "gH" = (
 /obj/structure/table/rack/samosbor/mod{
 	icon_state = "table_steel_o_3"
@@ -1683,6 +2091,12 @@
 	icon_state = "plating"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"gN" = (
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_1";
+	dir = 1
+	},
+/area/nightmare/unreal/hospital)
 "gP" = (
 /turf/simulated/floor/exoplanet/samosbor/plating{
 	icon_state = "plating"
@@ -1711,6 +2125,28 @@
 	icon_state = "apartments"
 	},
 /area/space)
+"gU" = (
+/obj/floor_decal/corner/black/half{
+	dir = 4
+	},
+/obj/structure/ore_box{
+	desc = "A heavy box used for storing stuff.";
+	name = "box";
+	anchored = 1;
+	pixel_x = -1;
+	layer = 2.20;
+	pixel_y = -3
+	},
+/obj/structure/ore_box{
+	desc = "A heavy box used for storing stuff.";
+	name = "box";
+	pixel_y = 19;
+	layer = 4.09
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
 "gV" = (
 /obj/decal/cleanable/blood/splatter,
 /turf/simulated/floor/exoplanet/samosbor/wood{
@@ -1741,10 +2177,19 @@
 "hd" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
+/obj/structure/fd/samosbor/neon_signs/large{
+	icon_state = "sol-future";
+	pixel_x = -32;
+	pixel_y = 0;
+	layer = 4.09;
+	alpha = 200;
+	color_of = "#59aaa3";
+	range_of = 6
+	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_gd_bi"
 	},
-/area/space)
+/area/nightmare/unreal/hospital)
 "he" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/junk{
@@ -1827,6 +2272,23 @@
 	icon_state = "wood_common"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"hs" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_da_1";
+	pixel_x = 5
+	},
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "calendar_alt";
+	pixel_x = 28;
+	pixel_y = -3;
+	interactive = 1;
+	desc_special_show = 1;
+	desc_special = "Часть чисел на календаре перечёркнута красным, начиная с 7-го, и заканчивая 19-м."
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
+/area/nightmare/unreal/hospital)
 "hu" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -1896,6 +2358,40 @@
 	icon_state = "apartments"
 	},
 /area/nightmare/unreal/hospital)
+"hF" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/junk{
+	icon_state = "0,2"
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_gd_sm"
+	},
+/area/nightmare/unreal/hospital)
+"hI" = (
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "mic";
+	pixel_x = 15;
+	pixel_y = 31
+	},
+/obj/structure/fd/samosbor/flora{
+	icon_state = "gplant_1";
+	pixel_x = -8;
+	pixel_y = 19
+	},
+/obj/structure/fd/samosbor/flora{
+	pixel_x = -13
+	},
+/obj/structure/fd/samosbor/flora{
+	icon_state = "gplant_4";
+	pixel_x = 6;
+	pixel_y = 2;
+	layer = 3.04
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/wood{
+	icon_state = "wood_fancy"
+	},
+/area/nightmare/unreal/hospital)
 "hJ" = (
 /obj/structure/ore_box{
 	desc = "A heavy box used for storing stuff.";
@@ -1945,9 +2441,24 @@
 	},
 /area/nightmare/bar_real)
 "hO" = (
-/obj/decal/cleanable/dirt,
+/obj/floor_decal/corner/black/half{
+	dir = 1
+	},
+/obj/machinery/light{
+	color = "#800b0b";
+	light_color = "#800b0b"
+	},
+/obj/structure/fd/samosbor/table_decor13{
+	icon_state = "mop";
+	pixel_y = 4;
+	pixel_x = -14
+	},
+/obj/structure/fd/samosbor/table_decor13{
+	pixel_x = -10;
+	pixel_y = -6
+	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "bronze_warning"
+	icon_state = "apartments"
 	},
 /area/nightmare/unreal/hospital)
 "hP" = (
@@ -2058,6 +2569,20 @@
 	icon_state = "ce_bk"
 	},
 /area/nightmare/bar_real)
+"im" = (
+/obj/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/samosbor/table_decor11{
+	icon_state = "burndress";
+	pixel_y = 9;
+	pixel_x = 11
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
+/area/nightmare/unreal/hospital)
 "in" = (
 /obj/floor_decal/corner/black{
 	dir = 8
@@ -2083,6 +2608,15 @@
 	icon_state = "wood_fancy"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"ir" = (
+/obj/map_effect/portal/master/side_b{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_1";
+	dir = 1
+	},
+/area/nightmare/unreal/hospital)
 "iD" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -2097,6 +2631,11 @@
 /obj/structure/fake_zlvl,
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/unreal)
+"iG" = (
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_rh_bi"
+	},
+/area/space)
 "iI" = (
 /obj/floor_decal/corner/black/half{
 	dir = 1
@@ -2160,7 +2699,7 @@
 	},
 /area/nightmare/bar_real)
 "iV" = (
-/obj/structure/fd/interactive/door/metal_glass,
+/obj/structure/fd/interactive/door/fancy,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_gy"
 	},
@@ -2340,10 +2879,6 @@
 /obj/floor_decal/techfloor/corner{
 	dir = 8
 	},
-/obj/machinery/light{
-	color = "#800b0b";
-	light_color = "#800b0b"
-	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "apartments"
 	},
@@ -2448,6 +2983,28 @@
 	icon_state = "me_ti_da_t5"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"jF" = (
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t6"
+	},
+/area/space)
+"jG" = (
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "bed_h";
+	pixel_y = -2
+	},
+/obj/structure/fd/bodybag,
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "bed_h";
+	pixel_y = 8
+	},
+/obj/structure/fd/bodybag{
+	pixel_y = 13
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
+/area/nightmare/unreal/hospital)
 "jH" = (
 /obj/structure/fd/samosbor/floor_cable{
 	icon_state = "plated";
@@ -2488,6 +3045,8 @@
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 1
 	},
+/obj/structure/fake_zlvl,
+/obj/structure/fd/placeholder,
 /turf/simulated/floor/exoplanet/wet_stone,
 /area/space)
 "jM" = (
@@ -2594,6 +3153,27 @@
 /obj/structure/fd/bs_spikes,
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/unreal)
+"kr" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_da_g_9"
+	},
+/obj/structure/fd/samosbor/table_decor13{
+	icon_state = "wirecutter";
+	pixel_x = -13;
+	pixel_y = 1
+	},
+/obj/item/fd/magic_camera_film{
+	pixel_x = 6;
+	pixel_y = 7
+	},
+/obj/machinery/light{
+	color = "#800b0b";
+	light_color = "#800b0b"
+	},
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_9"
+	},
+/area/nightmare/unreal/hospital)
 "ks" = (
 /obj/structure/fd/grim_bookshelf{
 	opacity = 0
@@ -2678,10 +3258,10 @@
 	pixel_x = -1;
 	interactive = 1;
 	desc_special_show = 1;
-	desc_special = "Коробки с разным мусором. Внутри что-то блестит.";
+	desc_special = "Коробки с разным мусором. Внутри что-то есть.";
 	name = "коробки";
 	has_something_inside = 1;
-	hidden_loot = /obj/item/fd/magic_camera_film
+	hidden_loot = /obj/item/fd/filter
 	},
 /turf/simulated/floor/exoplanet/samosbor/lino{
 	icon_state = "li_bk"
@@ -2711,6 +3291,15 @@
 	icon_state = "plating"
 	},
 /area/nightmare/unreal/hospital/ward1)
+"kN" = (
+/obj/structure/iv_stand{
+	pixel_x = -18;
+	pixel_y = -6
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ro_bi"
+	},
+/area/space)
 "kS" = (
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_12"
@@ -2727,6 +3316,19 @@
 	icon_state = "me_pi_3"
 	},
 /area/nightmare/streets)
+"kW" = (
+/obj/floor_decal/corner/black/half{
+	dir = 4
+	},
+/obj/structure/fd/samosbor/table_decor12{
+	icon_state = "3,10";
+	pixel_y = -18;
+	pixel_x = 18
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
 "kX" = (
 /obj/floor_decal/spline/plain/black{
 	dir = 5
@@ -2741,6 +3343,22 @@
 	icon_state = "wood_brown"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"kY" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/samosbor/dark_signs1{
+	icon_state = "danger_smoke";
+	pixel_y = 3;
+	pixel_x = -26
+	},
+/obj/structure/fd/samosbor/table_decor12{
+	icon_state = "3,9";
+	pixel_x = -8;
+	pixel_y = -21
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments_bi"
+	},
+/area/nightmare/unreal/hospital)
 "lc" = (
 /obj/floor_decal/corner/black/half,
 /obj/floor_decal/techfloor/corner{
@@ -2806,6 +3424,12 @@
 	icon_state = "me_ti_da_t5"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"lm" = (
+/obj/decal/cleanable/blood/splatter,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_pi_2"
+	},
+/area/nightmare/unreal/hospital)
 "lq" = (
 /obj/structure/fd/samosbor/floor_cable{
 	icon_state = "plated";
@@ -2837,6 +3461,14 @@
 	icon_state = "wood_fancy"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"ls" = (
+/obj/structure/fd/topdown_walls/concrete{
+	icon_state = "co_me_9"
+	},
+/turf/simulated/floor/exoplanet/samosbor/plating{
+	icon_state = "plating"
+	},
+/area/space)
 "lt" = (
 /obj/structure/fake_zlvl,
 /obj/machinery/light{
@@ -2857,6 +3489,21 @@
 	icon_state = "me_ti_da_t5"
 	},
 /area/nightmare/bar_real)
+"lx" = (
+/obj/decal/cleanable/generic,
+/obj/structure/fd/samosbor/machinery3{
+	icon_state = "archive";
+	pixel_y = 31
+	},
+/obj/structure/fd/samosbor/table_decor12{
+	icon_state = "0,23";
+	pixel_y = 13;
+	pixel_x = 8
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments_bi"
+	},
+/area/nightmare/unreal/hospital)
 "ly" = (
 /obj/structure/table/rack/samosbor/mod{
 	icon_state = "table_steel_o_3"
@@ -2971,6 +3618,17 @@
 	icon_state = "plating"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"lP" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/samosbor/table_decor12{
+	icon_state = "0,23";
+	pixel_x = 16;
+	pixel_y = 7
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments_bi"
+	},
+/area/nightmare/unreal/hospital)
 "lS" = (
 /obj/machinery/microwave{
 	pixel_x = -8;
@@ -3149,8 +3807,16 @@
 /area/nightmare/unreal)
 "me" = (
 /obj/structure/platform_decoration/kutjevo/rock,
+/obj/structure/fake_zlvl,
 /turf/simulated/floor/exoplanet/wet_stone,
 /area/space)
+"mh" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/ceramic{
+	icon_state = "ce_gy"
+	},
+/area/nightmare/unreal/hospital)
 "mi" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/industrial/warning/corner{
@@ -3197,7 +3863,7 @@
 	icon_state = "TNCDead7";
 	pixel_y = 9;
 	pixel_x = -2;
-	desc_special = "Он держит в руках камеру.";
+	desc_special = "Он держит в руках слегка побитую маску.";
 	desc_special_after_finding = "Здесь больше не на что смотреть.";
 	desc_special_show = 1;
 	interactive = 1;
@@ -3205,7 +3871,7 @@
 	has_something_inside = 1;
 	name = "тело";
 	mouse_opacity = 0;
-	hidden_loot = /obj/item/fd/magic_camera
+	hidden_loot = /obj/item/clothing/mask/gas
 	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "security_sm"
@@ -3327,6 +3993,16 @@
 	},
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/unreal)
+"mM" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/iv_stand{
+	anchored = 1
+	},
+/obj/structure/fd/placeholder,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t2"
+	},
+/area/nightmare/unreal/hospital)
 "mO" = (
 /obj/structure/table/rack/samosbor{
 	icon_state = "table_steel"
@@ -3344,6 +4020,16 @@
 	icon_state = "plating"
 	},
 /area/nightmare/streets)
+"mT" = (
+/obj/structure/fd/samosbor/machinery3{
+	icon_state = "zshu1";
+	pixel_y = 3;
+	pixel_x = 3
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ro_bi"
+	},
+/area/space)
 "mV" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -3359,6 +4045,11 @@
 	icon_state = "ca_da_gy_8"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"mZ" = (
+/turf/simulated/floor/exoplanet/samosbor/wood{
+	icon_state = "wood_fancy"
+	},
+/area/nightmare/unreal/hospital)
 "nb" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -3376,6 +4067,18 @@
 	icon_state = "wood_fancy"
 	},
 /area/nightmare/bar_real)
+"nh" = (
+/obj/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/structure/fd/samosbor/machinery3{
+	icon_state = "bookcase"
+	},
+/obj/structure/fd/placeholder,
+/turf/simulated/floor/exoplanet/samosbor/wood{
+	icon_state = "wood_fancy"
+	},
+/area/nightmare/unreal/hospital)
 "nk" = (
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da"
@@ -3387,6 +4090,14 @@
 	icon_state = "me_gd_bi"
 	},
 /area/nightmare/bar_real)
+"nn" = (
+/obj/structure/fd/topdown_walls/concrete{
+	icon_state = "co_12"
+	},
+/turf/simulated/floor/exoplanet/samosbor/plating{
+	icon_state = "plating"
+	},
+/area/nightmare/unreal/hospital)
 "ns" = (
 /obj/structure/fd/samosbor/furniture1{
 	icon_state = "stool_cafe";
@@ -3484,6 +4195,23 @@
 	},
 /turf/simulated/floor/exoplanet/wet_stone,
 /area/nightmare/unreal)
+"nF" = (
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "bed_h";
+	pixel_y = -2
+	},
+/obj/structure/fd/body{
+	icon_state = "TNCDead10";
+	pixel_y = -3
+	},
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "bed_h";
+	pixel_y = 8
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t2"
+	},
+/area/nightmare/unreal/hospital)
 "nH" = (
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pa_4"
@@ -3526,6 +4254,14 @@
 	icon_state = "ce_pa"
 	},
 /area/nightmare/unreal/hospital)
+"nU" = (
+/obj/structure/fd/topdown_walls/wood{
+	icon_state = "wood_l"
+	},
+/turf/simulated/floor/exoplanet/samosbor/ceramic{
+	icon_state = "ce_gy"
+	},
+/area/nightmare/unreal/hospital)
 "nV" = (
 /obj/floor_decal/spline/plain/black{
 	dir = 8
@@ -3546,6 +4282,16 @@
 	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
+"nZ" = (
+/obj/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
 	},
 /area/nightmare/unreal/hospital)
 "oa" = (
@@ -3621,6 +4367,14 @@
 	icon_state = "me_ti_gy_t2"
 	},
 /area/nightmare/unreal/hospital/ward1)
+"oq" = (
+/obj/structure/fd/topdown_walls/concrete{
+	icon_state = "co_4"
+	},
+/turf/simulated/floor/exoplanet/samosbor/plating{
+	icon_state = "plating"
+	},
+/area/nightmare/unreal/hospital)
 "or" = (
 /obj/structure/fd/junk{
 	icon_state = "1,0";
@@ -3679,6 +4433,11 @@
 	icon_state = "co_br"
 	},
 /area/nightmare/streets)
+"oE" = (
+/turf/simulated/floor/exoplanet/samosbor/ceramic{
+	icon_state = "ce_gy"
+	},
+/area/nightmare/unreal/hospital)
 "oF" = (
 /obj/machinery/light{
 	color = "#4aadc3";
@@ -3751,6 +4510,19 @@
 	},
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/unreal)
+"oP" = (
+/obj/structure/fd/interactive/barricade{
+	pixel_x = -6
+	},
+/obj/structure/fd/samosbor/dark_signs1{
+	icon_state = "danger_cctv";
+	pixel_y = 29;
+	pixel_x = 2
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_da_t4"
+	},
+/area/nightmare/unreal/bar_nightmare)
 "oQ" = (
 /obj/floor_decal/corner/black/half{
 	dir = 1
@@ -3765,6 +4537,14 @@
 /obj/structure/fd/junk{
 	icon_state = "0,3";
 	pixel_x = -6
+	},
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "worship";
+	pixel_x = 6;
+	pixel_y = 31;
+	interactive = 1;
+	desc_special_show = 1;
+	desc_special = "Кто ВООБЩЕ повесил здесь эти картины?"
 	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "apartments"
@@ -3873,6 +4653,12 @@
 	icon_state = "wood_fancy"
 	},
 /area/nightmare/bar_real)
+"pi" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/ceramic{
+	icon_state = "ce_gy_2"
+	},
+/area/nightmare/unreal/hospital)
 "pl" = (
 /obj/structure/bed/grim{
 	pixel_y = 10
@@ -3910,6 +4696,11 @@
 	},
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/cobweb,
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "bed_h";
+	pixel_y = 14;
+	pixel_x = 11
+	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_gy"
 	},
@@ -4054,6 +4845,47 @@
 	icon_state = "apartments_bi"
 	},
 /area/space)
+"pR" = (
+/obj/floor_decal/corner/black/half,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "nt_treason";
+	pixel_x = -29;
+	pixel_y = 5
+	},
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "arrow";
+	name = "arrow decal";
+	pixel_y = 6;
+	dir = 1;
+	pixel_x = -16
+	},
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "arrow";
+	name = "arrow decal";
+	pixel_y = 14;
+	dir = 1;
+	pixel_x = -8
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
+"pV" = (
+/obj/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
+/area/nightmare/unreal/hospital)
 "pY" = (
 /obj/structure/table/rack/samosbor/mod{
 	icon_state = "table_da_2"
@@ -4089,6 +4921,17 @@
 	icon_state = "ca_da_gy_8"
 	},
 /area/nightmare/bar_real)
+"qa" = (
+/obj/floor_decal/corner/black/half,
+/obj/structure/fd/junk{
+	icon_state = "0,2";
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
 "qc" = (
 /obj/structure/fake_zlvl,
 /obj/structure/fake_zlvl,
@@ -4207,6 +5050,17 @@
 	},
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/unreal)
+"qv" = (
+/obj/structure/fd/interactive/barricade{
+	pixel_x = -6;
+	pixel_y = -32;
+	layer = 4.10
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_1"
+	},
+/area/nightmare/unreal/hospital)
 "qw" = (
 /obj/machinery/light{
 	color = "#4aadc3";
@@ -4234,6 +5088,23 @@
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_gd_bi"
+	},
+/area/nightmare/unreal/hospital)
+"qB" = (
+/obj/structure/fd/topdown_window,
+/obj/structure/curtain/medical,
+/turf/simulated/floor/exoplanet/samosbor/plating{
+	icon_state = "plating"
+	},
+/area/nightmare/unreal/hospital)
+"qF" = (
+/obj/machinery/light{
+	color = "#800b0b";
+	light_color = "#800b0b";
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t4"
 	},
 /area/nightmare/unreal/hospital)
 "qH" = (
@@ -4284,8 +5155,7 @@
 	pixel_x = -5;
 	color_of = "#ce6c11";
 	range_of = 4;
-	pixel_y = 23;
-	layer = 4.09
+	pixel_y = 23
 	},
 /obj/structure/fd/samosbor/table_decor9{
 	icon_state = "pens_bin";
@@ -4306,10 +5176,15 @@
 "qU" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
+/obj/structure/fd/samosbor/table_decor12{
+	icon_state = "3,10";
+	pixel_y = -18;
+	pixel_x = 18
+	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "apartments_bi"
 	},
-/area/space)
+/area/nightmare/unreal/hospital)
 "qV" = (
 /obj/structure/ore_box{
 	desc = "A heavy box used for storing stuff.";
@@ -4346,6 +5221,16 @@
 	icon_state = "wood_fancy"
 	},
 /area/nightmare/bar_real)
+"qZ" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/samosbor/dark_signs1{
+	icon_state = "medical_old";
+	pixel_y = 31
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
 "ra" = (
 /obj/structure/fd/junk{
 	icon_state = "2,2"
@@ -4392,6 +5277,8 @@
 /area/nightmare/bar_real)
 "ro" = (
 /obj/structure/platform/kutjevo/rock,
+/obj/structure/fake_zlvl,
+/obj/structure/fd/placeholder,
 /turf/simulated/floor/exoplanet/wet_stone,
 /area/space)
 "rq" = (
@@ -4429,6 +5316,14 @@
 	icon_state = "me_ti_da_t5"
 	},
 /area/nightmare/bar_real)
+"ru" = (
+/obj/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/samosbor/wood{
+	icon_state = "wood_fancy"
+	},
+/area/nightmare/unreal/hospital)
 "rv" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -4454,6 +5349,24 @@
 	icon_state = "plating"
 	},
 /area/nightmare/unreal)
+"rA" = (
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "bed_h";
+	pixel_y = -2
+	},
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "bed_h";
+	pixel_y = 8
+	},
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "revolution";
+	pixel_x = -28
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
+/area/nightmare/unreal/hospital)
 "rD" = (
 /obj/structure/table/rack/samosbor{
 	icon_state = "table_fancy"
@@ -4554,6 +5467,32 @@
 /obj/structure/fake_zlvl,
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/streets)
+"sa" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_steel_r"
+	},
+/obj/structure/storage/table{
+	pixel_y = -3
+	},
+/obj/structure/fd/samosbor/flora{
+	icon_state = "gplant_4";
+	pixel_y = 22;
+	pixel_x = -5
+	},
+/obj/structure/fd/samosbor/table_decor11{
+	pixel_y = 9;
+	pixel_x = 5
+	},
+/obj/structure/fd/samosbor/table_decor11{
+	icon_state = "hemostat";
+	pixel_x = -3;
+	pixel_y = -3
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
+/area/nightmare/unreal/hospital)
 "sd" = (
 /obj/decal/cleanable/generic,
 /obj/structure/fd/library_bigart2{
@@ -4679,6 +5618,11 @@
 	},
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
+"ss" = (
+/obj/structure/platform/kutjevo/rock,
+/obj/structure/fake_zlvl,
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/space)
 "su" = (
 /obj/structure/fd/junk{
 	icon_state = "0,4";
@@ -4706,6 +5650,20 @@
 	icon_state = "li_bk"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"sy" = (
+/obj/floor_decal/corner/black/half{
+	dir = 4
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = 1;
+	pixel_x = 7;
+	on = 1;
+	spawn_dir = 8
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
 "sz" = (
 /obj/floor_decal/spline/plain/black,
 /turf/simulated/floor/exoplanet/samosbor/wood{
@@ -4733,6 +5691,12 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/streets)
+"sD" = (
+/obj/structure/fd/interactive/door/metal,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_gd"
+	},
+/area/space)
 "sE" = (
 /obj/structure/fake_zlvl,
 /obj/structure/platform/kutjevo/rock{
@@ -4777,11 +5741,27 @@
 	icon_state = "plating"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"sO" = (
+/obj/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
+/area/nightmare/unreal/hospital)
+"sQ" = (
+/obj/structure/fd/topdown_window,
+/turf/simulated/floor/exoplanet/samosbor/plating{
+	icon_state = "plating"
+	},
+/area/space)
 "sR" = (
 /obj/structure/platform/kutjevo/rock,
 /obj/structure/platform/kutjevo/rock{
 	dir = 4
 	},
+/obj/structure/fake_zlvl,
+/obj/structure/fd/placeholder,
 /turf/simulated/floor/exoplanet/wet_stone,
 /area/space)
 "sS" = (
@@ -4810,6 +5790,14 @@
 	icon_state = "ca_da_gy_8"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"sX" = (
+/obj/structure/fd/samosbor/machinery3{
+	icon_state = "tele31"
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t1"
+	},
+/area/space)
 "sZ" = (
 /obj/structure/fd/topdown_walls/concrete{
 	icon_state = "co_ge_dr"
@@ -4838,6 +5826,12 @@
 	},
 /area/nightmare/unreal/bar_nightmare)
 "tf" = (
+/obj/structure/table/rack/samosbor{
+	icon_state = "table_fancy"
+	},
+/obj/structure/fd/samosbor/flora{
+	pixel_y = 20
+	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "bronze_warning"
 	},
@@ -4889,6 +5883,12 @@
 	icon_state = "ca_da_re_9"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"tm" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/ceramic{
+	icon_state = "ce_gy_4"
+	},
+/area/nightmare/unreal/hospital)
 "tp" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 1
@@ -5079,6 +6079,8 @@
 /obj/structure/platform/kutjevo/rock{
 	dir = 8
 	},
+/obj/structure/fake_zlvl,
+/obj/structure/fd/placeholder,
 /turf/simulated/floor/exoplanet/wet_stone,
 /area/space)
 "uf" = (
@@ -5100,6 +6102,15 @@
 	},
 /turf/simulated/floor/exoplanet/samosbor/ceramic{
 	icon_state = "ce_pa_4"
+	},
+/area/nightmare/unreal/hospital)
+"ul" = (
+/obj/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/wood{
+	icon_state = "wood_fancy"
 	},
 /area/nightmare/unreal/hospital)
 "um" = (
@@ -5147,15 +6158,58 @@
 /obj/structure/fake_zlvl,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
+"uv" = (
+/obj/structure/fd/samosbor/machinery3{
+	icon_state = "bookcase_space";
+	pixel_x = 8
+	},
+/obj/structure/fd/placeholder,
+/turf/simulated/floor/exoplanet/samosbor/wood{
+	icon_state = "wood_log"
+	},
+/area/nightmare/unreal/hospital)
+"uy" = (
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t1"
+	},
+/area/space)
 "uz" = (
 /obj/floor_decal/corner/black/half{
 	dir = 4
 	},
 /obj/decal/cleanable/dirt,
+/obj/structure/fd/junk{
+	icon_state = "0,3";
+	layer = 2.21
+	},
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "info";
+	pixel_y = 13;
+	pixel_x = -29
+	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "apartments"
 	},
-/area/space)
+/area/nightmare/unreal/hospital)
+"uC" = (
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "worship";
+	pixel_x = 32;
+	pixel_y = 8
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t2"
+	},
+/area/nightmare/unreal/hospital)
+"uD" = (
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "bed_roller_blue_up";
+	pixel_y = 12
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_gd_sm"
+	},
+/area/nightmare/unreal/hospital)
 "uE" = (
 /obj/floor_decal/spline/plain/black{
 	dir = 4
@@ -5173,6 +6227,18 @@
 	icon_state = "wood_alt"
 	},
 /area/nightmare/bar_real)
+"uI" = (
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "bed_roller_blue";
+	pixel_y = 0
+	},
+/obj/structure/fd/bodybag{
+	pixel_y = 5
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t2"
+	},
+/area/nightmare/unreal/hospital)
 "uM" = (
 /obj/structure/showcase{
 	density = 0;
@@ -5195,6 +6261,12 @@
 /obj/structure/fake_zlvl,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/unreal)
+"uS" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/ceramic{
+	icon_state = "ce_gy"
+	},
+/area/nightmare/unreal/hospital)
 "uT" = (
 /obj/structure/fd/samosbor/machinery2{
 	icon_state = "clock_wall";
@@ -5335,10 +6407,13 @@
 	dir = 8
 	},
 /obj/decal/cleanable/generic,
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_da_8"
+	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "apartments"
 	},
-/area/space)
+/area/nightmare/unreal/hospital)
 "vs" = (
 /obj/floor_decal/spline/plain/black{
 	dir = 4
@@ -5384,6 +6459,17 @@
 	icon_state = "wood_fancy"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"vA" = (
+/obj/structure/fd/junk{
+	icon_state = "0,3";
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/obj/structure/fd/junk,
+/turf/simulated/floor/exoplanet/samosbor/ceramic{
+	icon_state = "ce_gy"
+	},
+/area/nightmare/unreal/hospital)
 "vH" = (
 /obj/structure/fd/topdown_walls/concrete{
 	icon_state = "co_ge_dr_12"
@@ -5417,6 +6503,10 @@
 	icon_state = "info";
 	pixel_y = -17;
 	pixel_x = -26
+	},
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "bed_h";
+	pixel_y = -2
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_gy"
@@ -5473,6 +6563,28 @@
 	},
 /turf/simulated/floor/exoplanet/wet_stone,
 /area/nightmare/unreal)
+"wd" = (
+/obj/structure/fd/topdown_walls/concrete{
+	icon_state = "co_11"
+	},
+/turf/simulated/floor/exoplanet/samosbor/plating{
+	icon_state = "plating"
+	},
+/area/nightmare/unreal/hospital)
+"we" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/storage/chest{
+	pixel_x = -4
+	},
+/obj/structure/fd/samosbor/flora{
+	icon_state = "gplant_6";
+	layer = 4.09;
+	pixel_y = 21
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t2"
+	},
+/area/nightmare/unreal/hospital)
 "wj" = (
 /obj/structure/fd/samosbor/furniture1{
 	icon_state = "chair_dwood_old";
@@ -5583,6 +6695,40 @@
 	icon_state = "me_ti_da"
 	},
 /area/nightmare/unreal)
+"wC" = (
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "nt_treason";
+	pixel_x = -29;
+	pixel_y = 5
+	},
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "nt_treason";
+	pixel_y = 18;
+	pixel_x = 10
+	},
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "nt_treason";
+	pixel_y = -9;
+	pixel_x = 27
+	},
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "nt_treason";
+	pixel_y = 13;
+	pixel_x = 32
+	},
+/obj/structure/fd/junk{
+	icon_state = "2,4";
+	pixel_x = 2;
+	pixel_y = -2
+	},
+/obj/structure/fd/junk{
+	icon_state = "3,4";
+	layer = 2.21
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
 "wD" = (
 /turf/simulated/floor/exoplanet/samosbor/carpet{
 	icon_state = "ca_da_re_6"
@@ -5607,6 +6753,13 @@
 	icon_state = "ca_da_5"
 	},
 /area/nightmare/bar_real)
+"wK" = (
+/obj/floor_decal/spline/fancy/wood,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/wood{
+	icon_state = "wood_fancy"
+	},
+/area/nightmare/unreal/hospital)
 "wL" = (
 /obj/structure/fd/placeholder,
 /obj/structure/fake_zlvl,
@@ -5651,6 +6804,13 @@
 	icon_state = "me_pa_4"
 	},
 /area/nightmare/bar_real)
+"xa" = (
+/obj/structure/fd/topdown_window,
+/obj/structure/curtain/open/privacy,
+/turf/simulated/floor/exoplanet/samosbor/plating{
+	icon_state = "plating"
+	},
+/area/nightmare/unreal/hospital)
 "xb" = (
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_3"
@@ -5715,10 +6875,23 @@
 	},
 /area/nightmare/bar_real)
 "xq" = (
+/obj/structure/fd/junk{
+	icon_state = "0,3";
+	pixel_x = -4;
+	pixel_y = -2
+	},
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_ws_end"
+	},
+/obj/structure/fd/samosbor/table_decor9{
+	icon_state = "pens_bin";
+	pixel_y = -8;
+	pixel_x = 10
+	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "bronze_floor"
 	},
-/area/space)
+/area/nightmare/unreal/hospital)
 "xr" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/samosbor/furniture1,
@@ -5780,11 +6953,36 @@
 /obj/structure/fd/placeholder,
 /turf/simulated/floor/exoplanet/wet_stone,
 /area/nightmare/unreal/hospital)
+"xx" = (
+/obj/structure/fd/junk{
+	icon_state = "0,2";
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/samosbor/ceramic{
+	icon_state = "ce_gy"
+	},
+/area/nightmare/unreal/hospital)
 "xy" = (
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_gy_t2"
 	},
 /area/nightmare/unreal/hospital/ward1)
+"xz" = (
+/obj/structure/fd/samosbor/neon_signs/large{
+	icon_state = "med1";
+	pixel_x = -3;
+	pixel_y = 30;
+	layer = 4.09;
+	mouse_opacity = 0;
+	alpha = 200;
+	color_of = "#59aaa3";
+	range_of = 6
+	},
+/turf/simulated/floor/exoplanet/samosbor/lino{
+	icon_state = "li_bk"
+	},
+/area/space)
 "xB" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/samosbor/floor_cable{
@@ -5806,6 +7004,14 @@
 	icon_state = "apartments"
 	},
 /area/nightmare/unreal/hospital)
+"xG" = (
+/obj/structure/fd/topdown_walls/concrete{
+	icon_state = "co_2"
+	},
+/turf/simulated/floor/exoplanet/samosbor/plating{
+	icon_state = "plating"
+	},
+/area/nightmare/unreal/hospital)
 "xH" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 10
@@ -5814,6 +7020,27 @@
 	icon_state = "me_ti_da"
 	},
 /area/nightmare/streets)
+"xJ" = (
+/obj/floor_decal/corner/black,
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "nt_treason";
+	pixel_y = 36;
+	pixel_x = -5
+	},
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "nt_treason";
+	pixel_y = 29;
+	pixel_x = 4
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
+"xK" = (
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_gd"
+	},
+/area/space)
 "xL" = (
 /obj/structure/fd/samosbor/floor_cable{
 	icon_state = "plated";
@@ -5869,6 +7096,17 @@
 	icon_state = "me_gd"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"xT" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/light{
+	color = "#800b0b";
+	dir = 8;
+	light_color = "#800b0b"
+	},
+/turf/simulated/floor/exoplanet/samosbor/ceramic{
+	icon_state = "ce_gy_2"
+	},
+/area/nightmare/unreal/hospital)
 "xX" = (
 /obj/structure/fake_zlvl,
 /obj/structure/platform/kutjevo/rock,
@@ -5894,6 +7132,21 @@
 	icon_state = "ca_da_gy_4"
 	},
 /area/nightmare/bar_real)
+"ye" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_da_4"
+	},
+/obj/structure/fd/samosbor/flora{
+	icon_state = "gplant_8";
+	pixel_y = 12;
+	pixel_x = -1;
+	layer = 4.09
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_gd_sm"
+	},
+/area/nightmare/unreal/hospital)
 "yf" = (
 /obj/map_effect/portal/master/side_a{
 	portal_id = "bar_real_stairs2";
@@ -5937,6 +7190,14 @@
 	},
 /turf/simulated/floor/exoplanet/wet_stone,
 /area/nightmare/unreal)
+"yv" = (
+/obj/structure/fd/topdown_walls/concrete{
+	icon_state = "co_5"
+	},
+/turf/simulated/floor/exoplanet/samosbor/plating{
+	icon_state = "plating"
+	},
+/area/nightmare/unreal/hospital)
 "yw" = (
 /obj/floor_decal/spline/plain/black{
 	dir = 10
@@ -5945,6 +7206,11 @@
 	icon_state = "wood_fancy"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"yx" = (
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
+/area/nightmare/unreal/hospital)
 "yy" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/samosbor/graffity{
@@ -5972,6 +7238,11 @@
 	},
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
+"yB" = (
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_pa_4"
+	},
+/area/nightmare/unreal/hospital)
 "yH" = (
 /obj/structure/table/rack/samosbor/mod{
 	icon_state = "table_steel_o_3"
@@ -5999,6 +7270,11 @@
 	icon_state = "plating"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"yR" = (
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t4"
+	},
+/area/nightmare/unreal/hospital)
 "yS" = (
 /obj/floor_decal/spline/plain/black{
 	dir = 8
@@ -6109,6 +7385,15 @@
 	icon_state = "me_ti_gy"
 	},
 /area/nightmare/unreal/hospital/ward1)
+"zl" = (
+/obj/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
+/area/nightmare/unreal/hospital)
 "zm" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/spline/plain/black{
@@ -6157,6 +7442,28 @@
 	icon_state = "plating"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"zx" = (
+/obj/floor_decal/corner/black/half{
+	dir = 8
+	},
+/obj/structure/fd/junk{
+	icon_state = "1,1";
+	layer = 2.21;
+	pixel_y = 15
+	},
+/obj/structure/fd/junk{
+	icon_state = "2,1";
+	pixel_x = -14;
+	pixel_y = 3
+	},
+/obj/structure/fd/junk{
+	icon_state = "2,0";
+	pixel_x = 1
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
 "zy" = (
 /obj/floor_decal/corner/black{
 	dir = 1
@@ -6244,6 +7551,17 @@
 /obj/structure/platform_decoration/kutjevo/rock,
 /turf/simulated/floor/exoplanet/wet_stone,
 /area/nightmare/unreal)
+"zO" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_steel_r"
+	},
+/obj/structure/storage/table{
+	pixel_y = -3
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
+/area/nightmare/unreal/hospital)
 "zQ" = (
 /obj/structure/fd/junk{
 	pixel_x = 7;
@@ -6332,6 +7650,18 @@
 	icon_state = "me_gd"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"Al" = (
+/obj/floor_decal/corner/black,
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/samosbor/dark_signs1{
+	icon_state = "danger_smoke";
+	pixel_y = 29;
+	pixel_x = 4
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
 "Am" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/bs_vines,
@@ -6465,6 +7795,14 @@
 	icon_state = "me_ti_da"
 	},
 /area/nightmare/streets)
+"AK" = (
+/obj/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t2"
+	},
+/area/nightmare/unreal/hospital)
 "AL" = (
 /obj/floor_decal/corner/black{
 	dir = 8
@@ -6502,6 +7840,9 @@
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "AO" = (
+/obj/structure/fake_zlvl,
+/obj/structure/platform/kutjevo/rock,
+/obj/structure/fake_zlvl,
 /turf/simulated/floor/exoplanet/wet_stone,
 /area/space)
 "AP" = (
@@ -6529,6 +7870,20 @@
 	icon_state = "stairs_1"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"AT" = (
+/obj/floor_decal/spline/fancy/wood/corner{
+	dir = 4
+	},
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "sofa_d";
+	pixel_y = 1;
+	pixel_x = 7;
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/samosbor/wood{
+	icon_state = "wood_fancy"
+	},
+/area/nightmare/unreal/hospital)
 "AU" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fake_zlvl,
@@ -6610,6 +7965,15 @@
 	icon_state = "me_ti_gy_t2"
 	},
 /area/nightmare/unreal/hospital/ward1)
+"Bk" = (
+/obj/map_effect/portal/line/side_b{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_1";
+	dir = 1
+	},
+/area/nightmare/unreal/hospital)
 "Bm" = (
 /obj/floor_decal/spline/plain/black,
 /obj/item/towel/random{
@@ -6757,7 +8121,8 @@
 /obj/structure/fd/samosbor/machinery3{
 	icon_state = "messyfiles4";
 	pixel_x = 8;
-	pixel_y = 9
+	pixel_y = 9;
+	density = 1
 	},
 /obj/structure/storage/chestdrawer{
 	pixel_x = 13;
@@ -6843,6 +8208,11 @@
 	color = "red"
 	},
 /area/space)
+"BS" = (
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_14"
+	},
+/area/nightmare/unreal/hospital)
 "BW" = (
 /obj/structure/fd/bodybag{
 	pixel_y = 13;
@@ -6855,6 +8225,11 @@
 /obj/structure/fd/placeholder,
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
+"BX" = (
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_pa_8"
 	},
 /area/nightmare/unreal/hospital)
 "BY" = (
@@ -6936,6 +8311,23 @@
 	icon_state = "me_ti_gy"
 	},
 /area/nightmare/unreal/hospital/ward1)
+"Cq" = (
+/obj/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/samosbor/furniture2{
+	density = 1
+	},
+/obj/structure/fd/samosbor/furniture2{
+	icon_state = "washer";
+	pixel_y = -4;
+	pixel_x = 23
+	},
+/turf/simulated/floor/exoplanet/samosbor/wood{
+	icon_state = "wood_fancy"
+	},
+/area/nightmare/unreal/hospital)
 "Cs" = (
 /obj/item/storage/mirror/grim/golden{
 	pixel_y = 34
@@ -6980,6 +8372,14 @@
 	icon_state = "me_ti_da_t4"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"CA" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_da_g_12"
+	},
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_13"
+	},
+/area/nightmare/unreal/hospital)
 "CB" = (
 /obj/structure/table/rack/samosbor{
 	icon_state = "table_stone"
@@ -6991,6 +8391,14 @@
 	icon_state = "me_ti_da"
 	},
 /area/nightmare/unreal)
+"CE" = (
+/obj/structure/fd/topdown_walls/concrete{
+	icon_state = "co_me"
+	},
+/turf/simulated/floor/exoplanet/samosbor/plating{
+	icon_state = "plating"
+	},
+/area/nightmare/unreal/hospital)
 "CG" = (
 /obj/structure/fd/placeholder,
 /obj/structure/fake_zlvl,
@@ -7203,6 +8611,14 @@
 	icon_state = "plating"
 	},
 /area/nightmare/bar_real)
+"Dq" = (
+/obj/structure/fd/topdown_walls/concrete{
+	icon_state = "co_13"
+	},
+/turf/simulated/floor/exoplanet/samosbor/plating{
+	icon_state = "plating"
+	},
+/area/nightmare/unreal/hospital)
 "Dr" = (
 /obj/structure/fd/topdown_walls/concrete{
 	icon_state = "co_ap_r_4"
@@ -7416,6 +8832,13 @@
 	icon_state = "li_bk"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"Ea" = (
+/obj/structure/platform_decoration/kutjevo/rock{
+	dir = 1
+	},
+/obj/structure/fake_zlvl,
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/space)
 "Eb" = (
 /obj/structure/table/rack/samosbor/mod{
 	icon_state = "table_da_1"
@@ -7486,6 +8909,27 @@
 	icon_state = "me_ti_da_t5"
 	},
 /area/nightmare/bar_real)
+"Ej" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_steel_r"
+	},
+/obj/structure/storage/table{
+	pixel_y = -3
+	},
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "lana";
+	pixel_y = 31;
+	pixel_x = -6
+	},
+/obj/structure/fd/samosbor/machinery2{
+	icon_state = "gramophone";
+	pixel_y = 19;
+	pixel_x = 4
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t2"
+	},
+/area/nightmare/unreal/hospital)
 "Ek" = (
 /obj/decal/cleanable/generic,
 /obj/structure/fd/samosbor/table_decor12{
@@ -7651,7 +9095,12 @@
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_gd_sm"
 	},
-/area/space)
+/area/nightmare/unreal/hospital)
+"EM" = (
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_6"
+	},
+/area/nightmare/unreal/hospital)
 "EN" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fake_zlvl,
@@ -7668,6 +9117,24 @@
 /obj/structure/fake_zlvl,
 /turf/simulated/floor/exoplanet/wet_stone,
 /area/nightmare/unreal/hospital)
+"EU" = (
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "bed_h";
+	pixel_y = -2
+	},
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "bed_h";
+	pixel_y = 8
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
+/area/nightmare/unreal/hospital)
+"EX" = (
+/obj/structure/fake_zlvl,
+/obj/structure/fake_zlvl,
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/space)
 "EY" = (
 /obj/floor_decal/spline/plain/black{
 	dir = 1
@@ -7698,6 +9165,18 @@
 	icon_state = "ca_da_gy_1"
 	},
 /area/nightmare/bar_real)
+"Fc" = (
+/obj/structure/fd/samosbor/light{
+	pixel_x = -5;
+	color_of = "#ce6c11";
+	range_of = 4;
+	pixel_y = 23;
+	layer = 2.24
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments_bi"
+	},
+/area/nightmare/unreal/hospital)
 "Fe" = (
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "co_br"
@@ -7775,6 +9254,25 @@
 	icon_state = "wood_alt"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"Fr" = (
+/obj/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t2"
+	},
+/area/nightmare/unreal/hospital)
+"Fs" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_da_2";
+	pixel_x = 5
+	},
+/obj/structure/fd/samosbor/flora{
+	pixel_y = 5;
+	pixel_x = -13
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
+/area/nightmare/unreal/hospital)
 "Ft" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fake_zlvl,
@@ -7862,6 +9360,20 @@
 	},
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/unreal)
+"FL" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/ceramic{
+	icon_state = "ce_br_t2"
+	},
+/area/nightmare/unreal/hospital)
+"FN" = (
+/obj/structure/fd/topdown_walls/concrete{
+	icon_state = "co_14"
+	},
+/turf/simulated/floor/exoplanet/samosbor/plating{
+	icon_state = "plating"
+	},
+/area/nightmare/unreal/hospital)
 "FU" = (
 /obj/floor_decal/corner/black/half{
 	dir = 8
@@ -7897,6 +9409,23 @@
 	icon_state = "me_ti_da_t4"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"Gd" = (
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "bed_roller_blue";
+	pixel_y = 11
+	},
+/obj/structure/fd/samosbor/machinery3{
+	icon_state = "confes";
+	pixel_y = 31
+	},
+/obj/structure/fd/body/bluespace_infected{
+	pixel_y = 9
+	},
+/obj/structure/fd/mapping/placeholder,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ro_bi"
+	},
+/area/space)
 "Ge" = (
 /obj/structure/fd/topdown_walls/concrete{
 	icon_state = "co_me_3"
@@ -7923,6 +9452,8 @@
 /obj/structure/platform/kutjevo/rock{
 	dir = 4
 	},
+/obj/structure/fake_zlvl,
+/obj/structure/fd/placeholder,
 /turf/simulated/floor/exoplanet/wet_stone,
 /area/space)
 "Gj" = (
@@ -7961,6 +9492,18 @@
 	icon_state = "stairs_1"
 	},
 /area/nightmare/bar_real)
+"Gq" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
+/area/nightmare/unreal/hospital)
+"Gr" = (
+/obj/floor_decal/corner/black,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
 "Gs" = (
 /obj/structure/fd/topdown_walls/concrete{
 	icon_state = "co_ge_d_9"
@@ -8071,7 +9614,14 @@
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "apartments"
 	},
-/area/space)
+/area/nightmare/unreal/hospital)
+"GM" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/samosbor/wood{
+	icon_state = "wood_fancy"
+	},
+/area/nightmare/unreal/hospital)
 "GN" = (
 /obj/structure/fd/topdown_walls/concrete{
 	icon_state = "co_ap_r_7"
@@ -8278,6 +9828,23 @@
 	dir = 8
 	},
 /area/nightmare/bar_real)
+"HO" = (
+/obj/structure/ore_box{
+	desc = "A heavy box used for storing stuff.";
+	name = "box";
+	opacity = 1;
+	interactive = 1;
+	desc_special_show = 1;
+	desc_special = "Я могу подвинуть это.";
+	pixel_y = 9;
+	pixel_x = 3;
+	anchored = 1
+	},
+/obj/structure/fd/placeholder,
+/turf/simulated/floor/exoplanet/samosbor/ceramic{
+	icon_state = "ce_gy_4"
+	},
+/area/nightmare/unreal/hospital)
 "HQ" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/table/rack/samosbor{
@@ -8329,6 +9896,15 @@
 	icon_state = "plating"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"HX" = (
+/obj/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/decal/cleanable/blood,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t2"
+	},
+/area/nightmare/unreal/hospital)
 "Ia" = (
 /obj/floor_decal/spline/plain/black{
 	dir = 5
@@ -8396,6 +9972,20 @@
 	icon_state = "plating"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"In" = (
+/obj/floor_decal/corner/black/half{
+	dir = 1
+	},
+/obj/floor_decal/techfloor,
+/obj/decal/cleanable/dirt,
+/obj/machinery/light{
+	color = "#800b0b";
+	light_color = "#800b0b"
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
 "Ip" = (
 /obj/structure/fd/samosbor/table_decor12{
 	icon_state = "3,9";
@@ -8505,6 +10095,15 @@
 	icon_state = "co_br"
 	},
 /area/nightmare/unreal)
+"IT" = (
+/obj/floor_decal/corner/black/half,
+/obj/structure/fd/junk{
+	icon_state = "0,3"
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
 "IU" = (
 /obj/decal/cleanable/generic,
 /turf/simulated/floor/exoplanet/samosbor/wood{
@@ -8555,6 +10154,21 @@
 	icon_state = "me_gd"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"Ji" = (
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_pi_2"
+	},
+/area/nightmare/unreal/hospital)
+"Jk" = (
+/obj/floor_decal/corner/black/half,
+/obj/structure/fd/samosbor/dark_signs1{
+	icon_state = "det";
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
 "Jl" = (
 /obj/structure/fd/building_stuff{
 	icon_state = "2,1";
@@ -8622,6 +10236,16 @@
 	icon_state = "wood_fancy"
 	},
 /area/nightmare/bar_real)
+"Jw" = (
+/obj/structure/fd/placeholder,
+/obj/structure/fd/shadow_follower{
+	currently_active = 1;
+	pixel_y = 10
+	},
+/turf/simulated/floor/exoplanet/samosbor/ceramic{
+	icon_state = "ce_gy_3"
+	},
+/area/nightmare/unreal/hospital)
 "Jy" = (
 /obj/decal/cleanable/dirt,
 /obj/item/reagent_containers/glass/bucket{
@@ -8652,6 +10276,15 @@
 	icon_state = "me_ti_da_t5"
 	},
 /area/nightmare/unreal/bar_nightmare/storage_room)
+"JE" = (
+/obj/structure/storage/chest/wardrobe{
+	pixel_y = 14;
+	pixel_x = 3
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t2"
+	},
+/area/nightmare/unreal/hospital)
 "JJ" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -8732,6 +10365,26 @@
 	icon_state = "security_sm"
 	},
 /area/nightmare/bar_real)
+"JT" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/wood{
+	icon_state = "wood_fancy"
+	},
+/area/nightmare/unreal/hospital)
+"JU" = (
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "bed_h";
+	pixel_y = -2
+	},
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "bed_h";
+	pixel_y = 8
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
+/area/nightmare/unreal/hospital)
 "JV" = (
 /obj/floor_decal/spline/plain/black{
 	dir = 8
@@ -8819,6 +10472,11 @@
 	icon_state = "me_gd_bi"
 	},
 /area/nightmare/unreal/hospital)
+"Kj" = (
+/turf/simulated/floor/exoplanet/samosbor/plating{
+	icon_state = "plating_reinforced"
+	},
+/area/space)
 "Kk" = (
 /obj/structure/table/rack/samosbor/mod{
 	icon_state = "table_da_8"
@@ -8843,6 +10501,35 @@
 	icon_state = "ce_bk"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"Kp" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/generic,
+/obj/structure/iv_stand{
+	pixel_y = 18;
+	pixel_x = -13
+	},
+/obj/structure/fd/body{
+	icon_state = "IntenSecDead1";
+	pixel_y = 16;
+	pixel_x = 1;
+	layer = 2.24
+	},
+/obj/item/gun/projectile/pistol/sol_service{
+	pixel_x = 5;
+	pixel_y = -7
+	},
+/obj/item/ammo_casing/pistol/used{
+	pixel_x = 8
+	},
+/obj/item/ammo_casing/pistol/used{
+	dir = 5;
+	pixel_x = 19;
+	pixel_y = -4
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
+/area/nightmare/unreal/hospital)
 "Kr" = (
 /obj/structure/fd/topdown_grills{
 	icon_state = "grate_bars"
@@ -9083,6 +10770,19 @@
 	icon_state = "ca_da_gy_4"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"Lg" = (
+/obj/floor_decal/spline/fancy/wood/corner,
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_steel_r_1";
+	layer = 2.22
+	},
+/obj/machinery/microwave{
+	pixel_y = 17
+	},
+/turf/simulated/floor/exoplanet/samosbor/wood{
+	icon_state = "wood_fancy"
+	},
+/area/nightmare/unreal/hospital)
 "Lm" = (
 /obj/structure/table/rack/samosbor/mod{
 	icon_state = "table_steel_o_8"
@@ -9135,6 +10835,16 @@
 	icon_state = "security"
 	},
 /area/nightmare/bar_real)
+"Lr" = (
+/obj/machinery/light{
+	color = "#800b0b";
+	dir = 8;
+	light_color = "#800b0b"
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t2"
+	},
+/area/nightmare/unreal/hospital)
 "Ls" = (
 /obj/structure/fd/bs_vines,
 /obj/structure/fake_zlvl,
@@ -9167,6 +10877,27 @@
 	icon_state = "me_ti_da_t5"
 	},
 /area/nightmare/bar_real)
+"Lv" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "nt_treason";
+	pixel_x = -29;
+	pixel_y = 5
+	},
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "arrow";
+	name = "arrow decal";
+	pixel_y = -5;
+	dir = 8;
+	pixel_x = -3
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
 "Ly" = (
 /obj/structure/table/rack/samosbor{
 	icon_state = "table_stone"
@@ -9179,6 +10910,15 @@
 	icon_state = "me_ti_da"
 	},
 /area/nightmare/unreal)
+"Lz" = (
+/obj/floor_decal/corner/black{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
 "LD" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -9204,10 +10944,6 @@
 	pixel_x = 10;
 	pixel_y = 11;
 	dir = 6
-	},
-/obj/machinery/light{
-	color = "#800b0b";
-	light_color = "#800b0b"
 	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "apartments_bi"
@@ -9269,6 +11005,14 @@
 	icon_state = "wood_fancy"
 	},
 /area/nightmare/bar_real)
+"LM" = (
+/obj/structure/fd/topdown_walls/concrete{
+	icon_state = "co_8"
+	},
+/turf/simulated/floor/exoplanet/samosbor/plating{
+	icon_state = "plating"
+	},
+/area/nightmare/unreal/hospital)
 "LS" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 1
@@ -9416,6 +11160,30 @@
 	icon_state = "ca_da_re_5"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"Mp" = (
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "nt_treason";
+	pixel_x = -31;
+	pixel_y = 5
+	},
+/obj/structure/fd/junk{
+	icon_state = "0,4";
+	pixel_x = 5;
+	pixel_y = 18
+	},
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "nt_treason";
+	pixel_y = -2;
+	pixel_x = 8
+	},
+/obj/structure/fd/junk{
+	icon_state = "1,3";
+	layer = 2.21
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
 "Mt" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 4
@@ -9735,7 +11503,7 @@
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "apartments"
 	},
-/area/space)
+/area/nightmare/unreal/hospital)
 "Ns" = (
 /obj/floor_decal/spline/plain/black,
 /obj/structure/fd/samosbor/table_decor7{
@@ -9931,6 +11699,11 @@
 /obj/structure/fd/bs_vines,
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/unreal)
+"Oa" = (
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_1"
+	},
+/area/nightmare/unreal/hospital)
 "Od" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
@@ -9948,6 +11721,10 @@
 	icon_state = "wood_fancy"
 	},
 /area/nightmare/bar_real)
+"Og" = (
+/obj/structure/fake_zlvl,
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/space)
 "Oi" = (
 /obj/decal/cleanable/generic,
 /obj/structure/fd/junk{
@@ -10009,6 +11786,14 @@
 	icon_state = "wood_fancy"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"Ou" = (
+/obj/structure/fd/topdown_walls/concrete{
+	icon_state = "co_7"
+	},
+/turf/simulated/floor/exoplanet/samosbor/plating{
+	icon_state = "plating"
+	},
+/area/nightmare/unreal/hospital)
 "Oy" = (
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "security_sm"
@@ -10029,6 +11814,19 @@
 	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
+"OB" = (
+/obj/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/structure/fd/samosbor/table_decor3{
+	icon_state = "flour_empty";
+	pixel_x = -12;
+	pixel_y = -6
+	},
+/turf/simulated/floor/exoplanet/samosbor/wood{
+	icon_state = "wood_fancy"
 	},
 /area/nightmare/unreal/hospital)
 "OC" = (
@@ -10057,12 +11855,6 @@
 	pixel_x = 7;
 	pixel_y = -2;
 	dir = 5
-	},
-/obj/item/device/flashlight/maglight{
-	pixel_y = 19;
-	pixel_x = 7;
-	on = 1;
-	spawn_dir = 4
 	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "apartments"
@@ -10147,6 +11939,45 @@
 	icon_state = "me_pi_10"
 	},
 /area/nightmare/unreal)
+"OR" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/junk{
+	icon_state = "0,4";
+	pixel_x = -5;
+	pixel_y = -6
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments_bi"
+	},
+/area/nightmare/unreal/hospital)
+"OS" = (
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "calendar_alt";
+	pixel_x = 4;
+	pixel_y = 33;
+	interactive = 1;
+	desc_special_show = 1;
+	desc_special = "Часть чисел на календаре перечёркнута красным, начиная с 7-го, и заканчивая 19-м."
+	},
+/obj/structure/fd/samosbor/machinery2{
+	icon_state = "clock";
+	pixel_x = -11;
+	pixel_y = 12;
+	density = 0
+	},
+/obj/structure/coatrack{
+	pixel_y = 20;
+	pixel_x = 9
+	},
+/obj/structure/coatrack,
+/obj/structure/coatrack{
+	pixel_y = 14;
+	pixel_x = 15
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments_bi"
+	},
+/area/nightmare/unreal/hospital)
 "OT" = (
 /obj/structure/fd/samosbor/neon_signs/large{
 	icon_state = "randomshit2";
@@ -10195,6 +12026,27 @@
 	icon_state = "li_bk"
 	},
 /area/nightmare/bar_real)
+"Pa" = (
+/obj/floor_decal/corner/black/half{
+	dir = 1
+	},
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "worship";
+	pixel_y = -32
+	},
+/obj/structure/fd/junk{
+	icon_state = "1,0"
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
+"Pb" = (
+/obj/decal/cleanable/blood,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
+/area/nightmare/unreal/hospital)
 "Pc" = (
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "apartments"
@@ -10230,6 +12082,23 @@
 	icon_state = "wood_alt"
 	},
 /area/nightmare/bar_real)
+"Pn" = (
+/obj/floor_decal/corner/black{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/obj/structure/table/rack/samosbor{
+	icon_state = "table_fancy"
+	},
+/obj/structure/fd/samosbor/flora{
+	pixel_y = 23;
+	pixel_x = 4;
+	layer = 2.24
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
 "Po" = (
 /obj/structure/fd/samosbor/furniture3{
 	icon_state = "sofa_r_end";
@@ -10261,6 +12130,23 @@
 	icon_state = "wood_fancy"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"Ps" = (
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "bed_h";
+	pixel_y = -2
+	},
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "bed_h";
+	pixel_y = 8
+	},
+/obj/structure/fd/body{
+	icon_state = "TNCDead8";
+	pixel_y = 6
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t2"
+	},
+/area/nightmare/unreal/hospital)
 "Pu" = (
 /obj/structure/fd/junk{
 	icon_state = "3,3";
@@ -10288,9 +12174,26 @@
 	icon_state = "me_pi_12"
 	},
 /area/nightmare/streets)
+"Pz" = (
+/obj/floor_decal/corner/black/half,
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/samosbor/dark_signs1{
+	icon_state = "danger_cctv";
+	pixel_y = 29;
+	pixel_x = 2
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
 "PD" = (
 /obj/structure/fd/samosbor/furniture3{
 	icon_state = "bench_ws_start"
+	},
+/obj/structure/fd/samosbor/dark_signs1{
+	icon_state = "danger_cctv";
+	pixel_y = 29;
+	pixel_x = 2
 	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "bronze_warning"
@@ -10366,6 +12269,15 @@
 	icon_state = "me_ti_da_t4"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"PR" = (
+/obj/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t2"
+	},
+/area/nightmare/unreal/hospital)
 "PS" = (
 /obj/machinery/light{
 	color = "#4aadc3";
@@ -10375,6 +12287,14 @@
 	icon_state = "me_pi_3"
 	},
 /area/nightmare/streets)
+"PU" = (
+/obj/structure/fd/topdown_walls/concrete{
+	icon_state = "co_me_2"
+	},
+/turf/simulated/floor/exoplanet/samosbor/plating{
+	icon_state = "plating"
+	},
+/area/space)
 "PW" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/building_stuff{
@@ -10502,6 +12422,31 @@
 	icon_state = "ca_da_gy_4"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"Qr" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_da_g_4"
+	},
+/obj/item/paper_bin{
+	pixel_y = 11;
+	pixel_x = -6
+	},
+/obj/item/pen,
+/obj/structure/fd/samosbor/table_decor4{
+	pixel_x = 11
+	},
+/obj/structure/fd/samosbor/table_decor9{
+	icon_state = "newtons_pendulum";
+	pixel_x = 7;
+	pixel_y = 18
+	},
+/obj/structure/fd/samosbor/table_decor6{
+	pixel_y = 11;
+	pixel_x = 15
+	},
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_13"
+	},
+/area/nightmare/unreal/hospital)
 "Qs" = (
 /obj/structure/fd/junk{
 	icon_state = "1,2";
@@ -10570,10 +12515,65 @@
 "QG" = (
 /obj/floor_decal/corner/black,
 /obj/decal/cleanable/dirt,
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "arrow";
+	name = "arrow decal";
+	pixel_y = 20;
+	dir = 1;
+	pixel_x = -10
+	},
+/obj/structure/fd/samosbor{
+	anchored = 1;
+	mouse_opacity = 0;
+	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi';
+	icon_state = "arrow";
+	name = "arrow decal";
+	pixel_y = -14;
+	dir = 1;
+	pixel_x = -1
+	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "apartments"
 	},
-/area/space)
+/area/nightmare/unreal/hospital)
+"QI" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_1"
+	},
+/area/nightmare/unreal/hospital)
+"QJ" = (
+/obj/map_effect/portal/line/side_a,
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_1";
+	dir = 1
+	},
+/area/nightmare/unreal/hospital)
+"QL" = (
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "bed_roller_blue";
+	pixel_y = 14
+	},
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "bed_roller_blue";
+	pixel_y = 0
+	},
+/obj/structure/fd/placeholder,
+/obj/structure/fd/samosbor/machinery2{
+	icon_state = "clock_wall";
+	pixel_y = 30;
+	density = 0
+	},
+/obj/structure/fd/bodybag{
+	pixel_y = 13
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_pi_2"
+	},
+/area/nightmare/unreal/hospital)
 "QM" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/nightmare_telepoint,
@@ -10590,6 +12590,15 @@
 	icon_state = "plating"
 	},
 /area/nightmare/streets)
+"QP" = (
+/obj/structure/fd/junk{
+	pixel_x = 13;
+	pixel_y = 15
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_gd_bi"
+	},
+/area/nightmare/unreal/hospital)
 "QS" = (
 /obj/floor_decal/corner/black/half{
 	dir = 1
@@ -10658,6 +12667,18 @@
 	icon_state = "me_pi_7"
 	},
 /area/nightmare/streets)
+"QZ" = (
+/obj/map_effect/portal/master/side_a,
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_1";
+	dir = 1
+	},
+/area/nightmare/unreal/hospital)
+"Ra" = (
+/turf/simulated/floor/exoplanet/samosbor/ceramic{
+	icon_state = "ce_br_t2"
+	},
+/area/nightmare/unreal/hospital)
 "Rc" = (
 /obj/structure/platform/kutjevo/rock{
 	dir = 8
@@ -10740,6 +12761,22 @@
 	icon_state = "co_br"
 	},
 /area/nightmare/streets)
+"Rt" = (
+/obj/floor_decal/corner/black/half{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/obj/item/device/flashlight/maglight{
+	pixel_y = 1;
+	pixel_x = 7;
+	on = 1;
+	spawn_dir = 4
+	},
+/obj/decal/cleanable/blood,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
 "Rv" = (
 /obj/structure/fd/samosbor/furniture3{
 	icon_state = "bench_ws_end"
@@ -10936,6 +12973,46 @@
 	icon_state = "plating"
 	},
 /area/nightmare/unreal/hospital)
+"Se" = (
+/obj/floor_decal/corner/black/half{
+	dir = 8
+	},
+/obj/structure/fd/building_stuff{
+	pixel_y = 11
+	},
+/obj/structure/fd/building_stuff{
+	pixel_y = 9;
+	pixel_x = -27
+	},
+/obj/structure/fd/building_stuff{
+	icon_state = "0,1";
+	pixel_y = 15;
+	density = 1;
+	pixel_x = -5
+	},
+/obj/structure/fd/samosbor/table_decor12{
+	pixel_y = -13
+	},
+/obj/structure/fd/samosbor/table_decor12{
+	icon_state = "0,23";
+	pixel_y = 12;
+	pixel_x = -28
+	},
+/obj/structure/fd/samosbor/table_decor12{
+	icon_state = "0,34";
+	pixel_x = -36;
+	pixel_y = 3
+	},
+/obj/structure/fd/samosbor/table_decor9{
+	icon_state = "pens_bin";
+	pixel_y = -3;
+	pixel_x = 11
+	},
+/obj/structure/fd/placeholder,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
 "Sf" = (
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 8
@@ -11112,12 +13189,43 @@
 	icon_state = "me_gd"
 	},
 /area/nightmare/bar_real)
+"SQ" = (
+/obj/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t2"
+	},
+/area/nightmare/unreal/hospital)
 "SR" = (
 /obj/decal/cleanable/blood,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_gd"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"SS" = (
+/obj/structure/table/rack/samosbor{
+	icon_state = "shelf";
+	pixel_y = 17
+	},
+/obj/structure/table/rack/samosbor{
+	icon_state = "shelf"
+	},
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "info_2";
+	pixel_x = -28;
+	pixel_y = 31
+	},
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "info_3";
+	pixel_x = -29;
+	pixel_y = 9
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t2"
+	},
+/area/nightmare/unreal/hospital)
 "ST" = (
 /obj/floor_decal/spline/plain/black{
 	dir = 4
@@ -11138,6 +13246,11 @@
 "SW" = (
 /turf/simulated/floor/exoplanet/samosbor/ceramic,
 /area/nightmare/unreal/bar_nightmare)
+"SX" = (
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_rh"
+	},
+/area/space)
 "SY" = (
 /obj/decal/cleanable/generic,
 /turf/simulated/floor/exoplanet/samosbor/metal{
@@ -11155,10 +13268,13 @@
 /area/nightmare/unreal/bar_nightmare)
 "Ta" = (
 /obj/decal/cleanable/dirt,
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_ws_start"
+	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "bronze_warning"
 	},
-/area/space)
+/area/nightmare/unreal/hospital)
 "Tc" = (
 /obj/structure/fd/placeholder,
 /obj/structure/fake_zlvl,
@@ -11333,6 +13449,12 @@
 	icon_state = "me_ti_da"
 	},
 /area/nightmare/streets)
+"TQ" = (
+/obj/structure/fd/interactive/door/exterior,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ha_bi"
+	},
+/area/nightmare/unreal/hospital)
 "TS" = (
 /obj/structure/fd/building_stuff{
 	pixel_x = -23;
@@ -11485,7 +13607,7 @@
 	},
 /area/nightmare/bar_real)
 "Uu" = (
-/obj/structure/fd/interactive/door/metal_glass{
+/obj/structure/fd/interactive/door/fancy{
 	locked = 1
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
@@ -11529,6 +13651,11 @@
 	opacity = 0
 	},
 /turf/simulated/floor/exoplanet/samosbor/ceramic,
+/area/nightmare/unreal/hospital)
+"UB" = (
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_5"
+	},
 /area/nightmare/unreal/hospital)
 "UG" = (
 /obj/floor_decal/spline/fancy/black{
@@ -11574,6 +13701,14 @@
 	icon_state = "gd"
 	},
 /area/nightmare/unreal)
+"UN" = (
+/obj/structure/fd/interactive/door/fancy{
+	locked = 1
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
+/area/nightmare/unreal/hospital)
 "UQ" = (
 /obj/structure/fd/samosbor/machinery2{
 	icon_state = "clock_wall";
@@ -11602,6 +13737,28 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_gd_bi"
+	},
+/area/nightmare/unreal/hospital)
+"Vb" = (
+/obj/structure/storage/chest{
+	pixel_y = 10;
+	pixel_x = 4
+	},
+/obj/structure/fd/samosbor/table_decor9{
+	icon_state = "clock";
+	pixel_x = 4;
+	pixel_y = 20
+	},
+/obj/structure/fd/samosbor/table_decor9{
+	icon_state = "globe_earth";
+	pixel_y = 21;
+	pixel_x = -3;
+	interactive = 1;
+	desc_special_show = 1;
+	desc_special = "Миниатюрная реплика Луны."
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
 	},
 /area/nightmare/unreal/hospital)
 "Vc" = (
@@ -11786,6 +13943,16 @@
 	icon_state = "me_ti_da"
 	},
 /area/nightmare/unreal)
+"VD" = (
+/obj/floor_decal/corner/black/half,
+/obj/structure/fd/samosbor/dark_signs1{
+	icon_state = "bed";
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "apartments"
+	},
+/area/nightmare/unreal/hospital)
 "VE" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/samosbor/dark_signs1{
@@ -11862,6 +14029,14 @@
 	icon_state = "wood_common"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"VS" = (
+/obj/structure/fd/topdown_walls/concrete{
+	icon_state = "co_9"
+	},
+/turf/simulated/floor/exoplanet/samosbor/plating{
+	icon_state = "plating"
+	},
+/area/nightmare/unreal/hospital)
 "VT" = (
 /obj/structure/fd/topdown_walls/concrete{
 	icon_state = "co_ge_dr_4"
@@ -12035,6 +14210,14 @@
 	icon_state = "me_ti_da_t4"
 	},
 /area/nightmare/bar_real)
+"Wv" = (
+/obj/structure/fd/topdown_walls/concrete{
+	icon_state = "co_3"
+	},
+/turf/simulated/floor/exoplanet/samosbor/plating{
+	icon_state = "plating"
+	},
+/area/nightmare/unreal/hospital)
 "Ww" = (
 /obj/floor_decal/spline/plain/black{
 	dir = 6
@@ -12043,6 +14226,20 @@
 	icon_state = "wood_fancy"
 	},
 /area/nightmare/bar_real)
+"Wx" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "bed_h";
+	pixel_y = -2
+	},
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "bed_h";
+	pixel_y = 8
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t2"
+	},
+/area/nightmare/unreal/hospital/ward1)
 "Wy" = (
 /obj/decal/cleanable/generic,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
@@ -12232,6 +14429,34 @@
 	},
 /turf/simulated/floor/exoplanet/samosbor/ceramic,
 /area/nightmare/unreal/hospital)
+"Xi" = (
+/obj/structure/fd/samosbor/dark_signs2{
+	icon_state = "wanderer";
+	pixel_x = -28;
+	pixel_y = 14
+	},
+/obj/decal/cleanable/dirt,
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_steel_r_2"
+	},
+/obj/structure/hygiene/sink/modern{
+	dir = 4;
+	pixel_y = -7;
+	pixel_x = -4
+	},
+/obj/structure/fd/samosbor/table_decor3{
+	icon_state = "coldsauce";
+	pixel_y = 17;
+	pixel_x = 8
+	},
+/obj/structure/fd/samosbor/table_decor3{
+	icon_state = "enzyme_empty";
+	pixel_y = 13
+	},
+/turf/simulated/floor/exoplanet/samosbor/wood{
+	icon_state = "wood_log"
+	},
+/area/nightmare/unreal/hospital)
 "Xl" = (
 /obj/structure/fd/samosbor/machinery2{
 	icon_state = "vhs";
@@ -12269,7 +14494,8 @@
 	pixel_y = 12;
 	pixel_x = 15;
 	light_range = 3;
-	light_color = "#800b0b"
+	light_color = "#800b0b";
+	density = 0
 	},
 /obj/structure/fd/junk{
 	icon_state = "1,4";
@@ -12285,6 +14511,32 @@
 	icon_state = "ca_da_7"
 	},
 /area/nightmare/bar_real)
+"Xr" = (
+/obj/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "bed_roller_blue";
+	pixel_y = 24;
+	pixel_x = 14;
+	layer = 4.09
+	},
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "bed_roller_blue";
+	pixel_y = 13;
+	pixel_x = -12;
+	layer = 4.10
+	},
+/obj/structure/fd/samosbor/furniture1{
+	icon_state = "bed_roller_blue";
+	pixel_y = 0;
+	layer = 4.11
+	},
+/obj/structure/fd/placeholder,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
+/area/nightmare/unreal/hospital)
 "Xu" = (
 /obj/structure/fd/topdown_walls/concrete{
 	icon_state = "co_me_6"
@@ -12355,6 +14607,10 @@
 	layer = 4.10;
 	pixel_y = 18;
 	pixel_x = 27
+	},
+/obj/structure/fd/interactive/note/nightmare/tutorial{
+	pixel_x = 3;
+	pixel_y = -9
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_gy_t2"
@@ -12543,6 +14799,11 @@
 	icon_state = "stairs_1"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"Yx" = (
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy_t2"
+	},
+/area/nightmare/unreal/hospital)
 "Yy" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/samosbor/table_decor12{
@@ -12560,6 +14821,11 @@
 	icon_state = "wood_fancy"
 	},
 /area/nightmare/unreal/bar_nightmare)
+"YB" = (
+/turf/simulated/floor/exoplanet/samosbor/wood{
+	icon_state = "wood_log"
+	},
+/area/nightmare/unreal/hospital)
 "YC" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
@@ -12680,6 +14946,12 @@
 	icon_state = "plating"
 	},
 /area/nightmare/unreal/hospital)
+"Zb" = (
+/obj/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/exoplanet/samosbor/wood{
+	icon_state = "wood_fancy"
+	},
+/area/nightmare/unreal/hospital)
 "Zd" = (
 /obj/structure/fd/topdown_walls/concrete{
 	icon_state = "co_me_13"
@@ -12764,6 +15036,21 @@
 	icon_state = "security_bi"
 	},
 /area/nightmare/bar_real)
+"Zu" = (
+/obj/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_steel_r_3"
+	},
+/obj/structure/fd/samosbor/machinery2{
+	icon_state = "tv_wall";
+	pixel_x = -30
+	},
+/turf/simulated/floor/exoplanet/samosbor/wood{
+	icon_state = "wood_fancy"
+	},
+/area/nightmare/unreal/hospital)
 "Zw" = (
 /turf/unsimulated/wall{
 	color = "black"
@@ -13445,30 +15732,30 @@ UR
 UR
 UR
 UR
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
+Kz
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+zD
 UR
 UR
 BR
@@ -13597,30 +15884,30 @@ UR
 UR
 UR
 UR
-yT
-xq
-iN
-oy
-QG
-aY
-aY
-aY
-uz
+el
+cG
+bv
+Qj
+vi
+gh
+gh
+kW
+cj
 eP
-pG
+Vv
 eH
-Pc
-Pc
-Pc
+wC
+bi
+Mp
 QG
-uz
+cj
 qU
-pG
+kY
 uz
-uz
-aY
-BZ
-yT
+cj
+gU
+Pn
+el
 UR
 UR
 BR
@@ -13749,30 +16036,30 @@ UR
 UR
 UR
 UR
-yT
+el
 Ta
-Pc
+PZ
 GL
-nA
+hU
 hd
-DJ
+Va
 EJ
-uY
-DJ
-qU
-pG
-oy
-Pc
-pG
-FZ
-DJ
-DJ
-ag
-ag
-hd
-DJ
-oQ
-yT
+Il
+Va
+eo
+lP
+Qj
+PZ
+ec
+pR
+Va
+Va
+hF
+ye
+dD
+Va
+hO
+el
 UR
 UR
 BR
@@ -13901,30 +16188,30 @@ UR
 UR
 UR
 UR
-yT
+el
 xq
-Pc
-pP
-in
-VM
-VM
-VM
-FU
-FU
-pG
-pG
-pG
-oy
-Pc
-cT
-FU
-FU
-FU
+PZ
+Ty
+Lz
+BN
+BN
+BN
+gQ
+zx
+OR
+Vv
+dN
+Lv
+bT
+HJ
+gQ
+gQ
+gQ
 vr
-FU
-FU
-zC
-yT
+Se
+gQ
+hD
+el
 UR
 UR
 BR
@@ -14046,37 +16333,37 @@ UR
 UR
 UR
 UR
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-oC
-aY
-BZ
 Xu
 dO
 dO
 dO
 dO
 dO
-iW
-oC
-aY
-eH
-Xu
-yT
-yT
-yT
-yT
-yT
-yT
-UR
-yT
+dO
+YZ
+zD
+Gr
+gh
+xC
+Kz
+Ne
+Ne
+Ne
+Ne
+Ne
+zD
+xJ
+sy
+ZQ
+Kz
+Ne
+PG
+Ne
+Ne
+Ne
+MX
+TQ
+el
 UR
 UR
 BR
@@ -14198,37 +16485,37 @@ UR
 UR
 UR
 UR
-yT
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-yT
-nA
-GC
-pP
 Yt
-UR
-UR
-UR
-UR
-UR
+SX
+iG
+SX
+Kj
+SX
+iG
+SX
 OV
 nA
 GC
-oQ
-Yt
-yT
-yT
-UR
-UR
-UR
-UR
-UR
-yT
+pP
+el
+nF
+Lr
+Pb
+gG
+SS
+pO
+Jk
+Kh
+Pa
+el
+gP
+el
+QZ
+gN
+yB
+xT
+xx
+el
 UR
 UR
 BR
@@ -14350,37 +16637,37 @@ UR
 UR
 UR
 UR
+Yt
 yT
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
+GC
+sX
+mT
+uy
+GC
+xK
+sD
 nA
 DJ
 WX
-Yt
-UR
-UR
-UR
-UR
-UR
-UR
-nA
-GC
+el
+sa
+im
+PR
+sO
+yx
+UN
+qa
+Kh
 Nr
-Yt
-yT
-yT
-UR
-UR
-UR
-UR
-UR
-yT
+el
+gP
+el
+QJ
+gN
+BX
+oE
+fj
+el
 UR
 UR
 BR
@@ -14502,37 +16789,37 @@ UR
 UR
 UR
 UR
+Yt
+xK
+GC
+ej
+Gd
+jF
 yT
-UR
-UR
-UR
-UR
-UR
-UR
-UR
 yT
+WV
 pP
 ag
 WX
-Yt
-UR
-UR
-UR
-UR
-UR
-Sd
-hU
+KD
+MX
+ek
+Ji
+lm
+Sp
+zD
+IT
 GF
-um
+In
 by
 zD
-yT
-yT
-yT
-yT
-UR
-UR
-yT
+KD
+Ne
+Ne
+MX
+gd
+Ra
+el
 UR
 UR
 BR
@@ -14654,37 +16941,37 @@ UR
 UR
 UR
 UR
+Yt
+xK
+GC
+cB
+kN
+uy
 yT
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-yT
+xK
+Yt
 pP
 uY
 oQ
-Yt
-UR
-UR
-UR
-UR
-UR
 el
-hU
-Il
+jG
+AK
+Xr
+nZ
+rA
+pO
+gE
+uD
 um
 tf
 el
-yT
-UR
-UR
-UR
-UR
-UR
-yT
+el
+QI
+qv
+Jw
+mh
+fj
+el
 UR
 UR
 BR
@@ -14806,37 +17093,37 @@ UR
 UR
 UR
 UR
+Yt
+SX
+iG
+SX
+Kj
 yT
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-yT
+iG
+SX
+Yt
 FZ
 pP
 oQ
-Yt
-UR
-UR
-UR
-UR
-UR
 el
-hU
-Kh
+JE
+Yx
+mM
+Gq
+zO
+qB
+fF
+QP
 um
 fR
 el
-yT
-UR
-UR
-UR
-UR
-UR
-yT
+el
+Oa
+QI
+nU
+HO
+vA
+el
 UR
 UR
 BR
@@ -14958,37 +17245,37 @@ UR
 UR
 UR
 UR
-yT
-yT
-yT
-UR
-UR
-UR
-yT
-yT
-yT
+oa
+dO
+iW
+sQ
+sQ
+sQ
+PU
+dO
+ah
 nA
 GC
 oQ
-Yt
-UR
-UR
-UR
-UR
-UR
-el
+KD
+MX
+qF
+yR
+yR
+Sp
+MX
 LV
 Va
 um
-hO
+Ta
 el
-yT
-yT
-yT
-yT
-yT
-yT
-yT
+by
+Ne
+Ne
+Ne
+Ne
+Ne
+hv
 UR
 UR
 BR
@@ -15112,35 +17399,35 @@ UR
 UR
 UR
 UR
+Yt
 yT
-UR
-UR
-UR
-UR
-UR
 yT
+yT
+yT
+yT
+OV
 in
 VM
 bf
-Yt
-UR
-UR
-UR
-UR
-UR
 el
+Ej
+Kp
+aP
+uI
+we
+xa
 HJ
 BN
 gq
-tf
+Rv
 el
-yT
-yT
-yT
-yT
-yT
-yT
-yT
+gP
+gP
+gP
+gP
+gP
+gP
+el
 UR
 UR
 BR
@@ -15264,35 +17551,35 @@ UR
 UR
 UR
 UR
+Yt
 yT
-UR
-UR
-UR
-UR
-UR
-UR
+yT
+yT
+yT
+yT
+yT
 Pc
 iN
 oy
-Yt
-UR
-UR
-UR
-UR
-UR
 el
-Qj
+EU
+HX
+sO
+zl
+Ps
+Sd
+qZ
 bv
 XB
 Kz
 DU
-yT
-yT
-yT
-yT
-yT
-yT
-yT
+gP
+gP
+gP
+gP
+gP
+gP
+el
 UR
 UR
 BR
@@ -15416,35 +17703,35 @@ UR
 UR
 UR
 UR
+Yt
 yT
-UR
-UR
-UR
-UR
-UR
 yT
+yT
+yT
+yT
+WV
 oC
 MF
 od
-Yt
-UR
-UR
-UR
-UR
-UR
-pO
-vi
+KD
+MX
+QL
+Ji
+an
+Sp
+DU
+Al
 cj
 jI
 el
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
+gP
+gP
+gP
+gP
+gP
+gP
+gP
+el
 UR
 UR
 BR
@@ -15568,35 +17855,35 @@ UR
 UR
 UR
 UR
-yT
-yT
-yT
-yT
-yT
-yT
-yT
+oa
+dO
+dO
+dO
+dO
+dO
+ah
 nA
 GC
 Cc
-Yt
-UR
-UR
-UR
-UR
-UR
-xs
+el
+Vb
+SQ
+pV
+AK
+Fr
+UN
 Zq
 Kh
 PF
 KD
-dO
-dO
-dO
-dO
-dO
-dO
-dO
-iW
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+hv
 UR
 UR
 BR
@@ -15726,29 +18013,29 @@ UR
 UR
 UR
 UR
-yT
+Yt
 pG
 pP
 pP
-Yt
-UR
-UR
-UR
-UR
-UR
+el
+JU
+uC
+bV
+Fs
+hs
 Sd
-hU
+VD
 Ty
 fE
 pO
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-Yt
+OS
+mZ
+Xi
+Zu
+Lg
+ru
+Cq
+el
 UR
 UR
 BR
@@ -15876,31 +18163,31 @@ UR
 UR
 UR
 UR
-AO
-ro
-yT
+Og
+ss
+Yt
 pP
 pP
 pP
-hK
-dO
-dO
-dO
-dO
-dO
+KD
+Ne
+Ne
+Ne
+Ne
+Ne
 hv
-LV
+Pz
 fS
 Tk
-xs
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-Yt
+bn
+GM
+JT
+YB
+OB
+fK
+EM
+UB
+el
 UR
 UR
 BR
@@ -16028,31 +18315,31 @@ UR
 UR
 UR
 UR
-AO
-ro
-yT
+Og
+ss
+Yt
 wp
 pG
 oQ
-Yt
-UR
-UR
-UR
-UR
-UR
+el
+gP
+gP
+gP
+gP
+gP
 el
 oS
 fS
 iI
 Sd
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-Yt
+hI
+JT
+uv
+Fc
+wK
+BS
+Qr
+el
 UR
 UR
 BR
@@ -16180,9 +18467,9 @@ UR
 UR
 UR
 AO
-AO
-ro
-yT
+Og
+ss
+OV
 pP
 GC
 WX
@@ -16197,14 +18484,14 @@ TS
 zG
 iK
 el
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-Yt
+dz
+YB
+CE
+lx
+wK
+dc
+CA
+el
 UR
 UR
 BR
@@ -16332,8 +18619,8 @@ UR
 UR
 UR
 AO
-AO
-fC
+Og
+Ea
 fg
 nA
 GC
@@ -16349,14 +18636,14 @@ ce
 zh
 OD
 el
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-Yt
+bC
+ul
+nh
+AT
+Zb
+eq
+kr
+el
 UR
 UR
 BR
@@ -16482,10 +18769,10 @@ UR
 UR
 UR
 UR
+EX
 AO
-AO
-AO
-AO
+Og
+Og
 fC
 fg
 FU
@@ -16634,11 +18921,11 @@ UR
 UR
 UR
 UR
+EX
 AO
-AO
-AO
-AO
-AO
+Og
+Og
+Og
 ro
 Pc
 Pc
@@ -16786,11 +19073,11 @@ UR
 UR
 UR
 UR
+EX
 AO
-AO
-AO
-AO
-AO
+Og
+Og
+Og
 jK
 ud
 Pc
@@ -16804,7 +19091,7 @@ zo
 tH
 PZ
 pf
-hU
+cT
 dD
 Kk
 AY
@@ -16940,9 +19227,9 @@ UR
 UR
 UR
 AO
-AO
-AO
-AO
+Og
+Og
+Og
 ro
 Pc
 pP
@@ -17092,7 +19379,7 @@ UR
 UR
 UR
 UR
-AO
+Og
 me
 Gi
 sR
@@ -17104,7 +19391,7 @@ Wm
 Wp
 nR
 fp
-Zd
+dJ
 tT
 Vv
 DD
@@ -17244,9 +19531,9 @@ UR
 UR
 UR
 UR
-AO
-ro
-yT
+Og
+ss
+WV
 nA
 DJ
 WX
@@ -17255,7 +19542,7 @@ pp
 hx
 de
 Vp
-Sl
+Wx
 kM
 Vv
 RU
@@ -17396,9 +19683,9 @@ UR
 UR
 UR
 UR
-AO
-ro
-yT
+Og
+ss
+Yt
 pP
 pG
 WX
@@ -17549,8 +19836,8 @@ UR
 UR
 UR
 UR
-ro
-yT
+ss
+Yt
 wp
 ag
 oQ
@@ -17702,7 +19989,7 @@ UR
 UR
 UR
 UR
-yT
+Yt
 wp
 MP
 pP
@@ -17854,7 +20141,7 @@ UR
 UR
 UR
 UR
-yT
+Yt
 Gj
 Fn
 pP
@@ -17997,6 +20284,7 @@ yT
 yT
 yT
 yT
+UR
 yT
 yT
 yT
@@ -18005,8 +20293,7 @@ yT
 yT
 yT
 yT
-yT
-yT
+ls
 jZ
 bX
 jZ
@@ -18034,74 +20321,74 @@ el
 BR
 UR
 BR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
 "}
 (35,1,1) = {"
 UR
@@ -18159,7 +20446,7 @@ UR
 UR
 UR
 jZ
-ao
+xz
 ao
 ao
 OV
@@ -18170,7 +20457,7 @@ UR
 el
 PD
 TE
-BN
+Rt
 jq
 KD
 fv
@@ -18800,7 +21087,7 @@ Nc
 sf
 nB
 FF
-fz
+oP
 fz
 sN
 Rl
@@ -19837,7 +22124,7 @@ wp
 DJ
 pP
 ag
-ag
+cm
 DJ
 SY
 fE
@@ -20730,43 +23017,43 @@ UR
 UR
 UR
 UR
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+Ou
+Wv
+Wv
+Wv
+Wv
+Wv
+yv
 UR
 UR
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
 BR
 UR
 BR
@@ -20882,8 +23169,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -20912,13 +23197,15 @@ UR
 UR
 UR
 UR
-yT
+nn
+oE
+fj
+gN
+gN
+ir
+nn
 UR
 UR
-UR
-UR
-UR
-yT
 BR
 UR
 BR
@@ -21034,8 +23321,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -21064,13 +23349,15 @@ UR
 UR
 yT
 UR
-yT
+nn
+uS
+uS
+gN
+gN
+Bk
+nn
 UR
 UR
-UR
-UR
-UR
-yT
 BR
 UR
 BR
@@ -21186,8 +23473,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -21216,13 +23501,15 @@ UR
 UR
 UR
 UR
-yT
+LM
+FL
+FL
+xG
+Ou
+Wv
+Dq
 UR
 UR
-yT
-yT
-yT
-yT
 BR
 UR
 BR
@@ -21338,8 +23625,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -21368,13 +23653,15 @@ UR
 UR
 UR
 UR
+gP
+tm
+mh
+pi
+nn
+gP
+nn
 UR
 UR
-UR
-UR
-yT
-yT
-yT
 BR
 UR
 BR
@@ -21490,8 +23777,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -21520,13 +23805,15 @@ yT
 UR
 UR
 UR
-yT
+oq
+oE
+pi
+uS
+nn
+gP
+nn
 UR
 UR
-UR
-yT
-yT
-yT
 BR
 UR
 BR
@@ -21642,8 +23929,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -21672,13 +23957,15 @@ yT
 UR
 UR
 UR
-yT
-yT
-yT
-yT
-yT
-yT
-yT
+FN
+Wv
+Wv
+Wv
+wd
+Wv
+VS
+UR
+UR
 BR
 UR
 BR
@@ -21794,8 +24081,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -21825,6 +24110,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -21946,8 +24233,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -21977,6 +24262,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -22076,8 +24363,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 yT
 yT
@@ -22129,6 +24414,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -22228,8 +24515,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -22281,6 +24566,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -22380,8 +24667,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -22433,6 +24718,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -22527,8 +24814,6 @@ UR
 UR
 BR
 UR
-UR
-UR
 yT
 yT
 yT
@@ -22585,6 +24870,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -22679,8 +24966,6 @@ UR
 UR
 BR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -22737,6 +25022,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -22831,8 +25118,6 @@ UR
 UR
 BR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -22889,6 +25174,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -22983,8 +25270,6 @@ UR
 UR
 BR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -23041,6 +25326,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -23135,8 +25422,6 @@ UR
 UR
 BR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -23193,6 +25478,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -23287,8 +25574,6 @@ UR
 UR
 BR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -23345,6 +25630,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -23439,8 +25726,6 @@ UR
 UR
 BR
 UR
-UR
-UR
 yT
 yT
 yT
@@ -23497,6 +25782,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -23597,8 +25884,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -23649,6 +25934,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -23749,8 +26036,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -23801,6 +26086,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -23901,8 +26188,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -23953,6 +26238,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -24053,8 +26340,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -24105,6 +26390,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -24114,74 +26401,74 @@ UR
 BR
 UR
 BR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
-UR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
 "}
 (75,1,1) = {"
 UR
@@ -24205,8 +26492,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -24263,77 +26548,79 @@ UR
 UR
 UR
 UR
-BR
+UR
 UR
 BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
-BR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 "}
 (76,1,1) = {"
 UR
@@ -24357,8 +26644,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -24409,6 +26694,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -24509,8 +26796,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -24561,6 +26846,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -24661,8 +26948,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -24713,6 +26998,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -24813,8 +27100,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -24865,6 +27150,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -24965,8 +27252,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -25017,6 +27302,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -25117,8 +27404,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -25169,6 +27454,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -25269,8 +27556,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -25321,6 +27606,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -25421,8 +27708,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 yT
 yT
@@ -25473,6 +27758,8 @@ yT
 yT
 yT
 yT
+UR
+UR
 UR
 UR
 UR
@@ -25600,8 +27887,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -25625,6 +27910,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -25752,8 +28039,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -25777,6 +28062,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -25904,8 +28191,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 UR
 UR
@@ -25929,6 +28214,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -26056,8 +28343,6 @@ UR
 UR
 UR
 UR
-UR
-UR
 yT
 yT
 yT
@@ -26081,6 +28366,8 @@ UR
 UR
 UR
 yT
+UR
+UR
 UR
 UR
 UR
@@ -26208,31 +28495,31 @@ UR
 UR
 UR
 UR
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
+yT
 UR
 UR
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
-yT
 UR
 UR
 UR

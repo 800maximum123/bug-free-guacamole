@@ -203,7 +203,7 @@
 // Gasmask overlay stuff
 
 /obj/item/clothing/mask/gas
-	var/gasmaskoverlay = FALSE
+	var/gasmaskoverlay = TRUE //аймин, минусы будут?
 
 /obj/item/clothing/mask/gas/equipped(mob/user, slot)
 	. = ..()

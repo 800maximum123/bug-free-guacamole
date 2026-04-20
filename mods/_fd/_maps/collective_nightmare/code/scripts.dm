@@ -20,15 +20,17 @@
 	name = "there is nothing"
 	icon = 'mods/_fd/fd_utilities/icons/newsource.dmi'
 	icon_state = "landmark"
+	var/chapter_id = "chapter_one"
 	invisibility = 101
 	anchored = TRUE
-	density = TRUE
+	density = FALSE
 
-/proc/teleport_to_nightmare()
-	var/area/target_area = locate(/area/nightmare/unreal/bar_nightmare)
+/proc/nightmare_teleport(desired_chapter = "fuck")
 	var/list/tp_points = list()
 
-	for(var/obj/structure/fd/nightmare_telepoint/T in target_area)
+	for(var/obj/structure/fd/nightmare_telepoint/T in world)
+		if(T.chapter_id != desired_chapter)
+			continue
 		tp_points += T
 
 	for(var/mob/living/carbon/human/H in world)
@@ -84,7 +86,7 @@
 	actions = list(
 		ADD_SCREEN(/falling_asleep) = 4 SECONDS,
 		CALL_GLOB(nightmare_screentext1) = 24 SECONDS,
-		CALL_GLOB(teleport_to_nightmare) = 6 SECONDS,
+		CALL_GLOB(nightmare_teleport, "chapter_one") = 6 SECONDS,
 		REMOVE_SCREEN(/falling_asleep, 0 SECONDS),
 		ADD_SCREEN(/awakening) = 8 SECONDS,
 		PLAY_SOUND(sound('sound/ambience/ominous2.ogg', volume = 20)),
