@@ -5,8 +5,8 @@
 	flags = MAP_HAS_BRANCH | MAP_HAS_RANK
 	config_path = "config/gaia_config.txt"
 
-	admin_levels  = list(4)
-	escape_levels = list(5)
+	admin_levels  = list(5)
+	escape_levels = list(1, 2, 3, 4, 5)
 	empty_levels  = list(10)
 	accessible_z_levels = list(1, 2, 3, 4, 5, 6, 7, 8, 9) // 1-2 - SCG Camp, 3-4 ICCG Camp, 5 - Admin, 6 - Transit, 7-9 - Area of Operations
 	station_levels = list(1, 2, 3, 4, 7, 8, 9) // 1-2 - SCG Camp, 3-4 ICCG Camp, 7-9 - Area of Operations
@@ -15,8 +15,8 @@
 	base_floor_area = /area/gaia
 	base_floor_type = /turf/simulated/floor/exoplanet/barren
 
-	allowed_spawns = list("SCG Barracks", "SCG Officer Barracks", "ICCG Barracks", "ICCG Officer Barracks")
-	default_spawn = "SCG Barracks"
+	allowed_spawns = list("Area of Operations", "SCG Barracks", "SCG Officer Barracks", "ICCG Barracks", "ICCG Officer Barracks")
+	default_spawn = "Area of Operations"
 
 	station_name  = "\improper Boxcutters Platoon"
 	station_short = "\improper Boxcutters"

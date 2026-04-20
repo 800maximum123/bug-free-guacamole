@@ -2827,9 +2827,6 @@
 /obj/structure/moss{
 	icon_state = "moss"
 	},
-/obj/landmark{
-	name = "JoinLateSCGPrison"
-	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/gaia/scg/security/prison)
 "sD" = (
@@ -3649,13 +3646,6 @@
 /obj/paint/palegreengray,
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck/bravo)
-"wW" = (
-/obj/landmark{
-	name = "JoinLateSCGPrison"
-	},
-/obj/structure/mattress,
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/gaia/scg/security/prison)
 "wY" = (
 /obj/paint/hull,
 /obj/paint_stripe/gunmetal,
@@ -4646,9 +4636,6 @@
 	},
 /area/gaia/scg)
 "Ed" = (
-/obj/landmark{
-	name = "JoinLateSCGPrison"
-	},
 /obj/structure/mattress,
 /turf/simulated/floor/plating,
 /area/gaia/scg/security/prison)
@@ -6355,9 +6342,6 @@
 /area/gaia/scg)
 "Pa" = (
 /obj/random/mre/dessert,
-/obj/landmark{
-	name = "JoinLateSCGPrison"
-	},
 /obj/structure/mattress,
 /turf/simulated/floor/plating,
 /area/gaia/scg/security/prison)
@@ -6380,12 +6364,6 @@
 "Pp" = (
 /turf/simulated/floor/plating,
 /area/gaia/scg/barracks/bathroom)
-"Pr" = (
-/obj/landmark{
-	name = "JoinLateSCGPrison"
-	},
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/gaia/scg/security/prison)
 "Ps" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 6
@@ -26135,7 +26113,7 @@ YV
 FX
 Rt
 Zs
-wW
+Jh
 dO
 ps
 Nt
@@ -26343,7 +26321,7 @@ YV
 FX
 Rt
 Zs
-Pr
+Ei
 nA
 ps
 Cp
@@ -26551,7 +26529,7 @@ sG
 LH
 Rt
 Zs
-Pr
+Ei
 Jh
 ps
 ch
@@ -27175,7 +27153,7 @@ YV
 FX
 kh
 Zs
-Pr
+Ei
 Ei
 ps
 eA

@@ -21,7 +21,7 @@
 	welcome_text = "GILGAMESH SHINGES BRIGHTER THEN SOL! GAIA IS OURS!"
 	victory_text = "The partisans been crushed! The ICCG retains control!"
 	loss_text = "ICCG has failed to maintain control!"
-	victory_feedback_tag = "win - rev heads killed"
+	victory_feedback_tag = "win - partisan heads killed"
 	loss_feedback_tag = "loss - partisans completed objectives"
 	antaghud_indicator = "hud_loyal"
 	flags = 0
@@ -95,7 +95,6 @@
 
 /datum/antagonist/revolutionary/spawn_uplink(mob/living/carbon/human/revolutionary_mob)
 	setup_uplink_source(revolutionary_mob, DEFAULT_TELECRYSTAL_AMOUNT)
-// GAIAN PARTISAN GAMEMODE END
 
 #undef ALL_JOBS
 /*

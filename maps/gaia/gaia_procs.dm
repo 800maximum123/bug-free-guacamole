@@ -13,7 +13,7 @@
 				if(isghost(Player))
 					var/mob/observer/ghost/O = Player
 					if(!O.started_as_observer)
-						to_chat(Player, SPAN_COLOR("red", "<b>You did not survive the operation. War never changes...</b>"))
+						to_chat(Player, SPAN_COLOR("red", "<b>War never changes...</b>"))
 				else
 					to_chat(Player, SPAN_COLOR("red", "<b>You did not survive the operation. War never changes...</b>"))
 
@@ -150,5 +150,6 @@
 
 	for(var/mob/living/Player in listeners)
 		Player.client.screen += visuals
-		playsound(Player, sound, 50, 0, -1)
+//		playsound(Player, sound, 50, FALSE, -1, 100)
+		sound_to(Player, sound)
 	visuals.set_text("[choice]: [msg]", colored, time = 20 SECONDS)

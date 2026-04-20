@@ -12,7 +12,7 @@
 	..()
 
 	if(!launch_msg_shown)
-		launch_msg_shown = 1
+		launch_msg_shown = TRUE
 		var/area_name = istype(destination, /obj/shuttle_landmark) ? "[destination]" : "Area of Operations"
 		var/time_text = stationtime2text()
 		var/date_text = GLOB.using_map.game_year ? "Galactic Year [GLOB.using_map.game_year]" : "Unknown Date"
@@ -24,7 +24,8 @@
 			for(var/mob/M in A)
 				if(M.client)
 					M.client.screen += visuals
-					playsound(M, sting, 70, 0, -1)
+//					playsound(M, sting, 70, 0, -1)
+					sound_to(M, sting)
 
 		visuals.set_text("[area_name]", COLOR_WHITE, time = 15 SECONDS)
 		sleep(3)
