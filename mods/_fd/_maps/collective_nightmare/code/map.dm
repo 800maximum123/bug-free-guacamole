@@ -10,7 +10,7 @@
 
 /datum/interactive_note/nightmare/fred
 	name = "Подонок Фред"
-	note_info = {"Сижу я тут уже прилично. День или около того. Стены настолько плотные, что ребята даже не в курсе, что этот мудак меня здесь запер. И на вряд ли они найдут меня в ближайшее время. \
+	note_info = {"Сижу я тут уже прилично. День или около того. Стены настолько плотные, что ребята даже не в курсе, что этот мудак меня здесь запер. И вряд ли они найдут меня в ближайшее время. \
 				Стоило мне только запреметить неладное, как от меня тут же избавились. Наверняка, он уже придумал 100 и 1 причину моего исчезновения. Забавно, не думал что закончу вот так. Из всех возможных вариантов. \
 				Кто бы вам что не доказывал, прошу, запомните, <span style="color: yellow;">ФРЕД ИЗ 102-Й - ВАМ НЕ ДРУГ</span>. \
 				Он готов продать что угодно и кого угодно, лишь бы выжить самому. Неудивительно, что поймал я его именно на краже еды. У него вся <span style="color: yellow;">комната</span> завалена ею! А ведь, если бы не эта сука, \
@@ -59,6 +59,23 @@
 /obj/structure/fd/interactive/note/nightmare/fred
 	name = "Тем, кто остался"
 	attached_text = list(/datum/interactive_note/nightmare/fred,/datum/interactive_note/nightmare/fred_ending)
+
+/datum/interactive_note/nightmare/tutorial1
+	name = "Пособие по выживанию - страница 1"
+	note_info = {"Если вы надеялись получить здесь ответы на ваши вопросы - соболезную. Никто не знает что это за место. Но существует оно достаточно долго для того, чтобы \
+				задеть несколько разных эпох и групп людей. Никто из них, включая меня и ребят что оказались здесь совсем недавно - не смогли обнаружить что-либо, что хотя бы \
+				отдалённо, но можно назвать \"<span style="color: red;">выходом</span>\". Многие смирились с фактом его отсутствия. Вам придётся тоже. Если вы хотите прожить в этом кошмаре больше дня, \
+				вам придётся приучить себя к нескольким вещам..."}
+
+/datum/interactive_note/nightmare/tutorial2
+	name = "Пособие по выживанию - страница 2"
+	note_info = {"Это место - всё время меняется. Даже псевдо-безопасные локации как та, в которой вы сейчас находитесь - со временем разлагаются, пропуская внутрь существ и феномены, сталкиваться с которыми вы НЕ хотите. \
+				У этого места - есть свои стражи. <span style="color: red;">Тени</span> людей, сгинувших здесь. Они любят тишину. Тишину полюбите и вы. Пока вы не тревожите их - они не тревожат вас. Если тишина всё же была нарушена - яркая вспышка <span style="color: green;">фотоаппарата</span> \
+				должна снова их успокоить. Если вы чувствуете, что ваша рука - больше не ваша - воспользуйтесь <span style="color: green;">консолью</span>. Она <span style="color: green;">сохраняет</span> ваш прежний образ на дискетах внутри."}
+
+/obj/structure/fd/interactive/note/nightmare/tutorial
+	name = "Обязательно прочтите!"
+	attached_text = list(/datum/interactive_note/nightmare/tutorial1,/datum/interactive_note/nightmare/tutorial2)
 
 /obj/effect/reality_tear
 	name = "trap"
@@ -126,6 +143,7 @@
 		return TRUE
 	if(istype(I, /obj/item/crowbar))
 		interactive = FALSE
+		user.overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_generic")
 		user.hide_hint(src)
 		playsound(user, 'mods/_fd/_maps/collective_nightmare/sounds/woodhit.ogg', 100)
 		throw_planks()
@@ -312,7 +330,7 @@
 	user.currently_interacting = null
 
 	user.clear_fullscreen("smallshade")
-	user.overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_generic", pixel_x = 5)
+	user.overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_generic")
 	for(var/obj/screen/T in user.client.screen)
 		if(istype(T, /obj/screen/interactive_door))
 			user.client.screen -= T

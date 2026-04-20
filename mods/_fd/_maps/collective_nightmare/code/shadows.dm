@@ -494,17 +494,21 @@
 	stunned = 999999
 	overlays += image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static", dir = dir)
 
-	maptext_height = 16
-	maptext_width = 96
-	maptext_x = 4
-	maptext_y = 2
+	if(max_connection_to_reality <= 1)
+		teleop = ghostize(1)
+	else
 
-	maptext = STYLE_SMALLFONTS_OUTLINE("[make_shadow_after]", 7, COLOR_WHITE, COLOR_BLACK)
+		maptext_height = 16
+		maptext_width = 96
+		maptext_x = 4
+		maptext_y = 2
 
-	var/mob/living/simple_animal/connected_player_soul/player_soul = new /mob/living/simple_animal/connected_player_soul(get_turf(src))
-	teleop = player_soul
+		maptext = STYLE_SMALLFONTS_OUTLINE("[make_shadow_after]", 7, COLOR_WHITE, COLOR_BLACK)
 
-	player_soul.ckey = ckey
+		var/mob/living/simple_animal/connected_player_soul/player_soul = new /mob/living/simple_animal/connected_player_soul(get_turf(src))
+		teleop = player_soul
+
+		player_soul.ckey = ckey
 
 /mob/living/carbon/human/proc/glitch_out()
 	set waitfor = FALSE
@@ -653,6 +657,8 @@
 	area_placement.safe_zone = TRUE
 
 	connected_screen = new /obj/effect/savepoint_screen(get_turf(src))
+	connected_screen.pixel_x = pixel_x
+	connected_screen.pixel_y = pixel_y
 	START_PROCESSING(SSobj,src)
 
 /obj/structure/fd/interactive/savepoint_record/Process()

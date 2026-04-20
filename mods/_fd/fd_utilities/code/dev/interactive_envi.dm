@@ -115,7 +115,7 @@
 
 /datum/keybinding/living/fd/hide_interaction/down(client/user)
 	var/mob/living/M = user.mob
-	M.overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_generic", pixel_x = 5)
+	M.overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_generic")
 
 	if(istype(M.currently_interacting, /obj/structure/fd/interactive/note))
 		var/obj/structure/fd/interactive/note/N = M.currently_interacting
