@@ -63,6 +63,10 @@
 			delete_me = 1
 			return
 		//GAIA
+		if("JoinLateAreaOfOperations")
+			GLOB.latejoin_area_of_operations += loc
+			delete_me = 1
+			return
 		if("JoinLateSCGBarracks")
 			GLOB.latejoin_barracks_scg += loc
 			delete_me = 1
@@ -71,24 +75,12 @@
 			GLOB.latejoin_officer_barracks_scg += loc
 			delete_me = 1
 			return
-		if("JoinLateSCGPrison")
-			GLOB.latejoin_prison_scg += loc
-			delete_me = 1
-			return
 		if("JoinLateICCGBarracks")
 			GLOB.latejoin_barracks_iccg += loc
 			delete_me = 1
 			return
 		if("JoinLateICCGOfficerBarracks")
 			GLOB.latejoin_officer_barracks_iccg += loc
-			delete_me = 1
-			return
-		if("JoinLateICCGPrison")
-			GLOB.latejoin_prison_iccg += loc
-			delete_me = 1
-			return
-		if("JoinLateAreaOfOperations")
-			GLOB.latejoin_area_of_operations += loc
 			delete_me = 1
 			return
 
