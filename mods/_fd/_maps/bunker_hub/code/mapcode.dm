@@ -229,6 +229,31 @@
 /area/bunker/lower/lab/bslab
 	name = "Bunker - Hydroponics Lab"
 
+
+/area/bunker/lower/lab/gateway
+	name = "Bunker - Gateway Research Wing"
+
+
+/obj/item/paper/bunker/gateway/warning
+	name = "Gateway Notes"
+	info = {"
+			<center><b><span style='color: green'>ТРЕНИРОВАЧНЫЙ ПОЛИГОН 9-B</span></b></center>
+			<center><b><span style='color: red'><small>ТОЛЬКО ДЛЯ ПЕРСОНАЛА УРОВНЯ 4 И ВЫШЕ</small></span></b></center>
+			<i>Последниее открытие GATEWAY повредило энергосистему ПОЛИГОНА, что повлекло за собой досрочный вывод из ВРа испытуемых. По решению главного исследователя и главного инженера ПОЛИГОНА все последующие открытия GATEWAY только по разрешению >3 учёных не ниже 4 уровня.</i>
+			<br>
+			<small>Через 3 суток Терра должна привести необходимые детали для замены, примите их на взлётной площадке.</small>
+			"}
+
+/obj/item/paper/bunker/gateway/warning2
+	name = "We have a problem"
+	info = {"
+			<i>Проблема оказалась куда глубже чем мы думали. 5-й и 6-й контур от перегрева вывело из строя всю программу запуска с сохранёнными данными, 3 набора предохранителей и поджарил консоль управления. Если и проводить запуск, то только после полной замены всех комплектующих. А если спрашивать лично меня - перевести ворота на Южный Полигон 31-К. Там есть все условия для стабильных запусков ворот. </i>
+			"}
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+
 /obj/structure/fd/wild_crops
 	name = "crop"
 	desc = "Some kind of harvestable crop. You can pull it out with your bare hands!"

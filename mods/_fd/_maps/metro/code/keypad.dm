@@ -46,14 +46,13 @@
 	html += {"<tr>
 		<td><a href='?src=\ref[src];choice=C'>C</a></td>
 		<td><a href='?src=\ref[src];choice=0'>0</a></td>
-		<td><a href='?src=\ref[src];choice=R'>R</a></td>
+		<td><a href='?src=\ref[src];choice=pulse'>E</a></td>
 	</tr></table>"}
 
-	if(keycode == correctcode)
-		html += "<br><a href='?src=\ref[src];choice=pulse'><font color='green'><b>ОТКРЫТЬ / ЗАКРЫТЬ ДВЕРЬ</b></font></a>"
-		html += " | <a href='?src=\ref[src];choice=change_code'>Сменить код</a>"
+//	if(keycode == correctcode)    //Пока что оставлю так
+//		html += "<br><a href='?src=\ref[src];choice=pulse'><font color='green'><b>ОТКРЫТЬ / ЗАКРЫТЬ ДВЕРЬ</b></font></a>"
+//		html += " | <a href='?src=\ref[src];choice=change_code'>Сменить код</a>"
 
-	html += "<br><small>ID двери: <b>[id_tag ? id_tag : "Не привязана"]</b></small>"
 	html += "</div></body></html>"
 
 	var/datum/browser/popup = new(user, "keypad", "Keypad v0.4", 230, 360)
@@ -70,7 +69,7 @@
 	switch(href_list["choice"])
 		if("1","2","3","4","5","6","7","8","9","0")
 			keycode += href_list["choice"]
-		if("C","R")
+		if("C")
 			keycode = ""
 		if("pulse")
 			if(keycode == correctcode)
