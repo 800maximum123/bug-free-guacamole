@@ -77,3 +77,6 @@
 //Третий генератор
 /area/metro/maintain/gen3
 	name = "Third Reserve Generators"
+
+/area/metro/maintain/gen3/falling
+	name = "Shaft"
