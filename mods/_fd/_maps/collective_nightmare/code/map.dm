@@ -1,3 +1,63 @@
+/datum/map_template/ruin/away_site/collective_nightmare
+	name = "Collective Nightmare (Non-Campaign)"
+	id = "awaysite_nightmare"
+	spawn_cost = 2
+	description = "..."
+	prefix = "mods/_fd/_maps/collective_nightmare/map/"
+	suffixes = list("collective_nightmare.dmm")
+	area_usage_test_exempted_root_areas = list(/area/nightmare)
+	apc_test_exempt_areas = list(
+		/area/nightmare = NO_SCRUBBER|NO_VENT|NO_APC
+	)
+
+/singleton/submap_archetype/collective_nightmare
+	descriptor = "Just an old bar."
+	map = "Lunar Bar"
+	crew_jobs = list(/datum/job/submap/collective_nightmare)
+
+/obj/submap_landmark/joinable_submap/collective_nightmare
+	name = "Lunar Bar"
+	archetype = /singleton/submap_archetype/collective_nightmare
+
+/datum/job/submap/collective_nightmare
+	title = "Normal Player"
+	total_positions = -1
+	outfit_type = /singleton/hierarchy/outfit/collective_nightmare
+	create_record = TRUE
+	skill_points = 62
+	no_skill_buffs = TRUE
+	max_skill = list(
+		SKILL_BUREAUCRACY = SKILL_MAX,
+		SKILL_FINANCE = SKILL_MAX,
+		SKILL_EVA = SKILL_MAX,
+		SKILL_MECH = SKILL_MAX,
+		SKILL_PILOT = SKILL_MAX,
+		SKILL_HAULING = SKILL_MAX,
+		SKILL_COMPUTER = SKILL_MAX,
+		SKILL_BOTANY = SKILL_MAX,
+		SKILL_COOKING = SKILL_MAX,
+		SKILL_COMBAT = SKILL_MAX,
+		SKILL_WEAPONS = SKILL_MAX,
+		SKILL_FORENSICS = SKILL_MAX,
+		SKILL_CONSTRUCTION = SKILL_MAX,
+		SKILL_ELECTRICAL = SKILL_MAX,
+		SKILL_ATMOS = SKILL_MAX,
+		SKILL_ENGINES = SKILL_MAX,
+		SKILL_DEVICES = SKILL_MAX,
+		SKILL_SCIENCE = SKILL_MAX,
+		SKILL_MEDICAL = SKILL_MAX,
+		SKILL_ANATOMY = SKILL_MAX,
+		SKILL_CHEMISTRY = SKILL_MAX
+	)
+
+/singleton/hierarchy/outfit/collective_nightmare
+	name = "Default Player Appearance"
+
+	uniform = /obj/item/clothing/under/det/grey
+	shoes = /obj/item/clothing/shoes/laceup
+
+/obj/submap_landmark/spawnpoint/collective_nightmare
+	name = "Normal Player"
 
 /datum/interactive_note/nightmare/keys
 	name = "Новые замки"
@@ -116,6 +176,39 @@
 				Подобное экстренное болтирование эффективно отрезало нас от большей части ресурсов, что располагались в подвальных помещениях, а также части служебных комнат госпиталя уже на верхних ярусах. \
 				Нам приходилось экономить и прежде, но теперь, похоже, сам Бог велел урезать пайки вдвое. Во всяком случае до того момента, пока ситуация не стабилизируется. Казалось бы, только начали привыкать, да? \
 				Никогда нельзя забывать о том, в каком коварном месте мы находимся."}
+
+/datum/interactive_note/nightmare/hospital_gas/reveal_note_to_player(mob/living/user)
+	user.reading = TRUE
+
+	user.overlay_fullscreen("background_note", note_overlay)
+	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
+
+	if(!connected_note.ci)
+		connected_note.ci = new /obj/screen/cancel_interaction()
+
+	connected_note.ci.connected_mob = user
+	user.client.screen += connected_note.ci
+	animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+
+	spawn(0.5 SECONDS)
+
+		var/message = "[note_info]"
+		var/message_name = "[name]"
+
+		var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+		var/obj/screen/novel_message/note_name/nameplate = new /obj/screen/novel_message/note_name()
+		maintext.layer = 5.4
+		nameplate.layer = 5.4
+
+		nameplate.maptext_x = -75
+		nameplate.maptext_y = -15
+		maintext.maptext_x = 0
+		maintext.maptext_y = -300
+
+		user.client.screen += maintext
+		user.client.screen += nameplate
+		maintext.set_text(message, COLOR_WHITE)
+		nameplate.set_text(message_name, COLOR_WHITE)
 
 /obj/structure/fd/interactive/note/nightmare/gas
 	name = "Новые беды"
@@ -488,3 +581,5 @@
 	key_needed = TRUE
 	locked = TRUE
 	door_key = /obj/item/fd/door_key/firstzerofirst
+
+#include "..\map\collective_nightmare.dmm"
