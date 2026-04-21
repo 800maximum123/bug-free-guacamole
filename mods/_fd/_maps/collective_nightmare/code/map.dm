@@ -61,21 +61,74 @@
 	attached_text = list(/datum/interactive_note/nightmare/fred,/datum/interactive_note/nightmare/fred_ending)
 
 /datum/interactive_note/nightmare/tutorial1
-	name = "Пособие по выживанию - страница 1"
+	name = "Пособие по выживанию 1"
 	note_info = {"Если вы надеялись получить здесь ответы на ваши вопросы - соболезную. Никто не знает что это за место. Но существует оно достаточно долго для того, чтобы \
 				задеть несколько разных эпох и групп людей. Никто из них, включая меня и ребят что оказались здесь совсем недавно - не смогли обнаружить что-либо, что хотя бы \
 				отдалённо, но можно назвать \"<span style="color: red;">выходом</span>\". Многие смирились с фактом его отсутствия. Вам придётся тоже. Если вы хотите прожить в этом кошмаре больше дня, \
-				вам придётся приучить себя к нескольким вещам..."}
+				нужно приучить себя к нескольким вещам..."}
 
 /datum/interactive_note/nightmare/tutorial2
-	name = "Пособие по выживанию - страница 2"
+	name = "Пособие по выживанию 2"
 	note_info = {"Это место - всё время меняется. Даже псевдо-безопасные локации как та, в которой вы сейчас находитесь - со временем разлагаются, пропуская внутрь существ и феномены, сталкиваться с которыми вы НЕ хотите. \
 				У этого места - есть свои стражи. <span style="color: red;">Тени</span> людей, сгинувших здесь. Они любят тишину. Тишину полюбите и вы. Пока вы не тревожите их - они не тревожат вас. Если тишина всё же была нарушена - яркая вспышка <span style="color: green;">фотоаппарата</span> \
 				должна снова их успокоить. Если вы чувствуете, что ваша рука - больше не ваша - воспользуйтесь <span style="color: green;">консолью</span>. Она <span style="color: green;">сохраняет</span> ваш прежний образ на дискетах внутри."}
 
+/datum/interactive_note/nightmare/tutorial2/reveal_note_to_player(mob/living/user)
+	user.reading = TRUE
+
+	user.overlay_fullscreen("background_note", note_overlay)
+	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
+
+	if(!connected_note.ci)
+		connected_note.ci = new /obj/screen/cancel_interaction()
+
+	connected_note.ci.connected_mob = user
+	user.client.screen += connected_note.ci
+	animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+
+	spawn(0.5 SECONDS)
+
+		var/message = "[note_info]"
+		var/message_name = "[name]"
+
+		var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+		var/obj/screen/novel_message/note_name/nameplate = new /obj/screen/novel_message/note_name()
+		maintext.layer = 5.4
+		nameplate.layer = 5.4
+
+		nameplate.maptext_x = -75
+		nameplate.maptext_y = -15
+		maintext.maptext_x = 0
+		maintext.maptext_y = -280
+
+		user.client.screen += maintext
+		user.client.screen += nameplate
+		maintext.set_text(message, COLOR_WHITE)
+		nameplate.set_text(message_name, COLOR_WHITE)
+
 /obj/structure/fd/interactive/note/nightmare/tutorial
 	name = "Обязательно прочтите!"
 	attached_text = list(/datum/interactive_note/nightmare/tutorial1,/datum/interactive_note/nightmare/tutorial2)
+
+/datum/interactive_note/nightmare/hospital_gas
+	name = "Утечка"
+	note_info = {"<span style="color: red;">Газ</span> распространялся настолько быстро, что мы едва успели изолировать уже поражённые секции от остальных, ещё относительно пригодных для дыхания. \
+				Подобное экстренное болтирование эффективно отрезало нас от большей части ресурсов, что располагались в подвальных помещениях, а также части служебных комнат госпиталя уже на верхних ярусах. \
+				Нам приходилось экономить и прежде, но теперь, похоже, сам Бог велел урезать пайки вдвое. Во всяком случае до того момента, пока ситуация не стабилизируется. Казалось бы, только начали привыкать, да? \
+				Никогда нельзя забывать о том, в каком коварном месте мы находимся."}
+
+/obj/structure/fd/interactive/note/nightmare/gas
+	name = "Новые беды"
+	attached_text = list(/datum/interactive_note/nightmare/hospital_gas)
+
+/datum/interactive_note/nightmare/fred2
+	name = "Предатель"
+	note_info = {"Противогазы, которые дал нам <span style="color: yellow;">Фред</span> - оказались продырявленными. Жадный мудак хотел от нас избавиться. К его сожалению, я гораздо живучее остальных. \
+				Как только выберусь отсюда, ...... <span style="color: red;">остаток текста перекрывает засохшая кровь</span>."}
+
+/obj/structure/fd/interactive/note/nightmare/fred2
+	name = "Крыса"
+	attached_text = list(/datum/interactive_note/nightmare/fred2)
 
 /obj/effect/reality_tear
 	name = "trap"
@@ -115,8 +168,13 @@
 	name = "Hospital - Nightmare"
 	requires_power = 0
 
-/area/nightmare/unreal/hospital/ward1
-	name = "Hospital (Ward 1, Safe Room) - Nightmare"
+/area/nightmare/unreal/hospital/left_wing
+	name = "Hospital (Left Wing) - Nightmare"
+	requires_power = 1
+
+/area/nightmare/unreal/hospital/left_wing/ward1
+	name = "Hospital (Left Wing, Ward 1) - Nightmare"
+	requires_power = 0
 
 /obj/structure/fd/interactive/barricade
 	name = "barricade"
@@ -143,7 +201,6 @@
 		return TRUE
 	if(istype(I, /obj/item/crowbar))
 		interactive = FALSE
-		user.overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_generic")
 		user.hide_hint(src)
 		playsound(user, 'mods/_fd/_maps/collective_nightmare/sounds/woodhit.ogg', 100)
 		throw_planks()
