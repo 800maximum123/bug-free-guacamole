@@ -65,7 +65,7 @@
 				Ключи, пока что, есть только у меня, сегодня <span style="color: yellow;">поеду</span> делать слепок. Не забудьте предупредить об этом клиентов. Если они <span style="color: yellow;">закроются внутри</span> - вы не откроете их без меня!"}
 
 /obj/structure/fd/interactive/note/nightmare/keys
-	name = "Для всех"
+	name = "Записка"
 	attached_text = list(/datum/interactive_note/nightmare/keys)
 
 /datum/interactive_note/nightmare/fred
@@ -117,7 +117,7 @@
 				Надеюсь, что для теней двери помехой не являются."}
 
 /obj/structure/fd/interactive/note/nightmare/fred
-	name = "Тем, кто остался"
+	name = "Помятая записка"
 	attached_text = list(/datum/interactive_note/nightmare/fred,/datum/interactive_note/nightmare/fred_ending)
 
 /datum/interactive_note/nightmare/tutorial1
@@ -167,7 +167,7 @@
 		nameplate.set_text(message_name, COLOR_WHITE)
 
 /obj/structure/fd/interactive/note/nightmare/tutorial
-	name = "Обязательно прочтите!"
+	name = "Свора бумаг"
 	attached_text = list(/datum/interactive_note/nightmare/tutorial1,/datum/interactive_note/nightmare/tutorial2)
 
 /datum/interactive_note/nightmare/hospital_gas
@@ -211,7 +211,7 @@
 		nameplate.set_text(message_name, COLOR_WHITE)
 
 /obj/structure/fd/interactive/note/nightmare/gas
-	name = "Новые беды"
+	name = "Записка"
 	attached_text = list(/datum/interactive_note/nightmare/hospital_gas)
 
 /datum/interactive_note/nightmare/fred2
@@ -220,8 +220,146 @@
 				Как только выберусь отсюда, ...... <span style="color: red;">остаток текста перекрывает засохшая кровь</span>."}
 
 /obj/structure/fd/interactive/note/nightmare/fred2
-	name = "Крыса"
+	name = "Записка"
 	attached_text = list(/datum/interactive_note/nightmare/fred2)
+
+/datum/interactive_note/nightmare/morgue_clue
+	name = "Меры предосторожности"
+	note_info = {"В текущем положении дел, я решил переместить большую часть своего оборудования и оставшихся в моём распоряжении припасов в морг. \
+				Учитывая загрязнение нижних уровней - мало кто рискнёт даже попробывать спуститься к нему. А если и решится - такого авантюриста будет ждать специальный механизм. \
+				Простой ребус связанный с <span style="color: yellow;">ячейками морга</span>, решить который в состоянии любой человек, посмотревший на них больше пары секунд. Но зная людей <span style="color: yellow;">Фреда</span>? \
+				Для них он окажется камнем преткновения."}
+
+/obj/structure/fd/interactive/note/nightmare/morgue_clue
+	name = "Помятая записка"
+	attached_text = list(/datum/interactive_note/nightmare/morgue_clue)
+
+/datum/interactive_note/nightmare/morgue_letter1
+	name = "Запись 1"
+	note_info = {"Снаружи теперь небезопасно. Одно дело - тени, яды, корни...совсем другое - люди с оружием, забывшие где они находятся. Стоило ожидать, что со временем, как только до нас \
+				доберутся голод и паранойя - слабые духом пойдут путём насилия и мародёрства, обдирая тех, кто в свою очередь слаб телом. Не успели мы и глазом моргнуть, как Фред, человек которому многие были готовы доверить свои жизни - \
+				обратился тираном, которого заботило лишь собственное благополучие. Аня, Кейн, Дэйв...попытались вразумить его, но без поддержки гарнизона, который очень удачно слёг в подвале неделю назад - им очень быстро указали на их место. \
+				В могиле. Вероятнее всего, прямо сейчас я единственный разумный человек оставшийся в этом кошмаре."}
+
+/datum/interactive_note/nightmare/morgue_letter1/reveal_note_to_player(mob/living/user)
+	user.reading = TRUE
+
+	user.overlay_fullscreen("background_note", note_overlay)
+	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
+
+	if(!connected_note.ci)
+		connected_note.ci = new /obj/screen/cancel_interaction()
+
+	connected_note.ci.connected_mob = user
+	user.client.screen += connected_note.ci
+	animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+
+	spawn(0.5 SECONDS)
+
+		var/message = "[note_info]"
+		var/message_name = "[name]"
+
+		var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+		var/obj/screen/novel_message/note_name/nameplate = new /obj/screen/novel_message/note_name()
+		maintext.layer = 5.4
+		nameplate.layer = 5.4
+
+		nameplate.maptext_x = -75
+		nameplate.maptext_y = -15
+		maintext.maptext_x = 0
+		maintext.maptext_y = -300
+
+		user.client.screen += maintext
+		user.client.screen += nameplate
+		maintext.set_text(message, COLOR_WHITE)
+		nameplate.set_text(message_name, COLOR_WHITE)
+
+/datum/interactive_note/nightmare/morgue_letter2_1
+	name = "Запись 2-1"
+	note_info = {"Неделя минула практически незаметно. Я смог собрать некоторую информацию извне, пока люди Фреда занимались разграблением очередной группы новоприбывших. В этот раз - это были НЕ люди. \
+				Ну, во всяком случае, далеко не все из них являлись таковыми. Мне удалось поговорить, и даже тщательно осмотреть существо, что выглядело как прямоходящий, биологически-точный динозавр с внешним оперением, но значительно...более компактной и хрупкой комплекцией тела. \
+				К моему удивлению, она, как позднее представилась - Аррари - вполне складно говорила на неком диалекте Восточно-Европейских языков, чего было достаточно для того чтобы мы могли понять друг друга. \
+				Взамен на то, что я смогу вывести её из госпиталя живой - она рассказала мне о месте, из которого она и её друзья прибыли. Судя по всему, их...КОСМИЧЕСКИЙ корабль оказался в эпицентре некого синего шторма. \
+				Реактор, который они использовали для перемещения на большие расстояния в кратчайшие сроки, резко срезонировал с частотами этого явления, и выбросил их в это место. Как называют его там - перепутье."}
+
+/datum/interactive_note/nightmare/morgue_letter2_1/reveal_note_to_player(mob/living/user)
+	user.reading = TRUE
+
+	user.overlay_fullscreen("background_note", note_overlay)
+	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
+
+	if(!connected_note.ci)
+		connected_note.ci = new /obj/screen/cancel_interaction()
+
+	connected_note.ci.connected_mob = user
+	user.client.screen += connected_note.ci
+	animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+
+	spawn(0.5 SECONDS)
+
+		var/message = "[note_info]"
+		var/message_name = "[name]"
+
+		var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+		var/obj/screen/novel_message/note_name/nameplate = new /obj/screen/novel_message/note_name()
+		maintext.layer = 5.4
+		nameplate.layer = 5.4
+
+		nameplate.maptext_x = -75
+		nameplate.maptext_y = -15
+		maintext.maptext_x = 0
+		maintext.maptext_y = -340
+
+		user.client.screen += maintext
+		user.client.screen += nameplate
+		maintext.set_text(message, COLOR_WHITE)
+		nameplate.set_text(message_name, COLOR_WHITE)
+
+/datum/interactive_note/nightmare/morgue_letter2_2
+	name = "Запись 2-2"
+	note_info = {"Это подтверждает мою теорию. Прямо сейчас, мы находимся ВНЕ времени. Это место не существует в каком-то конкретном моменте, оно существует ВСЕГДА. И если в том отрезке, откуда прибыла Аррари - ему дали название - значит должны были найтись и люди, что смогли выбраться \
+				из него и задокументировать это. Будь то до, или после нас. Пускай моя маленькая подруга и сказала, что не знает больше, даже той информации которая есть у меня теперь достаточно для того чтобы сказать - выход действительно есть. \
+				Нужно лишь найти к нему ключ. К сожалению, я не смогу сделать это сам. Пока что. Они обесточили лифт после недавней попытки побега одного из заключённых. Единственный альтернативный путь - вентиляции и технически тоннели. Места слишком опасные и узкие для человека. \
+				Но этот мелкий зверёк, пускай и знает меня всего несколько часов - пообещал вернуться. За мной и за другими. Не знаю, почему, но я верю ей. До тех пор, я буду продолжать писать. Изучать феномен и его законы. \
+				Возможно, после меня это место найдёт другая, такая же заблудшая душа. И если повезёт - мои записи спасут ей жизнь."}
+
+/datum/interactive_note/nightmare/morgue_letter2_2/reveal_note_to_player(mob/living/user)
+	user.reading = TRUE
+
+	user.overlay_fullscreen("background_note", note_overlay)
+	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
+
+	if(!connected_note.ci)
+		connected_note.ci = new /obj/screen/cancel_interaction()
+
+	connected_note.ci.connected_mob = user
+	user.client.screen += connected_note.ci
+	animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+
+	spawn(0.5 SECONDS)
+
+		var/message = "[note_info]"
+		var/message_name = "[name]"
+
+		var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+		var/obj/screen/novel_message/note_name/nameplate = new /obj/screen/novel_message/note_name()
+		maintext.layer = 5.4
+		nameplate.layer = 5.4
+
+		nameplate.maptext_x = -75
+		nameplate.maptext_y = -15
+		maintext.maptext_x = 0
+		maintext.maptext_y = -340
+
+		user.client.screen += maintext
+		user.client.screen += nameplate
+		maintext.set_text(message, COLOR_WHITE)
+		nameplate.set_text(message_name, COLOR_WHITE)
+
+/obj/structure/fd/interactive/note/nightmare/morgue_book
+	name = "Дневник"
+	icon_state = "mrakiizar_book_closed"
+	attached_text = list(/datum/interactive_note/nightmare/morgue_letter1,/datum/interactive_note/nightmare/morgue_letter2_1,/datum/interactive_note/nightmare/morgue_letter2_2)
 
 /obj/effect/reality_tear
 	name = "trap"
@@ -268,6 +406,14 @@
 /area/nightmare/unreal/hospital/left_wing/ward1
 	name = "Hospital (Left Wing, Ward 1) - Nightmare"
 	requires_power = 0
+
+/area/nightmare/unreal/hospital/lower_level
+	name = "Hospital (Tunnels) - Nightmare"
+	requires_power = 1
+	unbreathable = TRUE
+
+/area/nightmare/unreal/hospital/lower_level/autopsy_room
+	name = "Hospital (Autopsy Room) - Nightmare"
 
 /obj/structure/fd/interactive/barricade
 	name = "barricade"
@@ -581,5 +727,110 @@
 	key_needed = TRUE
 	locked = TRUE
 	door_key = /obj/item/fd/door_key/firstzerofirst
+
+/obj/structure/fd/interactive/morgue_body
+	name = "roller"
+	icon = 'mods/_fd/_maps/collective_nightmare/icons/rollerbed.dmi'
+	icon_state = "bigrollerbodyalt_down"
+
+	anchored = FALSE
+	density = TRUE
+	var/corpse_name = "Bob"
+
+	desc_special_show = TRUE
+	desc_special = "На бирке написано имя:"
+
+/obj/structure/fd/interactive/morgue_body/Initialize()
+	. = ..()
+	name = "roller ([corpse_name])"
+	desc_special = "На бирке написано имя: [corpse_name]"
+
+/obj/structure/fd/coffin
+	name = "morgue cell"
+	icon = 'icons/obj/structures/morgue_tray.dmi'
+	icon_state = "morgue2"
+
+	layer = ABOVE_HUMAN_LAYER
+	var/activated = FALSE
+	var/designated_corpse_name = "Bob"
+
+	anchored = TRUE
+	density = FALSE
+
+/obj/structure/fd/coffin/Initialize()
+	. = ..()
+	name = "morgue cell ([designated_corpse_name])"
+
+	for(var/obj/structure/fd/interactive/morgue_body/M in get_turf(src))
+		if(M.corpse_name == designated_corpse_name)
+			activated = TRUE
+			icon_state = "morgue1"
+
+/obj/structure/fd/coffin/Crossed(atom/movable/AM as mob|obj)
+
+	. = ..()
+	if(istype(AM,/mob/living))
+		AM.forceMove(get_turf(get_step(AM.loc, reverse_direction(AM.dir))))
+
+	if(istype(AM,/obj/structure/fd/interactive/morgue_body))
+		var/obj/structure/fd/interactive/morgue_body/M = AM
+
+		if(M.corpse_name == designated_corpse_name)
+			activated = TRUE
+			icon_state = "morgue1"
+
+/obj/structure/fd/coffin/Uncrossed(atom/movable/AM as mob|obj)
+	. = ..()
+
+	if(istype(AM,/obj/structure/fd/interactive/morgue_body))
+		var/obj/structure/fd/interactive/morgue_body/M = AM
+
+		if(M.corpse_name == designated_corpse_name && activated)
+			activated = FALSE
+			icon_state = "morgue2"
+
+/obj/structure/fd/interactive/door/nightmare/morgue_puzzle
+	opacity = FALSE
+	icon_state = "metal_train"
+	doorsound = 'mods/_fd/_maps/collective_nightmare/sounds/metal_door_open.wav'
+
+	locked = TRUE
+	var/list/obj/structure/fd/coffin/coffins = list()
+
+/obj/structure/fd/interactive/door/nightmare/morgue_puzzle/Initialize()
+	. = ..()
+
+	for(var/obj/structure/fd/coffin/C in orange(20,src))
+		coffins += C
+
+	START_PROCESSING(SSobj,src)
+
+/obj/structure/fd/interactive/door/nightmare/morgue_puzzle/Process()
+
+	if(locked)
+		var/list/correct_guesses = list()
+
+		for(var/obj/structure/fd/coffin/C in coffins)
+			if(C.activated)
+				correct_guesses += C
+
+		if(length(correct_guesses) == length(coffins))
+			locked = FALSE
+			playsound(src, 'sound/items/metal_clicking_13.ogg', 100)
+
+	if(!locked)
+		var/list/correct_guesses = list()
+
+		for(var/obj/structure/fd/coffin/C in coffins)
+			if(C.activated)
+				correct_guesses += C
+
+		if(length(correct_guesses) != length(coffins))
+			locked = TRUE
+
+/obj/structure/fd/interactive/door/nightmare/morgue_puzzle/another
+	opacity = TRUE
+	icon_state = "metal"
+	doorsound = 'mods/_fd/_maps/collective_nightmare/sounds/metal_door_open.wav'
 
 #include "..\map\collective_nightmare.dmm"

@@ -136,6 +136,8 @@
 				current_status = "gas_notsofull"
 			if(76 to 100)
 				current_status = "gas_full"
+			else
+				current_status = "gas_full"
 
 		overlays += image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status)
 

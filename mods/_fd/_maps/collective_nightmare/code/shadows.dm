@@ -370,6 +370,7 @@
 	var/uses = 0
 	var/uses_max = 5
 
+	var/can_be_reloaded = TRUE
 	var/not_in_use = TRUE
 
 	maptext_height = 16
@@ -379,27 +380,31 @@
 
 /obj/item/fd/magic_camera/use_tool(obj/item/item, mob/living/user, list/click_params)
 	. = ..()
-	if(istype(item, /obj/item/fd/magic_camera_film))
-		var/obj/item/fd/magic_camera_film/F = item
 
-		if(uses >= uses_max)
+	if(can_be_reloaded)
+		if(istype(item, /obj/item/fd/magic_camera_film))
+			var/obj/item/fd/magic_camera_film/F = item
+
+			if(uses >= uses_max)
+				return FALSE
+
+			if(do_after(user, 2 SECONDS, F, DO_PUBLIC_UNIQUE))
+				user.drop_from_inventory(F)
+				F.forceMove(src)
+				uses += 1
+				playsound(user, 'sound/weapons/guns/interaction/shotgun_instert.ogg', 50)
+				visible_message("[user] вставляет в камеру новый чип.", "Ты вставил в [src] новый чип.")
+				qdel(F)
+				return TRUE
 			return FALSE
-
-		if(do_after(user, 2 SECONDS, F, DO_PUBLIC_UNIQUE))
-			user.drop_from_inventory(F)
-			F.forceMove(src)
-			uses += 1
-			playsound(user, 'sound/weapons/guns/interaction/shotgun_instert.ogg', 50)
-			visible_message("[user] вставляет в камеру новый чип.", "Ты вставил в [src] новый чип.")
-			qdel(F)
-			return TRUE
-		return FALSE
 
 /obj/item/fd/magic_camera/MouseEntered(location, control, params)
 	. = ..()
 
 	if(loc == usr)
 		maptext = STYLE_SMALLFONTS_OUTLINE("[uses]/[uses_max]", 7, COLOR_WHITE, COLOR_BLACK)
+		if(!can_be_reloaded)
+			maptext = STYLE_SMALLFONTS_OUTLINE("⭿/⭿", 7, COLOR_WHITE, COLOR_BLACK)
 
 /obj/item/fd/magic_camera/MouseExited(location, control, params)
 	. = ..()
@@ -410,29 +415,108 @@
 /obj/item/fd/magic_camera/attack_self(mob/user)
 	. = ..()
 
-	if(uses > 0 && not_in_use)
-		not_in_use = FALSE
+	if(can_be_reloaded)
+		if(uses > 0 && not_in_use)
+			not_in_use = FALSE
 
-		playsound(user, 'sound/items/polaroid2.ogg', 50)
-		for(var/obj/structure/fd/shadow_follower/S in view(user))
-			S.flashed()
+			playsound(user, 'sound/items/polaroid2.ogg', 50)
+			for(var/obj/structure/fd/shadow_follower/S in view(user))
+				S.flashed()
 
-		var/list/remove_overlay_later = list()
-		for(var/mob/living/carbon/human/H in view(user))
-			H.overlay_fullscreen("flash",/obj/screen/fullscreen/blurry/camera)
-			remove_overlay_later += H
+			var/list/remove_overlay_later = list()
+			for(var/mob/living/carbon/human/H in view(user))
+				H.overlay_fullscreen("flash",/obj/screen/fullscreen/blurry/camera)
+				remove_overlay_later += H
 
-		sleep(1 SECONDS)
+			sleep(1 SECONDS)
 
-		for(var/mob/living/carbon/human/H in remove_overlay_later)
-			H.clear_fullscreen("flash")
+			for(var/mob/living/carbon/human/H in remove_overlay_later)
+				H.clear_fullscreen("flash")
 
-		uses -= 1
-		not_in_use = TRUE
-		return TRUE
+			uses -= 1
+			not_in_use = TRUE
+			return TRUE
 
-	if(uses <= 0 || !not_in_use)
+		if(uses <= 0 || !not_in_use)
+			return FALSE
+
+	if(!can_be_reloaded)
+		if(not_in_use)
+			not_in_use = FALSE
+
+			playsound(user, 'sound/items/polaroid2.ogg', 50)
+			for(var/obj/structure/fd/shadow_follower/S in view(user))
+				S.flashed()
+
+			var/list/remove_overlay_later = list()
+			for(var/mob/living/carbon/human/H in view(user))
+				H.overlay_fullscreen("flash",/obj/screen/fullscreen/blurry/camera)
+				remove_overlay_later += H
+
+			sleep(1 SECONDS)
+
+			for(var/mob/living/carbon/human/H in remove_overlay_later)
+				H.clear_fullscreen("flash")
+
+			add_filter("unloaded", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_YELLOW))
+			addtimer(new Callback(src, PROC_REF(reset_camera_usage)), 1 MINUTES)
+			return TRUE
+
+		if(!not_in_use)
+			animation_flash_color(src, COLOR_RED)
+			return FALSE
+
+/obj/item/fd/magic_camera/proc/reset_camera_usage()
+	not_in_use = TRUE
+	remove_filter("unloaded")
+
+/obj/item/fd/magic_camera/infinite
+	name = "strange device"
+	desc = "Device with some kind of connection port underneath."
+
+	icon = 'mods/_fd/fd_assets/icons/structures/xenoarchaeology.dmi'
+	icon_state = "anodev_empty"
+
+	w_class = ITEM_SIZE_SMALL
+
+	var/obj/item/fd/ancient_items/bs_shard/powersource
+	can_be_reloaded = FALSE
+
+/obj/item/fd/magic_camera/infinite/attack_self(mob/user)
+	if(!powersource)
+		animation_flash_color(src, COLOR_RED)
 		return FALSE
+
+	. = ..()
+
+/obj/item/fd/magic_camera/infinite/use_tool(obj/item/item, mob/living/user, list/click_params)
+	. = ..()
+
+	if(!can_be_reloaded)
+		if(istype(item, /obj/item/fd/ancient_items/bs_shard))
+			var/obj/item/fd/ancient_items/bs_shard/S = item
+
+			if(powersource)
+				return FALSE
+
+			spawn(0.5 SECONDS)
+				icon_state = "anodev25"
+
+			spawn(1 SECONDS)
+				icon_state = "anodev50"
+
+			spawn(1.5 SECONDS)
+				icon_state = "anodev75"
+
+			if(do_after(user, 2 SECONDS, S, DO_PUBLIC_UNIQUE))
+				user.drop_from_inventory(S)
+				S.forceMove(src)
+				powersource = S
+				playsound(user, 'sound/weapons/guns/interaction/shotgun_instert.ogg', 50)
+				visible_message("[user] вставляет в устройство осколок.", "Ты вставил в [src] блюспейс-осколок.")
+				icon_state = "anodev100"
+				return TRUE
+			return FALSE
 
 /mob/living/carbon/human
 	var/current_connection_to_reality = 3
