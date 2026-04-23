@@ -841,4 +841,35 @@
 	area.unbreathable = TRUE
 	. = ..()
 
+/obj/effect/fakerain
+	name = "rain"
+	desc = "rain"
+	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi'
+	icon_state = "rain"
+	mouse_opacity = FALSE
+	anchored = TRUE
+	layer = 4.12
+
+	var/datum/sound_token/sound_token
+	var/sound_id
+
+	var/emergency_shutoff = FALSE // ЕСЛИ ВДРУГ БУДЕТ ЛАГАТЬ - МОЖНО РАЗОМ ВЫРУБИТЬ ЗВУКИ ДОЖДЯ У ВСЕХ ЭФФЕКТОВ НА КАРТЕ
+
+/obj/effect/fakerain/Initialize()
+	. = ..()
+	START_PROCESSING(SSobj,src)
+
+/obj/effect/fakerain/Process()
+	update_sound()
+
+/obj/effect/fakerain/proc/update_sound()
+	if(!sound_id)
+		sound_id = "[type]_[sequential_id(/obj/effect/fakerain)]"
+	if(!emergency_shutoff)
+		if(!sound_token)
+			sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id, 'mods/_fd/_maps/collective_nightmare/sounds/rain.ogg', volume = 50, range = 1)
+		sound_token.SetVolume(50)
+	else if(sound_token)
+		QDEL_NULL(sound_token)
+
 #include "..\map\collective_nightmare.dmm"

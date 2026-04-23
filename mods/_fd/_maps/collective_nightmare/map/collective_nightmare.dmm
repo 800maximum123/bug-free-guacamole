@@ -1,6 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
 /obj/decal/cleanable/dirt,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_12"
 	},
@@ -112,6 +113,7 @@
 /area/nightmare/unreal/hospital/lower_level)
 "ak" = (
 /obj/decal/cleanable/dirt,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_6"
 	},
@@ -119,6 +121,7 @@
 "al" = (
 /obj/decal/cleanable/dirt,
 /obj/submap_landmark/spawnpoint/collective_nightmare,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "am" = (
@@ -128,6 +131,7 @@
 	dir = 8;
 	light_color = "#4aadc3"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "an" = (
@@ -441,6 +445,7 @@
 	},
 /area/nightmare/unreal/hospital/lower_level)
 "aT" = (
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_3"
 	},
@@ -874,6 +879,7 @@
 	pixel_x = 12;
 	pixel_y = 5
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_12"
 	},
@@ -968,6 +974,8 @@
 	icon_state = "bench_ws_end";
 	pixel_y = 12
 	},
+/obj/submap_landmark/spawnpoint/collective_nightmare,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "co_br"
 	},
@@ -1016,6 +1024,7 @@
 /area/nightmare/unreal/hospital/lower_level)
 "ch" = (
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_14"
 	},
@@ -1211,6 +1220,7 @@
 /area/nightmare/unreal/hospital/lower_level/autopsy_room)
 "cA" = (
 /obj/decal/cleanable/generic,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "cB" = (
@@ -1324,6 +1334,7 @@
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/streets)
 "cO" = (
@@ -1701,7 +1712,6 @@
 	layer = 2.24;
 	dir = 4
 	},
-/obj/submap_landmark/spawnpoint/collective_nightmare,
 /turf/simulated/floor/exoplanet/samosbor/wood{
 	icon_state = "wood_fancy"
 	},
@@ -1791,6 +1801,7 @@
 	light_power = 0.8;
 	light_range = 3
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "dC" = (
@@ -1801,6 +1812,7 @@
 	layer = 4.09;
 	dir = 1
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "co_br"
 	},
@@ -2047,6 +2059,7 @@
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/unreal)
 "eb" = (
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_12"
 	},
@@ -2362,6 +2375,7 @@
 /area/nightmare/unreal/hospital)
 "eK" = (
 /obj/decal/cleanable/dirt,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_2"
 	},
@@ -2414,6 +2428,7 @@
 	dir = 4;
 	anchored = 1
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "eP" = (
@@ -2846,6 +2861,7 @@
 	pixel_x = 2;
 	pixel_y = -2
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/streets)
 "fK" = (
@@ -2983,6 +2999,7 @@
 /area/nightmare/unreal/hospital)
 "fY" = (
 /obj/decal/cleanable/cobweb2,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "ga" = (
@@ -3057,6 +3074,19 @@
 	icon_state = "apartments"
 	},
 /area/nightmare/unreal/hospital/left_wing)
+"gi" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_ws_start"
+	},
+/obj/structure/fd/samosbor/flora{
+	icon_state = "gplant_1";
+	pixel_x = -18;
+	pixel_y = 1
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "bronze_floor"
+	},
+/area/nightmare/unreal/hospital)
 "gj" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -3112,6 +3142,7 @@
 /area/nightmare/unreal/hospital/lower_level)
 "go" = (
 /obj/decal/cleanable/dirt,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "gp" = (
@@ -3182,6 +3213,7 @@
 	layer = 4
 	},
 /obj/decal/cleanable/generic,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "gu" = (
@@ -3522,6 +3554,7 @@
 /obj/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_3"
 	},
@@ -3557,6 +3590,13 @@
 	icon_state = "me_pi_4"
 	},
 /area/nightmare/unreal/hospital/lower_level)
+"hk" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/submap_landmark/spawnpoint/collective_nightmare,
+/obj/effect/fakerain,
+/turf/simulated/floor/exoplanet/samosbor/concrete,
+/area/nightmare/streets)
 "hm" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/interactive/basic_power/fuse_box{
@@ -3657,6 +3697,7 @@
 	light_power = 0.8;
 	light_range = 3
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "hv" = (
@@ -3875,10 +3916,12 @@
 	pixel_x = 18;
 	pixel_y = 8
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "hQ" = (
 /obj/submap_landmark/spawnpoint/collective_nightmare,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da"
 	},
@@ -3898,6 +3941,7 @@
 	dir = 4;
 	light_color = "#4aadc3"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_9"
 	},
@@ -4315,6 +4359,7 @@
 /area/nightmare/unreal/bar_nightmare)
 "iP" = (
 /obj/decal/cleanable/dirt,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_13"
 	},
@@ -4520,6 +4565,7 @@
 	pixel_x = -13;
 	pixel_y = -19
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/streets)
 "jm" = (
@@ -4535,6 +4581,7 @@
 	pixel_y = -3
 	},
 /obj/structure/fd/placeholder,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "jo" = (
@@ -4545,6 +4592,15 @@
 	icon_state = "plating"
 	},
 /area/nightmare/unreal/hospital/lower_level)
+"jp" = (
+/obj/structure/fd/topdown_walls/concrete{
+	icon_state = "co_ge_dr"
+	},
+/obj/effect/fakerain,
+/turf/simulated/floor/exoplanet/samosbor/plating{
+	icon_state = "plating"
+	},
+/area/nightmare/bar_real)
 "jq" = (
 /obj/floor_decal/corner/black{
 	dir = 1
@@ -4578,6 +4634,7 @@
 	icon_state = "2,2"
 	},
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "ju" = (
@@ -4649,6 +4706,7 @@
 	icon_state = "catwalk_black";
 	layer = 4.09
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "jA" = (
@@ -4749,6 +4807,7 @@
 	dir = 4;
 	pixel_x = 28
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_3"
 	},
@@ -4871,6 +4930,7 @@
 	pixel_y = -14;
 	icon_state = "2,3"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "jZ" = (
@@ -5245,7 +5305,6 @@
 "kJ" = (
 /obj/decal/cleanable/flour,
 /obj/decal/cleanable/fruit_smudge,
-/obj/submap_landmark/spawnpoint/collective_nightmare,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_gd_bi"
 	},
@@ -5352,6 +5411,7 @@
 	icon_state = "warningcorner"
 	},
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_3"
 	},
@@ -5613,6 +5673,7 @@
 	color = "#4aadc3";
 	light_color = "#4aadc3"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "lu" = (
@@ -6055,6 +6116,7 @@
 	dir = 4;
 	icon_state = "warningcorner"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da"
 	},
@@ -6255,6 +6317,7 @@
 /area/nightmare/unreal/hospital)
 "mz" = (
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "co_br"
 	},
@@ -6268,6 +6331,7 @@
 	power_of = 0.3;
 	range_of = 2
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "mC" = (
@@ -6459,6 +6523,7 @@
 "mV" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_12"
 	},
@@ -6648,6 +6713,7 @@
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "co_br"
 	},
@@ -6939,6 +7005,7 @@
 	},
 /area/nightmare/unreal)
 "of" = (
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "oh" = (
@@ -6985,6 +7052,7 @@
 	color = "#4aadc3";
 	light_color = "#4aadc3"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "co_br"
 	},
@@ -7148,6 +7216,7 @@
 	light_color = "#4aadc3"
 	},
 /obj/decal/cleanable/generic,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "co_br"
 	},
@@ -7498,6 +7567,7 @@
 	icon_state = "warningcorner"
 	},
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da"
 	},
@@ -8005,6 +8075,7 @@
 	dir = 1;
 	light_color = "#4aadc3"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "co_br"
 	},
@@ -8211,6 +8282,7 @@
 /area/nightmare/unreal/hospital/lower_level)
 "qE" = (
 /obj/submap_landmark/spawnpoint/collective_nightmare,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "qF" = (
@@ -8238,6 +8310,7 @@
 /obj/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da"
 	},
@@ -8392,6 +8465,7 @@
 /obj/structure/fd/junk{
 	icon_state = "2,2"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "rc" = (
@@ -8412,6 +8486,7 @@
 /obj/structure/fd/junk{
 	icon_state = "0,4"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "re" = (
@@ -8793,6 +8868,7 @@
 /area/nightmare/unreal/hospital/lower_level)
 "rW" = (
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/streets)
 "rX" = (
@@ -8871,6 +8947,7 @@
 	pixel_x = 22;
 	pixel_y = 10
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "sf" = (
@@ -8982,6 +9059,7 @@
 	pixel_y = 6;
 	layer = 4.09
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "ss" = (
@@ -9065,6 +9143,7 @@
 	},
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/streets)
 "sD" = (
@@ -9474,6 +9553,7 @@
 	pixel_y = 11
 	},
 /obj/decal/cleanable/dirt,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/streets)
 "tF" = (
@@ -9819,6 +9899,7 @@
 	pixel_y = -3
 	},
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "ut" = (
@@ -9835,6 +9916,19 @@
 	},
 /turf/simulated/floor/exoplanet/samosbor/ceramic{
 	icon_state = "ce_pa"
+	},
+/area/nightmare/unreal/hospital)
+"uu" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_ws_end"
+	},
+/obj/structure/fd/samosbor/table_decor9{
+	icon_state = "pens_bin";
+	pixel_y = -5;
+	pixel_x = 11
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "bronze_floor"
 	},
 /area/nightmare/unreal/hospital)
 "uv" = (
@@ -10032,6 +10126,7 @@
 	light_power = 0.8;
 	light_range = 3
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "uN" = (
@@ -10043,6 +10138,7 @@
 	},
 /area/nightmare/unreal/hospital/lower_level)
 "uO" = (
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ve_bi"
 	},
@@ -10127,6 +10223,7 @@
 /obj/structure/fd/topdown_grills{
 	icon_state = "grate_bars"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "vb" = (
@@ -10180,6 +10277,7 @@
 	dir = 4;
 	light_color = "#4aadc3"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "vi" = (
@@ -10195,6 +10293,7 @@
 	},
 /area/nightmare/unreal/hospital/left_wing)
 "vk" = (
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_14"
 	},
@@ -10800,6 +10899,7 @@
 "wo" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_12"
 	},
@@ -11253,6 +11353,7 @@
 	layer = 4.09;
 	pixel_y = 32
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "co_br"
 	},
@@ -11281,12 +11382,14 @@
 	pixel_y = -2;
 	name = "Barrel"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "xk" = (
 /obj/structure/bed/grim/bad{
 	pixel_y = 16
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "xl" = (
@@ -11525,6 +11628,7 @@
 /obj/floor_decal/spline/fancy/black{
 	dir = 10
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da"
 	},
@@ -11831,6 +11935,7 @@
 /area/nightmare/unreal/bar_nightmare)
 "ym" = (
 /obj/structure/fd/interactive/door/agrate,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/plating{
 	icon_state = "plating_vent"
 	},
@@ -11956,6 +12061,7 @@
 	pixel_y = 13;
 	pixel_x = -31
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da"
 	},
@@ -11969,6 +12075,7 @@
 /obj/structure/fd/junk{
 	icon_state = "2,1"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "yB" = (
@@ -12042,6 +12149,7 @@
 "yM" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da"
 	},
@@ -12310,6 +12418,7 @@
 "zr" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/streets)
 "zt" = (
@@ -12476,6 +12585,7 @@
 /area/nightmare/unreal/hospital/left_wing)
 "zJ" = (
 /obj/decal/cleanable/dirt,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/streets)
 "zM" = (
@@ -12611,6 +12721,7 @@
 	pixel_x = -34
 	},
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "Aa" = (
@@ -12656,6 +12767,7 @@
 /area/nightmare/unreal/hospital)
 "Af" = (
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_3"
 	},
@@ -12824,6 +12936,7 @@
 	dir = 1
 	},
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da"
 	},
@@ -12859,6 +12972,7 @@
 	},
 /area/nightmare/unreal/hospital)
 "AA" = (
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/streets)
 "AB" = (
@@ -12941,6 +13055,7 @@
 /obj/floor_decal/spline/fancy/black{
 	dir = 8
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da"
 	},
@@ -12987,6 +13102,7 @@
 "AN" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "AO" = (
@@ -13013,6 +13129,7 @@
 	color = "#ceb734";
 	pixel_y = 11
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/streets)
 "AR" = (
@@ -13043,6 +13160,7 @@
 	layer = 4.09;
 	dir = 1
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "co_br"
 	},
@@ -13393,6 +13511,7 @@
 	},
 /area/nightmare/unreal/bar_nightmare)
 "BD" = (
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_9"
 	},
@@ -13630,6 +13749,7 @@
 /area/nightmare/unreal/hospital/left_wing)
 "BY" = (
 /obj/decal/cleanable/dirt,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da"
 	},
@@ -14042,7 +14162,9 @@
 	},
 /area/nightmare/streets)
 "CO" = (
-/obj/structure/fd/interactive/door/grate,
+/obj/structure/fd/interactive/door/grate{
+	needs_power = 1
+	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ha_bi"
 	},
@@ -14091,6 +14213,7 @@
 	color = "#4aadc3";
 	light_color = "#4aadc3"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "CX" = (
@@ -14376,6 +14499,7 @@
 	pixel_x = 3;
 	pixel_y = 15
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_12"
 	},
@@ -14398,6 +14522,7 @@
 	pixel_x = -56;
 	pixel_y = 30
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "co_br"
 	},
@@ -14663,6 +14788,7 @@
 /area/nightmare/unreal/hospital/left_wing/ward1)
 "Ec" = (
 /obj/submap_landmark/spawnpoint/collective_nightmare,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "co_br"
 	},
@@ -15214,6 +15340,7 @@
 	},
 /area/nightmare/unreal/hospital/left_wing)
 "Fe" = (
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "co_br"
 	},
@@ -15265,6 +15392,7 @@
 /area/nightmare/unreal/bar_nightmare)
 "Fm" = (
 /obj/decal/cleanable/dirt,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "co_br"
 	},
@@ -15345,6 +15473,7 @@
 	color_of = "#59aaa3";
 	pixel_y = 6
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "Fu" = (
@@ -15616,6 +15745,14 @@
 	icon_state = "apartments"
 	},
 /area/nightmare/unreal/hospital/left_wing)
+"Ga" = (
+/obj/machinery/vending/soda{
+	pixel_x = 6
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "bronze_warning"
+	},
+/area/nightmare/unreal/hospital)
 "Gb" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/bed/grim/bad{
@@ -15773,6 +15910,7 @@
 	pixel_x = -34
 	},
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "Gu" = (
@@ -15826,6 +15964,7 @@
 	icon_state = "gangtag19";
 	pixel_x = 25
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "GC" = (
@@ -15988,6 +16127,7 @@
 	pixel_y = 32
 	},
 /obj/decal/cleanable/dirt,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "co_br"
 	},
@@ -16141,6 +16281,7 @@
 /area/nightmare/unreal)
 "Hj" = (
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_9"
 	},
@@ -16235,6 +16376,14 @@
 	icon_state = "gl"
 	},
 /area/nightmare/unreal/hospital/lower_level)
+"Hw" = (
+/obj/machinery/vending/coffee{
+	pixel_x = -6
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "bronze_warning"
+	},
+/area/nightmare/unreal/hospital)
 "Hz" = (
 /obj/structure/fd/topdown_grills,
 /turf/simulated/floor/exoplanet/samosbor/metal{
@@ -16566,6 +16715,7 @@
 	mouse_opacity = 0;
 	alpha = 200
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "Ie" = (
@@ -16726,6 +16876,7 @@
 "Is" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/streets)
 "Iv" = (
@@ -16740,6 +16891,7 @@
 /obj/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da"
 	},
@@ -16788,6 +16940,14 @@
 	icon_state = "apartments"
 	},
 /area/nightmare/unreal/hospital)
+"IE" = (
+/obj/decal/cleanable/dirt,
+/obj/submap_landmark/spawnpoint/collective_nightmare,
+/obj/effect/fakerain,
+/turf/simulated/floor/exoplanet/samosbor/concrete{
+	icon_state = "co_br"
+	},
+/area/nightmare/streets)
 "IF" = (
 /obj/structure/platform/strata/metal{
 	dir = 4
@@ -16815,6 +16975,7 @@
 	icon_state = "catwalk_black";
 	layer = 4.09
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "II" = (
@@ -17083,6 +17244,7 @@
 	light_color = "#4aadc3"
 	},
 /obj/decal/cleanable/dirt,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "co_br"
 	},
@@ -17100,6 +17262,7 @@
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/streets)
 "Jt" = (
@@ -17668,6 +17831,7 @@
 	pixel_x = -34
 	},
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "Kx" = (
@@ -17734,6 +17898,7 @@
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "KF" = (
@@ -18377,6 +18542,7 @@
 	color = "#4aadc3";
 	light_color = "#4aadc3"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "LS" = (
@@ -18448,6 +18614,7 @@
 "LX" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/generic,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "co_br"
 	},
@@ -18467,6 +18634,7 @@
 	light_power = 0.8;
 	light_range = 3
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "Mb" = (
@@ -18508,12 +18676,14 @@
 	dir = 4;
 	light_color = "#4aadc3"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "Mh" = (
 /obj/structure/fd/junk{
 	icon_state = "1,2"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "Mi" = (
@@ -18670,6 +18840,7 @@
 /obj/structure/fd/junk{
 	icon_state = "0,1"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "Mw" = (
@@ -18837,6 +19008,7 @@
 /area/nightmare/unreal/hospital/lower_level)
 "MM" = (
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da"
 	},
@@ -18851,6 +19023,7 @@
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "MP" = (
@@ -19104,6 +19277,7 @@
 	layer = 4.09;
 	pixel_y = 32
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "co_br"
 	},
@@ -19312,6 +19486,7 @@
 	icon_state = "danger_shock_alt";
 	pixel_x = 25
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_3"
 	},
@@ -19492,6 +19667,7 @@
 	dir = 1;
 	icon_state = "warningcorner"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_3"
 	},
@@ -19941,6 +20117,7 @@
 	dir = 1;
 	light_color = "#4aadc3"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "co_br"
 	},
@@ -20045,6 +20222,7 @@
 	alpha = 200;
 	mouse_opacity = 0
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_10"
 	},
@@ -20312,6 +20490,7 @@
 /area/nightmare/unreal)
 "Py" = (
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_12"
 	},
@@ -20510,6 +20689,7 @@
 	color = "#4aadc3";
 	light_color = "#4aadc3"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_3"
 	},
@@ -20558,6 +20738,7 @@
 "PY" = (
 /obj/floor_decal/industrial/hatch/yellow,
 /obj/structure/closet/crate/trashcart,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "PZ" = (
@@ -20873,6 +21054,7 @@
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_12"
 	},
@@ -21064,12 +21246,14 @@
 /area/nightmare/unreal/hospital/left_wing)
 "QW" = (
 /obj/decal/cleanable/dirt,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_1"
 	},
 /area/nightmare/streets)
 "QX" = (
 /obj/decal/cleanable/dirt,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_7"
 	},
@@ -21154,6 +21338,7 @@
 "Rj" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "co_br"
 	},
@@ -21250,6 +21435,7 @@
 	color = "#4aadc3";
 	light_color = "#4aadc3"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "co_br"
 	},
@@ -21405,6 +21591,7 @@
 	pixel_y = 8
 	},
 /obj/decal/cleanable/dirt,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/streets)
 "RL" = (
@@ -21426,6 +21613,7 @@
 	pixel_y = 4;
 	icon_state = "crowbar"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "RM" = (
@@ -21707,6 +21895,7 @@
 /obj/floor_decal/corner/white/half{
 	pixel_y = 8
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/streets)
 "Sj" = (
@@ -21735,7 +21924,6 @@
 	icon_state = "toilet";
 	pixel_y = 31
 	},
-/obj/submap_landmark/spawnpoint/collective_nightmare,
 /turf/simulated/floor/exoplanet/samosbor/wood{
 	icon_state = "wood_fancy"
 	},
@@ -21899,6 +22087,7 @@
 	mouse_opacity = 0;
 	alpha = 200
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "SG" = (
@@ -21925,6 +22114,7 @@
 	pixel_y = 5
 	},
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_12"
 	},
@@ -22121,6 +22311,7 @@
 /area/nightmare/unreal/hospital/lower_level)
 "Te" = (
 /obj/floor_decal/spline/fancy/black,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da"
 	},
@@ -22268,6 +22459,7 @@
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/streets)
 "Tv" = (
@@ -22296,6 +22488,7 @@
 "Tz" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "co_br"
 	},
@@ -22392,6 +22585,7 @@
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "TK" = (
@@ -22405,6 +22599,7 @@
 "TL" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da"
 	},
@@ -22589,6 +22784,7 @@
 	icon_state = "catwalk_black";
 	layer = 4.09
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "Ud" = (
@@ -22672,6 +22868,7 @@
 	pixel_y = 12
 	},
 /obj/submap_landmark/spawnpoint/collective_nightmare,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "co_br"
 	},
@@ -22695,6 +22892,7 @@
 	},
 /area/nightmare/unreal/hospital/left_wing)
 "Um" = (
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da"
 	},
@@ -23050,6 +23248,7 @@
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
 /obj/submap_landmark/spawnpoint/collective_nightmare,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "co_br"
 	},
@@ -23775,6 +23974,7 @@
 /obj/structure/fd/topdown_grills{
 	icon_state = "grate_bars"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/plating{
 	icon_state = "plating_vent"
 	},
@@ -23942,6 +24142,7 @@
 /area/nightmare/bar_real)
 "WQ" = (
 /obj/structure/fd/placeholder,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "WR" = (
@@ -24032,6 +24233,7 @@
 "Xd" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "Xe" = (
@@ -24407,6 +24609,7 @@
 	icon_state = "ufo";
 	pixel_y = 37
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "XQ" = (
@@ -24465,6 +24668,7 @@
 	dir = 1
 	},
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da"
 	},
@@ -24530,6 +24734,7 @@
 	pixel_y = -14;
 	icon_state = "1,4"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "Ye" = (
@@ -24586,6 +24791,7 @@
 	layer = 3.99;
 	name = "phone cabin"
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete{
 	icon_state = "co_br"
 	},
@@ -24601,6 +24807,7 @@
 /area/nightmare/bar_real)
 "Yo" = (
 /obj/structure/fake_zlvl,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "Yp" = (
@@ -24874,6 +25081,7 @@
 /area/nightmare/unreal/hospital/lower_level)
 "YV" = (
 /obj/decal/cleanable/dirt,
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_3"
 	},
@@ -25138,7 +25346,6 @@
 /obj/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/obj/submap_landmark/spawnpoint/collective_nightmare,
 /turf/simulated/floor/exoplanet/samosbor/wood{
 	icon_state = "wood_fancy"
 	},
@@ -25191,6 +25398,7 @@
 	light_power = 0.8;
 	light_range = 3
 	},
+/obj/effect/fakerain,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/streets)
 "ZC" = (
@@ -25744,7 +25952,7 @@ go
 go
 go
 of
-RF
+jp
 Yl
 qE
 zJ
@@ -28075,7 +28283,7 @@ TR
 UI
 LN
 LA
-ob
+Hw
 lU
 xs
 xs
@@ -28227,7 +28435,7 @@ VH
 UI
 LN
 LA
-Qa
+gi
 lU
 xs
 xs
@@ -28379,7 +28587,7 @@ yT
 UI
 mx
 LA
-Qa
+uu
 lU
 xs
 xs
@@ -28531,7 +28739,7 @@ yT
 UI
 mx
 LA
-ob
+Ga
 lU
 xs
 xs
@@ -29400,7 +29608,7 @@ Si
 Si
 Si
 RK
-AN
+hk
 Fe
 YK
 Zw
@@ -29545,7 +29753,7 @@ Zw
 Zw
 Zw
 aw
-Fm
+IE
 go
 Si
 Si

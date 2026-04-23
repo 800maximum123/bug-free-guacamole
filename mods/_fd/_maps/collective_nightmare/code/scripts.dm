@@ -36,6 +36,106 @@
 	for(var/mob/living/carbon/human/H in world)
 		H.forceMove(get_turf(pick(tp_points)))
 
+/datum/job/submap/collective_nightmare/post_equip_rank(mob/person, alt_title)
+	. = ..()
+	person.show_nightmare_lore(person)
+
+/mob/proc/show_nightmare_lore()
+	anchored = TRUE
+
+	overlay_fullscreen("background",/obj/screen/fullscreen/fd/blackout)
+	var/message = {"Обыкновенный день. Такой же как и всегда."}
+
+	var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+	maintext.plane = HUD_PLANE
+	maintext.layer = HUD_ABOVE_HUD_LAYER
+	maintext.maptext_x = 0
+	maintext.maptext_y = -210
+
+	client.screen += maintext
+	maintext.set_text(message, COLOR_WHITE)
+
+	spawn(8 SECONDS)
+		message = {"Пятница? Понедельник? Среда? Ты с трудом мог вспомнить своё собственное имя, что уж говорить о днях недели."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(18 SECONDS)
+		message = {"Последний месяц твоей жизни витает словно в тумане. Были взлёты, были падения. Последних, впрочем, <span style="color: red;">гораздо больше</span>."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(30 SECONDS)
+		message = {"Когда ты повернул не туда? Что такого ты сотворил, чтоб Боги единогласно решили низвергнуть тебя во тьму самобичевания и уныния? Без надежды на <span style="color: yellow;">свет</span>, или чужую ласку."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(40 SECONDS)
+		message = {"Сейчас это уже не имеет значения."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(48 SECONDS)
+		message = {"Тебе просто нужно немного расслабиться. Забыться в алкогольной дрёме. <span style="color: yellow;">Неподалёку как раз был какой-то бар</span>. Стоит заглянуть в него."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(56 SECONDS)
+		message = ""
+		maintext.set_text(message, COLOR_WHITE)
+
+		overlay_fullscreen("eyesopen",/obj/screen/fullscreen/fd/awakening)
+
+	spawn(56.5 SECONDS)
+		clear_fullscreen("background")
+
+	spawn(59 SECONDS)
+		clear_fullscreen("eyesopen")
+		generate_binds()
+
+		anchored = FALSE
+
+	spawn(61 SECONDS)
+		message = {"\
+		<b>УПРАВЛЕНИЕ:</b><br />\
+		Вы можете открыть интерактивное взаимодействие с определёнными объектами нажав <b><span style="color: yellow;">[retrieve_bind("start_interaction")]</span></b><br />\
+		<br />\
+		Чаще всего, объекты с которыми можно взаимодействовать - выделяются <span style="color: yellow;">лупой</span><br />\
+		В некоторых случаях, внутри интеракции может быть спрятан <span style="color: yellow;">секрет</span>. Чтобы его обнаружить - попробуйте поводить мышкой по экрану, пока не увидите новый значок"}
+
+		maintext.maptext_width = 360
+		maintext.maptext_x = -80
+		maintext.maptext_y = -100
+
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(81 SECONDS)
+		for(var/obj/screen/messages in client.screen)
+			if(istype(messages, /obj/screen/player_message))
+				client.screen -= messages
+				qdel(messages)
+
+/mob
+	var/list/player_bind_dict = list()
+
+/// Generate a dictionary of button : action for use of referencing what keys to press
+/mob/proc/generate_binds()
+	if(!client?.prefs)
+		return
+
+	for(var/bind in client.prefs.key_bindings)
+		var/action = client.prefs.key_bindings[bind]
+		// We presume the first action under a certain binding is the one we want.
+		if(action[1] in player_bind_dict)
+			player_bind_dict[action[1]] += bind
+		else
+			player_bind_dict[action[1]] = list(bind)
+
+/// Getter for player_bind_dict. Provide an action name like "North" or "quick_equip"
+/mob/proc/retrieve_bind(action_name)
+	if(!action_name)
+		return
+
+	if(!(action_name in player_bind_dict))
+		return "Undefined"
+
+	return player_bind_dict[action_name][1]
+
 /proc/nightmare_screentext1()
 	var/message = {"Ты ощущаешь, как твоё тело слабеет, а глаза постепенно слипаются. Что-то очень быстро клонит тебя в <span style="color: red;">сон</span>."}
 
