@@ -833,4 +833,12 @@
 	icon_state = "metal"
 	doorsound = 'mods/_fd/_maps/collective_nightmare/sounds/metal_door_open.wav'
 
+/obj/structure/fd/interactive/basic_power/cool_gen/filtration/turn_on()
+	area.unbreathable = FALSE
+	. = ..()
+
+/obj/structure/fd/interactive/basic_power/cool_gen/filtration/turn_off()
+	area.unbreathable = TRUE
+	. = ..()
+
 #include "..\map\collective_nightmare.dmm"
