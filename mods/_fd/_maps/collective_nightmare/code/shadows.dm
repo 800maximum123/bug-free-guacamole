@@ -743,6 +743,7 @@
 	connected_screen = new /obj/effect/savepoint_screen(get_turf(src))
 	connected_screen.pixel_x = pixel_x
 	connected_screen.pixel_y = pixel_y
+	connected_screen.layer = layer + 0.1
 	START_PROCESSING(SSobj,src)
 
 /obj/structure/fd/interactive/savepoint_record/Process()

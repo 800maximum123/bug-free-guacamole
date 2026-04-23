@@ -43,6 +43,7 @@
 			if(A.unbreathable)
 				if(E && E.cell.charge >= 10)
 					E.cell.charge -= 10
+					H.recalculate_reality_connection(0.1) // УДАЛИТЬ ПОТОМ
 				else
 
 					if(breath_protected(gasmask, A))
@@ -54,6 +55,7 @@
 						if(currently_stored_air <= 0)
 							emote("gasp")
 							apply_damage(10, A.damage_type)
+							H.recalculate_reality_connection(0.1) // УДАЛИТЬ ПОТОМ
 
 		if(A.unbreathable && !ishuman(src))
 			if(currently_stored_air > 0)
