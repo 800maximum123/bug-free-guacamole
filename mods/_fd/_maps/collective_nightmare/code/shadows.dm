@@ -546,6 +546,7 @@
 
 	if(lost_in_nightmare && make_shadow_after > 0)
 		make_shadow_after -= 1
+		overlays += image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static", dir = dir)
 		maptext = STYLE_SMALLFONTS_OUTLINE("[make_shadow_after]", 7, COLOR_WHITE, COLOR_BLACK)
 
 	if(make_shadow_after <= 0 && lost_in_nightmare)
@@ -578,6 +579,7 @@
 	lost_in_nightmare = TRUE
 	stunned = 999999
 	mouse_opacity = FALSE
+	anchored = TRUE
 	overlays += image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static", dir = dir)
 
 	if(max_connection_to_reality <= 1)
@@ -615,13 +617,15 @@
 	glitches_freq = glitches_freq_base
 	stunned = 5
 	mouse_opacity = FALSE
+	anchored = TRUE
 
 	overlays += image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static", dir = dir)
 	say(pick("⮸⮌⌥⮎⮃⮃⮀⌃⮌⎋⌥⮎","⮄⮃⮏⭮⮍⮃","⮆⌃⌤⮄⮃⎋⮃","⮆⮍⮆⮎⮑⭿⮌⮎⮸","⮆⌃⮓⮑⮎⮄⮃⮑⎋⌥⌤"))
-	sleep(10)
+	sleep(2 SECONDS)
 	overlays -= image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static")
 	glitching = FALSE
 	mouse_opacity = TRUE
+	anchored = FALSE
 
 /mob/living/carbon/human/attack_generic(mob/user, damage, attack_message, environment_smash, damtype, armorcheck, dam_flags, atom/newloc)
 	if(glitching || lost_in_nightmare)
@@ -629,6 +633,11 @@
 	. = ..()
 
 /mob/living/carbon/human/attack_hand(mob/living/carbon/M, atom/newloc)
+	if(glitching || lost_in_nightmare)
+		return FALSE
+	. = ..()
+
+/mob/living/carbon/human/help_shake_act(mob/living/carbon/M)
 	if(glitching || lost_in_nightmare)
 		return FALSE
 	. = ..()
@@ -891,6 +900,7 @@
 			sleep(2 SECONDS)
 			vessel.soul.stunned = 0
 			vessel.soul.mouse_opacity = TRUE
+			vessel.soul.anchored = FALSE
 			vessel.soul.Move(get_step(loc,SOUTH), SOUTH)
 			qdel(vessel)
 			floppies_amount -= 1
