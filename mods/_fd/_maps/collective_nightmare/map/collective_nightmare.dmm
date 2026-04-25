@@ -1144,17 +1144,20 @@
 	name = "box";
 	pixel_y = 15;
 	pixel_x = -5;
-	layer = 2.22
+	layer = 2.22;
+	anchored = 1
 	},
 /obj/structure/ore_box{
 	desc = "A heavy box used for storing stuff.";
-	name = "box"
+	name = "box";
+	anchored = 1
 	},
 /obj/structure/ore_box{
 	desc = "A heavy box used for storing stuff.";
 	name = "box";
 	pixel_y = 25;
-	layer = 2.24
+	layer = 2.24;
+	anchored = 1
 	},
 /turf/simulated/floor/exoplanet/samosbor/plating{
 	icon_state = "plating"
@@ -4876,6 +4879,10 @@
 	pixel_x = -11;
 	pixel_y = -6
 	},
+/obj/item/fd/magic_camera_film{
+	pixel_x = -11;
+	pixel_y = -6
+	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_gy"
 	},
@@ -7169,9 +7176,16 @@
 	},
 /obj/structure/ore_box{
 	desc = "A heavy box used for storing stuff.";
-	name = "box";
-	pixel_y = 24;
-	anchored = 1
+	name = "коробку";
+	anchored = 1;
+	interactive = 1;
+	desc_special_show = 1;
+	desc_special = "Коробка с кучей различного хлама.";
+	has_something_inside = 1;
+	mouse_opacity = 0;
+	hidden_loot = /obj/item/fd/filter;
+	pixel_y = 23;
+	layer = 4.09
 	},
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/nightmare/unreal)
@@ -9867,6 +9881,15 @@
 	pixel_y = 19;
 	pixel_x = -4
 	},
+/obj/item/clothing/mask/gas{
+	pixel_x = -21;
+	pixel_y = 6;
+	filter_stored_air = 30
+	},
+/obj/item/fd/reality_stab{
+	pixel_x = 12;
+	pixel_y = -6
+	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_12"
 	},
@@ -10429,6 +10452,14 @@
 	},
 /obj/structure/table/rack/samosbor{
 	icon_state = "shelf"
+	},
+/obj/item/fd/filter{
+	pixel_y = 28;
+	pixel_x = -4
+	},
+/obj/item/fd/filter{
+	pixel_y = 11;
+	pixel_x = 2
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ha_sm"
@@ -11396,13 +11427,13 @@
 	pixel_y = 21
 	},
 /obj/item/gun/projectile/automatic/merc_smg{
-	pixel_y = -6
+	pixel_y = -6;
+	starts_loaded = 0
 	},
 /obj/item/gun/projectile/automatic/merc_smg{
-	pixel_y = 4
+	pixel_y = 4;
+	starts_loaded = 0
 	},
-/obj/item/ammo_magazine/smg,
-/obj/item/ammo_magazine/smg,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_gy"
 	},
@@ -13514,7 +13545,8 @@
 	desc_special = "Я могу подвинуть это.";
 	pixel_x = -3;
 	pixel_y = 17;
-	layer = 4.10
+	layer = 4.10;
+	anchored = 1
 	},
 /obj/structure/fd/building_stuff{
 	pixel_y = 14;
@@ -13901,7 +13933,8 @@
 	desc = "A heavy box used for storing stuff.";
 	name = "box";
 	pixel_y = 19;
-	layer = 4.09
+	layer = 4.09;
+	anchored = 1
 	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "apartments"
@@ -13976,6 +14009,11 @@
 /obj/structure/fd/samosbor/table_decor1{
 	pixel_x = -8;
 	pixel_y = 11
+	},
+/obj/item/clothing/mask/gas{
+	pixel_y = 8;
+	pixel_x = 10;
+	filter_stored_air = 70
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ve"
@@ -14202,6 +14240,10 @@
 	color = "#800b0b";
 	dir = 4;
 	light_color = "#800b0b"
+	},
+/obj/item/fd/floppy{
+	pixel_y = 9;
+	pixel_x = 7
 	},
 /turf/simulated/floor/exoplanet/samosbor/ceramic{
 	icon_state = "ce_pa"
@@ -15265,13 +15307,15 @@
 	desc = "A heavy box used for storing stuff.";
 	name = "box";
 	pixel_y = 16;
-	pixel_x = 5
+	pixel_x = 5;
+	anchored = 1
 	},
 /obj/structure/ore_box{
 	desc = "A heavy box used for storing stuff.";
 	name = "box";
 	pixel_x = -6;
-	pixel_y = 3
+	pixel_y = 3;
+	anchored = 1
 	},
 /obj/structure/fd/samosbor/dark_signs2{
 	icon_state = "wizardry";
@@ -18198,6 +18242,10 @@
 /obj/item/storage/mirror/grim/iron{
 	pixel_y = -30
 	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = 24;
+	pixel_x = 2
+	},
 /turf/simulated/floor/exoplanet/samosbor/ceramic{
 	icon_state = "ce_pa"
 	},
@@ -18995,7 +19043,7 @@
 	pixel_x = -32;
 	pixel_y = 0;
 	layer = 4.14;
-	alpha = 200;
+	alpha = 160;
 	color_of = "#59aaa3";
 	range_of = 6
 	},
@@ -20650,13 +20698,15 @@
 /obj/structure/ore_box{
 	desc = "A heavy box used for storing stuff.";
 	name = "box";
-	layer = 4.08
+	layer = 4.08;
+	anchored = 1
 	},
 /obj/structure/ore_box{
 	desc = "A heavy box used for storing stuff.";
 	name = "box";
 	pixel_y = 22;
-	layer = 4.09
+	layer = 4.09;
+	anchored = 1
 	},
 /obj/structure/fd/interactive/barricade{
 	pixel_x = -6;
@@ -20734,6 +20784,10 @@
 	icon_state = "torch";
 	pixel_y = 2;
 	pixel_x = 9
+	},
+/obj/item/fd/floppy{
+	pixel_y = 2;
+	pixel_x = -1
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_rh"
@@ -23299,6 +23353,10 @@
 	pixel_x = -8;
 	pixel_y = -20
 	},
+/obj/item/fd/filter{
+	pixel_y = 10;
+	pixel_x = -6
+	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "apartments_bi"
 	},
@@ -24092,13 +24150,15 @@
 	desc = "A heavy box used for storing stuff.";
 	name = "box";
 	pixel_y = 10;
-	layer = 2.24
+	layer = 2.24;
+	anchored = 1
 	},
 /obj/structure/ore_box{
 	desc = "A heavy box used for storing stuff.";
 	name = "box";
 	pixel_y = -4;
-	layer = 2.25
+	layer = 2.25;
+	anchored = 1
 	},
 /turf/simulated/floor/exoplanet/samosbor/wood{
 	icon_state = "wood_alt"
@@ -26886,6 +26946,7 @@
 /obj/item/storage/firstaid/combat{
 	pixel_y = 14
 	},
+/obj/item/fd/reality_stab,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t2"
 	},

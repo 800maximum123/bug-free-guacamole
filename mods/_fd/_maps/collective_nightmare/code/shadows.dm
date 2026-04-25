@@ -577,8 +577,8 @@
 /mob/living/carbon/human/proc/disconnected_from_reality()
 	lost_in_nightmare = TRUE
 	stunned = 999999
-	overlays += image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static", dir = dir)
 	mouse_opacity = FALSE
+	overlays += image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static", dir = dir)
 
 	if(max_connection_to_reality <= 1)
 		teleop = ghostize(1)
@@ -622,6 +622,16 @@
 	overlays -= image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static")
 	glitching = FALSE
 	mouse_opacity = TRUE
+
+/mob/living/carbon/human/attack_generic(mob/user, damage, attack_message, environment_smash, damtype, armorcheck, dam_flags, atom/newloc)
+	if(glitching || lost_in_nightmare)
+		return FALSE
+	. = ..()
+
+/mob/living/carbon/human/attack_hand(mob/living/carbon/M, atom/newloc)
+	if(glitching || lost_in_nightmare)
+		return FALSE
+	. = ..()
 
 /mob/living/carbon/human/proc/recalculate_reality_connection(amount)
 	var/before_calculation = current_connection_to_reality

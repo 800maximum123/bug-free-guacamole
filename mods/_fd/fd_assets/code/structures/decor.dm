@@ -376,7 +376,7 @@
 
 /obj/structure/fd/bs_vines/use_tool(obj/item/I, mob/user, params)
 	SHOULD_CALL_PARENT(FALSE)
-	if(istype(I, /obj/item/material/hatchet)) //|| istype(I, /obj/item/psychic_power/psiaxe) || istype(I,/obj/item/psychic_power/psiblade))
+	if(istype(I, /obj/item/material/hatchet) || istype(I, /obj/item/crowbar/emergency_forcing_tool))
 		if(do_after(user, 80))
 			qdel(src)
 
