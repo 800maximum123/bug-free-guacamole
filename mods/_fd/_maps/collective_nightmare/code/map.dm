@@ -408,6 +408,40 @@
 				Тем не менее, химикаты - это далеко не последняя вещь, способная заставить человека задыхаться. В качестве эксперимента - я извлёк из тела испытуемого небольшой осколок для индивидуального изучения. \
 				Каково же было моё удивление, когда оказалось что отдельно от \"носителя\" в лице корней или тела - он абсолютно бесполезен."}
 
+/datum/interactive_note/nightmare/bluespace2/reveal_note_to_player(mob/living/user)
+	user.reading = TRUE
+
+	user.overlay_fullscreen("background_note", note_overlay)
+	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
+
+	if(connected_note)
+		if(!connected_note.ci)
+			connected_note.ci = new /obj/screen/cancel_interaction()
+
+		connected_note.ci.connected_mob = user
+		user.client.screen += connected_note.ci
+		animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+
+	spawn(0.5 SECONDS)
+
+		var/message = "[note_info]"
+		var/message_name = "[name]"
+
+		var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+		var/obj/screen/novel_message/note_name/nameplate = new /obj/screen/novel_message/note_name()
+		maintext.layer = 5.4
+		nameplate.layer = 5.4
+
+		nameplate.maptext_x = -75
+		nameplate.maptext_y = -15
+		maintext.maptext_x = 0
+		maintext.maptext_y = -300
+
+		user.client.screen += maintext
+		user.client.screen += nameplate
+		maintext.set_text(message, COLOR_WHITE)
+		nameplate.set_text(message_name, COLOR_WHITE)
+
 /datum/interactive_note/nightmare/bluespace3
 	name = "Эврика"
 	note_info = {"Взятый мной образец претерпел некоторые значительные метаморфозы. \

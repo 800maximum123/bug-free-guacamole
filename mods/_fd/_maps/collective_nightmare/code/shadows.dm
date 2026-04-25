@@ -761,6 +761,7 @@
 	layer = 3.2
 
 	var/activated = FALSE
+	var/busy = FALSE
 	var/floppies_amount = 0
 	var/area/area_placement
 	var/obj/effect/savepoint_screen/connected_screen
@@ -864,10 +865,11 @@
 /obj/structure/fd/interactive/savepoint_record/Click(location, control, params)
 	. = ..()
 
-	if(activated && floppies_amount > 0)
+	if(activated && !busy)
 
 		if(istype(usr, /mob/living/simple_animal/connected_player_soul))
 			var/mob/living/simple_animal/connected_player_soul/vessel = usr
+			busy = TRUE
 
 			for(var/obj/screen/messages in vessel.client.screen)
 				if(istype(messages, /obj/screen/player_message))
@@ -903,21 +905,8 @@
 			vessel.soul.anchored = FALSE
 			vessel.soul.Move(get_step(loc,SOUTH), SOUTH)
 			qdel(vessel)
-			floppies_amount -= 1
 			maptext = STYLE_SMALLFONTS_OUTLINE("[floppies_amount]", 7, COLOR_WHITE, COLOR_BLACK)
-
-	if(floppies_amount <= 0)
-		if(istype(usr, /mob/living/simple_animal/connected_player_soul))
-			var/mob/living/simple_animal/connected_player_soul/vessel = usr
-			var/message = {"<b><span style="color: red;">В этой консоли отсутствуют дискеты! Нужно искать другую!</span></b>"}
-
-			for(var/obj/screen/player_message/messages in vessel.client.screen)
-				messages.set_text(message, COLOR_WHITE)
-
-			spawn(5 SECONDS)
-				message = {"<b><span style="color: red;">Найдите любую консоль сохранения и нажмите по ней! Ваше время ограничено!</span></b>"}
-				for(var/obj/screen/player_message/messages in vessel.client.screen)
-					messages.set_text(message, COLOR_WHITE)
+			busy = FALSE
 
 /obj/item/fd/reality_stab
 	name = "stabilization drug"

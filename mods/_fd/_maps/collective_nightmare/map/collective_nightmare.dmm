@@ -2842,12 +2842,14 @@
 	has_something_inside = 1;
 	hidden_loot = /obj/item/fd/floppy;
 	desc_special_show = 1;
-	desc_special = "Внутри куча устаревших дел и выписок."
+	desc_special = "Внутри куча устаревших дел и выписок.";
+	density = 1
 	},
 /obj/structure/fd/samosbor/machinery3{
 	icon_state = "messyfiles";
 	pixel_y = 0;
-	pixel_x = 5
+	pixel_x = 5;
+	density = 1
 	},
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/cobweb{
@@ -4866,6 +4868,10 @@
 /obj/item/fd/magic_camera{
 	pixel_y = -7;
 	pixel_x = 3
+	},
+/obj/item/fd/magic_camera_film{
+	pixel_x = -11;
+	pixel_y = -6
 	},
 /obj/item/fd/magic_camera_film{
 	pixel_x = -11;
@@ -9574,6 +9580,10 @@
 	light_color = "#a1d2d6";
 	dir = 4
 	},
+/obj/item/fd/floppy{
+	pixel_y = 12;
+	pixel_x = -6
+	},
 /turf/simulated/floor/exoplanet/samosbor/carpet{
 	icon_state = "ca_da_gy_map"
 	},
@@ -13537,12 +13547,8 @@
 /area/nightmare/unreal/hospital/right_wing)
 "kwy" = (
 /obj/structure/ore_box{
-	desc = "A heavy box used for storing stuff.";
 	name = "box";
 	opacity = 1;
-	interactive = 1;
-	desc_special_show = 1;
-	desc_special = "Я могу подвинуть это.";
 	pixel_x = -3;
 	pixel_y = 17;
 	layer = 4.10;
@@ -16125,7 +16131,8 @@
 	icon_state = "2,2";
 	pixel_x = -5;
 	layer = 2.25;
-	pixel_y = -4
+	pixel_y = -4;
+	density = 1
 	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "apartments"
@@ -24282,7 +24289,8 @@
 /area/nightmare/unreal/hospital/lower_level)
 "swy" = (
 /obj/structure/fd/samosbor/machinery3{
-	icon_state = "bookcase"
+	icon_state = "bookcase";
+	density = 1
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_gy_t2"
@@ -28820,6 +28828,9 @@
 	pixel_y = 7
 	},
 /obj/item/crowbar/emergency_forcing_tool,
+/obj/item/fd/filter{
+	pixel_y = -8
+	},
 /turf/simulated/floor/exoplanet/samosbor/lino{
 	icon_state = "li_bk"
 	},
@@ -29803,6 +29814,10 @@
 	},
 /obj/item/device/flashlight/maglight{
 	pixel_y = -4;
+	pixel_x = 3
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = 14;
 	pixel_x = 3
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
