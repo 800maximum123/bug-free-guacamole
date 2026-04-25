@@ -317,6 +317,9 @@
 
 	user.clear_fullscreen("smallshade")
 	for(var/obj/screen/messages in user.client.screen)
+		if(istype(messages, /obj/screen/hidden_item))
+			user.client.screen -= messages
+			qdel(messages)
 		if(istype(messages, /obj/screen/player_message))
 			user.client.screen -= messages
 			qdel(messages)

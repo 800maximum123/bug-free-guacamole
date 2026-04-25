@@ -670,8 +670,7 @@
 	density = FALSE
 	plane = OBSERVER_PLANE
 	invisibility = INVISIBILITY_OBSERVER
-	see_invisible = SEE_INVISIBLE_OBSERVER
-	sight = SEE_TURFS|SEE_MOBS|SEE_OBJS|SEE_SELF
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	simulated = FALSE
 
 	need_to_breath = FALSE

@@ -54,26 +54,28 @@
 
 /obj/effect/add_note/Crossed(mob/living/user)
 	. = ..()
-	if(!(user in already_triggered) && !istype(user,/mob/living/simple_animal/connected_player_soul))
 
-		already_triggered += user
-		for(var/obj/effect/add_note/A in world)
-			if(A.trigger_id == trigger_id)
-				A.already_triggered += user
+	if(ishuman(user))
+		if(!(user in already_triggered) && !istype(user,/mob/living/simple_animal/connected_player_soul))
 
-		new note_to_add(null, user)
+			already_triggered += user
+			for(var/obj/effect/add_note/A in world)
+				if(A.trigger_id == trigger_id)
+					A.already_triggered += user
 
-		var/message = {"<b><span style="color: yellow;">В архив добавлена новая запись!</span></b>"}
+			new note_to_add(null, user)
 
-		var/obj/screen/player_message/maintext = new /obj/screen/player_message()
-		maintext.plane = HUD_PLANE
-		maintext.layer = HUD_ABOVE_HUD_LAYER
-		maintext.maptext_x = 0
-		maintext.maptext_y = -380
+			var/message = {"<b><span style="color: yellow;">В архив добавлена новая запись!</span></b>"}
 
-		user.client.screen += maintext
-		maintext.set_text(message, COLOR_WHITE)
-		addtimer(new Callback(src, PROC_REF(remove_message), user), 10 SECONDS)
+			var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+			maintext.plane = HUD_PLANE
+			maintext.layer = HUD_ABOVE_HUD_LAYER
+			maintext.maptext_x = 0
+			maintext.maptext_y = -380
+
+			user.client.screen += maintext
+			maintext.set_text(message, COLOR_WHITE)
+			addtimer(new Callback(src, PROC_REF(remove_message), user), 10 SECONDS)
 
 /obj/effect/add_note/proc/remove_message(mob/living/user)
 	for(var/obj/screen/messages in user.client.screen)

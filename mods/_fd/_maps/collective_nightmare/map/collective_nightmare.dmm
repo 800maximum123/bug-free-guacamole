@@ -11372,11 +11372,6 @@
 	icon_state = "me_gd_bi"
 	},
 /area/nightmare/unreal/hospital/left_wing)
-"iIo" = (
-/turf/unsimulated/wall{
-	color = "red"
-	},
-/area/nightmare/unreal/hospital)
 "iIE" = (
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "apartments"
@@ -11389,11 +11384,6 @@
 	},
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/nightmare/unreal)
-"iJY" = (
-/turf/unsimulated/wall{
-	color = "red"
-	},
-/area/nightmare/unreal/hospital/lower_level)
 "iKu" = (
 /obj/structure/table/rack/samosbor{
 	icon_state = "shelf";
@@ -11882,10 +11872,7 @@
 /obj/structure/fd/samosbor/dark_signs2{
 	icon_state = "calendar_alt";
 	pixel_x = 4;
-	pixel_y = 33;
-	interactive = 1;
-	desc_special_show = 1;
-	desc_special = "Часть чисел на календаре перечёркнута красным, начиная с 7-го, и заканчивая 19-м."
+	pixel_y = 33
 	},
 /obj/structure/fd/samosbor/machinery2{
 	icon_state = "clock";
@@ -12385,7 +12372,8 @@
 	},
 /obj/item/gun/projectile/automatic/mr735{
 	pixel_y = 7;
-	pixel_x = 1
+	pixel_x = 1;
+	starts_loaded = 0
 	},
 /obj/item/ammo_casing/rifle/used{
 	pixel_x = 7;
@@ -20513,7 +20501,8 @@
 	},
 /obj/item/gun/projectile/pistol/sol_service{
 	pixel_x = 5;
-	pixel_y = -7
+	pixel_y = -7;
+	starts_loaded = 0
 	},
 /obj/item/ammo_casing/pistol/used{
 	pixel_x = 8
@@ -30345,12 +30334,6 @@
 	icon_state = "gl"
 	},
 /area/nightmare/unreal)
-"wNw" = (
-/obj/effect/soulblocker,
-/turf/unsimulated/wall{
-	color = "black"
-	},
-/area/nightmare/unreal/hospital)
 "wNL" = (
 /obj/decal/cleanable/dirt,
 /obj/item/storage/cargo_containers{
@@ -31334,12 +31317,6 @@
 	icon_state = "security"
 	},
 /area/nightmare/unreal/hospital/right_wing)
-"xGg" = (
-/obj/effect/soulblocker,
-/turf/unsimulated/wall{
-	color = "black"
-	},
-/area/nightmare/unreal/hospital/lower_level)
 "xGY" = (
 /obj/decal/cleanable/dirt,
 /obj/machinery/light{
@@ -32396,13 +32373,13 @@ dMk
 dMk
 dMk
 dMk
-iIo
-iIo
-iIo
-iIo
-iIo
-iIo
-iIo
+dMk
+dMk
+dMk
+dMk
+dMk
+dMk
+dMk
 dMk
 dMk
 dMk
@@ -32547,7 +32524,6 @@ lCO
 lCO
 lCO
 bzY
-wNw
 fIV
 fIV
 fIV
@@ -32555,7 +32531,8 @@ fIV
 fIV
 fIV
 fIV
-wNw
+fIV
+fIV
 fIV
 fIV
 fIV
@@ -32699,7 +32676,6 @@ etR
 cCZ
 kLY
 fgA
-wNw
 fIV
 fIV
 fIV
@@ -32707,7 +32683,8 @@ fIV
 fIV
 fIV
 fIV
-wNw
+fIV
+fIV
 fIV
 fIV
 fIV
@@ -32851,7 +32828,6 @@ aqe
 cJu
 rPs
 fgA
-wNw
 fIV
 fIV
 fIV
@@ -32859,7 +32835,8 @@ fIV
 fIV
 fIV
 fIV
-wNw
+fIV
+fIV
 fIV
 fIV
 fIV
@@ -33003,7 +32980,6 @@ rPs
 gAS
 rlW
 fgA
-wNw
 fIV
 fIV
 fIV
@@ -33011,7 +32987,8 @@ fIV
 fIV
 fIV
 fIV
-wNw
+fIV
+fIV
 fIV
 fIV
 fIV
@@ -33155,7 +33132,6 @@ uzJ
 uQk
 qPP
 fgA
-wNw
 fIV
 fIV
 fIV
@@ -33163,7 +33139,8 @@ fIV
 fIV
 fIV
 fIV
-wNw
+fIV
+fIV
 jTv
 xaH
 xaH
@@ -33307,7 +33284,6 @@ bqu
 aEw
 uBc
 fgA
-wNw
 fIV
 fIV
 fIV
@@ -33315,7 +33291,8 @@ fIV
 fIV
 fIV
 fIV
-wNw
+fIV
+fIV
 oQR
 vqv
 mnf
@@ -33459,7 +33436,6 @@ bBD
 ssW
 aQj
 fgA
-wNw
 fIV
 fIV
 fIV
@@ -33467,7 +33443,8 @@ fIV
 fIV
 fIV
 fIV
-wNw
+fIV
+fIV
 oQR
 cEE
 wQV
@@ -33611,7 +33588,6 @@ jlf
 lbg
 vCb
 fgA
-wNw
 fIV
 fIV
 fIV
@@ -33619,7 +33595,8 @@ fIV
 fIV
 fIV
 fIV
-wNw
+fIV
+fIV
 oQR
 fvU
 nCH
@@ -33763,7 +33740,6 @@ mTy
 mWl
 bwq
 fgA
-wNw
 fIV
 fIV
 fIV
@@ -33771,7 +33747,8 @@ fIV
 fIV
 fIV
 fIV
-wNw
+fIV
+fIV
 oQR
 uVg
 tfX
@@ -33915,7 +33892,6 @@ xeg
 cnn
 xYV
 fgA
-wNw
 fIV
 fIV
 fIV
@@ -33923,7 +33899,8 @@ fIV
 fIV
 fIV
 fIV
-wNw
+fIV
+fIV
 oQR
 hnf
 mnf
@@ -34067,7 +34044,6 @@ bBD
 cnn
 xYV
 fgA
-wNw
 fIV
 fIV
 fIV
@@ -34075,7 +34051,8 @@ fIV
 fIV
 fIV
 fIV
-wNw
+fIV
+fIV
 tvT
 xaH
 pot
@@ -34219,7 +34196,6 @@ iFg
 jUm
 peS
 fgA
-wNw
 fIV
 fIV
 fIV
@@ -34227,9 +34203,10 @@ fIV
 fIV
 fIV
 fIV
-wNw
-wNw
-wNw
+fIV
+fIV
+fIV
+fIV
 oQR
 pWZ
 xvm
@@ -34371,8 +34348,6 @@ atx
 kLY
 hwF
 fgA
-wNw
-wNw
 fIV
 fIV
 fIV
@@ -34381,7 +34356,9 @@ fIV
 fIV
 fIV
 fIV
-wNw
+fIV
+fIV
+fIV
 oQR
 lvp
 pSR
@@ -34524,7 +34501,6 @@ avG
 vzX
 kmn
 bzY
-wNw
 fIV
 fIV
 fIV
@@ -34533,7 +34509,8 @@ fIV
 fIV
 fIV
 fIV
-wNw
+fIV
+fIV
 oQR
 tlC
 tpL
@@ -34676,7 +34653,6 @@ cnn
 iIf
 piP
 fgA
-wNw
 fIV
 fIV
 fIV
@@ -34685,7 +34661,8 @@ fIV
 fIV
 fIV
 fIV
-wNw
+fIV
+fIV
 tvT
 xaH
 xaH
@@ -34828,7 +34805,6 @@ eNs
 ndT
 wVk
 fgA
-wNw
 fIV
 fIV
 fIV
@@ -34837,9 +34813,10 @@ fIV
 fIV
 fIV
 fIV
-wNw
-wNw
-wNw
+fIV
+fIV
+fIV
+fIV
 fIV
 fIV
 fIV
@@ -34980,7 +34957,6 @@ mWl
 aGC
 pbO
 fgA
-wNw
 fIV
 fIV
 fIV
@@ -34991,7 +34967,8 @@ fIV
 fIV
 fIV
 fIV
-wNw
+fIV
+fIV
 fIV
 fIV
 dWD
@@ -35132,18 +35109,18 @@ mWl
 aGC
 aYX
 fgA
-wNw
-wNw
-wNw
-wNw
-wNw
-wNw
 fIV
 fIV
 fIV
 fIV
 fIV
-wNw
+fIV
+fIV
+fIV
+fIV
+fIV
+fIV
+fIV
 fIV
 fIV
 dWD
@@ -35289,13 +35266,13 @@ lCO
 lCO
 lCO
 bzY
-wNw
 fIV
 fIV
 fIV
 fIV
 fIV
-wNw
+fIV
+fIV
 fIV
 hwr
 dWD
@@ -35441,13 +35418,13 @@ vmB
 rqj
 wnW
 fgA
-wNw
 fIV
 fIV
 fIV
 fIV
 fIV
-wNw
+fIV
+fIV
 fIV
 hwr
 dWD
@@ -35593,13 +35570,13 @@ sEI
 kzm
 qnA
 fgA
-wNw
 fIV
 fIV
 fIV
 fIV
 fIV
-wNw
+fIV
+fIV
 pwx
 hwr
 dWD
@@ -35745,13 +35722,13 @@ xJN
 sEd
 qAt
 tjX
-wNw
 fIV
 fIV
 fIV
 fIV
 fIV
-wNw
+fIV
+fIV
 pwx
 hwr
 dWD
@@ -35897,13 +35874,13 @@ wBo
 luc
 iNe
 fgA
-wNw
 fIV
 fIV
 fIV
 fIV
 fIV
-wNw
+fIV
+fIV
 pwx
 hwr
 dWD
@@ -36049,13 +36026,13 @@ uUO
 hmt
 iTz
 fgA
-wNw
 fIV
 fIV
 fIV
 fIV
 fIV
-wNw
+fIV
+fIV
 fIV
 hwr
 dWD
@@ -36201,13 +36178,13 @@ jgr
 dHv
 qAt
 tjX
-wNw
 fIV
 fIV
 fIV
 fIV
 fIV
-wNw
+fIV
+fIV
 fIV
 fIV
 dWD
@@ -36353,13 +36330,13 @@ nAM
 oOo
 bNA
 fgA
-wNw
-wNw
-wNw
-wNw
-wNw
-wNw
-wNw
+fIV
+fIV
+fIV
+fIV
+fIV
+fIV
+fIV
 fIV
 fIV
 dWD
@@ -39687,14 +39664,14 @@ iFP
 iFP
 iFP
 iFP
-iJY
-iJY
-iJY
-iJY
-iJY
-iJY
-iJY
-iJY
+iFP
+iFP
+iFP
+iFP
+iFP
+iFP
+iFP
+iFP
 iFP
 iFP
 iFP
@@ -39838,7 +39815,6 @@ lrY
 lrY
 lrY
 lrY
-xGg
 lrY
 lrY
 lrY
@@ -39847,7 +39823,8 @@ lrY
 lrY
 lrY
 lrY
-xGg
+lrY
+lrY
 cAZ
 pbk
 pbk
@@ -39990,7 +39967,6 @@ lrY
 lrY
 lrY
 lrY
-xGg
 lrY
 lrY
 lrY
@@ -39999,7 +39975,8 @@ lrY
 lrY
 lrY
 lrY
-xGg
+lrY
+lrY
 nGi
 lWF
 eZl
@@ -40142,7 +40119,6 @@ lrY
 lrY
 lrY
 lrY
-xGg
 lrY
 lrY
 lrY
@@ -40151,7 +40127,8 @@ lrY
 lrY
 lrY
 lrY
-xGg
+lrY
+lrY
 nGi
 lWF
 mYG
@@ -40294,7 +40271,6 @@ lrY
 lrY
 lrY
 lrY
-xGg
 lrY
 lrY
 lrY
@@ -40303,7 +40279,8 @@ lrY
 lrY
 lrY
 lrY
-xGg
+lrY
+lrY
 nGi
 lWF
 nQC
@@ -40446,7 +40423,6 @@ lrY
 lrY
 lrY
 lrY
-xGg
 lrY
 lrY
 lrY
@@ -40455,7 +40431,8 @@ lrY
 lrY
 lrY
 lrY
-xGg
+lrY
+lrY
 nGi
 jkk
 vgI
@@ -40598,7 +40575,6 @@ lrY
 lrY
 lrY
 lrY
-xGg
 lrY
 lrY
 lrY
@@ -40607,7 +40583,8 @@ lrY
 lrY
 lrY
 lrY
-xGg
+lrY
+lrY
 nGi
 lWF
 lIj
@@ -40750,7 +40727,6 @@ lrY
 lrY
 lrY
 lrY
-xGg
 lrY
 lrY
 lrY
@@ -40759,7 +40735,8 @@ lrY
 lrY
 lrY
 lrY
-xGg
+lrY
+lrY
 nGi
 lWF
 vgI
@@ -40902,7 +40879,6 @@ lrY
 lrY
 lrY
 lrY
-xGg
 lrY
 lrY
 lrY
@@ -40911,7 +40887,8 @@ lrY
 lrY
 lrY
 lrY
-xGg
+lrY
+lrY
 nGi
 eZl
 vgI
@@ -41054,7 +41031,6 @@ lrY
 lrY
 lrY
 lrY
-xGg
 lrY
 lrY
 lrY
@@ -41063,7 +41039,8 @@ lrY
 lrY
 lrY
 lrY
-xGg
+lrY
+lrY
 nGi
 eZl
 vgI
@@ -41206,7 +41183,6 @@ pbk
 pbk
 pbk
 xtr
-xGg
 lrY
 lrY
 lrY
@@ -41215,7 +41191,8 @@ lrY
 lrY
 lrY
 lrY
-xGg
+lrY
+lrY
 nGi
 eZl
 vgI
@@ -41358,7 +41335,6 @@ mCL
 lUW
 bjL
 nGi
-xGg
 lrY
 lrY
 lrY
@@ -41367,7 +41343,8 @@ lrY
 lrY
 lrY
 lrY
-xGg
+lrY
+lrY
 nGi
 lWF
 vgI
@@ -41510,7 +41487,6 @@ lWF
 lWF
 weh
 nGi
-xGg
 lrY
 lrY
 lrY
@@ -41519,7 +41495,8 @@ lrY
 lrY
 lrY
 lrY
-xGg
+lrY
+lrY
 nGi
 lWF
 vgI
@@ -41662,7 +41639,6 @@ lWF
 lWF
 vSY
 nGi
-xGg
 lrY
 lrY
 lrY
@@ -41671,7 +41647,8 @@ lrY
 lrY
 lrY
 lrY
-xGg
+lrY
+lrY
 nGi
 qzk
 vgI
@@ -41814,7 +41791,6 @@ xXt
 tny
 hVM
 nGi
-xGg
 lrY
 lrY
 lrY
@@ -41823,7 +41799,8 @@ lrY
 lrY
 lrY
 lrY
-xGg
+lrY
+lrY
 nGi
 whU
 vgI
@@ -41966,7 +41943,6 @@ uXA
 qjp
 kHJ
 nGi
-xGg
 lrY
 lrY
 lrY
@@ -41975,7 +41951,8 @@ lrY
 lrY
 lrY
 lrY
-xGg
+lrY
+lrY
 nGi
 hnQ
 dZo
@@ -42118,7 +42095,6 @@ anZ
 ncK
 bEJ
 nGi
-xGg
 lrY
 lrY
 lrY
@@ -42127,7 +42103,8 @@ lrY
 lrY
 lrY
 lrY
-xGg
+lrY
+lrY
 nGi
 eZl
 nGI
@@ -42270,16 +42247,16 @@ nYc
 ucb
 oOZ
 nGi
-xGg
-xGg
-xGg
-xGg
-xGg
-xGg
-xGg
-xGg
-xGg
-xGg
+lrY
+lrY
+lrY
+lrY
+lrY
+lrY
+lrY
+lrY
+lrY
+lrY
 nGi
 eZl
 sCG
@@ -44544,28 +44521,28 @@ pbk
 pbk
 pbk
 qIC
-xGg
-xGg
-xGg
-xGg
-xGg
-xGg
-xGg
-xGg
-xGg
-xGg
-xGg
-xGg
-xGg
-xGg
-xGg
-xGg
-xGg
-xGg
-xGg
-xGg
-xGg
-xGg
+lrY
+lrY
+lrY
+lrY
+lrY
+lrY
+lrY
+lrY
+lrY
+lrY
+lrY
+lrY
+lrY
+lrY
+lrY
+lrY
+lrY
+lrY
+lrY
+lrY
+lrY
+lrY
 nGi
 cAh
 lVl
@@ -44691,12 +44668,6 @@ lrY
 lrY
 lrY
 lrY
-xGg
-xGg
-xGg
-xGg
-xGg
-xGg
 lrY
 lrY
 lrY
@@ -44717,7 +44688,13 @@ lrY
 lrY
 lrY
 lrY
-xGg
+lrY
+lrY
+lrY
+lrY
+lrY
+lrY
+lrY
 nGi
 gsh
 buD
@@ -44843,7 +44820,6 @@ lrY
 lrY
 lrY
 lrY
-xGg
 lrY
 lrY
 lrY
@@ -44869,7 +44845,8 @@ lrY
 lrY
 lrY
 lrY
-xGg
+lrY
+lrY
 nGi
 eCp
 fVD
@@ -44995,7 +44972,6 @@ lrY
 lrY
 lrY
 lrY
-xGg
 lrY
 lrY
 lrY
@@ -45021,7 +44997,8 @@ lrY
 lrY
 lrY
 lrY
-xGg
+lrY
+lrY
 nGi
 msw
 ddq
@@ -45147,7 +45124,6 @@ lrY
 lrY
 lrY
 lrY
-xGg
 lrY
 lrY
 lrY
@@ -45173,7 +45149,8 @@ lrY
 lrY
 lrY
 lrY
-xGg
+lrY
+lrY
 gDL
 wqI
 wqI
@@ -45299,7 +45276,6 @@ lrY
 lrY
 lrY
 lrY
-xGg
 lrY
 lrY
 lrY
@@ -45325,7 +45301,8 @@ lrY
 lrY
 lrY
 lrY
-xGg
+lrY
+lrY
 sNw
 aRr
 aRr
@@ -45452,31 +45429,31 @@ iFP
 iFP
 iFP
 iFP
-iJY
-iJY
-iJY
-iJY
-iJY
-iJY
-iJY
-iJY
-iJY
-iJY
-iJY
-iJY
-iJY
-iJY
-iJY
-iJY
-iJY
-iJY
-iJY
-iJY
-iJY
-iJY
-iJY
-iJY
-iJY
+iFP
+iFP
+iFP
+iFP
+iFP
+iFP
+iFP
+iFP
+iFP
+iFP
+iFP
+iFP
+iFP
+iFP
+iFP
+iFP
+iFP
+iFP
+iFP
+iFP
+iFP
+iFP
+iFP
+iFP
+iFP
 iFP
 iFP
 iFP
