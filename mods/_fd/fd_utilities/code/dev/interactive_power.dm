@@ -51,15 +51,16 @@
 		QDEL_NULL(sound_token)
 
 /obj/item/fd/basic_power/fuse
-	name = "ПРЕДОХРАНИТЕЛЬ"
-	desc = "Таким можно запитать какой-то небольшой щиток."
+	name = "fuse"
+	desc = "For powering your machinery."
 
 	icon = 'mods/_fd/fd_utilities/icons/power_source.dmi'
 	icon_state = "fuse"
+	w_class = ITEM_SIZE_TINY
 
 /obj/structure/fd/interactive/basic_power/fuse_box
-	name = "ЭЛЕКТРОЩИТОК"
-	desc = "Коробка с разными проводками и микросхемами."
+	name = "fuse box"
+	desc = "Box with connected wires and gears."
 
 	icon = 'mods/_fd/fd_utilities/icons/power_source.dmi'
 	icon_state = "fusebox"
@@ -188,8 +189,8 @@
 	icon_state = "switch"
 
 /obj/structure/fd/interactive/basic_power/cool_gen
-	name = "ГЕНЕРАТОР"
-	desc = "Блок с огромным количеством энергии внутри себя."
+	name = "generator"
+	desc = "Powerhouse. Literally."
 
 	icon = 'mods/_fd/fd_utilities/icons/power_source.dmi'
 	icon_state = "gen"

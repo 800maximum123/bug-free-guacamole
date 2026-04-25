@@ -121,6 +121,9 @@
 		for(var/datum/interactive_note/I in N.attached_text)
 			I.hide_note_from_player(M)
 
+	if(M.opened_note)
+		M.opened_note.hide_note_from_player(M)
+
 	if(istype(M.currently_interacting, /obj/structure/fd/interactive/basic_power/cool_gen))
 		var/obj/structure/fd/interactive/basic_power/cool_gen/C = M.currently_interacting
 

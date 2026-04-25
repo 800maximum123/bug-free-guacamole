@@ -25,7 +25,7 @@
 	anchored = TRUE
 	density = FALSE
 
-/proc/nightmare_teleport(desired_chapter = "fuck")
+/proc/nightmare_teleport(desired_chapter = "fuck", mob/living/specific_mob)
 	var/list/tp_points = list()
 
 	for(var/obj/structure/fd/nightmare_telepoint/T in world)
@@ -33,8 +33,53 @@
 			continue
 		tp_points += T
 
-	for(var/mob/living/carbon/human/H in world)
-		H.forceMove(get_turf(pick(tp_points)))
+	if(!specific_mob)
+		for(var/mob/living/carbon/human/H in world)
+			H.forceMove(get_turf(pick(tp_points)))
+
+	else
+		specific_mob.forceMove(get_turf(pick(tp_points)))
+
+/obj/effect/add_note
+	name = "note adder"
+	desc = "note adder"
+	icon = 'mods/_fd/fd_utilities/icons/newsource.dmi'
+	icon_state = "target_info"
+	mouse_opacity = FALSE
+	anchored = TRUE
+	invisibility = 50
+	var/list/already_triggered = list()
+	var/datum/interactive_note/note_to_add = null
+	var/trigger_id = "test"
+
+/obj/effect/add_note/Crossed(mob/living/user)
+	. = ..()
+	if(!(user in already_triggered) && !istype(user,/mob/living/simple_animal/connected_player_soul))
+
+		already_triggered += user
+		for(var/obj/effect/add_note/A in world)
+			if(A.trigger_id == trigger_id)
+				A.already_triggered += user
+
+		new note_to_add(null, user)
+
+		var/message = {"<b><span style="color: yellow;">В архив добавлена новая запись!</span></b>"}
+
+		var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+		maintext.plane = HUD_PLANE
+		maintext.layer = HUD_ABOVE_HUD_LAYER
+		maintext.maptext_x = 0
+		maintext.maptext_y = -380
+
+		user.client.screen += maintext
+		maintext.set_text(message, COLOR_WHITE)
+		addtimer(new Callback(src, PROC_REF(remove_message), user), 10 SECONDS)
+
+/obj/effect/add_note/proc/remove_message(mob/living/user)
+	for(var/obj/screen/messages in user.client.screen)
+		if(istype(messages, /obj/screen/player_message))
+			user.client.screen -= messages
+			qdel(messages)
 
 /datum/job/submap/collective_nightmare/post_equip_rank(mob/person, alt_title)
 	. = ..()
@@ -90,25 +135,62 @@
 
 		anchored = FALSE
 
-	spawn(61 SECONDS)
-		message = {"\
-		<b>УПРАВЛЕНИЕ:</b><br />\
-		Вы можете открыть интерактивное взаимодействие с определёнными объектами нажав <b><span style="color: yellow;">[retrieve_bind("start_interaction")]</span></b><br />\
-		<br />\
-		Чаще всего, объекты с которыми можно взаимодействовать - выделяются <span style="color: yellow;">лупой</span><br />\
-		В некоторых случаях, внутри интеракции может быть спрятан <span style="color: yellow;">секрет</span>. Чтобы его обнаружить - попробуйте поводить мышкой по экрану, пока не увидите новый значок"}
-
-		maintext.maptext_width = 360
-		maintext.maptext_x = -80
-		maintext.maptext_y = -100
-
-		maintext.set_text(message, COLOR_WHITE)
-
-	spawn(81 SECONDS)
+	spawn(64 SECONDS)
 		for(var/obj/screen/messages in client.screen)
 			if(istype(messages, /obj/screen/player_message))
 				client.screen -= messages
 				qdel(messages)
+
+/mob/proc/nightmare_escape_resomi()
+	anchored = TRUE
+	overlay_fullscreen("eyesclosed",/obj/screen/fullscreen/fd/falling_asleep)
+
+	var/message = {"Ты начинаешь ползти по шахте вперёд."}
+
+	var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+	maintext.plane = HUD_PLANE
+	maintext.layer = HUD_ABOVE_HUD_LAYER
+	maintext.maptext_x = 0
+	maintext.maptext_y = -210
+
+	spawn(2 SECONDS)
+		client.screen += maintext
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(12 SECONDS)
+		message = {"Постепенно, до тебя доходит, почему об этом пути писали как о слишком опасном для человека маршруте."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(22 SECONDS)
+		message = {"Ощущение клаустрафобной сдавленности <span style="color: red;">душит</span> даже тебя, несмотря на более маленькие габариты."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(32 SECONDS)
+		message = {"Вскоре, приходит ветер, нежно обвивая твоё тело. Следуя за этим внезапным потоком, ты находишь заветный <span style="color: green;">выход</span>."}
+		maintext.set_text(message, COLOR_WHITE)
+
+		nightmare_teleport("resomi_escape", src)
+
+	spawn(41 SECONDS)
+		overlay_fullscreen("eyesopen",/obj/screen/fullscreen/fd/awakening)
+
+	spawn(42 SECONDS)
+		clear_fullscreen("eyesclosed")
+		overlay_fullscreen("framing",/obj/screen/fullscreen/fd/cinema_borders)
+		message = {"<span style="color: red;">Глава 2:</span> Спуск"}
+		maintext.set_text(message, COLOR_WHITE)
+
+		maintext.SetTransform(2)
+		anchored = FALSE
+
+	spawn(48 SECONDS)
+		overlay_fullscreen("background",/obj/screen/fullscreen/fd/blackout)
+		maintext.SetTransform(1)
+		message = {"<b><span style="color: red;">TO BE CONTINUED...</span></b>"}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(54 SECONDS)
+		qdel(src)
 
 /mob
 	var/list/player_bind_dict = list()
@@ -179,6 +261,50 @@
 					M.screen -= messages
 					qdel(messages)
 
+/proc/nightmare_screentext2()
+	var/message = {"Лифт начинает медленно спускаться вниз."}
+
+	var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+	maintext.plane = HUD_PLANE
+	maintext.layer = HUD_ABOVE_HUD_LAYER
+	maintext.maptext_x = 0
+	maintext.maptext_y = -210
+
+	for(var/client/M in GLOB.clients)
+		M.screen += maintext
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(6 SECONDS)
+		message = {"Госпиталь наконец позади, но теперь перед вами стоит ещё более пугающая <span style="color: red;">неизвестность</span>."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(18 SECONDS)
+		message = {"Куда бы он не вёл, очевидно лишь одно - ваш <span style="color: red;">кошмар</span> был ещё очень далёк от завершения."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(30 SECONDS)
+		message = {"И разбудить вас, к сожалению, <span style="color: red;">некому</span>."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(40 SECONDS)
+		message = {"<span style="color: red;">Глава 2:</span> Спуск"}
+		maintext.set_text(message, COLOR_WHITE)
+
+		maintext.SetTransform(2)
+
+	spawn(48 SECONDS)
+		maintext.SetTransform(1)
+		message = {"<b><span style="color: red;">TO BE CONTINUED...</span></b>"}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(54 SECONDS)
+
+		for(var/client/M in GLOB.clients)
+			for(var/obj/screen/messages in M.screen)
+				if(istype(messages, /obj/screen/player_message))
+					M.screen -= messages
+					qdel(messages)
+
 /proc/nightmare_begins()
 	start_cutscene(/datum/modular_cutscene/nightmare_begins)
 
@@ -192,5 +318,27 @@
 		PLAY_SOUND(sound('sound/ambience/ominous2.ogg', volume = 20)),
 		ADD_SCREEN(/cinema_borders) = 8 SECONDS,
 		REMOVE_SCREEN(/cinema_borders, 0 SECONDS),
+		RETURN_VIEWERS
+	)
+
+/proc/nightmare_continues()
+	start_cutscene(/datum/modular_cutscene/second_chapter)
+
+/datum/modular_cutscene/second_chapter/setup_actions(...)
+	actions = list(
+		ADD_SCREEN(/falling_asleep),
+		MOVE_CAMERA(0, -12, 6 SECONDS, LINEAR_EASING|EASE_OUT) = 6 SECONDS,
+		CALL_GLOB(nightmare_screentext2) = 18 SECONDS,
+		CALL_GLOB(nightmare_teleport, "normal_escape") = 16 SECONDS,
+		MOVE_CAMERA(0, 0, 0, null),
+		REMOVE_SCREEN(/falling_asleep, 0 SECONDS),
+		ADD_SCREEN(/awakening) = 6 SECONDS,
+		PLAY_SOUND(sound('sound/ambience/ominous2.ogg', volume = 20)),
+		ADD_SCREEN(/cinema_borders) = 8 SECONDS,
+		REMOVE_SCREEN(/cinema_borders, 0 SECONDS),
+		ADD_SCREEN(/blackout) = 6 SECONDS,
+		CALL_GLOB(cutscene_cinema_end),
+		REMOVE_SCREEN(/blackout, 0 SECONDS),
+		REMOVE_SCREEN(/awakening, 0 SECONDS) = 30 SECONDS,
 		RETURN_VIEWERS
 	)

@@ -7,9 +7,51 @@
 
 /mob/living
 	var/list/datum/interactive_note/note_archive = list()
+	var/datum/interactive_note/opened_note
 
 /mob/living/proc/add_to_archive(datum/interactive_note/note)
 	LAZYDISTINCTADD(note_archive, note)
+
+/datum/keybinding/living/fd/open_archive
+	category = CATEGORY_FD
+	hotkey_keys = list("I")
+	name = "open_archive"
+	full_name = "General: OPEN ARCHIVE"
+	description = ""
+
+/datum/keybinding/living/fd/open_archive/can_use(client/user)
+	. = ..()
+
+	var/mob/living/L = user.mob
+	if(L.stat != CONSCIOUS)
+		return FALSE
+
+	if(L.resting)
+		return FALSE
+
+	if(!length(L.note_archive))
+		return FALSE
+
+/datum/keybinding/living/fd/open_archive/down(client/user)
+	var/mob/living/M = user.mob
+
+	if(M.reading)
+		return FALSE
+
+	var/list/options = list()
+	var/list/actions = list()
+	for(var/datum/interactive_note/pages as anything in M.note_archive)
+		options[pages.name] = image('mods/_fd/fd_utilities/icons/newsource.dmi', "target_info")
+		actions[pages.name] = pages
+
+	var/chosen_option = show_radial_menu(M, M, options, radius = 65, require_near = TRUE)
+	if(!chosen_option)
+		return FALSE
+
+	var/datum/interactive_note/page = actions[chosen_option]
+	M.opened_note = page
+	page.reveal_note_to_player(M)
+	return TRUE
 
 /obj/screen/fullscreen/paperwork
 	icon = 'mods/_fd/fd_utilities/icons/note_backgrounds.dmi'
@@ -51,7 +93,7 @@
 	var/list/note_creation = attached_text.Copy()
 	attached_text.Cut()
 	for(var/notes in note_creation)
-		new notes(src)
+		new notes(src, null)
 
 /obj/structure/fd/interactive/note/interact_with(mob/living/user)
 	. = ..()
@@ -71,11 +113,12 @@
 
 	var/datum/interactive_note/page = actions[chosen_option]
 
-	user.add_to_archive(page)
 	page.reveal_note_to_player(user)
 
 	user.currently_interacting = src
 	user.anchored = TRUE
+
+	new page.type(null, user)
 
 /datum/interactive_note
 	var/name = "ЗАГОЛОВОК ДОКУМЕНТА"
@@ -85,10 +128,14 @@
 
 	var/obj/structure/fd/interactive/note/connected_note
 
-/datum/interactive_note/New(obj/structure/fd/interactive/note/note)
+/datum/interactive_note/New(obj/structure/fd/interactive/note/note, mob/living/mind_archive)
 	. = ..()
-	connected_note = note
-	note.attached_text += src
+	if(note)
+		connected_note = note
+		note.attached_text += src
+
+	if(mind_archive)
+		mind_archive.add_to_archive(src)
 
 	Initialize()
 
@@ -97,8 +144,9 @@
 		src.name = name
 
 /datum/interactive_note/Destroy()
-	connected_note.attached_text -= src
-	connected_note = null
+	if(connected_note)
+		connected_note.attached_text -= src
+		connected_note = null
 	. = ..()
 
 /datum/interactive_note/proc/reveal_note_to_player(mob/living/user)
@@ -107,12 +155,13 @@
 	user.overlay_fullscreen("background_note", note_overlay)
 	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
 
-	if(!connected_note.ci)
-		connected_note.ci = new /obj/screen/cancel_interaction()
+	if(connected_note)
+		if(!connected_note.ci)
+			connected_note.ci = new /obj/screen/cancel_interaction()
 
-	connected_note.ci.connected_mob = user
-	user.client.screen += connected_note.ci
-	animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+		connected_note.ci.connected_mob = user
+		user.client.screen += connected_note.ci
+		animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
 
 	spawn(0.5 SECONDS)
 
@@ -136,16 +185,20 @@
 
 /datum/interactive_note/proc/hide_note_from_player(mob/living/user)
 	user.reading = FALSE
-	user.currently_interacting = null
+	if(connected_note)
+		user.currently_interacting = null
+	if(user.opened_note)
+		user.opened_note = null
 	user.anchored = FALSE
 
 	user.clear_fullscreen("background_note")
 	user.clear_fullscreen("smallshade")
 
-	spawn(4)
-		connected_note.ci.connected_mob = null
-		user.client.screen -= connected_note.ci
-	animate(connected_note.ci, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
+	if(connected_note)
+		spawn(4)
+			connected_note.ci.connected_mob = null
+			user.client.screen -= connected_note.ci
+		animate(connected_note.ci, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
 
 	for(var/obj/screen/messages in user.client.screen)
 		if(istype(messages, /obj/screen/player_message))

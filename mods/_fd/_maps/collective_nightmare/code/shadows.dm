@@ -367,6 +367,7 @@
 	icon_state = "polaroid"
 
 	w_class = ITEM_SIZE_SMALL
+	slot_flags = SLOT_BELT
 	var/uses = 0
 	var/uses_max = 5
 
@@ -580,12 +581,14 @@
 
 	if(max_connection_to_reality <= 1)
 		teleop = ghostize(1)
+		new /obj/structure/fd/shadow_follower(get_turf(src))
+		qdel(src)
 	else
 
 		maptext_height = 16
 		maptext_width = 96
-		maptext_x = 4
-		maptext_y = 2
+		maptext_x = 10
+		maptext_y = 28
 
 		maptext = STYLE_SMALLFONTS_OUTLINE("[make_shadow_after]", 7, COLOR_WHITE, COLOR_BLACK)
 
@@ -593,6 +596,17 @@
 		teleop = player_soul
 
 		player_soul.ckey = ckey
+
+		var/message = {"<b><span style="color: red;">Найдите любую консоль сохранения и нажмите по ней! Ваше время ограничено!</span></b>"}
+
+		var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+		maintext.plane = HUD_PLANE
+		maintext.layer = HUD_ABOVE_HUD_LAYER
+		maintext.maptext_x = 0
+		maintext.maptext_y = -380
+
+		player_soul.client.screen += maintext
+		maintext.set_text(message, COLOR_WHITE)
 
 /mob/living/carbon/human/proc/glitch_out()
 	set waitfor = FALSE
@@ -829,10 +843,15 @@
 /obj/structure/fd/interactive/savepoint_record/Click(location, control, params)
 	. = ..()
 
-	if(activated)
+	if(activated && floppies_amount > 0)
 
 		if(istype(usr, /mob/living/simple_animal/connected_player_soul))
 			var/mob/living/simple_animal/connected_player_soul/vessel = usr
+
+			for(var/obj/screen/messages in vessel.client.screen)
+				if(istype(messages, /obj/screen/player_message))
+					vessel.client.screen -= messages
+					qdel(messages)
 
 			vessel.soul.max_connection_to_reality -= 1
 			vessel.soul.recalculate_reality_connection(-vessel.soul.max_connection_to_reality)
@@ -861,3 +880,102 @@
 			vessel.soul.stunned = 0
 			vessel.soul.Move(get_step(loc,SOUTH), SOUTH)
 			qdel(vessel)
+			floppies_amount -= 1
+			maptext = STYLE_SMALLFONTS_OUTLINE("[floppies_amount]", 7, COLOR_WHITE, COLOR_BLACK)
+
+	if(floppies_amount <= 0)
+		if(istype(usr, /mob/living/simple_animal/connected_player_soul))
+			var/mob/living/simple_animal/connected_player_soul/vessel = usr
+			var/message = {"<b><span style="color: red;">В этой консоли отсутствуют дискеты! Нужно искать другую!</span></b>"}
+
+			for(var/obj/screen/player_message/messages in vessel.client.screen)
+				messages.set_text(message, COLOR_WHITE)
+
+			spawn(5 SECONDS)
+				message = {"<b><span style="color: red;">Найдите любую консоль сохранения и нажмите по ней! Ваше время ограничено!</span></b>"}
+				for(var/obj/screen/player_message/messages in vessel.client.screen)
+					messages.set_text(message, COLOR_WHITE)
+
+/obj/item/fd/reality_stab
+	name = "stabilization drug"
+	desc = "Used to heal some of the damage, received from different sources in this nightmare."
+
+	icon = 'mods/_fd/_maps/collective_nightmare/icons/ms_drugs.dmi'
+	icon_state = "rocket"
+
+	w_class = ITEM_SIZE_TINY
+
+/obj/item/fd/reality_stab/attack_self(mob/user)
+	. = ..()
+
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.current_connection_to_reality < H.max_connection_to_reality)
+			animation_flash_color(src, COLOR_GREEN)
+			H.recalculate_reality_connection(-1)
+			playsound(H, 'sound/effects/refill.ogg', 50)
+			sleep(5)
+			qdel(src)
+
+		else
+			animation_flash_color(src, COLOR_RED)
+			return FALSE
+
+/mob/living/proc/start_bs_removal()
+	var/message = {"<b><span style="color: green;">Остаётся 30 секунд!</span></b>"}
+	var/list/messages_amount = list()
+
+	for(var/obj/screen/player_message/messages in client.screen)
+		messages_amount += messages
+		messages.set_text(message, COLOR_WHITE)
+
+	if(!length(messages_amount))
+		var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+		maintext.plane = HUD_PLANE
+		maintext.layer = HUD_ABOVE_HUD_LAYER
+		maintext.maptext_x = 0
+		maintext.maptext_y = -380
+
+		client.screen += maintext
+		maintext.set_text(message, COLOR_WHITE)
+
+	addtimer(new Callback(src, PROC_REF(reset_bs_protection)), 30 SECONDS)
+
+/mob/living/proc/reset_bs_protection()
+	need_to_breath = TRUE
+
+	for(var/obj/screen/messages in client.screen)
+		if(istype(messages, /obj/screen/player_message))
+			client.screen -= messages
+			qdel(messages)
+
+/obj/item/fd/ancient_items/bs_shard/attack_self(mob/user)
+	. = ..()
+
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.current_connection_to_reality > 1)
+			animation_flash_color(src, COLOR_GREEN)
+			H.recalculate_reality_connection(1)
+			if(H.max_connection_to_reality > 1)
+				H.max_connection_to_reality -= 1
+			H.need_to_breath = FALSE
+
+			var/message = {"<b><span style="color: red;">Ваше максимальное здоровье было снижено!</span></b><br /> \
+						<b><span style="color: green;">Следующую минуту вы будете невосприимчивы к заражённым зонам!</span></b>"}
+
+			var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+			maintext.plane = HUD_PLANE
+			maintext.layer = HUD_ABOVE_HUD_LAYER
+			maintext.maptext_x = 0
+			maintext.maptext_y = -380
+
+			H.client.screen += maintext
+			maintext.set_text(message, COLOR_WHITE)
+
+			addtimer(new Callback(H, TYPE_PROC_REF(/mob/living, start_bs_removal)), 30 SECONDS)
+			sleep(5)
+			qdel(src)
+		else
+			animation_flash_color(src, COLOR_RED)
+			return FALSE

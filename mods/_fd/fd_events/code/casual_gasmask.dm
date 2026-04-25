@@ -171,14 +171,14 @@
 				F.additional_air -= refill_with
 
 /obj/item/fd/filter
-	name = "НАПОЛНИТЕЛЬ"
-	desc = "Специализированная канистра с ограниченными запасами смеси внутри."
+	name = "gas filter"
+	desc = "For sanitizing bad chemicals in the air."
 	icon = 'mods/_fd/fd_assets/icons/obj/items/device_eris.dmi'
 	icon_state = "nanorepair_tank"
 	var/additional_air = 50
 	var/current_status
 
-	w_class = ITEM_SIZE_SMALL
+	w_class = ITEM_SIZE_TINY
 
 /obj/item/fd/filter/MouseEntered(location, control, params)
 	. = ..()

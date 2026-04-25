@@ -82,12 +82,13 @@
 	user.overlay_fullscreen("background_note", note_overlay)
 	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
 
-	if(!connected_note.ci)
-		connected_note.ci = new /obj/screen/cancel_interaction()
+	if(connected_note)
+		if(!connected_note.ci)
+			connected_note.ci = new /obj/screen/cancel_interaction()
 
-	connected_note.ci.connected_mob = user
-	user.client.screen += connected_note.ci
-	animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+		connected_note.ci.connected_mob = user
+		user.client.screen += connected_note.ci
+		animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
 
 	spawn(0.5 SECONDS)
 
@@ -139,12 +140,13 @@
 	user.overlay_fullscreen("background_note", note_overlay)
 	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
 
-	if(!connected_note.ci)
-		connected_note.ci = new /obj/screen/cancel_interaction()
+	if(connected_note)
+		if(!connected_note.ci)
+			connected_note.ci = new /obj/screen/cancel_interaction()
 
-	connected_note.ci.connected_mob = user
-	user.client.screen += connected_note.ci
-	animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+		connected_note.ci.connected_mob = user
+		user.client.screen += connected_note.ci
+		animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
 
 	spawn(0.5 SECONDS)
 
@@ -183,12 +185,13 @@
 	user.overlay_fullscreen("background_note", note_overlay)
 	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
 
-	if(!connected_note.ci)
-		connected_note.ci = new /obj/screen/cancel_interaction()
+	if(connected_note)
+		if(!connected_note.ci)
+			connected_note.ci = new /obj/screen/cancel_interaction()
 
-	connected_note.ci.connected_mob = user
-	user.client.screen += connected_note.ci
-	animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+		connected_note.ci.connected_mob = user
+		user.client.screen += connected_note.ci
+		animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
 
 	spawn(0.5 SECONDS)
 
@@ -217,7 +220,8 @@
 /datum/interactive_note/nightmare/fred2
 	name = "Предатель"
 	note_info = {"Противогазы, которые дал нам <span style="color: yellow;">Фред</span> - оказались продырявленными. Жадный мудак хотел от нас избавиться. К его сожалению, я гораздо живучее остальных. \
-				Как только выберусь отсюда, ...... <span style="color: red;">остаток текста перекрывает засохшая кровь</span>."}
+				Как только выберусь отсюда... <br /> \
+				<b><span style="color: red;">ОСТАТОК ТЕКСТА ПЕРЕКРЫВАЕТ ЗАСОХШАЯ КРОВЬ</span></b>."}
 
 /obj/structure/fd/interactive/note/nightmare/fred2
 	name = "Записка"
@@ -247,12 +251,13 @@
 	user.overlay_fullscreen("background_note", note_overlay)
 	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
 
-	if(!connected_note.ci)
-		connected_note.ci = new /obj/screen/cancel_interaction()
+	if(connected_note)
+		if(!connected_note.ci)
+			connected_note.ci = new /obj/screen/cancel_interaction()
 
-	connected_note.ci.connected_mob = user
-	user.client.screen += connected_note.ci
-	animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+		connected_note.ci.connected_mob = user
+		user.client.screen += connected_note.ci
+		animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
 
 	spawn(0.5 SECONDS)
 
@@ -288,12 +293,13 @@
 	user.overlay_fullscreen("background_note", note_overlay)
 	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
 
-	if(!connected_note.ci)
-		connected_note.ci = new /obj/screen/cancel_interaction()
+	if(connected_note)
+		if(!connected_note.ci)
+			connected_note.ci = new /obj/screen/cancel_interaction()
 
-	connected_note.ci.connected_mob = user
-	user.client.screen += connected_note.ci
-	animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+		connected_note.ci.connected_mob = user
+		user.client.screen += connected_note.ci
+		animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
 
 	spawn(0.5 SECONDS)
 
@@ -308,7 +314,7 @@
 		nameplate.maptext_x = -75
 		nameplate.maptext_y = -15
 		maintext.maptext_x = 0
-		maintext.maptext_y = -340
+		maintext.maptext_y = -380
 
 		user.client.screen += maintext
 		user.client.screen += nameplate
@@ -329,12 +335,13 @@
 	user.overlay_fullscreen("background_note", note_overlay)
 	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
 
-	if(!connected_note.ci)
-		connected_note.ci = new /obj/screen/cancel_interaction()
+	if(connected_note)
+		if(!connected_note.ci)
+			connected_note.ci = new /obj/screen/cancel_interaction()
 
-	connected_note.ci.connected_mob = user
-	user.client.screen += connected_note.ci
-	animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+		connected_note.ci.connected_mob = user
+		user.client.screen += connected_note.ci
+		animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
 
 	spawn(0.5 SECONDS)
 
@@ -349,7 +356,7 @@
 		nameplate.maptext_x = -75
 		nameplate.maptext_y = -15
 		maintext.maptext_x = 0
-		maintext.maptext_y = -340
+		maintext.maptext_y = -380
 
 		user.client.screen += maintext
 		user.client.screen += nameplate
@@ -360,6 +367,145 @@
 	name = "Дневник"
 	icon_state = "mrakiizar_book_closed"
 	attached_text = list(/datum/interactive_note/nightmare/morgue_letter1,/datum/interactive_note/nightmare/morgue_letter2_1,/datum/interactive_note/nightmare/morgue_letter2_2)
+
+/datum/interactive_note/nightmare/gen
+	name = "Генератор"
+	note_info = {"В случае необходимости произвести аварийный запуск генератора, следуйте инструкции ниже...<br /> \
+				<br /> \
+				Тумблер <b>#1</b>: должен быть <b><span style="color: green;">ВКЛЮЧЁН</span></b><br /> \
+				Тумблер <b>#2</b>: должен быть <b><span style="color: red;">ВЫКЛЮЧЕН</span></b><br /> \
+				Тумблер <b>#3</b>: должен быть <b><span style="color: red;">ВЫКЛЮЧЕН</span></b><br /> \
+				Рычажок: должен быть <b><span style="color: green;">ПОДНЯТ ВВЕРХ</span></b>"}
+
+/obj/structure/fd/interactive/note/nightmare/gen
+	name = "Пособие электрика"
+	icon_state = "mrakiizar_book_closed"
+	attached_text = list(/datum/interactive_note/nightmare/gen)
+
+/datum/interactive_note/nightmare/sabotage
+	name = "Выкусите"
+	note_info = {"Ключ утоплен, энергосеть перегружена. Никто из этих уродов не сможет пройти дальше. Я в этом убедился. Если уж мне суждено сгнить в этом кошмаре - \
+				остальные уж тем более не заслужили возможности сбежать. Совсем скоро, тени окажутся внутри. К сожалению, застать момент того как их рвут на части я уже не смогу. \
+				Ну и ладно. Мне будет достаточно просто знать, что Аня и другие теперь отомщены.<br /> \
+				<br /> \
+				<b>Гори в Аду, Фред</b>."}
+
+/obj/structure/fd/interactive/note/nightmare/sabotage
+	name = "Записка"
+	attached_text = list(/datum/interactive_note/nightmare/sabotage)
+
+/datum/interactive_note/nightmare/bluespace
+	name = "Вскрытие"
+	note_info = {"Как я и предполагал, эти сорняки, или во всяком случае вшитые в них осколки - являются прямым источником загрязнения. \
+				Они вызывают значительные колебания в пространстве вокруг себя, при этом не имея никаких споровидных отложений, через которые данные растения могли бы распространять свою пыльцу. \
+				Они одинаково воздействуют как на мёртвую, так и на живую материю, однако общая симптоматика кажется психосоматической. Объекту необязательно дышать или соприкасаться с источником. \
+				Достаточно просто находиться поблизости."}
+
+/datum/interactive_note/nightmare/bluespace2
+	name = "Контр-меры"
+	note_info = {"Исходя из прошлого рассуждения, я начал искать пути решения проблемы. Более чем очевидно то, что даже это место, несмотря на его безумие - работает по каким-то вполне чётким правилам. \
+				Неоспорим факт того, что объект исследований не имеет пыльцы или спор. Следственно, логически, средства защиты против него должны быть полностью бесполезны. \
+				Тем не менее, химикаты - это далеко не последняя вещь, способная заставить человека задыхаться. В качестве эксперимента - я извлёк из тела испытуемого небольшой осколок для индивидуального изучения. \
+				Каково же было моё удивление, когда оказалось что отдельно от \"носителя\" в лице корней или тела - он абсолютно бесполезен."}
+
+/datum/interactive_note/nightmare/bluespace3
+	name = "Эврика"
+	note_info = {"Взятый мной образец претерпел некоторые значительные метаморфозы. \
+				Рано говорить о конкретике, но инкубационный период внутри органического носителя, похоже, привил осколку некоторые нейтрализующие качества. \
+				Пускай в крупных дозировках он по-прежнему представляет некоторую опасность - в малых количествах он способен практически полностью свести воздействие сорняков на нет. \
+				Как и свой родитель - он излучает слабые колебания, достаточные чтобы покрыть совсем небольшую область, однако здесь, я, даже могу назвать природу этих колебаний. Это батарейка органического происхожения."}
+
+/obj/structure/fd/interactive/note/nightmare/bluespace
+	name = "Отчёт"
+	icon_state = "mrakiizar_book_closed"
+	attached_text = list(/datum/interactive_note/nightmare/bluespace,/datum/interactive_note/nightmare/bluespace2)
+
+/obj/structure/fd/interactive/note/nightmare/bluespace2
+	name = "Отчёт"
+	attached_text = list(/datum/interactive_note/nightmare/bluespace3)
+
+/datum/interactive_note/nightmare/tutorial_ooc
+	name = "Подсказка 1 (ООС)"
+	note_info = {"<b>БАЗОВОЕ УПРАВЛЕНИЕ</b><br /> \
+				<br /> \
+				Взаимодействуйте с объектами нажатием <b><span style="color: yellow;">...</span></b><br /> \
+				Откройте архив собранных записей нажатием <b><span style="color: yellow;">...</span></b><br /> \
+				Прыгайте нажатием <b><span style="color: yellow;">...</span></b>"}
+
+/datum/interactive_note/nightmare/tutorial_ooc/reveal_note_to_player(mob/living/user)
+	note_info = {"<b>БАЗОВОЕ УПРАВЛЕНИЕ</b><br /> \
+				<br /> \
+				Взаимодействуйте с объектами нажатием <b><span style="color: yellow;">[user.retrieve_bind("start_interaction")]</span></b><br /> \
+				Откройте архив собранных записей нажатием <b><span style="color: yellow;">[user.retrieve_bind("open_archive")]</span></b><br /> \
+				Прыгайте нажатием <b><span style="color: yellow;">[user.retrieve_bind("dash")]</span></b>"}
+
+	. = ..()
+
+/datum/interactive_note/nightmare/tutorial_ooc2
+	name = "Подсказка 2 (ООС)"
+	note_info = {"<b>ПРОДВИНУТОЕ УПРАВЛЕНИЕ</b><br /> \
+				<br /> \
+				Чаще всего, объекты с которыми можно взаимодействовать - выделяются <b><span style="color: yellow;">лупой</span></b><br /> \
+				В некоторых случаях, внутри интеракции может быть спрятан <b><span style="color: yellow;">секрет</span></b>. Чтобы его обнаружить - попробуйте поводить мышкой по экрану, пока не увидите новый значок.<br /> \
+				Вы можете прыгать дальше одного тайла, если будете <b><span style="color: yellow;">зажимать</span></b> кнопку прыжка некоторое время.<br /> \
+				Вы автоматически присасываетесь к объектам, за которые можно <b><span style="color: yellow;">зацепиться</span></b>, если они находятся рядом. Такими объектами могут быть любые казалось бы неочевидные столбы или трубы на маршруте вашего прыжка. Иногда - даже стены."}
+
+/datum/interactive_note/nightmare/tutorial_ooc2/reveal_note_to_player(mob/living/user)
+	user.reading = TRUE
+
+	user.overlay_fullscreen("background_note", note_overlay)
+	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
+
+	if(connected_note)
+		if(!connected_note.ci)
+			connected_note.ci = new /obj/screen/cancel_interaction()
+
+		connected_note.ci.connected_mob = user
+		user.client.screen += connected_note.ci
+		animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+
+	spawn(0.5 SECONDS)
+
+		var/message = "[note_info]"
+		var/message_name = "[name]"
+
+		var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+		var/obj/screen/novel_message/note_name/nameplate = new /obj/screen/novel_message/note_name()
+		maintext.layer = 5.4
+		nameplate.layer = 5.4
+
+		nameplate.maptext_x = -75
+		nameplate.maptext_y = -15
+		maintext.maptext_x = 0
+		maintext.maptext_y = -280
+
+		user.client.screen += maintext
+		user.client.screen += nameplate
+		maintext.set_text(message, COLOR_WHITE)
+		nameplate.set_text(message_name, COLOR_WHITE)
+
+/datum/interactive_note/nightmare/tutorial_ooc3
+	name = "Подсказка 3 (ООС)"
+	note_info = {"<b>БОРЬБА С ТЕНЯМИ</b><br /> \
+				<br /> \
+				Режим передвижения <b><span style="color: yellow;">\"Creep\"</span></b> значительно уменьшает ваши шансы быть замеченными.<br /> \
+				Вы можете активировать вспышку быстро, нажатием <b><span style="color: yellow;">...</span></b>."}
+
+/datum/interactive_note/nightmare/tutorial_ooc3/reveal_note_to_player(mob/living/user)
+	note_info = {"<b>БОРЬБА С ТЕНЯМИ</b><br /> \
+				<br /> \
+				Режим передвижения <b><span style="color: yellow;">\"Creep\"</span></b> значительно уменьшает ваши шансы быть замеченными.<br /> \
+				Вы можете активировать вспышку быстро, нажатием <b><span style="color: yellow;">[user.retrieve_bind("activate_inhand")]</span></b>."}
+
+	. = ..()
+
+/datum/interactive_note/nightmare/tutorial_ooc4
+	name = "Подсказка 4 (ООС)"
+	note_info = {"<b>ОТРАВЛЕННЫЙ ВОЗДУХ</b><br /> \
+				<br /> \
+				Подобные игровые области предполагают наличие в вашем распоряжении любого <b><span style="color: yellow;">противогаза</span></b> заряженного специализированными <b><span style="color: yellow;">фильтрами</span></b>.<br /> \
+				Без них, персонаж продержится от силы <b><span style="color: yellow;">10-15 секунд</span></b>, прежде чем начнёт получать <b><span style="color: red;">урон</span></b>.<br /> \
+				Эти зоны также можно очистить уничтожив <b><span style="color: yellow;">источник</span></b> распространения ядовитых паров, или <b><span style="color: yellow;">восстановив электричество</span></b>."}
 
 /obj/effect/reality_tear
 	name = "trap"
@@ -403,6 +549,25 @@
 	name = "Hospital (Left Wing) - Nightmare"
 	requires_power = 1
 
+/area/nightmare/unreal/hospital/left_wing/infected
+	requires_power = 0
+	unbreathable = TRUE
+
+/area/nightmare/unreal/hospital/right_wing
+	name = "Hospital (Right Wing) - Nightmare"
+	requires_power = 1
+
+/area/nightmare/unreal/hospital/right_wing/infected
+	requires_power = 0
+	unbreathable = TRUE
+
+/area/nightmare/unreal/hospital/right_wing/janitor
+	name = "Hospital (Right Wing, Janitor Storage) - Nightmare"
+	requires_power = 0
+
+/area/nightmare/unreal/hospital/right_wing/special_fusebox
+	name = "Hospital (For Fusebox) - Nightmare"
+
 /area/nightmare/unreal/hospital/left_wing/ward1
 	name = "Hospital (Left Wing, Ward 1) - Nightmare"
 	requires_power = 0
@@ -414,6 +579,27 @@
 
 /area/nightmare/unreal/hospital/lower_level/autopsy_room
 	name = "Hospital (Autopsy Room) - Nightmare"
+
+/obj/structure/fd/interactive/vent_exit
+	name = "vent"
+	desc = "ventilation."
+
+	mouse_opacity = FALSE
+	anchored = TRUE
+	density = TRUE
+
+	icon = 'mods/_fd/fd_assets/icons/structures/constructed/construct_window.dmi'
+	icon_state = "window_grate"
+
+/obj/structure/fd/interactive/vent_exit/interact_with(mob/living/user)
+	if(user.mob_size != MOB_SMALL)
+		desc_special = {"В неё точно смог бы залезть кто-нибудь <span style="color: yellow;">поменьше</span>."}
+		desc_special_show = TRUE
+		. = ..()
+		return TRUE
+
+	user.forceMove(get_turf(src))
+	return TRUE
 
 /obj/structure/fd/interactive/barricade
 	name = "barricade"
@@ -654,6 +840,10 @@
 	name = "ключ от комнаты %^$##^#*!#"
 	icon_state = "key_yellow"
 
+/obj/item/fd/door_key/elevator
+	name = "карта доступа к лифту"
+	icon_state = "1,1"
+
 /obj/structure/fd/interactive/door/test_locked
 
 	key_needed = TRUE
@@ -727,6 +917,15 @@
 	key_needed = TRUE
 	locked = TRUE
 	door_key = /obj/item/fd/door_key/firstzerofirst
+
+/obj/structure/fd/interactive/door/nightmare/elevator
+	icon_state = "grate"
+	opacity = FALSE
+
+	key_needed = TRUE
+	locked = TRUE
+	door_key = /obj/item/fd/door_key/elevator
+	doorsound = 'mods/_fd/_maps/collective_nightmare/sounds/metal_door_open.wav'
 
 /obj/structure/fd/interactive/morgue_body
 	name = "roller"
@@ -841,6 +1040,23 @@
 	area.unbreathable = TRUE
 	. = ..()
 
+/obj/effect/soulblocker
+	name = "blocker"
+	desc = "blocker"
+	icon = 'mods/_fd/fd_utilities/icons/newsource.dmi'
+	icon_state = "noteam"
+	mouse_opacity = FALSE
+	anchored = TRUE
+	density = TRUE
+
+	invisibility = 50
+
+/obj/effect/soulblocker/Crossed(atom/movable/AM as mob|obj)
+	. = ..()
+
+	if(istype(AM,/mob/living/simple_animal/connected_player_soul))
+		AM.forceMove(get_turf(get_step(AM.loc, reverse_direction(AM.dir))))
+
 /obj/effect/fakerain
 	name = "rain"
 	desc = "rain"
@@ -850,24 +1066,31 @@
 	anchored = TRUE
 	layer = 4.12
 
+/obj/effect/fakerain_sound
+	name = "there is nothing"
+	icon = 'mods/_fd/fd_utilities/icons/newsource.dmi'
+	icon_state = "env_soundscape"
+	invisibility = 50
+	anchored = TRUE
+	mouse_opacity = FALSE
 	var/datum/sound_token/sound_token
 	var/sound_id
 
 	var/emergency_shutoff = FALSE // ЕСЛИ ВДРУГ БУДЕТ ЛАГАТЬ - МОЖНО РАЗОМ ВЫРУБИТЬ ЗВУКИ ДОЖДЯ У ВСЕХ ЭФФЕКТОВ НА КАРТЕ
 
-/obj/effect/fakerain/Initialize()
+/obj/effect/fakerain_sound/Initialize()
 	. = ..()
 	START_PROCESSING(SSobj,src)
 
-/obj/effect/fakerain/Process()
+/obj/effect/fakerain_sound/Process()
 	update_sound()
 
-/obj/effect/fakerain/proc/update_sound()
+/obj/effect/fakerain_sound/proc/update_sound()
 	if(!sound_id)
 		sound_id = "[type]_[sequential_id(/obj/effect/fakerain)]"
 	if(!emergency_shutoff)
 		if(!sound_token)
-			sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id, 'mods/_fd/_maps/collective_nightmare/sounds/rain.ogg', volume = 50, range = 1)
+			sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id, 'mods/_fd/_maps/collective_nightmare/sounds/rain.ogg', volume = 50)
 		sound_token.SetVolume(50)
 	else if(sound_token)
 		QDEL_NULL(sound_token)
