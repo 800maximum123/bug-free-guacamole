@@ -578,6 +578,7 @@
 	lost_in_nightmare = TRUE
 	stunned = 999999
 	overlays += image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static", dir = dir)
+	mouse_opacity = FALSE
 
 	if(max_connection_to_reality <= 1)
 		teleop = ghostize(1)
@@ -613,12 +614,14 @@
 	glitching = TRUE
 	glitches_freq = glitches_freq_base
 	stunned = 5
+	mouse_opacity = FALSE
 
 	overlays += image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static", dir = dir)
 	say(pick("⮸⮌⌥⮎⮃⮃⮀⌃⮌⎋⌥⮎","⮄⮃⮏⭮⮍⮃","⮆⌃⌤⮄⮃⎋⮃","⮆⮍⮆⮎⮑⭿⮌⮎⮸","⮆⌃⮓⮑⮎⮄⮃⮑⎋⌥⌤"))
 	sleep(10)
 	overlays -= image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static")
 	glitching = FALSE
+	mouse_opacity = TRUE
 
 /mob/living/carbon/human/proc/recalculate_reality_connection(amount)
 	var/before_calculation = current_connection_to_reality
@@ -877,6 +880,7 @@
 
 			sleep(2 SECONDS)
 			vessel.soul.stunned = 0
+			vessel.soul.mouse_opacity = TRUE
 			vessel.soul.Move(get_step(loc,SOUTH), SOUTH)
 			qdel(vessel)
 			floppies_amount -= 1
