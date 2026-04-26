@@ -552,6 +552,8 @@
 	if(make_shadow_after <= 0 && lost_in_nightmare)
 		if(ckey || client)
 			ghostize(0)
+		for(var/obj/item/W in src)
+			drop_from_inventory(W)
 		new /obj/structure/fd/shadow_follower(get_turf(src))
 
 		qdel(src)
@@ -583,6 +585,9 @@
 	overlays += image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static", dir = dir)
 
 	if(max_connection_to_reality <= 1)
+		for(var/obj/item/W in src)
+			drop_from_inventory(W)
+
 		teleop = ghostize(1)
 		new /obj/structure/fd/shadow_follower(get_turf(src))
 		qdel(src)
