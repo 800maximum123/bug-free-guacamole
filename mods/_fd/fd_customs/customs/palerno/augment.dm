@@ -4,7 +4,7 @@
 	icon = 'mods/_fd/fd_customs/customs/palerno/icon/implant.dmi'
 	icon_state = "implant"
 	item_state = "onmobimplant"
-	desc = "An implant embedded in the CNS to enhance the efficiency of combat mech pilots. Its basis consists of a titanium frame with nanofibers for neural connections and an unknown red substance. "
+	desc = "An implant embedded in the CNS to enhance the efficiency of combat mech pilots. Its basis consists of a titanium frame with nanofibers and an unknown crystal-red substance for neural connections."
 	augment_flags = AUGMENT_BIOLOGICAL | AUGMENT_SCANNABLE | AUGMENT_INSPECTABLE
 	origin_tech = list(TECH_DATA = 2, TECH_POWER = 2, TECH_BIO = 2)
 	surface_accessible = TRUE
@@ -14,7 +14,7 @@
 /obj/item/organ/internal/augment/ibis/cut_away(mob/living/user)
 	if(irremovable)
 		if(user)
-			to_chat(user, SPAN_WARNING("[src] cannot be cut away! It is permanently fused with the nervous system."))
+			to_chat(user, SPAN_WARNING("[src] cannot be cut away! It is permanently fused with crystal-red strings to the nervous system."))
 			return FALSE
 	. = ..()
 
