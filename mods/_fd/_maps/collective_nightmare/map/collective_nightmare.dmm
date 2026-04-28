@@ -6191,7 +6191,8 @@
 	icon_state = "bookcase";
 	desc_special_show = 1;
 	desc_special = "Все полки забиты разной научной литературой.";
-	interactive = 1
+	interactive = 1;
+	density = 1
 	},
 /turf/simulated/floor/exoplanet/samosbor/wood{
 	icon_state = "wood_fancy"
@@ -19259,10 +19260,6 @@
 /obj/structure/ore_box{
 	desc = "A heavy box used for storing stuff.";
 	name = "box";
-	opacity = 1;
-	interactive = 1;
-	desc_special_show = 1;
-	desc_special = "Я могу подвинуть это.";
 	pixel_y = 9;
 	pixel_x = 3;
 	anchored = 1
@@ -29106,12 +29103,14 @@
 /obj/structure/fd/samosbor/machinery3{
 	icon_state = "messyfiles0";
 	pixel_y = 10;
-	pixel_x = -14
+	pixel_x = -14;
+	density = 1
 	},
 /obj/structure/fd/samosbor/machinery3{
 	icon_state = "messyfiles";
 	pixel_y = 4;
-	pixel_x = 5
+	pixel_x = 5;
+	density = 1
 	},
 /turf/simulated/floor/exoplanet/samosbor/carpet{
 	icon_state = "ca_da_re_15"
@@ -31082,7 +31081,8 @@
 	desc_special = "Полка с кучей разных книг. Если присмотреться, то в одной из них, кажется, что-то есть.";
 	desc_special_after_finding = "Полка с кучей разных книг.";
 	name = "книжную полку";
-	mouse_opacity = 0
+	mouse_opacity = 0;
+	density = 1
 	},
 /obj/structure/fd/samosbor/table_decor10{
 	icon_state = "book_world";
