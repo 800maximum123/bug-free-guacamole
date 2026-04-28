@@ -89,3 +89,11 @@
 		sound_token.SetVolume(50)
 	else if(sound_token)
 		QDEL_NULL(sound_token)
+
+
+
+/obj/structure/plasticflaps/rocks
+	name = "\improper falling rocks"
+	desc = "A pile of rocks. Maybe you can crawl under them?"
+	icon = 'mods/_fd/_maps/metro/icons/walls.dmi'
+	icon_state = "rock-dark"
