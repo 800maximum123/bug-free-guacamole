@@ -205,6 +205,14 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 /datum/modular_cutscene/proc/change_actor_matrix(mob/living/actor, rotation, duration, easing, flags)
 	animate(actor, transform = matrix(rotation, MATRIX_ROTATE), time = duration, easing = easing, flags = flags)
 
+#define EASY_TRANSFORM_ACTOR(actor, size, new_angle) CALL(src, easy_transform_actor, actor, size, new_angle)
+/datum/modular_cutscene/proc/easy_transform_actor(mob/living/actor, size, new_angle)
+	return actor.SetTransform(scale = size, rotation = new_angle)
+
+#define CHANGE_ACTOR_LAYER(actor, new_layer) CALL(src, change_actor_layer, actor, new_layer)
+/datum/modular_cutscene/proc/change_actor_layer(mob/living/actor, new_layer)
+	return actor.forced_layer = new_layer
+
 #define MOVE_ACTOR(actor, direction) CALL(src, move_actor, actor, direction)
 /datum/modular_cutscene/proc/move_actor(mob/living/actor, direction)
 	return actor.forceMove(get_step(get_turf(actor), direction))

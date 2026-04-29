@@ -6,6 +6,9 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 	var/turf/remember_position
 	var/remember_camera_size
 
+	var/should_update_layer = FALSE
+	var/forced_layer
+
 /mob/living/simple_animal/cutscene_character
 	name = "TEST"
 	desc = "TEST"
@@ -51,6 +54,12 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 		maptext_name.maptext_y = -10
 
 		AddOverlays(maptext_name)
+
+/mob/living/simple_animal/cutscene_character/Life()
+	. = ..()
+
+	if(should_update_layer)
+		layer = forced_layer
 
 /mob/living/simple_animal/cutscene_character/proc/do_stuff() //Сюда писать всё что должен этот моб в сцене сделать
 	return

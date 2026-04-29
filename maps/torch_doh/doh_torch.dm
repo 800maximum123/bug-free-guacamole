@@ -201,13 +201,17 @@
 	#include "cutscenes/s2ep4/scene_2.dm"
 	#include "cutscenes/s2ep4/scene_3.dm"
 
+	#include "cutscenes/s2ep5/characters.dm"
+	#include "cutscenes/s2ep5/scene_1.dm"
+
 	#include "music_videos/s2opening1.dm"
 
 	// --- MAP FILES --- //
 
 		// ~TORCH~ //
 	#include "z1_empty.dmm"
-	#include "z2_admin.dmm"
+	#include "z2_empty.dmm"
+	#include "z3_admin.dmm"
 
 	#include "../bluespace_interlude/bluespace_interlude.dm"
 	#include "../bluespace_interlude/bluespace_interlude.dmm"
