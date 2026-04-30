@@ -10,7 +10,8 @@
 	forced_layer = 4.03;
 	cutscene_id = "Перси - 5-1-1";
 	pixel_y = -29;
-	should_update_layer = 1
+	should_update_layer = 1;
+	layer = 4.03
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t3"
@@ -23,11 +24,12 @@
 /mob/living/simple_animal/cutscene_character/amelia/s2ep2{
 	dir = 4;
 	cutscene_id = "Амелия - 5-1-1";
-	icon_dead = "Ep 1";
-	icon_living = "Ep 1";
-	icon_state = "Ep 1";
+	icon_dead = "Ep 1 - NOEYES";
+	icon_living = "Ep 1 - NOEYES";
+	icon_state = "Ep 1 - NOEYES";
 	forced_layer = 4.06;
-	should_update_layer = 1
+	should_update_layer = 1;
+	layer = 4.06
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t3"
@@ -49,7 +51,8 @@
 	dir = 8;
 	forced_layer = 4.02;
 	cutscene_id = "Стул 5";
-	should_update_layer = 1
+	should_update_layer = 1;
+	layer = 4.02
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t3"
@@ -63,7 +66,30 @@
 	dir = 4;
 	forced_layer = 4.05;
 	cutscene_id = "Комп 5";
-	should_update_layer = 1
+	should_update_layer = 1;
+	layer = 4.05
+	},
+/mob/living/simple_animal/cutscene_character/invisible_speakers{
+	name = "TAP";
+	cutscene_id = "Клава 3";
+	should_update_layer = 1;
+	forced_layer = 5;
+	layer = 5
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_da_t3"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"w" = (
+/mob/living/simple_animal/cutscene_character/invisible_speakers{
+	name = "TAP";
+	cutscene_id = "Клава 2";
+	should_update_layer = 1;
+	forced_layer = 5;
+	layer = 5
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t3"
@@ -86,7 +112,8 @@
 	forced_layer = 4.04;
 	cutscene_id = "Стол 5";
 	color = "#ffffff";
-	should_update_layer = 1
+	should_update_layer = 1;
+	layer = 4.04
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t3"
@@ -115,9 +142,13 @@
 	dir = 4;
 	cutscene_id = "Глаза Амелии - 5-1-1";
 	forced_layer = 4.07;
-	pixel_x = 10;
-	pixel_y = 16;
-	should_update_layer = 1
+	pixel_x = 15;
+	pixel_y = 17;
+	should_update_layer = 1;
+	layer = 4.07;
+	icon_dead = "Amelia Eyes - Looking down";
+	icon_living = "Amelia Eyes - Looking down";
+	icon_state = "Amelia Eyes - Looking down"
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t3"
@@ -143,7 +174,38 @@
 /mob/living/simple_animal/cutscene_character/s2ep5/wall{
 	forced_layer = 4.01;
 	cutscene_id = "Стена 5";
-	should_update_layer = 1
+	should_update_layer = 1;
+	layer = 4.01
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_da_t3"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"V" = (
+/mob/living/simple_animal/cutscene_character/invisible_speakers{
+	name = "TAP";
+	cutscene_id = "Клава 4";
+	should_update_layer = 1;
+	forced_layer = 5;
+	layer = 5
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_da_t3"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"W" = (
+/mob/living/simple_animal/cutscene_character/invisible_speakers{
+	name = "TAP";
+	cutscene_id = "Клава 1";
+	should_update_layer = 1;
+	forced_layer = 5;
+	layer = 5
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t3"
@@ -4028,7 +4090,7 @@ l
 l
 l
 l
-l
+w
 l
 l
 l
@@ -4231,7 +4293,7 @@ l
 l
 l
 l
-l
+W
 l
 l
 x
@@ -4431,7 +4493,7 @@ l
 l
 l
 l
-l
+V
 v
 l
 l

@@ -1,3 +1,23 @@
+/mob/living/simple_animal/cutscene_character/invisible_speakers
+	name = "speaker"
+	desc = "..."
+	mouse_opacity = FALSE
+
+	icon_state = "none"
+	icon_living = "none"
+	icon_dead = "none"
+
+	should_show_name = FALSE
+	alpha = 0
+
+	maptext_x = 8
+	maptext_y = 16
+
+/mob/living/simple_animal/cutscene_character/invisible_speakers/Initialize()
+	maptext = STYLE_SMALLFONTS_OUTLINE("[name]", 7, COLOR_WHITE, COLOR_BLACK)
+
+	. = ..()
+
 /mob/living/simple_animal/cutscene_character/amelia/s2ep2/amelia_eyes
 	name = "eyes"
 	desc = "..."
