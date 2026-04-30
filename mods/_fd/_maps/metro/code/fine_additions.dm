@@ -97,3 +97,4 @@
 	desc = "A pile of rocks. Maybe you can crawl under them?"
 	icon = 'mods/_fd/_maps/metro/icons/walls.dmi'
 	icon_state = "rock-dark"
+	obj_flags = ATOM_FLAG_NO_TOOLS
