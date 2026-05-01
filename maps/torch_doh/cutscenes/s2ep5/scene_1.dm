@@ -1,6 +1,9 @@
 /obj/effect/cutscene_camera/s2ep5sc1
 	camera_id = "Сцена 5-1 - Кадр 1"
 
+/obj/effect/cutscene_camera/s2ep5sc2
+	camera_id = "Сцена 5-1 - Кадр 2"
+
 /proc/s2ep5sc1_screentext()
 	var/message = {"<span style="color: yellow;">Амелия</span>: Кажется..."}
 
@@ -14,15 +17,40 @@
 		M.screen += maintext
 		maintext.set_text(message, COLOR_WHITE)
 
-	spawn(3 SECONDS)
+	spawn(3.5 SECONDS)
 		message = {"<span style="color: yellow;">Амелия</span>: Кажется...всё."}
 		maintext.set_text(message, COLOR_WHITE)
 
-	spawn(7 SECONDS)
+	spawn(5 SECONDS)
 		message = {"<span style="color: yellow;">Амелия</span>: Попробуй встать."}
 		maintext.set_text(message, COLOR_WHITE)
 
-	spawn(14 SECONDS)
+	spawn(12 SECONDS)
+
+		for(var/client/M in GLOB.clients)
+			for(var/obj/screen/messages in M.screen)
+				if(istype(messages, /obj/screen/player_message))
+					M.screen -= messages
+					qdel(messages)
+
+/proc/s2ep5sc2_screentext()
+	var/message = {"<span style="color: yellow;">Амелия</span>: Ну?"}
+
+	var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+	maintext.plane = HUD_PLANE
+	maintext.layer = HUD_ABOVE_HUD_LAYER
+	maintext.maptext_x = 0
+	maintext.maptext_y = -310
+
+	for(var/client/M in GLOB.clients)
+		M.screen += maintext
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(2 SECONDS)
+		message = {"<span style="color: yellow;">Амелия</span>: Ну? Что скажешь?"}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(30 SECONDS)
 
 		for(var/client/M in GLOB.clients)
 			for(var/obj/screen/messages in M.screen)
@@ -86,9 +114,7 @@
 
 		CHANGE_ACTOR_VISIBILITY(actor("Клава 3"), 0, 0.5 SECONDS, LINEAR_EASING, null),
 
-		CHANGE_ACTOR_VISUALS(actor("Глаза Амелии - 5-1-1"), "Amelia Eyes - Really"),
-
-		SHIFT_ACTOR(actor("Глаза Амелии - 5-1-1"), 36, 19, 0.5 SECONDS, LINEAR_EASING, null),
+		SHIFT_ACTOR(actor("Глаза Амелии - 5-1-1"), 35, 16, 0.5 SECONDS, LINEAR_EASING, null),
 		EASY_TRANSFORM_ACTOR(actor("Глаза Амелии - 5-1-1"), 4, 2),
 		EASY_TRANSFORM_ACTOR(actor("Амелия - 5-1-1"), 9, 1) = 0.05 SECONDS,
 		EASY_TRANSFORM_ACTOR(actor("Глаза Амелии - 5-1-1"), 4, 4),
@@ -98,9 +124,76 @@
 		EASY_TRANSFORM_ACTOR(actor("Глаза Амелии - 5-1-1"), 4, 8),
 		EASY_TRANSFORM_ACTOR(actor("Амелия - 5-1-1"), 9, 4) = 0.05 SECONDS,
 		EASY_TRANSFORM_ACTOR(actor("Амелия - 5-1-1"), 9, 5) = 1 SECONDS,
-		CHANGE_ACTOR_VISUALS(actor("Глаза Амелии - 5-1-1"), "Amelia Eyes - Really") = 1 SECONDS,
 
 		TURN_ACTOR(actor("Глаза Амелии - 5-1-1"), NORTH),
-		CHANGE_ACTOR_VISUALS(actor("Амелия - 5-1-1"), "EP5 PAGE 1 - 2NOEYES") = 100 SECONDS,
+		CHANGE_ACTOR_VISUALS(actor("Амелия - 5-1-1"), "EP5 PAGE 1 - 2NOEYES") = 2 SECONDS,
 
+		CHANGE_ACTOR_VISIBILITY(actor("Бзз"), 255, 0.3 SECONDS, LINEAR_EASING, null) = 0.5 SECONDS,
+		CHANGE_ACTOR_VISIBILITY(actor("Бзз"), 0, 0.8 SECONDS, LINEAR_EASING, null),
+
+		CHANGE_ACTOR_VISUALS(actor("Перси - 5-1-1"), "EP5 PAGE 1 - 2"),
+
+		SHIFT_ACTOR(actor("Перси - 5-1-1"), 0, -29, 1 SECONDS, SINE_EASING|EASE_IN, null),
+		EASY_TRANSFORM_ACTOR(actor("Перси - 5-1-1"), 9, 4) = 0.05 SECONDS,
+		EASY_TRANSFORM_ACTOR(actor("Перси - 5-1-1"), 9, 3) = 0.05 SECONDS,
+		EASY_TRANSFORM_ACTOR(actor("Перси - 5-1-1"), 9, 2) = 0.05 SECONDS,
+		EASY_TRANSFORM_ACTOR(actor("Перси - 5-1-1"), 9, 1) = 0.05 SECONDS,
+		EASY_TRANSFORM_ACTOR(actor("Перси - 5-1-1"), 9, 0) = 0.05 SECONDS,
+
+		SHIFT_ACTOR(actor("Амелия - 5-1-1"), 5, 0, 0.5 SECONDS, SINE_EASING|EASE_IN, null),
+		SHIFT_ACTOR(actor("Глаза Амелии - 5-1-1"), -1, 14, 0.5 SECONDS, LINEAR_EASING, null),
+		CHANGE_ACTOR_VISUALS(actor("Амелия - 5-1-1"), "EP5 PAGE 1 - 3"),
+
+		EASY_TRANSFORM_ACTOR(actor("Глаза Амелии - 5-1-1"), 4, 8),
+		EASY_TRANSFORM_ACTOR(actor("Амелия - 5-1-1"), 9, 5) = 0.05 SECONDS,
+		EASY_TRANSFORM_ACTOR(actor("Глаза Амелии - 5-1-1"), 4, 6),
+		EASY_TRANSFORM_ACTOR(actor("Амелия - 5-1-1"), 9, 4) = 0.05 SECONDS,
+		EASY_TRANSFORM_ACTOR(actor("Глаза Амелии - 5-1-1"), 4, 4),
+		EASY_TRANSFORM_ACTOR(actor("Амелия - 5-1-1"), 9, 3) = 0.05 SECONDS,
+		EASY_TRANSFORM_ACTOR(actor("Глаза Амелии - 5-1-1"), 4, 2),
+		EASY_TRANSFORM_ACTOR(actor("Амелия - 5-1-1"), 9, 2) = 0.05 SECONDS,
+		EASY_TRANSFORM_ACTOR(actor("Глаза Амелии - 5-1-1"), 4, 0),
+		EASY_TRANSFORM_ACTOR(actor("Амелия - 5-1-1"), 9, 1),
+		EASY_TRANSFORM_ACTOR(actor("Амелия - 5-1-1"), 9, 0) = 2 SECONDS,
+
+		TURN_ACTOR(actor("Амелия - 5-1-1"), NORTH),
+		SHIFT_ACTOR(actor("Амелия - 5-1-1"), 5, -10, 0.5 SECONDS, SINE_EASING|EASE_IN, null),
+		SHIFT_ACTOR(actor("Глаза Амелии - 5-1-1"), -1, 4, 0.5 SECONDS, LINEAR_EASING, null),
+
+		SHIFT_ACTOR(actor("Перси - 5-1-1"), -25, 5, 0.5 SECONDS, SINE_EASING|EASE_IN, null),
+		CHANGE_ACTOR_VISUALS(actor("Перси - 5-1-1"), "EP5 PAGE 1 - 3") = 1 SECONDS,
+		CHANGE_ACTOR_VISUALS(actor("Перси - 5-1-1"), "EP5 PAGE 1 - 4") = 2 SECONDS,
+
+		START_CUTSCENE(/datum/modular_cutscene/s2ep5sc2)
+	)
+
+/datum/modular_cutscene/s2ep5sc2/setup_actions(...)
+	actions = list(
+
+		EASY_TRANSFORM_ACTOR(actor("Комп 5-2"), 5, 0),
+		CHANGE_ACTOR_LAYER(actor("Комп 5-2"), 4.05),
+
+		EASY_TRANSFORM_ACTOR(actor("Глаза Амелии - 5-1-2"), 3, 0),
+		CHANGE_ACTOR_LAYER(actor("Глаза Амелии - 5-1-2"), 4.07),
+
+		EASY_TRANSFORM_ACTOR(actor("Амелия - 5-1-2"), 7, 0),
+		CHANGE_ACTOR_LAYER(actor("Амелия - 5-1-2"), 4.06),
+
+		EASY_TRANSFORM_ACTOR(actor("Стена 5-2"), 15, 0),
+		CHANGE_ACTOR_LAYER(actor("Стена 5-2"), 4.01),
+
+		EASY_TRANSFORM_ACTOR(actor("Стул 5-2"), 7, 0),
+		CHANGE_ACTOR_LAYER(actor("Стул 5-2"), 4.02),
+
+		EASY_TRANSFORM_ACTOR(actor("Перси - 5-1-2"), 8, 0),
+		CHANGE_ACTOR_LAYER(actor("Перси - 5-1-2"), 4.06),
+
+		EASY_TRANSFORM_ACTOR(actor("Стол 5-2"), 10, 0),
+		CHANGE_ACTOR_LAYER(actor("Стол 5-2"), 4.04) = 0.1 SECONDS,
+
+		TP_CAMERA("Сцена 5-1 - Кадр 2"),
+		MOVE_CAMERA(-2, -2, 0, null),
+		ADD_SCREEN(/cinema_borders) = 0.5 SECONDS,
+
+		CALL_GLOB(s2ep5sc2_screentext) = 100 SECONDS,
 	)

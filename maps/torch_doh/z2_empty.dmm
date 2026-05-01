@@ -2,6 +2,27 @@
 "a" = (
 /turf/space,
 /area/space)
+"e" = (
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#a1b6af";
+	marker_id = "houselight3"
+	},
+/mob/living/simple_animal/cutscene_character/s2ep5/wall{
+	forced_layer = 4.01;
+	cutscene_id = "Стена 5-2";
+	should_update_layer = 1;
+	layer = 4.01;
+	pixel_y = 64
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_da_t3"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "f" = (
 /mob/living/simple_animal/cutscene_character/perci_robot{
 	icon_state = "EP5 PAGE 1 - 1";
@@ -12,6 +33,21 @@
 	pixel_y = -29;
 	should_update_layer = 1;
 	layer = 4.03
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_da_t3"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"h" = (
+/mob/living/simple_animal/cutscene_character/perci_robot{
+	icon_state = "EP5 PAGE 1 - 5";
+	forced_layer = 4.06;
+	cutscene_id = "Перси - 5-1-2";
+	should_update_layer = 1;
+	layer = 4.06
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t3"
@@ -46,11 +82,41 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"p" = (
+/mob/living/simple_animal/cutscene_character/s2ep5/wall{
+	icon_state = "me_ge_t1_5";
+	forced_layer = 4.04;
+	cutscene_id = "Стол 5-2";
+	color = "#ffffff";
+	should_update_layer = 1;
+	layer = 4.04
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_da_t3"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "q" = (
 /mob/living/simple_animal/cutscene_character/s2ep5/chair{
 	dir = 8;
 	forced_layer = 4.02;
 	cutscene_id = "Стул 5";
+	should_update_layer = 1;
+	layer = 4.02
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_da_t3"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"u" = (
+/mob/living/simple_animal/cutscene_character/s2ep5/chair{
+	forced_layer = 4.02;
+	cutscene_id = "Стул 5-2";
 	should_update_layer = 1;
 	layer = 4.02
 	},
@@ -122,6 +188,41 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"B" = (
+/mob/living/simple_animal/cutscene_character/invisible_speakers{
+	name = "BZZT";
+	cutscene_id = "Бзз";
+	should_update_layer = 1;
+	forced_layer = 5;
+	layer = 5
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_da_t3"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"D" = (
+/mob/living/simple_animal/cutscene_character/amelia/s2ep2/amelia_eyes{
+	dir = 8;
+	cutscene_id = "Глаза Амелии - 5-1-2";
+	forced_layer = 4.07;
+	pixel_x = -13;
+	pixel_y = 28;
+	should_update_layer = 1;
+	layer = 4.07;
+	icon_dead = "Amelia Eyes - Looking up";
+	icon_living = "Amelia Eyes - Looking up";
+	icon_state = "Amelia Eyes - Looking up"
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_da_t3"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "G" = (
 /obj/structure/fd/mapping/light_marker{
 	marker_power = 0.8;
@@ -150,6 +251,39 @@
 	icon_living = "Amelia Eyes - Looking down";
 	icon_state = "Amelia Eyes - Looking down"
 	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_da_t3"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"I" = (
+/mob/living/simple_animal/cutscene_character/amelia/s2ep2{
+	dir = 8;
+	cutscene_id = "Амелия - 5-1-2";
+	icon_dead = "EP5 PAGE 1 - 4";
+	icon_living = "EP5 PAGE 1 - 4";
+	icon_state = "EP5 PAGE 1 - 4";
+	forced_layer = 4.06;
+	should_update_layer = 1;
+	layer = 4.06
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_da_t3"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"J" = (
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#a1b6af";
+	marker_id = "houselight3"
+	},
+/obj/effect/cutscene_camera/s2ep5sc2,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t3"
 	},
@@ -206,6 +340,20 @@
 	should_update_layer = 1;
 	forced_layer = 5;
 	layer = 5
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_da_t3"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"X" = (
+/mob/living/simple_animal/cutscene_character/s2ep5/computer{
+	forced_layer = 4.05;
+	cutscene_id = "Комп 5-2";
+	should_update_layer = 1;
+	layer = 4.05
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t3"
@@ -4490,7 +4638,7 @@ l
 l
 l
 l
-l
+B
 l
 l
 V
@@ -6099,21 +6247,21 @@ a
 a
 a
 x
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
+Z
+l
+l
+l
+l
+l
+l
+Z
+l
+l
+l
+l
+l
+l
+Z
 x
 a
 a
@@ -6301,21 +6449,21 @@ a
 a
 a
 x
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
 x
 a
 a
@@ -6503,21 +6651,21 @@ a
 a
 a
 x
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
 x
 a
 a
@@ -6705,21 +6853,21 @@ a
 a
 a
 x
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
+l
+l
+l
+l
+l
+l
+u
+l
+l
+l
+h
+l
+l
+l
+l
 x
 a
 a
@@ -6907,21 +7055,21 @@ a
 a
 a
 x
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
 x
 a
 a
@@ -7109,21 +7257,21 @@ a
 a
 a
 x
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
 x
 a
 a
@@ -7311,21 +7459,21 @@ a
 a
 a
 x
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
 x
 a
 a
@@ -7513,21 +7661,21 @@ a
 a
 a
 x
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
+e
+l
+l
+l
+l
+l
+l
+J
+l
+l
+l
+l
+l
+l
+Z
 x
 a
 a
@@ -7715,21 +7863,21 @@ a
 a
 a
 x
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
+l
+l
+l
+l
+l
+l
+l
+l
+l
+X
+l
+l
+l
+l
+l
 x
 a
 a
@@ -7917,21 +8065,21 @@ a
 a
 a
 x
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
 x
 a
 a
@@ -8119,21 +8267,21 @@ a
 a
 a
 x
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+D
+I
+l
+l
+l
 x
 a
 a
@@ -8321,21 +8469,21 @@ a
 a
 a
 x
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
+l
+l
+l
+l
+l
+l
+p
+l
+l
+l
+l
+l
+l
+l
+l
 x
 a
 a
@@ -8523,21 +8671,21 @@ a
 a
 a
 x
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
 x
 a
 a
@@ -8725,21 +8873,21 @@ a
 a
 a
 x
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
 x
 a
 a
@@ -8927,21 +9075,21 @@ a
 a
 a
 x
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
+Z
+l
+l
+l
+l
+l
+l
+Z
+l
+l
+l
+l
+l
+l
+Z
 x
 a
 a
