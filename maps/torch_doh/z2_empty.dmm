@@ -41,13 +41,29 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"g" = (
+/mob/living/simple_animal/cutscene_character/invisible_speakers{
+	name = "TAP";
+	cutscene_id = "Клава 5";
+	should_update_layer = 1;
+	forced_layer = 5;
+	layer = 5
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_da_t3"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "h" = (
 /mob/living/simple_animal/cutscene_character/perci_robot{
 	icon_state = "EP5 PAGE 1 - 5";
 	forced_layer = 4.06;
 	cutscene_id = "Перси - 5-1-2";
 	should_update_layer = 1;
-	layer = 4.06
+	layer = 4.06;
+	runechat_y_offset = -240
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t3"
@@ -65,7 +81,8 @@
 	icon_state = "Ep 1 - NOEYES";
 	forced_layer = 4.06;
 	should_update_layer = 1;
-	layer = 4.06
+	layer = 4.06;
+	runechat_y_offset = -240
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t3"
@@ -203,6 +220,21 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"C" = (
+/mob/living/simple_animal/cutscene_character/invisible_speakers{
+	name = "TAP";
+	cutscene_id = "Клава 7";
+	should_update_layer = 1;
+	forced_layer = 5;
+	layer = 5
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_da_t3"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "D" = (
 /mob/living/simple_animal/cutscene_character/amelia/s2ep2/amelia_eyes{
 	dir = 8;
@@ -243,8 +275,8 @@
 	dir = 4;
 	cutscene_id = "Глаза Амелии - 5-1-1";
 	forced_layer = 4.07;
-	pixel_x = 15;
-	pixel_y = 17;
+	pixel_x = 17;
+	pixel_y = 13;
 	should_update_layer = 1;
 	layer = 4.07;
 	icon_dead = "Amelia Eyes - Looking down";
@@ -267,7 +299,8 @@
 	icon_state = "EP5 PAGE 1 - 4";
 	forced_layer = 4.06;
 	should_update_layer = 1;
-	layer = 4.06
+	layer = 4.06;
+	runechat_y_offset = -240
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t3"
@@ -354,6 +387,21 @@
 	cutscene_id = "Комп 5-2";
 	should_update_layer = 1;
 	layer = 4.05
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_da_t3"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"Y" = (
+/mob/living/simple_animal/cutscene_character/invisible_speakers{
+	name = "TAP";
+	cutscene_id = "Клава 6";
+	should_update_layer = 1;
+	forced_layer = 5;
+	layer = 5
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t3"
@@ -6862,8 +6910,8 @@ l
 u
 l
 l
-l
 h
+l
 l
 l
 l
@@ -7065,7 +7113,7 @@ l
 l
 l
 l
-l
+C
 l
 l
 l
@@ -7264,7 +7312,7 @@ l
 l
 l
 l
-l
+Y
 l
 l
 l
@@ -7669,7 +7717,7 @@ l
 l
 l
 J
-l
+g
 l
 l
 l
