@@ -317,6 +317,13 @@
 	marker_id = "houselight3"
 	},
 /obj/effect/cutscene_camera/s2ep5sc2,
+/mob/living/simple_animal/cutscene_character/invisible_speakers{
+	name = "TAP";
+	cutscene_id = "Клава 6";
+	should_update_layer = 1;
+	forced_layer = 5;
+	layer = 5
+	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t3"
 	},
@@ -387,21 +394,6 @@
 	cutscene_id = "Комп 5-2";
 	should_update_layer = 1;
 	layer = 4.05
-	},
-/turf/simulated/floor/exoplanet/samosbor/metal{
-	icon_state = "me_ti_da_t3"
-	},
-/area/centcom{
-	name = "\improper EP5 SCENE 1";
-	dynamic_lighting = 1
-	})
-"Y" = (
-/mob/living/simple_animal/cutscene_character/invisible_speakers{
-	name = "TAP";
-	cutscene_id = "Клава 6";
-	should_update_layer = 1;
-	forced_layer = 5;
-	layer = 5
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t3"
@@ -7113,7 +7105,7 @@ l
 l
 l
 l
-C
+l
 l
 l
 l
@@ -7312,7 +7304,7 @@ l
 l
 l
 l
-Y
+l
 l
 l
 l
@@ -7517,7 +7509,7 @@ l
 l
 l
 l
-l
+C
 l
 l
 l
@@ -7717,7 +7709,7 @@ l
 l
 l
 J
-g
+l
 l
 l
 l
@@ -8121,7 +8113,7 @@ l
 l
 l
 l
-l
+g
 l
 l
 l
