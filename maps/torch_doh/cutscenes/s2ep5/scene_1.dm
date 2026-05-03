@@ -82,7 +82,7 @@
 		message = {"<span style="color: yellow;">Амелия</span>: Я \"кормлю\", чиню, и одеваю тебя."}
 		maintext.set_text(message, COLOR_WHITE)
 
-	spawn(60 SECONDS)
+	spawn(50 SECONDS)
 
 		for(var/client/M in GLOB.clients)
 			for(var/obj/screen/messages in M.screen)
@@ -337,5 +337,11 @@
 		TURN_ACTOR(actor("Глаза Амелии - 5-1-2"), WEST) = 4 SECONDS,
 
 		TALK_ACTOR(actor("Амелия - 5-1-2"), "Я \"кормлю\", чиню, и одеваю тебя."),
+		CHANGE_ACTOR_VISUALS(actor("Глаза Амелии - 5-1-2"), "Amelia Eyes - Looking away 2ALT") = 6 SECONDS,
 
+		START_CUTSCENE(/datum/modular_cutscene/s2ep5sc3)
+	)
+
+/datum/modular_cutscene/s2ep5sc3/setup_actions(...)
+	actions = list(
 	)
