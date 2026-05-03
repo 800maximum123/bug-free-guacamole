@@ -4,6 +4,9 @@
 /obj/effect/cutscene_camera/s2ep5sc2
 	camera_id = "Сцена 5-1 - Кадр 2"
 
+/obj/effect/cutscene_camera/s2ep5sc3
+	camera_id = "Сцена 5-1 - Кадр 3"
+
 /proc/s2ep5sc1_screentext()
 	var/message = {"<span style="color: yellow;">Амелия</span>: Кажется..."}
 
@@ -344,4 +347,25 @@
 
 /datum/modular_cutscene/s2ep5sc3/setup_actions(...)
 	actions = list(
+		EASY_TRANSFORM_ACTOR(actor("Глаза Амелии - 5-1-3"), 6, 0),
+		CHANGE_ACTOR_LAYER(actor("Глаза Амелии - 5-1-3"), 4.10),
+
+		EASY_TRANSFORM_ACTOR(actor("Амелия - 5-1-3"), 10, 0),
+		CHANGE_ACTOR_LAYER(actor("Амелия - 5-1-3"), 4.09),
+
+		EASY_TRANSFORM_ACTOR(actor("Стена 5-3"), 15, 0),
+		CHANGE_ACTOR_LAYER(actor("Стена 5-3"), 4.01),
+
+		EASY_TRANSFORM_ACTOR(actor("Перси - 5-1-3"), 10, 0),
+		CHANGE_ACTOR_LAYER(actor("Перси - 5-1-3"), 4.06),
+
+		EASY_TRANSFORM_ACTOR(actor("Стол 5-3"), 15, 0),
+		CHANGE_ACTOR_LAYER(actor("Стол 5-3"), 4.10) = 0.1 SECONDS,
+
+		EASY_TRANSFORM_ACTOR(actor("Комп 5-3"), 7, 0),
+		CHANGE_ACTOR_LAYER(actor("Комп 5-3"), 4.11),
+
+		TP_CAMERA("Сцена 5-1 - Кадр 3"),
+		MOVE_CAMERA(0, -1, 0, null),
+		ADD_SCREEN(/cinema_borders) = 0.5 SECONDS,
 	)
