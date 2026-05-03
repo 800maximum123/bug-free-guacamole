@@ -347,7 +347,7 @@
 
 /datum/modular_cutscene/s2ep5sc3/setup_actions(...)
 	actions = list(
-		EASY_TRANSFORM_ACTOR(actor("Глаза Амелии - 5-1-3"), 6, 0),
+		EASY_TRANSFORM_ACTOR(actor("Глаза Амелии - 5-1-3"), 5, 0),
 		CHANGE_ACTOR_LAYER(actor("Глаза Амелии - 5-1-3"), 4.10),
 
 		EASY_TRANSFORM_ACTOR(actor("Амелия - 5-1-3"), 10, 0),
