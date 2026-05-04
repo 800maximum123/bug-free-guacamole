@@ -7,6 +7,9 @@
 /obj/effect/cutscene_camera/s2ep5sc3
 	camera_id = "Сцена 5-1 - Кадр 3"
 
+/obj/effect/cutscene_camera/s2ep5sc4
+	camera_id = "Сцена 5-1 - Кадр 4"
+
 /proc/s2ep5sc1_screentext()
 	var/message = {"<span style="color: yellow;">Амелия</span>: Кажется..."}
 
@@ -86,6 +89,39 @@
 		maintext.set_text(message, COLOR_WHITE)
 
 	spawn(50 SECONDS)
+
+		for(var/client/M in GLOB.clients)
+			for(var/obj/screen/messages in M.screen)
+				if(istype(messages, /obj/screen/player_message))
+					M.screen -= messages
+					qdel(messages)
+
+/proc/s2ep5sc3_screentext()
+	var/message = {"<span style="color: yellow;">Амелия</span>: Пора смириться с реальностью, Кощей."}
+
+	var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+	maintext.plane = HUD_PLANE
+	maintext.layer = HUD_ABOVE_HUD_LAYER
+	maintext.maptext_x = 0
+	maintext.maptext_y = -310
+
+	for(var/client/M in GLOB.clients)
+		M.screen += maintext
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(5 SECONDS)
+		message = ""
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(7 SECONDS)
+		message = {"<span style="color: yellow;">Персиваль</span>: ...Ведьмы."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(11 SECONDS)
+		message = {"<span style="color: yellow;">Персиваль</span>: Лишь бы на поводок посадить."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(16 SECONDS)
 
 		for(var/client/M in GLOB.clients)
 			for(var/obj/screen/messages in M.screen)
@@ -366,6 +402,83 @@
 		CHANGE_ACTOR_LAYER(actor("Комп 5-3"), 4.11),
 
 		TP_CAMERA("Сцена 5-1 - Кадр 3"),
-		MOVE_CAMERA(0, -1, 0, null),
-		ADD_SCREEN(/cinema_borders) = 0.5 SECONDS,
+		MOVE_CAMERA(0, 0, 0, null),
+		ADD_SCREEN(/cinema_borders) = 1 SECONDS,
+
+		EASY_TRANSFORM_ACTOR(actor("Глаза Амелии - 5-1-3"), 6, 0),
+		SHIFT_ACTOR(actor("Глаза Амелии - 5-1-3"), -8, 16, 0, LINEAR_EASING, null),
+		TURN_ACTOR(actor("Глаза Амелии - 5-1-3"), SOUTH),
+
+		TURN_ACTOR(actor("Амелия - 5-1-3"), SOUTH),
+
+		CALL_GLOB(s2ep5sc3_screentext),
+		TALK_ACTOR(actor("Амелия - 5-1-3"), "Пора смириться с реальностью, Кощей.") = 5 SECONDS,
+
+		CHANGE_ACTOR_VISUALS(actor("Глаза Амелии - 5-1-3"), "Amelia Eyes - Looking down"),
+
+		PLAY_SOUND(sound('sound/machines/keyboard/keystroke2.ogg', volume = 10)),
+		CHANGE_ACTOR_VISIBILITY(actor("Клава 8"), 255, 1 SECONDS, LINEAR_EASING, null) = 0.5 SECONDS,
+
+		PLAY_SOUND(sound('sound/machines/keyboard/keystroke4.ogg', volume = 10)),
+		CHANGE_ACTOR_VISIBILITY(actor("Клава 10"), 255, 0.5 SECONDS, LINEAR_EASING, null),
+		CHANGE_ACTOR_VISIBILITY(actor("Клава 8"), 0, 1 SECONDS, LINEAR_EASING, null) = 0.5 SECONDS,
+
+		PLAY_SOUND(sound('sound/machines/keyboard/keystroke1.ogg', volume = 10)),
+		CHANGE_ACTOR_VISIBILITY(actor("Клава 11"), 255, 0.5 SECONDS, LINEAR_EASING, null),
+		CHANGE_ACTOR_VISIBILITY(actor("Клава 10"), 0, 1 SECONDS, LINEAR_EASING, null) = 0.5 SECONDS,
+
+		PLAY_SOUND(sound('sound/machines/keyboard/keystroke1.ogg', volume = 10)),
+		CHANGE_ACTOR_VISIBILITY(actor("Клава 9"), 255, 0.5 SECONDS, LINEAR_EASING, null),
+		CHANGE_ACTOR_VISIBILITY(actor("Клава 11"), 0, 1 SECONDS, LINEAR_EASING, null) = 0.5 SECONDS,
+
+		TALK_ACTOR(actor("Перси - 5-1-3"), "...Ведьмы."),
+		CHANGE_ACTOR_VISUALS(actor("Перси - 5-1-3"), "EP5 PAGE 1 - 12"),
+		TURN_ACTOR(actor("Перси - 5-1-3"), WEST),
+
+		PLAY_SOUND(sound('sound/machines/keyboard/keystroke3.ogg', volume = 10)),
+		CHANGE_ACTOR_VISIBILITY(actor("Клава 10"), 255, 0.5 SECONDS, LINEAR_EASING, null),
+		CHANGE_ACTOR_VISIBILITY(actor("Клава 9"), 0, 1 SECONDS, LINEAR_EASING, null) = 0.5 SECONDS,
+
+		PLAY_SOUND(sound('sound/machines/keyboard/keystroke4.ogg', volume = 10)),
+		CHANGE_ACTOR_VISIBILITY(actor("Клава 8"), 255, 0.5 SECONDS, LINEAR_EASING, null),
+		CHANGE_ACTOR_VISIBILITY(actor("Клава 10"), 0, 1 SECONDS, LINEAR_EASING, null) = 0.5 SECONDS,
+
+		PLAY_SOUND(sound('sound/machines/keyboard/keystroke4.ogg', volume = 10)),
+		CHANGE_ACTOR_VISIBILITY(actor("Клава 11"), 255, 0.5 SECONDS, LINEAR_EASING, null),
+		CHANGE_ACTOR_VISIBILITY(actor("Клава 8"), 0, 1 SECONDS, LINEAR_EASING, null) = 0.5 SECONDS,
+
+		PLAY_SOUND(sound('sound/machines/keyboard/keystroke2.ogg', volume = 10)),
+		CHANGE_ACTOR_VISIBILITY(actor("Клава 9"), 255, 0.5 SECONDS, LINEAR_EASING, null),
+		CHANGE_ACTOR_VISIBILITY(actor("Клава 11"), 0, 1 SECONDS, LINEAR_EASING, null) = 0.5 SECONDS,
+
+		PLAY_SOUND(sound('sound/machines/keyboard/keystroke1.ogg', volume = 10)),
+		CHANGE_ACTOR_VISIBILITY(actor("Клава 8"), 255, 0.5 SECONDS, LINEAR_EASING, null),
+		CHANGE_ACTOR_VISIBILITY(actor("Клава 9"), 0, 1 SECONDS, LINEAR_EASING, null) = 0.5 SECONDS,
+
+		PLAY_SOUND(sound('sound/machines/keyboard/keystroke4.ogg', volume = 10)),
+		CHANGE_ACTOR_VISIBILITY(actor("Клава 9"), 255, 0.5 SECONDS, LINEAR_EASING, null),
+		CHANGE_ACTOR_VISIBILITY(actor("Клава 8"), 0, 1 SECONDS, LINEAR_EASING, null) = 0.5 SECONDS,
+
+		PLAY_SOUND(sound('sound/machines/keyboard/keystroke3.ogg', volume = 10)),
+		CHANGE_ACTOR_VISIBILITY(actor("Клава 10"), 255, 0.5 SECONDS, LINEAR_EASING, null),
+		CHANGE_ACTOR_VISIBILITY(actor("Клава 9"), 0, 1 SECONDS, LINEAR_EASING, null) = 0.5 SECONDS,
+
+		CHANGE_ACTOR_VISUALS(actor("Перси - 5-1-3"), "EP5 PAGE 1 - 3"),
+		TALK_ACTOR(actor("Перси - 5-1-3"), "Лишь бы на поводок посадить."),
+		CHANGE_ACTOR_VISIBILITY(actor("Клава 10"), 0, 1 SECONDS, LINEAR_EASING, null) = 4 SECONDS,
+
+		START_CUTSCENE(/datum/modular_cutscene/s2ep5sc4)
+	)
+
+/datum/modular_cutscene/s2ep5sc4/setup_actions(...)
+	actions = list(
+		TP_CAMERA("Сцена 5-1 - Кадр 4"),
+		MOVE_CAMERA(0, 0, 0, null),
+		ADD_SCREEN(/cinema_borders) = 1 SECONDS,
+
+		TALK_ACTOR(actor("Амелия - 5-1-4"), "Мне казалось, что тебе такое нравится.") = 2 SECONDS,
+
+		TALK_ACTOR(actor("Перси - 5-1-4"), "!фырчит.") = 2 SECONDS,
+		TALK_ACTOR(actor("Перси - 5-1-4"), "Мне ли?") = 100 SECONDS,
+
 	)
