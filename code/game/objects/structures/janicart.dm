@@ -356,7 +356,7 @@
 	visible_message(SPAN_WARNING("[Proj] ricochets off the [callme]!"))
 
 
-/obj/item/key
+/obj/item/key/janicart
 	name = "key"
 	desc = "A keyring with a small steel key, and a pink fob reading \"Pussy Wagon\"."
 	icon = 'icons/obj/vehicles.dmi'

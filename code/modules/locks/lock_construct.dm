@@ -30,8 +30,9 @@
 
 	return ..()
 
-/obj/item/material/lock_construct/proc/create_lock(atom/target, mob/user)
-	. = new /datum/lock(target, lock_data, FALSE)
-	user.visible_message("\The [user] attaches \the [src] to \the [target]")
-	playsound(src, 'sound/items/deconstruct.ogg', 30, 1)
+/obj/item/material/lock_construct/proc/create_lock(atom/target, mob/user, start_locked)
+	. = new /datum/lock(target, lock_data, start_locked)
+	if(user)
+		user.visible_message("\The [user] attaches \the [src] to \the [target]")
+		playsound(src, 'sound/items/deconstruct.ogg', 30, 1)
 	qdel(src)

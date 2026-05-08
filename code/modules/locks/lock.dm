@@ -3,7 +3,7 @@
 
 
 /datum/lock
-	var/status = 1 //unlocked, 1 == locked 2 == broken
+	var/status = 1 //0 == unlocked, 1 == locked 2 == broken
 	var/lock_data = "" //basically a randomized string. The longer the string the more complex the lock.
 	var/atom/holder
 

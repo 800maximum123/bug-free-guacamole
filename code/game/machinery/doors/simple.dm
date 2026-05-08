@@ -127,7 +127,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] already has a lock."))
 		else
 			var/obj/item/material/lock_construct/L = I
-			lock = L.create_lock(src,user)
+			lock = L.create_lock(src, user, FALSE)
 		return TRUE
 
 	if(istype(I, /obj/item/stack/material) && I.get_material_name() == src.get_material_name())
@@ -176,6 +176,7 @@
 
 /obj/machinery/door/unpowered/simple/can_open()
 	if(!..() || (lock && lock.isLocked()))
+		playsound(src, 'sound/machines/door_locked.ogg', 30, 0)
 		return 0
 	return 1
 
