@@ -6433,6 +6433,11 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/aaaa_facility/leveltwo)
+"uC" = (
+/obj/floor_decal/industrial/outline/yellow,
+/mob/living/simple_animal/hostile/retaliate/anomaly/florist,
+/turf/simulated/floor/tiled/old_tile,
+/area/aaaa_facility/leveltwo)
 "uE" = (
 /obj/structure/platform/strata/metal,
 /turf/simulated/floor/exoplanet/samosbor/stairs{
@@ -6940,6 +6945,12 @@
 "wu" = (
 /turf/simulated/floor/wood/walnut,
 /area/aaaa_facility/levelthree)
+"wv" = (
+/mob/living/simple_animal/hostile/retaliate/anomaly/boss,
+/turf/simulated/floor/exoplanet/fd/whitesand{
+	color = "#272727"
+	},
+/area/aaaa_facility)
 "ww" = (
 /obj/floor_decal/techfloor{
 	dir = 8
@@ -10242,6 +10253,12 @@
 /obj/fluid_mapped,
 /turf/simulated/floor/exoplanet/fd/whitesand{
 	color = "#242424"
+	},
+/area/aaaa_facility)
+"Hz" = (
+/obj/structure/fd/interactive/anomaly_tree,
+/turf/simulated/floor/exoplanet/fd/whitesand{
+	color = "#272727"
 	},
 /area/aaaa_facility)
 "HB" = (
@@ -78384,7 +78401,7 @@ Je
 nl
 Xu
 gW
-lL
+uC
 zq
 ts
 yL
@@ -105484,13 +105501,13 @@ Th
 Th
 Th
 Th
+cq
+cq
+cq
 Th
-Th
-Th
-Th
-Th
-Th
-Th
+cq
+cq
+cq
 Th
 cq
 cq
@@ -105686,13 +105703,13 @@ Th
 Th
 Th
 Th
+cq
+Hz
+cq
 Th
-Th
-Th
-Th
-Th
-Th
-Th
+cq
+wv
+cq
 Th
 cq
 pd
@@ -105888,13 +105905,13 @@ Th
 Th
 Th
 Th
+cq
+cq
+cq
 Th
-Th
-Th
-Th
-Th
-Th
-Th
+cq
+cq
+cq
 Th
 cq
 cq
