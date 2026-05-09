@@ -378,6 +378,7 @@
 	#include "../../mods/_fd/_maps/fort_manticore/_fort_manticore.dme"
 	#include "../../mods/_fd/_maps/metro/_metro.dme"
 	#include "../../mods/_fd/_maps/collective_nightmare/_collective_nightmare.dme"
+	#include "../../mods/_fd/_maps/aaaa_facility/_aaaa_facility.dme"
 
 	#define using_map_DATUM /datum/map/torch
 

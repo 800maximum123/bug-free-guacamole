@@ -145,14 +145,14 @@
 	if(!istype(L, /mob/living/simple_animal/metro_jeff))
 		return FALSE
 
-/datum/keybinding/living/fd/monster/reveal_hiding_players
-	category = CATEGORY_FD
+/datum/keybinding/living/fd/event/monster/reveal_hiding_players
+	category = CATEGORY_FD_EVENT
 	hotkey_keys = list("1")
 	name = "reveal_hiding_players"
 	full_name = "MONSTER: REVEAL NEARBY"
 	description = ""
 
-/datum/keybinding/living/fd/monster/reveal_hiding_players/down(client/user)
+/datum/keybinding/living/fd/event/monster/reveal_hiding_players/down(client/user)
 	var/mob/living/simple_animal/metro_jeff/M = user.mob
 
 	if(M.sniffing)
@@ -165,14 +165,14 @@
 		M.overlay_fullscreen("eyes", /obj/screen/fullscreen/monster_sight)
 		return TRUE
 
-/datum/keybinding/living/fd/monster/invisibility
-	category = CATEGORY_FD
+/datum/keybinding/living/fd/event/monster/invisibility
+	category = CATEGORY_FD_EVENT
 	hotkey_keys = list("2")
 	name = "invisibility"
 	full_name = "MONSTER: HIDE"
 	description = ""
 
-/datum/keybinding/living/fd/monster/invisibility/down(client/user)
+/datum/keybinding/living/fd/event/monster/invisibility/down(client/user)
 	var/mob/living/simple_animal/metro_jeff/M = user.mob
 
 	M.change_monster_vis()

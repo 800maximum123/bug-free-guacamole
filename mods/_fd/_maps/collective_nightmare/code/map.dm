@@ -1128,5 +1128,3 @@
 		sound_token.SetVolume(50)
 	else if(sound_token)
 		QDEL_NULL(sound_token)
-
-#include "..\map\collective_nightmare.dmm"

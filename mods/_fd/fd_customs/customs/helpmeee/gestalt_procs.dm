@@ -104,7 +104,7 @@
 		animate(targeting, 1 SECOND, alpha = 0)
 		new /obj/structure/gestalt_prison(get_turf(src))
 		for(var/mob/living/actual_target in get_turf(src))
-			actual_target.stunned = 999999
+			actual_target.anchored = TRUE
 	spawn(3 SECONDS)
 		qdel(targeting)
 
@@ -114,7 +114,7 @@
 		spawn(1 SECOND)
 			qdel(prison)
 	for(var/mob/living/actual_target in get_turf(src))
-		actual_target.stunned = 0
+		actual_target.anchored = FALSE
 
 /turf/proc/gestalt_shield()
 	for(var/turf/zone in range(1,src))

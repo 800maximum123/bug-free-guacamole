@@ -98,7 +98,6 @@
 
 	return TRUE
 
-#define CATEGORY_FD "FINAL DESTINATION"
 /datum/keybinding/living/fd
 	category = CATEGORY_FD
 

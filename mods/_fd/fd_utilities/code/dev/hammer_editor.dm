@@ -44,7 +44,7 @@
 		for(var/obj/structure/fd/mapping/light_marker/LM in world)
 			if(LM.marker_id != marker_id)
 				continue
-			LM.setup_marker()
+			LM.setup_marker(marker_range, marker_power, color)
 			log_and_message_admins("Параметры одного или нескольких источников света были обновлены по координатам: (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 	else
 		setup_marker()

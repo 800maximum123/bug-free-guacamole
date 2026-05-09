@@ -1,4 +1,4 @@
-/singleton/modpack/lab_campaign
-	name = "Ascent Lab"
+/singleton/modpack/aaaa_facility
+	name = "AAAA Facility"
 	desc = "..."
 	author = "Doctor Alex"
