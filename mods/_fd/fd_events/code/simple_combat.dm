@@ -20,12 +20,12 @@
 	if(!L.h1)
 		L.h1 = new /obj/screen/health_face()
 		L.h1.host = L
-		L.client.screen += L.h1
+	L.client.screen += L.h1
 
 	if(!L.h2)
 		L.h2 = new /obj/screen/health_pulse()
 		L.h2.host = L
-		L.client.screen += L.h2
+	L.client.screen += L.h2
 
 	animate(L.h1, transform = matrix(-32, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
 	animate(transform = matrix(-30, MATRIX_ROTATE), time = 3, easing = SINE_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
@@ -47,6 +47,9 @@
 	animate(transform = matrix(0, MATRIX_ROTATE), time = 3, easing = SINE_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
 
 	animate(L.client, pixel_x = 0, time = 3, easing = SINE_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
+
+	L.client.screen -= L.h1
+	L.client.screen -= L.h2
 
 	return TRUE
 
@@ -388,18 +391,29 @@
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	if(istype(tool,/obj/item/fd/simple_combat/bloodbag))
 		var/obj/item/fd/simple_combat/bloodbag/B = tool
-		if(B.transfering_to != src)
-			add_filter("transfering", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_WHITE))
+		if(B.transfering_to != src && B.connected_to != src)
+			add_filter("connected", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_WHITE))
 
 			user.anchored = TRUE
+
 			B.transfering_to = src
 			B.maptext = STYLE_SMALLFONTS_OUTLINE("CONNECTED", 7, COLOR_WHITE, COLOR_BLACK)
+			anchored = TRUE
+
 			return TRUE
 		if(B.transfering_to == src)
-			remove_filter("transfering")
 
 			user.anchored = FALSE
+
+			B.transfering_to.anchored = FALSE
+			B.transfering_to.remove_filter("connected")
 			B.transfering_to = null
+
+			if(B.connected_to)
+				B.connected_to.remove_filter("connected")
+				B.connected_to.anchored = FALSE
+				B.connected_to = null
+
 			B.maptext = ""
 			return TRUE
 
@@ -411,26 +425,35 @@
 	if(ishuman(user) && user != connected_to)
 		var/mob/living/carbon/human/H = user
 		if(H.simple_health > 0)
-			H.add_filter("connected", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_WHITE))
 			connected_to = H
+			connected_to.add_filter("connected", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_WHITE))
+			connected_to.anchored = TRUE
 			maptext = STYLE_SMALLFONTS_OUTLINE("CONNECTED", 7, COLOR_WHITE, COLOR_BLACK)
 			return TRUE
 
 	if(ishuman(user) && user == connected_to)
-		var/mob/living/carbon/human/H = user
-		H.remove_filter("connected")
+		connected_to.remove_filter("connected")
+		connected_to.anchored = FALSE
 		connected_to = null
+
+		if(transfering_to)
+			transfering_to.remove_filter("connected")
+			transfering_to.anchored = FALSE
+			transfering_to = null
+
 		maptext = ""
 		return TRUE
 
 /obj/item/fd/simple_combat/bloodbag/dropped()
 	connected_to.remove_filter("connected")
+	connected_to.anchored = FALSE
 	connected_to = null
 
-	transfering_to.remove_filter("transfering")
+	transfering_to.remove_filter("connected")
+	transfering_to.anchored = FALSE
 	transfering_to = null
 
-	maptext = STYLE_SMALLFONTS_OUTLINE("CONNECTED", 7, COLOR_WHITE, COLOR_BLACK)
+	maptext = ""
 
 	. = ..()
 
