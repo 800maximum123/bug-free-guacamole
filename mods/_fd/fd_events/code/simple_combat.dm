@@ -238,14 +238,12 @@
 
 /mob/living/proc/give_player_wound()
 	heavy_wounded = TRUE
-	anchored = TRUE
 
 	overlay_fullscreen("dead",/obj/screen/fullscreen/underworld_vision)
 	add_filter("wounded", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_RED))
 
 	regen_period += 110
 	SetTransform(1,0,0,90)
-	anchored = FALSE
 
 /mob/living/proc/clear_player_wound()
 	heavy_wounded = FALSE
@@ -304,7 +302,7 @@
 	if(create_impact)
 		new create_impact(src.loc)
 
-/mob/living/proc/melee_block(amount, armor_damage_amp, mob/living/source)
+/mob/living/proc/melee_block(amount, armor_damage_amp, mob/living/source = null)
 	if(source.zone_sel.selecting == BP_HEAD)
 		var/obj/item/clothing/head/helmet = get_equipped_item(slot_head)
 
@@ -321,7 +319,15 @@
 			else
 				helmet.simple_armor_blockchance -= clamp(helmet.simple_armor_deformation_speed + armor_damage_amp, 0, helmet.simple_armor_blockchance_max)
 				amount += 10
+
+				if(helmet.simple_armor_blockchance <= 0)
+					drop_from_inventory(helmet)
+					helmet.throw_at(get_edge_target_turf(src, reverse_direction(dir)), 1, 2, src)
+
 				return amount
+		else
+			amount += 10
+			return amount
 
 	else
 		var/obj/item/clothing/suit/armor = get_equipped_item(slot_wear_suit)
@@ -347,8 +353,14 @@
 
 			else if(prob(20 * (get_skill_value(SKILL_WEAPONS))))
 				helmet.simple_armor_blockchance -= clamp(helmet.simple_armor_deformation_speed + source.simple_armor_penetration, 0, helmet.simple_armor_blockchance_max)
+				if(helmet.simple_armor_blockchance <= 0)
+					drop_from_inventory(helmet)
+					helmet.throw_at(get_edge_target_turf(src, reverse_direction(dir)), 1, 2, src)
 				amount += 20
-				return amount
+			return amount
+		else if(prob(20 * (get_skill_value(SKILL_WEAPONS))))
+			amount += 30
+		return amount
 
 	else
 		var/obj/item/clothing/suit/armor = get_equipped_item(slot_wear_suit)
@@ -369,7 +381,7 @@
 			if(istype(source,/obj/item/projectile))
 				amount = ranged_block(amount, source)
 
-			if(isliving(source))
+			if(ishuman(source))
 				amount = melee_block(amount, armor_damage_amp, source)
 
 			if(!source)
@@ -385,7 +397,7 @@
 			overlay_fullscreen("damage",/obj/screen/fullscreen/simple_damage)
 
 			if(vfx_effect && source)
-				if(isliving(source))
+				if(ishuman(source))
 					simple_health_vfx(TRUE, null, null,source)
 				if(istype(source,/obj/item/projectile))
 					simple_health_vfx(TRUE, /obj/effect/simple_combat_particle/impact, source, null)
@@ -525,11 +537,13 @@
 
 			B.transfering_to.anchored = FALSE
 			B.transfering_to.remove_filter("connected")
+			sleep(1)
 			B.transfering_to = null
 
 			if(B.connected_to)
 				B.connected_to.remove_filter("connected")
 				B.connected_to.anchored = FALSE
+				sleep(1)
 				B.connected_to = null
 
 			B.maptext = ""
@@ -552,11 +566,13 @@
 	if(ishuman(user) && user == connected_to)
 		connected_to.remove_filter("connected")
 		connected_to.anchored = FALSE
+		sleep(1)
 		connected_to = null
 
 		if(transfering_to)
 			transfering_to.remove_filter("connected")
 			transfering_to.anchored = FALSE
+			sleep(1)
 			transfering_to = null
 
 		maptext = ""
@@ -565,10 +581,12 @@
 /obj/item/fd/simple_combat/bloodbag/dropped()
 	connected_to.remove_filter("connected")
 	connected_to.anchored = FALSE
-	connected_to = null
 
 	transfering_to.remove_filter("connected")
 	transfering_to.anchored = FALSE
+
+	sleep(1)
+	connected_to = null
 	transfering_to = null
 
 	maptext = ""
