@@ -336,7 +336,7 @@
 		animate(targeting, 1 SECOND, alpha = 0)
 		new /obj/effect/gestalt_spike(get_turf(src))
 		for(var/mob/living/actual_target in get_turf(src))
-			actual_target.simple_health_calculation(20,1,10)
+			actual_target.simple_health_calculation(20,10,1,0)
 	spawn(3 SECONDS)
 		qdel(targeting)
 		for(var/obj/effect/gestalt_spike/spike in get_turf(src))
@@ -437,7 +437,7 @@
 /mob/living/simple_animal/hostile/retaliate/anomaly/littletraveler/Life()
 	if(light_power > 0.1)
 		for(var/mob/living/simple_animal/hostile/anomaly/shadow/S in range(3,src))
-			S.simple_health_calculation(10, 0, 0)
+			S.simple_health_calculation(10, 0, 0, 0)
 		light_power -= 0.1
 
 	if(light_power <= 0.1)
@@ -445,7 +445,7 @@
 
 	if(connected_to)
 		if(next_heal <= 0)
-			connected_to.simple_health_calculation(-2, 0, 0)
+			connected_to.simple_health_calculation(-2, 0, 0, 0)
 			next_heal = heal_speed
 		else
 			next_heal -= 1
@@ -584,7 +584,7 @@
 	speed = 1.5
 
 	natural_weapon = /obj/item/natural_weapon/anomaly/claws
-	ai_holder = /datum/ai_holder/simple_animal/melee/evasive
+	ai_holder = /datum/ai_holder/simple_animal/melee
 	faction = "bugarmy"
 
 	bleed_colour = "#000000"
@@ -625,7 +625,7 @@
 	speed = -1
 
 	natural_weapon = /obj/item/natural_weapon/anomaly/claws
-	ai_holder = /datum/ai_holder/simple_animal/melee/hit_and_run
+	ai_holder = /datum/ai_holder/simple_animal/melee/evasive
 	faction = "bugarmy"
 
 	bleed_colour = "#000000"
@@ -702,7 +702,7 @@
 	speed = 2
 
 	natural_weapon = /obj/item/natural_weapon/anomaly/hardbite
-	ai_holder = /datum/ai_holder/simple_animal/melee/evasive
+	ai_holder = /datum/ai_holder/simple_animal/melee
 	faction = "mermaid"
 
 	bleed_colour = "#92a8a5"
@@ -859,7 +859,7 @@
 			qdel(I)
 
 			for(var/mob/living/carbon/human/H in world)
-				H.simple_health_calculation(-100, 0, 0)
+				H.simple_health_calculation(-100, 0, 0, 0)
 
 			spawn(5 SECONDS)
 				animate(user.client, pixel_y = 0, 3 SECONDS, SINE_EASING|EASE_IN)

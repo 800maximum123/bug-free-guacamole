@@ -165,7 +165,7 @@
 
 /obj/item/apply_hit_effect(mob/living/target, mob/living/user, hit_zone)
 	if(target.simple_combat_on)
-		target.simple_health_calculation(simple_damage,1,simple_armor_penetration)
+		target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user)
 		return TRUE
 	..()
 
@@ -173,7 +173,7 @@
 	if(istype(hit_atom,/mob/living))
 		var/mob/living/L = hit_atom
 		if(L.simple_combat_on)
-			L.simple_health_calculation(simple_damage,1,simple_armor_penetration)
+			L.simple_health_calculation(simple_damage,simple_armor_penetration,1,0)
 
 	..()
 
@@ -182,8 +182,7 @@
 
 /obj/item/projectile/attack_mob(mob/living/target_mob, distance, special_miss_modifier)
 	if(target_mob.simple_combat_on)
-		target_mob.bullet_impact_visuals(src, def_zone, simple_damage)
-		target_mob.simple_health_calculation(simple_damage,1,simple_armor_penetration)
+		target_mob.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,src)
 		return TRUE
 
 	..()
@@ -191,6 +190,7 @@
 /obj/item/clothing
 	var/simple_armor_bonus = 0
 	var/simple_armor_blockchance = 100
+	var/simple_armor_blockchance_max = 100
 
 	var/simple_armor_deformation_speed = 5
 
@@ -201,8 +201,8 @@
 	var/max_simple_health = 100
 
 	var/heavy_wounded = FALSE
-	var/base_regen_period = 10
-	var/regen_period = 10
+	var/base_regen_period = 20
+	var/regen_period = 20
 	var/regen_for = 10
 
 	var/simple_armor_natural = 0
@@ -219,7 +219,7 @@
 			regen_period -= 1
 
 		if(regen_period <= 0)
-			simple_health_calculation(-regen_for,0,0)
+			simple_health_calculation(-regen_for,0,0,0)
 			regen_period = base_regen_period
 
 		if(simple_health <= 0 && !heavy_wounded)
@@ -254,20 +254,129 @@
 	clear_fullscreen("dead")
 	SetTransform(1,0,0,0)
 
-/mob/living/proc/simple_health_calculation(amount, should_block = TRUE, armor_damage_amp)
+/mob/living/proc/simple_health_vfx(show_blood = TRUE, obj/effect/simple_combat_particle/create_impact = null, obj/item/projectile/proj = null, mob/living/attacker = null,)
+
+	if(proj)
+		var/list/impact_sounds = LAZYACCESS(proj.impact_sounds, get_bullet_impact_effect_type(proj.def_zone))
+		if(length(impact_sounds))
+			playsound(src, pick(impact_sounds), 75)
+
+		var/change_curve = pick(1,2)
+
+		switch(change_curve)
+			if(1)
+				var/random_number = rand(-2,2)
+				var/pixel_x_change = pixel_x + random_number
+				animate(src, pixel_x = pixel_x_change, time = 0.4 SECONDS, easing = JUMP_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
+			if(2)
+				var/pixel_y_change
+				if(dir == SOUTH)
+					pixel_y_change = pixel_y + 2
+				else
+					pixel_y_change = pixel_y - 2
+				animate(src, pixel_y = pixel_y_change, time = 0.4 SECONDS, easing = JUMP_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
+
+		spawn(0.6 SECONDS)
+			pixel_x = default_pixel_x
+			pixel_y = default_pixel_y
+
+	if(show_blood)
+		var/hit_dir
+
+		if(proj)
+			if(istype(proj,/obj/item/projectile/bullet))
+				hit_dir = get_dir(proj.starting, src)
+				var/obj/decal/cleanable/blood/B = blood_splatter(get_step(src, hit_dir), src, 1, hit_dir)
+				B.icon_state = pick("dir_splatter_1","dir_splatter_2")
+				B.SetTransform(scale = min(1, round(proj.damage / 50, 0.2)))
+				if(ishuman(src))
+					var/mob/living/carbon/human/H = src
+					new /obj/temp_visual/bloodsplatter(loc, hit_dir, H.species.blood_color)
+		else
+			hit_dir = get_dir(attacker, src)
+			var/obj/decal/cleanable/blood/B = blood_splatter(get_step(src, hit_dir), src, 1, hit_dir)
+			B.icon_state = pick("dir_splatter_1","dir_splatter_2")
+			B.SetTransform(0.5)
+			if(ishuman(src))
+				var/mob/living/carbon/human/H = src
+				new /obj/temp_visual/bloodsplatter(loc, hit_dir, H.species.blood_color)
+
+	if(create_impact)
+		new create_impact(src.loc)
+
+/mob/living/proc/melee_block(amount, armor_damage_amp, mob/living/source)
+	if(source.zone_sel.selecting == BP_HEAD)
+		var/obj/item/clothing/head/helmet = get_equipped_item(slot_head)
+
+		if(helmet && amount > 0)
+			if(prob(helmet.simple_armor_blockchance))
+				amount = clamp(amount - helmet.simple_armor_bonus, 0, amount)
+				helmet.simple_armor_blockchance -= clamp(helmet.simple_armor_deformation_speed + armor_damage_amp, 0, helmet.simple_armor_blockchance_max)
+
+				if(helmet.simple_armor_blockchance <= 0)
+					drop_from_inventory(helmet)
+					helmet.throw_at(get_edge_target_turf(src, reverse_direction(dir)), 1, 2, src)
+				return amount
+
+			else
+				helmet.simple_armor_blockchance -= clamp(helmet.simple_armor_deformation_speed + armor_damage_amp, 0, helmet.simple_armor_blockchance_max)
+				amount += 10
+				return amount
+
+	else
+		var/obj/item/clothing/suit/armor = get_equipped_item(slot_wear_suit)
+		if(armor && amount > 0 && prob(armor.simple_armor_blockchance))
+			amount = clamp(amount - armor.simple_armor_bonus, 0, amount)
+			armor.simple_armor_blockchance -= clamp(armor.simple_armor_deformation_speed + armor_damage_amp, 0, armor.simple_armor_blockchance_max)
+		return amount
+
+/mob/living/proc/ranged_block(amount, obj/item/projectile/source)
+
+	if(source.def_zone == BP_HEAD)
+		var/obj/item/clothing/head/helmet = get_equipped_item(slot_head)
+
+		if(helmet && amount > 0)
+			if(prob(helmet.simple_armor_blockchance))
+				amount = clamp(amount - helmet.simple_armor_bonus, 0, amount)
+				helmet.simple_armor_blockchance -= clamp(helmet.simple_armor_deformation_speed + source.simple_armor_penetration, 0, helmet.simple_armor_blockchance_max)
+
+				if(helmet.simple_armor_blockchance <= 0)
+					drop_from_inventory(helmet)
+					helmet.throw_at(get_edge_target_turf(src, reverse_direction(dir)), 1, 2, src)
+				return amount
+
+			else if(prob(20 * (get_skill_value(SKILL_WEAPONS))))
+				helmet.simple_armor_blockchance -= clamp(helmet.simple_armor_deformation_speed + source.simple_armor_penetration, 0, helmet.simple_armor_blockchance_max)
+				amount += 20
+				return amount
+
+	else
+		var/obj/item/clothing/suit/armor = get_equipped_item(slot_wear_suit)
+		if(armor && amount > 0 && prob(armor.simple_armor_blockchance))
+			amount = clamp(amount - armor.simple_armor_bonus, 0, amount)
+			armor.simple_armor_blockchance -= clamp(armor.simple_armor_deformation_speed + source.simple_armor_penetration, 0, armor.simple_armor_blockchance_max)
+		return amount
+
+/mob/living/proc/simple_health_calculation(amount, armor_damage_amp, should_block = TRUE, vfx_effect = TRUE, atom/movable/source = null)
 	set waitfor = FALSE
 
 	if(simple_combat_on)
 
 		var/before_calculation = simple_health
-
 		if(should_block)
 			amount = clamp(amount - simple_armor_natural, 0, amount)
 
-			var/obj/item/clothing/suit/armor = get_equipped_item(slot_wear_suit)
-			if(armor && amount > 0 && prob(armor.simple_armor_blockchance))
-				amount = clamp(amount - armor.simple_armor_bonus, 0, amount)
-				armor.simple_armor_blockchance -= armor.simple_armor_deformation_speed + armor_damage_amp
+			if(istype(source,/obj/item/projectile))
+				amount = ranged_block(amount, source)
+
+			if(isliving(source))
+				amount = melee_block(amount, armor_damage_amp, source)
+
+			if(!source)
+				var/obj/item/clothing/suit/armor = get_equipped_item(slot_wear_suit)
+				if(armor && amount > 0 && prob(armor.simple_armor_blockchance))
+					amount = clamp(amount - armor.simple_armor_bonus, 0, amount)
+					armor.simple_armor_blockchance -= clamp(armor.simple_armor_deformation_speed + armor_damage_amp, 0, armor.simple_armor_blockchance_max)
 
 		simple_health = clamp(simple_health - amount, 0, max_simple_health)
 		if(before_calculation > simple_health)
@@ -275,6 +384,11 @@
 
 			overlay_fullscreen("damage",/obj/screen/fullscreen/simple_damage)
 
+			if(vfx_effect && source)
+				if(isliving(source))
+					simple_health_vfx(TRUE, null, null,source)
+				if(istype(source,/obj/item/projectile))
+					simple_health_vfx(TRUE, /obj/effect/simple_combat_particle/impact, source, null)
 			animation_flash_color(src, COLOR_RED)
 			sleep(6)
 
@@ -285,6 +399,10 @@
 				if(client)
 					shake_camera_MARINE(src, steps = 2, strength = 2, time_per_step = 2)
 
+				if(source && istype(source,/obj/item/projectile))
+					simple_health_vfx(FALSE, /obj/effect/simple_combat_particle/shieldblock, source, null)
+				else
+					new /obj/effect/simple_combat_particle/shieldblock(src.loc)
 				playsound(loc, SOUNDS_BULLET_METAL, 100, 1)
 				animation_flash_color(src, COLOR_CYAN)
 			else
@@ -368,7 +486,7 @@
 
 		if(connected_to && connected_to.simple_health > 0)
 			current_health_inside = clamp(current_health_inside + 10, 0, max_health_inside)
-			connected_to.simple_health_calculation(10,0,0)
+			connected_to.simple_health_calculation(10,0,0,0)
 
 			animation_flash_color(src, COLOR_GREEN)
 			update_health_inside()
@@ -376,13 +494,13 @@
 	if(current_health_inside > 0)
 		if(transfering_to && transfering_to.simple_health < transfering_to.max_simple_health)
 			if(current_health_inside < 10)
-				transfering_to.simple_health_calculation(-current_health_inside,0,0)
+				transfering_to.simple_health_calculation(-current_health_inside,0,0,0)
 				current_health_inside = 0
 				update_health_inside()
 
 			else
 				current_health_inside = clamp(current_health_inside - 10, 0, max_health_inside)
-				transfering_to.simple_health_calculation(-10,0,0)
+				transfering_to.simple_health_calculation(-10,0,0,0)
 
 				update_health_inside()
 
@@ -541,7 +659,7 @@
 			animation_flash_color(R, COLOR_GREEN)
 			clear_player_wound()
 			regen_period = base_regen_period
-			simple_health_calculation(-10,0,0)
+			simple_health_calculation(-10,0,0,0)
 
 			sleep(5)
 			qdel(R)
@@ -561,7 +679,7 @@
 			animation_flash_color(src, COLOR_GREEN)
 			H.clear_player_wound()
 			H.regen_period = H.base_regen_period
-			H.simple_health_calculation(-5,0,0)
+			H.simple_health_calculation(-5,0,0,0)
 
 			sleep(5)
 			qdel(src)
@@ -584,7 +702,7 @@
 		var/obj/item/fd/simple_combat/small_heal/S = tool
 		if(simple_health < max_simple_health)
 			animation_flash_color(S, COLOR_GREEN)
-			simple_health_calculation(-20,0,0)
+			simple_health_calculation(-20,0,0,0)
 
 			sleep(5)
 			qdel(S)
@@ -602,7 +720,7 @@
 		var/mob/living/carbon/human/H = user
 		if(H.simple_health < H.max_simple_health)
 			animation_flash_color(src, COLOR_GREEN)
-			H.simple_health_calculation(-20,0,0)
+			H.simple_health_calculation(-20,0,0,0)
 
 			sleep(5)
 			qdel(src)
@@ -625,7 +743,7 @@
 		var/obj/item/fd/simple_combat/big_heal/B = tool
 		if(simple_health < max_simple_health)
 			animation_flash_color(B, COLOR_GREEN)
-			simple_health_calculation(-40,0,0)
+			simple_health_calculation(-40,0,0,0)
 
 			sleep(5)
 			qdel(B)
@@ -643,7 +761,7 @@
 		var/mob/living/carbon/human/H = user
 		if(H.simple_health < H.max_simple_health)
 			animation_flash_color(src, COLOR_GREEN)
-			H.simple_health_calculation(-40,0,0)
+			H.simple_health_calculation(-40,0,0,0)
 
 			sleep(5)
 			qdel(src)
@@ -689,148 +807,6 @@
 /obj/item/material/armblade
 	simple_damage = 20
 	simple_armor_penetration = 10
-
-/obj/item/projectile/energy/plasmastun/attack_mob(mob/living/target_mob, distance, special_miss_modifier)
-
-	if(target_mob.simple_combat_on)
-		target_mob.bullet_impact_visuals(src, def_zone, simple_damage)
-		target_mob.simple_health_calculation(simple_damage,0,0)
-		return TRUE
-
-	if(!istype(target_mob))
-		return
-
-	//roll to-hit
-	var/miss_modifier = max(distance_falloff*(distance)*(distance) - hitchance_mod + special_miss_modifier, -30)
-	//makes moving targets harder to hit, and stationary easier to hit
-	var/movment_mod = min(5, (world.time - target_mob.l_move_time) - 5)
-
-	if (damage_falloff)
-		var/damage_mod = 1
-		for (var/list/entry as anything in damage_falloff_list)
-			if (entry[1] > distance)
-				break
-			damage_mod = entry[2]
-		damage = damage * damage_mod
-		armor_penetration = armor_penetration * damage_mod
-		agony = agony * damage_mod
-	//running in a straight line isnt as helpful tho
-	if(movment_mod < 0)
-		if(target_mob.last_move == get_dir(firer, target_mob))
-			movment_mod *= 0.25
-		else if(target_mob.last_move == get_dir(target_mob,firer))
-			movment_mod *= 0.5
-	miss_modifier -= movment_mod
-	var/hit_zone = get_zone_with_miss_chance(def_zone, target_mob, miss_modifier, ranged_attack=(distance > 1 || original != target_mob)) //if the projectile hits a target we weren't originally aiming at then retain the chance to miss
-
-	var/result = PROJECTILE_FORCE_MISS
-	if(hit_zone)
-		def_zone = hit_zone //set def_zone, so if the projectile ends up hitting someone else later (to be implemented), it is more likely to hit the same part
-		if(!target_mob.aura_check(AURA_TYPE_BULLET, src,def_zone))
-			return 1
-		result = target_mob.bullet_act(src, def_zone)
-
-	if(result == PROJECTILE_FORCE_MISS)
-		if(!silenced)
-			target_mob.visible_message(SPAN_NOTICE("\The [src] misses [target_mob] narrowly!"))
-			if(LAZYLEN(miss_sounds))
-				playsound(target_mob.loc, pick(miss_sounds), 60, 1)
-		return 0
-
-	//hit messages
-	if(silenced)
-		to_chat(target_mob, SPAN_DANGER("You've been hit in the [parse_zone(def_zone)] by \the [src]!"))
-	else
-		target_mob.visible_message(SPAN_DANGER("\The [target_mob] is hit by \the [src] in the [parse_zone(def_zone)]!"))//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
-
-	//admin logs
-	if(!no_attack_log)
-		if(istype(firer, /mob))
-
-			var/attacker_message = "shot with \a [src.type]"
-			var/victim_message = "shot with \a [src.type]"
-			var/admin_message = "shot (\a [src.type])"
-
-			admin_attack_log(firer, target_mob, attacker_message, victim_message, admin_message)
-		else
-			admin_victim_log(target_mob, "was shot by an <b>UNKNOWN SUBJECT (No longer exists)</b> using \a [src]")
-
-	//sometimes bullet_act() will want the projectile to continue flying
-	if (result == PROJECTILE_CONTINUE)
-		return 0
-
-	return 1
-
-/obj/item/projectile/energy/electrode/stunshot/attack_mob(mob/living/target_mob, distance, special_miss_modifier)
-
-	if(target_mob.simple_combat_on)
-		target_mob.bullet_impact_visuals(src, def_zone, simple_damage)
-		target_mob.simple_health_calculation(simple_damage,0,0)
-		return TRUE
-
-	if(!istype(target_mob))
-		return
-
-	//roll to-hit
-	var/miss_modifier = max(distance_falloff*(distance)*(distance) - hitchance_mod + special_miss_modifier, -30)
-	//makes moving targets harder to hit, and stationary easier to hit
-	var/movment_mod = min(5, (world.time - target_mob.l_move_time) - 5)
-
-	if (damage_falloff)
-		var/damage_mod = 1
-		for (var/list/entry as anything in damage_falloff_list)
-			if (entry[1] > distance)
-				break
-			damage_mod = entry[2]
-		damage = damage * damage_mod
-		armor_penetration = armor_penetration * damage_mod
-		agony = agony * damage_mod
-	//running in a straight line isnt as helpful tho
-	if(movment_mod < 0)
-		if(target_mob.last_move == get_dir(firer, target_mob))
-			movment_mod *= 0.25
-		else if(target_mob.last_move == get_dir(target_mob,firer))
-			movment_mod *= 0.5
-	miss_modifier -= movment_mod
-	var/hit_zone = get_zone_with_miss_chance(def_zone, target_mob, miss_modifier, ranged_attack=(distance > 1 || original != target_mob)) //if the projectile hits a target we weren't originally aiming at then retain the chance to miss
-
-	var/result = PROJECTILE_FORCE_MISS
-	if(hit_zone)
-		def_zone = hit_zone //set def_zone, so if the projectile ends up hitting someone else later (to be implemented), it is more likely to hit the same part
-		if(!target_mob.aura_check(AURA_TYPE_BULLET, src,def_zone))
-			return 1
-		result = target_mob.bullet_act(src, def_zone)
-
-	if(result == PROJECTILE_FORCE_MISS)
-		if(!silenced)
-			target_mob.visible_message(SPAN_NOTICE("\The [src] misses [target_mob] narrowly!"))
-			if(LAZYLEN(miss_sounds))
-				playsound(target_mob.loc, pick(miss_sounds), 60, 1)
-		return 0
-
-	//hit messages
-	if(silenced)
-		to_chat(target_mob, SPAN_DANGER("You've been hit in the [parse_zone(def_zone)] by \the [src]!"))
-	else
-		target_mob.visible_message(SPAN_DANGER("\The [target_mob] is hit by \the [src] in the [parse_zone(def_zone)]!"))//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
-
-	//admin logs
-	if(!no_attack_log)
-		if(istype(firer, /mob))
-
-			var/attacker_message = "shot with \a [src.type]"
-			var/victim_message = "shot with \a [src.type]"
-			var/admin_message = "shot (\a [src.type])"
-
-			admin_attack_log(firer, target_mob, attacker_message, victim_message, admin_message)
-		else
-			admin_victim_log(target_mob, "was shot by an <b>UNKNOWN SUBJECT (No longer exists)</b> using \a [src]")
-
-	//sometimes bullet_act() will want the projectile to continue flying
-	if (result == PROJECTILE_CONTINUE)
-		return 0
-
-	return 1
 
 /obj/item/projectile/beam/midlaser
 	simple_damage = 20
