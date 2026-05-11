@@ -21,8 +21,16 @@
 /obj/effect/simple_combat_particle/healing
 	icon_state = "healing"
 
+/obj/effect/simple_combat_particle/healing/Initialize()
+	SetTransform(0.5)
+	. = ..()
+
 /obj/effect/simple_combat_particle/downed
 	icon_state = "crit"
+
+/obj/effect/simple_combat_particle/downed/Initialize()
+	SetTransform(0.5)
+	. = ..()
 
 /obj/effect/simple_combat_particle/impact
 	icon = 'mods/_fd/fd_events/icons/simple_vfx_impact.dmi'
@@ -31,7 +39,7 @@
 /obj/effect/simple_combat_particle/impact/Initialize()
 	var/random_number = rand(1,4)
 	icon_state = "impact_[random_number]"
-	SetTransform(0.6)
+	SetTransform(0.8)
 	. = ..()
 
 /obj/effect/simple_combat_particle/impact/animation()

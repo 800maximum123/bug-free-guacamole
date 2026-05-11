@@ -133,7 +133,7 @@
 	var/mob/living/L = user.mob
 	L.preparing_to_dash = TRUE
 
-	L.CutOverlays(dash_indication)
+	L.CutOverlays(dash_indication, ATOM_ICON_CACHE_ALL)
 
 	dash_indication = image('mods/_fd/fd_events/icons/dash_info.dmi', icon_state = "jump_indicator")
 	dash_indication.mouse_opacity = FALSE
@@ -150,7 +150,7 @@
 		cd.jumplay = dash_indication
 	L.client.screen += cd
 	animate(cd, transform = matrix(0, -48, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
-	L.AddOverlays(dash_indication)
+	L.AddOverlays(dash_indication, ATOM_ICON_CACHE_ALL)
 
 	return TRUE
 

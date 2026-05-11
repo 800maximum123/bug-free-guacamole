@@ -223,10 +223,10 @@
 			regen_period = base_regen_period
 
 		if(simple_health <= 0 && !heavy_wounded)
-			give_player_wound()
+			add_status_effect(/datum/simple_status/crit)
 
 		if(simple_health > 0 && heavy_wounded)
-			clear_player_wound()
+			remove_status_effect(/datum/simple_status/crit)
 
 	. = ..()
 
@@ -235,23 +235,6 @@
 
 	if(heavy_wounded)
 		. += 10
-
-/mob/living/proc/give_player_wound()
-	heavy_wounded = TRUE
-	new /obj/effect/simple_combat_particle/downed(src.loc)
-
-	overlay_fullscreen("dead",/obj/screen/fullscreen/underworld_vision)
-	add_filter("wounded", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_RED))
-
-	regen_period += 110
-	SetTransform(1,0,0,90)
-
-/mob/living/proc/clear_player_wound()
-	heavy_wounded = FALSE
-
-	remove_filter("wounded")
-	clear_fullscreen("dead")
-	SetTransform(1,0,0,0)
 
 /mob/living/proc/simple_health_vfx(show_blood = TRUE, obj/effect/simple_combat_particle/create_impact = null, obj/item/projectile/proj = null, mob/living/attacker = null,)
 
@@ -418,7 +401,7 @@
 					new /obj/effect/simple_combat_particle/shieldblock(src.loc)
 				playsound(loc, SOUNDS_BULLET_METAL, 100, 1)
 				animation_flash_color(src, COLOR_CYAN)
-			else
+			else if(amount < 0)
 				new /obj/effect/simple_combat_particle/healing(src.loc)
 				animation_flash_color(src, COLOR_GREEN)
 
@@ -645,7 +628,7 @@
 			H.regen_for = 5
 
 			playsound(H, 'sound/effects/refill.ogg', 50)
-			addtimer(new Callback(H, TYPE_PROC_REF(/mob/living, reset_adrenaline)), 15 SECONDS)
+			addtimer(new Callback(H, TYPE_PROC_REF(/mob/living, reset_adrenaline)), 1 MINUTE)
 
 			sleep(5)
 			qdel(src)
@@ -670,9 +653,9 @@
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	if(istype(tool,/obj/item/fd/simple_combat/revive))
 		var/obj/item/fd/simple_combat/revive/R = tool
-		if(heavy_wounded)
+		if(get_status_effect(/datum/simple_status/crit))
 			animation_flash_color(R, COLOR_GREEN)
-			clear_player_wound()
+			remove_status_effect(/datum/simple_status/crit)
 			regen_period = base_regen_period
 			simple_health_calculation(-10,0,0,0)
 
@@ -690,9 +673,9 @@
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.heavy_wounded)
+		if(H.get_status_effect(/datum/simple_status/crit))
 			animation_flash_color(src, COLOR_GREEN)
-			H.clear_player_wound()
+			H.remove_status_effect(/datum/simple_status/crit)
 			H.regen_period = H.base_regen_period
 			H.simple_health_calculation(-5,0,0,0)
 

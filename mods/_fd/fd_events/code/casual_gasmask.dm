@@ -141,11 +141,11 @@
 			else
 				current_status = "gas_full"
 
-		overlays += image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status)
+		AddOverlays(image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status), ATOM_ICON_CACHE_ALL)
 
 /obj/item/clothing/mask/gas/MouseExited(location, control, params)
 	. = ..()
-	overlays -= image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status)
+	CutOverlays(image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status), ATOM_ICON_CACHE_ALL)
 
 /obj/item/clothing/mask/gas/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	. = ..()
@@ -197,12 +197,11 @@
 			if(41 to 50)
 				current_status = "gas_full"
 
-		overlays += image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status)
+		AddOverlays(image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status), ATOM_ICON_CACHE_ALL)
 
 /obj/item/fd/filter/MouseExited(location, control, params)
 	. = ..()
-	overlays -= image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status)
-
+	CutOverlays(image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status), ATOM_ICON_CACHE_ALL)
 
 // Gasmask overlay stuff
 

@@ -552,7 +552,7 @@
 
 	if(lost_in_nightmare && make_shadow_after > 0)
 		make_shadow_after -= 1
-		overlays += image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static", dir = dir)
+		AddOverlays(image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static", dir = dir), ATOM_ICON_CACHE_ALL)
 		maptext = STYLE_SMALLFONTS_OUTLINE("[make_shadow_after]", 7, COLOR_WHITE, COLOR_BLACK)
 
 	if(make_shadow_after <= 0 && lost_in_nightmare)
@@ -588,7 +588,7 @@
 	stunned = 999999
 	mouse_opacity = FALSE
 	anchored = TRUE
-	overlays += image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static", dir = dir)
+	AddOverlays(image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static", dir = dir), ATOM_ICON_CACHE_ALL)
 
 	if(max_connection_to_reality <= 1)
 		for(var/obj/item/W in src)
@@ -630,10 +630,10 @@
 	mouse_opacity = FALSE
 	anchored = TRUE
 
-	overlays += image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static", dir = dir)
+	AddOverlays(image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static", dir = dir), ATOM_ICON_CACHE_ALL)
 	say(pick("⮸⮌⌥⮎⮃⮃⮀⌃⮌⎋⌥⮎","⮄⮃⮏⭮⮍⮃","⮆⌃⌤⮄⮃⎋⮃","⮆⮍⮆⮎⮑⭿⮌⮎⮸","⮆⌃⮓⮑⮎⮄⮃⮑⎋⌥⌤"))
 	sleep(2 SECONDS)
-	overlays -= image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static")
+	CutOverlays(image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static", dir = dir), ATOM_ICON_CACHE_ALL)
 	glitching = FALSE
 	mouse_opacity = TRUE
 	anchored = FALSE
@@ -906,7 +906,7 @@
 			vessel.soul.ckey = vessel.ckey
 			vessel.soul.teleop = null
 
-			vessel.soul.overlays -= image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static", dir = vessel.soul.dir)
+			vessel.soul.CutOverlays(image('mods/_fd/_maps/collective_nightmare/icons/effects.dmi', "static", dir = vessel.soul.dir), ATOM_ICON_CACHE_ALL)
 			animate(vessel.soul, transform = matrix(1, MATRIX_SCALE), alpha = 255, time = 2 SECONDS, SINE_EASING|EASE_OUT, ANIMATION_PARALLEL)
 			animate(vessel, alpha = 0, time = 2 SECONDS, LINEAR_EASING)
 

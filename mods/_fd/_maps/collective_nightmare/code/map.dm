@@ -846,7 +846,6 @@
 	user.currently_interacting = null
 
 	user.clear_fullscreen("smallshade")
-	user.overlays -= image('mods/_fd/fd_tbs/icons/progressicons.dmi', "busy_generic")
 	for(var/obj/screen/T in user.client.screen)
 		if(istype(T, /obj/screen/interactive_door))
 			user.client.screen -= T

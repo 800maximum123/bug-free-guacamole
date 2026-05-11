@@ -102,7 +102,8 @@
 	user_image.dir = src.dir
 	var/obj/after_image = new /obj/effect/lunge(get_turf(src.loc))
 	after_image.dir = src.dir
-	after_image.overlays += user_image
+
+	after_image.AddOverlays(user_image,ATOM_ICON_CACHE_ALL)
 	after_image.alpha = 100
 	after_image.color = "#5ddbbc"
 	animate(after_image, 0.5 SECOND, alpha = 0)
@@ -164,7 +165,7 @@
 		user_image.dir = src.dir
 		var/obj/after_image = new /obj/effect/lunge(get_turf(src.loc))
 		after_image.dir = src.dir
-		after_image.overlays += user_image
+		after_image.AddOverlays(user_image,ATOM_ICON_CACHE_ALL)
 		after_image.alpha = 100
 		after_image.color = "#5ddbbc"
 		animate(after_image, 0.5 SECOND, alpha = 0)

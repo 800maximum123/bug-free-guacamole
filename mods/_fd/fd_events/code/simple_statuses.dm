@@ -37,7 +37,7 @@
 	if(!client || (A in revealed_hints))
 		return
 
-	var/image/healthinfo/healthinfo = new /image/hint('mods/_fd/fd_events/icons/simple_vfx_statuses.dmi', A, "healthinfo", layer = HUD_PLANE)
+	var/image/healthinfo/healthinfo = new /image/healthinfo('mods/_fd/fd_events/icons/simple_vfx_statuses.dmi', A, "healthinfo", layer = HUD_PLANE)
 
 	healthinfo.alpha = 0
 	healthinfo.pixel_x = pixel_x - 10
@@ -390,3 +390,41 @@
 			effects_found += present_effect
 
 	return effects_found
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/datum/simple_status/crit
+	name = "Критически ранен"
+	desc_text = "Ему необходима срочная медицинская помощь!"
+	status_type = STATUS_EFFECT_UNIQUE
+	status_color = COMMS_COLOR_ICCG
+
+/datum/simple_status/crit/on_apply()
+	. = ..()
+
+	owner.heavy_wounded = TRUE
+	new /obj/effect/simple_combat_particle/downed(owner.loc)
+
+	owner.overlay_fullscreen("dead",/obj/screen/fullscreen/underworld_vision)
+	owner.add_filter("wounded", 1, list("type" = "outline", , "size" = 0.01, "color" = COLOR_RED))
+	owner.animate_filter("wounded", list(time = 5, size = 1))
+
+	owner.regen_period += 110
+	animate(owner, transform = matrix(90, MATRIX_ROTATE), time = 5, easing = SINE_EASING|EASE_IN)
+
+/datum/simple_status/crit/tick()
+	. = ..()
+
+	owner.SetTransform(1,0,0,90)
+
+/datum/simple_status/crit/on_remove()
+	. = ..()
+
+	owner.heavy_wounded = FALSE
+
+	owner.animate_filter("wounded", list(time = 5, size = 0))
+	spawn(1 SECONDS)
+		owner.remove_filter("wounded")
+
+	owner.clear_fullscreen("dead")
+	animate(owner, transform = matrix(0, MATRIX_ROTATE), time = 5, easing = SINE_EASING|EASE_IN)
