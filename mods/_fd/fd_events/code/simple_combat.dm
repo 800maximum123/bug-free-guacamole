@@ -238,6 +238,7 @@
 
 /mob/living/proc/give_player_wound()
 	heavy_wounded = TRUE
+	new /obj/effect/simple_combat_particle/downed(src.loc)
 
 	overlay_fullscreen("dead",/obj/screen/fullscreen/underworld_vision)
 	add_filter("wounded", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_RED))
@@ -418,6 +419,7 @@
 				playsound(loc, SOUNDS_BULLET_METAL, 100, 1)
 				animation_flash_color(src, COLOR_CYAN)
 			else
+				new /obj/effect/simple_combat_particle/healing(src.loc)
 				animation_flash_color(src, COLOR_GREEN)
 
 		if(!ishuman(src))
@@ -537,13 +539,11 @@
 
 			B.transfering_to.anchored = FALSE
 			B.transfering_to.remove_filter("connected")
-			sleep(1)
 			B.transfering_to = null
 
 			if(B.connected_to)
 				B.connected_to.remove_filter("connected")
 				B.connected_to.anchored = FALSE
-				sleep(1)
 				B.connected_to = null
 
 			B.maptext = ""
@@ -566,13 +566,11 @@
 	if(ishuman(user) && user == connected_to)
 		connected_to.remove_filter("connected")
 		connected_to.anchored = FALSE
-		sleep(1)
 		connected_to = null
 
 		if(transfering_to)
 			transfering_to.remove_filter("connected")
 			transfering_to.anchored = FALSE
-			sleep(1)
 			transfering_to = null
 
 		maptext = ""
@@ -585,7 +583,6 @@
 	transfering_to.remove_filter("connected")
 	transfering_to.anchored = FALSE
 
-	sleep(1)
 	connected_to = null
 	transfering_to = null
 

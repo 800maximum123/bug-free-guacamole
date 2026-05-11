@@ -434,6 +434,18 @@
 	var/next_heal = 5
 	var/heal_speed = 5
 
+/mob/living/simple_animal/hostile/retaliate/anomaly/littletraveler/Initialize()
+	. = ..()
+
+	buddy = image(icon, icon_state)
+	buddy.mouse_opacity = FALSE
+	buddy.pixel_y = 26
+	buddy.pixel_x = 18
+
+/mob/living/simple_animal/hostile/retaliate/anomaly/littletraveler/proc/update_buddy_overlay()
+	connected_to.CutOverlays(buddy)
+	connected_to.AddOverlays(buddy)
+
 /mob/living/simple_animal/hostile/retaliate/anomaly/littletraveler/Life()
 	if(light_power > 0.1)
 		for(var/mob/living/simple_animal/hostile/anomaly/shadow/S in range(3,src))
@@ -444,6 +456,7 @@
 		light_power = 0.1
 
 	if(connected_to)
+		update_buddy_overlay()
 		if(next_heal <= 0)
 			connected_to.simple_health_calculation(-2, 0, 0, 0)
 			next_heal = heal_speed
@@ -459,10 +472,6 @@
 /mob/living/simple_animal/hostile/retaliate/anomaly/littletraveler/trigger_second_ability()
 	if(!connected_to)
 		var/turf/T = get_turf(get_step(src, dir))
-		buddy = image(icon, icon_state)
-		buddy.mouse_opacity = FALSE
-		buddy.pixel_y = 26
-		buddy.pixel_x = 18
 
 		for(var/mob/living/carbon/human/H in T)
 			forceMove(H)

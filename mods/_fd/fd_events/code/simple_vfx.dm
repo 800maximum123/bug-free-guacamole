@@ -18,6 +18,12 @@
 
 	QDEL_IN(src, 2 SECONDS)
 
+/obj/effect/simple_combat_particle/healing
+	icon_state = "healing"
+
+/obj/effect/simple_combat_particle/downed
+	icon_state = "crit"
+
 /obj/effect/simple_combat_particle/impact
 	icon = 'mods/_fd/fd_events/icons/simple_vfx_impact.dmi'
 	alpha = 255
@@ -29,8 +35,8 @@
 	. = ..()
 
 /obj/effect/simple_combat_particle/impact/animation()
-	pixel_x = rand(-5, 5)
-	pixel_y = rand(-10, 10)
+	pixel_x = rand(-2, 2)
+	pixel_y = rand(-6, 6)
 
 	QDEL_IN(src, 2 SECONDS)
 
@@ -41,12 +47,12 @@
 /obj/effect/simple_combat_particle/shieldblock/Initialize()
 	var/random_number = rand(1,4)
 	icon_state = "shieldblock_[random_number]"
-	SetTransform(0.6)
+	SetTransform(0.8)
 	. = ..()
 
 /obj/effect/simple_combat_particle/shieldblock/animation()
-	pixel_x = rand(-5, 5)
-	pixel_y = rand(-10, 10)
+	pixel_x = rand(-2, 2)
+	pixel_y = rand(-6, 6)
 
 	QDEL_IN(src, 2 SECONDS)
 
