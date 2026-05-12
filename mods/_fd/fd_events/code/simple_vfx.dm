@@ -13,10 +13,10 @@
 	pixel_y = rand(-10, 10)
 	var/pixel_y_adjust = pixel_y + 10
 
-	animate(src, 0.5 SECOND, alpha = 255, flags = ANIMATION_PARALLEL)
-	animate(src, pixel_y = pixel_y_adjust, alpha = 0, time = 2 SECONDS, easing = SINE_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
+	animate(src, 0.3 SECOND, alpha = 255, flags = ANIMATION_PARALLEL)
+	animate(src, pixel_y = pixel_y_adjust, alpha = 0, time = 0.8 SECONDS, easing = SINE_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
 
-	QDEL_IN(src, 2 SECONDS)
+	QDEL_IN(src, 1 SECONDS)
 
 /obj/effect/simple_combat_particle/healing
 	icon_state = "healing"
@@ -31,6 +31,27 @@
 /obj/effect/simple_combat_particle/downed/Initialize()
 	SetTransform(0.5)
 	. = ..()
+
+/obj/effect/simple_combat_particle/fracture
+	icon_state = "fractured"
+
+/obj/effect/simple_combat_particle/fracture/Initialize()
+	SetTransform(0.5)
+	. = ..()
+
+/obj/effect/simple_combat_particle/bleeding
+	icon_state = "bleed"
+
+/obj/effect/simple_combat_particle/bleeding/animation()
+	pixel_x = rand(-5, 5)
+
+	var/pick_the_number = rand(10, 20)
+	pixel_y = pick_the_number
+
+	animate(src, 0.3 SECOND, alpha = 255, flags = ANIMATION_PARALLEL)
+	animate(src, pixel_y = pixel_y - pick_the_number, alpha = 0, time = 0.8 SECONDS, easing = SINE_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
+
+	QDEL_IN(src, 1 SECONDS)
 
 /obj/effect/simple_combat_particle/impact
 	icon = 'mods/_fd/fd_events/icons/simple_vfx_impact.dmi'

@@ -16,3 +16,5 @@
 #define STATUS_EFFECT_ADJUST 4
 /// Устанавливает дополнительный источник эффекта
 #define STATUS_EFFECT_SOURCED 5
+
+#define BP_FULL_HEAD list(BP_HEAD, BP_MOUTH, BP_EYES)

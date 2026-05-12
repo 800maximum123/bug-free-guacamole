@@ -163,18 +163,53 @@
 	var/simple_damage = 2
 	var/simple_armor_penetration = 0
 
+	var/datum/simple_status/status_to_add = null
+	var/status_timer_to_add = -1
+	var/status_ignore_armor = FALSE
+
+	var/status_apply_prob = -1
+
 /obj/item/apply_hit_effect(mob/living/target, mob/living/user, hit_zone)
 	if(target.simple_combat_on)
-		target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user)
-		return TRUE
+		if(status_to_add)
+			if(status_apply_prob > 0)
+				if(prob(status_apply_prob))
+					target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user,status_to_add,status_ignore_armor,status_timer_to_add)
+					return TRUE
+				else
+					target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user)
+					return TRUE
+
+			else
+				target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user,status_to_add,status_ignore_armor,status_timer_to_add)
+				return TRUE
+
+		else
+			target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user)
+			return TRUE
 	..()
 
 /obj/item/throw_impact(atom/hit_atom, datum/thrownthing/TT)
 	if(istype(hit_atom,/mob/living))
 		var/mob/living/L = hit_atom
 		if(L.simple_combat_on)
-			L.simple_health_calculation(simple_damage,simple_armor_penetration,1,0)
 
+			if(status_to_add)
+				if(status_apply_prob > 0)
+					if(prob(status_apply_prob))
+						L.simple_health_calculation(simple_damage,simple_armor_penetration,1,0,null,status_to_add,status_ignore_armor,status_timer_to_add)
+						return TRUE
+					else
+						L.simple_health_calculation(simple_damage,simple_armor_penetration,1,0)
+						return TRUE
+
+				else
+					L.simple_health_calculation(simple_damage,simple_armor_penetration,1,0,null,status_to_add,status_ignore_armor,status_timer_to_add)
+					return TRUE
+
+			else
+				L.simple_health_calculation(simple_damage,simple_armor_penetration,1,0)
+				return TRUE
 	..()
 
 /obj/item/projectile
@@ -182,9 +217,23 @@
 
 /obj/item/projectile/attack_mob(mob/living/target_mob, distance, special_miss_modifier)
 	if(target_mob.simple_combat_on)
-		target_mob.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,src)
-		return TRUE
 
+		if(status_to_add)
+			if(status_apply_prob > 0)
+				if(prob(status_apply_prob))
+					target_mob.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,src,status_to_add,status_ignore_armor,status_timer_to_add)
+					return TRUE
+				else
+					target_mob.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,src)
+					return TRUE
+
+			else
+				target_mob.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,src,status_to_add,status_ignore_armor,status_timer_to_add)
+				return TRUE
+
+		else
+			target_mob.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,src)
+			return TRUE
 	..()
 
 /obj/item/clothing
@@ -236,7 +285,7 @@
 	if(heavy_wounded)
 		. += 10
 
-/mob/living/proc/simple_health_vfx(show_blood = TRUE, obj/effect/simple_combat_particle/create_impact = null, obj/item/projectile/proj = null, mob/living/attacker = null,)
+/mob/living/proc/simple_health_vfx(show_blood = TRUE, obj/effect/simple_combat_particle/create_impact = null, obj/item/projectile/proj = null, mob/living/attacker = null)
 
 	if(proj)
 		var/list/impact_sounds = LAZYACCESS(proj.impact_sounds, get_bullet_impact_effect_type(proj.def_zone))
@@ -247,15 +296,15 @@
 
 		switch(change_curve)
 			if(1)
-				var/random_number = rand(-2,2)
+				var/random_number = rand(-4,4)
 				var/pixel_x_change = pixel_x + random_number
 				animate(src, pixel_x = pixel_x_change, time = 0.4 SECONDS, easing = JUMP_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
 			if(2)
 				var/pixel_y_change
 				if(dir == SOUTH)
-					pixel_y_change = pixel_y + 2
+					pixel_y_change = pixel_y + 4
 				else
-					pixel_y_change = pixel_y - 2
+					pixel_y_change = pixel_y - 4
 				animate(src, pixel_y = pixel_y_change, time = 0.4 SECONDS, easing = JUMP_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
 
 		spawn(0.6 SECONDS)
@@ -287,7 +336,7 @@
 		new create_impact(src.loc)
 
 /mob/living/proc/melee_block(amount, armor_damage_amp, mob/living/source = null)
-	if(source.zone_sel.selecting == BP_HEAD)
+	if((source.zone_sel.selecting == BP_MOUTH || source.zone_sel.selecting == BP_EYES || source.zone_sel.selecting == BP_HEAD))
 		var/obj/item/clothing/head/helmet = get_equipped_item(slot_head)
 
 		if(helmet && amount > 0)
@@ -321,8 +370,7 @@
 		return amount
 
 /mob/living/proc/ranged_block(amount, obj/item/projectile/source)
-
-	if(source.def_zone == BP_HEAD)
+	if((source.def_zone == BP_MOUTH || source.def_zone == BP_EYES || source.def_zone == BP_HEAD))
 		var/obj/item/clothing/head/helmet = get_equipped_item(slot_head)
 
 		if(helmet && amount > 0)
@@ -353,8 +401,9 @@
 			armor.simple_armor_blockchance -= clamp(armor.simple_armor_deformation_speed + source.simple_armor_penetration, 0, armor.simple_armor_blockchance_max)
 		return amount
 
-/mob/living/proc/simple_health_calculation(amount, armor_damage_amp, should_block = TRUE, vfx_effect = TRUE, atom/movable/source = null)
+/mob/living/proc/simple_health_calculation(amount, armor_damage_amp, should_block = TRUE, vfx_effect = TRUE, atom/movable/source = null, datum/simple_status/add_effect, effect_apply_anyway = FALSE, effect_duration = -1)
 	set waitfor = FALSE
+	appearance_flags |= KEEP_TOGETHER
 
 	if(simple_combat_on)
 
@@ -388,6 +437,17 @@
 			animation_flash_color(src, COLOR_RED)
 			sleep(6)
 
+			if(ishuman(source))
+				var/mob/living/carbon/human/H = source
+				if((H.zone_sel.selecting == BP_R_LEG || H.zone_sel.selecting == BP_L_LEG) && prob(5))
+					add_status_effect(/datum/simple_status/legbroke)
+			if(istype(source,/obj/item/projectile))
+				var/obj/item/projectile/P = source
+				if((P.def_zone == BP_R_LEG || P.def_zone == BP_L_LEG) && prob(5))
+					add_status_effect(/datum/simple_status/legbroke)
+
+			if(add_effect)
+				add_status_effect(add_effect, effect_duration)
 			clear_fullscreen("damage")
 
 		if(before_calculation <= simple_health)
@@ -401,12 +461,16 @@
 					new /obj/effect/simple_combat_particle/shieldblock(src.loc)
 				playsound(loc, SOUNDS_BULLET_METAL, 100, 1)
 				animation_flash_color(src, COLOR_CYAN)
+
+				if(add_effect && effect_apply_anyway)
+					add_status_effect(add_effect, effect_duration)
+
 			else if(amount < 0)
 				new /obj/effect/simple_combat_particle/healing(src.loc)
 				animation_flash_color(src, COLOR_GREEN)
 
-		if(!ishuman(src))
-			if(heavy_wounded)
+		if(heavy_wounded)
+			if(!ishuman(src))
 				death()
 
 		if(simple_health <= max_simple_health / 2)
@@ -418,6 +482,12 @@
 			var/obj/screen/fullscreen/screen = screens["almost_done"]
 			if(screen)
 				clear_fullscreen("almost_done")
+
+/mob/living/rejuvenate()
+	. = ..()
+	simple_health_calculation(-max_simple_health, 0, 0, 0)
+	for(var/datum/simple_status/effects in status_effects)
+		remove_status_effect(effects)
 
 /mob/living/ClickOn(atom/A)
 
@@ -507,6 +577,7 @@
 	if(istype(tool,/obj/item/fd/simple_combat/bloodbag))
 		var/obj/item/fd/simple_combat/bloodbag/B = tool
 		if(B.transfering_to != src && B.connected_to != src)
+			appearance_flags |= KEEP_TOGETHER
 			add_filter("connected", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_WHITE))
 
 			user.anchored = TRUE
@@ -541,6 +612,7 @@
 		var/mob/living/carbon/human/H = user
 		if(H.simple_health > 0)
 			connected_to = H
+			connected_to.appearance_flags |= KEEP_TOGETHER
 			connected_to.add_filter("connected", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_WHITE))
 			connected_to.anchored = TRUE
 			maptext = STYLE_SMALLFONTS_OUTLINE("CONNECTED", 7, COLOR_WHITE, COLOR_BLACK)
@@ -560,11 +632,13 @@
 		return TRUE
 
 /obj/item/fd/simple_combat/bloodbag/dropped()
-	connected_to.remove_filter("connected")
-	connected_to.anchored = FALSE
+	if(connected_to)
+		connected_to.remove_filter("connected")
+		connected_to.anchored = FALSE
 
-	transfering_to.remove_filter("connected")
-	transfering_to.anchored = FALSE
+	if(transfering_to)
+		transfering_to.remove_filter("connected")
+		transfering_to.anchored = FALSE
 
 	connected_to = null
 	transfering_to = null
@@ -653,9 +727,11 @@
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	if(istype(tool,/obj/item/fd/simple_combat/revive))
 		var/obj/item/fd/simple_combat/revive/R = tool
-		if(get_status_effect(/datum/simple_status/crit))
+		if(get_status_effect(/datum/simple_status/crit) && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
 			animation_flash_color(R, COLOR_GREEN)
 			remove_status_effect(/datum/simple_status/crit)
+			if(get_status_effect(/datum/simple_status/bleed))
+				remove_status_effect(/datum/simple_status/bleed)
 			regen_period = base_regen_period
 			simple_health_calculation(-10,0,0,0)
 
@@ -673,11 +749,163 @@
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.get_status_effect(/datum/simple_status/crit))
+		if(H.get_status_effect(/datum/simple_status/crit) && do_after(H, 2 SECONDS, H, DO_PUBLIC_UNIQUE))
 			animation_flash_color(src, COLOR_GREEN)
 			H.remove_status_effect(/datum/simple_status/crit)
+			if(H.get_status_effect(/datum/simple_status/bleed))
+				H.remove_status_effect(/datum/simple_status/bleed)
 			H.regen_period = H.base_regen_period
 			H.simple_health_calculation(-5,0,0,0)
+
+			sleep(5)
+			qdel(src)
+
+		else
+			animation_flash_color(src, COLOR_RED)
+			return FALSE
+
+/obj/item/fd/simple_combat/splint
+	name = "splint"
+	desc = "Used to fixate your bone, but not fix it."
+
+	icon = 'mods/_fd/fd_events/icons/simple_medicine.dmi'
+	icon_state = "fracturetempfix"
+
+	w_class = ITEM_SIZE_SMALL
+
+/mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
+	if(istype(tool,/obj/item/fd/simple_combat/splint))
+		var/obj/item/fd/simple_combat/splint/S = tool
+		if(get_status_effect(/datum/simple_status/legbroke) && do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
+			animation_flash_color(S, COLOR_GREEN)
+			add_status_effect(/datum/simple_status/splinted, 1 MINUTE)
+
+			sleep(5)
+			qdel(S)
+
+		else
+			animation_flash_color(S, COLOR_RED)
+			return FALSE
+
+	. = ..()
+
+/obj/item/fd/simple_combat/splint/attack_self(mob/user)
+	. = ..()
+
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.get_status_effect(/datum/simple_status/legbroke) && do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
+			animation_flash_color(src, COLOR_GREEN)
+			H.add_status_effect(/datum/simple_status/splinted, 1 MINUTE)
+
+			sleep(5)
+			qdel(src)
+
+		else
+			animation_flash_color(src, COLOR_RED)
+			return FALSE
+
+/obj/item/fd/simple_combat/bandage
+	name = "bandage"
+	desc = "Used to stop bleeding."
+
+	icon = 'mods/_fd/fd_events/icons/simple_medicine.dmi'
+	icon_state = "bleedstop"
+
+	w_class = ITEM_SIZE_TINY
+	var/uses = 5
+	var/uses_max = 5
+
+	maptext_height = 16
+	maptext_width = 96
+	maptext_x = 4
+	maptext_y = 2
+
+/obj/item/fd/simple_combat/bandage/MouseEntered(location, control, params)
+	. = ..()
+
+	if(loc == usr)
+		maptext = STYLE_SMALLFONTS_OUTLINE("[uses]/[uses_max]", 7, COLOR_WHITE, COLOR_BLACK)
+
+/obj/item/fd/simple_combat/bandage/MouseExited(location, control, params)
+	. = ..()
+
+	if(maptext)
+		maptext = ""
+
+/mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
+	if(istype(tool,/obj/item/fd/simple_combat/bandage))
+		var/obj/item/fd/simple_combat/bandage/B = tool
+		if(get_status_effect(/datum/simple_status/bleed) && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
+			animation_flash_color(B, COLOR_GREEN)
+			remove_status_effect(/datum/simple_status/bleed)
+
+			B.uses -= 1
+
+			sleep(5)
+
+			if(B.uses <= 0)
+				qdel(B)
+
+		else
+			animation_flash_color(B, COLOR_RED)
+			return FALSE
+
+	. = ..()
+
+/obj/item/fd/simple_combat/bandage/attack_self(mob/user)
+	. = ..()
+
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.get_status_effect(/datum/simple_status/bleed) && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
+			animation_flash_color(src, COLOR_GREEN)
+			H.remove_status_effect(/datum/simple_status/bleed)
+
+			uses -= 1
+
+			sleep(5)
+
+			if(uses <= 0)
+				qdel(src)
+
+		else
+			animation_flash_color(src, COLOR_RED)
+			return FALSE
+
+/obj/item/fd/simple_combat/bonegel
+	name = "bone gel"
+	desc = "Used to restore broken bones."
+
+	icon = 'mods/_fd/fd_events/icons/simple_medicine.dmi'
+	icon_state = "fracturefullfix"
+
+	w_class = ITEM_SIZE_SMALL
+
+/mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
+	if(istype(tool,/obj/item/fd/simple_combat/bonegel))
+		var/obj/item/fd/simple_combat/bonegel/B = tool
+		if(get_status_effect(/datum/simple_status/legbroke) && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
+			animation_flash_color(B, COLOR_GREEN)
+			remove_status_effect(/datum/simple_status/legbroke)
+
+			sleep(5)
+			qdel(B)
+
+		else
+			animation_flash_color(B, COLOR_RED)
+			return FALSE
+
+	. = ..()
+
+/obj/item/fd/simple_combat/bonegel/attack_self(mob/user)
+	. = ..()
+
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.get_status_effect(/datum/simple_status/legbroke) && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
+			animation_flash_color(src, COLOR_GREEN)
+			H.remove_status_effect(/datum/simple_status/legbroke)
 
 			sleep(5)
 			qdel(src)
@@ -739,9 +967,10 @@
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	if(istype(tool,/obj/item/fd/simple_combat/big_heal))
 		var/obj/item/fd/simple_combat/big_heal/B = tool
-		if(simple_health < max_simple_health)
+		if(simple_health < max_simple_health && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
 			animation_flash_color(B, COLOR_GREEN)
-			simple_health_calculation(-40,0,0,0)
+			remove_status_effect(/datum/simple_status/bleed)
+			simple_health_calculation(-60,0,0,0)
 
 			sleep(5)
 			qdel(B)
@@ -757,9 +986,10 @@
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.simple_health < H.max_simple_health)
+		if(H.simple_health < H.max_simple_health && do_after(H, 2 SECONDS, H, DO_PUBLIC_UNIQUE))
 			animation_flash_color(src, COLOR_GREEN)
-			H.simple_health_calculation(-40,0,0,0)
+			H.remove_status_effect(/datum/simple_status/bleed)
+			H.simple_health_calculation(-60,0,0,0)
 
 			sleep(5)
 			qdel(src)
@@ -767,6 +997,106 @@
 		else
 			animation_flash_color(src, COLOR_RED)
 			return FALSE
+
+/obj/item/fd/simple_combat/big_heal
+	name = "medical injector"
+	desc = "Used to heal heavy wounds."
+
+	icon = 'mods/_fd/fd_events/icons/simple_medicine.dmi'
+	icon_state = "big_heal"
+
+	w_class = ITEM_SIZE_SMALL
+
+/mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
+	if(istype(tool,/obj/item/fd/simple_combat/big_heal))
+		var/obj/item/fd/simple_combat/big_heal/B = tool
+		if(simple_health < max_simple_health && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
+			animation_flash_color(B, COLOR_GREEN)
+			if(get_status_effect(/datum/simple_status/bleed))
+				remove_status_effect(/datum/simple_status/bleed)
+			simple_health_calculation(-60,0,0,0)
+
+			sleep(5)
+			qdel(B)
+
+		else
+			animation_flash_color(B, COLOR_RED)
+			return FALSE
+
+	. = ..()
+
+/obj/item/fd/simple_combat/big_heal/attack_self(mob/user)
+	. = ..()
+
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.simple_health < H.max_simple_health && do_after(H, 2 SECONDS, H, DO_PUBLIC_UNIQUE))
+			animation_flash_color(src, COLOR_GREEN)
+			if(H.get_status_effect(/datum/simple_status/bleed))
+				H.remove_status_effect(/datum/simple_status/bleed)
+			H.simple_health_calculation(-60,0,0,0)
+
+			sleep(5)
+			qdel(src)
+
+		else
+			animation_flash_color(src, COLOR_RED)
+			return FALSE
+
+/obj/item/fd/simple_combat/full_heal
+	name = "medkit"
+	desc = "Used to fully restore your body."
+
+	icon = 'mods/_fd/fd_events/icons/simple_medicine.dmi'
+	icon_state = "fullheal"
+
+	w_class = ITEM_SIZE_NORMAL
+	var/uses = 3
+	var/uses_max = 3
+
+	maptext_height = 16
+	maptext_width = 96
+	maptext_x = 4
+	maptext_y = 2
+
+/obj/item/fd/simple_combat/full_heal/MouseEntered(location, control, params)
+	. = ..()
+
+	if(loc == usr)
+		maptext = STYLE_SMALLFONTS_OUTLINE("[uses]/[uses_max]", 7, COLOR_WHITE, COLOR_BLACK)
+
+/obj/item/fd/simple_combat/full_heal/MouseExited(location, control, params)
+	. = ..()
+
+	if(maptext)
+		maptext = ""
+
+/mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
+	if(istype(tool,/obj/item/fd/simple_combat/full_heal))
+		var/obj/item/fd/simple_combat/full_heal/F = tool
+		if(simple_health < max_simple_health && do_after(user, 30 SECONDS, src, DO_PUBLIC_UNIQUE))
+			animation_flash_color(F, COLOR_GREEN)
+			for(var/datum/simple_status/effects in status_effects)
+				remove_status_effect(effects)
+			simple_health_calculation(-(max_simple_health - simple_health),0,0,0)
+			F.uses -= 1
+
+			sleep(5)
+
+			if(F.uses <= 0)
+				qdel(F)
+
+		else
+			animation_flash_color(F, COLOR_RED)
+			return FALSE
+
+	. = ..()
+
+/obj/item/fd/simple_combat/full_heal/attack_self(mob/user)
+	. = ..()
+
+	animation_flash_color(src, COLOR_RED)
+	return FALSE
 
 /datum/interactive_note/tutorial_ooc/simple_medicine
 	name = "Подсказка 3 (ООС)"
@@ -787,24 +1117,54 @@
 	simple_damage = 20
 	simple_armor_penetration = 10
 
+	status_to_add = /datum/simple_status/bleed
+	status_timer_to_add = 5 SECONDS
+
+	status_apply_prob = 30
+
 /obj/item/material/sword/katana
 	simple_damage = 20
 	simple_armor_penetration = 10
 
+	status_to_add = /datum/simple_status/bleed
+	status_timer_to_add = 20 SECONDS
+
+	status_apply_prob = 70
+
 /obj/item/material/knife/combat
 	simple_damage = 10
+
+	status_to_add = /datum/simple_status/bleed
+	status_timer_to_add = 5 SECONDS
+
+	status_apply_prob = 50
 
 /obj/item/crowbar/emergency_forcing_tool
 	simple_damage = 10
 	simple_armor_penetration = 5
 
+	status_to_add = /datum/simple_status/bleed
+	status_timer_to_add = 5 SECONDS
+
+	status_apply_prob = 30
+
 /obj/item/material/hatchet
 	simple_damage = 10
 	simple_armor_penetration = 5
 
+	status_to_add = /datum/simple_status/bleed
+	status_timer_to_add = 5 SECONDS
+
+	status_apply_prob = 30
+
 /obj/item/material/armblade
 	simple_damage = 20
 	simple_armor_penetration = 10
+
+	status_to_add = /datum/simple_status/bleed
+	status_timer_to_add = 20 SECONDS
+
+	status_apply_prob = 70
 
 /obj/item/projectile/beam/midlaser
 	simple_damage = 20
@@ -812,6 +1172,12 @@
 
 /obj/item/projectile/beam/smalllaser
 	simple_damage = 10
+
+/obj/item/projectile/bullet
+	status_to_add = /datum/simple_status/bleed
+	status_timer_to_add = 20 SECONDS
+
+	status_apply_prob = 5
 
 /obj/item/projectile/bullet/shotgun
 	simple_damage = 20
