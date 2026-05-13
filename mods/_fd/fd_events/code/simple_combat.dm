@@ -632,17 +632,18 @@
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	if(istype(tool,/obj/item/fd/simple_combat/bloodbag))
 		var/obj/item/fd/simple_combat/bloodbag/B = tool
-		if(B.transfering_to != src && B.connected_to != src)
-			appearance_flags |= KEEP_TOGETHER
-			add_filter("connected", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_WHITE))
+		if(!B.transfering_to)
+			if(B.transfering_to != src && B.connected_to != src)
+				appearance_flags |= KEEP_TOGETHER
+				add_filter("connected", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_WHITE))
 
-			user.anchored = TRUE
+				user.anchored = TRUE
 
-			B.transfering_to = src
-			B.maptext = STYLE_SMALLFONTS_OUTLINE("CONNECTED", 7, COLOR_WHITE, COLOR_BLACK)
-			anchored = TRUE
+				B.transfering_to = src
+				B.maptext = STYLE_SMALLFONTS_OUTLINE("CONNECTED", 7, COLOR_WHITE, COLOR_BLACK)
+				anchored = TRUE
 
-			return TRUE
+				return TRUE
 		if(B.transfering_to == src)
 
 			user.anchored = FALSE
@@ -664,15 +665,17 @@
 /obj/item/fd/simple_combat/bloodbag/attack_self(mob/user)
 	. = ..()
 
-	if(ishuman(user) && user != connected_to)
-		var/mob/living/carbon/human/H = user
-		if(H.simple_health > 0)
-			connected_to = H
-			connected_to.appearance_flags |= KEEP_TOGETHER
-			connected_to.add_filter("connected", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_WHITE))
-			connected_to.anchored = TRUE
-			maptext = STYLE_SMALLFONTS_OUTLINE("CONNECTED", 7, COLOR_WHITE, COLOR_BLACK)
-			return TRUE
+	if(!connected_to)
+
+		if(ishuman(user) && user != connected_to)
+			var/mob/living/carbon/human/H = user
+			if(H.simple_health > 0)
+				connected_to = H
+				connected_to.appearance_flags |= KEEP_TOGETHER
+				connected_to.add_filter("connected", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_WHITE))
+				connected_to.anchored = TRUE
+				maptext = STYLE_SMALLFONTS_OUTLINE("CONNECTED", 7, COLOR_WHITE, COLOR_BLACK)
+				return TRUE
 
 	if(ishuman(user) && user == connected_to)
 		connected_to.remove_filter("connected")

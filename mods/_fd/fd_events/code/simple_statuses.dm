@@ -461,7 +461,8 @@
 	owner.update_client_color()
 
 	owner.can_speak = FALSE
-	owner.Weaken(999)
+	owner.SetWeakened(999)
+	owner.rest
 
 	owner.add_filter("dead", 1, list("type" = "outline", , "size" = 0, "color" = COLOR_BLACK))
 	owner.animate_filter("dead", list(time = 10, size = 1))
@@ -483,6 +484,9 @@
 
 	owner.remove_client_color(/datum/client_color/noir)
 	owner.update_client_color()
+
+	owner.can_speak = TRUE
+	owner.SetWeakened(0)
 
 	if(!owner.stabilized)
 		owner.adjustOxyLoss(owner.maxHealth)
