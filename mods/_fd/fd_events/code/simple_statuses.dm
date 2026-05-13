@@ -462,7 +462,6 @@
 
 	owner.can_speak = FALSE
 	owner.SetWeakened(999)
-	owner.rest
 
 	owner.add_filter("dead", 1, list("type" = "outline", , "size" = 0, "color" = COLOR_BLACK))
 	owner.animate_filter("dead", list(time = 10, size = 1))
