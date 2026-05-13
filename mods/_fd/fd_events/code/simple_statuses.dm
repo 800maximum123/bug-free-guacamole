@@ -464,7 +464,7 @@
 	owner.SetWeakened(999)
 
 	owner.add_filter("dead", 1, list("type" = "outline", , "size" = 0, "color" = COLOR_BLACK))
-	owner.animate_filter("dead", list(time = 10, size = 1))
+	owner.animate_filter("dead", list(time = 10, size = 2))
 
 	owner.regen_period = 999
 
@@ -472,7 +472,7 @@
 	. = ..()
 
 	if(!owner.get_filter("dead"))
-		owner.add_filter("dead", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_BLACK))
+		owner.add_filter("dead", 1, list("type" = "outline", , "size" = 2, "color" = COLOR_BLACK))
 
 /datum/simple_status/hardcrit/on_remove()
 	. = ..()
