@@ -492,6 +492,7 @@
 		owner.setBrainLoss(owner.maxHealth)
 
 	else
+		owner.regen_period = owner.base_regen_period
 		owner.pre_death = FALSE
 		owner.stabilized = FALSE
 
