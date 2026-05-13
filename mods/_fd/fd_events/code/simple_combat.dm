@@ -540,6 +540,13 @@
 
 	if(simple_combat_on)
 		simple_health_calculation(-max_simple_health, 0, 0, 0)
+
+		if(ishuman(src))
+			var/mob/living/carbon/human/H = src
+			for(var/obj/item/clothing/armor in H.get_equipped_items())
+				armor.simple_armor_blockchance = armor.simple_armor_blockchance_max
+
+
 		for(var/datum/simple_status/effects in status_effects)
 			if(istype(effects,/datum/simple_status/hardcrit))
 				stabilized = TRUE
