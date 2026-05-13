@@ -605,7 +605,7 @@
 	speed = 0.5
 
 	natural_weapon = /obj/item/natural_weapon/anomaly/claws
-	ai_holder = /datum/ai_holder/simple_animal/melee
+	ai_holder = /datum/ai_holder/simple_animal/humanoid/angry
 	faction = "bugarmy"
 
 	bleed_colour = "#000000"
@@ -715,7 +715,7 @@
 	speed = -1
 
 	natural_weapon = /obj/item/natural_weapon/anomaly/claws
-	ai_holder = /datum/ai_holder/simple_animal/melee/evasive
+	ai_holder = /datum/ai_holder/simple_animal/humanoid/angry
 	faction = "bugarmy"
 
 	bleed_colour = "#000000"
