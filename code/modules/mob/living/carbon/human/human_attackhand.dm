@@ -72,9 +72,11 @@
 				return
 
 			if(simple_combat_on)
-				if(get_status_effect(/datum/simple_status/hardcrit) && do_after(H, 10 SECONDS, src, DO_PUBLIC_UNIQUE))
-					stabilized = TRUE
-					remove_status_effect(/datum/simple_status/hardcrit)
+				if(get_status_effect(/datum/simple_status/hardcrit))
+					if(do_after(H, 10 SECONDS, src, DO_PUBLIC_UNIQUE))
+						stabilized = TRUE
+						remove_status_effect(/datum/simple_status/hardcrit)
+					return
 
 			if (H != src && istype(H) && (is_asystole() || (status_flags & FAKEDEATH) || failed_last_breath) && !(H.zone_sel.selecting == BP_R_ARM || H.zone_sel.selecting == BP_L_ARM))
 				if (!cpr_time)

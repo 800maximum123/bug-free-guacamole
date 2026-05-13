@@ -294,19 +294,12 @@
 /mob/living/Life()
 
 	if(simple_combat_on)
-		if(simple_health < max_simple_health)
+		if(simple_health < max_simple_health && !get_status_effect(/datum/simple_status/hardcrit))
 			regen_period -= 1
 
 		if(regen_period <= 0)
 			simple_health_calculation(-regen_for,0,0,0)
 			regen_period = base_regen_period
-
-		if(simple_health <= 0 && !get_status_effect(/datum/simple_status/crit) && !pre_death)
-			add_status_effect(/datum/simple_status/crit)
-
-		if(simple_health > 0 && get_status_effect(/datum/simple_status/crit) && !pre_death)
-			remove_status_effect(/datum/simple_status/crit)
-
 	. = ..()
 
 /mob/living/movement_delay()
@@ -444,85 +437,97 @@
 	set waitfor = FALSE
 	appearance_flags |= KEEP_TOGETHER
 
-	if(simple_combat_on)
+	if(simple_combat_on) // Мы в простом режиме?
 
-		var/before_calculation = simple_health
-		if(should_block)
-			amount = clamp(amount - simple_armor_natural, 0, amount)
+		if(should_block) // Должны ли мы попытаться заблокировать входящий урон?
+			amount = clamp(amount - simple_armor_natural, 0, amount) // Если ДА, то сначала вычтем из урона наш натуральный показатель брони, привязанный к мобу
 
-			if(istype(source,/obj/item/projectile))
+			if(istype(source,/obj/item/projectile)) // Если источник урона - прожектайл, то вызываем этот прок
 				amount = ranged_block(amount, source)
 
-			if(ishuman(source))
+			if(ishuman(source)) // Если источник урона - моб, то вызываем этот прок
 				amount = melee_block(amount, armor_damage_amp, source)
 
-			if(!source)
-				var/obj/item/clothing/suit/armor = get_equipped_item(slot_wear_suit)
-				if(armor && amount > 0 && prob(armor.simple_armor_blockchance))
-					amount = clamp(amount - armor.simple_armor_bonus, 0, amount)
-					armor.simple_armor_blockchance -= clamp(armor.simple_armor_deformation_speed + armor_damage_amp, 0, armor.simple_armor_blockchance_max)
+			if(!source) // Если у нас нет источника - проверяем всё по простой формуле ниже
+				var/obj/item/clothing/suit/armor = get_equipped_item(slot_wear_suit) // На нас есть броня?
+				if(armor && amount > 0 && prob(armor.simple_armor_blockchance)) // Проверяем, способны ли мы заблокировать входящий урон с её помощью
+					amount = clamp(amount - armor.simple_armor_bonus, 0, amount) // Вычитаем из урона показатель надетой на нас брони
+					armor.simple_armor_blockchance -= clamp(armor.simple_armor_deformation_speed + armor_damage_amp, 0, armor.simple_armor_blockchance_max) // Уменьшаем прочность брони
 
-		simple_health = clamp(simple_health - amount, 0, max_simple_health)
-		if(before_calculation > simple_health)
-			regen_period = base_regen_period
+		simple_health = clamp(simple_health - amount, 0, max_simple_health) // Наконец, вычитаем финальный урон из здоровья
+		if(amount > 0) // Урон выше чем ноль?
+			regen_period = base_regen_period // Стопорим регенерацию на некоторое время
 
 			overlay_fullscreen("damage",/obj/screen/fullscreen/simple_damage)
 
-			if(vfx_effect && source)
-				if(ishuman(source))
+			if(vfx_effect && source) // Нам нужны спец-эффекты при получении урона? У нас есть источник урона?
+				if(ishuman(source)) // Прок на случай, если источником является человек
 					simple_health_vfx(TRUE, null, null,source)
 				if(istype(source,/obj/item/projectile))
-					simple_health_vfx(TRUE, /obj/effect/simple_combat_particle/impact, source, null)
+					simple_health_vfx(TRUE, /obj/effect/simple_combat_particle/impact, source, null) // Прок на случай, если источником является прожектайл
 			animation_flash_color(src, COLOR_RED)
 			sleep(6)
+
+			if(source) // И ещё раз обращаемся к источнику. При его наличии, нужно посмотреть, не бьёт ли он по ногам
+				bonecheck(source)
+
+			if(add_effect) // Если то чем нас атаковали имеет какие-то эффекты - добавляем их
+				add_status_effect(add_effect, effect_duration)
+			clear_fullscreen("damage")
+
+		if(amount < 0) // Урон меньше нуля? Значит нас похилили
+			new /obj/effect/simple_combat_particle/healing(src.loc)
+			animation_flash_color(src, COLOR_GREEN)
+		if(amount == 0 && should_block) // Урон РАВЕН нулю и мы БЛОКИРОВАЛИ его? Проделываем всё то же самое, что и выше, но слегка иначе
+			if(client)
+				shake_camera_MARINE(src, steps = 2, strength = 2, time_per_step = 2)
+
+			if(source && istype(source,/obj/item/projectile))
+				simple_health_vfx(FALSE, /obj/effect/simple_combat_particle/shieldblock, source, null)
+			else
+				new /obj/effect/simple_combat_particle/shieldblock(src.loc)
+			playsound(loc, SOUNDS_BULLET_METAL, 100, 1)
+			animation_flash_color(src, COLOR_CYAN)
+
+			if(add_effect && effect_apply_anyway) // Если эффект накладывается даже без необходимости пробития
+				add_status_effect(add_effect, effect_duration)
 
 			if(source)
 				bonecheck(source)
 
-			if(add_effect)
-				add_status_effect(add_effect, effect_duration)
-			clear_fullscreen("damage")
+		if(simple_health > max_simple_health / 2) // Если наше итоговое здоровье больше 50%, а на экране всё ещё есть оверлей - убираем его
+			var/obj/screen/fullscreen/screen = screens["almost_done"]
+			if(screen)
+				clear_fullscreen("almost_done")
 
-		if(before_calculation <= simple_health)
-			if(amount == 0 && should_block)
-				if(client)
-					shake_camera_MARINE(src, steps = 2, strength = 2, time_per_step = 2)
-
-				if(source && istype(source,/obj/item/projectile))
-					simple_health_vfx(FALSE, /obj/effect/simple_combat_particle/shieldblock, source, null)
-				else
-					new /obj/effect/simple_combat_particle/shieldblock(src.loc)
-				playsound(loc, SOUNDS_BULLET_METAL, 100, 1)
-				animation_flash_color(src, COLOR_CYAN)
-
-				if(add_effect && effect_apply_anyway)
-					add_status_effect(add_effect, effect_duration)
-
-				if(source)
-					bonecheck(source)
-
-			else if(amount < 0)
-				new /obj/effect/simple_combat_particle/healing(src.loc)
-				animation_flash_color(src, COLOR_GREEN)
-
-		if(get_status_effect(/datum/simple_status/crit))
-			pre_death = TRUE
-			if(!ishuman(src))
-				remove_status_effect(/datum/simple_status/crit)
-				death()
-			if(!get_status_effect(/datum/simple_status/hardcrit))
-				remove_status_effect(/datum/simple_status/crit)
-				add_status_effect(/datum/simple_status/hardcrit, 1 MINUTE)
-
-		if(simple_health <= max_simple_health / 2)
+		if(simple_health <= max_simple_health / 2) // Если наше итоговое здоровье меньше 50% - накладываем на экран оверлей
 			var/obj/screen/fullscreen/screen = screens["almost_done"]
 			if(!screen)
 				overlay_fullscreen("almost_done",/obj/screen/fullscreen/almost_done)
 
-		if(simple_health > max_simple_health / 2)
-			var/obj/screen/fullscreen/screen = screens["almost_done"]
-			if(screen)
-				clear_fullscreen("almost_done")
+		check_crit(amount) // Проверяем финальное состояние моба
+
+/mob/living/proc/check_crit(damage)
+
+	if(get_status_effect(/datum/simple_status/crit)) // Мы в крите?
+		if(damage > 0) // Нам нанесли какой-то урон?
+			if(ishuman(src)) // Если мы человек - тогда впадаем в хардкрит
+				add_status_effect(/datum/simple_status/hardcrit, 1 MINUTE)
+				return
+			else // Если нет - тогда сразу умираем
+				remove_status_effect(/datum/simple_status/crit)
+				death()
+				return
+
+		if(damage < 0) // Нас полечили? Удаляем крит
+			remove_status_effect(/datum/simple_status/crit)
+			return
+
+	if(!get_status_effect(/datum/simple_status/hardcrit)) // Мы НЕ в ХАРДКРИТЕ?
+		if(!get_status_effect(/datum/simple_status/crit)) //И даже НЕ в КРИТЕ?
+			if(simple_health <= 0) // Если наше здоровье на нуле - впадаем в крит
+				add_status_effect(/datum/simple_status/crit)
+				return
 
 /mob/living/proc/bonecheck(atom/movable/source = null)
 
@@ -795,13 +800,12 @@
 		var/obj/item/fd/simple_combat/revive/R = tool
 		if((get_status_effect(/datum/simple_status/crit) || get_status_effect(/datum/simple_status/hardcrit)) && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
 			animation_flash_color(R, COLOR_GREEN)
-			if(get_status_effect(/datum/simple_status/crit))
-				remove_status_effect(/datum/simple_status/crit)
 			if(get_status_effect(/datum/simple_status/hardcrit))
 				stabilized = TRUE
 				remove_status_effect(/datum/simple_status/hardcrit)
 			if(get_status_effect(/datum/simple_status/bleed))
 				remove_status_effect(/datum/simple_status/bleed)
+
 			regen_period = base_regen_period
 			simple_health_calculation(-10,0,0,0)
 
@@ -821,13 +825,12 @@
 		var/mob/living/carbon/human/H = user
 		if((H.get_status_effect(/datum/simple_status/crit) || H.get_status_effect(/datum/simple_status/hardcrit)) && do_after(H, 2 SECONDS, H, DO_PUBLIC_UNIQUE))
 			animation_flash_color(src, COLOR_GREEN)
-			if(H.get_status_effect(/datum/simple_status/crit))
-				H.remove_status_effect(/datum/simple_status/crit)
 			if(H.get_status_effect(/datum/simple_status/hardcrit))
 				H.stabilized = TRUE
 				H.remove_status_effect(/datum/simple_status/hardcrit)
 			if(H.get_status_effect(/datum/simple_status/bleed))
 				H.remove_status_effect(/datum/simple_status/bleed)
+
 			H.regen_period = H.base_regen_period
 			H.simple_health_calculation(-5,0,0,0)
 
@@ -1150,11 +1153,13 @@
 		var/obj/item/fd/simple_combat/full_heal/F = tool
 		if(simple_health < max_simple_health && do_after(user, 30 SECONDS, src, DO_PUBLIC_UNIQUE))
 			animation_flash_color(F, COLOR_GREEN)
+			simple_health_calculation(-(max_simple_health - simple_health),0,0,0)
+
 			for(var/datum/simple_status/effects in status_effects)
 				if(istype(effects,/datum/simple_status/hardcrit))
 					stabilized = TRUE
 				remove_status_effect(effects)
-			simple_health_calculation(-(max_simple_health - simple_health),0,0,0)
+
 			F.uses -= 1
 
 			sleep(5)

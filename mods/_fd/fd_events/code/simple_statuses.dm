@@ -455,6 +455,9 @@
 /datum/simple_status/hardcrit/on_apply()
 	. = ..()
 
+	if(owner.get_status_effect(/datum/simple_status/crit))
+		owner.remove_status_effect(/datum/simple_status/crit)
+
 	owner.appearance_flags |= KEEP_TOGETHER
 
 	owner.add_client_color(/datum/client_color/noir)
@@ -463,23 +466,18 @@
 	owner.can_speak = FALSE
 	owner.SetWeakened(999)
 
-	owner.add_filter("dead", 1, list("type" = "outline", , "size" = 0, "color" = COLOR_BLACK))
-	owner.animate_filter("dead", list(time = 10, size = 2))
-
-	owner.regen_period = 999
+	owner.add_filter("dead", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_BLACK))
 
 /datum/simple_status/hardcrit/tick()
 	. = ..()
 
 	if(!owner.get_filter("dead"))
-		owner.add_filter("dead", 1, list("type" = "outline", , "size" = 2, "color" = COLOR_BLACK))
+		owner.add_filter("dead", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_BLACK))
 
 /datum/simple_status/hardcrit/on_remove()
 	. = ..()
 
-	owner.animate_filter("dead", list(time = 10, size = 0))
-	spawn(5)
-		owner.remove_filter("dead")
+	owner.remove_filter("dead")
 
 	owner.remove_client_color(/datum/client_color/noir)
 	owner.update_client_color()
@@ -492,9 +490,9 @@
 		owner.setBrainLoss(owner.maxHealth)
 
 	else
-		owner.regen_period = owner.base_regen_period
-		owner.pre_death = FALSE
 		owner.stabilized = FALSE
+
+		owner.add_status_effect(/datum/simple_status/crit)
 
 /datum/simple_status/bleed
 	name = "Кровотечение"
@@ -559,8 +557,7 @@
 	owner.appearance_flags |= KEEP_TOGETHER
 	new /obj/effect/simple_combat_particle/zzaped(owner.loc)
 
-	owner.add_filter("anchored", 1, list("type" = "outline", , "size" = 0, "color" = COLOR_GRAY))
-	owner.animate_filter("anchored", list(time = 10, size = 1))
+	owner.add_filter("anchored", 1, list("type" = "outline", , "size" =1, "color" = COLOR_GRAY))
 
 	owner.anchored = TRUE
 
@@ -572,10 +569,7 @@
 /datum/simple_status/fixation/on_remove()
 	. = ..()
 
-	owner.animate_filter("anchored", list(time = 10, size = 0))
-	spawn(5)
-		owner.remove_filter("anchored")
-
+	owner.remove_filter("anchored")
 	owner.anchored = FALSE
 
 /datum/simple_status/attack_speed_buff

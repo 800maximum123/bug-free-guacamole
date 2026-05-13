@@ -112,6 +112,13 @@
 	full_name = "General: HIDE INTERACTION"
 	description = ""
 
+/datum/keybinding/living/fd/hide_interaction/can_use(client/user)
+	. = ..()
+	var/mob/living/M = user.mob
+
+	if(!M.currently_interacting && !M.opened_note)
+		return FALSE
+
 /datum/keybinding/living/fd/hide_interaction/down(client/user)
 	var/mob/living/M = user.mob
 

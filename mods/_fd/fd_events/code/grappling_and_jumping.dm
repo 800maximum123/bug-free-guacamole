@@ -125,6 +125,8 @@
 			return FALSE
 		if(L.get_status_effect(/datum/simple_status/crit))
 			return FALSE
+		if(L.get_status_effect(/datum/simple_status/hardcrit))
+			return FALSE
 
 	if(L.stat != CONSCIOUS)
 		return FALSE
