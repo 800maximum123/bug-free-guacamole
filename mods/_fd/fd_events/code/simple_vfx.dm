@@ -32,6 +32,23 @@
 	SetTransform(0.5)
 	. = ..()
 
+/obj/effect/simple_combat_particle/zzaped
+	icon_state = "zzaped"
+
+/obj/effect/simple_combat_particle/zzaped/Initialize()
+	SetTransform(0.5)
+	. = ..()
+
+/obj/effect/simple_combat_particle/zzaped/animation()
+	pixel_x = rand(-10, 10)
+	pixel_y = rand(-15, 15)
+	var/pixel_y_adjust = pixel_y + 15
+
+	animate(src, 0.3 SECOND, alpha = 255, flags = ANIMATION_PARALLEL)
+	animate(src, pixel_y = pixel_y_adjust, alpha = 0, time = 0.8 SECONDS, easing = BOUNCE_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
+
+	QDEL_IN(src, 1 SECONDS)
+
 /obj/effect/simple_combat_particle/fracture
 	icon_state = "fractured"
 
@@ -41,6 +58,10 @@
 
 /obj/effect/simple_combat_particle/bleeding
 	icon_state = "bleed"
+
+/obj/effect/simple_combat_particle/bleeding/Initialize()
+	SetTransform(0.5)
+	. = ..()
 
 /obj/effect/simple_combat_particle/bleeding/animation()
 	pixel_x = rand(-5, 5)

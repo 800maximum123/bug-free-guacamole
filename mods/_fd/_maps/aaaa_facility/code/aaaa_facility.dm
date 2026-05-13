@@ -30,6 +30,13 @@
 	L.trigger_second_ability()
 	return TRUE
 
+/obj/item/natural_weapon
+	var/mob/living/clawed = null
+	var/clawed_time_needed = 5
+	var/clawed_time_current = 0
+
+	var/clawed_chance = 30
+
 /mob/living/simple_animal/hostile/retaliate/anomaly
 
 	health = 999999
@@ -88,6 +95,9 @@
 	simple_damage = 20
 
 	hitsound = 'sound/weapons/heavysmash.ogg'
+	status_to_add = /datum/simple_status/legbroke
+
+	status_apply_prob = 10
 
 /obj/item/natural_weapon/anomaly/frog_bump/afterattack(atom/movable/target, mob/user, is_adjacent, click_params)
 	. = ..()
@@ -233,6 +243,9 @@
 	simple_damage = 20
 
 	hitsound = 'sound/weapons/genhit3.ogg'
+
+	status_to_add = /datum/simple_status/legbroke
+	status_apply_prob = 10
 
 /mob/living/simple_animal/hostile/retaliate/anomaly/veteran/trigger_first_ability()
 	icon = 'mods/_fd/_maps/aaaa_facility/icons/64x64.dmi'
@@ -522,7 +535,8 @@
 
 	simple_armor_natural = 10
 
-	speed = 2
+	movement_cooldown = 5
+	speed = 1
 
 	natural_weapon = /obj/item/natural_weapon/anomaly/grips
 	ai_holder = /datum/ai_holder/simple_animal/melee
@@ -557,6 +571,7 @@
 
 	simple_armor_natural = 5
 
+	movement_cooldown = 5
 	speed = -1
 
 	natural_weapon = /obj/item/natural_weapon/anomaly/grips
@@ -586,7 +601,8 @@
 
 	simple_armor_natural = 3
 
-	speed = 1.5
+	movement_cooldown = 5
+	speed = 0.5
 
 	natural_weapon = /obj/item/natural_weapon/anomaly/claws
 	ai_holder = /datum/ai_holder/simple_animal/melee
@@ -604,6 +620,27 @@
 	max_gas = null
 	minbodytemp = 0
 
+/mob/living/simple_animal/hostile/anomaly/bugsoldier/death(gibbed, deathmessage, show_dead_message)
+	if(natural_weapon.clawed)
+		remove_status_effect(/datum/simple_status/fixation)
+		remove_status_effect(/datum/simple_status/attack_speed_buff)
+
+		natural_weapon.clawed.remove_status_effect(/datum/simple_status/fixation)
+		natural_weapon.clawed = null
+	. = ..()
+
+/mob/living/simple_animal/hostile/anomaly/bugsoldier/simple_health_calculation(amount, armor_damage_amp, should_block, vfx_effect, atom/movable/source, datum/simple_status/add_effect, effect_apply_anyway, effect_duration)
+	. = ..()
+
+	if(natural_weapon.clawed && natural_weapon.clawed != source && amount >= 0)
+		natural_weapon.clawed_time_current = 0
+
+		remove_status_effect(/datum/simple_status/fixation)
+		remove_status_effect(/datum/simple_status/attack_speed_buff)
+
+		natural_weapon.clawed.remove_status_effect(/datum/simple_status/fixation)
+		natural_weapon.clawed = null
+
 /obj/item/natural_weapon/anomaly/claws
 	name = "claw"
 	attack_verb = list("pierced")
@@ -611,6 +648,53 @@
 	simple_armor_penetration = 5
 
 	hitsound = 'sound/weapons/rapidslice.ogg'
+
+	status_to_add = /datum/simple_status/bleed
+	status_timer_to_add = 10 SECONDS
+
+	status_apply_prob = 50
+
+/obj/item/natural_weapon/anomaly/claws/apply_hit_effect(mob/living/target, mob/living/user, hit_zone)
+	if(target.simple_combat_on)
+
+		if(!clawed)
+			if(prob(clawed_chance))
+				user.add_status_effect(/datum/simple_status/fixation)
+				user.add_status_effect(/datum/simple_status/attack_speed_buff)
+				clawed_chance = initial(clawed_chance)
+
+				target.add_status_effect(/datum/simple_status/fixation)
+				clawed = target
+			else
+				clawed_chance += 10
+
+		if(clawed)
+			clawed_time_current += 1
+			if(clawed_time_current >= clawed_time_needed)
+				clawed_time_current = 0
+
+				user.remove_status_effect(/datum/simple_status/fixation)
+				user.remove_status_effect(/datum/simple_status/attack_speed_buff)
+
+				target.remove_status_effect(/datum/simple_status/fixation)
+				clawed = null
+
+		if(status_to_add)
+			if(status_apply_prob > 0)
+				if(prob(status_apply_prob))
+					target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user,status_to_add,status_ignore_armor,status_timer_to_add)
+					return TRUE
+				else
+					target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user)
+					return TRUE
+
+			else
+				target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user,status_to_add,status_ignore_armor,status_timer_to_add)
+				return TRUE
+
+		else
+			target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user)
+			return TRUE
 
 /mob/living/simple_animal/hostile/anomaly/bugsoldier_fast
 	name = "bug soldier"
@@ -627,6 +711,7 @@
 	simple_health = 10
 	max_simple_health = 10
 
+	movement_cooldown = 5
 	speed = -1
 
 	natural_weapon = /obj/item/natural_weapon/anomaly/claws
@@ -660,6 +745,7 @@
 	simple_health = 50
 	max_simple_health = 50
 
+	movement_cooldown = 5
 	speed = 0
 
 	natural_weapon = /obj/item/natural_weapon/anomaly/bite
@@ -680,12 +766,81 @@
 
 	pixel_x = -16
 
+/mob/living/simple_animal/hostile/anomaly/merm/death(gibbed, deathmessage, show_dead_message)
+	if(natural_weapon.clawed)
+		remove_status_effect(/datum/simple_status/fixation)
+		remove_status_effect(/datum/simple_status/attack_speed_buff)
+
+		natural_weapon.clawed.remove_status_effect(/datum/simple_status/fixation)
+		natural_weapon.clawed = null
+	. = ..()
+
+/mob/living/simple_animal/hostile/anomaly/merm/simple_health_calculation(amount, armor_damage_amp, should_block, vfx_effect, atom/movable/source, datum/simple_status/add_effect, effect_apply_anyway, effect_duration)
+	. = ..()
+
+	if(natural_weapon.clawed && natural_weapon.clawed != source && amount >= 0)
+		natural_weapon.clawed_time_current = 0
+
+		remove_status_effect(/datum/simple_status/fixation)
+		remove_status_effect(/datum/simple_status/attack_speed_buff)
+
+		natural_weapon.clawed.remove_status_effect(/datum/simple_status/fixation)
+		natural_weapon.clawed = null
+
 /obj/item/natural_weapon/anomaly/bite
 	name = "teeth"
 	attack_verb = list("bit")
 	simple_damage = 10
 
 	hitsound = 'sound/weapons/bite.ogg'
+
+	status_to_add = /datum/simple_status/bleed
+	status_timer_to_add = 10 SECONDS
+	status_ignore_armor = TRUE
+
+	status_apply_prob = 30
+
+/obj/item/natural_weapon/anomaly/bite/apply_hit_effect(mob/living/target, mob/living/user, hit_zone)
+	if(target.simple_combat_on)
+
+		if(!clawed)
+			if(prob(clawed_chance))
+				user.add_status_effect(/datum/simple_status/fixation)
+				user.add_status_effect(/datum/simple_status/attack_speed_buff)
+				clawed_chance = initial(clawed_chance)
+
+				target.add_status_effect(/datum/simple_status/fixation)
+				clawed = target
+			else
+				clawed_chance += 10
+
+		if(clawed)
+			clawed_time_current += 1
+			if(clawed_time_current >= clawed_time_needed)
+				clawed_time_current = 0
+
+				user.remove_status_effect(/datum/simple_status/fixation)
+				user.remove_status_effect(/datum/simple_status/attack_speed_buff)
+
+				target.remove_status_effect(/datum/simple_status/fixation)
+				clawed = null
+
+		if(status_to_add)
+			if(status_apply_prob > 0)
+				if(prob(status_apply_prob))
+					target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user,status_to_add,status_ignore_armor,status_timer_to_add)
+					return TRUE
+				else
+					target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user)
+					return TRUE
+
+			else
+				target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user,status_to_add,status_ignore_armor,status_timer_to_add)
+				return TRUE
+
+		else
+			target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user)
+			return TRUE
 
 /mob/living/simple_animal/hostile/anomaly/merm_bigger
 	name = "mermaid"
@@ -704,7 +859,8 @@
 
 	simple_armor_natural = 5
 
-	speed = 2
+	movement_cooldown = 5
+	speed = 1
 
 	natural_weapon = /obj/item/natural_weapon/anomaly/hardbite
 	ai_holder = /datum/ai_holder/simple_animal/melee
@@ -731,6 +887,216 @@
 	simple_armor_penetration = 5
 
 	hitsound = 'sound/weapons/bite.ogg'
+
+	status_to_add = /datum/simple_status/legbroke
+	status_timer_to_add = -1
+	status_ignore_armor = TRUE
+
+	status_apply_prob = 50
+
+// RANDOM TEST SOLDIERS
+
+/datum/ai_holder/simple_animal/humanoid/angry
+	retaliate = FALSE
+
+/datum/ai_holder/simple_animal/humanoid/hostile/angry
+	retaliate = FALSE
+
+/mob/living/simple_animal/hostile/anomaly/soldiers
+	name = "enemy soldier"
+	desc = "It's our enemy. That's all"
+	icon = 'mods/_fd/_maps/aaaa_facility/icons/test_enemies.dmi'
+	icon_state = "human_basic"
+	icon_living = "human_basic"
+	icon_dead = "intruder_dead"
+
+/mob/living/simple_animal/hostile/anomaly/soldiers/sword
+	icon_state = "intruder_sword"
+	icon_living = "intruder_sword"
+
+	health = 999999
+	maxHealth = 999999
+
+	simple_combat_on = TRUE
+	simple_health = 50
+	max_simple_health = 50
+
+	simple_armor_natural = 5
+
+	movement_cooldown = 5
+	speed = -1
+
+	natural_weapon = /obj/item/natural_weapon/anomaly/soldier_sword
+	ai_holder = /datum/ai_holder/simple_animal/humanoid/angry
+	faction = "mercs"
+
+	meat_type = null
+	meat_amount = 0
+	bone_material = null
+	bone_amount = 0
+	skin_material = null
+	skin_amount = 0
+
+	min_gas = null
+	max_gas = null
+	minbodytemp = 0
+
+/mob/living/simple_animal/hostile/anomaly/soldiers/sword/death(gibbed, deathmessage, show_dead_message)
+	if(natural_weapon.clawed)
+		remove_status_effect(/datum/simple_status/fixation)
+		remove_status_effect(/datum/simple_status/attack_speed_buff)
+
+		natural_weapon.clawed.remove_status_effect(/datum/simple_status/fixation)
+		natural_weapon.clawed = null
+	. = ..()
+
+/mob/living/simple_animal/hostile/anomaly/soldiers/sword/simple_health_calculation(amount, armor_damage_amp, should_block, vfx_effect, atom/movable/source, datum/simple_status/add_effect, effect_apply_anyway, effect_duration)
+	. = ..()
+
+	if(natural_weapon.clawed && natural_weapon.clawed != source && amount >= 0)
+		natural_weapon.clawed_time_current = 0
+
+		remove_status_effect(/datum/simple_status/fixation)
+		remove_status_effect(/datum/simple_status/attack_speed_buff)
+
+		natural_weapon.clawed.remove_status_effect(/datum/simple_status/fixation)
+		natural_weapon.clawed = null
+
+/obj/item/natural_weapon/anomaly/soldier_sword
+	name = "sword"
+	attack_verb = list("slashed")
+	simple_damage = 10
+	simple_armor_penetration = 0
+
+	hitsound = 'sound/weapons/bladeslice.ogg'
+
+	status_to_add = /datum/simple_status/bleed
+	status_timer_to_add = 10 SECONDS
+
+	status_apply_prob = 10
+
+/obj/item/natural_weapon/anomaly/soldier_sword/apply_hit_effect(mob/living/target, mob/living/user, hit_zone)
+	if(target.simple_combat_on)
+
+		if(!clawed)
+			if(prob(clawed_chance))
+				user.add_status_effect(/datum/simple_status/fixation)
+				user.add_status_effect(/datum/simple_status/attack_speed_buff)
+				clawed_chance = initial(clawed_chance)
+
+				target.add_status_effect(/datum/simple_status/fixation)
+				clawed = target
+			else
+				clawed_chance += 10
+
+		if(clawed)
+			clawed_time_current += 1
+			if(clawed_time_current >= clawed_time_needed)
+				clawed_time_current = 0
+
+				user.remove_status_effect(/datum/simple_status/fixation)
+				user.remove_status_effect(/datum/simple_status/attack_speed_buff)
+
+				target.remove_status_effect(/datum/simple_status/fixation)
+				clawed = null
+
+		if(status_to_add)
+			if(status_apply_prob > 0)
+				if(prob(status_apply_prob))
+					target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user,status_to_add,status_ignore_armor,status_timer_to_add)
+					return TRUE
+				else
+					target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user)
+					return TRUE
+
+			else
+				target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user,status_to_add,status_ignore_armor,status_timer_to_add)
+				return TRUE
+
+		else
+			target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user)
+			return TRUE
+
+/mob/living/simple_animal/hostile/anomaly/soldiers/hammer
+	icon_state = "intruder_hammer"
+	icon_living = "intruder_hammer"
+	icon_dead = "intruder_hammer_dead"
+
+	health = 999999
+	maxHealth = 999999
+
+	simple_combat_on = TRUE
+	simple_health = 100
+	max_simple_health = 100
+
+	simple_armor_natural = 10
+
+	movement_cooldown = 5
+	speed = 1
+
+	natural_weapon = /obj/item/natural_weapon/anomaly/soldier_hammer
+	ai_holder = /datum/ai_holder/simple_animal/humanoid/angry
+	faction = "mercs"
+
+	meat_type = null
+	meat_amount = 0
+	bone_material = null
+	bone_amount = 0
+	skin_material = null
+	skin_amount = 0
+
+	min_gas = null
+	max_gas = null
+	minbodytemp = 0
+
+/obj/item/natural_weapon/anomaly/soldier_hammer
+	name = "hammer"
+	attack_verb = list("smashed")
+	simple_damage = 30
+	simple_armor_penetration = 5
+
+	hitsound = 'sound/weapons/heavysmash.ogg'
+
+	status_to_add = /datum/simple_status/legbroke
+	status_timer_to_add = -1
+	status_ignore_armor = TRUE
+
+	status_apply_prob = 50
+
+/mob/living/simple_animal/hostile/anomaly/soldiers/gun
+	icon_state = "intruder_rifle"
+	icon_living = "intruder_rifle"
+
+	ranged = TRUE
+	base_attack_cooldown = 0.5 SECONDS
+	projectiletype = /obj/item/projectile/bullet/rifle
+	projectilesound = 'sound/weapons/gunshot/gunshot3.ogg'
+
+	health = 999999
+	maxHealth = 999999
+
+	simple_combat_on = TRUE
+	simple_health = 50
+	max_simple_health = 50
+
+	simple_armor_natural = 5
+
+	movement_cooldown = 5
+	speed = -1
+
+	ai_holder = /datum/ai_holder/simple_animal/humanoid/hostile/angry
+	faction = "mercs"
+
+	meat_type = null
+	meat_amount = 0
+	bone_material = null
+	bone_amount = 0
+	skin_material = null
+	skin_amount = 0
+
+	min_gas = null
+	max_gas = null
+	minbodytemp = 0
 
 // MAP STUFF //
 
@@ -790,6 +1156,8 @@
 	. = ..()
 	person.simple_combat_on = TRUE
 	person.anchored = TRUE
+
+	person.generate_binds()
 
 /singleton/hierarchy/outfit/aaaa_facility
 	name = "Beauro 12 Agent Appearance"

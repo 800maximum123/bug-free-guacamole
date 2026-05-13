@@ -47,24 +47,24 @@
 	healthinfo.maptext_height = 192
 	healthinfo.maptext_width = 192
 
-	healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("Здоров<br>", 7, COLOR_LIME, COLOR_BLACK)
+	healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("|Здоров|<br>", 7, COLOR_LIME, COLOR_BLACK)
 
 	if(A.simple_health < A.max_simple_health && A.simple_health > A.max_simple_health / 1.2)
-		healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("Слегка потрёпан<br>", 7, COLOR_GREEN, COLOR_BLACK)
+		healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("|Слегка потрёпан|<br>", 7, COLOR_GREEN, COLOR_BLACK)
 	if(A.simple_health < A.max_simple_health / 1.2 && A.simple_health > A.max_simple_health / 1.5)
-		healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("Выглядит неважно<br>", 7, COLOR_GOLD, COLOR_BLACK)
+		healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("|Выглядит неважно|<br>", 7, COLOR_GOLD, COLOR_BLACK)
 	if(A.simple_health < A.max_simple_health / 1.5 && A.simple_health > A.max_simple_health / 2)
-		healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("Ранен<br>", 7, COLOR_SUN, COLOR_BLACK)
+		healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("|Ранен|<br>", 7, COLOR_SUN, COLOR_BLACK)
 	if(A.simple_health < A.max_simple_health / 2 && A.simple_health > A.max_simple_health / 4)
-		healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("Тяжело ранен<br>", 7, COLOR_RED, COLOR_BLACK)
+		healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("|Тяжело ранен|<br>", 7, COLOR_RED, COLOR_BLACK)
 	if(A.simple_health < A.max_simple_health / 4 && A.simple_health > A.max_simple_health / 8)
-		healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("При смерти!<br>", 7, COMMS_COLOR_ICCG, COLOR_BLACK)
+		healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("|При смерти!|<br>", 7, COMMS_COLOR_ICCG, COLOR_BLACK)
 	if(A.simple_health <= 0)
-		healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE(". . .<br><br>", 7, COMMS_COLOR_ICCG, COLOR_BLACK)
+		healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("|. . .|<br><br>", 7, COMMS_COLOR_ICCG, COLOR_BLACK)
 
 	for(var/datum/simple_status/effect in A.status_effects)
 		if(effect.desc_text)
-			healthinfo.maptext += STYLE_SMALLFONTS_OUTLINE(effect.desc_text, 7, effect.status_color, COLOR_BLACK)
+			healthinfo.maptext += STYLE_SMALLFONTS_OUTLINE("[effect.desc_text]<br>", 7, effect.status_color, COLOR_BLACK)
 
 	animate(healthinfo, alpha = 255, pixel_x = src.pixel_x, time = 0.3 SECONDS, easing = SINE_EASING|EASE_OUT, ANIMATION_PARALLEL)
 
@@ -410,14 +410,13 @@
 
 /datum/simple_status/crit
 	name = "Критически ранен"
-	desc_text = "Он едва дышит. . ."
+	desc_text = "- Он едва дышит. . ."
 	status_type = STATUS_EFFECT_UNIQUE
 	status_color = COMMS_COLOR_ICCG
 
 /datum/simple_status/crit/on_apply()
 	. = ..()
 
-	owner.heavy_wounded = TRUE
 	owner.appearance_flags |= KEEP_TOGETHER
 	owner.overlay_fullscreen("dead",/obj/screen/fullscreen/underworld_vision)
 	animate(owner, transform = matrix(90, MATRIX_ROTATE), time = 5, easing = SINE_EASING|EASE_IN)
@@ -440,7 +439,6 @@
 /datum/simple_status/crit/on_remove()
 	. = ..()
 
-	owner.heavy_wounded = FALSE
 	owner.animate_filter("wounded", list(time = 10, size = 0))
 	spawn(5)
 		owner.remove_filter("wounded")
@@ -448,9 +446,55 @@
 	owner.clear_fullscreen("dead")
 	animate(owner, transform = matrix(0, MATRIX_ROTATE), time = 5, easing = SINE_EASING|EASE_IN)
 
+/datum/simple_status/hardcrit
+	name = "Умирает"
+	desc_text = "- Ещё чуть-чуть и всё. . ."
+	status_type = STATUS_EFFECT_UNIQUE
+	status_color = COMMS_COLOR_ICCG
+
+/datum/simple_status/hardcrit/on_apply()
+	. = ..()
+
+	owner.appearance_flags |= KEEP_TOGETHER
+
+	owner.add_client_color(/datum/client_color/noir)
+	owner.update_client_color()
+
+	owner.can_speak = FALSE
+	owner.Weaken(999)
+
+	owner.add_filter("dead", 1, list("type" = "outline", , "size" = 0, "color" = COLOR_BLACK))
+	owner.animate_filter("dead", list(time = 10, size = 1))
+
+	owner.regen_period = 999
+
+/datum/simple_status/hardcrit/tick()
+	. = ..()
+
+	if(!owner.get_filter("dead"))
+		owner.add_filter("dead", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_BLACK))
+
+/datum/simple_status/hardcrit/on_remove()
+	. = ..()
+
+	owner.animate_filter("dead", list(time = 10, size = 0))
+	spawn(5)
+		owner.remove_filter("dead")
+
+	owner.remove_client_color(/datum/client_color/noir)
+	owner.update_client_color()
+
+	if(!owner.stabilized)
+		owner.adjustOxyLoss(owner.maxHealth)
+		owner.setBrainLoss(owner.maxHealth)
+
+	else
+		owner.pre_death = FALSE
+		owner.stabilized = FALSE
+
 /datum/simple_status/bleed
 	name = "Кровотечение"
-	desc_text = "Из его ран сочится кровь"
+	desc_text = "- Из его ран сочится кровь"
 	status_type = STATUS_EFFECT_REFRESH
 	status_color = COLOR_RED
 	duration = 0
@@ -471,13 +515,13 @@
 		splat.layer = ABOVE_HUMAN_LAYER
 		splat.SetTransform(0.5)
 	else
-		var/obj/temp_visual/bloodsplatter/splat = new /obj/temp_visual/bloodsplatter(owner.loc, SOUTH, owner.blood_color)
+		var/obj/temp_visual/bloodsplatter/splat = new /obj/temp_visual/bloodsplatter(owner.loc, SOUTH, owner.bleed_colour)
 		splat.layer = ABOVE_HUMAN_LAYER
 		splat.SetTransform(0.5)
 
 /datum/simple_status/splinted
 	name = "Шина"
-	desc_text = "Его нога зафиксирована"
+	desc_text = "+ Его нога зафиксирована"
 	status_type = STATUS_EFFECT_REPLACE
 	status_color = COLOR_YELLOW
 	duration = 0
@@ -490,7 +534,7 @@
 
 /datum/simple_status/legbroke
 	name = "Перелом"
-	desc_text = "Он хромает"
+	desc_text = "- Он хромает"
 	status_type = STATUS_EFFECT_UNIQUE
 	status_color = COLOR_RED
 
@@ -499,8 +543,63 @@
 
 	new /obj/effect/simple_combat_particle/fracture(owner.loc)
 
-/mob/living/movement_delay()
+/datum/simple_status/fixation
+	name = "Схвачен"
+	desc_text = "- Скован"
+	status_type = STATUS_EFFECT_UNIQUE
+	status_color = COLOR_RED
+
+/datum/simple_status/fixation/on_apply()
 	. = ..()
 
-	if(get_status_effect(/datum/simple_status/legbroke) && !get_status_effect(/datum/simple_status/splinted))
-		. += 5
+	owner.appearance_flags |= KEEP_TOGETHER
+	new /obj/effect/simple_combat_particle/zzaped(owner.loc)
+
+	owner.add_filter("anchored", 1, list("type" = "outline", , "size" = 0, "color" = COLOR_GRAY))
+	owner.animate_filter("anchored", list(time = 10, size = 1))
+
+	owner.anchored = TRUE
+
+/datum/simple_status/fixation/tick()
+	. = ..()
+
+	owner.anchored = TRUE
+
+/datum/simple_status/fixation/on_remove()
+	. = ..()
+
+	owner.animate_filter("anchored", list(time = 10, size = 0))
+	spawn(5)
+		owner.remove_filter("anchored")
+
+	owner.anchored = FALSE
+
+/datum/simple_status/attack_speed_buff
+	name = "Бафф скорости атаки"
+	desc_text = null
+	status_type = STATUS_EFFECT_UNIQUE
+
+/datum/simple_status/attack_speed_buff/on_apply()
+	. = ..()
+
+	if(istype(owner,/mob/living/simple_animal/hostile))
+		var/mob/living/simple_animal/hostile/S = owner
+
+		S.attack_delay = 1 SECONDS
+
+
+/datum/simple_status/attack_speed_buff/tick()
+	. = ..()
+
+	if(istype(owner,/mob/living/simple_animal/hostile))
+		var/mob/living/simple_animal/hostile/S = owner
+
+		S.attack_delay = 1 SECONDS
+
+/datum/simple_status/attack_speed_buff/on_remove()
+	. = ..()
+
+	if(istype(owner,/mob/living/simple_animal/hostile))
+		var/mob/living/simple_animal/hostile/S = owner
+
+		S.attack_delay = initial(S.attack_delay)

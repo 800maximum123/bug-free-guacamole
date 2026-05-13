@@ -149,7 +149,7 @@
 	category = CATEGORY_FD_EVENT
 	hotkey_keys = list("1")
 	name = "reveal_hiding_players"
-	full_name = "MONSTER: REVEAL NEARBY"
+	full_name = "JEFF: REVEAL NEARBY"
 	description = ""
 
 /datum/keybinding/living/fd/event/monster/reveal_hiding_players/down(client/user)
@@ -169,7 +169,7 @@
 	category = CATEGORY_FD_EVENT
 	hotkey_keys = list("2")
 	name = "invisibility"
-	full_name = "MONSTER: HIDE"
+	full_name = "JEFF: HIDE"
 	description = ""
 
 /datum/keybinding/living/fd/event/monster/invisibility/down(client/user)
@@ -192,108 +192,12 @@
 
 	screen_loc = "CENTER,CENTER"
 
-/obj/screen/dbd_health_status
-	name = "СОСТОЯНИЕ"
-	desc = "..."
-	icon = 'mods/_fd/_maps/metro/icons/monster_additional.dmi'
-	icon_state = "1_dmg"
-
-	mouse_opacity = FALSE
-
-	plane = HUD_PLANE
-	layer = 5.3
-
-	screen_loc = "CENTER+1,CENTER"
-	alpha = 0
-	var/mob/living/carbon/connected_mob
-	var/revealed_tip = FALSE
-	var/regenerate_after = 10
-
-/obj/screen/dbd_health_status/Initialize()
-	. = ..()
-	START_PROCESSING(SSobj, src)
-
-/obj/screen/dbd_health_status/Process()
-	if(regenerate_after <= 0)
-		connected_mob.chances_to_escape += 1
-		regenerate_after = 10
-
-	if(connected_mob.chances_to_escape < 3 && regenerate_after > 0)
-		regenerate_after -= 1
-
-	if(connected_mob.chances_to_escape >= 3 && revealed_tip)
-		animate(src, alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT)
-		revealed_tip = FALSE
-
-	if(connected_mob.chances_to_escape == 2 && icon_state != "1_dmg")
-		if(!revealed_tip)
-			animate(src, alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
-			revealed_tip = TRUE
-		icon_state = "1_dmg"
-
-	if(connected_mob.chances_to_escape <= 1 && icon_state != "2_dmg")
-		if(!revealed_tip)
-			animate(src, alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
-			revealed_tip = TRUE
-		icon_state = "2_dmg"
-
-	if(connected_mob.stat == DEAD)
-		animate(src, alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT)
-		connected_mob.client.screen -= src
-
-/mob/living/carbon
-	var/chances_to_escape = 3
-	var/obj/screen/dbd_health_status/dbd
-
-/mob/living/carbon/proc/resolve_dbd_damage(mob/living/monster)
-	if(chances_to_escape <= 1)
-		perform_execution(monster)
-	else
-		if(client)
-			if(!dbd)
-				dbd = new /obj/screen/dbd_health_status()
-				dbd.connected_mob = src
-				client.screen += dbd
-		chances_to_escape -= 1
-
-/mob/living/carbon/proc/perform_execution(mob/living/simple_animal/metro_jeff/attacker)
-	attacker.stunned = 99999
-	stunned = 99999
-	var/obj/item/organ/external/E
-	for(var/thing in shuffle(organs_by_name))
-		var/obj/item/organ/external/limb = organs_by_name[thing]
-		if(!istype(limb) || limb.is_stump() || !(limb.limb_flags & ORGAN_FLAG_CAN_AMPUTATE))
-			continue
-		E = thing
-		break
-
-	var/x_offset = (attacker.x - x) * 16
-	var/y_offset = (attacker.y - y) * 16
-	animate(src, pixel_x = x_offset, pixel_y = y_offset, time = 6 SECONDS, easing = CUBIC_EASING)
-
-	E.droplimb(0, DROPLIMB_EDGE) // вставить сюда звук отрывания конечности
-	spawn(1 SECONDS)
-		throw_at(get_edge_target_turf(attacker, attacker.dir), 5, 1, attacker, TRUE)
-
-	spawn(2 SECONDS)
-		if(stat != DEAD)
-			chances_to_escape = 2
-		stunned = 0
-		attacker.stunned = 0
-
 /obj/item/natural_weapon/claws/metro_jeff
 	name = "claws"
 	attack_verb = list("mauled", "clawed", "slashed")
-	force = 30
+	force = 2
 	sharp = TRUE
 	edge = TRUE
-
-/obj/item/natural_weapon/claws/metro_jeff/afterattack(atom/target, mob/user, is_adjacent, click_params)
-	. = ..()
-
-	if(istype(target, /mob/living))
-		var/mob/living/carbon/L = target
-		L.resolve_dbd_damage(user)
 
 /mob/living/simple_animal/metro_jeff
 	name = "WIP"

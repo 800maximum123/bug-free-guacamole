@@ -453,6 +453,10 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/aaaa_facility/levelone)
+"bt" = (
+/obj/item/fd/simple_combat/small_heal,
+/turf/simulated/floor/tiled/techfloor,
+/area/aaaa_facility)
 "bx" = (
 /obj/structure/catwalk,
 /obj/structure/platform/hybrisa/metalplatform1{
@@ -1127,7 +1131,8 @@
 	dir = 8
 	},
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list()
+	req_access = list();
+	storage_capacity = 100
 	},
 /obj/item/gun/projectile/automatic/bullpup_rifle,
 /obj/item/gun/projectile/automatic/bullpup_rifle,
@@ -1148,8 +1153,6 @@
 /obj/item/fd/simple_combat/big_heal,
 /obj/item/fd/simple_combat/adrenaline,
 /obj/item/fd/simple_combat/big_heal,
-/obj/item/gun/projectile/automatic/bullpup_rifle,
-/obj/item/gun/projectile/automatic/bullpup_rifle,
 /obj/item/ammo_magazine/mil_rifle/heavy,
 /obj/item/ammo_magazine/mil_rifle/heavy,
 /obj/item/ammo_magazine/mil_rifle/heavy,
@@ -1174,6 +1177,19 @@
 /obj/item/ammo_magazine/pistol/double,
 /obj/item/ammo_magazine/pistol/double,
 /obj/item/ammo_magazine/pistol/double,
+/obj/item/fd/simple_combat/full_heal,
+/obj/item/fd/simple_combat/bonegel,
+/obj/item/fd/simple_combat/bonegel,
+/obj/item/fd/simple_combat/splint,
+/obj/item/fd/simple_combat/splint,
+/obj/item/fd/simple_combat/splint,
+/obj/item/fd/simple_combat/splint,
+/obj/item/fd/simple_combat/bandage,
+/obj/item/fd/simple_combat/bandage,
+/obj/item/fd/simple_combat/bandage,
+/obj/item/fd/simple_combat/bandage,
+/obj/item/gun/projectile/automatic/bullpup_rifle/light,
+/obj/item/gun/projectile/automatic/bullpup_rifle/light,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/aaaa_facility/leveltwo)
 "dO" = (
@@ -1276,8 +1292,8 @@
 	light_color = "#a1d2d6";
 	dir = 2
 	},
-/obj/item/gun/projectile/pistol/m22f,
-/obj/item/ammo_magazine/pistol/double,
+/obj/item/gun/projectile/pistol/magnum_pistol,
+/obj/item/ammo_magazine/magnum,
 /turf/simulated/floor/wood/walnut,
 /area/aaaa_facility/leveltwo)
 "ed" = (
@@ -1655,6 +1671,10 @@
 	},
 /turf/simulated/open,
 /area/aaaa_facility/leveltwo)
+"fg" = (
+/obj/item/fd/simple_combat/splint,
+/turf/simulated/floor/tiled/techfloor,
+/area/aaaa_facility)
 "fh" = (
 /obj/machinery/light/navigation,
 /obj/fluid_mapped,
@@ -2153,6 +2173,10 @@
 	color = "#242424"
 	},
 /area/aaaa_facility)
+"gQ" = (
+/obj/item/gun/projectile/pistol/magnum_pistol,
+/turf/simulated/floor/tiled/techfloor,
+/area/aaaa_facility)
 "gS" = (
 /obj/machinery/button/alternate/door/bolts{
 	pixel_x = 24;
@@ -2572,6 +2596,10 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/aaaa_facility/leveltwo)
+"iu" = (
+/obj/item/fd/simple_combat/bloodbag,
+/turf/simulated/floor/tiled/techfloor,
+/area/aaaa_facility)
 "iw" = (
 /obj/floor_decal/hull{
 	dir = 8
@@ -2623,6 +2651,10 @@
 	icon_state = "arious_r"
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
+/area/aaaa_facility)
+"iH" = (
+/obj/item/fd/simple_combat/bandage,
+/turf/simulated/floor/tiled/techfloor,
 /area/aaaa_facility)
 "iI" = (
 /obj/structure/platform/strata/metal{
@@ -3954,6 +3986,11 @@
 /obj/item/fd/simple_combat/bloodbag,
 /obj/item/fd/simple_combat/revive,
 /obj/item/fd/simple_combat/revive,
+/obj/item/fd/simple_combat/bandage,
+/obj/item/fd/simple_combat/bandage,
+/obj/item/fd/simple_combat/bandage,
+/obj/item/fd/simple_combat/bandage,
+/obj/item/fd/simple_combat/bandage,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/aaaa_facility/leveltwo)
 "nr" = (
@@ -4145,6 +4182,12 @@
 	color = "#272727"
 	},
 /area/aaaa_facility)
+"nY" = (
+/mob/living/simple_animal/hostile/anomaly/soldiers/sword,
+/turf/simulated/floor/exoplanet/fd/whitesand{
+	color = "#272727"
+	},
+/area/aaaa_facility)
 "nZ" = (
 /obj/floor_decal/techfloor/corner{
 	dir = 1
@@ -4269,8 +4312,8 @@
 /obj/item/modular_computer/laptop/preset/custom_loadout/advanced{
 	pixel_y = 6
 	},
-/obj/item/gun/projectile/pistol/m22f,
-/obj/item/ammo_magazine/pistol/double,
+/obj/item/gun/projectile/pistol/magnum_pistol,
+/obj/item/ammo_magazine/magnum,
 /turf/simulated/floor/carpet/black,
 /area/aaaa_facility/leveltwo)
 "op" = (
@@ -4594,6 +4637,10 @@
 /turf/simulated/floor/exoplanet/fd/whitesand{
 	color = "#272727"
 	},
+/area/aaaa_facility)
+"pg" = (
+/obj/structure/fd/placeholder/better,
+/turf/simulated/floor/tiled/techfloor,
 /area/aaaa_facility)
 "pi" = (
 /obj/structure/platform/strata/metal,
@@ -5613,6 +5660,10 @@
 /obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/aaaa_facility)
+"rS" = (
+/obj/item/fd/simple_combat/adrenaline,
+/turf/simulated/floor/tiled/techfloor,
+/area/aaaa_facility)
 "rT" = (
 /obj/structure/fd/junk{
 	icon_state = "2,2"
@@ -6060,7 +6111,9 @@
 /obj/floor_decal/techfloor/orange{
 	dir = 4
 	},
-/obj/structure/closet/crate/med_crate,
+/obj/structure/closet/crate/med_crate{
+	storage_capacity = 100
+	},
 /obj/item/storage/firstaid/adv,
 /obj/item/storage/firstaid/adv,
 /obj/item/storage/firstaid/toxin,
@@ -6077,6 +6130,12 @@
 /obj/item/fd/simple_combat/big_heal,
 /obj/item/fd/simple_combat/small_heal,
 /obj/item/fd/simple_combat/small_heal,
+/obj/item/fd/simple_combat/bandage,
+/obj/item/fd/simple_combat/bandage,
+/obj/item/fd/simple_combat/splint,
+/obj/item/fd/simple_combat/splint,
+/obj/item/fd/simple_combat/splint,
+/obj/item/fd/simple_combat/splint,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/aaaa_facility/leveltwo)
 "tr" = (
@@ -8163,6 +8222,10 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/aaaa_facility/leveltwo)
+"Aw" = (
+/obj/item/fd/simple_combat/revive,
+/turf/simulated/floor/tiled/techfloor,
+/area/aaaa_facility)
 "Ax" = (
 /obj/machinery/door/blast/regular{
 	id_tag = "wateraccess1"
@@ -9772,6 +9835,10 @@
 /obj/fluid_mapped,
 /turf/simulated/open,
 /area/aaaa_facility)
+"FO" = (
+/obj/item/fd/simple_combat/bonegel,
+/turf/simulated/floor/tiled/techfloor,
+/area/aaaa_facility)
 "FQ" = (
 /obj/floor_decal/corner/white/full,
 /obj/floor_decal/corner/black/three_quarters,
@@ -10899,6 +10966,12 @@
 /obj/floor_decal/borderfloorblack/corner,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/aaaa_facility/leveltwo)
+"Jy" = (
+/mob/living/simple_animal/hostile/anomaly/soldiers/gun,
+/turf/simulated/floor/exoplanet/fd/whitesand{
+	color = "#272727"
+	},
+/area/aaaa_facility)
 "JA" = (
 /obj/floor_decal/corner_techfloor_gray{
 	dir = 5
@@ -10976,6 +11049,7 @@
 	pixel_x = -12;
 	pixel_y = 13
 	},
+/obj/item/fd/simple_combat/bandage,
 /turf/simulated/floor/tiled/old_tile,
 /area/aaaa_facility/levelthree)
 "JQ" = (
@@ -11379,38 +11453,78 @@
 /obj/item/barrier,
 /obj/item/barrier,
 /obj/item/barrier,
-/obj/item/clothing/suit/armor/pcarrier/light{
-	simple_armor_bonus = 5
-	},
-/obj/item/clothing/suit/armor/pcarrier/light{
-	simple_armor_bonus = 5
-	},
-/obj/item/clothing/suit/armor/pcarrier/light{
-	simple_armor_bonus = 5
-	},
-/obj/item/clothing/head/helmet/riot{
-	pixel_y = 11
-	},
-/obj/item/clothing/head/helmet/riot{
-	pixel_y = 11
-	},
-/obj/item/clothing/head/helmet/riot{
-	pixel_y = 11
-	},
-/obj/item/clothing/suit/armor/pcarrier/light{
-	simple_armor_bonus = 5
-	},
-/obj/item/clothing/suit/armor/pcarrier/light{
-	simple_armor_bonus = 5
-	},
-/obj/item/clothing/head/helmet/riot{
-	pixel_y = 11
-	},
-/obj/item/clothing/head/helmet/riot{
-	pixel_y = 11
-	},
 /obj/item/material/twohanded/jack,
 /obj/item/material/twohanded/jack,
+/obj/item/clothing/head/helmet/riot{
+	pixel_y = 11;
+	simple_armor_bonus = 20
+	},
+/obj/item/clothing/suit/armor/pcarrier/light{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/suit/armor/pcarrier/light{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/suit/armor/pcarrier/light{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/suit/armor/pcarrier/light{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/suit/armor/pcarrier/light{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/suit/armor/pcarrier/light{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/suit/armor/pcarrier/light{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/suit/armor/pcarrier/light{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/suit/armor/pcarrier/light{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/suit/armor/pcarrier/light{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/head/helmet/riot{
+	pixel_y = 11;
+	simple_armor_bonus = 20
+	},
+/obj/item/clothing/head/helmet/riot{
+	pixel_y = 11;
+	simple_armor_bonus = 20
+	},
+/obj/item/clothing/head/helmet/riot{
+	pixel_y = 11;
+	simple_armor_bonus = 20
+	},
+/obj/item/clothing/head/helmet/riot{
+	pixel_y = 11;
+	simple_armor_bonus = 20
+	},
+/obj/item/clothing/head/helmet/riot{
+	pixel_y = 11;
+	simple_armor_bonus = 20
+	},
+/obj/item/clothing/head/helmet/riot{
+	pixel_y = 11;
+	simple_armor_bonus = 20
+	},
+/obj/item/clothing/head/helmet/riot{
+	pixel_y = 11;
+	simple_armor_bonus = 20
+	},
+/obj/item/clothing/head/helmet/riot{
+	pixel_y = 11;
+	simple_armor_bonus = 20
+	},
+/obj/item/clothing/head/helmet/riot{
+	pixel_y = 11;
+	simple_armor_bonus = 20
+	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/aaaa_facility/leveltwo)
 "KW" = (
@@ -12066,6 +12180,10 @@
 /area/aaaa_facility/leveltwo)
 "Nj" = (
 /obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techfloor,
+/area/aaaa_facility)
+"Nm" = (
+/obj/item/gun/projectile/automatic/bullpup_rifle,
 /turf/simulated/floor/tiled/techfloor,
 /area/aaaa_facility)
 "No" = (
@@ -13161,7 +13279,8 @@
 	dir = 8
 	},
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list()
+	req_access = list();
+	storage_capacity = 100
 	},
 /obj/item/gun/projectile/shotgun/magshot,
 /obj/item/ammo_magazine/shotgunmag,
@@ -13179,6 +13298,17 @@
 /obj/item/fd/simple_combat/revive,
 /obj/item/material/knife/combat,
 /obj/item/material/sword/katana,
+/obj/item/fd/simple_combat/full_heal,
+/obj/item/fd/simple_combat/bonegel,
+/obj/item/fd/simple_combat/bonegel,
+/obj/item/fd/simple_combat/splint,
+/obj/item/fd/simple_combat/splint,
+/obj/item/fd/simple_combat/splint,
+/obj/item/fd/simple_combat/splint,
+/obj/item/fd/simple_combat/bandage,
+/obj/item/fd/simple_combat/bandage,
+/obj/item/fd/simple_combat/bandage,
+/obj/item/fd/simple_combat/bandage,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/aaaa_facility/leveltwo)
 "QY" = (
@@ -13909,6 +14039,12 @@
 /obj/item/device/taperecorder,
 /turf/simulated/floor/tiled/techmaint,
 /area/aaaa_facility/leveltwo)
+"Ta" = (
+/mob/living/simple_animal/hostile/anomaly/soldiers/hammer,
+/turf/simulated/floor/exoplanet/fd/whitesand{
+	color = "#272727"
+	},
+/area/aaaa_facility)
 "Tc" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -14456,6 +14592,10 @@
 /obj/floor_decal/corner/black/border,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/aaaa_facility/leveltwo)
+"UB" = (
+/obj/item/fd/simple_combat/full_heal,
+/turf/simulated/floor/tiled/techfloor,
+/area/aaaa_facility)
 "UD" = (
 /obj/floor_decal/techfloor{
 	dir = 6
@@ -14791,6 +14931,10 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/aaaa_facility)
+"VA" = (
+/obj/item/gun/projectile/automatic/bullpup_rifle/light,
+/turf/simulated/floor/tiled/techfloor,
+/area/aaaa_facility)
 "VB" = (
 /obj/structure/catwalk,
 /obj/structure/railing/mapped,
@@ -14938,6 +15082,10 @@
 /obj/item/fd/simple_combat/revive,
 /obj/item/fd/simple_combat/big_heal,
 /obj/item/fd/simple_combat/big_heal,
+/obj/item/fd/simple_combat/full_heal,
+/obj/item/fd/simple_combat/full_heal,
+/obj/item/fd/simple_combat/full_heal,
+/obj/item/fd/simple_combat/full_heal,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/aaaa_facility/leveltwo)
 "VY" = (
@@ -15002,6 +15150,10 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
+/area/aaaa_facility)
+"Wh" = (
+/obj/item/gun/projectile/pistol/m22f,
+/turf/simulated/floor/tiled/techfloor,
 /area/aaaa_facility)
 "Wj" = (
 /obj/floor_decal/techfloor{
@@ -15914,6 +16066,10 @@
 	color = "#242424"
 	},
 /area/aaaa_facility)
+"Zp" = (
+/obj/item/fd/simple_combat/big_heal,
+/turf/simulated/floor/tiled/techfloor,
+/area/aaaa_facility)
 "Zq" = (
 /obj/floor_decal/corner/black/bordercorner{
 	dir = 1
@@ -15970,6 +16126,7 @@
 /obj/item/clothing/head/surgery/blue,
 /obj/item/fd/simple_combat/adrenaline,
 /obj/item/fd/simple_combat/revive,
+/obj/item/fd/simple_combat/splint,
 /turf/simulated/floor/tiled/old_cargo,
 /area/aaaa_facility/levelthree)
 "ZC" = (
@@ -105529,11 +105686,11 @@ cq
 cq
 cq
 Th
-Th
-Th
-Th
-Th
-Th
+cq
+cq
+cq
+cq
+cq
 Th
 Th
 Th
@@ -105731,11 +105888,11 @@ rU
 GH
 cq
 Th
-Th
-Th
-Th
-Th
-Th
+cq
+Jy
+Ta
+nY
+cq
 Th
 Th
 Th
@@ -105933,11 +106090,11 @@ cq
 cq
 cq
 Th
-Th
-Th
-Th
-Th
-Th
+cq
+cq
+cq
+cq
+cq
 Th
 Th
 Th
@@ -111593,22 +111750,22 @@ LT
 LT
 Ii
 Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
 Th
 Th
 Th
@@ -111795,22 +111952,22 @@ LT
 LT
 Ii
 Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
+pg
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+pg
 Th
 Th
 Th
@@ -111997,22 +112154,22 @@ LT
 LT
 Ii
 Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
+pg
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+pg
 Th
 Th
 Th
@@ -112199,22 +112356,22 @@ LT
 LT
 Ii
 Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
+pg
+FG
+rS
+Aw
+bt
+iu
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+pg
 Th
 Th
 Th
@@ -112401,22 +112558,22 @@ LT
 LT
 Ii
 Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
+pg
+FG
+FG
+iH
+Zp
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+pg
 Th
 Th
 Th
@@ -112603,22 +112760,22 @@ LT
 LT
 Ii
 Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
+pg
+FG
+FG
+FO
+UB
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+pg
 Th
 Th
 Th
@@ -112805,22 +112962,22 @@ LT
 LT
 Ii
 Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
+pg
+FG
+FG
+fg
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+pg
 Th
 Th
 Th
@@ -113007,22 +113164,22 @@ LT
 LT
 Ii
 Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
+pg
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+pg
 Th
 Th
 Th
@@ -113209,22 +113366,22 @@ LT
 LT
 Ii
 Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
+pg
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+pg
 Th
 Th
 Th
@@ -113411,22 +113568,22 @@ LT
 LT
 Ii
 Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
+pg
+FG
+FG
+Wh
+gQ
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+pg
 Th
 Th
 Th
@@ -113613,22 +113770,22 @@ LT
 LT
 Ii
 Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
+pg
+FG
+FG
+Nm
+VA
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+pg
 Th
 Th
 Th
@@ -113815,22 +113972,22 @@ LT
 LT
 Ii
 Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
+pg
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+pg
 Th
 Th
 Th
@@ -114017,22 +114174,22 @@ LT
 LT
 Ii
 Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
+pg
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+pg
 Th
 Th
 Th
@@ -114219,22 +114376,22 @@ LT
 LT
 Ii
 Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
+pg
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+pg
 Th
 Th
 Th
@@ -114421,22 +114578,22 @@ LT
 LT
 Ii
 Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
+pg
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+pg
 Th
 Th
 Th
@@ -114623,22 +114780,22 @@ LT
 LT
 Ii
 Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
+pg
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+pg
 Th
 Th
 Th
@@ -114825,22 +114982,22 @@ LT
 LT
 Ii
 Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
+pg
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+pg
 Th
 Th
 Th
@@ -115027,22 +115184,22 @@ LT
 LT
 Ii
 Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
+pg
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+pg
 Th
 Th
 Th
@@ -115229,22 +115386,22 @@ LT
 LT
 Ii
 Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
+pg
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+pg
 Th
 Th
 Th
@@ -115431,22 +115588,22 @@ LT
 LT
 Ii
 Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
-Th
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
 Th
 Th
 Th

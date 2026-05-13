@@ -33,7 +33,7 @@
 	desc = "A square metal surface resting on four legs."
 	icon = 'mods/_fd/chem_furniture/icons/platforms.dmi'
 	icon_state = "platform"
-	climb_speed_mult = 0.25
+	climb_speed_mult = 0.08
 	health_max = 400
 	anchored = TRUE
 	density = TRUE
@@ -48,7 +48,6 @@
 /obj/structure/platform/stair_cut/alt
 	icon_state = "platform_stair_alt"
 	dir = 1
-
 
 /obj/structure/platform/Initialize()
 	. = ..()
@@ -85,6 +84,11 @@
 			return 1
 		return 0
 	return 1
+
+/obj/structure/platform/Bumped(atom/thing)
+	if(isliving(thing))
+		do_climb(thing)
+	..()
 
 /obj/structure/platform/can_climb(mob/living/user, post_climb_check=FALSE, check_silicon=TRUE)
 	. = ..()
@@ -215,7 +219,7 @@
 	icon_state = "kutjevo_platform"
 	name = "raised metal edge"
 	desc = "A raised level of metal, often used to elevate areas above others, or construct bridges. You could probably climb it."
-	climb_speed_mult = 0.15
+	climb_speed_mult = 0.05
 
 /obj/structure/platform_decoration/kutjevo
 	name = "raised metal corner"

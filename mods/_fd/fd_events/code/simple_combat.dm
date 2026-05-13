@@ -62,12 +62,36 @@
 /datum/keybinding/living/fd/simple_combat/melee_assist/down(client/user)
 	var/mob/living/L = user.mob
 
-	if(L.melee_assist)
-		L.melee_assist = FALSE
-		return TRUE
-	else
-		L.melee_assist = TRUE
-		return TRUE
+	L.melee_assistant_icon.toggle_assistant(L)
+
+/obj/screen/melee_assistant
+	name = "Toggle Melee Assistant"
+	icon_state = "meleeassist_off"
+	screen_loc = "EAST-1:28,SOUTH+4:7"
+
+/obj/screen/melee_assistant/Click(location, control, params)
+	if(isliving(usr))
+		var/mob/living/user = usr
+		if(user.simple_combat_on)
+			toggle_assistant(user)
+			return 1
+		else
+			animation_flash_color(src, COLOR_RED)
+			return 0
+
+	animation_flash_color(src, COLOR_RED)
+	return 0
+
+/obj/screen/melee_assistant/proc/toggle_assistant(mob/living/user)
+	if(user.melee_assist)
+		user.melee_assist = FALSE
+		icon_state = "meleeassist_off"
+		return 1
+
+	if(!user.melee_assist)
+		user.melee_assist = TRUE
+		icon_state = "meleeassist"
+		return 1
 
 /obj/screen/fullscreen/simple_damage
 	icon = 'mods/_fd/_maps/collective_nightmare/icons/tgmc_screens.dmi'
@@ -213,7 +237,7 @@
 	..()
 
 /obj/item/projectile
-	simple_damage = 5
+	simple_damage = 10
 
 /obj/item/projectile/attack_mob(mob/living/target_mob, distance, special_miss_modifier)
 	if(target_mob.simple_combat_on)
@@ -249,7 +273,6 @@
 	var/simple_health = 100
 	var/max_simple_health = 100
 
-	var/heavy_wounded = FALSE
 	var/base_regen_period = 20
 	var/regen_period = 20
 	var/regen_for = 10
@@ -261,6 +284,13 @@
 
 	var/melee_assist = FALSE
 
+	var/stabilized = FALSE
+	var/pre_death = FALSE
+
+/mob/living/carbon/human
+	var/unarmed_simple_damage = 5
+	var/unarmed_simple_sharpness = 0
+
 /mob/living/Life()
 
 	if(simple_combat_on)
@@ -271,10 +301,10 @@
 			simple_health_calculation(-regen_for,0,0,0)
 			regen_period = base_regen_period
 
-		if(simple_health <= 0 && !heavy_wounded)
+		if(simple_health <= 0 && !get_status_effect(/datum/simple_status/crit) && !pre_death)
 			add_status_effect(/datum/simple_status/crit)
 
-		if(simple_health > 0 && heavy_wounded)
+		if(simple_health > 0 && get_status_effect(/datum/simple_status/crit) && !pre_death)
 			remove_status_effect(/datum/simple_status/crit)
 
 	. = ..()
@@ -282,8 +312,12 @@
 /mob/living/movement_delay()
 	. = ..()
 
-	if(heavy_wounded)
-		. += 10
+	if(simple_combat_on)
+		if(get_status_effect(/datum/simple_status/crit))
+			. += 10
+
+		if(get_status_effect(/datum/simple_status/legbroke) && !get_status_effect(/datum/simple_status/splinted))
+			. += 5
 
 /mob/living/proc/simple_health_vfx(show_blood = TRUE, obj/effect/simple_combat_particle/create_impact = null, obj/item/projectile/proj = null, mob/living/attacker = null)
 
@@ -323,6 +357,8 @@
 				if(ishuman(src))
 					var/mob/living/carbon/human/H = src
 					new /obj/temp_visual/bloodsplatter(loc, hit_dir, H.species.blood_color)
+				else
+					new /obj/temp_visual/bloodsplatter(loc, hit_dir, bleed_colour)
 		else
 			hit_dir = get_dir(attacker, src)
 			var/obj/decal/cleanable/blood/B = blood_splatter(get_step(src, hit_dir), src, 1, hit_dir)
@@ -331,6 +367,8 @@
 			if(ishuman(src))
 				var/mob/living/carbon/human/H = src
 				new /obj/temp_visual/bloodsplatter(loc, hit_dir, H.species.blood_color)
+			else
+				new /obj/temp_visual/bloodsplatter(loc, hit_dir, bleed_colour)
 
 	if(create_impact)
 		new create_impact(src.loc)
@@ -372,6 +410,7 @@
 /mob/living/proc/ranged_block(amount, obj/item/projectile/source)
 	if((source.def_zone == BP_MOUTH || source.def_zone == BP_EYES || source.def_zone == BP_HEAD))
 		var/obj/item/clothing/head/helmet = get_equipped_item(slot_head)
+		var/mob/living/carbon/human/H = source.firer
 
 		if(helmet && amount > 0)
 			if(prob(helmet.simple_armor_blockchance))
@@ -383,14 +422,14 @@
 					helmet.throw_at(get_edge_target_turf(src, reverse_direction(dir)), 1, 2, src)
 				return amount
 
-			else if(prob(20 * (get_skill_value(SKILL_WEAPONS))))
+			else if(prob(20 * (H.get_skill_value(SKILL_WEAPONS))))
 				helmet.simple_armor_blockchance -= clamp(helmet.simple_armor_deformation_speed + source.simple_armor_penetration, 0, helmet.simple_armor_blockchance_max)
 				if(helmet.simple_armor_blockchance <= 0)
 					drop_from_inventory(helmet)
 					helmet.throw_at(get_edge_target_turf(src, reverse_direction(dir)), 1, 2, src)
 				amount += 20
 			return amount
-		else if(prob(20 * (get_skill_value(SKILL_WEAPONS))))
+		else if(prob(20 * (H.get_skill_value(SKILL_WEAPONS))))
 			amount += 30
 		return amount
 
@@ -401,7 +440,7 @@
 			armor.simple_armor_blockchance -= clamp(armor.simple_armor_deformation_speed + source.simple_armor_penetration, 0, armor.simple_armor_blockchance_max)
 		return amount
 
-/mob/living/proc/simple_health_calculation(amount, armor_damage_amp, should_block = TRUE, vfx_effect = TRUE, atom/movable/source = null, datum/simple_status/add_effect, effect_apply_anyway = FALSE, effect_duration = -1)
+/mob/living/proc/simple_health_calculation(amount, armor_damage_amp, should_block = TRUE, vfx_effect = TRUE, atom/movable/source = null, datum/simple_status/add_effect = null, effect_apply_anyway = FALSE, effect_duration = -1)
 	set waitfor = FALSE
 	appearance_flags |= KEEP_TOGETHER
 
@@ -437,14 +476,8 @@
 			animation_flash_color(src, COLOR_RED)
 			sleep(6)
 
-			if(ishuman(source))
-				var/mob/living/carbon/human/H = source
-				if((H.zone_sel.selecting == BP_R_LEG || H.zone_sel.selecting == BP_L_LEG) && prob(5))
-					add_status_effect(/datum/simple_status/legbroke)
-			if(istype(source,/obj/item/projectile))
-				var/obj/item/projectile/P = source
-				if((P.def_zone == BP_R_LEG || P.def_zone == BP_L_LEG) && prob(5))
-					add_status_effect(/datum/simple_status/legbroke)
+			if(source)
+				bonecheck(source)
 
 			if(add_effect)
 				add_status_effect(add_effect, effect_duration)
@@ -465,13 +498,21 @@
 				if(add_effect && effect_apply_anyway)
 					add_status_effect(add_effect, effect_duration)
 
+				if(source)
+					bonecheck(source)
+
 			else if(amount < 0)
 				new /obj/effect/simple_combat_particle/healing(src.loc)
 				animation_flash_color(src, COLOR_GREEN)
 
-		if(heavy_wounded)
+		if(get_status_effect(/datum/simple_status/crit))
+			pre_death = TRUE
 			if(!ishuman(src))
+				remove_status_effect(/datum/simple_status/crit)
 				death()
+			if(!get_status_effect(/datum/simple_status/hardcrit))
+				remove_status_effect(/datum/simple_status/crit)
+				add_status_effect(/datum/simple_status/hardcrit, 1 MINUTE)
 
 		if(simple_health <= max_simple_health / 2)
 			var/obj/screen/fullscreen/screen = screens["almost_done"]
@@ -483,11 +524,26 @@
 			if(screen)
 				clear_fullscreen("almost_done")
 
+/mob/living/proc/bonecheck(atom/movable/source = null)
+
+	if(ishuman(source))
+		var/mob/living/carbon/human/H = source
+		if((H.zone_sel.selecting == BP_R_LEG || H.zone_sel.selecting == BP_L_LEG) && prob(100 / (get_skill_value(SKILL_HAULING))))
+			add_status_effect(/datum/simple_status/legbroke)
+	if(istype(source,/obj/item/projectile))
+		var/obj/item/projectile/P = source
+		if((P.def_zone == BP_R_LEG || P.def_zone == BP_L_LEG) && prob(100 / (get_skill_value(SKILL_HAULING))))
+			add_status_effect(/datum/simple_status/legbroke)
+
 /mob/living/rejuvenate()
 	. = ..()
-	simple_health_calculation(-max_simple_health, 0, 0, 0)
-	for(var/datum/simple_status/effects in status_effects)
-		remove_status_effect(effects)
+
+	if(simple_combat_on)
+		simple_health_calculation(-max_simple_health, 0, 0, 0)
+		for(var/datum/simple_status/effects in status_effects)
+			if(istype(effects,/datum/simple_status/hardcrit))
+				stabilized = TRUE
+			remove_status_effect(effects)
 
 /mob/living/ClickOn(atom/A)
 
@@ -674,7 +730,7 @@
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	if(istype(tool,/obj/item/fd/simple_combat/adrenaline))
 		var/obj/item/fd/simple_combat/adrenaline/A = tool
-		if(base_regen_period > 2 && !heavy_wounded)
+		if(base_regen_period > 2 && !(get_status_effect(/datum/simple_status/crit) || get_status_effect(/datum/simple_status/hardcrit)))
 			animation_flash_color(A, COLOR_GREEN)
 			base_regen_period = 2
 			regen_for = 5
@@ -696,7 +752,7 @@
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.base_regen_period > 2 && !H.heavy_wounded)
+		if(H.base_regen_period > 2 && !(H.get_status_effect(/datum/simple_status/crit) || H.get_status_effect(/datum/simple_status/hardcrit)))
 			animation_flash_color(src, COLOR_GREEN)
 			H.base_regen_period = 2
 			H.regen_for = 5
@@ -727,9 +783,13 @@
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	if(istype(tool,/obj/item/fd/simple_combat/revive))
 		var/obj/item/fd/simple_combat/revive/R = tool
-		if(get_status_effect(/datum/simple_status/crit) && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
+		if((get_status_effect(/datum/simple_status/crit) || get_status_effect(/datum/simple_status/hardcrit)) && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
 			animation_flash_color(R, COLOR_GREEN)
-			remove_status_effect(/datum/simple_status/crit)
+			if(get_status_effect(/datum/simple_status/crit))
+				remove_status_effect(/datum/simple_status/crit)
+			if(get_status_effect(/datum/simple_status/hardcrit))
+				stabilized = TRUE
+				remove_status_effect(/datum/simple_status/hardcrit)
 			if(get_status_effect(/datum/simple_status/bleed))
 				remove_status_effect(/datum/simple_status/bleed)
 			regen_period = base_regen_period
@@ -749,9 +809,13 @@
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.get_status_effect(/datum/simple_status/crit) && do_after(H, 2 SECONDS, H, DO_PUBLIC_UNIQUE))
+		if((H.get_status_effect(/datum/simple_status/crit) || H.get_status_effect(/datum/simple_status/hardcrit)) && do_after(H, 2 SECONDS, H, DO_PUBLIC_UNIQUE))
 			animation_flash_color(src, COLOR_GREEN)
-			H.remove_status_effect(/datum/simple_status/crit)
+			if(H.get_status_effect(/datum/simple_status/crit))
+				H.remove_status_effect(/datum/simple_status/crit)
+			if(H.get_status_effect(/datum/simple_status/hardcrit))
+				H.stabilized = TRUE
+				H.remove_status_effect(/datum/simple_status/hardcrit)
 			if(H.get_status_effect(/datum/simple_status/bleed))
 				H.remove_status_effect(/datum/simple_status/bleed)
 			H.regen_period = H.base_regen_period
@@ -1077,6 +1141,8 @@
 		if(simple_health < max_simple_health && do_after(user, 30 SECONDS, src, DO_PUBLIC_UNIQUE))
 			animation_flash_color(F, COLOR_GREEN)
 			for(var/datum/simple_status/effects in status_effects)
+				if(istype(effects,/datum/simple_status/hardcrit))
+					stabilized = TRUE
 				remove_status_effect(effects)
 			simple_health_calculation(-(max_simple_health - simple_health),0,0,0)
 			F.uses -= 1
@@ -1110,8 +1176,16 @@
 /obj/item/melee/baton
 	simple_damage = 10
 
+	status_to_add = /datum/simple_status/legbroke
+	status_apply_prob = 10
+
 /obj/item/material/twohanded/jack
 	simple_damage = 20
+
+	status_to_add = /datum/simple_status/legbroke
+	status_ignore_armor = TRUE
+
+	status_apply_prob = 30
 
 /obj/item/material/twohanded/fireaxe
 	simple_damage = 20
@@ -1167,11 +1241,11 @@
 	status_apply_prob = 70
 
 /obj/item/projectile/beam/midlaser
-	simple_damage = 20
+	simple_damage = 25
 	simple_armor_penetration = 5
 
 /obj/item/projectile/beam/smalllaser
-	simple_damage = 10
+	simple_damage = 15
 
 /obj/item/projectile/bullet
 	status_to_add = /datum/simple_status/bleed
@@ -1184,11 +1258,11 @@
 	simple_armor_penetration = 5
 
 /obj/item/projectile/bullet/rifle
-	simple_damage = 10
+	simple_damage = 20
 
 /obj/item/projectile/bullet/pistol
-	simple_damage = 10
+	simple_damage = 15
 
 /obj/item/projectile/bullet/pistol/strong
-	simple_damage = 20
+	simple_damage = 25
 	simple_armor_penetration = 5

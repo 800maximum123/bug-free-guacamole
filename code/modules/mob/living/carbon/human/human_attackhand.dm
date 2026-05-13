@@ -70,6 +70,12 @@
 		if(I_HELP)
 			if(MUTATION_FERAL in M.mutations)
 				return
+
+			if(simple_combat_on)
+				if(get_status_effect(/datum/simple_status/hardcrit) && do_after(H, 10 SECONDS, src, DO_PUBLIC_UNIQUE))
+					stabilized = TRUE
+					remove_status_effect(/datum/simple_status/hardcrit)
+
 			if (H != src && istype(H) && (is_asystole() || (status_flags & FAKEDEATH) || failed_last_breath) && !(H.zone_sel.selecting == BP_R_ARM || H.zone_sel.selecting == BP_L_ARM))
 				if (!cpr_time)
 					return
@@ -182,8 +188,13 @@
 
 			attack.show_attack(H, src, hit_zone, real_damage)
 			playsound(loc, attack.attack_sound, 25, 1, -1)
-			attack.apply_effects(H, src, real_damage, hit_zone)
-			apply_damage(real_damage, attack.get_damage_type(), hit_zone, damage_flags=attack.damage_flags())
+
+			if(simple_combat_on)
+				simple_health_calculation(H.unarmed_simple_damage, H.unarmed_simple_sharpness, 1, 0, H)
+				return
+			else
+				attack.apply_effects(H, src, real_damage, hit_zone)
+				apply_damage(real_damage, attack.get_damage_type(), hit_zone, damage_flags=attack.damage_flags())
 			if (attack.should_attack_log)
 				admin_attack_log(H, src, "Has [pick(attack.attack_verb)] their victim.", "was [pick(attack.attack_verb)] by their attacker", "has [pick(attack.attack_verb)]")
 

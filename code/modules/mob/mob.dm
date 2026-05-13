@@ -40,6 +40,7 @@
 	pain = null
 	item_use_icon = null
 	gun_move_icon = null
+	melee_assistant_icon = null
 	gun_setting_icon = null
 	ability_master = null
 	zone_sel = null

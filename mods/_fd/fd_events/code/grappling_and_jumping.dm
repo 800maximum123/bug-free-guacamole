@@ -12,6 +12,10 @@
 	var/list/turf/possible_points = list()
 	var/abyss = FALSE
 
+	var/has_fall_damage = TRUE
+	var/fall_damage_amount = 30
+	var/list/mob/living/ignore_these_mobs = list(/mob/living/simple_animal/metro_jeff)
+
 	anchored = TRUE
 
 /obj/structure/fd/chasm/Initialize()
@@ -37,28 +41,34 @@
 		spawn(0.5 SECONDS)
 			animate(user, alpha = 255, transform = matrix(1, MATRIX_SCALE), pixel_z = user.default_pixel_z, time = 3, easing = SINE_EASING | EASE_OUT)
 			user.Weaken(10)
-			user.apply_damage(30, DAMAGE_BRUTE)
+
+			if(has_fall_damage)
+				user.apply_damage(fall_damage_amount, DAMAGE_BRUTE)
 
 /obj/structure/fd/chasm/Process()
 	for(var/mob/living/A in get_turf(src))
-		var/mob/living/L = A
-
-		if(L.in_dash)
+		if(A.type in ignore_these_mobs)
 			return
 
-		if(L.attached_to_surface)
+		if(A.in_dash)
+			return
+
+		if(A.attached_to_surface)
 			return
 
 		else
-			L.Stun(10)
-			animate(L, transform = matrix(0.01, MATRIX_SCALE), time = 1 SECOND, easing = BOUNCE_EASING)
+			A.Stun(10)
+			animate(A, transform = matrix(0.01, MATRIX_SCALE), time = 1 SECOND, easing = BOUNCE_EASING)
 
 			spawn(1 SECONDS)
-				check_fall(L)
+				check_fall(A)
 
 /obj/structure/fd/chasm/Crossed(atom/A)
 	if(isliving(A))
 		var/mob/living/L = A
+
+		if(L.type in ignore_these_mobs)
+			return
 
 		if(L.in_dash)
 			return
@@ -88,14 +98,12 @@
 
 	screen_loc = "CENTER,CENTER"
 	var/mob/living/connected_mob
-	var/image/jumplay
 
 /obj/screen/cancel_dash/Click()
 	connected_mob.preparing_to_dash = FALSE
 
 	animate(src, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
-	animate(connected_mob.dashing_overlay, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT)
-
+	animate(connected_mob.dashing_overlay, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
 	return TRUE
 
 /datum/keybinding/living/fd
@@ -107,13 +115,17 @@
 	full_name = "General: DASH"
 	description = ""
 
-	var/image/dash_indication
-	var/obj/screen/cancel_dash/cd
-
 /datum/keybinding/living/fd/dash/can_use(client/user)
 	. = ..()
 
 	var/mob/living/L = user.mob
+
+	if(L.simple_combat_on)
+		if(L.get_status_effect(/datum/simple_status/legbroke))
+			return FALSE
+		if(L.get_status_effect(/datum/simple_status/crit))
+			return FALSE
+
 	if(L.stat != CONSCIOUS)
 		return FALSE
 
@@ -133,24 +145,23 @@
 	var/mob/living/L = user.mob
 	L.preparing_to_dash = TRUE
 
-	L.CutOverlays(dash_indication, ATOM_ICON_CACHE_ALL)
+	L.CutOverlays(L.dash_indication)
 
-	dash_indication = image('mods/_fd/fd_events/icons/dash_info.dmi', icon_state = "jump_indicator")
-	dash_indication.mouse_opacity = FALSE
-	dash_indication.pixel_y = 32
+	L.dash_indication = image('mods/_fd/fd_events/icons/dash_info.dmi', icon_state = "jump_indicator")
+	L.dash_indication.mouse_opacity = FALSE
+	L.dash_indication.pixel_y = 32
 
 	if(!L.dashing_overlay)
 		L.dashing_overlay = new /obj/screen/dash_charging_overlay()
 		L.dashing_overlay.connected_mob = L
 		L.client.screen += L.dashing_overlay
 
-	if(!cd)
-		cd = new /obj/screen/cancel_dash()
-		cd.connected_mob = L
-		cd.jumplay = dash_indication
-	L.client.screen += cd
-	animate(cd, transform = matrix(0, -48, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
-	L.AddOverlays(dash_indication, ATOM_ICON_CACHE_ALL)
+	if(!L.cancel_dash_button)
+		L.cancel_dash_button = new /obj/screen/cancel_dash()
+		L.cancel_dash_button.connected_mob = L
+	L.client.screen += L.cancel_dash_button
+	animate(L.cancel_dash_button, transform = matrix(0, -48, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+	L.AddOverlays(L.dash_indication)
 
 	return TRUE
 
@@ -161,18 +172,18 @@
 		L.dash_distance = initial(L.dash_distance)
 		L.dash_bonus_points = initial(L.dash_bonus_points)
 		spawn(4)
-			L.client.screen -= cd
-		L.CutOverlays(dash_indication)
+			L.client.screen -= L.cancel_dash_button
+		L.CutOverlays(L.dash_indication)
 		return FALSE
 
 	L.preparing_to_dash = FALSE
 	L.dash()
 
 	spawn(4)
-		L.client.screen -= cd
-	L.CutOverlays(dash_indication)
-	animate(cd, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
-	animate(L.dashing_overlay, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT)
+		L.client.screen -= L.cancel_dash_button
+		L.CutOverlays(L.dash_indication)
+	animate(L.cancel_dash_button, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
+	animate(L.dashing_overlay, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
 	return TRUE
 
 /obj/screen/dash_charging_overlay
@@ -215,6 +226,9 @@
 	var/dash_stamina_use = 20
 
 	var/obj/screen/dash_charging_overlay/dashing_overlay
+
+	var/image/dash_indication
+	var/obj/screen/cancel_dash/cancel_dash_button
 
 	var/attached_to_surface = FALSE
 
