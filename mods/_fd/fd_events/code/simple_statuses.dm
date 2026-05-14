@@ -504,25 +504,39 @@
 /datum/simple_status/bleed/tick()
 	. = ..()
 
-	owner.simple_health_calculation(5, 0, 0, 0)
-	new /obj/effect/simple_combat_particle/bleeding(owner.loc)
+	if(!owner.get_status_effect(/datum/simple_status/bandaged))
+		owner.simple_health_calculation(5, 0, 0, 0)
+		new /obj/effect/simple_combat_particle/bleeding(owner.loc)
 
-	var/obj/decal/cleanable/blood/B = blood_splatter(get_step(owner, SOUTH), owner, 0, SOUTH)
-	B.icon_state = "dir_splatter_1"
-	B.SetTransform(0.5)
+		var/obj/decal/cleanable/blood/B = blood_splatter(get_step(owner, SOUTH), owner, 0, SOUTH)
+		B.icon_state = "dir_splatter_1"
+		B.SetTransform(0.5)
 
-	if(ishuman(owner))
-		var/mob/living/carbon/human/H = owner
-		var/obj/temp_visual/bloodsplatter/splat = new /obj/temp_visual/bloodsplatter(owner.loc, SOUTH, H.species.blood_color)
-		splat.layer = ABOVE_HUMAN_LAYER
-		splat.SetTransform(0.5)
-	else
-		var/obj/temp_visual/bloodsplatter/splat = new /obj/temp_visual/bloodsplatter(owner.loc, SOUTH, owner.bleed_colour)
-		splat.layer = ABOVE_HUMAN_LAYER
-		splat.SetTransform(0.5)
+		if(ishuman(owner))
+			var/mob/living/carbon/human/H = owner
+			var/obj/temp_visual/bloodsplatter/splat = new /obj/temp_visual/bloodsplatter(owner.loc, SOUTH, H.species.blood_color)
+			splat.layer = ABOVE_HUMAN_LAYER
+			splat.SetTransform(0.5)
+		else
+			var/obj/temp_visual/bloodsplatter/splat = new /obj/temp_visual/bloodsplatter(owner.loc, SOUTH, owner.bleed_colour)
+			splat.layer = ABOVE_HUMAN_LAYER
+			splat.SetTransform(0.5)
+
+/datum/simple_status/bandaged
+	name = "Перебинтован"
+	desc_text = "+ Его рана забинтована"
+	status_type = STATUS_EFFECT_REPLACE
+	status_color = COLOR_YELLOW
+	duration = 0
+
+/datum/simple_status/bandaged/tick()
+	. = ..()
+
+	if(!owner.get_status_effect(/datum/simple_status/bleed))
+		owner.remove_status_effect(/datum/simple_status/bandaged)
 
 /datum/simple_status/splinted
-	name = "Шина"
+	name = "Наложена шина"
 	desc_text = "+ Его нога зафиксирована"
 	status_type = STATUS_EFFECT_REPLACE
 	status_color = COLOR_YELLOW
@@ -535,7 +549,7 @@
 		owner.remove_status_effect(/datum/simple_status/splinted)
 
 /datum/simple_status/legbroke
-	name = "Перелом"
+	name = "Перелом ноги"
 	desc_text = "- Он хромает"
 	status_type = STATUS_EFFECT_UNIQUE
 	status_color = COLOR_RED
@@ -546,8 +560,8 @@
 	new /obj/effect/simple_combat_particle/fracture(owner.loc)
 
 /datum/simple_status/fixation
-	name = "Схвачен"
-	desc_text = "- Скован"
+	name = "Зафиксирован"
+	desc_text = null
 	status_type = STATUS_EFFECT_UNIQUE
 	status_color = COLOR_RED
 

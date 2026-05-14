@@ -126,8 +126,8 @@ GLOBAL_LIST_EMPTY(cutscene_actors)
 GLOBAL_LIST_EMPTY(cutscene_cameras)
 
 /obj/effect/cutscene_camera
-	icon = 'icons/effects/effects.dmi'
-	icon_state = "repel_missiles"
+	icon = 'mods/_fd/fd_utilities/icons/newsource.dmi'
+	icon_state = "camera"
 	anchored = TRUE
 	var/camera_id = ""
 

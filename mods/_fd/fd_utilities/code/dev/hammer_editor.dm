@@ -61,6 +61,8 @@
 	//1 - Текст отобразится всем в радиусе зрения маркера
 	//0 - Текст отобразится только наступившему
 
+	var/trigger_id = null
+
 	var/trigger_uses = -1 //Выставьте больше нуля, если вы хотите чтобы маркер активировался N-ое кол-во раз
 	var/list/already_triggered_by = list()
 
@@ -111,6 +113,11 @@
 
 	already_triggered_by += M
 	log_and_message_admins("Человек активировал триггер текста на координатах: (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+
+	if(trigger_id)
+		for(var/obj/structure/fd/mapping/screentext_triggermarker/T in world)
+			if(T.trigger_id == trigger_id)
+				T.already_triggered_by += M
 
 /*
 // Пока что готово лишь частично

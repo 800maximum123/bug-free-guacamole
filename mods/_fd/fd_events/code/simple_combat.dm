@@ -187,6 +187,8 @@
 	var/simple_damage = 2
 	var/simple_armor_penetration = 0
 
+	var/simple_target_zone = ""
+
 	var/datum/simple_status/status_to_add = null
 	var/status_timer_to_add = -1
 	var/status_ignore_armor = FALSE
@@ -195,6 +197,7 @@
 
 /obj/item/apply_hit_effect(mob/living/target, mob/living/user, hit_zone)
 	if(target.simple_combat_on)
+
 		if(status_to_add)
 			if(status_apply_prob > 0)
 				if(prob(status_apply_prob))
@@ -218,21 +221,25 @@
 		var/mob/living/L = hit_atom
 		if(L.simple_combat_on)
 
+			simple_target_zone = TT.thrower.zone_sel?.selecting
+			if(!simple_target_zone)
+				simple_target_zone = BP_CHEST
+
 			if(status_to_add)
 				if(status_apply_prob > 0)
 					if(prob(status_apply_prob))
-						L.simple_health_calculation(simple_damage,simple_armor_penetration,1,0,null,status_to_add,status_ignore_armor,status_timer_to_add)
+						L.simple_health_calculation(simple_damage,simple_armor_penetration,1,0,TT.thrower,status_to_add,status_ignore_armor,status_timer_to_add)
 						return TRUE
 					else
 						L.simple_health_calculation(simple_damage,simple_armor_penetration,1,0)
 						return TRUE
 
 				else
-					L.simple_health_calculation(simple_damage,simple_armor_penetration,1,0,null,status_to_add,status_ignore_armor,status_timer_to_add)
+					L.simple_health_calculation(simple_damage,simple_armor_penetration,1,0,TT.thrower,status_to_add,status_ignore_armor,status_timer_to_add)
 					return TRUE
 
 			else
-				L.simple_health_calculation(simple_damage,simple_armor_penetration,1,0)
+				L.simple_health_calculation(simple_damage,simple_armor_penetration,1,0,TT.thrower)
 				return TRUE
 	..()
 
@@ -367,67 +374,139 @@
 		new create_impact(src.loc)
 
 /mob/living/proc/melee_block(amount, armor_damage_amp, mob/living/source = null)
-	if((source.zone_sel.selecting == BP_MOUTH || source.zone_sel.selecting == BP_EYES || source.zone_sel.selecting == BP_HEAD))
-		var/obj/item/clothing/head/helmet = get_equipped_item(slot_head)
+	var/target_part = source.zone_sel?.selecting // Смотрит выделенную зону на кукле
+	if(!target_part) // Если нам возвращает нулл - значит это симплмоб. Давайте зарандомим ему случайную точку для прострела
+		target_part = pick(BP_SIMPLE_TARGETS)
+
+	if(target_part in BP_FULL_HEAD) // Мы целимся в голову?
+		var/obj/item/clothing/head/helmet = get_equipped_item(slot_head) // У нас есть шлем?
 
 		if(helmet && amount > 0)
 			if(prob(helmet.simple_armor_blockchance))
 				amount = clamp(amount - helmet.simple_armor_bonus, 0, amount)
 				helmet.simple_armor_blockchance -= clamp(helmet.simple_armor_deformation_speed + armor_damage_amp, 0, helmet.simple_armor_blockchance_max)
 
-				if(helmet.simple_armor_blockchance <= 0)
+				if(helmet.simple_armor_blockchance <= 0) // Мы убили шлем в ноль? Он слетает с нашей головы
 					drop_from_inventory(helmet)
 					helmet.throw_at(get_edge_target_turf(src, reverse_direction(dir)), 1, 2, src)
 				return amount
 
-			else
+			else // Забрало не помогло, ГГ
 				helmet.simple_armor_blockchance -= clamp(helmet.simple_armor_deformation_speed + armor_damage_amp, 0, helmet.simple_armor_blockchance_max)
 				amount += 10
 
-				if(helmet.simple_armor_blockchance <= 0)
+				if(helmet.simple_armor_blockchance <= 0) // Мы убили шлем в ноль? Он слетает с нашей головы
 					drop_from_inventory(helmet)
 					helmet.throw_at(get_edge_target_turf(src, reverse_direction(dir)), 1, 2, src)
 
 				return amount
-		else
+		else // Шлема нет, фри кил
 			amount += 10
 			return amount
 
-	else
-		var/obj/item/clothing/suit/armor = get_equipped_item(slot_wear_suit)
+	else // Мы целимся во что-то другое?
+		var/obj/item/clothing/suit/armor = get_equipped_item(slot_wear_suit) // Проверяем наличие бронежилета или любой другой брони в слоте сьюта
+
+		if((target_part in BP_LEGS_FEET) || (target_part in BP_ARMS_HANDS)) // Если мы бьём по конечностям - урон будет снижен, но могут прокнуться прикольные эффекты
+			amount = clamp(amount - 5, 0, amount)
+
+			if(target_part in BP_LEGS_FEET) // Хуячим по ногам? Можем сделать перелом
+				bonecheck(source)
+
+			// Атаки по рукам имеют 50% шанс выбить из них предмет
+			if(target_part in BP_SIMPLE_TARGETS_L_ARM)
+				if(prob(50))
+					drop_l_hand()
+
+			if(target_part in BP_SIMPLE_TARGETS_R_ARM)
+				if(prob(50))
+					drop_r_hand()
+
 		if(armor && amount > 0 && prob(armor.simple_armor_blockchance))
 			amount = clamp(amount - armor.simple_armor_bonus, 0, amount)
 			armor.simple_armor_blockchance -= clamp(armor.simple_armor_deformation_speed + armor_damage_amp, 0, armor.simple_armor_blockchance_max)
 		return amount
 
 /mob/living/proc/ranged_block(amount, obj/item/projectile/source)
-	if((source.def_zone == BP_MOUTH || source.def_zone == BP_EYES || source.def_zone == BP_HEAD))
-		var/obj/item/clothing/head/helmet = get_equipped_item(slot_head)
-		var/mob/living/carbon/human/H = source.firer
+	var/target_part = source.def_zone // Смотрит выделенную зону на кукле
+	if(!ishuman(source.firer)) // Проверяем, является ли стрелок человеком
+		target_part = pick(BP_SIMPLE_TARGETS) // Если нет - рандомим ему область попадания (по дефолту мобу стреляют только в грудь)
+
+	if(target_part in BP_FULL_HEAD) // Мы целимся в голову?
+		var/obj/item/clothing/head/helmet = get_equipped_item(slot_head) // У нас есть шлем?
 
 		if(helmet && amount > 0)
 			if(prob(helmet.simple_armor_blockchance))
 				amount = clamp(amount - helmet.simple_armor_bonus, 0, amount)
 				helmet.simple_armor_blockchance -= clamp(helmet.simple_armor_deformation_speed + source.simple_armor_penetration, 0, helmet.simple_armor_blockchance_max)
 
-				if(helmet.simple_armor_blockchance <= 0)
+				if(helmet.simple_armor_blockchance <= 0) // Мы убили шлем в ноль? Он слетает с нашей головы
 					drop_from_inventory(helmet)
 					helmet.throw_at(get_edge_target_turf(src, reverse_direction(dir)), 1, 2, src)
 				return amount
 
-			else if(prob(20 * (H.get_skill_value(SKILL_WEAPONS))))
+			if(ishuman(source.firer))
+				var/mob/living/carbon/human/H = source.firer
+				if(prob(20 * (H.get_skill_value(SKILL_WEAPONS))))
+					helmet.simple_armor_blockchance -= clamp(helmet.simple_armor_deformation_speed + source.simple_armor_penetration, 0, helmet.simple_armor_blockchance_max)
+					if(helmet.simple_armor_blockchance <= 0)
+						drop_from_inventory(helmet)
+						helmet.throw_at(get_edge_target_turf(src, reverse_direction(dir)), 1, 2, src)
+					amount += 30
+			if(!ishuman(source.firer) && prob(20))
 				helmet.simple_armor_blockchance -= clamp(helmet.simple_armor_deformation_speed + source.simple_armor_penetration, 0, helmet.simple_armor_blockchance_max)
 				if(helmet.simple_armor_blockchance <= 0)
 					drop_from_inventory(helmet)
 					helmet.throw_at(get_edge_target_turf(src, reverse_direction(dir)), 1, 2, src)
-				amount += 20
+				amount += 30
 			return amount
-		else if(prob(20 * (H.get_skill_value(SKILL_WEAPONS))))
+
+		if(ishuman(source.firer))
+			var/mob/living/carbon/human/H = source.firer
+			if(prob(20 * (H.get_skill_value(SKILL_WEAPONS))))
+				amount += 30
+		if(!ishuman(source.firer) && prob(20))
 			amount += 30
 		return amount
 
 	else
 		var/obj/item/clothing/suit/armor = get_equipped_item(slot_wear_suit)
+
+		if((target_part in BP_LEGS_FEET) || (target_part in BP_ARMS_HANDS)) // Если мы бьём по конечностям - урон будет снижен, но могут прокнуться прикольные эффекты
+			amount = clamp(amount - 5, 0, amount)
+
+			if(target_part in BP_LEGS_FEET) // Хуячим по ногам? Можем сделать перелом
+				if(ishuman(source.firer))
+					var/mob/living/carbon/human/H = source.firer
+					if(prob(40 * (H.get_skill_value(SKILL_WEAPONS))))
+						bonecheck(source)
+				if(!ishuman(source.firer) && prob(20))
+					bonecheck(source)
+
+			if(ishuman(src))
+				// Стрельба по рукам имеет 50% шанс выбить из них предмет
+				if(target_part in BP_SIMPLE_TARGETS_L_ARM)
+					if(ishuman(source.firer))
+						var/mob/living/carbon/human/H = source.firer
+						if(H.get_skill_value(SKILL_WEAPONS) >= SKILL_TRAINED)
+							drop_l_hand()
+						else
+							if(prob(20 * (H.get_skill_value(SKILL_WEAPONS))))
+								drop_l_hand()
+					if(!ishuman(source.firer) && prob(20))
+						drop_l_hand()
+
+				if(target_part in BP_SIMPLE_TARGETS_R_ARM)
+					if(ishuman(source.firer))
+						var/mob/living/carbon/human/H = source.firer
+						if(H.get_skill_value(SKILL_WEAPONS) >= SKILL_TRAINED)
+							drop_r_hand()
+						else
+							if(prob(20 * (H.get_skill_value(SKILL_WEAPONS))))
+								drop_r_hand()
+					if(!ishuman(source.firer) && prob(20))
+						drop_r_hand()
+
 		if(armor && amount > 0 && prob(armor.simple_armor_blockchance))
 			amount = clamp(amount - armor.simple_armor_bonus, 0, amount)
 			armor.simple_armor_blockchance -= clamp(armor.simple_armor_deformation_speed + source.simple_armor_penetration, 0, armor.simple_armor_blockchance_max)
@@ -445,7 +524,7 @@
 			if(istype(source,/obj/item/projectile)) // Если источник урона - прожектайл, то вызываем этот прок
 				amount = ranged_block(amount, source)
 
-			if(ishuman(source)) // Если источник урона - моб, то вызываем этот прок
+			if(isliving(source)) // Если источник урона - моб, то вызываем этот прок
 				amount = melee_block(amount, armor_damage_amp, source)
 
 			if(!source) // Если у нас нет источника - проверяем всё по простой формуле ниже
@@ -467,9 +546,6 @@
 					simple_health_vfx(TRUE, /obj/effect/simple_combat_particle/impact, source, null) // Прок на случай, если источником является прожектайл
 			animation_flash_color(src, COLOR_RED)
 			sleep(6)
-
-			if(source) // И ещё раз обращаемся к источнику. При его наличии, нужно посмотреть, не бьёт ли он по ногам
-				bonecheck(source)
 
 			if(add_effect) // Если то чем нас атаковали имеет какие-то эффекты - добавляем их
 				add_status_effect(add_effect, effect_duration)
@@ -532,12 +608,11 @@
 /mob/living/proc/bonecheck(atom/movable/source = null)
 
 	if(ishuman(source))
-		var/mob/living/carbon/human/H = source
-		if((H.zone_sel.selecting == BP_R_LEG || H.zone_sel.selecting == BP_L_LEG) && prob(100 / (get_skill_value(SKILL_HAULING))))
+		if(prob(100 / (get_skill_value(SKILL_HAULING))))
 			add_status_effect(/datum/simple_status/legbroke)
+
 	if(istype(source,/obj/item/projectile))
-		var/obj/item/projectile/P = source
-		if((P.def_zone == BP_R_LEG || P.def_zone == BP_L_LEG) && prob(100 / (get_skill_value(SKILL_HAULING))))
+		if(prob(100 / (get_skill_value(SKILL_HAULING))))
 			add_status_effect(/datum/simple_status/legbroke)
 
 /mob/living/rejuvenate()
@@ -915,7 +990,7 @@
 		var/obj/item/fd/simple_combat/bandage/B = tool
 		if(get_status_effect(/datum/simple_status/bleed) && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
 			animation_flash_color(B, COLOR_GREEN)
-			remove_status_effect(/datum/simple_status/bleed)
+			add_status_effect(/datum/simple_status/bandaged, 10 SECONDS)
 
 			B.uses -= 1
 
@@ -958,6 +1033,20 @@
 	icon_state = "fracturefullfix"
 
 	w_class = ITEM_SIZE_SMALL
+	var/uses = 2
+	var/uses_max = 2
+
+/obj/item/fd/simple_combat/bonegel/MouseEntered(location, control, params)
+	. = ..()
+
+	if(loc == usr)
+		maptext = STYLE_SMALLFONTS_OUTLINE("[uses]/[uses_max]", 7, COLOR_WHITE, COLOR_BLACK)
+
+/obj/item/fd/simple_combat/bonegel/MouseExited(location, control, params)
+	. = ..()
+
+	if(maptext)
+		maptext = ""
 
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	if(istype(tool,/obj/item/fd/simple_combat/bonegel))
@@ -966,8 +1055,12 @@
 			animation_flash_color(B, COLOR_GREEN)
 			remove_status_effect(/datum/simple_status/legbroke)
 
+			B.uses -= 1
+
 			sleep(5)
-			qdel(B)
+
+			if(B.uses <= 0)
+				qdel(B)
 
 		else
 			animation_flash_color(B, COLOR_RED)
@@ -984,8 +1077,12 @@
 			animation_flash_color(src, COLOR_GREEN)
 			H.remove_status_effect(/datum/simple_status/legbroke)
 
+			uses -= 1
+
 			sleep(5)
-			qdel(src)
+
+			if(uses <= 0)
+				qdel(src)
 
 		else
 			animation_flash_color(src, COLOR_RED)
@@ -1149,7 +1246,7 @@
 		maptext = ""
 
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
-	if(istype(tool,/obj/item/fd/simple_combat/full_heal))
+	if(istype(tool,/obj/item/fd/simple_combat/full_heal) && src != user)
 		var/obj/item/fd/simple_combat/full_heal/F = tool
 		if(simple_health < max_simple_health && do_after(user, 30 SECONDS, src, DO_PUBLIC_UNIQUE))
 			animation_flash_color(F, COLOR_GREEN)

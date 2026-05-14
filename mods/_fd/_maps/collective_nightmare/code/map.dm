@@ -459,16 +459,14 @@
 	attached_text = list(/datum/interactive_note/nightmare/bluespace3)
 
 /datum/interactive_note/nightmare/tutorial_ooc
-	name = "Подсказка 1 (ООС)"
-	note_info = {"<b>БАЗОВОЕ УПРАВЛЕНИЕ</b><br /> \
-				<br /> \
+	name = "Базовое управление"
+	note_info = {"<br /> \
 				Взаимодействуйте с объектами нажатием <b><span style="color: yellow;">...</span></b><br /> \
 				Откройте архив собранных записей нажатием <b><span style="color: yellow;">...</span></b><br /> \
 				Прыгайте нажатием <b><span style="color: yellow;">...</span></b>"}
 
 /datum/interactive_note/nightmare/tutorial_ooc/reveal_note_to_player(mob/living/user)
-	note_info = {"<b>БАЗОВОЕ УПРАВЛЕНИЕ</b><br /> \
-				<br /> \
+	note_info = {"<br /> \
 				Взаимодействуйте с объектами нажатием <b><span style="color: yellow;">[user.retrieve_bind("start_interaction")]</span></b><br /> \
 				Откройте архив собранных записей нажатием <b><span style="color: yellow;">[user.retrieve_bind("open_archive")]</span></b><br /> \
 				Прыгайте нажатием <b><span style="color: yellow;">[user.retrieve_bind("dash")]</span></b>"}
@@ -476,9 +474,8 @@
 	. = ..()
 
 /datum/interactive_note/nightmare/tutorial_ooc2
-	name = "Подсказка 2 (ООС)"
-	note_info = {"<b>ПРОДВИНУТОЕ УПРАВЛЕНИЕ</b><br /> \
-				<br /> \
+	name = "Продвинутое управление"
+	note_info = {"<br /> \
 				Чаще всего, объекты с которыми можно взаимодействовать - выделяются <b><span style="color: yellow;">лупой</span></b><br /> \
 				В некоторых случаях, внутри интеракции может быть спрятан <b><span style="color: yellow;">секрет</span></b>. Чтобы его обнаружить - попробуйте поводить мышкой по экрану, пока не увидите новый значок.<br /> \
 				Вы можете прыгать дальше одного тайла, если будете <b><span style="color: yellow;">зажимать</span></b> кнопку прыжка некоторое время.<br /> \
@@ -534,9 +531,8 @@
 	. = ..()
 
 /datum/interactive_note/nightmare/tutorial_ooc4
-	name = "Подсказка 4 (ООС)"
-	note_info = {"<b>ОТРАВЛЕННЫЙ ВОЗДУХ</b><br /> \
-				<br /> \
+	name = "Защита дыхания"
+	note_info = {"<br /> \
 				Подобные игровые области предполагают наличие в вашем распоряжении любого <b><span style="color: yellow;">противогаза</span></b> заряженного специализированными <b><span style="color: yellow;">фильтрами</span></b>.<br /> \
 				Без них, персонаж продержится от силы <b><span style="color: yellow;">10-15 секунд</span></b>, прежде чем начнёт получать <b><span style="color: red;">урон</span></b>.<br /> \
 				Эти зоны также можно очистить уничтожив <b><span style="color: yellow;">источник</span></b> распространения ядовитых паров, или <b><span style="color: yellow;">восстановив электричество</span></b>."}

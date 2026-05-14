@@ -146,7 +146,6 @@
 	name = "start_interaction"
 	full_name = "General: START INTERACTION"
 	description = ""
-	var/obj/screen/cancel_interaction/ci
 
 /datum/keybinding/living/fd/start_interaction/can_use(client/user)
 	. = ..()

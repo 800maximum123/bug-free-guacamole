@@ -17,4 +17,7 @@
 /// Устанавливает дополнительный источник эффекта
 #define STATUS_EFFECT_SOURCED 5
 
+#define BP_SIMPLE_TARGETS list(BP_CHEST, BP_GROIN, BP_HEAD, BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG)
+#define BP_SIMPLE_TARGETS_L_ARM list(BP_L_ARM, BP_L_HAND)
+#define BP_SIMPLE_TARGETS_R_ARM list(BP_R_ARM, BP_R_HAND)
 #define BP_FULL_HEAD list(BP_HEAD, BP_MOUTH, BP_EYES)
