@@ -54,14 +54,20 @@
 							currently_stored_air -= 1
 						if(currently_stored_air <= 0)
 							emote("gasp")
-							apply_damage(10, A.damage_type)
-							//H.recalculate_reality_connection(0.1) // УДАЛИТЬ ПОТОМ
+							if(simple_combat_on)
+								simple_health_calculation(5, 0, 0, 0)
+							else
+								apply_damage(10, A.damage_type)
+								//H.recalculate_reality_connection(0.1) // УДАЛИТЬ ПОТОМ
 
 		if(A.unbreathable && !ishuman(src))
 			if(currently_stored_air > 0)
 				currently_stored_air -= 1
 			if(currently_stored_air <= 0)
-				apply_damage(10, A.damage_type)
+				if(simple_combat_on)
+					simple_health_calculation(5, 0, 0, 0)
+				else
+					apply_damage(10, A.damage_type)
 
 	. = ..()
 

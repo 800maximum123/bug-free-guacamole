@@ -898,9 +898,11 @@
 
 /datum/ai_holder/simple_animal/humanoid/angry
 	retaliate = FALSE
+	threaten = FALSE
 
 /datum/ai_holder/simple_animal/humanoid/hostile/angry
 	retaliate = FALSE
+	threaten = FALSE
 
 /mob/living/simple_animal/hostile/anomaly/soldiers
 	name = "enemy soldier"
@@ -1071,6 +1073,11 @@
 	base_attack_cooldown = 0.5 SECONDS
 	projectiletype = /obj/item/projectile/bullet/rifle
 	projectilesound = 'sound/weapons/gunshot/gunshot3.ogg'
+
+	needs_reload = TRUE
+	reload_max = 16
+	reload_time = 5 SECONDS
+	reload_sound = 'sound/weapons/guns/interaction/ltrifle_magin.ogg'
 
 	health = 999999
 	maxHealth = 999999
@@ -1976,5 +1983,3 @@ GLOBAL_DATUM_INIT(scum_agendas, /datum/antagonist/cain_agenda_scum, new)
 	explanation_text = "Продемонстрируй, почему нет никого хуже тебя"
 /datum/objective/cain_agenda/scum2
 	explanation_text = "Опусти кого-то до своего уровня"
-
-#include "..\maps\aaaa_facility.dmm"

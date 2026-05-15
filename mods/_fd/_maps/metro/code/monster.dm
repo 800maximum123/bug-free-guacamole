@@ -178,6 +178,32 @@
 	M.change_monster_vis()
 	return TRUE
 
+/datum/keybinding/living/fd/event/monster/play_aware_sound
+	category = CATEGORY_FD_EVENT
+	hotkey_keys = list("3")
+	name = "play_aware_sound"
+	full_name = "JEFF: AWARE"
+	description = ""
+
+/datum/keybinding/living/fd/event/monster/play_aware_sound/down(client/user)
+	var/mob/living/simple_animal/metro_jeff/M = user.mob
+
+	M.show_awareness()
+	return TRUE
+
+/datum/keybinding/living/fd/event/monster/become_agitated
+	category = CATEGORY_FD_EVENT
+	hotkey_keys = list("4")
+	name = "become_agitated"
+	full_name = "JEFF: SWITCH MODES"
+	description = ""
+
+/datum/keybinding/living/fd/event/monster/become_agitated/down(client/user)
+	var/mob/living/simple_animal/metro_jeff/M = user.mob
+
+	M.change_mode()
+	return TRUE
+
 /obj/screen/visibility_status
 	name = "ГЛАЗ"
 	desc = "Смотрит..."
@@ -196,33 +222,121 @@
 	name = "claws"
 	attack_verb = list("mauled", "clawed", "slashed")
 	force = 2
-	sharp = TRUE
-	edge = TRUE
+
+	simple_damage = 40
+	simple_armor_penetration = 40
+	hitsound = 'mods/_fd/_maps/metro/jeff_sounds/smack.wav'
+
 
 /mob/living/simple_animal/metro_jeff
-	name = "WIP"
-	desc = "WIP"
+	name = "abomination"
+	desc = "Do NOT come close."
+	pixel_x = -16
 
-	icon = 'mods/_fd/fd_assets/icons/animals/prime_soul.dmi' // PLACEHOLDER
-	icon_state = "body" // PLACEHOLDER
-	icon_living = "body" // PLACEHOLDER
-	icon_dead = "body" // PLACEHOLDER
+	icon = 'mods/_fd/_maps/metro/icons/jeff.dmi'
+	icon_state = "jeff"
+	icon_living = "jeff"
+	icon_dead = "jeff"
 	var/sniffing = FALSE
 	var/in_shadow = FALSE
 	var/list/obj/hidespots = list()
 	var/obj/screen/visibility_status/seen
 	natural_weapon = /obj/item/natural_weapon/claws/metro_jeff
 
+	var/loop_sound = 'mods/_fd/_maps/metro/jeff_sounds/ambience/body_loop_close.wav'
+	var/datum/sound_token/sound_token
+	var/sound_id
+
+	var/aggro_state = FALSE // 0 - чилл, 1 - страх и ужас
+	var/list/awareness_sounds = list('mods/_fd/_maps/metro/jeff_sounds/playsounds/aware_growl_01.wav',
+									'mods/_fd/_maps/metro/jeff_sounds/playsounds/aware_growl_02.wav',
+									'mods/_fd/_maps/metro/jeff_sounds/playsounds/aware_growl_03.wav',
+									'mods/_fd/_maps/metro/jeff_sounds/playsounds/aware_growl_04.wav',
+									'mods/_fd/_maps/metro/jeff_sounds/playsounds/aware_growl_05.wav',
+									'mods/_fd/_maps/metro/jeff_sounds/playsounds/aware_growl_06.wav',
+									'mods/_fd/_maps/metro/jeff_sounds/playsounds/aware_growl_07.wav',
+									'mods/_fd/_maps/metro/jeff_sounds/playsounds/aware_growl_08.wav',
+									'mods/_fd/_maps/metro/jeff_sounds/playsounds/aware_growl_09.wav',
+									'mods/_fd/_maps/metro/jeff_sounds/playsounds/aware_growl_10.wav')
+	var/list/alert_sounds = list('mods/_fd/_maps/metro/jeff_sounds/playsounds/alert_01.wav',
+								'mods/_fd/_maps/metro/jeff_sounds/playsounds/alert_02.wav',
+								'mods/_fd/_maps/metro/jeff_sounds/playsounds/alert_03.wav',
+								'mods/_fd/_maps/metro/jeff_sounds/playsounds/alert_04.wav',
+								'mods/_fd/_maps/metro/jeff_sounds/playsounds/alert_05.wav',
+								'mods/_fd/_maps/metro/jeff_sounds/playsounds/alert_06.wav',
+								'mods/_fd/_maps/metro/jeff_sounds/playsounds/alert_07.wav',
+								'mods/_fd/_maps/metro/jeff_sounds/playsounds/alert_08.wav',
+								'mods/_fd/_maps/metro/jeff_sounds/playsounds/alert_09.wav')
+
+	var/list/random_passive_sounds = list('mods/_fd/_maps/metro/jeff_sounds/ambience/wander_breath_in_01.wav',
+										'mods/_fd/_maps/metro/jeff_sounds/ambience/wander_breath_in_02.wav',
+										'mods/_fd/_maps/metro/jeff_sounds/ambience/wander_breath_in_03.wav',
+										'mods/_fd/_maps/metro/jeff_sounds/ambience/wander_breath_in_04.wav',
+										'mods/_fd/_maps/metro/jeff_sounds/ambience/wander_breath_in_05.wav',
+										'mods/_fd/_maps/metro/jeff_sounds/ambience/wander_breath_out_04.wav',
+										'mods/_fd/_maps/metro/jeff_sounds/ambience/wander_breath_out_05.wav',
+										'mods/_fd/_maps/metro/jeff_sounds/ambience/wander_breath_out_06.wav',
+										'mods/_fd/_maps/metro/jeff_sounds/ambience/wander_breath_out_07.wav',
+										'mods/_fd/_maps/metro/jeff_sounds/ambience/wander_breath_out_08.wav')
+	var/next_random_sound_in = 50
+	var/base_sound_freq = 50
+
+	var/list/movement_sound_list = list('mods/_fd/_maps/metro/jeff_sounds/moving/step_01.wav',
+										'mods/_fd/_maps/metro/jeff_sounds/moving/step_02.wav',
+										'mods/_fd/_maps/metro/jeff_sounds/moving/step_03.wav',
+										'mods/_fd/_maps/metro/jeff_sounds/moving/step_04.wav',
+										'mods/_fd/_maps/metro/jeff_sounds/moving/step_05.wav',
+										'mods/_fd/_maps/metro/jeff_sounds/moving/step_06.wav',
+										'mods/_fd/_maps/metro/jeff_sounds/moving/step_07.wav')
+	var/list/aggro_movement_sound_list = list('mods/_fd/_maps/metro/jeff_sounds/moving/step_close_01.wav',
+										'mods/_fd/_maps/metro/jeff_sounds/moving/step_close_02.wav',
+										'mods/_fd/_maps/metro/jeff_sounds/moving/step_close_03.wav',
+										'mods/_fd/_maps/metro/jeff_sounds/moving/step_close_04.wav',
+										'mods/_fd/_maps/metro/jeff_sounds/moving/step_close_05.wav',
+										'mods/_fd/_maps/metro/jeff_sounds/moving/step_close_06.wav',
+										'mods/_fd/_maps/metro/jeff_sounds/moving/step_close_07.wav',
+										'mods/_fd/_maps/metro/jeff_sounds/moving/step_close_08.wav',
+										'mods/_fd/_maps/metro/jeff_sounds/moving/step_close_09.wav')
+	movement_sound = 'mods/_fd/_maps/metro/jeff_sounds/moving/step_01.wav'
+
+	simple_health = 5000
+	max_simple_health = 5000
+
+	simple_armor_natural = 50
+
 	need_to_breath = FALSE
 	health = 999999
 	maxHealth = 999999
 
+	movement_cooldown = 6
+
+	var/sound_shutoff = FALSE
+
 /mob/living/simple_animal/metro_jeff/Initialize()
 	. = ..()
-	set_light(3, 1, l_color = "#00f7ff", angle = LIGHT_WIDE)
+	set_light(3, 2, l_color = "#00f7ff", angle = LIGHT_WIDE)
 	seen = new /obj/screen/visibility_status()
 
+/mob/living/simple_animal/metro_jeff/SelfMove(turf/n, direct, movetime)
+	. = ..()
+
+	if(aggro_state)
+		movement_sound = pick(aggro_movement_sound_list)
+	else
+		movement_sound = pick(movement_sound_list)
+
 /mob/living/simple_animal/metro_jeff/Life()
+
+	update_loopsound()
+
+	if(!aggro_state && !in_shadow)
+		if(next_random_sound_in > 0)
+			next_random_sound_in -= 1
+
+		if(next_random_sound_in <= 0)
+			next_random_sound_in = base_sound_freq
+			new /obj/effect/jeff_sounds(src.loc)
+			playsound(src, pick(random_passive_sounds), 50, 0, extrarange = 13, falloff = 2)
 
 	if(client)
 
@@ -245,8 +359,21 @@
 
 	. = ..()
 
+/mob/living/simple_animal/metro_jeff/proc/update_loopsound()
+	if(!sound_id)
+		sound_id = "[type]_[sequential_id(/mob/living/simple_animal/metro_jeff)]"
+
+	if(!sound_shutoff)
+		if(!sound_token)
+			sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id, loop_sound, volume = 10)
+
+		sound_token.SetVolume(10)
+
+	else if(sound_token)
+		QDEL_NULL(sound_token)
+
 /mob/living/simple_animal/metro_jeff/proc/change_monster_vis()
-	if(!in_shadow)
+	if(!in_shadow && !aggro_state)
 		if(client)
 			client.screen += seen
 			animate(seen, alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
@@ -273,9 +400,70 @@
 				client.screen -= seen
 
 		in_shadow = FALSE
-		set_light(3, 1, l_color = "#202424", angle = LIGHT_WIDE)
+		set_light(3, 2, l_color = "#00f7ff", angle = LIGHT_WIDE)
 		set_see_in_dark(initial(see_in_dark))
 		set_invisibility(0)
 		RemoveMovementHandler(/datum/movement_handler/mob/incorporeal)
 		remove_filter("invisible_monster")
 		return TRUE
+
+/obj/effect/jeff_sounds
+	icon = 'mods/_fd/fd_utilities/icons/newsource.dmi'
+	icon_state = "sound"
+	layer = SPEECH_INDICATOR_LAYER
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	mouse_opacity = FALSE
+	alpha = 0
+
+/obj/effect/jeff_sounds/Initialize()
+	. = ..()
+	animation()
+
+/obj/effect/jeff_sounds/proc/animation()
+
+	animate(src, 0.5 SECOND, alpha = 255, flags = ANIMATION_PARALLEL)
+	animate(src, pixel_y = 96, alpha = 0, time = 1 SECONDS, easing = BOUNCE_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
+
+	QDEL_IN(src, 1 SECONDS)
+
+/mob/living/simple_animal/metro_jeff/proc/show_awareness()
+
+	playsound(src, pick(awareness_sounds), 50, 0, extrarange = 13, falloff = 2)
+
+	new /obj/effect/jeff_sounds(src.loc)
+
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	add_filter("jeffshow", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_GRAY))
+
+	addtimer(new Callback(src, PROC_REF(hide_awareness)), 5 SECONDS)
+
+/mob/living/simple_animal/metro_jeff/proc/hide_awareness()
+	plane = initial(plane)
+	remove_filter("jeffshow")
+
+/mob/living/simple_animal/metro_jeff/proc/change_mode()
+	if(aggro_state)
+		aggro_state = FALSE
+		movement_cooldown = 6
+		set_light(3, 2, l_color = "#00f7ff", angle = LIGHT_WIDE)
+		return TRUE
+
+	if(!aggro_state)
+		aggro_state = TRUE
+		movement_cooldown = 4
+
+		playsound(src, pick(alert_sounds), 50, 0, extrarange = 13, falloff = 2)
+
+		new /obj/effect/jeff_sounds(src.loc)
+
+		plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		add_filter("jeffangry", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_RED))
+
+		set_light(6, 2, l_color = "#ff0000", angle = LIGHT_NARROW)
+
+		addtimer(new Callback(src, PROC_REF(remove_some_visuals)), 5 SECONDS)
+		return TRUE
+
+/mob/living/simple_animal/metro_jeff/proc/remove_some_visuals()
+	plane = initial(plane)
+	remove_filter("jeffangry")

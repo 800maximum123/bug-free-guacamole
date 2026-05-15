@@ -10,3 +10,5 @@
 	name = "rail bumpers"
 	icon_state = "rail_bumpers"
 	desc = "This (usually) stops minecarts and other rail vehicles at the end of a line of track."
+
+#include "..\map\metro.dmm"

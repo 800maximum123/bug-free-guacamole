@@ -242,10 +242,12 @@
 		TP_CAMERA("Метро - Атака"),
 		ADD_SCREEN(/cinema_borders) = 0.5 SECONDS,
 
+		CHANGE_ACTOR_VISIBILITY(actor("Дверь"), 255, 0, null, null),
+
 		CALL_GLOB(metro_screentext),
 		MOVE_CAMERA(0, 0, 10 SECONDS, SINE_EASING|EASE_OUT) = 12 SECONDS,
 		MOVE_CAMERA(0, 6, 10 SECONDS, SINE_EASING|EASE_OUT) = 12 SECONDS,
-		CHANGE_ACTOR_VISUALS(actor("Дверь"), "opening") = 0.2 SECONDS,
+		CHANGE_ACTOR_VISUALS(actor("Дверь"), "opening") = 0.5 SECONDS,
 		CHANGE_ACTOR_VISUALS(actor("Дверь"), "open") = 1 SECONDS,
 		ADD_SCREEN(/blackout/animated_better) = 2 SECONDS,
 		MOVE_CAMERA(0, 0, 0, null) = 1 SECONDS,
@@ -259,7 +261,7 @@
 				Взаимодействуйте с ними так же, как и с любыми другими интерактивными элементами окружения -<br /> \
 				нажатием <b><span style="color: yellow;">...</span></b>"}
 
-/datum/interactive_note/nightmare/tutorial_ooc/reveal_note_to_player(mob/living/user)
+/datum/interactive_note/nightmare/tutorial_ooc_hiding/reveal_note_to_player(mob/living/user)
 	name = "Прятки"
 	note_info = {"<br /> \
 				Некоторые объекты имеют достаточно пространства внутри, чтобы в них спрятался взрослый человек.<br /> \
