@@ -787,6 +787,9 @@
 /obj/decal/cleanable/blood{
 	icon_state = "u_guilty_l"
 	},
+/obj/structure/fake_zlvl{
+	density = 0
+	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/south)
 "cc" = (
@@ -2359,7 +2362,7 @@
 /obj/decal/cleanable/dirt,
 /obj/item/device/flashlight/flare{
 	on = 1;
-	flashlight_range = 7;
+	flashlight_range = 4;
 	infinite = 1
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -4351,10 +4354,11 @@
 	},
 /obj/item/device/flashlight/flare{
 	on = 1;
-	flashlight_range = 7;
+	flashlight_range = 4;
 	infinite = 1;
 	pixel_y = -10;
-	pixel_x = 12
+	pixel_x = 12;
+	flashlight_power = 1
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/south)
@@ -9245,7 +9249,6 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro)
 "yx" = (
-/obj/machinery/ship_weapon/front_part/disruptor,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/plating{
 	icon_state = "plating"
@@ -12926,11 +12929,10 @@
 /area/metro/maintain/gen3)
 "HR" = (
 /obj/decal/cleanable/dirt,
-/obj/item/device/flashlight/flare/glowstick{
+/obj/item/device/flashlight/lamp/floodlamp{
 	on = 1;
-	pixel_x = 9;
-	pixel_y = -16;
-	infinite = 1
+	spawn_dir = 2;
+	pixel_x = 7
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/south)
@@ -14930,7 +14932,7 @@
 	},
 /obj/item/device/flashlight/flare{
 	on = 1;
-	flashlight_range = 7;
+	flashlight_range = 4;
 	infinite = 1
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -17859,13 +17861,9 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/metro/maintain/gen3)
 "UD" = (
-/obj/machinery/ship_weapon/middle_part/disruptor,
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/plating{
-	icon_state = "plating"
-	},
-/area/metro/maintain/gen3)
+/mob/living/simple_animal/metro_jeff,
+/turf/simulated/floor/tiled/nullglass,
+/area/metro/main_tunel)
 "UF" = (
 /obj/fd_water/alt_ver1{
 	layer = 2.1
@@ -19570,13 +19568,13 @@
 /turf/simulated/floor/plating,
 /area/metro/maintain/east/corridors1)
 "YU" = (
-/obj/machinery/ship_weapon/back_part/autocannon,
 /obj/structure/fd/samosbor/floor_cable{
 	icon_state = "thick_node";
 	dir = 4;
 	layer = 2.10
 	},
 /obj/decal/cleanable/dirt,
+/obj/structure/fd/interactive/jeff_killer_gun_deployed,
 /turf/simulated/floor/exoplanet/samosbor/plating{
 	icon_state = "plating"
 	},
@@ -34339,7 +34337,7 @@ vX
 CX
 Si
 an
-an
+UD
 QP
 Gp
 gO
@@ -46017,7 +46015,7 @@ gO
 Se
 gO
 YU
-UD
+xL
 yx
 ZW
 lD

@@ -223,6 +223,9 @@
 	attack_verb = list("mauled", "clawed", "slashed")
 	force = 2
 
+	status_to_add = /datum/simple_status/legbroke
+	status_apply_prob = 30
+
 	simple_damage = 40
 	simple_armor_penetration = 40
 	hitsound = 'mods/_fd/_maps/metro/jeff_sounds/smack.wav'
@@ -299,8 +302,8 @@
 										'mods/_fd/_maps/metro/jeff_sounds/moving/step_close_09.wav')
 	movement_sound = 'mods/_fd/_maps/metro/jeff_sounds/moving/step_01.wav'
 
-	simple_health = 5000
-	max_simple_health = 5000
+	simple_health = 1000
+	max_simple_health = 1000
 
 	simple_armor_natural = 50
 
@@ -318,18 +321,23 @@
 	seen = new /obj/screen/visibility_status()
 
 /mob/living/simple_animal/metro_jeff/SelfMove(turf/n, direct, movetime)
+	if(sound_shutoff)
+		movement_sound = null
+
 	. = ..()
 
-	if(aggro_state)
-		movement_sound = pick(aggro_movement_sound_list)
-	else
-		movement_sound = pick(movement_sound_list)
+	if(!sound_shutoff)
+		if(aggro_state)
+			movement_sound = pick(aggro_movement_sound_list)
+		else
+			movement_sound = pick(movement_sound_list)
 
 /mob/living/simple_animal/metro_jeff/Life()
 
 	update_loopsound()
+	layer = 4.11
 
-	if(!aggro_state && !in_shadow)
+	if(!aggro_state && !sound_shutoff)
 		if(next_random_sound_in > 0)
 			next_random_sound_in -= 1
 
@@ -365,9 +373,9 @@
 
 	if(!sound_shutoff)
 		if(!sound_token)
-			sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id, loop_sound, volume = 10)
+			sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id, loop_sound, volume = 3)
 
-		sound_token.SetVolume(10)
+		sound_token.SetVolume(3)
 
 	else if(sound_token)
 		QDEL_NULL(sound_token)
@@ -383,6 +391,7 @@
 				animate(seen, alpha = 0, time = 3, easing = SINE_EASING|EASE_IN)
 
 		in_shadow = TRUE
+		sound_shutoff = TRUE
 		set_light(0)
 		set_see_in_dark(7)
 		set_invisibility(INVISIBILITY_OBSERVER)
@@ -400,6 +409,7 @@
 				client.screen -= seen
 
 		in_shadow = FALSE
+		sound_shutoff = FALSE
 		set_light(3, 2, l_color = "#00f7ff", angle = LIGHT_WIDE)
 		set_see_in_dark(initial(see_in_dark))
 		set_invisibility(0)
@@ -421,10 +431,10 @@
 
 /obj/effect/jeff_sounds/proc/animation()
 
-	animate(src, 0.5 SECOND, alpha = 255, flags = ANIMATION_PARALLEL)
-	animate(src, pixel_y = 96, alpha = 0, time = 1 SECONDS, easing = BOUNCE_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
+	animate(src, 1 SECOND, alpha = 255, flags = ANIMATION_PARALLEL)
+	animate(src, pixel_y = 96, alpha = 0, time = 5 SECONDS, easing = SINE_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
 
-	QDEL_IN(src, 1 SECONDS)
+	QDEL_IN(src, 6 SECONDS)
 
 /mob/living/simple_animal/metro_jeff/proc/show_awareness()
 

@@ -183,12 +183,13 @@
 	var/list/candidats = list()
 	var/area/metro/maintain/south/area = locate() in world
 	for(var/mob/living/carbon/human/H in area)
-		H.forceMove(get_turf(speaker))
-		H.forceMove(get_step(H, pick(GLOB.alldirs)))
 		candidats += H
 
 	speaker = pick(candidats)
 	candidats -= speaker
+	for(var/mob/living/carbon/human/H in candidats)
+		H.forceMove(get_turf(speaker))
+		H.forceMove(get_step(H, pick(GLOB.alldirs)))
 
 	var/message = {"<span style="color: yellow;">[speaker.name]</span>: Похоже, они лежат здесь уже некоторое время..."}
 
@@ -208,6 +209,8 @@
 			candidats -= speaker
 		else
 			for(var/mob/living/carbon/human/H in orange(30,speaker))
+				if(H == speaker)
+					continue
 				H.forceMove(get_turf(speaker))
 				H.forceMove(get_step(H, pick(GLOB.alldirs)))
 				candidats += H
@@ -258,14 +261,259 @@
 	name = "Прятки"
 	note_info = {"<br /> \
 				Некоторые объекты имеют достаточно пространства внутри, чтобы в них спрятался взрослый человек.<br /> \
-				Взаимодействуйте с ними так же, как и с любыми другими интерактивными элементами окружения -<br /> \
-				нажатием <b><span style="color: yellow;">...</span></b>"}
+				Взаимодействуйте с ними так же, как и с любыми другими интерактивными элементами окружения - нажатием <b><span style="color: yellow;">...</span></b>"}
 
 /datum/interactive_note/nightmare/tutorial_ooc_hiding/reveal_note_to_player(mob/living/user)
 	name = "Прятки"
 	note_info = {"<br /> \
 				Некоторые объекты имеют достаточно пространства внутри, чтобы в них спрятался взрослый человек.<br /> \
-				Взаимодействуйте с ними так же, как и с любыми другими интерактивными элементами окружения -<br /> \
-				нажатием <b><span style="color: yellow;">[user.retrieve_bind("start_interaction")]</span></b>"}
+				Взаимодействуйте с ними так же, как и с любыми другими интерактивными элементами окружения - нажатием <b><span style="color: yellow;">[user.retrieve_bind("start_interaction")]</span></b>"}
 
 	. = ..()
+
+/obj/item/grenade/flashbang/anti_jeff
+
+/obj/item/grenade/flashbang/anti_jeff/bang()
+	playsound(src.loc, 'sound/effects/bang.ogg', 50, 1, 30)
+
+	var/list/remove_overlay_later = list()
+	for(var/mob/living/H in view(src))
+		to_chat(H, SPAN_DANGER("BANG"))
+
+		if(istype(H,/mob/living/simple_animal/metro_jeff))
+			H.add_status_effect(/datum/simple_status/fixation/timed, 5 SECONDS)
+
+		H.overlay_fullscreen("flash",/obj/screen/fullscreen/blurry/camera)
+		remove_overlay_later += H
+
+	sleep(1 SECONDS)
+
+	for(var/mob/living/H in remove_overlay_later)
+		H.clear_fullscreen("flash")
+
+/obj/item/projectile/beam/midlaser/jeff_killer
+	simple_damage = 70
+
+	status_to_add = /datum/simple_status/fixation/timed
+	status_timer_to_add = 20 SECONDS
+	status_ignore_armor = TRUE
+
+/obj/item/fd/jeff_killer_gun_undeployed
+	icon = 'mods/_fd/_maps/metro/icons/cool_weapon.dmi'
+	icon_state = "weapon_undeployed"
+	slot_flags = SLOT_BACK
+
+	item_icons = list(
+		slot_back_str = 'mods/_fd/_maps/metro/icons/cool_weapon.dmi')
+	item_state_slots = list(
+		slot_back_str = "weapon_onback")
+
+	var/obj/structure/fd/interactive/jeff_killer_gun_deployed/inside_gun
+
+/obj/item/fd/jeff_killer_gun_undeployed/attack_self(mob/user)
+	. = ..()
+
+	deploy(user)
+
+/obj/item/fd/jeff_killer_gun_undeployed/proc/deploy(mob/living/caller)
+
+	if(!inside_gun)
+		inside_gun = new /obj/structure/fd/interactive/jeff_killer_gun_deployed(src)
+		inside_gun.inside_bag = src
+
+	inside_gun.forceMove(get_step(caller,caller.dir))
+	inside_gun.dir = caller.dir
+
+	caller.drop_from_inventory(src)
+	forceMove(inside_gun)
+
+/obj/structure/fd/interactive/jeff_killer_gun_deployed
+	icon = 'mods/_fd/_maps/metro/icons/cool_weapon.dmi'
+	icon_state = "weapon_deployed"
+
+	var/obj/item/fd/jeff_killer_gun_undeployed/inside_bag
+	var/mob/living/mob_in_charge
+	var/charging = FALSE
+
+	var/recharging = FALSE
+	var/recharge_time = 20
+
+/obj/structure/fd/interactive/jeff_killer_gun_deployed/Initialize()
+	. = ..()
+	START_PROCESSING(SSobj,src)
+
+/obj/structure/fd/interactive/jeff_killer_gun_deployed/Process()
+	if(mob_in_charge)
+		update_direction()
+
+	if(recharging && recharge_time > 0)
+		recharge_time -= 1
+		maptext = STYLE_SMALLFONTS_OUTLINE("recharge_time", 7, COLOR_WHITE, COLOR_BLACK)
+
+	if(recharge_time <= 0 && recharging)
+		remove_filter("baked")
+		remove_filter("baked_outline")
+
+		maptext = ""
+		recharge_time = initial(recharge_time)
+		recharging = FALSE
+
+/obj/structure/fd/interactive/jeff_killer_gun_deployed/attack_hand(mob/living/user)
+	. = ..()
+	if(mob_in_charge)
+		mob_in_charge.forceMove(get_step(src,reverse_direction(dir)))
+		mob_in_charge.anchored = FALSE
+
+		mob_in_charge = null
+
+/obj/structure/fd/interactive/jeff_killer_gun_deployed/interact_with(mob/living/carbon/human/user)
+
+	if(recharging)
+		desc_special = {"Пушка ещё <b><span style="color: red;">не остыла</span></b>!"}
+		desc_special_show = TRUE
+		. = ..()
+
+		desc_special_show = FALSE
+		return TRUE
+
+	if(charging)
+		if(mob_in_charge == user)
+			charging = FALSE
+			return TRUE
+
+		desc_special = {"<b><span style="color: red;">Сейчас пушку лучше не трогать!</span></b>"}
+		desc_special_show = TRUE
+		. = ..()
+
+		desc_special_show = FALSE
+		return TRUE
+
+	if(!charging)
+		if(mob_in_charge)
+			start_chagring()
+			return TRUE
+
+		var/list/options = list(
+			"ВСТАТЬ ЗА ПУШКУ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "radial_damage"),
+			"СОБРАТЬ ПУШКУ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "radial_damage"),
+		)
+		var/chosen_option = show_radial_menu(user, src, options, radius = 25, require_near = TRUE)
+		if(!chosen_option)
+			return 0
+		switch(chosen_option)
+			if("ВСТАТЬ ЗА ПУШКУ")
+				put_mob_in_charge(user)
+				return TRUE
+			if("СОБРАТЬ ПУШКУ")
+				undeploy(user)
+				return TRUE
+
+/obj/structure/fd/interactive/jeff_killer_gun_deployed/proc/try_to_fire()
+	if(!charging)
+		return
+
+	remove_filter("charging")
+	remove_filter("charging2")
+	remove_filter("charging3")
+	remove_filter("charging4")
+	remove_filter("charging5")
+
+	var/recoil_angle = SIMPLIFY_DEGREES(Get_Angle(get_step(mob_in_charge, mob_in_charge.dir), mob_in_charge) + 90)
+	recoil_camera(mob_in_charge, 5, recoil_angle, 2)
+
+	var/obj/item/projectile/pew
+	var/pew_sound
+
+	pew = new /obj/item/projectile/beam/midlaser/jeff_killer(get_turf(src))
+	pew_sound = 'sound/weapons/railgun.ogg'
+
+	var/atom/target = get_turf(get_step(src, dir))
+
+	if(istype(pew))
+		playsound(pew.loc, pew_sound, 50, 1)
+		pew.original = target
+		pew.current = target
+		pew.starting = get_turf(src)
+		pew.shot_from = src
+		pew.launch(target)
+
+	recharging = TRUE
+	add_filter("baked", 1, list("type" = "blur", "size" = 0))
+	add_filter("baked_outline", 1, list("type" = "outline", , "size" = 0, "color" = COLOR_RED))
+	animate(get_filter("baked"), size = 1, time = 0.5 SECONDS, LINEAR_EASING, ANIMATION_PARALLEL)
+	animate(get_filter("baked_outline"), size = 1, time = 0.5 SECONDS, LINEAR_EASING, ANIMATION_PARALLEL)
+
+/obj/structure/fd/interactive/jeff_killer_gun_deployed/proc/cancel_charging()
+	remove_filter("charging")
+	remove_filter("charging2")
+	remove_filter("charging3")
+	remove_filter("charging4")
+	remove_filter("charging5")
+
+/obj/structure/fd/interactive/jeff_killer_gun_deployed/proc/start_chagring()
+	charging = TRUE
+	addtimer(new Callback(src, PROC_REF(try_to_fire)), 10 SECONDS)
+
+	if(!charging)
+		cancel_charging()
+		return
+
+	add_filter("charging", 1, list("type" = "outline", , "size" = 1, "color" = COMMS_COLOR_ICCG))
+	spawn(2 SECONDS)
+		if(!charging)
+			cancel_charging()
+			return
+		add_filter("charging2", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_RED))
+	spawn(4 SECONDS)
+		if(!charging)
+			cancel_charging()
+			return
+		add_filter("charging3", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_ORANGE))
+	spawn(6 SECONDS)
+		if(!charging)
+			cancel_charging()
+			return
+		add_filter("charging4", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_YELLOW))
+	spawn(8 SECONDS)
+		if(!charging)
+			cancel_charging()
+			return
+		add_filter("charging5", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_GREEN))
+
+/obj/structure/fd/interactive/jeff_killer_gun_deployed/proc/put_mob_in_charge(mob/living/in_charge)
+	in_charge.forceMove(get_turf(src))
+	in_charge.anchored = TRUE
+
+	mob_in_charge = in_charge
+	update_direction()
+
+/obj/structure/fd/interactive/jeff_killer_gun_deployed/proc/update_direction()
+	switch(mob_in_charge.dir)
+		if(SOUTH)
+			layer = 4.10
+			dir = SOUTH
+			mob_in_charge.pixel_y = 10
+			mob_in_charge.pixel_x = 0
+		if(NORTH)
+			layer = initial(layer)
+			dir = NORTH
+			mob_in_charge.pixel_y = -10
+			mob_in_charge.pixel_x = 0
+		if(WEST)
+			layer = initial(layer)
+			dir = WEST
+			mob_in_charge.pixel_y = 0
+			mob_in_charge.pixel_x = 10
+		if(EAST)
+			layer = initial(layer)
+			dir = EAST
+			mob_in_charge.pixel_y = 0
+			mob_in_charge.pixel_x = -10
+
+/obj/structure/fd/interactive/jeff_killer_gun_deployed/proc/undeploy(mob/living/caller)
+	if(!inside_bag)
+		inside_bag = new /obj/item/fd/jeff_killer_gun_undeployed(src)
+		inside_bag.inside_gun = src
+
+	caller.put_in_active_hand(inside_bag)
+	forceMove(inside_bag)

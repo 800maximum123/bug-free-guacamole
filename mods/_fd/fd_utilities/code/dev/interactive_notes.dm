@@ -150,7 +150,6 @@
 	. = ..()
 
 /datum/interactive_note/proc/reveal_note_to_player(mob/living/user)
-	user.generate_binds()
 	user.reading = TRUE
 
 	user.overlay_fullscreen("background_note", note_overlay)

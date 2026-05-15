@@ -586,6 +586,10 @@
 	owner.remove_filter("anchored")
 	owner.anchored = FALSE
 
+/datum/simple_status/fixation/timed
+	status_type = STATUS_EFFECT_REFRESH
+	duration = 0
+
 /datum/simple_status/attack_speed_buff
 	name = "Бафф скорости атаки"
 	desc_text = null

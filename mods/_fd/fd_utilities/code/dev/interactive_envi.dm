@@ -161,6 +161,8 @@
 	var/mob/living/M = user.mob
 	var/atom/choosen_atom
 
+	M.generate_binds()
+
 	var/turf/T = get_turf(get_step(M, M.dir))
 	for(var/atom/I in T)
 		if(!I.interactive)
