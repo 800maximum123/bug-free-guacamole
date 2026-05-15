@@ -39,7 +39,7 @@
 
 /datum/interactive_note/lvl2/warehouse/password
 	name = "Запреты"
-	note_info = {"Кто-то начал воровать электроннику и инструменты из неремотнопригодных. Оставшие завхоз запер в кладе на кодовый замок. Ну хоть от первого хранилища пароль он выдал - <span style="color: yellow;" Восемь Шесть Четыре Пять </span>". <br>
+	note_info = {"Кто-то начал воровать электроннику и инструменты из неремотнопригодных. Оставшие завхоз запер в кладе на кодовый замок. Ну хоть от первого хранилища пароль он выдал - <span style="color: yellow;"> Восемь Шесть Четыре Пять </span>. <br>
 	 Второй он запечатал и отправил Джейку в серверную. Старый подозревает вообще кого угодно? Если электрики попросят новые предохранители - пусть сами идут к нему и разбираются почему остальные под замком"}
 
 /obj/structure/fd/interactive/note/lvl2/warehouse/toilet
@@ -52,7 +52,7 @@
 
 /datum/interactive_note/lvl2/warehouse/password/toilet_2
 	name = "Пароли"
-	note_info = {"От█ел: <span style="color: yellow;" Снабжение и Транспортировка </span>" <br> Сотруд█ик: Джеймс Ма█ Коды: 19█8 - █аш личный код <span style="color: yellow;">1</span>███ - нас█с███ комната и сп█ск█ ш█хты"}
+	note_info = {"От█ел: <span style="color: yellow;"> Снабжение и Транспортировка </span> <br> Сотруд█ик: Джеймс Ма█ Коды: 19█8 - █аш личный код <span style="color: yellow;">1</span>███ - нас█с███ комната и сп█ск█ ш█хты"}
 
 
 //eng
@@ -75,6 +75,42 @@
 	name = "Лазерная пушка???"
 	note_info = {"Какого, блядь, хуя вы притащили эту ебаную ЛАЗЕРНУЮ ПУШКУ из оборонительной башни??? Нет, сука, даже не так: КАКИМ ОБРАЗОМ вы её принесли? Почему, блять, охрана вообще пропустила вас вниз, будто вы свои, сука, кровные родственники?! Ладно бы это, но ВЫ, да ВЫ-Ы-Ы, НИ-ХУ-Я не соизволили сообщить об этом майору Стоуну! Как у вас вообще хватило мозгов (или их полного отсутствия) использовать боевое орудие, заточенное на выжигание вражеских истребителей и штурмовиков, для вскапывания этой хреновой ПОРОДЫ ТРК-17?!?!?! Вы вообще отдаёте отчёт, на какую статью тянет ваша «самодеятельность» и сколько вы сейчас всем нам создали проблем?! <br>
 	36 Группа отстранена от любых работ, связанных с техникой и шахтёрским оборудованием, до вынесения решения вышестоящих инстанций. Ждите. И надейтесь, что с вас просто снимут допуск, а не отправят лично в руки майора."}
+
+
+/datum/interactive_note/lvl3/laser/reveal_note_to_player(mob/living/user)
+	user.reading = TRUE
+
+	user.overlay_fullscreen("background_note", note_overlay)
+	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
+
+	if(connected_note)
+		if(!connected_note.ci)
+			connected_note.ci = new /obj/screen/cancel_interaction()
+
+		connected_note.ci.connected_mob = user
+		user.client.screen += connected_note.ci
+		animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+
+	spawn(0.5 SECONDS)
+
+		var/message = "[note_info]"
+		var/message_name = "[name]"
+
+		var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+		var/obj/screen/novel_message/note_name/nameplate = new /obj/screen/novel_message/note_name()
+		maintext.layer = 5.4
+		nameplate.layer = 5.4
+
+		nameplate.maptext_x = -75
+		nameplate.maptext_y = -15
+		maintext.maptext_x = 0
+		maintext.maptext_y = -300
+
+		user.client.screen += maintext
+		user.client.screen += nameplate
+		maintext.set_text(message, COLOR_WHITE)
+		nameplate.set_text(message_name, COLOR_WHITE)
+
 
 
 
