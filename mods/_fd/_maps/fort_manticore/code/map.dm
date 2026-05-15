@@ -343,6 +343,10 @@
 		SKILL_CHEMISTRY = SKILL_MAX
 	)
 
+/datum/job/submap/fort_manticore/post_equip_rank(mob/living/person, alt_title)
+	. = ..()
+	person.generate_binds()
+
 /singleton/hierarchy/outfit/fort_manticore
 	name = "Default Fort Appearance"
 

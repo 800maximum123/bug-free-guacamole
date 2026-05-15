@@ -562,6 +562,10 @@
 		SKILL_CHEMISTRY = SKILL_MAX
 	)
 
+/datum/job/submap/bunker/post_equip_rank(mob/living/person, alt_title)
+	. = ..()
+	person.generate_binds()
+
 /singleton/hierarchy/outfit/bunker
 	name = "Default Bunker Appearance"
 
