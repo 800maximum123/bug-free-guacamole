@@ -874,3 +874,5 @@
 
 /obj/submap_landmark/spawnpoint/lira
 	name = "Lira Schatten"
+
+#include "..\map\bunker.dmm"
