@@ -43,7 +43,10 @@
 			user.Weaken(10)
 
 			if(has_fall_damage)
-				user.apply_damage(fall_damage_amount, DAMAGE_BRUTE)
+				if(user.simple_combat_on)
+					user.simple_health_calculation(fall_damage_amount, 0, 0, 0, null, /datum/simple_status/legbroke, 1)
+				else
+					user.apply_damage(fall_damage_amount, DAMAGE_BRUTE)
 
 /obj/structure/fd/chasm/Process()
 	for(var/mob/living/A in get_turf(src))

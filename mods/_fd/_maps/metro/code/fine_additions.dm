@@ -182,10 +182,16 @@
 	var/mob/living/speaker
 	var/list/candidats = list()
 	var/area/metro/maintain/south/area = locate() in world
+
 	for(var/mob/living/carbon/human/H in area)
 		candidats += H
 
-	speaker = pick(candidats)
+	for(var/obj/structure/fd/mapping/cutscene_trigger/C in world)
+		if(C.trigger_id == "metro2")
+			for(var/mob/living/carbon/human/H in range(10,C))
+				if(!speaker)
+					speaker = H
+
 	candidats -= speaker
 	for(var/mob/living/carbon/human/H in candidats)
 		H.forceMove(get_turf(speaker))
@@ -281,7 +287,7 @@
 		to_chat(H, SPAN_DANGER("BANG"))
 
 		if(istype(H,/mob/living/simple_animal/metro_jeff))
-			H.add_status_effect(/datum/simple_status/fixation/timed, 5 SECONDS)
+			H.add_status_effect(/datum/simple_status/fixation/timed, 10 SECONDS)
 
 		H.overlay_fullscreen("flash",/obj/screen/fullscreen/blurry/camera)
 		remove_overlay_later += H
@@ -313,7 +319,8 @@
 /obj/item/fd/jeff_killer_gun_undeployed/attack_self(mob/user)
 	. = ..()
 
-	deploy(user)
+	if(do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
+		deploy(user)
 
 /obj/item/fd/jeff_killer_gun_undeployed/proc/deploy(mob/living/caller)
 
@@ -348,11 +355,10 @@
 
 	if(recharging && recharge_time > 0)
 		recharge_time -= 1
-		maptext = STYLE_SMALLFONTS_OUTLINE("recharge_time", 7, COLOR_WHITE, COLOR_BLACK)
+		maptext = STYLE_SMALLFONTS_OUTLINE("[recharge_time]", 7, COLOR_WHITE, COLOR_BLACK)
 
 	if(recharge_time <= 0 && recharging)
 		remove_filter("baked")
-		remove_filter("baked_outline")
 
 		maptext = ""
 		recharge_time = initial(recharge_time)
@@ -364,6 +370,9 @@
 		mob_in_charge.forceMove(get_step(src,reverse_direction(dir)))
 		mob_in_charge.anchored = FALSE
 
+		mob_in_charge.pixel_y = 0
+		mob_in_charge.pixel_x = 0
+
 		mob_in_charge = null
 
 /obj/structure/fd/interactive/jeff_killer_gun_deployed/interact_with(mob/living/carbon/human/user)
@@ -373,6 +382,8 @@
 		desc_special_show = TRUE
 		. = ..()
 
+		if(mob_in_charge == user)
+			mob_in_charge.anchored = TRUE
 		desc_special_show = FALSE
 		return TRUE
 
@@ -394,8 +405,8 @@
 			return TRUE
 
 		var/list/options = list(
-			"ВСТАТЬ ЗА ПУШКУ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "radial_damage"),
-			"СОБРАТЬ ПУШКУ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "radial_damage"),
+			"ВСТАТЬ ЗА ПУШКУ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "radial_use"),
+			"СОБРАТЬ ПУШКУ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "radial_pickup"),
 		)
 		var/chosen_option = show_radial_menu(user, src, options, radius = 25, require_near = TRUE)
 		if(!chosen_option)
@@ -405,8 +416,9 @@
 				put_mob_in_charge(user)
 				return TRUE
 			if("СОБРАТЬ ПУШКУ")
-				undeploy(user)
-				return TRUE
+				if(do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
+					undeploy(user)
+					return TRUE
 
 /obj/structure/fd/interactive/jeff_killer_gun_deployed/proc/try_to_fire()
 	if(!charging)
@@ -438,10 +450,14 @@
 		pew.launch(target)
 
 	recharging = TRUE
-	add_filter("baked", 1, list("type" = "blur", "size" = 0))
-	add_filter("baked_outline", 1, list("type" = "outline", , "size" = 0, "color" = COLOR_RED))
-	animate(get_filter("baked"), size = 1, time = 0.5 SECONDS, LINEAR_EASING, ANIMATION_PARALLEL)
-	animate(get_filter("baked_outline"), size = 1, time = 0.5 SECONDS, LINEAR_EASING, ANIMATION_PARALLEL)
+	add_filter("baked_outline", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_RED))
+
+	for(var/i=1, i<=2, i++)
+		var/obj/effect/smoke/illumination/flare/flare = new /obj/effect/smoke/illumination/flare(src.loc, rand(10,20), range = 0, power = 0, color = null)
+		flare.pixel_x = rand(-5,5)
+		flare.pixel_y = rand(0,15)
+
+	charging = FALSE
 
 /obj/structure/fd/interactive/jeff_killer_gun_deployed/proc/cancel_charging()
 	remove_filter("charging")
@@ -458,27 +474,27 @@
 		cancel_charging()
 		return
 
-	add_filter("charging", 1, list("type" = "outline", , "size" = 1, "color" = COMMS_COLOR_ICCG))
+	add_filter("charging", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_YELLOW))
 	spawn(2 SECONDS)
 		if(!charging)
 			cancel_charging()
 			return
-		add_filter("charging2", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_RED))
+		add_filter("charging2", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_ORANGE))
 	spawn(4 SECONDS)
 		if(!charging)
 			cancel_charging()
 			return
-		add_filter("charging3", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_ORANGE))
+		add_filter("charging3", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_RED))
 	spawn(6 SECONDS)
 		if(!charging)
 			cancel_charging()
 			return
-		add_filter("charging4", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_YELLOW))
+		add_filter("charging4", 1, list("type" = "outline", , "size" = 1, "color" = COMMS_COLOR_ICCG))
 	spawn(8 SECONDS)
 		if(!charging)
 			cancel_charging()
 			return
-		add_filter("charging5", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_GREEN))
+		add_filter("charging5", 1, list("type" = "outline", , "size" = 1, "color" = COMMS_COLOR_BEARCAT))
 
 /obj/structure/fd/interactive/jeff_killer_gun_deployed/proc/put_mob_in_charge(mob/living/in_charge)
 	in_charge.forceMove(get_turf(src))
@@ -492,22 +508,22 @@
 		if(SOUTH)
 			layer = 4.10
 			dir = SOUTH
-			mob_in_charge.pixel_y = 10
-			mob_in_charge.pixel_x = 0
+			mob_in_charge.pixel_y = 16
+			mob_in_charge.pixel_x = 10
 		if(NORTH)
 			layer = initial(layer)
 			dir = NORTH
-			mob_in_charge.pixel_y = -10
-			mob_in_charge.pixel_x = 0
+			mob_in_charge.pixel_y = -16
+			mob_in_charge.pixel_x = -10
 		if(WEST)
 			layer = initial(layer)
 			dir = WEST
-			mob_in_charge.pixel_y = 0
+			mob_in_charge.pixel_y = -10
 			mob_in_charge.pixel_x = 10
 		if(EAST)
-			layer = initial(layer)
+			layer = 4.10
 			dir = EAST
-			mob_in_charge.pixel_y = 0
+			mob_in_charge.pixel_y = 10
 			mob_in_charge.pixel_x = -10
 
 /obj/structure/fd/interactive/jeff_killer_gun_deployed/proc/undeploy(mob/living/caller)

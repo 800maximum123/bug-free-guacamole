@@ -41,8 +41,8 @@
 			var/obj/item/organ/internal/cell/E = H.internal_organs_by_name[BP_CELL]
 
 			if(A.unbreathable)
-				if(E && E.cell.charge >= 10)
-					E.cell.charge -= 10
+				if(E && E.cell.charge >= 5)
+					E.cell.charge -= 5
 					//H.recalculate_reality_connection(0.1) // УДАЛИТЬ ПОТОМ
 				else
 

@@ -234,7 +234,7 @@
 /mob/living/simple_animal/metro_jeff
 	name = "abomination"
 	desc = "Do NOT come close."
-	pixel_x = -16
+	bound_x = -16
 
 	icon = 'mods/_fd/_maps/metro/icons/jeff.dmi'
 	icon_state = "jeff"
@@ -337,6 +337,10 @@
 	update_loopsound()
 	layer = 4.11
 
+	if(in_shadow)
+		plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		set_see_in_dark(5)
+
 	if(!aggro_state && !sound_shutoff)
 		if(next_random_sound_in > 0)
 			next_random_sound_in -= 1
@@ -381,7 +385,7 @@
 		QDEL_NULL(sound_token)
 
 /mob/living/simple_animal/metro_jeff/proc/change_monster_vis()
-	if(!in_shadow && !aggro_state)
+	if(!in_shadow)
 		if(client)
 			client.screen += seen
 			animate(seen, alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
@@ -392,8 +396,13 @@
 
 		in_shadow = TRUE
 		sound_shutoff = TRUE
+
+		density = FALSE
+
+		aggro_state = FALSE
+		movement_cooldown = 6
+
 		set_light(0)
-		set_see_in_dark(7)
 		set_invisibility(INVISIBILITY_OBSERVER)
 		AddMovementHandler(/datum/movement_handler/mob/incorporeal)
 		add_filter("invisible_monster", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_WHITE))
@@ -408,10 +417,13 @@
 			spawn(3.5 SECONDS)
 				client.screen -= seen
 
+		plane = initial(plane)
+
+		density = TRUE
+
 		in_shadow = FALSE
 		sound_shutoff = FALSE
 		set_light(3, 2, l_color = "#00f7ff", angle = LIGHT_WIDE)
-		set_see_in_dark(initial(see_in_dark))
 		set_invisibility(0)
 		RemoveMovementHandler(/datum/movement_handler/mob/incorporeal)
 		remove_filter("invisible_monster")

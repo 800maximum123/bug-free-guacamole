@@ -421,6 +421,8 @@
 	owner.overlay_fullscreen("dead",/obj/screen/fullscreen/underworld_vision)
 	animate(owner, transform = matrix(90, MATRIX_ROTATE), time = 5, easing = SINE_EASING|EASE_IN)
 
+	owner.density = FALSE
+
 	new /obj/effect/simple_combat_particle/downed(owner.loc)
 
 	owner.add_filter("wounded", 1, list("type" = "outline", , "size" = 0, "color" = COLOR_RED))
@@ -438,6 +440,8 @@
 
 /datum/simple_status/crit/on_remove()
 	. = ..()
+
+	owner.density = initial(owner.density)
 
 	owner.animate_filter("wounded", list(time = 10, size = 0))
 	spawn(5)
@@ -484,6 +488,9 @@
 
 	owner.can_speak = TRUE
 	owner.SetWeakened(0)
+
+	owner.RemoveMovementHandler(/datum/movement_handler/mob/delay)
+	owner.AddMovementHandler(/datum/movement_handler/mob/delay)
 
 	if(!owner.stabilized)
 		owner.adjustOxyLoss(owner.maxHealth)
