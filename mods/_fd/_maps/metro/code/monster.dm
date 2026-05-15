@@ -246,6 +246,14 @@
 	var/obj/screen/visibility_status/seen
 	natural_weapon = /obj/item/natural_weapon/claws/metro_jeff
 
+	can_be_buckled = FALSE
+	mob_size = MOB_LARGE
+
+	mob_bump_flag = HEAVY
+	mob_swap_flags = HEAVY
+	mob_push_flags = ALLMOBS
+	can_escape = TRUE
+
 	var/loop_sound = 'mods/_fd/_maps/metro/jeff_sounds/ambience/body_loop_close.wav'
 	var/datum/sound_token/sound_token
 	var/sound_id
