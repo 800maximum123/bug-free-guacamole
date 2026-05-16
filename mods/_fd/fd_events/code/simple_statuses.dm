@@ -47,17 +47,18 @@
 	healthinfo.maptext_height = 192
 	healthinfo.maptext_width = 192
 
+	var/health_percentage = (A.simple_health / A.max_simple_health) * 100.0
 	healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("|Здоров|<br>", 7, COLOR_LIME, COLOR_BLACK)
 
-	if(A.simple_health < A.max_simple_health && A.simple_health > A.max_simple_health / 1.2)
+	if(health_percentage < 100 && health_percentage >= 81)
 		healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("|Слегка потрёпан|<br>", 7, COLOR_GREEN, COLOR_BLACK)
-	if(A.simple_health < A.max_simple_health / 1.2 && A.simple_health > A.max_simple_health / 1.5)
+	if(health_percentage <= 80 && health_percentage >= 51)
 		healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("|Выглядит неважно|<br>", 7, COLOR_GOLD, COLOR_BLACK)
-	if(A.simple_health < A.max_simple_health / 1.5 && A.simple_health > A.max_simple_health / 2)
+	if(health_percentage <= 50 && health_percentage >= 31)
 		healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("|Ранен|<br>", 7, COLOR_SUN, COLOR_BLACK)
-	if(A.simple_health < A.max_simple_health / 2 && A.simple_health > A.max_simple_health / 4)
+	if(health_percentage <= 30 && health_percentage >= 15)
 		healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("|Тяжело ранен|<br>", 7, COLOR_RED, COLOR_BLACK)
-	if(A.simple_health < A.max_simple_health / 4 && A.simple_health > A.max_simple_health / 8)
+	if(health_percentage <= 14 && health_percentage > 0)
 		healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("|При смерти!|<br>", 7, COMMS_COLOR_ICCG, COLOR_BLACK)
 	if(A.simple_health <= 0)
 		healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("|. . .|<br><br>", 7, COMMS_COLOR_ICCG, COLOR_BLACK)
@@ -419,9 +420,9 @@
 
 	owner.appearance_flags |= KEEP_TOGETHER
 	owner.overlay_fullscreen("dead",/obj/screen/fullscreen/underworld_vision)
-	animate(owner, transform = matrix(90, MATRIX_ROTATE), time = 5, easing = SINE_EASING|EASE_IN)
 
-	owner.density = FALSE
+	owner.resting = TRUE
+	owner.UpdateLyingBuckledAndVerbStatus()
 
 	new /obj/effect/simple_combat_particle/downed(owner.loc)
 
@@ -433,7 +434,8 @@
 /datum/simple_status/crit/tick()
 	. = ..()
 
-	owner.SetTransform(1,0,0,90)
+	owner.resting = TRUE
+	owner.UpdateLyingBuckledAndVerbStatus()
 
 	if(!owner.get_filter("wounded"))
 		owner.add_filter("wounded", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_RED))
@@ -441,14 +443,13 @@
 /datum/simple_status/crit/on_remove()
 	. = ..()
 
-	owner.density = initial(owner.density)
+	owner.resting = FALSE
 
 	owner.animate_filter("wounded", list(time = 10, size = 0))
 	spawn(5)
 		owner.remove_filter("wounded")
 
 	owner.clear_fullscreen("dead")
-	animate(owner, transform = matrix(0, MATRIX_ROTATE), time = 5, easing = SINE_EASING|EASE_IN)
 
 /datum/simple_status/hardcrit
 	name = "Умирает"
@@ -468,12 +469,18 @@
 	owner.update_client_color()
 
 	owner.can_speak = FALSE
-	owner.SetWeakened(999)
+	owner.resting = TRUE
+	owner.UpdateLyingBuckledAndVerbStatus()
+
+	owner.Stun(999)
 
 	owner.add_filter("dead", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_BLACK))
 
 /datum/simple_status/hardcrit/tick()
 	. = ..()
+
+	owner.resting = TRUE
+	owner.UpdateLyingBuckledAndVerbStatus()
 
 	if(!owner.get_filter("dead"))
 		owner.add_filter("dead", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_BLACK))
@@ -487,10 +494,8 @@
 	owner.update_client_color()
 
 	owner.can_speak = TRUE
-	owner.SetWeakened(0)
-
-	owner.RemoveMovementHandler(/datum/movement_handler/mob/delay)
-	owner.AddMovementHandler(/datum/movement_handler/mob/delay)
+	owner.resting = FALSE
+	owner.SetStunned(0)
 
 	if(!owner.stabilized)
 		owner.adjustOxyLoss(owner.maxHealth)

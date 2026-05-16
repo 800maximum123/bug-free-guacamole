@@ -1,6 +1,8 @@
 /obj/screen/novel_message/note_name
 	alpha = 255
 
+/obj/screen/player_message/note_text
+
 /obj/screen/novel_message/note_name/set_text(text, text_color)
 	SetTransform(3)
 	maptext = "<span class='maptext' style='text-align: center; font-size: 300%; color: [text_color]'>[text]</span>"
@@ -168,7 +170,7 @@
 		var/message = "[note_info]"
 		var/message_name = "[name]"
 
-		var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+		var/obj/screen/player_message/note_text/maintext = new /obj/screen/player_message/note_text()
 		var/obj/screen/novel_message/note_name/nameplate = new /obj/screen/novel_message/note_name()
 		maintext.layer = 5.4
 		nameplate.layer = 5.4
@@ -201,7 +203,7 @@
 		animate(connected_note.ci, transform = matrix(0, 0, MATRIX_TRANSLATE), alpha = 0, time = 3, easing = SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
 
 	for(var/obj/screen/messages in user.client.screen)
-		if(istype(messages, /obj/screen/player_message))
+		if(istype(messages, /obj/screen/player_message/note_text))
 			user.client.screen -= messages
 			qdel(messages)
 		if(istype(messages, /obj/screen/novel_message/note_name))

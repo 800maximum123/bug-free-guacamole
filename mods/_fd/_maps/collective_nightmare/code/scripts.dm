@@ -40,6 +40,8 @@
 	else
 		specific_mob.forceMove(get_turf(pick(tp_points)))
 
+/obj/screen/player_message/mail
+
 /obj/effect/add_note
 	name = "note adder"
 	desc = "note adder"
@@ -67,7 +69,7 @@
 
 			var/message = {"<b><span style="color: yellow;">В архив добавлена новая запись!</span></b>"}
 
-			var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+			var/obj/screen/player_message/mail/maintext = new /obj/screen/player_message/mail()
 			maintext.plane = HUD_PLANE
 			maintext.layer = HUD_ABOVE_HUD_LAYER
 			maintext.maptext_x = 0
@@ -79,7 +81,7 @@
 
 /obj/effect/add_note/proc/remove_message(mob/living/user)
 	for(var/obj/screen/messages in user.client.screen)
-		if(istype(messages, /obj/screen/player_message))
+		if(istype(messages, /obj/screen/player_message/mail))
 			user.client.screen -= messages
 			qdel(messages)
 

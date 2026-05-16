@@ -100,6 +100,8 @@
 	if(isliving(M) && M != jeff && !triggered)
 		if(jeff.client)
 			jeff.client.screen += tp_button
+			tp_button.maptext = STYLE_SMALLFONTS_OUTLINE("<center>[name]</center>", 7, COLOR_WHITE, COLOR_BLACK)
+			tp_button.maptext_x = 10
 			animate(tp_button, alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
 
 		new /obj/effect/trap_triggered(get_turf(src))
@@ -234,7 +236,7 @@
 /mob/living/simple_animal/metro_jeff
 	name = "abomination"
 	desc = "Do NOT come close."
-	bound_x = -16
+	pixel_x = -16
 
 	icon = 'mods/_fd/_maps/metro/icons/jeff.dmi'
 	icon_state = "jeff"
@@ -245,6 +247,9 @@
 	var/list/obj/hidespots = list()
 	var/obj/screen/visibility_status/seen
 	natural_weapon = /obj/item/natural_weapon/claws/metro_jeff
+
+	can_pry = TRUE
+	pry_time = 5 SECONDS
 
 	can_be_buckled = FALSE
 	mob_size = MOB_LARGE
@@ -344,10 +349,19 @@
 
 	update_loopsound()
 	layer = 4.11
+	pixel_x = -16
 
 	if(in_shadow)
+		layer = SPEECH_INDICATOR_LAYER
 		plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		set_see_in_dark(5)
+
+	if(!in_shadow)
+		for(var/mob/living/carbon/human/psionics in range(7,src))
+			if(!psionics.psi)
+				continue
+			if(psionics.psi.stamina > 10)
+				psionics.psi.stamina = max(0, psionics.psi.stamina - rand(15,20))
 
 	if(!aggro_state && !sound_shutoff)
 		if(next_random_sound_in > 0)

@@ -55,7 +55,7 @@
 						if(currently_stored_air <= 0)
 							emote("gasp")
 							if(simple_combat_on)
-								simple_health_calculation(5, 0, 0, 0)
+								simple_health_calculation(2, 0, 0, 0)
 							else
 								apply_damage(10, A.damage_type)
 								//H.recalculate_reality_connection(0.1) // УДАЛИТЬ ПОТОМ
@@ -147,11 +147,11 @@
 			else
 				current_status = "gas_full"
 
-		AddOverlays(image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status), ATOM_ICON_CACHE_ALL)
+		AddOverlays(image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status))
 
 /obj/item/clothing/mask/gas/MouseExited(location, control, params)
 	. = ..()
-	CutOverlays(image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status), ATOM_ICON_CACHE_ALL)
+	CutOverlays(image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status))
 
 /obj/item/clothing/mask/gas/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	. = ..()
@@ -163,6 +163,9 @@
 			return FALSE
 
 		if(do_after(user, 5 SECONDS, F, DO_PUBLIC_UNIQUE))
+			F.CutOverlays(image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', F.current_status))
+			CutOverlays(image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status))
+
 			visible_message("[user] наполняет фильтр используя [F].", "Ты наполнил фильтр [src].")
 			playsound(user, 'sound/effects/refill.ogg', 50)
 
@@ -203,11 +206,11 @@
 			if(41 to 50)
 				current_status = "gas_full"
 
-		AddOverlays(image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status), ATOM_ICON_CACHE_ALL)
+		AddOverlays(image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status))
 
 /obj/item/fd/filter/MouseExited(location, control, params)
 	. = ..()
-	CutOverlays(image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status), ATOM_ICON_CACHE_ALL)
+	CutOverlays(image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status))
 
 // Gasmask overlay stuff
 

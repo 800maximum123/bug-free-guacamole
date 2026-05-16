@@ -358,7 +358,7 @@
 		maptext = STYLE_SMALLFONTS_OUTLINE("[recharge_time]", 7, COLOR_WHITE, COLOR_BLACK)
 
 	if(recharge_time <= 0 && recharging)
-		remove_filter("baked")
+		remove_filter("baked_outline")
 
 		maptext = ""
 		recharge_time = initial(recharge_time)
@@ -401,6 +401,7 @@
 
 	if(!charging)
 		if(mob_in_charge)
+			playsound(user, 'sound/items/shuttle_beacon_complete.ogg', 100)
 			start_chagring()
 			return TRUE
 
@@ -424,20 +425,20 @@
 	if(!charging)
 		return
 
-	remove_filter("charging")
-	remove_filter("charging2")
-	remove_filter("charging3")
-	remove_filter("charging4")
+	playsound(src, 'sound/mecha/nominal.ogg', 100)
+
+	sleep(2.5 SECONDS)
 	remove_filter("charging5")
 
-	var/recoil_angle = SIMPLIFY_DEGREES(Get_Angle(get_step(mob_in_charge, mob_in_charge.dir), mob_in_charge) + 90)
-	recoil_camera(mob_in_charge, 5, recoil_angle, 2)
+	if(mob_in_charge)
+		var/recoil_angle = SIMPLIFY_DEGREES(Get_Angle(get_step(mob_in_charge, mob_in_charge.dir), mob_in_charge) + 90)
+		recoil_camera(mob_in_charge, 5, recoil_angle, 2)
 
 	var/obj/item/projectile/pew
 	var/pew_sound
 
 	pew = new /obj/item/projectile/beam/midlaser/jeff_killer(get_turf(src))
-	pew_sound = 'sound/weapons/railgun.ogg'
+	pew_sound = 'sound/machines/disperser_fire.ogg'
 
 	var/atom/target = get_turf(get_step(src, dir))
 
@@ -452,10 +453,24 @@
 	recharging = TRUE
 	add_filter("baked_outline", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_RED))
 
-	for(var/i=1, i<=2, i++)
-		var/obj/effect/smoke/illumination/flare/flare = new /obj/effect/smoke/illumination/flare(src.loc, rand(10,20), range = 0, power = 0, color = null)
-		flare.pixel_x = rand(-5,5)
-		flare.pixel_y = rand(0,15)
+	for(var/i=1, i<=3, i++)
+		var/obj/particle_emitter/smoke/flare = new /obj/particle_emitter/smoke(src.loc, recharge_time)
+		var/rand_x = rand(-2,2)
+		var/rand_y = rand(-2,2)
+
+		switch(dir)
+			if(SOUTH)
+				flare.pixel_y = -6 + rand_y
+				flare.pixel_x = rand_x
+			if(NORTH)
+				flare.pixel_y = 12 + rand_y
+				flare.pixel_x = rand_x
+			if(WEST)
+				flare.pixel_y = 8 + rand_y
+				flare.pixel_x = -12 + rand_x
+			if(EAST)
+				flare.pixel_y = 8 + rand_y
+				flare.pixel_x = 12 + rand_x
 
 	charging = FALSE
 
@@ -474,26 +489,35 @@
 		cancel_charging()
 		return
 
+	playsound(src, 'sound/mecha/lowpower.ogg', 100)
 	add_filter("charging", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_YELLOW))
 	spawn(2 SECONDS)
 		if(!charging)
 			cancel_charging()
 			return
+		playsound(src, 'sound/mecha/lowpower.ogg', 100)
+		remove_filter("charging")
 		add_filter("charging2", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_ORANGE))
 	spawn(4 SECONDS)
 		if(!charging)
 			cancel_charging()
 			return
+		playsound(src, 'sound/mecha/lowpower.ogg', 100)
+		remove_filter("charging2")
 		add_filter("charging3", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_RED))
 	spawn(6 SECONDS)
 		if(!charging)
 			cancel_charging()
 			return
+		playsound(src, 'sound/mecha/lowpower.ogg', 100)
+		remove_filter("charging3")
 		add_filter("charging4", 1, list("type" = "outline", , "size" = 1, "color" = COMMS_COLOR_ICCG))
 	spawn(8 SECONDS)
 		if(!charging)
 			cancel_charging()
 			return
+		playsound(src, 'sound/mecha/lowpower.ogg', 100)
+		remove_filter("charging4")
 		add_filter("charging5", 1, list("type" = "outline", , "size" = 1, "color" = COMMS_COLOR_BEARCAT))
 
 /obj/structure/fd/interactive/jeff_killer_gun_deployed/proc/put_mob_in_charge(mob/living/in_charge)

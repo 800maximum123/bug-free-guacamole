@@ -95,7 +95,7 @@
 		var/message = "[note_info]"
 		var/message_name = "[name]"
 
-		var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+		var/obj/screen/player_message/note_text/maintext = new /obj/screen/player_message/note_text()
 		var/obj/screen/novel_message/note_name/nameplate = new /obj/screen/novel_message/note_name()
 		maintext.layer = 5.4
 		nameplate.layer = 5.4
@@ -153,7 +153,7 @@
 		var/message = "[note_info]"
 		var/message_name = "[name]"
 
-		var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+		var/obj/screen/player_message/note_text/maintext = new /obj/screen/player_message/note_text()
 		var/obj/screen/novel_message/note_name/nameplate = new /obj/screen/novel_message/note_name()
 		maintext.layer = 5.4
 		nameplate.layer = 5.4
@@ -198,7 +198,7 @@
 		var/message = "[note_info]"
 		var/message_name = "[name]"
 
-		var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+		var/obj/screen/player_message/note_text/maintext = new /obj/screen/player_message/note_text()
 		var/obj/screen/novel_message/note_name/nameplate = new /obj/screen/novel_message/note_name()
 		maintext.layer = 5.4
 		nameplate.layer = 5.4
@@ -264,7 +264,7 @@
 		var/message = "[note_info]"
 		var/message_name = "[name]"
 
-		var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+		var/obj/screen/player_message/note_text/maintext = new /obj/screen/player_message/note_text()
 		var/obj/screen/novel_message/note_name/nameplate = new /obj/screen/novel_message/note_name()
 		maintext.layer = 5.4
 		nameplate.layer = 5.4
@@ -306,7 +306,7 @@
 		var/message = "[note_info]"
 		var/message_name = "[name]"
 
-		var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+		var/obj/screen/player_message/note_text/maintext = new /obj/screen/player_message/note_text()
 		var/obj/screen/novel_message/note_name/nameplate = new /obj/screen/novel_message/note_name()
 		maintext.layer = 5.4
 		nameplate.layer = 5.4
@@ -348,7 +348,7 @@
 		var/message = "[note_info]"
 		var/message_name = "[name]"
 
-		var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+		var/obj/screen/player_message/note_text/maintext = new /obj/screen/player_message/note_text()
 		var/obj/screen/novel_message/note_name/nameplate = new /obj/screen/novel_message/note_name()
 		maintext.layer = 5.4
 		nameplate.layer = 5.4
@@ -427,7 +427,7 @@
 		var/message = "[note_info]"
 		var/message_name = "[name]"
 
-		var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+		var/obj/screen/player_message/note_text/maintext = new /obj/screen/player_message/note_text()
 		var/obj/screen/novel_message/note_name/nameplate = new /obj/screen/novel_message/note_name()
 		maintext.layer = 5.4
 		nameplate.layer = 5.4
@@ -500,7 +500,7 @@
 		var/message = "[note_info]"
 		var/message_name = "[name]"
 
-		var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+		var/obj/screen/player_message/note_text/maintext = new /obj/screen/player_message/note_text()
 		var/obj/screen/novel_message/note_name/nameplate = new /obj/screen/novel_message/note_name()
 		maintext.layer = 5.4
 		nameplate.layer = 5.4

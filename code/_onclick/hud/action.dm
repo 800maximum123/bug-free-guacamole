@@ -105,7 +105,8 @@
 			return 0
 	if(check_flags & AB_CHECK_LYING)
 		if(owner.lying)
-			return 0
+			if(!owner.simple_combat_on || !owner.get_status_effect(/datum/simple_status/crit))
+				return 0
 	if(check_flags & AB_CHECK_ALIVE)
 		if(owner.stat)
 			return 0

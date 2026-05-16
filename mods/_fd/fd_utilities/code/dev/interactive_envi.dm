@@ -199,6 +199,8 @@
 
 	return TRUE
 
+/obj/screen/player_message/special_description/hidden
+
 /obj/screen/hidden_item
 	name = "ЧТО-ТО СТРАННОЕ"
 	desc = "Нажми..."
@@ -210,7 +212,7 @@
 	layer = 5.4
 
 	var/atom/connected_object
-	var/obj/screen/player_message/screentext
+	var/obj/screen/player_message/special_description/hidden/screentext
 	var/item_revealed = FALSE
 	screen_loc = "CENTER-7,CENTER-7"
 
@@ -234,6 +236,7 @@
 			usr.client.screen -= H
 			qdel(H)
 
+/obj/screen/player_message/special_description
 
 /atom/
 	var/interactive = FALSE
@@ -267,7 +270,7 @@
 	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
 	var/message = "[desc_special]"
 
-	var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+	var/obj/screen/player_message/special_description/maintext = new /obj/screen/player_message/special_description()
 	maintext.layer = 5.4
 	maintext.maptext_x = 0
 	maintext.maptext_y = -390
@@ -293,7 +296,7 @@
 		hidden_ui.screentext = maintext
 		hidden_ui.connected_object = src
 
-/atom/proc/reveal_item_inside(mob/living/user, obj/screen/player_message/textonscreen)
+/atom/proc/reveal_item_inside(mob/living/user, obj/screen/player_message/special_description/hidden/textonscreen)
 	if(user.reading && user.currently_interacting == src)
 		if(textonscreen)
 			var/newreveal = {"Тщательно осмотрев [name], ты находишь <span style="color: green;">[hidden_loot.name]</span>!"}
@@ -328,7 +331,7 @@
 		if(istype(messages, /obj/screen/hidden_item))
 			user.client.screen -= messages
 			qdel(messages)
-		if(istype(messages, /obj/screen/player_message))
+		if(istype(messages, /obj/screen/player_message/special_description))
 			user.client.screen -= messages
 			qdel(messages)
 

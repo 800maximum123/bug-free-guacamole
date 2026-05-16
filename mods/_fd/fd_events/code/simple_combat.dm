@@ -198,6 +198,10 @@
 /obj/item/apply_hit_effect(mob/living/target, mob/living/user, hit_zone)
 	if(target.simple_combat_on)
 
+		if(user.lying && !target.lying)
+			if(!(user.zone_sel.selecting in list(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)))
+				user.zone_sel.selecting = pick(list(BP_L_LEG, BP_R_LEG))
+
 		if(status_to_add)
 			if(status_apply_prob > 0)
 				if(prob(status_apply_prob))
@@ -626,10 +630,11 @@
 			for(var/obj/item/clothing/armor in H.get_equipped_items())
 				armor.simple_armor_blockchance = armor.simple_armor_blockchance_max
 
+		if(get_status_effect(/datum/simple_status/hardcrit))
+			stabilized = TRUE
+			remove_status_effect(/datum/simple_status/hardcrit)
 
 		for(var/datum/simple_status/effects in status_effects)
-			if(istype(effects,/datum/simple_status/hardcrit))
-				stabilized = TRUE
 			remove_status_effect(effects)
 
 /mob/living/ClickOn(atom/A)
