@@ -354,7 +354,7 @@
 	if(in_shadow)
 		layer = SPEECH_INDICATOR_LAYER
 		plane = EFFECTS_ABOVE_LIGHTING_PLANE
-		set_see_in_dark(5)
+		update_dead_sight()
 
 	if(!in_shadow)
 		for(var/mob/living/carbon/human/psionics in range(7,src))
@@ -440,8 +440,9 @@
 				client.screen -= seen
 
 		plane = initial(plane)
-
 		density = TRUE
+
+		update_living_sight()
 
 		in_shadow = FALSE
 		sound_shutoff = FALSE
