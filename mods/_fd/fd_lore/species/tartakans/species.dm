@@ -63,10 +63,10 @@
 	max_age = 200
 
 	speech_sounds = list(
-		'mods/_fd/tartakans/sounds/talk1.ogg',
-		'mods/_fd/tartakans/sounds/talk2.ogg',
-		'mods/_fd/tartakans/sounds/talk3.ogg',
-		'mods/_fd/tartakans/sounds/talk4.ogg'
+		'mods/_fd/fd_lore/species/tartakans/sounds/talk1.ogg',
+		'mods/_fd/fd_lore/species/tartakans/sounds/talk2.ogg',
+		'mods/_fd/fd_lore/species/tartakans/sounds/talk3.ogg',
+		'mods/_fd/fd_lore/species/tartakans/sounds/talk4.ogg'
 	)
 	speech_chance = 50
 
@@ -95,7 +95,7 @@
 /mob/living/carbon/human/tartakan
 	desc = "A giant four-arms cockroach with surprisingly friendly face."
 	see_in_dark = 8
-	icon = 'mods/_fd/tartakans/icons/mob.dmi'
+	icon = 'mods/_fd/fd_lore/species/tartakans/icons/mob.dmi'
 	icon_state = "example_male"
 
 	var/outfits = list(/singleton/hierarchy/outfit/tartakan,
@@ -119,7 +119,7 @@
 						)
 
 /obj/sprite_helper/tartakan
-	icon = 'mods/_fd/tartakans/icons/mob.dmi' // ВСТАВИТЬ СЮДА СПРАЙТ ТАРТАКАНА
+	icon = 'mods/_fd/fd_lore/species/tartakans/icons/mob.dmi' // ВСТАВИТЬ СЮДА СПРАЙТ ТАРТАКАНА
 	icon_state = "example_male"
 
 /mob/living/carbon/human/tartakan/New()
@@ -155,9 +155,9 @@
 		vis_contents += new /obj/sprite_helper/tartakan
 	var/obj/sprite_helper/tartakan/SH = vis_contents[vis_contents.len]
 	if (lying || resting)
-		SH.icon = turn(icon('mods/_fd/tartakans/icons/mob.dmi'), 90)
+		SH.icon = turn(icon('mods/_fd/fd_lore/species/tartakans/icons/mob.dmi'), 90)
 	else
-		SH.icon = 'mods/_fd/tartakans/icons/mob.dmi'
+		SH.icon = 'mods/_fd/fd_lore/species/tartakans/icons/mob.dmi'
 	SH.dir = dir
 
 /datum/language/tartakan

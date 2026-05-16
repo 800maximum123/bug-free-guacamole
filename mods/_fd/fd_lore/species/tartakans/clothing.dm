@@ -1,8 +1,8 @@
 /obj/item/clothing/under/tartakan
 	name = "worker undersuit"
 	desc = "An messy pile of fabric, used in hard labor."
-	icon = 'mods/_fd/tartakans/icons/clothing_sets.dmi'
-	item_icons = list(slot_w_uniform_str = 'mods/_fd/tartakans/icons/clothing_sets.dmi')
+	icon = 'mods/_fd/fd_lore/species/tartakans/icons/clothing_sets.dmi'
+	item_icons = list(slot_w_uniform_str = 'mods/_fd/fd_lore/species/tartakans/icons/clothing_sets.dmi')
 	icon_state = "black_worker"
 	worn_state = "black_worker"
 
