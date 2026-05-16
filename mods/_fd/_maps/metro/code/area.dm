@@ -30,6 +30,9 @@
 	name = "South KPPs"
 
 
+/area/metro/maintain/south/kpp1
+	name = "South KPPs"
+
 // Западное крыло
 /area/metro/maintain/west
 	name = "West Wing"
@@ -43,15 +46,18 @@
 
 /area/metro/maintain/east/security
 	name = "East Security Point"
+	adventure_mode = TRUE
 
 /area/metro/maintain/east/med
 	name = "East Medical Wing"
 
 /area/metro/maintain/east/warehouse
 	name = "East Warehouse"
+	adventure_mode = TRUE
 
 /area/metro/maintain/east/pump
 	name = "Shaft 4"
+	adventure_mode = TRUE
 
 /area/metro/maintain/east/corridors1
 	name = "East Wing"
