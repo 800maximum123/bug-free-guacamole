@@ -40,7 +40,8 @@
 
 		spawn(0.5 SECONDS)
 			animate(user, alpha = 255, transform = matrix(1, MATRIX_SCALE), pixel_z = user.default_pixel_z, time = 3, easing = SINE_EASING | EASE_OUT)
-			user.Weaken(10)
+			user.resting = TRUE
+			user.Stun(5)
 
 			if(has_fall_damage)
 				if(user.simple_combat_on)

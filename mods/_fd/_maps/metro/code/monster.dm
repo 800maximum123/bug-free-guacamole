@@ -41,17 +41,31 @@
 /obj/screen/teleport_monster/Click()
 	var/mob/living/simple_animal/metro_jeff/J = usr
 
-	if(!J.in_shadow)
-		J.change_monster_vis()
-		J.forceMove(connected_turf)
-		animate(src, alpha = 0, time = 3, easing = SINE_EASING|EASE_IN)
-		J.client.screen -= src
-		return TRUE
-	else
-		J.forceMove(connected_turf)
-		animate(src, alpha = 0, time = 3, easing = SINE_EASING|EASE_IN)
-		J.client.screen -= src
-		return TRUE
+	var/list/options = list(
+		"ПЕРЕМЕСТИТЬСЯ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "radial_lookat"),
+		"ПРОИГНОРИРОВАТЬ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "radial_next"),
+	)
+	var/chosen_option = show_radial_menu(usr, src, options, radius = 25, require_near = TRUE)
+	if(!chosen_option)
+		return 0
+
+	switch(options)
+		if("ПЕРЕМЕСТИТЬСЯ")
+			if(!J.in_shadow)
+				J.change_monster_vis()
+				J.forceMove(connected_turf)
+				animate(src, alpha = 0, time = 3, easing = SINE_EASING|EASE_IN)
+				J.client.screen -= src
+				return TRUE
+			else
+				J.forceMove(connected_turf)
+				animate(src, alpha = 0, time = 3, easing = SINE_EASING|EASE_IN)
+				J.client.screen -= src
+				return TRUE
+		if("ПРОИГНОРИРОВАТЬ")
+			animate(src, alpha = 0, time = 3, easing = SINE_EASING|EASE_IN)
+			J.client.screen -= src
+			return TRUE
 
 /obj/effect/trap_triggered
 	name = "trap"
@@ -101,7 +115,8 @@
 		if(jeff.client)
 			jeff.client.screen += tp_button
 			tp_button.maptext = STYLE_SMALLFONTS_OUTLINE("<center>[name]</center>", 7, COLOR_WHITE, COLOR_BLACK)
-			tp_button.maptext_x = 10
+			tp_button.maptext_x = 5
+			tp_button.maptext_width = 96
 			animate(tp_button, alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
 
 		new /obj/effect/trap_triggered(get_turf(src))
@@ -204,6 +219,19 @@
 	var/mob/living/simple_animal/metro_jeff/M = user.mob
 
 	M.change_mode()
+	return TRUE
+
+/datum/keybinding/living/fd/event/monster/destroy_blocker
+	category = CATEGORY_FD_EVENT
+	hotkey_keys = list("4")
+	name = "destroy_blocker"
+	full_name = "JEFF: MAKE THE WAY"
+	description = ""
+
+/datum/keybinding/living/fd/event/monster/destroy_blocker/down(client/user)
+	var/mob/living/simple_animal/metro_jeff/M = user.mob
+
+	M.crush_thing()
 	return TRUE
 
 /obj/screen/visibility_status
@@ -315,6 +343,9 @@
 										'mods/_fd/_maps/metro/jeff_sounds/moving/step_close_09.wav')
 	movement_sound = 'mods/_fd/_maps/metro/jeff_sounds/moving/step_01.wav'
 
+	var/movement_count = 0
+	var/movement_count_stop = 4
+
 	simple_health = 1000
 	max_simple_health = 1000
 
@@ -325,6 +356,7 @@
 	maxHealth = 999999
 
 	movement_cooldown = 6
+	see_in_dark = 4
 
 	var/sound_shutoff = FALSE
 
@@ -341,27 +373,17 @@
 
 	if(!sound_shutoff)
 		if(aggro_state)
-			movement_sound = pick(aggro_movement_sound_list)
+			movement_count += 1
+			if(movement_count >= movement_count_stop)
+				movement_sound = pick(aggro_movement_sound_list)
+				movement_count = 0
 		else
 			movement_sound = pick(movement_sound_list)
 
 /mob/living/simple_animal/metro_jeff/Life()
 
 	update_loopsound()
-	layer = 4.11
 	pixel_x = -16
-
-	if(in_shadow)
-		layer = SPEECH_INDICATOR_LAYER
-		plane = EFFECTS_ABOVE_LIGHTING_PLANE
-		update_dead_sight()
-
-	if(!in_shadow)
-		for(var/mob/living/carbon/human/psionics in range(7,src))
-			if(!psionics.psi)
-				continue
-			if(psionics.psi.stamina > 10)
-				psionics.psi.stamina = max(0, psionics.psi.stamina - rand(15,20))
 
 	if(!aggro_state && !sound_shutoff)
 		if(next_random_sound_in > 0)
@@ -392,6 +414,20 @@
 				light.flicker(1)
 
 	. = ..()
+
+	if(in_shadow)
+		density = FALSE
+		layer = SPEECH_INDICATOR_LAYER
+		plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		update_dead_sight()
+
+	if(!in_shadow)
+		layer = 4.11
+		for(var/mob/living/carbon/human/psionics in range(7,src))
+			if(!psionics.psi)
+				continue
+			if(psionics.psi.stamina > 10)
+				psionics.psi.stamina = max(0, psionics.psi.stamina - rand(15,20))
 
 /mob/living/simple_animal/metro_jeff/proc/update_loopsound()
 	if(!sound_id)
@@ -495,7 +531,7 @@
 
 	if(!aggro_state)
 		aggro_state = TRUE
-		movement_cooldown = 4
+		movement_cooldown = 2
 
 		playsound(src, pick(alert_sounds), 50, 0, extrarange = 13, falloff = 2)
 
@@ -512,3 +548,24 @@
 /mob/living/simple_animal/metro_jeff/proc/remove_some_visuals()
 	plane = initial(plane)
 	remove_filter("jeffangry")
+
+/mob/living/simple_animal/metro_jeff/proc/crush_thing()
+	var/turf/simulated/T = get_turf(get_step(src, dir))
+
+	if(istype(T,/turf/simulated/wall))
+		var/turf/simulated/wall/W = T
+		if(do_after(src, 10 SECONDS, W, DO_PUBLIC_UNIQUE))
+			W.dismantle_wall()
+
+	for(var/obj/O in T)
+		if(!istype(O,/obj/structure) || !istype(O,/obj/machinery))
+			continue
+		if(istype(O,/obj/structure/cable))
+			continue
+		if(istype(O,/obj/machinery/atmospherics))
+			continue
+
+		if(do_after(src, 5 SECONDS, O, DO_PUBLIC_UNIQUE))
+			do_attack_animation(T)
+			playsound(src, 'mods/_fd/_maps/metro/jeff_sounds/smack.wav', 50, 0, extrarange = 4, falloff = 2)
+			qdel(O)

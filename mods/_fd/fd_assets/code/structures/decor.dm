@@ -576,3 +576,25 @@
 
 	health_max = 9999999
 	//всё равно сбрасывается, бред... Оставлю, чтоб просто масс-модифить этот подтип
+
+/obj/structure/fd/general_decorations
+
+/obj/structure/fd/general_decorations/car
+	name = "car"
+	desc = "Old wheeled car."
+
+	anchored = TRUE
+	density = TRUE
+
+	icon = 'mods/_fd/fd_assets/icons/vampires/cars.dmi'
+	icon_state = "taxi"
+
+/obj/structure/fd/general_decorations/roadblock
+	name = "roadblock"
+	desc = "For vehicle movement blockage."
+
+	anchored = TRUE
+	density = TRUE
+
+	icon = 'mods/_fd/fd_assets/icons/vampires/barriers.dmi'
+	icon_state = "barrier"

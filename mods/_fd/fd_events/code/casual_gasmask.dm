@@ -84,6 +84,11 @@
 	return TRUE
 
 /mob/living/proc/show_lowair_warning()
+
+	for(var/obj/screen/T in client.screen)
+		if(istype(T, /obj/screen/novel_message/start_credits))
+			client.screen -= T
+
 	var/text_message = "В глазах мутнеет...чувствую себя не очень хорошо..."
 	var/colored = "#000f"
 
@@ -95,6 +100,11 @@
 	visuals.set_text(text_message, colored, time = 5 SECONDS)
 
 /mob/living/proc/show_danger()
+
+	for(var/obj/screen/T in client.screen)
+		if(istype(T, /obj/screen/novel_message/start_credits))
+			client.screen -= T
+
 	var/text_message = "Что-то не так. Чувствую себя как-то неправильно..."
 	var/colored = "#000f"
 
@@ -110,6 +120,11 @@
 	visuals.set_text(text_message, colored, time = 5 SECONDS)
 
 /mob/living/proc/hide_danger()
+
+	for(var/obj/screen/T in client.screen)
+		if(istype(T, /obj/screen/novel_message/start_credits))
+			client.screen -= T
+
 	var/text_message = "Что бы то ни было, но оно миновало..."
 	var/colored = "#000f"
 
@@ -166,7 +181,7 @@
 			F.CutOverlays(image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', F.current_status))
 			CutOverlays(image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status))
 
-			visible_message("[user] наполняет фильтр используя [F].", "Ты наполнил фильтр [src].")
+			visible_message("[user] наполняет [src] используя [F].", "Ты наполнил фильтр [src].")
 			playsound(user, 'sound/effects/refill.ogg', 50)
 
 			var/how_empty = filter_max_air - filter_stored_air

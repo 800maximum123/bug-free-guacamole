@@ -122,6 +122,7 @@
 	icon_state = "seccorpse5"
 
 	should_show_name = FALSE
+	anchored = TRUE
 
 /obj/structure/fd/mapping/cutscene_trigger
 	name = "cutscene trigger"
@@ -270,41 +271,85 @@
 				Взаимодействуйте с ними так же, как и с любыми другими интерактивными элементами окружения - нажатием <b><span style="color: yellow;">...</span></b>"}
 
 /datum/interactive_note/nightmare/tutorial_ooc_hiding/reveal_note_to_player(mob/living/user)
-	name = "Прятки"
 	note_info = {"<br /> \
 				Некоторые объекты имеют достаточно пространства внутри, чтобы в них спрятался взрослый человек.<br /> \
 				Взаимодействуйте с ними так же, как и с любыми другими интерактивными элементами окружения - нажатием <b><span style="color: yellow;">[user.retrieve_bind("start_interaction")]</span></b>"}
 
 	. = ..()
 
+/datum/interactive_note/nightmare/tutorial_ooc_weapon
+	name = "Убить Джеффа"
+	note_info = {""}
+
+/datum/interactive_note/nightmare/tutorial_ooc_weapon/reveal_note_to_player(mob/living/user)
+	note_info = {"<br /> \
+				Теперь, в вашем распоряжении появилось оружие, способное развернуть ситуацию в чужую пользу. Оно ненадёжно, стационарно, и требует слаженной командной работы, \
+				но в руках опытного игрока - если и не убьёт терроризирующего вас монстра, то точно заставит его отступить, выиграв вам время.</b><br /> \
+				<br /> \
+				<center>Взаимодействуйте с пушкой, используя <b><span style="color: yellow;">[user.retrieve_bind("start_interaction")]</span></b></center><br /> \
+				<center>Чтобы выстрелить из пушки - вам необходимо разогнать её на полную мощность. Нажимайте <b><span style="color: yellow;">[user.retrieve_bind("start_interaction")]</span></b>, пока не услышите звук подтверждения.</center><br /> \
+				<center>Нажмите на пушку, чтобы встать из-за неё, или вытолкнуть стоящего за ней человека</center><br /> \
+				<br /> \
+				<center>Мощность пушки падает не сразу. Вы можете поддерживать её периодическими нажатиями, пока не подгадаете нужный момент</center><br /> \
+				<center>Вы можете крутить пушку кликом по экрану в нужном вам направлении, но лишь пока управляете ею</center><br /> \
+				<center>Нажмите <b><span style="color: yellow;">[user.retrieve_bind("activate_inhand")]</span></b> держа пушку в актвной руке, чтобы разложить её перед собой</center>"}
+
+	user.reading = TRUE
+
+	user.overlay_fullscreen("background_note", note_overlay)
+	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
+
+	if(connected_note)
+		if(!connected_note.ci)
+			connected_note.ci = new /obj/screen/cancel_interaction()
+
+		connected_note.ci.connected_mob = user
+		user.client.screen += connected_note.ci
+		animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+
+	spawn(0.5 SECONDS)
+
+		var/message = "[note_info]"
+		var/message_name = "[name]"
+
+		var/obj/screen/player_message/note_text/maintext = new /obj/screen/player_message/note_text()
+		var/obj/screen/novel_message/note_name/nameplate = new /obj/screen/novel_message/note_name()
+		maintext.layer = 5.4
+		nameplate.layer = 5.4
+
+		nameplate.maptext_x = -75
+		nameplate.maptext_y = -15
+		maintext.maptext_x = 0
+		maintext.maptext_y = -320
+
+		user.client.screen += maintext
+		user.client.screen += nameplate
+		maintext.set_text(message, COLOR_WHITE)
+		nameplate.set_text(message_name, COLOR_WHITE)
+
 /obj/item/grenade/flashbang/anti_jeff
+	det_time = 10
 
 /obj/item/grenade/flashbang/anti_jeff/bang()
 	playsound(src.loc, 'sound/effects/bang.ogg', 50, 1, 30)
 
-	var/list/remove_overlay_later = list()
 	for(var/mob/living/H in view(src))
 		to_chat(H, SPAN_DANGER("BANG"))
-
 		if(istype(H,/mob/living/simple_animal/metro_jeff))
 			H.add_status_effect(/datum/simple_status/fixation/timed, 10 SECONDS)
 
-		H.overlay_fullscreen("flash",/obj/screen/fullscreen/blurry/camera)
-		remove_overlay_later += H
-
-	sleep(1 SECONDS)
-
-	for(var/mob/living/H in remove_overlay_later)
-		H.clear_fullscreen("flash")
+		H.flash_eyes(FLASH_PROTECTION_MODERATE)
 
 /obj/item/projectile/beam/midlaser/jeff_killer
-	simple_damage = 70
+	simple_damage = 200
 
 	status_to_add = /datum/simple_status/fixation/timed
-	status_timer_to_add = 20 SECONDS
+	status_timer_to_add = 30 SECONDS
 	status_ignore_armor = TRUE
 
 /obj/item/fd/jeff_killer_gun_undeployed
+	name = "compacted weapon"
+	desc = "For easier transportation."
 	icon = 'mods/_fd/_maps/metro/icons/cool_weapon.dmi'
 	icon_state = "weapon_undeployed"
 	slot_flags = SLOT_BACK
@@ -335,15 +380,24 @@
 	forceMove(inside_gun)
 
 /obj/structure/fd/interactive/jeff_killer_gun_deployed
+	name = "stationary weapon"
+	desc = "This one can easily penetrate any armor."
 	icon = 'mods/_fd/_maps/metro/icons/cool_weapon.dmi'
 	icon_state = "weapon_deployed"
 
 	var/obj/item/fd/jeff_killer_gun_undeployed/inside_bag
 	var/mob/living/mob_in_charge
-	var/charging = FALSE
 
 	var/recharging = FALSE
-	var/recharge_time = 20
+	var/recharge_time = 40
+
+	var/power_level = 0
+	var/next_power_up = 0
+	var/power_up_falloff_in = 10
+
+	var/about_to_shoot = FALSE
+
+	density = TRUE
 
 /obj/structure/fd/interactive/jeff_killer_gun_deployed/Initialize()
 	. = ..()
@@ -352,6 +406,9 @@
 /obj/structure/fd/interactive/jeff_killer_gun_deployed/Process()
 	if(mob_in_charge)
 		update_direction()
+
+	if(mob_in_charge)
+		mob_in_charge.anchored = TRUE
 
 	if(recharging && recharge_time > 0)
 		recharge_time -= 1
@@ -363,6 +420,19 @@
 		maptext = ""
 		recharge_time = initial(recharge_time)
 		recharging = FALSE
+
+	if(next_power_up > 0)
+		next_power_up -= 1
+
+	if(power_level > 0 && power_up_falloff_in > 0)
+		maptext = STYLE_SMALLFONTS_OUTLINE("[power_up_falloff_in]", 7, COLOR_WHITE, COLOR_BLACK)
+		power_up_falloff_in -= 1
+
+	if(power_up_falloff_in <= 0)
+		power_up_falloff_in = initial(power_up_falloff_in)
+		maptext = ""
+		power_level -= 1
+		change_visuals()
 
 /obj/structure/fd/interactive/jeff_killer_gun_deployed/attack_hand(mob/living/user)
 	. = ..()
@@ -378,33 +448,45 @@
 /obj/structure/fd/interactive/jeff_killer_gun_deployed/interact_with(mob/living/carbon/human/user)
 
 	if(recharging)
-		desc_special = {"Пушка ещё <b><span style="color: red;">не остыла</span></b>!"}
-		desc_special_show = TRUE
-		. = ..()
-
 		if(mob_in_charge == user)
-			mob_in_charge.anchored = TRUE
-		desc_special_show = FALSE
-		return TRUE
+			desc_special = {"Пушка ещё <b><span style="color: red;">не остыла</span></b>!"}
+			desc_special_show = TRUE
+			. = ..()
 
-	if(charging)
-		if(mob_in_charge == user)
-			charging = FALSE
+			desc_special_show = FALSE
 			return TRUE
+		if(!mob_in_charge)
+			if(do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
+				undeploy(user)
+				return TRUE
 
-		desc_special = {"<b><span style="color: red;">Сейчас пушку лучше не трогать!</span></b>"}
+	if(about_to_shoot)
+		desc_special = {"<b><span style="color: red;">Сейчас будет залп!</span></b>!"}
 		desc_special_show = TRUE
 		. = ..()
 
 		desc_special_show = FALSE
 		return TRUE
 
-	if(!charging)
-		if(mob_in_charge)
+	if(mob_in_charge)
+
+		if(next_power_up > 0)
+			animation_flash_color(src, COLOR_RED)
+			return FALSE
+
+		if(power_level >= 5)
 			playsound(user, 'sound/items/shuttle_beacon_complete.ogg', 100)
-			start_chagring()
+			try_to_fire()
 			return TRUE
 
+		power_level += 1
+		next_power_up = 5
+		power_up_falloff_in = initial(power_up_falloff_in)
+
+		change_visuals()
+		return TRUE
+
+	if(!mob_in_charge)
 		var/list/options = list(
 			"ВСТАТЬ ЗА ПУШКУ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "radial_use"),
 			"СОБРАТЬ ПУШКУ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "radial_pickup"),
@@ -422,12 +504,18 @@
 					return TRUE
 
 /obj/structure/fd/interactive/jeff_killer_gun_deployed/proc/try_to_fire()
-	if(!charging)
-		return
-
+	about_to_shoot = TRUE
 	playsound(src, 'sound/mecha/nominal.ogg', 100)
 
-	sleep(2.5 SECONDS)
+	sleep(2 SECONDS)
+	power_level = 0
+	next_power_up = 0
+	power_up_falloff_in = initial(power_up_falloff_in)
+
+	remove_filter("charging")
+	remove_filter("charging2")
+	remove_filter("charging3")
+	remove_filter("charging4")
 	remove_filter("charging5")
 
 	if(mob_in_charge)
@@ -472,53 +560,42 @@
 				flare.pixel_y = 8 + rand_y
 				flare.pixel_x = 12 + rand_x
 
-	charging = FALSE
+	about_to_shoot = FALSE
 
-/obj/structure/fd/interactive/jeff_killer_gun_deployed/proc/cancel_charging()
-	remove_filter("charging")
-	remove_filter("charging2")
-	remove_filter("charging3")
-	remove_filter("charging4")
-	remove_filter("charging5")
-
-/obj/structure/fd/interactive/jeff_killer_gun_deployed/proc/start_chagring()
-	charging = TRUE
-	addtimer(new Callback(src, PROC_REF(try_to_fire)), 10 SECONDS)
-
-	if(!charging)
-		cancel_charging()
-		return
-
-	playsound(src, 'sound/mecha/lowpower.ogg', 100)
-	add_filter("charging", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_YELLOW))
-	spawn(2 SECONDS)
-		if(!charging)
-			cancel_charging()
-			return
-		playsound(src, 'sound/mecha/lowpower.ogg', 100)
-		remove_filter("charging")
-		add_filter("charging2", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_ORANGE))
-	spawn(4 SECONDS)
-		if(!charging)
-			cancel_charging()
-			return
-		playsound(src, 'sound/mecha/lowpower.ogg', 100)
+/obj/structure/fd/interactive/jeff_killer_gun_deployed/proc/change_visuals()
+	if(power_level == 1)
 		remove_filter("charging2")
-		add_filter("charging3", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_RED))
-	spawn(6 SECONDS)
-		if(!charging)
-			cancel_charging()
-			return
+
 		playsound(src, 'sound/mecha/lowpower.ogg', 100)
+		add_filter("charging", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_YELLOW))
+		return TRUE
+	if(power_level == 2)
+		remove_filter("charging")
 		remove_filter("charging3")
-		add_filter("charging4", 1, list("type" = "outline", , "size" = 1, "color" = COMMS_COLOR_ICCG))
-	spawn(8 SECONDS)
-		if(!charging)
-			cancel_charging()
-			return
+
 		playsound(src, 'sound/mecha/lowpower.ogg', 100)
+		add_filter("charging2", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_ORANGE))
+		return TRUE
+	if(power_level == 3)
+		remove_filter("charging2")
 		remove_filter("charging4")
+
+		playsound(src, 'sound/mecha/lowpower.ogg', 100)
+		add_filter("charging3", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_RED))
+		return TRUE
+	if(power_level == 4)
+		remove_filter("charging3")
+		remove_filter("charging5")
+
+		playsound(src, 'sound/mecha/lowpower.ogg', 100)
+		add_filter("charging4", 1, list("type" = "outline", , "size" = 1, "color" = COMMS_COLOR_ICCG))
+		return TRUE
+	if(power_level == 5)
+		remove_filter("charging4")
+
+		playsound(src, 'sound/mecha/lowpower.ogg', 100)
 		add_filter("charging5", 1, list("type" = "outline", , "size" = 1, "color" = COMMS_COLOR_BEARCAT))
+		return TRUE
 
 /obj/structure/fd/interactive/jeff_killer_gun_deployed/proc/put_mob_in_charge(mob/living/in_charge)
 	in_charge.forceMove(get_turf(src))
@@ -557,3 +634,240 @@
 
 	caller.put_in_active_hand(inside_bag)
 	forceMove(inside_bag)
+
+/obj/screen/gate_timer
+	var/obj/structure/fd/bunker/gate/connected_gate
+	maptext_width = 280
+	maptext_height = 280
+	screen_loc = "CENTER,CENTER+5"
+
+	icon = null
+	icon_state = null
+
+/obj/screen/gate_timer/Initialize()
+	. = ..()
+	SetTransform(2)
+
+/obj/screen/gate_timer/proc/show_screentext(message = {"test"})
+	maptext = STYLE_SMALLFONTS_OUTLINE("[message]", 7, COLOR_WHITE, COLOR_BLACK)
+
+/obj/screen/gate_timer/proc/reset_screentext()
+	maptext = ""
+
+/obj/structure/fd/bunker/warphole_special_effect
+	layer = 4.11
+	mouse_opacity = FALSE
+	name = "electricity"
+	desc = "electricity"
+
+	icon = 'mods/_fd/_maps/metro/icons/rituals_160x160.dmi'
+	icon_state = "rit-elec-aoe2"
+	alpha = 0
+
+/obj/structure/fd/bunker/warphole
+	layer = 2.4
+	mouse_opacity = FALSE
+	name = "warphole"
+	desc = "warphole"
+
+	icon = 'mods/_fd/_maps/metro/icons/chaplainRitual.dmi'
+	icon_state = "buff-water-obj"
+
+	var/hole_id = "bleh"
+	var/mother_hole = FALSE // for future
+	var/obj/structure/fd/bunker/warphole/other_hole
+	var/obj/structure/fd/bunker/gate/connected_gate
+
+	var/obj/structure/fd/bunker/warphole_special_effect/electricity
+
+	var/opened = FALSE
+	var/unstable = TRUE
+	var/do_not_trigger = FALSE
+
+	var/offset_x = 64
+	var/ofset_y = 40
+
+/obj/structure/fd/bunker/warphole/Initialize()
+	. = ..()
+	SetTransform(0)
+
+	if(unstable)
+		electricity = new /obj/structure/fd/bunker/warphole_special_effect(get_turf(src))
+		electricity.pixel_y = ofset_y
+		electricity.pixel_x = offset_x
+		electricity.SetTransform(0)
+
+	START_PROCESSING(SSobj,src)
+
+/obj/structure/fd/bunker/warphole/Process()
+	if(unstable)
+		for(var/mob/living/L in range(1,src))
+			L.simple_health_calculation(5, 0, 1, 0)
+
+/obj/structure/fd/bunker/warphole/Crossed(mob/living/M)
+	. = ..()
+
+	if(opened && isliving(M) && !do_not_trigger)
+		animate(M, alpha = 0, time = 0.5 SECONDS, easing = LINEAR_EASING)
+		spawn(0.5 SECONDS)
+
+			var/turf/simulated/floor/F = get_step(other_hole,M.dir)
+			other_hole.do_not_trigger = TRUE
+
+			M.forceMove(F)
+			animate(M, alpha = 255, time = 0.5 SECONDS, easing = LINEAR_EASING)
+
+			if(other_hole.mother_hole)
+				M.client.screen -= connected_gate.connected_timer
+			else
+				M.client.screen += connected_gate.connected_timer
+
+			other_hole.do_not_trigger = FALSE
+
+/obj/structure/fd/bunker/warphole/proc/open()
+	opened = TRUE
+	animate(src, transform = matrix(3, MATRIX_SCALE), time = 1 SECONDS, easing = BOUNCE_EASING|EASE_IN)
+	animate(electricity, transform = matrix(1, MATRIX_SCALE), alpha = 255, time = 1 SECONDS, easing = SINE_EASING|EASE_OUT)
+
+	return TRUE
+
+/obj/structure/fd/bunker/warphole/proc/close()
+
+	opened = FALSE
+	animate(src, transform = matrix(0, MATRIX_SCALE), time = 1 SECONDS, easing = LINEAR_EASING)
+	animate(electricity, transform = matrix(0, MATRIX_SCALE), time = 0.5 SECONDS, easing = LINEAR_EASING)
+
+	return TRUE
+
+/obj/structure/fd/bunker/gate
+	name = "gateway controls"
+	desc = "Console for managing gateway connections."
+
+	icon = 'mods/_fd/_maps/metro/icons/console.dmi'
+	icon_state = "chemicompiler_st_working"
+
+	anchored = TRUE
+	density = TRUE
+
+	var/obj/screen/gate_timer/connected_timer
+	var/obj/structure/fd/bunker/warphole/mother_hole
+	var/amount_of_uses = 1
+	var/connection_open = FALSE
+	var/opened_state_timeframe = 160
+	var/opened_state_timeframe_current = 160
+
+	interactive = TRUE
+	var/can_enter_specific = FALSE
+
+	maptext_x = 10
+	maptext_y = 32
+
+/obj/structure/fd/bunker/gate/Initialize()
+	. = ..()
+
+	connected_timer = new /obj/screen/gate_timer()
+	connected_timer.connected_gate = src
+	for(var/obj/structure/fd/bunker/warphole/W in world)
+		if(W.mother_hole)
+			W.connected_gate = src
+			mother_hole = W
+
+	START_PROCESSING(SSobj,src)
+
+/obj/structure/fd/bunker/gate/Process()
+	if(connection_open)
+		if(opened_state_timeframe_current > -1)
+			opened_state_timeframe_current -= 1
+			maptext = STYLE_SMALLFONTS_OUTLINE("[opened_state_timeframe_current]", 7, COLOR_WHITE, COLOR_BLACK)
+			if(opened_state_timeframe_current > (opened_state_timeframe / 2))
+				connected_timer.show_screentext({"До схлопывания: <b><span style="color: yellow;">[opened_state_timeframe_current]</span></b>"})
+				connected_timer.maptext_x = -24
+				connected_timer.maptext_y = 0
+			else
+				connected_timer.show_screentext({"До схлопывания: <b><span style="color: red;">[opened_state_timeframe_current]</span></b>"})
+				connected_timer.maptext_x = -24
+				connected_timer.maptext_y = 0
+		if(opened_state_timeframe_current < 0)
+			opened_state_timeframe_current = opened_state_timeframe
+			maptext = ""
+			connected_timer.reset_screentext()
+			severe_all_connections()
+
+/obj/structure/fd/bunker/gate/proc/severe_all_connections()
+	connection_open = FALSE
+	mother_hole.other_hole.connected_gate = null
+
+	mother_hole.other_hole.close()
+	mother_hole.close()
+
+	mother_hole.other_hole.other_hole = null
+	mother_hole.other_hole = null
+
+	mother_hole.hole_id = initial(mother_hole.hole_id)
+
+	for(var/client/clients in GLOB.clients)
+		for(var/obj/screen/T in clients.screen)
+			if(istype(T, /obj/screen/gate_timer))
+				clients.screen -= T
+
+	return TRUE
+
+/obj/structure/fd/bunker/gate/proc/try_to_establish_connection(mob/living/carbon/human/user)
+	if(can_enter_specific)
+		mother_hole.hole_id = input(user, "Input desired ID", "Connection Menu", mother_hole.hole_id)
+
+	var/obj/structure/fd/bunker/warphole/another_hole
+
+	for(var/obj/structure/fd/bunker/warphole/W in world)
+		if(W.hole_id == mother_hole.hole_id)
+			another_hole = W
+
+	another_hole.connected_gate = src
+	amount_of_uses -= 1
+
+	connection_open = TRUE
+	another_hole.other_hole = mother_hole
+	mother_hole.other_hole = another_hole
+
+	another_hole.open()
+	mother_hole.open()
+	return TRUE
+
+/obj/structure/fd/bunker/gate/interact_with(mob/living/carbon/human/user)
+	user.client.screen += connected_timer
+	if(!connection_open)
+		connected_timer.show_screentext({"<center>Гейтвей сможет произвести включений: <b><span style="color: yellow;">[amount_of_uses]</span></b></center><br /> \
+										<center>Длительностью: <b><span style="color: yellow;">[opened_state_timeframe]</span></b></center>"})
+		connected_timer.maptext_x = -120
+		connected_timer.maptext_y = -20
+
+	var/list/options = list(
+		"ВКЛЮЧИТЬ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "radial_use"),
+		"ВЫКЛЮЧИТЬ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "radial_pickup"),
+	)
+	var/chosen_option = show_radial_menu(user, src, options, radius = 25, require_near = TRUE)
+	if(!chosen_option)
+		user.client.screen -= connected_timer
+		return FALSE
+	switch(chosen_option)
+		if("ВКЛЮЧИТЬ")
+			user.client.screen -= connected_timer
+			if(amount_of_uses > 0 && !connection_open)
+				animate(user, user.pixel_y = 12, time = 10, easing = LINEAR_EASING | EASE_IN)
+				if(do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
+					playsound(user, 'sound/items/shuttle_beacon_complete.ogg', 100)
+					animate(user, user.pixel_y = 0, time = 10, easing = LINEAR_EASING | EASE_IN)
+					try_to_establish_connection(user)
+				return TRUE
+		if("ВЫКЛЮЧИТЬ")
+			user.client.screen -= connected_timer
+			if(connection_open)
+				connected_timer.reset_screentext()
+				severe_all_connections()
+			return TRUE
+
+	user.client.screen -= connected_timer
+	return
+
+/turf/simulated/floor/bluespace/more_stable/Entered(mob/living/L)
+	return

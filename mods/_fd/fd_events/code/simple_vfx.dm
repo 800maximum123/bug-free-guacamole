@@ -85,7 +85,7 @@
 	. = ..()
 
 /obj/effect/simple_combat_particle/impact/animation()
-	pixel_x = rand(-2, 2)
+	pixel_x = rand(-24, -16)
 	pixel_y = rand(-6, 6)
 
 	QDEL_IN(src, 2 SECONDS)
@@ -101,7 +101,7 @@
 	. = ..()
 
 /obj/effect/simple_combat_particle/shieldblock/animation()
-	pixel_x = rand(-2, 2)
+	pixel_x = rand(-24, -16)
 	pixel_y = rand(-6, 6)
 
 	QDEL_IN(src, 2 SECONDS)

@@ -52,6 +52,10 @@
 	icon_state = "rain"
 	requires_power = 0
 
+/area/bunker/interlude
+	name = "Bluespace Interlude (Bunker)"
+	requires_power = 0
+
 /area/bunker/jungle/lz
 	name = "Landing Zone"
 
