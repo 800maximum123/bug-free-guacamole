@@ -161,18 +161,11 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 		message_admins("КАМЕРА \"[camera_id]\" В [type] ОТСУТСТВУЕТ, ПРОПУСКАЮ")
 		return
 
-	for(var/camera in camera_mobs)
-		if(!istype(camera, /mob/living/cutscene_pov))
-			continue // Мы НЕ хотим удалять наших изначальных мобов
-		qdel(camera)
-
-	camera_mobs.Cut()
-
 	var/turf/target_turf = get_turf(GLOB.cutscene_cameras[camera_id])
-	for(var/ckey in ckey2body)
-		var/mob/new_camera = new /mob/living/cutscene_pov(target_turf)
-		new_camera.ckey = ckey
-		camera_mobs += new_camera
+	for(var/mob/camera in camera_mobs)
+		if(!istype(camera, /mob/living/cutscene_pov))
+			continue // Мы НЕ хотим телепортировать наших изначальных мобов
+		camera.forceMove(target_turf)
 
 #define MOVE_CAMERA_MOB(move_x, move_y) CALL(src, move_camera_mob, move_x, move_y)
 /datum/modular_cutscene/proc/move_camera_mob(move_x, move_y)
