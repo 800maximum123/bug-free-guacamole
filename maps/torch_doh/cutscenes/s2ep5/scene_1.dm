@@ -10,6 +10,30 @@
 /obj/effect/cutscene_camera/s2ep5sc4
 	camera_id = "Сцена 5-1 - Кадр 4"
 
+/obj/effect/cutscene_camera/s2ep5sc5
+	camera_id = "Сцена 5-1 - Кадр 5"
+
+/obj/effect/cutscene_camera/s2ep5sc6
+	camera_id = "Сцена 5-1 - Кадр 6"
+
+/obj/effect/cutscene_camera/s2ep5sc7
+	camera_id = "Сцена 5-1 - Кадр 7"
+
+/obj/effect/cutscene_camera/s2ep5sc8
+	camera_id = "Сцена 5-1 - Кадр 8"
+
+/obj/effect/cutscene_camera/s2ep5sc9
+	camera_id = "Сцена 5-1 - Кадр 9"
+
+/obj/effect/cutscene_camera/s2ep5sc10
+	camera_id = "Сцена 5-1 - Кадр 10"
+
+/obj/effect/cutscene_camera/s2ep5sc11
+	camera_id = "Сцена 5-1 - Кадр 11"
+
+/obj/effect/cutscene_camera/s2ep5sc12
+	camera_id = "Сцена 5-1 - Кадр 12"
+
 /proc/s2ep5sc1_screentext()
 	var/message = {"<span style="color: yellow;">Амелия</span>: Кажется..."}
 
@@ -134,7 +158,8 @@
 
 /datum/modular_cutscene/s2ep5sc1/setup_actions(...)
 	actions = list(
-		ADD_SCREEN(/blackout/animated_better) = 4 SECONDS,
+		ADD_SCREEN(/blackout/animated_better) = 2 SECONDS,
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/Sorrow.mp3', volume = 50)) = 2 SECONDS,
 		MOVE_CAMERA(0, -1, 0, null),
 
 		EASY_TRANSFORM_ACTOR(actor("Комп 5"), 7, 0),
@@ -431,6 +456,8 @@
 		CHANGE_ACTOR_VISIBILITY(actor("Клава 9"), 255, 0.5 SECONDS, LINEAR_EASING, null),
 		CHANGE_ACTOR_VISIBILITY(actor("Клава 11"), 0, 1 SECONDS, LINEAR_EASING, null) = 0.5 SECONDS,
 
+		PLAY_SOUND(sound('sound/mecha/mechmove03.ogg', volume = 10)),
+
 		TALK_ACTOR(actor("Перси - 5-1-3"), "...Ведьмы."),
 		CHANGE_ACTOR_VISUALS(actor("Перси - 5-1-3"), "EP5 PAGE 1 - 12"),
 		TURN_ACTOR(actor("Перси - 5-1-3"), WEST),
@@ -481,24 +508,32 @@
 		TALK_ACTOR(actor("Перси - 5-1-4"), "!фырчит.") = 2 SECONDS,
 		TALK_ACTOR(actor("Перси - 5-1-4"), "Мне ли?") = 5 SECONDS,
 
+		PLAY_SOUND(sound('sound/machines/BoltsUp.ogg', volume = 70)),
+
 		CHANGE_ACTOR_VISUALS(actor("Дверь 5-4"), "opening") = 0.5 SECONDS,
 		CHANGE_ACTOR_VISUALS(actor("Дверь 5-4"), "open") = 1 SECONDS,
 
-		CHANGE_ACTOR_VISIBILITY(actor("Року - 5-1-4"), 255, 1 SECOND, SINE_EASING, null),
-		MOVE_ACTOR(actor("Року - 5-1-4"), EAST) = 0.5 SECONDS,
+		PLAY_SOUND(sound('sound/effects/footstep/plating4.ogg', volume = 70)),
 
-		CHANGE_ACTOR_VISUALS(actor("Перси - 5-1-5"), "EP5 PAGE 1 - 3"),
+		CHANGE_ACTOR_VISIBILITY(actor("Року - 5-1-4"), 255, 1 SECOND, SINE_EASING, null) = 0.5 SECONDS,
+		MOVE_ACTOR(actor("Року - 5-1-4"), EAST) = 1 SECONDS,
+
+		PLAY_SOUND(sound('sound/mecha/mechmove03.ogg', volume = 10)),
+
+		CHANGE_ACTOR_VISUALS(actor("Перси - 5-1-4"), "EP5 PAGE 1 - 3"),
 		TURN_ACTOR(actor("Перси - 5-1-4"), WEST) = 0.5 SECONDS,
 
-		MOVE_ACTOR(actor("Року - 5-1-4"), EAST),
+		PLAY_SOUND(sound('sound/mecha/mechstep03.ogg', volume = 10)),
+
+		MOVE_ACTOR(actor("Перси - 5-1-4"), EAST),
 		SHIFT_ACTOR(actor("Перси - 5-1-4"), 10, 0, 0.5 SECONDS, SINE_EASING|EASE_OUT, null) = 0.5 SECONDS,
 
 		CHANGE_ACTOR_VISUALS(actor("Амелия - 5-1-4"), "EP5 PAGE 1 - 7"),
-		TURN_ACTOR(actor("Амелия - 5-1-4"), NORTH) = 1 SECONDS,
+		TURN_ACTOR(actor("Амелия - 5-1-4"), NORTH) = 2 SECONDS,
 
-		TALK_ACTOR(actor("Амелия - 5-1-4"), "В чём дело? Я забыла что-то закрутить, или-") = 0.5 SECONDS,
+		TALK_ACTOR(actor("Амелия - 5-1-4"), "В чём дело? Ты словно призрака увиде-") = 2 SECONDS,
 		TALK_ACTOR(actor("Перси - 5-1-4"), "!указывает на Року.") = 1 SECONDS,
-		TURN_ACTOR(actor("Амелия - 5-1-4"), WEST) = 1 SECONDS,
+		TURN_ACTOR(actor("Амелия - 5-1-4"), WEST) = 2 SECONDS,
 
 		TALK_ACTOR(actor("Амелия - 5-1-4"), "Року?") = 4 SECONDS,
 		TALK_ACTOR(actor("Року - 5-1-4"), "Амелия.") = 4 SECONDS,
@@ -511,18 +546,393 @@
 		TALK_ACTOR(actor("Року - 5-1-4"), "Фиддлер просил передать, что ему нужна твоя помощь с...") = 6 SECONDS,
 		TALK_ACTOR(actor("Року - 5-1-4"), "...-чем-то. На мостике.") = 4 SECONDS,
 
-		TURN_ACTOR(actor("Перси - 5-1-4"), SOUTH),
-
 		SHIFT_ACTOR(actor("Амелия - 5-1-4"), 10, 0, 0.5 SECONDS, SINE_EASING|EASE_OUT, null) = 0.5 SECONDS,
 		CHANGE_ACTOR_VISUALS(actor("Амелия - 5-1-4"), "EP5 PAGE 1 - 1"),
 		TURN_ACTOR(actor("Амелия - 5-1-4"), EAST),
 		SHIFT_ACTOR(actor("Амелия - 5-1-4"), 13, 0, 0.5 SECONDS, JUMP_EASING|EASE_IN, null) = 0.5 SECONDS,
-		TALK_ACTOR(actor("Амелия - 5-1-4"), "Я почти закончила калибровку нового корпуса для Персиваля. Передай ему, что мы будем-") = 6 SECONDS,
-		TALK_ACTOR(actor("Року - 5-1-4"), "Он звучал крайне отчаянно. Я даже удивилась тому, что голосовой модуль ППТ способен работать в таком...диапазоне?") = 4 SECONDS,
+		TALK_ACTOR(actor("Амелия - 5-1-4"), "Я почти закончила калибровку нового корпуса для Персиваля. Передай ему, что-") = 6 SECONDS,
+		TALK_ACTOR(actor("Року - 5-1-4"), "Он звучал крайне отчаянно. Словно ещё немного и его разберут на металлолом.") = 4 SECONDS,
+
+		PLAY_SOUND(sound('sound/mecha/mechmove03.ogg', volume = 10)),
+		TURN_ACTOR(actor("Перси - 5-1-4"), SOUTH),
+
+		TALK_ACTOR(actor("Амелия - 5-1-4"), "!устало опускает голову вниз.") = 4 SECONDS,
+
 		TURN_ACTOR(actor("Перси - 5-1-4"), WEST),
-		CHANGE_ACTOR_VISUALS(actor("Перси - 5-1-4"), "EP5 PAGE 1 - 4"),
-		TALK_ACTOR(actor("Амелия - 5-1-4"), "!устало опускает голову вниз.") = 1 SECONDS,
-		SHIFT_ACTOR(actor("Перси - 5-1-4"), -5, 0, 0.5 SECONDS, SINE_EASING|EASE_IN, null)
-		CHANGE_ACTOR_VISUALS(actor("Перси - 5-1-4"), "EP5 PAGE 1 - 3") = 1 SECONDS,
-		TALK_ACTOR(actor("Перси - 5-1-4"), "Скорее на частоте.") = 2 SECONDS,
+		CHANGE_ACTOR_VISUALS(actor("Перси - 5-1-4"), "EP5 PAGE 1 - 4") = 1 SECONDS,
+
+		SHIFT_ACTOR(actor("Перси - 5-1-4"), -5, 0, 0.5 SECONDS, SINE_EASING|EASE_IN, null),
+		CHANGE_ACTOR_VISUALS(actor("Перси - 5-1-4"), "EP5 PAGE 1 - 3") = 2 SECONDS,
+		TALK_ACTOR(actor("Перси - 5-1-4"), "Что-то никогда не меняется, да?") = 4 SECONDS,
+		TURN_ACTOR(actor("Перси - 5-1-4"), SOUTH) = 1 SECONDS,
+		TALK_ACTOR(actor("Амелия - 5-1-4"), "Твоё чувство юмора, к примеру."),
+		MOVE_CAMERA(6, 0, 6 SECONDS, SINE_EASING|EASE_IN) = 4 SECONDS,
+		START_CUTSCENE(/datum/modular_cutscene/s2ep5sc5)
+	)
+
+/datum/modular_cutscene/s2ep5sc5/setup_actions(...)
+	actions = list(
+		TP_CAMERA("Сцена 5-1 - Кадр 5"),
+
+		ADD_SCREEN(/cinema_borders) = 1 SECONDS,
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/Barren.mp3', volume = 50)),
+
+		MOVE_ACTOR(actor("Амелия - 5-1-5"), SOUTH) = 1 SECONDS,
+		PLAY_SOUND(sound('sound/mecha/mechstep03.ogg', volume = 10)),
+		MOVE_ACTOR(actor("Перси - 5-1-5"), SOUTH) = 1 SECONDS,
+		TALK_ACTOR(actor("Перси - 5-1-5"), "Может, просто отдашь мне мою куртку?") = 2 SECONDS,
+		PLAY_SOUND(sound('sound/mecha/mechstep03.ogg', volume = 10)),
+		MOVE_ACTOR(actor("Перси - 5-1-5"), SOUTH) = 1 SECONDS,
+		MOVE_ACTOR(actor("Амелия - 5-1-5"), SOUTH) = 1 SECONDS,
+		TURN_ACTOR(actor("Амелия - 5-1-5"), WEST),
+		TALK_ACTOR(actor("Амелия - 5-1-5"), "Тебе не нравится пальто?") = 4 SECONDS,
+		PLAY_SOUND(sound('sound/mecha/mechstep03.ogg', volume = 10)),
+		MOVE_ACTOR(actor("Перси - 5-1-5"), SOUTH) = 1 SECONDS,
+		PLAY_SOUND(sound('sound/mecha/mechmove03.ogg', volume = 10)),
+		TURN_ACTOR(actor("Перси - 5-1-5"), EAST),
+		TALK_ACTOR(actor("Перси - 5-1-5"), "Не нужно быть Шерлоком, чтобы понять что вы нашли его на свалке.") = 6 SECONDS,
+		TALK_ACTOR(actor("Амелия - 5-1-5"), "!закатывает глаза.") = 2 SECONDS,
+		TURN_ACTOR(actor("Амелия - 5-1-5"), SOUTH),
+		TALK_ACTOR(actor("Амелия - 5-1-5"), "Ты привыкнешь.") = 2 SECONDS,
+		MOVE_ACTOR(actor("Амелия - 5-1-5"), SOUTH) = 1 SECONDS,
+		PLAY_SOUND(sound('sound/mecha/mechmove02.ogg', volume = 10)),
+		TURN_ACTOR(actor("Перси - 5-1-5"), SOUTH) = 1 SECONDS,
+		PLAY_SOUND(sound('sound/mecha/mechstep03.ogg', volume = 10)),
+		MOVE_ACTOR(actor("Перси - 5-1-5"), SOUTH) = 1 SECONDS,
+		TALK_ACTOR(actor("Перси - 5-1-5"), "Ты просто не хочешь отдавать её, да?"),
+		MOVE_CAMERA(6, -4, 4 SECONDS, SINE_EASING|EASE_OUT),
+		MOVE_ACTOR(actor("Амелия - 5-1-5"), SOUTH) = 1 SECONDS,
+		PLAY_SOUND(sound('sound/mecha/mechstep03.ogg', volume = 10)),
+		PLAY_SOUND(sound('packs/infinity/sound/voice/giggle_female_3.ogg', volume = 10)),
+		TALK_ACTOR(actor("Амелия - 5-1-5"), "Может быть?") = 1 SECONDS,
+		MOVE_ACTOR(actor("Перси - 5-1-5"), SOUTH) = 2 SECONDS,
+		START_CUTSCENE(/datum/modular_cutscene/s2ep5sc6)
+	)
+
+/datum/modular_cutscene/s2ep5sc6/setup_actions(...)
+	actions = list(
+		TP_CAMERA("Сцена 5-1 - Кадр 6"),
+
+		ADD_SCREEN(/cinema_borders) = 1 SECONDS,
+		TALK_ACTOR(actor("Крис - 5-1-6"), "...но без рабочей АЭС - мы никуда не поедем.") = 1 SECONDS,
+		PLAY_SOUND(sound('sound/mecha/mechstep03.ogg', volume = 10)),
+		MOVE_ACTOR(actor("Перси - 5-1-6"), SOUTH) = 1 SECONDS,
+		MOVE_ACTOR(actor("Амелия - 5-1-6"), SOUTH) = 1 SECONDS,
+		MOVE_ACTOR(actor("Амелия - 5-1-6"), SOUTH) = 1 SECONDS,
+		TALK_ACTOR(actor("Фиддлер - 5-1-6"), "Что насчёт альтернатив?") = 4 SECONDS,
+		TALK_ACTOR(actor("Крис - 5-1-6"), "Можно попробовать перевести энергию с других контуров...") = 1 SECONDS,
+		PLAY_SOUND(sound('sound/mecha/mechstep03.ogg', volume = 10)),
+		MOVE_ACTOR(actor("Перси - 5-1-6"), SOUTH) = 1 SECONDS,
+		MOVE_ACTOR(actor("Амелия - 5-1-6"), SOUTH) = 2 SECONDS,
+		START_CUTSCENE(/datum/modular_cutscene/s2ep5sc7)
+	)
+
+/proc/s2ep5sc7_screentext()
+	var/message = {"<span style="color: yellow;">Кристина</span>: Здесь..."}
+
+	var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+	maintext.plane = HUD_PLANE
+	maintext.layer = HUD_ABOVE_HUD_LAYER
+	maintext.maptext_x = 0
+	maintext.maptext_y = -310
+
+	for(var/client/M in GLOB.clients)
+		M.screen += maintext
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(1 SECONDS)
+		message = {"<span style="color: yellow;">Кристина</span>: Вот тут-"}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(2 SECONDS)
+		message = {"<span style="color: yellow;">Кристина</span>: И ещё где-то здесь -"}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(4 SECONDS)
+		message = {"<span style="color: yellow;">Кристина</span>: - расположены аварийные подстанции."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(8 SECONDS)
+		message = ""
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(10 SECONDS)
+		message = {"<span style="color: yellow;">Кристина</span>: Если они всё ещё работают - их выхлопа точно хватит на одну поездку."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(16 SECONDS)
+		message = {"<span style="color: yellow;">Кристина</span>: Нюанс в том, что никаких данных по состоянию тоннелей в целом - у нас нет."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(22 SECONDS)
+		message = {"<span style="color: yellow;">Кристина</span>: Они не эксплуатировались многие годы. И пускай я не думаю, что мы встретим там ЖИВОЕ сопротивление -"}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(30 SECONDS)
+		message = ""
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(32 SECONDS)
+		message = {"<span style="color: yellow;">Кристина</span>: - даже простой завал может стать для нас большой проблемой."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(38 SECONDS)
+
+		for(var/client/M in GLOB.clients)
+			for(var/obj/screen/messages in M.screen)
+				if(istype(messages, /obj/screen/player_message))
+					M.screen -= messages
+					qdel(messages)
+
+/datum/modular_cutscene/s2ep5sc7/setup_actions(...)
+	actions = list(
+		EASY_TRANSFORM_ACTOR(actor("Глаза Райфлер - 5-1-7"), 6, 0),
+		CHANGE_ACTOR_LAYER(actor("Глаза Райфлер - 5-1-7"), 4.10),
+
+		EASY_TRANSFORM_ACTOR(actor("Крис - 5-1-7"), 11, 0),
+		CHANGE_ACTOR_LAYER(actor("Крис - 5-1-7"), 4.09),
+
+		EASY_TRANSFORM_ACTOR(actor("Стена 5-7"), 15, 0),
+		CHANGE_ACTOR_LAYER(actor("Стена 5-7"), 4.01),
+
+		EASY_TRANSFORM_ACTOR(actor("Такмапа 5-7"), 10, 0),
+		CHANGE_ACTOR_LAYER(actor("Такмапа 5-7"), 4.11) = 0.1 SECONDS,
+
+		TP_CAMERA("Сцена 5-1 - Кадр 7"),
+		MOVE_CAMERA(0, 0, 0, null),
+		ADD_SCREEN(/cinema_borders) = 1 SECONDS,
+
+		CALL_GLOB(s2ep5sc7_screentext),
+		CHANGE_ACTOR_VISIBILITY(actor("Пинг 1"), 255, 0.5 SECONDS, LINEAR_EASING, null),
+		PLAY_SOUND(sound('sound/machines/ping.ogg', volume = 10)),
+		TALK_ACTOR(actor("Крис - 5-1-7"), "Здесь...") = 1 SECONDS,
+
+		CHANGE_ACTOR_VISIBILITY(actor("Пинг 2"), 255, 0.5 SECONDS, LINEAR_EASING, null),
+		CHANGE_ACTOR_VISIBILITY(actor("Пинг 1"), 0, 1 SECONDS, LINEAR_EASING, null),
+		PLAY_SOUND(sound('sound/machines/ping.ogg', volume = 10)),
+		TALK_ACTOR(actor("Крис - 5-1-7"), "Вот тут-") = 1 SECONDS,
+
+		CHANGE_ACTOR_VISIBILITY(actor("Пинг 3"), 255, 0.5 SECONDS, LINEAR_EASING, null),
+		CHANGE_ACTOR_VISIBILITY(actor("Пинг 2"), 0, 1 SECONDS, LINEAR_EASING, null),
+		PLAY_SOUND(sound('sound/machines/ping.ogg', volume = 10)),
+		SHIFT_ACTOR(actor("Крис - 5-1-7"), 10, 0, 0.5 SECONDS, SINE_EASING|EASE_IN, null),
+		SHIFT_ACTOR(actor("Глаза Райфлер - 5-1-7"), 0, -40, 0.5 SECONDS, SINE_EASING|EASE_IN, null),
+		TALK_ACTOR(actor("Крис - 5-1-7"), "И ещё где-то здесь -") = 1 SECONDS,
+		CHANGE_ACTOR_VISIBILITY(actor("Пинг 3"), 0, 1 SECONDS, LINEAR_EASING, null) = 1 SECONDS,
+		TALK_ACTOR(actor("Крис - 5-1-7"), "- расположены аварийные подстанции.") = 4 SECONDS,
+
+		SHIFT_ACTOR(actor("Крис - 5-1-7"), 0, 10, 0.5 SECONDS, SINE_EASING|EASE_IN, null),
+		SHIFT_ACTOR(actor("Глаза Райфлер - 5-1-7"), -9, -30, 0.5 SECONDS, SINE_EASING|EASE_IN, null),
+		CHANGE_ACTOR_VISUALS(actor("Глаза Райфлер - 5-1-7"), "Rifler Eyes") = 2 SECONDS,
+
+		TALK_ACTOR(actor("Крис - 5-1-7"), "Если они всё ещё работают - их выхлопа точно хватит на одну поездку.") = 6 SECONDS,
+
+		CHANGE_ACTOR_VISUALS(actor("Глаза Райфлер - 5-1-7"), "Rifler Eyes - Right"),
+		TALK_ACTOR(actor("Крис - 5-1-7"), "Нюанс в том, что никаких данных по состоянию тоннелей в целом - у нас нет.") = 6 SECONDS,
+		TALK_ACTOR(actor("Крис - 5-1-7"), "Они не эксплуатировались многие годы. И пускай я не думаю, что мы встретим там ЖИВОЕ сопротивление -") = 8 SECONDS,
+		SHIFT_ACTOR(actor("Крис - 5-1-7"), 0, 0, 0.5 SECONDS, SINE_EASING|EASE_IN, null),
+		SHIFT_ACTOR(actor("Глаза Райфлер - 5-1-7"), -9, -40, 0.5 SECONDS, SINE_EASING|EASE_IN, null) = 2 SECONDS,
+
+		CHANGE_ACTOR_VISUALS(actor("Глаза Райфлер - 5-1-7"), "Rifler Eyes"),
+		CHANGE_ACTOR_VISUALS(actor("Крис - 5-1-7"), "EP5 PAGE 1 - 1"),
+		EASY_TRANSFORM_ACTOR(actor("Глаза Райфлер - 5-1-7"), 5, 0),
+		TURN_ACTOR(actor("Глаза Райфлер - 5-1-7"), WEST),
+		SHIFT_ACTOR(actor("Глаза Райфлер - 5-1-7"), -18, -35, 0, null, null),
+
+		TALK_ACTOR(actor("Крис - 5-1-7"), "- даже простой завал может стать для нас большой проблемой.") = 6 SECONDS,
+		START_CUTSCENE(/datum/modular_cutscene/s2ep5sc8)
+	)
+
+/proc/s2ep5sc8_screentext()
+	var/message = {"<span style="color: yellow;">Мясо</span>: Значит, какой вариант мы бы не выбрали - он всё равно будет сопряжён с рисками?"}
+
+	var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+	maintext.plane = HUD_PLANE
+	maintext.layer = HUD_ABOVE_HUD_LAYER
+	maintext.maptext_x = 0
+	maintext.maptext_y = -310
+
+	for(var/client/M in GLOB.clients)
+		M.screen += maintext
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(6 SECONDS)
+		message = ""
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(8 SECONDS)
+		message = {"<span style="color: yellow;">Кристина</span>: Верно."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(10 SECONDS)
+		message = {"<span style="color: yellow;">Кристина</span>: Я не люблю вести переговоры с террористами, но вынуждена согласиться с позицией Фокс."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(18 SECONDS)
+		message = {"<span style="color: yellow;">Кристина</span>: Каждая минута, которую мы проводим здесь в безделии - стоит крупицы жизни наших товарищей."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(26 SECONDS)
+		message = {"<span style="color: yellow;">Мясо хмурится</span>."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(28 SECONDS)
+		message = {"<span style="color: yellow;">Кристина</span>: Прождём ещё денёк - и спасать будет уже некого."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(34 SECONDS)
+		message = {"<span style="color: yellow;">Кристина</span>: Поверьте..."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(36 SECONDS)
+		message = {"<span style="color: yellow;">Кристина</span>: Я знаю о чём говорю. Никто неспособен оправиться от <b>Рая</b>."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(42 SECONDS)
+		message = ""
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(44 SECONDS)
+		message = {"<span style="color: yellow;">Мясо</span>: Что скажешь?"}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(48 SECONDS)
+
+		for(var/client/M in GLOB.clients)
+			for(var/obj/screen/messages in M.screen)
+				if(istype(messages, /obj/screen/player_message))
+					M.screen -= messages
+					qdel(messages)
+
+/datum/modular_cutscene/s2ep5sc8/setup_actions(...)
+	actions = list(
+		CHANGE_ACTOR_VISIBILITY(actor("Такмапа 5-7"), 0, 0, null, null),
+
+		EASY_TRANSFORM_ACTOR(actor("Мясо - 5-1-8"), 11, 0),
+		CHANGE_ACTOR_LAYER(actor("Мясо - 5-1-8"), 4.09),
+
+		EASY_TRANSFORM_ACTOR(actor("Стена 5-8"), 15, 0),
+		CHANGE_ACTOR_LAYER(actor("Стена 5-8"), 4.01),
+
+		EASY_TRANSFORM_ACTOR(actor("Такмапа 5-8"), 10, 0),
+		CHANGE_ACTOR_LAYER(actor("Такмапа 5-8"), 4.11) = 0.1 SECONDS,
+
+		TP_CAMERA("Сцена 5-1 - Кадр 8"),
+		MOVE_CAMERA(0, 0, 0, null),
+		ADD_SCREEN(/cinema_borders) = 1 SECONDS,
+
+		CALL_GLOB(s2ep5sc8_screentext),
+		TALK_ACTOR(actor("Мясо - 5-1-8"), "Значит, какой вариант мы бы не выбрали - он всё равно будет сопряжён с рисками?") = 10 SECONDS,
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/Barren.mp3', volume = 50)),
+
+		SHIFT_ACTOR(actor("Мясо - 5-1-8"), 0, -10, 2 SECONDS, SINE_EASING|EASE_IN, null) = 30 SECONDS,
+		TURN_ACTOR(actor("Мясо - 5-1-8"), EAST) = 4 SECONDS,
+		TALK_ACTOR(actor("Мясо - 5-1-8"), "Что скажешь?") = 5 SECONDS,
+		START_CUTSCENE(/datum/modular_cutscene/s2ep5sc9)
+	)
+
+/proc/s2ep5sc9_screentext()
+	var/message = {"<span style="color: yellow;">Йозеф</span>: Я не собираюсь подвергать опасности весь бункер. Запускать гейтвей сейчас слишком опасно."}
+
+	var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+	maintext.plane = HUD_PLANE
+	maintext.layer = HUD_ABOVE_HUD_LAYER
+	maintext.maptext_x = 0
+	maintext.maptext_y = -310
+
+	for(var/client/M in GLOB.clients)
+		M.screen += maintext
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(8 SECONDS)
+		message = ""
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(10 SECONDS)
+		message = {"<span style="color: yellow;">Йозеф</span>: Мы воспользуемся метро."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(14 SECONDS)
+		message = {"<span style="color: yellow;">Йозеф</span>: Райфлер, подготовь отряд к спуску. Раскопки начнутся немедленно."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(18 SECONDS)
+		message = {"<span style="color: yellow;">Амелия</span>: Мистер Фиддлер?"}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(22 SECONDS)
+		message = {"<span style="color: yellow;">Йозеф</span>: Мясо, попробуй-..."}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(24 SECONDS)
+		message = {"<span style="color: yellow;">Амелия</span>: <b>Мистер Фиддлер!!!</b>"}
+		maintext.set_text(message, COLOR_WHITE)
+
+	spawn(26 SECONDS)
+
+		for(var/client/M in GLOB.clients)
+			for(var/obj/screen/messages in M.screen)
+				if(istype(messages, /obj/screen/player_message))
+					M.screen -= messages
+					qdel(messages)
+
+/datum/modular_cutscene/s2ep5sc9/setup_actions(...)
+	actions = list(
+		EASY_TRANSFORM_ACTOR(actor("Глаза Фиддлера - 5-1-9"), 6, 0),
+		CHANGE_ACTOR_LAYER(actor("Глаза Фиддлера - 5-1-9"), 4.10),
+
+		EASY_TRANSFORM_ACTOR(actor("Фиддлер - 5-1-9"), 11, 0),
+		CHANGE_ACTOR_LAYER(actor("Фиддлер - 5-1-9"), 4.09),
+
+		EASY_TRANSFORM_ACTOR(actor("Стена 5-9"), 15, 0),
+		CHANGE_ACTOR_LAYER(actor("Стена 5-9"), 4.01),
+
+		EASY_TRANSFORM_ACTOR(actor("Такмапа 5-9"), 10, 0),
+		CHANGE_ACTOR_LAYER(actor("Такмапа 5-9"), 4.11) = 0.1 SECONDS,
+
+		CHANGE_ACTOR_VISIBILITY(actor("Такмапа 5-8"), 0, 0.1 SECONDS, SINE_EASING, null),
+
+		TP_CAMERA("Сцена 5-1 - Кадр 9"),
+		MOVE_CAMERA(0, 0, 0, null),
+		ADD_SCREEN(/cinema_borders) = 4 SECONDS,
+
+		SHIFT_ACTOR(actor("Глаза Фиддлера - 5-1-9"), -9, -36, 0.5 SECONDS, SINE_EASING|EASE_IN, null),
+		CHANGE_ACTOR_VISUALS(actor("Глаза Фиддлера - 5-1-9"), "Fiddler Eyes - Looking away") = 2 SECONDS,
+
+		SHIFT_ACTOR(actor("Глаза Фиддлера - 5-1-9"), -6, -36, 0.5 SECONDS, SINE_EASING|EASE_IN, null),
+		CHANGE_ACTOR_VISUALS(actor("Глаза Фиддлера - 5-1-9"), "Fiddler Eyes - Looking away 2") = 2 SECONDS,
+
+		PLAY_SOUND(sound('sound/mecha/mechmove03.ogg', volume = 10)),
+		SHIFT_ACTOR(actor("Фиддлер - 5-1-9"), 0, -5, 0.5 SECONDS, SINE_EASING|EASE_IN, null),
+		SHIFT_ACTOR(actor("Глаза Фиддлера - 5-1-9"), -9, -42, 0.5 SECONDS, SINE_EASING|EASE_IN, null),
+		CHANGE_ACTOR_VISUALS(actor("Глаза Фиддлера - 5-1-9"), "Fiddler Eyes - Closed") = 2 SECONDS,
+
+		SHIFT_ACTOR(actor("Глаза Фиддлера - 5-1-9"), -9, -40, 0.5 SECONDS, SINE_EASING|EASE_OUT, null),
+		CHANGE_ACTOR_VISUALS(actor("Глаза Фиддлера - 5-1-9"), "Fiddler Eyes - Looking down") = 2 SECONDS,
+		CALL_GLOB(s2ep5sc9_screentext),
+		TALK_ACTOR(actor("Фиддлер - 5-1-9"), "Я не собираюсь подвергать опасности весь бункер. Запускать гейтвей сейчас слишком опасно.") = 10 SECONDS,
+
+		PLAY_SOUND(sound('sound/mecha/mechmove01.ogg', volume = 10)),
+		CHANGE_ACTOR_VISUALS(actor("Глаза Фиддлера - 5-1-9"), "Fiddler Eyes"),
+		CHANGE_ACTOR_VISUALS(actor("Фиддлер - 5-1-9"), "EP5 PAGE 1 - 1"),
+		TALK_ACTOR(actor("Фиддлер - 5-1-9"), "Мы воспользуемся метро.") = 4 SECONDS,
+		CHANGE_ACTOR_VISUALS(actor("Глаза Фиддлера - 5-1-9"), "Fiddler Eyes - Looking away 2"),
+		TALK_ACTOR(actor("Фиддлер - 5-1-9"), "Райфлер, подготовь отряд к спуску. Раскопки начнутся немедленно.") = 8 SECONDS,
+
+		CHANGE_ACTOR_VISUALS(actor("Глаза Фиддлера - 5-1-9"), "Fiddler Eyes - Looking away"),
+		TALK_ACTOR(actor("Фиддлер - 5-1-9"), "Мясо, попробуй-...") = 4 SECONDS,
+		PLAY_SOUND(sound('sound/mecha/mechmove03.ogg', volume = 10)),
+		TURN_ACTOR(actor("Фиддлер - 5-1-9"), EAST),
+		TURN_ACTOR(actor("Глаза Фиддлера - 5-1-9"), EAST),
+		CHANGE_ACTOR_VISUALS(actor("Глаза Фиддлера - 5-1-9"), "Fiddler Eyes"),
+		SHIFT_ACTOR(actor("Глаза Фиддлера - 5-1-9"), 32, -38, 0.5 SECONDS, SINE_EASING|EASE_OUT, null) = 2 SECONDS,
+
+		START_CUTSCENE(/datum/modular_cutscene/s2ep5sc10)
+	)
+
+/datum/modular_cutscene/s2ep5sc10/setup_actions(...)
+	actions = list(
+		TP_CAMERA("Сцена 5-1 - Кадр 10"),
+
+		ADD_SCREEN(/cinema_borders) = 1 SECONDS,
 	)

@@ -66,3 +66,37 @@
 
 	color = "#808080"
 	should_show_name = FALSE
+
+/mob/living/simple_animal/cutscene_character/fiddler/s2ep2/fiddler_eyes
+	name = "eyes"
+	desc = "..."
+	mouse_opacity = FALSE
+
+	icon_state = "Fiddler Eyes"
+	icon_living = "Fiddler Eyes"
+	icon_dead = "Fiddler Eyes"
+
+	should_show_name = FALSE
+
+/mob/living/simple_animal/cutscene_character/rifler_actual/rifler_eyes
+	name = "eyes"
+	desc = "..."
+	mouse_opacity = FALSE
+
+	icon_state = "Rifler Eyes"
+	icon_living = "Rifler Eyes"
+	icon_dead = "Rifler Eyes"
+
+	should_show_name = FALSE
+
+/mob/living/simple_animal/cutscene_character/s2ep5/tacmap
+	name = "computer"
+	desc = "..."
+	mouse_opacity = FALSE
+
+	icon = 'mods/_fd/fd_assets/icons/structures/almayer_props96.dmi'
+	icon_state = "h_maptable_on"
+	icon_living = "h_maptable_on"
+	icon_dead = "h_maptable_on"
+
+	should_show_name = FALSE
