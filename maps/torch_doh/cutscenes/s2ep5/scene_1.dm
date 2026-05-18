@@ -479,6 +479,50 @@
 		TALK_ACTOR(actor("Амелия - 5-1-4"), "Мне казалось, что тебе такое нравится.") = 2 SECONDS,
 
 		TALK_ACTOR(actor("Перси - 5-1-4"), "!фырчит.") = 2 SECONDS,
-		TALK_ACTOR(actor("Перси - 5-1-4"), "Мне ли?") = 100 SECONDS,
+		TALK_ACTOR(actor("Перси - 5-1-4"), "Мне ли?") = 5 SECONDS,
 
+		CHANGE_ACTOR_VISUALS(actor("Дверь 5-4"), "opening") = 0.5 SECONDS,
+		CHANGE_ACTOR_VISUALS(actor("Дверь 5-4"), "open") = 1 SECONDS,
+
+		CHANGE_ACTOR_VISIBILITY(actor("Року - 5-1-4"), 255, 1 SECOND, SINE_EASING, null),
+		MOVE_ACTOR(actor("Року - 5-1-4"), EAST) = 0.5 SECONDS,
+
+		CHANGE_ACTOR_VISUALS(actor("Перси - 5-1-5"), "EP5 PAGE 1 - 3"),
+		TURN_ACTOR(actor("Перси - 5-1-4"), WEST) = 0.5 SECONDS,
+
+		MOVE_ACTOR(actor("Року - 5-1-4"), EAST),
+		SHIFT_ACTOR(actor("Перси - 5-1-4"), 10, 0, 0.5 SECONDS, SINE_EASING|EASE_OUT, null) = 0.5 SECONDS,
+
+		CHANGE_ACTOR_VISUALS(actor("Амелия - 5-1-4"), "EP5 PAGE 1 - 7"),
+		TURN_ACTOR(actor("Амелия - 5-1-4"), NORTH) = 1 SECONDS,
+
+		TALK_ACTOR(actor("Амелия - 5-1-4"), "В чём дело? Я забыла что-то закрутить, или-") = 0.5 SECONDS,
+		TALK_ACTOR(actor("Перси - 5-1-4"), "!указывает на Року.") = 1 SECONDS,
+		TURN_ACTOR(actor("Амелия - 5-1-4"), WEST) = 1 SECONDS,
+
+		TALK_ACTOR(actor("Амелия - 5-1-4"), "Року?") = 4 SECONDS,
+		TALK_ACTOR(actor("Року - 5-1-4"), "Амелия.") = 4 SECONDS,
+
+		TALK_ACTOR(actor("Амелия - 5-1-4"), "!вздыхает.") = 2 SECONDS,
+		CHANGE_ACTOR_VISUALS(actor("Амелия - 5-1-4"), "Ep 1"),
+		SHIFT_ACTOR(actor("Амелия - 5-1-4"), 0, 0, 1 SECONDS, LINEAR_EASING, null),
+		TALK_ACTOR(actor("Амелия - 5-1-4"), "Что-то срочное?") = 4 SECONDS,
+
+		TALK_ACTOR(actor("Року - 5-1-4"), "Фиддлер просил передать, что ему нужна твоя помощь с...") = 6 SECONDS,
+		TALK_ACTOR(actor("Року - 5-1-4"), "...-чем-то. На мостике.") = 4 SECONDS,
+
+		TURN_ACTOR(actor("Перси - 5-1-4"), SOUTH),
+
+		SHIFT_ACTOR(actor("Амелия - 5-1-4"), 10, 0, 0.5 SECONDS, SINE_EASING|EASE_OUT, null) = 0.5 SECONDS,
+		CHANGE_ACTOR_VISUALS(actor("Амелия - 5-1-4"), "EP5 PAGE 1 - 1"),
+		TURN_ACTOR(actor("Амелия - 5-1-4"), EAST),
+		SHIFT_ACTOR(actor("Амелия - 5-1-4"), 13, 0, 0.5 SECONDS, JUMP_EASING|EASE_IN, null) = 0.5 SECONDS,
+		TALK_ACTOR(actor("Амелия - 5-1-4"), "Я почти закончила калибровку нового корпуса для Персиваля. Передай ему, что мы будем-") = 6 SECONDS,
+		TALK_ACTOR(actor("Року - 5-1-4"), "Он звучал крайне отчаянно. Я даже удивилась тому, что голосовой модуль ППТ способен работать в таком...диапазоне?") = 4 SECONDS,
+		TURN_ACTOR(actor("Перси - 5-1-4"), WEST),
+		CHANGE_ACTOR_VISUALS(actor("Перси - 5-1-4"), "EP5 PAGE 1 - 4"),
+		TALK_ACTOR(actor("Амелия - 5-1-4"), "!устало опускает голову вниз.") = 1 SECONDS,
+		SHIFT_ACTOR(actor("Перси - 5-1-4"), -5, 0, 0.5 SECONDS, SINE_EASING|EASE_IN, null)
+		CHANGE_ACTOR_VISUALS(actor("Перси - 5-1-4"), "EP5 PAGE 1 - 3") = 1 SECONDS,
+		TALK_ACTOR(actor("Перси - 5-1-4"), "Скорее на частоте.") = 2 SECONDS,
 	)

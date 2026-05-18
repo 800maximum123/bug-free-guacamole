@@ -76,6 +76,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/bunker/lower/lab/gateway)
+"adk" = (
+/obj/structure/fd/body{
+	icon_state = "IntenSecDead2";
+	pixel_x = 2
+	},
+/turf/simulated/floor/exoplanet/samosbor/concrete,
+/area/bunker/interlude)
 "adn" = (
 /obj/machinery/constructable_frame/machine_frame,
 /turf/simulated/floor/plating,
@@ -112,17 +119,6 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med/chem)
-"aeq" = (
-/obj/floor_decal/hull,
-/obj/structure/fd/general_decorations/car{
-	icon_state = "track";
-	dir = 4;
-	pixel_y = -27;
-	bound_width = 96;
-	layer = 4.11
-	},
-/turf/simulated/floor/exoplanet/grim_asphalt2,
-/area/bunker/interlude)
 "afg" = (
 /obj/floor_decal/step{
 	color = "grey"
@@ -241,6 +237,15 @@
 /obj/structure/table/steel_reinforced,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/kpp)
+"ajV" = (
+/obj/structure/fd/junk{
+	pixel_x = -1;
+	pixel_y = -2
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gl"
+	},
+/area/bunker/interlude)
 "akp" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/fd/grass,
@@ -581,6 +586,17 @@
 	icon_state = "me_pi_3"
 	},
 /area/bunker/lower/lab/gateway)
+"aEc" = (
+/obj/structure/fd/samosbor/machinery1{
+	pixel_x = -8;
+	pixel_y = 40;
+	layer = 4.13;
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gl"
+	},
+/area/bunker/interlude)
 "aEt" = (
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#526833"
@@ -878,14 +894,6 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/corridos)
-"aRT" = (
-/obj/decal/cleanable/dirt,
-/obj/structure/fd/body/bluespace_infected{
-	pixel_x = 12;
-	pixel_y = -7
-	},
-/turf/simulated/floor/exoplanet/samosbor/concrete,
-/area/bunker/interlude)
 "aRZ" = (
 /obj/catwalk_plated/dark,
 /obj/structure/cable/green{
@@ -1553,9 +1561,9 @@
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/bunker/interlude)
 "bna" = (
-/obj/structure/fd/bunker/warphole{
-	pixel_y = 27;
-	hole_id = "interlude"
+/obj/structure/fd/mapping/cutscene_trigger{
+	trigger_id = "jeff";
+	cutscene_to_play = /datum/modular_cutscene/jeff_finale
 	},
 /turf/simulated/floor/exoplanet/samosbor/env{
 	icon_state = "gl"
@@ -1830,6 +1838,51 @@
 /obj/paint/black,
 /turf/simulated/wall,
 /area/bunker/jungle/lz)
+"bwF" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/table/rack,
+/obj/floor_decal/corner/paleblue/mono,
+/obj/item/fd/simple_combat/splint{
+	pixel_y = 10
+	},
+/obj/item/fd/simple_combat/splint{
+	pixel_y = -6
+	},
+/obj/item/fd/simple_combat/splint{
+	pixel_y = 2
+	},
+/obj/item/fd/simple_combat/splint{
+	pixel_y = 10
+	},
+/obj/item/fd/simple_combat/splint{
+	pixel_y = -6
+	},
+/obj/item/fd/simple_combat/splint{
+	pixel_y = 2
+	},
+/obj/item/fd/simple_combat/splint{
+	pixel_y = 2
+	},
+/obj/item/fd/simple_combat/splint{
+	pixel_y = 2
+	},
+/obj/item/fd/simple_combat/splint{
+	pixel_y = 2
+	},
+/obj/item/fd/simple_combat/splint{
+	pixel_y = 2
+	},
+/obj/item/fd/simple_combat/splint{
+	pixel_y = 2
+	},
+/obj/item/fd/simple_combat/splint{
+	pixel_y = 2
+	},
+/obj/item/fd/simple_combat/splint{
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/bunker/lower/med/warehouse)
 "bwG" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/industrial/warning,
@@ -2480,11 +2533,15 @@
 /obj/structure/flora/tree/grim/ghost,
 /obj/structure/fd/body{
 	icon_state = "TNCDead1";
-	pixel_x = -14;
+	pixel_x = -18;
 	pixel_y = 7;
 	interactive = 1;
 	desc_special_show = 1;
-	desc_special = "Его тело вросло в дерево."
+	desc_special = "Его тело вросло в дерево, но рука, оставшаяся снаружи, всё ещё крепко держит какой-то предмет.";
+	desc_special_after_finding = "Его тело вросло в дерево.";
+	has_something_inside = 1;
+	remain_interactive_after_finding = 1;
+	hidden_loot = /obj/item/fd/stabilizator_key/blue
 	},
 /turf/simulated/floor/exoplanet/samosbor/env{
 	icon_state = "gl"
@@ -2675,6 +2732,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
+"cfZ" = (
+/obj/floor_decal/hull,
+/obj/structure/fd/junk{
+	icon_state = "0,3";
+	layer = 2.21
+	},
+/turf/simulated/floor/exoplanet/grim_asphalt2,
+/area/bunker/interlude)
 "cgq" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/industrial/hatch/grey,
@@ -2728,6 +2793,20 @@
 /obj/submap_landmark/spawnpoint/manticore/cf355,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
+"cjh" = (
+/obj/floor_decal/hull,
+/obj/structure/fd/general_decorations/car{
+	icon_state = "track";
+	dir = 4;
+	pixel_y = -27;
+	bound_width = 96;
+	layer = 4.11;
+	can_hide_inside = 1;
+	hiding_viewpoint = 4;
+	interactive = 1
+	},
+/turf/simulated/floor/exoplanet/grim_asphalt2,
+/area/bunker/interlude)
 "cjk" = (
 /obj/floor_decal/techfloor/orange/corner{
 	dir = 8
@@ -3396,6 +3475,19 @@
 "cCm" = (
 /turf/simulated/floor/tiled,
 /area/bunker/rooms/room10)
+"cCx" = (
+/obj/decal/cleanable/dirt,
+/obj/floor_decal/hull{
+	dir = 1
+	},
+/obj/structure/fd/general_decorations/car{
+	dir = 8;
+	pixel_y = -31;
+	layer = 4.11;
+	bound_width = 96
+	},
+/turf/simulated/floor/exoplanet/grim_asphalt2,
+/area/bunker/interlude)
 "cCD" = (
 /obj/structure/flora/ausbushes/fernybush,
 /obj/structure/vines/light3,
@@ -3413,6 +3505,16 @@
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab)
+"cCU" = (
+/obj/structure/fd/junk{
+	icon_state = "2,0";
+	pixel_y = 6;
+	pixel_x = -2
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gd"
+	},
+/area/bunker/interlude)
 "cEf" = (
 /obj/structure/flora/ausbushes/under_grass,
 /obj/structure/flora/ausbushes/grassybush,
@@ -3808,19 +3910,6 @@
 /obj/floor_decal/techfloor,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/eng/workshop)
-"cRd" = (
-/obj/decal/cleanable/dirt,
-/obj/structure/fd/general_decorations/car{
-	icon_state = "1";
-	dir = 8;
-	pixel_y = -31;
-	bound_width = 96;
-	layer = 4.11
-	},
-/turf/simulated/floor/exoplanet/samosbor/env{
-	icon_state = "gd"
-	},
-/area/bunker/interlude)
 "cRn" = (
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/rooms/room2)
@@ -3918,6 +4007,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
+"cTo" = (
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/turf/simulated/floor/exoplanet/grim_asphalt2,
+/area/bunker/interlude)
 "cTx" = (
 /obj/structure/flora/seaweed{
 	layer = 2.21;
@@ -4367,6 +4463,10 @@
 	light_power = 0.8;
 	light_range = 3
 	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/bunker/interlude)
 "dlu" = (
@@ -4642,6 +4742,19 @@
 /obj/floor_decal/messygrass,
 /turf/simulated/floor/exoplanet/fd/muddirt,
 /area/bunker/jungle)
+"dzZ" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/samosbor/neon_signs/large{
+	icon_state = "manhattanmap";
+	pixel_x = -11;
+	color_of = "#59aaa3";
+	pixel_y = 6;
+	layer = 4.09
+	},
+/turf/simulated/floor/exoplanet/samosbor/concrete{
+	icon_state = "co_br"
+	},
+/area/bunker/interlude)
 "dAx" = (
 /obj/floor_decal/corner/paleblue/border{
 	dir = 8
@@ -4656,6 +4769,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bunker/lower/med/warehouse)
+"dAI" = (
+/obj/structure/fd/bunker/stabilizator_cell/blue,
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "sa"
+	},
+/area/bunker/interlude)
 "dAP" = (
 /obj/floor_decal/techfloor/orange{
 	dir = 1
@@ -4878,6 +4997,18 @@
 /obj/floor_decal/messygrass,
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
+"dLp" = (
+/obj/structure/table/standard,
+/obj/item/fd/simple_combat/full_heal,
+/turf/simulated/floor/tiled,
+/area/bunker/lower/med/surgery)
+"dLv" = (
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/turf/simulated/floor/exoplanet/samosbor/concrete,
+/area/bunker/interlude)
 "dMk" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
@@ -5892,6 +6023,16 @@
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/bslab)
+"eML" = (
+/obj/floor_decal/hull{
+	dir = 8
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/turf/simulated/floor/exoplanet/grim_asphalt2,
+/area/bunker/interlude)
 "eNw" = (
 /obj/machinery/light_construct,
 /obj/floor_decal/borderfloorblack{
@@ -6291,6 +6432,21 @@
 	icon_state = "gl"
 	},
 /area/bunker/interlude)
+"fes" = (
+/obj/structure/fd/interactive/note/from_future{
+	pixel_x = 11;
+	pixel_y = -17;
+	layer = 4.12
+	},
+/obj/structure/fd/junk{
+	icon_state = "0,2";
+	pixel_y = 10;
+	pixel_x = -5
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gl"
+	},
+/area/bunker/interlude)
 "feD" = (
 /obj/machinery/door/airlock/hatch,
 /obj/structure/cable/green{
@@ -6340,6 +6496,10 @@
 	has_fall_damage = 0;
 	ignore_these_mobs = list();
 	teleport_to = /area/bunker/interlude
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
 	},
 /turf/simulated/floor/exoplanet/samosbor/env{
 	icon_state = "gd_da"
@@ -6533,8 +6693,12 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp1)
 "fsb" = (
-/obj/paint/black,
-/turf/simulated/wall/r_wall,
+/obj/structure/fd/grim_walls/stone{
+	opacity = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gl"
+	},
 /area/bunker/interlude)
 "fsp" = (
 /obj/floor_decal/industrial/warning{
@@ -6800,6 +6964,13 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/barracks/gvardiya)
+"fBo" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/bunker/stabilizator,
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gl"
+	},
+/area/bunker/interlude)
 "fBu" = (
 /obj/overlay/diona/floor,
 /obj/overlay/diona/decorator{
@@ -7163,11 +7334,15 @@
 /turf/simulated/floor/tiled/white,
 /area/bunker/rooms/room13)
 "fMr" = (
-/obj/paint/black,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/wall/r_wall,
+/obj/structure/fd/grim_walls/stone{
+	opacity = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gl"
+	},
 /area/bunker/interlude)
 "fMU" = (
 /obj/structure/bed/padded,
@@ -7617,6 +7792,15 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
+"gcr" = (
+/obj/structure/fd/mapping/cutscene_trigger{
+	trigger_id = "jeff";
+	cutscene_to_play = /datum/modular_cutscene/jeff_finale
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gd"
+	},
+/area/bunker/interlude)
 "gdd" = (
 /obj/catwalk_plated/dark,
 /obj/machinery/suit_cycler,
@@ -8699,6 +8883,16 @@
 	color = "#868686"
 	},
 /area/bunker/jungle)
+"gUj" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/mapping/cutscene_trigger{
+	trigger_id = "jeff";
+	cutscene_to_play = /datum/modular_cutscene/jeff_finale
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gl"
+	},
+/area/bunker/interlude)
 "gUl" = (
 /obj/structure/window/basic{
 	dir = 4
@@ -8739,6 +8933,14 @@
 /obj/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/bunker/lower/med)
+"gVX" = (
+/obj/structure/table/rack,
+/obj/floor_decal/corner/paleblue/mono,
+/obj/item/fd/simple_combat/bonegel,
+/obj/item/fd/simple_combat/bonegel,
+/obj/item/fd/simple_combat/revive,
+/turf/simulated/floor/tiled/monotile,
+/area/bunker/lower/med/warehouse)
 "gWC" = (
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/steel_ridged,
@@ -8812,6 +9014,14 @@
 	color = "#272727"
 	},
 /area/bunker/jungle)
+"gZI" = (
+/obj/structure/fd/junk{
+	icon_state = "1,4"
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gd"
+	},
+/area/bunker/interlude)
 "hah" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -8821,6 +9031,32 @@
 /obj/floor_decal/borderfloorblack,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp1)
+"haM" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/general_decorations/car{
+	icon_state = "volkswagen";
+	dir = 4;
+	pixel_y = -23;
+	layer = 4.12;
+	bound_width = 96
+	},
+/obj/structure/fd/body/bluespace_infected{
+	icon_state = "TNCDead1_infected";
+	pixel_x = -20;
+	pixel_y = 11;
+	layer = 4.12;
+	hidden_loot = /obj/item/fd/stabilizator_key/red;
+	has_something_inside = 1;
+	interactive = 1;
+	desc_special_show = 1;
+	desc_special_after_finding = "Заражённое тело.";
+	desc_special = "Заражённое тело. В его руках лежит нечто похожее на ключ.";
+	remain_interactive_after_finding = 1
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gl"
+	},
+/area/bunker/interlude)
 "hcj" = (
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -8948,6 +9184,22 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/kitchen/bufet)
+"hdX" = (
+/obj/structure/platform_decoration/kutjevo/rock{
+	dir = 8
+	},
+/obj/structure/fd/chasm{
+	layer = 2.1;
+	has_fall_damage = 0;
+	ignore_these_mobs = list();
+	teleport_to = /area/bunker/interlude
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/turf/simulated/floor/bluespace/more_stable,
+/area/bunker/interlude)
 "heo" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/corner/paleblue/mono,
@@ -8964,6 +9216,10 @@
 	pixel_y = 4;
 	pixel_x = 2
 	},
+/obj/item/fd/simple_combat/big_heal,
+/obj/item/fd/simple_combat/big_heal,
+/obj/item/fd/simple_combat/big_heal,
+/obj/item/fd/simple_combat/big_heal,
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med/warehouse)
 "heC" = (
@@ -9558,6 +9814,30 @@
 "hBK" = (
 /obj/structure/table/rack,
 /obj/floor_decal/corner/paleblue/mono,
+/obj/item/fd/simple_combat/small_heal{
+	pixel_x = -6
+	},
+/obj/item/fd/simple_combat/small_heal{
+	pixel_x = 7
+	},
+/obj/item/fd/simple_combat/small_heal{
+	pixel_x = 7
+	},
+/obj/item/fd/simple_combat/small_heal{
+	pixel_x = -6
+	},
+/obj/item/fd/simple_combat/small_heal{
+	pixel_x = 7
+	},
+/obj/item/fd/simple_combat/small_heal{
+	pixel_x = -6
+	},
+/obj/item/fd/simple_combat/small_heal{
+	pixel_x = -6
+	},
+/obj/item/fd/simple_combat/small_heal{
+	pixel_x = 7
+	},
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med/warehouse)
 "hCl" = (
@@ -9889,6 +10169,54 @@
 /obj/decal/cleanable/dirt,
 /obj/structure/table/rack,
 /obj/floor_decal/corner/paleblue/mono,
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 12
+	},
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 12
+	},
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 12
+	},
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 12
+	},
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 12
+	},
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 12
+	},
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 12
+	},
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 12
+	},
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 12
+	},
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 12
+	},
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 12
+	},
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 12
+	},
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 12
+	},
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 12
+	},
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 12
+	},
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 12
+	},
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med/warehouse)
 "hSK" = (
@@ -9938,15 +10266,6 @@
 "hTf" = (
 /turf/simulated/floor/tiled,
 /area/bunker/lower/med)
-"hTu" = (
-/obj/structure/fd/body{
-	icon_state = "IntenSecDead1";
-	pixel_y = -6
-	},
-/turf/simulated/floor/exoplanet/samosbor/env{
-	icon_state = "gl"
-	},
-/area/bunker/interlude)
 "hTD" = (
 /obj/catwalk_plated/dark,
 /obj/decal/cleanable/dirt,
@@ -10002,6 +10321,20 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp1)
+"hUJ" = (
+/obj/decal/cleanable/dirt,
+/obj/floor_decal/hull{
+	dir = 1
+	},
+/obj/structure/fd/general_decorations/car{
+	icon_state = "unmarked";
+	dir = 4;
+	pixel_y = -31;
+	bound_width = 96;
+	layer = 4.11
+	},
+/turf/simulated/floor/exoplanet/grim_asphalt2,
+/area/bunker/interlude)
 "hWh" = (
 /obj/structure/table/marble,
 /obj/item/reagent_containers/syringe{
@@ -10365,6 +10698,19 @@
 /obj/structure/table,
 /turf/simulated/floor/plating,
 /area/bunker/rooms/room11)
+"ioG" = (
+/obj/structure/fd/chasm{
+	layer = 2.1;
+	has_fall_damage = 0;
+	ignore_these_mobs = list();
+	teleport_to = /area/bunker/interlude
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/turf/simulated/floor/bluespace/more_stable,
+/area/bunker/interlude)
 "ipn" = (
 /obj/floor_decal/industrial/warning/fulltile,
 /obj/structure/cable/green{
@@ -11066,6 +11412,24 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/corridors/west)
+"iTb" = (
+/obj/structure/platform_decoration/kutjevo/rock{
+	dir = 4
+	},
+/obj/structure/fd/chasm{
+	layer = 2.1;
+	has_fall_damage = 0;
+	ignore_these_mobs = list();
+	teleport_to = /area/bunker/interlude
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gd_da"
+	},
+/area/bunker/interlude)
 "iTc" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/railing/mapped,
@@ -11219,6 +11583,16 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
+"iZd" = (
+/obj/structure/fd/junk{
+	icon_state = "0,1";
+	pixel_x = -21;
+	pixel_y = -18
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gl"
+	},
+/area/bunker/interlude)
 "iZm" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -11623,6 +11997,20 @@
 	icon_state = "gd_da"
 	},
 /area/bunker/interlude)
+"jne" = (
+/obj/floor_decal/hull{
+	dir = 8
+	},
+/obj/structure/fd/general_decorations/car{
+	icon_state = "police";
+	pixel_x = -31;
+	pixel_y = -14;
+	bound_height = 64;
+	can_hide_inside = 1;
+	interactive = 1
+	},
+/turf/simulated/floor/exoplanet/grim_asphalt2,
+/area/bunker/interlude)
 "jnn" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -11655,6 +12043,16 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/bunker/kitchen/freezer)
+"jpA" = (
+/obj/decal/cleanable/dirt,
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gl"
+	},
+/area/bunker/interlude)
 "jpR" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -11731,6 +12129,14 @@
 /obj/machinery/cryopod/robot,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/bunker/lower/lab/cryolab)
+"jrh" = (
+/obj/structure/fd/mapping/cutscene_trigger{
+	trigger_id = "jeff";
+	cutscene_to_play = /datum/modular_cutscene/jeff_finale
+	},
+/obj/effect/cutscene_camera/jeff_finale,
+/turf/simulated/floor/exoplanet/samosbor/concrete,
+/area/bunker/interlude)
 "jrs" = (
 /obj/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/trashcart,
@@ -12287,6 +12693,19 @@
 /obj/floor_decal/asteroid,
 /turf/simulated/floor/exoplanet/fd/waste,
 /area/bunker/kpp)
+"jTe" = (
+/obj/structure/fd/cave_flora{
+	desc = "Just some grass, nothing more.";
+	icon_state = "grass6";
+	name = "flora"
+	},
+/obj/structure/fd/junk{
+	icon_state = "4,1"
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gd"
+	},
+/area/bunker/interlude)
 "jTL" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/env{
@@ -12938,6 +13357,18 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/eng)
+"kAG" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/cave_flora{
+	desc = "Just some grass, nothing more.";
+	icon_state = "grass6";
+	name = "flora"
+	},
+/obj/structure/fd/bunker/stabilizator_cell,
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gl"
+	},
+/area/bunker/interlude)
 "kBh" = (
 /obj/structure/table/steel,
 /obj/item/hand_labeler{
@@ -13345,6 +13776,15 @@
 /obj/decal/cleanable/molten_item,
 /turf/simulated/floor/plating,
 /area/bunker/lower/lab/bslab)
+"kTZ" = (
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gl"
+	},
+/area/bunker/interlude)
 "kUa" = (
 /obj/floor_decal/techfloor/orange{
 	dir = 8
@@ -13841,6 +14281,21 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
+"lmN" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/cave_flora{
+	desc = "Just some grass, nothing more.";
+	icon_state = "grass6";
+	name = "flora"
+	},
+/obj/structure/fd/junk{
+	pixel_x = -10
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gd"
+	},
+/area/bunker/interlude)
 "lnu" = (
 /obj/catwalk_plated,
 /turf/simulated/floor/plating,
@@ -14075,6 +14530,15 @@
 /obj/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/lower/eng)
+"lxv" = (
+/obj/structure/fd/body{
+	icon_state = "IntenSecDead1";
+	pixel_y = -6
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gl"
+	},
+/area/bunker/interlude)
 "lxS" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -14671,6 +15135,16 @@
 	color = "#272727"
 	},
 /area/bunker/jungle)
+"lWR" = (
+/obj/structure/flora/tree/grim/brown,
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gl"
+	},
+/area/bunker/interlude)
 "lWS" = (
 /obj/floor_decal/borderfloorwhite{
 	dir = 6
@@ -14748,13 +15222,6 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/corridos)
-"mcP" = (
-/obj/structure/fd/body{
-	icon_state = "IntenSecDead2";
-	pixel_x = 2
-	},
-/turf/simulated/floor/exoplanet/samosbor/concrete,
-/area/bunker/interlude)
 "mdo" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -14766,6 +15233,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bunker/lower/med/surgery)
+"meg" = (
+/obj/floor_decal/corner/yellow/border{
+	color = "#ceb734";
+	dir = 4;
+	pixel_x = -11
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/turf/simulated/floor/exoplanet/grim_asphalt2,
+/area/bunker/interlude)
 "mfo" = (
 /turf/simulated/floor/exoplanet/samosbor/env{
 	icon_state = "gd"
@@ -15347,19 +15826,6 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/rooms/room12)
-"mFN" = (
-/obj/decal/cleanable/dirt,
-/obj/floor_decal/hull{
-	dir = 1
-	},
-/obj/structure/fd/general_decorations/car{
-	dir = 8;
-	pixel_y = -31;
-	layer = 4.11;
-	bound_width = 96
-	},
-/turf/simulated/floor/exoplanet/grim_asphalt2,
-/area/bunker/interlude)
 "mGf" = (
 /obj/structure/platform/shiva{
 	layer = 2.24
@@ -15563,6 +16029,25 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
+"mOU" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 1
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 8
+	},
+/obj/structure/fd/chasm{
+	layer = 2.1;
+	has_fall_damage = 0;
+	ignore_these_mobs = list();
+	teleport_to = /area/bunker/interlude
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/turf/simulated/floor/bluespace/more_stable,
+/area/bunker/interlude)
 "mOX" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/industrial/warning{
@@ -15744,6 +16229,18 @@
 /obj/paint/brown,
 /turf/simulated/wall/r_wall,
 /area/bunker/lower/corridos)
+"mVx" = (
+/obj/floor_decal/hull{
+	dir = 1
+	},
+/obj/structure/fd/body/bluespace_infected{
+	icon_state = "IntenSecDead_infected";
+	layer = 4.12;
+	pixel_x = 11;
+	pixel_y = -3
+	},
+/turf/simulated/floor/exoplanet/grim_asphalt2,
+/area/bunker/interlude)
 "mWi" = (
 /obj/floor_decal/borderfloorwhite{
 	dir = 8
@@ -15989,6 +16486,12 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/corridors/north)
+"nfQ" = (
+/obj/structure/fd/bunker/stabilizator_cell,
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "sa"
+	},
+/area/bunker/interlude)
 "ngs" = (
 /obj/floor_decal/borderfloor{
 	dir = 8
@@ -16198,6 +16701,23 @@
 /obj/floor_decal/borderfloorblack,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp1)
+"npg" = (
+/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	dir = 4
+	},
+/obj/structure/fd/chasm{
+	layer = 2.1;
+	has_fall_damage = 0;
+	ignore_these_mobs = list();
+	teleport_to = /area/bunker/interlude
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/bunker/interlude)
 "npn" = (
 /obj/structure/cryofeed{
 	dir = 4
@@ -17035,6 +17555,22 @@
 "nZa" = (
 /turf/simulated/floor/tiled/white,
 /area/bunker/lower/lab)
+"nZb" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 1
+	},
+/obj/structure/fd/chasm{
+	layer = 2.1;
+	has_fall_damage = 0;
+	ignore_these_mobs = list();
+	teleport_to = /area/bunker/interlude
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/bunker/interlude)
 "nZg" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/cable/green{
@@ -17293,6 +17829,10 @@
 /obj/floor_decal/hull{
 	dir = 8
 	},
+/obj/structure/fd/mapping/cutscene_trigger{
+	trigger_id = "jeff";
+	cutscene_to_play = /datum/modular_cutscene/jeff_finale
+	},
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/bunker/interlude)
 "ofx" = (
@@ -17311,6 +17851,22 @@
 /obj/paint/black,
 /turf/simulated/wall/r_wall,
 /area/bunker/lower/med/surgery)
+"ogP" = (
+/obj/structure/platform_decoration/kutjevo/rock,
+/obj/structure/fd/chasm{
+	layer = 2.1;
+	has_fall_damage = 0;
+	ignore_these_mobs = list();
+	teleport_to = /area/bunker/interlude
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gd_da"
+	},
+/area/bunker/interlude)
 "ohg" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -17644,6 +18200,24 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bunker/lower/med/med_bay)
+"owE" = (
+/obj/structure/platform_decoration/kutjevo/rock{
+	dir = 8
+	},
+/obj/structure/fd/chasm{
+	layer = 2.1;
+	has_fall_damage = 0;
+	ignore_these_mobs = list();
+	teleport_to = /area/bunker/interlude
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gd_da"
+	},
+/area/bunker/interlude)
 "owG" = (
 /obj/structure/closet,
 /obj/machinery/light{
@@ -17848,6 +18422,14 @@
 	},
 /turf/simulated/floor/exoplanet/fd/desertsand,
 /area/bunker/jungle)
+"oEX" = (
+/obj/decal/cleanable/dirt,
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/turf/simulated/floor/exoplanet/grim_asphalt2,
+/area/bunker/interlude)
 "oFh" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/cable/green{
@@ -18540,6 +19122,22 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
+"pfc" = (
+/obj/structure/platform_decoration/kutjevo/rock{
+	dir = 4
+	},
+/obj/structure/fd/chasm{
+	layer = 2.1;
+	has_fall_damage = 0;
+	ignore_these_mobs = list();
+	teleport_to = /area/bunker/interlude
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/bunker/interlude)
 "pfh" = (
 /obj/structure/inflatable,
 /obj/floor_decal/borderfloorblack{
@@ -19618,6 +20216,25 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/lab/gateway)
+"qbu" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 1
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 8
+	},
+/obj/structure/fd/chasm{
+	layer = 2.1;
+	has_fall_damage = 0;
+	ignore_these_mobs = list();
+	teleport_to = /area/bunker/interlude
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/bunker/interlude)
 "qbB" = (
 /obj/structure/table/rack,
 /obj/floor_decal/corner_steel_grid{
@@ -19664,6 +20281,16 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/eng/workshop)
+"qeR" = (
+/obj/decal/cleanable/dirt,
+/obj/floor_decal/hull,
+/obj/structure/fd/body{
+	icon_state = "IntenSecDead5";
+	pixel_x = 14;
+	pixel_y = 6
+	},
+/turf/simulated/floor/exoplanet/grim_asphalt2,
+/area/bunker/interlude)
 "qfi" = (
 /obj/structure/platform/kutjevo/rock,
 /obj/structure/platform_decoration/kutjevo/rock{
@@ -20059,6 +20686,14 @@
 /obj/submap_landmark/spawnpoint/joseph,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
+"qtz" = (
+/obj/structure/fd/junk{
+	icon_state = "0,4";
+	pixel_x = 7;
+	pixel_y = -18
+	},
+/turf/simulated/floor/exoplanet/grim_asphalt2,
+/area/bunker/interlude)
 "qtE" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -20134,14 +20769,6 @@
 	color = "#bebebe"
 	},
 /area/bunker/jungle)
-"qvy" = (
-/obj/structure/fd/general_decorations/roadblock{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/samosbor/env{
-	icon_state = "gl"
-	},
-/area/bunker/interlude)
 "qvE" = (
 /obj/floor_decal/borderfloor{
 	dir = 9
@@ -20677,6 +21304,10 @@
 	marker_range = 10;
 	color = "#46698c"
 	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/bunker/interlude)
 "qQE" = (
@@ -20777,6 +21408,21 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/kitchen/bufet)
+"qTf" = (
+/obj/structure/fd/chasm{
+	layer = 2.1;
+	has_fall_damage = 0;
+	ignore_these_mobs = list();
+	teleport_to = /area/bunker/interlude
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gd_da"
+	},
+/area/bunker/interlude)
 "qTu" = (
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 1
@@ -21652,6 +22298,18 @@
 	icon_state = "gd_da"
 	},
 /area/bunker/interlude)
+"rzF" = (
+/obj/structure/fd/cave_flora{
+	icon_state = "underwatergrass"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gd"
+	},
+/area/bunker/interlude)
 "rzG" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/corner_techfloor_grid{
@@ -21744,6 +22402,24 @@
 	},
 /turf/simulated/floor/exoplanet/grim_metal,
 /area/bunker/barracks)
+"rCX" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/table/rack,
+/obj/floor_decal/corner/paleblue/mono,
+/obj/item/fd/simple_combat/bloodbag{
+	pixel_x = -4
+	},
+/obj/item/fd/simple_combat/bloodbag{
+	pixel_x = 6
+	},
+/obj/item/fd/simple_combat/bloodbag{
+	pixel_x = 2
+	},
+/obj/item/fd/simple_combat/bloodbag{
+	pixel_x = 2
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/bunker/lower/med/warehouse)
 "rDv" = (
 /obj/machinery/constructable_frame/machine_frame,
 /turf/simulated/floor/tiled/white/monotile,
@@ -22003,18 +22679,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/med)
-"rNu" = (
-/obj/floor_decal/hull{
-	dir = 1
-	},
-/obj/structure/fd/body/bluespace_infected{
-	icon_state = "IntenSecDead_infected";
-	layer = 4.12;
-	pixel_x = 11;
-	pixel_y = -3
-	},
-/turf/simulated/floor/exoplanet/grim_asphalt2,
-/area/bunker/interlude)
 "rNv" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -22358,6 +23022,22 @@
 	icon_state = "gd"
 	},
 /area/bunker/interlude)
+"sbh" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 1
+	},
+/obj/structure/fd/chasm{
+	layer = 2.1;
+	has_fall_damage = 0;
+	ignore_these_mobs = list();
+	teleport_to = /area/bunker/interlude
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/bunker/interlude)
 "sbz" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -22526,6 +23206,16 @@
 /obj/decal/cleanable/generic,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/bslab)
+"shP" = (
+/obj/decal/cleanable/dirt,
+/obj/floor_decal/hull{
+	dir = 1
+	},
+/obj/structure/fd/general_decorations/roadblock{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grim_asphalt2,
+/area/bunker/interlude)
 "sic" = (
 /obj/structure/flora/ausbushes/sunnybush,
 /turf/simulated/floor/exoplanet/fd/grass,
@@ -22552,6 +23242,12 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/bunker/kitchen/freezer)
+"skY" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/concrete{
+	icon_state = "co_br"
+	},
+/area/bunker/interlude)
 "slr" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/bs_vines,
@@ -22647,7 +23343,6 @@
 /turf/simulated/wall/r_wall,
 /area/bunker/barracks/gvardiya)
 "snM" = (
-/obj/paint/black,
 /obj/structure/railing/mapped{
 	dir = 8;
 	icon_state = "railing0-1"
@@ -22659,7 +23354,12 @@
 	mouse_opacity = 0;
 	color_of = "#59aaa3"
 	},
-/turf/simulated/wall/r_wall,
+/obj/structure/fd/grim_walls/stone{
+	opacity = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gl"
+	},
 /area/bunker/interlude)
 "snO" = (
 /obj/structure/platform/kutjevo/rock,
@@ -23150,6 +23850,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
+"sHR" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/general_decorations/car{
+	icon_state = "1";
+	dir = 8;
+	pixel_y = -31;
+	bound_width = 96;
+	layer = 4.11;
+	can_hide_inside = 1;
+	hiding_viewpoint = 8;
+	interactive = 1
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gd"
+	},
+/area/bunker/interlude)
 "sHU" = (
 /obj/machinery/computer/modular{
 	dir = 8
@@ -23185,6 +23901,42 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
+"sIL" = (
+/obj/structure/fd/cave_flora{
+	desc = "Just some grass, nothing more.";
+	icon_state = "grass6";
+	name = "flora"
+	},
+/obj/structure/largecrate{
+	icon_state = "woodcrate";
+	icon = 'mods/_fd/fd_assets/icons/is12/war_crates.dmi';
+	pixel_y = 11;
+	pixel_x = 8;
+	anchored = 1;
+	layer = 2.21
+	},
+/obj/structure/largecrate{
+	icon_state = "woodcrate";
+	icon = 'mods/_fd/fd_assets/icons/is12/war_crates.dmi';
+	anchored = 1;
+	layer = 2.22
+	},
+/obj/structure/largecrate{
+	icon_state = "woodcrate";
+	icon = 'mods/_fd/fd_assets/icons/is12/war_crates.dmi';
+	pixel_y = 24;
+	pixel_x = 4;
+	anchored = 1;
+	interactive = 1;
+	desc_special_show = 1;
+	desc_special = "Куча коробок.";
+	has_something_inside = 1;
+	hidden_loot = /obj/item/fd/stabilizator_key/blue
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gl"
+	},
+/area/bunker/interlude)
 "sIM" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/table/standard,
@@ -23306,6 +24058,27 @@
 /obj/paint/black,
 /turf/simulated/floor/plating,
 /area/bunker/command)
+"sOy" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 1
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 4
+	},
+/obj/structure/fd/chasm{
+	layer = 2.1;
+	has_fall_damage = 0;
+	ignore_these_mobs = list();
+	teleport_to = /area/bunker/interlude
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gd_da"
+	},
+/area/bunker/interlude)
 "sOI" = (
 /obj/structure/flora/seaweed{
 	layer = 2.21
@@ -24021,6 +24794,14 @@
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/bunker/lower/monorail)
+"tpY" = (
+/obj/structure/fd/general_decorations/roadblock{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gl"
+	},
+/area/bunker/interlude)
 "tqb" = (
 /turf/simulated/floor/tiled/dark,
 /area/bunker/kpp)
@@ -24786,20 +25567,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
-"tQg" = (
-/obj/decal/cleanable/dirt,
-/obj/floor_decal/hull{
-	dir = 1
-	},
-/obj/structure/fd/general_decorations/car{
-	icon_state = "unmarked";
-	dir = 4;
-	pixel_y = -31;
-	bound_width = 96;
-	layer = 4.11
-	},
-/turf/simulated/floor/exoplanet/grim_asphalt2,
-/area/bunker/interlude)
 "tQD" = (
 /obj/paint/black,
 /turf/simulated/wall,
@@ -25108,6 +25875,15 @@
 /obj/submap_landmark/spawnpoint/naia,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
+"tYv" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/junk{
+	icon_state = "2,3"
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gl"
+	},
+/area/bunker/interlude)
 "tYC" = (
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 1
@@ -26826,16 +27602,6 @@
 	color = "#5F773B"
 	},
 /area/bunker/jungle)
-"voP" = (
-/obj/decal/cleanable/dirt,
-/obj/floor_decal/hull,
-/obj/structure/fd/body{
-	icon_state = "IntenSecDead5";
-	pixel_x = 14;
-	pixel_y = 6
-	},
-/turf/simulated/floor/exoplanet/grim_asphalt2,
-/area/bunker/interlude)
 "vpn" = (
 /obj/machinery/door/window/brigdoor/southleft,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
@@ -27406,6 +28172,10 @@
 /obj/structure/fd/cave_flora{
 	icon_state = "underwatergrass"
 	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
 /turf/simulated/floor/exoplanet/samosbor/env{
 	icon_state = "gd"
 	},
@@ -27432,6 +28202,24 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
+"vNJ" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 8
+	},
+/obj/structure/fd/chasm{
+	layer = 2.1;
+	has_fall_damage = 0;
+	ignore_these_mobs = list();
+	teleport_to = /area/bunker/interlude
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gd_da"
+	},
+/area/bunker/interlude)
 "vOK" = (
 /obj/structure/flora/ausbushes/reedbush,
 /obj/fd_water/alt_ver1,
@@ -27443,18 +28231,13 @@
 	icon_state = "stalagmite";
 	density = 1
 	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
 /turf/simulated/floor/exoplanet/samosbor/env{
 	icon_state = "gl"
 	},
-/area/bunker/interlude)
-"vPd" = (
-/obj/floor_decal/hull{
-	dir = 1
-	},
-/obj/structure/fd/general_decorations/roadblock{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/bunker/interlude)
 "vPy" = (
 /obj/machinery/light{
@@ -27733,18 +28516,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bunker/corridors/center)
-"vYm" = (
-/obj/floor_decal/hull{
-	dir = 8
-	},
-/obj/structure/fd/general_decorations/car{
-	icon_state = "police";
-	pixel_x = -31;
-	pixel_y = -14;
-	bound_height = 64
-	},
-/turf/simulated/floor/exoplanet/grim_asphalt2,
-/area/bunker/interlude)
 "vYw" = (
 /obj/catwalk_plated/dark,
 /obj/structure/cable/green{
@@ -28065,6 +28836,16 @@
 	},
 /turf/simulated/floor/tiled/old_cargo,
 /area/bunker/barracks/preporation_gvardiya)
+"wkh" = (
+/obj/decal/cleanable/dirt,
+/obj/item/fd/stabilizator_key/red{
+	pixel_y = 15;
+	pixel_x = 8
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gd"
+	},
+/area/bunker/interlude)
 "wkF" = (
 /obj/structure/vines/heavy2,
 /obj/structure/vines/heavy2,
@@ -28327,6 +29108,14 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/eng)
+"wuo" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/body/bluespace_infected{
+	pixel_x = 12;
+	pixel_y = -7
+	},
+/turf/simulated/floor/exoplanet/samosbor/concrete,
+/area/bunker/interlude)
 "wvg" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 10
@@ -28744,6 +29533,24 @@
 	color = "#526833"
 	},
 /area/bunker/jungle)
+"wHt" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 4
+	},
+/obj/structure/fd/chasm{
+	layer = 2.1;
+	has_fall_damage = 0;
+	ignore_these_mobs = list();
+	teleport_to = /area/bunker/interlude
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gd_da"
+	},
+/area/bunker/interlude)
 "wHC" = (
 /obj/structure/bed/chair/padded/blue,
 /obj/floor_decal/spline/fancy/black{
@@ -28941,25 +29748,6 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/rooms/room11)
-"wQu" = (
-/obj/decal/cleanable/dirt,
-/obj/structure/fd/general_decorations/car{
-	icon_state = "volkswagen";
-	dir = 4;
-	pixel_y = -23;
-	layer = 4.12;
-	bound_width = 96
-	},
-/obj/structure/fd/body/bluespace_infected{
-	icon_state = "TNCDead1_infected";
-	pixel_x = -20;
-	pixel_y = 11;
-	layer = 4.12
-	},
-/turf/simulated/floor/exoplanet/samosbor/env{
-	icon_state = "gl"
-	},
-/area/bunker/interlude)
 "wQy" = (
 /obj/floor_decal/borderfloorwhite{
 	dir = 10
@@ -29031,6 +29819,16 @@
 	color = "#5F773B"
 	},
 /area/bunker/jungle)
+"wXf" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/turf/simulated/floor/exoplanet/grim_asphalt2,
+/area/bunker/interlude)
 "wXg" = (
 /obj/structure/table/standard,
 /obj/item/material/ashtray/plastic{
@@ -29384,6 +30182,22 @@
 "xhX" = (
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
+"xiu" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/cave_flora{
+	desc = "Just some grass, nothing more.";
+	icon_state = "grass6";
+	name = "flora"
+	},
+/obj/structure/fd/mapping/cutscene_trigger{
+	trigger_id = "jeff";
+	cutscene_to_play = /datum/modular_cutscene/jeff_finale
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gd"
+	},
+/area/bunker/interlude)
 "xiL" = (
 /obj/floor_decal/borderfloorwhite/corner{
 	dir = 4
@@ -29621,6 +30435,14 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/bunker/barracks/preporation_gvardiya)
+"xtr" = (
+/obj/structure/fd/bunker/warphole{
+	pixel_y = 27;
+	hole_id = "interlude";
+	unstable = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/concrete,
+/area/bunker/interlude)
 "xut" = (
 /obj/decal/cleanable/generic,
 /turf/simulated/floor/plating,
@@ -29705,6 +30527,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bunker/lower/med/chem)
+"xBW" = (
+/obj/structure/fd/junk{
+	icon_state = "1,4"
+	},
+/turf/simulated/floor/exoplanet/samosbor/concrete,
+/area/bunker/interlude)
 "xCf" = (
 /obj/structure/fd/cave_decor{
 	icon_state = "stalagmite5";
@@ -29945,6 +30773,21 @@
 	color = "black"
 	},
 /area/bunker/jungle)
+"xPo" = (
+/obj/structure/fd/cave_flora{
+	desc = "Just some grass, nothing more.";
+	icon_state = "grass6";
+	name = "flora"
+	},
+/obj/structure/fd/junk{
+	icon_state = "0,1";
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gd"
+	},
+/area/bunker/interlude)
 "xPs" = (
 /obj/catwalk_plated/dark,
 /turf/simulated/floor/plating,
@@ -30118,6 +30961,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/corridors/west)
+"xVx" = (
+/obj/structure/fd/chasm{
+	layer = 2.1;
+	has_fall_damage = 0;
+	ignore_these_mobs = list();
+	teleport_to = /area/bunker/interlude
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/turf/simulated/floor/exoplanet/wet_stone,
+/area/bunker/interlude)
 "xWd" = (
 /obj/floor_decal/techfloor/orange,
 /obj/floor_decal/borderfloorblack{
@@ -30247,6 +31103,15 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/lower/eng)
+"xZY" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/junk{
+	icon_state = "2,0";
+	pixel_y = 6;
+	pixel_x = -4
+	},
+/turf/simulated/floor/exoplanet/samosbor/concrete,
+/area/bunker/interlude)
 "yaa" = (
 /obj/machinery/bodyscanner,
 /obj/floor_decal/corner/pink/mono,
@@ -55691,7 +56556,7 @@ cIz
 tYe
 snO
 aQC
-aQC
+dAI
 aQC
 jmh
 goK
@@ -55875,7 +56740,7 @@ uvq
 tsq
 pxh
 lCg
-aIe
+cfZ
 bFp
 dgw
 mHM
@@ -56065,7 +56930,7 @@ goK
 cfj
 goK
 jmh
-aQC
+nfQ
 nsj
 wFD
 uZc
@@ -56077,7 +56942,7 @@ stF
 oLz
 oLz
 srz
-aeq
+cjh
 bFp
 oLz
 lzS
@@ -56472,7 +57337,7 @@ jmh
 hqz
 ixF
 fxF
-sap
+jTe
 wrJ
 uhb
 oLz
@@ -56481,7 +57346,7 @@ oLz
 bFp
 pxh
 ien
-voP
+qeR
 aje
 jTL
 mfo
@@ -56492,7 +57357,7 @@ pSl
 tXW
 gSy
 oLz
-hTu
+lxv
 uZc
 qLT
 aCt
@@ -56671,7 +57536,7 @@ goK
 cfj
 goK
 jmh
-mfo
+cCU
 mfo
 xoO
 oLz
@@ -56680,8 +57545,8 @@ oLz
 hYF
 fMr
 gRl
-aje
-tQg
+xZY
+hUJ
 ien
 aIe
 aje
@@ -56693,7 +57558,7 @@ kEc
 tXW
 uvq
 dMN
-jqh
+lmN
 oLz
 icy
 aCt
@@ -56874,7 +57739,7 @@ cfj
 goK
 jmh
 fHE
-jTL
+tYv
 mfo
 mfo
 gqn
@@ -56882,7 +57747,7 @@ oLz
 hYF
 abe
 oHH
-aRT
+wuo
 lei
 bmK
 aIe
@@ -56893,10 +57758,10 @@ oLz
 pjR
 aCt
 kqm
-oLz
+iZd
 jTL
 sEo
-sap
+xPo
 icy
 pSl
 iDm
@@ -57075,8 +57940,8 @@ goK
 cfj
 goK
 jmh
-uYQ
-jTL
+skY
+aje
 fdL
 uuN
 vQg
@@ -57100,13 +57965,13 @@ oLz
 mpX
 wOC
 bwR
-dZQ
-jOU
-tYe
+ogP
+wHt
+npg
 vOX
 fhu
-rCi
-aCt
+hdX
+ioG
 jmh
 goK
 cfj
@@ -57277,7 +58142,7 @@ goK
 cfj
 goK
 jmh
-jTL
+dzZ
 uYQ
 xRg
 oLz
@@ -57287,9 +58152,9 @@ wzY
 snM
 vpP
 aje
-lei
-lCg
-oLz
+shP
+qtz
+tpY
 bFp
 stF
 rHZ
@@ -57302,13 +58167,13 @@ mfV
 bwR
 lXC
 jOU
-tYe
-oLz
-bBY
-jTL
-jTL
-icy
-qLT
+npg
+kTZ
+lWR
+jpA
+jpA
+nZb
+xVx
 jmh
 goK
 cfj
@@ -57479,8 +58344,8 @@ goK
 cfj
 goK
 jmh
-oLz
-sEo
+sIL
+aje
 xRg
 lzS
 pDR
@@ -57489,10 +58354,10 @@ jTL
 gaR
 sEo
 mrU
-vPd
+pxh
 ien
-qvy
 oLz
+ajV
 oLz
 icy
 dZQ
@@ -57505,12 +58370,12 @@ spn
 jna
 mfo
 vNp
-jTL
-oLz
-jTL
-jTL
-fhu
-sCp
+jpA
+bna
+gUj
+gUj
+sOy
+owE
 jmh
 goK
 cfj
@@ -57681,7 +58546,7 @@ goK
 cfj
 goK
 jmh
-mfo
+bFp
 oLz
 mpX
 oji
@@ -57692,7 +58557,7 @@ eXJ
 wBw
 bFp
 pxh
-jTL
+fBo
 sap
 fsb
 bFp
@@ -57704,15 +58569,15 @@ erj
 aCt
 aCt
 tBY
-mcP
-sEo
+adk
+wkh
 dlt
-bFp
-bFp
-bFp
+dLv
+jrh
+xtr
 bna
-vNp
-icy
+rzF
+sbh
 jmh
 goK
 cfj
@@ -57893,8 +58758,8 @@ stF
 jTL
 fzE
 sEo
-oLz
-cRd
+fes
+sHR
 sEo
 fXF
 mfo
@@ -57907,14 +58772,14 @@ erj
 pSl
 kqm
 mPq
-vYm
+jne
 qQD
-mPq
+eML
 ofp
-jqh
-mfo
-bBY
-icy
+xiu
+gcr
+lWR
+sbh
 jmh
 goK
 cfj
@@ -58110,13 +58975,13 @@ uUp
 hCI
 fDl
 lCg
-ien
-lCg
-fDl
-lCg
-oLz
-mpX
-kEc
+oEX
+cTo
+meg
+cTo
+kTZ
+qbu
+pfc
 jmh
 goK
 cfj
@@ -58299,7 +59164,7 @@ stF
 bFp
 pxh
 sEo
-wQu
+haM
 kfe
 wtx
 xrp
@@ -58312,13 +59177,13 @@ erj
 tRJ
 ssQ
 wtx
-wtx
-wtx
-wtx
-uac
-mfV
-bwR
-pSl
+wXf
+wXf
+wXf
+mOU
+vNJ
+iTb
+qTf
 jmh
 goK
 cfj
@@ -58501,7 +59366,7 @@ xoO
 bFp
 pxh
 srz
-oLz
+aEc
 fsb
 mpX
 kEc
@@ -58693,7 +59558,7 @@ goK
 jmh
 qLT
 kqm
-aQC
+dAI
 aQC
 uZc
 kqm
@@ -58701,7 +59566,7 @@ stF
 jTL
 wBw
 gFx
-mFN
+cCx
 lCg
 aIe
 mpX
@@ -58903,7 +59768,7 @@ mfo
 mfo
 jTL
 sEo
-rNu
+mVx
 ien
 aIe
 icy
@@ -59306,7 +60171,7 @@ coT
 rzk
 oLz
 oLz
-bFp
+xBW
 oLz
 srz
 uac
@@ -59527,7 +60392,7 @@ htF
 mfo
 bFp
 uFv
-uYQ
+kAG
 bFp
 uZc
 pSl
@@ -59728,7 +60593,7 @@ spn
 faG
 oLz
 coj
-mfo
+gZI
 oLz
 rHZ
 bwR
@@ -67443,13 +68308,13 @@ goK
 iRF
 nkY
 deB
-hSo
+rCX
 oiU
 deB
-hSo
+bwF
 kwo
 deB
-hBK
+gVX
 iRF
 aAC
 vru
@@ -70275,7 +71140,7 @@ jfD
 kqQ
 nXx
 xPZ
-hjc
+dLp
 hjc
 tyB
 cNo

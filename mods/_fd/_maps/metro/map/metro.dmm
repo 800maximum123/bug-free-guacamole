@@ -61,6 +61,15 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/metro/maintain/east)
+"ai" = (
+/obj/structure/fake_lattice{
+	layer = 4.11;
+	alpha = 170;
+	icon_state = "lattice12";
+	mouse_opacity = 0
+	},
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/metro/maintain/gen3)
 "aj" = (
 /obj/structure/fake_lattice{
 	layer = 4.01;
@@ -3916,6 +3925,24 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp1)
+"jK" = (
+/obj/decal/cleanable/dirt,
+/obj/item/device/flashlight/lantern/grim{
+	pixel_y = -6;
+	pixel_x = -8;
+	anchored = 1;
+	on = 1;
+	flashlight_range = 6;
+	layer = 4.11
+	},
+/obj/structure/fake_lattice{
+	layer = 4.12;
+	alpha = 170;
+	icon_state = "lattice12";
+	mouse_opacity = 0
+	},
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/metro/maintain/gen3)
 "jL" = (
 /obj/structure/platform/kutjevo/rock{
 	dir = 8
@@ -4326,6 +4353,17 @@
 /obj/random/snack,
 /turf/simulated/floor/plating,
 /area/metro/maintain/south)
+"kO" = (
+/obj/floor_decal/asteroid,
+/obj/decal/cleanable/dirt,
+/obj/item/device/flashlight/flare/glowstick{
+	on = 1;
+	pixel_x = -7;
+	pixel_y = 10;
+	infinite = 1
+	},
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/metro/maintain/gen3)
 "kP" = (
 /obj/machinery/light_construct,
 /turf/simulated/floor/exoplanet/fd/drought,
@@ -5221,6 +5259,12 @@
 	pixel_y = 5
 	},
 /obj/decal/cleanable/dirt,
+/obj/item/device/flashlight/flare/glowstick{
+	on = 1;
+	pixel_x = -21;
+	pixel_y = 5;
+	infinite = 1
+	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/metro/maintain/gen3)
 "mV" = (
@@ -8451,6 +8495,13 @@
 /obj/structure/fd/cave_decor{
 	icon_state = "support_wall";
 	pixel_y = 25
+	},
+/obj/item/device/flashlight/lantern/grim{
+	pixel_y = 19;
+	pixel_x = 10;
+	anchored = 1;
+	on = 1;
+	flashlight_range = 6
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/metro/maintain/gen3)
@@ -15569,6 +15620,12 @@
 	},
 /obj/floor_decal/asteroid,
 /obj/decal/cleanable/dirt,
+/obj/item/device/flashlight/flare/glowstick{
+	on = 1;
+	pixel_x = 23;
+	pixel_y = 3;
+	infinite = 1
+	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/metro/maintain/gen3)
 "MU" = (
@@ -16440,6 +16497,18 @@
 /obj/random/mre,
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/gas)
+"Pd" = (
+/obj/decal/cleanable/dirt,
+/obj/item/device/flashlight/lantern/grim{
+	pixel_y = 19;
+	pixel_x = -2;
+	anchored = 1;
+	on = 1;
+	flashlight_range = 6;
+	layer = 4.10
+	},
+/turf/simulated/floor/plating,
+/area/metro/maintain/gen3)
 "Pe" = (
 /obj/structure/platform/shiva{
 	dir = 1
@@ -18074,6 +18143,13 @@
 	desc = "Just an iron barrel."
 	},
 /obj/decal/cleanable/dirt,
+/obj/item/device/flashlight/lantern/grim{
+	pixel_y = 1;
+	pixel_x = -17;
+	anchored = 1;
+	on = 1;
+	flashlight_range = 6
+	},
 /turf/simulated/floor/exoplanet/barren,
 /area/metro/maintain/gen3)
 "SZ" = (
@@ -48597,7 +48673,7 @@ jz
 fw
 jz
 jz
-iW
+kO
 lD
 ZW
 ZW
@@ -48627,7 +48703,7 @@ qQ
 ZW
 WX
 ZW
-oA
+jK
 hl
 lD
 ZW
@@ -59127,7 +59203,7 @@ ZW
 ZW
 ZW
 ZW
-qQ
+ai
 ZW
 jH
 ZW
@@ -59519,7 +59595,7 @@ ZW
 hl
 pO
 TX
-vV
+Pd
 du
 td
 dM

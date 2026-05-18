@@ -155,6 +155,9 @@
 /obj/effect/cutscene_camera/metro2
 	camera_id = "Метро - Атака"
 
+/obj/effect/cutscene_camera/jeff_finale
+	camera_id = "Блюспейс - Конец игры"
+
 /proc/metro_cutscene1()
 	start_cutscene(/datum/modular_cutscene/metro1)
 
@@ -263,6 +266,40 @@
 		MOVE_CAMERA(0, 0, 0, null) = 1 SECONDS,
 		RETURN_VIEWERS
 	)
+
+/datum/modular_cutscene/jeff_finale/setup_actions(...)
+	actions = list(
+		ADD_SCREEN(/blackout/animated_better) = 2 SECONDS,
+		REMOVE_SCREEN(/blackout/animated_better, 0.5 SECONDS),
+		TP_CAMERA("Блюспейс - Конец игры"),
+		ADD_SCREEN(/cinema_borders) = 0.5 SECONDS,
+		MOVE_CAMERA(0, 17, 5 SECONDS, SINE_EASING|EASE_IN) = 6 SECONDS,
+		MOVE_CAMERA(13, 0, 0, null),
+		MOVE_CAMERA(-8, 0, 10 SECONDS, SINE_EASING|EASE_IN) = 11 SECONDS,
+		MOVE_CAMERA(-8, 24, 0, null),
+		MOVE_CAMERA(13, 24, 10 SECONDS, SINE_EASING|EASE_IN) = 11 SECONDS,
+
+		ADD_SCREEN(/blackout/animated_better) = 2 SECONDS,
+		MOVE_CAMERA(0, 0, 0, null) = 1 SECONDS,
+		RETURN_VIEWERS
+	)
+
+/datum/interactive_note/from_future
+	name = "Ты здесь уже умирал"
+	note_info = {"Это не первый раз, когда ты оказываешься на перепутье. Все эти тела - твои, но одновременно и нет. Мы не справились, но у тебя ещё есть шанс. \
+				Штука в центре - это <b><span style="color: yellow;">стабилизатор материи</span></b>. Он способен нейтрализовать блюспейс-искажение на корню. \
+				Поблизости, ты обнаружишь четыре похожих устройства. Каждое из них должно быть приведено в действие специальным <b><span style="color: yellow;">ключом</span></b>. \
+				Найди ключи, запитай стабилизатор, и поймай эту тварь. Ради всех нас. Этот цикл возможно прервать."}
+
+/datum/interactive_note/from_future2
+	name = "Не ошибись"
+	note_info = {"<b><span style="color: red;">У тебя будет только один шанс. Не промахнись.</span></b>"}
+
+/obj/structure/fd/interactive/note/from_future
+	name = "Ноутбук"
+	icon = 'mods/_fd/fd_assets/icons/vampires/items.dmi'
+	icon_state = "comp3"
+	attached_text = list(/datum/interactive_note/from_future,/datum/interactive_note/from_future2)
 
 /datum/interactive_note/nightmare/tutorial_ooc_hiding
 	name = "Прятки"
@@ -657,6 +694,7 @@
 /obj/structure/fd/bunker/warphole_special_effect
 	layer = 4.11
 	mouse_opacity = FALSE
+	anchored = TRUE
 	name = "electricity"
 	desc = "electricity"
 
@@ -664,9 +702,42 @@
 	icon_state = "rit-elec-aoe2"
 	alpha = 0
 
+/obj/structure/fd/bunker/stability_field
+	layer = 4.14
+	mouse_opacity = FALSE
+	anchored = TRUE
+	name = "field"
+	desc = "field"
+
+	icon = 'mods/_fd/_maps/metro/icons/rituals_160x160.dmi'
+	icon_state = "rit-water-aoe2"
+
+	pixel_x = -64
+	pixel_y = -64
+
+/obj/structure/fd/bunker/stability_field/Initialize()
+	. = ..()
+
+	SetTransform(0)
+	animate(src, transform = matrix(1.5, MATRIX_SCALE), time = 0.5 SECONDS, easing = BOUNCE_EASING|EASE_OUT)
+
+/obj/structure/fd/bunker/glitch
+	layer = 4.12
+	mouse_opacity = FALSE
+	anchored = TRUE
+	name = "field"
+	desc = "field"
+
+	icon = 'mods/_fd/fd_assets/icons/goons/featherzone.dmi'
+	icon_state = "hazard"
+
+	layer = SPEECH_INDICATOR_LAYER
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+
 /obj/structure/fd/bunker/warphole
 	layer = 2.4
 	mouse_opacity = FALSE
+	anchored = TRUE
 	name = "warphole"
 	desc = "warphole"
 
@@ -685,7 +756,7 @@
 	var/do_not_trigger = FALSE
 
 	var/offset_x = 64
-	var/ofset_y = 40
+	var/offset_y = 40
 
 /obj/structure/fd/bunker/warphole/Initialize()
 	. = ..()
@@ -693,14 +764,14 @@
 
 	if(unstable)
 		electricity = new /obj/structure/fd/bunker/warphole_special_effect(get_turf(src))
-		electricity.pixel_y = ofset_y
-		electricity.pixel_x = offset_x
+		electricity.pixel_y = -offset_y
+		electricity.pixel_x = -offset_x
 		electricity.SetTransform(0)
 
 	START_PROCESSING(SSobj,src)
 
 /obj/structure/fd/bunker/warphole/Process()
-	if(unstable)
+	if(unstable && opened)
 		for(var/mob/living/L in range(1,src))
 			L.simple_health_calculation(5, 0, 1, 0)
 
@@ -718,9 +789,11 @@
 			animate(M, alpha = 255, time = 0.5 SECONDS, easing = LINEAR_EASING)
 
 			if(other_hole.mother_hole)
+				M.gate_timer = null
 				M.client.screen -= connected_gate.connected_timer
 			else
 				M.client.screen += connected_gate.connected_timer
+				M.gate_timer = connected_gate.connected_timer
 
 			other_hole.do_not_trigger = FALSE
 
@@ -739,6 +812,17 @@
 
 	return TRUE
 
+/mob/living
+	var/obj/screen/gate_timer/gate_timer
+
+/mob/living/Life()
+	if(gate_timer && !(gate_timer in client.screen))
+		client.screen += gate_timer
+
+	. = ..()
+
+
+
 /obj/structure/fd/bunker/gate
 	name = "gateway controls"
 	desc = "Console for managing gateway connections."
@@ -753,8 +837,8 @@
 	var/obj/structure/fd/bunker/warphole/mother_hole
 	var/amount_of_uses = 1
 	var/connection_open = FALSE
-	var/opened_state_timeframe = 160
-	var/opened_state_timeframe_current = 160
+	var/opened_state_timeframe = 600
+	var/opened_state_timeframe_current = 600
 
 	interactive = TRUE
 	var/can_enter_specific = FALSE
@@ -853,11 +937,12 @@
 		if("ВКЛЮЧИТЬ")
 			user.client.screen -= connected_timer
 			if(amount_of_uses > 0 && !connection_open)
-				animate(user, user.pixel_y = 12, time = 10, easing = LINEAR_EASING | EASE_IN)
+				animate(user, pixel_y = 12, time = 10, easing = LINEAR_EASING | EASE_IN)
 				if(do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
 					playsound(user, 'sound/items/shuttle_beacon_complete.ogg', 100)
-					animate(user, user.pixel_y = 0, time = 10, easing = LINEAR_EASING | EASE_IN)
+					animate(user, pixel_y = 0, time = 10, easing = LINEAR_EASING | EASE_IN)
 					try_to_establish_connection(user)
+				animate(user, pixel_y = 0, time = 10, easing = LINEAR_EASING | EASE_IN)
 				return TRUE
 		if("ВЫКЛЮЧИТЬ")
 			user.client.screen -= connected_timer
@@ -871,3 +956,164 @@
 
 /turf/simulated/floor/bluespace/more_stable/Entered(mob/living/L)
 	return
+
+/obj/structure/fd/bunker/stabilizator
+	name = "strange device"
+	desc = "I wonder what i can do with that..."
+	icon = 'mods/_fd/fd_assets/icons/goons/worlds.dmi'
+	icon_state = "stabilizator"
+
+	var/active = FALSE
+	var/used = FALSE
+	var/list/obj/structure/fd/bunker/stabilizator_cell/cells = list()
+
+	interactive = TRUE
+	anchored = TRUE
+	density = TRUE
+
+/obj/structure/fd/bunker/stabilizator/Initialize()
+	. = ..()
+
+	var/area/area = get_area(src)
+	for(var/obj/structure/fd/bunker/stabilizator_cell/C in area)
+		cells += C
+
+	START_PROCESSING(SSobj,src)
+
+/obj/structure/fd/bunker/stabilizator/Process()
+
+	if(!active)
+		var/list/activated_cells = list()
+
+		for(var/obj/structure/fd/bunker/stabilizator_cell/C in cells)
+			if(C.activated)
+				activated_cells += C
+
+		if(length(activated_cells) == length(cells) && !used)
+			active = TRUE
+			icon_state = "stabilizator-activating"
+			playsound(src, 'sound/machines/bolts_up.ogg', 100)
+			spawn(1 SECOND)
+				playsound(src, 'sound/machines/boop2.ogg', 100)
+				icon_state = "stabilizator-active"
+
+	if(active)
+		if(!used)
+			var/list/activated_cells = list()
+
+			for(var/obj/structure/fd/bunker/stabilizator_cell/C in cells)
+				if(C.activated)
+					activated_cells += C
+
+			if(length(activated_cells) != length(cells))
+				active = FALSE
+				icon_state = "stabilizator-fire"
+
+		else
+			for(var/mob/living/L in orange(2,src))
+				if(!L.get_status_effect(/datum/simple_status/fixation))
+					L.add_status_effect(/datum/simple_status/fixation)
+					L.color = COLOR_BLACK
+
+					new /obj/structure/fd/bunker/glitch(get_turf(L))
+
+/obj/structure/fd/bunker/stabilizator/interact_with(mob/living/carbon/human/user)
+
+	if(!active)
+		desc_special = {"Странное устройство с несколькими визуальными индикаторами. <b><span style="color: red;">Не похоже, что оно рабочее</span></b>..."}
+		desc_special_show = TRUE
+		. = ..()
+
+		desc_special_show = FALSE
+		return TRUE
+
+	if(active && !used)
+		var/list/options = list(
+			"НАЖАТЬ НА КНОПКУ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "radial_use"))
+		var/chosen_option = show_radial_menu(user, src, options, radius = 25, require_near = TRUE)
+		if(!chosen_option)
+			return 0
+		if(chosen_option == "НАЖАТЬ НА КНОПКУ")
+			if(do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
+				setup_field(user)
+			return TRUE
+
+/obj/structure/fd/bunker/stabilizator/proc/setup_field(mob/living/carbon/human/user)
+	used = TRUE
+
+	playsound(src, 'sound/machines/BSD_interact.ogg', 100)
+
+	icon_state = "stabilizator-fire"
+	new /obj/structure/fd/bunker/stability_field(get_turf(src))
+
+	user.throw_at(get_edge_target_turf(user, reverse_direction(user.dir)), 6, 2)
+	user.simple_health_calculation(20, 0, 1, 0)
+	sleep(5)
+	for(var/mob/living/L in orange(2,src))
+		L.add_status_effect(/datum/simple_status/fixation)
+		L.color = COLOR_BLACK
+
+		new /obj/structure/fd/bunker/glitch(get_turf(L))
+
+	return TRUE
+
+/obj/item/fd/stabilizator_key/red
+	name = "key-like thing"
+	desc = "I can totally stick this somewhere"
+	icon = 'mods/_fd/fd_assets/icons/goons/worlds.dmi'
+	icon_state = "robotkey-red"
+
+	w_class = ITEM_SIZE_TINY
+
+/obj/item/fd/stabilizator_key/blue
+	name = "key-like thing"
+	desc = "I can totally stick this somewhere"
+	icon = 'mods/_fd/fd_assets/icons/goons/worlds.dmi'
+	icon_state = "robotkey-blue"
+
+	w_class = ITEM_SIZE_TINY
+
+/obj/structure/fd/bunker/stabilizator_cell
+	name = "strange device"
+	desc = "I wonder what i can do with that..."
+	icon = 'mods/_fd/fd_assets/icons/goons/worlds.dmi'
+	icon_state = "redstabilizator"
+
+	var/key_type = /obj/item/fd/stabilizator_key/red
+	var/obj/item/fd/stabilizator_key/key = null
+
+	var/activated = FALSE
+	density = TRUE
+	anchored = TRUE
+
+	interactive = TRUE
+
+/obj/structure/fd/bunker/stabilizator_cell/interact_with(mob/living/carbon/human/user)
+
+	if(!key)
+		var/obj/item/I = user.get_active_hand()
+		if(!I)
+			desc_special = {"Здесь есть небольшой разъём для <span style="color: yellow;">ключа</span>."}
+			desc_special_show = TRUE
+			. = ..()
+			return TRUE
+		if(!istype(I, key_type))
+			desc_special = {"<span style="color: red;">Не вставляется</span>."}
+			desc_special_show = TRUE
+			. = ..()
+			return TRUE
+
+		if(istype(I, key_type))
+			if(do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
+				user.drop_from_inventory(I)
+				I.forceMove(src)
+				key = I
+				activated = TRUE
+
+				playsound(user, 'sound/items/rped.ogg', 50)
+				icon_state = "[icon_state]-active"
+			return TRUE
+
+/obj/structure/fd/bunker/stabilizator_cell/blue
+	icon_state = "bluestabilizator"
+	key_type = /obj/item/fd/stabilizator_key/blue

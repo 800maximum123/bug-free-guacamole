@@ -41,9 +41,11 @@
 		spawn(0.5 SECONDS)
 			animate(user, alpha = 255, transform = matrix(1, MATRIX_SCALE), pixel_z = user.default_pixel_z, time = 3, easing = SINE_EASING | EASE_OUT)
 			user.resting = TRUE
-			user.Stun(5)
+
+			user.falling = FALSE
 
 			if(has_fall_damage)
+				user.SetStunned(5)
 				if(user.simple_combat_on)
 					user.simple_health_calculation(fall_damage_amount, 0, 0, 0, null, /datum/simple_status/legbroke, 1)
 				else
@@ -60,8 +62,11 @@
 		if(A.attached_to_surface)
 			return
 
+		if(A.falling)
+			return
+
 		else
-			A.Stun(10)
+			A.falling = TRUE
 			animate(A, transform = matrix(0.01, MATRIX_SCALE), time = 1 SECOND, easing = BOUNCE_EASING)
 
 			spawn(1 SECONDS)
@@ -80,8 +85,11 @@
 		if(L.attached_to_surface)
 			return
 
+		if(L.falling)
+			return
+
 		else
-			L.Stun(10)
+			L.falling = TRUE
 			animate(L, transform = matrix(0.01, MATRIX_SCALE), time = 1 SECOND, easing = BOUNCE_EASING)
 			spawn(1 SECONDS)
 				check_fall(L)
@@ -142,6 +150,9 @@
 		return FALSE
 
 	if(L.in_dash)
+		return FALSE
+
+	if(L.falling)
 		return FALSE
 
 	if(L.get_stamina() < L.dash_stamina_use)
@@ -222,6 +233,7 @@
 
 /mob/living
 	var/dash_allowed = TRUE
+	var/falling = FALSE
 
 	var/in_dash = FALSE // Определяет, находимся ли мы в полёте прямо сейчас. Нужно для обрывов и кадров неуязвимости
 	var/dash_distance = 2 // Как далеко мы дэшимся по стандарту

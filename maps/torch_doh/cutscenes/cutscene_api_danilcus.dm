@@ -174,6 +174,12 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 		new_camera.ckey = ckey
 		camera_mobs += new_camera
 
+#define MOVE_CAMERA_MOB(move_x, move_y) CALL(src, move_camera_mob, move_x, move_y)
+/datum/modular_cutscene/proc/move_camera_mob(move_x, move_y)
+	for(var/mob/viewer as() in camera_mobs)
+		viewer.x = move_x
+		viewer.y = move_y
+
 #define MOVE_CAMERA(move_x, move_y, duration, easing) CALL(src, move_camera, move_x, move_y, duration, easing)
 /datum/modular_cutscene/proc/move_camera(move_x, move_y, duration, easing)
 	move_x *= 32
