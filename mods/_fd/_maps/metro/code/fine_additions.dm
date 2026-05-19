@@ -508,10 +508,12 @@
 	if(mob_in_charge)
 
 		if(next_power_up > 0)
+			balloon_alert(user, "|ЕЩЁ РАНО|", COLOR_RED)
 			animation_flash_color(src, COLOR_RED)
 			return FALSE
 
 		if(power_level >= 5)
+			balloon_alert(user, "|ВЫСТРЕЛ|", COLOR_GREEN)
 			playsound(user, 'sound/items/shuttle_beacon_complete.ogg', 100)
 			try_to_fire()
 			return TRUE
@@ -519,6 +521,7 @@
 		power_level += 1
 		next_power_up = 5
 		power_up_falloff_in = initial(power_up_falloff_in)
+		balloon_alert(user, "|УРОВЕНЬ [power_level]|", COLOR_GOLD)
 
 		change_visuals()
 		return TRUE
@@ -873,7 +876,6 @@
 				connected_timer.maptext_y = 0
 		if(opened_state_timeframe_current < 0)
 			opened_state_timeframe_current = opened_state_timeframe
-			maptext = ""
 			connected_timer.reset_screentext()
 			severe_all_connections()
 
@@ -888,6 +890,8 @@
 	mother_hole.other_hole = null
 
 	mother_hole.hole_id = initial(mother_hole.hole_id)
+	opened_state_timeframe_current = opened_state_timeframe
+	maptext = ""
 
 	for(var/client/clients in GLOB.clients)
 		for(var/obj/screen/T in clients.screen)
@@ -938,17 +942,19 @@
 			user.client.screen -= connected_timer
 			if(amount_of_uses > 0 && !connection_open)
 				animate(user, pixel_y = 12, time = 10, easing = LINEAR_EASING | EASE_IN)
-				if(do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
+				if(do_after(user, 10 SECONDS, src, DO_PUBLIC_UNIQUE))
 					playsound(user, 'sound/items/shuttle_beacon_complete.ogg', 100)
-					animate(user, pixel_y = 0, time = 10, easing = LINEAR_EASING | EASE_IN)
 					try_to_establish_connection(user)
 				animate(user, pixel_y = 0, time = 10, easing = LINEAR_EASING | EASE_IN)
 				return TRUE
 		if("ВЫКЛЮЧИТЬ")
 			user.client.screen -= connected_timer
 			if(connection_open)
-				connected_timer.reset_screentext()
-				severe_all_connections()
+				animate(user, pixel_y = 12, time = 10, easing = LINEAR_EASING | EASE_IN)
+				if(do_after(user, 10 SECONDS, src, DO_PUBLIC_UNIQUE))
+					connected_timer.reset_screentext()
+					severe_all_connections()
+				animate(user, pixel_y = 0, time = 10, easing = LINEAR_EASING | EASE_IN)
 			return TRUE
 
 	user.client.screen -= connected_timer
@@ -1046,9 +1052,14 @@
 	icon_state = "stabilizator-fire"
 	new /obj/structure/fd/bunker/stability_field(get_turf(src))
 
+	user.pass_flags |= PASS_FLAG_TABLE
+
 	user.throw_at(get_edge_target_turf(user, reverse_direction(user.dir)), 6, 2)
 	user.simple_health_calculation(20, 0, 1, 0)
 	sleep(5)
+
+	user.pass_flags = initial(pass_flags)
+
 	for(var/mob/living/L in orange(2,src))
 		L.add_status_effect(/datum/simple_status/fixation)
 		L.color = COLOR_BLACK

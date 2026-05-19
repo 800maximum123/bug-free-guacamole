@@ -538,6 +538,7 @@
 		TALK_ACTOR(actor("Амелия - 5-1-4"), "Року?") = 4 SECONDS,
 		TALK_ACTOR(actor("Року - 5-1-4"), "Амелия.") = 4 SECONDS,
 
+		PLAY_SOUND(sound('packs/infinity/sound/voice/sigh_female.ogg', volume = 10)),
 		TALK_ACTOR(actor("Амелия - 5-1-4"), "!вздыхает.") = 2 SECONDS,
 		CHANGE_ACTOR_VISUALS(actor("Амелия - 5-1-4"), "Ep 1"),
 		SHIFT_ACTOR(actor("Амелия - 5-1-4"), 0, 0, 1 SECONDS, LINEAR_EASING, null),
@@ -686,6 +687,18 @@
 
 /datum/modular_cutscene/s2ep5sc7/setup_actions(...)
 	actions = list(
+		EASY_TRANSFORM_ACTOR(actor("Дверь 5-7"), 6, 0),
+		CHANGE_ACTOR_LAYER(actor("Дверь 5-7"), 4.02),
+
+		EASY_TRANSFORM_ACTOR(actor("Перси - 5-1-7"), 5, 0),
+		CHANGE_ACTOR_LAYER(actor("Перси - 5-1-7"), 4.03),
+
+		EASY_TRANSFORM_ACTOR(actor("Амелия - 5-1-7"), 5, 0),
+		CHANGE_ACTOR_LAYER(actor("Амелия - 5-1-7"), 4.04),
+
+		EASY_TRANSFORM_ACTOR(actor("Глаза Амелии - 5-1-7"), 3, 0),
+		CHANGE_ACTOR_LAYER(actor("Глаза Амелии - 5-1-7"), 4.05),
+
 		EASY_TRANSFORM_ACTOR(actor("Глаза Райфлер - 5-1-7"), 6, 0),
 		CHANGE_ACTOR_LAYER(actor("Глаза Райфлер - 5-1-7"), 4.10),
 
@@ -737,7 +750,7 @@
 		CHANGE_ACTOR_VISUALS(actor("Крис - 5-1-7"), "EP5 PAGE 1 - 1"),
 		EASY_TRANSFORM_ACTOR(actor("Глаза Райфлер - 5-1-7"), 5, 0),
 		TURN_ACTOR(actor("Глаза Райфлер - 5-1-7"), WEST),
-		SHIFT_ACTOR(actor("Глаза Райфлер - 5-1-7"), -18, -35, 0, null, null),
+		SHIFT_ACTOR(actor("Глаза Райфлер - 5-1-7"), -19, -34, 0, null, null),
 
 		TALK_ACTOR(actor("Крис - 5-1-7"), "- даже простой завал может стать для нас большой проблемой.") = 6 SECONDS,
 		START_CUTSCENE(/datum/modular_cutscene/s2ep5sc8)
@@ -935,4 +948,167 @@
 		TP_CAMERA("Сцена 5-1 - Кадр 10"),
 
 		ADD_SCREEN(/cinema_borders) = 1 SECONDS,
+		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "Амелия!"),
+		TURN_ACTOR(actor("Крис - 5-1-10"), EAST),
+		MOVE_ACTOR(actor("Амелия - 5-1-10"), NORTH) = 1 SECONDS,
+		TURN_ACTOR(actor("Мясо - 5-1-10"), SOUTH),
+
+		PLAY_SOUND(sound('sound/mecha/mechmove02.ogg', volume = 10)),
+		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "!КРЕПКО обнял девушку."),
+		SHIFT_ACTOR(actor("Фиддлер - 5-1-10"), 6, 2, 0.5 SECONDS, SINE_EASING|EASE_IN, null),
+		SHIFT_ACTOR(actor("Амелия - 5-1-10"), 0, 27, 0.5 SECONDS, SINE_EASING|EASE_IN, null) = 2 SECONDS,
+
+		PLAY_SOUND(sound('sound/mecha/mechstep03.ogg', volume = 10)),
+		MOVE_ACTOR(actor("Перси - 5-1-10"), NORTH),
+
+		PLAY_SOUND(sound('sound/mecha/mechmove01.ogg', volume = 10)),
+		SHIFT_ACTOR(actor("Фиддлер - 5-1-10"), 0, 10, 0.5 SECONDS, SINE_EASING|EASE_OUT, null),
+		SHIFT_ACTOR(actor("Амелия - 5-1-10"), 0, 15, 0.5 SECONDS, SINE_EASING|EASE_OUT, null) = 2 SECONDS,
+
+		TURN_ACTOR(actor("Перси - 5-1-10"), EAST),
+		TALK_ACTOR(actor("Амелия - 5-1-10"), "Всё настолько плохо?..") = 4 SECONDS,
+
+		TALK_ACTOR(actor("Перси - 5-1-10"), "Ты когда-нибудь видела чтобы Фиддлер кого-то обнимал?"),
+		TURN_ACTOR(actor("Амелия - 5-1-10"), WEST) = 4 SECONDS,
+		TALK_ACTOR(actor("Амелия - 5-1-10"), "!пожимает плечами.") = 2 SECONDS,
+
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/Barren.mp3', volume = 50)),
+
+		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "Послушай меня, у нас не так много времени.") = 6 SECONDS,
+		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "Дело в Нае.") = 2 SECONDS,
+		TURN_ACTOR(actor("Амелия - 5-1-10"), NORTH) = 2 SECONDS,
+		PLAY_SOUND(sound('sound/mecha/mechmove03.ogg', volume = 10)),
+		TURN_ACTOR(actor("Перси - 5-1-10"), NORTH),
+
+		TALK_ACTOR(actor("Амелия - 5-1-10"), "Снова взялись за старое? Стоило ожида-") = 4 SECONDS,
+		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "Как раз наоборот.") = 6 SECONDS,
+
+		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "Она собирается уйти из бункера на поиски Реймонда и других.") = 4 SECONDS,
+		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "Я пытался убедить её в том, что это полный бред, и она поступает безрассудно-") = 8 SECONDS,
+		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "Что мы не можем просто прыгнуть в пекло надеясь обойтись без очередной трагедии, но...") = 8 SECONDS,
+		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "...в ответ меня- просто назвали бесхребетным трусом.") = 4 SECONDS,
+
+		TALK_ACTOR(actor("Мясо - 5-1-10"), "Ну, может быть, в чём-то она действительно права...в конечном счёте, больше ли в этом риска, нежели в том что делаем сейчас мы?") = 2 SECONDS,
+		TURN_ACTOR(actor("Фиддлер - 5-1-10"), WEST) = 6 SECONDS,
+
+		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "Уж спасибо за поддержку, Мясо.") = 4 SECONDS,
+		TALK_ACTOR(actor("Мясо - 5-1-10"), "Просто заметил.") = 4 SECONDS,
+		PLAY_SOUND(sound('sound/machines/synth_no.ogg', volume = 10)),
+		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "!вздыхает.") = 4 SECONDS,
+		PLAY_SOUND(sound('sound/mecha/mechmove02.ogg', volume = 10)),
+		SHIFT_ACTOR(actor("Фиддлер - 5-1-10"), -12, 12, 0.5 SECONDS, LINEAR_EASING, null) = 2 SECONDS,
+		PLAY_SOUND(sound('sound/mecha/mechstep03.ogg', volume = 10)),
+		TURN_ACTOR(actor("Мясо - 5-1-10"), EAST),
+		MOVE_ACTOR(actor("Перси - 5-1-10"), NORTH),
+		CHANGE_ACTOR_VISUALS(actor("Фиддлер - 5-1-10"), "OP 1 - 2"),
+		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "Я делаю всё возможное для того, чтобы эта лодка не пошла ко дну.") = 6 SECONDS,
+		TURN_ACTOR(actor("Крис - 5-1-10"), NORTH),
+		SHIFT_ACTOR(actor("Крис - 5-1-10"), 0, 10, 0.5 SECONDS, SINE_EASING|EASE_IN, null),
+		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "А все вокруг в это же время будто бы намеренно вставляют мне палки в колёса.") = 8 SECONDS,
+		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "Мы учёные, а не полководцы. Мы...") = 4 SECONDS,
+		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "...+СОЗДАЁМ+ боевые задачи - не +РЕШАЕМ+ их.") = 4 SECONDS,
+		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "Я могу прикидываться Мартином сколько угодно, но у меня нет ни его харизмы, ни вашего уважения.") = 8 SECONDS,
+		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "...") = 2 SECONDS,
+		PLAY_SOUND(sound('sound/mecha/mechmove03.ogg', volume = 10)),
+		CHANGE_ACTOR_VISUALS(actor("Фиддлер - 5-1-10"), "Current Alt"),
+		SHIFT_ACTOR(actor("Фиддлер - 5-1-10"), 0, 10, 0.5 SECONDS, SINE_EASING|EASE_IN, null) = 1 SECONDS,
+
+		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "Остальной АНАБ наверняка отправится за ней.") = 2 SECONDS,
+		PLAY_SOUND(sound('sound/mecha/mechmove01.ogg', volume = 10)),
+		CHANGE_ACTOR_VISUALS(actor("Фиддлер - 5-1-10"), "EP5 PAGE 1 - 2"),
+		TURN_ACTOR(actor("Фиддлер - 5-1-10"), SOUTH) = 6 SECONDS,
+
+		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "Нам нужно переубедить их. Любыми возможными способами - хоть мою голову им на блюдце принести.") = 8 SECONDS,
+		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "...за эту неделю мы потеряли восьмерых в одном только бою с Восхождением.") = 6 SECONDS,
+		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "Прямо сейчас нас по пальцам пересчитать можно, а они-...") = 4 SECONDS,
+		PLAY_SOUND(sound('sound/mecha/mechmove03.ogg', volume = 10)),
+		CHANGE_ACTOR_VISUALS(actor("Фиддлер - 5-1-10"), "Current Alt"),
+		SHIFT_ACTOR(actor("Фиддлер - 5-1-10"), 0, 2, 0.5 SECONDS, SINE_EASING|EASE_IN, null),
+		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "!кладёт руку Амелии на плечо.") = 2 SECONDS,
+		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "Прошу, хоть ты помоги мне. Я не хочу копать могилы ещё четверым.") = 4 SECONDS,
+
+		SHIFT_ACTOR(actor("Амелия - 5-1-10"), 0, 0, 0.5 SECONDS, SINE_EASING|EASE_IN, null),
+		TALK_ACTOR(actor("Амелия - 5-1-10"), "Почему вы считаете, что у +меня+ получится её урезонить?") = 2 SECONDS,
+		TURN_ACTOR(actor("Амелия - 5-1-10"), WEST) = 4 SECONDS,
+		TALK_ACTOR(actor("Амелия - 5-1-10"), "Я никогда не была с Наей в ладах.") = 4 SECONDS,
+		PLAY_SOUND(sound('sound/mecha/mechmove02.ogg', volume = 10)),
+		PLAY_SOUND(sound('sound/machines/synth_yes.ogg', volume = 20)),
+		TURN_ACTOR(actor("Перси - 5-1-10"), EAST),
+		TURN_ACTOR(actor("Мясо - 5-1-10"), EAST),
+		MOVE_ACTOR(actor("Мясо - 5-1-10"), EAST),
+		TALK_ACTOR(actor("Перси - 5-1-10"), "Дать подсказку?") = 2 SECONDS,
+		MOVE_ACTOR(actor("Мясо - 5-1-10"), EAST) = 2 SECONDS,
+		TALK_ACTOR(actor("Амелия - 5-1-10"), "!хмурится.") = 2 SECONDS,
+		TALK_ACTOR(actor("Амелия - 5-1-10"), "А если я снова сделаю только хуже? Что будет тогда?") = 4 SECONDS,
+
+		TALK_ACTOR(actor("Мясо - 5-1-10"), "Других вариантов у нас нет.") = 6 SECONDS,
+
+		TURN_ACTOR(actor("Амелия - 5-1-10"), SOUTH),
+		TALK_ACTOR(actor("Амелия - 5-1-10"), "!цыкнула.") = 2 SECONDS,
+		TURN_ACTOR(actor("Перси - 5-1-10"), SOUTH),
+
+		MOVE_ACTOR(actor("Амелия - 5-1-10"), SOUTH) = 1 SECONDS,
+		TURN_ACTOR(actor("Мясо - 5-1-10"), SOUTH),
+		TURN_ACTOR(actor("Крис - 5-1-10"), SOUTH),
+		MOVE_ACTOR(actor("Амелия - 5-1-10"), SOUTH) = 1 SECONDS,
+		MOVE_CAMERA(7, 0, 6 SECONDS, SINE_EASING|EASE_OUT),
+		SHIFT_ACTOR(actor("Фиддлер - 5-1-10"), 0, 12, 0.5 SECONDS, LINEAR_EASING, null),
+		TALK_ACTOR(actor("Амелия - 5-1-10"), "...я попытаюсь."),
+		PLAY_SOUND(sound('sound/mecha/mechstep03.ogg', volume = 10)),
+		MOVE_ACTOR(actor("Перси - 5-1-10"), SOUTH),
+		MOVE_ACTOR(actor("Амелия - 5-1-10"), SOUTH) = 1 SECONDS,
+		PLAY_SOUND(sound('sound/mecha/mechstep03.ogg', volume = 10)),
+		MOVE_ACTOR(actor("Перси - 5-1-10"), SOUTH),
+		MOVE_ACTOR(actor("Амелия - 5-1-10"), SOUTH) = 1 SECONDS,
+		PLAY_SOUND(sound('sound/mecha/mechstep03.ogg', volume = 10)),
+		MOVE_ACTOR(actor("Перси - 5-1-10"), SOUTH),
+		MOVE_ACTOR(actor("Амелия - 5-1-10"), SOUTH) = 1 SECONDS,
+
+		START_CUTSCENE(/datum/modular_cutscene/s2ep5sc11)
+	)
+
+/datum/modular_cutscene/s2ep5sc11/setup_actions(...)
+	actions = list(
+		TP_CAMERA("Сцена 5-1 - Кадр 11"),
+		MOVE_CAMERA(0, 0, 0, null),
+
+		ADD_SCREEN(/cinema_borders) = 1 SECONDS,
+
+		CHANGE_ACTOR_MATRIX(actor("Ная - 5-1-11"), -15, 0.5 SECONDS, SINE_EASING|EASE_IN, null),
+		CHANGE_ACTOR_VISUALS(actor("Ная - 5-1-11"), "EP5 PAGE 1 - 1"),
+		TALK_ACTOR(actor("Ная - 5-1-11"), "!шуршит по коробкам.") = 2 SECONDS,
+		TALK_ACTOR(actor("Ная - 5-1-11"), "Ещё не передумал?") = 6 SECONDS,
+		TALK_ACTOR(actor("Фройз - 5-1-11"), "Ты спрашиваешь это уже в четвёртый раз.") = 2 SECONDS,
+		CHANGE_ACTOR_VISUALS(actor("Фройз - 5-1-11"), "EP5 PAGE 1 - 1"),
+		SHIFT_ACTOR(actor("Фройз - 5-1-11"), 0, 10, 1 SECONDS, SINE_EASING|EASE_OUT, null) = 4 SECONDS,
+		TALK_ACTOR(actor("Фройз - 5-1-11"), "Не верится что здесь есть кто-то настолько же отбитый как и ты?") = 6 SECONDS,
+		TALK_ACTOR(actor("Ная - 5-1-11"), "Скорее не могу понять мотивов. Это раздражает.") = 6 SECONDS,
+		TALK_ACTOR(actor("Фройз - 5-1-11"), "А-а...так вот оно что!") = 4 SECONDS,
+		CHANGE_ACTOR_MATRIX(actor("Фройз - 5-1-11"), 10, 0.5 SECONDS, SINE_EASING|EASE_IN, null),
+		TALK_ACTOR(actor("Фройз - 5-1-11"), "Боишься что меня Фиддлер подослал? Или кто-то ещё?") = 8 SECONDS,
+		TURN_ACTOR(actor("Ная - 5-1-11"), NORTH),
+		CHANGE_ACTOR_MATRIX(actor("Ная - 5-1-11"), 0, 1 SECONDS, SINE_EASING|EASE_IN, null) = 4 SECONDS,
+		TALK_ACTOR(actor("Фройз - 5-1-11"), "Нет.") = 2 SECONDS,
+		TURN_ACTOR(actor("Ная - 5-1-11"), WEST),
+		SHIFT_ACTOR(actor("Ная - 5-1-11"), -8, 0, 0.5 SECONDS, SINE_EASING|EASE_OUT, null) = 2 SECONDS,
+		TALK_ACTOR(actor("Фройз - 5-1-11"), "Воу. Окей.") = 4 SECONDS,
+		CHANGE_ACTOR_VISUALS(actor("Фройз - 5-1-11"), "Current Alt"),
+		CHANGE_ACTOR_MATRIX(actor("Фройз - 5-1-11"), 0, 0.5 SECONDS, SINE_EASING|EASE_IN, ANIMATION_PARALLEL),
+		SHIFT_ACTOR(actor("Фройз - 5-1-11"), 0, 0, 0.5 SECONDS, SINE_EASING|EASE_OUT, ANIMATION_PARALLEL),
+		TALK_ACTOR(actor("Фройз - 5-1-11"), "Сжирать меня взглядом было необязательно.") = 4 SECONDS,
+		MOVE_ACTOR(actor("Фройз - 5-1-11"), SOUTH) = 2 SECONDS,
+		TALK_ACTOR(actor("Ная - 5-1-11"), "!продолжает копаться в барахле.") = 2 SECONDS,
+		TALK_ACTOR(actor("Фройз - 5-1-11"), "!вздыхает.") = 2 SECONDS,
+		TURN_ACTOR(actor("Фройз - 5-1-11"), WEST),
+		MOVE_ACTOR(actor("Фройз - 5-1-11"), SOUTH) = 2 SECONDS,
+		CHANGE_ACTOR_VISUALS(actor("Фройз - 5-1-11"), "EP5 PAGE 1 - 2"),
+		SHIFT_ACTOR(actor("Фройз - 5-1-11"), -22, -5, 1 SECONDS, SINE_EASING|EASE_OUT, null) = 2 SECONDS,
+		TALK_ACTOR(actor("Фройз - 5-1-11"), "Слушай-...") = 2 SECONDS,
+		TALK_ACTOR(actor("Фройз - 5-1-11"), "Я и близко не могу представить, какого это - потерять всё что было дорого тебе в этой жизни.") = 6 SECONDS,
+		TALK_ACTOR(actor("Фройз - 5-1-11"), "...") = 2 SECONDS,
+		TALK_ACTOR(actor("Фройз - 5-1-11"), "Потому что у меня и самой-то жизни этой не было. До вас. До Факела.") = 8 SECONDS,
+		TALK_ACTOR(actor("Фройз - 5-1-11"), "Если бы не вы - я так бы и продолжил метаться с Горой по обломкам пока не закончил бы космическим мусором коим и являюсь.") = 8 SECONDS,
+		TALK_ACTOR(actor("Фройз - 5-1-11"), "!хлопает по спине.") = 2 SECONDS,
+		TALK_ACTOR(actor("Фройз - 5-1-11"), "Я в долгу перед вами. Перед тобой, Реймондом, Горой. Персивалем.") = 6 SECONDS,
+		TALK_ACTOR(actor("Фройз - 5-1-11"), "Так что, если на кону стоит его жизнь...") = 6 SECONDS,
 	)

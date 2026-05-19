@@ -32,6 +32,14 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"am" = (
+/obj/floor_decal/borderfloor,
+/obj/floor_decal/corner/darkblue/border,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "at" = (
 /obj/floor_decal/borderfloor,
 /obj/floor_decal/step{
@@ -134,6 +142,54 @@
 	layer = 4.11;
 	icon_state = "maptable_on"
 	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"bs" = (
+/obj/structure/vines/light3,
+/obj/paint/dark_gunmetal,
+/turf/simulated/wall,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"bt" = (
+/obj/floor_decal/messygrass{
+	dir = 4
+	},
+/obj/floor_decal/messygrass,
+/obj/structure/fd/placeholder/better,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"bM" = (
+/obj/structure/grille/broken,
+/obj/floor_decal/messygrass{
+	dir = 8
+	},
+/obj/floor_decal/messygrass{
+	dir = 1
+	},
+/obj/floor_decal/messygrass{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"bP" = (
+/mob/living/simple_animal/cutscene_character/perci_robot{
+	icon_state = "OP 1 - 1";
+	cutscene_id = "Перси - 5-1-7";
+	layer = 4.03;
+	forced_layer = 4.03;
+	should_update_layer = 1
+	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t3"
 	},
@@ -152,6 +208,16 @@
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t3"
 	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"cE" = (
+/obj/machinery/door/airlock/autoname{
+	dir = 2
+	},
+/obj/structure/fd/placeholder/better,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -184,16 +250,46 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"cN" = (
+/mob/living/simple_animal/cutscene_character/airlock/s2ep1/part2_1{
+	dir = 1;
+	cutscene_id = "Дверь 5-7";
+	layer = 4.02;
+	forced_layer = 4.02;
+	should_update_layer = 1
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_da_t3"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"dk" = (
+/turf/simulated/floor/exoplanet/fd/drought{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"dM" = (
+/obj/floor_decal/corner/darkblue/half{
+	dir = 1
+	},
+/obj/structure/platform{
+	dir = 1
+	},
+/obj/structure/fd/placeholder/better,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "ee" = (
-/obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
-	dir = 4
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
 	},
-/obj/floor_decal/techfloor{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -216,6 +312,18 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"ej" = (
+/obj/structure/fd/junk{
+	icon_state = "3,2"
+	},
+/obj/structure/fd/placeholder/better,
+/turf/simulated/floor/exoplanet/fd/drought{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "er" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 4
@@ -226,16 +334,9 @@
 	dynamic_lighting = 1
 	})
 "eA" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 8
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#526833"
 	},
-/obj/catwalk_plated/dark,
-/obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
-	dir = 2
-	},
-/turf/simulated/floor/plating,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -256,6 +357,29 @@
 	},
 /obj/floor_decal/corner/black/half,
 /obj/floor_decal/techfloor/corner{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"eT" = (
+/obj/structure/bed/chair/office/comfy/brown{
+	dir = 8
+	},
+/obj/structure/fd/placeholder/better,
+/turf/simulated/floor/tiled/dark,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"fa" = (
+/obj/floor_decal/corner/darkblue/mono,
+/obj/machinery/computer/modular/preset/civilian/professional{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/monotile,
@@ -302,9 +426,35 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"gd" = (
+/obj/structure/largecrate{
+	icon_state = "woodcrate";
+	icon = 'mods/_fd/fd_assets/icons/is12/war_crates.dmi'
+	},
+/obj/structure/largecrate{
+	icon_state = "woodcrate";
+	icon = 'mods/_fd/fd_assets/icons/is12/war_crates.dmi';
+	pixel_y = 16
+	},
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"gf" = (
+/obj/structure/flora/tree/jungle/big{
+	special_size = 4
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#526833"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "gh" = (
 /obj/structure/showcase{
-	icon_state = "h_maptable";
+	icon_state = "h_maptable_on";
 	icon = 'mods/_fd/fd_assets/icons/structures/almayer_props96.dmi';
 	desc = "It's a maptable, for putting things on. Or standing on, if you really want to. It's broken, maybe";
 	bound_width = 96;
@@ -335,6 +485,34 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"gl" = (
+/obj/structure/fd/cave_flora{
+	desc = "Just some grass, nothing more.";
+	icon_state = "grass1";
+	name = "flora"
+	},
+/turf/simulated/floor/exoplanet/fd/waste,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"gH" = (
+/obj/floor_decal/step{
+	color = "grey";
+	dir = 1;
+	pixel_y = -16
+	},
+/obj/floor_decal/borderfloor{
+	dir = 1
+	},
+/obj/structure/platform{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -403,9 +581,7 @@
 	forced_layer = 5;
 	layer = 5
 	},
-/turf/simulated/floor/exoplanet/samosbor/metal{
-	icon_state = "me_ti_da_t3"
-	},
+/turf/simulated/floor/tiled/techfloor/grid,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -418,9 +594,38 @@
 	layer = 4.01;
 	pixel_y = 64
 	},
-/turf/simulated/floor/exoplanet/samosbor/metal{
-	icon_state = "me_ti_da_t3"
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"iD" = (
+/obj/structure/fd/building_stuff{
+	pixel_x = 28
 	},
+/obj/structure/fd/building_stuff,
+/obj/structure/fd/building_stuff{
+	density = 1;
+	desc = "Just an pile of bricks.";
+	icon_state = "0,1";
+	name = "bricks";
+	pixel_y = 4;
+	pixel_x = 23
+	},
+/obj/structure/fd/building_stuff{
+	anchored = 0;
+	density = 1;
+	icon_state = "1,1";
+	pixel_y = 3;
+	pixel_x = -2
+	},
+/obj/structure/fd/building_stuff{
+	density = 1;
+	icon_state = "2,0";
+	pixel_x = 32;
+	pixel_y = -19
+	},
+/turf/simulated/floor/exoplanet/fd/grass,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -431,7 +636,7 @@
 	cutscene_id = "Стена 5-7";
 	should_update_layer = 1;
 	layer = 4.01;
-	pixel_y = 64
+	pixel_y = 96
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t3"
@@ -497,6 +702,13 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"jt" = (
+/obj/structure/fd/placeholder/better,
+/turf/simulated/floor/exoplanet/fd/waste,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "jw" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 8
@@ -555,6 +767,37 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"kf" = (
+/obj/floor_decal/corner/black/half,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"kK" = (
+/obj/catwalk_plated/dark,
+/obj/structure/bed/chair/comfy/black{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"le" = (
+/obj/item/storage/backpack/rucksack{
+	pixel_y = -12;
+	pixel_x = -4
+	},
+/obj/item/storage/firstaid/light{
+	pixel_y = -19;
+	pixel_x = -11
+	},
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "lp" = (
 /obj/structure/fd/placeholder/better,
 /obj/effect/cutscene_camera/s2ep5sc6,
@@ -569,6 +812,20 @@
 /obj/floor_decal/spline/plain/black,
 /obj/structure/fd/placeholder/better,
 /turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"lG" = (
+/obj/effect/cutscene_camera/s2ep5sc11,
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"lO" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/fd/grass,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -598,9 +855,10 @@
 	layer = 4.09;
 	runechat_y_offset = -420
 	},
-/turf/simulated/floor/exoplanet/samosbor/metal{
-	icon_state = "me_ti_da_t3"
+/obj/floor_decal/borderfloor{
+	dir = 1
 	},
+/turf/simulated/floor/tiled/techfloor/grid,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -614,9 +872,7 @@
 	should_update_layer = 1;
 	layer = 4.11
 	},
-/turf/simulated/floor/exoplanet/samosbor/metal{
-	icon_state = "me_ti_da_t3"
-	},
+/turf/simulated/floor/tiled/techfloor/grid,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -627,9 +883,7 @@
 	marker_range = 10;
 	color = "#3366cc"
 	},
-/turf/simulated/floor/exoplanet/samosbor/metal{
-	icon_state = "me_ti_da_t3"
-	},
+/turf/simulated/floor/tiled/techfloor/grid,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -664,9 +918,55 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"nD" = (
+/turf/simulated/floor/exoplanet/fd/waste,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "nI" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"oE" = (
+/obj/structure/flora/tree/beet_decorative/big{
+	layer = 2.26;
+	special_size = 4
+	},
+/turf/simulated/floor/exoplanet/fd/drought{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"oI" = (
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#ffbf00"
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#5F773B"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"oL" = (
+/obj/item/reagent_containers/food/drinks/coffee{
+	pixel_x = -9;
+	layer = 3.1
+	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.7;
+	marker_range = 6;
+	color = "#3366cc"
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -683,6 +983,15 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"pg" = (
+/obj/structure/fd/placeholder/better,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#5F773B"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "po" = (
 /obj/structure/fd/mapping/light_marker{
 	marker_power = 0.8;
@@ -690,9 +999,7 @@
 	color = "#3366cc"
 	},
 /obj/effect/cutscene_camera/s2ep5sc9,
-/turf/simulated/floor/exoplanet/samosbor/metal{
-	icon_state = "me_ti_da_t3"
-	},
+/turf/simulated/floor/tiled/techfloor/grid,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -715,6 +1022,44 @@
 	pixel_x = 12;
 	pixel_y = 2
 	},
+/obj/item/device/flashlight/lamp{
+	pixel_x = 13;
+	pixel_y = 6;
+	on = 1;
+	layer = 3.2
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"pB" = (
+/obj/floor_decal/borderfloor,
+/obj/floor_decal/corner/black/half{
+	dir = 1
+	},
+/obj/floor_decal/techfloor/corner{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"pE" = (
+/obj/structure/showcase{
+	icon_state = "h_maptable_on";
+	icon = 'mods/_fd/fd_assets/icons/structures/almayer_props96.dmi';
+	desc = "It's a maptable, for putting things on. Or standing on, if you really want to. It's broken, maybe";
+	bound_width = 96;
+	bound_height = 64;
+	name = "Maptable"
+	},
+/obj/item/paper/memo/medical/chemlab{
+	pixel_x = 9;
+	pixel_y = 22
+	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
@@ -731,6 +1076,22 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"pO" = (
+/obj/floor_decal/borderfloor{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"qd" = (
+/obj/structure/fd/placeholder/better,
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "ql" = (
 /mob/living/simple_animal/cutscene_character/invisible_speakers{
 	name = "PING";
@@ -739,9 +1100,7 @@
 	forced_layer = 5;
 	layer = 5
 	},
-/turf/simulated/floor/exoplanet/samosbor/metal{
-	icon_state = "me_ti_da_t3"
-	},
+/turf/simulated/floor/tiled/techfloor/grid,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -795,6 +1154,14 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"qX" = (
+/obj/landmark/damager,
+/obj/paint/dark_gunmetal,
+/turf/simulated/wall,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "rb" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -810,6 +1177,16 @@
 /obj/machinery/recharge_station,
 /obj/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/techfloor,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"rx" = (
+/obj/structure/fd/cave_flora{
+	icon_state = "swampgrass";
+	pixel_x = 9
+	},
+/turf/simulated/floor/exoplanet/fd/waste,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -864,6 +1241,19 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"sg" = (
+/obj/floor_decal/corner/darkblue/mono,
+/obj/machinery/computer/modular/preset/civilian/professional{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "si" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -872,6 +1262,32 @@
 	dir = 10
 	},
 /obj/structure/fd/placeholder/better,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"sj" = (
+/obj/item/paper/memo/medical/organfab{
+	pixel_x = -19;
+	pixel_y = 13
+	},
+/obj/item/device/flashlight/lamp{
+	pixel_x = -15;
+	pixel_y = 18;
+	on = 1;
+	layer = 3.2
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"sl" = (
+/obj/structure/fd/mapping/light_marker{
+	marker_range = 8;
+	color = "#ffbf00"
+	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
@@ -886,8 +1302,31 @@
 	should_update_layer = 1;
 	layer = 4.11
 	},
-/turf/simulated/floor/exoplanet/samosbor/metal{
-	icon_state = "me_ti_da_t3"
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"sq" = (
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"sv" = (
+/obj/structure/fd/placeholder/better,
+/turf/simulated/floor/tiled/dark,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"sF" = (
+/obj/structure/flora/tree/jungle/small/big{
+	special_size = 3;
+	layer = 2.26
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
 	},
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
@@ -924,9 +1363,32 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"sY" = (
+/obj/structure/largecrate{
+	icon_state = "woodcrate";
+	icon = 'mods/_fd/fd_assets/icons/is12/war_crates.dmi';
+	pixel_x = -7;
+	pixel_y = 2
+	},
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "tg" = (
 /obj/floor_decal/techfloor/orange,
 /turf/simulated/floor/tiled/techfloor,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"tj" = (
+/obj/catwalk_plated/dark,
+/obj/structure/bed/chair/comfy/black{
+	dir = 4
+	},
+/obj/structure/fd/placeholder/better,
+/turf/simulated/floor/plating,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -935,6 +1397,17 @@
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/blood/oil/streak,
 /turf/simulated/floor/tiled/techfloor,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"um" = (
+/obj/floor_decal/borderfloor,
+/obj/floor_decal/techfloor{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -967,6 +1440,15 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"vl" = (
+/obj/structure/platform_decoration{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/monotile,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -1017,7 +1499,24 @@
 	pixel_y = 22;
 	layer = 3.1
 	},
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.7;
+	marker_range = 6;
+	color = "#3366cc"
+	},
 /turf/simulated/floor/tiled/techfloor/grid,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"wm" = (
+/obj/structure/flora/tree/beet_decorative/big{
+	special_size = 7;
+	pixel_y = 64
+	},
+/turf/simulated/floor/exoplanet/fd/drought{
+	color = "#bebebe"
+	},
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -1046,9 +1545,7 @@
 	forced_layer = 5;
 	layer = 5
 	},
-/turf/simulated/floor/exoplanet/samosbor/metal{
-	icon_state = "me_ti_da_t3"
-	},
+/turf/simulated/floor/tiled/techfloor/grid,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -1126,12 +1623,51 @@
 /obj/overmap/visitable/ship/torch,
 /turf/space,
 /area/space)
+"xR" = (
+/obj/catwalk_plated/dark,
+/mob/living/simple_animal/cutscene_character/perci_robot{
+	icon_state = "OP 1 - 1";
+	cutscene_id = "Перси - 5-1-10";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"ya" = (
+/obj/item/gun/projectile/shotgun/doublebarrel/pellet{
+	pixel_y = -21
+	},
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "yq" = (
 /obj/structure/fd/mapping/light_marker{
 	marker_power = 0.8;
 	marker_range = 10;
 	color = "#a1b6af";
 	marker_id = "houselight3"
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_da_t3"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"yB" = (
+/mob/living/simple_animal/cutscene_character/amelia/s2ep2{
+	cutscene_id = "Амелия - 5-1-7";
+	icon_dead = "Ep 1 - NOEYES";
+	icon_living = "Ep 1 - NOEYES";
+	icon_state = "Ep 1 - NOEYES";
+	forced_layer = 4.03;
+	should_update_layer = 1;
+	layer = 4.03;
+	runechat_y_offset = -240
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t3"
@@ -1168,6 +1704,31 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"Aa" = (
+/mob/living/simple_animal/cutscene_character/naia/s2ep2{
+	dir = 8;
+	cutscene_id = "Ная - 5-1-12"
+	},
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"Af" = (
+/obj/structure/fd/cave_flora{
+	desc = "Just some grass, nothing more.";
+	icon_state = "tree_stump";
+	name = "flora";
+	icon = 'mods/_fd/fd_assets/icons/structures/jungletree.dmi';
+	pixel_x = -50;
+	pixel_y = -25
+	},
+/obj/structure/fd/placeholder/better,
+/turf/simulated/floor/exoplanet/fd/waste,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "Ai" = (
 /mob/living/simple_animal/cutscene_character/invisible_speakers{
 	name = "TAP";
@@ -1179,6 +1740,21 @@
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t3"
 	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"Ao" = (
+/obj/item/storage/backpack/dufflebag{
+	pixel_x = 4;
+	pixel_y = 17
+	},
+/mob/living/simple_animal/cutscene_character/froise/s2ep2{
+	icon_state = "Current Alt";
+	cutscene_id = "Фройз - 5-1-11";
+	pixel_y = 21
+	},
+/turf/simulated/floor/exoplanet/fd/waste,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -1232,6 +1808,20 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"Bj" = (
+/obj/item/ammo_casing/shotgun/pellet{
+	pixel_x = 3;
+	pixel_y = 27
+	},
+/obj/item/ammo_casing/shotgun/pellet{
+	pixel_x = 3;
+	pixel_y = 24
+	},
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "Bw" = (
 /obj/floor_decal/techfloor/orange/corner{
 	dir = 1;
@@ -1244,6 +1834,20 @@
 	pixel_x = -27
 	},
 /turf/simulated/floor/tiled/techfloor,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"By" = (
+/obj/structure/grille/broken,
+/obj/floor_decal/messygrass{
+	dir = 8
+	},
+/obj/floor_decal/messygrass{
+	dir = 1
+	},
+/obj/floor_decal/messygrass,
+/turf/simulated/floor/exoplanet/fd/drought,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -1284,6 +1888,18 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"BY" = (
+/obj/floor_decal/borderfloor,
+/obj/floor_decal/corner/black/half{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/obj/structure/fd/placeholder/better,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "Cg" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -1318,9 +1934,40 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"Co" = (
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#5F773B"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"Dk" = (
+/obj/structure/flora/tree/beet_decorative,
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "DJ" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor/grid,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"DW" = (
+/obj/floor_decal/techfloor{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"Ee" = (
+/obj/floor_decal/techfloor/corner,
+/turf/simulated/floor/tiled/dark,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -1361,6 +2008,36 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"EZ" = (
+/obj/floor_decal/corner/darkblue/half{
+	dir = 1
+	},
+/obj/structure/platform{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"Fd" = (
+/obj/paint/dark_gunmetal,
+/turf/simulated/wall,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"Fk" = (
+/obj/structure/fd/building_stuff{
+	icon_state = "4,0";
+	pixel_x = -11;
+	pixel_y = -16
+	},
+/turf/simulated/floor/exoplanet/fd/waste,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -1407,6 +2084,24 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"FL" = (
+/obj/floor_decal/borderfloor{
+	dir = 4;
+	pixel_y = 0
+	},
+/obj/floor_decal/corner/darkblue/border{
+	dir = 4
+	},
+/obj/machinery/light{
+	color = "#a1d2d6";
+	light_color = "#a1d2d6";
+	dir = 2
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "FW" = (
 /mob/living/simple_animal/cutscene_character/invisible_speakers{
 	name = "BZZT";
@@ -1418,6 +2113,24 @@
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t3"
 	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"FX" = (
+/obj/floor_decal/borderfloor{
+	dir = 6
+	},
+/obj/floor_decal/techfloor{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/mob/living/simple_animal/cutscene_character/rifler_actual{
+	icon_state = "Current Alt 3";
+	cutscene_id = "Крис - 5-1-10";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/monotile,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -1496,18 +2209,36 @@
 	dynamic_lighting = 1
 	})
 "HX" = (
-/obj/floor_decal/borderfloor{
-	dir = 1
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"Im" = (
+/mob/living/simple_animal/cutscene_character/amelia/s2ep2{
+	cutscene_id = "Амелия - 5-1-13";
+	icon_dead = "Ep 1 - NOEYES";
+	icon_living = "Ep 1 - NOEYES";
+	icon_state = "Ep 1 - NOEYES";
+	forced_layer = 4.06;
+	should_update_layer = 1;
+	layer = 4.06;
+	runechat_y_offset = -240
 	},
-/obj/floor_decal/corner/darkblue/border{
-	dir = 1
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#5F773B"
 	},
-/obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
-	dir = 1
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"IC" = (
+/mob/living/simple_animal/cutscene_character/perci_robot{
+	icon_state = "OP 1 - 1";
+	cutscene_id = "Перси - 5-1-11";
+	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/simulated/floor/plating,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -1519,8 +2250,30 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"II" = (
+/obj/structure/grille,
+/obj/structure/vines/light2,
+/obj/floor_decal/messygrass{
+	dir = 1
+	},
+/obj/floor_decal/messygrass,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "IT" = (
 /obj/structure/closet/crate/bin,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"Jg" = (
+/obj/structure/platform_decoration{
+	dir = 4
+	},
+/obj/effect/cutscene_camera/s2ep5sc10,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
@@ -1533,6 +2286,16 @@
 /obj/catwalk_plated/dark,
 /obj/structure/fd/placeholder/better,
 /turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"JA" = (
+/obj/structure/fd/junk{
+	icon_state = "2,0";
+	pixel_y = 14
+	},
+/turf/simulated/floor/exoplanet/fd/waste,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -1576,6 +2339,19 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"KF" = (
+/obj/floor_decal/corner/darkblue/mono,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "KL" = (
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t3"
@@ -1589,6 +2365,17 @@
 /obj/paint/black,
 /obj/structure/fd/placeholder/better,
 /turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"KO" = (
+/obj/structure/grille,
+/obj/floor_decal/messygrass{
+	dir = 1
+	},
+/obj/floor_decal/messygrass,
+/turf/simulated/floor/exoplanet/fd/drought,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -1607,12 +2394,6 @@
 	dynamic_lighting = 1
 	})
 "LT" = (
-/obj/item/device/flashlight/lamp{
-	pixel_x = -47;
-	pixel_y = 41;
-	on = 1;
-	layer = 3.2
-	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
@@ -1627,9 +2408,59 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"Mr" = (
+/obj/floor_decal/borderfloor{
+	dir = 4;
+	pixel_y = 0
+	},
+/obj/floor_decal/corner/darkblue/border{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"My" = (
+/obj/floor_decal/borderfloor,
+/obj/floor_decal/corner/darkblue/border,
+/obj/structure/fd/placeholder/better,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "ML" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"MR" = (
+/mob/living/simple_animal/cutscene_character/amelia/s2ep2/amelia_eyes{
+	cutscene_id = "Глаза Амелии - 5-1-13";
+	forced_layer = 4.07;
+	should_update_layer = 1;
+	layer = 4.07;
+	icon_dead = "Amelia Eyes - Looking down";
+	icon_living = "Amelia Eyes - Looking down";
+	icon_state = "Amelia Eyes - Looking down"
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#526833"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"MX" = (
+/mob/living/simple_animal/cutscene_character/amelia/s2ep2{
+	icon_state = "Ep 1";
+	cutscene_id = "Амелия - 5-1-11";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -1649,6 +2480,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"NA" = (
+/obj/structure/fd/placeholder/better,
+/turf/simulated/floor/exoplanet/fd/drought,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -1676,9 +2514,7 @@
 	should_update_layer = 1;
 	runechat_y_offset = -420
 	},
-/turf/simulated/floor/exoplanet/samosbor/metal{
-	icon_state = "me_ti_da_t3"
-	},
+/turf/simulated/floor/tiled/techfloor/grid,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -1692,6 +2528,15 @@
 "Of" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/lino,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"Oh" = (
+/obj/wallframe_spawn/reinforced,
+/obj/paint/black,
+/obj/structure/fd/placeholder/better,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -1749,6 +2594,36 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"OH" = (
+/obj/structure/largecrate{
+	icon_state = "woodcrate";
+	icon = 'mods/_fd/fd_assets/icons/is12/war_crates.dmi'
+	},
+/obj/structure/largecrate{
+	pixel_x = 7;
+	pixel_y = -12
+	},
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"OJ" = (
+/mob/living/simple_animal/cutscene_character/amelia/s2ep2/amelia_eyes{
+	cutscene_id = "Глаза Амелии - 5-1-7";
+	forced_layer = 4.05;
+	should_update_layer = 1;
+	layer = 4.05;
+	pixel_y = 9;
+	pixel_x = -4
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_da_t3"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "Pi" = (
 /mob/living/simple_animal/cutscene_character/invisible_speakers{
 	name = "TAP";
@@ -1760,6 +2635,28 @@
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t3"
 	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"Pk" = (
+/obj/floor_decal/messygrass{
+	dir = 4
+	},
+/obj/floor_decal/messygrass{
+	dir = 1
+	},
+/obj/structure/fd/placeholder/better,
+/turf/simulated/floor/exoplanet/fd/drought{
+	color = "#bebebe"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"Px" = (
+/obj/effect/cutscene_camera/s2ep5sc12,
+/turf/simulated/floor/exoplanet/fd/drought,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -1783,9 +2680,19 @@
 	layer = 4.10;
 	should_update_layer = 1
 	},
-/turf/simulated/floor/exoplanet/samosbor/metal{
-	icon_state = "me_ti_da_t3"
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"PN" = (
+/obj/floor_decal/techfloor/corner{
+	dir = 8
 	},
+/obj/item/device/radio/intercom/bunker{
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/dark,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -1798,9 +2705,7 @@
 	layer = 4.09;
 	should_update_layer = 1
 	},
-/turf/simulated/floor/exoplanet/samosbor/metal{
-	icon_state = "me_ti_da_t3"
-	},
+/turf/simulated/floor/tiled/techfloor/grid,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -1809,6 +2714,17 @@
 /obj/paint/black,
 /obj/decal/cleanable/dirt,
 /turf/simulated/wall/r_wall,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"Qo" = (
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#ffbf00"
+	},
+/turf/simulated/floor/exoplanet/fd/grass,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -1827,6 +2743,27 @@
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_da_t3"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"QO" = (
+/mob/living/simple_animal/cutscene_character/perci_robot{
+	icon_state = "OP 1 - 1";
+	cutscene_id = "Перси - 5-1-13"
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#526833"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"QP" = (
+/obj/structure/fd/placeholder/better,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
 	},
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
@@ -1862,6 +2799,42 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"RF" = (
+/obj/floor_decal/corner/black/half,
+/obj/structure/bed/chair/comfy/black{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"RJ" = (
+/obj/floor_decal/corner/black/half,
+/obj/floor_decal/techfloor{
+	dir = 8
+	},
+/mob/living/simple_animal/cutscene_character/fiddler/s2ep2{
+	icon_state = "Current Alt";
+	cutscene_id = "Фиддлер - 5-1-10";
+	pixel_y = 22
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"Sd" = (
+/mob/living/simple_animal/cutscene_character/gora/s2ep2{
+	icon_state = "Current Alt 2";
+	cutscene_id = "Гора - 5-1-11";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "Sx" = (
 /mob/living/simple_animal/cutscene_character/s2ep5/wall{
 	forced_layer = 4.01;
@@ -1870,9 +2843,7 @@
 	layer = 4.01;
 	pixel_y = 64
 	},
-/turf/simulated/floor/exoplanet/samosbor/metal{
-	icon_state = "me_ti_da_t3"
-	},
+/turf/simulated/floor/tiled/techfloor/grid,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -1894,9 +2865,7 @@
 	color = "#3366cc"
 	},
 /obj/effect/cutscene_camera/s2ep5sc8,
-/turf/simulated/floor/exoplanet/samosbor/metal{
-	icon_state = "me_ti_da_t3"
-	},
+/turf/simulated/floor/tiled/techfloor/grid,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -1912,8 +2881,27 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"SH" = (
+/obj/floor_decal/techfloor,
+/turf/simulated/floor/tiled/dark,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "Td" = (
 /turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"Tg" = (
+/mob/living/simple_animal/cutscene_character/s2ep5/wall{
+	forced_layer = 4.01;
+	cutscene_id = "Стена 5-13";
+	should_update_layer = 1;
+	layer = 4.01
+	},
+/turf/simulated/floor/exoplanet/fd/grass,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -1928,9 +2916,60 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"TH" = (
+/obj/structure/grille/broken,
+/obj/floor_decal/messygrass{
+	dir = 8
+	},
+/obj/floor_decal/messygrass{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"TI" = (
+/obj/floor_decal/step{
+	color = "grey";
+	dir = 1;
+	pixel_y = -16
+	},
+/obj/floor_decal/borderfloor{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "TL" = (
 /obj/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/techfloor,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"TY" = (
+/obj/structure/flora/tree/jungle{
+	icon_state = "tree2"
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#526833"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"Um" = (
+/obj/floor_decal/borderfloor{
+	dir = 10
+	},
+/obj/floor_decal/corner/black{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -1942,9 +2981,7 @@
 	marker_range = 10;
 	color = "#3366cc"
 	},
-/turf/simulated/floor/exoplanet/samosbor/metal{
-	icon_state = "me_ti_da_t3"
-	},
+/turf/simulated/floor/tiled/techfloor/grid,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -1985,6 +3022,57 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"Vx" = (
+/obj/item/ammo_casing/shotgun/pellet{
+	pixel_x = -5;
+	pixel_y = 20
+	},
+/obj/item/crowbar/emergency_forcing_tool,
+/mob/living/simple_animal/cutscene_character/naia/s2ep2{
+	dir = 8;
+	cutscene_id = "Ная - 5-1-11";
+	icon_state = "Final Cool";
+	pixel_x = -6
+	},
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"Vy" = (
+/obj/floor_decal/step{
+	color = "grey";
+	dir = 1;
+	pixel_y = -16
+	},
+/obj/floor_decal/borderfloor{
+	dir = 1
+	},
+/obj/structure/platform{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"Vz" = (
+/obj/structure/bed/chair/office/comfy/brown{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"VP" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/fd/placeholder/better,
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "Wg" = (
 /obj/catwalk_plated/dark,
 /obj/structure/fd/placeholder/better,
@@ -1993,10 +3081,32 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"Wh" = (
+/obj/structure/flora/ausbushes/dead_small_cacti,
+/obj/structure/fd/cave_flora{
+	desc = "Just some grass, nothing more.";
+	icon_state = "grass6";
+	name = "flora"
+	},
+/turf/simulated/floor/exoplanet/fd/waste,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "Wm" = (
 /obj/decal/cleanable/dirt,
 /obj/catwalk_plated/dark,
 /turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"WU" = (
+/obj/item/paper/memo/medical/spacies{
+	pixel_x = -6;
+	pixel_y = -11
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -2077,6 +3187,31 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"XY" = (
+/mob/living/simple_animal/cutscene_character/amelia/s2ep2{
+	icon_state = "Ep 1";
+	cutscene_id = "Амелия - 5-1-10";
+	dir = 1;
+	forced_layer = 4.1;
+	should_update_layer = 1;
+	layer = 4.1
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"Yw" = (
+/obj/floor_decal/techfloor,
+/mob/living/simple_animal/cutscene_character/meat/s2ep2{
+	cutscene_id = "Мясо - 5-1-10";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "Yz" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 1
@@ -2086,9 +3221,33 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"YG" = (
+/obj/structure/grille/broken,
+/obj/floor_decal/messygrass{
+	dir = 1
+	},
+/obj/floor_decal/messygrass,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "YJ" = (
 /obj/decal/cleanable/generic,
 /turf/simulated/floor/tiled/dark,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"YQ" = (
+/obj/floor_decal/corner/darkblue/mono,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/monotile,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -3154,23 +4313,23 @@ vw
 vw
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
 rH
 rH
 rH
@@ -3356,23 +4515,23 @@ KL
 yq
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+dk
+wm
+dk
+dk
+eA
+eA
+eA
+Co
+Co
+ee
+ee
+sq
+sq
+sq
+sq
+vw
 rH
 rH
 rH
@@ -3558,23 +4717,23 @@ KL
 KL
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+dk
+dk
+dk
+dk
+eA
+eA
+eA
+Co
+Co
+sF
+ee
+ee
+sq
+sq
+sq
+vw
 rH
 rH
 rH
@@ -3760,23 +4919,23 @@ KL
 KL
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+dk
+dk
+dk
+dk
+eA
+eA
+eA
+Co
+Co
+ee
+ee
+ee
+sq
+sq
+sq
+vw
 rH
 rH
 rH
@@ -3962,23 +5121,23 @@ KL
 KL
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+dk
+dk
+dk
+oE
+dk
+eA
+Co
+Co
+Co
+ee
+ee
+ee
+sq
+sq
+sq
+vw
 rH
 rH
 rH
@@ -4164,23 +5323,23 @@ KL
 KL
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+dk
+dk
+dk
+dk
+dk
+HX
+Co
+Co
+Co
+ee
+ee
+ee
+sq
+sq
+sq
+vw
 rH
 rH
 rH
@@ -4366,23 +5525,23 @@ KL
 KL
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+dk
+dk
+dk
+dk
+dk
+HX
+HX
+Co
+ee
+ee
+ee
+ee
+sq
+sq
+sq
+vw
 rH
 rH
 rH
@@ -4568,23 +5727,23 @@ KL
 KL
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+dk
+dk
+dk
+dk
+HX
+HX
+HX
+Co
+ee
+HX
+HX
+HX
+ee
+sq
+sq
+vw
 rH
 rH
 rH
@@ -4770,23 +5929,23 @@ KL
 yq
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+dk
+dk
+dk
+dk
+HX
+HX
+HX
+Px
+Aa
+HX
+HX
+HX
+HX
+sq
+sq
+vw
 rH
 rH
 rH
@@ -4972,23 +6131,23 @@ KL
 KL
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+dk
+dk
+dk
+dk
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+vw
 rH
 rH
 rH
@@ -5174,23 +6333,23 @@ KL
 KL
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+dk
+dk
+dk
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+vw
 rH
 rH
 rH
@@ -5376,23 +6535,23 @@ KL
 KL
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+eA
+eA
+dk
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+vw
 rH
 rH
 rH
@@ -5578,23 +6737,23 @@ KL
 KL
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+eA
+eA
+eA
+Co
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+vw
 rH
 rH
 rH
@@ -5780,23 +6939,23 @@ KL
 KL
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+eA
+eA
+gf
+Co
+Co
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+vw
 rH
 rH
 rH
@@ -5982,23 +7141,23 @@ KL
 KL
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+eA
+eA
+eA
+Co
+Co
+Co
+ee
+ee
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+vw
 rH
 rH
 rH
@@ -6184,23 +7343,23 @@ KL
 yq
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+eA
+eA
+Co
+Co
+Co
+Co
+Co
+sF
+ee
+HX
+HX
+HX
+HX
+HX
+HX
+vw
 rH
 rH
 rH
@@ -6386,23 +7545,23 @@ vw
 vw
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
 rH
 rH
 rH
@@ -6790,23 +7949,23 @@ vw
 vw
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
 rH
 rH
 rH
@@ -6992,23 +8151,23 @@ KL
 yq
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+eA
+eA
+eA
+eA
+eA
+Co
+Co
+ee
+ee
+ee
+ee
+sq
+sq
+sq
+HX
+vw
 rH
 rH
 rH
@@ -7194,23 +8353,23 @@ KL
 KL
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+eA
+eA
+eA
+eA
+eA
+Co
+Co
+Co
+ee
+ee
+ee
+sq
+sq
+sq
+HX
+vw
 rH
 rH
 rH
@@ -7396,23 +8555,23 @@ KL
 KL
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+eA
+eA
+eA
+eA
+eA
+Co
+Co
+Co
+ee
+ee
+ee
+sq
+sq
+HX
+HX
+vw
 rH
 rH
 rH
@@ -7598,23 +8757,23 @@ KL
 KL
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+eA
+eA
+eA
+eA
+QO
+Co
+Co
+Co
+ee
+ee
+ee
+sq
+sq
+HX
+HX
+vw
 rH
 rH
 rH
@@ -7800,23 +8959,23 @@ KL
 KL
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+eA
+eA
+eA
+eA
+eA
+eA
+Co
+Co
+ee
+ee
+ee
+ee
+sq
+HX
+HX
+vw
 rH
 rH
 rH
@@ -8002,23 +9161,23 @@ KL
 KL
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+eA
+eA
+eA
+eA
+eA
+eA
+Co
+Co
+ee
+ee
+ee
+ee
+sq
+HX
+HX
+vw
 rH
 rH
 rH
@@ -8204,23 +9363,23 @@ KL
 KL
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+eA
+eA
+eA
+eA
+eA
+eA
+Co
+Co
+Co
+ee
+ee
+ee
+sq
+HX
+HX
+vw
 rH
 rH
 rH
@@ -8406,23 +9565,23 @@ KL
 yq
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+eA
+eA
+eA
+eA
+MR
+eA
+Co
+Im
+Co
+ee
+ee
+ee
+sq
+sq
+HX
+vw
 rH
 rH
 rH
@@ -8608,23 +9767,23 @@ KL
 KL
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+eA
+eA
+eA
+eA
+eA
+eA
+Co
+Co
+Co
+ee
+ee
+ee
+sq
+sq
+HX
+vw
 rH
 rH
 rH
@@ -8810,23 +9969,23 @@ KL
 KL
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+eA
+eA
+eA
+eA
+eA
+Tg
+Co
+Co
+Co
+ee
+ee
+sq
+sq
+sq
+HX
+vw
 rH
 rH
 rH
@@ -9012,23 +10171,23 @@ KL
 KL
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+eA
+eA
+eA
+eA
+eA
+Co
+Co
+Co
+Co
+ee
+ee
+sq
+sq
+sq
+HX
+vw
 rH
 rH
 rH
@@ -9214,23 +10373,23 @@ KL
 KL
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+eA
+eA
+eA
+eA
+eA
+Co
+Co
+Co
+Co
+ee
+ee
+ee
+sq
+sq
+HX
+vw
 rH
 rH
 rH
@@ -9416,23 +10575,23 @@ KL
 KL
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+eA
+eA
+eA
+eA
+eA
+Co
+Co
+Co
+Co
+ee
+ee
+ee
+ee
+sq
+HX
+vw
 rH
 rH
 rH
@@ -9618,23 +10777,23 @@ KL
 KL
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+eA
+eA
+eA
+eA
+eA
+Co
+Co
+Co
+Co
+ee
+ee
+ee
+ee
+sq
+HX
+vw
 rH
 rH
 rH
@@ -9820,23 +10979,23 @@ KL
 yq
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+eA
+eA
+eA
+eA
+eA
+Co
+Co
+Co
+Co
+ee
+ee
+ee
+ee
+sq
+sq
+vw
 rH
 rH
 rH
@@ -10022,23 +11181,23 @@ vw
 vw
 vw
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
 rH
 rH
 rH
@@ -18696,13 +19855,13 @@ Td
 gi
 cJ
 rb
-HX
+Nv
 QS
 Fp
 Gn
 gj
 jw
-eA
+jw
 Nt
 Td
 Td
@@ -19504,7 +20663,7 @@ Td
 gi
 pp
 mz
-HX
+Nv
 QS
 Fp
 Ou
@@ -19912,7 +21071,7 @@ Oy
 QS
 Fp
 eK
-ee
+vb
 vb
 EY
 Nt
@@ -21525,14 +22684,14 @@ KL
 KL
 KL
 KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+pO
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 mt
 vw
 rH
@@ -21724,18 +22883,18 @@ vw
 KL
 KL
 KL
+bP
 KL
 KL
-KL
-KL
-KL
-KL
-KL
+pO
+LT
+LT
+LT
 mt
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -21929,15 +23088,15 @@ KL
 KL
 KL
 KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+pO
+LT
+sl
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -22127,19 +23286,19 @@ rH
 vw
 KL
 KL
+cN
+OJ
+yB
 KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+pO
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -22333,15 +23492,15 @@ KL
 KL
 KL
 KL
-KL
-KL
-KL
+pO
+LT
+LT
 ql
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -22535,15 +23694,15 @@ KL
 KL
 KL
 KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+pO
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -22737,15 +23896,15 @@ KL
 KL
 KL
 KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+pO
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -22941,11 +24100,11 @@ KL
 KL
 mf
 Vc
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
 mk
 mt
 vw
@@ -23141,15 +24300,15 @@ KL
 KL
 KL
 KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+pO
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -23343,15 +24502,15 @@ KL
 KL
 KL
 KL
-KL
-KL
-KL
-KL
-KL
-KL
+pO
+LT
+LT
+LT
+LT
+LT
 wx
-KL
-KL
+LT
+LT
 vw
 rH
 rH
@@ -23545,15 +24704,15 @@ KL
 KL
 KL
 KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+pO
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -23747,15 +24906,15 @@ KL
 KL
 KL
 KL
-KL
-KL
-KL
-KL
-KL
+pO
+LT
+LT
+LT
+LT
 hX
-KL
-KL
-KL
+LT
+LT
+LT
 vw
 rH
 rH
@@ -23949,15 +25108,15 @@ KL
 KL
 KL
 KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+pO
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -24151,15 +25310,15 @@ KL
 KL
 KL
 KL
-KL
-KL
-KL
-KL
+pO
+LT
+LT
+LT
 mt
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -24353,14 +25512,14 @@ KL
 KL
 KL
 KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+pO
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 mt
 vw
 rH
@@ -25155,20 +26314,20 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 mt
 vw
 rH
@@ -25357,21 +26516,21 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 mt
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -25559,21 +26718,21 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -25761,21 +26920,21 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -25963,21 +27122,21 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -26165,21 +27324,21 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -26367,21 +27526,21 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -26570,18 +27729,18 @@ rH
 rH
 vw
 Sx
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
 SF
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
 so
 mt
 vw
@@ -26771,21 +27930,21 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -26973,21 +28132,21 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -27175,21 +28334,21 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
 PX
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -27377,21 +28536,21 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -27579,21 +28738,21 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -27781,21 +28940,21 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 mt
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -27983,20 +29142,20 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 mt
 vw
 rH
@@ -28791,20 +29950,20 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 mt
 vw
 rH
@@ -28993,21 +30152,21 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 mt
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -29195,21 +30354,21 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -29397,21 +30556,21 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -29599,21 +30758,21 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -29801,21 +30960,21 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -30003,21 +31162,21 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -30206,19 +31365,19 @@ rH
 rH
 vw
 ix
-KL
+LT
 PJ
-KL
-KL
-KL
+LT
+LT
+LT
 NG
 po
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
 bp
 vw
 rH
@@ -30407,21 +31566,21 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -30609,21 +31768,21 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -30811,21 +31970,21 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -31013,21 +32172,21 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -31215,21 +32374,21 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+sl
+LT
+LT
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -31417,21 +32576,21 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 mt
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
 vw
 rH
 rH
@@ -31619,20 +32778,20 @@ rH
 rH
 rH
 vw
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
+LT
 mt
 vw
 rH
@@ -32224,23 +33383,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
 rH
 rH
 rH
@@ -32426,23 +33585,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+vw
 rH
 rH
 rH
@@ -32628,23 +33787,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+vw
 rH
 rH
 rH
@@ -32830,23 +33989,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+vw
 rH
 rH
 rH
@@ -33032,23 +34191,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+Td
+Nt
+Nt
+Nt
+Nt
+Nt
+Nt
+Nt
+Nt
+Nt
+Nt
+Nt
+Td
+Td
+vw
 rH
 rH
 rH
@@ -33234,23 +34393,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+Td
+Nt
+Ee
+DW
+DW
+pB
+EZ
+QS
+am
+QS
+JD
+Oh
+Td
+Td
+vw
 rH
 rH
 rH
@@ -33436,23 +34595,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+Td
+Nt
+SH
+LT
+pE
+um
+EZ
+hq
+am
+QS
+Vz
+Oh
+Td
+Td
+vw
 rH
 rH
 rH
@@ -33638,23 +34797,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+Td
+Nt
+SH
+oL
+LT
+FX
+EZ
+QS
+am
+KF
+sg
+gi
+Td
+Td
+vw
 rH
 rH
 rH
@@ -33840,23 +34999,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+Td
+Nt
+Yw
+WU
+sj
+gH
+Jg
+xR
+am
+QS
+QS
+cE
+Td
+Td
+vw
 rH
 rH
 rH
@@ -34042,23 +35201,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+Td
+Nt
+PN
+vb
+RJ
+TI
+XY
+hq
+am
+Mr
+FL
+gi
+Td
+Td
+vw
 rH
 rH
 rH
@@ -34244,23 +35403,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+Td
+Nt
+QS
+ML
+kf
+Vy
+vl
+hq
+am
+QS
+QS
+cE
+Td
+Td
+vw
 rH
 rH
 rH
@@ -34446,23 +35605,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+Td
+Nt
+kK
+kK
+RF
+Um
+EZ
+QS
+am
+YQ
+fa
+gi
+Td
+Td
+vw
 rH
 rH
 rH
@@ -34648,23 +35807,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+Td
+Nt
+tj
+tj
+tj
+BY
+dM
+Wg
+My
+sv
+eT
+Nt
+Td
+Td
+vw
 rH
 rH
 rH
@@ -34850,23 +36009,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+vw
 rH
 rH
 rH
@@ -35052,23 +36211,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+vw
 rH
 rH
 rH
@@ -35254,23 +36413,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+vw
 rH
 rH
 rH
@@ -35456,23 +36615,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
 rH
 rH
 rH
@@ -35860,23 +37019,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
 rH
 rH
 rH
@@ -36062,23 +37221,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+vw
 rH
 rH
 rH
@@ -36264,23 +37423,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+pg
+pg
+QP
+qd
+qd
+qd
+qd
+qd
+Pk
+bt
+qd
+qd
+qd
+Td
+vw
 rH
 rH
 rH
@@ -36466,23 +37625,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+pg
+oI
+Co
+ee
+ee
+sq
+lG
+sq
+sq
+sq
+sq
+sq
+qd
+Td
+vw
 rH
 rH
 rH
@@ -36668,23 +37827,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+pg
+eA
+TY
+eA
+lO
+sq
+ya
+OH
+Bj
+sq
+sq
+sq
+qd
+Td
+vw
 rH
 rH
 rH
@@ -36870,23 +38029,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+pg
+By
+eA
+Dk
+sq
+sq
+sq
+Vx
+sq
+bM
+TH
+Fd
+qd
+Td
+vw
 rH
 rH
 rH
@@ -37072,23 +38231,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+pg
+YG
+Co
+sq
+gd
+Ao
+nD
+nD
+nD
+nD
+sq
+sq
+qd
+Sd
+vw
 rH
 rH
 rH
@@ -37274,23 +38433,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+pg
+qX
+ee
+le
+sY
+nD
+nD
+Wh
+nD
+nD
+sq
+sq
+qd
+Td
+vw
 rH
 rH
 rH
@@ -37476,23 +38635,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+pg
+KO
+sq
+sq
+sq
+sq
+Qo
+nD
+nD
+nD
+Fk
+nD
+qd
+Td
+vw
 rH
 rH
 rH
@@ -37678,23 +38837,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+pg
+II
+iD
+sq
+lO
+sq
+sq
+nD
+nD
+nD
+nD
+nD
+jt
+Td
+vw
 rH
 rH
 rH
@@ -37880,23 +39039,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+pg
+KO
+sq
+sq
+sq
+sq
+sq
+sq
+nD
+rx
+gl
+nD
+Af
+Td
+vw
 rH
 rH
 rH
@@ -38082,23 +39241,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+pg
+bs
+sq
+sq
+sq
+nD
+nD
+nD
+JA
+nD
+nD
+sq
+VP
+Td
+vw
 rH
 rH
 rH
@@ -38284,23 +39443,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+pg
+ee
+sq
+sq
+sq
+nD
+nD
+nD
+nD
+sq
+sq
+sq
+qd
+Td
+vw
 rH
 rH
 rH
@@ -38486,23 +39645,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+pg
+Co
+ee
+ee
+sq
+sq
+sq
+sq
+sq
+ee
+ee
+Qo
+qd
+Td
+vw
 rH
 rH
 rH
@@ -38688,23 +39847,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+QP
+jt
+Af
+NA
+ej
+QP
+qd
+qd
+qd
+QP
+QP
+QP
+QP
+Td
+vw
 rH
 rH
 rH
@@ -38890,23 +40049,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+Td
+Td
+Td
+Td
+Td
+Td
+IC
+MX
+Td
+Td
+Td
+Td
+Td
+Td
+Td
+vw
 rH
 rH
 rH
@@ -39092,23 +40251,23 @@ rH
 rH
 rH
 rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
-rH
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
+vw
 rH
 rH
 rH

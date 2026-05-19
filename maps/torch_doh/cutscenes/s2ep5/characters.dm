@@ -100,3 +100,27 @@
 	icon_dead = "h_maptable_on"
 
 	should_show_name = FALSE
+
+/obj/structure/flora/tree/beet_decorative/big
+	var/special_size = 1
+	layer = 2.23
+
+/obj/structure/flora/tree/beet_decorative/big/Initialize()
+	. = ..()
+	SetTransform(special_size)
+
+/obj/structure/flora/tree/jungle/big
+	var/special_size = 1
+	layer = 2.23
+
+/obj/structure/flora/tree/jungle/big/Initialize()
+	. = ..()
+	SetTransform(special_size)
+
+/obj/structure/flora/tree/jungle/small/big
+	var/special_size = 1
+	layer = 2.23
+
+/obj/structure/flora/tree/jungle/small/big/Initialize()
+	. = ..()
+	SetTransform(special_size)

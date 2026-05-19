@@ -591,7 +591,8 @@
 	pixel_x = -8;
 	pixel_y = 40;
 	layer = 4.13;
-	density = 0
+	density = 0;
+	throwpass = 1
 	},
 /turf/simulated/floor/exoplanet/samosbor/env{
 	icon_state = "gl"
@@ -3329,11 +3330,6 @@
 	icon_state = "mrakiizar_book_closed";
 	name = "torn sketchbook";
 	pixel_x = 7
-	},
-/obj/item/clothing/suit/storage/oversize_jacket{
-	dir = 1;
-	pixel_x = 2;
-	pixel_y = -6
 	},
 /obj/item/clothing/head/helmet/traumateam{
 	pixel_y = 6
@@ -6436,7 +6432,8 @@
 /obj/structure/fd/interactive/note/from_future{
 	pixel_x = 11;
 	pixel_y = -17;
-	layer = 4.12
+	layer = 4.12;
+	throwpass = 1
 	},
 /obj/structure/fd/junk{
 	icon_state = "0,2";
@@ -6694,7 +6691,8 @@
 /area/bunker/lower/kpp1)
 "fsb" = (
 /obj/structure/fd/grim_walls/stone{
-	opacity = 0
+	opacity = 0;
+	throwpass = 1
 	},
 /turf/simulated/floor/exoplanet/samosbor/env{
 	icon_state = "gl"
@@ -7562,7 +7560,9 @@
 /area/bunker/jungle)
 "fTW" = (
 /obj/decal/cleanable/dirt,
-/obj/structure/flora/tree/grim/brown,
+/obj/structure/flora/tree/grim/brown{
+	throwpass = 1
+	},
 /turf/simulated/floor/exoplanet/samosbor/env{
 	icon_state = "gl"
 	},
@@ -9038,7 +9038,8 @@
 	dir = 4;
 	pixel_y = -23;
 	layer = 4.12;
-	bound_width = 96
+	bound_width = 96;
+	throwpass = 1
 	},
 /obj/structure/fd/body/bluespace_infected{
 	icon_state = "TNCDead1_infected";
@@ -9051,7 +9052,8 @@
 	desc_special_show = 1;
 	desc_special_after_finding = "Заражённое тело.";
 	desc_special = "Заражённое тело. В его руках лежит нечто похожее на ключ.";
-	remain_interactive_after_finding = 1
+	remain_interactive_after_finding = 1;
+	throwpass = 1
 	},
 /turf/simulated/floor/exoplanet/samosbor/env{
 	icon_state = "gl"
@@ -10331,7 +10333,8 @@
 	dir = 4;
 	pixel_y = -31;
 	bound_width = 96;
-	layer = 4.11
+	layer = 4.11;
+	throwpass = 1
 	},
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/bunker/interlude)
@@ -23860,7 +23863,8 @@
 	layer = 4.11;
 	can_hide_inside = 1;
 	hiding_viewpoint = 8;
-	interactive = 1
+	interactive = 1;
+	throwpass = 1
 	},
 /turf/simulated/floor/exoplanet/samosbor/env{
 	icon_state = "gd"
@@ -27378,6 +27382,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
+"vdy" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/flora/tree/grim/ghost{
+	throwpass = 1
+	},
+/turf/simulated/floor/exoplanet/samosbor/env{
+	icon_state = "gl"
+	},
+/area/bunker/interlude)
 "vdA" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/snacks/meta_plate{
@@ -58756,7 +58769,7 @@ rJY
 mfo
 stF
 jTL
-fzE
+vdy
 sEo
 fes
 sHR

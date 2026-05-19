@@ -598,3 +598,6 @@
 
 	icon = 'mods/_fd/fd_assets/icons/vampires/barriers.dmi'
 	icon_state = "barrier"
+
+	throwpass = TRUE
+	atom_flags = ATOM_FLAG_CLIMBABLE

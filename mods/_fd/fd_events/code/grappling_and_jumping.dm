@@ -132,6 +132,9 @@
 
 	var/mob/living/L = user.mob
 
+	if(istype(L,/mob/living/cutscene_pov))
+		return FALSE
+
 	if(L.simple_combat_on)
 		if(L.get_status_effect(/datum/simple_status/legbroke))
 			return FALSE
