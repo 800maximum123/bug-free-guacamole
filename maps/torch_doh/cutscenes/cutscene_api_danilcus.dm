@@ -2,10 +2,10 @@
 #define CALL_TYPE(target, type, proc, args...) new Callback(target, TYPE_PROC_REF(type, proc), ##args)
 #define CALL_GLOB(proc, args...) new Callback(GLOBAL_PROC, GLOBAL_PROC_REF(proc), ##args)
 
-#define START_CUTSCENE(type) CALL_GLOB(start_cutscene, type, ckey2body)
+#define START_CUTSCENE(type) CALL_GLOB(start_cutscene, type, ckey2body, camera_mobs)
 /proc/start_cutscene(cutscene_type, list/old_viewers, ...)
-	var/datum/modular_cutscene/scene = new cutscene_type(arglist(args.Copy(2)))
-	scene.play(arglist(args.Copy(3)))
+	var/datum/modular_cutscene/scene = new cutscene_type(arglist(args.Copy(2)), arglist(args.Copy(3)))
+	scene.play()
 
 #define DO_NOTHING CALL_GLOB(src, do_nothing)
 /proc/do_nothing()
@@ -68,30 +68,25 @@
 		/* CALL = DURATION, */
 	)
 
-/datum/modular_cutscene/New(list/old_viewers, ...)
+/datum/modular_cutscene/New(list/old_viewers, list/old_cameras, ...)
 	. = ..()
 	if(actions)
 		message_admins("Список actions должен быть заполнен через функцию setup_actions(), а не прописан в сабтайпе катсцены!")
 
-	if(old_viewers)
+	if(length(old_viewers))
 		ckey2body = old_viewers.Copy()
 	else
 		for(var/client/viewer in GLOB.clients)
 			ckey2body[viewer.ckey] = viewer.mob
 			viewer.mob.no_ssd = TRUE
 
-	for(var/ckey in ckey2body)
-		camera_mobs += ckey2body[ckey]
+	if(length(old_cameras))
+		camera_mobs += old_cameras
+	else
+		for(var/ckey in ckey2body)
+			camera_mobs += ckey2body[ckey]
 
 	setup_actions(arglist(args.Copy(2)))
-
-/datum/modular_cutscene/Destroy()
-	for(var/camera in camera_mobs)
-		if(!istype(camera, /mob/living/cutscene_pov))
-			continue // Мы НЕ хотим удалять наших изначальных мобов
-		qdel(camera)
-
-	. = ..()
 
 /datum/modular_cutscene/proc/play(...)
 	if(!actions)
@@ -162,10 +157,21 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 		return
 
 	var/turf/target_turf = get_turf(GLOB.cutscene_cameras[camera_id])
+	var/amount = 0
+
 	for(var/mob/camera in camera_mobs)
 		if(!istype(camera, /mob/living/cutscene_pov))
 			continue // Мы НЕ хотим телепортировать наших изначальных мобов
 		camera.forceMove(target_turf)
+		amount++
+
+	if(amount)
+		return
+
+	for(var/ckey in ckey2body)
+		var/mob/new_camera = new /mob/living/cutscene_pov(target_turf)
+		new_camera.ckey = ckey
+		camera_mobs += new_camera
 
 #define MOVE_CAMERA_MOB(move_x, move_y) CALL(src, move_camera_mob, move_x, move_y)
 /datum/modular_cutscene/proc/move_camera_mob(move_x, move_y)
@@ -269,6 +275,11 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 			continue
 		viewer.ckey = ckey
 		viewer.no_ssd = FALSE
+
+	for(var/camera in camera_mobs)
+		if(!istype(camera, /mob/living/cutscene_pov))
+			continue // Мы НЕ хотим удалять наших изначальных мобов
+		qdel(camera)
 
 /// Фуллскрины
 
