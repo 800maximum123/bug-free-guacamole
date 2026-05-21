@@ -573,6 +573,7 @@
 	id_tag = "bunker_exit1"
 	},
 /obj/floor_decal/industrial/warning/fulltile,
+/obj/effect/cutscene_camera/opening_cameras,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/kpp)
 "aDv" = (
@@ -754,6 +755,11 @@
 	color = "#5F773B"
 	},
 /area/bunker/jungle)
+"aKb" = (
+/obj/floor_decal/corner/paleblue/mono,
+/obj/effect/cutscene_camera/opening_cameras,
+/turf/simulated/floor/tiled/monotile,
+/area/bunker/lower/med)
 "aKG" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -2615,7 +2621,6 @@
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
 "cbq" = (
-/obj/structure/fd/bs_vines,
 /obj/machinery/light{
 	color = "#a1d2d6";
 	dir = 8;
@@ -2752,7 +2757,8 @@
 /area/bunker/eng)
 "cgT" = (
 /obj/item/device/flashlight/flare{
-	on = 1
+	on = 1;
+	infinite = 1
 	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/monorail)
@@ -3042,6 +3048,11 @@
 /obj/machinery/r_n_d/circuit_imprinter,
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/rooms/room12)
+"cpi" = (
+/obj/decal/cleanable/dirt,
+/obj/effect/cutscene_camera/opening_cameras,
+/turf/simulated/floor/tiled/white,
+/area/bunker/lower/lab/gateway)
 "cpq" = (
 /obj/structure/closet,
 /turf/simulated/floor/plating,
@@ -9503,6 +9514,10 @@
 "hqM" = (
 /turf/simulated/floor/plating,
 /area/bunker/rooms/room2)
+"hqY" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/bunker/lower/lab/bslab)
 "hrx" = (
 /obj/floor_decal/messygrass{
 	dir = 4
@@ -10238,6 +10253,10 @@
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/rooms/room6)
+"hSO" = (
+/obj/effect/cutscene_camera/opening_cameras,
+/turf/simulated/floor/exoplanet/fd/muddirt,
+/area/bunker/jungle)
 "hST" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/wall_decor2{
@@ -10422,6 +10441,7 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp2)
 "ibb" = (
+/obj/effect/cutscene_camera/opening_cameras,
 /turf/simulated/floor/plating,
 /area/bunker/barracks/preporation)
 "ibf" = (
@@ -12542,6 +12562,13 @@
 	color = "#6E8C44"
 	},
 /area/bunker/jungle)
+"jNV" = (
+/obj/fd_water,
+/obj/effect/cutscene_camera/opening_cameras,
+/turf/simulated/floor/exoplanet/fd/whitesand{
+	color = "#868686"
+	},
+/area/bunker/jungle)
 "jOf" = (
 /obj/floor_decal/techfloor{
 	dir = 6
@@ -14171,6 +14198,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/cutscene_camera/opening_cameras,
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/kitchen/bufet)
 "ljE" = (
@@ -15085,19 +15113,6 @@
 /obj/structure/closet/crate{
 	name = "Ammo crate"
 	},
-/obj/item/ammo_magazine/shotgun/iccgn/magnum,
-/obj/item/ammo_magazine/shotgun/iccgn/magnum,
-/obj/item/ammo_magazine/shotgun/iccgn/magnum,
-/obj/item/ammo_magazine/shotgun/iccgn/magnum,
-/obj/item/ammo_magazine/shotgun/iccgn,
-/obj/item/ammo_magazine/shotgun/iccgn,
-/obj/item/ammo_magazine/pistol/scg,
-/obj/item/ammo_magazine/pistol/scg,
-/obj/item/ammo_magazine/pistol/scg,
-/obj/item/ammo_magazine/pistol/scg,
-/obj/item/ammo_magazine/pistol/scg,
-/obj/item/ammo_magazine/pistol/scg,
-/obj/item/ammo_magazine/shotholder,
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/eng)
 "lWr" = (
@@ -16092,7 +16107,6 @@
 /obj/floor_decal/borderfloorwhite{
 	dir = 4
 	},
-/obj/structure/fd/bs_vines,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/bslab)
 "mPZ" = (
@@ -16821,6 +16835,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
+"nrN" = (
+/obj/effect/cutscene_camera/opening_cameras,
+/turf/simulated/floor/plating,
+/area/bunker/lower/monorail)
 "nsb" = (
 /obj/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
@@ -19013,16 +19031,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/corridos)
-"pbj" = (
-/obj/catwalk_plated/dark,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/cutscene_camera/s2ep4sc11,
-/turf/simulated/floor/plating,
-/area/bunker/corridors/north)
 "pbV" = (
 /obj/structure/vines/light2,
 /turf/simulated/floor/exoplanet/fd/grass,
@@ -19496,7 +19504,8 @@
 	dir = 1
 	},
 /obj/item/device/flashlight/flare{
-	on = 1
+	on = 1;
+	infinite = 1
 	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/monorail)
@@ -20371,7 +20380,6 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/effect/cutscene_camera/s2ep4sc10,
 /turf/simulated/floor/plating,
 /area/bunker/lower/lab)
 "qhI" = (
@@ -20727,10 +20735,6 @@
 	color = "#5F773B"
 	},
 /area/bunker/jungle)
-"qux" = (
-/obj/effect/cutscene_camera/s2ep4sc13,
-/turf/simulated/floor/tiled/dark,
-/area/bunker/command)
 "quz" = (
 /obj/machinery/power/apc{
 	pixel_y = -24
@@ -21731,6 +21735,7 @@
 	pixel_x = -5;
 	pixel_y = -28
 	},
+/obj/effect/cutscene_camera/opening_cameras,
 /turf/simulated/floor/exoplanet/grim_wood_good2,
 /area/bunker/barracks)
 "reh" = (
@@ -24522,6 +24527,7 @@
 /obj/floor_decal/borderfloorwhite{
 	dir = 6
 	},
+/obj/structure/fd/bs_vines,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/gateway)
 "tgk" = (
@@ -24735,17 +24741,8 @@
 /turf/simulated/wall/r_wall,
 /area/bunker/lower/eng/reactor)
 "toI" = (
-/obj/floor_decal/borderfloorwhite{
-	dir = 4
-	},
-/obj/machinery/light{
-	color = "#a1d2d6";
-	dir = 8;
-	light_color = "#a1d2d6"
-	},
-/obj/structure/fd/bs_vines,
-/turf/simulated/floor/tiled/white/monotile,
-/area/bunker/lower/lab/gateway)
+/turf/simulated/floor/plating,
+/area/bunker/lower/lab/bslab)
 "toM" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -25331,6 +25328,7 @@
 /area/bunker/corridors/north)
 "tFM" = (
 /obj/machinery/hologram/holopad,
+/obj/effect/cutscene_camera/opening_cameras,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
 "tGi" = (
@@ -26098,11 +26096,6 @@
 /area/bunker/barracks/preporation)
 "ueJ" = (
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/item/gun/projectile/shotgun/doublebarrel/hammer,
-/obj/item/gun/projectile/pistol/scg,
-/obj/item/gun/projectile/pistol/scg,
-/obj/item/gun/energy/ionrifle/small/stupor,
-/obj/item/gun/projectile/automatic/shotgun/iccgn,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/eng)
 "ueU" = (
@@ -27668,7 +27661,6 @@
 /area/bunker/lower/med/med_bay)
 "vqu" = (
 /obj/structure/table/standard,
-/obj/item/clothing/suit/space/void/battlewizards/prepared,
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/eng)
 "vqJ" = (
@@ -27706,6 +27698,7 @@
 /obj/floor_decal/industrial/warning/dust{
 	dir = 4
 	},
+/obj/effect/cutscene_camera/opening_cameras,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/corridors/center)
 "vtb" = (
@@ -28670,11 +28663,6 @@
 /obj/structure/closet/crate{
 	name = "Stuff crate"
 	},
-/obj/item/storage/backpack/dufflebag/sec,
-/obj/item/material/shard/nullglass,
-/obj/item/material/shard/nullglass,
-/obj/item/material/shard/nullglass,
-/obj/item/material/shard/nullglass,
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/eng)
 "wdq" = (
@@ -29803,7 +29791,6 @@
 /obj/structure/bed/sofa/r/black{
 	dir = 8
 	},
-/obj/effect/cutscene_camera/s2ep4sc12,
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/kitchen/bufet)
 "wTy" = (
@@ -29825,6 +29812,10 @@
 	color = "#5F773B"
 	},
 /area/bunker)
+"wVO" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/fd/waste,
+/area/bunker/lower/lab/bslab)
 "wWg" = (
 /obj/structure/flora/ausbushes/grassybush,
 /obj/structure/vines/heavy2,
@@ -30240,6 +30231,17 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/eng/workshop)
+"xjm" = (
+/obj/structure/railing/mapped{
+	dir = 4;
+	icon_state = "railing0-1"
+	},
+/obj/floor_decal/floordetail/edgedrain{
+	dir = 4
+	},
+/obj/effect/cutscene_camera/opening_cameras,
+/turf/simulated/floor/plating,
+/area/bunker/eng/workshop)
 "xjA" = (
 /obj/structure/roller_bed,
 /obj/machinery/light{
@@ -30639,7 +30641,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
 "xFQ" = (
-/obj/structure/fd/bs_vines,
 /obj/floor_decal/borderfloorwhite{
 	dir = 5
 	},
@@ -58029,7 +58030,7 @@ lIy
 erR
 xEf
 xEf
-xEf
+wVO
 aoR
 phv
 aGC
@@ -58231,7 +58232,7 @@ lIy
 efi
 nVz
 xEf
-dev
+hqY
 erR
 shG
 gUm
@@ -58433,8 +58434,8 @@ lIy
 wlo
 erR
 qAQ
-erR
-erR
+toI
+toI
 lIy
 lIy
 lIy
@@ -58636,7 +58637,7 @@ lIy
 lIy
 lIy
 lIy
-erR
+toI
 lIy
 goK
 goK
@@ -58827,7 +58828,7 @@ tfr
 sos
 rQF
 pVY
-toI
+tvN
 pVY
 aTm
 las
@@ -58836,9 +58837,9 @@ xFQ
 mPL
 cbq
 jkA
-jkA
+mPL
 lWS
-jgq
+eVI
 lIy
 goK
 lMN
@@ -59015,7 +59016,7 @@ jdD
 bAJ
 ocz
 sRw
-kVF
+cpi
 aDv
 cnK
 cax
@@ -59028,7 +59029,7 @@ kVF
 qVy
 lWH
 nYd
-okg
+uyv
 okg
 uyv
 kLt
@@ -59036,9 +59037,9 @@ cOx
 sVs
 cNy
 jgq
-jgq
 eVI
-cNy
+eVI
+sWl
 cNy
 sWl
 lIy
@@ -59229,7 +59230,7 @@ raD
 dXr
 dXr
 rXe
-uVO
+dXr
 dXr
 cyq
 uVO
@@ -64950,7 +64951,7 @@ iHT
 pWG
 uMH
 nue
-arg
+nrN
 uMH
 nue
 arg
@@ -66713,7 +66714,7 @@ rGT
 fId
 eBD
 xae
-aAC
+aKb
 hTf
 oAq
 aAC
@@ -74011,7 +74012,7 @@ akp
 swY
 kOH
 sUN
-sUN
+hSO
 kdV
 kdV
 kdV
@@ -77946,7 +77947,7 @@ bwG
 taA
 wHo
 wHo
-wHo
+jNV
 wHo
 wHo
 wHo
@@ -103706,7 +103707,7 @@ qWA
 qWA
 mKP
 gyI
-pbj
+bdN
 gyI
 cfT
 nLF
@@ -104320,7 +104321,7 @@ jAF
 nrD
 oUa
 oUa
-oUa
+xjm
 cTk
 oUa
 fQH
@@ -106585,7 +106586,7 @@ ueU
 bVv
 obv
 stz
-qux
+bXI
 vxo
 smC
 bXI

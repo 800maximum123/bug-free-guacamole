@@ -255,10 +255,43 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 	for(var/mob/viewer as() in camera_mobs)
 		viewer.clear_fullscreen(fullscreen, time)
 
-#define PLAY_SOUND(sound) CALL(src, play_sound, sound)
-/datum/modular_cutscene/proc/play_sound(sound/sound)
+/obj/screen/player_message/audio
+	alpha = 0
+
+/obj/screen/player_message/audio/set_text(text, text_color)
+	maptext = "<span class='maptext' style='text-align: center; font-size: 32px; color: [text_color]'>[text]</span>"
+	animate(src, alpha = 255, 1 SECOND, SINE_EASING)
+
+#define PLAY_SOUND(sound, show_name) CALL(src, play_sound, sound, show_name)
+/datum/modular_cutscene/proc/play_sound(sound/sound, show_name = null)
 	for(var/viewer in camera_mobs)
 		sound_to(viewer, sound)
+
+		if(show_name)
+
+			var/obj/screen/player_message/audio/maintext = new /obj/screen/player_message/audio()
+			maintext.plane = HUD_PLANE
+			maintext.layer = HUD_ABOVE_HUD_LAYER
+			maintext.maptext_x = 0
+			maintext.maptext_y = -380
+
+			var/message = {"Сейчас играет: <b><span style="color: yellow;">[show_name]</span></b>"}
+
+			for(var/mob/A in world)
+				if(!A.client)
+					continue
+				A.client.screen += maintext
+				maintext.set_text(message, COLOR_WHITE)
+
+			addtimer(new Callback(src, PROC_REF(remove_audio_name)), 5 SECONDS)
+
+/datum/modular_cutscene/proc/remove_audio_name()
+	for(var/mob/viewer in world)
+		if(!viewer.client)
+			continue
+		for(var/obj/screen/player_message/audio/A in viewer.client.screen)
+			viewer.client.screen -= A
+			qdel(A)
 
 #define COPY_APPEARANCE(actor, target) CALL(src, copy_appearance, actor, target)
 /datum/modular_cutscene/proc/copy_appearance(mob/living/actor, mob/living/target)

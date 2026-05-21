@@ -52,9 +52,6 @@
 	icon_living = "Current"
 	icon_dead = "Current"
 	should_show_name = FALSE
-/mob/living/simple_animal/cutscene_character/naia/s2ep2/Life()
-	. = ..()
-	layer = 4.3
 
 /mob/living/simple_animal/cutscene_character/fiddler/s2ep2
 	icon = 'maps/torch_doh/cutscenes/icons/Character_Fiddler.dmi'

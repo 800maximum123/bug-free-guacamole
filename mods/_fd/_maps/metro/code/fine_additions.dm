@@ -172,7 +172,7 @@
 		ADD_SCREEN(/cinema_borders) = 0.5 SECONDS,
 
 		MOVE_CAMERA(0, 4, 10 SECONDS, SINE_EASING|EASE_OUT) = 12 SECONDS,
-		PLAY_SOUND(sound('sound/effects/squelch2.ogg', volume = 100)),
+		PLAY_SOUND(sound('sound/effects/squelch2.ogg', volume = 100), null),
 		SHIFT_ACTOR(actor("Мёртвое тело"), -96, 0, 0.5 SECONDS, SINE_EASING|EASE_IN, null) = 0.5 SECONDS,
 		MOVE_ACTOR(actor("Мёртвое тело"), WEST) = 0.2 SECONDS,
 		MOVE_ACTOR(actor("Мёртвое тело"), WEST) = 0.2 SECONDS,

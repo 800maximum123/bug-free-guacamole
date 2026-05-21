@@ -104,7 +104,7 @@
 		ADD_SCREEN(/fishbed),
 		ADD_SCREEN(/cinema_borders) = 6 SECONDS,
 		CHANGE_VISION = 1 SECONDS,
-		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/Steel.mp3', volume = 10)),
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/IBO - Steel.mp3', volume = 10), null),
 		ADD_SCREEN(/blackout) = 0.5 SECONDS,
 		CHANGE_VISION = 0.5 SECONDS,
 		START_CUTSCENE(/datum/modular_cutscene/s2ep4sc13)

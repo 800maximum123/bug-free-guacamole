@@ -1129,7 +1129,7 @@
 /datum/modular_cutscene/fds2op1_full/setup_actions(...)
 	actions = list(
 		TP_CAMERA("Опенинг 1 - Кадр 1"),
-		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/again.ogg', volume = 50)),
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/again.ogg', volume = 50), null),
 		MOVE_CAMERA(40, -3, 0, null) = 1 SECOND,
 		CALL_GLOB(opening1_line1),
 		CHANGE_ACTOR_VISIBILITY(actor("Лого ЦПСС"), 255, 2 SECONDS, SINE_EASING, ANIMATION_PARALLEL),
@@ -1489,7 +1489,7 @@
 /datum/modular_cutscene/fds2op1sc1/setup_actions(...)
 	actions = list(
 		TP_CAMERA("Опенинг 1 - Кадр 1"),
-		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/again.ogg', volume = 50)),
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/again.ogg', volume = 50), null),
 		MOVE_CAMERA(40, -3, 0, null) = 1 SECOND,
 		CALL_GLOB(opening1_line1),
 		CHANGE_ACTOR_VISIBILITY(actor("Лого ЦПСС"), 255, 2 SECONDS, SINE_EASING, ANIMATION_PARALLEL),

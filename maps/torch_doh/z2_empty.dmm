@@ -166,6 +166,17 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"bC" = (
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#ffbf00"
+	},
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "bM" = (
 /obj/structure/grille/broken,
 /obj/floor_decal/messygrass{
@@ -282,6 +293,24 @@
 	},
 /obj/structure/fd/placeholder/better,
 /turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"dS" = (
+/mob/living/simple_animal/cutscene_character/amelia/s2ep2{
+	cutscene_id = "Амелия - 5-1-13";
+	icon_dead = "Ep 1 - NOEYES";
+	icon_living = "Ep 1 - NOEYES";
+	icon_state = "Ep 1 - NOEYES";
+	forced_layer = 4.06;
+	should_update_layer = 1;
+	layer = 4.06;
+	runechat_y_offset = -240
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#5F773B"
+	},
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -846,6 +875,20 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"md" = (
+/mob/living/simple_animal/cutscene_character/s2ep5/wall{
+	forced_layer = 4.01;
+	cutscene_id = "Стена 5-13";
+	should_update_layer = 1;
+	layer = 4.01
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#526833"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "mf" = (
 /mob/living/simple_animal/cutscene_character/rifler_actual{
 	icon_state = "Current Alt 3 - NOEYES";
@@ -927,6 +970,19 @@
 "nI" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"oj" = (
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#ffbf00"
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
+	},
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -1424,6 +1480,16 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"uG" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#526833"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "uS" = (
 /obj/floor_decal/borderfloor{
 	dir = 1
@@ -1707,7 +1773,12 @@
 "Aa" = (
 /mob/living/simple_animal/cutscene_character/naia/s2ep2{
 	dir = 8;
-	cutscene_id = "Ная - 5-1-12"
+	cutscene_id = "Ная - 5-1-12";
+	icon_state = "EP5 PAGE 1 - 9";
+	runechat_y_offset = -420;
+	layer = 4.02;
+	forced_layer = 4.02;
+	should_update_layer = 1
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/centcom{
@@ -1900,6 +1971,19 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"Ce" = (
+/obj/structure/fd/mapping/light_marker{
+	marker_power = 0.8;
+	marker_range = 10;
+	color = "#ffbf00"
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#526833"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "Cg" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -1952,6 +2036,16 @@
 "DJ" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor/grid,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"DK" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#5F773B"
+	},
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -2156,6 +2250,20 @@
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
 	})
+"Gp" = (
+/obj/structure/flora/tree/jungle/small/big{
+	special_size = 10;
+	layer = 2.26;
+	pixel_y = 192
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#526833"
+	},
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
 "GZ" = (
 /mob/living/simple_animal/cutscene_character/amelia/s2ep2/amelia_eyes{
 	cutscene_id = "Глаза Амелии - 5-1-3";
@@ -2215,19 +2323,9 @@
 	dynamic_lighting = 1
 	})
 "Im" = (
-/mob/living/simple_animal/cutscene_character/amelia/s2ep2{
-	cutscene_id = "Амелия - 5-1-13";
-	icon_dead = "Ep 1 - NOEYES";
-	icon_living = "Ep 1 - NOEYES";
-	icon_state = "Ep 1 - NOEYES";
-	forced_layer = 4.06;
-	should_update_layer = 1;
-	layer = 4.06;
-	runechat_y_offset = -240
-	},
-/turf/simulated/floor/exoplanet/fd/grass{
-	color = "#5F773B"
-	},
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/fd/grass,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -2265,6 +2363,15 @@
 "IT" = (
 /obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/dark/monotile,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"IW" = (
+/obj/effect/cutscene_camera/s2ep5sc13,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#526833"
+	},
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -2438,17 +2545,9 @@
 	dynamic_lighting = 1
 	})
 "MR" = (
-/mob/living/simple_animal/cutscene_character/amelia/s2ep2/amelia_eyes{
-	cutscene_id = "Глаза Амелии - 5-1-13";
-	forced_layer = 4.07;
-	should_update_layer = 1;
-	layer = 4.07;
-	icon_dead = "Amelia Eyes - Looking down";
-	icon_living = "Amelia Eyes - Looking down";
-	icon_state = "Amelia Eyes - Looking down"
-	},
+/obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/fd/grass{
-	color = "#526833"
+	color = "#6E8C44"
 	},
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
@@ -2461,6 +2560,20 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"Nj" = (
+/mob/living/simple_animal/cutscene_character/naia/s2ep2/naia_eyes{
+	cutscene_id = "Глаза Наи - 5-1-12";
+	pixel_x = 3;
+	pixel_y = -4;
+	forced_layer = 4.03;
+	layer = 4.03;
+	should_update_layer = 1
+	},
+/turf/simulated/floor/exoplanet/fd/drought,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -2751,7 +2864,10 @@
 "QO" = (
 /mob/living/simple_animal/cutscene_character/perci_robot{
 	icon_state = "OP 1 - 1";
-	cutscene_id = "Перси - 5-1-13"
+	cutscene_id = "Перси - 5-1-13";
+	forced_layer = 4.02;
+	layer = 4.02;
+	should_update_layer = 1
 	},
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#526833"
@@ -2795,6 +2911,24 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"RE" = (
+/mob/living/simple_animal/cutscene_character/amelia/s2ep2/amelia_eyes{
+	cutscene_id = "Глаза Амелии - 5-1-13";
+	forced_layer = 4.07;
+	should_update_layer = 1;
+	layer = 4.07;
+	icon_dead = "Amelia Eyes - Looking down";
+	icon_living = "Amelia Eyes - Looking down";
+	pixel_x = -9;
+	pixel_y = -8
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#526833"
+	},
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -2895,13 +3029,10 @@
 	dynamic_lighting = 1
 	})
 "Tg" = (
-/mob/living/simple_animal/cutscene_character/s2ep5/wall{
-	forced_layer = 4.01;
-	cutscene_id = "Стена 5-13";
-	should_update_layer = 1;
-	layer = 4.01
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#5F773B"
 	},
-/turf/simulated/floor/exoplanet/fd/grass,
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -3158,6 +3289,15 @@
 	icon_state = "table_steel_1"
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
+/area/centcom{
+	name = "\improper EP5 SCENE 1";
+	dynamic_lighting = 1
+	})
+"XU" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#526833"
+	},
 /area/centcom{
 	name = "\improper EP5 SCENE 1";
 	dynamic_lighting = 1
@@ -4521,8 +4661,8 @@ wm
 dk
 dk
 eA
-eA
-eA
+XU
+XU
 Co
 Co
 ee
@@ -4723,14 +4863,14 @@ dk
 dk
 dk
 eA
-eA
-eA
+uG
+XU
 Co
 Co
 sF
-ee
-ee
-sq
+oj
+MR
+lO
 sq
 sq
 vw
@@ -4930,9 +5070,9 @@ eA
 Co
 Co
 ee
-ee
-ee
-sq
+MR
+MR
+lO
 sq
 sq
 vw
@@ -5130,10 +5270,10 @@ dk
 eA
 Co
 Co
-Co
-ee
-ee
-ee
+Tg
+MR
+MR
+MR
 sq
 sq
 sq
@@ -5332,8 +5472,8 @@ dk
 HX
 Co
 Co
-Co
-ee
+Tg
+MR
 ee
 ee
 sq
@@ -5742,7 +5882,7 @@ HX
 HX
 ee
 sq
-sq
+lO
 vw
 rH
 rH
@@ -5934,8 +6074,8 @@ dk
 dk
 dk
 dk
-HX
-HX
+bC
+Nj
 HX
 Px
 Aa
@@ -6940,8 +7080,8 @@ KL
 vw
 rH
 vw
-eA
-eA
+XU
+XU
 gf
 Co
 Co
@@ -7142,11 +7282,11 @@ KL
 vw
 rH
 vw
-eA
-eA
+Ce
+XU
 eA
 Co
-Co
+Tg
 Co
 ee
 ee
@@ -7345,11 +7485,11 @@ vw
 rH
 vw
 eA
-eA
-Co
-Co
-Co
-Co
+XU
+Tg
+Tg
+Tg
+Tg
 Co
 sF
 ee
@@ -8154,19 +8294,19 @@ rH
 vw
 eA
 eA
-eA
-eA
+XU
+XU
 eA
 Co
 Co
 ee
 ee
+oj
 ee
-ee
 sq
 sq
 sq
-HX
+dk
 vw
 rH
 rH
@@ -8354,18 +8494,18 @@ KL
 vw
 rH
 vw
-eA
-eA
-eA
-eA
+XU
+XU
+uG
+XU
 eA
 Co
 Co
-Co
+Tg
 ee
 ee
-ee
-sq
+MR
+Im
 sq
 sq
 HX
@@ -8556,14 +8696,14 @@ KL
 vw
 rH
 vw
-eA
-eA
-eA
+XU
+XU
+Gp
 eA
 eA
 Co
 Co
-Co
+Tg
 ee
 ee
 ee
@@ -8762,16 +8902,16 @@ eA
 eA
 eA
 eA
-QO
+eA
 Co
 Co
 Co
-ee
-ee
-ee
+MR
+MR
+MR
 sq
 sq
-HX
+dk
 HX
 vw
 rH
@@ -8967,14 +9107,14 @@ eA
 eA
 eA
 Co
-Co
-ee
-ee
-ee
+Tg
+MR
+MR
+MR
 ee
 sq
-HX
-HX
+dk
+dk
 vw
 rH
 rH
@@ -9164,19 +9304,19 @@ rH
 vw
 eA
 eA
+XU
 eA
-eA
-eA
+QO
 eA
 Co
-Co
+Tg
+MR
 ee
 ee
-ee
-ee
+MR
 sq
-HX
-HX
+dk
+dk
 vw
 rH
 rH
@@ -9366,13 +9506,13 @@ rH
 vw
 eA
 eA
-eA
+XU
 eA
 eA
 eA
 Co
-Co
-Co
+Tg
+Tg
 ee
 ee
 ee
@@ -9570,17 +9710,17 @@ eA
 eA
 eA
 eA
-MR
 eA
+IW
+oI
 Co
-Im
 Co
 ee
 ee
 ee
 sq
 sq
-HX
+dk
 vw
 rH
 rH
@@ -9769,20 +9909,20 @@ vw
 rH
 vw
 eA
+XU
 eA
 eA
 eA
-eA
-eA
+RE
 Co
 Co
-Co
+dS
 ee
 ee
 ee
 sq
 sq
-HX
+dk
 vw
 rH
 rH
@@ -9971,20 +10111,20 @@ vw
 rH
 vw
 eA
+XU
 eA
-eA
-eA
-eA
+XU
+XU
+sq
+Co
 Tg
-Co
-Co
-Co
+Tg
 ee
 ee
 sq
 sq
-sq
-HX
+dk
+dk
 vw
 rH
 rH
@@ -10175,18 +10315,18 @@ vw
 eA
 eA
 eA
-eA
-eA
+XU
+XU
 Co
 Co
-Co
-Co
+Tg
+DK
+MR
 ee
-ee
 sq
 sq
-sq
-HX
+dk
+dk
 vw
 rH
 rH
@@ -10376,19 +10516,19 @@ rH
 vw
 eA
 eA
+md
+XU
 eA
-eA
-eA
 Co
 Co
-Co
-Co
-ee
+Tg
+DK
+MR
 ee
 ee
 sq
 sq
-HX
+dk
 vw
 rH
 rH
@@ -10579,12 +10719,12 @@ vw
 eA
 eA
 eA
+XU
 eA
-eA
 Co
 Co
-Co
-Co
+Tg
+Tg
 ee
 ee
 ee
@@ -10789,7 +10929,7 @@ Co
 Co
 ee
 ee
-ee
+MR
 ee
 sq
 HX
@@ -10981,17 +11121,17 @@ vw
 rH
 vw
 eA
+XU
 eA
 eA
-eA
-eA
+Ce
 Co
 Co
 Co
 Co
 ee
 ee
-ee
+MR
 ee
 sq
 sq

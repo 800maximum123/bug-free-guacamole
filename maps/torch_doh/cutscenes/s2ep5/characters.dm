@@ -89,6 +89,17 @@
 
 	should_show_name = FALSE
 
+/mob/living/simple_animal/cutscene_character/naia/s2ep2/naia_eyes
+	name = "eyes"
+	desc = "..."
+	mouse_opacity = FALSE
+
+	icon_state = "Naia Eyes"
+	icon_living = "Naia Eyes"
+	icon_dead = "Naia Eyes"
+
+	should_show_name = FALSE
+
 /mob/living/simple_animal/cutscene_character/s2ep5/tacmap
 	name = "computer"
 	desc = "..."

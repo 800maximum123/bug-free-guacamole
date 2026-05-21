@@ -319,7 +319,7 @@
 		CALL_GLOB(nightmare_teleport, "chapter_one") = 6 SECONDS,
 		REMOVE_SCREEN(/falling_asleep, 0 SECONDS),
 		ADD_SCREEN(/awakening) = 8 SECONDS,
-		PLAY_SOUND(sound('sound/ambience/ominous2.ogg', volume = 20)),
+		PLAY_SOUND(sound('sound/ambience/ominous2.ogg', volume = 20), null),
 		ADD_SCREEN(/cinema_borders) = 8 SECONDS,
 		REMOVE_SCREEN(/cinema_borders, 0 SECONDS),
 		RETURN_VIEWERS
@@ -337,7 +337,7 @@
 		MOVE_CAMERA(0, 0, 0, null),
 		REMOVE_SCREEN(/falling_asleep, 0 SECONDS),
 		ADD_SCREEN(/awakening) = 6 SECONDS,
-		PLAY_SOUND(sound('sound/ambience/ominous2.ogg', volume = 20)),
+		PLAY_SOUND(sound('sound/ambience/ominous2.ogg', volume = 20), null),
 		ADD_SCREEN(/cinema_borders) = 8 SECONDS,
 		REMOVE_SCREEN(/cinema_borders, 0 SECONDS),
 		ADD_SCREEN(/blackout) = 6 SECONDS,
