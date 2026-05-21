@@ -679,6 +679,24 @@
 /proc/Get_Compass_Dir(atom/start, atom/end)//get_dir() only considers an object to be north/south/east/west if there is zero deviation. This uses rounding instead.
 	return angle_to_dir(Get_Angle(get_turf(start), get_turf(end)))
 
+/obj/item/fd/simple_combat
+	var/robot_friendly = FALSE
+
+/obj/item/fd/simple_combat/attack_self(mob/user)
+
+	if(issilicon(user) && !robot_friendly)
+		animation_flash_color(src, COLOR_RED)
+		return FALSE
+
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		var/obj/item/organ/external/chest = H.organs_by_name[BP_CHEST]
+		if(BP_IS_ROBOTIC(chest) && !robot_friendly)
+			animation_flash_color(src, COLOR_RED)
+			return FALSE
+
+	. = ..()
+
 /obj/item/fd/simple_combat/bloodbag
 	name = "bloodbag"
 	desc = "Used to transfer blood."
@@ -724,6 +742,18 @@
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	if(istype(tool,/obj/item/fd/simple_combat/bloodbag))
 		var/obj/item/fd/simple_combat/bloodbag/B = tool
+
+		if(issilicon(src) && !B.robot_friendly)
+			animation_flash_color(B, COLOR_RED)
+			return FALSE
+
+		if(ishuman(src))
+			var/mob/living/carbon/human/H = src
+			var/obj/item/organ/external/chest = H.organs_by_name[BP_CHEST]
+			if(BP_IS_ROBOTIC(chest) && !B.robot_friendly)
+				animation_flash_color(B, COLOR_RED)
+				return FALSE
+
 		if(!B.transfering_to)
 			if(B.transfering_to != src && B.connected_to != src)
 				appearance_flags |= KEEP_TOGETHER
@@ -825,6 +855,18 @@
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	if(istype(tool,/obj/item/fd/simple_combat/adrenaline))
 		var/obj/item/fd/simple_combat/adrenaline/A = tool
+
+		if(issilicon(src) && !A.robot_friendly)
+			animation_flash_color(A, COLOR_RED)
+			return FALSE
+
+		if(ishuman(src))
+			var/mob/living/carbon/human/H = src
+			var/obj/item/organ/external/chest = H.organs_by_name[BP_CHEST]
+			if(BP_IS_ROBOTIC(chest) && !A.robot_friendly)
+				animation_flash_color(A, COLOR_RED)
+				return FALSE
+
 		if(base_regen_period > 2 && !(get_status_effect(/datum/simple_status/crit) || get_status_effect(/datum/simple_status/hardcrit)))
 			animation_flash_color(A, COLOR_GREEN)
 			base_regen_period = 2
@@ -878,6 +920,18 @@
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	if(istype(tool,/obj/item/fd/simple_combat/revive))
 		var/obj/item/fd/simple_combat/revive/R = tool
+
+		if(issilicon(src) && !R.robot_friendly)
+			animation_flash_color(R, COLOR_RED)
+			return FALSE
+
+		if(ishuman(src))
+			var/mob/living/carbon/human/H = src
+			var/obj/item/organ/external/chest = H.organs_by_name[BP_CHEST]
+			if(BP_IS_ROBOTIC(chest) && !R.robot_friendly)
+				animation_flash_color(R, COLOR_RED)
+				return FALSE
+
 		if((get_status_effect(/datum/simple_status/crit) || get_status_effect(/datum/simple_status/hardcrit)) && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
 			animation_flash_color(R, COLOR_GREEN)
 			if(get_status_effect(/datum/simple_status/hardcrit))
@@ -933,6 +987,18 @@
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	if(istype(tool,/obj/item/fd/simple_combat/splint))
 		var/obj/item/fd/simple_combat/splint/S = tool
+
+		if(issilicon(src) && !S.robot_friendly)
+			animation_flash_color(S, COLOR_RED)
+			return FALSE
+
+		if(ishuman(src))
+			var/mob/living/carbon/human/H = src
+			var/obj/item/organ/external/chest = H.organs_by_name[BP_CHEST]
+			if(BP_IS_ROBOTIC(chest) && !S.robot_friendly)
+				animation_flash_color(S, COLOR_RED)
+				return FALSE
+
 		if(get_status_effect(/datum/simple_status/legbroke) && do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
 			animation_flash_color(S, COLOR_GREEN)
 			add_status_effect(/datum/simple_status/splinted, 1 MINUTE)
@@ -993,6 +1059,18 @@
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	if(istype(tool,/obj/item/fd/simple_combat/bandage))
 		var/obj/item/fd/simple_combat/bandage/B = tool
+
+		if(issilicon(src) && !B.robot_friendly)
+			animation_flash_color(B, COLOR_RED)
+			return FALSE
+
+		if(ishuman(src))
+			var/mob/living/carbon/human/H = src
+			var/obj/item/organ/external/chest = H.organs_by_name[BP_CHEST]
+			if(BP_IS_ROBOTIC(chest) && !B.robot_friendly)
+				animation_flash_color(B, COLOR_RED)
+				return FALSE
+
 		if(get_status_effect(/datum/simple_status/bleed) && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
 			animation_flash_color(B, COLOR_GREEN)
 			add_status_effect(/datum/simple_status/bandaged, 10 SECONDS)
@@ -1056,6 +1134,18 @@
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	if(istype(tool,/obj/item/fd/simple_combat/bonegel))
 		var/obj/item/fd/simple_combat/bonegel/B = tool
+
+		if(issilicon(src) && !B.robot_friendly)
+			animation_flash_color(B, COLOR_RED)
+			return FALSE
+
+		if(ishuman(src))
+			var/mob/living/carbon/human/H = src
+			var/obj/item/organ/external/chest = H.organs_by_name[BP_CHEST]
+			if(BP_IS_ROBOTIC(chest) && !B.robot_friendly)
+				animation_flash_color(B, COLOR_RED)
+				return FALSE
+
 		if(get_status_effect(/datum/simple_status/legbroke) && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
 			animation_flash_color(B, COLOR_GREEN)
 			remove_status_effect(/datum/simple_status/legbroke)
@@ -1105,6 +1195,18 @@
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	if(istype(tool,/obj/item/fd/simple_combat/small_heal))
 		var/obj/item/fd/simple_combat/small_heal/S = tool
+
+		if(issilicon(src) && !S.robot_friendly)
+			animation_flash_color(S, COLOR_RED)
+			return FALSE
+
+		if(ishuman(src))
+			var/mob/living/carbon/human/H = src
+			var/obj/item/organ/external/chest = H.organs_by_name[BP_CHEST]
+			if(BP_IS_ROBOTIC(chest) && !S.robot_friendly)
+				animation_flash_color(S, COLOR_RED)
+				return FALSE
+
 		if(simple_health < max_simple_health)
 			animation_flash_color(S, COLOR_GREEN)
 			simple_health_calculation(-20,0,0,0)
@@ -1146,6 +1248,18 @@
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	if(istype(tool,/obj/item/fd/simple_combat/big_heal))
 		var/obj/item/fd/simple_combat/big_heal/B = tool
+
+		if(issilicon(src) && !B.robot_friendly)
+			animation_flash_color(B, COLOR_RED)
+			return FALSE
+
+		if(ishuman(src))
+			var/mob/living/carbon/human/H = src
+			var/obj/item/organ/external/chest = H.organs_by_name[BP_CHEST]
+			if(BP_IS_ROBOTIC(chest) && !B.robot_friendly)
+				animation_flash_color(B, COLOR_RED)
+				return FALSE
+
 		if(simple_health < max_simple_health && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
 			animation_flash_color(B, COLOR_GREEN)
 			remove_status_effect(/datum/simple_status/bleed)
@@ -1189,6 +1303,18 @@
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	if(istype(tool,/obj/item/fd/simple_combat/big_heal))
 		var/obj/item/fd/simple_combat/big_heal/B = tool
+
+		if(issilicon(src) && !B.robot_friendly)
+			animation_flash_color(B, COLOR_RED)
+			return FALSE
+
+		if(ishuman(src))
+			var/mob/living/carbon/human/H = src
+			var/obj/item/organ/external/chest = H.organs_by_name[BP_CHEST]
+			if(BP_IS_ROBOTIC(chest) && !B.robot_friendly)
+				animation_flash_color(B, COLOR_RED)
+				return FALSE
+
 		if(simple_health < max_simple_health && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
 			animation_flash_color(B, COLOR_GREEN)
 			if(get_status_effect(/datum/simple_status/bleed))
@@ -1253,6 +1379,18 @@
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	if(istype(tool,/obj/item/fd/simple_combat/full_heal) && src != user)
 		var/obj/item/fd/simple_combat/full_heal/F = tool
+
+		if(issilicon(src) && !F.robot_friendly)
+			animation_flash_color(F, COLOR_RED)
+			return FALSE
+
+		if(ishuman(src))
+			var/mob/living/carbon/human/H = src
+			var/obj/item/organ/external/chest = H.organs_by_name[BP_CHEST]
+			if(BP_IS_ROBOTIC(chest) && !F.robot_friendly)
+				animation_flash_color(F, COLOR_RED)
+				return FALSE
+
 		if(simple_health < max_simple_health && do_after(user, 30 SECONDS, src, DO_PUBLIC_UNIQUE))
 			animation_flash_color(F, COLOR_GREEN)
 			simple_health_calculation(-(max_simple_health - simple_health),0,0,0)

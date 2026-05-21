@@ -529,6 +529,11 @@
 			USE_FEEDBACK_STACK_NOT_ENOUGH(cable, 1, "to repair \the [src]'s electronics damage.")
 			return TRUE
 		cable.use(1)
+
+		if(simple_combat_on)
+			if(get_status_effect(/datum/simple_status/legbroke))
+				remove_status_effect(/datum/simple_status/legbroke)
+
 		adjustFireLoss(-30)
 		updatehealth()
 		user.visible_message(
@@ -816,6 +821,10 @@
 		if (!welder.can_use(1, user, "to repair \the [src]'s physical damage."))
 			return TRUE
 		welder.remove_fuel(1, user)
+
+		if(simple_combat_on)
+			simple_health_calculation(-10,0,0,0)
+
 		adjustBruteLoss(-30)
 		updatehealth()
 		playsound(src, 'sound/items/Welder.ogg', 50, TRUE)

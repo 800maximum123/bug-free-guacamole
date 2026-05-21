@@ -502,34 +502,32 @@
 	descriptor = "Abandoned Bunker."
 	map = "TRK-17 Torch Bunker"
 	crew_jobs = list(
-		/datum/job/submap/bunker/amelia,
-		/datum/job/submap/bunker/maxim,
-		/datum/job/submap/bunker/gora,
-		/datum/job/submap/bunker/olivia,
-		/datum/job/submap/bunker/naia,
-		/datum/job/submap/bunker/wilhelm,
-		/datum/job/submap/bunker/wind,
-		/datum/job/submap/bunker/joseph,
-		/datum/job/submap/bunker/froise,
-		/datum/job/submap/bunker/looney,
-		/datum/job/submap/bunker/meat,
-		/datum/job/submap/bunker/lira,
-		/datum/job/submap/bunker/alma,
+		/datum/job/submap/bunker/amelia, // d
+		/datum/job/submap/bunker/perci, // d
+		/datum/job/submap/bunker/maxim, // d
+		/datum/job/submap/bunker/olivia, // d
+		/datum/job/submap/bunker/wilhelm, // d
+		/datum/job/submap/bunker/wind, // d
+		/datum/job/submap/bunker/joseph, // d
+		/datum/job/submap/bunker/looney, // d
+		/datum/job/submap/bunker/meat, // d
+		/datum/job/submap/bunker/lira, // d
+		/datum/job/submap/bunker/alma, // d
 		///MANTICORE GUESTS///
-		/datum/job/submap/fort_manticore/roku,
-		/datum/job/submap/fort_manticore/rifler,
-		/datum/job/submap/fort_manticore/ace,
-		/datum/job/submap/fort_manticore/rain,
-		/datum/job/submap/fort_manticore/lukash,
-		/datum/job/submap/fort_manticore/xrim,
-		/datum/job/submap/fort_manticore/victor,
-		/datum/job/submap/fort_manticore/kai,
-		/datum/job/submap/fort_manticore/cf355,
-		/datum/job/submap/fort_manticore/rk381,
-		/datum/job/submap/fort_manticore/pavel,
-		/datum/job/submap/fort_manticore/luke,
-		/datum/job/submap/fort_manticore/adriano,
-		/datum/job/submap/fort_manticore/lin
+		/datum/job/submap/fort_manticore/roku, // d
+		/datum/job/submap/fort_manticore/rifler, // d
+		/datum/job/submap/fort_manticore/ace, // d
+		/datum/job/submap/fort_manticore/krieger, // d
+		/datum/job/submap/fort_manticore/rain, // d
+		/datum/job/submap/fort_manticore/lukash, // d
+		/datum/job/submap/fort_manticore/victor, // d
+		/datum/job/submap/fort_manticore/kai, // d
+		/datum/job/submap/fort_manticore/cf355, // d
+		/datum/job/submap/fort_manticore/rk381, // d
+		/datum/job/submap/fort_manticore/pavel, // d
+		/datum/job/submap/fort_manticore/cubic, // d
+		/datum/job/submap/fort_manticore/luke, // d
+		/datum/job/submap/fort_manticore/adriano, // d
 	)
 
 /obj/submap_landmark/joinable_submap/bunker
@@ -632,6 +630,13 @@
 	total_positions = 1
 	outfit_type = /singleton/hierarchy/outfit/bunker/meat
 
+/datum/job/submap/bunker/meat/post_equip_rank(mob/living/person, alt_title)
+	. = ..()
+	person.max_simple_health = 500
+	person.simple_health = 500
+
+	person.simple_armor_natural = 5
+
 /singleton/hierarchy/outfit/bunker/meat
 	name = "Mr Meat"
 
@@ -646,6 +651,13 @@
 	title = "Wind in the Void"
 	total_positions = 1
 	outfit_type = /singleton/hierarchy/outfit/bunker/wind
+
+/datum/job/submap/bunker/wind/post_equip_rank(mob/living/person, alt_title)
+	. = ..()
+	person.max_simple_health = 500
+	person.simple_health = 500
+
+	person.simple_armor_natural = 5
 
 /singleton/hierarchy/outfit/bunker/wind
 	name = "Wind in the Void"
@@ -753,6 +765,71 @@
 /obj/submap_landmark/spawnpoint/amelia
 	name = "Amelia Brown"
 
+/obj/item/clothing/suit/storage/perci_coat
+	name = "dark coat"
+	desc = "Furcoat with pretty dark colors and installed armored plates."
+	icon = 'mods/_fd/fd_customs/customs/zakterar/zakterar_robot.dmi'
+	icon_state = "domo arigato"
+	item_icons = list(
+		slot_wear_suit_str = 'mods/_fd/fd_customs/customs/zakterar/zakterar_robot.dmi')
+
+	simple_armor_bonus = 20
+	simple_armor_deformation_speed = 2
+
+/obj/item/clothing/under/perci_invisible
+	name = "bodysuit"
+	desc = "Bodysuit."
+
+	mouse_opacity = TRUE
+
+	icon = 'mods/_fd/fd_customs/customs/zakterar/zakterar_robot.dmi'
+	item_icons = list(slot_w_uniform_str = 'mods/_fd/fd_customs/customs/zakterar/zakterar_robot_worn.dmi')
+	icon_state = "worn"
+	worn_state = "worn"
+	gender_icons = 0
+
+/obj/item/clothing/shoes/jackboots/perci_invisible
+	name = "heels"
+	desc = "Heels."
+
+	icon_state = null
+	item_state = null
+
+	mouse_opacity = TRUE
+
+/datum/job/submap/bunker/perci
+	title = "Percival Endsley"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/perci
+
+/datum/job/submap/bunker/perci/post_equip_rank(mob/living/person, alt_title)
+	. = ..()
+
+	for(var/obj/item/organ/external/E in person.contents)
+		E.robotize("Pure Improvisation")
+
+	person.max_simple_health = 200
+	person.simple_health = 200
+
+	person.simple_armor_natural = 5
+
+/singleton/hierarchy/outfit/bunker/perci
+	name = "Percival Endsley"
+
+	uniform = /obj/item/clothing/under/perci_invisible
+	suit = /obj/item/clothing/suit/storage/perci_coat
+	back = /obj/item/storage/backpack/satchel/pocketbook/gray
+
+	shoes = /obj/item/clothing/shoes/jackboots/perci_invisible
+
+	l_ear = /obj/item/device/radio/headset/headset_com
+
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/perci
+	name = "Percival Endsley"
+
 /datum/job/submap/bunker/wilhelm
 	title = "Wilhelm Canaris"
 	total_positions = 1
@@ -846,6 +923,13 @@
 	title = "Joseph Fiddler"
 	total_positions = 1
 	outfit_type = /singleton/hierarchy/outfit/bunker/joseph
+
+/datum/job/submap/bunker/joseph/post_equip_rank(mob/living/person, alt_title)
+	. = ..()
+	person.max_simple_health = 200
+	person.simple_health = 200
+
+	person.simple_armor_natural = 5
 
 /singleton/hierarchy/outfit/bunker/joseph
 	name = "Joseph Fiddler"

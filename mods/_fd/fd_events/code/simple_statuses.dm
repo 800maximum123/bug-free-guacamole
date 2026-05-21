@@ -513,6 +513,18 @@
 	status_color = COLOR_RED
 	duration = 0
 
+/datum/simple_status/bleed/on_apply()
+	. = ..()
+
+	if(issilicon(owner))
+		owner.remove_status_effect(/datum/simple_status/bleed)
+
+	if(ishuman(owner))
+		var/mob/living/carbon/human/H = owner
+		var/obj/item/organ/external/chest = H.organs_by_name[BP_CHEST]
+		if(BP_IS_ROBOTIC(chest))
+			owner.remove_status_effect(/datum/simple_status/bleed)
+
 /datum/simple_status/bleed/tick()
 	. = ..()
 

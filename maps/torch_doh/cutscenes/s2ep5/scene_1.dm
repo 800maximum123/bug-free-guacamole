@@ -1487,20 +1487,15 @@
 
 		ADD_SCREEN(/blackout) = 4 SECONDS,
 		MOVE_CAMERA(0, 0, 0, LINEAR_EASING),
+		REMOVE_SCREEN(/cinema_borders, 0),
 		CALL_GLOB(s2ep5sc13_screentext) = 12 SECONDS,
 		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/To Luna.mp3', volume = 50), "До Луны") = 8 SECONDS,
 		CALL_GLOB(interactive_opening_sequence) = 1 SECONDS,
+		REMOVE_SCREEN(/blackout, 0),
 		RETURN_VIEWERS
 	)
 
 /// Called when the eye is modified through the set_eye() setter : /client/proc/set_eye(new_eye)
-#define COMSIG_CLIENT_EYE_CHANGED "client_eye_changed"
-
-/client/proc/set_eye(new_eye)
-	SEND_SIGNAL(src, COMSIG_CLIENT_EYE_CHANGED, new_eye)
-
-	eye = new_eye
-
 /obj/effect/cutscene_camera/opening_cameras
 	icon_state = "choreo"
 	invisibility = 50
@@ -1583,8 +1578,8 @@
 	var/colored = COLOR_ASSEMBLY_BLACK
 
 	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
-	visuals.maptext_x = -100
-	visuals.maptext_y = -390
+	visuals.maptext_x = -110
+	visuals.maptext_y = -400
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 8 SECONDS)
@@ -1595,7 +1590,7 @@
 
 	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
 	visuals.maptext_x = -110
-	visuals.maptext_y = -410
+	visuals.maptext_y = -420
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 8 SECONDS)
@@ -1661,6 +1656,65 @@
 			client.mob.clear_fullscreen("borders")
 			client.mob.overlay_fullscreen("borders", /obj/screen/fullscreen/fd/cinema_borders)
 
-			client.perspective = EYE_PERSPECTIVE
-			client.set_eye(C)
+			client.adminobs = TRUE
+			client.mob.reset_view(C)
 		sleep(15 SECONDS)
+
+	for(var/client/client in GLOB.clients)
+		client.mob.clear_fullscreen("borders")
+		client.adminobs = null
+
+/client
+	var/ignore_focus = FALSE
+
+/client/proc/cmd_admin_camera_focus(mob/living/M as mob in SSmobs.mob_list)
+	set category = "Special Verbs"
+	set name = "Focus Camera"
+	if(!holder)
+		to_chat(src, "Only administrators may use this command!")
+		return
+	if(!mob)
+		return
+	if(!istype(M))
+		alert("Cannot spectate ghost!")
+		return
+
+	if(M.client)
+		M.client.ignore_focus = TRUE
+		M.balloon_alert(M, "|КИНОКАМЕРА НАПРАВЛЕНА НА ВАС|", COLOR_GREEN)
+
+	for(var/client/client in GLOB.clients)
+		if(client.ignore_focus)
+			continue
+
+		if(client.holder) // Педалям может понадобиться сделать что-то во время сценки
+			continue
+
+		client.mob.overlay_fullscreen("borders", /obj/screen/fullscreen/fd/cinema_borders)
+
+		client.adminobs = TRUE
+		client.mob.reset_view(M)
+
+/client/proc/cmd_admin_camera_unfocus(mob/living/M as mob in SSmobs.mob_list)
+	set category = "Special Verbs"
+	set name = "Unfocus Camera"
+	if(!holder)
+		to_chat(src, "Only administrators may use this command!")
+		return
+	if(!mob)
+		return
+	if(!istype(M))
+		alert("Cannot do this with ghost!")
+		return
+
+	for(var/client/client in GLOB.clients)
+		if(client.ignore_focus)
+			continue
+		if(client.holder)
+			continue
+		client.mob.clear_fullscreen("borders")
+		client.adminobs = FALSE
+
+	if(M.client)
+		M.client.ignore_focus = FALSE
+		M.balloon_alert(M, "|ЗА ВАМИ БОЛЬШЕ НЕ НАБЛЮДАЮТ|", COLOR_GOLD)

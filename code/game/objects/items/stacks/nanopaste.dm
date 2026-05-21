@@ -15,6 +15,15 @@
 		var/mob/living/silicon/robot/R = M
 		if (R.getBruteLoss() || R.getFireLoss() )
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+
+			if(R.simple_combat_on)
+				R.simple_health_calculation(-20,0,0,0)
+				if(R.get_status_effect(/datum/simple_status/legbroke))
+					R.remove_status_effect(/datum/simple_status/legbroke)
+				if(R.get_status_effect(/datum/simple_status/hardcrit))
+					R.stabilized = TRUE
+					R.remove_status_effect(/datum/simple_status/hardcrit)
+
 			R.adjustBruteLoss(-15)
 			R.adjustFireLoss(-15)
 			R.updatehealth()
@@ -42,6 +51,15 @@
 				to_chat(user, SPAN_NOTICE("Nothing to fix here."))
 			else if (can_use(1))
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+
+				if(H.simple_combat_on)
+					H.simple_health_calculation(-20,0,0,0)
+					if(H.get_status_effect(/datum/simple_status/legbroke))
+						H.remove_status_effect(/datum/simple_status/legbroke)
+					if(H.get_status_effect(/datum/simple_status/hardcrit))
+						H.stabilized = TRUE
+						H.remove_status_effect(/datum/simple_status/hardcrit)
+
 				S.heal_damage(15, 15, robo_repair = 1)
 				H.updatehealth()
 				use(1)
