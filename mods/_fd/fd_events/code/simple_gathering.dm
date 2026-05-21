@@ -55,7 +55,7 @@
 /obj/structure/flora/Crossed(mob/living/M)
 	. = ..()
 
-	if(react_to_movement)
+	if(react_to_movement && isliving(M))
 		if(MOVING_QUICKLY(M) && do_the_sound)
 			balloon_alert_to_viewers("|ШОРХ!|", null, COLOR_WHITE)
 

@@ -1491,8 +1491,7 @@
 		REMOVE_SCREEN(/cinema_borders, 0),
 		CALL_GLOB(s2ep5sc13_screentext) = 12 SECONDS,
 		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/To Luna.mp3', volume = 50), "До Луны") = 8 SECONDS,
-		CALL_GLOB(interactive_opening_sequence) = 0.8 SECONDS,
-		REMOVE_SCREEN(/blackout, 0) = 0.2 SECONDS,
+		REMOVE_SCREEN(/blackout, 1 SECONDS) = 0.5 SECONDS,
 		RETURN_VIEWERS
 	)
 
@@ -1649,7 +1648,7 @@
 	for(var/obj/effect/cutscene_camera/opening_cameras/C in world)
 		cameras_list += C
 
-	sleep(2 SECONDS)
+	sleep(4 SECONDS)
 	background_mumble_cycle()
 
 	for(var/obj/effect/cutscene_camera/opening_cameras/C in cameras_list) // Прогонит нас через каждую существующую камеру
