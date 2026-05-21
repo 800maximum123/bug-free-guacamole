@@ -33,9 +33,9 @@
 			user.cool_attack_on(src)
 			multiple_steps -= 1
 
-			animate(src, transform = matrix((pixel_x - 1), initial(pixel_y), MATRIX_TRANSLATE), time = 0.5, easing = EASE_IN)
-			animate(transform = matrix((pixel_x + 1), initial(pixel_y), MATRIX_TRANSLATE), time = 1)
-			animate(transform = matrix(initial(pixel_y), initial(pixel_y), MATRIX_TRANSLATE), time = 0.3, easing = EASE_OUT)
+			animate(src, pixel_x = pixel_x - 1, pixel_y = initial(pixel_y), time = 0.5, easing = EASE_IN)
+			animate(pixel_x = pixel_x + 1, pixel_y = initial(pixel_y), time = 1)
+			animate(pixel_x = initial(pixel_x), pixel_y = initial(pixel_y), time = 0.3, easing = EASE_OUT)
 
 			if(multiple_icons)
 				icon_state = "[base_icon_name]_[multiple_steps]"
