@@ -1659,7 +1659,7 @@
 
 			client.adminobs = TRUE
 			client.mob.reset_view(C)
-		sleep(15 SECONDS)
+		sleep(20 SECONDS)
 
 	for(var/client/client in GLOB.clients)
 		client.mob.clear_fullscreen("borders")
