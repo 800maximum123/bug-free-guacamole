@@ -134,8 +134,6 @@ var/global/list/debug_verbs = list (
 		// [FD-ADD]
 		,/client/proc/cmd_admin_camera_unfocus
 		,/client/proc/cmd_admin_camera_focus
-		,/client/proc/cmd_admin_combat_personal_on
-		,/client/proc/cmd_admin_combat_personal_off
 		,/datum/admins/proc/simplecombat_changer
 		// [/FD-ADD]
 		,/datum/admins/proc/show_traitor_panel

@@ -28,33 +28,6 @@
 	verbs -= /client/proc/cmd_admin_combat_off
 	verbs += /client/proc/cmd_admin_combat_on
 
-/client/proc/cmd_admin_combat_personal_on(mob/living/M as mob in SSmobs.mob_list)
-	set category = "Special Verbs"
-	set name = "Combat Mode ON(Personal)"
-	if(!holder)
-		to_chat(src, "Only administrators may use this command!")
-		return
-	if(!mob)
-		return
-	if(!istype(M))
-		alert("Cannot spectate ghost!")
-		return
-
-	M.simple_combat_on = TRUE
-
-/client/proc/cmd_admin_combat_personal_off(mob/living/M as mob in SSmobs.mob_list)
-	set category = "Special Verbs"
-	set name = "Combat Mode OFF(Personal)"
-	if(!holder)
-		to_chat(src, "Only administrators may use this command!")
-		return
-	if(!mob)
-		return
-	if(!istype(M))
-		alert("Cannot spectate ghost!")
-		return
-
-	M.simple_combat_on = FALSE
 
 
 /datum/keybinding/living/fd/simple_combat
