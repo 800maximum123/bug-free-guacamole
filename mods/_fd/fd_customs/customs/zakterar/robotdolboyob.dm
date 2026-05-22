@@ -6,10 +6,11 @@
 	unavailable_at_chargen = TRUE
 	can_feel_pain = TRUE // A LITTLE TROLLING
 
+/mob/living/carbon/human/proc/makemerobotdolboyob(force = FALSE)
+	for(var/obj/item/organ/external/E in src.content)
+		E.robotize("Pure Improvisation", FALSE, FALSE, TRUE)
+	if(!force)
+		return
 
-// Код ВСТАВИТЬ В ПРОФУ ниже (закоменчен, позови меня мб)
-/*
-	for(var/obj/item/organ/external/E in ROBOTDOLBOYOB.content)
-		E.robotize("Pure Improvisation")
-
-*/
+	for(var/obj/item/organ/internal/int in src.content)
+		int.robotize
