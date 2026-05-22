@@ -26,7 +26,7 @@
 /turf/simulated/floor/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 
 	var/temp_destroy = get_damage_temperature()
-	if(!burnt && prob(5))
+	if(!burnt && (prob(5) || temperature > T0C + 3000)) // GAIA CHANGE
 		burn_tile(exposed_temperature)
 	else if(temp_destroy && exposed_temperature >= (temp_destroy + 100) && prob(1) && !is_plating())
 		make_plating() //destroy the tile, exposing plating

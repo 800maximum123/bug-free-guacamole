@@ -58,7 +58,17 @@
 /area/gaia/urbanrebels
 	name = "\improper Urbomanka"
 	icon_state = "gaia_city"
-	ambience = list('sound/ambience/ominous1.ogg', 'sound/ambience/ominous2.ogg', 'sound/ambience/ominous3.ogg', 'maps/gaia/sounds/propaganda1.ogg', 'maps/gaia/sounds/propaganda2.ogg', 'maps/gaia/sounds/propaganda3.ogg', 'maps/gaia/sounds/propaganda4.ogg', 'maps/gaia/sounds/propaganda5.ogg', 'maps/gaia/sounds/propaganda6.ogg',)
+	ambience = list(
+			'sound/ambience/ominous1.ogg',
+			'sound/ambience/ominous2.ogg',
+			'sound/ambience/ominous3.ogg',
+			'maps/gaia/sounds/propaganda1.ogg',
+			'maps/gaia/sounds/propaganda2.ogg',
+			'maps/gaia/sounds/propaganda3.ogg',
+			'maps/gaia/sounds/propaganda4.ogg',
+			'maps/gaia/sounds/propaganda5.ogg',
+			'maps/gaia/sounds/propaganda6.ogg',
+			)
 
 /*
 * -- SCG Camp "Boxcutters" Platoon camp --

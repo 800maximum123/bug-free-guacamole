@@ -239,6 +239,10 @@
 		visible_message(SPAN_NOTICE("\The [src] falls into the water!"), SPAN_NOTICE("You fell into the water!"))
 		playsound(src,  'sound/effects/watersplash.ogg', 80, TRUE)
 		return 1
+	else if(landing.get_fluid_depth() == FLUID_SHALLOW) // PHYSICS!
+		visible_message(SPAN_NOTICE("\The [src] falls into the water and hit its bottom!"), SPAN_NOTICE("You fell into the water but it wasn't deep enough!"))
+		playsound(src,  'sound/effects/watersplash.ogg', 40, TRUE)
+		handle_fall_effect(landing, lastloc)
 	else
 		handle_fall_effect(landing, lastloc)
 
@@ -246,7 +250,7 @@
 	if(istype(landing, /turf/simulated/open))
 		visible_message("\The [src] falls through \the [landing]!", "You hear a whoosh of displaced air.")
 	else
-		visible_message("\The [src] slams into \the [landing]!", "You hear something slam into the deck.")
+		visible_message("\The [src] slams into \the [landing]!", "You hear something slam into the ground.")
 		var/obj/item/rig/rig = get_rig()
 		if (istype(rig))
 			for (var/obj/item/rig_module/actuators/A in rig.installed_modules)

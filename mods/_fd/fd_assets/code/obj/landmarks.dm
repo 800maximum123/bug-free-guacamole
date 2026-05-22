@@ -28,7 +28,7 @@
 	. = ..()
 	QDEL_NULL(S)
 
-//Applies fire act to the turf
+// Blows shit up
 /obj/landmark/explosion
 	name = "explosion"
 	icon_state = "x"
@@ -61,10 +61,10 @@
 	else
 		qdel(src)
 
-
+// Damages the tile
 /obj/landmark/damager
 	name = "damager"
-	icon_state = "fire"
+	icon_state = "damager"
 	var/random_dam_min = 20
 	var/random_dam_max = 80
 

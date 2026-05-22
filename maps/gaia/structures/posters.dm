@@ -60,37 +60,37 @@ var/global/const/POSTER_FLAG_GAIA = FLAG(2)
 	poster_flags = POSTER_FLAG_GAIA
 
 // non-random posters
-obj/structure/sign/poster/gaia_1
+/obj/structure/sign/poster/gaia_1
 	name = "ICCG propaganda poster"
 	icon = 'maps/gaia/icons/posters.dmi'
 	random_poster_base_type = /singleton/poster/gaia/gaia_1
 
-obj/structure/sign/poster/gaia_2
+/obj/structure/sign/poster/gaia_2
 	name = "ICCG propaganda poster"
 	icon = 'maps/gaia/icons/posters.dmi'
 	random_poster_base_type = /singleton/poster/gaia/gaia_2
 
-obj/structure/sign/poster/gaia_3
+/obj/structure/sign/poster/gaia_3
 	name = "ICCG propaganda poster"
 	icon = 'maps/gaia/icons/posters.dmi'
 	random_poster_base_type = /singleton/poster/gaia/gaia_3
 
-obj/structure/sign/poster/gaia_4
+/obj/structure/sign/poster/gaia_4
 	name = "ICCG propaganda poster"
 	icon = 'maps/gaia/icons/posters.dmi'
 	random_poster_base_type = /singleton/poster/gaia/gaia_4
 
-obj/structure/sign/poster/gaia_5
+/obj/structure/sign/poster/gaia_5
 	name = "ICCG propaganda poster"
 	icon = 'maps/gaia/icons/posters.dmi'
 	random_poster_base_type = /singleton/poster/gaia/gaia_5
 
-obj/structure/sign/poster/gaia_6
+/obj/structure/sign/poster/gaia_6
 	name = "ICCG propaganda poster"
 	icon = 'maps/gaia/icons/posters.dmi'
 	random_poster_base_type = /singleton/poster/gaia/gaia_6
 
-obj/structure/sign/poster/gaia_7
+/obj/structure/sign/poster/gaia_7
 	name = "ICCG propaganda poster"
 	icon = 'maps/gaia/icons/posters.dmi'
 	random_poster_base_type = /singleton/poster/gaia/gaia_7

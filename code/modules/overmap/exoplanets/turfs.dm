@@ -88,9 +88,14 @@
 //WAter
 /turf/simulated/floor/exoplanet/water
 	diggable = FALSE
+	// The depth of water
+	var/water_depth = FLUID_MAX_DEPTH
 
 /turf/simulated/floor/exoplanet/water/on_update_icon()
 	return
+
+/turf/simulated/floor/exoplanet/water/get_fluid_depth()
+	return water_depth
 
 /turf/simulated/floor/exoplanet/water/is_flooded(lying_mob, absolute)
 	. = absolute ? ..() : lying_mob
@@ -101,6 +106,7 @@
 	icon_state = "seashallow"
 	movement_delay = 2
 	footstep_type = /singleton/footsteps/water
+	water_depth = FLUID_SHALLOW
 	var/reagent_type = /datum/reagent/water
 
 /turf/simulated/floor/exoplanet/water/shallow/use_tool(obj/item/O, mob/living/user, list/click_params)
@@ -118,7 +124,8 @@
 /turf/simulated/floor/exoplanet/water/shallow/deep
 	name = "deep water"
 	icon_state = "seadeep"
-	movement_delay = 4
+	movement_delay = 2.5
+	water_depth = FLUID_DEEP
 
 //Ice
 /turf/simulated/floor/exoplanet/ice
@@ -221,6 +228,11 @@
 	// Ensure floor decals are added for concrete exoplanet tiles
 	if(LAZYLEN(decals))
 		AddOverlays(decals)
+
+// GAIA CHANGE
+/turf/simulated/floor/exoplanet/concrete/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+	if((temperature > T0C + 1700 && prob(5)) || temperature > T0C + 3000)
+		melt()
 
 /turf/simulated/floor/exoplanet/concrete/melt()
 	burnt = TRUE

@@ -7,3 +7,5 @@
 	ding_icon_state = "doorbellpressed"
 	anchored = TRUE
 	w_class = ITEM_SIZE_NORMAL
+	normal_sound = 'maps/gaia/sounds/doorbell.ogg'
+	angry_sound = 'maps/gaia/sounds/doorbell_angry.ogg'

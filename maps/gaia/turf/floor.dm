@@ -82,9 +82,52 @@
 	. = ..()
 
 /turf/simulated/floor/exoplanet/water/shallow/sewers
-	name = "shallow sewers"
+	name = "deep sewers"
 	icon = 'icons/turf/chlorine.dmi'
 	icon_state = "chlorine_liquid"
-	desc = "A pool of foul smelling contaminated water. Better not step into it."
-	dirt_color = "#d2e0b7"
+	desc = "A deep pool of foul smelling contaminated water. Better not step into it."
+	movement_delay = 2.5
+	dirt_color = "#b1c760"
 	reagent_type = /datum/reagent/acid/stomach
+	water_depth = FLUID_DEEP
+	// How much sewage is added onto the clothes
+	var/stain_amount = 3
+	var/cleanable_scent = "sewage"
+	var/scent_intensity = /singleton/scent_intensity/overpowering
+	var/scent_descriptor = SCENT_DESC_HAZE
+	var/scent_range = 2
+
+/turf/simulated/floor/exoplanet/water/shallow/sewers/Initialize()
+	. = ..()
+	set_extension(src, /datum/extension/scent/custom, cleanable_scent, scent_intensity, scent_descriptor, scent_range)
+
+// Covers unfortunate guy in sewage ewww
+/turf/simulated/floor/exoplanet/water/shallow/sewers/Crossed(mob/living/carbon/human/perp)
+	if(!istype(perp))
+		return
+
+	var/obj/item/organ/external/l_foot = perp.get_organ(BP_L_FOOT)
+	var/obj/item/organ/external/r_foot = perp.get_organ(BP_R_FOOT)
+	var/hasfeet = 1
+	if((!l_foot || l_foot.is_stump()) && (!r_foot || r_foot.is_stump()))
+		hasfeet = 0
+	for(var/obj/item/clothing/C in list(perp.head, perp.wear_mask, perp.wear_suit, perp.w_uniform, perp.gloves, perp.shoes))
+		C.blood_color = dirt_color
+		if(!C.blood_overlay)
+			C.generate_blood_overlay()
+			C.blood_DNA = list()
+			C.blood_overlay.color = dirt_color
+			C.AddOverlays(C.blood_overlay)
+		if(istype(C, /obj/item/clothing/shoes))
+			var/obj/item/clothing/shoes/S = C
+			S.track_blood = max(stain_amount,S.track_blood)
+
+	if (hasfeet && !perp.shoes) //Or feet
+		perp.feet_blood_color = dirt_color
+		perp.track_blood = max(stain_amount, perp.track_blood)
+		perp.feet_blood_DNA = list()
+	else if (perp.buckled && istype(perp.buckled, /obj/structure/bed/chair/wheelchair))
+		var/obj/structure/bed/chair/wheelchair/W = perp.buckled
+		W.bloodiness = 4
+
+	perp.update_inv_shoes(1)
