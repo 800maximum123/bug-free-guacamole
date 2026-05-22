@@ -319,6 +319,7 @@
 		forceMove(get_turf(A))
 
 		adjust_grappling()
+		balloon_alert_to_viewers("|ХВАТЬ!|", null, COLOR_WHITE)
 		attached_to_surface = TRUE
 		dash_bonus_points_max += 1
 

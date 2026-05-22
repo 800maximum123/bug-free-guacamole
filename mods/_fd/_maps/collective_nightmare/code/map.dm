@@ -460,15 +460,13 @@
 
 /datum/interactive_note/nightmare/tutorial_ooc
 	name = "Базовое управление"
-	note_info = {"<br /> \
-				Взаимодействуйте с объектами нажатием <b><span style="color: yellow;">...</span></b><br /> \
-				Откройте архив собранных записей нажатием <b><span style="color: yellow;">...</span></b><br /> \
-				Прыгайте нажатием <b><span style="color: yellow;">...</span></b>"}
 
 /datum/interactive_note/nightmare/tutorial_ooc/reveal_note_to_player(mob/living/user)
 	note_info = {"<br /> \
 				Взаимодействуйте с объектами нажатием <b><span style="color: yellow;">[user.retrieve_bind("start_interaction")]</span></b><br /> \
 				Откройте архив собранных записей нажатием <b><span style="color: yellow;">[user.retrieve_bind("open_archive")]</span></b><br /> \
+				Узнайте своё здоровье зажав <b><span style="color: yellow;">[user.retrieve_bind("healthshow")]</span></b><br /> \
+				Управляйте режимом автодоводки в ближнем бою при помощи кнопки на экране или нажатия <b><span style="color: yellow;">[user.retrieve_bind("melee_assist")]</span></b><br /> \
 				Прыгайте нажатием <b><span style="color: yellow;">[user.retrieve_bind("dash")]</span></b>"}
 
 	. = ..()
@@ -478,6 +476,8 @@
 	note_info = {"<br /> \
 				Чаще всего, объекты с которыми можно взаимодействовать - выделяются <b><span style="color: yellow;">лупой</span></b><br /> \
 				В некоторых случаях, внутри интеракции может быть спрятан <b><span style="color: yellow;">секрет</span></b>. Чтобы его обнаружить - попробуйте поводить мышкой по экрану, пока не увидите новый значок.<br /> \
+				Вы можете узнать состояние другого <b><span style="color: yellow;">живого</span></b> существа осмотрев его. Там вам напишет не только его примерное здоровье, но и активные <b><span style="color: yellow;">статусы</span></b>. Ровно так же вы можете осмотреть и себя.<br /> \
+				Включённый режим автодоводки позволяет вашему персонажу атаковать <b><span style="color: yellow;">живых</span></b> существ без необходимости <b><span style="color: yellow;">чёткого нажатия</span></b> по ним.<br /> \
 				Вы можете прыгать дальше одного тайла, если будете <b><span style="color: yellow;">зажимать</span></b> кнопку прыжка некоторое время.<br /> \
 				Вы автоматически присасываетесь к объектам, за которые можно <b><span style="color: yellow;">зацепиться</span></b>, если они находятся рядом. Такими объектами могут быть любые казалось бы неочевидные столбы или трубы на маршруте вашего прыжка. Иногда - даже стены."}
 
@@ -508,7 +508,7 @@
 		nameplate.maptext_x = -75
 		nameplate.maptext_y = -15
 		maintext.maptext_x = 0
-		maintext.maptext_y = -280
+		maintext.maptext_y = -360
 
 		user.client.screen += maintext
 		user.client.screen += nameplate
@@ -535,7 +535,7 @@
 	note_info = {"<br /> \
 				Подобные игровые области предполагают наличие в вашем распоряжении любого <b><span style="color: yellow;">противогаза</span></b> заряженного специализированными <b><span style="color: yellow;">фильтрами</span></b>.<br /> \
 				Без них, персонаж продержится от силы <b><span style="color: yellow;">10-15 секунд</span></b>, прежде чем начнёт получать <b><span style="color: red;">урон</span></b>.<br /> \
-				Эти зоны также можно очистить уничтожив <b><span style="color: yellow;">источник</span></b> распространения ядовитых паров, или <b><span style="color: yellow;">восстановив электричество</span></b>."}
+				Место начала и конца заражённой зоны помогут определить всплывающие сообщения или элементы окружения(к примеру - зелёный газ, идущий из труб)."}
 
 /obj/effect/reality_tear
 	name = "trap"

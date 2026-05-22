@@ -503,44 +503,75 @@
 
 	// Cable Coil - Repair burn damage
 	if (isCoil(tool))
-		if (!wiresexposed)
-			USE_FEEDBACK_FAILURE("\The [src]'s wires must be exposed to repair electronics damage.")
-			return TRUE
-		if (!getFireLoss())
-			USE_FEEDBACK_FAILURE("\The [src] has no electronics damage to repair.")
-			return TRUE
-		var/obj/item/stack/cable_coil/cable = tool
-		if (!cable.can_use(1))
-			USE_FEEDBACK_STACK_NOT_ENOUGH(cable, 1, "to repair \the [src]'s electronics damage.")
-			return TRUE
-		user.visible_message(
-			SPAN_NOTICE("\The [user] starts repairing some of the electronics in \the [src] with [cable.get_vague_name(FALSE)]."),
-			SPAN_NOTICE("You start repairing some of the electronics in \the [src] with [cable.get_exact_name(1)]."),
-		)
-		if (!do_after(user, 1 SECOND, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
-			return TRUE
-		if (!wiresexposed)
-			USE_FEEDBACK_FAILURE("\The [src]'s wires must be exposed to repair electronics damage.")
-			return TRUE
-		if (!getFireLoss())
-			USE_FEEDBACK_FAILURE("\The [src] has no electronics damage to repair.")
-			return TRUE
-		if (!cable.can_use(1))
-			USE_FEEDBACK_STACK_NOT_ENOUGH(cable, 1, "to repair \the [src]'s electronics damage.")
-			return TRUE
-		cable.use(1)
-
 		if(simple_combat_on)
-			if(get_status_effect(/datum/simple_status/legbroke))
-				remove_status_effect(/datum/simple_status/legbroke)
+			if (!get_status_effect(/datum/simple_status/legbroke))
+				animation_flash_color(tool, COLOR_RED)
+				USE_FEEDBACK_FAILURE("\The [src] has no electronics damage to repair.")
+				return TRUE
+			var/obj/item/stack/cable_coil/cable = tool
+			if (!cable.can_use(1))
+				animation_flash_color(tool, COLOR_RED)
+				USE_FEEDBACK_STACK_NOT_ENOUGH(cable, 1, "to repair \the [src]'s electronics damage.")
+				return TRUE
+			user.visible_message(
+				SPAN_NOTICE("\The [user] starts repairing some of the electronics in \the [src] with [cable.get_vague_name(FALSE)]."),
+				SPAN_NOTICE("You start repairing some of the electronics in \the [src] with [cable.get_exact_name(1)]."),
+			)
+			if (!do_after(user, 1 SECOND, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
+				return TRUE
+			if (!get_status_effect(/datum/simple_status/legbroke))
+				animation_flash_color(tool, COLOR_RED)
+				USE_FEEDBACK_FAILURE("\The [src] has no electronics damage to repair.")
+				return TRUE
+			if (!cable.can_use(1))
+				animation_flash_color(tool, COLOR_RED)
+				USE_FEEDBACK_STACK_NOT_ENOUGH(cable, 1, "to repair \the [src]'s electronics damage.")
+				return TRUE
+			cable.use(1)
 
-		adjustFireLoss(-30)
-		updatehealth()
-		user.visible_message(
-			SPAN_NOTICE("\The [user] repairs some of the electronics in \the [src] with [cable.get_vague_name(FALSE)]."),
-			SPAN_NOTICE("You repair some of the electronics in \the [src] with some [cable.get_exact_name(1)]."),
-		)
-		return TRUE
+			remove_status_effect(/datum/simple_status/legbroke)
+			animation_flash_color(tool, COLOR_GREEN)
+
+			user.visible_message(
+				SPAN_NOTICE("\The [user] repairs some of the electronics in \the [src] with [cable.get_vague_name(FALSE)]."),
+				SPAN_NOTICE("You repair some of the electronics in \the [src] with some [cable.get_exact_name(1)]."),
+			)
+			return TRUE
+		else
+			if (!wiresexposed)
+				USE_FEEDBACK_FAILURE("\The [src]'s wires must be exposed to repair electronics damage.")
+				return TRUE
+			if (!getFireLoss())
+				USE_FEEDBACK_FAILURE("\The [src] has no electronics damage to repair.")
+				return TRUE
+			var/obj/item/stack/cable_coil/cable = tool
+			if (!cable.can_use(1))
+				USE_FEEDBACK_STACK_NOT_ENOUGH(cable, 1, "to repair \the [src]'s electronics damage.")
+				return TRUE
+			user.visible_message(
+				SPAN_NOTICE("\The [user] starts repairing some of the electronics in \the [src] with [cable.get_vague_name(FALSE)]."),
+				SPAN_NOTICE("You start repairing some of the electronics in \the [src] with [cable.get_exact_name(1)]."),
+			)
+			if (!do_after(user, 1 SECOND, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
+				return TRUE
+			if (!wiresexposed)
+				USE_FEEDBACK_FAILURE("\The [src]'s wires must be exposed to repair electronics damage.")
+				return TRUE
+			if (!getFireLoss())
+				USE_FEEDBACK_FAILURE("\The [src] has no electronics damage to repair.")
+				return TRUE
+			if (!cable.can_use(1))
+				USE_FEEDBACK_STACK_NOT_ENOUGH(cable, 1, "to repair \the [src]'s electronics damage.")
+				return TRUE
+			cable.use(1)
+
+			adjustFireLoss(-30)
+			updatehealth()
+			user.visible_message(
+				SPAN_NOTICE("\The [user] repairs some of the electronics in \the [src] with [cable.get_vague_name(FALSE)]."),
+				SPAN_NOTICE("You repair some of the electronics in \the [src] with some [cable.get_exact_name(1)]."),
+			)
+			return TRUE
 
 	// Crowbar
 	// - Toggle cover
@@ -802,37 +833,68 @@
 		if (user == src)
 			USE_FEEDBACK_FAILURE("You lack the reach to be able to repair yourself.")
 			return TRUE
-		if (!getBruteLoss())
-			USE_FEEDBACK_FAILURE("\The [src] has no physical damage to repair.")
-			return TRUE
-		var/obj/item/weldingtool/welder = tool
-		if (istype(tool, /obj/item/weldingtool) && !welder.can_use(1, user, "to repair \the [src]'s physical damage."))
-			return TRUE
-		playsound(src, 'sound/items/Welder.ogg', 50, TRUE)
-		user.visible_message(
-			SPAN_NOTICE("\The [user] starts repairing some of the dents on \the [src] with \a [tool]."),
-			SPAN_NOTICE("You start repairing some of the dents on \the [src] with \the [tool]."),
-		)
-		if (!do_after(user, (tool.toolspeed * 1) SECOND, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
-			return TRUE
-		if (!getBruteLoss())
-			USE_FEEDBACK_FAILURE("\The [src] has no physical damage to repair.")
-			return TRUE
-		if (!welder.can_use(1, user, "to repair \the [src]'s physical damage."))
-			return TRUE
-		welder.remove_fuel(1, user)
-
 		if(simple_combat_on)
-			simple_health_calculation(-10,0,0,0)
+			if(simple_health >= max_simple_health)
+				animation_flash_color(tool, COLOR_RED)
+				return TRUE
+			var/obj/item/weldingtool/welder = tool
+			if (istype(tool, /obj/item/weldingtool) && !welder.can_use(1, user, "to repair \the [src]'s physical damage."))
+				animation_flash_color(tool, COLOR_RED)
+				return TRUE
+			playsound(src, 'sound/items/Welder.ogg', 50, TRUE)
+			user.visible_message(
+				SPAN_NOTICE("\The [user] starts repairing some of the dents on \the [src] with \a [tool]."),
+				SPAN_NOTICE("You start repairing some of the dents on \the [src] with \the [tool]."),
+			)
+			if (!do_after(user, (tool.toolspeed * 1) SECOND, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
+				return TRUE
+			if (simple_health >= max_simple_health)
+				USE_FEEDBACK_FAILURE("\The [src] has no physical damage to repair.")
+				animation_flash_color(tool, COLOR_RED)
+				return TRUE
+			if (!welder.can_use(1, user, "to repair \the [src]'s physical damage."))
+				animation_flash_color(tool, COLOR_RED)
+				return TRUE
+			welder.remove_fuel(1, user)
 
-		adjustBruteLoss(-30)
-		updatehealth()
-		playsound(src, 'sound/items/Welder.ogg', 50, TRUE)
-		user.visible_message(
-			SPAN_NOTICE("\The [user] repairs some of the dents on \the [src] with \a [tool]."),
-			SPAN_NOTICE("You repair some of the dents on \the [src] with \the [tool]."),
-		)
-		return TRUE
+			simple_health_calculation(-10,0,0,0)
+			animation_flash_color(tool, COLOR_GREEN)
+			playsound(src, 'sound/items/Welder.ogg', 50, TRUE)
+			user.visible_message(
+				SPAN_NOTICE("\The [user] repairs some of the dents on \the [src] with \a [tool]."),
+				SPAN_NOTICE("You repair some of the dents on \the [src] with \the [tool]."),
+			)
+			return TRUE
+
+		else
+			if (!getBruteLoss())
+				USE_FEEDBACK_FAILURE("\The [src] has no physical damage to repair.")
+				return TRUE
+			var/obj/item/weldingtool/welder = tool
+			if (istype(tool, /obj/item/weldingtool) && !welder.can_use(1, user, "to repair \the [src]'s physical damage."))
+				return TRUE
+			playsound(src, 'sound/items/Welder.ogg', 50, TRUE)
+			user.visible_message(
+				SPAN_NOTICE("\The [user] starts repairing some of the dents on \the [src] with \a [tool]."),
+				SPAN_NOTICE("You start repairing some of the dents on \the [src] with \the [tool]."),
+			)
+			if (!do_after(user, (tool.toolspeed * 1) SECOND, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
+				return TRUE
+			if (!getBruteLoss())
+				USE_FEEDBACK_FAILURE("\The [src] has no physical damage to repair.")
+				return TRUE
+			if (!welder.can_use(1, user, "to repair \the [src]'s physical damage."))
+				return TRUE
+			welder.remove_fuel(1, user)
+
+			adjustBruteLoss(-30)
+			updatehealth()
+			playsound(src, 'sound/items/Welder.ogg', 50, TRUE)
+			user.visible_message(
+				SPAN_NOTICE("\The [user] repairs some of the dents on \the [src] with \a [tool]."),
+				SPAN_NOTICE("You repair some of the dents on \the [src] with \the [tool]."),
+			)
+			return TRUE
 
 	return ..()
 

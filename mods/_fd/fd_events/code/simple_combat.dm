@@ -1,3 +1,62 @@
+/client/proc/cmd_admin_combat_on()
+	set category = "Special Verbs"
+	set name = "Combat Mode ON"
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	for(var/client/client in GLOB.clients)
+		if(isliving(client.mob))
+			var/mob/living/L = client.mob
+			L.simple_combat_on = TRUE
+
+	verbs -= /client/proc/cmd_admin_combat_on
+	verbs += /client/proc/cmd_admin_combat_off
+
+/client/proc/cmd_admin_combat_off()
+	set category = "Special Verbs"
+	set name = "Combat Mode OFF"
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	for(var/client/client in GLOB.clients)
+		if(isliving(client.mob))
+			var/mob/living/L = client.mob
+			L.simple_combat_on = FALSE
+
+	verbs -= /client/proc/cmd_admin_combat_off
+	verbs += /client/proc/cmd_admin_combat_on
+
+/client/proc/cmd_admin_combat_personal_on(mob/living/M as mob in SSmobs.mob_list)
+	set category = "Special Verbs"
+	set name = "Combat Mode ON(Personal)"
+	if(!holder)
+		to_chat(src, "Only administrators may use this command!")
+		return
+	if(!mob)
+		return
+	if(!istype(M))
+		alert("Cannot spectate ghost!")
+		return
+
+	M.simple_combat_on = TRUE
+
+/client/proc/cmd_admin_combat_personal_off(mob/living/M as mob in SSmobs.mob_list)
+	set category = "Special Verbs"
+	set name = "Combat Mode OFF(Personal)"
+	if(!holder)
+		to_chat(src, "Only administrators may use this command!")
+		return
+	if(!mob)
+		return
+	if(!istype(M))
+		alert("Cannot spectate ghost!")
+		return
+
+	M.simple_combat_on = FALSE
+
+
 /datum/keybinding/living/fd/simple_combat
 	category = CATEGORY_FD_SIMPLE
 
@@ -278,6 +337,51 @@
 
 	var/simple_armor_deformation_speed = 5
 
+/obj/item/clothing/use_tool(obj/item/tool, mob/living/user, list/click_params)
+
+	if(isWelder(tool) && simple_armor_bonus > 0 && simple_armor_blockchance < simple_armor_blockchance_max && user.simple_combat_on)
+		var/obj/item/weldingtool/welder = tool
+		if (istype(tool, /obj/item/weldingtool) && !welder.can_use(1, user, "to repair \the [src]'s physical damage."))
+			animation_flash_color(tool, COLOR_RED)
+			return TRUE
+
+		playsound(src, 'sound/items/Welder.ogg', 50, TRUE)
+		user.visible_message(
+			SPAN_NOTICE("\The [user] starts repairing some of the dents on \the [src] with \a [tool]."),
+			SPAN_NOTICE("You start repairing some of the dents on \the [src] with \the [tool]."),
+		)
+		if (!do_after(user, (tool.toolspeed * 1) SECOND, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
+			return TRUE
+		if (simple_armor_blockchance >= simple_armor_blockchance_max)
+			USE_FEEDBACK_FAILURE("\The [src] has no physical damage to repair.")
+			animation_flash_color(tool, COLOR_RED)
+			return TRUE
+		if (istype(tool, /obj/item/weldingtool) && !welder.can_use(1, user, "to repair \the [src]'s physical damage."))
+			animation_flash_color(tool, COLOR_RED)
+			return TRUE
+
+		welder.remove_fuel(1, user)
+
+		simple_armor_blockchance = clamp(simple_armor_blockchance + 10, 0, simple_armor_blockchance_max)
+		animation_flash_color(src, COLOR_GREEN)
+		playsound(src, 'sound/items/Welder.ogg', 50, TRUE)
+		return TRUE
+	. = ..()
+
+/obj/item/clothing/MouseEntered(location, control, params)
+	. = ..()
+
+	if(loc == usr && isliving(usr))
+		var/mob/living/L = usr
+		if(L.simple_combat_on && simple_armor_bonus > 0)
+			maptext = STYLE_SMALLFONTS_OUTLINE("[simple_armor_blockchance]/[simple_armor_blockchance_max]", 7, COLOR_WHITE, COLOR_BLACK)
+
+/obj/item/clothing/MouseExited(location, control, params)
+	. = ..()
+
+	if(maptext)
+		maptext = ""
+
 /mob/living
 	var/simple_combat_on = FALSE
 
@@ -322,6 +426,9 @@
 
 		if(get_status_effect(/datum/simple_status/legbroke) && !get_status_effect(/datum/simple_status/splinted))
 			. += 5
+
+		if(get_status_effect(/datum/simple_status/attack_damage_buff))
+			. -= 10
 
 /mob/living/proc/simple_health_vfx(show_blood = TRUE, obj/effect/simple_combat_particle/create_impact = null, obj/item/projectile/proj = null, mob/living/attacker = null)
 
@@ -521,6 +628,13 @@
 	appearance_flags |= KEEP_TOGETHER
 
 	if(simple_combat_on) // Мы в простом режиме?
+
+// БАФФ АФТИКА
+		if(source && isliving(source))
+			var/mob/living/L = source
+			if(L.get_status_effect(/datum/simple_status/attack_damage_buff))
+				amount += 10
+// БАФФ АФТИКА
 
 		if(should_block) // Должны ли мы попытаться заблокировать входящий урон?
 			amount = clamp(amount - simple_armor_natural, 0, amount) // Если ДА, то сначала вычтем из урона наш натуральный показатель брони, привязанный к мобу
@@ -1419,14 +1533,179 @@
 	animation_flash_color(src, COLOR_RED)
 	return FALSE
 
-/datum/interactive_note/tutorial_ooc/simple_medicine
-	name = "Подсказка 3 (ООС)"
-	note_info = {"<b>КАЗУАЛЬНАЯ МЕДИЦИНА</b><br /> \
+/datum/interactive_note/tutorial_ooc/combat1
+	name = "Броня и части тела"
+	note_info = {"<br /> \
+				Фактическую защиту дают лишь те предметы, что надеты в слот <b><span style="color: yellow;">верхней одежды</span></b> или <b><span style="color: yellow;">головы</span></b><br /> \
+				Урон в голову (при пробитии) <b><span style="color: yellow;">всегда будет выше</span></b><br /> \
+				Урон по конечностям <b><span style="color: yellow;">всегда будет ниже</span></b>, но имеет дополнительные эффекты<br /> \
+				Попадание в ноги может привести к <b><span style="color: yellow;">перелому</span></b><br /> \
+				Попадание в руки может <b><span style="color: yellow;">выбить из них предмет</span></b> при наличии<br /> \
 				<br /> \
-				Используйте медицинский гель и инъекцию в руке или на ком-то, чтобы <b><span style="color: green;">восстановить от 20 до 50 ед. здоровья</span></b><br /> \
-				Используйте стабилизатор в руке или на ком-то, чтобы <b><span style="color: yellow;">временно ускорить регенерацию</span></b><br /> \
-				Используйте оживляющую жидкость в руке или на ком-то, чтобы <b><span style="color: green;">возобновить регенерацию после падения</span></b><br /> \
-				Используйте пакет с кровью в руке, чтобы <b><span style="color: red;">перекачать в него часть своего здоровья</span></b>, или на ком-то, чтобы <b><span style="color: green;">передать ему это здоровье</span></b>"}
+				НПС <b><span style="color: red;">нет смысла</span></b> стрелять по рукам, но более чем полезно стрелять куда-либо ещё<br /> \
+				Броня может <b><span style="color: red;">износиться</span></b>. Чем выше её износ - тем ниже шанс заблокировать входящий урон. Чините её используя <b><span style="color: green;">сварку</span></b>"}
+
+/datum/interactive_note/tutorial_ooc/combat1/reveal_note_to_player(mob/living/user)
+	user.reading = TRUE
+
+	user.overlay_fullscreen("background_note", note_overlay)
+	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
+
+	if(connected_note)
+		if(!connected_note.ci)
+			connected_note.ci = new /obj/screen/cancel_interaction()
+
+		connected_note.ci.connected_mob = user
+		user.client.screen += connected_note.ci
+		animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+
+	spawn(0.5 SECONDS)
+
+		var/message = "[note_info]"
+		var/message_name = "[name]"
+
+		var/obj/screen/player_message/note_text/maintext = new /obj/screen/player_message/note_text()
+		var/obj/screen/novel_message/note_name/nameplate = new /obj/screen/novel_message/note_name()
+		maintext.layer = 5.4
+		nameplate.layer = 5.4
+
+		nameplate.maptext_x = -75
+		nameplate.maptext_y = -15
+		maintext.maptext_x = 0
+		maintext.maptext_y = -320
+
+		user.client.screen += maintext
+		user.client.screen += nameplate
+		maintext.set_text(message, COLOR_WHITE)
+		nameplate.set_text(message_name, COLOR_WHITE)
+
+/datum/interactive_note/tutorial_ooc/combat2
+	name = "Статусы"
+	note_info = {"<br /> \
+				<b><span style="color: red;">Кровотечение</span></b> - пассивно отнимает здоровье. Убирается <b><span style="color: green;">медкитом</span></b>. Может быть временно остановлено <b><span style="color: green;">бинтами</span></b><br /> \
+				<b><span style="color: red;">Перелом</span></b> - понижает базовую скорость передвижения. Убирается <b><span style="color: green;">медкитом</span></b> или <b><span style="color: green;">костным гелем</span></b>. Может быть временно исправлен <b><span style="color: green;">шиной</span></b><br /> \
+				<b><span style="color: red;">Крит</span></b> - замедляет, роняет, но всё ещё позволяет производить некоторые интеракции. Убирается <b><span style="color: green;">любым лечением</span></b>. Может превратиться в хардкрит при получении <b><span style="color: red;">любого урона</span></b><br /> \
+				<b><span style="color: red;">Хардкрит</span></b> - персонаж при смерти. Не даёт двигаться, роняет. Убирается <b><span style="color: green;">медкитом</span></b>, <b><span style="color: green;">восстанавливающей жидкостью</span></b>, или <b><span style="color: green;">нажатием по персонажу</span></b>. Если помощь не будет оказана в течении минуты - персонаж <b><span style="color: red;">умрёт</span></b>"}
+
+/datum/interactive_note/tutorial_ooc/combat2/reveal_note_to_player(mob/living/user)
+	user.reading = TRUE
+
+	user.overlay_fullscreen("background_note", note_overlay)
+	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
+
+	if(connected_note)
+		if(!connected_note.ci)
+			connected_note.ci = new /obj/screen/cancel_interaction()
+
+		connected_note.ci.connected_mob = user
+		user.client.screen += connected_note.ci
+		animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+
+	spawn(0.5 SECONDS)
+
+		var/message = "[note_info]"
+		var/message_name = "[name]"
+
+		var/obj/screen/player_message/note_text/maintext = new /obj/screen/player_message/note_text()
+		var/obj/screen/novel_message/note_name/nameplate = new /obj/screen/novel_message/note_name()
+		maintext.layer = 5.4
+		nameplate.layer = 5.4
+
+		nameplate.maptext_x = -75
+		nameplate.maptext_y = -15
+		maintext.maptext_x = 0
+		maintext.maptext_y = -340
+
+		user.client.screen += maintext
+		user.client.screen += nameplate
+		maintext.set_text(message, COLOR_WHITE)
+		nameplate.set_text(message_name, COLOR_WHITE)
+
+/datum/interactive_note/tutorial_ooc/combat3
+	name = "Лечение 1"
+	note_info = {"<br /> \
+				<b><span style="color: green;">Гель, Инъектор, Медкит</span></b> - восстанавливает N-ое количество здоровья, закрывают <b><span style="color: red;">кровотечение</span></b>. Медкит убирает <b><span style="color: green;">все статусы</span></b><br /> \
+				<br /> \
+				<b><span style="color: green;">Костный гель</span></b> - полностью убирает <b><span style="color: red;">перелом</span></b><br /> \
+				<b><span style="color: green;">Шина</span></b> - временно убирает негативный эффект <b><span style="color: red;">перелома</span></b><br /> \
+				<b><span style="color: green;">Бинт</span></b> - временно убирает негативный эффект <b><span style="color: red;">кровотечения</span></b>"}
+
+/datum/interactive_note/tutorial_ooc/combat3/reveal_note_to_player(mob/living/user)
+	user.reading = TRUE
+
+	user.overlay_fullscreen("background_note", note_overlay)
+	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
+
+	if(connected_note)
+		if(!connected_note.ci)
+			connected_note.ci = new /obj/screen/cancel_interaction()
+
+		connected_note.ci.connected_mob = user
+		user.client.screen += connected_note.ci
+		animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+
+	spawn(0.5 SECONDS)
+
+		var/message = "[note_info]"
+		var/message_name = "[name]"
+
+		var/obj/screen/player_message/note_text/maintext = new /obj/screen/player_message/note_text()
+		var/obj/screen/novel_message/note_name/nameplate = new /obj/screen/novel_message/note_name()
+		maintext.layer = 5.4
+		nameplate.layer = 5.4
+
+		nameplate.maptext_x = -75
+		nameplate.maptext_y = -15
+		maintext.maptext_x = 0
+		maintext.maptext_y = -260
+
+		user.client.screen += maintext
+		user.client.screen += nameplate
+		maintext.set_text(message, COLOR_WHITE)
+		nameplate.set_text(message_name, COLOR_WHITE)
+
+/datum/interactive_note/tutorial_ooc/combat4
+	name = "Лечение 2"
+
+/datum/interactive_note/tutorial_ooc/combat4/reveal_note_to_player(mob/living/user)
+	note_info = {"<br /> \
+				<b><span style="color: green;">Мешок для хранения крови</span></b> - подсоедините к себе нажатием <b><span style="color: yellow;">[user.retrieve_bind("activate_inhand")]</span></b>, чтобы поместить туда часть своего здоровья и затем нажмите эту же кнопку чтобы отцепить пакет от себя. <b><span style="color: yellow;">Нажмите по другому человеку</span></b>, чтобы передать это здоровье ему. Чтобы отцепить пакет от человека - нажмите по нему ещё раз<br /> \
+				<br /> \
+				<b><span style="color: green;">Стабилизатор</span></b> - временно повышает вашу <b><span style="color: green;">регенерацию</span></b><br /> \
+				<b><span style="color: green;">Восстанавливающая жидкость</span></b> - убирает эффекты <b><span style="color: red;">крита</span></b>, <b><span style="color: red;">хардкрита</span></b>, <b><span style="color: red;">кровотечения</span></b>"}
+
+	user.reading = TRUE
+
+	user.overlay_fullscreen("background_note", note_overlay)
+	user.overlay_fullscreen("smallshade", /obj/screen/fullscreen/shade)
+
+	if(connected_note)
+		if(!connected_note.ci)
+			connected_note.ci = new /obj/screen/cancel_interaction()
+
+		connected_note.ci.connected_mob = user
+		user.client.screen += connected_note.ci
+		animate(connected_note.ci, transform = matrix(-128, 0, MATRIX_TRANSLATE), alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+
+	spawn(0.5 SECONDS)
+
+		var/message = "[note_info]"
+		var/message_name = "[name]"
+
+		var/obj/screen/player_message/note_text/maintext = new /obj/screen/player_message/note_text()
+		var/obj/screen/novel_message/note_name/nameplate = new /obj/screen/novel_message/note_name()
+		maintext.layer = 5.4
+		nameplate.layer = 5.4
+
+		nameplate.maptext_x = -75
+		nameplate.maptext_y = -15
+		maintext.maptext_x = 0
+		maintext.maptext_y = -260
+
+		user.client.screen += maintext
+		user.client.screen += nameplate
+		maintext.set_text(message, COLOR_WHITE)
+		nameplate.set_text(message_name, COLOR_WHITE)
 
 /obj/item/melee/baton
 	simple_damage = 10

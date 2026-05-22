@@ -179,6 +179,8 @@
 		CHANGE_ACTOR_VISIBILITY(actor("Мёртвое тело"), 0, 0, null, null),
 		MOVE_CAMERA(0, 0, 2 SECONDS, SINE_EASING|EASE_IN) = 2 SECONDS,
 
+		REMOVE_SCREEN(/cinema_borders, 0),
+
 		RETURN_VIEWERS
 	)
 
@@ -264,6 +266,7 @@
 		CHANGE_ACTOR_VISUALS(actor("Дверь"), "open") = 1 SECONDS,
 		ADD_SCREEN(/blackout/animated_better) = 2 SECONDS,
 		MOVE_CAMERA(0, 0, 0, null) = 1 SECONDS,
+		REMOVE_SCREEN(/blackout/animated_better, 0.5 SECONDS),
 		RETURN_VIEWERS
 	)
 
@@ -281,6 +284,7 @@
 
 		ADD_SCREEN(/blackout/animated_better) = 2 SECONDS,
 		MOVE_CAMERA(0, 0, 0, null) = 1 SECONDS,
+		REMOVE_SCREEN(/blackout/animated_better, 0.5 SECONDS),
 		RETURN_VIEWERS
 	)
 
@@ -319,17 +323,14 @@
 	note_info = {""}
 
 /datum/interactive_note/nightmare/tutorial_ooc_weapon/reveal_note_to_player(mob/living/user)
-	note_info = {"<br /> \
-				Теперь, в вашем распоряжении появилось оружие, способное развернуть ситуацию в чужую пользу. Оно ненадёжно, стационарно, и требует слаженной командной работы, \
-				но в руках опытного игрока - если и не убьёт терроризирующего вас монстра, то точно заставит его отступить, выиграв вам время.</b><br /> \
+	note_info = {"Теперь, в вашем распоряжении появилось оружие, способное развернуть ситуацию в чужую пользу. Оно ненадёжно, стационарно, и требует слаженной командной работы, \
+				но в руках опытного игрока - если и не убьёт терроризирующего вас монстра, то точно заставит его отступить, выиграв вам время</b><br /> \
+				Взаимодействуйте с пушкой, используя <b><span style="color: yellow;">[user.retrieve_bind("start_interaction")]</span></b><br /> \
+				Чтобы выстрелить из пушки - вам необходимо разогнать её на полную мощность. Нажимайте <b><span style="color: yellow;">[user.retrieve_bind("start_interaction")]</span></b>, пока не услышите звук подтверждения<br /> \
+				Нажмите на пушку, чтобы встать из-за неё, или вытолкнуть стоящего за ней человека<br /> \
 				<br /> \
-				<center>Взаимодействуйте с пушкой, используя <b><span style="color: yellow;">[user.retrieve_bind("start_interaction")]</span></b></center><br /> \
-				<center>Чтобы выстрелить из пушки - вам необходимо разогнать её на полную мощность. Нажимайте <b><span style="color: yellow;">[user.retrieve_bind("start_interaction")]</span></b>, пока не услышите звук подтверждения.</center><br /> \
-				<center>Нажмите на пушку, чтобы встать из-за неё, или вытолкнуть стоящего за ней человека</center><br /> \
-				<br /> \
-				<center>Мощность пушки падает не сразу. Вы можете поддерживать её периодическими нажатиями, пока не подгадаете нужный момент</center><br /> \
-				<center>Вы можете крутить пушку кликом по экрану в нужном вам направлении, но лишь пока управляете ею</center><br /> \
-				<center>Нажмите <b><span style="color: yellow;">[user.retrieve_bind("activate_inhand")]</span></b> держа пушку в актвной руке, чтобы разложить её перед собой</center>"}
+				Мощность пушки падает не сразу. Вы можете поддерживать её периодическими нажатиями, пока не подгадаете нужный момент. Вы можете крутить пушку кликом по экрану в нужном вам направлении, но лишь пока управляете ею<br /> \
+				Нажмите <b><span style="color: yellow;">[user.retrieve_bind("activate_inhand")]</span></b> держа пушку в актвной руке, чтобы разложить её перед собой"}
 
 	user.reading = TRUE
 
@@ -357,7 +358,7 @@
 		nameplate.maptext_x = -75
 		nameplate.maptext_y = -15
 		maintext.maptext_x = 0
-		maintext.maptext_y = -320
+		maintext.maptext_y = -380
 
 		user.client.screen += maintext
 		user.client.screen += nameplate
@@ -365,7 +366,7 @@
 		nameplate.set_text(message_name, COLOR_WHITE)
 
 /obj/item/grenade/flashbang/anti_jeff
-	det_time = 10
+	det_time = 20
 
 /obj/item/grenade/flashbang/anti_jeff/bang()
 	playsound(src.loc, 'sound/effects/bang.ogg', 50, 1, 30)

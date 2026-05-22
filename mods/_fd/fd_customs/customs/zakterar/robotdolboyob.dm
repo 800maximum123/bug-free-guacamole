@@ -7,10 +7,10 @@
 	can_feel_pain = TRUE // A LITTLE TROLLING
 
 /mob/living/carbon/human/proc/makemerobotdolboyob(force = FALSE)
-	for(var/obj/item/organ/external/E in src.content)
+	for(var/obj/item/organ/external/E in contents)
 		E.robotize("Pure Improvisation", FALSE, FALSE, TRUE)
 	if(!force)
 		return
 
-	for(var/obj/item/organ/internal/int in src.content)
-		int.robotize
+	for(var/obj/item/organ/internal/int in contents)
+		int.robotize()

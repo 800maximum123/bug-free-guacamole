@@ -680,7 +680,7 @@
 /singleton/hierarchy/outfit/bunker/olivia
 	name = "Olivia Kellong"
 
-	r_hand = /obj/item/clothing/accessory/wristwatch/null
+	r_hand = /obj/item/clothing/accessory/wristwatch/nullwatch
 	belt = /obj/item/nullrod
 
 	l_ear = /obj/item/device/radio/headset/headset_com
@@ -806,7 +806,7 @@
 	. = ..()
 
 	for(var/obj/item/organ/external/E in person.contents)
-		E.robotize("Pure Improvisation")
+		E.robotize("Pure Improvisation", FALSE, FALSE, TRUE)
 
 	person.max_simple_health = 200
 	person.simple_health = 200
@@ -904,7 +904,7 @@
 	name = "Looney"
 
 	uniform = /obj/item/clothing/under/syndicate/tacticool
-	suit = /obj/item/clothing/suit/storage/looney_jacket
+	suit = /obj/item/clothing/suit/storage/slivacoat
 	back = /obj/item/gun/projectile/automatic/shotgun/scg
 	mask = /obj/item/clothing/mask/gas/half
 
@@ -958,6 +958,7 @@
 	glasses = /obj/item/clothing/glasses/hud/health
 	belt = /obj/item/storage/belt/medical/emt
 	back = /obj/item/storage/backpack/satchel/pocketbook/brown
+	backpack_contents = list(/obj/item/luckycoin = 1)
 
 	l_ear = /obj/item/device/radio/headset/headset_com
 

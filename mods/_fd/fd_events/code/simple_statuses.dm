@@ -546,6 +546,10 @@
 			splat.layer = ABOVE_HUMAN_LAYER
 			splat.SetTransform(0.5)
 
+/datum/simple_status/bleed/special
+	status_type = STATUS_EFFECT_UNIQUE
+	duration = -1
+
 /datum/simple_status/bandaged
 	name = "Перебинтован"
 	desc_text = "+ Его рана забинтована"
@@ -614,6 +618,11 @@
 	status_type = STATUS_EFFECT_REFRESH
 	duration = 0
 
+/datum/simple_status/attack_damage_buff
+	name = "Бафф урона атаки"
+	desc_text = null
+	status_type = STATUS_EFFECT_UNIQUE
+
 /datum/simple_status/attack_speed_buff
 	name = "Бафф скорости атаки"
 	desc_text = null
@@ -626,7 +635,6 @@
 		var/mob/living/simple_animal/hostile/S = owner
 
 		S.attack_delay = 1 SECONDS
-
 
 /datum/simple_status/attack_speed_buff/tick()
 	. = ..()

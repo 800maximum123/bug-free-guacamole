@@ -18,7 +18,56 @@
 	lunge_dist = 3
 	melee_strikes = list(/singleton/combo_strike/precise_strike/fast_attacks,/singleton/combo_strike/swipe_strike/mixed_combo)
 
-//
+	var/active = FALSE
+
+/obj/item/material/knife/ritual/aftik/attack_self(mob/living/user)
+	if(user.simple_combat_on)
+
+		if(user.ckey != "Aftik")
+			animation_flash_color(src, COLOR_RED)
+			playsound(user, 'sound/effects/screech.ogg', 100)
+			return
+
+		else
+
+			active = !active
+
+			if(active)
+				user.remove_status_effect(/datum/simple_status/bleed/special)
+				user.remove_status_effect(/datum/simple_status/attack_damage_buff)
+				user.simple_health_calculation(10,0,0,0)
+
+				remove_filter("sacrificed")
+
+			else
+				balloon_alert_to_viewers("|ШКВАРК!|", null, COLOR_RED)
+				playsound(user, 'sound/weapons/rapidslice.ogg', 100)
+
+				user.add_status_effect(/datum/simple_status/bleed/special)
+				user.add_status_effect(/datum/simple_status/attack_damage_buff)
+				user.simple_health_calculation(-100,0,0,0)
+
+				add_filter("sacrificed", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_RED))
+
+	. = ..()
+
+/obj/item/material/knife/ritual/aftik/get_storage_cost()
+	if(active)
+		return ITEM_SIZE_NO_CONTAINER
+	. = ..()
+
+/obj/item/material/knife/ritual/aftik/dropped(mob/living/user as mob)
+	if(active)
+		active = FALSE
+
+		user.remove_status_effect(/datum/simple_status/bleed)
+		user.remove_status_effect(/datum/simple_status/attack_damage_buff)
+		user.simple_health_calculation(10,0,0,0)
+
+		remove_filter("sacrificed")
+
+	. = ..()
+
 
 /obj/item/material/knife/ritual/aftik/examine(mob/user, distance, is_adjacent)
 	. = ..()
@@ -271,7 +320,7 @@
 
 //
 
-/obj/item/knuckle
+/obj/item/melee/knuckle
 	name = "brass knuckles"
 	desc = "Heavy gold-plated brass knuckles with an engraved Christian cross. By some miracle, the paint is still on it. Or maybe it's real gold?"
 	icon = 'bioplan.dmi'
@@ -284,6 +333,12 @@
 		slot_l_hand_str = "brasskknuckles-l",
 		slot_r_hand_str = "brasskknuckles-r",
 	)
+
+	force = 10
+	simple_damage = 10
+
+	status_to_add = /datum/simple_status/legbroke
+	status_apply_prob = 10
 
 //
 
@@ -304,7 +359,7 @@
 //
 
 /obj/item/material/sword/psysword // TODO: Впилить механ
-	name = "Nemesis forse sword"
+	name = "Nemesis force sword"
 	desc = "An unusual long sword, resembling both a work of art and a sinister modification of an alien weapon, with an ancient ΨΔ7 logo carved on the guard and a strange button on the hilt."
 	icon = 'nik.dmi'
 	icon_state = "psysword"
@@ -437,6 +492,9 @@
 		slot_wear_suit_str = 'watchesonmob.dmi'
 		)
 
+/obj/item/clothing/accessory/wristwatch/nullwatch/disrupts_psionics()
+	return src
+
 //
 
 /obj/item/handwatch
@@ -485,8 +543,7 @@
 	name = "Gref's Coin"
 	desc = "An odd gold coin, with a clover on it. On the flip side there is a text ingraved on the gold surface \"Our final hope, our one more chance\""
 	icon = 'addon.dmi'
-	icon_state =  "coin"
-	var/reroll = FALSE
+	icon_state = "coin"
 
 /obj/item/storage/bible/bible
 	name = "Humility"

@@ -12,7 +12,21 @@
 
 	var/has_drop = FALSE
 	var/regrowth_after_harvesting = FALSE
+	var/regrowing = FALSE
 	var/obj/item/item_to_drop = null
+
+	var/list/allowed_harvest_tools = list(/obj/item/material/hatchet,
+										/obj/item/material/hatchet/unbreakable,
+										/obj/item/material/hatchet/machete,
+										/obj/item/material/hatchet/machete/deluxe,
+										/obj/item/material/hatchet/machete/facility,
+										/obj/item/material/hatchet/machete/mech,
+										/obj/item/material/hatchet/machete/plasteel,
+										/obj/item/material/hatchet/machete/steel,
+										/obj/item/material/hatchet/machete/uranium,
+										/obj/item/material/hatchet/machete/unbreakable,
+										/obj/item/material/twohanded/fireaxe,
+										/obj/item/material/scythe)
 
 /obj/structure/flora/Initialize()
 	. = ..()
@@ -23,19 +37,21 @@
 
 /obj/structure/flora/proc/regrowth()
 	animate(src, transform = matrix(1, MATRIX_SCALE), time = 0.5 SECONDS, easing = BOUNCE_EASING|EASE_OUT)
-	mouse_opacity = 0
+	mouse_opacity = 1
+
+	regrowing = FALSE
 
 /obj/structure/flora/use_weapon(obj/item/weapon, mob/living/user, list/click_params)
 	. = ..()
 
-	if(multiple_steps > 0)
-		if(istype(weapon,/obj/item/material/hatchet))
+	if(multiple_steps > 0 && !regrowing)
+		if(weapon.type in allowed_harvest_tools)
 			user.cool_attack_on(src)
 			multiple_steps -= 1
 
-			animate(src, pixel_x = pixel_x - 1, pixel_y = initial(pixel_y), time = 0.5, easing = EASE_IN)
-			animate(pixel_x = pixel_x + 1, pixel_y = initial(pixel_y), time = 1)
-			animate(pixel_x = initial(pixel_x), pixel_y = initial(pixel_y), time = 0.3, easing = EASE_OUT)
+			animate(src, pixel_x = pixel_x - 1, pixel_y = pixel_y, time = 0.5, easing = EASE_IN)
+			animate(pixel_x = pixel_x + 1, pixel_y = pixel_y, time = 1)
+			animate(pixel_x = pixel_x, pixel_y = pixel_y, time = 0.3, easing = EASE_OUT)
 
 			if(multiple_icons)
 				icon_state = "[base_icon_name]_[multiple_steps]"
@@ -47,21 +63,21 @@
 				if(regrowth_after_harvesting)
 					var/obj/structure/flora/F = new type(get_turf(src))
 					F.SetTransform(0.01)
-					F.mouse_opacity = 1
+					F.mouse_opacity = 0
+					F.regrowing = TRUE
 					addtimer(new Callback(F, TYPE_PROC_REF(/obj/structure/flora, regrowth)), 5 MINUTE)
-				sleep(5)
 				qdel(src)
 
 /obj/structure/flora/Crossed(mob/living/M)
 	. = ..()
 
-	if(react_to_movement && isliving(M))
-		if(MOVING_QUICKLY(M) && do_the_sound)
+	if(react_to_movement && isliving(M) && !regrowing)
+		if(MOVING_QUICKLY(M) && do_the_sound && ishuman(M))
 			balloon_alert_to_viewers("|ШОРХ!|", null, COLOR_WHITE)
 
-		animate(src, transform = matrix((pixel_x - 1), initial(pixel_y), MATRIX_TRANSLATE), time = 0.5, easing = EASE_IN)
-		animate(transform = matrix((pixel_x + 1), initial(pixel_y), MATRIX_TRANSLATE), time = 1)
-		animate(transform = matrix(initial(pixel_y), initial(pixel_y), MATRIX_TRANSLATE), time = 0.3, easing = EASE_OUT)
+		animate(src, pixel_x = pixel_x - 1, pixel_y = pixel_y, time = 0.5, easing = EASE_IN)
+		animate(pixel_x = pixel_x + 1, pixel_y = pixel_y, time = 1)
+		animate(pixel_x = pixel_x, pixel_y = pixel_y, time = 0.3, easing = EASE_OUT)
 
 /obj/structure/flora/tree
 
@@ -76,21 +92,22 @@
 /obj/structure/vines/Crossed(mob/living/M)
 	. = ..()
 
-	if(react_to_movement)
+	if(react_to_movement && isliving(M))
 		if(MOVING_QUICKLY(M) && do_the_sound)
 			balloon_alert_to_viewers("|ШОРХ!|", null, COLOR_WHITE)
 
-		animate(src, transform = matrix(-2, 0, MATRIX_TRANSLATE), time = 0.5, easing = EASE_IN)
-		animate(transform = matrix(2, 0, MATRIX_TRANSLATE), time = 1)
-		animate(transform = matrix(0, 0, MATRIX_TRANSLATE), time = 0.3, easing = EASE_OUT)
+		animate(src, pixel_x = pixel_x - 1, pixel_y = pixel_y, time = 0.5, easing = EASE_IN)
+		animate(pixel_x = pixel_x + 1, pixel_y = pixel_y, time = 1)
+		animate(pixel_x = pixel_x, pixel_y = pixel_y, time = 0.3, easing = EASE_OUT)
 
 /obj/structure/flora/jungle/bush
 	react_to_movement = TRUE
 	do_the_sound = TRUE
 
-	pixel_x = 0
-
 /obj/structure/flora/ausbushes
+	react_to_movement = TRUE
+
+/obj/structure/flora/seaweed
 	react_to_movement = TRUE
 
 /obj/structure/flora/tall

@@ -406,6 +406,8 @@
 /singleton/hierarchy/outfit/fort_manticore/rifler
 	name = "Christiana Rifler"
 
+	r_hand = /obj/item/fd/crew_photo
+
 	head = /obj/item/clothing/head/beret/rifler
 	mask = /obj/item/clothing/accessory/scarf/shouldercape/rifler
 
@@ -427,6 +429,9 @@
 	shoes = /obj/item/clothing/shoes/noble_boots
 	suit = /obj/item/clothing/suit/storage/toggle/edgecoat
 
+	r_hand = /obj/item/melee/knuckle
+	l_hand = /obj/item/gun/projectile/revolver/medium/captain
+
 	l_ear = /obj/item/device/radio/headset/syndicate
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
@@ -441,6 +446,8 @@
 
 /singleton/hierarchy/outfit/fort_manticore/krieger
 	name = "Aldegar Krieger"
+
+	r_hand = /obj/item/handwatch
 
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
@@ -607,6 +614,7 @@
 	name = "Ufurzar Shuurrkai"
 
 	r_hand = /obj/item/material/twohanded/spear/assashite
+	l_hand = /obj/item/material/knife/ritual/aftik
 
 	suit = /obj/item/clothing/suit/storage/hooded/assashite_raincoat
 	mask = /obj/item/clothing/accessory/assashite/amulet
@@ -632,6 +640,8 @@
 
 /singleton/hierarchy/outfit/fort_manticore/cf355
 	name = "CF-355"
+
+	r_hand = /obj/item/book/manual/autostopgalactic
 
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id

@@ -27,15 +27,16 @@
 
 	screen_loc = "CENTER,CENTER+2"
 	var/turf/connected_turf
+	var/mob/living/simple_animal/metro_jeff/jeff
 
 /obj/screen/teleport_monster/Initialize()
 	. = ..()
 	SetTransform(2)
 
-	spawn(10 SECONDS)
-		var/mob/living/simple_animal/metro_jeff/J = usr
-		if(src in J.client.screen)
-			J.client.screen -= src
+/obj/screen/teleport_monster/proc/remove_later()
+	if(jeff && jeff.client)
+		if(src in jeff.client.screen)
+			jeff.client.screen -= src
 		animate(src, alpha = 0, time = 3, easing = SINE_EASING|EASE_IN)
 
 /obj/screen/teleport_monster/Click()
@@ -113,11 +114,13 @@
 
 	if(isliving(M) && M != jeff && !triggered)
 		if(jeff.client)
+			tp_button.jeff = jeff
 			jeff.client.screen += tp_button
 			tp_button.maptext = STYLE_SMALLFONTS_OUTLINE("<center>[name]</center>", 7, COLOR_WHITE, COLOR_BLACK)
 			tp_button.maptext_x = 5
 			tp_button.maptext_width = 96
 			animate(tp_button, alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
+			addtimer(new Callback(tp_button, TYPE_PROC_REF(/obj/screen/teleport_monster, remove_later)), 30 SECONDS)
 
 		new /obj/effect/trap_triggered(get_turf(src))
 		if(should_make_sound)

@@ -207,9 +207,14 @@
 /singleton/surgery_step/robotics/repair_brute/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(affected)
-		if(!affected.brute_dam)
-			to_chat(user, SPAN_WARNING("There is no damage to repair."))
-			return FALSE
+		if(target.simple_combat_on)
+			if(target.simple_health < target.max_simple_health)
+				to_chat(user, SPAN_WARNING("There is no damage to repair."))
+				return FALSE
+		if(!target.simple_combat_on)
+			if(!affected.brute_dam)
+				to_chat(user, SPAN_WARNING("There is no damage to repair."))
+				return FALSE
 		if(BP_IS_BRITTLE(affected))
 			to_chat(user, SPAN_WARNING("\The [target]'s [affected.name] is too brittle to be repaired normally."))
 			return FALSE
@@ -226,8 +231,12 @@
 
 /singleton/surgery_step/robotics/repair_brute/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
-	if(affected && affected.hatch_state == HATCH_OPENED && ((affected.status & ORGAN_DISFIGURED) || affected.brute_dam > 0))
-		return affected
+	if(!target.simple_combat_on)
+		if(affected && affected.hatch_state == HATCH_OPENED && ((affected.status & ORGAN_DISFIGURED) || affected.brute_dam > 0))
+			return affected
+	else
+		if(target.simple_health < target.max_simple_health)
+			return affected
 
 /singleton/surgery_step/robotics/repair_brute/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -319,9 +328,14 @@
 /singleton/surgery_step/robotics/repair_burn/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(affected)
-		if(!affected.burn_dam)
-			to_chat(user, SPAN_WARNING("There is no damage to repair."))
-			return FALSE
+		if(target.simple_combat_on)
+			if(!target.get_status_effect(/datum/simple_status/legbroke))
+				to_chat(user, SPAN_WARNING("There is no damage to repair."))
+				return FALSE
+		if(!target.simple_combat_on)
+			if(!affected.burn_dam)
+				to_chat(user, SPAN_WARNING("There is no damage to repair."))
+				return FALSE
 		if(BP_IS_BRITTLE(affected))
 			to_chat(user, SPAN_WARNING("\The [target]'s [affected.name] is too brittle for this kind of repair."))
 		else
@@ -335,8 +349,12 @@
 
 /singleton/surgery_step/robotics/repair_burn/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
-	if(affected && affected.hatch_state == HATCH_OPENED && ((affected.status & ORGAN_DISFIGURED) || affected.burn_dam > 0))
-		return affected
+	if(!target.simple_combat_on)
+		if(affected && affected.hatch_state == HATCH_OPENED && ((affected.status & ORGAN_DISFIGURED) || affected.burn_dam > 0))
+			return affected
+	else
+		if(target.get_status_effect(/datum/simple_status/legbroke))
+			return affected
 
 /singleton/surgery_step/robotics/repair_burn/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)

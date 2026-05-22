@@ -1490,8 +1490,10 @@
 		MOVE_CAMERA(0, 0, 0, LINEAR_EASING),
 		REMOVE_SCREEN(/cinema_borders, 0),
 		CALL_GLOB(s2ep5sc13_screentext) = 12 SECONDS,
-		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/To Luna.mp3', volume = 50), "До Луны") = 8 SECONDS,
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/To Luna.mp3', volume = 50), "До Луны") = 6 SECONDS,
+		CALL_GLOB(interactive_opening_sequence) = 0.5 SECONDS,
 		REMOVE_SCREEN(/blackout, 1 SECONDS) = 0.5 SECONDS,
+
 		RETURN_VIEWERS
 	)
 
@@ -1648,24 +1650,29 @@
 	for(var/obj/effect/cutscene_camera/opening_cameras/C in world)
 		cameras_list += C
 
-	sleep(4 SECONDS)
-	background_mumble_cycle()
+	spawn(2 SECONDS)
+		background_mumble_cycle()
 
-	for(var/obj/effect/cutscene_camera/opening_cameras/C in cameras_list) // Прогонит нас через каждую существующую камеру
+		for(var/obj/effect/cutscene_camera/opening_cameras/C in cameras_list) // Прогонит нас через каждую существующую камеру
+			for(var/client/client in GLOB.clients)
+				client.mob.clear_fullscreen("borders")
+				client.mob.overlay_fullscreen("borders", /obj/screen/fullscreen/fd/cinema_borders)
+
+				client.watching_scene = TRUE
+
+				client.adminobs = TRUE
+				client.mob.reset_view(C)
+			sleep(20 SECONDS)
+
 		for(var/client/client in GLOB.clients)
+			client.watching_scene = FALSE
+
 			client.mob.clear_fullscreen("borders")
-			client.mob.overlay_fullscreen("borders", /obj/screen/fullscreen/fd/cinema_borders)
-
-			client.adminobs = TRUE
-			client.mob.reset_view(C)
-		sleep(20 SECONDS)
-
-	for(var/client/client in GLOB.clients)
-		client.mob.clear_fullscreen("borders")
-		client.adminobs = null
+			client.adminobs = null
 
 /client
 	var/ignore_focus = FALSE
+	var/watching_scene = FALSE
 
 /client/proc/cmd_admin_camera_focus(mob/living/M as mob in SSmobs.mob_list)
 	set category = "Special Verbs"
@@ -1692,6 +1699,8 @@
 
 		client.mob.overlay_fullscreen("borders", /obj/screen/fullscreen/fd/cinema_borders)
 
+		client.watching_scene = TRUE
+
 		client.adminobs = TRUE
 		client.mob.reset_view(M)
 
@@ -1712,6 +1721,9 @@
 			continue
 		if(client.holder)
 			continue
+
+		client.watching_scene = FALSE
+
 		client.mob.clear_fullscreen("borders")
 		client.adminobs = FALSE
 

@@ -174,13 +174,22 @@
 	if(istype(tool, /obj/item/fd/filter))
 		var/obj/item/fd/filter/F = tool
 		if(F.additional_air <= 0)
+			animation_flash_color(F, COLOR_RED)
 			to_chat(user, SPAN_WARNING("Наполнитель пуст!"))
+			return FALSE
+
+		if(filter_stored_air >= filter_max_air)
+			animation_flash_color(F, COLOR_RED)
+			to_chat(user, SPAN_WARNING("Маска уже заправлена!"))
 			return FALSE
 
 		if(do_after(user, 5 SECONDS, F, DO_PUBLIC_UNIQUE))
 			F.CutOverlays(image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', F.current_status))
 			CutOverlays(image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status))
 
+			animation_flash_color(src, COLOR_GREEN)
+
+			balloon_alert_to_viewers("|ПШШШ...|", null, COLOR_WHITE)
 			visible_message("[user] наполняет [src] используя [F].", "Ты наполнил фильтр [src].")
 			playsound(user, 'sound/effects/refill.ogg', 50)
 

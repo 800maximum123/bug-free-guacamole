@@ -133,6 +133,8 @@ var/global/list/debug_verbs = list (
 		,/client/proc/cmd_admin_rejuvenate
 		,/client/proc/cmd_admin_camera_unfocus
 		,/client/proc/cmd_admin_camera_focus
+		,/client/proc/cmd_admin_combat_personal_on
+		,/client/proc/cmd_admin_combat_personal_off
 		,/datum/admins/proc/show_traitor_panel
 		,/client/proc/print_jobban_old
 		,/client/proc/print_jobban_old_filter
