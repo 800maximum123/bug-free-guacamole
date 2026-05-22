@@ -502,32 +502,32 @@
 	descriptor = "Abandoned Bunker."
 	map = "TRK-17 Torch Bunker"
 	crew_jobs = list(
-		/datum/job/submap/bunker/amelia, // d
-		/datum/job/submap/bunker/perci, // d
-		/datum/job/submap/bunker/maxim, // d
-		/datum/job/submap/bunker/olivia, // d
-		/datum/job/submap/bunker/wilhelm, // d
-		/datum/job/submap/bunker/wind, // d
-		/datum/job/submap/bunker/joseph, // d
-		/datum/job/submap/bunker/looney, // d
-		/datum/job/submap/bunker/meat, // d
-		/datum/job/submap/bunker/lira, // d
-		/datum/job/submap/bunker/alma, // d
+		/datum/job/submap/bunker/amelia, // +
+		/datum/job/submap/bunker/perci, // -
+		/datum/job/submap/bunker/maxim, // -
+		/datum/job/submap/bunker/olivia, // +
+		/datum/job/submap/bunker/wilhelm, // +
+		/datum/job/submap/bunker/wind, // +
+		/datum/job/submap/bunker/joseph, // +
+		/datum/job/submap/bunker/looney, // +
+		/datum/job/submap/bunker/meat, // +
+		/datum/job/submap/bunker/lira, // +
+		/datum/job/submap/bunker/alma, // +
 		///MANTICORE GUESTS///
-		/datum/job/submap/fort_manticore/roku, // d
-		/datum/job/submap/fort_manticore/rifler, // d
-		/datum/job/submap/fort_manticore/ace, // d
-		/datum/job/submap/fort_manticore/krieger, // d
-		/datum/job/submap/fort_manticore/rain, // d
-		/datum/job/submap/fort_manticore/lukash, // d
-		/datum/job/submap/fort_manticore/victor, // d
-		/datum/job/submap/fort_manticore/kai, // d
-		/datum/job/submap/fort_manticore/cf355, // d
-		/datum/job/submap/fort_manticore/rk381, // d
-		/datum/job/submap/fort_manticore/pavel, // d
-		/datum/job/submap/fort_manticore/cubic, // d
-		/datum/job/submap/fort_manticore/luke, // d
-		/datum/job/submap/fort_manticore/adriano, // d
+		/datum/job/submap/fort_manticore/roku, // +
+		/datum/job/submap/fort_manticore/rifler, // +
+		/datum/job/submap/fort_manticore/ace, // +
+		/datum/job/submap/fort_manticore/krieger, // +
+		/datum/job/submap/fort_manticore/rain, // +
+		/datum/job/submap/fort_manticore/lukash, // -
+		/datum/job/submap/fort_manticore/victor, // +
+		/datum/job/submap/fort_manticore/kai, // +
+		/datum/job/submap/fort_manticore/cf355, // +
+		/datum/job/submap/fort_manticore/rk381, // +
+		/datum/job/submap/fort_manticore/pavel, // -
+		/datum/job/submap/fort_manticore/cubic, // +
+		/datum/job/submap/fort_manticore/luke, // +
+		/datum/job/submap/fort_manticore/adriano, // +
 	)
 
 /obj/submap_landmark/joinable_submap/bunker

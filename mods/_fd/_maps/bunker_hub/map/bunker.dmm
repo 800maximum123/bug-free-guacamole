@@ -209,13 +209,9 @@
 /turf/simulated/wall/r_wall,
 /area/bunker/rooms/room7)
 "aiA" = (
-/obj/structure/flora/jungle/bush,
-/obj/structure/fd/wild_crops/trk_saltygreen{
-	pixel_y = 25;
-	pixel_x = 10
-	},
+/obj/structure/flora/trk17_simple,
 /turf/simulated/floor/exoplanet/fd/grass{
-	color = "#526833"
+	color = "#6E8C44"
 	},
 /area/bunker/jungle)
 "aiM" = (
@@ -561,6 +557,17 @@
 /obj/floor_decal/borderfloorwhite,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab)
+"aCL" = (
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass{
+	dir = 8
+	},
+/obj/floor_decal/messygrass{
+	dir = 1
+	},
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/waste,
+/area/bunker/jungle)
 "aCQ" = (
 /obj/structure/flora/jungle/bush,
 /obj/floor_decal/messygrass{
@@ -915,6 +922,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/corridors/west)
+"aSm" = (
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass{
+	dir = 1
+	},
+/obj/floor_decal/messygrass{
+	dir = 6
+	},
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/bunker/jungle)
 "aSs" = (
 /obj/structure/grille/broken,
 /turf/simulated/floor/plating,
@@ -1099,19 +1117,7 @@
 /turf/simulated/floor/exoplanet/wet_stone,
 /area/bunker/interlude)
 "aWW" = (
-/obj/structure/flora/ausbushes/ppflowers,
-/obj/structure/fd/wild_crops/trk_sugarcrop{
-	pixel_y = 27;
-	pixel_x = 7
-	},
-/obj/structure/fd/wild_crops/trk_sugarcrop{
-	pixel_x = -10;
-	pixel_y = 4
-	},
-/obj/structure/fd/wild_crops/trk_sugarcrop{
-	pixel_y = -7;
-	pixel_x = -3
-	},
+/obj/structure/flora/trk17_regrowing/sugar,
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "aWY" = (
@@ -1395,23 +1401,12 @@
 	},
 /area/bunker/interlude)
 "bia" = (
-/obj/structure/flora/ausbushes/palebush,
-/obj/structure/fd/wild_crops/trk_corn{
-	pixel_x = -10;
-	pixel_y = 21
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/tall/fourth,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
 	},
-/obj/structure/fd/wild_crops/trk_corn{
-	pixel_x = 9
-	},
-/obj/structure/fd/wild_crops/trk_corn{
-	pixel_y = -20
-	},
-/obj/structure/fd/wild_crops/trk_corn{
-	pixel_y = -26;
-	pixel_x = 6
-	},
-/turf/simulated/floor/exoplanet/fd/grass,
-/area/bunker/jungle)
+/area/bunker/jungle/lz)
 "bii" = (
 /obj/structure/roller_bed,
 /obj/item/storage/firstaid/surgery{
@@ -1431,20 +1426,7 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
 "biG" = (
-/obj/structure/flora/jungle/bush{
-	color = "#bebebe"
-	},
-/obj/structure/fd/wild_crops/trk_saltygreen{
-	pixel_x = -13
-	},
-/obj/structure/fd/wild_crops/trk_saltygreen{
-	pixel_x = 17;
-	pixel_y = -15
-	},
-/obj/structure/fd/wild_crops/trk_saltygreen{
-	pixel_x = 13;
-	pixel_y = -21
-	},
+/obj/structure/flora/tall/fourth,
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#6E8C44"
 	},
@@ -1479,15 +1461,9 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/corridos)
 "bjP" = (
-/obj/floor_decal/messygrass,
-/obj/floor_decal/messygrass{
-	dir = 4
-	},
-/obj/structure/fd/wild_crops/trk_tastycactus{
-	pixel_y = -7;
-	pixel_x = 5
-	},
-/turf/simulated/floor/exoplanet/fd/desertsand,
+/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/flora/trk17_regrowing/ice_tricord,
+/turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "bjR" = (
 /obj/structure/cable/green{
@@ -1949,12 +1925,11 @@
 /turf/simulated/floor/lino,
 /area/bunker/command)
 "byC" = (
-/obj/structure/fd/wild_crops/trk_firecrop{
-	pixel_y = 10;
-	pixel_x = 16
-	},
-/turf/simulated/floor/exoplanet/fd/grass,
-/area/bunker/jungle/lz)
+/obj/structure/vines/light2,
+/obj/fd_water/alt_ver1,
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/waste,
+/area/bunker/jungle)
 "bzL" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/bed/sofa/l/black{
@@ -2053,6 +2028,12 @@
 /obj/floor_decal/corner/darkblue/mono,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
+"bDc" = (
+/obj/structure/flora/trk17_regrowing/cucumber,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
+	},
+/area/bunker/jungle)
 "bDi" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fake_lattice{
@@ -2271,6 +2252,17 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
+"bMw" = (
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass{
+	dir = 8
+	},
+/obj/floor_decal/messygrass{
+	dir = 1
+	},
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/bunker/jungle)
 "bMA" = (
 /turf/simulated/wall/r_wall/hull,
 /area/bunker/jungle)
@@ -2797,10 +2789,12 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/barracks)
 "ciL" = (
-/obj/structure/catwalk,
-/obj/submap_landmark/spawnpoint/perci,
+/obj/floor_decal/hull{
+	dir = 2
+	},
+/obj/submap_landmark/spawnpoint/manticore/lukash,
 /turf/simulated/floor/plating,
-/area/bunker/kpp)
+/area/bunker/lower/monorail)
 "cjh" = (
 /obj/floor_decal/hull,
 /obj/structure/fd/general_decorations/car{
@@ -2839,15 +2833,14 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/eng/workshop)
 "cjJ" = (
-/obj/floor_decal/techfloor{
-	dir = 4
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/obj/floor_decal/corner_techfloor_gray{
-	dir = 9
-	},
-/obj/submap_landmark/spawnpoint/wind,
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/bunker/eng/workshop)
+/obj/submap_landmark/spawnpoint/manticore/cf355,
+/turf/simulated/floor/tiled,
+/area/bunker/kitchen/bufet)
 "cjK" = (
 /obj/wallframe_spawn/reinforced/no_grille,
 /obj/paint/black,
@@ -2926,14 +2919,8 @@
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/gateway)
 "cmc" = (
-/obj/structure/flora/jungle/bush,
-/obj/structure/fd/wild_crops/trk_saltygreen{
-	pixel_x = -5;
-	pixel_y = -16
-	},
-/turf/simulated/floor/exoplanet/fd/grass{
-	color = "#6E8C44"
-	},
+/obj/structure/flora/tall/fourth,
+/turf/simulated/floor/exoplanet/fd/muddirt,
 /area/bunker/jungle)
 "cmn" = (
 /obj/decal/cleanable/dirt,
@@ -4074,19 +4061,9 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "cWQ" = (
-/obj/structure/fd/wild_crops/trk_corn{
-	pixel_y = 28;
-	pixel_x = 5
-	},
-/obj/structure/fd/wild_crops/trk_corn{
-	pixel_y = 18
-	},
-/obj/structure/fd/wild_crops/trk_corn{
-	pixel_x = -14;
-	pixel_y = 11
-	},
-/obj/structure/fd/wild_crops/trk_corn,
-/turf/simulated/floor/exoplanet/fd/grass,
+/obj/fd_water/alt_ver1,
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/waste,
 /area/bunker/jungle)
 "cXe" = (
 /obj/floor_decal/messygrass{
@@ -4166,18 +4143,8 @@
 	},
 /area/bunker/jungle)
 "ddx" = (
-/obj/structure/fd/cave_flora{
-	desc = "Just some grass, nothing more.";
-	icon_state = "tree_stump";
-	name = "flora";
-	icon = 'mods/_fd/fd_assets/icons/structures/jungletree.dmi';
-	pixel_x = -50;
-	pixel_y = -25
-	},
-/obj/structure/fd/wild_crops/trk_firecrop{
-	pixel_x = -14
-	},
-/turf/simulated/floor/exoplanet/fd/waste,
+/obj/structure/flora/trk17_regrowing/ice_tricord,
+/turf/simulated/floor/exoplanet/fd/muddirt,
 /area/bunker/jungle)
 "ddT" = (
 /obj/floor_decal/corner/blue/half{
@@ -4515,11 +4482,7 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/rooms/room10)
 "dmv" = (
-/obj/structure/flora/ausbushes/sunnybush,
-/obj/structure/fd/wild_crops/trk_corn{
-	pixel_x = 8;
-	pixel_y = -11
-	},
+/obj/structure/flora/trk17_regrowing/hot_dylov,
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "dmX" = (
@@ -5388,6 +5351,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bunker/lower/kpp1)
+"eeR" = (
+/obj/fd_water/alt_ver1,
+/obj/structure/flora/tall,
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/bunker/jungle)
 "efg" = (
 /obj/floor_decal/borderfloorwhite{
 	dir = 8
@@ -5445,14 +5414,21 @@
 	},
 /turf/simulated/floor/exoplanet/fd/waste,
 /area/bunker/jungle)
-"ehC" = (
-/obj/floor_decal/corner/paleblue/border,
-/obj/floor_decal/corner/paleblue/border{
-	dir = 1
+"ehx" = (
+/obj/structure/flora/trk17_regrowing/coffee,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#5F773B"
 	},
-/obj/submap_landmark/spawnpoint/lira,
+/area/bunker/jungle)
+"ehC" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/submap_landmark/spawnpoint/looney,
 /turf/simulated/floor/tiled,
-/area/bunker/lower/med/med_bay)
+/area/bunker/kitchen/bufet)
 "eib" = (
 /obj/structure/flora/ausbushes/reedbush,
 /obj/fd_water/alt_ver1,
@@ -5803,6 +5779,10 @@
 /obj/item/shellfish/mussel,
 /turf/simulated/floor/exoplanet/fd/desertsand,
 /area/bunker/jungle)
+"ezC" = (
+/obj/structure/flora/trk17_regrowing/cucumber,
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/bunker/jungle)
 "eAS" = (
 /obj/floor_decal/techfloor/orange,
 /obj/floor_decal/techfloor/orange{
@@ -5850,6 +5830,23 @@
 	},
 /obj/structure/vines,
 /turf/simulated/floor/exoplanet/fd/grass,
+/area/bunker/jungle)
+"eBM" = (
+/obj/floor_decal/asteroid,
+/obj/submap_landmark/spawnpoint/maxim,
+/turf/simulated/floor/plating,
+/area/bunker/lower/monorail)
+"eCg" = (
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass{
+	dir = 8
+	},
+/obj/floor_decal/messygrass,
+/obj/floor_decal/messygrass{
+	dir = 1
+	},
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "eCn" = (
 /obj/machinery/light_switch{
@@ -5972,9 +5969,9 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp2)
 "eIP" = (
-/obj/submap_landmark/spawnpoint/manticore/rain,
-/turf/simulated/floor/plating,
-/area/bunker/eng/workshop)
+/obj/submap_landmark/spawnpoint/manticore/kai,
+/turf/simulated/floor/exoplanet/fd/muddirt,
+/area/bunker/jungle)
 "eJg" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/flour,
@@ -6097,6 +6094,10 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
+"eQA" = (
+/obj/submap_landmark/spawnpoint/manticore/rain,
+/turf/simulated/floor/plating,
+/area/bunker/eng/workshop)
 "eQB" = (
 /obj/floor_decal/industrial/outline/grey,
 /obj/machinery/light{
@@ -6374,6 +6375,14 @@
 	icon_state = "gd_da"
 	},
 /area/bunker/interlude)
+"fbl" = (
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass{
+	dir = 8
+	},
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/bunker/jungle)
 "fbt" = (
 /turf/unsimulated/mineral,
 /area/bunker)
@@ -6477,11 +6486,6 @@
 /obj/structure/hygiene/toilet,
 /turf/simulated/floor/tiled/old_tile,
 /area/bunker/barracks/preporation_gvardiya)
-"fgZ" = (
-/obj/decal/cleanable/dirt,
-/obj/submap_landmark/spawnpoint/amelia,
-/turf/simulated/floor/exoplanet/fd/drought,
-/area/bunker/kpp)
 "fhu" = (
 /obj/structure/platform/kutjevo/rock{
 	dir = 1
@@ -6684,6 +6688,15 @@
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/office)
+"fqe" = (
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass{
+	dir = 8
+	},
+/obj/floor_decal/messygrass,
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/waste,
+/area/bunker/jungle)
 "frT" = (
 /obj/structure/bed/chair/office/brown{
 	dir = 2
@@ -7568,6 +7581,15 @@
 	icon_state = "gl"
 	},
 /area/bunker/interlude)
+"fUi" = (
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass{
+	dir = 8
+	},
+/obj/floor_decal/messygrass,
+/obj/structure/flora/tall/third,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/bunker/jungle)
 "fWt" = (
 /obj/structure/table/rack,
 /obj/decal/cleanable/dirt,
@@ -7597,17 +7619,8 @@
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/gateway)
 "fXu" = (
-/obj/structure/fd/wild_crops/trk_sugarcrop{
-	pixel_x = -19
-	},
-/obj/structure/fd/cave_flora{
-	desc = "Just some grass, nothing more.";
-	icon_state = "tree_stump";
-	name = "flora";
-	icon = 'mods/_fd/fd_assets/icons/structures/jungletree.dmi';
-	pixel_x = -50;
-	pixel_y = -25
-	},
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/tall/fourth,
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "fXF" = (
@@ -8169,12 +8182,10 @@
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/bslab)
 "gwu" = (
-/obj/structure/fd/wild_crops/trk_saltygreen,
-/obj/structure/fd/wild_crops/trk_saltygreen{
-	pixel_x = 7;
-	pixel_y = -28
+/obj/structure/flora/trk17_regrowing/ice_tricord,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
 	},
-/turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "gwV" = (
 /obj/structure/flora/seaweed{
@@ -8202,10 +8213,14 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "gxA" = (
-/obj/floor_decal/asteroid,
-/obj/submap_landmark/spawnpoint/maxim,
-/turf/simulated/floor/plating,
-/area/bunker/lower/monorail)
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/submap_landmark/spawnpoint/manticore/adriano,
+/turf/simulated/floor/tiled/dark,
+/area/bunker/corridors/center)
 "gxP" = (
 /obj/structure/table/rack,
 /obj/floor_decal/borderfloorblack/corner,
@@ -9163,12 +9178,13 @@
 /turf/simulated/floor/wood/ebony,
 /area/bunker/barracks)
 "hdM" = (
-/obj/structure/flora/tropic/small_tree/orange,
-/obj/structure/fd/wild_crops/trk_tastycactus{
-	pixel_x = 14;
-	pixel_y = -10
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass,
+/obj/floor_decal/messygrass{
+	dir = 8
 	},
-/turf/simulated/floor/exoplanet/fd/desertsand,
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "hdN" = (
 /obj/structure/flora/seaweed/glow{
@@ -9329,6 +9345,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bunker/corridors/west)
+"hgN" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/trk17_regrowing/hot_dylov,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
+	},
+/area/bunker/jungle)
 "hgT" = (
 /obj/structure/closet,
 /obj/floor_decal/borderfloorblack,
@@ -9420,6 +9443,14 @@
 	icon_state = "gl"
 	},
 /area/bunker/interlude)
+"hmJ" = (
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass{
+	dir = 9
+	},
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/waste,
+/area/bunker/jungle)
 "hny" = (
 /obj/structure/table/rack,
 /obj/item/stack/material/plasteel/ten,
@@ -9661,6 +9692,7 @@
 /obj/structure/fd/cave_flora{
 	icon_state = "swampgrass"
 	},
+/obj/structure/flora/tall,
 /turf/simulated/floor/exoplanet/fd/waste,
 /area/bunker/jungle)
 "hvN" = (
@@ -10374,6 +10406,12 @@
 	icon_state = "gl"
 	},
 /area/bunker/interlude)
+"hYO" = (
+/obj/structure/vines/light3,
+/obj/fd_water/alt_ver1,
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/waste,
+/area/bunker/jungle)
 "hYP" = (
 /obj/structure/platform/kutjevo/rock{
 	dir = 1
@@ -10439,8 +10477,15 @@
 /turf/simulated/wall/r_wall,
 /area/bunker/lower/lab/gateway)
 "ibx" = (
-/obj/structure/fd/wild_crops/trk_corn,
-/turf/simulated/floor/exoplanet/fd/grass,
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass{
+	dir = 4
+	},
+/obj/floor_decal/messygrass{
+	dir = 1
+	},
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "ibC" = (
 /obj/structure/railing/mapped{
@@ -10614,6 +10659,7 @@
 /obj/floor_decal/messygrass{
 	dir = 1
 	},
+/obj/structure/flora/tall,
 /turf/simulated/floor/exoplanet/fd/waste,
 /area/bunker/jungle)
 "ikT" = (
@@ -10641,13 +10687,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/bunker/rooms/room7)
 "ilo" = (
-/obj/structure/flora/tree/beet_decorative,
-/obj/structure/fd/wild_crops/trk_coffecrop{
-	pixel_y = 19;
-	pixel_x = -20
-	},
-/turf/simulated/floor/exoplanet/fd/grass{
-	color = "#526833"
+/obj/structure/flora/jungle/bush,
+/turf/unsimulated/wall{
+	color = "black"
 	},
 /area/bunker/jungle)
 "ilC" = (
@@ -10769,6 +10811,17 @@
 /turf/simulated/floor/exoplanet/fd/whitesand{
 	color = "#868686"
 	},
+/area/bunker/jungle)
+"iqJ" = (
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass{
+	dir = 1
+	},
+/obj/floor_decal/messygrass{
+	dir = 8
+	},
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "iqR" = (
 /obj/decal/cleanable/blood/oil/streak,
@@ -10969,6 +11022,11 @@
 	icon_state = "gd"
 	},
 /area/bunker/interlude)
+"ixR" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/trk17_regrowing/sugar,
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/bunker/jungle)
 "iye" = (
 /obj/catwalk_plated/dark,
 /obj/decal/cleanable/dirt,
@@ -11227,8 +11285,11 @@
 /turf/simulated/floor/exoplanet/fd/muddirt,
 /area/bunker/jungle)
 "iLI" = (
-/obj/structure/fd/wild_crops/trk_coffecrop,
-/turf/simulated/floor/exoplanet/fd/grass,
+/obj/structure/vines,
+/obj/structure/flora/tall/fourth,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
+	},
 /area/bunker/jungle)
 "iLT" = (
 /obj/fd_water/alt_ver1,
@@ -11664,11 +11725,12 @@
 /turf/simulated/floor/tiled/steel_ridged,
 /area/bunker/lower/monorail)
 "jaL" = (
-/obj/structure/fd/wild_crops/trk_tastycactus{
-	pixel_y = -6;
-	pixel_x = -22
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass{
+	dir = 4
 	},
-/turf/simulated/floor/exoplanet/fd/grass,
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "jaP" = (
 /obj/structure/flora/ausbushes/grassybush,
@@ -12495,6 +12557,12 @@
 	color = "#272727"
 	},
 /area/bunker/jungle)
+"jKT" = (
+/obj/structure/flora/trk17_regrowing/cucumber,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#526833"
+	},
+/area/bunker/jungle)
 "jLr" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -12555,12 +12623,13 @@
 	},
 /area/bunker/jungle)
 "jNV" = (
-/obj/fd_water,
-/obj/effect/cutscene_camera/opening_cameras,
-/turf/simulated/floor/exoplanet/fd/whitesand{
-	color = "#868686"
+/obj/floor_decal/corner/paleblue/border,
+/obj/floor_decal/corner/paleblue/border{
+	dir = 1
 	},
-/area/bunker/jungle)
+/obj/submap_landmark/spawnpoint/lira,
+/turf/simulated/floor/tiled,
+/area/bunker/lower/med/med_bay)
 "jOf" = (
 /obj/floor_decal/techfloor{
 	dir = 6
@@ -12604,11 +12673,9 @@
 	},
 /area/bunker/interlude)
 "jOY" = (
-/obj/structure/fd/wild_crops/trk_tastycactus{
-	pixel_y = 7;
-	pixel_x = -4
-	},
-/turf/simulated/floor/exoplanet/fd/grass,
+/obj/fd_water/alt_ver1,
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "jPk" = (
 /obj/structure/platform/kutjevo/rock{
@@ -12633,10 +12700,10 @@
 /turf/simulated/floor/plating,
 /area/bunker/lower/kpp2)
 "jPJ" = (
-/obj/fd_water/alt_ver1,
-/obj/submap_landmark/spawnpoint/manticore/kai,
-/turf/simulated/floor/exoplanet/fd/drought,
-/area/bunker/jungle)
+/obj/structure/catwalk,
+/obj/submap_landmark/spawnpoint/perci,
+/turf/simulated/floor/plating,
+/area/bunker/kpp)
 "jPN" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -12666,11 +12733,7 @@
 	},
 /area/bunker/jungle)
 "jQs" = (
-/obj/structure/flora/jungle/bush,
-/obj/structure/fd/wild_crops/trk_saltygreen{
-	pixel_x = -15;
-	pixel_y = -8
-	},
+/obj/structure/flora/trk17_regrowing/ice_tricord,
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#5F773B"
 	},
@@ -12928,6 +12991,7 @@
 /obj/floor_decal/messygrass{
 	dir = 10
 	},
+/obj/structure/flora/tall,
 /turf/simulated/floor/exoplanet/fd/waste,
 /area/bunker/jungle)
 "kev" = (
@@ -12940,15 +13004,6 @@
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/virology)
-"keT" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/submap_landmark/spawnpoint/manticore/adriano,
-/turf/simulated/floor/tiled/dark,
-/area/bunker/corridors/center)
 "kfe" = (
 /obj/floor_decal/hull{
 	dir = 4
@@ -13049,16 +13104,13 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/med/mortuary)
 "klA" = (
-/obj/structure/fd/wild_crops/trk_corn{
-	pixel_x = -15;
-	pixel_y = 11
+/obj/structure/flora/jungle/bush{
+	color = "#bebebe"
 	},
-/obj/structure/fd/wild_crops/trk_corn{
-	pixel_y = 7;
-	pixel_x = 7
+/obj/structure/flora/trk17_regrowing/cucumber,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#5F773B"
 	},
-/obj/structure/fd/wild_crops/trk_corn,
-/turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "kmF" = (
 /obj/decal/cleanable/ash,
@@ -13121,6 +13173,12 @@
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/tiled/white,
 /area/bunker/lower/lab/gateway)
+"kqk" = (
+/obj/structure/flora/trk17_simple/alt,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#5F773B"
+	},
+/area/bunker/jungle)
 "kqm" = (
 /obj/structure/platform/kutjevo/rock,
 /obj/structure/fd/chasm{
@@ -13462,6 +13520,10 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
+"kDB" = (
+/obj/structure/flora/trk17_simple/alt,
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/bunker/jungle)
 "kDR" = (
 /obj/floor_decal/industrial/warning{
 	dir = 4;
@@ -13681,6 +13743,12 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/bunker/rooms/room8)
+"kQg" = (
+/obj/structure/vines/heavy1,
+/obj/fd_water/alt_ver1,
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/waste,
+/area/bunker/jungle)
 "kQE" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -14668,6 +14736,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/corridors/center)
+"lBq" = (
+/obj/structure/flora/trk17_simple,
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/bunker/jungle)
 "lBD" = (
 /obj/floor_decal/borderfloorblack{
 	dir = 1
@@ -14894,6 +14966,12 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
+"lKE" = (
+/obj/structure/flora/trk17_regrowing/sugar,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#5F773B"
+	},
+/area/bunker/jungle)
 "lLe" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -15391,14 +15469,6 @@
 /area/bunker/interlude)
 "mkt" = (
 /obj/structure/vines/light3,
-/obj/structure/fd/wild_crops/trk_coldcrop{
-	pixel_x = 14;
-	pixel_y = 4
-	},
-/obj/structure/fd/wild_crops/trk_coldcrop{
-	pixel_x = -1;
-	pixel_y = -4
-	},
 /obj/landmark/light{
 	light_range = 2;
 	layer = 4.10;
@@ -16015,6 +16085,11 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/eng/workshop)
+"mLT" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/flora/tall/fourth,
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/bunker/jungle)
 "mLU" = (
 /obj/floor_decal/techfloor/orange{
 	dir = 5
@@ -16034,6 +16109,13 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/bunker/rooms/room9)
+"mOI" = (
+/obj/structure/vines/light3,
+/obj/structure/flora/tall/fourth,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
+	},
+/area/bunker/jungle)
 "mOO" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -16138,14 +16220,9 @@
 /turf/simulated/wall/r_wall,
 /area/bunker/eng)
 "mQR" = (
-/obj/structure/flora/tree/beet_decorative,
-/obj/structure/fd/wild_crops/trk_firecrop{
-	pixel_y = 13;
-	pixel_x = -9
-	},
-/turf/simulated/floor/exoplanet/fd/grass{
-	color = "#5F773B"
-	},
+/obj/structure/flora/tall/fourth,
+/obj/structure/flora/tall/fourth,
+/turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "mRJ" = (
 /obj/structure/flora/ausbushes/reedbush,
@@ -16254,6 +16331,12 @@
 	},
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/bunker/interlude)
+"mVF" = (
+/obj/structure/flora/trk17_regrowing/sugar,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
+	},
+/area/bunker/jungle)
 "mWi" = (
 /obj/floor_decal/borderfloorwhite{
 	dir = 8
@@ -16950,13 +17033,9 @@
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "nwX" = (
-/obj/structure/flora/jungle/bush,
-/obj/structure/fd/wild_crops/trk_saltygreen{
-	pixel_x = 14;
-	pixel_y = -12
-	},
+/obj/structure/flora/trk17_regrowing/cucumber,
 /turf/simulated/floor/exoplanet/fd/grass{
-	color = "#6E8C44"
+	color = "#5F773B"
 	},
 /area/bunker/jungle)
 "nxB" = (
@@ -16994,21 +17073,10 @@
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
 "nzQ" = (
-/obj/structure/fd/cave_flora{
-	desc = "Just some grass, nothing more.";
-	icon_state = "tree_stump";
-	name = "flora";
-	icon = 'mods/_fd/fd_assets/icons/structures/jungletreesmall.dmi';
-	pixel_x = -32
+/obj/structure/flora/tall/third,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
 	},
-/obj/structure/fd/wild_crops/trk_firecrop{
-	pixel_x = 13
-	},
-/obj/structure/fd/wild_crops/trk_firecrop{
-	pixel_x = 22;
-	pixel_y = -12
-	},
-/turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "nAH" = (
 /obj/decal/cleanable/dirt,
@@ -17147,11 +17215,12 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/lower/eng)
 "nDX" = (
-/obj/structure/fd/wild_crops/trk_corn{
-	pixel_x = -18;
-	pixel_y = -20
+/obj/structure/flora/jungle/bush{
+	color = "#bebebe"
 	},
-/turf/simulated/floor/exoplanet/fd/grass,
+/turf/unsimulated/wall{
+	color = "black"
+	},
 /area/bunker/jungle)
 "nEn" = (
 /obj/structure/platform/kutjevo/rock,
@@ -17724,6 +17793,12 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med)
+"ocH" = (
+/obj/structure/flora/trk17_simple,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#5F773B"
+	},
+/area/bunker/jungle)
 "odE" = (
 /obj/machinery/light/golden{
 	dir = 1
@@ -17748,9 +17823,6 @@
 "odX" = (
 /obj/decal/cleanable/dirt,
 /obj/overlay/diona/decorator,
-/obj/structure/fd/wild_crops/trk_coldcrop{
-	pixel_y = -5
-	},
 /obj/landmark/light{
 	light_range = 2;
 	layer = 4.10;
@@ -18126,14 +18198,13 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "ord" = (
-/obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
+/obj/floor_decal/corner/paleblue/border,
+/obj/floor_decal/corner/paleblue/border{
 	dir = 1
 	},
-/obj/submap_landmark/spawnpoint/manticore/krieger,
-/turf/simulated/floor/exoplanet/grim_metal,
-/area/bunker/barracks)
+/obj/structure/iv_stand,
+/turf/simulated/floor/tiled,
+/area/bunker/lower/med/med_bay)
 "orj" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -18195,12 +18266,10 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp1)
 "ouE" = (
-/obj/floor_decal/messygrass,
-/obj/structure/fd/wild_crops/trk_tastycactus{
-	pixel_y = -6;
-	pixel_x = 16
+/obj/structure/flora/trk17_simple/alt,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
 	},
-/turf/simulated/floor/exoplanet/fd/desertsand,
 /area/bunker/jungle)
 "ovv" = (
 /obj/floor_decal/corner/pink/mono,
@@ -18364,14 +18433,10 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
 "oCH" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/submap_landmark/spawnpoint/looney,
-/turf/simulated/floor/tiled,
-/area/bunker/kitchen/bufet)
+/obj/decal/cleanable/dirt,
+/obj/submap_landmark/spawnpoint/amelia,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/bunker/kpp)
 "oCO" = (
 /obj/floor_decal/techfloor/orange,
 /obj/structure/barricade,
@@ -18550,15 +18615,13 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
 "oIo" = (
-/obj/structure/fd/wild_crops/trk_saltygreen{
-	pixel_x = 3;
-	pixel_y = -1
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass,
+/obj/floor_decal/messygrass{
+	dir = 4
 	},
-/obj/structure/fd/wild_crops/trk_saltygreen{
-	pixel_x = -8;
-	pixel_y = -7
-	},
-/turf/simulated/floor/exoplanet/fd/grass,
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "oIx" = (
 /obj/floor_decal/borderfloorblack/full,
@@ -18800,9 +18863,6 @@
 	dir = 8
 	},
 /obj/structure/vines/heavy5,
-/obj/structure/fd/wild_crops/trk_coldcrop{
-	pixel_y = 8
-	},
 /obj/landmark/light{
 	light_range = 2;
 	layer = 4.10;
@@ -18812,10 +18872,6 @@
 /area/bunker)
 "oQK" = (
 /obj/floor_decal/messygrass,
-/obj/structure/fd/wild_crops/trk_tastycactus{
-	pixel_y = 7;
-	pixel_x = -5
-	},
 /obj/structure/flora/tropic/rock,
 /turf/simulated/floor/exoplanet/fd/desertsand,
 /area/bunker/jungle)
@@ -18843,6 +18899,7 @@
 /obj/floor_decal/messygrass{
 	dir = 6
 	},
+/obj/structure/flora/tall,
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "oSx" = (
@@ -19032,6 +19089,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/corridos)
+"pbU" = (
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass{
+	dir = 1
+	},
+/obj/floor_decal/messygrass{
+	dir = 4
+	},
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/bunker/jungle)
 "pbV" = (
 /obj/structure/vines/light2,
 /turf/simulated/floor/exoplanet/fd/grass,
@@ -19343,6 +19411,7 @@
 /obj/floor_decal/messygrass{
 	dir = 8
 	},
+/obj/structure/flora/tall,
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "ppS" = (
@@ -19446,6 +19515,7 @@
 /obj/structure/bed/sofa/l/black{
 	dir = 8
 	},
+/obj/submap_landmark/spawnpoint/manticore/krieger,
 /turf/simulated/floor/tiled,
 /area/bunker/kitchen/bufet)
 "pts" = (
@@ -19482,6 +19552,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/rooms/room14)
+"pvD" = (
+/obj/structure/flora/trk17_regrowing/sugar,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#526833"
+	},
+/area/bunker/jungle)
 "pvQ" = (
 /obj/structure/platform/kutjevo/rock{
 	dir = 4
@@ -19609,13 +19685,12 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/lower/eng)
 "pBS" = (
-/obj/floor_decal/corner/paleblue/border,
-/obj/floor_decal/corner/paleblue/border{
+/obj/floor_decal/corner/grey/border{
 	dir = 1
 	},
-/obj/structure/iv_stand,
-/turf/simulated/floor/tiled,
-/area/bunker/lower/med/med_bay)
+/obj/submap_landmark/spawnpoint/meat,
+/turf/simulated/floor/tiled/white,
+/area/bunker/kitchen)
 "pCd" = (
 /obj/floor_decal/corner_steel_grid,
 /obj/floor_decal/borderfloorwhite{
@@ -19743,14 +19818,10 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/lower/monorail)
 "pHi" = (
-/obj/floor_decal/messygrass{
-	dir = 6
+/obj/structure/flora/trk17_regrowing/hot_dylov,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#526833"
 	},
-/obj/structure/fd/wild_crops/trk_tastycactus{
-	pixel_y = 7;
-	pixel_x = -10
-	},
-/turf/simulated/floor/exoplanet/fd/desertsand,
 /area/bunker/jungle)
 "pHR" = (
 /obj/machinery/door/airlock/multi_tile/freezer,
@@ -20082,14 +20153,8 @@
 /turf/simulated/floor/tiled,
 /area/bunker/lower/med/cryo)
 "pTV" = (
-/obj/structure/fd/wild_crops/trk_saltygreen{
-	pixel_x = -15;
-	pixel_y = -4
-	},
-/obj/structure/flora/tropic/rock,
-/turf/simulated/floor/exoplanet/fd/grass{
-	color = "#5F773B"
-	},
+/obj/structure/flora/tall/fourth,
+/turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "pTW" = (
 /obj/structure/flora/seaweed{
@@ -20490,6 +20555,12 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/corridos)
+"qlx" = (
+/obj/structure/flora/tall/third,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#5F773B"
+	},
+/area/bunker/jungle)
 "qmf" = (
 /obj/structure/flora/seaweed{
 	layer = 2.21;
@@ -20852,6 +20923,15 @@
 	color = "#6E8C44"
 	},
 /area/bunker/jungle/lz)
+"qxk" = (
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass,
+/obj/floor_decal/messygrass{
+	dir = 4
+	},
+/obj/structure/flora/trk17_regrowing/cucumber,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/bunker/jungle)
 "qxJ" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -20939,10 +21019,13 @@
 /turf/simulated/floor/plating,
 /area/bunker/rooms/room4)
 "qzC" = (
-/obj/structure/fd/wild_crops/trk_coffecrop,
-/turf/simulated/floor/exoplanet/fd/grass{
-	color = "#526833"
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass{
+	dir = 8
 	},
+/obj/floor_decal/messygrass,
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "qzX" = (
 /obj/machinery/light{
@@ -21734,7 +21817,6 @@
 	pixel_x = -5;
 	pixel_y = -28
 	},
-/obj/effect/cutscene_camera/opening_cameras,
 /turf/simulated/floor/exoplanet/grim_wood_good2,
 /area/bunker/barracks)
 "reh" = (
@@ -22096,16 +22178,13 @@
 /turf/simulated/floor/plating,
 /area/bunker/rooms/room11)
 "rsU" = (
-/obj/floor_decal/corner/black/mono,
-/obj/floor_decal/borderfloor{
-	dir = 1
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass{
+	dir = 4
 	},
-/obj/floor_decal/corner/black/border{
-	dir = 1
-	},
-/obj/submap_landmark/spawnpoint/wilhelm,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/corridors/center)
+/mob/living/simple_animal/passive/trk17/friendly_dino,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/bunker/jungle)
 "rta" = (
 /obj/floor_decal/borderfloorwhite{
 	dir = 1
@@ -22142,7 +22221,6 @@
 /obj/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/submap_landmark/spawnpoint/manticore/cf355,
 /turf/simulated/floor/exoplanet/grim_wood_log,
 /area/bunker/barracks)
 "rud" = (
@@ -22682,6 +22760,7 @@
 /obj/floor_decal/messygrass{
 	dir = 4
 	},
+/obj/structure/flora/tall,
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "rNg" = (
@@ -23260,6 +23339,14 @@
 	icon_state = "co_br"
 	},
 /area/bunker/interlude)
+"slg" = (
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass{
+	dir = 9
+	},
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/bunker/jungle)
 "slr" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/bs_vines,
@@ -23779,13 +23866,21 @@
 /obj/structure/vines/light2,
 /turf/simulated/wall,
 /area/bunker/jungle/lz)
+"sEQ" = (
+/obj/structure/flora/trk17_regrowing/hot_dylov,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
+	},
+/area/bunker/jungle)
 "sFr" = (
-/obj/floor_decal/corner/grey/border{
+/obj/machinery/light{
+	color = "#a1d2d6";
+	light_color = "#a1d2d6";
 	dir = 1
 	},
-/obj/submap_landmark/spawnpoint/meat,
-/turf/simulated/floor/tiled/white,
-/area/bunker/kitchen)
+/obj/submap_landmark/spawnpoint/manticore/krieger,
+/turf/simulated/floor/exoplanet/grim_metal,
+/area/bunker/barracks)
 "sFs" = (
 /obj/catwalk_plated/dark,
 /obj/structure/cable/green{
@@ -24618,13 +24713,10 @@
 /turf/simulated/floor/plating,
 /area/bunker/corridors/south)
 "tjv" = (
-/obj/structure/flora/ausbushes/brflowers,
-/obj/structure/fd/wild_crops/trk_sugarcrop{
-	pixel_y = 12;
-	pixel_x = 4
+/obj/structure/flora/tall/fourth,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#5F773B"
 	},
-/obj/structure/fd/wild_crops/trk_sugarcrop,
-/turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "tjZ" = (
 /obj/floor_decal/borderfloorblack{
@@ -24893,11 +24985,7 @@
 	},
 /area/bunker/jungle)
 "trT" = (
-/obj/structure/flora/ausbushes/brflowers,
-/obj/structure/fd/wild_crops/trk_sugarcrop{
-	pixel_x = 8;
-	pixel_y = 6
-	},
+/obj/structure/flora/trk17_regrowing/ice_tricord,
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "tsa" = (
@@ -25084,6 +25172,16 @@
 /obj/paint/iccgn,
 /turf/simulated/wall/r_wall,
 /area/bunker/barracks)
+"tyd" = (
+/obj/floor_decal/techfloor{
+	dir = 4
+	},
+/obj/floor_decal/corner_techfloor_gray{
+	dir = 9
+	},
+/obj/submap_landmark/spawnpoint/wind,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/bunker/eng/workshop)
 "tye" = (
 /obj/fd_water/alt_ver1,
 /obj/floor_decal/messygrass{
@@ -25098,15 +25196,9 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "tyv" = (
-/obj/structure/flora/jungle/bush{
-	color = "#bebebe"
-	},
-/obj/structure/fd/wild_crops/trk_saltygreen{
-	pixel_x = -16;
-	pixel_y = 17
-	},
+/obj/structure/flora/trk17_simple,
 /turf/simulated/floor/exoplanet/fd/grass{
-	color = "#5F773B"
+	color = "#526833"
 	},
 /area/bunker/jungle)
 "tyB" = (
@@ -25384,6 +25476,14 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
+"tHX" = (
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass{
+	dir = 5
+	},
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/bunker/jungle)
 "tID" = (
 /obj/floor_decal/borderfloor{
 	dir = 8
@@ -26069,9 +26169,9 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/corridos)
 "udj" = (
-/obj/structure/fd/wild_crops/trk_coffecrop,
+/obj/structure/flora/trk17_regrowing/coffee,
 /turf/simulated/floor/exoplanet/fd/grass{
-	color = "#6E8C44"
+	color = "#526833"
 	},
 /area/bunker/jungle)
 "udA" = (
@@ -26231,12 +26331,9 @@
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/office)
 "ukP" = (
-/obj/floor_decal/hull{
-	dir = 2
-	},
-/obj/submap_landmark/spawnpoint/manticore/lukash,
-/turf/simulated/floor/plating,
-/area/bunker/lower/monorail)
+/obj/submap_landmark/spawnpoint/manticore/victor,
+/turf/simulated/floor/exoplanet/fd/muddirt,
+/area/bunker/jungle)
 "ulL" = (
 /obj/structure/table/rack,
 /obj/item/tank/air,
@@ -26592,13 +26689,10 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/barracks)
 "uzN" = (
-/obj/structure/fd/wild_crops/trk_coffecrop{
-	pixel_x = 20;
-	pixel_y = 14
-	},
-/turf/simulated/floor/exoplanet/fd/grass{
-	color = "#526833"
-	},
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass,
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "uAB" = (
 /obj/structure/cable/green{
@@ -26775,6 +26869,12 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/warehouse)
+"uFo" = (
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass,
+/obj/structure/flora/tall/third,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/bunker/jungle)
 "uFp" = (
 /obj/paint/black,
 /turf/simulated/wall/r_wall,
@@ -26798,6 +26898,12 @@
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
+"uGa" = (
+/obj/structure/flora/trk17_regrowing/ice_tricord,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#526833"
+	},
+/area/bunker/jungle)
 "uGT" = (
 /obj/structure/table/rack,
 /obj/random/tech_supply,
@@ -27286,6 +27392,11 @@
 	},
 /turf/simulated/floor/bluespace/more_stable,
 /area/bunker/interlude)
+"uZf" = (
+/obj/fd_water/alt_ver1,
+/obj/structure/flora/tall/third,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/bunker/jungle)
 "uZj" = (
 /obj/structure/flora/seaweed{
 	layer = 2.21;
@@ -27725,11 +27836,12 @@
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
 "vua" = (
-/obj/floor_decal/messygrass,
-/obj/structure/fd/wild_crops/trk_tastycactus{
-	pixel_y = -8
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass{
+	dir = 1
 	},
-/turf/simulated/floor/exoplanet/fd/desertsand,
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "vuR" = (
 /obj/paint/dark_gunmetal,
@@ -27845,6 +27957,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
+"vyw" = (
+/obj/structure/flora/trk17_regrowing/hot_dylov,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#5F773B"
+	},
+/area/bunker/jungle)
 "vyN" = (
 /obj/floor_decal/corner/grey/border,
 /turf/simulated/floor/tiled/white,
@@ -28001,9 +28119,16 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/lower/eng)
 "vGV" = (
-/obj/submap_landmark/spawnpoint/manticore/luke,
-/turf/simulated/floor/exoplanet/fd/muddirt,
-/area/bunker/jungle)
+/obj/floor_decal/corner/black/mono,
+/obj/floor_decal/borderfloor{
+	dir = 1
+	},
+/obj/floor_decal/corner/black/border{
+	dir = 1
+	},
+/obj/submap_landmark/spawnpoint/wilhelm,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/corridors/center)
 "vHm" = (
 /obj/floor_decal/corner/paleblue/half{
 	dir = 8
@@ -28089,6 +28214,12 @@
 /obj/item/soap/fire_soap,
 /turf/simulated/floor/tiled/old_cargo,
 /area/bunker/barracks/preporation_gvardiya)
+"vLt" = (
+/obj/structure/flora/trk17_regrowing/coffee,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
+	},
+/area/bunker/jungle)
 "vMd" = (
 /obj/floor_decal/asteroid,
 /turf/simulated/floor/exoplanet/fd/desertsand{
@@ -28977,11 +29108,9 @@
 /turf/simulated/floor/plating,
 /area/bunker/jungle/lz)
 "woV" = (
-/obj/structure/fd/wild_crops/trk_firecrop{
-	pixel_x = -10
-	},
+/obj/structure/flora/trk17_regrowing/coffee,
 /turf/simulated/floor/exoplanet/fd/grass,
-/area/bunker/jungle/lz)
+/area/bunker/jungle)
 "wpb" = (
 /obj/floor_decal/corner/paleblue/mono,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -29382,6 +29511,12 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
+"wDz" = (
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
+	},
+/area/bunker/jungle)
 "wDM" = (
 /obj/structure/cable{
 	d2 = 4;
@@ -29750,6 +29885,18 @@
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/rooms/room10)
+"wRv" = (
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass{
+	dir = 4
+	},
+/obj/floor_decal/messygrass{
+	dir = 1
+	},
+/obj/structure/flora/tall,
+/obj/structure/flora/trk17_regrowing/cucumber,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/bunker/jungle)
 "wRQ" = (
 /obj/floor_decal/industrial/warning{
 	dir = 4;
@@ -29906,12 +30053,11 @@
 	},
 /area/bunker/jungle)
 "wYU" = (
-/obj/floor_decal/messygrass,
-/obj/structure/fd/wild_crops/trk_tastycactus{
-	pixel_y = 11;
-	pixel_x = 13
+/obj/structure/vines/light2,
+/obj/structure/flora/tall/fourth,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
 	},
-/turf/simulated/floor/exoplanet/fd/desertsand,
 /area/bunker/jungle)
 "wYY" = (
 /obj/wallframe_spawn/reinforced/no_grille,
@@ -30267,8 +30413,10 @@
 /turf/simulated/floor/plating,
 /area/bunker/rooms/room8)
 "xmc" = (
-/obj/submap_landmark/spawnpoint/manticore/victor,
-/turf/simulated/floor/exoplanet/fd/muddirt,
+/obj/submap_landmark/spawnpoint/manticore/luke,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#5F773B"
+	},
 /area/bunker/jungle)
 "xme" = (
 /turf/simulated/floor/tiled,
@@ -30862,9 +31010,12 @@
 /turf/simulated/wall/r_wall,
 /area/bunker/corridors/east)
 "xSs" = (
-/obj/structure/flora/ausbushes/brflowers,
-/obj/structure/fd/wild_crops/trk_sugarcrop,
-/turf/simulated/floor/exoplanet/fd/grass,
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass{
+	dir = 10
+	},
+/obj/structure/flora/tall,
+/turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "xSL" = (
 /obj/overlay/diona/floor,
@@ -64734,7 +64885,7 @@ oNj
 peb
 yjd
 arg
-ukP
+ciL
 nue
 arg
 gXw
@@ -65541,7 +65692,7 @@ gXw
 bIv
 bQM
 nue
-gxA
+eBM
 uMH
 nue
 gXw
@@ -66292,7 +66443,7 @@ itA
 uiE
 rGT
 fId
-pBS
+ord
 cjK
 aAC
 vru
@@ -66898,7 +67049,7 @@ itA
 uiE
 rGT
 edm
-ehC
+jNV
 xae
 aAC
 hTf
@@ -71952,9 +72103,16 @@ xOT
 xOT
 xOT
 xOT
+ilo
 xOT
+ilo
 xOT
+nDX
+nDX
+ilo
+ilo
 xOT
+ilo
 xOT
 xOT
 xOT
@@ -72002,7 +72160,10 @@ xOT
 xOT
 xOT
 xOT
+nDX
+nDX
 xOT
+ilo
 xOT
 xOT
 xOT
@@ -72011,22 +72172,12 @@ xOT
 xOT
 xOT
 xOT
+ilo
+nDX
 xOT
 xOT
 xOT
-xOT
-xOT
-xOT
-xOT
-xOT
-xOT
-xOT
-xOT
-xOT
-xOT
-xOT
-xOT
-xOT
+ilo
 xOT
 xOT
 xOT
@@ -72105,7 +72256,7 @@ vVJ
 vVJ
 vVJ
 vVJ
-vua
+vqJ
 hkC
 hkC
 hkC
@@ -72159,7 +72310,7 @@ hiO
 hiO
 hiO
 hiO
-hiO
+inw
 hiO
 hiO
 inw
@@ -72169,12 +72320,12 @@ hTR
 xJB
 xJB
 xJB
-yiD
-gLa
-gLa
-vBB
-kdV
-kdV
+pbU
+jaL
+jaL
+tHX
+jOY
+jOY
 kdV
 kdV
 kdV
@@ -72204,7 +72355,7 @@ gdS
 gdS
 hkC
 sUN
-kdV
+jOY
 kdV
 kdV
 kdV
@@ -72234,10 +72385,10 @@ xJB
 hoj
 kdV
 kdV
+jOY
 kdV
 kdV
-kdV
-kdV
+jOY
 kdV
 kdV
 kdV
@@ -72331,7 +72482,7 @@ xJB
 xxw
 xJB
 xJB
-nwX
+lga
 jNx
 jNx
 jNx
@@ -72358,7 +72509,7 @@ mAl
 mAl
 mAl
 hiO
-hiO
+inw
 hiO
 hiO
 inw
@@ -72374,8 +72525,8 @@ xJB
 xJB
 jNx
 hkC
-qat
-gLa
+ibx
+jaL
 vBB
 kdV
 kdV
@@ -72388,8 +72539,8 @@ hkC
 xbQ
 ldT
 kdV
-kdV
-inN
+jOY
+hdM
 hkC
 hkC
 hTR
@@ -72406,8 +72557,8 @@ hkC
 iMv
 sUN
 sUN
-kdV
-kdV
+jOY
+jOY
 kdV
 kdV
 kdV
@@ -72437,14 +72588,14 @@ kdV
 kdV
 kdV
 kdV
-kdV
+jOY
 kdV
 kdV
 kdV
 eib
 kdV
 kdV
-kdV
+jOY
 xOT
 "}
 (4,1,2) = {"
@@ -72543,7 +72694,7 @@ iMv
 mAl
 mAl
 xJB
-xJB
+bDc
 aCA
 wHd
 tEU
@@ -72578,7 +72729,7 @@ jNx
 jNx
 akp
 akp
-qat
+ibx
 gLa
 gLa
 vBB
@@ -72591,11 +72742,11 @@ yiD
 vBB
 kdV
 kdV
-rYX
+uzN
 mAl
 mAl
 mAl
-see
+eCg
 hkC
 mAl
 iMv
@@ -72607,14 +72758,14 @@ qtR
 hfS
 hkC
 sUN
-kdV
-kdV
+jOY
+jOY
 kdV
 kdV
 eib
 kdV
 kdV
-kdV
+uZf
 dyY
 hkC
 hkC
@@ -72623,7 +72774,7 @@ qEe
 cMi
 kdV
 kdV
-kdV
+jOY
 rYX
 jNx
 gdS
@@ -72636,16 +72787,16 @@ lga
 hTR
 sRQ
 kdV
+eeR
+jOY
 kdV
 kdV
 kdV
 kdV
-kdV
-kdV
-kdV
-kdV
-kdV
-kdV
+jOY
+jOY
+jOY
+jOY
 kjo
 xOT
 "}
@@ -72785,7 +72936,7 @@ hkC
 hkC
 ruj
 kdV
-rYX
+uFo
 hkC
 hfS
 qtR
@@ -72799,7 +72950,7 @@ iMv
 mAl
 ruj
 axs
-ntm
+qzC
 hTR
 hkC
 qtR
@@ -72824,9 +72975,9 @@ hTR
 mRJ
 kdV
 kdV
+jOY
 kdV
-kdV
-rYX
+uzN
 jNx
 aJR
 aJR
@@ -72846,8 +72997,8 @@ kdV
 kdV
 kdV
 kdV
-kdV
-kdV
+jOY
+jOY
 kdV
 xOT
 "}
@@ -72989,7 +73140,7 @@ wDn
 kdV
 kdV
 qtR
-jQs
+qtR
 qtR
 aJR
 sRQ
@@ -72998,11 +73149,11 @@ kdV
 xTb
 mAl
 hTR
-cMi
+bMw
 kdV
 kdV
-kdV
-ntm
+jOY
+qzC
 hkC
 hfS
 qtR
@@ -73028,9 +73179,9 @@ kdV
 kdV
 kdV
 kdV
-kdV
+jOY
 rcb
-biG
+kpT
 aJR
 lga
 qtR
@@ -73048,8 +73199,8 @@ kdV
 kdV
 kdV
 kdV
-kdV
-kdV
+jOY
+jOY
 kdV
 xOT
 "}
@@ -73197,13 +73348,13 @@ aJR
 ruj
 kdV
 kdV
-aFo
+oIo
 hkC
 mAl
 ruj
 kdV
 kdV
-kdV
+jOY
 kdV
 rcb
 ijt
@@ -73225,13 +73376,13 @@ kdV
 kdV
 kdV
 kdV
+jOY
+jOY
+uZf
 kdV
-kdV
-kdV
-kdV
-kdV
-kdV
-kdV
+jOY
+jOY
+jOY
 lga
 lga
 lga
@@ -73399,7 +73550,7 @@ hfS
 yiD
 ryY
 nLB
-oIo
+hkC
 xbQ
 rcb
 eib
@@ -73414,7 +73565,7 @@ hkC
 jaP
 mAl
 mAl
-ruj
+vua
 kdV
 kdV
 kdV
@@ -73427,8 +73578,8 @@ kdV
 kdV
 kdV
 kdV
-kdV
-kdV
+uZf
+jOY
 kdV
 kdV
 kdV
@@ -73521,7 +73672,7 @@ vVJ
 vVJ
 vVJ
 vqJ
-xJB
+sEQ
 hkC
 xJB
 mAl
@@ -73537,7 +73688,7 @@ sUN
 sUN
 kOH
 hTR
-uzN
+hTR
 oLi
 dIU
 mAl
@@ -73590,9 +73741,9 @@ xJB
 mAl
 qtR
 mAl
+ukP
 sUN
 sUN
-xmc
 sUN
 rcb
 ntm
@@ -73622,7 +73773,7 @@ gLa
 kdV
 kdV
 kdV
-kdV
+jOY
 kdV
 kdV
 kdV
@@ -73791,12 +73942,12 @@ mAl
 hTR
 mAl
 mAl
-mAl
+xmc
 sUN
 sUN
-sUN
+eIP
 eib
-jPJ
+kdV
 dft
 inN
 mAl
@@ -73823,8 +73974,8 @@ rYX
 jaP
 ruj
 kdV
-kdV
-kdV
+jOY
+jOY
 kdV
 kdV
 eib
@@ -73833,7 +73984,7 @@ kdV
 kdV
 kdV
 kdV
-kdV
+jOY
 kdV
 kdV
 kdV
@@ -73851,7 +74002,7 @@ kdV
 kdV
 gLa
 wPv
-xJB
+bDc
 xJB
 xJB
 xJB
@@ -73924,8 +74075,8 @@ vVJ
 vVJ
 vVJ
 vVJ
-ouE
-jaL
+vqJ
+hkC
 xJB
 hTR
 gdS
@@ -73995,7 +74146,7 @@ xJB
 akp
 swY
 kOH
-vGV
+sUN
 hSO
 kdV
 kdV
@@ -74025,10 +74176,10 @@ kdV
 mCW
 ruj
 kdV
-kdV
-kdV
-kdV
-kdV
+jOY
+jOY
+jOY
+jOY
 kdV
 kdV
 kdV
@@ -74141,7 +74292,7 @@ mAl
 mAl
 hkC
 hTR
-xJB
+nzQ
 sUN
 sUN
 oUm
@@ -74202,7 +74353,7 @@ sUN
 kjo
 kdV
 kdV
-gLa
+rsU
 gLa
 gLa
 vBB
@@ -74228,8 +74379,8 @@ jhX
 sRQ
 kdV
 kdV
-kdV
-kdV
+jOY
+jOY
 kdV
 kjo
 kdV
@@ -74246,9 +74397,9 @@ kdV
 kdV
 kdV
 kdV
+jOY
 kdV
-kdV
-kdV
+jOY
 kdV
 kdV
 rYX
@@ -74450,9 +74601,9 @@ kdV
 kdV
 kdV
 kdV
-kdV
-kdV
-kdV
+jOY
+jOY
+jOY
 rYX
 xJB
 qtR
@@ -74557,9 +74708,9 @@ lzk
 vWt
 rbh
 lzk
-qat
+ibx
 sJN
-ntm
+qzC
 mAl
 inw
 hiO
@@ -74568,10 +74719,10 @@ inw
 kpT
 xJB
 xJB
-cMi
-inN
+bMw
+hdM
 hkC
-pTV
+sVf
 hTR
 hTR
 sUN
@@ -74608,13 +74759,13 @@ sUN
 kdV
 qtR
 aJR
-tyv
+aJR
 qtR
 sRQ
 kdV
 kdV
-kdV
-rYX
+jOY
+uzN
 xJB
 ruj
 kdV
@@ -74630,7 +74781,7 @@ gLa
 rcb
 hfS
 mCW
-ruj
+vua
 kdV
 jjE
 hkC
@@ -74652,8 +74803,8 @@ ryY
 tEU
 sUN
 sUN
-kdV
-kdV
+jOY
+jOY
 kdV
 rYX
 xJB
@@ -74663,7 +74814,7 @@ kpT
 lga
 lga
 lga
-aJR
+klA
 xJB
 qat
 kjo
@@ -74762,7 +74913,7 @@ lzk
 hfS
 hoj
 dft
-rcb
+fbl
 hiO
 inw
 hiO
@@ -74771,9 +74922,9 @@ hiO
 jNx
 qFR
 ldT
-dft
-inN
-gwu
+xSs
+hdM
+hkC
 hkC
 sUN
 sUN
@@ -74815,8 +74966,8 @@ ijt
 ruj
 kdV
 kdV
-kdV
-aFo
+jOY
+oIo
 xJB
 iBa
 gLa
@@ -74962,9 +75113,9 @@ qsQ
 vMR
 vWt
 lzk
-qat
+wRv
 vBB
-kdV
+jOY
 sUN
 sUN
 sUN
@@ -74973,8 +75124,8 @@ hTR
 qFR
 ldT
 kdV
-kdV
-dft
+jOY
+xSs
 dDv
 hkC
 xJB
@@ -74990,8 +75141,8 @@ xJB
 lzk
 lzk
 inw
-cMi
-ntm
+bMw
+qzC
 sUN
 sUN
 sUN
@@ -75016,8 +75167,8 @@ rcb
 rcb
 ldT
 kdV
-kdV
-aFo
+jOY
+oIo
 xJB
 mAl
 jNx
@@ -75040,8 +75191,8 @@ hkC
 hTR
 iMv
 krS
-kdV
-kdV
+jOY
+jOY
 kdV
 kdV
 aFo
@@ -75174,11 +75325,11 @@ gNj
 jvW
 ldT
 kdV
-kdV
+jOY
 kdV
 kdV
 dft
-inN
+hdM
 xJB
 qtR
 hTR
@@ -75192,7 +75343,7 @@ xJB
 pbV
 lzk
 uXc
-gaK
+aSm
 aFo
 mAl
 vtb
@@ -75216,11 +75367,11 @@ upN
 kdV
 kdV
 kdV
-kdV
-gLa
-aFo
+jOY
+jaL
+oIo
 hkC
-mAl
+nwX
 hTR
 hTR
 gdS
@@ -75237,12 +75388,12 @@ kdV
 kdV
 kdV
 kdV
-ntm
+fUi
 hkC
 dyj
 jvW
 sUN
-kdV
+jOY
 kdV
 ryY
 jjE
@@ -75374,7 +75525,7 @@ dyY
 mAl
 bnU
 tEU
-gLa
+jaL
 vBB
 kdV
 kdV
@@ -75415,8 +75566,8 @@ jNx
 mAl
 sUN
 xJB
-yiD
-kdV
+pbU
+jOY
 kdV
 ihK
 xJB
@@ -75434,10 +75585,10 @@ gdS
 gdS
 gdS
 ruj
+jOY
 kdV
 kdV
-kdV
-kdV
+jOY
 kdV
 kdV
 axs
@@ -75575,10 +75726,10 @@ hkC
 hkC
 qEe
 hTR
-aiA
+hiO
 hiO
 qat
-gLa
+jaL
 vBB
 pLT
 gLa
@@ -75618,8 +75769,8 @@ mAl
 mAl
 mAl
 mAl
-ruj
-rYX
+vua
+uzN
 xJB
 mAl
 kpT
@@ -75637,7 +75788,7 @@ swY
 gdS
 sRQ
 kdV
-kdV
+jOY
 eib
 kdV
 gLa
@@ -75781,8 +75932,8 @@ hiO
 hiO
 oUm
 dIU
-qat
-aFo
+ibx
+oIo
 hkC
 hkC
 mAl
@@ -75790,7 +75941,7 @@ mAl
 sUN
 sUN
 mAl
-mAl
+qlx
 lvd
 jNx
 mAl
@@ -75836,11 +75987,11 @@ ntm
 mAl
 fRx
 gdS
-mAl
+qlx
 ruj
 kdV
-kdV
-kdV
+jOY
+jOY
 jjE
 hkC
 ruj
@@ -75954,7 +76105,7 @@ xJB
 jRv
 eaA
 wdy
-hTR
+uGa
 hTR
 sUN
 sUN
@@ -76047,8 +76198,8 @@ qtR
 mAl
 ruj
 kdV
-kdV
-kdV
+jOY
+jOY
 kdV
 ihK
 hkC
@@ -76072,8 +76223,8 @@ kpT
 yiD
 kdV
 kdV
-kdV
-kdV
+jOY
+jOY
 kjo
 kdV
 kdV
@@ -76250,10 +76401,10 @@ qtR
 hoj
 kdV
 kdV
-kdV
-aFo
+jOY
+oIo
 hkC
-mAl
+nwX
 hkC
 hTR
 hTR
@@ -76262,7 +76413,7 @@ mAl
 aQL
 sUN
 mCW
-kdV
+jOY
 kdV
 sUN
 vtb
@@ -76275,9 +76426,9 @@ hfS
 qat
 kdV
 kdV
-kdV
-kdV
-kdV
+jOY
+jOY
+jOY
 kdV
 kdV
 kdV
@@ -76452,7 +76603,7 @@ aJR
 mAl
 ruj
 kdV
-aFo
+oIo
 hkC
 gdS
 mAl
@@ -76462,7 +76613,7 @@ qEe
 hTR
 xJB
 xJB
-kdV
+jOY
 kdV
 kdV
 kdV
@@ -76476,11 +76627,11 @@ lga
 kpT
 kpT
 iBa
+jaL
 gLa
-gLa
 kdV
-kdV
-kdV
+jOY
+jOY
 kdV
 kdV
 kdV
@@ -76565,7 +76716,7 @@ hTR
 hTR
 jNx
 jNx
-xJB
+gwu
 sUN
 hkC
 qtR
@@ -76665,7 +76816,7 @@ cKe
 jqq
 xJB
 eib
-kdV
+jOY
 kdV
 kdV
 eib
@@ -76686,7 +76837,7 @@ kdV
 kdV
 kdV
 kdV
-kdV
+jOY
 xOT
 "}
 (25,1,2) = {"
@@ -76766,7 +76917,7 @@ iMv
 hTR
 hTR
 hiO
-xJB
+gwu
 sUN
 sUN
 hkC
@@ -77262,12 +77413,12 @@ mAl
 aJR
 qtR
 aJR
-cmc
+lga
 hTR
 uLT
 xJB
 hkC
-kdV
+jOY
 gnN
 xJB
 dXY
@@ -77469,8 +77620,8 @@ gdS
 mAl
 sUN
 eib
-kdV
-kdV
+jOY
+jOY
 xTD
 oLi
 oLi
@@ -77670,7 +77821,7 @@ hTR
 mAl
 sUN
 sUN
-kdV
+jOY
 kdV
 kdV
 kdV
@@ -77691,7 +77842,7 @@ drC
 iwR
 sUN
 kdV
-kdV
+jOY
 kdV
 bNj
 mAl
@@ -77877,12 +78028,12 @@ kdV
 kdV
 kdV
 kdV
-kdV
+jOY
 kdV
 kdV
 eib
-kdV
-kdV
+jOY
+jOY
 xJB
 xJB
 iMv
@@ -77892,7 +78043,7 @@ eaA
 eaA
 xJB
 ruj
-kdV
+jOY
 kdV
 vOK
 xJB
@@ -77931,7 +78082,7 @@ bwG
 taA
 wHo
 wHo
-jNV
+wHo
 wHo
 wHo
 wHo
@@ -78078,12 +78229,12 @@ eib
 eib
 kdV
 kdV
+jOY
+jOY
 kdV
 kdV
 kdV
-kdV
-kdV
-kdV
+jOY
 kdV
 hkC
 eaA
@@ -78095,8 +78246,8 @@ cMi
 rcb
 kdV
 kdV
-kdV
-kdV
+jOY
+jOY
 inN
 mAl
 mAl
@@ -78281,10 +78432,10 @@ sUN
 xJB
 xJB
 xJB
+jOY
 kdV
 kdV
-kdV
-kdV
+jOY
 kdV
 kdV
 eaA
@@ -78383,7 +78534,7 @@ lga
 lga
 mAl
 mAl
-mAl
+kqk
 swY
 mAl
 xJB
@@ -78397,7 +78548,7 @@ jNx
 xJB
 jNx
 xJB
-xJB
+aiA
 mAl
 mAl
 xJB
@@ -78442,7 +78593,7 @@ xJB
 xJB
 xJB
 hkC
-hkC
+woV
 xJB
 xJB
 xJB
@@ -78484,7 +78635,7 @@ xJB
 xJB
 mAl
 mAl
-kdV
+jOY
 kdV
 kdV
 kjo
@@ -78587,7 +78738,7 @@ mAl
 hTR
 drC
 mAl
-mAl
+kqk
 xJB
 xJB
 mAl
@@ -78604,7 +78755,7 @@ mAl
 mAl
 xJB
 xJB
-xJB
+ouE
 hkC
 hkC
 akp
@@ -78794,7 +78945,7 @@ jNx
 xJB
 mAl
 aSL
-mAl
+kqk
 xJB
 mAl
 mAl
@@ -78897,9 +79048,9 @@ hTR
 hTR
 mAl
 mAl
-ruj
+vua
 kdV
-kdV
+jOY
 kdV
 kdV
 kdV
@@ -79006,7 +79157,7 @@ xJB
 mAl
 mAl
 qEe
-hTR
+tyv
 mAl
 xJB
 mAl
@@ -79100,9 +79251,9 @@ mAl
 xJB
 mAl
 yiD
-kdV
-kdV
-kdV
+jOY
+jOY
+jOY
 kdV
 kdV
 kdV
@@ -79206,7 +79357,7 @@ cKe
 qtR
 xJB
 mAl
-mAl
+ocH
 dIU
 mAl
 mAl
@@ -79303,7 +79454,7 @@ xJB
 mAl
 xJB
 fGJ
-gLa
+jaL
 gLa
 gLa
 ryY
@@ -80094,7 +80245,7 @@ xJB
 xJB
 jaZ
 xJB
-iLI
+hkC
 wmZ
 xJB
 xJB
@@ -80214,7 +80365,7 @@ akp
 hkC
 hkC
 hkC
-hkC
+kDB
 lga
 xJB
 sUN
@@ -80423,7 +80574,7 @@ hkC
 xJB
 mAl
 hTR
-ilo
+dXY
 mAl
 akp
 jNx
@@ -80434,7 +80585,7 @@ oLi
 oLi
 dIU
 mAl
-xJB
+vLt
 xJB
 mAl
 mAl
@@ -81031,7 +81182,7 @@ mAl
 qEe
 mAl
 mAl
-mAl
+ocH
 xJB
 mAl
 mAl
@@ -81041,7 +81192,7 @@ xJB
 xJB
 mAl
 mAl
-hTR
+udj
 hTR
 mAl
 mAl
@@ -81052,7 +81203,7 @@ mAl
 mAl
 mAl
 qEe
-mAl
+lKE
 jNx
 hkC
 xJB
@@ -81238,16 +81389,16 @@ xJB
 mAl
 hTR
 mAl
+ocH
+mAl
+xJB
+xJB
+mAl
 mAl
 mAl
 xJB
 xJB
-mAl
-mAl
-mAl
-xJB
-xJB
-xJB
+mVF
 hkC
 xJB
 mAl
@@ -81414,7 +81565,7 @@ qtR
 lga
 hkC
 mAl
-mAl
+ocH
 hTR
 mAl
 xJB
@@ -81441,7 +81592,7 @@ mAl
 hTR
 drC
 hTR
-mAl
+ocH
 xJB
 xJB
 mAl
@@ -81617,7 +81768,7 @@ lga
 xJB
 mAl
 qEe
-hTR
+tyv
 mAl
 xJB
 hkC
@@ -81641,7 +81792,7 @@ hkC
 mAl
 mAl
 hTR
-hTR
+tyv
 mAl
 mAl
 mAl
@@ -81664,7 +81815,7 @@ xJB
 xJB
 mAl
 hTR
-mAl
+vyw
 xJB
 xJB
 mAl
@@ -81732,7 +81883,7 @@ xJB
 xJB
 qEe
 mAl
-mAl
+vyw
 mAl
 mAl
 mAl
@@ -81905,7 +82056,7 @@ xJB
 hkC
 hkC
 hkC
-hkC
+aWW
 hkC
 hkC
 hkC
@@ -82020,7 +82171,7 @@ sUN
 hkC
 hkC
 mAl
-mAl
+kqk
 mAl
 hkC
 lga
@@ -82481,7 +82632,7 @@ mAl
 xJB
 xJB
 mAl
-hTR
+pHi
 mAl
 mAl
 xJB
@@ -82498,7 +82649,7 @@ lMT
 gpb
 xJB
 hkC
-hkC
+trT
 wmZ
 hkC
 hkC
@@ -82709,7 +82860,7 @@ hkC
 hkC
 lAm
 hkC
-fXu
+gaH
 hkC
 hkC
 hkC
@@ -83270,7 +83421,7 @@ hkC
 gHm
 gHm
 hkC
-hkC
+aWW
 hkC
 hkC
 xJB
@@ -83307,10 +83458,10 @@ hkC
 hkC
 wmZ
 hkC
+aWW
 hkC
 hkC
-hkC
-tjv
+lAm
 hkC
 hkC
 lAm
@@ -83325,7 +83476,7 @@ hkC
 hkC
 hkC
 hkC
-hkC
+trT
 hkC
 hkC
 xJB
@@ -83474,7 +83625,7 @@ gHm
 gHm
 hkC
 hkC
-hkC
+aWW
 xJB
 mAl
 dXY
@@ -83519,7 +83670,7 @@ hkC
 hkC
 gHm
 hkC
-hkC
+trT
 hkC
 hkC
 hkC
@@ -83922,7 +84073,7 @@ hkC
 lAm
 hkC
 hkC
-hkC
+aWW
 hkC
 hkC
 hkC
@@ -84073,7 +84224,7 @@ mAl
 xJB
 hkC
 hkC
-hkC
+aWW
 hkC
 hkC
 hkC
@@ -84128,7 +84279,7 @@ gHm
 hkC
 hkC
 hkC
-aWW
+gHm
 hkC
 gaH
 hkC
@@ -84148,7 +84299,7 @@ xJB
 xJB
 hTR
 hTR
-hTR
+pvD
 mAl
 mAl
 mAl
@@ -84315,13 +84466,13 @@ hkC
 hkC
 iOX
 hkC
-xSs
+lAm
 hkC
 hkC
 hkC
 iOX
 hkC
-hkC
+trT
 iOX
 hkC
 hkC
@@ -84525,8 +84676,8 @@ hkC
 hkC
 hkC
 hkC
-hkC
-trT
+aWW
+lAm
 hkC
 hkC
 hkC
@@ -84723,7 +84874,7 @@ hkC
 hkC
 hkC
 hkC
-lAm
+bjP
 hkC
 hkC
 gHm
@@ -84885,7 +85036,7 @@ xJB
 hkC
 xJB
 hkC
-hkC
+aWW
 hkC
 gHm
 hkC
@@ -84932,7 +85083,7 @@ hkC
 hkC
 hkC
 hkC
-hkC
+trT
 hkC
 iOX
 xJB
@@ -85161,7 +85312,7 @@ sUN
 sUN
 xJB
 mAl
-mAl
+ehx
 qtR
 hiO
 hiO
@@ -85562,7 +85713,7 @@ xJB
 mAl
 mAl
 jaP
-hkC
+woV
 xJB
 hTR
 qEe
@@ -85645,7 +85796,7 @@ hkC
 hkC
 xJB
 xJB
-xJB
+sEQ
 xJB
 mAl
 mAl
@@ -85768,7 +85919,7 @@ mAl
 hkC
 mAl
 hTR
-xJB
+vLt
 xJB
 xJB
 xJB
@@ -85872,7 +86023,7 @@ xJB
 xJB
 mAl
 hTR
-qzC
+hTR
 mAl
 xJB
 xJB
@@ -86060,7 +86211,7 @@ mAl
 mAl
 hTR
 oLi
-mAl
+vyw
 mAl
 dIU
 dIU
@@ -86115,7 +86266,7 @@ mAl
 xJB
 hkC
 xJB
-xJB
+aiA
 xJB
 xJB
 xJB
@@ -86521,7 +86672,7 @@ hkC
 xJB
 mAl
 qEe
-hTR
+tyv
 mAl
 sQm
 hkC
@@ -86722,7 +86873,7 @@ hkC
 hkC
 xJB
 mAl
-mAl
+kqk
 mAl
 mAl
 hkC
@@ -87670,7 +87821,7 @@ xJB
 mAl
 xJB
 hkC
-jNx
+hgN
 jNx
 mAl
 mAl
@@ -88101,7 +88252,7 @@ mAl
 xJB
 hfS
 hfS
-hkC
+ezC
 hkC
 akp
 hkC
@@ -88304,10 +88455,10 @@ xJB
 hfS
 ijt
 hfS
-qFR
+iqJ
+fbl
 rcb
-rcb
-rcb
+fbl
 dDv
 akp
 xJB
@@ -88321,7 +88472,7 @@ akp
 akp
 hkC
 hkC
-mAl
+vyw
 mAl
 xJB
 jNx
@@ -88499,7 +88650,7 @@ xJB
 mAl
 mAl
 lzk
-hTR
+jKT
 mAl
 xJB
 xJB
@@ -88507,9 +88658,9 @@ hfS
 ijt
 ijt
 ruj
-kdV
-kdV
-kdV
+jOY
+jOY
+jOY
 rYX
 hkC
 xJB
@@ -88712,7 +88863,7 @@ ruj
 kdV
 kdV
 pLT
-aFo
+oIo
 xJB
 xJB
 mAl
@@ -88911,11 +89062,11 @@ hkC
 hfS
 hfS
 ruj
-kdV
+jOY
 pLT
-aFo
+qxk
 hkC
-xJB
+wDz
 xJB
 mAl
 mAl
@@ -89079,12 +89230,12 @@ oET
 hkC
 hkC
 hkC
-hkC
+pTV
 xJB
 xJB
+woV
 hkC
 hkC
-ibx
 xJB
 mAl
 dIU
@@ -89281,10 +89432,10 @@ hkC
 hkC
 hkC
 hkC
-hkC
-hkC
+mQR
+pTV
 akp
-klA
+hkC
 hkC
 akp
 xJB
@@ -89313,7 +89464,7 @@ hkC
 hkC
 hkC
 qFR
-ldT
+slg
 pLT
 gLa
 aFo
@@ -89323,7 +89474,7 @@ hfS
 lga
 kpT
 xJB
-sUN
+ddx
 sUN
 sUN
 sUN
@@ -89482,10 +89633,10 @@ vqJ
 hkC
 hkC
 hkC
-hkC
-hkC
-hkC
-hkC
+pTV
+pTV
+pTV
+pTV
 akp
 akp
 akp
@@ -89532,7 +89683,7 @@ sUN
 sUN
 sUN
 sUN
-mAl
+jQs
 xJB
 mAl
 xJB
@@ -89686,9 +89837,9 @@ hkC
 iOX
 hkC
 hkC
-hkC
-hkC
-hkC
+pTV
+pTV
+pTV
 hkC
 hkC
 xJB
@@ -89731,7 +89882,7 @@ sUN
 xJB
 mAl
 xJB
-xJB
+gwu
 xJB
 mAl
 hTR
@@ -89887,11 +90038,11 @@ hkC
 hkC
 hkC
 hkC
-dmv
+sic
+pTV
+pTV
 hkC
-hkC
-hkC
-hkC
+pTV
 hkC
 xJB
 xJB
@@ -90088,13 +90239,13 @@ vqJ
 hkC
 hkC
 hkC
-hkC
+woV
 hkC
 hkC
 iOX
 hkC
-nDX
-bia
+hkC
+fNY
 hkC
 hkC
 hkC
@@ -90290,7 +90441,7 @@ vqJ
 hkC
 iOX
 hkC
-hkC
+pTV
 hkC
 hkC
 hkC
@@ -90490,21 +90641,21 @@ vVJ
 vVJ
 vqJ
 hkC
-hkC
+woV
 hkC
 hkC
 fNY
 hkC
 hkC
 hkC
-hkC
+aWW
 hkC
 hkC
 sic
+mQR
+pTV
 hkC
-hkC
-hkC
-hkC
+woV
 xJB
 hkC
 xJB
@@ -90693,19 +90844,19 @@ vVJ
 vqJ
 hkC
 hkC
-hkC
-hkC
-hkC
+pTV
+pTV
+pTV
 hkC
 hkC
 fNY
 hkC
 iOX
+pTV
+pTV
+pTV
 hkC
-hkC
-hkC
-hkC
-hkC
+pTV
 hkC
 hkC
 hkC
@@ -90809,7 +90960,7 @@ sUN
 sUN
 sUN
 sUN
-xJB
+ouE
 xJB
 eaA
 lzk
@@ -90896,15 +91047,15 @@ vVJ
 wCA
 hkC
 hkC
+pTV
+pTV
+pTV
 hkC
 hkC
 hkC
-hkC
-hkC
-hkC
-hkC
-hkC
-hkC
+pTV
+mQR
+pTV
 akp
 hkC
 xJB
@@ -91100,7 +91251,7 @@ hkC
 hkC
 hkC
 iOX
-hkC
+pTV
 hkC
 hkC
 hkC
@@ -91217,7 +91368,7 @@ mAl
 hTR
 hTR
 mAl
-mAl
+ocH
 mAl
 mAl
 mAl
@@ -91303,7 +91454,7 @@ hkC
 hkC
 hkC
 hkC
-cWQ
+hkC
 hkC
 akp
 hkC
@@ -91415,9 +91566,9 @@ iMv
 hTR
 mAl
 mAl
-hTR
+tyv
 qEe
-hTR
+tyv
 mAl
 xJB
 mAl
@@ -91618,7 +91769,7 @@ mAl
 mAl
 mAl
 hTR
-hTR
+tyv
 hTR
 mAl
 mAl
@@ -92634,7 +92785,7 @@ drC
 hTR
 mAl
 xJB
-xJB
+ouE
 hkC
 sUN
 ijt
@@ -93543,10 +93694,10 @@ mAl
 mAl
 mAl
 mAl
+mVF
 xJB
 xJB
-xJB
-mAl
+ocH
 mAl
 mAl
 swY
@@ -93952,7 +94103,7 @@ hkC
 xJB
 mAl
 qEe
-hTR
+tyv
 mAl
 xJB
 eaA
@@ -93993,9 +94144,9 @@ uXc
 cKe
 jqq
 mAl
-xJB
-hkC
-hkC
+biG
+pTV
+dmv
 hkC
 hkC
 eaA
@@ -94153,12 +94304,12 @@ hkC
 hkC
 xJB
 mAl
-hTR
+tyv
 mAl
 qtR
 xJB
 xJB
-xJB
+mVF
 mAl
 lzk
 xJB
@@ -94167,7 +94318,7 @@ hkC
 akp
 xJB
 xJB
-mAl
+jQs
 mAl
 mAl
 mAl
@@ -94195,8 +94346,8 @@ hTR
 aSL
 uXc
 xJB
-hkC
-akp
+pTV
+fXu
 hkC
 vfU
 hkC
@@ -94373,7 +94524,7 @@ mAl
 mAl
 mAl
 mAl
-mAl
+jQs
 xJB
 hkC
 hkC
@@ -94558,7 +94709,7 @@ xJB
 xJB
 mAl
 mAl
-xJB
+mVF
 xJB
 xJB
 tqW
@@ -94603,10 +94754,10 @@ hkC
 hkC
 hkC
 hkC
-akp
+fXu
 xJB
 xJB
-xJB
+biG
 xJB
 hkC
 mAl
@@ -94638,7 +94789,7 @@ wml
 efM
 keb
 qfw
-aXe
+fqe
 xJB
 xJB
 goK
@@ -94805,9 +94956,9 @@ htb
 hkC
 vfU
 hkC
-hkC
-hkC
-vfU
+pTV
+pTV
+mLT
 hkC
 xJB
 hkC
@@ -94839,7 +94990,7 @@ ehw
 efM
 efM
 efM
-efM
+cWQ
 goK
 goK
 goK
@@ -94976,7 +95127,7 @@ xJB
 xJB
 mAl
 mAl
-mAl
+jQs
 uXc
 mAl
 xJB
@@ -95002,16 +95153,16 @@ uXc
 drC
 hTR
 xJB
-iLI
+hkC
 gHm
 hkC
 hkC
 hkC
 hkC
-hkC
-hkC
-hkC
-hkC
+pTV
+pTV
+pTV
+pTV
 xJB
 mAl
 hkC
@@ -95036,13 +95187,13 @@ wdy
 hTR
 mAl
 mAl
-aqP
-wml
+aCL
+hmJ
 efM
 efM
 efM
-efM
-efM
+cWQ
+cWQ
 goK
 goK
 goK
@@ -95210,10 +95361,10 @@ hkC
 akp
 hkC
 gHm
+pTV
 hkC
-hkC
-hkC
-hkC
+pTV
+mQR
 xJB
 xJB
 mAl
@@ -95239,7 +95390,7 @@ mAl
 mAl
 xJB
 ikM
-efM
+cWQ
 efM
 efM
 efM
@@ -95382,7 +95533,7 @@ xJB
 jqq
 xJB
 xJB
-hkC
+trT
 akp
 mTM
 hkC
@@ -95407,8 +95558,8 @@ xJB
 xJB
 hkC
 hkC
-hkC
-hkC
+pTV
+pTV
 hkC
 sic
 hkC
@@ -95441,12 +95592,12 @@ jNx
 exk
 exk
 goK
-qog
+kQg
 hvK
 wAw
 fTP
 wAw
-wAw
+byC
 goK
 goK
 bIq
@@ -95611,8 +95762,8 @@ vfU
 hkC
 hkC
 vfU
-hkC
-hkC
+pTV
+pTV
 hkC
 iOX
 hkC
@@ -95648,7 +95799,7 @@ qog
 qog
 fTP
 nxB
-wAw
+byC
 goK
 goK
 bIq
@@ -95811,10 +95962,10 @@ xJB
 hkC
 hkC
 hkC
-hkC
-hkC
-hkC
-hkC
+pTV
+pTV
+pTV
+pTV
 akp
 hkC
 hkC
@@ -95849,8 +96000,8 @@ goK
 fTP
 oFB
 fTP
-qog
-qog
+kQg
+kQg
 goK
 goK
 bIq
@@ -96014,12 +96165,12 @@ xJB
 hkC
 iOX
 hkC
-hkC
+pTV
 gHm
-hkC
-hkC
-hkC
-hkC
+pTV
+pTV
+pTV
+pTV
 vfU
 hkC
 xJB
@@ -96221,7 +96372,7 @@ hkC
 hkC
 hkC
 akp
-hkC
+pTV
 hkC
 xJB
 xJB
@@ -96253,7 +96404,7 @@ oIR
 crL
 crL
 crL
-crL
+hYO
 oIR
 iKe
 oPP
@@ -96419,7 +96570,7 @@ xJB
 hkC
 hkC
 hkC
-hkC
+pTV
 hkC
 iOX
 xJB
@@ -97365,7 +97516,7 @@ mAl
 mAl
 mAl
 mAl
-udj
+xJB
 mAl
 mAl
 akp
@@ -97543,7 +97694,7 @@ ckR
 vVJ
 vVJ
 vVJ
-hdM
+wMj
 vVJ
 vVJ
 vVJ
@@ -98974,7 +99125,7 @@ vqJ
 akp
 hkC
 xJB
-xJB
+aiA
 hkC
 mAl
 xJB
@@ -98997,7 +99148,7 @@ xJB
 xJB
 mAl
 mAl
-xJB
+sEQ
 xJB
 xJB
 xJB
@@ -99382,7 +99533,7 @@ hkC
 mAl
 qEe
 mAl
-xJB
+aiA
 mAl
 cKe
 uXc
@@ -99785,7 +99936,7 @@ mAl
 iMv
 mAl
 xJB
-xJB
+aiA
 xJB
 kpT
 xJB
@@ -100385,7 +100536,7 @@ vVJ
 vVJ
 vVJ
 vVJ
-wYU
+vqJ
 hkC
 hkC
 akp
@@ -100809,11 +100960,11 @@ hkC
 hkC
 xJB
 mAl
-mAl
+ocH
 mAl
 hTR
 mAl
-mAl
+ocH
 mAl
 xJB
 mAl
@@ -101012,7 +101163,7 @@ hfS
 xJB
 mAl
 huf
-hTR
+tyv
 mAl
 mAl
 mAl
@@ -101022,7 +101173,7 @@ mAl
 hTR
 egK
 hTR
-mAl
+tjv
 xJB
 hkC
 akp
@@ -101224,9 +101375,9 @@ mAl
 mAl
 tAK
 dXY
-mAl
-xJB
-hkC
+tjv
+biG
+pTV
 hkC
 hkC
 hkC
@@ -101427,7 +101578,7 @@ mAl
 nMe
 mAl
 mAl
-xJB
+biG
 hkC
 hkC
 lNB
@@ -101629,7 +101780,7 @@ xJB
 tLQ
 xJB
 xJB
-xJB
+biG
 hkC
 hkC
 lNB
@@ -101641,7 +101792,7 @@ hkC
 hkC
 hkC
 hkC
-hkC
+pTV
 hkC
 hkC
 akp
@@ -101848,7 +101999,7 @@ hkC
 hkC
 hkC
 hkC
-hkC
+woV
 xTD
 amL
 goK
@@ -102046,12 +102197,12 @@ lNB
 nkG
 hkC
 hkC
+woV
+pTV
+pTV
 hkC
 hkC
-hkC
-hkC
-hkC
-xTD
+iLI
 reG
 goK
 goK
@@ -102236,8 +102387,8 @@ fIm
 hkC
 hkC
 hkC
-hkC
-hkC
+pTV
+pTV
 hkC
 hkC
 hkC
@@ -102249,11 +102400,11 @@ vwH
 lNB
 tdU
 lNB
-hkC
-hkC
+pTV
+pTV
 hkC
 akp
-jqq
+mOI
 reG
 goK
 goK
@@ -102437,8 +102588,8 @@ hTH
 bRF
 hkC
 hkC
-hkC
-hkC
+pTV
+pTV
 hkC
 lNB
 lNB
@@ -102446,15 +102597,15 @@ lNB
 vNh
 lNB
 lNB
-hkC
+pTV
 akp
 lNB
 lNB
 lNB
+pTV
 hkC
 hkC
-hkC
-akp
+fXu
 jqq
 reG
 goK
@@ -102639,8 +102790,8 @@ hkC
 hkC
 hkC
 hkC
-hkC
-hkC
+pTV
+pTV
 hkC
 lNB
 lNB
@@ -102649,15 +102800,15 @@ lNB
 hkC
 hkC
 hkC
+pTV
+pTV
 hkC
 hkC
 hkC
 hkC
 hkC
-hkC
-hkC
-akp
-jqq
+fXu
+mOI
 reG
 goK
 goK
@@ -102857,9 +103008,9 @@ hkC
 hkC
 hkC
 hkC
-hkC
-xJB
-xJB
+pTV
+biG
+biG
 rEd
 dRL
 goK
@@ -103056,11 +103207,11 @@ xJB
 hkC
 hkC
 hkC
+pTV
+pTV
 hkC
-hkC
-hkC
-hkC
-xJB
+pTV
+biG
 xJB
 sUN
 waI
@@ -103258,10 +103409,10 @@ xJB
 xJB
 xJB
 btx
-hkC
-hkC
-hkC
-akp
+pTV
+pTV
+pTV
+fXu
 xJB
 xJB
 sUN
@@ -103462,8 +103613,8 @@ xJB
 hkC
 hkC
 hkC
-hkC
-xJB
+pTV
+biG
 xJB
 sUN
 sUN
@@ -103479,7 +103630,7 @@ lKv
 szK
 gFm
 ujn
-fgZ
+oCH
 pMJ
 kin
 lvC
@@ -103656,9 +103807,9 @@ iqD
 ilN
 mlx
 gTW
-woV
 cEx
-hkC
+cEx
+pTV
 xJB
 hkC
 akp
@@ -103698,7 +103849,7 @@ nLF
 rGX
 cQu
 lzB
-eIP
+eQA
 aFv
 nLF
 afg
@@ -103712,7 +103863,7 @@ tAs
 tAs
 tAs
 sfs
-ord
+sFr
 fRW
 jEa
 fRW
@@ -103884,7 +104035,7 @@ lKv
 atQ
 ujn
 ujn
-ciL
+jPJ
 kin
 lvC
 lvC
@@ -104260,16 +104411,16 @@ xJB
 cEA
 ftX
 bww
-byC
+cEx
 xHP
 xHP
 xHP
 xTD
 hkC
 hkC
-hkC
-hkC
-hkC
+pTV
+pTV
+pTV
 hkC
 xJB
 xJB
@@ -104328,7 +104479,7 @@ fjI
 rrn
 vWS
 vsL
-rsU
+vGV
 pQr
 bhG
 fCW
@@ -104469,10 +104620,10 @@ gTW
 xTD
 xJB
 hkC
-hkC
-hkC
-hkC
-hkC
+pTV
+pTV
+pTV
+pTV
 akp
 xJB
 xJB
@@ -104667,16 +104818,16 @@ cEx
 xHP
 xHP
 uNE
-lEW
+bia
 xTD
 xJB
 hkC
 hkC
-hkC
-xJB
-hkC
-xJB
-xJB
+pTV
+biG
+pTV
+biG
+biG
 xJB
 sUN
 dRL
@@ -104707,7 +104858,7 @@ jAF
 fBA
 cuu
 hUB
-cjJ
+tyd
 nHn
 gnT
 heC
@@ -104870,16 +105021,16 @@ oVB
 xHP
 loM
 loM
-xTD
+iLI
 oUm
 hkC
 hkC
-hkC
-xJB
-xJB
-akp
-xJB
-xJB
+mQR
+biG
+biG
+fXu
+biG
+biG
 reG
 hom
 goK
@@ -104935,7 +105086,7 @@ cww
 aVt
 njj
 ctr
-keT
+gxA
 ncI
 fCW
 aNy
@@ -105052,8 +105203,8 @@ mPn
 sUN
 hkC
 xJB
-xJB
-xJB
+biG
+biG
 hkC
 hkC
 xJB
@@ -105073,16 +105224,16 @@ bGD
 cBA
 jdQ
 xhl
-xTD
+iLI
+pTV
 hkC
-hkC
-akp
-hkC
-xJB
+fXu
+pTV
+biG
 sUN
-xJB
-xJB
-xJB
+biG
+biG
+biG
 hom
 goK
 goK
@@ -105249,14 +105400,14 @@ akp
 akp
 xJB
 hkC
+vLt
 xJB
 xJB
 xJB
-xJB
-hkC
-hkC
-xJB
-xJB
+pTV
+pTV
+biG
+aiA
 hkC
 xJB
 hkC
@@ -105276,15 +105427,15 @@ aQZ
 wrh
 gTW
 bej
-hkC
+pTV
 xJB
 xJB
-xJB
-hkC
-sUN
-sUN
-xJB
-xJB
+biG
+pTV
+cmc
+cmc
+biG
+biG
 hom
 goK
 goK
@@ -105454,9 +105605,9 @@ hkC
 hkC
 hkC
 hkC
-hkC
-hkC
-xJB
+pTV
+pTV
+biG
 hkC
 xJB
 hkC
@@ -105481,12 +105632,12 @@ aLQ
 bej
 xJB
 hkC
-xJB
-xJB
-hkC
-sUN
-xJB
-eaA
+biG
+biG
+pTV
+cmc
+biG
+wYU
 hom
 goK
 goK
@@ -105653,14 +105804,14 @@ mAl
 mAl
 xJB
 xJB
+pTV
+pTV
 hkC
-hkC
-hkC
-hkC
-hkC
-hkC
-hkC
-xJB
+pTV
+pTV
+pTV
+pTV
+vLt
 xJB
 hkC
 hkC
@@ -105683,12 +105834,12 @@ mnL
 hkC
 xJB
 xJB
-sUN
-xJB
-xJB
-xJB
-xJB
-xJB
+cmc
+biG
+biG
+biG
+biG
+biG
 hom
 gPh
 goK
@@ -105855,15 +106006,15 @@ hTR
 xJB
 xJB
 hkC
+pTV
+pTV
+hkC
+lBq
 hkC
 hkC
-hkC
-hkC
-hkC
-hkC
-hkC
-hkC
-hkC
+pTV
+pTV
+pTV
 xJB
 xJB
 xJB
@@ -105887,11 +106038,11 @@ xJB
 sUN
 sUN
 hkC
-sUN
-xJB
-sUN
-xTD
-xTD
+cmc
+biG
+cmc
+iLI
+iLI
 gPh
 goK
 goK
@@ -106054,14 +106205,14 @@ xJB
 mAl
 hTR
 mAl
-mQR
+kOH
 xJB
 hkC
 hkC
+pTV
+pTV
 hkC
-hkC
-hkC
-hkC
+woV
 akp
 hkC
 akp
@@ -106085,15 +106236,15 @@ xJB
 jqq
 xJB
 hkC
-xJB
-xJB
+biG
+biG
 sUN
 sUN
 sUN
 xJB
 sUN
 xTD
-xTD
+iLI
 gPh
 goK
 goK
@@ -106287,8 +106438,8 @@ hkC
 hkC
 hkC
 xJB
-hkC
-xJB
+pTV
+biG
 hkC
 xJB
 xJB
@@ -106489,10 +106640,10 @@ xJB
 hkC
 hkC
 hkC
-xJB
+vLt
 xJB
 xNc
-hkC
+pTV
 sUN
 xJB
 tqW
@@ -106669,7 +106820,7 @@ lNB
 hkC
 hkC
 hkC
-hkC
+pTV
 hkC
 akp
 xJB
@@ -106862,10 +107013,10 @@ xJB
 hkC
 hkC
 hkC
-nzQ
+btx
 hkC
 hkC
-ddx
+vwH
 lNB
 lNB
 hkC
@@ -107505,7 +107656,7 @@ fxZ
 cFU
 tSj
 xJB
-xJB
+biG
 goK
 goK
 goK
@@ -107908,8 +108059,8 @@ fxZ
 fxZ
 srs
 tSj
-xJB
-xJB
+biG
+biG
 goK
 goK
 goK
@@ -108111,7 +108262,7 @@ fxZ
 cFU
 tSj
 xJB
-xJB
+biG
 goK
 goK
 goK
@@ -108273,7 +108424,7 @@ hkC
 xJB
 hkC
 xJB
-hkC
+pTV
 hkC
 hkC
 hkC
@@ -108470,9 +108621,9 @@ hkC
 hkC
 xJB
 xJB
-xJB
-xJB
-xJB
+biG
+biG
+biG
 xJB
 xJB
 hkC
@@ -108669,17 +108820,17 @@ vVJ
 vVJ
 vqJ
 hkC
+pTV
+xJB
+hkC
+pTV
+pTV
+pTV
 hkC
 xJB
 hkC
 hkC
-hkC
-hkC
-hkC
-xJB
-hkC
-hkC
-akp
+ixR
 oIR
 eBa
 lNB
@@ -108872,12 +109023,12 @@ vVJ
 vqJ
 hkC
 hkC
+pTV
 hkC
-hkC
-akp
-akp
-xJB
-hkC
+fXu
+fXu
+biG
+pTV
 hkC
 hkC
 akp
@@ -109073,14 +109224,14 @@ vVJ
 vVJ
 vqJ
 xJB
+mVF
+biG
 xJB
 xJB
-xJB
-xJB
-xJB
-hkC
-xJB
-hkC
+biG
+pTV
+biG
+pTV
 hkC
 hkC
 hkC
@@ -109279,13 +109430,13 @@ hkC
 xJB
 hkC
 xJB
-xJB
+biG
+pTV
+pTV
+biG
 hkC
-hkC
-xJB
-hkC
-hkC
-hkC
+pTV
+pTV
 xhX
 oYq
 lNB
@@ -109477,16 +109628,16 @@ vVJ
 vqJ
 hkC
 xJB
-xJB
-hkC
-hkC
+biG
+pTV
+woV
 xJB
 hkC
 akp
-hkC
-hkC
+pTV
+pTV
 xJB
-xJB
+biG
 hkC
 hkC
 xhX
@@ -109679,8 +109830,8 @@ vVJ
 vqJ
 hkC
 hkC
-xJB
-hkC
+biG
+mQR
 xJB
 hkC
 hkC
@@ -109877,8 +110028,8 @@ vVJ
 vVJ
 vVJ
 vVJ
-pHi
-bjP
+scf
+oET
 hkC
 hkC
 hkC
@@ -110080,7 +110231,7 @@ hYh
 dZM
 dZM
 cNM
-jOY
+hkC
 xJB
 xJB
 hkC
@@ -110191,10 +110342,10 @@ llF
 kvo
 cqB
 fHu
+cjJ
 fHu
 fHu
-fHu
-oCH
+ehC
 qFn
 qUQ
 ryg
@@ -110803,7 +110954,7 @@ bBs
 pGS
 oVa
 cjQ
-sFr
+pBS
 lVO
 mUF
 cnR

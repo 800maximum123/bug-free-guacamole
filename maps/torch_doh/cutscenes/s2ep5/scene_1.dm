@@ -163,7 +163,6 @@
 	actions = list(
 		ADD_SCREEN(/blackout/animated_better) = 4 SECONDS,
 		MOVE_CAMERA(0, -1, 0, null),
-		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/IBO - Sorrow.mp3', volume = 50), "Sorrow (IBO)"),
 
 		EASY_TRANSFORM_ACTOR(actor("Комп 5"), 7, 0),
 		CHANGE_ACTOR_LAYER(actor("Комп 5"), 4.05),
@@ -189,6 +188,8 @@
 		REMOVE_SCREEN(/blackout/animated_better, 1 SECONDS),
 		TP_CAMERA("Сцена 5-1 - Кадр 1"),
 		ADD_SCREEN(/cinema_borders) = 0.5 SECONDS,
+
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/IBO - Sorrow.mp3', volume = 50), "Sorrow (IBO)"),
 
 		CALL_GLOB(s2ep5sc1_screentext),
 		TALK_ACTOR(actor("Амелия - 5-1-1"), "Кажется..."),
@@ -1490,8 +1491,7 @@
 		REMOVE_SCREEN(/cinema_borders, 0),
 		CALL_GLOB(s2ep5sc13_screentext) = 12 SECONDS,
 		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/To Luna.mp3', volume = 50), "До Луны") = 8 SECONDS,
-		CALL_GLOB(interactive_opening_sequence) = 1 SECONDS,
-		REMOVE_SCREEN(/blackout, 0),
+		REMOVE_SCREEN(/blackout, 1 SECONDS) = 0.5 SECONDS,
 		RETURN_VIEWERS
 	)
 
@@ -1648,7 +1648,7 @@
 	for(var/obj/effect/cutscene_camera/opening_cameras/C in world)
 		cameras_list += C
 
-	sleep(2 SECONDS)
+	sleep(4 SECONDS)
 	background_mumble_cycle()
 
 	for(var/obj/effect/cutscene_camera/opening_cameras/C in cameras_list) // Прогонит нас через каждую существующую камеру
@@ -1658,7 +1658,7 @@
 
 			client.adminobs = TRUE
 			client.mob.reset_view(C)
-		sleep(15 SECONDS)
+		sleep(20 SECONDS)
 
 	for(var/client/client in GLOB.clients)
 		client.mob.clear_fullscreen("borders")

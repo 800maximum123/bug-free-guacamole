@@ -28,17 +28,16 @@
 
 /area/metro/maintain/south/kpp
 	name = "South KPPs"
+	adventure_mode = TRUE
 
 
 /area/metro/maintain/south/kpp1
 	name = "South KPPs"
+	adventure_mode = TRUE
 
 // Западное крыло
 /area/metro/maintain/west
 	name = "West Wing"
-
-
-
 
 // Восточное крыло
 /area/metro/maintain/east
