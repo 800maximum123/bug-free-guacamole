@@ -76,11 +76,14 @@ var/global/list/admin_verbs_admin = list(
 	/client/proc/close_slot_crew,			//frees slot for chosen job,
 	/client/proc/cmd_admin_change_custom_event,
 	/client/proc/cmd_admin_rejuvenate,
+	// [FD-ADD]
 	/client/proc/cmd_admin_camera_unfocus,
 	/client/proc/cmd_admin_camera_focus,
 	/client/proc/cmd_admin_combat_on,
 	/client/proc/cmd_admin_combat_personal_on,
 	/client/proc/cmd_admin_combat_personal_off,
+	/datum/admins/proc/simplecombat_changer,
+	// [/FD-ADD]
 	/client/proc/toggleghostwriters,
 	/client/proc/toggledrones,
 	/datum/admins/proc/show_skills, //Right click skill menu,

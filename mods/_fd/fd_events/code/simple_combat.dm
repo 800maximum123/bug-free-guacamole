@@ -1800,3 +1800,20 @@
 /obj/item/projectile/bullet/pistol/strong
 	simple_damage = 25
 	simple_armor_penetration = 5
+
+
+/datum/admins/proc/simplecombat_changer(mob/living/player in GLOB.alive_mobs)
+	set popup_menu = FALSE
+	set category = null
+	set name = "Simplecombat switch"
+	set desc = "Turning on SimpleCombat(tm) for some idiots."
+
+	if(!check_rights())
+		return
+
+	if(!istype(player) || !player)
+		to_chat(usr, "This can only be used on instances of type /mob/living")
+		return
+
+	player.simple_combat_on = !player.simple_combat_on
+	log_and_message_admins("[player.simple_combat_on? "включил" : "выключил"] симплкомбат для [player]")
