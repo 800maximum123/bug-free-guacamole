@@ -500,12 +500,12 @@
 	software.installed_software = list(MECH_SOFTWARE_UTILITY, MECH_SOFTWARE_ENGINEERING, MECH_SOFTWARE_WEAPONS, MECH_SOFTWARE_MEDICAL)
 
 /obj/item/gun/projectile/automatic/assault_rifle/mounted/rain_echo
-	burst = 1
+	burst = 2
 	can_autofire = TRUE
 	fire_delay = null
 	max_shells = 600
 	firemodes = list(
-		list(mode_name="autofire", burst=1, fire_delay=null, move_delay=null, one_hand_penalty=0, burst_accuracy=null, dispersion=null),
+		list(mode_name="autofire", burst=2, fire_delay=null, move_delay=null, one_hand_penalty=0, burst_accuracy=null, dispersion=null),
 		)
 /obj/item/mech_equipment/mounted_system/taser/ballistic/rain_echo
 	holding_type = /obj/item/gun/projectile/automatic/assault_rifle/mounted/rain_echo
