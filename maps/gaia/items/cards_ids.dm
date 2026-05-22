@@ -13,7 +13,7 @@
 /obj/item/card/id/gaia/cop
 	name = "identification card"
 	desc = "A national identification card issued by the Gaian Republic."
-	job_access_type = /datum/job/policeman
+	job_access_type = /datum/job/police_officer
 
 /obj/item/card/id/gaia/firefighter
 	name = "identification card"

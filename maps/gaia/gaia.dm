@@ -63,9 +63,10 @@
 	#include "../gaia/turf/walls.dm"
 	#include "../gaia/turf/mineral.dm"
 
-	#include "../gaia/job/iccg_jobs.dm"
-	#include "../gaia/job/scg_jobs.dm"
 	#include "../gaia/job/gaia_jobs.dm"
+	#include "../gaia/job/iccg_jobs.dm"
+	#include "../gaia/job/misc_jobs.dm"
+	#include "../gaia/job/scg_jobs.dm"
 
 	#include "../gaia/job/outfits/iccg_outfits.dm"
 	#include "../gaia/job/outfits/misc_outfits.dm"

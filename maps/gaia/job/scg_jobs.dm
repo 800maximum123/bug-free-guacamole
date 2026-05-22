@@ -179,7 +179,7 @@
 	ideal_character_age = 30
 	alt_titles = list(
 		"Damage Control Technician",
-		"Civil Engineer",
+		"Municipal Engineer",
 	)
 	outfit_type = /singleton/hierarchy/outfit/job/gaia/scg/engineer
 	required_language = LANGUAGE_HUMAN_EURO

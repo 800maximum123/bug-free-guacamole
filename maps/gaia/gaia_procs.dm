@@ -40,9 +40,14 @@
 		num2text(ERT_FREQ)   = list(access_cent_specops),
 		num2text(MED_I_FREQ) = list(access_iccg_med),
 		num2text(SEC_I_FREQ) = list(access_iccg_sec),
-		num2text(HAIL_FREQ)  = list(),
+		num2text(HAIL_FREQ)  = list(), // Default for civvies
 		num2text(SFV_FREQ)   = list(access_solgov_crew),
 		num2text(ICCGN_FREQ) = list(access_iccg),
+		// USED BY CIVVIES
+		num2text(COMM_FREQ)  = list(access_radio_comm),
+		num2text(ENG_FREQ)   = list(access_radio_eng),
+		num2text(MED_FREQ)   = list(access_radio_med),
+		num2text(SEC_FREQ)   = list(access_radio_sec),
 	)
 
 /datum/map/gaia/setup_economy()
