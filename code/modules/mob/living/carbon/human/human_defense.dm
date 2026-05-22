@@ -366,6 +366,8 @@ meteor_act
 		var/datum/wound/created_wound
 
 		src.visible_message(SPAN_WARNING("\The [src] has been hit in the [hit_area] by \the [O]."))
+		if(throw_damage >= 3)
+			playsound(src, get_sfx("swing_hit"), 50, TRUE)
 		created_wound = apply_damage(throw_damage, dtype, zone, O.damage_flags(), O, O.armor_penetration)
 
 		if(TT.thrower)

@@ -528,3 +528,26 @@
 	icon_state = "brick"
 	plural_icon_state = "brick-mult"
 	max_icon_state = "brick-max"
+	throwforce = 10 // VIVA LA BRICK
+//	w_class = ITEM_SIZE_SMALL
+	throw_speed = 4
+	throw_range = 10
+	var/break_chance = 50
+
+/obj/item/stack/material/generic/brick/throw_impact(atom/hit_atom, datum/thrownthing/TT)
+	. = ..()
+	if(prob(break_chance) && amount <= 1)
+		material.place_shard(src.loc)
+		playsound(src, 'sound/effects/brickbreak.ogg', 50, TRUE)
+		visible_message(SPAN_WARNING("The [src] breaks on impact!"), SPAN_WARNING("You hear a loud cracking sound!"))
+		Destroy()
+
+// Preset concrete bricks
+/obj/item/stack/material/generic/brick/concrete
+	default_type = MATERIAL_CONCRETE
+
+/obj/item/stack/material/generic/brick/concrete/ten
+	amount = 10
+
+/obj/item/stack/material/generic/brick/concrete/fifty
+	amount = 50

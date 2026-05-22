@@ -51,6 +51,7 @@
 
 /obj/item/stack/examine(mob/user, distance)
 	. = ..()
+	to_chat(user, SPAN_NOTICE("Using HARM intent you can instantly grab one [singular_name] from the stack to throw it."))
 	if(distance <= 1)
 		if(!uses_charge)
 			to_chat(user, "There [amount == 1 ? "is 1 [singular_name]" : "are [amount] [plural_name]"] in the stack.")
@@ -316,7 +317,11 @@
 
 /obj/item/stack/attack_hand(mob/user as mob)
 	if (user.get_inactive_hand() == src)
-		var/N = input("How many [plural_name] of \the [src] would you like to split off?", "Split stacks", 1) as num|null
+		var/N
+		if(user.a_intent == I_HURT) // Quick combat grab of one ite to throw without stupid input
+			N = 1
+		else
+			N = input("How many [plural_name] of \the [src] would you like to split off?", "Split stacks", 1) as num|null
 		if(N)
 			var/obj/item/stack/F = src.split(N)
 			if (F)
