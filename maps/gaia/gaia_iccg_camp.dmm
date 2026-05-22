@@ -2536,6 +2536,27 @@
 	},
 /turf/simulated/floor/exoplanet/grim_wood_log,
 /area/gaia/iccg)
+"ls" = (
+/obj/structure/hygiene/sink{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 2
+	},
+/obj/structure/disposaloutlet{
+	dir = 1;
+	pixel_y = -19;
+	pixel_x = 7;
+	density = 0
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 2
+	},
+/obj/structure/sign/warning/caution{
+	dir = 4;
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled,
+/area/gaia/iccg/security)
 "lv" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark/monotile,
@@ -4761,17 +4782,18 @@
 	pixel_x = -12;
 	pixel_y = 2
 	},
-/obj/structure/disposaloutlet{
-	dir = 1;
-	pixel_y = -19;
-	pixel_x = 7
-	},
 /obj/structure/disposalpipe/trunk{
 	dir = 2
 	},
 /obj/structure/sign/warning/caution{
 	dir = 4;
 	pixel_x = -32
+	},
+/obj/structure/disposaloutlet{
+	dir = 1;
+	pixel_y = -19;
+	pixel_x = 7;
+	density = 0
 	},
 /turf/simulated/floor/tiled,
 /area/gaia/iccg/security)
@@ -6134,16 +6156,17 @@
 	pixel_x = -12;
 	pixel_y = 2
 	},
-/obj/structure/disposaloutlet{
-	pixel_y = 10;
-	pixel_x = 7
-	},
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
 /obj/structure/sign/warning/caution{
 	dir = 4;
 	pixel_x = -32
+	},
+/obj/structure/disposaloutlet{
+	pixel_y = 10;
+	pixel_x = 7;
+	density = 0
 	},
 /turf/simulated/floor/tiled,
 /area/gaia/iccg/security)
@@ -24097,7 +24120,7 @@ sh
 sh
 GX
 oR
-wl
+ls
 qw
 Dy
 LM

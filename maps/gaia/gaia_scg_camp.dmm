@@ -823,14 +823,12 @@
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/scg/hospital)
 "fb" = (
-/obj/floor_decal/borderfloor{
-	dir = 1
-	},
 /obj/structure/sign/double/solgovflag/left{
 	pixel_y = 32
 	},
 /obj/structure/ladder/dirt,
-/turf/simulated/floor/tiled/techfloor,
+/obj/structure/catwalk,
+/turf/simulated/open,
 /area/gaia/scg/security/prison)
 "fd" = (
 /obj/decal/cleanable/dirt,
@@ -907,7 +905,8 @@
 "fy" = (
 /obj/item/paper/crumpled/bog,
 /obj/structure/ladder/dirt,
-/turf/simulated/floor/tiled/white,
+/obj/structure/catwalk,
+/turf/simulated/open,
 /area/gaia/scg/barracks/bathroom)
 "fz" = (
 /obj/floor_decal/industrial/warning/dust,
@@ -1766,7 +1765,8 @@
 /area/gaia/scg/barracks)
 "lk" = (
 /obj/structure/ladder/dirt,
-/turf/simulated/floor/exoplanet/grass,
+/obj/structure/catwalk,
+/turf/simulated/open,
 /area/gaia/scg)
 "lm" = (
 /obj/machinery/vending/soda{
@@ -2049,7 +2049,8 @@
 /area/gaia/scg/command/monty)
 "mK" = (
 /obj/structure/ladder/dirt,
-/turf/simulated/floor/tiled/dark/monotile,
+/obj/structure/catwalk,
+/turf/simulated/open,
 /area/gaia/scg/engineering/communications)
 "mL" = (
 /obj/decal/cleanable/dirt,
@@ -3753,7 +3754,8 @@
 /area/gaia/scg/command/briefing)
 "xy" = (
 /obj/structure/ladder/dirt,
-/turf/simulated/floor/tiled/dark/monotile,
+/obj/structure/catwalk,
+/turf/simulated/open,
 /area/gaia/scg/armory)
 "xz" = (
 /turf/simulated/floor/plating,
@@ -5474,11 +5476,9 @@
 /turf/simulated/floor/lino,
 /area/gaia/scg/barracks/officer/breakroom)
 "Js" = (
-/obj/floor_decal/industrial/warning/dust{
-	dir = 1
-	},
 /obj/structure/ladder/dirt,
-/turf/simulated/floor/tiled/techmaint,
+/obj/structure/catwalk,
+/turf/simulated/open,
 /area/gaia/scg/hospital)
 "Jv" = (
 /obj/structure/flora/pottedplant/dead,
@@ -6226,7 +6226,8 @@
 "NX" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/ladder/dirt,
-/turf/simulated/floor/exoplanet/grass,
+/obj/structure/catwalk,
+/turf/simulated/open,
 /area/gaia/scg)
 "NZ" = (
 /obj/lock_helper/gaia_scg,
@@ -6896,6 +6897,7 @@
 /area/gaia/scg/hospital)
 "Tn" = (
 /obj/structure/ladder/dirt,
+/obj/structure/catwalk,
 /turf/simulated/floor/exoplanet/barren,
 /area/gaia/scg/outskirts)
 "Tp" = (
