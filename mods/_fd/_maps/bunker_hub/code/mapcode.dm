@@ -563,6 +563,7 @@
 		SKILL_ANATOMY = SKILL_MAX,
 		SKILL_CHEMISTRY = SKILL_MAX
 	)
+	required_language = LANGUAGE_HUMAN_EURO
 
 /datum/job/submap/bunker/post_equip_rank(mob/living/person, alt_title)
 	. = ..()

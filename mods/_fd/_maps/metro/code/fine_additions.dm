@@ -1130,3 +1130,18 @@
 /obj/structure/fd/bunker/stabilizator_cell/blue
 	icon_state = "bluestabilizator"
 	key_type = /obj/item/fd/stabilizator_key/blue
+
+
+
+/proc/xray_jeff_fucker(mob/user as mob)
+	user.mutations.Add(MUTATION_XRAY)
+	user.set_sight(user.sight|SEE_MOBS|SEE_OBJS|SEE_TURFS)
+	user.set_see_in_dark(8)
+	user.set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
+	to_chat(user, SPAN_NOTICE("The walls suddenly disappear."))
+
+
+/proc/xray_jeff_fucker2(mob/user as mob)
+	user.mutations.Add(MUTATION_XRAY)
+	user.set_sight(user.sight|SEE_MOBS|SEE_OBJS|SEE_TURFS)
+	to_chat(user, SPAN_NOTICE("The walls suddenly disappear."))
