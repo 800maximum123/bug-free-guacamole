@@ -636,6 +636,7 @@
 	person.simple_health = 500
 
 	person.simple_armor_natural = 5
+	person.add_status_effect(/datum/simple_status/meat_movement)
 
 /singleton/hierarchy/outfit/bunker/meat
 	name = "Mr Meat"

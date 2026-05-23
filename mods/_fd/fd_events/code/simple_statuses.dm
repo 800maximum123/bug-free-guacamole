@@ -26,6 +26,8 @@
 	/// Таймер конца эффекта
 	var/timerid
 
+	var/positive_effect = FALSE
+
 /image/healthinfo
 /mob/living
 	var/list/healthchecking = list()
@@ -517,13 +519,10 @@
 	. = ..()
 
 	if(issilicon(owner))
-		owner.remove_status_effect(/datum/simple_status/bleed)
+		return FALSE
 
-	if(ishuman(owner))
-		var/mob/living/carbon/human/H = owner
-		var/obj/item/organ/external/chest = H.organs_by_name[BP_CHEST]
-		if(BP_IS_ROBOTIC(chest))
-			owner.remove_status_effect(/datum/simple_status/bleed)
+	if(owner.isSynthetic())
+		return FALSE
 
 /datum/simple_status/bleed/tick()
 	. = ..()
@@ -623,10 +622,14 @@
 	desc_text = null
 	status_type = STATUS_EFFECT_UNIQUE
 
+	positive_effect = TRUE
+
 /datum/simple_status/attack_speed_buff
 	name = "Бафф скорости атаки"
 	desc_text = null
 	status_type = STATUS_EFFECT_UNIQUE
+
+	positive_effect = TRUE
 
 /datum/simple_status/attack_speed_buff/on_apply()
 	. = ..()
@@ -651,3 +654,12 @@
 		var/mob/living/simple_animal/hostile/S = owner
 
 		S.attack_delay = initial(S.attack_delay)
+
+///////////////////////////////////////
+
+/datum/simple_status/meat_movement
+	name = "Бафф скорости для Мяса"
+	desc_text = null
+	status_type = STATUS_EFFECT_UNIQUE
+
+	positive_effect = TRUE

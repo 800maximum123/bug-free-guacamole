@@ -400,8 +400,11 @@
 		if(get_status_effect(/datum/simple_status/legbroke) && !get_status_effect(/datum/simple_status/splinted))
 			. += 5
 
+		if(get_status_effect(/datum/simple_status/meat_movement))
+			. -= 5
+
 		if(get_status_effect(/datum/simple_status/attack_damage_buff))
-			. -= 10
+			. -= 5
 
 /mob/living/proc/simple_health_vfx(show_blood = TRUE, obj/effect/simple_combat_particle/create_impact = null, obj/item/projectile/proj = null, mob/living/attacker = null)
 
@@ -722,6 +725,8 @@
 			remove_status_effect(/datum/simple_status/hardcrit)
 
 		for(var/datum/simple_status/effects in status_effects)
+			if(effects.positive_effect)
+				continue
 			remove_status_effect(effects)
 
 /mob/living/ClickOn(atom/A)
@@ -1483,6 +1488,8 @@
 			simple_health_calculation(-(max_simple_health - simple_health),0,0,0)
 
 			for(var/datum/simple_status/effects in status_effects)
+				if(effects.positive_effect)
+					continue
 				if(istype(effects,/datum/simple_status/hardcrit))
 					stabilized = TRUE
 				remove_status_effect(effects)
@@ -1505,6 +1512,96 @@
 
 	animation_flash_color(src, COLOR_RED)
 	return FALSE
+
+/mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
+	if(isWelder(tool) && isSynthetic() && simple_combat_on)
+		if (user == src)
+			animation_flash_color(tool, COLOR_RED)
+			USE_FEEDBACK_FAILURE("You lack the reach to be able to repair yourself.")
+			return TRUE
+		if(simple_health >= max_simple_health)
+			animation_flash_color(tool, COLOR_RED)
+			return TRUE
+
+		var/obj/item/weldingtool/welder = tool
+
+		if (istype(tool, /obj/item/weldingtool) && !welder.can_use(1, user, "to repair \the [src]'s physical damage."))
+			animation_flash_color(tool, COLOR_RED)
+			return TRUE
+
+		playsound(src, 'sound/items/Welder.ogg', 50, TRUE)
+		user.visible_message(
+			SPAN_NOTICE("\The [user] starts repairing some of the dents on \the [src] with \a [tool]."),
+			SPAN_NOTICE("You start repairing some of the dents on \the [src] with \the [tool]."),
+		)
+
+		if (!do_after(user, (tool.toolspeed * 5) SECOND, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
+			return TRUE
+		if (simple_health >= max_simple_health)
+			USE_FEEDBACK_FAILURE("\The [src] has no physical damage to repair.")
+			animation_flash_color(tool, COLOR_RED)
+			return TRUE
+		if (!welder.can_use(5, user, "to repair \the [src]'s physical damage."))
+			animation_flash_color(tool, COLOR_RED)
+			return TRUE
+
+		welder.remove_fuel(5, user)
+
+		simple_health_calculation(-10,0,0,0)
+		animation_flash_color(tool, COLOR_GREEN)
+		playsound(src, 'sound/items/Welder.ogg', 50, TRUE)
+
+		user.visible_message(
+			SPAN_NOTICE("\The [user] repairs some of the dents on \the [src] with \a [tool]."),
+			SPAN_NOTICE("You repair some of the dents on \the [src] with \the [tool]."),
+		)
+		return TRUE
+
+	if (isCoil(tool) && isSynthetic() && simple_combat_on)
+		if (user == src)
+			animation_flash_color(tool, COLOR_RED)
+			USE_FEEDBACK_FAILURE("You lack the reach to be able to repair yourself.")
+			return TRUE
+		if (!get_status_effect(/datum/simple_status/legbroke))
+			animation_flash_color(tool, COLOR_RED)
+			USE_FEEDBACK_FAILURE("\The [src] has no electronics damage to repair.")
+			return TRUE
+
+		var/obj/item/stack/cable_coil/cable = tool
+
+		if (!cable.can_use(1))
+			animation_flash_color(tool, COLOR_RED)
+			USE_FEEDBACK_STACK_NOT_ENOUGH(cable, 1, "to repair \the [src]'s electronics damage.")
+			return TRUE
+
+		user.visible_message(
+			SPAN_NOTICE("\The [user] starts repairing some of the electronics in \the [src] with [cable.get_vague_name(FALSE)]."),
+			SPAN_NOTICE("You start repairing some of the electronics in \the [src] with [cable.get_exact_name(1)]."),
+		)
+
+		if (!do_after(user, 5 SECOND, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
+			return TRUE
+		if (!get_status_effect(/datum/simple_status/legbroke))
+			animation_flash_color(tool, COLOR_RED)
+			USE_FEEDBACK_FAILURE("\The [src] has no electronics damage to repair.")
+			return TRUE
+		if (!cable.can_use(1))
+			animation_flash_color(tool, COLOR_RED)
+			USE_FEEDBACK_STACK_NOT_ENOUGH(cable, 1, "to repair \the [src]'s electronics damage.")
+			return TRUE
+
+		cable.use(1)
+
+		remove_status_effect(/datum/simple_status/legbroke)
+		animation_flash_color(tool, COLOR_GREEN)
+
+		user.visible_message(
+			SPAN_NOTICE("\The [user] repairs some of the electronics in \the [src] with [cable.get_vague_name(FALSE)]."),
+			SPAN_NOTICE("You repair some of the electronics in \the [src] with some [cable.get_exact_name(1)]."),
+		)
+		return TRUE
+
+	. = ..()
 
 /datum/interactive_note/tutorial_ooc/combat1
 	name = "Броня и части тела"
@@ -1776,10 +1873,9 @@
 
 
 /datum/admins/proc/simplecombat_changer(mob/living/player in GLOB.alive_mobs)
-	set popup_menu = FALSE
 	set category = null
-	set name = "Simplecombat switch"
-	set desc = "Turning on SimpleCombat(tm) for some idiots."
+	set name = "Change Combat Mode"
+	set desc = "Turning on Simple Combat(tm) for some idiots."
 
 	if(!check_rights())
 		return

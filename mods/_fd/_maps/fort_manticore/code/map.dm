@@ -599,6 +599,8 @@
 /singleton/hierarchy/outfit/fort_manticore/victor
 	name = "Victor Manticora"
 
+	l_hand = /obj/item/material/hatchet/machete/kukri
+
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 
@@ -701,6 +703,7 @@
 /singleton/hierarchy/outfit/fort_manticore/luke
 	name = "Luke Liltroy"
 
+	r_hand = /obj/item/material/hatchet/machete/steel
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 
@@ -716,6 +719,10 @@
 	name = "Adriano Martiesa"
 
 	l_ear = /obj/item/device/radio/headset/syndicate
+
+	back = /obj/item/storage/backpack/satchel/pocketbook
+	backpack_contents = list(/obj/item/storage/bible/bible = 1, /obj/item/nullrod/holycross = 1)
+
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 

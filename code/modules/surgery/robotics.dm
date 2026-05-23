@@ -207,14 +207,9 @@
 /singleton/surgery_step/robotics/repair_brute/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(affected)
-		if(target.simple_combat_on)
-			if(target.simple_health < target.max_simple_health)
-				to_chat(user, SPAN_WARNING("There is no damage to repair."))
-				return FALSE
-		if(!target.simple_combat_on)
-			if(!affected.brute_dam)
-				to_chat(user, SPAN_WARNING("There is no damage to repair."))
-				return FALSE
+		if(!affected.brute_dam)
+			to_chat(user, SPAN_WARNING("There is no damage to repair."))
+			return FALSE
 		if(BP_IS_BRITTLE(affected))
 			to_chat(user, SPAN_WARNING("\The [target]'s [affected.name] is too brittle to be repaired normally."))
 			return FALSE
@@ -231,12 +226,8 @@
 
 /singleton/surgery_step/robotics/repair_brute/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
-	if(!target.simple_combat_on)
-		if(affected && affected.hatch_state == HATCH_OPENED && ((affected.status & ORGAN_DISFIGURED) || affected.brute_dam > 0))
-			return affected
-	else
-		if(target.simple_health < target.max_simple_health)
-			return affected
+	if(affected && affected.hatch_state == HATCH_OPENED && ((affected.status & ORGAN_DISFIGURED) || affected.brute_dam > 0))
+		return affected
 
 /singleton/surgery_step/robotics/repair_brute/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -249,9 +240,6 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_NOTICE("[user] finishes patching damage to [target]'s [affected.name] with \the [tool]."), \
 	SPAN_NOTICE("You finish patching damage to [target]'s [affected.name] with \the [tool]."))
-
-	if(target.simple_combat_on)
-		target.simple_health_calculation(-10,0,0,0)
 
 	affected.heal_damage(rand(30,50),0,1,1)
 	affected.status &= ~ORGAN_DISFIGURED
@@ -328,14 +316,9 @@
 /singleton/surgery_step/robotics/repair_burn/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(affected)
-		if(target.simple_combat_on)
-			if(!target.get_status_effect(/datum/simple_status/legbroke))
-				to_chat(user, SPAN_WARNING("There is no damage to repair."))
-				return FALSE
-		if(!target.simple_combat_on)
-			if(!affected.burn_dam)
-				to_chat(user, SPAN_WARNING("There is no damage to repair."))
-				return FALSE
+		if(!affected.burn_dam)
+			to_chat(user, SPAN_WARNING("There is no damage to repair."))
+			return FALSE
 		if(BP_IS_BRITTLE(affected))
 			to_chat(user, SPAN_WARNING("\The [target]'s [affected.name] is too brittle for this kind of repair."))
 		else
@@ -349,12 +332,8 @@
 
 /singleton/surgery_step/robotics/repair_burn/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
-	if(!target.simple_combat_on)
-		if(affected && affected.hatch_state == HATCH_OPENED && ((affected.status & ORGAN_DISFIGURED) || affected.burn_dam > 0))
-			return affected
-	else
-		if(target.get_status_effect(/datum/simple_status/legbroke))
-			return affected
+	if(affected && affected.hatch_state == HATCH_OPENED && ((affected.status & ORGAN_DISFIGURED) || affected.burn_dam > 0))
+		return affected
 
 /singleton/surgery_step/robotics/repair_burn/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -367,10 +346,6 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_NOTICE("[user] finishes splicing cable into [target]'s [affected.name]."), \
 	SPAN_NOTICE("You finishes splicing new cable into [target]'s [affected.name]."))
-
-	if(target.simple_combat_on)
-		if(target.get_status_effect(/datum/simple_status/legbroke))
-			target.remove_status_effect(/datum/simple_status/legbroke)
 
 	affected.heal_damage(0,rand(30,50),1,1)
 	affected.status &= ~ORGAN_DISFIGURED

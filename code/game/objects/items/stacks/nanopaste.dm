@@ -15,20 +15,21 @@
 		var/mob/living/silicon/robot/R = M
 
 		if(R.simple_combat_on)
-			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			if(R.simple_health < R.max_simple_health)
-				R.simple_health_calculation(-20,0,0,0)
-				animation_flash_color(src, COLOR_GREEN)
-				use(1)
-			if(R.get_status_effect(/datum/simple_status/legbroke))
-				R.remove_status_effect(/datum/simple_status/legbroke)
-				animation_flash_color(src, COLOR_GREEN)
-				use(1)
-			if(R.get_status_effect(/datum/simple_status/hardcrit))
-				R.stabilized = TRUE
-				R.remove_status_effect(/datum/simple_status/hardcrit)
-				animation_flash_color(src, COLOR_GREEN)
-				use(1)
+			if(do_after(user, 2 SECONDS, R, DO_PUBLIC_UNIQUE))
+				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+				if(R.simple_health < R.max_simple_health)
+					R.simple_health_calculation(-20,0,0,0)
+					animation_flash_color(src, COLOR_GREEN)
+					use(1)
+				if(R.get_status_effect(/datum/simple_status/legbroke))
+					R.remove_status_effect(/datum/simple_status/legbroke)
+					animation_flash_color(src, COLOR_GREEN)
+					use(1)
+				if(R.get_status_effect(/datum/simple_status/hardcrit))
+					R.stabilized = TRUE
+					R.remove_status_effect(/datum/simple_status/hardcrit)
+					animation_flash_color(src, COLOR_GREEN)
+					use(1)
 
 			else
 				animation_flash_color(src, COLOR_RED)
@@ -60,7 +61,7 @@
 			return TRUE
 
 		if(H.simple_combat_on && S && BP_IS_ROBOTIC(S))
-			if(can_use(1))
+			if(can_use(1) && do_after(user, 2 SECONDS, H, DO_PUBLIC_UNIQUE))
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				if(H.simple_health < H.max_simple_health)
 					H.simple_health_calculation(-20,0,0,0)

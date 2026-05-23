@@ -1,3 +1,21 @@
+/obj/item/material/hatchet/machete/kukri
+	item_state_slots = list(
+		slot_l_hand_str = "kukri-l",
+		slot_r_hand_str = "kukri-r",
+		)
+	icon_state = "kukri"
+	item_state = "kukri"
+	icon = 'kympoter.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'kympoter.dmi',
+		slot_r_hand_str = 'kympoter.dmi'
+		)
+
+	name = "kukri"
+	unbreakable = TRUE
+	default_material = MATERIAL_STEEL
+	pick_handle = FALSE
+
 /obj/item/material/knife/ritual/aftik
 	name = "ritual knife"
 	desc = "An ancient silver bloodletting knife. Its blade is adorned with intricate serpent carvings and Assashite runes along the edge."
@@ -18,12 +36,16 @@
 	lunge_dist = 3
 	melee_strikes = list(/singleton/combo_strike/precise_strike/fast_attacks,/singleton/combo_strike/swipe_strike/mixed_combo)
 
+	var/mob/living/owner
 	var/active = FALSE
 
 /obj/item/material/knife/ritual/aftik/attack_self(mob/living/user)
+	if(!owner)
+		owner = user
+
 	if(user.simple_combat_on)
 
-		if(user.ckey != "Aftik")
+		if(owner != user)
 			animation_flash_color(src, COLOR_RED)
 			playsound(user, 'sound/effects/screech.ogg', 100)
 			return
@@ -57,6 +79,7 @@
 	. = ..()
 
 /obj/item/material/knife/ritual/aftik/dropped(mob/living/user as mob)
+	..()
 	if(active)
 		active = FALSE
 
@@ -65,8 +88,6 @@
 		user.simple_health_calculation(10,0,0,0)
 
 		remove_filter("sacrificed")
-
-	. = ..()
 
 
 /obj/item/material/knife/ritual/aftik/examine(mob/user, distance, is_adjacent)

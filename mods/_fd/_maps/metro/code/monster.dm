@@ -360,6 +360,7 @@
 
 	movement_cooldown = 6
 	see_in_dark = 4
+	chasm_free = TRUE
 
 	var/sound_shutoff = FALSE
 

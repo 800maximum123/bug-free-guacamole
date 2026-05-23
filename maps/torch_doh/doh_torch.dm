@@ -202,7 +202,7 @@
 	#include "cutscenes/s2ep4/scene_3.dm"
 
 	#include "cutscenes/s2ep5/characters.dm"
-	#include "cutscenes/s2ep5/scene_1.dm"
+	#include "cutscenes/s2ep5/cutscenes.dm"
 
 	#include "music_videos/s2opening1.dm"
 

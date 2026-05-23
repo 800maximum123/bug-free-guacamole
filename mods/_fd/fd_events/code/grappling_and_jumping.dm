@@ -1,6 +1,9 @@
 /atom
 	var/canbegrappled = FALSE
 
+/mob/living
+	var/chasm_free = FALSE
+
 /obj/structure/fd/chasm
 	name = "abyss"
 	desc = "Do not fell in it!"
@@ -14,7 +17,6 @@
 
 	var/has_fall_damage = TRUE
 	var/fall_damage_amount = 30
-	var/list/mob/living/ignore_these_mobs = list(/mob/living/simple_animal/metro_jeff)
 
 	anchored = TRUE
 
@@ -53,7 +55,7 @@
 
 /obj/structure/fd/chasm/Process()
 	for(var/mob/living/A in get_turf(src))
-		if(A.type in ignore_these_mobs)
+		if(A.chasm_free)
 			return
 
 		if(A.in_dash)
@@ -76,7 +78,7 @@
 	if(isliving(A))
 		var/mob/living/L = A
 
-		if(L.type in ignore_these_mobs)
+		if(L.chasm_free)
 			return
 
 		if(L.in_dash)

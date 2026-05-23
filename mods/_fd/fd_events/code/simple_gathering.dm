@@ -110,6 +110,10 @@
 /obj/structure/flora/seaweed
 	react_to_movement = TRUE
 
+/obj/structure/flora/seaweed/fd
+	icon = 'mods/_fd/fd_assets/icons/goons/sealab_objects.dmi'
+	icon_state = "kelp"
+
 /obj/structure/flora/tall
 	name = "plant"
 	icon = 'mods/_fd/fd_assets/icons/vampires/flora32x48.dmi'

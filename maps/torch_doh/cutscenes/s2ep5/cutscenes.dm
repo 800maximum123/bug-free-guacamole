@@ -752,9 +752,9 @@
 
 		CHANGE_ACTOR_VISUALS(actor("Глаза Райфлер - 5-1-7"), "Rifler Eyes"),
 		CHANGE_ACTOR_VISUALS(actor("Крис - 5-1-7"), "EP5 PAGE 1 - 1"),
-		EASY_TRANSFORM_ACTOR(actor("Глаза Райфлер - 5-1-7"), 5, 0),
+		EASY_TRANSFORM_ACTOR(actor("Глаза Райфлер - 5-1-7"), 6, 0),
 		TURN_ACTOR(actor("Глаза Райфлер - 5-1-7"), WEST),
-		SHIFT_ACTOR(actor("Глаза Райфлер - 5-1-7"), -19, -34, 0, null, null),
+		SHIFT_ACTOR(actor("Глаза Райфлер - 5-1-7"), -17, -39, 0, null, null),
 
 		TALK_ACTOR(actor("Крис - 5-1-7"), "- даже простой завал может стать для нас большой проблемой.") = 6 SECONDS,
 		START_CUTSCENE(/datum/modular_cutscene/s2ep5sc8)
@@ -1009,7 +1009,7 @@
 		TURN_ACTOR(actor("Крис - 5-1-10"), NORTH),
 		SHIFT_ACTOR(actor("Крис - 5-1-10"), 0, 10, 0.5 SECONDS, SINE_EASING|EASE_IN, null),
 		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "А все вокруг в это же время будто бы намеренно продолжают делать в ней дырки.") = 8 SECONDS,
-		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "Я учёный, а не полководцы. Я...") = 4 SECONDS,
+		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "Я учёный, а не полководец. Я...") = 4 SECONDS,
 		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "...+СОЗДАЮ+ боевые задачи - не +РЕШАЮ+ их.") = 4 SECONDS,
 		TALK_ACTOR(actor("Фиддлер - 5-1-10"), "Боже, если бы Мартин только мог меня видеть сейчас...ни харизмы, ни уважения.") = 8 SECONDS,
 		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/IBO - Barren.mp3', volume = 50), null),
@@ -1730,3 +1730,115 @@
 	if(M.client)
 		M.client.ignore_focus = FALSE
 		M.balloon_alert(M, "|ЗА ВАМИ БОЛЬШЕ НЕ НАБЛЮДАЮТ|", COLOR_GOLD)
+
+/mob/living/simple_animal/fd/terra
+	universal_speak = TRUE
+	universal_understand = TRUE
+
+	name = "Terra"
+	desc = "..."
+
+	icon = 'maps/torch_doh/cutscenes/icons/Character_Terra.dmi'
+	icon_state = "Current"
+	icon_living = "Current"
+	icon_dead = "Current"
+	ai_holder = null
+
+/mob/living/simple_animal/fd/swift
+	universal_speak = TRUE
+	universal_understand = TRUE
+
+	name = "S.W.I.F.T."
+	desc = "..."
+
+	icon = 'maps/torch_doh/cutscenes/icons/Character_Swift.dmi'
+	icon_state = "Final"
+	icon_living = "Final"
+	icon_dead = "Final"
+	ai_holder = null
+
+/obj/temp_visual/swift_electro
+	duration = 0.5 SECONDS
+	icon = 'mods/_fd/fd_assets/icons/goons/effects.dmi'
+	icon_state = "residual_electricity_start"
+	layer = 4.5
+
+/obj/structure/fd/cutscene_ep5/manipulator
+	name = "machinery"
+	desc = "..."
+
+	icon = 'mods/_fd/fd_assets/icons/goons/32x64.dmi'
+	icon_state = "drone-charger-idle"
+
+	anchored = TRUE
+	layer = 4.10
+
+/obj/structure/fd/cutscene_ep5/manipulator/proc/trigger_stage_1()
+	balloon_alert_to_viewers("|ЩЁЛК!|", null, COLOR_WHITE)
+	icon_state = "drone-charger-open"
+
+/obj/structure/fd/cutscene_ep5/manipulator/proc/trigger_stage_2()
+	icon_state = "drone-charger-charging"
+	var/mob/living/swift
+
+	new /obj/temp_visual/swift_electro(get_turf(src))
+
+	for(var/mob/living/L in get_turf(src))
+		swift = L
+
+	animate(swift, transform = matrix(rand(-3,3), rand(-3,3), MATRIX_TRANSLATE), time = 0.5, easing = EASE_IN)
+	for(var/i in 0 to 100)
+		animate(transform = matrix(rand(-4,4), rand(-4,4), MATRIX_TRANSLATE), time = 1)
+	animate(transform = matrix(0, 0, MATRIX_TRANSLATE), time = 0.5, easing = EASE_OUT)
+
+/obj/temp_visual/admin_teleport
+	duration = 5 SECONDS
+	icon = 'mods/_fd/fd_assets/icons/goons/mob.dmi'
+	icon_state = "unpull"
+	layer = 4.5
+
+/obj/item/fd/cutscene_ep5/teleporter
+	name = "device"
+	desc = "..."
+	w_class = ITEM_SIZE_TINY
+
+	icon = 'mods/_fd/fd_assets/icons/goons/device.dmi'
+	icon_state = "hand_tele_s"
+
+	var/active = FALSE
+
+/obj/item/fd/cutscene_ep5/teleporter/attack_self(mob/living/user)
+	. = ..()
+	if(active)
+		active = FALSE
+
+		user.SetTransform(0)
+		user.alpha = 0
+
+		var/obj/temp_visual/admin_teleport/A = new /obj/temp_visual/admin_teleport(get_turf(user))
+		animate(A, transform = matrix(3, MATRIX_SCALE), time = 1 SECONDS, easing = SINE_EASING|EASE_IN)
+		animate(user, transform = matrix(1, MATRIX_SCALE), alpha = 255, time = 1 SECONDS, easing = ELASTIC_EASING|EASE_OUT)
+
+		user.RemoveMovementHandler(/datum/movement_handler/mob/incorporeal)
+		sleep(1 SECONDS)
+		A.icon_state = "pull"
+		user.chasm_free = FALSE
+
+		animate(A, transform = matrix(0, MATRIX_SCALE), time = 0.5 SECONDS, easing = SINE_EASING|EASE_OUT)
+		return TRUE
+
+	if(!active)
+		active = TRUE
+
+		var/obj/temp_visual/admin_teleport/A = new /obj/temp_visual/admin_teleport(get_turf(user))
+		animate(A, transform = matrix(3, MATRIX_SCALE), time = 1 SECONDS, easing = SINE_EASING|EASE_IN)
+		user.AddMovementHandler(/datum/movement_handler/mob/incorporeal)
+
+		sleep(1 SECONDS)
+		A.icon_state = "pull"
+		user.chasm_free = TRUE
+
+		animate(A, transform = matrix(0, MATRIX_SCALE), time = 0.5 SECONDS, easing = SINE_EASING|EASE_OUT)
+		animate(user, transform = matrix(0, MATRIX_SCALE), alpha = 0, time = 0.5 SECONDS, easing = ELASTIC_EASING|EASE_IN)
+
+		return TRUE
