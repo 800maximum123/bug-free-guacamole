@@ -773,19 +773,22 @@
 
 /obj/item/fd/simple_combat
 	var/robot_friendly = FALSE
+	var/works_in_hardcrit = FALSE
 
-/obj/item/fd/simple_combat/attack_self(mob/user)
+/obj/item/fd/simple_combat/attack_self(mob/living/user)
+
+	if(user.get_status_effect(/datum/simple_status/hardcrit) && !works_in_hardcrit)
+		user.balloon_alert(user, "|СНАЧАЛА НУЖНО ЕГО СТАБИЛИЗИРОВАТЬ!|", COLOR_RED)
+		animation_flash_color(src, COLOR_RED)
+		return FALSE
 
 	if(issilicon(user) && !robot_friendly)
 		animation_flash_color(src, COLOR_RED)
 		return FALSE
 
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		var/obj/item/organ/external/chest = H.organs_by_name[BP_CHEST]
-		if(BP_IS_ROBOTIC(chest) && !robot_friendly)
-			animation_flash_color(src, COLOR_RED)
-			return FALSE
+	if(user.isSynthetic() && !robot_friendly)
+		animation_flash_color(src, COLOR_RED)
+		return FALSE
 
 	. = ..()
 
@@ -839,12 +842,9 @@
 			animation_flash_color(B, COLOR_RED)
 			return FALSE
 
-		if(ishuman(src))
-			var/mob/living/carbon/human/H = src
-			var/obj/item/organ/external/chest = H.organs_by_name[BP_CHEST]
-			if(BP_IS_ROBOTIC(chest) && !B.robot_friendly)
-				animation_flash_color(B, COLOR_RED)
-				return FALSE
+		if(isSynthetic() && !B.robot_friendly)
+			animation_flash_color(B, COLOR_RED)
+			return FALSE
 
 		if(!B.transfering_to)
 			if(B.transfering_to != src && B.connected_to != src)
@@ -905,6 +905,8 @@
 		return TRUE
 
 /obj/item/fd/simple_combat/bloodbag/dropped()
+	..()
+
 	if(connected_to)
 		connected_to.remove_filter("connected")
 		connected_to.anchored = FALSE
@@ -917,8 +919,6 @@
 	transfering_to = null
 
 	maptext = ""
-
-	. = ..()
 
 /obj/item/fd/simple_combat/bloodbag/proc/update_health_inside()
 	icon_state = "blood_0"
@@ -952,12 +952,9 @@
 			animation_flash_color(A, COLOR_RED)
 			return FALSE
 
-		if(ishuman(src))
-			var/mob/living/carbon/human/H = src
-			var/obj/item/organ/external/chest = H.organs_by_name[BP_CHEST]
-			if(BP_IS_ROBOTIC(chest) && !A.robot_friendly)
-				animation_flash_color(A, COLOR_RED)
-				return FALSE
+		if(isSynthetic() && !A.robot_friendly)
+			animation_flash_color(A, COLOR_RED)
+			return FALSE
 
 		if(base_regen_period > 2 && !(get_status_effect(/datum/simple_status/crit) || get_status_effect(/datum/simple_status/hardcrit)))
 			animation_flash_color(A, COLOR_GREEN)
@@ -1008,6 +1005,7 @@
 	icon_state = "revive"
 
 	w_class = ITEM_SIZE_TINY
+	works_in_hardcrit = TRUE
 
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	if(istype(tool,/obj/item/fd/simple_combat/revive))
@@ -1017,12 +1015,9 @@
 			animation_flash_color(R, COLOR_RED)
 			return FALSE
 
-		if(ishuman(src))
-			var/mob/living/carbon/human/H = src
-			var/obj/item/organ/external/chest = H.organs_by_name[BP_CHEST]
-			if(BP_IS_ROBOTIC(chest) && !R.robot_friendly)
-				animation_flash_color(R, COLOR_RED)
-				return FALSE
+		if(isSynthetic() && !R.robot_friendly)
+			animation_flash_color(R, COLOR_RED)
+			return FALSE
 
 		if((get_status_effect(/datum/simple_status/crit) || get_status_effect(/datum/simple_status/hardcrit)) && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
 			animation_flash_color(R, COLOR_GREEN)
@@ -1075,6 +1070,7 @@
 	icon_state = "fracturetempfix"
 
 	w_class = ITEM_SIZE_SMALL
+	works_in_hardcrit = TRUE
 
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	if(istype(tool,/obj/item/fd/simple_combat/splint))
@@ -1084,12 +1080,9 @@
 			animation_flash_color(S, COLOR_RED)
 			return FALSE
 
-		if(ishuman(src))
-			var/mob/living/carbon/human/H = src
-			var/obj/item/organ/external/chest = H.organs_by_name[BP_CHEST]
-			if(BP_IS_ROBOTIC(chest) && !S.robot_friendly)
-				animation_flash_color(S, COLOR_RED)
-				return FALSE
+		if(isSynthetic() && !S.robot_friendly)
+			animation_flash_color(S, COLOR_RED)
+			return FALSE
 
 		if(get_status_effect(/datum/simple_status/legbroke) && do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
 			animation_flash_color(S, COLOR_GREEN)
@@ -1135,6 +1128,7 @@
 	maptext_width = 96
 	maptext_x = 4
 	maptext_y = 2
+	works_in_hardcrit = TRUE
 
 /obj/item/fd/simple_combat/bandage/MouseEntered(location, control, params)
 	. = ..()
@@ -1156,12 +1150,9 @@
 			animation_flash_color(B, COLOR_RED)
 			return FALSE
 
-		if(ishuman(src))
-			var/mob/living/carbon/human/H = src
-			var/obj/item/organ/external/chest = H.organs_by_name[BP_CHEST]
-			if(BP_IS_ROBOTIC(chest) && !B.robot_friendly)
-				animation_flash_color(B, COLOR_RED)
-				return FALSE
+		if(isSynthetic() && !B.robot_friendly)
+			animation_flash_color(B, COLOR_RED)
+			return FALSE
 
 		if(get_status_effect(/datum/simple_status/bleed) && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
 			animation_flash_color(B, COLOR_GREEN)
@@ -1210,6 +1201,7 @@
 	w_class = ITEM_SIZE_SMALL
 	var/uses = 2
 	var/uses_max = 2
+	works_in_hardcrit = TRUE
 
 /obj/item/fd/simple_combat/bonegel/MouseEntered(location, control, params)
 	. = ..()
@@ -1231,12 +1223,9 @@
 			animation_flash_color(B, COLOR_RED)
 			return FALSE
 
-		if(ishuman(src))
-			var/mob/living/carbon/human/H = src
-			var/obj/item/organ/external/chest = H.organs_by_name[BP_CHEST]
-			if(BP_IS_ROBOTIC(chest) && !B.robot_friendly)
-				animation_flash_color(B, COLOR_RED)
-				return FALSE
+		if(isSynthetic() && !B.robot_friendly)
+			animation_flash_color(B, COLOR_RED)
+			return FALSE
 
 		if(get_status_effect(/datum/simple_status/legbroke) && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
 			animation_flash_color(B, COLOR_GREEN)
@@ -1455,6 +1444,8 @@
 	maptext_width = 96
 	maptext_x = 4
 	maptext_y = 2
+
+	works_in_hardcrit = TRUE
 
 /obj/item/fd/simple_combat/full_heal/MouseEntered(location, control, params)
 	. = ..()

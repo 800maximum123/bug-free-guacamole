@@ -8,18 +8,18 @@
 
 	if(isliving(user) && user.need_to_breath)
 		if(unbreathable && user.client)
-			user.show_danger()
+			user.balloon_alert(user, "|ВНИМАНИЕ! ЗАДЕРЖИТЕ ДЫХАНИЕ!|", COLOR_RED)
 
 /area/Exited(mob/living/user)
 	. = ..()
 
 	if(isliving(user) && user.need_to_breath)
 		if(unbreathable && user.client)
-			user.hide_danger()
+			user.balloon_alert(user, "|МОЖНО ДЫШАТЬ|", COLOR_GREEN)
 
 /mob/living
-	var/naturally_stored_air = 20
-	var/currently_stored_air = 20
+	var/naturally_stored_air = 30
+	var/currently_stored_air = 30
 
 	var/need_to_breath = TRUE
 
@@ -31,10 +31,10 @@
 	if(need_to_breath)
 
 		if(A.unbreathable && currently_stored_air == 5 && client)
-			show_lowair_warning()
+			balloon_alert(src, "|ВНИМАНИЕ! У ВАС ПРАКТИЧЕСКИ ЗАКОНЧИЛСЯ ВОЗДУХ! НАДЕНЬТЕ МАСКУ!|", COLOR_RED)
 
 		if(!A.unbreathable && currently_stored_air < naturally_stored_air)
-			currently_stored_air += 1
+			currently_stored_air = clamp(currently_stored_air + 2, 0, naturally_stored_air)
 
 		if(ishuman(src))
 			var/mob/living/carbon/human/H = src
@@ -43,15 +43,17 @@
 			if(A.unbreathable)
 				if(E && E.cell.charge >= 5)
 					E.cell.charge -= 5
+				if(E && E.cell.charge == 20)
+					balloon_alert(src, "|ВНИМАНИЕ! КРИТИЧЕСКАЯ НЕХВАТКА ПИТАНИЯ!|", COLOR_RED)
 					//H.recalculate_reality_connection(0.1) // УДАЛИТЬ ПОТОМ
 				else
 
 					if(breath_protected(gasmask, A))
-						gasmask.filter_stored_air -= 1
+						gasmask.filter_slot.stored_air = clamp(gasmask.filter_slot.stored_air - 1, 0, gasmask.filter_slot.stored_air)
 						playsound_local(get_turf(src), 'sound/machines/pump.ogg', 20)
 					else
 						if(currently_stored_air > 0)
-							currently_stored_air -= 1
+							currently_stored_air = clamp(currently_stored_air - 1, 0, naturally_stored_air)
 						if(currently_stored_air <= 0)
 							emote("gasp")
 							if(simple_combat_on)
@@ -62,7 +64,7 @@
 
 		if(A.unbreathable && !ishuman(src))
 			if(currently_stored_air > 0)
-				currently_stored_air -= 1
+				currently_stored_air = clamp(currently_stored_air - 1, 0, naturally_stored_air)
 			if(currently_stored_air <= 0)
 				if(simple_combat_on)
 					simple_health_calculation(5, 0, 0, 0)
@@ -76,91 +78,49 @@
 		return FALSE
 	if(!istype(protection, /obj/item/clothing/mask/gas))
 		return FALSE
-	if(protection.filter_stored_air <= 0)
+	if(!protection.filter_slot)
+		return FALSE
+	if(protection.filter_slot.stored_air <= 0)
 		return FALSE
 	if(infested_zone.mask_wont_help)
 		return FALSE
 
 	return TRUE
 
-/mob/living/proc/show_lowair_warning()
-
-	for(var/obj/screen/T in client.screen)
-		if(istype(T, /obj/screen/novel_message/start_credits))
-			client.screen -= T
-
-	var/text_message = "В глазах мутнеет...чувствую себя не очень хорошо..."
-	var/colored = "#000f"
-
-	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
-	visuals.maptext_x = 0
-	visuals.maptext_y = -210
-
-	client.screen += visuals
-	visuals.set_text(text_message, colored, time = 5 SECONDS)
-
-/mob/living/proc/show_danger()
-
-	for(var/obj/screen/T in client.screen)
-		if(istype(T, /obj/screen/novel_message/start_credits))
-			client.screen -= T
-
-	var/text_message = "Что-то не так. Чувствую себя как-то неправильно..."
-	var/colored = "#000f"
-
-	if(wear_mask && wear_mask.item_flags & ITEM_FLAG_AIRTIGHT)
-		playsound(src, 'sound/effects/internals.ogg', 50)
-		text_message = "Чувствую, что фильтры закрутились..."
-
-	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
-	visuals.maptext_x = 0
-	visuals.maptext_y = -210
-
-	client.screen += visuals
-	visuals.set_text(text_message, colored, time = 5 SECONDS)
-
-/mob/living/proc/hide_danger()
-
-	for(var/obj/screen/T in client.screen)
-		if(istype(T, /obj/screen/novel_message/start_credits))
-			client.screen -= T
-
-	var/text_message = "Что бы то ни было, но оно миновало..."
-	var/colored = "#000f"
-
-	if(wear_mask && wear_mask.item_flags & ITEM_FLAG_AIRTIGHT)
-		text_message = "Похоже, тут можно безопасно снять снаряжение!"
-
-	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
-	visuals.maptext_x = 0
-	visuals.maptext_y = -210
-
-	client.screen += visuals
-	visuals.set_text(text_message, colored, time = 5 SECONDS)
-
 /obj/item/clothing/mask/gas
-	var/filter_stored_air = 0
-	var/filter_max_air = 100
 	var/current_status
+
+	var/obj/item/fd/filter/filter_slot
+	var/start_with_filter = FALSE
+
+/obj/item/clothing/mask/gas/Initialize()
+	. = ..()
+
+	if(start_with_filter)
+		filter_slot = new /obj/item/fd/filter()
 
 /obj/item/clothing/mask/gas/MouseEntered(location, control, params)
 	. = ..()
 
 	if(loc == usr)
 
-		switch(filter_stored_air)
-			if(0)
-				current_status = "gas_empty"
-			if(1 to 20)
-				current_status = "gas_low"
-			if(21 to 50)
-				current_status = "gas_half"
-			if(51 to 75)
-				current_status = "gas_notsofull"
-			if(76 to 100)
-				current_status = "gas_full"
-			else
-				current_status = "gas_full"
+		if(!filter_slot)
+			current_status = "gas_empty"
+
+		else
+			switch(filter_slot.stored_air)
+				if(0)
+					current_status = "gas_empty"
+				if(1 to 20)
+					current_status = "gas_low"
+				if(21 to 50)
+					current_status = "gas_half"
+				if(51 to 75)
+					current_status = "gas_notsofull"
+				if(76 to 100)
+					current_status = "gas_full"
+				else
+					current_status = "gas_full"
 
 		AddOverlays(image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status))
 
@@ -173,68 +133,32 @@
 
 	if(istype(tool, /obj/item/fd/filter))
 		var/obj/item/fd/filter/F = tool
-		if(F.additional_air <= 0)
-			animation_flash_color(F, COLOR_RED)
-			to_chat(user, SPAN_WARNING("Наполнитель пуст!"))
-			return FALSE
-
-		if(filter_stored_air >= filter_max_air)
-			animation_flash_color(F, COLOR_RED)
-			to_chat(user, SPAN_WARNING("Маска уже заправлена!"))
-			return FALSE
 
 		if(do_after(user, 5 SECONDS, F, DO_PUBLIC_UNIQUE))
-			F.CutOverlays(image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', F.current_status))
 			CutOverlays(image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status))
+			if(filter_slot)
+				user.put_in_inactive_hand(filter_slot)
+				filter_slot = null
 
-			animation_flash_color(src, COLOR_GREEN)
+			user.drop_from_inventory(F)
+			F.forceMove(src)
+			filter_slot = F
 
-			balloon_alert_to_viewers("|ПШШШ...|", null, COLOR_WHITE)
-			visible_message("[user] наполняет [src] используя [F].", "Ты наполнил фильтр [src].")
-			playsound(user, 'sound/effects/refill.ogg', 50)
-
-			var/how_empty = filter_max_air - filter_stored_air
-			var/refill_with = F.additional_air - how_empty
-
-			if(refill_with <= 0)
-				filter_stored_air += F.additional_air
-				F.additional_air = 0
-			else
-				filter_stored_air += refill_with
-				F.additional_air -= refill_with
+			if(filter_slot.stored_air > 0)
+				balloon_alert_to_viewers("|ПШШШ...|", null, COLOR_WHITE)
+				playsound(user, 'sound/effects/refill.ogg', 50)
+			visible_message("[user] вставляет [F] в [src].", "Ты вставил фильтр в [src].")
+			if(filter_slot.stored_air <= 0)
+				user.balloon_alert(user, "|ВНИМАНИЕ! ФИЛЬТР ПУСТ!|", COLOR_RED)
 
 /obj/item/fd/filter
 	name = "gas filter"
 	desc = "For sanitizing bad chemicals in the air."
 	icon = 'mods/_fd/fd_assets/icons/obj/items/device_eris.dmi'
 	icon_state = "nanorepair_tank"
-	var/additional_air = 50
-	var/current_status
+	var/stored_air = 100
 
 	w_class = ITEM_SIZE_TINY
-
-/obj/item/fd/filter/MouseEntered(location, control, params)
-	. = ..()
-
-	if(loc == usr)
-
-		switch(additional_air)
-			if(0)
-				current_status = "gas_empty"
-			if(1 to 10)
-				current_status = "gas_low"
-			if(11 to 25)
-				current_status = "gas_half"
-			if(26 to 40)
-				current_status = "gas_notsofull"
-			if(41 to 50)
-				current_status = "gas_full"
-
-		AddOverlays(image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status))
-
-/obj/item/fd/filter/MouseExited(location, control, params)
-	. = ..()
-	CutOverlays(image('mods/_fd/fd_events/icons/casual_gasmask_info.dmi', current_status))
 
 // Gasmask overlay stuff
 

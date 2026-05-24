@@ -34,38 +34,54 @@
 	SetTransform(2)
 
 /obj/screen/teleport_monster/proc/remove_later()
-	if(jeff && jeff.client)
-		if(src in jeff.client.screen)
-			jeff.client.screen -= src
+	if(jeff)
 		animate(src, alpha = 0, time = 3, easing = SINE_EASING|EASE_IN)
+		mouse_opacity = FALSE
+
+		if(jeff.client)
+			for(var/obj/screen/teleport_monster/T in jeff.client.screen)
+				if(T == src)
+					jeff.client.screen -= T
+		jeff = null
 
 /obj/screen/teleport_monster/Click()
-	var/mob/living/simple_animal/metro_jeff/J = usr
 
 	var/list/options = list(
 		"ПЕРЕМЕСТИТЬСЯ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "radial_lookat"),
 		"ПРОИГНОРИРОВАТЬ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "radial_next"),
 	)
-	var/chosen_option = show_radial_menu(usr, src, options, radius = 25, require_near = TRUE)
+	var/chosen_option = show_radial_menu(jeff, src, options, radius = 25, require_near = TRUE)
 	if(!chosen_option)
 		return 0
 
 	switch(options)
 		if("ПЕРЕМЕСТИТЬСЯ")
-			if(!J.in_shadow)
-				J.change_monster_vis()
-				J.forceMove(connected_turf)
+			if(!jeff.in_shadow)
+				jeff.change_monster_vis()
+				jeff.forceMove(connected_turf)
 				animate(src, alpha = 0, time = 3, easing = SINE_EASING|EASE_IN)
-				J.client.screen -= src
+				mouse_opacity = FALSE
+				if(jeff.client)
+					for(var/obj/screen/teleport_monster/T in jeff.client.screen)
+						if(T == src)
+							jeff.client.screen -= T
 				return TRUE
 			else
-				J.forceMove(connected_turf)
+				jeff.forceMove(connected_turf)
 				animate(src, alpha = 0, time = 3, easing = SINE_EASING|EASE_IN)
-				J.client.screen -= src
+				mouse_opacity = FALSE
+				if(jeff.client)
+					for(var/obj/screen/teleport_monster/T in jeff.client.screen)
+						if(T == src)
+							jeff.client.screen -= T
 				return TRUE
 		if("ПРОИГНОРИРОВАТЬ")
 			animate(src, alpha = 0, time = 3, easing = SINE_EASING|EASE_IN)
-			J.client.screen -= src
+			mouse_opacity = FALSE
+			if(jeff.client)
+				for(var/obj/screen/teleport_monster/T in jeff.client.screen)
+					if(T == src)
+						jeff.client.screen -= T
 			return TRUE
 
 /obj/effect/trap_triggered
@@ -119,6 +135,7 @@
 			tp_button.maptext = STYLE_SMALLFONTS_OUTLINE("<center>[name]</center>", 7, COLOR_WHITE, COLOR_BLACK)
 			tp_button.maptext_x = 5
 			tp_button.maptext_width = 96
+			tp_button.mouse_opacity = TRUE
 			animate(tp_button, alpha = 255, time = 3, easing = SINE_EASING|EASE_IN)
 			addtimer(new Callback(tp_button, TYPE_PROC_REF(/obj/screen/teleport_monster, remove_later)), 30 SECONDS)
 
@@ -562,14 +579,12 @@
 			W.dismantle_wall()
 
 	for(var/obj/O in T)
-		if(!istype(O,/obj/structure) || !istype(O,/obj/machinery))
-			continue
 		if(istype(O,/obj/structure/cable))
 			continue
 		if(istype(O,/obj/machinery/atmospherics))
 			continue
-
-		if(do_after(src, 5 SECONDS, O, DO_PUBLIC_UNIQUE))
-			do_attack_animation(T)
-			playsound(src, 'mods/_fd/_maps/metro/jeff_sounds/smack.wav', 50, 0, extrarange = 4, falloff = 2)
-			qdel(O)
+		if(istype(O,/obj/structure) || istype(O,/obj/machinery))
+			if(do_after(src, 5 SECONDS, O, DO_PUBLIC_UNIQUE))
+				do_attack_animation(T)
+				playsound(src, 'mods/_fd/_maps/metro/jeff_sounds/smack.wav', 50, 0, extrarange = 4, falloff = 2)
+				qdel(O)

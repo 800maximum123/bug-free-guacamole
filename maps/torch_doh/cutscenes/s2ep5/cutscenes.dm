@@ -1697,6 +1697,13 @@
 		if(client.holder) // Педалям может понадобиться сделать что-то во время сценки
 			continue
 
+		if(client.watching_scene)
+			client.mob.clear_fullscreen("borders", /obj/screen/fullscreen/fd/cinema_borders)
+			client.watching_scene = TRUE
+			client.adminobs = null
+
+			client.mob.reset_view()
+
 		client.mob.overlay_fullscreen("borders", /obj/screen/fullscreen/fd/cinema_borders)
 
 		client.watching_scene = TRUE
@@ -1725,7 +1732,9 @@
 		client.watching_scene = FALSE
 
 		client.mob.clear_fullscreen("borders")
-		client.adminobs = FALSE
+		client.adminobs = null
+
+		client.mob.reset_view()
 
 	if(M.client)
 		M.client.ignore_focus = FALSE

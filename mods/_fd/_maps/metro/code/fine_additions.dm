@@ -266,6 +266,7 @@
 		CHANGE_ACTOR_VISUALS(actor("Дверь"), "open") = 1 SECONDS,
 		ADD_SCREEN(/blackout/animated_better) = 2 SECONDS,
 		MOVE_CAMERA(0, 0, 0, null) = 1 SECONDS,
+		REMOVE_SCREEN(/cinema_borders, 0),
 		REMOVE_SCREEN(/blackout/animated_better, 0.5 SECONDS),
 		RETURN_VIEWERS
 	)
