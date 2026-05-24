@@ -1,42 +1,40 @@
-/area/vegatable_base
+/area/vegateble_base
 	requires_power = 0
 
-/area/vegatable_base/start
+/area/vegateble_base/start
 	name = "Reserve Base"
 
-/area/vegatable_base/puzzle1
+/area/vegateble_base/puzzle1
 	name = "Reserve Base - ?"
 
-/area/vegatable_base/puzzle2
+/area/vegateble_base/puzzle2
 	name = "Reserve Base - ??"
 
-/area/vegatable_base/puzzle2/chasm
-
-
-/area/vegatable_base/puzzle3
+/area/vegateble_base/puzzle3
 	name = "Reserve Base - ???"
 
-/area/vegatable_base/real
+/area/vegateble_base/real
 	name = "Reserve Base"
 	requires_power = 1
 
-/area/vegatable_base/real/corridors
+/area/vegateble_base/real/corridors
 	name = "Reserve Base - Corridors"
+	requires_power = 1
 
-/area/vegatable_base/real/cafeteria
+/area/vegateble_base/real/cafeteria
 	name = "Reserve Base - Сafeteria"
 
-/area/vegatable_base/real/long_term_storage/sub
+/area/vegateble_base/real/long_term_storage/sub
 	name = "Reserve Base - Sub Long Term Storage"
 
-/area/vegatable_base/real/long_term_storage
+/area/vegateble_base/real/long_term_storage
 	name = "Reserve Base - Long Term Storage"
 
-/area/vegatable_base/real/chemical
+/area/vegateble_base/real/chemical
 	name = "Reserve Base - Chemical Laboratory"
 
-/area/vegatable_base/real/security
+/area/vegateble_base/real/security
 	name = "Reserve Base - Security Office"
 
-/area/vegatable_base/real/tech
+/area/vegateble_base/real/tech
 	name = "Reserve Base - Technical rooms"
