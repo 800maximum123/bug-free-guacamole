@@ -2,6 +2,7 @@
 	filename = "crewmanifest"
 	filedesc = "Crew Manifest"
 	extended_desc = "This program allows access to the manifest of active crew."
+	required_access = access_iccg // GAIA
 	program_icon_state = "generic"
 	program_key_state = "generic_key"
 	size = 4

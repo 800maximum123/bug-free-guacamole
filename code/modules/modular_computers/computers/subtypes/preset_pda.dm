@@ -12,6 +12,7 @@
 	..()
 	var/datum/extension/interactive/ntos/os = get_extension(src, /datum/extension/interactive/ntos)
 	if(os)
+		os.create_file(new/datum/computer_file/program/phone())
 		os.create_file(new/datum/computer_file/program/email_client())
 		os.create_file(new/datum/computer_file/program/chatclient())
 		os.create_file(new/datum/computer_file/program/crew_manifest())
@@ -20,7 +21,7 @@
 		os.create_file(new/datum/computer_file/program/newscast())
 		if(prob(50)) //harmless tax software
 			os.create_file(new /datum/computer_file/program/uplink())
-		os.set_autorun("emailc")
+		os.set_autorun("phone")
 
 /obj/item/modular_computer/pda/medical/install_default_hardware()
 	..()

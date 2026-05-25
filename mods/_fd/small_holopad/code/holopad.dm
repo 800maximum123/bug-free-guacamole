@@ -5,7 +5,7 @@
 
 /obj/item/device/holopad
 	name = "Holopad"
-	desc = "Small handheld disk with controls."
+	desc = "Small handheld disk with controls. Use in-hand to use, Alt-Click to change ringtone."
 	icon = 'mods/_fd/fd_assets/icons/obj/items/stock_parts.dmi'
 	icon_state = "holopad"
 	item_state = "card-id"
@@ -15,9 +15,22 @@
 	var/uniq_id
 	var/obj/item/device/holopad/abonent = null
 	var/call_state = CALL_NONE
-	var/obj/overlay/hologram = null
+	var/obj/overlay/	 = null
 	var/updatingPos = 0
 	var/hologram_color = HOLOPAD_SHORT_RANGE
+
+	var/boot_sound = 'mods/_fd/small_holopad/sounds/holopad_boot.ogg'
+	var/hangup_sound = 'mods/_fd/small_holopad/sounds/holopad_hangup.ogg'
+	var/ringtone = 'mods/_fd/small_holopad/sounds/holopad_ring.ogg'
+	var/ringtone_length = 17 // 1.7 seconds
+	var/list/ringtones = list(
+		"Vibration" = 'mods/_fd/small_holopad/sounds/holopad_ring.ogg',
+		"Signal" = 'mods/_fd/small_holopad/sounds/ringtone_signal.ogg',
+		"Trance (Melody)" = 'mods/_fd/small_holopad/sounds/ringtone_trance.ogg',
+		"Classic (Melody)" = 'mods/_fd/small_holopad/sounds/ringtone_classic.ogg',
+		"Hip-Hop (Melody)" = 'mods/_fd/small_holopad/sounds/ringtone_hiphop.ogg',
+		"Party (Melody)" = 'mods/_fd/small_holopad/sounds/ringtone_party.ogg',
+	)
 	origin_tech = list(TECH_DATA = 4, TECH_MAGNET = 4)
 
 /obj/item/device/holopad/Initialize()
@@ -31,21 +44,27 @@
 
 /obj/item/device/holopad/Destroy()
 	GLOB.listening_objects -= src
-	hangUp()
+	hangUp(FALSE)
 	. = ..()
 
 
-/obj/item/device/holopad/verb/setID()
+/obj/item/device/holopad/verb/setID_verb()
 	set name="Set ID"
 	set category = "Object"
 	set src in usr
+	setID(usr, FALSE)
+
+/obj/item/device/holopad/proc/setID(mob/user, thru_app)
 	if(call_state != CALL_NONE)
-		to_chat(usr, SPAN_WARNING("Нельзя сменить ID прямо сейчас."))
+		to_chat(user, SPAN_WARNING("Нельзя сменить ID прямо сейчас."))
 		return
-	var/newid = sanitize(input(usr, "Укажите ID голопада!") as null|text, MAX_NAME_LEN)
-	if(newid && CanPhysicallyInteract(usr))
+	var/newid = sanitize(input(user, "Укажите ID голопада!") as null|text, MAX_NAME_LEN)
+	if(!CanPhysicallyInteract(user) && !thru_app)
+		return
+	if(newid)
 		id = newid
 		name = "[initial(name)] [id] #[uniq_id]"
+		voice = "Holopad [id]"
 
 /obj/item/device/holopad/proc/getName(override_busy = 0)
 	if(call_state!=CALL_NONE && !override_busy)
@@ -66,8 +85,13 @@
 /obj/item/device/holopad/proc/ring()
 	if(call_state != CALL_RINGING)
 		return
-	audible_message(SPAN_WARNING("Что-то жужжит..."), hearing_distance = 4)
-	addtimer(new Callback(src, .proc/ring), 50)
+	var/list/IgnoreMobs = list()
+	for(var/mob/living/M in get_turf(src))
+		to_chat(M, SPAN_WARNING("Ваш [src] звонит!"))
+		IgnoreMobs += M
+	audible_message(SPAN_NOTICE("Вы слышите рингтон..."), hearing_distance = 4, exclude_mobs = IgnoreMobs)
+	playsound(src.loc, ringtone, 75, FALSE, -4)
+	addtimer(new Callback(src, .proc/ring), ringtone_length)
 
 /obj/item/device/holopad/proc/placeCall(mob/user)
 	var/list/Targets = list()
@@ -92,14 +116,21 @@
 		icon_state = "holopad_calling"
 		desc = "[initial(desc)]" + SPAN_NOTICE("<br>Устанавливается соединение - [abonent.getName()].")
 		audible_message("<span class='name'>[voice]</span> передаёт, \"Запрос на подключение: [sanitize(abonent.getName(1))].\"", hearing_distance = 4)
+		addtimer(new Callback(src, .proc/call_timeout), 30 SECONDS)
 	else
 		desc = initial(desc)
 		audible_message("<span class='name'>[voice]</span> передаёт, \"Соединение разорвано.\"", hearing_distance = 4)
 
-/obj/item/device/holopad/proc/acceptCall()
+/obj/item/device/holopad/proc/call_timeout()
+	if(call_state == CALL_CALLING)
+		hangUp(FALSE)
+
+/obj/item/device/holopad/proc/acceptCall(mob/user, thru_app)
 	if(call_state == CALL_RINGING)
-		var/confirm = alert(usr, "Ответить на звонок?", "Входящий вызов - [abonent.id]", "Да", "Нет")
-		if(isnull(confirm) || !CanDefaultInteract(usr))
+		var/confirm = alert(user, "Ответить на звонок?", "Входящий вызов - [abonent.id]", "Да", "Нет")
+		if(isnull(confirm))
+			return TRUE
+		if(!CanDefaultInteract(user) && !thru_app)
 			return TRUE
 		if(abonent && abonent.call_state == CALL_CALLING && confirm == "Да")
 			abonent.acceptCall()
@@ -112,21 +143,20 @@
 		else
 			icon_state = initial(icon_state)
 			desc = initial(desc)
-			abonent.hangUp()
-
+			abonent.hangUp(TRUE)
 	else if(call_state == CALL_CALLING)
 		call_state = CALL_IN_CALL
 		icon_state = "holopad_in_call"
 		addtimer(new Callback(src, .proc/update_holo), 1)
-		playsound(src.loc, 'mods/_fd/small_holopad/sounds/holopad_boot.ogg', 75, 1)
+		playsound(src.loc, boot_sound, 100, 1, -4)
 		audible_message("<span class='name'>[voice]</span> передаёт, \"Соединение установлено.\"", hearing_distance = 4)
 		desc = "[initial(desc)]" + SPAN_NOTICE("<br>Связь - [abonent.getName()].")
 
-/obj/item/device/holopad/proc/hangUp(remote = 0)
+/obj/item/device/holopad/proc/hangUp(remote)
 	if(!remote && abonent)
-		abonent.hangUp(1)
+		abonent.hangUp(TRUE)
 
-	if(call_state==CALL_NONE)
+	if(call_state == CALL_NONE)
 		return
 
 	audible_message("<span class='name'>[voice]</span> передаёт, \"Соединение разорвано.\"", hearing_distance = 4)
@@ -134,6 +164,7 @@
 	icon_state = initial(icon_state)
 	desc = initial(desc)
 	QDEL_NULL(hologram)
+	playsound(src.loc, hangup_sound, 100, 1, -4)
 	if(abonent)
 		if(abonent.hologram)
 			QDEL_NULL(abonent.hologram)
@@ -181,21 +212,38 @@
 		hologram.pixel_x = pixel_x + 1
 		hologram.pixel_y = pixel_y + pixel_z + 18
 	else
-		hangUp()
+		hangUp(FALSE)
 	addtimer(new Callback(src, .proc/update_holo_pos), 2)
+
+/obj/item/device/holopad/proc/changeringtone(mob/user)
+	var/selection = input("Выберите новый рингтон") as null|anything in ringtones
+	if(!selection)
+		return
+
+	playsound(src.loc, ringtones[selection], 75, FALSE, -4)
+	var/confirm = alert(user, "Вы уверены, что хотите выбрать [selection]?", "Подтверждение", "Да", "Нет")
+	if(!confirm || confirm == "Нет")
+		return
+
+	ringtone = ringtones[selection]
+	to_chat(user, SPAN_NOTICE("Вы выбрали рингтон: [selection]."))
 
 
 /obj/item/device/holopad/attack_self(mob/user)
 	switch(call_state)
 		if(CALL_NONE)
-			placeCall()
+			placeCall(user)
 		if(CALL_CALLING)
-			hangUp()
+			hangUp(FALSE)
 		if(CALL_RINGING)
-			acceptCall()
+			acceptCall(user, FALSE)
 		if(CALL_IN_CALL)
-			hangUp()
+			hangUp(FALSE)
 
+/obj/item/device/holopad/AltClick(mob/user)
+	. = ..()
+	changeringtone(user)
+	return
 
 //EMOTES & SPEECH STUFF//
 

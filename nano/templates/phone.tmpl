@@ -1,0 +1,32 @@
+<style type="text/css">
+	.phoneButtons { display:flex; flex-direction:column; gap:8px; margin-top:9px; }
+	.phoneButtons .link, .phoneButtons a { width:100%; box-sizing:border-box; }
+	.greenButton { background-color:#28a745; color:#fff; padding:8px 8px; border-radius:4px; }
+	.redButton { background-color:#dc3545; color:#fff; padding:8px 8px; border-radius:4px; }
+</style>
+
+<b>{{:data.holopad_name}}</b><br>
+<div class="item">
+	<div class="itemLabel">Status:</div>
+	<div class="itemContent">{{:data.call_state}}</div>
+</div>
+<div class="item">
+	<div class="itemLabel">Connected to: </div>
+	<div class="itemContent">{{:data.call_target}}</div>
+</div>
+<div class="itemContent phoneButtons">
+	{{if data.call_state == "Offline"}}
+		<div class="itemContent"><span class='warning'>NO CONNECTION.</span></div>
+	{{else data.call_state == "Idle"}}
+		{{:helper.link('Place Call', null, {'placecall' : 1})}}
+		{{:helper.link('Set ID', null, {'setid' : 1})}}
+		{{:helper.link('Change Ringtone', null, {'changeringtone' : 1})}}
+	{{else data.call_state == "Dialing"}}
+		{{:helper.link('Hang Up', null, {'hangup' : 1}, null, 'redButton')}}
+	{{else data.call_state == "Incoming call"}}
+		{{:helper.link('Accept Call', null, {'acceptcall' : 1}, null, 'greenButton')}}
+		{{:helper.link('Hang Up', null, {'hangup' : 1}, null, 'redButton')}}
+	{{else data.call_state == "In call"}}
+		{{:helper.link('Hang Up', null, {'hangup' : 1}, null, 'redButton')}}
+	{{/if}}
+</div>
