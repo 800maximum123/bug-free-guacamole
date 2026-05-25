@@ -35,6 +35,62 @@
 
 	var/list/datum/simple_status/status_effects
 
+/mob/living/proc/show_healthinfo_less(mob/living/A)
+	if(!client || (A in revealed_hints))
+		return
+
+	var/image/healthinfo/healthinfo = new /image/healthinfo('mods/_fd/fd_events/icons/simple_vfx_statuses.dmi', A, "healthinfo", layer = HUD_PLANE)
+
+	healthinfo.alpha = 0
+	healthinfo.pixel_x = pixel_x - 10
+	healthinfo.plane = HUD_PLANE
+
+	healthinfo.maptext_x = 32
+	healthinfo.maptext_height = 192
+	healthinfo.maptext_width = 192
+
+	var/damage_color
+	var/text_to_show
+	if(A.simple_health < A.max_simple_health / 5.0)
+		text_to_show = "Выглядит очень плохо"
+		damage_color = "#ff0000"
+	if(A.simple_health > A.max_simple_health / 5.0)
+		text_to_show = "Выглядит плохо"
+		damage_color = "#ff6600"
+	if(A.simple_health > A.max_simple_health / 2.0)
+		text_to_show = "Выглядит неважно"
+		damage_color = "#ffd000"
+	if(A.simple_health > A.max_simple_health / 1.3)
+		text_to_show = "Слегка потрёпан"
+		damage_color = "#7bc835"
+	if(A.simple_health == A.max_simple_health)
+		text_to_show = "Здоров"
+		damage_color = "#ffffff"
+	if(A.simple_health > A.max_simple_health)
+		text_to_show = "Здоровее обычного"
+		damage_color = "#33f7ed"
+
+	healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("|-", 7, COLOR_WHITE, COLOR_BLACK)
+	healthinfo.maptext += STYLE_SMALLFONTS_OUTLINE("<b>[text_to_show]</b>", 7, damage_color, COLOR_BLACK)
+
+	if(!length(A.status_effects))
+		healthinfo.maptext += STYLE_SMALLFONTS_OUTLINE("-|<br>", 7, COLOR_WHITE, COLOR_BLACK)
+	else if(length(A.status_effects))
+
+		var/list/negatives = list()
+		for(var/datum/simple_status/effect in A.status_effects)
+			if(!effect.positive_effect)
+				negatives += effect
+
+		if(length(negatives))
+			healthinfo.maptext += STYLE_SMALLFONTS_OUTLINE(", но...-|<br>", 7, COLOR_WHITE, COLOR_BLACK)
+			healthinfo.maptext += STYLE_SMALLFONTS_OUTLINE("- Нужен подробный осмотр...", 7, COLOR_RED, COLOR_BLACK)
+
+	animate(healthinfo, alpha = 255, pixel_x = src.pixel_x, time = 0.3 SECONDS, easing = SINE_EASING|EASE_OUT, ANIMATION_PARALLEL)
+
+	client.images += healthinfo
+	healthchecking[A] = healthinfo
+
 /mob/living/proc/show_healthinfo(mob/living/A)
 	if(!client || (A in revealed_hints))
 		return
@@ -49,21 +105,42 @@
 	healthinfo.maptext_height = 192
 	healthinfo.maptext_width = 192
 
-	var/health_percentage = (A.simple_health / A.max_simple_health) * 100.0
-	healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("|Здоров|<br>", 7, COLOR_LIME, COLOR_BLACK)
+	var/damage_color
+	if(A.simple_health <= A.max_simple_health / 5.0)
+		damage_color = "#ff0000"
+	if(A.simple_health > A.max_simple_health / 5.0)
+		damage_color = "#ff6600"
+	if(A.simple_health > A.max_simple_health / 2.0)
+		damage_color = "#ffd000"
+	if(A.simple_health > A.max_simple_health / 1.3)
+		damage_color = "#7bc835"
+	if(A.simple_health == A.max_simple_health)
+		damage_color = "#ffffff"
+	if(A.simple_health > A.max_simple_health)
+		damage_color = "#33f7ed"
 
-	if(health_percentage < 100 && health_percentage >= 81)
-		healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("|Слегка потрёпан|<br>", 7, COLOR_GREEN, COLOR_BLACK)
-	if(health_percentage <= 80 && health_percentage >= 51)
-		healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("|Выглядит неважно|<br>", 7, COLOR_GOLD, COLOR_BLACK)
-	if(health_percentage <= 50 && health_percentage >= 31)
-		healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("|Ранен|<br>", 7, COLOR_SUN, COLOR_BLACK)
-	if(health_percentage <= 30 && health_percentage >= 15)
-		healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("|Тяжело ранен|<br>", 7, COLOR_RED, COLOR_BLACK)
-	if(health_percentage <= 14 && health_percentage > 0)
-		healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("|При смерти!|<br>", 7, COMMS_COLOR_ICCG, COLOR_BLACK)
-	if(A.simple_health <= 0)
-		healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("|. . .|<br><br>", 7, COMMS_COLOR_ICCG, COLOR_BLACK)
+	healthinfo.maptext = STYLE_SMALLFONTS_OUTLINE("|-", 7, COLOR_WHITE, COLOR_BLACK)
+	healthinfo.maptext += STYLE_SMALLFONTS_OUTLINE("<b>[A.simple_health]</b>", 7, damage_color, COLOR_BLACK)
+	healthinfo.maptext += STYLE_SMALLFONTS_OUTLINE("/<b>[A.max_simple_health]</b>", 7, COLOR_WHITE, COLOR_BLACK)
+
+	if(!length(A.status_effects))
+		healthinfo.maptext += STYLE_SMALLFONTS_OUTLINE("-|<br>", 7, COLOR_WHITE, COLOR_BLACK)
+	else if(length(A.status_effects))
+		healthinfo.maptext += STYLE_SMALLFONTS_OUTLINE("-|", 7, COLOR_WHITE, COLOR_BLACK)
+		var/list/positives = list()
+		var/list/negatives = list()
+		for(var/datum/simple_status/effect in A.status_effects)
+			if(effect.positive_effect)
+				positives += effect
+			if(!effect.positive_effect)
+				negatives += effect
+
+		if(length(positives))
+			healthinfo.maptext += STYLE_SMALLFONTS_OUTLINE("<b>+</b>", 7, COLOR_GREEN, COLOR_BLACK)
+		if(length(negatives))
+			healthinfo.maptext += STYLE_SMALLFONTS_OUTLINE("<b>-</b>", 7, COLOR_RED, COLOR_BLACK)
+
+		healthinfo.maptext += STYLE_SMALLFONTS_OUTLINE("|<br>", 7, COLOR_WHITE, COLOR_BLACK)
 
 	for(var/datum/simple_status/effect in A.status_effects)
 		if(effect.desc_text)
@@ -87,6 +164,27 @@
 			client.images -= healthinfo
 		healthchecking -= A
 
+/obj/item/device/scanner/health/scan(atom/A, mob/user)
+	if(isliving(user))
+		var/mob/living/L = user
+		if(L.simple_combat_on)
+			if(isliving(A))
+				var/mob/living/target = A
+				if(!target.simple_combat_on)
+					return ..()
+				else
+					if(!(target in L.healthchecking))
+						playsound(src, 'sound/effects/fastbeep.ogg', 20)
+						L.show_healthinfo(target)
+						addtimer(new Callback(L, TYPE_PROC_REF(/mob/living, hide_healthinfo), target), 5 SECONDS)
+					else
+						L.hide_healthinfo(target)
+					return TRUE
+
+		else
+			return ..()
+
+
 /// Дополнительная информация после осмотра владельца, диктуемая этим эффектом
 /mob/living/examine(mob/user, distance)
 	if(isliving(user))
@@ -94,7 +192,14 @@
 		if(L.simple_combat_on)
 			if(simple_combat_on && isliving(src))
 				if(!(src in L.healthchecking))
-					L.show_healthinfo(src)
+					if(ishuman(L))
+						var/mob/living/carbon/human/H = L
+						if(H.skill_check(SKILL_MEDICAL, SKILL_TRAINED))
+							H.show_healthinfo(src)
+						else
+							H.show_healthinfo_less(src)
+					else
+						L.show_healthinfo(src)
 					addtimer(new Callback(L, PROC_REF(hide_healthinfo), src), 5 SECONDS)
 				else
 					L.hide_healthinfo(src)
@@ -107,7 +212,14 @@
 		if(L.simple_combat_on)
 			if(simple_combat_on && isliving(src))
 				if(!(src in L.healthchecking))
-					L.show_healthinfo(src)
+					if(ishuman(L))
+						var/mob/living/carbon/human/H = L
+						if(H.skill_check(SKILL_MEDICAL, SKILL_TRAINED))
+							H.show_healthinfo(src)
+						else
+							H.show_healthinfo_less(src)
+					else
+						L.show_healthinfo(src)
 					addtimer(new Callback(L, PROC_REF(hide_healthinfo), src), 5 SECONDS)
 				else
 					L.hide_healthinfo(src)
@@ -412,8 +524,8 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /datum/simple_status/crit
-	name = "Критически ранен"
-	desc_text = "- Он едва дышит. . ."
+	name = "Крит"
+	desc_text = "- Состояние критическое"
 	status_type = STATUS_EFFECT_UNIQUE
 	status_color = COMMS_COLOR_ICCG
 
@@ -436,6 +548,9 @@
 /datum/simple_status/crit/tick()
 	. = ..()
 
+	if(owner.simple_health > 0)
+		owner.remove_status_effect(src)
+
 	owner.resting = TRUE
 	owner.UpdateLyingBuckledAndVerbStatus()
 
@@ -454,8 +569,8 @@
 	owner.clear_fullscreen("dead")
 
 /datum/simple_status/hardcrit
-	name = "Умирает"
-	desc_text = "- Ещё чуть-чуть и всё. . ."
+	name = "Хардкрит"
+	desc_text = "- Требуется реанимация"
 	status_type = STATUS_EFFECT_UNIQUE
 	status_color = COMMS_COLOR_ICCG
 
@@ -510,7 +625,7 @@
 
 /datum/simple_status/bleed
 	name = "Кровотечение"
-	desc_text = "- Из его ран сочится кровь"
+	desc_text = "- Кровотечение"
 	status_type = STATUS_EFFECT_REFRESH
 	status_color = COLOR_RED
 	duration = 0
@@ -550,8 +665,8 @@
 	duration = -1
 
 /datum/simple_status/bandaged
-	name = "Перебинтован"
-	desc_text = "+ Его рана забинтована"
+	name = "Бинты"
+	desc_text = "+ Перевязан"
 	status_type = STATUS_EFFECT_REPLACE
 	status_color = COLOR_YELLOW
 	duration = 0
@@ -560,11 +675,11 @@
 	. = ..()
 
 	if(!owner.get_status_effect(/datum/simple_status/bleed))
-		owner.remove_status_effect(/datum/simple_status/bandaged)
+		owner.remove_status_effect(src)
 
 /datum/simple_status/splinted
-	name = "Наложена шина"
-	desc_text = "+ Его нога зафиксирована"
+	name = "Шина"
+	desc_text = "+ Зафиксирован"
 	status_type = STATUS_EFFECT_REPLACE
 	status_color = COLOR_YELLOW
 	duration = 0
@@ -573,11 +688,11 @@
 	. = ..()
 
 	if(!owner.get_status_effect(/datum/simple_status/legbroke))
-		owner.remove_status_effect(/datum/simple_status/splinted)
+		owner.remove_status_effect(src)
 
 /datum/simple_status/legbroke
-	name = "Перелом ноги"
-	desc_text = "- Он хромает"
+	name = "Перелом"
+	desc_text = "- Перелом"
 	status_type = STATUS_EFFECT_UNIQUE
 	status_color = COLOR_RED
 
@@ -587,7 +702,7 @@
 	new /obj/effect/simple_combat_particle/fracture(owner.loc)
 
 /datum/simple_status/fixation
-	name = "Зафиксирован"
+	name = "Стан (Бесконечный)"
 	desc_text = null
 	status_type = STATUS_EFFECT_UNIQUE
 	status_color = COLOR_RED
@@ -618,14 +733,14 @@
 	duration = 0
 
 /datum/simple_status/attack_damage_buff
-	name = "Бафф урона атаки"
+	name = "Бафф Афтика (Скорость передвижения + ДМГ)"
 	desc_text = null
 	status_type = STATUS_EFFECT_UNIQUE
 
 	positive_effect = TRUE
 
 /datum/simple_status/attack_speed_buff
-	name = "Бафф скорости атаки"
+	name = "Бафф (Скорость атаки)"
 	desc_text = null
 	status_type = STATUS_EFFECT_UNIQUE
 
@@ -658,7 +773,7 @@
 ///////////////////////////////////////
 
 /datum/simple_status/meat_movement
-	name = "Бафф скорости для Мяса"
+	name = "Бафф Мяса (Скорость передвижения)"
 	desc_text = null
 	status_type = STATUS_EFFECT_UNIQUE
 

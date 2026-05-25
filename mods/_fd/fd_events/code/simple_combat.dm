@@ -627,7 +627,10 @@
 					amount = clamp(amount - armor.simple_armor_bonus, 0, amount) // Вычитаем из урона показатель надетой на нас брони
 					armor.simple_armor_blockchance -= clamp(armor.simple_armor_deformation_speed + armor_damage_amp, 0, armor.simple_armor_blockchance_max) // Уменьшаем прочность брони
 
-		simple_health = clamp(simple_health - amount, 0, max_simple_health) // Наконец, вычитаем финальный урон из здоровья
+		// Наконец, вычитаем финальный урон из здоровья, но предварительно проверяем, не в хардкрите ли мы
+		if(!get_status_effect(/datum/simple_status/hardcrit))
+			simple_health = clamp(simple_health - amount, 0, max_simple_health)
+
 		if(amount > 0) // Урон выше чем ноль?
 			regen_period = base_regen_period // Стопорим регенерацию на некоторое время
 
@@ -645,7 +648,7 @@
 				add_status_effect(add_effect, effect_duration)
 			clear_fullscreen("damage")
 
-		if(amount < 0) // Урон меньше нуля? Значит нас похилили
+		if(amount < 0 && !get_status_effect(/datum/simple_status/hardcrit)) // Урон меньше нуля? Значит нас похилили
 			new /obj/effect/simple_combat_particle/healing(src.loc)
 			animation_flash_color(src, COLOR_GREEN)
 		if(amount == 0 && should_block) // Урон РАВЕН нулю и мы БЛОКИРОВАЛИ его? Проделываем всё то же самое, что и выше, но слегка иначе
@@ -773,14 +776,14 @@
 
 /obj/item/fd/simple_combat
 	var/robot_friendly = FALSE
-	var/works_in_hardcrit = FALSE
 
 /obj/item/fd/simple_combat/attack_self(mob/living/user)
 
-	if(user.get_status_effect(/datum/simple_status/hardcrit) && !works_in_hardcrit)
-		user.balloon_alert(user, "|СНАЧАЛА НУЖНО ЕГО СТАБИЛИЗИРОВАТЬ!|", COLOR_RED)
+// Надо ли оно вообще? Ты не можешь держать предметы в этом состоянии
+/*	if(user.get_status_effect(/datum/simple_status/hardcrit) && !works_in_hardcrit)
+		user.balloon_alert(user, "|В ЭТОМ СОСТОЯНИИ ВЫ НИКАК СЕБЕ НЕ ПОМОЖЕТЕ!|", COLOR_RED)
 		animation_flash_color(src, COLOR_RED)
-		return FALSE
+		return FALSE*/
 
 	if(issilicon(user) && !robot_friendly)
 		animation_flash_color(src, COLOR_RED)
@@ -843,6 +846,11 @@
 			return FALSE
 
 		if(isSynthetic() && !B.robot_friendly)
+			animation_flash_color(B, COLOR_RED)
+			return FALSE
+
+		if(get_status_effect(/datum/simple_status/hardcrit))
+			balloon_alert(user, "|СНАЧАЛА СТАБИЛИЗИРУЙТЕ ПАЦИЕНТА!|", COLOR_RED)
 			animation_flash_color(B, COLOR_RED)
 			return FALSE
 
@@ -956,7 +964,12 @@
 			animation_flash_color(A, COLOR_RED)
 			return FALSE
 
-		if(base_regen_period > 2 && !(get_status_effect(/datum/simple_status/crit) || get_status_effect(/datum/simple_status/hardcrit)))
+		if(get_status_effect(/datum/simple_status/hardcrit))
+			balloon_alert(user, "|СНАЧАЛА СТАБИЛИЗИРУЙТЕ ПАЦИЕНТА!|", COLOR_RED)
+			animation_flash_color(A, COLOR_RED)
+			return FALSE
+
+		if(base_regen_period > 2 && !get_status_effect(/datum/simple_status/crit))
 			animation_flash_color(A, COLOR_GREEN)
 			base_regen_period = 2
 			regen_for = 5
@@ -978,7 +991,7 @@
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.base_regen_period > 2 && !(H.get_status_effect(/datum/simple_status/crit) || H.get_status_effect(/datum/simple_status/hardcrit)))
+		if(H.base_regen_period > 2 && !H.get_status_effect(/datum/simple_status/crit))
 			animation_flash_color(src, COLOR_GREEN)
 			H.base_regen_period = 2
 			H.regen_for = 5
@@ -1005,7 +1018,6 @@
 	icon_state = "revive"
 
 	w_class = ITEM_SIZE_TINY
-	works_in_hardcrit = TRUE
 
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	if(istype(tool,/obj/item/fd/simple_combat/revive))
@@ -1070,7 +1082,6 @@
 	icon_state = "fracturetempfix"
 
 	w_class = ITEM_SIZE_SMALL
-	works_in_hardcrit = TRUE
 
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	if(istype(tool,/obj/item/fd/simple_combat/splint))
@@ -1128,7 +1139,6 @@
 	maptext_width = 96
 	maptext_x = 4
 	maptext_y = 2
-	works_in_hardcrit = TRUE
 
 /obj/item/fd/simple_combat/bandage/MouseEntered(location, control, params)
 	. = ..()
@@ -1201,7 +1211,6 @@
 	w_class = ITEM_SIZE_SMALL
 	var/uses = 2
 	var/uses_max = 2
-	works_in_hardcrit = TRUE
 
 /obj/item/fd/simple_combat/bonegel/MouseEntered(location, control, params)
 	. = ..()
@@ -1281,12 +1290,14 @@
 			animation_flash_color(S, COLOR_RED)
 			return FALSE
 
-		if(ishuman(src))
-			var/mob/living/carbon/human/H = src
-			var/obj/item/organ/external/chest = H.organs_by_name[BP_CHEST]
-			if(BP_IS_ROBOTIC(chest) && !S.robot_friendly)
-				animation_flash_color(S, COLOR_RED)
-				return FALSE
+		if(isSynthetic() && !S.robot_friendly)
+			animation_flash_color(S, COLOR_RED)
+			return FALSE
+
+		if(get_status_effect(/datum/simple_status/hardcrit))
+			balloon_alert(user, "|СНАЧАЛА СТАБИЛИЗИРУЙТЕ ПАЦИЕНТА!|", COLOR_RED)
+			animation_flash_color(S, COLOR_RED)
+			return FALSE
 
 		if(simple_health < max_simple_health)
 			animation_flash_color(S, COLOR_GREEN)
@@ -1334,12 +1345,14 @@
 			animation_flash_color(B, COLOR_RED)
 			return FALSE
 
-		if(ishuman(src))
-			var/mob/living/carbon/human/H = src
-			var/obj/item/organ/external/chest = H.organs_by_name[BP_CHEST]
-			if(BP_IS_ROBOTIC(chest) && !B.robot_friendly)
-				animation_flash_color(B, COLOR_RED)
-				return FALSE
+		if(isSynthetic() && !B.robot_friendly)
+			animation_flash_color(B, COLOR_RED)
+			return FALSE
+
+		if(get_status_effect(/datum/simple_status/hardcrit))
+			balloon_alert(user, "|СНАЧАЛА СТАБИЛИЗИРУЙТЕ ПАЦИЕНТА!|", COLOR_RED)
+			animation_flash_color(B, COLOR_RED)
+			return FALSE
 
 		if(simple_health < max_simple_health && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
 			animation_flash_color(B, COLOR_GREEN)
@@ -1372,63 +1385,6 @@
 			animation_flash_color(src, COLOR_RED)
 			return FALSE
 
-/obj/item/fd/simple_combat/big_heal
-	name = "medical injector"
-	desc = "Used to heal heavy wounds."
-
-	icon = 'mods/_fd/fd_events/icons/simple_medicine.dmi'
-	icon_state = "big_heal"
-
-	w_class = ITEM_SIZE_SMALL
-
-/mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
-	if(istype(tool,/obj/item/fd/simple_combat/big_heal))
-		var/obj/item/fd/simple_combat/big_heal/B = tool
-
-		if(issilicon(src) && !B.robot_friendly)
-			animation_flash_color(B, COLOR_RED)
-			return FALSE
-
-		if(ishuman(src))
-			var/mob/living/carbon/human/H = src
-			var/obj/item/organ/external/chest = H.organs_by_name[BP_CHEST]
-			if(BP_IS_ROBOTIC(chest) && !B.robot_friendly)
-				animation_flash_color(B, COLOR_RED)
-				return FALSE
-
-		if(simple_health < max_simple_health && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
-			animation_flash_color(B, COLOR_GREEN)
-			if(get_status_effect(/datum/simple_status/bleed))
-				remove_status_effect(/datum/simple_status/bleed)
-			simple_health_calculation(-60,0,0,0)
-
-			sleep(5)
-			qdel(B)
-
-		else
-			animation_flash_color(B, COLOR_RED)
-			return FALSE
-
-	. = ..()
-
-/obj/item/fd/simple_combat/big_heal/attack_self(mob/user)
-	. = ..()
-
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.simple_health < H.max_simple_health && do_after(H, 2 SECONDS, H, DO_PUBLIC_UNIQUE))
-			animation_flash_color(src, COLOR_GREEN)
-			if(H.get_status_effect(/datum/simple_status/bleed))
-				H.remove_status_effect(/datum/simple_status/bleed)
-			H.simple_health_calculation(-60,0,0,0)
-
-			sleep(5)
-			qdel(src)
-
-		else
-			animation_flash_color(src, COLOR_RED)
-			return FALSE
-
 /obj/item/fd/simple_combat/full_heal
 	name = "medkit"
 	desc = "Used to fully restore your body."
@@ -1444,8 +1400,6 @@
 	maptext_width = 96
 	maptext_x = 4
 	maptext_y = 2
-
-	works_in_hardcrit = TRUE
 
 /obj/item/fd/simple_combat/full_heal/MouseEntered(location, control, params)
 	. = ..()
@@ -1467,12 +1421,9 @@
 			animation_flash_color(F, COLOR_RED)
 			return FALSE
 
-		if(ishuman(src))
-			var/mob/living/carbon/human/H = src
-			var/obj/item/organ/external/chest = H.organs_by_name[BP_CHEST]
-			if(BP_IS_ROBOTIC(chest) && !F.robot_friendly)
-				animation_flash_color(F, COLOR_RED)
-				return FALSE
+		if(isSynthetic() && !F.robot_friendly)
+			animation_flash_color(F, COLOR_RED)
+			return FALSE
 
 		if(simple_health < max_simple_health && do_after(user, 30 SECONDS, src, DO_PUBLIC_UNIQUE))
 			animation_flash_color(F, COLOR_GREEN)
@@ -1861,7 +1812,6 @@
 /obj/item/projectile/bullet/pistol/strong
 	simple_damage = 25
 	simple_armor_penetration = 5
-
 
 /datum/admins/proc/simplecombat_changer(mob/living/player in GLOB.alive_mobs)
 	set category = null

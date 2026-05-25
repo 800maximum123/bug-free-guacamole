@@ -157,8 +157,21 @@
 	icon = 'mods/_fd/fd_assets/icons/obj/items/device_eris.dmi'
 	icon_state = "nanorepair_tank"
 	var/stored_air = 100
+	var/max_stored_air = 100
 
 	w_class = ITEM_SIZE_TINY
+
+/obj/item/fd/filter/MouseEntered(location, control, params)
+	. = ..()
+
+	if(loc == usr)
+		maptext = STYLE_SMALLFONTS_OUTLINE("[stored_air]/[max_stored_air]", 7, COLOR_WHITE, COLOR_BLACK)
+
+/obj/item/fd/filter/MouseExited(location, control, params)
+	. = ..()
+
+	if(maptext)
+		maptext = ""
 
 // Gasmask overlay stuff
 
