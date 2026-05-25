@@ -15,7 +15,7 @@
 	var/uniq_id
 	var/obj/item/device/holopad/abonent = null
 	var/call_state = CALL_NONE
-	var/obj/overlay/	 = null
+	var/obj/overlay/hologram = null
 	var/updatingPos = 0
 	var/hologram_color = HOLOPAD_SHORT_RANGE
 
