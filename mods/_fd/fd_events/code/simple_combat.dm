@@ -365,6 +365,9 @@
 	var/regen_period = 20
 	var/regen_for = 10
 
+	var/bloodyness = 0
+	var/image/bloodyness_overlay
+
 	var/simple_armor_natural = 0
 
 	var/obj/screen/health_face/h1
@@ -642,6 +645,11 @@
 				if(istype(source,/obj/item/projectile))
 					simple_health_vfx(TRUE, /obj/effect/simple_combat_particle/impact, source, null) // Прок на случай, если источником является прожектайл
 			animation_flash_color(src, COLOR_RED)
+
+			bloodyness += 2
+			if(ishuman(src))
+				setup_bloodyness_overlay()
+
 			sleep(6)
 
 			if(add_effect) // Если то чем нас атаковали имеет какие-то эффекты - добавляем их
@@ -711,6 +719,33 @@
 	if(istype(source,/obj/item/projectile))
 		if(prob(100 / (get_skill_value(SKILL_HAULING))))
 			add_status_effect(/datum/simple_status/legbroke)
+
+/mob/living/proc/setup_bloodyness_overlay()
+	return TRUE
+
+/mob/living/carbon/human/setup_bloodyness_overlay()
+	var/current_bloodyness = 0
+	CutOverlays(bloodyness_overlay, ATOM_ICON_CACHE_ALL)
+	bloodyness_overlay = null
+
+	if(bloodyness < 5)
+		return TRUE
+
+	else
+		switch(bloodyness)
+			if(5 to 24)
+				current_bloodyness = 5
+			if(25 to 54)
+				current_bloodyness = 25
+			if(55 to 84)
+				current_bloodyness = 55
+			else
+				current_bloodyness = 85
+
+		bloodyness_overlay = image('mods/_fd/fd_events/icons/simple_vfx_statuses.dmi', "[species.name]_[current_bloodyness]", layer = ABOVE_HUMAN_LAYER)
+		bloodyness_overlay.color = species.blood_color
+		AddOverlays(bloodyness_overlay, ATOM_ICON_CACHE_ALL)
+		return TRUE
 
 /mob/living/rejuvenate()
 	. = ..()
