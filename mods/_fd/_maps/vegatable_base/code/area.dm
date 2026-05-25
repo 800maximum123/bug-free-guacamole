@@ -11,10 +11,15 @@
 	name = "Reserve Base - ??"
 
 /area/vegatable_base/puzzle2/chasm
+	name = "Reserve Base - Falling for you"
 
 
 /area/vegatable_base/puzzle3
 	name = "Reserve Base - ???"
+
+
+/area/vegatable_base/puzzle3/chasm
+	name = "Reserve Base - Falling with you"
 
 /area/vegatable_base/real
 	name = "Reserve Base"
