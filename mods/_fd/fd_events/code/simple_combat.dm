@@ -366,7 +366,10 @@
 	var/regen_for = 10
 
 	var/bloodyness = 0
-	var/image/bloodyness_overlay
+	var/image/bloodyness_overlay_own
+	var/image/bloodyness_overlay_others
+
+	var/mob/living/remember_the_victim
 
 	var/simple_armor_natural = 0
 
@@ -402,6 +405,9 @@
 
 		if(get_status_effect(/datum/simple_status/legbroke) && !get_status_effect(/datum/simple_status/splinted))
 			. += 5
+
+		if(get_status_effect(/datum/simple_status/aftercrit))
+			. += 2
 
 		if(get_status_effect(/datum/simple_status/meat_movement))
 			. -= 5
@@ -648,7 +654,12 @@
 
 			bloodyness += 2
 			if(ishuman(src))
-				setup_bloodyness_overlay()
+				setup_bloodyness_overlay_self()
+
+			if(ishuman(source) && source != src)
+				var/mob/living/L = source
+				L.bloodyness += 5
+				L.setup_bloodyness_overlay_other(src)
 
 			sleep(6)
 
@@ -720,13 +731,20 @@
 		if(prob(100 / (get_skill_value(SKILL_HAULING))))
 			add_status_effect(/datum/simple_status/legbroke)
 
-/mob/living/proc/setup_bloodyness_overlay()
+/mob/living/proc/setup_bloodyness_overlay_self()
 	return TRUE
 
-/mob/living/carbon/human/setup_bloodyness_overlay()
+/mob/living/proc/setup_bloodyness_overlay_other()
+	return TRUE
+
+/mob/living/carbon/human/setup_bloodyness_overlay_other(mob/living/victim)
 	var/current_bloodyness = 0
-	CutOverlays(bloodyness_overlay, ATOM_ICON_CACHE_ALL)
-	bloodyness_overlay = null
+	var/desired_color = COLOR_WHITE
+	if(victim)
+		remember_the_victim = victim
+
+	CutOverlays(bloodyness_overlay_others, ATOM_ICON_CACHE_ALL)
+	bloodyness_overlay_others = null
 
 	if(bloodyness < 5)
 		return TRUE
@@ -742,9 +760,48 @@
 			else
 				current_bloodyness = 85
 
-		bloodyness_overlay = image('mods/_fd/fd_events/icons/simple_vfx_statuses.dmi', "[species.name]_[current_bloodyness]", layer = ABOVE_HUMAN_LAYER)
-		bloodyness_overlay.color = species.blood_color
-		AddOverlays(bloodyness_overlay, ATOM_ICON_CACHE_ALL)
+		if(victim)
+			if(!ishuman(victim))
+				desired_color = victim.bleed_colour
+			else
+				var/mob/living/carbon/human/H = victim
+				desired_color = H.species.blood_color
+		else
+			if(!ishuman(remember_the_victim))
+				desired_color = remember_the_victim.bleed_colour
+			else
+				var/mob/living/carbon/human/H = remember_the_victim
+				desired_color = H.species.blood_color
+
+		bloodyness_overlay_others = image('mods/_fd/fd_events/icons/simple_vfx_statuses.dmi', "[species.name]_o_[current_bloodyness]", layer = ABOVE_HUMAN_LAYER)
+		bloodyness_overlay_others.color = desired_color
+//		bloodyness_overlay_others.filters = filter(type="motion_blur", x = 2)
+		AddOverlays(bloodyness_overlay_others, ATOM_ICON_CACHE_ALL)
+		return TRUE
+
+/mob/living/carbon/human/setup_bloodyness_overlay_self()
+	var/current_bloodyness = 0
+	CutOverlays(bloodyness_overlay_own, ATOM_ICON_CACHE_ALL)
+	bloodyness_overlay_own = null
+
+	if(bloodyness < 5)
+		return TRUE
+
+	else
+		switch(bloodyness)
+			if(5 to 24)
+				current_bloodyness = 5
+			if(25 to 54)
+				current_bloodyness = 25
+			if(55 to 84)
+				current_bloodyness = 55
+			else
+				current_bloodyness = 85
+
+		bloodyness_overlay_own = image('mods/_fd/fd_events/icons/simple_vfx_statuses.dmi', "[species.name]_[current_bloodyness]", layer = ABOVE_HUMAN_LAYER)
+		bloodyness_overlay_own.color = species.blood_color
+		bloodyness_overlay_own.filters = filter(type="motion_blur", y = -1)
+		AddOverlays(bloodyness_overlay_own, ATOM_ICON_CACHE_ALL)
 		return TRUE
 
 /mob/living/rejuvenate()
@@ -1096,6 +1153,8 @@
 			if(H.get_status_effect(/datum/simple_status/hardcrit))
 				H.stabilized = TRUE
 				H.remove_status_effect(/datum/simple_status/hardcrit)
+			if(H.get_status_effect(/datum/simple_status/aftercrit))
+				H.remove_status_effect(/datum/simple_status/aftercrit)
 			if(H.get_status_effect(/datum/simple_status/bleed))
 				H.remove_status_effect(/datum/simple_status/bleed)
 
@@ -1466,6 +1525,8 @@
 
 			for(var/datum/simple_status/effects in status_effects)
 				if(effects.positive_effect)
+					continue
+				if(istype(effects,/datum/simple_status/aftercrit))
 					continue
 				if(istype(effects,/datum/simple_status/hardcrit))
 					stabilized = TRUE

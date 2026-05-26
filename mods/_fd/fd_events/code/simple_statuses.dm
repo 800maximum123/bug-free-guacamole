@@ -591,7 +591,7 @@
 
 	owner.Stun(999)
 
-	owner.add_filter("dead", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_BLACK))
+	owner.add_filter("dead", 2, list("type" = "outline", , "size" = 1, "color" = COLOR_BLACK))
 
 /datum/simple_status/hardcrit/tick()
 	. = ..()
@@ -600,7 +600,7 @@
 	owner.UpdateLyingBuckledAndVerbStatus()
 
 	if(!owner.get_filter("dead"))
-		owner.add_filter("dead", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_BLACK))
+		owner.add_filter("dead", 2, list("type" = "outline", , "size" = 1, "color" = COLOR_BLACK))
 
 /datum/simple_status/hardcrit/on_remove()
 	. = ..()
@@ -620,8 +620,64 @@
 
 	else
 		owner.stabilized = FALSE
-
 		owner.add_status_effect(/datum/simple_status/crit)
+
+		if(ishuman(owner) && !owner.get_status_effect(/datum/simple_status/aftercrit))
+			owner.add_status_effect(/datum/simple_status/aftercrit, 30 MINUTES)
+
+#define HO_DAMAGE_LAYER     8
+
+/mob/living
+	var/image/bandages_simple
+	var/image/bandage_icon
+
+/datum/simple_status/aftercrit
+	name = "Слабость"
+	desc_text = "- Временная слабость"
+	status_type = STATUS_EFFECT_REFRESH
+	status_color = COLOR_YELLOW
+	duration = 0
+
+/datum/simple_status/aftercrit/on_apply()
+	. = ..()
+
+	if(issilicon(owner))
+		return FALSE
+
+	if(owner.isSynthetic())
+		return FALSE
+
+	if(ishuman(owner))
+		var/mob/living/carbon/human/H = owner
+		if(!H.is_species(SPECIES_RESOMI)) // Я потом сделаю модульность. Пока что это будет смотреться слишком смешно на них
+
+			var/random_number = rand(1,6)
+			H.bandage_icon = image('mods/_fd/fd_events/icons/simple_vfx_statuses.dmi', "bandage_[random_number]")
+			H.bandages_simple = H.overlays_standing[HO_DAMAGE_LAYER]
+			if(H.bandages_simple)
+				H.bandages_simple.AddOverlays(H.bandage_icon)
+				H.overlays_standing[HO_DAMAGE_LAYER] = H.bandages_simple
+
+			H.queue_icon_update()
+
+	owner.max_simple_health = clamp(owner.max_simple_health - 40, 10, initial(owner.max_simple_health))
+
+/datum/simple_status/aftercrit/on_remove()
+	. = ..()
+
+	owner.max_simple_health = clamp(owner.max_simple_health + 20, 10, initial(owner.max_simple_health))
+	if(ishuman(owner))
+		var/mob/living/carbon/human/H = owner
+		if(!H.is_species(SPECIES_RESOMI))
+			H.bandages_simple = H.overlays_standing[HO_DAMAGE_LAYER]
+
+			if(H.bandages_simple)
+				H.bandages_simple.CutOverlays(H.bandage_icon)
+				H.overlays_standing[HO_DAMAGE_LAYER] = H.bandages_simple
+
+			H.queue_icon_update()
+
+#undef HO_DAMAGE_LAYER
 
 /datum/simple_status/bleed
 	name = "Кровотечение"
