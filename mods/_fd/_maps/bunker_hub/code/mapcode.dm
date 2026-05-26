@@ -688,6 +688,7 @@
 	l_ear = /obj/item/device/radio/headset/headset_com
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
+	glasses = /obj/item/clothing/glasses/hud/science/lobster
 
 /obj/submap_landmark/spawnpoint/olivia
 	name = "Olivia Kellong"
