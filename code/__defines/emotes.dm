@@ -61,13 +61,13 @@ GLOBAL_LIST_INIT(male_iberian_warcries, list(
 	'sound/voice/warcry/iberian/male_iberian_cargar2.ogg' = 2,
 	'sound/voice/warcry/iberian/male_iberian_cargar3.ogg' = 2,
 	'sound/voice/warcry/iberian/male_iberian_gaia1.ogg',
-	'sound/voice/warcry/iberian/male_iberian_gaia2.ogg',
+	'sound/voice/warcry/iberian/male_iberian_gaia2.ogg', // Very funny
 	'sound/voice/warcry/iberian/male_iberian_gaia3.ogg',
 	'sound/voice/warcry/iberian/male_iberian_libertas1.ogg',
 	'sound/voice/warcry/iberian/male_iberian_libertas2.ogg',
 	'sound/voice/warcry/iberian/male_iberian_libertas3.ogg',
 	'sound/voice/warcry/iberian/male_iberian_libertas4.ogg',
-	5;'sound/voice/warcry/iberian/male_iberian_muerte1.ogg', // Whole fucking monologue
+	'sound/voice/warcry/iberian/male_iberian_muerte1.ogg', // Whole fucking monologue
 	'sound/voice/warcry/iberian/male_iberian_muerte2.ogg',
 	'sound/voice/warcry/iberian/male_iberian_muerte3.ogg',
 	'sound/voice/warcry/iberian/male_iberian_tyrannis1.ogg',
