@@ -59,3 +59,81 @@
 /obj/structure/fd/cyberspace/protective_shield/seethrough
 	opacity = FALSE
 	icon_state = "barricade-0"
+
+/obj/structure/fd/random_junk/music_station
+	name = "old music station"
+	desc = "Still usable."
+	icon = 'mods/_fd/fd_assets/icons/goons/radiostation.dmi'
+	icon_state = "portable_record"
+
+	anchored = TRUE
+	density = TRUE
+
+/obj/structure/fd/random_junk/music_additional
+	name = "machinery"
+	desc = "To work with sounds."
+	icon = 'mods/_fd/fd_assets/icons/goons/loudspeakers.dmi'
+	icon_state = "amp_stack"
+
+	anchored = TRUE
+	density = TRUE
+
+/obj/structure/fd/random_junk/goon_graffiti
+	name = "graffiti"
+	desc = "So calles street-art."
+	icon = 'mods/_fd/fd_assets/icons/goons/graffiti.dmi'
+	icon_state = "graffiti-single-13"
+
+	anchored = TRUE
+
+/obj/item/fd/random_junk/music_disks
+	name = "record"
+	desc = "Stores sounds inside."
+	icon = 'mods/_fd/fd_assets/icons/goons/radiostation.dmi'
+	icon_state = "sleeve_1"
+
+	w_class = ITEM_SIZE_NORMAL
+
+/obj/item/fd/random_junk/simple_disks
+	name = "disk"
+	desc = "Stores information inside."
+	icon = 'mods/_fd/fd_assets/icons/goons/disks.dmi'
+	icon_state = "datadiskmed"
+
+	w_class = ITEM_SIZE_SMALL
+
+/obj/item/fd/random_junk/music_devices
+	name = "device"
+	desc = "With this thing you are going to make some music."
+	icon = 'mods/_fd/fd_assets/icons/goons/device.dmi'
+	icon_state = "micstand"
+
+	w_class = ITEM_SIZE_NORMAL
+
+/*/obj/structure/fd/random_junk/whiteboard
+	name = "machinery"
+	desc = "To work with sounds."
+	icon = 'mods/_fd/fd_assets/icons/aurora/whiteboard.dmi'
+	icon_state = "amp_stack"
+
+	interactive = TRUE
+
+	anchored = TRUE
+	density = TRUE
+
+	bound_width = 64
+
+/obj/structure/fd/random_junk/whiteboard/interact_with(mob/living/user)
+
+	var/list/options = list(
+		"НАПИСАТЬ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "radial_modify"),
+		"СТЕРЕТЬ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "radial_reset"),
+		"ПРОЧИТАТЬ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "radial_examine"),
+	)
+	var/chosen_option = show_radial_menu(user, src, options, radius = 25, require_near = TRUE)
+	if(!chosen_option)
+		return FALSE
+	switch(chosen_option)
+		if("НАПИСАТЬ")
+			if(desc_special_show)
+				*/

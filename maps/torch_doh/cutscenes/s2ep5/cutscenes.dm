@@ -1768,8 +1768,8 @@
 
 /obj/temp_visual/swift_electro
 	duration = 0.5 SECONDS
-	icon = 'mods/_fd/fd_assets/icons/goons/effects.dmi'
-	icon_state = "residual_electricity_start"
+	icon = 'mods/_fd/fd_assets/icons/goons/electile.dmi'
+	icon_state = "1a"
 	layer = 4.5
 
 /obj/structure/fd/cutscene_ep5/manipulator
