@@ -37,7 +37,7 @@
 	/singleton/emote/audible/scretch,
 	/singleton/emote/audible/choke,
 	/singleton/emote/audible/moan,
-	/singleton/emote/audible/gnarl
+	/singleton/emote/audible/gnarl,
 )
 
 /mob/living/carbon/alien/diona/default_emotes = list(
@@ -165,6 +165,7 @@
 	/singleton/emote/audible/whistle,
 	/singleton/emote/visible/scratch,
 	/singleton/emote/audible/finger_snap,
+	/singleton/emote/audible/warcry,
 )
 
 /mob/living/carbon/human/monkey/default_emotes = list(

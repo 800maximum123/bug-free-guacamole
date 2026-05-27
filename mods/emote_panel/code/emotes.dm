@@ -207,3 +207,9 @@
 	set name = "Приподнять бровь"
 	set category = "Emote"
 	emote("eyebrow")
+
+// GAIA
+/mob/living/verb/warcry()
+	set name = "Крикнуть боевой клич!"
+	set category = "Emote"
+	emote("warcry")

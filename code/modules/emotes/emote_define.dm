@@ -21,6 +21,8 @@
 	var/conscious = TRUE               // Do we need to be awake to emote this?
 	var/emote_range                    // falsy, or a range outside which the emote is not shown
 
+	var/list/emote_sound               // Sounds that can play when emote is used
+
 /singleton/emote/proc/get_emote_message_1p(atom/user, atom/target, extra_params)
 	if(target)
 		return emote_message_1p_target
@@ -106,7 +108,15 @@
 		else
 			M.visible_message(message = use_3p, self_message = use_1p, blind_message = emote_message_impaired, range = use_range, checkghosts = /datum/client_preference/ghost_sight, runemessage = runemessage)
 
+	play_emote_sound(user)
 	do_extra(user, target)
+
+/singleton/emote/proc/play_emote_sound(atom/user)
+	if(emote_sound)
+		var/playable = emote_sound
+		if (islist(emote_sound))
+			playable = pick(emote_sound)
+		playsound(user.loc, playable, 50, 0)
 
 /singleton/emote/proc/do_extra(atom/user, atom/target)
 	return

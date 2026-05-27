@@ -5,7 +5,7 @@
 	hierarchy_type = /singleton/hierarchy/outfit/job/gaia/scg
 	l_ear = /obj/item/device/radio/headset/gaia_scg
 	r_pocket = null
-	pda_type = null
+	pda_type = /obj/item/modular_computer/pda/ert
 	id_types = list(/obj/item/card/id/gaia/scg)
 
 	flags = OUTFIT_FLAGS_JOB_DEFAULT | OUTFIT_EXTENDED_SURVIVAL

@@ -84,6 +84,7 @@
 	emote_message_3p_target = "USER salutes TARGET."
 	emote_message_3p = "USER salutes."
 	check_restraints = TRUE
+	emote_sound = 'sound/misc/salute.ogg' // Finally, military RP
 
 /singleton/emote/visible/flap
 	key = "flap"

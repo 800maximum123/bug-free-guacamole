@@ -2,7 +2,6 @@
 	name = OUTFIT_JOB_NAME("Gaian Outfit")
 	hierarchy_type = /singleton/hierarchy/outfit/job/gaia
 	uniform = /obj/item/clothing/under/color/grey
-	pda_type = null
 	r_pocket = /obj/item/device/radio/hailing
 	id_types = list(/obj/item/card/id/gaia)
 
@@ -15,6 +14,7 @@
 /singleton/hierarchy/outfit/job/gaia/homeless
 	name = OUTFIT_JOB_NAME("Gaian Homeless")
 	id_types = null // No ID lol
+	pda_type = null
 
 // MAYOR
 /singleton/hierarchy/outfit/job/gaia/mayor

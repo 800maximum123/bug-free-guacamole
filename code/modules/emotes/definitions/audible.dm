@@ -2,14 +2,6 @@
 	key = "burp"
 	emote_message_3p = "USER burps."
 	message_type = AUDIBLE_MESSAGE
-	var/list/emote_sound
-
-/singleton/emote/audible/do_extra(atom/user)
-	if(emote_sound)
-		var/playable = emote_sound
-		if (islist(emote_sound))
-			playable = pick(emote_sound)
-		playsound(user.loc, playable, 50, 0)
 
 /singleton/emote/audible/deathgasp_alien
 	key = "deathgasp"
@@ -211,3 +203,47 @@
 	key = "squeal"
 	emote_message_3p = "USER squeals."
 	emote_sound = 'sound/voice/LizardSqueal.ogg'
+
+// GAIA WARCRY
+// no emote_sound, we use unique thingy in do_extra here!
+/singleton/emote/audible/warcry
+	key = "warcry"
+	emote_message_3p = "USER shouts a furious warcry!"
+	emote_message_impaired = "You hear a furious warcry!"
+
+/singleton/emote/audible/warcry/do_extra(atom/user, atom/target)
+	var/mob/living/mob_user = user
+	if(!mob_user)
+		return
+
+	var/user_language = mob_user.default_language.name
+	var/list/warcry_sounds = null
+
+	// Choose a gendered warcry list by language.
+	switch(user_language)
+		if(LANGUAGE_HUMAN_IBERIAN)
+			if(user.gender == FEMALE)
+				warcry_sounds = GLOB.female_iberian_warcries
+			else
+				warcry_sounds = GLOB.male_iberian_warcries
+		if(LANGUAGE_HUMAN_EURO)
+			if(user.gender == FEMALE)
+				warcry_sounds = GLOB.female_zac_warcries
+			else
+				warcry_sounds = GLOB.male_zac_warcries
+		if(LANGUAGE_HUMAN_RUSSIAN)
+			if(user.gender == FEMALE)
+				warcry_sounds = GLOB.female_panslavic_warcries
+			else
+				warcry_sounds = GLOB.male_panslavic_warcries
+
+	if(!warcry_sounds || !warcry_sounds.len)
+		if(user.gender == FEMALE)
+			warcry_sounds = GLOB.female_zac_warcries
+		else
+			warcry_sounds = GLOB.male_zac_warcries
+
+	if(!warcry_sounds || !warcry_sounds.len)
+		return
+
+	playsound(mob_user.loc, pick(warcry_sounds), 50, FALSE)
