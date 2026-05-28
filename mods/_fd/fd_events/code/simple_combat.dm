@@ -457,6 +457,9 @@
 					var/mob/living/carbon/human/H = src
 					new /obj/temp_visual/bloodsplatter(loc, hit_dir, H.species.blood_color)
 				else
+					B.basecolor = bleed_colour
+					B.update_icon()
+
 					new /obj/temp_visual/bloodsplatter(loc, hit_dir, bleed_colour)
 		else
 			hit_dir = get_dir(attacker, src)
@@ -467,6 +470,8 @@
 				var/mob/living/carbon/human/H = src
 				new /obj/temp_visual/bloodsplatter(loc, hit_dir, H.species.blood_color)
 			else
+				B.basecolor = bleed_colour
+				B.update_icon()
 				new /obj/temp_visual/bloodsplatter(loc, hit_dir, bleed_colour)
 
 	if(create_impact)

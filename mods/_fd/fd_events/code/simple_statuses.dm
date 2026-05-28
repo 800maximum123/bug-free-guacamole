@@ -723,6 +723,9 @@
 			splat.layer = ABOVE_HUMAN_LAYER
 			splat.SetTransform(0.5)
 		else
+			B.basecolor = owner.bleed_colour
+			B.update_icon()
+
 			var/obj/temp_visual/bloodsplatter/splat = new /obj/temp_visual/bloodsplatter(owner.loc, SOUTH, owner.bleed_colour)
 			splat.layer = ABOVE_HUMAN_LAYER
 			splat.SetTransform(0.5)
