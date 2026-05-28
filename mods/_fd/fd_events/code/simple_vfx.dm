@@ -74,6 +74,13 @@
 
 	QDEL_IN(src, 1 SECONDS)
 
+/obj/effect/simple_combat_particle/overheated
+	icon_state = "overheated"
+
+/obj/effect/simple_combat_particle/overheated/Initialize()
+	SetTransform(0.5)
+	. = ..()
+
 /obj/effect/simple_combat_particle/impact
 	icon = 'mods/_fd/fd_events/icons/simple_vfx_impact.dmi'
 	alpha = 255

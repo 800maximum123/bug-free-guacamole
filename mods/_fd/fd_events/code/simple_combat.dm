@@ -406,6 +406,9 @@
 		if(get_status_effect(/datum/simple_status/legbroke) && !get_status_effect(/datum/simple_status/splinted))
 			. += 5
 
+		if(get_status_effect(/datum/simple_status/shocked))
+			. += 5
+
 		if(get_status_effect(/datum/simple_status/aftercrit))
 			. += 2
 
@@ -652,6 +655,11 @@
 					simple_health_vfx(TRUE, /obj/effect/simple_combat_particle/impact, source, null) // Прок на случай, если источником является прожектайл
 			animation_flash_color(src, COLOR_RED)
 
+			if(get_status_effect(/datum/simple_status/shielded))
+				var/datum/simple_status/shielded/S = get_status_effect(/datum/simple_status/shielded)
+				S.amount = clamp(S.amount - 2, 0, S.amount_max)
+				new /obj/temp_visual/discharge(src.loc)
+
 			bloodyness += 2
 			if(ishuman(src))
 				setup_bloodyness_overlay_self()
@@ -681,11 +689,13 @@
 			playsound(loc, SOUNDS_BULLET_METAL, 100, 1)
 			animation_flash_color(src, COLOR_CYAN)
 
+			if(get_status_effect(/datum/simple_status/shielded))
+				var/datum/simple_status/shielded/S = get_status_effect(/datum/simple_status/shielded)
+				S.amount = clamp(S.amount - 1, 0, S.amount_max)
+				new /obj/temp_visual/discharge(src.loc)
+
 			if(add_effect && effect_apply_anyway) // Если эффект накладывается даже без необходимости пробития
 				add_status_effect(add_effect, effect_duration)
-
-			if(source)
-				bonecheck(source)
 
 		if(simple_health > max_simple_health / 2) // Если наше итоговое здоровье больше 50%, а на экране всё ещё есть оверлей - убираем его
 			var/obj/screen/fullscreen/screen = screens["almost_done"]

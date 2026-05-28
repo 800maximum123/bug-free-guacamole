@@ -78,11 +78,19 @@
 	else if(length(A.status_effects))
 
 		var/list/negatives = list()
+		var/list/positives = list()
 		for(var/datum/simple_status/effect in A.status_effects)
+			if(effect.positive_effect)
+				positives += effect
 			if(!effect.positive_effect)
 				negatives += effect
 
-		if(length(negatives))
+		if(length(positives) && !length(negatives))
+			healthinfo.maptext += STYLE_SMALLFONTS_OUTLINE("-|<br>", 7, COLOR_WHITE, COLOR_BLACK)
+		if(length(negatives) && !length(positives))
+			healthinfo.maptext += STYLE_SMALLFONTS_OUTLINE(", но...-|<br>", 7, COLOR_WHITE, COLOR_BLACK)
+			healthinfo.maptext += STYLE_SMALLFONTS_OUTLINE("- Нужен подробный осмотр...", 7, COLOR_RED, COLOR_BLACK)
+		else
 			healthinfo.maptext += STYLE_SMALLFONTS_OUTLINE(", но...-|<br>", 7, COLOR_WHITE, COLOR_BLACK)
 			healthinfo.maptext += STYLE_SMALLFONTS_OUTLINE("- Нужен подробный осмотр...", 7, COLOR_RED, COLOR_BLACK)
 
@@ -695,6 +703,9 @@
 	if(owner.isSynthetic())
 		return FALSE
 
+	if(owner.robotic)
+		return FALSE
+
 /datum/simple_status/bleed/tick()
 	. = ..()
 
@@ -825,6 +836,121 @@
 		var/mob/living/simple_animal/hostile/S = owner
 
 		S.attack_delay = initial(S.attack_delay)
+
+/obj/temp_visual/discharge
+	duration = 0.5 SECONDS
+	icon = 'mods/_fd/fd_assets/icons/goons/electile.dmi'
+	icon_state = "4b"
+	layer = 4.5
+
+/datum/simple_status/shielded
+	name = "Щит (Даёт временную нат. броню)"
+	desc_text = "- Защищён"
+	status_type = STATUS_EFFECT_UNIQUE
+	status_color = COLOR_CYAN
+	positive_effect = TRUE
+
+	var/amount = 10
+	var/amount_max = 10
+	var/recharge_time = 10
+	var/armor_amount = 20
+
+/datum/simple_status/shielded/on_apply()
+	. = ..()
+
+	owner.simple_armor_natural += armor_amount
+
+/datum/simple_status/shielded/tick()
+	. = ..()
+
+	if(owner.get_status_effect(/datum/simple_status/discharge))
+		amount = clamp(amount - 1, 0, amount_max)
+		new /obj/temp_visual/discharge(owner.loc)
+
+	if(amount < amount_max)
+		recharge_time -= 1
+
+	if(recharge_time <= 0)
+		recharge_time = initial(recharge_time)
+		amount = clamp(amount + 1, 0, amount_max)
+
+	if(amount <= 0)
+		owner.remove_status_effect(src)
+
+/datum/simple_status/shielded/on_remove()
+	. = ..()
+
+	owner.simple_armor_natural -= armor_amount
+
+/datum/simple_status/discharge
+	name = "Перенапряжён"
+	desc_text = "- Перегрев"
+	status_type = STATUS_EFFECT_REFRESH
+	status_color = COLOR_RED
+	duration = 0
+
+/datum/simple_status/discharge/on_apply()
+	. = ..()
+
+	if(issilicon(owner) || owner.isSynthetic() || owner.robotic)
+
+		new /obj/effect/simple_combat_particle/overheated(owner.loc)
+		new /obj/temp_visual/discharge(owner.loc)
+
+		owner.add_filter("inheat", 1, list("type" = "outline", "size" = 1, "color" = COLOR_ORANGE))
+
+	else
+		return FALSE
+
+/datum/simple_status/discharge/tick()
+	. = ..()
+
+	new /obj/effect/simple_combat_particle/overheated(owner.loc)
+	new /obj/temp_visual/discharge(owner.loc)
+	if(!owner.get_status_effect(/datum/simple_status/shielded))
+		owner.simple_health_calculation(10, 0, 0, 0)
+
+	if(!owner.get_filter("inheat"))
+		owner.add_filter("inheat", 1, list("type" = "outline", "size" = 1, "color" = COLOR_ORANGE))
+
+/datum/simple_status/discharge/on_remove()
+	. = ..()
+
+	owner.remove_filter("inheat")
+
+/datum/simple_status/shocked
+	name = "Наэлектризован"
+	desc_text = "- Наэлектризован"
+	status_type = STATUS_EFFECT_REFRESH
+	status_color = COLOR_YELLOW
+	duration = 0
+
+/datum/simple_status/shocked/on_apply()
+	. = ..()
+
+	new /obj/effect/simple_combat_particle/zzaped(owner.loc)
+	new /obj/temp_visual/swift_electro(owner.loc)
+
+	owner.add_filter("zzaped", 1, list("type" = "outline", , "size" =1, "color" = COLOR_YELLOW))
+
+/datum/simple_status/shocked/tick()
+	. = ..()
+
+	new /obj/effect/simple_combat_particle/zzaped(owner.loc)
+	new /obj/temp_visual/swift_electro(owner.loc)
+
+	animate(owner, transform = matrix(rand(-3,3), rand(-3,3), MATRIX_TRANSLATE), time = 0.5, easing = EASE_IN)
+	for(var/i in 0 to 5)
+		animate(transform = matrix(rand(-4,4), rand(-4,4), MATRIX_TRANSLATE), time = 1)
+	animate(transform = matrix(0, 0, MATRIX_TRANSLATE), time = 0.5, easing = EASE_OUT)
+
+	if(!owner.get_filter("zzaped"))
+		owner.add_filter("zzaped", 1, list("type" = "outline", , "size" =1, "color" = COLOR_YELLOW))
+
+/datum/simple_status/shocked/on_remove()
+	. = ..()
+
+	owner.remove_filter("zzaped")
 
 ///////////////////////////////////////
 
