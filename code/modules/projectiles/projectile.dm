@@ -67,6 +67,8 @@
 	var/tracer_type
 	var/impact_type
 
+	var/list/warned_mobs = list()	// mobs we've already played sonic boom for, to prevent spam
+
 	var/fire_sound
 	var/far_fire_sound // Gaia
 	var/miss_sounds
@@ -374,6 +376,13 @@
 
 		before_move()
 		Move(location.return_turf())
+
+		// Play sonic boom sounds as projectile passes near mobs
+		if(!bumped && life_span > 0 && LAZYLEN(miss_sounds))
+			for(var/mob/living/nearby in range(2, src))
+				if(nearby != firer && !(nearby in warned_mobs))
+					warned_mobs += nearby
+					playsound(nearby.loc, pick(miss_sounds), 40, TRUE, -1, 100)
 
 		if(!bumped && !isturf(original))
 			if(loc == get_turf(original))
