@@ -209,6 +209,9 @@
 /mob/living
 	var/robotic = FALSE
 
+/mob/living/simple_animal/hostile/terra
+	sa_accuracy = 100
+
 /mob/living/simple_animal/hostile/terra/ranger
 	name = "ranger drone"
 	desc = "Overload it's shields!"
@@ -256,6 +259,199 @@
 	bleed_colour = COLOR_BLACK
 
 /mob/living/simple_animal/hostile/terra/ranger/Initialize()
+	. = ..()
+
+	add_status_effect(/datum/simple_status/shielded)
+
+/obj/item/natural_weapon/terra/jumper
+	name = "hands"
+	attack_verb = list("smashed")
+	simple_damage = 20
+
+	hitsound = 'sound/weapons/heavysmash.ogg'
+
+	status_to_add = /datum/simple_status/legbroke
+	status_apply_prob = 50
+	force = 2
+
+/mob/living/simple_animal/hostile/terra/jumper
+	name = "jumper drone"
+	desc = "Overload it's shields!"
+
+	icon = 'mods/_fd/fd_assets/icons/aurora/robots.dmi'
+	icon_state = "grabber"
+	icon_living = "grabber"
+	icon_dead = "gib7"
+
+	health = 999999
+	maxHealth = 999999
+
+	simple_combat_on = TRUE
+	simple_health = 100
+	max_simple_health = 100
+
+	movement_cooldown = 5
+	speed = -1
+
+	base_attack_cooldown = 2 SECONDS
+
+	ai_holder = /datum/ai_holder/simple_animal/humanoid/hostile/angry
+	natural_weapon = /obj/item/natural_weapon/terra/jumper
+	faction = "terra"
+
+	meat_type = null
+	meat_amount = 0
+	bone_material = null
+	bone_amount = 0
+	skin_material = null
+	skin_amount = 0
+
+	min_gas = null
+	max_gas = null
+	minbodytemp = 0
+
+	robotic = TRUE
+	bleed_colour = COLOR_BLACK
+
+	special_attack_min_range = 2
+	special_attack_max_range = 8
+	special_attack_cooldown = 10 SECONDS
+
+	var/leap_warmup = 0.5 SECOND // How long the leap telegraphing is.
+	var/leap_sound = 'sound/weapons/pushhiss.ogg'
+
+/mob/living/simple_animal/hostile/terra/jumper/Initialize()
+	. = ..()
+
+	add_status_effect(/datum/simple_status/shielded/better)
+
+/mob/living/simple_animal/hostile/terra/jumper/do_special_attack(atom/A)
+	set waitfor = FALSE
+	set_AI_busy(TRUE)
+
+	// Telegraph, since getting stunned suddenly feels bad.
+	do_windup_animation(A, leap_warmup)
+	sleep(leap_warmup) // For the telegraphing.
+
+	// Do the actual leap.
+	status_flags |= LEAPING // Lets us pass over everything.
+	visible_message(SPAN_DANGER("\The [src] leaps at \the [A]!"))
+	throw_at(get_step(get_turf(A), get_turf(src)), special_attack_max_range+1, 1, src)
+	playsound(src, leap_sound, 75, 1)
+
+	sleep(5) // For the throw to complete. It won't hold up the AI ticker due to waitfor being false.
+
+	if(status_flags & LEAPING)
+		status_flags &= ~LEAPING // Revert special passage ability.
+
+	var/turf/T = get_turf(src) // Where we landed. This might be different than A's turf.
+
+	. = FALSE
+
+	// Now for the stun.
+	var/mob/living/victim = null
+	for(var/mob/living/L in T) // So player-controlled spiders only need to click the tile to stun them.
+		if(L == src)
+			continue
+
+		victim = L
+		break
+
+	if(victim)
+		victim.resting = TRUE
+		victim.visible_message(SPAN_DANGER("\The [src] knocks down \the [victim]!"))
+		to_chat(victim, SPAN_CLASS("critical", "\The [src] jumps on you!"))
+		. = TRUE
+
+	set_AI_busy(FALSE)
+
+/obj/item/natural_weapon/terra/grabber
+	name = "hands"
+	attack_verb = list("grabbed")
+	simple_damage = 5
+
+	hitsound = 'mods/_fd/mob_interactions/sounds/hug.ogg'
+	force = 2
+
+/obj/item/natural_weapon/terra/grabber/apply_hit_effect(mob/living/target, mob/living/user, hit_zone)
+	if(target.simple_combat_on)
+
+		if(!clawed)
+			if(prob(clawed_chance))
+				user.add_status_effect(/datum/simple_status/fixation)
+				clawed_chance = initial(clawed_chance)
+
+				target.add_status_effect(/datum/simple_status/fixation)
+				clawed = target
+			else
+				clawed_chance += 10
+
+		if(clawed)
+			clawed_time_current += 1
+			if(clawed_time_current >= clawed_time_needed)
+				clawed_time_current = 0
+
+				user.remove_status_effect(/datum/simple_status/fixation)
+				target.remove_status_effect(/datum/simple_status/fixation)
+				clawed = null
+
+		if(status_to_add)
+			if(status_apply_prob > 0)
+				if(prob(status_apply_prob))
+					target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user,status_to_add,status_ignore_armor,status_timer_to_add)
+					return TRUE
+				else
+					target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user)
+					return TRUE
+
+			else
+				target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user,status_to_add,status_ignore_armor,status_timer_to_add)
+				return TRUE
+
+		else
+			target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user)
+			return TRUE
+
+/mob/living/simple_animal/hostile/terra/grabber
+	name = "grabber drone"
+	desc = "Overload it's shields!"
+
+	icon = 'mods/_fd/fd_assets/icons/aurora/robots.dmi'
+	icon_state = "standart"
+	icon_living = "standart"
+	icon_dead = "gib7"
+
+	health = 999999
+	maxHealth = 999999
+
+	simple_combat_on = TRUE
+	simple_health = 50
+	max_simple_health = 50
+
+	movement_cooldown = 5
+	speed = -1
+
+	base_attack_cooldown = 0.5 SECONDS
+
+	ai_holder = /datum/ai_holder/simple_animal/humanoid/hostile/angry
+	natural_weapon = /obj/item/natural_weapon/terra/grabber
+	faction = "terra"
+
+	meat_type = null
+	meat_amount = 0
+	bone_material = null
+	bone_amount = 0
+	skin_material = null
+	skin_amount = 0
+
+	min_gas = null
+	max_gas = null
+	minbodytemp = 0
+
+	robotic = TRUE
+	bleed_colour = COLOR_BLACK
+
+/mob/living/simple_animal/hostile/terra/grabber/Initialize()
 	. = ..()
 
 	add_status_effect(/datum/simple_status/shielded)

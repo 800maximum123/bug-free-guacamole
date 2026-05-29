@@ -842,7 +842,12 @@
 /mob/living/ClickOn(atom/A)
 
 	if(melee_assist)
-		var/obj/item/S = get_active_hand()
+		var/obj/item/S
+		if(ishuman(src))
+			S = get_active_hand()
+		else
+			var/mob/living/simple_animal/animal = src
+			S = animal.natural_weapon
 		if(world.time <= next_move)
 			return FALSE
 

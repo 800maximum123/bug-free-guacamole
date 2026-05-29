@@ -50,11 +50,11 @@
 		"ПЕРЕМЕСТИТЬСЯ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "radial_lookat"),
 		"ПРОИГНОРИРОВАТЬ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "radial_next"),
 	)
-	var/chosen_option = show_radial_menu(jeff, src, options, radius = 25, require_near = TRUE)
+	var/chosen_option = show_radial_menu(jeff, src, options, radius = 25, require_near = FALSE)
 	if(!chosen_option)
 		return 0
 
-	switch(options)
+	switch(chosen_option)
 		if("ПЕРЕМЕСТИТЬСЯ")
 			if(!jeff.in_shadow)
 				jeff.change_monster_vis()
@@ -285,6 +285,8 @@
 	name = "abomination"
 	desc = "Do NOT come close."
 	pixel_x = -16
+
+	melee_assist = TRUE
 
 	icon = 'mods/_fd/_maps/metro/icons/jeff.dmi'
 	icon_state = "jeff"

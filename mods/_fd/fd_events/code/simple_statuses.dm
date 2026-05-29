@@ -885,6 +885,10 @@
 
 	owner.simple_armor_natural -= armor_amount
 
+/datum/simple_status/shielded/better
+	amount = 30
+	amount_max = 30
+
 /datum/simple_status/discharge
 	name = "Перенапряжён"
 	desc_text = "- Перегрев"
