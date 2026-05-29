@@ -665,14 +665,15 @@
 				S.amount = clamp(S.amount - 2, 0, S.amount_max)
 				new /obj/temp_visual/discharge(src.loc)
 
-			bloodyness += 2
-			if(ishuman(src))
-				setup_bloodyness_overlay_self()
+			if(source)
+				bloodyness += 2
+				if(ishuman(src))
+					setup_bloodyness_overlay_self()
 
-			if(ishuman(source) && source != src)
-				var/mob/living/L = source
-				L.bloodyness += 5
-				L.setup_bloodyness_overlay_other(src)
+				if(ishuman(source) && source != src)
+					var/mob/living/L = source
+					L.bloodyness += 5
+					L.setup_bloodyness_overlay_other(src)
 
 			sleep(6)
 
@@ -1211,7 +1212,7 @@
 
 		if(get_status_effect(/datum/simple_status/legbroke) && do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
 			animation_flash_color(S, COLOR_GREEN)
-			add_status_effect(/datum/simple_status/splinted, 1 MINUTE)
+			add_status_effect(/datum/simple_status/splinted, 10 MINUTES)
 
 			sleep(5)
 			qdel(S)
@@ -1229,7 +1230,7 @@
 		var/mob/living/carbon/human/H = user
 		if(H.get_status_effect(/datum/simple_status/legbroke) && do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
 			animation_flash_color(src, COLOR_GREEN)
-			H.add_status_effect(/datum/simple_status/splinted, 1 MINUTE)
+			H.add_status_effect(/datum/simple_status/splinted, 10 MINUTES)
 
 			sleep(5)
 			qdel(src)
@@ -1323,8 +1324,8 @@
 	icon_state = "fracturefullfix"
 
 	w_class = ITEM_SIZE_SMALL
-	var/uses = 2
-	var/uses_max = 2
+	var/uses = 4
+	var/uses_max = 4
 
 /obj/item/fd/simple_combat/bonegel/MouseEntered(location, control, params)
 	. = ..()
@@ -1539,7 +1540,7 @@
 			animation_flash_color(F, COLOR_RED)
 			return FALSE
 
-		if(simple_health < max_simple_health && do_after(user, 30 SECONDS, src, DO_PUBLIC_UNIQUE))
+		if((simple_health < max_simple_health || length(status_effects)) && do_after(user, 30 SECONDS, src, DO_PUBLIC_UNIQUE))
 			animation_flash_color(F, COLOR_GREEN)
 			simple_health_calculation(-(max_simple_health - simple_health),0,0,0)
 
