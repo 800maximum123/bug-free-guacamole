@@ -200,6 +200,7 @@
 /obj/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/structure/fd/vegetable_base/teleport_target,
 /turf/simulated/floor/tiled,
 /area/vegatable_base/real/long_term_storage/sub)
 "akG" = (
@@ -6565,6 +6566,13 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/dtorch/deck1)
+"eLn" = (
+/obj/structure/fd/vegetable_base/teleport_trigger,
+/turf/simulated/floor/exoplanet/fd/cyberspace{
+	icon_state = "shuttle-floor";
+	color = "red"
+	},
+/area/vegatable_base)
 "eLx" = (
 /obj/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/exoplanet/samosbor/wood{
@@ -9903,6 +9911,7 @@
 /obj/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/submap_landmark/spawnpoint/vegetable_base,
 /turf/simulated/floor/tiled/white,
 /area/vegatable_base/real/long_term_storage)
 "hed" = (
@@ -10491,6 +10500,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/vegatable_base/real/chemical)
+"hJg" = (
+/obj/floor_decal/corner/blue/border{
+	dir = 1
+	},
+/obj/submap_landmark/joinable_submap/vegetable_base,
+/turf/simulated/floor/tiled/white,
+/area/vegatable_base/real/long_term_storage)
 "hJn" = (
 /obj/floor_decal/messygrass{
 	dir = 4
@@ -17063,6 +17079,7 @@
 /obj/machinery/camera{
 	dir = 1
 	},
+/obj/submap_landmark/spawnpoint/vegetable_base,
 /turf/simulated/floor/tiled/white,
 /area/vegatable_base/real/long_term_storage)
 "mJc" = (
@@ -19140,6 +19157,7 @@
 /obj/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/structure/fd/vegetable_base/teleport_target,
 /turf/simulated/floor/tiled,
 /area/vegatable_base/real/long_term_storage/sub)
 "oay" = (
@@ -22494,6 +22512,7 @@
 /obj/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/submap_landmark/spawnpoint/vegetable_base,
 /turf/simulated/floor/tiled/white,
 /area/vegatable_base/real/long_term_storage)
 "que" = (
@@ -22506,6 +22525,7 @@
 /obj/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/structure/fd/vegetable_base/teleport_target,
 /turf/simulated/floor/tiled,
 /area/vegatable_base/real/long_term_storage/sub)
 "qvm" = (
@@ -23624,6 +23644,7 @@
 /obj/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/structure/fd/vegetable_base/teleport_target,
 /turf/simulated/floor/tiled,
 /area/vegatable_base/real/long_term_storage/sub)
 "rll" = (
@@ -25238,6 +25259,10 @@
 /turf/simulated/floor/exoplanet/samosbor/carpet{
 	icon_state = "ca_map"
 	},
+/area/vegatable_base)
+"sxS" = (
+/obj/structure/fd/vegetable_base/teleport_trigger,
+/turf/simulated/floor/exoplanet/fd/cyberspace/animated,
 /area/vegatable_base)
 "sxV" = (
 /obj/machinery/door/airlock/research{
@@ -42420,9 +42445,9 @@ kgu
 kgu
 kgu
 cpH
-keW
-keW
-jgS
+sxS
+sxS
+eLn
 cpH
 cpH
 cpH
@@ -81147,7 +81172,7 @@ xJk
 nLE
 vHp
 tSL
-dPr
+hJg
 tPG
 vHp
 vHp
