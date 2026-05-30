@@ -214,7 +214,7 @@
 	fire_delay = 10
 
 	charge_cost = 50
-	max_shots = 10
+	max_shots = 20
 
 /obj/item/projectile/energy/anti_terra
 	icon = 'mods/_fd/fd_assets/icons/goons/projectiles.dmi'

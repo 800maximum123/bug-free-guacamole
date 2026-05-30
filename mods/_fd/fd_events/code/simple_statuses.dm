@@ -642,7 +642,7 @@
 /datum/simple_status/aftercrit
 	name = "Слабость"
 	desc_text = "- Временная слабость"
-	status_type = STATUS_EFFECT_REFRESH
+	status_type = STATUS_EFFECT_ADJUST
 	status_color = COLOR_YELLOW
 	duration = 0
 
@@ -690,7 +690,7 @@
 /datum/simple_status/bleed
 	name = "Кровотечение"
 	desc_text = "- Кровотечение"
-	status_type = STATUS_EFFECT_REFRESH
+	status_type = STATUS_EFFECT_ADJUST
 	status_color = COLOR_RED
 	duration = 0
 
@@ -802,7 +802,7 @@
 	owner.anchored = FALSE
 
 /datum/simple_status/fixation/timed
-	status_type = STATUS_EFFECT_REFRESH
+	status_type = STATUS_EFFECT_ADJUST
 	duration = 0
 
 /datum/simple_status/attack_damage_buff
@@ -895,7 +895,7 @@
 /datum/simple_status/discharge
 	name = "Перенапряжён"
 	desc_text = "- Перегрев"
-	status_type = STATUS_EFFECT_REFRESH
+	status_type = STATUS_EFFECT_ADJUST
 	status_color = COLOR_RED
 	duration = 0
 
@@ -931,7 +931,7 @@
 /datum/simple_status/shocked
 	name = "Наэлектризован"
 	desc_text = "- Наэлектризован"
-	status_type = STATUS_EFFECT_REFRESH
+	status_type = STATUS_EFFECT_ADJUST
 	status_color = COLOR_YELLOW
 	duration = 0
 
