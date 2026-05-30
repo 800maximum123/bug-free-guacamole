@@ -781,13 +781,19 @@
 				desired_color = victim.bleed_colour
 			else
 				var/mob/living/carbon/human/H = victim
-				desired_color = H.species.blood_color
+				if(isSynthetic(H))
+					desired_color = COLOR_BLACK
+				else
+					desired_color = H.species.blood_color
 		else
 			if(!ishuman(remember_the_victim))
 				desired_color = remember_the_victim.bleed_colour
 			else
 				var/mob/living/carbon/human/H = remember_the_victim
-				desired_color = H.species.blood_color
+				if(isSynthetic(H))
+					desired_color = COLOR_BLACK
+				else
+					desired_color = H.species.blood_color
 
 		bloodyness_overlay_others = image('mods/_fd/fd_events/icons/simple_vfx_statuses.dmi', "[species.name]_o_[current_bloodyness]", layer = ABOVE_HUMAN_LAYER)
 		bloodyness_overlay_others.color = desired_color
@@ -815,7 +821,10 @@
 				current_bloodyness = 85
 
 		bloodyness_overlay_own = image('mods/_fd/fd_events/icons/simple_vfx_statuses.dmi', "[species.name]_[current_bloodyness]", layer = ABOVE_HUMAN_LAYER)
-		bloodyness_overlay_own.color = species.blood_color
+		if(isSynthetic(src))
+			bloodyness_overlay_own.color = COLOR_BLACK
+		else
+			bloodyness_overlay_own.color = species.blood_color
 		bloodyness_overlay_own.filters = filter(type="motion_blur", y = -1)
 		AddOverlays(bloodyness_overlay_own, ATOM_ICON_CACHE_ALL)
 		return TRUE
