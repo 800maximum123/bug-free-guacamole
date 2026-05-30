@@ -92,10 +92,11 @@
 			spawn(0.5 SECONDS)
 
 				M.ghostize(0)
-				M.connected_copy.ckey = M.ckey
+				M.connected_copy.ckey = M.last_ckey
 
 			spawn(1 SECONDS)
 				qdel(M)
+
 			return TRUE
 		else
 			animate(M, alpha = 0, time = 0.5 SECONDS, easing = LINEAR_EASING)

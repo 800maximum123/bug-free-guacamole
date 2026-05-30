@@ -50,11 +50,14 @@
 
 	layer = 4.09
 
-/obj/structure/fd/cyberspace/protective_shield/damage_health(damage, damage_type, damage_flags, severity, skip_can_damage_check)
+/obj/structure/fd/cyberspace/protective_shield/use_weapon(obj/item/weapon, mob/living/user, list/click_params)
 	. = ..()
-
 	animate(src, transform = matrix(0.8, MATRIX_SCALE), time = 0.3 SECONDS, easing = BOUNCE_EASING|EASE_OUT)
-	animate(src, transform = matrix(1, MATRIX_SCALE), time = 0.2 SECONDS, easing = SINE_EASING|EASE_IN)
+	animate(transform = matrix(1, MATRIX_SCALE), time = 0.2 SECONDS, easing = SINE_EASING|EASE_IN)
+
+	if(health_dead)
+		qdel(src)
+
 
 /obj/structure/fd/cyberspace/protective_shield/seethrough
 	opacity = FALSE
