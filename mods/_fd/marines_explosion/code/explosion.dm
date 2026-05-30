@@ -278,6 +278,11 @@ as having entered the turf.
 				if(psionic.psi && psionic.get_sound_volume_multiplier() > 0.1)
 					psionic.psi.spend_power(rand(15,35))
 
+	var/explosion_range = round(power / falloff)
+
+	if(shrapnel) // powerful explosions send out some special effects
+		fragmentate(epicenter, rand(explosion_range * 0.5, explosion_range * 2), rand(explosion_range * 0.5, explosion_range * 2) / 2, list(/obj/item/projectile/bullet/pellet/fragment/tank/small = 1,/obj/item/projectile/bullet/pellet/fragment/tank = 5,/obj/item/projectile/bullet/pellet/fragment/strong = 4), "explosion", direction)
+
 	var/datum/automata_cell/explosion/E = new /datum/automata_cell/explosion(epicenter)
 	// something went wrong :(
 	if(QDELETED(E))
@@ -291,8 +296,6 @@ as having entered the turf.
 	E.falloff_shape = falloff_shape
 	E.direction = direction
 
-	var/explosion_range = round(power / falloff)
-
 	// Make explosion effect
 //	new /obj/effect/temp_visual/shockwave(epicenter, explosion_range)
 //	new /obj/effect/temp_visual/explosion(epicenter, explosion_range, LIGHT_COLOR_HOLY_MAGIC, power)
@@ -301,9 +304,6 @@ as having entered the turf.
 		var/datum/effect/system/S = new effective()
 		S.set_up(epicenter)
 		S.start(explosion_range)
-
-	if(shrapnel) // powerful explosions send out some special effects
-		fragmentate(epicenter, rand(explosion_range * 0.5, explosion_range * 2), rand(explosion_range * 0.5, explosion_range * 2) / 2, list(/obj/item/projectile/bullet/pellet/fragment/tank/small = 1,/obj/item/projectile/bullet/pellet/fragment/tank = 5,/obj/item/projectile/bullet/pellet/fragment/strong = 4), "explosion", direction)
 
 	var/z_level_scaled = power * 0.35
 	if(z_level_scaled > 0)

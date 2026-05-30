@@ -181,7 +181,16 @@
 	light_range = 5
 	light_power = 1
 	light_color = COLOR_MUZZLE_FLASH
+/* ABSOLUTE BULLSHIT
+/obj/projectile/bullet/muzzle
+	icon_state = "muzzle_bullet"
 
+/obj/projectile/bullet/tracer
+	icon_state = "beam_bullet"
+
+/obj/projectile/bullet/impact
+	icon_state = "impact_bullet"
+*/
 //----------------------------
 // confuse ray
 //----------------------------

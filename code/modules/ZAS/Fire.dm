@@ -30,12 +30,17 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 
 	var/igniting = 0
 	var/obj/decal/cleanable/liquid_fuel/liquid = locate() in src
+	var/obj/effect/smoke/thermobaric/gas = locate() in src
 	if(liquid && air_contents.check_combustability(liquid))
 		IgniteTurf(liquid.amount * 10)
 		QDEL_NULL(liquid)
-	if(air_contents.check_combustability())
+	if(gas || air_contents.check_combustability())
 		igniting = 1
 		create_fire(exposed_temperature)
+		if(gas)
+			gas.blow_up()
+			for(var/turf/simulated/open/nearby_tile in range(2, src))
+				nearby_tile.create_fire(exposed_temperature)
 	return igniting
 
 /zone/proc/process_fire()

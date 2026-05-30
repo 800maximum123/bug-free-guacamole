@@ -52,11 +52,6 @@
 /datum/effect/smoke_spread/chem
 	smoke_type = /obj/effect/smoke/chem
 	var/obj/chemholder
-	var/range
-	var/list/targetTurfs
-	var/list/wallList
-	var/density
-	var/smokeVolume
 	var/show_log = 1
 
 /datum/effect/smoke_spread/chem/spores
@@ -191,7 +186,7 @@
 // Randomizes and spawns the smoke effect.
 // Also handles deleting the smoke once the effect is finished.
 //------------------------------------------
-/datum/effect/smoke_spread/chem/proc/spawnSmoke(turf/T, icon/I, smoke_duration, dist = 1, splash_initial=0, obj/effect/smoke/chem/passed_smoke)
+/datum/effect/smoke_spread/chem/spawnSmoke(turf/T, icon/I, smoke_duration, dist = 1, splash_initial=0, obj/effect/smoke/chem/passed_smoke)
 
 	var/obj/effect/smoke/chem/smoke
 	if(passed_smoke)
@@ -213,7 +208,7 @@
 	..(T, I, smoke_duration, dist, passed_smoke=spores)
 
 
-/datum/effect/smoke_spread/chem/proc/smokeFlow() // Smoke pathfinder. Uses a flood fill method based on zones to quickly check what turfs the smoke (airflow) can actually reach.
+/datum/effect/smoke_spread/chem/smokeFlow() // Smoke pathfinder. Uses a flood fill method based on zones to quickly check what turfs the smoke (airflow) can actually reach.
 
 	var/list/pending = new()
 	var/list/complete = new()

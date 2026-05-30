@@ -161,3 +161,71 @@
 		return TRUE
 
 	return ..()
+
+// GAIA dud RPGs missiles/rockets
+/obj/item/grenade/frag/dud_missile
+	name = "dud frag rocket"
+	desc = "The fact that it didn't explode inside the guy - doesn't mean it won't explode in your hands."
+	icon_state = "rocketshell_dud"
+	w_class = ITEM_SIZE_NORMAL
+
+	det_time = 3 SECONDS
+	num_fragments = 72
+	explosion_size = 200
+
+	var/blowup_chance = 30
+	var/disarm_time = 4 SECONDS
+	var/dangerous = TRUE
+
+/obj/item/grenade/frag/dud_missile/LateExamine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(is_adjacent)
+		if(dangerous)
+			to_chat(user, SPAN_WARNING("It looks extremely unstable."))
+		else
+			to_chat(user, SPAN_NOTICE("It have been disarmed."))
+
+/obj/item/grenade/frag/dud_missile/attack_self(mob/living/user)
+	if(!dangerous)
+		return
+	to_chat(user, SPAN_WARNING("Uh-oh..."))
+	return ..()
+
+/obj/item/grenade/frag/dud_missile/use_tool(obj/item/W, mob/living/user, list/click_params)
+	if(isWirecutter(W))
+		if(!dangerous)
+			to_chat(user, SPAN_NOTICE("Its already disarmed..."))
+			return FALSE
+		var/eod_skill = user.get_skill_value(SKILL_DEVICES)
+		var/real_disarm_time = disarm_time - eod_skill * 2
+		to_chat(user, SPAN_WARNING("You begin disarming the [src]..."))
+		if(!do_after(user, real_disarm_time, src))
+			if(prob(blowup_chance))
+				to_chat(user, SPAN_DANGER("You've been interrupted and [src] goes crazy!"))
+				activate(user)
+				return TRUE
+			else
+				to_chat(user, SPAN_WARNING("You've been interrupted, but hopefully [src] is silent."))
+				return FALSE
+
+		to_chat(user, SPAN_NOTICE("You succesfully disarmed [src]."))
+		visible_message(SPAN_NOTICE("[user] succesfully disarms [src]."), SPAN_NOTICE("You hear a relieving snap of wire."))
+		dangerous = FALSE
+	return ..()
+
+/obj/item/grenade/frag/dud_missile/dropped(mob/user)
+	. = ..()
+	playsound(src, 'sound/items/pipe_hit.ogg', 60, TRUE)
+	if(!dangerous)
+		return
+
+	if(prob(blowup_chance))
+		to_chat(user, SPAN_WARNING("Uh-oh..."))
+		activate(user)
+
+/obj/item/grenade/frag/dud_missile/aphe
+	name = "dud APHE rocket"
+	icon_state = "rocket_aphe_dud"
+
+	num_fragments = 24
+	explosion_size = 150

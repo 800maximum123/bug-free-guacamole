@@ -290,10 +290,10 @@ would spawn and follow the beaker, even if it is carried or thrown.
 		M.coughedtime = 1
 		M.emote("cough")
 		addtimer(new Callback(M, TYPE_PROC_REF(/mob/living/carbon, clear_coughedtime)), 2 SECONDS)
+
 /////////////////////////////////////////////
 // Mustard Gas
 /////////////////////////////////////////////
-
 
 /obj/effect/smoke/mustard
 	name = "mustard gas"
@@ -318,52 +318,152 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	return
 
 /////////////////////////////////////////////
+// [GAIA] Thermobaric Gas
+// Used in thermobaric missiles
+// The cloud blows up when in contact with fire
+/////////////////////////////////////////////
+
+/obj/effect/smoke/thermobaric
+	name = "thermobaric gas"
+	color = COLOR_AMBER
+	opacity = FALSE
+	anchored = TRUE
+	alpha = 50
+	var/suffocation = 5
+	var/fire_stacks = 15
+	var/detonation_time = 1 SECONDS
+
+/obj/effect/smoke/thermobaric/Initialize()
+	. = ..()
+	addtimer(new Callback(src, PROC_REF(blow_up)), detonation_time)
+
+/*
+/obj/effect/smoke/thermobaric/can_affect(mob/living/carbon/M)
+	. = ..()
+	if (!.)
+		return
+	if (ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if (H.wear_suit)
+			return FALSE
+*/
+/obj/effect/smoke/thermobaric/affect(mob/living/carbon/human/R)
+	R.adjustOxyLoss(suffocation)
+	R.adjust_fire_stacks(fire_stacks)
+	if (R.coughedtime != 1)
+		R.coughedtime = 1
+		R.emote("cough")
+		to_chat(R, SPAN_DANGER("You smell harsh fuel!"))
+		addtimer(new Callback(R, TYPE_PROC_REF(/mob/living/carbon, clear_coughedtime)), 2 SECONDS)
+	R.updatehealth()
+	return
+
+/obj/effect/smoke/thermobaric/proc/blow_up()
+	var/turf/location = src.loc
+	if(location)
+		location.hotspot_expose(1000,500,1)
+		cell_explosion(location, 150, 50, shrapnel = FALSE)
+		for(var/mob/living/carbon/human/victim in location)
+			victim.rupture_lung()
+		qdel(src)
+
+/////////////////////////////////////////////
 // Smoke spread
 /////////////////////////////////////////////
 
+// TODO: Fix it not spreading sometimes fnr
 /datum/effect/smoke_spread
 	var/total_smoke = 0 // To stop it being spammed and lagging!
 	var/direction
 	var/smoke_type = /obj/effect/smoke
+	var/range
+	var/list/targetTurfs
+	var/list/wallList
+	var/density
+	var/smokeVolume
 
 /datum/effect/smoke_spread/set_up(n = 5, c = 0, loca, direct)
-	if(n > 10)
-		n = 10
+	if(n > 20)
+		n = 20
 	number = n
 	cardinals = c
+	smokeVolume = n
+	range = n * 0.3
 	if(isturf(loca))
 		location = loca
 	else
 		location = get_turf(loca)
 	if(direct)
 		direction = direct
+	if(!location)
+		return
 
-/datum/effect/smoke_spread/start()
-	var/i = 0
-	for(i=0, i<src.number, i++)
-		if(src.total_smoke > 20)
-			return
-		addtimer(new Callback(src, TYPE_PROC_REF(/datum/effect, spread), i), 0)
+	targetTurfs = new()
+	for(var/turf/T in view(range, location))
+		if(sqrt((T.x - location.x)**2 + (T.y - location.y)**2) <= range)
+			targetTurfs += T
 
-/datum/effect/smoke_spread/spread(i)
-	if(holder)
-		src.location = get_turf(holder)
-	var/obj/effect/smoke/smoke = new smoke_type(location)
-	src.total_smoke++
-	var/direction = src.direction
-	if(!direction)
-		if(src.cardinals)
-			direction = pick(GLOB.cardinal)
-		else
-			direction = pick(GLOB.alldirs)
-	for(i=0, i<pick(0,1,1,1,2,2,2,3), i++)
-		sleep(1 SECOND)
-		if(QDELETED(smoke))
-			total_smoke--
-			return
-		step(smoke,direction)
-	QDEL_IN(smoke, smoke.time_to_live*0.75+rand(10,30))
-	total_smoke--
+	if(cardinals)
+		var/list/cardinalTargets = new()
+		for(var/turf/T in targetTurfs)
+			if(T.x == location.x || T.y == location.y)
+				cardinalTargets += T
+		targetTurfs = cardinalTargets
+
+	wallList = new()
+	smokeFlow()
+	density = max(1, length(targetTurfs) / 4)
+
+/datum/effect/smoke_spread/start(sound)
+	if(!location)
+		return
+	if(sound)
+		playsound(src.location, 'sound/effects/smoke.ogg', 50, 1, -3)
+
+	var/smoke_duration = max(5, smokeVolume * 1.5 SECONDS)
+	for(var/turf/T in targetTurfs)
+		spawn(0)
+			spawnSmoke(T, smoke_duration, range)
+
+/datum/effect/smoke_spread/proc/spawnSmoke(turf/T, smoke_duration, dist = 1)
+	var/obj/effect/smoke/smoke = new smoke_type(T)
+	smoke.time_to_live = smoke_duration
+	return smoke
+
+/datum/effect/smoke_spread/proc/smokeFlow()
+	var/list/pending = new()
+	var/list/complete = new()
+
+	pending += location
+
+	while(length(pending))
+		for(var/turf/current in pending)
+			for(var/D in GLOB.cardinal)
+				var/turf/target = get_step(current, D)
+				if(wallList)
+					if(istype(target, /turf/simulated/wall))
+						if(!(target in wallList))
+							wallList += target
+						continue
+
+				if(target in pending)
+					continue
+				if(target in complete)
+					continue
+				if(!(target in targetTurfs))
+					continue
+				if(current.c_airblock(target))
+					continue
+				if(target.c_airblock(current))
+					continue
+				pending += target
+
+			pending -= current
+			complete += current
+
+	targetTurfs = complete
+
+	return
 
 /datum/effect/smoke_spread/bad
 	smoke_type = /obj/effect/smoke/bad
@@ -371,10 +471,13 @@ would spawn and follow the beaker, even if it is carried or thrown.
 /datum/effect/smoke_spread/sleepy
 	smoke_type = /obj/effect/smoke/sleepy
 
-
 /datum/effect/smoke_spread/mustard
 	smoke_type = /obj/effect/smoke/mustard
 
+// [GAIA]
+// Used in thermobaric missiles
+/datum/effect/smoke_spread/thermobaric
+	smoke_type = /obj/effect/smoke/thermobaric
 
 /////////////////////////////////////////////
 //////// Attach an Ion trail to any object, that spawns when it moves (like for the jetpack)

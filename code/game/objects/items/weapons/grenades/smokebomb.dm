@@ -15,7 +15,6 @@
 	return ..()
 
 /obj/item/grenade/smokebomb/detonate(mob/living/user)
-	playsound(src.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
 	smoke = new /datum/effect/smoke_spread/bad
 	smoke.attach(src)
 	smoke.set_up(10, 0, get_turf(src))
@@ -29,6 +28,6 @@
 /obj/item/grenade/smokebomb/Process()
 	if(!QDELETED(smoke) && (smoke_times > 0))
 		smoke_times--
-		smoke.start()
+		smoke.start(TRUE)
 		return
 	return PROCESS_KILL

@@ -44,7 +44,7 @@
 	var/damage_flags = DAMAGE_FLAG_BULLET
 	var/projectile_type = /obj/item/projectile
 	var/penetrating = 0 //If greater than zero, the projectile will pass through dense objects as specified by on_penetrate()
-	var/life_span = 50 //This will de-increment every process(). When 0, it will delete the projectile.
+	var/life_span = 5 SECONDS //This will de-increment every process(). When 0, it will delete the projectile.
 
 	//Effects
 	var/stun = 0
@@ -182,6 +182,7 @@
 /obj/item/projectile/proc/launch_from_mob(atom/target, mob/user, target_zone, x_offset = 0, y_offset = 0, angle_offset = 0)
 	if(user == target) //Shooting yourself
 		user.bullet_act(src, target_zone)
+		on_impact(user)
 		qdel(src)
 		return 0
 
@@ -199,6 +200,7 @@
 /obj/item/projectile/proc/launch_from_gun(atom/target, mob/user, obj/item/gun/launcher, target_zone, x_offset=0, y_offset=0)
 	if(user == target) //Shooting yourself
 		user.bullet_act(src, target_zone)
+		on_impact(user)
 		qdel(src)
 		return 0
 
@@ -447,7 +449,9 @@
 			P.SetTransform(others = effect_transform)
 			P.pixel_x = round(location.pixel_x, 1)
 			P.pixel_y = round(location.pixel_y, 1)
-			if(hitscan)
+			if(!hitscan)
+				QDEL_IN(P,1)
+			else
 				segments += P
 
 /obj/item/projectile/proc/impact_effect()
@@ -458,7 +462,10 @@
 			P.SetTransform(others = effect_transform)
 			P.pixel_x = round(location.pixel_x, 1)
 			P.pixel_y = round(location.pixel_y, 1)
-			segments += P
+			if(!hitscan)
+				QDEL_IN(P,1)
+			else
+				segments += P
 
 //"Tracing" projectile
 /obj/item/projectile/test //Used to see if you can hit them.

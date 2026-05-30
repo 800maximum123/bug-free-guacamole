@@ -177,21 +177,39 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/caseless
 	icon_state = "rifle_caseless"
 
+// GAIA ROCKET SHELLS
 /obj/item/ammo_casing/rocket
-	name = "HE rocket shell"
-	desc = "A high-explosive rocket designed to be fired from a launcher."
-	icon_state = "rocket_he"
+	name = "fragmentation rocket shell"
+	desc = "A explosive fragmentation rocket designed to be fired from a launcher. Uses fragmentation to kill enemies."
+	icon_state = "rocketshell"
 	projectile_type = /obj/item/projectile/missile
 	caliber = "rocket"
 	w_class = ITEM_SIZE_NORMAL
+	spent_icon = "rocket-spent"
 
-//GAIA ADD
+/obj/item/ammo_casing/rocket/thermobaric
+	name = "thermobaric rocket shell"
+	desc = "A thermobaric rocket designed to be fired from a launcher. Creates a massive cloud of fire to kill enemies."
+	icon_state = "rocket"
+	projectile_type = /obj/item/projectile/missile/thermobaric
+
+/obj/item/ammo_casing/rocket/he
+	name = "HE rocket shell"
+	desc = "A high-explosive rocket designed to be fired from a launcher. Uses massive shockwave to concuss and kill enemies."
+	icon_state = "rocket_he"
+	projectile_type = /obj/item/projectile/missile/he
+
 /obj/item/ammo_casing/rocket/aphe
 	name = "APHE rocket shell"
-	desc = "A armor-piercing high-explosive rocket designed to be fired from a launcher."
+	desc = "A armor-piercing high-explosive rocket designed to be fired from a launcher. Pierces through walls and armor of vehicles and exosuits before blowing up."
 	icon_state = "rocket_aphe"
 	projectile_type = /obj/item/projectile/missile/aphe
-	caliber = "rocket"
+
+/obj/item/ammo_casing/rocket/tandem
+	name = "HEAT tandem rocket shell"
+	desc = "A high-explosive anti-tank rocket designed to be fired from a launcher. Has double charge for piercing through ERA on vehicles before firing a jet of copper lining inside."
+	icon_state = "rocket_tandem"
+	projectile_type = /obj/item/projectile/missile/tandem
 
 /obj/item/ammo_casing/cap
 	name = "cap"

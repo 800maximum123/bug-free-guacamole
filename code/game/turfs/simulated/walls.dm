@@ -102,8 +102,25 @@
 		burn(500)
 
 	if(Proj.ricochet_sounds && prob(15))
-		playsound(src, pick(Proj.ricochet_sounds), 100, 1)
+		var/obj/item/projectile/frag = new /obj/item/projectile/bullet/pellet/fragment(get_turf(Proj))
+		frag.firer = Proj.firer
+		frag.silenced = Proj.silenced
+
+		var/incoming_dir = get_dir(Proj.starting, get_turf(Proj))
+		if(!incoming_dir)
+			incoming_dir = get_dir(get_turf(Proj), Proj.starting)
+
+		var/deflect_dir = pick(turn(incoming_dir, 90), turn(incoming_dir, -90))
+		var/turf/deflect_target = get_step(get_turf(Proj), deflect_dir)
+		if(!isturf(deflect_target))
+			deflect_target = get_step(get_turf(Proj), reverse_direction(incoming_dir))
+		if(isturf(deflect_target))
+			frag.launch(deflect_target)
+		else
+			frag.launch(Proj.starting)
+
 		new /obj/sparks(get_turf(Proj))
+		playsound(src, pick(Proj.ricochet_sounds), 100, 1)
 
 	create_bullethole(Proj)//Potentially infinite bullet holes but most walls don't last long enough for this to be a problem.
 	..()

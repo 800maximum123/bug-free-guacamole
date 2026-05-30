@@ -1,6 +1,13 @@
 /obj/item/projectile/bullet
 	name = "bullet"
 	icon_state = "bullet"
+	// [GAIA] All bullets are fancy tracers
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	layer = BEAM_PROJECTILE_LAYER
+	light_range = 1
+	light_power = 1
+	light_color = COLOR_MUZZLE_FLASH
+
 	fire_sound = null
 	far_fire_sound = null
 	damage = 50
@@ -13,6 +20,11 @@
 	var/is_pellet = FALSE
 
 	muzzle_type = /obj/projectile/bullet
+	/* ABSOLUTE BULLSHIT
+	muzzle_type = /obj/projectile/bullet/muzzle
+	tracer_type = /obj/projectile/bullet/tracer
+	impact_type = /obj/projectile/bullet/impact
+	*/
 	miss_sounds = list('sound/weapons/guns/miss1.ogg','sound/weapons/guns/miss2.ogg','sound/weapons/guns/miss3.ogg','sound/weapons/guns/miss4.ogg')
 	ricochet_sounds = list('sound/weapons/guns/ricochet1.ogg', 'sound/weapons/guns/ricochet2.ogg',
 							'sound/weapons/guns/ricochet3.ogg', 'sound/weapons/guns/ricochet4.ogg')
@@ -63,8 +75,8 @@
 //For projectiles that actually represent clouds of projectiles
 /obj/item/projectile/bullet/pellet
 	name = "shrapnel" //'shrapnel' sounds more dangerous (i.e. cooler) than 'pellet'
+	icon_state = "pellet"
 	damage = 37.5
-	//icon_state = "bullet" //TODO: would be nice to have it's own icon state
 	var/pellets = 4			//number of pellets
 	var/range_step = 2		//projectile will lose a fragment each time it travels this distance. Can be a non-integer.
 	var/base_spread = 90	//lower means the pellets spread more across body parts. If zero then this is considered a shrapnel explosion instead of a shrapnel cone
@@ -210,7 +222,7 @@
 	armor_penetration = 35
 
 /obj/item/projectile/bullet/rifle/caseless
-	damage = 35
+	damage = 40
 	armor_penetration = 35
 
 /obj/item/projectile/bullet/rifle/shell
