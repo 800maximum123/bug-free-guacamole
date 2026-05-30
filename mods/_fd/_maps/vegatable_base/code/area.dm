@@ -1,5 +1,6 @@
 /area/vegatable_base
 	requires_power = 0
+	adventure_mode = 1
 
 /area/vegatable_base/start
 	name = "Reserve Base"
@@ -24,6 +25,7 @@
 /area/vegatable_base/real
 	name = "Reserve Base"
 	requires_power = 1
+	adventure_mode = 0
 
 /area/vegatable_base/real/corridors
 	name = "Reserve Base - Corridors"

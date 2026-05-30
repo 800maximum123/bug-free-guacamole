@@ -2947,6 +2947,9 @@
 	dir = 1
 	},
 /obj/floor_decal/corner/grey/border,
+/obj/item/stack/material/glass/ten,
+/obj/item/stack/material/aluminium/ten,
+/obj/item/stack/material/plastic/ten,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/kitchen)
 "ckj" = (
@@ -22265,7 +22268,7 @@
 /area/bunker/lower/eng/reactor)
 "qOZ" = (
 /obj/structure/table/standard,
-/obj/machinery/chemical_dispenser/bar_coffee{
+/obj/machinery/chemical_dispenser/bar_coffee/full{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/monotile,
