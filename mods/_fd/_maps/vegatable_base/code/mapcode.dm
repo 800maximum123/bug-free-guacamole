@@ -104,3 +104,5 @@
 				M.alpha = 255
 
 			return TRUE
+
+#include "..\map\vegetable_base.dmm"

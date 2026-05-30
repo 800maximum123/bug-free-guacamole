@@ -713,6 +713,9 @@
 		owner.simple_health_calculation(5, 0, 0, 0)
 		new /obj/effect/simple_combat_particle/bleeding(owner.loc)
 
+		owner.bloodyness += 2
+		owner.setup_bloodyness_overlay_self()
+
 		var/obj/decal/cleanable/blood/B = blood_splatter(get_step(owner, SOUTH), owner, 0, SOUTH)
 		B.icon_state = "dir_splatter_1"
 		B.SetTransform(0.5)

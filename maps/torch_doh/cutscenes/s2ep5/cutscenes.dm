@@ -1674,6 +1674,9 @@
 	var/ignore_focus = FALSE
 	var/watching_scene = FALSE
 
+/mob/living
+	var/holding_camera = FALSE
+
 /client/proc/cmd_admin_camera_focus(mob/living/M as mob in SSmobs.mob_list)
 	set category = "Special Verbs"
 	set name = "Focus Camera"
@@ -1686,23 +1689,29 @@
 		alert("Cannot spectate ghost!")
 		return
 
+	if(M.holding_camera)
+		alert("Already spectating!")
+		return
+
 	if(M.client)
 		M.client.ignore_focus = TRUE
 		M.balloon_alert(M, "|КИНОКАМЕРА НАПРАВЛЕНА НА ВАС|", COLOR_GREEN)
 
+	M.holding_camera = TRUE
+
 	for(var/client/client in GLOB.clients)
-		if(client.ignore_focus)
-			continue
-
-		if(client.holder) // Педалям может понадобиться сделать что-то во время сценки
-			continue
-
 		if(client.watching_scene)
 			client.mob.clear_fullscreen("borders", /obj/screen/fullscreen/fd/cinema_borders)
 			client.watching_scene = TRUE
 			client.adminobs = null
 
 			client.mob.reset_view()
+
+		if(client.ignore_focus)
+			continue
+
+		if(client.holder) // Педалям может понадобиться сделать что-то во время сценки
+			continue
 
 		client.mob.overlay_fullscreen("borders", /obj/screen/fullscreen/fd/cinema_borders)
 
@@ -1721,6 +1730,10 @@
 		return
 	if(!istype(M))
 		alert("Cannot do this with ghost!")
+		return
+
+	if(!M.holding_camera)
+		alert("Wrong camera holder!")
 		return
 
 	for(var/client/client in GLOB.clients)
