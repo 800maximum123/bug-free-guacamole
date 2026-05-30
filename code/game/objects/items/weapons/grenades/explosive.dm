@@ -243,3 +243,10 @@
 
 	num_fragments = 72
 	explosion_size = 150
+
+/obj/item/grenade/frag/dud_missile/tandem
+	name = "dud tandem APHE rocket"
+	icon_state = "rocket_tandem_dud"
+
+	num_fragments = 72
+	explosion_size = 200
