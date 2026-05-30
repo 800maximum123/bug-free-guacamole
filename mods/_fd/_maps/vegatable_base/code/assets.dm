@@ -386,16 +386,20 @@
 
 				target.add_status_effect(/datum/simple_status/fixation)
 				clawed = target
+
+				if(get_dist(user,clawed) > 1)
+					clawed.forceMove(get_step(user, user.dir))
+
 			else
 				clawed_chance += 10
 
-		if(clawed)
+		if(clawed && clawed == target)
 			clawed_time_current += 1
 			if(clawed_time_current >= clawed_time_needed)
 				clawed_time_current = 0
 
 				user.remove_status_effect(/datum/simple_status/fixation)
-				target.remove_status_effect(/datum/simple_status/fixation)
+				clawed.remove_status_effect(/datum/simple_status/fixation)
 				clawed = null
 
 		if(status_to_add)
@@ -458,3 +462,12 @@
 	. = ..()
 
 	add_status_effect(/datum/simple_status/shielded)
+
+/mob/living/simple_animal/hostile/terra/grabber/death(gibbed, deathmessage, show_dead_message)
+	. = ..()
+
+	natural_weapon.clawed_time_current = 0
+
+	remove_status_effect(/datum/simple_status/fixation)
+	natural_weapon.clawed.remove_status_effect(/datum/simple_status/fixation)
+	natural_weapon.clawed = null

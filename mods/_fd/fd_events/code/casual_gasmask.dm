@@ -42,11 +42,12 @@
 
 			if(A.unbreathable)
 				if(isSynthetic(H))
-					if(E && E.cell.charge >= 5)
-						E.cell.charge -= 5
-					if(E && E.cell.charge == 20)
-						balloon_alert(src, "|ВНИМАНИЕ! КРИТИЧЕСКАЯ НЕХВАТКА ПИТАНИЯ!|", COLOR_RED)
-						//H.recalculate_reality_connection(0.1) // УДАЛИТЬ ПОТОМ
+					if(E)
+						if(E.cell.charge >= 5)
+							E.cell.charge -= 5
+						if(E.cell.charge == 20)
+							balloon_alert(src, "|ВНИМАНИЕ! КРИТИЧЕСКАЯ НЕХВАТКА ПИТАНИЯ!|", COLOR_RED)
+							//H.recalculate_reality_connection(0.1) // УДАЛИТЬ ПОТОМ
 				else
 
 					if(breath_protected(gasmask, A))

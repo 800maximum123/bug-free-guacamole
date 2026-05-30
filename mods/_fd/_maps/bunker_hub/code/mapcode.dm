@@ -816,6 +816,25 @@
 
 	person.simple_armor_natural = 5
 
+/mob/living/carbon/human/proc/perci_fix()
+	for(var/obj/item/organ/external/E in contents)
+		E.robotize("Pure Improvisation", FALSE, FALSE, TRUE)
+
+	if(simple_combat_on)
+		simple_health_calculation(-max_simple_health, 0, 0, 0)
+
+		for(var/obj/item/clothing/armor in get_equipped_items())
+			armor.simple_armor_blockchance = armor.simple_armor_blockchance_max
+
+		if(get_status_effect(/datum/simple_status/hardcrit))
+			stabilized = TRUE
+			remove_status_effect(/datum/simple_status/hardcrit)
+
+		for(var/datum/simple_status/effects in status_effects)
+			if(effects.positive_effect)
+				continue
+			remove_status_effect(effects)
+
 /singleton/hierarchy/outfit/bunker/perci
 	name = "Percival Endsley"
 
