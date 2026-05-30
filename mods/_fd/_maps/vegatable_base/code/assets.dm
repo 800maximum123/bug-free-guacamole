@@ -1,3 +1,20 @@
+/obj/item/fd/cutscene_ep5/ghostizer
+	name = "ДЛЯ НАБЛЮДЕНИЯ"
+	desc = "Внеигровой айтем для становления гостом. НЕ ПОКАЗЫВАЙТЕ НИКОМУ."
+	icon = 'mods/_fd/fd_assets/icons/goons/device.dmi'
+	icon_state = "camera_flash"
+
+	w_class = ITEM_SIZE_TINY
+
+/obj/item/fd/cutscene_ep5/ghostizer/attack_self(mob/living/user as mob)
+
+	to_chat(user, "<span class='info'>You can see... everything!</span>") // This never actually happens.
+	visible_message("<span class='danger'>[user] stares into [src], their eyes glazing over.</span>")
+
+	user.teleop = user.ghostize(1)
+	announce_ghost_joinleave(user.teleop, 1, "Seems like they want to look what happening outside!")
+	return
+
 /turf/simulated/floor/exoplanet/fd/cyberspace
 	name = "..."
 	desc = "This is wrong."
@@ -186,7 +203,7 @@
 	icon = 'mods/_fd/fd_assets/icons/goons/projectiles.dmi'
 	icon_state = "taser_projectile-big"
 
-	simple_damage = 5
+	simple_damage = 6
 	status_to_add = /datum/simple_status/shocked
 	status_timer_to_add = 5 SECONDS
 
@@ -194,7 +211,7 @@
 
 /obj/item/gun/energy/ionrifle/anti_terra
 	projectile_type = /obj/item/projectile/energy/anti_terra
-	fire_delay = 30
+	fire_delay = 10
 
 	charge_cost = 50
 	max_shots = 10
@@ -371,7 +388,7 @@
 /obj/item/natural_weapon/terra/grabber
 	name = "hands"
 	attack_verb = list("grabbed")
-	simple_damage = 5
+	simple_damage = 6
 
 	hitsound = 'mods/_fd/mob_interactions/sounds/hug.ogg'
 	force = 2
@@ -391,7 +408,7 @@
 					clawed.forceMove(get_step(user, user.dir))
 
 			else
-				clawed_chance += 10
+				clawed_chance += 50
 
 		if(clawed && clawed == target)
 			clawed_time_current += 1
