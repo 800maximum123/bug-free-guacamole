@@ -223,9 +223,23 @@
 		to_chat(user, SPAN_WARNING("Uh-oh..."))
 		activate(user)
 
+/obj/item/grenade/frag/dud_missile/thermobaric
+	name = "dud thermobaric rocket"
+	icon_state = "rocket_dud"
+
+	num_fragments = 0
+	explosion_size = 200
+
+/obj/item/grenade/frag/dud_missile/he
+	name = "dud HE rocket"
+	icon_state = "rocket_he_dud"
+
+	num_fragments = 0
+	explosion_size = 300
+
 /obj/item/grenade/frag/dud_missile/aphe
 	name = "dud APHE rocket"
 	icon_state = "rocket_aphe_dud"
 
-	num_fragments = 24
+	num_fragments = 72
 	explosion_size = 150
