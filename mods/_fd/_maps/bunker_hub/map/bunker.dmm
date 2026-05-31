@@ -341,9 +341,15 @@
 /area/bunker/lower/eng/reactor)
 "aoR" = (
 /obj/decal/cleanable/dirt,
-/obj/decal/cleanable/blood/gibs/robot,
-/turf/simulated/floor/tiled/white,
-/area/bunker/lower/lab/bslab)
+/obj/catwalk_plated/dark,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/bunker/corridors/north)
 "aph" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -397,7 +403,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/wood,
 /area/bunker/rooms/room3)
 "arg" = (
 /turf/simulated/floor/plating,
@@ -519,6 +525,11 @@
 /obj/floor_decal/corner/paleblue/mono,
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med)
+"aAQ" = (
+/obj/item/modular_computer/laptop/preset/custom_loadout/advanced,
+/obj/structure/table/glass,
+/turf/simulated/floor/tiled/techmaint,
+/area/bunker/rooms/room7)
 "aAY" = (
 /obj/structure/vines/heavy1,
 /turf/simulated/floor/exoplanet/fd/grass,
@@ -722,9 +733,8 @@
 	pixel_y = 0;
 	pixel_x = -27
 	},
-/obj/decal/cleanable/dirt,
-/obj/structure/closet,
-/turf/simulated/floor/plating,
+/obj/structure/table/woodentable/ebony,
+/turf/simulated/floor/wood/ebony,
 /area/bunker/rooms/room8)
 "aHZ" = (
 /obj/decal/cleanable/dirt,
@@ -768,6 +778,10 @@
 	},
 /obj/floor_decal/techfloor{
 	dir = 9
+	},
+/obj/item/shovel,
+/obj/item/shovel{
+	pixel_x = 9
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/eng/workshop)
@@ -1226,7 +1240,7 @@
 "aZo" = (
 /obj/structure/fd/bs_vines,
 /obj/floor_decal/borderfloorwhite,
-/turf/simulated/floor/tiled/white/monotile,
+/turf/simulated/floor/plating,
 /area/bunker/lower/lab/bslab)
 "aZV" = (
 /obj/structure/flora/tree/jungle/small,
@@ -1376,10 +1390,13 @@
 	},
 /area/bunker/jungle)
 "bgr" = (
-/obj/decal/cleanable/blood/gibs/robot,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
-/area/bunker/lower/lab/bslab)
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 1;
+	flipped = 1
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt,
+/area/bunker/jungle)
 "bgQ" = (
 /obj/overmap/visitable/sector/bunker_hub,
 /obj/submap_landmark/joinable_submap/bunker,
@@ -1420,20 +1437,16 @@
 /turf/simulated/floor/tiled/old_tile,
 /area/bunker/barracks/preporation)
 "bhG" = (
-/obj/decal/cleanable/dirt,
-/obj/floor_decal/borderfloor{
+/obj/floor_decal/borderfloorwhite{
 	dir = 1
 	},
-/obj/floor_decal/corner/black/border{
-	dir = 1
+/obj/structure/fd/random_junk/whiteboard,
+/obj/item/reagent_containers/glass/rag{
+	pixel_x = -6;
+	pixel_y = 0
 	},
-/obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
-	dir = 2
-	},
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/corridors/center)
+/turf/simulated/floor/tiled/white/monotile,
+/area/bunker/lower/lab/virology)
 "bhN" = (
 /obj/structure/platform/kutjevo/rock,
 /obj/structure/fake_lattice{
@@ -1559,12 +1572,14 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/eng/workshop)
 "bli" = (
-/obj/floor_decal/borderfloorblack{
-	dir = 4
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 1;
+	flipped = 1
 	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/lower/monorail)
+/obj/structure/vines/light3,
+/turf/simulated/floor/exoplanet/fd/muddirt,
+/area/bunker/jungle)
 "bln" = (
 /obj/structure/vines,
 /obj/structure/vines,
@@ -1953,7 +1968,6 @@
 	dir = 8
 	},
 /obj/machinery/camera,
-/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/gateway)
 "bya" = (
@@ -2631,9 +2645,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
 "bYl" = (
-/obj/decal/cleanable/blood,
-/turf/simulated/floor/tiled/techfloor,
-/area/bunker/lower/eng)
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/catwalk_plated/dark,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/bunker/lower/corridos)
 "bYn" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/closet,
@@ -2991,12 +3012,17 @@
 	},
 /area/bunker/jungle)
 "ckT" = (
-/obj/floor_decal/borderfloorwhite{
-	dir = 4
+/obj/machinery/light{
+	color = "#a1d2d6";
+	light_color = "#a1d2d6";
+	dir = 2
 	},
-/obj/structure/barricade,
-/turf/simulated/floor/tiled/white/monotile,
-/area/bunker/lower/lab/gateway)
+/obj/floor_decal/borderfloorblack{
+	dir = 1
+	},
+/obj/structure/rubble,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/corridos)
 "clJ" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -3022,8 +3048,6 @@
 /area/bunker/jungle)
 "cmn" = (
 /obj/decal/cleanable/dirt,
-/obj/decal/cleanable/molten_item,
-/obj/decal/cleanable/blood/gibs/robot,
 /turf/simulated/floor/tiled/white,
 /area/bunker/lower/lab/bslab)
 "cmy" = (
@@ -3116,10 +3140,12 @@
 /obj/machinery/light_construct{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/monotile,
+/obj/structure/bed/chair/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
 /area/bunker/rooms/room3)
 "coG" = (
-/obj/decal/cleanable/molten_item,
 /obj/machinery/light{
 	color = "#a1d2d6";
 	light_color = "#a1d2d6";
@@ -3258,13 +3284,12 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/rooms/room11)
 "csW" = (
-/obj/structure/table,
 /obj/machinery/light{
 	color = "#a1d2d6";
 	light_color = "#a1d2d6";
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/wood,
 /area/bunker/rooms/room3)
 "ctf" = (
 /obj/floor_decal/hull{
@@ -3273,6 +3298,22 @@
 /obj/structure/table/standard,
 /obj/structure/fd/perci_console{
 	pixel_y = 10
+	},
+/obj/item/paper/bunker/stuff/cannon{
+	pixel_x = 1;
+	pixel_y = -8
+	},
+/obj/item/paper/bunker/stuff/carabin{
+	pixel_x = -9;
+	pixel_y = -3
+	},
+/obj/item/paper/bunker/stuff/crab{
+	pixel_x = 11;
+	pixel_y = -8
+	},
+/obj/item/paper/bunker/stuff/reactor{
+	pixel_x = 12;
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/rooms/room12)
@@ -3290,12 +3331,12 @@
 /turf/simulated/floor/tiled,
 /area/bunker/lower/med/cryo)
 "ctq" = (
-/obj/floor_decal/borderfloorwhite{
-	dir = 1
+/obj/floor_decal/borderfloorblack{
+	dir = 6
 	},
-/obj/structure/fd/bs_vines,
-/turf/simulated/floor/tiled/white/monotile,
-/area/bunker/lower/lab/bslab)
+/obj/structure/barricade,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/monorail)
 "ctr" = (
 /obj/floor_decal/corner/black/mono,
 /obj/floor_decal/borderfloor{
@@ -3528,7 +3569,6 @@
 	light_color = "#a1d2d6";
 	dir = 4
 	},
-/obj/structure/fd/bs_vines,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/gateway)
 "cyI" = (
@@ -3712,6 +3752,11 @@
 	pixel_x = -7;
 	name = "smartgun (Laser Disco)"
 	},
+/obj/item/gun/projectile/shotgun/pump/sol_service{
+	pixel_x = -1;
+	pixel_y = 4
+	},
+/obj/item/clothing/head/helmet/nt,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/rooms/room7)
 "cFU" = (
@@ -3819,10 +3864,10 @@
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med)
 "cJW" = (
+/obj/floor_decal/borderfloorblack,
 /obj/decal/cleanable/dirt,
-/obj/structure/barricade,
-/turf/simulated/floor/tiled/white,
-/area/bunker/lower/lab/gateway)
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/kpp1)
 "cKa" = (
 /obj/floor_decal/hull{
 	dir = 8
@@ -3917,10 +3962,13 @@
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
 "cNy" = (
-/obj/structure/fd/bs_vines,
-/obj/catwalk_plated/white,
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 1;
+	flipped = 1
+	},
 /turf/simulated/floor/plating,
-/area/bunker/lower/lab/bslab)
+/area/bunker/jungle)
 "cNz" = (
 /obj/floor_decal/borderfloorblack,
 /turf/simulated/floor/tiled/dark/monotile,
@@ -4047,12 +4095,15 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/kpp)
 "cRT" = (
-/obj/machinery/vending/hotfood{
-	pixel_y = 10
+/obj/catwalk_plated/dark,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/obj/floor_decal/borderfloorblack,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/lower/monorail)
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/bunker/corridors/north)
 "cRU" = (
 /obj/overlay/diona/floor,
 /obj/overlay/diona/decorator{
@@ -4073,9 +4124,20 @@
 /turf/simulated/wall/r_wall,
 /area/bunker/rooms/room3)
 "cSq" = (
-/obj/structure/table/standard,
-/turf/simulated/floor/plating,
-/area/bunker/rooms/room3)
+/obj/floor_decal/borderfloorblack{
+	dir = 4
+	},
+/obj/item/device/assembly/prox_sensor,
+/obj/item/device/assembly/prox_sensor{
+	pixel_x = 9;
+	pixel_y = -12
+	},
+/obj/item/device/assembly/signaler{
+	pixel_x = -6;
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/kpp1)
 "cSH" = (
 /obj/structure/table/woodentable,
 /obj/item/disk/astrodata{
@@ -4319,8 +4381,7 @@
 /area/bunker/jungle)
 "dev" = (
 /obj/decal/cleanable/dirt,
-/obj/structure/fd/bs_vines,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/bunker/lower/lab/bslab)
 "deB" = (
 /obj/floor_decal/corner/paleblue/border,
@@ -4420,9 +4481,6 @@
 /turf/simulated/floor/plating,
 /area/bunker/lower/monorail)
 "dgE" = (
-/obj/decal/cleanable/blood{
-	pixel_y = -26
-	},
 /obj/random/hat,
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/lower/eng)
@@ -4649,15 +4707,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/eng)
 "dnr" = (
-/obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
-	dir = 8
-	},
-/obj/floor_decal/borderfloorblack{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/simulated/wall/r_wall,
 /area/bunker/lower/monorail)
 "dnu" = (
 /obj/floor_decal/borderfloorwhite,
@@ -5043,15 +5093,12 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/eng)
 "dFn" = (
-/obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
-	dir = 1
+/obj/floor_decal/borderfloorblack{
+	dir = 8
 	},
-/obj/structure/bed/chair/pew,
-/obj/floor_decal/borderfloorblack,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/lower/monorail)
+/area/bunker/lower/kpp1)
 "dFo" = (
 /obj/floor_decal/corner/paleblue/bordercorner{
 	dir = 1
@@ -5087,7 +5134,6 @@
 "dHX" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/sign/d,
-/obj/decal/cleanable/blood/oil/streak,
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/lower/eng)
 "dIs" = (
@@ -5191,6 +5237,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/corridors/north)
 "dQc" = (
@@ -5297,13 +5344,14 @@
 	},
 /area/bunker/jungle)
 "dUb" = (
-/obj/decal/cleanable/dirt,
-/obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
-	dir = 2
+/obj/catwalk_plated/dark,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/dark/monotile,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
 /area/bunker/corridors/north)
 "dUP" = (
 /obj/floor_decal/industrial/warning/corner,
@@ -5531,12 +5579,12 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "efg" = (
-/obj/floor_decal/borderfloorwhite{
-	dir = 8
+/obj/floor_decal/borderfloorblack{
+	dir = 1
 	},
-/obj/structure/fd/bs_vines,
-/turf/simulated/floor/tiled/white/monotile,
-/area/bunker/lower/lab/bslab)
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/kpp1)
 "efi" = (
 /obj/decal/cleanable/generic,
 /obj/machinery/light{
@@ -5959,7 +6007,6 @@
 	light_color = "#a1d2d6";
 	dir = 4
 	},
-/obj/decal/cleanable/dirt,
 /obj/floor_decal/borderfloor{
 	dir = 1
 	},
@@ -6164,9 +6211,7 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp1)
 "eIy" = (
-/obj/structure/table/rack,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/wood/ebony,
 /area/bunker/rooms/room8)
 "eIL" = (
 /obj/machinery/light{
@@ -6289,13 +6334,12 @@
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
 "ePp" = (
-/obj/decal/cleanable/dirt,
 /obj/machinery/light{
 	color = "#a1d2d6";
 	light_color = "#a1d2d6";
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/simulated/floor/wood,
 /area/bunker/rooms/room3)
 "ePM" = (
 /obj/structure/cable/green{
@@ -6460,14 +6504,14 @@
 /turf/simulated/floor/tiled/white,
 /area/bunker/lower/lab/bslab)
 "eVV" = (
-/obj/decal/cleanable/dirt,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/floor_decal/borderfloorblack,
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 8;
+	flipped = 1
 	},
-/turf/simulated/floor/tiled/dark,
-/area/bunker/corridors/south)
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/corridos)
 "eWm" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -6611,7 +6655,6 @@
 /turf/unsimulated/mineral,
 /area/bunker)
 "fbA" = (
-/obj/decal/cleanable/dirt,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -7834,11 +7877,6 @@
 /obj/decal/cleanable/dirt,
 /obj/catwalk_plated/white,
 /obj/structure/fd/bs_vines,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/lab/bslab)
 "fRC" = (
@@ -7938,13 +7976,10 @@
 /turf/simulated/wall/r_wall,
 /area/bunker/barracks/gvardiya)
 "fXb" = (
-/obj/decal/cleanable/greenglow,
-/obj/item/material/hatchet{
-	pixel_x = 15;
-	pixel_y = 12
-	},
-/turf/simulated/floor/tiled/white,
-/area/bunker/lower/lab/bslab)
+/obj/structure/bed/padded,
+/obj/floor_decal/corner/black/border,
+/turf/simulated/floor/wood/walnut,
+/area/bunker/barracks/gvardiya)
 "fXh" = (
 /obj/floor_decal/borderfloorwhite,
 /obj/structure/window/reinforced,
@@ -8024,12 +8059,13 @@
 	},
 /area/bunker/interlude)
 "fYL" = (
-/obj/floor_decal/borderfloorblack{
-	dir = 6
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 8;
+	flipped = 1
 	},
-/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/lower/corridos)
+/area/bunker/corridors/north)
 "fYM" = (
 /obj/structure/flora/seaweed{
 	layer = 2.21;
@@ -8357,9 +8393,18 @@
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "glY" = (
-/obj/decal/cleanable/molten_item,
-/turf/simulated/floor/tiled/white,
-/area/bunker/lower/lab/bslab)
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 8;
+	flipped = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bunker/lower/corridos)
 "gmw" = (
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/rooms/room1)
@@ -8430,14 +8475,15 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "gqf" = (
-/obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
-	dir = 8
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
+/obj/catwalk_plated/dark,
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/corridors/north)
+/turf/simulated/floor/plating,
+/area/bunker/lower/kpp1)
 "gqn" = (
 /obj/structure/platform/kutjevo/rock{
 	dir = 1
@@ -8529,17 +8575,12 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "gvX" = (
-/obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
+/obj/floor_decal/borderfloorblack{
 	dir = 4
 	},
-/obj/floor_decal/borderfloorwhite{
-	dir = 8
-	},
-/obj/structure/fd/bs_vines,
-/turf/simulated/floor/tiled/white/monotile,
-/area/bunker/lower/lab/bslab)
+/obj/structure/barricade,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/corridos)
 "gwu" = (
 /obj/structure/flora/trk17_regrowing/ice_tricord,
 /turf/simulated/floor/exoplanet/fd/grass{
@@ -8622,7 +8663,7 @@
 	light_color = "#a1d2d6";
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/wood/ebony,
 /area/bunker/rooms/room8)
 "gyy" = (
 /obj/item/shovel{
@@ -9123,9 +9164,9 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/corridos)
 "gPs" = (
-/obj/catwalk_plated/dark,
-/turf/simulated/floor/plating,
-/area/bunker/corridors/north)
+/obj/machinery/r_n_d/destructive_analyzer,
+/turf/simulated/floor/tiled/white/monotile,
+/area/bunker/lower/lab/virology)
 "gPB" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/fd/drought,
@@ -9212,7 +9253,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/barracks)
 "gSr" = (
-/obj/machinery/door/airlock/autoname,
+/obj/machinery/door/airlock/highsecurity,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/lower/kpp1)
 "gSy" = (
@@ -9281,6 +9322,14 @@
 /obj/structure/table/standard,
 /obj/floor_decal/borderfloorwhite{
 	dir = 8
+	},
+/obj/item/device/electronic_assembly/medium/clam{
+	pixel_x = -4;
+	pixel_y = 5
+	},
+/obj/item/device/integrated_electronics/wirer{
+	pixel_x = 11;
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/virology)
@@ -9413,9 +9462,15 @@
 /turf/simulated/wall/r_wall,
 /area/bunker/lower/monorail)
 "gXB" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/corridors/south)
+/obj/structure/barricade,
+/turf/simulated/floor/tiled/dark,
+/area/bunker/lower/monorail)
 "gXF" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -9764,7 +9819,6 @@
 /turf/simulated/floor/plating,
 /area/bunker/lower/monorail)
 "hgL" = (
-/obj/decal/cleanable/dirt,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -9966,9 +10020,14 @@
 /turf/simulated/floor/plating,
 /area/bunker/rooms/room2)
 "hqY" = (
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/bunker/lower/lab/bslab)
+/obj/machinery/light{
+	color = "#a1d2d6";
+	light_color = "#a1d2d6";
+	dir = 2
+	},
+/obj/structure/barricade,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/corridors/north)
 "hrx" = (
 /obj/floor_decal/messygrass{
 	dir = 4
@@ -10166,14 +10225,12 @@
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med/lobby)
 "hye" = (
-/obj/decal/cleanable/dirt,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/floor_decal/borderfloorblack{
+	dir = 6
 	},
-/turf/simulated/floor/plating,
-/area/bunker/corridors/north)
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/kpp1)
 "hym" = (
 /obj/machinery/door/airlock/autoname{
 	dir = 4
@@ -10330,7 +10387,6 @@
 /turf/simulated/floor/exoplanet/wet_stone,
 /area/bunker/interlude)
 "hDr" = (
-/obj/decal/cleanable/dirt,
 /obj/overlay/diona/decorator{
 	dir = 1
 	},
@@ -10566,6 +10622,7 @@
 	light_color = "#a1d2d6";
 	dir = 8
 	},
+/obj/structure/barricade,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/corridos)
 "hPe" = (
@@ -11327,9 +11384,18 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "iqR" = (
-/obj/decal/cleanable/blood/oil/streak,
-/turf/simulated/floor/tiled/white/monotile,
-/area/bunker/lower/lab/bslab)
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 8;
+	flipped = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bunker/lower/kpp1)
 "iqZ" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/cable/green{
@@ -12097,10 +12163,12 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
 "iWx" = (
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/corridors/west)
+/obj/structure/vines/light3,
+/obj/structure/vines/light2,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#5F773B"
+	},
+/area/bunker/jungle)
 "iWM" = (
 /obj/fd_water/alt_ver1,
 /obj/floor_decal/messygrass{
@@ -12385,9 +12453,14 @@
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med/surgery)
 "jgq" = (
-/obj/structure/fd/bs_vines,
-/turf/simulated/floor/tiled/white,
-/area/bunker/lower/lab/bslab)
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/bed/chair/padded/green{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
+	},
+/area/bunker/jungle)
 "jgu" = (
 /obj/structure/vines/heavy5,
 /turf/simulated/floor/exoplanet/fd/grass{
@@ -12441,6 +12514,7 @@
 /obj/floor_decal/borderfloorblack{
 	dir = 10
 	},
+/obj/structure/barricade,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/monorail)
 "jhX" = (
@@ -12499,12 +12573,17 @@
 	},
 /area/bunker/jungle)
 "jkA" = (
-/obj/structure/fd/bs_vines,
-/obj/floor_decal/borderfloorwhite{
+/obj/floor_decal/borderfloorblack{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/white/monotile,
-/area/bunker/lower/lab/bslab)
+/obj/decal/cleanable/dirt,
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 2;
+	flipped = 1
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/corridos)
 "jkE" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/machinery/light/golden{
@@ -12623,9 +12702,14 @@
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/bunker/interlude)
 "jnn" = (
-/obj/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/barricade,
 /turf/simulated/floor/tiled/dark,
-/area/bunker/command)
+/area/bunker/lower/monorail)
 "jnp" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -12704,8 +12788,12 @@
 /turf/simulated/floor/tiled/old_cargo,
 /area/bunker/barracks/preporation)
 "jqe" = (
-/turf/simulated/floor/plating,
-/area/bunker/rooms/room3)
+/obj/structure/girder,
+/obj/structure/vines/light3,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#5F773B"
+	},
+/area/bunker/jungle)
 "jqh" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -12830,12 +12918,8 @@
 "jxC" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/bs_crystal,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/white,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/fd/waste,
 /area/bunker/lower/lab/bslab)
 "jyI" = (
 /obj/structure/fd/junk{
@@ -12981,16 +13065,16 @@
 /obj/machinery/light{
 	color = "#a1d2d6";
 	light_color = "#a1d2d6";
-	dir = 1
+	dir = 1;
+	pixel_y = 0
 	},
-/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/corridors/north)
 "jFt" = (
 /obj/floor_decal/borderfloorblack{
 	dir = 10
 	},
-/obj/decal/cleanable/dirt,
+/obj/structure/rubble,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/corridos)
 "jGm" = (
@@ -13070,13 +13154,12 @@
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "jJG" = (
-/obj/decal/cleanable/dirt,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/wood,
 /area/bunker/rooms/room3)
 "jJR" = (
 /obj/machinery/light{
@@ -13259,6 +13342,18 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/corridors/south)
+"jPV" = (
+/obj/structure/table/glass,
+/obj/item/device/flashlight/maglight{
+	pixel_y = 4;
+	pixel_x = 4
+	},
+/obj/item/storage/pill_bottle/paracetamol{
+	pixel_y = -4;
+	pixel_x = 1
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/bunker/rooms/room7)
 "jQh" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4
@@ -13485,6 +13580,7 @@
 	},
 /obj/catwalk_plated/dark,
 /obj/decal/cleanable/dirt,
+/obj/structure/barricade,
 /turf/simulated/floor/plating,
 /area/bunker/lower/monorail)
 "kaz" = (
@@ -13603,18 +13699,16 @@
 /turf/simulated/wall/r_wall,
 /area/bunker/lower/eng/warehouse)
 "kgN" = (
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/greenglow,
-/turf/simulated/floor/tiled/white,
-/area/bunker/lower/lab/bslab)
-"kib" = (
-/obj/structure/bed/chair/pew/left,
-/obj/floor_decal/borderfloorblack,
-/obj/item/device/radio/intercom/bunker{
-	pixel_y = 24
+/obj/floor_decal/borderfloorblack{
+	dir = 1
 	},
+/obj/structure/rubble,
 /turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/lower/monorail)
+/area/bunker/lower/corridos)
+"kib" = (
+/obj/machinery/r_n_d/server/core,
+/turf/simulated/floor/tiled/white/monotile,
+/area/bunker/lower/lab/bslab)
 "kin" = (
 /obj/machinery/door/blast/regular{
 	id_tag = "bunker_exit1"
@@ -13742,6 +13836,10 @@
 /obj/floor_decal/borderfloorwhite{
 	dir = 1
 	},
+/obj/item/clothing/head/warden{
+	pixel_x = -3;
+	pixel_y = 10
+	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/virology)
 "kpT" = (
@@ -13772,12 +13870,13 @@
 /turf/simulated/floor/exoplanet/wet_stone,
 /area/bunker/interlude)
 "kqM" = (
-/obj/structure/bed/chair/pew/left,
-/obj/floor_decal/borderfloorblack{
-	dir = 6
+/obj/structure/table/woodentable,
+/obj/item/reagent_containers/food/drinks/bottle/whiskey{
+	pixel_x = -6;
+	pixel_y = 7
 	},
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/lower/monorail)
+/turf/simulated/floor/wood,
+/area/bunker/rooms/room3)
 "kqQ" = (
 /obj/floor_decal/corner/paleblue/mono,
 /obj/machinery/atmospherics/portables_connector{
@@ -13828,9 +13927,22 @@
 /turf/simulated/floor/exoplanet/fd/muddirt,
 /area/bunker/jungle)
 "ksd" = (
-/obj/decal/cleanable/blood/oil/streak,
-/turf/simulated/floor/tiled/techfloor,
-/area/bunker/lower/eng)
+/obj/decal/cleanable/dirt,
+/obj/catwalk_plated/dark,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/bunker/corridors/north)
 "ktZ" = (
 /obj/structure/sign/directions/science{
 	pixel_y = 22;
@@ -13851,6 +13963,11 @@
 	pixel_y = 40
 	},
 /obj/floor_decal/borderfloorblack,
+/obj/machinery/light{
+	color = "#a1d2d6";
+	light_color = "#a1d2d6";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/corridos)
 "kuz" = (
@@ -13937,12 +14054,12 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp1)
 "kwx" = (
-/obj/floor_decal/techfloor{
-	dir = 8
+/obj/floor_decal/borderfloorblack{
+	dir = 1
 	},
-/obj/item/shovel,
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/bunker/eng/workshop)
+/obj/structure/barricade,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/kpp1)
 "kwC" = (
 /obj/paint/black,
 /obj/landmark/damager,
@@ -14329,8 +14446,20 @@
 	light_color = "#a1d2d6";
 	dir = 4
 	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
+/obj/structure/closet,
+/obj/item/grenade/flashbang,
+/obj/item/device/radio/headset/headset_sec/alt,
+/obj/item/storage/belt/security,
+/obj/item/device/flash,
+/obj/item/reagent_containers/spray/pepper,
+/obj/item/melee/baton,
+/obj/item/ammo_magazine/magnum,
+/obj/item/ammo_magazine/magnum,
+/obj/item/storage/firstaid/adv,
+/obj/item/hand_labeler,
+/obj/item/storage/firstaid/light,
+/obj/item/clothing/mask/gas/half,
+/turf/simulated/floor/wood/ebony,
 /area/bunker/rooms/room8)
 "kPK" = (
 /obj/floor_decal/messygrass{
@@ -14488,10 +14617,15 @@
 /turf/simulated/floor/tiled/white,
 /area/bunker/lower/lab/gateway)
 "kTs" = (
-/obj/structure/fd/bs_vines,
-/obj/decal/cleanable/molten_item,
-/turf/simulated/floor/plating,
-/area/bunker/lower/lab/bslab)
+/obj/structure/table/rack,
+/obj/decal/cleanable/dirt,
+/obj/item/stock_parts/power/apc,
+/obj/item/stock_parts/power/apc,
+/obj/item/stock_parts/computer/scanner/paper,
+/obj/item/stock_parts/computer/processor_unit,
+/obj/item/stock_parts/computer/network_card/wired,
+/turf/simulated/floor/tiled/white/monotile,
+/area/bunker/lower/lab/virology)
 "kTZ" = (
 /obj/effect/add_note{
 	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
@@ -14720,7 +14854,6 @@
 /obj/floor_decal/borderfloorwhite{
 	dir = 6
 	},
-/obj/structure/fd/bs_vines,
 /obj/structure/sign/warning/science/anomalous_materials{
 	pixel_y = 25
 	},
@@ -14868,9 +15001,6 @@
 	dir = 2
 	},
 /obj/structure/fd/bs_vines,
-/obj/floor_decal/borderfloorwhite{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/bslab)
 "lga" = (
@@ -14932,9 +15062,10 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/lower/eng)
 "ljM" = (
-/obj/decal/cleanable/blood/gibs/robot,
-/turf/simulated/floor/tiled/white/monotile,
-/area/bunker/lower/lab/bslab)
+/obj/paint/vox,
+/obj/structure/vines/light3,
+/turf/simulated/wall,
+/area/bunker/jungle)
 "lkp" = (
 /obj/floor_decal/messygrass{
 	dir = 1
@@ -15109,6 +15240,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/bunker/corridors/north)
 "lqJ" = (
@@ -15159,14 +15291,11 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
 "ltC" = (
-/obj/structure/curtain/open/bed,
-/obj/floor_decal/step{
-	color = "grey";
-	dir = 8
-	},
+/obj/structure/fd/bs_vines,
+/obj/floor_decal/borderfloorwhite,
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/wood/walnut,
-/area/bunker/barracks/gvardiya)
+/turf/simulated/floor/plating,
+/area/bunker/lower/lab/bslab)
 "ltK" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/corner/blue/bordercorner{
@@ -15281,7 +15410,6 @@
 /area/bunker/jungle)
 "lwF" = (
 /obj/floor_decal/sign/a,
-/obj/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/lower/eng)
 "lxv" = (
@@ -15535,12 +15663,9 @@
 	light_color = "#a1d2d6";
 	dir = 4
 	},
-/obj/item/stock_parts/power/apc{
-	pixel_y = 9;
-	pixel_x = -17
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
 	},
-/obj/structure/table/glass,
-/obj/item/modular_computer/laptop/preset/custom_loadout/advanced,
 /turf/simulated/floor/tiled/techmaint,
 /area/bunker/rooms/room7)
 "lGf" = (
@@ -15894,7 +16019,6 @@
 	icon_state = "2-8"
 	},
 /obj/catwalk_plated/white,
-/obj/structure/fd/bs_vines,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/bunker/lower/lab/gateway)
@@ -16188,7 +16312,7 @@
 "mkU" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/borderfloorwhite,
-/obj/structure/fd/bs_vines,
+/obj/structure/barricade,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/bslab)
 "mlp" = (
@@ -16217,24 +16341,15 @@
 /turf/simulated/floor/tiled/white,
 /area/bunker/lower/lab/gateway)
 "mlJ" = (
-/obj/structure/table/glass,
 /obj/item/device/binoculars{
 	pixel_x = 15;
 	pixel_y = -6
-	},
-/obj/item/storage/pill_bottle/paracetamol{
-	pixel_y = -4;
-	pixel_x = 1
 	},
 /obj/item/pen{
 	pixel_y = -9;
 	pixel_x = 8
 	},
-/obj/item/device/flashlight/maglight{
-	pixel_y = 4;
-	pixel_x = 4
-	},
-/obj/item/clothing/accessory/flag,
+/obj/structure/table/glass,
 /turf/simulated/floor/tiled/techmaint,
 /area/bunker/rooms/room7)
 "mmu" = (
@@ -16501,17 +16616,17 @@
 /turf/simulated/floor/plating,
 /area/bunker/rooms/room4)
 "myB" = (
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/bunker/rooms/room3)
+/obj/structure/flora/tree/jungle/small,
+/obj/structure/vines/light3,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#526833"
+	},
+/area/bunker/jungle)
 "myY" = (
 /obj/structure/girder/displaced,
 /turf/simulated/floor/plating,
 /area/bunker/corridors/north)
 "mzG" = (
-/obj/structure/bed/chair/padded/black{
-	dir = 8
-	},
 /obj/item/modular_computer/telescreen/preset/generic{
 	pixel_y = 0;
 	pixel_x = 32
@@ -16727,6 +16842,12 @@
 /obj/structure/fd/placeholder/better{
 	density = 0
 	},
+/obj/structure/sign/poster/number4{
+	icon_state = "bsposter59";
+	pixel_x = -30;
+	pixel_y = 33;
+	layer = 5.3
+	},
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#5F773B"
 	},
@@ -16880,16 +17001,10 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
 "mPA" = (
-/obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
-	dir = 4
-	},
-/obj/floor_decal/borderfloorblack{
-	dir = 8
-	},
+/obj/floor_decal/borderfloorblack,
+/obj/structure/rubble,
 /turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/lower/monorail)
+/area/bunker/lower/corridos)
 "mPL" = (
 /obj/floor_decal/borderfloorwhite{
 	dir = 4
@@ -16961,11 +17076,6 @@
 	color = "#6E8C44"
 	},
 /area/bunker/jungle/lz)
-"mSo" = (
-/obj/structure/bed/chair/pew,
-/obj/floor_decal/borderfloorblack,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/lower/monorail)
 "mSO" = (
 /obj/structure/bed/chair/padded/red{
 	dir = 4
@@ -17160,7 +17270,11 @@
 /turf/simulated/floor/plating,
 /area/bunker/corridors/west)
 "mZi" = (
-/turf/simulated/floor/plating,
+/obj/structure/bed{
+	color = "#666666"
+	},
+/obj/item/bedsheet,
+/turf/simulated/floor/wood/ebony,
 /area/bunker/rooms/room8)
 "mZm" = (
 /obj/structure/virology/centrifuge_broken,
@@ -17296,12 +17410,10 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "neg" = (
-/obj/machinery/vending/coffee{
-	pixel_y = 10
-	},
 /obj/floor_decal/borderfloorblack,
+/obj/structure/barricade,
 /turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/lower/monorail)
+/area/bunker/lower/kpp1)
 "nfd" = (
 /obj/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark/monotile,
@@ -17601,13 +17713,12 @@
 /area/bunker/lower/med)
 "npO" = (
 /obj/decal/cleanable/dirt,
-/obj/machinery/door/airlock/hatch,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/bunker/lower/monorail)
 "npP" = (
 /obj/structure/flora/seaweed/large{
@@ -17681,9 +17792,13 @@
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
 "nrN" = (
-/obj/effect/cutscene_camera/opening_cameras,
-/turf/simulated/floor/plating,
-/area/bunker/lower/monorail)
+/obj/floor_decal/borderfloorblack{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/obj/structure/barricade,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/corridos)
 "nsb" = (
 /obj/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
@@ -17740,14 +17855,12 @@
 /turf/simulated/floor/plating,
 /area/bunker/lower/corridos)
 "nua" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/item/device/electronic_assembly/drone/android{
+	pixel_x = 9;
+	pixel_y = 16
 	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/bunker/lower/kpp2)
+/turf/simulated/floor/tiled/white,
+/area/bunker/lower/lab/virology)
 "nue" = (
 /obj/floor_decal/hull{
 	dir = 1
@@ -17904,7 +18017,7 @@
 /obj/decal/cleanable/generic,
 /obj/structure/fd/bs_vines,
 /obj/floor_decal/borderfloorwhite,
-/turf/simulated/floor/tiled/white/monotile,
+/turf/simulated/floor/exoplanet/fd/waste,
 /area/bunker/lower/lab/bslab)
 "nCE" = (
 /obj/decal/cleanable/dirt,
@@ -17988,9 +18101,14 @@
 /area/bunker/command)
 "nDF" = (
 /obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/bunker/rooms/room9)
+/obj/machinery/door/airlock/highsecurity,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bunker/lower/monorail)
 "nDH" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/techfloor/orange{
@@ -18320,15 +18438,31 @@
 	},
 /area/bunker/jungle)
 "nUj" = (
-/obj/decal/cleanable/dirt,
-/obj/floor_decal/borderfloor{
-	dir = 1
+/obj/item/stool,
+/obj/item/screwdriver,
+/obj/item/device/assembly/signaler{
+	pixel_x = 15;
+	pixel_y = 9
 	},
-/obj/floor_decal/corner/darkblue/border{
-	dir = 1
+/obj/item/device/assembly/signaler{
+	pixel_x = 3;
+	pixel_y = 10
+	},
+/obj/item/device/assembly/signaler{
+	pixel_x = -8;
+	pixel_y = 0
+	},
+/obj/item/device/assembly/igniter,
+/obj/item/device/assembly/igniter{
+	pixel_x = -8;
+	pixel_y = 8
+	},
+/obj/item/device/assembly/igniter{
+	pixel_x = 12;
+	pixel_y = 11
 	},
 /turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/command)
+/area/bunker/corridors/north)
 "nUp" = (
 /obj/structure/flora/seaweed/large{
 	layer = 2.21;
@@ -18341,8 +18475,7 @@
 	},
 /area/bunker/jungle)
 "nVz" = (
-/obj/structure/fd/bs_vines,
-/turf/simulated/floor/exoplanet/fd/waste,
+/turf/simulated/floor/tiled/dark,
 /area/bunker/lower/lab/bslab)
 "nWi" = (
 /obj/machinery/door/airlock/autoname,
@@ -18429,7 +18562,6 @@
 	icon_state = "1-2"
 	},
 /obj/catwalk_plated/white,
-/obj/structure/fd/bs_vines,
 /turf/simulated/floor/plating,
 /area/bunker/lower/lab/gateway)
 "nYN" = (
@@ -18493,7 +18625,9 @@
 /area/bunker/jungle)
 "nZR" = (
 /obj/structure/tent/big{
-	anchored = 1
+	anchored = 1;
+	pixel_x = 0;
+	pixel_y = 0
 	},
 /obj/structure/fd/placeholder/better{
 	density = 0
@@ -18501,7 +18635,8 @@
 /obj/structure/tent/med{
 	icon_state = "big_top";
 	mouse_opacity = 0;
-	alpha = 100
+	alpha = 100;
+	layer = 5.4
 	},
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#5F773B"
@@ -18808,7 +18943,10 @@
 /obj/decal/cleanable/dirt,
 /obj/structure/table/rack,
 /obj/floor_decal/corner/paleblue/mono,
-/obj/item/storage/pill_bottle,
+/obj/item/storage/pill_bottle{
+	wrapper_color = "#a2819e";
+	name = "pill bottle (tramadol)"
+	},
 /obj/item/storage/pill_bottle{
 	name = "pill bottle (dexalin)";
 	pixel_y = 5;
@@ -18856,14 +18994,13 @@
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
 "okg" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/structure/curtain/open/bed,
+/obj/floor_decal/corner/black/border{
+	dir = 10
 	},
-/obj/structure/fd/bs_vines,
-/turf/simulated/floor/tiled/white,
-/area/bunker/lower/lab/gateway)
+/obj/structure/table/rack,
+/turf/simulated/floor/wood/walnut,
+/area/bunker/barracks/gvardiya)
 "okA" = (
 /obj/structure/hygiene/drain{
 	pixel_y = 6;
@@ -19022,7 +19159,8 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
-	name = "\improper Bunker - Room 8"
+	name = "\improper Bunker - Room 8";
+	welded = 1
 	},
 /turf/simulated/floor/plating,
 /area/bunker/rooms/room8)
@@ -19032,12 +19170,11 @@
 /area/bunker/command)
 "otd" = (
 /obj/structure/table/rack,
-/obj/item/storage/box/syringes,
-/obj/item/storage/box/syringes{
-	pixel_y = 18;
-	pixel_x = 7
-	},
 /obj/decal/cleanable/dirt,
+/obj/item/stock_parts/keyboard,
+/obj/item/stock_parts/keyboard,
+/obj/item/stock_parts/keyboard,
+/obj/item/stock_parts/keyboard,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/virology)
 "otm" = (
@@ -19113,7 +19250,6 @@
 /obj/floor_decal/borderfloorblack{
 	dir = 10
 	},
-/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp2)
 "oxo" = (
@@ -19214,7 +19350,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/plating,
 /area/bunker/lower/lab/bslab)
 "oBF" = (
 /obj/structure/fd/junk{
@@ -19311,9 +19447,14 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
 "oEL" = (
-/obj/decal/cleanable/generic,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/corridors/west)
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/bunker/lower/monorail)
 "oEP" = (
 /obj/floor_decal/hull{
 	dir = 2
@@ -19337,24 +19478,20 @@
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "oFh" = (
-/obj/decal/cleanable/dirt,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
-/area/bunker/corridors/south)
+/obj/structure/rubble,
+/turf/simulated/floor/tiled/dark,
+/area/bunker/lower/corridos)
 "oFm" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
 	light_color = "#a1d2d6";
 	dir = 8
 	},
-/obj/structure/bed{
-	color = "#666666"
-	},
-/obj/item/bedsheet,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/rooms/room7)
 "oFB" = (
@@ -19667,7 +19804,6 @@
 /turf/simulated/floor/bluespace/more_stable,
 /area/bunker/interlude)
 "oPh" = (
-/obj/decal/cleanable/dirt,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -19785,11 +19921,14 @@
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "oUt" = (
-/obj/decal/cleanable/blood{
-	pixel_y = -26
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/techfloor,
-/area/bunker/lower/eng)
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bunker/lower/kpp1)
 "oUw" = (
 /obj/floor_decal/borderfloorwhite{
 	dir = 1
@@ -19845,7 +19984,6 @@
 /area/bunker/eng/workshop)
 "oYo" = (
 /obj/decal/cleanable/dirt,
-/obj/decal/cleanable/molten_item,
 /obj/decal/cleanable/generic,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/bslab)
@@ -19969,16 +20107,9 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp2)
 "peb" = (
-/obj/floor_decal/hull{
-	dir = 2
-	},
-/obj/structure/mopbucket,
-/obj/item/reagent_containers/glass/bucket{
-	pixel_x = -11;
-	pixel_y = 1
-	},
-/turf/simulated/floor/plating,
-/area/bunker/lower/monorail)
+/obj/paint/vox,
+/turf/simulated/wall,
+/area/bunker/jungle)
 "peh" = (
 /obj/floor_decal/borderfloorblack{
 	dir = 5
@@ -20183,17 +20314,20 @@
 	},
 /area/bunker/interlude)
 "pkq" = (
-/obj/floor_decal/hull{
-	dir = 1
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/obj/item/reagent_containers/glass/bucket{
-	pixel_x = 11;
-	pixel_y = 14
+/obj/catwalk_plated/dark,
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 2;
+	flipped = 1
 	},
 /turf/simulated/floor/plating,
-/area/bunker/lower/monorail)
+/area/bunker/lower/corridos)
 "pkJ" = (
-/obj/structure/fd/bs_vines,
 /obj/machinery/light{
 	color = "#a1d2d6";
 	light_color = "#a1d2d6";
@@ -20355,6 +20489,7 @@
 	pixel_y = 32
 	},
 /obj/structure/table/marble,
+/obj/machinery/recharger,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/virology)
 "psN" = (
@@ -20373,8 +20508,12 @@
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med/chem)
 "ptC" = (
-/obj/structure/table/rack,
 /obj/floor_decal/corner/black/border,
+/obj/structure/bed/padded,
+/obj/structure/sign/poster/humpost/hum_14{
+	pixel_x = 0;
+	pixel_y = 33
+	},
 /turf/simulated/floor/wood/walnut,
 /area/bunker/barracks/gvardiya)
 "ptJ" = (
@@ -20628,10 +20767,13 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
 "pGa" = (
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/blood/gibs/robot,
-/turf/simulated/floor/plating,
-/area/bunker/lower/lab/bslab)
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 8;
+	flipped = 1
+	},
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/bunker/jungle)
 "pGi" = (
 /obj/item/flame/candle/grim{
 	icon_state = "candle3_lit";
@@ -21228,15 +21370,6 @@
 /obj/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/bunker/command)
-"qew" = (
-/obj/floor_decal/techfloor{
-	dir = 8
-	},
-/obj/item/shovel{
-	pixel_x = 9
-	},
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/bunker/eng/workshop)
 "qeR" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/hull,
@@ -21304,12 +21437,14 @@
 "qgR" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
+/obj/catwalk_plated/dark,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/bunker/corridors/west)
+/area/bunker/corridors/north)
 "qhD" = (
 /obj/catwalk_plated/white,
 /obj/structure/cable/green{
@@ -21425,6 +21560,7 @@
 "qkP" = (
 /obj/floor_decal/borderfloorblack,
 /obj/decal/cleanable/dirt,
+/obj/structure/rubble,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/corridos)
 "qlx" = (
@@ -21771,8 +21907,15 @@
 /turf/simulated/open,
 /area/bunker/lower/kpp1)
 "qwW" = (
-/turf/simulated/wall/r_wall,
-/area/bunker/rooms/room7)
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/decal/cleanable/dirt,
+/obj/structure/barricade,
+/turf/simulated/floor/tiled/dark,
+/area/bunker/lower/corridos)
 "qxc" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -22046,7 +22189,8 @@
 	pixel_y = -2
 	},
 /obj/item/storage/mirror{
-	pixel_y = -23
+	pixel_y = -23;
+	icon_state = "mirror_broke"
 	},
 /turf/simulated/floor/tiled/old_cargo,
 /area/bunker/barracks/preporation_gvardiya)
@@ -22499,6 +22643,11 @@
 "qVr" = (
 /obj/decal/cleanable/dirt,
 /obj/machinery/door/airlock/autoname,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/old_tile,
 /area/bunker/barracks/preporation_gvardiya)
 "qVy" = (
@@ -22528,14 +22677,21 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "qXr" = (
-/obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
-	dir = 8
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/catwalk_plated/dark,
+/obj/decal/cleanable/dirt,
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 2;
+	flipped = 1
 	},
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/corridors/south)
+/turf/simulated/floor/plating,
+/area/bunker/lower/corridos)
 "qXy" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/techfloor{
@@ -22774,7 +22930,7 @@
 	light_color = "#a1d2d6";
 	dir = 1
 	},
-/obj/machinery/constructable_frame/computerframe,
+/obj/machinery/computer/rdconsole,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/virology)
 "reG" = (
@@ -22828,10 +22984,15 @@
 /turf/simulated/floor/tiled/steel_ridged,
 /area/bunker/lower/lab/cryolab)
 "rfJ" = (
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/blood/oil/streak,
-/turf/simulated/floor/tiled/white/monotile,
-/area/bunker/lower/lab/bslab)
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 8;
+	flipped = 1
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#5F773B"
+	},
+/area/bunker/jungle)
 "rfW" = (
 /obj/floor_decal/sign/b,
 /turf/simulated/floor/tiled/techfloor,
@@ -23218,6 +23379,20 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/bunker/jungle)
+"rwN" = (
+/obj/structure/table/woodentable/ebony,
+/obj/item/storage/box/ammo/pistol,
+/obj/item/ammo_casing/shotgun/flash{
+	pixel_x = -5;
+	pixel_y = 7
+	},
+/obj/item/ammo_casing/shotgun/flash,
+/obj/item/ammo_casing/shotgun/flash{
+	pixel_x = 4;
+	pixel_y = -6
+	},
+/turf/simulated/floor/wood/ebony,
+/area/bunker/rooms/room8)
 "rxq" = (
 /obj/item/material/twohanded/fireaxe,
 /obj/decal/cleanable/dirt{
@@ -23381,7 +23556,6 @@
 /area/bunker/corridors/west)
 "rBp" = (
 /obj/decal/cleanable/dirt,
-/obj/decal/cleanable/greenglow,
 /obj/machinery/light{
 	color = "#a1d2d6";
 	light_color = "#a1d2d6";
@@ -23463,7 +23637,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med/warehouse)
 "rDv" = (
-/obj/machinery/constructable_frame/machine_frame,
+/obj/machinery/fabricator,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/virology)
 "rDG" = (
@@ -23567,7 +23741,7 @@
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/bs_vines,
 /obj/floor_decal/borderfloorwhite,
-/turf/simulated/floor/tiled/white/monotile,
+/turf/simulated/floor/exoplanet/fd/waste,
 /area/bunker/lower/lab/bslab)
 "rHY" = (
 /obj/machinery/door/airlock/multi_tile/engineering,
@@ -23703,6 +23877,10 @@
 "rMI" = (
 /obj/structure/table/rack,
 /obj/decal/cleanable/dirt,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/virology)
 "rMN" = (
@@ -23864,7 +24042,6 @@
 /obj/floor_decal/borderfloorwhite{
 	dir = 5
 	},
-/obj/structure/fd/bs_vines,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/gateway)
 "rQX" = (
@@ -23923,6 +24100,13 @@
 /obj/floor_decal/borderfloorwhite{
 	dir = 2
 	},
+/obj/structure/table/rack,
+/obj/item/stock_parts/circuitboard/stationalert,
+/obj/item/stock_parts/circuitboard/prisoner,
+/obj/item/stock_parts/circuitboard/air_management/injector_control,
+/obj/item/stock_parts/circuitboard/fusion_fuel_control,
+/obj/item/stock_parts/circuitboard/autolathe/micro,
+/obj/item/stock_parts/circuitboard/sleeper,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/virology)
 "rTk" = (
@@ -24396,12 +24580,12 @@
 /area/bunker/jungle)
 "slr" = (
 /obj/decal/cleanable/dirt,
-/obj/structure/fd/bs_vines,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/barricade,
 /turf/simulated/floor/tiled/white,
 /area/bunker/lower/lab/bslab)
 "slO" = (
@@ -24726,14 +24910,14 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/corridos)
 "svO" = (
-/obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
-	dir = 8
+/obj/structure/vines,
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 1;
+	flipped = 1
 	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/corridors/center)
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/bunker/jungle)
 "swz" = (
 /obj/structure/window/basic{
 	dir = 1
@@ -24872,6 +25056,12 @@
 /obj/floor_decal/borderfloorwhite{
 	dir = 2
 	},
+/obj/structure/table/rack,
+/obj/item/storage/box/syringes{
+	pixel_y = 18;
+	pixel_x = 7
+	},
+/obj/item/storage/box/syringes,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/virology)
 "sDf" = (
@@ -24993,6 +25183,7 @@
 /obj/floor_decal/borderfloorwhite{
 	dir = 2
 	},
+/obj/machinery/r_n_d/protolathe,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/virology)
 "sHr" = (
@@ -25048,7 +25239,6 @@
 	dir = 8
 	},
 /obj/decal/cleanable/ash,
-/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/corridors/north)
 "sIB" = (
@@ -25108,7 +25298,7 @@
 /area/bunker/corridors/west)
 "sIQ" = (
 /obj/decal/cleanable/dirt,
-/obj/machinery/door/airlock/autoname,
+/obj/machinery/door/airlock/highsecurity,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -25140,7 +25330,10 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "sKo" = (
-/turf/simulated/floor/tiled/dark/monotile,
+/obj/structure/bed/chair/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
 /area/bunker/rooms/room3)
 "sMg" = (
 /obj/paint/black,
@@ -25577,7 +25770,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/decal/cleanable/dirt,
+/obj/structure/rubble,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/lower/corridos)
 "taA" = (
@@ -25688,6 +25881,10 @@
 /area/bunker/jungle)
 "tej" = (
 /obj/structure/table/rack,
+/obj/item/stock_parts/scanning_module/adv,
+/obj/item/stock_parts/micro_laser,
+/obj/item/stock_parts/scanning_module,
+/obj/item/stock_parts/scanning_module,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/virology)
 "tfq" = (
@@ -25702,7 +25899,6 @@
 /obj/floor_decal/borderfloorwhite{
 	dir = 6
 	},
-/obj/structure/fd/bs_vines,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/gateway)
 "tgk" = (
@@ -25925,7 +26121,7 @@
 /turf/simulated/wall/r_wall,
 /area/bunker/lower/eng/reactor)
 "toI" = (
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/lab/bslab)
 "toM" = (
 /obj/decal/cleanable/dirt,
@@ -25955,13 +26151,11 @@
 /turf/simulated/floor/exoplanet/fd/muddirt,
 /area/bunker/jungle)
 "tps" = (
-/obj/structure/sign/warning/engineering_access{
-	pixel_y = -36;
-	dir = 1
-	},
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/corridors/north)
+/obj/structure/fd/bs_vines,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/fd/waste,
+/area/bunker/lower/lab/bslab)
 "tpu" = (
 /obj/structure/flora/ausbushes/reedbush,
 /obj/structure/flora/ausbushes/under_grass,
@@ -26043,15 +26237,10 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/corridors/center)
 "trn" = (
+/obj/structure/fd/bs_vines,
 /obj/decal/cleanable/dirt,
-/obj/floor_decal/borderfloor{
-	dir = 1
-	},
-/obj/floor_decal/corner/black/border{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/corridors/center)
+/turf/simulated/floor/plating,
+/area/bunker/lower/lab/bslab)
 "trs" = (
 /obj/floor_decal/borderfloorblack{
 	dir = 1
@@ -26149,8 +26338,11 @@
 /turf/simulated/floor/wood/walnut,
 /area/bunker/barracks/gvardiya)
 "ttr" = (
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
+/obj/item/clothing/accessory/flag{
+	pixel_x = 31;
+	pixel_y = 0
+	},
+/turf/simulated/floor/wood/ebony,
 /area/bunker/rooms/room8)
 "ttP" = (
 /obj/structure/flora/seaweed/large{
@@ -26322,7 +26514,10 @@
 	light_color = "#a1d2d6";
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/monotile,
+/obj/structure/bed{
+	color = "#d5a66e"
+	},
+/turf/simulated/floor/wood,
 /area/bunker/rooms/room3)
 "tzx" = (
 /obj/floor_decal/corner_steel_grid{
@@ -26362,9 +26557,16 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "tAU" = (
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/bunker/rooms/room3)
+/obj/floor_decal/borderfloorblack{
+	dir = 5
+	},
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 2;
+	flipped = 1
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/corridos)
 "tBE" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/cable/green{
@@ -26409,14 +26611,22 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
 "tDM" = (
-/obj/decal/cleanable/blood{
-	pixel_y = 0;
-	pixel_x = 18
+/obj/catwalk_plated/dark,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/obj/decal/cleanable/remains,
-/obj/random/medical/lite,
-/turf/simulated/floor/tiled/techfloor,
-/area/bunker/lower/eng)
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 8;
+	flipped = 1
+	},
+/obj/structure/fd/interactive/jeff_killer_gun_deployed{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/bunker/corridors/north)
 "tDN" = (
 /obj/structure/platform/kutjevo/rock{
 	dir = 8
@@ -26452,10 +26662,11 @@
 /turf/simulated/floor/tiled/white,
 /area/bunker/lower/lab)
 "tEl" = (
-/obj/paint/black,
-/obj/decal/cleanable/dirt,
-/turf/simulated/wall/r_wall,
-/area/bunker/rooms/room3)
+/obj/structure/table/rack,
+/obj/item/stock_parts/matter_bin/adv,
+/obj/item/stock_parts/matter_bin/adv,
+/turf/simulated/floor/tiled/white/monotile,
+/area/bunker/lower/lab/virology)
 "tED" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -26503,7 +26714,7 @@
 	pixel_y = 0;
 	pixel_x = 27
 	},
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/simulated/floor/wood,
 /area/bunker/rooms/room3)
 "tFI" = (
 /obj/catwalk_plated/dark,
@@ -26743,12 +26954,15 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp1)
 "tOT" = (
-/obj/machinery/vending/cola{
-	pixel_y = 10
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 8;
+	flipped = 1
 	},
-/obj/floor_decal/borderfloorblack,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/lower/monorail)
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
+	},
+/area/bunker/jungle)
 "tPp" = (
 /obj/structure/flora/seaweed{
 	layer = 2.21;
@@ -26809,6 +27023,7 @@
 	pixel_y = 21;
 	dir = 8
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/corridors/north)
 "tSj" = (
@@ -27257,6 +27472,10 @@
 /obj/structure/table/standard,
 /obj/floor_decal/borderfloorwhite/corner{
 	dir = 1
+	},
+/obj/item/device/integrated_circuit_printer{
+	pixel_x = -5;
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/virology)
@@ -27757,7 +27976,6 @@
 	pixel_y = 0;
 	pixel_x = 27
 	},
-/obj/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/lower/eng)
 "uyX" = (
@@ -27846,14 +28064,12 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/eng/workshop)
 "uCd" = (
-/obj/decal/cleanable/blood,
-/obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
-	dir = 4
+/obj/floor_decal/borderfloorblack{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/techfloor,
-/area/bunker/lower/eng)
+/obj/structure/barricade,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/corridos)
 "uCe" = (
 /obj/overlay/diona/floor,
 /obj/structure/flora/ausbushes/ppflowers,
@@ -28201,6 +28417,11 @@
 	dir = 8
 	},
 /obj/floor_decal/borderfloorblack,
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 8;
+	flipped = 1
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp1)
 "uLT" = (
@@ -28363,14 +28584,17 @@
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med)
 "uUj" = (
-/obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
-	dir = 4
-	},
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/corridors/north)
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/catwalk_plated/dark,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/bunker/lower/corridos)
 "uUp" = (
 /obj/structure/fake_lattice{
 	layer = 2.11
@@ -28404,7 +28628,6 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
 "uUC" = (
-/obj/decal/cleanable/dirt,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -28438,12 +28661,14 @@
 /turf/simulated/floor/exoplanet/wet_stone,
 /area/bunker/interlude)
 "uVO" = (
-/obj/floor_decal/borderfloorwhite{
-	dir = 8
+/obj/structure/flora/tree/jungle/small{
+	color = "#bebebe"
 	},
-/obj/structure/fd/bs_vines,
-/turf/simulated/floor/tiled/white/monotile,
-/area/bunker/lower/lab/gateway)
+/obj/structure/vines/light3,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#526833"
+	},
+/area/bunker/jungle)
 "uWI" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -28474,7 +28699,6 @@
 /turf/simulated/floor/plating,
 /area/bunker/rooms/room2)
 "uYp" = (
-/obj/decal/cleanable/dirt,
 /obj/structure/sign/emergonly{
 	pixel_y = 32
 	},
@@ -28550,9 +28774,9 @@
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "vaf" = (
-/obj/structure/table/standard,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/rooms/room3)
+/obj/machinery/r_n_d/circuit_imprinter,
+/turf/simulated/floor/tiled/white/monotile,
+/area/bunker/lower/lab/virology)
 "vau" = (
 /obj/floor_decal/borderfloorblack{
 	dir = 8
@@ -28570,7 +28794,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/wood/ebony,
 /area/bunker/rooms/room8)
 "vaQ" = (
 /obj/floor_decal/borderfloorwhite,
@@ -28774,14 +28998,16 @@
 /turf/simulated/floor/plating,
 /area/bunker/barracks/gvardiya)
 "vjy" = (
-/obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
-	dir = 2
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
+/obj/catwalk_plated/dark,
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
-/area/bunker/lower/lab/gateway)
+/obj/structure/rubble,
+/turf/simulated/floor/plating,
+/area/bunker/lower/corridos)
 "vjL" = (
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#526833"
@@ -28799,6 +29025,30 @@
 "vlz" = (
 /obj/structure/sign/poster{
 	pixel_y = -28
+	},
+/obj/item/storage/pill_bottle{
+	wrapper_color = "#a2819e";
+	name = "pill bottle (tramadol)";
+	pixel_x = 5;
+	pixel_y = 46
+	},
+/obj/item/storage/pill_bottle{
+	wrapper_color = "#a2819e";
+	name = "pill bottle (tramadol)";
+	pixel_x = 16;
+	pixel_y = 23
+	},
+/obj/item/storage/pill_bottle{
+	wrapper_color = "#c8a5dc";
+	name = "pill bottle (Paracetamol)";
+	pixel_x = 0;
+	pixel_y = 36
+	},
+/obj/item/storage/pill_bottle{
+	wrapper_color = "#c8a5dc";
+	name = "pill bottle (Paracetamol)";
+	pixel_x = -5;
+	pixel_y = 26
 	},
 /turf/simulated/floor/wood/walnut,
 /area/bunker/barracks/gvardiya)
@@ -29283,13 +29533,13 @@
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
 "vGQ" = (
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/blood/drip{
-	pixel_y = 25;
-	pixel_x = -7
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 8;
+	flipped = 1
 	},
-/turf/simulated/floor/tiled/techfloor,
-/area/bunker/lower/eng)
+/turf/simulated/floor/exoplanet/fd/muddirt,
+/area/bunker/jungle)
 "vGV" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 8
@@ -29518,14 +29768,22 @@
 	icon_state = "gl"
 	},
 /area/bunker/interlude)
+"vPq" = (
+/obj/floor_decal/corner/black/border,
+/obj/structure/table/rack,
+/obj/item/paper/bunker/stuff/crazy{
+	icon_state = "scrap"
+	},
+/turf/simulated/floor/wood/walnut,
+/area/bunker/barracks/gvardiya)
 "vPy" = (
 /obj/floor_decal/borderfloorblack,
-/obj/decal/cleanable/dirt,
 /obj/machinery/light{
 	color = "#a1d2d6";
 	light_color = "#a1d2d6";
 	dir = 8
 	},
+/obj/structure/barricade,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/corridos)
 "vPC" = (
@@ -29634,7 +29892,6 @@
 /area/bunker/command)
 "vSm" = (
 /obj/decal/cleanable/dirt,
-/obj/decal/cleanable/blood,
 /obj/structure/bed/chair/office/brown{
 	dir = 2
 	},
@@ -29681,7 +29938,6 @@
 /turf/simulated/floor/tiled,
 /area/bunker/lower/med/med_bay)
 "vTa" = (
-/obj/decal/cleanable/dirt,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -30034,10 +30290,6 @@
 /obj/floor_decal/step{
 	dir = 1
 	},
-/obj/decal/cleanable/blood/drip{
-	pixel_x = -10;
-	pixel_y = 8
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
@@ -30152,10 +30404,15 @@
 	},
 /area/bunker/jungle)
 "wlo" = (
-/obj/decal/cleanable/greenglow,
-/obj/decal/cleanable/blood/gibs/robot,
-/turf/simulated/floor/tiled/white/monotile,
-/area/bunker/lower/lab/bslab)
+/obj/machinery/light{
+	color = "#a1d2d6";
+	light_color = "#a1d2d6";
+	dir = 1
+	},
+/obj/floor_decal/borderfloorblack,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/kpp1)
 "wlE" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/eng)
@@ -30197,7 +30454,18 @@
 	light_color = "#a1d2d6";
 	dir = 1
 	},
-/obj/item/material/drill_head/diamond,
+/obj/item/material/drill_head/diamond{
+	pixel_x = 4;
+	pixel_y = -3
+	},
+/obj/item/material/drill_head/plasteel{
+	pixel_x = 14;
+	pixel_y = 4
+	},
+/obj/item/mech_equipment/drill{
+	pixel_x = 1;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/bunker/eng/workshop)
 "wmS" = (
@@ -30230,11 +30498,7 @@
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "wnn" = (
-/obj/floor_decal/borderfloorblack{
-	dir = 1
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/simulated/floor/tiled/dark,
 /area/bunker/lower/kpp2)
 "wnF" = (
 /obj/structure/table/rack,
@@ -30450,9 +30714,6 @@
 	pixel_x = -8;
 	pixel_y = 2
 	},
-/obj/item/reagent_containers/food/drinks/bottle/whiskey{
-	pixel_x = 10
-	},
 /obj/structure/fd/candle_wall{
 	layer = 2.24;
 	pixel_y = 19
@@ -30603,7 +30864,6 @@
 /area/bunker/jungle)
 "wAs" = (
 /obj/decal/cleanable/dirt,
-/obj/decal/cleanable/blood/oil/streak,
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
@@ -30724,9 +30984,10 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp2)
 "wEd" = (
-/obj/decal/cleanable/blood/drip,
-/turf/simulated/floor/tiled/techfloor,
-/area/bunker/lower/eng)
+/obj/paint/vox,
+/obj/structure/vines/light2,
+/turf/simulated/wall,
+/area/bunker/jungle)
 "wEe" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -31007,10 +31268,12 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/corridos)
 "wOi" = (
-/obj/structure/bed/chair/pew/left,
-/obj/floor_decal/borderfloorblack,
+/obj/floor_decal/borderfloorblack{
+	dir = 4
+	},
+/obj/structure/girder,
 /turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/lower/monorail)
+/area/bunker/lower/corridos)
 "wOC" = (
 /obj/structure/platform/kutjevo/rock{
 	dir = 8
@@ -31137,8 +31400,7 @@
 /turf/simulated/floor/exoplanet/fd/muddirt,
 /area/bunker/jungle)
 "wTA" = (
-/obj/machinery/constructable_frame/machine_frame,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/wood,
 /area/bunker/rooms/room3)
 "wTN" = (
 /obj/structure/fd/placeholder/better{
@@ -31149,8 +31411,11 @@
 	},
 /area/bunker)
 "wVO" = (
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/fd/waste,
+/obj/floor_decal/borderfloorwhite{
+	dir = 1
+	},
+/obj/structure/barricade,
+/turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/bslab)
 "wWg" = (
 /obj/structure/flora/ausbushes/grassybush,
@@ -31333,9 +31598,8 @@
 	},
 /area/bunker/jungle)
 "xaI" = (
-/obj/decal/cleanable/dirt,
-/obj/structure/table/rack,
 /obj/floor_decal/corner/black/border,
+/obj/structure/table/rack,
 /turf/simulated/floor/wood/walnut,
 /area/bunker/barracks/gvardiya)
 "xaQ" = (
@@ -31630,7 +31894,8 @@
 	light_color = "#a1d2d6";
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/obj/structure/closet,
+/turf/simulated/floor/wood/ebony,
 /area/bunker/rooms/room8)
 "xmc" = (
 /obj/structure/bed/chair/comfy/black{
@@ -31813,7 +32078,6 @@
 /turf/simulated/floor/tiled/white,
 /area/bunker/lower/lab/office)
 "xsL" = (
-/obj/decal/cleanable/dirt,
 /obj/decal/cleanable/generic,
 /turf/simulated/floor/plating,
 /area/bunker/corridors/north)
@@ -31840,7 +32104,7 @@
 /area/bunker/jungle)
 "xut" = (
 /obj/decal/cleanable/generic,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/bunker/lower/lab/bslab)
 "xvi" = (
 /obj/overlay/diona/floor,
@@ -31905,10 +32169,14 @@
 /turf/simulated/wall/r_wall,
 /area/bunker/lower/med/lobby)
 "xAQ" = (
-/obj/floor_decal/borderfloorblack,
+/obj/structure/table/rack,
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/lower/kpp2)
+/obj/item/stock_parts/console_screen,
+/obj/item/stock_parts/console_screen,
+/obj/item/stock_parts/console_screen,
+/obj/item/stock_parts/console_screen,
+/turf/simulated/floor/tiled/white/monotile,
+/area/bunker/lower/lab/virology)
 "xBF" = (
 /obj/floor_decal/borderfloorwhite{
 	dir = 2
@@ -31968,19 +32236,9 @@
 /turf/simulated/floor/exoplanet/fd/waste,
 /area/bunker/lower/lab/bslab)
 "xEq" = (
-/obj/structure/closet,
-/obj/item/clothing/mask/gas/half,
-/obj/item/storage/firstaid/light,
-/obj/item/hand_labeler,
-/obj/item/storage/firstaid/adv,
-/obj/item/storage/belt/security,
-/obj/item/ammo_magazine/magnum,
-/obj/item/ammo_magazine/magnum,
-/obj/item/melee/baton,
-/obj/item/reagent_containers/spray/pepper,
-/obj/item/device/flash,
-/obj/item/device/radio/headset/headset_sec/alt,
-/obj/item/grenade/flashbang,
+/obj/structure/bed/chair/padded/black{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bunker/rooms/room7)
 "xEu" = (
@@ -32147,10 +32405,7 @@
 /turf/simulated/floor/tiled/old_tile,
 /area/bunker/barracks/preporation_gvardiya)
 "xLy" = (
-/obj/floor_decal/hull{
-	dir = 2
-	},
-/obj/structure/reagent_dispensers/watertank,
+/obj/structure/rubble,
 /turf/simulated/floor/plating,
 /area/bunker/lower/monorail)
 "xLO" = (
@@ -32232,12 +32487,12 @@
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/bslab)
 "xQC" = (
-/obj/decal/cleanable/dirt,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/corridors/north)
 "xQQ" = (
@@ -32412,7 +32667,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/wood/ebony,
 /area/bunker/rooms/room8)
 "xWR" = (
 /obj/floor_decal/borderfloorwhite{
@@ -32718,7 +32973,6 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/eng/workshop)
 "yhe" = (
-/obj/decal/cleanable/dirt,
 /obj/item/device/radio/intercom/bunker{
 	pixel_y = -24;
 	dir = 1
@@ -32797,13 +33051,14 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "yjd" = (
-/obj/floor_decal/hull{
-	dir = 1
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/obj/item/reagent_containers/glass/bucket{
-	pixel_x = -8;
-	pixel_y = 0
-	},
+/obj/catwalk_plated/dark,
+/obj/decal/cleanable/dirt,
+/obj/machinery/door/airlock/highsecurity,
 /turf/simulated/floor/plating,
 /area/bunker/lower/monorail)
 "yjp" = (
@@ -56010,7 +56265,7 @@ rta
 wwH
 rTh
 otd
-rMI
+kTs
 rMI
 mZA
 wwH
@@ -56211,8 +56466,8 @@ tEk
 rta
 wwH
 sDa
-rMI
-tej
+xAQ
+tEl
 tej
 mZA
 rNv
@@ -56822,7 +57077,7 @@ mZA
 iPq
 mZA
 mZA
-wXm
+bhG
 wwH
 gHo
 nZa
@@ -57220,12 +57475,12 @@ gHo
 tEk
 rta
 wwH
-rDv
+gPs
 mZA
 mZA
 bfa
 esg
-mZA
+nua
 dRK
 wwH
 fSk
@@ -57422,7 +57677,7 @@ bQS
 qvm
 bQS
 wwH
-rDv
+vaf
 fmA
 rDv
 sHo
@@ -58634,11 +58889,11 @@ lIy
 hFC
 lIy
 lIy
-ckN
+kib
 ckN
 shG
-ljM
-iqR
+ckN
+ckN
 coG
 oxG
 lIy
@@ -58838,10 +59093,10 @@ eMz
 lIy
 rBp
 oYo
-dev
-glY
-dev
-fXb
+nVz
+nVz
+toI
+eVI
 cmn
 miH
 nZa
@@ -59039,12 +59294,12 @@ fRy
 bYR
 lIy
 oYo
-erR
+nVz
+nVz
+nVz
 dev
-dev
-pGa
-kTs
-rfJ
+nVz
+ckN
 lIy
 qqy
 iha
@@ -59237,15 +59492,15 @@ goK
 goK
 lIy
 nCy
-fRy
-ctq
+xEf
+erR
 lIy
-bgr
+eVI
 dev
 nVz
-dev
+nVz
 xut
-kgN
+cmn
 ccx
 lIy
 bNM
@@ -59425,7 +59680,7 @@ bdu
 qbH
 uTd
 ykP
-kVF
+aDv
 aTm
 goK
 goK
@@ -59439,14 +59694,14 @@ aTm
 goK
 lIy
 aZo
-fRy
-eMz
+tps
+trn
 lIy
-erR
-xEf
-xEf
-wVO
-aoR
+toI
+dev
+nVz
+dev
+cmn
 phv
 aGC
 lIy
@@ -59627,7 +59882,7 @@ aDv
 lup
 qqp
 ykP
-kVF
+aDv
 aTm
 goK
 goK
@@ -59640,15 +59895,15 @@ jBZ
 aTm
 goK
 lIy
-rHP
+ltC
 jxC
-eMz
+trn
 lIy
 efi
 nVz
-xEf
-hqY
-erR
+nVz
+dev
+nVz
 shG
 gUm
 lIy
@@ -59656,7 +59911,7 @@ goK
 goK
 goK
 lMN
-xAQ
+cNz
 sYw
 lXI
 lMN
@@ -59829,7 +60084,7 @@ aDv
 aDv
 fxP
 vNe
-vjy
+vhk
 aTm
 goK
 goK
@@ -59846,8 +60101,8 @@ xQx
 oBc
 lfW
 lIy
-wlo
-erR
+ckN
+toI
 qAQ
 toI
 toI
@@ -59859,7 +60114,7 @@ goK
 goK
 lMN
 cNz
-nua
+sYw
 lXI
 lMN
 goK
@@ -60046,7 +60301,7 @@ aTm
 lIy
 mkU
 slr
-eMz
+wVO
 lIy
 lIy
 lIy
@@ -60061,7 +60316,7 @@ goK
 goK
 lMN
 jGm
-nua
+sYw
 fwy
 lMN
 goK
@@ -60237,7 +60492,7 @@ aDv
 aTm
 eEN
 tvN
-ckT
+pVY
 txq
 tfr
 sos
@@ -60251,7 +60506,7 @@ rkw
 xFQ
 mPL
 cbq
-jkA
+mPL
 mPL
 lWS
 eVI
@@ -60271,10 +60526,10 @@ goK
 goK
 fyu
 jHX
-afJ
-lDK
-afJ
-afJ
+wOg
+dQf
+wOg
+wOg
 dQf
 wOg
 wOg
@@ -60438,24 +60693,24 @@ cax
 aDv
 kqj
 aDv
-kVF
-cJW
+aDv
+aDv
 kVF
 qVy
 lWH
 nYd
 uyv
-okg
+uyv
 uyv
 kLt
 cOx
 sVs
-cNy
-jgq
+sWl
+eVI
 eVI
 eVI
 sWl
-cNy
+sWl
 sWl
 lIy
 goK
@@ -60476,9 +60731,9 @@ xoY
 rQX
 iqZ
 ybQ
-ePM
-ePM
 lxS
+lxS
+oFh
 azt
 oNv
 oNv
@@ -60640,7 +60895,7 @@ vZY
 adf
 aTm
 bxg
-rXe
+cyq
 dXr
 dXr
 dXr
@@ -60648,15 +60903,15 @@ rXe
 dXr
 dXr
 cyq
-uVO
+dXr
 aTm
 mWi
 mWi
 mWi
-efg
-gvX
-efg
-efg
+mWi
+pkJ
+mWi
+mWi
 pkJ
 mWi
 lIy
@@ -60679,10 +60934,10 @@ cek
 lll
 ccX
 ctX
-uHn
+ybB
 jFt
 sZD
-gPo
+ccX
 ybB
 ctX
 ctX
@@ -60839,7 +61094,7 @@ pqb
 rDG
 fXh
 vZY
-rpv
+jaW
 aTm
 aTm
 aTm
@@ -60882,8 +61137,8 @@ voJ
 gkc
 kfU
 fyu
-qkP
-sZD
+mPA
+oLs
 mbK
 fyu
 fyu
@@ -61041,7 +61296,7 @@ kVF
 uyX
 djD
 oUw
-rpv
+jaW
 aTm
 goK
 goK
@@ -61243,7 +61498,7 @@ aDv
 axK
 djD
 vZY
-vjy
+vhk
 aTm
 goK
 goK
@@ -61272,8 +61527,8 @@ eIL
 loX
 jIq
 vNw
-xAQ
-nua
+cNz
+sYw
 fwy
 lMN
 goK
@@ -61288,7 +61543,7 @@ eQB
 fyu
 ofm
 mfN
-fyZ
+ckT
 fyu
 goK
 vES
@@ -61299,10 +61554,10 @@ wAs
 phu
 wgj
 oJH
-ksd
-vGQ
-wEd
-oUt
+tcB
+oJH
+tcB
+tcB
 vES
 goK
 goK
@@ -61444,8 +61699,8 @@ cKp
 bsz
 jBM
 wfU
-ykP
-kVF
+vZY
+aDv
 aTm
 goK
 goK
@@ -61471,7 +61726,7 @@ goK
 goK
 lMN
 hgT
-loX
+wnn
 rCn
 vNw
 cNz
@@ -61488,9 +61743,9 @@ qDK
 ejA
 pgR
 fyu
-qkP
+dIA
 mTL
-mbK
+kgN
 fyu
 goK
 jRI
@@ -61690,7 +61945,7 @@ uET
 rXo
 rXo
 fyu
-qkP
+dIA
 oLs
 mbK
 fyu
@@ -61714,7 +61969,7 @@ goK
 goK
 goK
 gXw
-dFn
+gHt
 bCc
 xmo
 xml
@@ -61908,7 +62163,7 @@ xnQ
 pBD
 rtA
 tKk
-bYl
+tcB
 qzk
 goK
 goK
@@ -61916,7 +62171,7 @@ goK
 goK
 goK
 gXw
-wOi
+piR
 btD
 xmo
 suc
@@ -62103,7 +62358,7 @@ vES
 tnj
 kUa
 uyF
-ksd
+tcB
 wmn
 vQt
 gRj
@@ -62283,7 +62538,7 @@ lMN
 lMN
 lMN
 jGm
-nua
+sYw
 fwy
 lMN
 goK
@@ -62312,7 +62567,7 @@ oJH
 fOj
 gRj
 oIy
-bYl
+tcB
 qzk
 goK
 goK
@@ -62320,7 +62575,7 @@ goK
 goK
 goK
 gXw
-cRT
+piR
 btD
 jtW
 xWd
@@ -62486,7 +62741,7 @@ goK
 lMN
 cNz
 sYw
-wnn
+lXI
 lMN
 goK
 goK
@@ -62499,7 +62754,7 @@ kfU
 kfU
 fyu
 ofm
-mTL
+vjy
 fyZ
 fyu
 goK
@@ -62514,7 +62769,7 @@ gRj
 fhB
 jbK
 opa
-oUt
+tcB
 qzk
 goK
 goK
@@ -62522,7 +62777,7 @@ goK
 goK
 goK
 gXw
-mSo
+piR
 bCc
 jtW
 xml
@@ -62714,9 +62969,9 @@ iRR
 weq
 ehm
 lNc
-uCd
+jnp
 fhB
-tDM
+tcB
 qzk
 goK
 goK
@@ -62724,7 +62979,7 @@ goK
 goK
 goK
 gXw
-kqM
+tuh
 bCc
 jtW
 xml
@@ -63293,8 +63548,8 @@ goK
 goK
 fyu
 ofm
-sZD
-svc
+oLs
+mbK
 fyu
 fyu
 fyu
@@ -63500,39 +63755,39 @@ urr
 wOg
 fyu
 wOg
-lDK
+dQf
 wOg
 wOg
 wOg
 dQf
 wOg
 fyu
-wOg
-fYL
+gvX
+jas
 mTL
-urr
-wOg
+tAU
+afJ
 fyu
 wOg
 wOg
 dQf
 wOg
-afJ
+wOg
 fyu
 wOg
 afJ
 lDK
-afJ
-afJ
-wOg
-gXw
+jkA
+nrN
+wOi
+xLy
 tjZ
 dnr
-bli
-bli
+dnr
+dnr
 gXw
-tjZ
-tuh
+dnr
+ctq
 srx
 xmo
 suc
@@ -63699,7 +63954,7 @@ fyu
 cHJ
 vml
 oNv
-ePM
+lxS
 rmu
 lxS
 oNv
@@ -63709,32 +63964,32 @@ oNv
 rQX
 lxS
 rmu
-ePM
-pht
-qtE
+lxS
 ntW
+qtE
+qXr
+ePM
+rmu
+lxS
+ntW
+bYl
+uUj
 lxS
 rmu
 ePM
 ntW
-ntW
-oNv
-ePM
-rmu
-ePM
-ntW
 pht
-pht
-ePM
+pkq
+qwW
 ntW
 npO
+oEL
 kat
-kat
-kat
+yjd
+jnn
+nDF
 uAB
-npO
-uAB
-uAB
+gXB
 aBK
 xmo
 xml
@@ -63900,19 +64155,19 @@ goK
 fyu
 ucN
 mfN
-gPo
+ccX
 ctX
 fyu
 ctX
 sFP
 ctX
 ctX
-aOy
-uHn
+ctX
+ybB
 ctX
 fyu
-aOy
-jFt
+uCd
+cek
 mTL
 gPo
 ctX
@@ -63927,15 +64182,15 @@ ctX
 ctX
 ybB
 ctX
+aOy
 ctX
-ctX
+arg
+xLy
+dnr
+dnr
+dnr
 gXw
-bRD
-mPA
-bRD
-bRD
-gXw
-bRD
+dnr
 jhP
 vwX
 xmo
@@ -64101,8 +64356,8 @@ goK
 goK
 fyu
 dIA
-sZD
-svc
+oLs
+mbK
 fyu
 fyu
 nOK
@@ -64303,7 +64558,7 @@ goK
 goK
 fyu
 nak
-sZD
+oLs
 trs
 fyu
 goK
@@ -64318,7 +64573,7 @@ goK
 fyu
 ktZ
 oLs
-mbK
+trs
 fyu
 goK
 goK
@@ -64518,8 +64773,8 @@ goK
 goK
 goK
 fyu
-dIA
-oLs
+eVV
+glY
 mbK
 fyu
 goK
@@ -64542,7 +64797,7 @@ goK
 goK
 goK
 gXw
-mSo
+piR
 xmo
 xmo
 suc
@@ -64744,7 +64999,7 @@ goK
 goK
 goK
 gXw
-kib
+kPV
 xmo
 xmo
 xml
@@ -64922,8 +65177,8 @@ goK
 goK
 goK
 jbk
-hah
-qTX
+wlo
+gqf
 cpS
 jbk
 goK
@@ -64946,7 +65201,7 @@ goK
 goK
 goK
 gXw
-tOT
+piR
 xmo
 xmo
 xml
@@ -65125,7 +65380,7 @@ goK
 goK
 jbk
 noL
-qTX
+gqf
 lfG
 jbk
 goK
@@ -65148,7 +65403,7 @@ goK
 goK
 goK
 gXw
-neg
+piR
 vwX
 xmo
 gho
@@ -65326,9 +65581,9 @@ goK
 goK
 goK
 jbk
-noL
+neg
 xdc
-lfG
+kwx
 jbk
 goK
 goK
@@ -65350,7 +65605,7 @@ goK
 goK
 goK
 gXw
-mSo
+piR
 vwX
 xmo
 xWd
@@ -65529,7 +65784,7 @@ goK
 goK
 jbk
 noL
-xdc
+oUt
 lfG
 jbk
 goK
@@ -65552,7 +65807,7 @@ goK
 goK
 goK
 gXw
-wOi
+piR
 vwX
 xmo
 xml
@@ -65731,7 +65986,7 @@ goK
 goK
 jbk
 noL
-qTX
+gqf
 lfG
 jbk
 goK
@@ -65960,8 +66215,8 @@ gsn
 bRD
 uOd
 qPA
-xLy
-pkq
+uMH
+nue
 arg
 uMH
 pwm
@@ -66162,8 +66417,8 @@ gXw
 gXw
 gXw
 oNj
-peb
-yjd
+uMH
+nue
 arg
 uMH
 nue
@@ -66363,13 +66618,13 @@ fbt
 fbt
 fbt
 iHT
-pWG
-uMH
-nue
-nrN
-uMH
-nue
-arg
+dnr
+dnr
+dnr
+dnr
+dnr
+dnr
+dnr
 iHT
 goK
 goK
@@ -68154,8 +68409,8 @@ jbk
 jbk
 goK
 jbk
-hah
-xdc
+wlo
+oUt
 cpS
 jbk
 goK
@@ -68357,7 +68612,7 @@ jbk
 goK
 jbk
 noL
-xdc
+oUt
 lfG
 jbk
 goK
@@ -68559,7 +68814,7 @@ jbk
 jbk
 jbk
 uLG
-xdc
+iqR
 lfG
 jbk
 jbk
@@ -68759,9 +69014,9 @@ dKn
 peh
 sMD
 sMD
-sMD
-rMC
-qTX
+cSq
+hye
+gqf
 peh
 sMD
 sMD
@@ -69982,7 +70237,7 @@ goK
 jbk
 noL
 xdc
-lfG
+efg
 jbk
 goK
 goK
@@ -70183,8 +70438,8 @@ goK
 goK
 jbk
 noL
-qTX
-lfG
+gqf
+efg
 jbk
 goK
 goK
@@ -70385,7 +70640,7 @@ goK
 goK
 jbk
 hah
-qTX
+gqf
 cpS
 jbk
 goK
@@ -70990,7 +71245,7 @@ goK
 goK
 goK
 jbk
-noL
+cJW
 xdc
 lfG
 jbk
@@ -71999,8 +72254,8 @@ lrk
 dsB
 tOf
 cbE
-cbE
-cbE
+dFn
+dFn
 cbE
 pnq
 jbk
@@ -80820,12 +81075,12 @@ sUN
 xJB
 mAl
 sUN
-sUN
-sUN
-hkC
-xJB
-mAl
-mAl
+bli
+vGQ
+pGa
+tOT
+rfJ
+uXc
 mAl
 jNx
 akp
@@ -81022,12 +81277,12 @@ sUN
 sUN
 bcT
 sUN
-sUN
+bgr
 akp
-jNx
+jgq
 xJB
 mAl
-iMv
+myB
 mAl
 sUN
 sUN
@@ -81224,12 +81479,12 @@ xJB
 sUN
 waI
 oUm
-oUm
-dIU
-dIU
+svO
+peb
+ljM
 mAl
-mAl
-hTR
+jqe
+cKe
 mAl
 sUN
 sUN
@@ -92737,7 +92992,7 @@ hkC
 hkC
 hkC
 akp
-hkC
+pbV
 xJB
 xJB
 xJB
@@ -92938,11 +93193,11 @@ hkC
 hkC
 hkC
 akp
-akp
-hkC
-xJB
-mAl
-mAl
+xJn
+wEd
+tOT
+rfJ
+uXc
 mAl
 xJB
 mAl
@@ -93141,10 +93396,10 @@ kpT
 xJB
 xJB
 xJB
-xJB
-xJB
-mAl
-aSL
+cNy
+fxZ
+fxZ
+uVO
 mAl
 swY
 mAl
@@ -93343,11 +93598,11 @@ mAl
 xJB
 xJB
 mAl
-mAl
-xJB
-mAl
-hTR
-mAl
+cNy
+fxZ
+fxZ
+kjC
+iWx
 xJB
 xJB
 xJB
@@ -93545,11 +93800,11 @@ mAl
 xJB
 xJB
 mAl
-mAl
-mAl
-mAl
-mAl
-mAl
+peb
+fxZ
+peb
+peb
+lzk
 jNx
 xJB
 akp
@@ -101922,23 +102177,23 @@ tcZ
 hvO
 tcZ
 tcZ
-uJE
-uJE
+tcZ
+tcZ
 tcZ
 tcZ
 hvO
 tcZ
 tcZ
-uJE
+tcZ
 fFx
 nhg
 qZS
 lMK
 hDr
 sJp
-uJE
 tcZ
-oEL
+tcZ
+tcZ
 prO
 hvO
 goK
@@ -102126,19 +102381,19 @@ fTO
 aHd
 cKN
 aHd
-wyn
-wyn
+fTO
+fTO
 iZt
 wtd
 aRZ
 wtd
-wyn
+fTO
 hgL
-qgR
+kvX
 uUC
 kvX
 fTO
-wyn
+fTO
 aHd
 lMp
 enD
@@ -102329,7 +102584,7 @@ tcZ
 xUW
 tcZ
 tcZ
-iWx
+tcZ
 hvO
 tcZ
 aMi
@@ -102528,7 +102783,7 @@ iRs
 iRs
 iRs
 tcZ
-coi
+hKq
 tcZ
 luM
 luM
@@ -102739,10 +102994,10 @@ peD
 fTB
 axg
 xlP
-mZi
+rwN
 aHJ
 vaw
-aiz
+vfT
 oFm
 vfT
 ilm
@@ -102937,12 +103192,12 @@ tcZ
 luM
 opj
 xHj
-nDF
+pGF
 kSt
 axg
 eIy
-mZi
-ttr
+eIy
+eIy
 xWQ
 aiz
 xEq
@@ -103138,15 +103393,15 @@ iye
 tcZ
 luM
 opj
-nDF
+pGF
 mNQ
 xHj
 axg
 mZi
-mZi
-ttr
-mZi
-aiz
+eIy
+eIy
+eIy
+jPV
 mlJ
 vPT
 vfT
@@ -103314,8 +103569,8 @@ cHW
 vcs
 goK
 fWV
-aVO
-ltC
+okg
+xzC
 snJ
 aVO
 xzC
@@ -103340,15 +103595,15 @@ xUW
 tcZ
 luM
 dtR
-pGF
+xHj
 opj
 gaL
 axg
 kPJ
+eIy
 ttr
-mZi
 gyv
-aiz
+aAQ
 lGd
 mzG
 vfT
@@ -103519,7 +103774,7 @@ fWV
 xaI
 vlz
 fWV
-mjE
+fXb
 jdF
 fWV
 mjE
@@ -103539,7 +103794,7 @@ rTz
 iRs
 tcZ
 hKq
-uJE
+tcZ
 luM
 luM
 luM
@@ -103552,7 +103807,7 @@ axg
 axg
 aiz
 aiz
-qwW
+aiz
 aiz
 aiz
 aiz
@@ -103718,8 +103973,8 @@ kAa
 vcs
 goK
 fWV
-xaI
-sFY
+vPq
+jdF
 fWV
 mjE
 uYI
@@ -103741,7 +103996,7 @@ aMj
 iRs
 umA
 hKq
-uJE
+tcZ
 hvO
 goK
 goK
@@ -103942,7 +104197,7 @@ ygh
 dnh
 iRs
 kPj
-coi
+hKq
 gfa
 hvO
 goK
@@ -104144,7 +104399,7 @@ vLd
 goD
 iRs
 uJE
-coi
+hKq
 tcZ
 hvO
 goK
@@ -104355,9 +104610,9 @@ goK
 goK
 cSg
 cop
-sKo
-vaf
-vaf
+wTA
+wTA
+wTA
 ePp
 wdq
 hkL
@@ -104556,11 +104811,11 @@ goK
 goK
 goK
 cSg
-sKo
-tAU
-tAU
-myB
-jqe
+kqM
+wTA
+wTA
+wTA
+wTA
 wdq
 cRn
 fhM
@@ -104750,7 +105005,7 @@ goK
 goK
 fjI
 nrx
-sWw
+pQr
 ncI
 fjI
 goK
@@ -104759,10 +105014,10 @@ goK
 goK
 cSg
 sKo
-myB
-jqe
-jqe
-jqe
+wTA
+wTA
+wTA
+wTA
 wdq
 hqM
 hqM
@@ -104960,11 +105215,11 @@ goK
 goK
 goK
 cSg
-cSq
-jqe
 wTA
-tAU
-sKo
+wTA
+wTA
+wTA
+wTA
 wdq
 cRn
 ruw
@@ -105155,7 +105410,7 @@ fjI
 fjI
 vin
 pQr
-trn
+ncI
 fjI
 goK
 goK
@@ -105356,15 +105611,15 @@ mDz
 trg
 sVe
 hNu
-sWw
-trn
+pQr
+ncI
 fCW
 fCW
 fCW
 fCW
 fCW
 fCW
-tEl
+cSg
 cSg
 rce
 cSg
@@ -105529,7 +105784,7 @@ gyI
 bdN
 gyI
 cfT
-ohg
+nLF
 cwa
 sHr
 iMH
@@ -105571,17 +105826,17 @@ sgm
 hTD
 sgm
 sgm
-qXr
+rHJ
 sgm
 sgm
 kFY
-gXB
-qXr
+sgm
+rHJ
 sgm
 sgm
 kFY
-gXB
-gXB
+sgm
+sgm
 rHJ
 sgm
 rzb
@@ -105761,7 +106016,7 @@ vWS
 vsL
 ctr
 pQr
-bhG
+lab
 fCW
 ojx
 sDi
@@ -105773,18 +106028,18 @@ abn
 phc
 fhS
 sqV
-eVV
-eVV
+fhS
+fhS
 cmO
 iKv
 ihE
-eVV
+fhS
 riB
 cmO
 phc
 riB
 fhS
-oFh
+riB
 fTE
 rzb
 goK
@@ -105930,8 +106185,8 @@ goK
 goK
 pLV
 nfH
-mhC
-gKy
+cfg
+ujj
 jAF
 kLf
 jUh
@@ -105984,8 +106239,8 @@ sgm
 sgm
 sgm
 ekk
-gXB
-gXB
+sgm
+sgm
 ekk
 sgm
 rzb
@@ -106537,7 +106792,7 @@ rGJ
 qyN
 iql
 bnu
-qPj
+jrY
 jAF
 wmO
 eOh
@@ -106972,7 +107227,7 @@ wFm
 ldO
 bwg
 lmj
-sWw
+pQr
 ncI
 hZK
 sSn
@@ -107141,8 +107396,8 @@ gZj
 vxQ
 emT
 qyN
-ujj
-bdN
+gKy
+dUb
 uuA
 vEj
 jOf
@@ -107343,7 +107598,7 @@ vxQ
 cfB
 bAM
 qyN
-ujj
+gKy
 rfe
 wpg
 tlK
@@ -107545,16 +107800,16 @@ oJR
 wmp
 tgC
 qyN
-ujj
-bnu
-tps
+gKy
+cfg
+uuA
 vEj
-qew
+bRo
 bRo
 bRo
 uNv
 pXW
-kwx
+bRo
 bRo
 bRo
 bkA
@@ -107578,7 +107833,7 @@ goK
 goK
 fjI
 eRH
-sWw
+pQr
 ubL
 hZK
 blx
@@ -107748,7 +108003,7 @@ qyN
 qyN
 qyN
 gKy
-cfg
+bnu
 ujj
 jAF
 pRK
@@ -107951,7 +108206,7 @@ goK
 pLV
 iql
 cfg
-qPj
+jrY
 jAF
 cdA
 smy
@@ -108152,8 +108407,8 @@ pLV
 goK
 pLV
 ujj
-bnu
-ujj
+cfg
+gKy
 jAF
 ygR
 qiH
@@ -108551,7 +108806,7 @@ bWG
 pLV
 uYp
 mjf
-gKy
+ujj
 pLV
 goK
 pLV
@@ -108758,8 +109013,8 @@ pLV
 goK
 pLV
 tRV
-cfg
-qPj
+bnu
+hqY
 jAF
 ygR
 mTl
@@ -108808,7 +109063,7 @@ vlK
 xew
 eUS
 nDo
-nUj
+stz
 aVN
 qjV
 bOq
@@ -108954,14 +109209,14 @@ jEt
 jEt
 pLV
 ihy
-hye
+mjf
 ujj
 pLV
 pLV
 pLV
 ujj
-mhC
-gKy
+bnu
+ujj
 jAF
 jAF
 jAF
@@ -109004,12 +109259,12 @@ sgm
 qyL
 vja
 mai
-osy
-jnn
+bXI
+bXI
 bXI
 mai
-osy
-jnn
+bXI
+bXI
 stz
 aVN
 rXN
@@ -109161,26 +109416,26 @@ ujj
 ujj
 fJU
 ujj
-gKy
-bdN
+fYL
+tDM
 ujj
 qPj
 pLV
 ujj
 ujj
-gqf
+fJU
+dBG
 gyI
-gyI
-ujj
+gKy
 sIj
 ujj
 pLV
 ujj
 fJU
-gKy
+ujj
 ujj
 fJU
-gKy
+ujj
 fjI
 vts
 jAG
@@ -109188,11 +109443,11 @@ mIl
 jAG
 nrx
 fjI
-vts
-vts
-svO
 nrx
-vts
+nrx
+jAG
+nrx
+nrx
 nrx
 mIl
 nrx
@@ -109357,32 +109612,32 @@ jEt
 jEt
 jEt
 sgk
-dBG
+gyI
 kZG
 qpR
-xQC
-xQC
+fvn
+fvn
 fvn
 qpR
 uhN
-wpg
-xQC
+cRT
+fvn
 iZA
-xQC
 fvn
 xQC
-qpR
+xQC
+aoR
 nXv
-wpg
-fvn
-fvn
-dPQ
+cRT
 xQC
+xQC
+dPQ
+fvn
 xQC
 lqE
-nXv
-qpR
-xQC
+ksd
+aoR
+fvn
 iHU
 bFc
 vwQ
@@ -109390,17 +109645,17 @@ vIx
 sFs
 bFc
 iHU
-bFc
+aiv
 sFs
-bFc
-bFc
-bFc
+aiv
+aiv
+aiv
 sFs
 lBe
 uoj
 aiv
 aiv
-bFc
+aiv
 opi
 fhS
 fhS
@@ -109414,7 +109669,7 @@ vcR
 kXP
 fdz
 bXI
-nUj
+stz
 qdH
 vxo
 dWP
@@ -109561,18 +109816,18 @@ jEt
 sgk
 gyI
 gyI
-gKy
+ujj
 ujj
 sMZ
-ujj
+nUj
 ujj
 bdN
 ujj
-qPj
+jrY
 pLV
-gKy
-gKy
-uUj
+ujj
+ujj
+sMZ
 ujj
 bdN
 ujj
@@ -109581,7 +109836,7 @@ ujj
 pLV
 ujj
 sMZ
-gKy
+ujj
 rQk
 sMZ
 kmF
@@ -109596,7 +109851,7 @@ nrx
 nrx
 uQf
 tSp
-vts
+nrx
 nrx
 fnP
 nrx
@@ -109761,15 +110016,15 @@ jEt
 jEt
 jEt
 lhm
-jEU
+iql
 xsL
-jrY
+qPj
 pLV
 srp
 pLV
 ujj
 cfg
-gKy
+ujj
 pLV
 pLV
 sMg
@@ -109800,7 +110055,7 @@ fjI
 fjI
 fjI
 eRH
-sWw
+pQr
 xgP
 fjI
 fjI
@@ -110373,8 +110628,8 @@ goK
 goK
 goK
 pLV
-ujj
-mhC
+gKy
+bnu
 ujj
 iJt
 goK
@@ -110575,7 +110830,7 @@ goK
 goK
 goK
 iJt
-gKy
+ujj
 ces
 ujj
 pLV
@@ -110779,7 +111034,7 @@ goK
 iJt
 ujj
 uJL
-ujj
+gKy
 iJt
 goK
 sMg
@@ -110979,9 +111234,9 @@ goK
 goK
 goK
 iJt
-dDC
-ces
-dUb
+jEU
+qgR
+jrY
 pLV
 goK
 sMg
@@ -111181,9 +111436,9 @@ goK
 goK
 goK
 iJt
-gKy
+ujj
 cfg
-gKy
+ujj
 pLV
 goK
 goK
@@ -111383,8 +111638,8 @@ goK
 goK
 goK
 pLV
-gKy
-mhC
+ujj
+cfg
 ujj
 pLV
 goK
@@ -111587,7 +111842,7 @@ goK
 pLV
 ujj
 cfg
-gKy
+ujj
 pLV
 goK
 goK
@@ -111789,7 +112044,7 @@ goK
 pLV
 ujj
 uJL
-ujj
+gKy
 pLV
 pLV
 pLV
@@ -111991,7 +112246,7 @@ goK
 pLV
 gKy
 uJL
-gPs
+tFI
 erQ
 erQ
 nkE
