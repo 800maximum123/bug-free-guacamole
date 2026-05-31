@@ -74,7 +74,7 @@
 		/obj/item/storage/belt/holster/security/full,
 		/obj/item/storage/belt/security,
 		/obj/item/device/megaphone,
-		/obj/item/melee/telebaton,
+		/obj/item/melee/baton/telebaton,
 		/obj/item/clothing/accessory/storage/black_vest,
 		/obj/item/device/hailer,
 		/obj/item/material/clipboard,

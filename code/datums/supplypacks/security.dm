@@ -93,6 +93,7 @@
 	contains = list(/obj/item/shield/riot = 4,
 					/obj/item/clothing/head/helmet/riot = 4,
 					/obj/item/clothing/suit/armor/riot = 4,
+					/obj/item/melee/baton/black = 4,
 					/obj/item/storage/box/flashbangs,
 					/obj/item/storage/box/teargas)
 	cost = 80
@@ -122,7 +123,7 @@
 	name = "Weapons - Security basic"
 	contains = list(/obj/item/device/flash = 4,
 					/obj/item/reagent_containers/spray/pepper = 4,
-					/obj/item/melee/baton/loaded = 4,
+					/obj/item/melee/baton/stun/loaded = 4,
 					/obj/item/gun/energy/taser = 4)
 	cost = 50
 	containertype = /obj/structure/closet/crate/secure/weapon

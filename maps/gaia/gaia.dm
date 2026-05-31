@@ -50,6 +50,7 @@
 
 	#include "../gaia/structures/barrier.dm"
 	#include "../gaia/structures/gaiaflags.dm"
+	#include "../gaia/structures/lockers_appearance.dm"
 	#include "../gaia/structures/lockers.dm"
 	#include "../gaia/structures/machinery.dm"
 	#include "../gaia/structures/military.dm"
@@ -76,7 +77,11 @@
 	#include "../gaia/gaia_iccg_camp.dmm"
 	#include "../gaia/z4_admin.dmm"
 	#include "../gaia/z5_transit.dmm"
-	//CHANGE THIS DEPENDING ON THE MISSION!!
+
+	////////////////////////////////////////////
+	///////////  AREAS OF OPERATION  ///////////
+	//  CHANGE THIS DEPENDING ON THE MISSION  //
+	////////////////////////////////////////////
 	#include "../gaia/area_of_op/urbanrebels.dmm"
 	//#include "../gaia/area_of_op/shaftmines.dmm"
 	//#include "../gaia/area_of_op/city.dmm"

@@ -22,7 +22,7 @@
 	uniform = /obj/item/clothing/under/iccgn/combat/command
 	shoes = /obj/item/clothing/shoes/iccgn/utility
 	id_types = list(/obj/item/card/id/gaia/iccg/co)
-	backpack_contents = list(/obj/item/melee/telebaton = 1)
+	backpack_contents = list(/obj/item/melee/baton/telebaton = 1)
 
 /singleton/hierarchy/outfit/job/gaia/iccg/command/CO/New()
 	..()
@@ -34,7 +34,7 @@
 	uniform = /obj/item/clothing/under/iccgn/combat/command
 	shoes = /obj/item/clothing/shoes/iccgn/utility
 	id_types = list(/obj/item/card/id/gaia/iccg/xo)
-	backpack_contents = list(/obj/item/melee/telebaton = 1)
+	backpack_contents = list(/obj/item/melee/baton/telebaton = 1)
 
 /singleton/hierarchy/outfit/job/gaia/iccg/command/XO/New()
 	..()

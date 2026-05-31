@@ -64,7 +64,7 @@
 		/obj/item/device/flash,
 		/obj/item/reagent_containers/spray/pepper,
 		/obj/item/grenade/chem_grenade/teargas,
-		/obj/item/melee/baton/loaded,
+		/obj/item/melee/baton/stun/loaded,
 		/obj/item/taperoll/police,
 		/obj/item/storage/firstaid/light,
 		/obj/item/device/hailer,

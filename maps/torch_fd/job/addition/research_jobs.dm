@@ -49,7 +49,7 @@ var/global/const/access_research_security = "ACCESS_RESEARCH_SECURITY" //97
 		/obj/item/storage/belt/holster/security,
 		/obj/item/device/flash,
 		/obj/item/reagent_containers/spray/pepper,
-		/obj/item/melee/baton/loaded,
+		/obj/item/melee/baton/stun/loaded,
 		/obj/item/handcuffs = 2,
 		/obj/item/device/flashlight/maglight,
 		/obj/item/clothing/glasses/sunglasses,
@@ -103,7 +103,7 @@ var/global/const/access_research_security = "ACCESS_RESEARCH_SECURITY" //97
 	boot_type = /obj/item/clothing/shoes/magboots/rig/hazard
 	glove_type = /obj/item/clothing/gloves/rig/hazard
 
-	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/handcuffs,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton)
+	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/handcuffs,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton/stun)
 
 	req_access = list(access_research_security)
 

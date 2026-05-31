@@ -36,7 +36,7 @@
 		/obj/item/device/flash,
 		/obj/item/borg/sight/hud/sec,
 		/obj/item/handcuffs/cyborg,
-		/obj/item/melee/baton/robot,
+		/obj/item/melee/baton/stun/robot,
 		/obj/item/gun/energy/gun/secure/mounted,
 		/obj/item/taperoll/police,
 		/obj/item/device/megaphone,
@@ -45,7 +45,7 @@
 		/obj/item/device/hailer
 	)
 	emag_gear = list(
-		/obj/item/melee/baton/robot/electrified_arm,
+		/obj/item/melee/baton/stun/robot/electrified_arm,
 		/obj/item/gun/energy/plasmacutter,
 		/obj/item/borg/combat/shield
 	)
@@ -68,7 +68,7 @@
 		/obj/item/crowbar
 	)
 	emag_gear = list(
-		/obj/item/melee/baton/robot/electrified_arm,
+		/obj/item/melee/baton/stun/robot/electrified_arm,
 		/obj/item/gun/projectile/automatic/l6_saw
 	)
 	use_map_synth_access = FALSE

@@ -47,7 +47,7 @@
 	)
 
 	emag_gear = list(
-		/obj/item/melee/baton/robot/electrified_arm,
+		/obj/item/melee/baton/stun/robot/electrified_arm,
 		/obj/item/gun/energy/gun
 	)
 	access = list(

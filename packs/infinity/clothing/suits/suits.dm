@@ -33,7 +33,7 @@
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	siemens_coefficient = 0.6
-	allowed = list(/obj/item/gun/energy,/obj/item/device/radio,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/gun/magnetic)
+	allowed = list(/obj/item/gun/energy,/obj/item/device/radio,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton/stun,/obj/item/handcuffs,/obj/item/gun/magnetic)
 
 /obj/item/clothing/suit/storage/janjacket
 	name = "janitor jacket"
@@ -69,7 +69,7 @@
 	item_state = "admiral_tunic"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	valid_accessory_slots = list(ACCESSORY_SLOT_MEDAL)
-	allowed = list(/obj/item/gun/energy, /obj/item/gun/projectile, /obj/item/melee/baton)
+	allowed = list(/obj/item/gun/energy, /obj/item/gun/projectile, /obj/item/melee/baton/stun)
 
 /obj/item/clothing/suit/storage/toggle/agent_jacket/security
 	name = "private security jacket"

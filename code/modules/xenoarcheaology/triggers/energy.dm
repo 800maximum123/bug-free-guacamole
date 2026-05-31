@@ -11,8 +11,8 @@
 	if(istype(O, /obj/item/projectile))
 		var/obj/item/projectile/P = O
 		. = (P.damage_type == DAMAGE_BURN) || (P.damage_type == DAMAGE_SHOCK)
-	if(istype(O,/obj/item/melee/baton))
-		var/obj/item/melee/baton/B = O
+	if(istype(O,/obj/item/melee/baton/stun))
+		var/obj/item/melee/baton/stun/B = O
 		. = B.status
 	else if (istype(O,/obj/item/melee/energy))
 		var/obj/item/melee/energy/E = O

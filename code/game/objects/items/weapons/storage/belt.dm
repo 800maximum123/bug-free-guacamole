@@ -57,8 +57,8 @@
 	var/sound_in = 'sound/effects/holster/holsterin.ogg'
 	var/sound_out = 'sound/effects/holster/holsterout.ogg'
 	contents_allowed = list(
-		/obj/item/melee/baton,
-		/obj/item/melee/telebaton
+		/obj/item/melee/baton/stun,
+		/obj/item/melee/baton/telebaton
 		)
 
 /obj/item/storage/belt/holster/Initialize()
@@ -230,8 +230,8 @@
 		/obj/item/ammo_casing/shotgun,
 		/obj/item/ammo_magazine,
 		/obj/item/reagent_containers/food/snacks/donut,
-		/obj/item/melee/baton,
-		/obj/item/melee/telebaton,
+		/obj/item/melee/baton/stun,
+		/obj/item/melee/baton/telebaton,
 		/obj/item/flame/lighter,
 		/obj/item/device/flashlight,
 		/obj/item/modular_computer/tablet,
@@ -253,7 +253,7 @@
 	. = ..()
 	new /obj/item/device/flash (src)
 	new /obj/item/reagent_containers/spray/pepper (src)
-	new /obj/item/melee/baton/loaded (src)
+	new /obj/item/melee/baton/stun/loaded (src)
 	new /obj/item/device/holowarrant (src)
 	queue_icon_update()
 
@@ -273,8 +273,8 @@
 		/obj/item/ammo_casing/shotgun,
 		/obj/item/ammo_magazine,
 		/obj/item/reagent_containers/food/snacks/donut,
-		/obj/item/melee/baton,
-		/obj/item/melee/telebaton,
+		/obj/item/melee/baton/stun,
+		/obj/item/melee/baton/telebaton,
 		/obj/item/flame/lighter,
 		/obj/item/device/flashlight,
 		/obj/item/modular_computer/tablet,
@@ -300,7 +300,7 @@
 	overlay_flags = BELT_OVERLAY_ITEMS
 	contents_allowed = list(
 		/obj/item/device/flash,
-		/obj/item/melee/telebaton,
+		/obj/item/melee/baton/telebaton,
 		/obj/item/device/taperecorder,
 		/obj/item/folder,
 		/obj/item/paper,
@@ -378,7 +378,7 @@
 	overlay_flags = BELT_OVERLAY_ITEMS|BELT_OVERLAY_HOLSTER
 	contents_allowed = list(
 		/obj/item/device/flash,
-		/obj/item/melee/telebaton,
+		/obj/item/melee/baton/telebaton,
 		/obj/item/device/taperecorder,
 		/obj/item/folder,
 		/obj/item/paper,

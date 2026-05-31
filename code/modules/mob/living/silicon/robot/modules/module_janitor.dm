@@ -21,7 +21,7 @@
 		/obj/item/weldingtool
 	)
 	emag_gear = list(
-		/obj/item/melee/baton/robot/electrified_arm,
+		/obj/item/melee/baton/stun/robot/electrified_arm,
 		/obj/item/device/flash,
 		/obj/item/reagent_containers/spray,
 		/obj/item/flamethrower/full/loaded

@@ -1,5 +1,15 @@
 /datum/codex_entry/baton
 	associated_paths = list(/obj/item/melee/baton)
+	mechanics_text = "If your intent is set to 'harm', you will inflict damage when using it. \
+	If not you will safely subdue the person with it."
+
+/datum/codex_entry/telescopic_baton
+	associated_paths = list(/obj/item/melee/baton/telebaton)
+	mechanics_text = "The baton needs to be turned on to be used. Use it in your hand to toggle it on or off. If your intent is \
+	set to 'harm', you will inflict damage when using it."
+
+/datum/codex_entry/stun_baton
+	associated_paths = list(/obj/item/melee/baton/stun)
 	mechanics_text = "The baton needs to be turned on to apply the stunning effect. Use it in your hand to toggle it on or off. If your intent is \
 	set to 'harm', you will inflict damage when using it, regardless if it is on or not. Each stun reduces the baton's charge, which can be replenished by \
 	putting it inside a weapon recharger."

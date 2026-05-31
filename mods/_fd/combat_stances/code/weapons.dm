@@ -18,13 +18,13 @@
 	melee_strikes = list(/singleton/combo_strike/swipe_strike/blunt_swing/mixed_combo, /singleton/combo_strike/swipe_strike/polearm_slash/hammer, /singleton/combo_strike/circle_strike/blunt)
 	fail_chance = 30
 
-/obj/item/melee/baton/cattleprod
+/obj/item/melee/baton/stun/cattleprod
 	melee_strikes = list(/singleton/combo_strike/swipe_strike/polearm_mixed)
 	lunge_delay = 10 SECONDS
 	fail_chance = 30
 	lunge_dist = 2
 
-/obj/item/melee/baton/cattleprod/AltClick(mob/user)
+/obj/item/melee/baton/stun/cattleprod/AltClick(mob/user)
 	if(melee_strikes)
 		swap_stances(user)
 

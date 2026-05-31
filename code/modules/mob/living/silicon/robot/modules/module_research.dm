@@ -32,7 +32,7 @@
 		/datum/matter_synth/nanite = 10000
 	)
 	emag_gear = list(
-		/obj/item/melee/baton/robot/electrified_arm,
+		/obj/item/melee/baton/stun/robot/electrified_arm,
 		/obj/item/device/flash,
 		/obj/prefab/hand_teleporter,
 		/obj/item/gun/energy/decloner

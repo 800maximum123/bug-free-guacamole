@@ -44,7 +44,7 @@
 		/obj/item/ammo_magazine/shotholder,
 		/obj/item/handcuffs,
 		/obj/item/device/radio,
-		/obj/item/melee/baton,
+		/obj/item/melee/baton/stun,
 		/obj/item/gun,
 		/obj/item/pickaxe
 	)

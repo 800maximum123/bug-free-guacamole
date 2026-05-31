@@ -1266,9 +1266,9 @@
 /area/slavers_base/secwing)
 "dk" = (
 /obj/structure/table/rack,
-/obj/item/melee/baton,
-/obj/item/melee/baton,
-/obj/item/melee/baton,
+/obj/item/melee/baton/stun,
+/obj/item/melee/baton/stun,
+/obj/item/melee/baton/stun,
 /obj/random/tool,
 /turf/simulated/floor/tiled,
 /area/slavers_base/secwing)
@@ -1533,7 +1533,7 @@
 "dR" = (
 /obj/structure/table/steel,
 /obj/item/storage/box/ammo/stunshells,
-/obj/item/melee/baton,
+/obj/item/melee/baton/stun,
 /obj/machinery/power/terminal{
 	dir = 1
 	},
@@ -1949,7 +1949,7 @@
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/empty,
 /obj/item/handcuffs,
-/obj/item/melee/baton,
+/obj/item/melee/baton/stun,
 /turf/simulated/floor/tiled,
 /area/slavers_base/med)
 "eZ" = (

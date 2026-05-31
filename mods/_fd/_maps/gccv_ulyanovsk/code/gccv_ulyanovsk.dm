@@ -342,7 +342,7 @@
 		rad = ARMOR_RAD_RESISTANT
 		)
 	siemens_coefficient = 0.3
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton/stun,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	species_restricted = list(SPECIES_HUMAN, SPECIES_VATGROWN, SPECIES_SPACER, SPECIES_GRAVWORLDER, SPECIES_MULE, SPECIES_IPC, SPECIES_FBP)/// no fckng XENO SCUM in my suit!!!
 
 /obj/item/clothing/head/helmet/space/void/iccg
@@ -888,7 +888,7 @@
 		/obj/item/clothing/glasses/sunglasses,
 		/obj/item/storage/belt/general,
 		/obj/item/storage/backpack/satchel/com,
-		/obj/item/melee/telebaton,
+		/obj/item/melee/baton/telebaton,
 		/obj/item/device/binoculars/random,
 		/obj/item/ammo_magazine/pistol/iccgn = 2
 	)
@@ -908,7 +908,7 @@
 		/obj/item/clothing/glasses/hud/security/prot/sunglasses,
 		/obj/item/storage/belt/general,
 		/obj/item/storage/backpack/satchel/com,
-		/obj/item/melee/telebaton,
+		/obj/item/melee/baton/telebaton,
 		/obj/item/gun/magnetic/railgun/automatic,
 		/obj/item/ammo_magazine/pistol/iccgn = 2,
 		/obj/item/rcd_ammo/large = 2
@@ -931,7 +931,7 @@
 		/obj/item/clothing/glasses/material,
 		/obj/item/storage/belt/utility/full,
 		/obj/item/storage/backpack/satchel/com,
-		/obj/item/melee/telebaton,
+		/obj/item/melee/baton/telebaton,
 		/obj/item/gun/energy/plasmacutter,
 		/obj/item/rcd,
 		/obj/item/rcd_ammo/large = 2

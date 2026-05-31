@@ -163,7 +163,7 @@
 	item_state = "black_kimono"
 
 // First responder jacket
-	
+
 /obj/item/clothing/suit/storage/toggle/fr_jacket/highvis
 	name = "first responder jacket"
 	icon = 'mods/loadout_items/icons/obj_suit.dmi'
@@ -172,7 +172,7 @@
 /obj/item/clothing/suit/storage/toggle/fr_jacket/highvis/New()
 	. = ..()
 	sprite_sheets[SPECIES_UNATHI] = 'mods/loadout_items/icons/unathi/onmob_suit_unathi.dmi'
-	
+
 // Unathi garments
 
 /obj/item/clothing/suit/storage/security
@@ -192,7 +192,7 @@
 		/obj/item/gun,
 		/obj/item/ammo_magazine,
 		/obj/item/ammo_casing,
-		/obj/item/melee/baton,
+		/obj/item/melee/baton/stun,
 		/obj/item/handcuffs,
 		/obj/item/tank/oxygen_emergency,
 		/obj/item/tank/oxygen_emergency_extended,
@@ -200,7 +200,7 @@
 	)
 	siemens_coefficient = 0.9
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	
+
 //Aurora stuff
 /obj/item/clothing/suit/storage/dominia
 	name = "Avalon greatcoat"

@@ -64,7 +64,7 @@
 		/datum/matter_synth/wire =     50
 	)
 	emag_gear = list(
-		/obj/item/melee/baton/robot/electrified_arm,
+		/obj/item/melee/baton/stun/robot/electrified_arm,
 		/obj/item/device/flash,
 		/obj/item/rcd/borg,
 		/obj/item/flamethrower/full/loaded,

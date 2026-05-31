@@ -95,8 +95,8 @@
 	maxHealth = 60
 	health = 60
 	harm_intent_damage = 5
-	natural_weapon = /obj/item/melee/baton
-	weapon = /obj/item/melee/baton
+	natural_weapon = /obj/item/melee/baton/stun
+	weapon = /obj/item/melee/baton/stun
 	corpse = /obj/landmark/corpse/lar_maria/zhp_guard
 
 /mob/living/simple_animal/hostile/lar_maria/guard/Initialize()

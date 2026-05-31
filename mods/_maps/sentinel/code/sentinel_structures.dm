@@ -56,7 +56,7 @@
 /obj/structure/closet/secure_closet/patrol/WillContain()
 	return list(
 		/obj/item/storage/belt/holster/security/tactical,
-		/obj/item/melee/telebaton,
+		/obj/item/melee/baton/telebaton,
 		/obj/item/clothing/glasses/hud/security/prot/aviators,
 		/obj/item/clothing/glasses/tacgoggles,
 		/obj/item/clothing/accessory/storage/black_vest,
@@ -81,7 +81,7 @@
 /obj/structure/closet/secure_closet/patrol/marine_lead/WillContain()
 	return list(
 		/obj/item/storage/belt/holster/security/tactical,
-		/obj/item/melee/telebaton,
+		/obj/item/melee/baton/telebaton,
 		/obj/item/clothing/glasses/hud/security/prot/aviators,
 		/obj/item/clothing/glasses/tacgoggles,
 		/obj/item/clothing/accessory/storage/black_vest,
@@ -171,7 +171,7 @@
 
 /obj/structure/closet/secure_closet/patrol/fleet_com/WillContain()
 	return list(
-		/obj/item/melee/telebaton,
+		/obj/item/melee/baton/telebaton,
 		/obj/item/gun/projectile/pistol/m22f,
 		/obj/item/device/megaphone,
 		//obj/item/clothing/accessory/armor/tag/solgov/com,

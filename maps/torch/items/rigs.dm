@@ -238,7 +238,7 @@
 		/obj/item/device/flashlight,
 		/obj/item/tank,
 		/obj/item/device/suit_cooling_unit,
-		/obj/item/melee/baton
+		/obj/item/melee/baton/stun
 	)
 /obj/item/clothing/shoes/magboots/rig/command/security
 /obj/item/clothing/gloves/rig/command/security

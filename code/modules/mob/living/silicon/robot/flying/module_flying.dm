@@ -8,7 +8,7 @@
 		/obj/item/device/scanner/health
 	)
 	emag_gear = list(
-		/obj/item/melee/baton/robot/electrified_arm,
+		/obj/item/melee/baton/stun/robot/electrified_arm,
 		/obj/item/device/flash,
 		/obj/item/borg/combat/shield
 	)

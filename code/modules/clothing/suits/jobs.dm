@@ -98,7 +98,7 @@
 		/obj/item/gun/projectile,
 		/obj/item/ammo_magazine,
 		/obj/item/ammo_casing,
-		/obj/item/melee/baton,
+		/obj/item/melee/baton/stun,
 		/obj/item/handcuffs,
 		/obj/item/storage/fancy/smokable,
 		/obj/item/flame/lighter,
@@ -133,7 +133,7 @@
 		/obj/item/gun/projectile,
 		/obj/item/ammo_magazine,
 		/obj/item/ammo_casing,
-		/obj/item/melee/baton,
+		/obj/item/melee/baton/stun,
 		/obj/item/handcuffs,
 		/obj/item/device/taperecorder
 	)
@@ -300,7 +300,7 @@
 		/obj/item/taperoll,
 		/obj/item/clothing/head/hardhat,
 		/obj/item/handcuffs,
-		/obj/item/melee/baton,
+		/obj/item/melee/baton/stun,
 		/obj/item/grenade,
 		/obj/item/gun
 	)

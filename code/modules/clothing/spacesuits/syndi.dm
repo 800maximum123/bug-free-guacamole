@@ -28,7 +28,7 @@
 		/obj/item/gun,
 		/obj/item/ammo_magazine,
 		/obj/item/ammo_casing,
-		/obj/item/melee/baton,
+		/obj/item/melee/baton/stun,
 		/obj/item/melee/energy/sword,
 		/obj/item/handcuffs,
 		/obj/item/tank/oxygen_emergency,

@@ -496,12 +496,6 @@
 /obj/structure/lattice,
 /turf/simulated/open,
 /area/gaia/urbanrebels)
-"bt" = (
-/obj/structure/bed/chair/wood/maple{
-	dir = 1
-	},
-/turf/simulated/floor/wood/maple,
-/area/gaia/urbanrebels)
 "bu" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 10
@@ -542,11 +536,6 @@
 	message = "<span class='warning'>You definitely cannot go through this..</span>"
 	},
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
-/area/gaia/urbanrebels)
-"bz" = (
-/obj/structure/table/marble,
-/obj/item/flora/pottedplantsmall/fern,
-/turf/simulated/floor/tiled,
 /area/gaia/urbanrebels)
 "bA" = (
 /obj/structure/hygiene/sink{
@@ -1199,9 +1188,9 @@
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/urbanrebels)
 "dA" = (
-/obj/structure/closet/secure_closet,
 /obj/floor_decal/corner/darkblue/mono,
 /obj/machinery/light/small/red,
+/obj/structure/closet/secure_closet/police,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/urbanrebels)
 "dB" = (
@@ -1705,10 +1694,6 @@
 /obj/item/material/shard,
 /turf/simulated/open,
 /area/gaia/urbanrebels)
-"eW" = (
-/obj/machinery/door/unpowered/simple/wood,
-/turf/simulated/floor/tiled/monotile,
-/area/gaia/urbanrebels)
 "eX" = (
 /obj/machinery/door/window/westright,
 /obj/floor_decal/corner_steel_grid{
@@ -1940,11 +1925,11 @@
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels)
 "fH" = (
-/obj/structure/closet/secure_closet,
 /obj/floor_decal/corner/darkblue/mono,
 /obj/machinery/light/small/red{
 	dir = 1
 	},
+/obj/structure/closet/secure_closet/police,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/urbanrebels)
 "fI" = (
@@ -2089,10 +2074,6 @@
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/gaia/urbanrebels)
-"gb" = (
-/obj/structure/bed/chair/office/comfy/beige,
-/turf/simulated/floor/wood,
 /area/gaia/urbanrebels)
 "gc" = (
 /obj/structure/window/reinforced{
@@ -2390,12 +2371,8 @@
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/urbanrebels)
 "gS" = (
-/obj/structure/bed/padded,
-/obj/item/bedsheet/brown,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/carpet/blue,
+/obj/structure/closet/l3closet/security,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/urbanrebels)
 "gT" = (
 /obj/machinery/door/unpowered/simple,
@@ -2618,10 +2595,6 @@
 	},
 /turf/simulated/open,
 /area/gaia/urbanrebels)
-"hA" = (
-/obj/item/key/gaia/mayor,
-/turf/simulated/wall/concrete,
-/area/gaia/urbanrebels)
 "hB" = (
 /obj/machinery/hologram/holopad,
 /obj/floor_decal/industrial/outline/grey,
@@ -2828,10 +2801,6 @@
 /obj/structure/filingcabinet,
 /turf/simulated/floor/tiled/dark,
 /area/gaia/urbanrebels)
-"ih" = (
-/obj/structure/flora/pottedplant/orientaltree,
-/turf/simulated/floor/wood/maple,
-/area/gaia/urbanrebels)
 "ii" = (
 /obj/floor_decal/corner/b_green/border{
 	dir = 4
@@ -2921,14 +2890,6 @@
 /obj/structure/table/marble,
 /obj/machinery/cooker/candy,
 /turf/simulated/floor/lino,
-/area/gaia/urbanrebels)
-"ix" = (
-/obj/structure/bed/padded,
-/obj/item/bedsheet/purple,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/wood/bamboo,
 /area/gaia/urbanrebels)
 "iy" = (
 /obj/structure/closet/walllocker{
@@ -3408,14 +3369,6 @@
 /obj/item/flora/pottedplantsmall/leaf,
 /turf/simulated/floor/wood/maple,
 /area/gaia/urbanrebels)
-"jS" = (
-/obj/structure/bed/padded,
-/obj/item/bedsheet/purple,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/wood,
-/area/gaia/urbanrebels)
 "jT" = (
 /obj/machinery/door/blast/shutters,
 /turf/simulated/floor/tiled/techfloor,
@@ -3576,11 +3529,8 @@
 /turf/simulated/wall/titanium,
 /area/gaia/mineshafts/shafts)
 "kp" = (
-/obj/structure/table/woodentable,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/wood/bamboo,
+/obj/structure/closet/secure_closet/detective,
+/turf/simulated/floor/lino,
 /area/gaia/urbanrebels)
 "kq" = (
 /obj/structure/railing/mapped,
@@ -3707,10 +3657,6 @@
 /obj/structure/mine,
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels)
-"kI" = (
-/obj/structure/coatrack,
-/turf/simulated/floor/wood/bamboo,
-/area/gaia/urbanrebels)
 "kJ" = (
 /obj/structure/safe,
 /turf/simulated/floor/tiled/techfloor,
@@ -3743,10 +3689,6 @@
 /obj/structure/mopbucket,
 /obj/item/mop,
 /turf/simulated/floor/tiled/dark,
-/area/gaia/urbanrebels)
-"kP" = (
-/obj/structure/stairs/south,
-/turf/simulated/floor/tiled,
 /area/gaia/urbanrebels)
 "kQ" = (
 /obj/decal/cleanable/blood,
@@ -4288,7 +4230,7 @@
 	dir = 4
 	},
 /obj/machinery/papershredder,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/gaia/urbanrebels)
 "mw" = (
 /obj/structure/bed/chair/comfy/purple{
@@ -4313,10 +4255,6 @@
 	pixel_y = -16
 	},
 /turf/simulated/floor/shuttle/black,
-/area/gaia/urbanrebels)
-"my" = (
-/obj/structure/bed/chair/armchair/green,
-/turf/simulated/floor/wood/bamboo,
 /area/gaia/urbanrebels)
 "mz" = (
 /obj/structure/sign/double/iccgflag/left{
@@ -4377,14 +4315,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/gaia/urbanrebels)
-"mI" = (
-/obj/structure/table/woodentable,
-/obj/item/modular_computer/laptop/preset/custom_loadout/cheap,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/gaia/urbanrebels)
 "mJ" = (
 /obj/decal/cleanable/snow/side/corner,
 /turf/simulated/floor/tiled,
@@ -4406,11 +4336,6 @@
 "mM" = (
 /obj/machinery/door/airlock/command,
 /turf/simulated/floor/tiled/dark,
-/area/gaia/urbanrebels)
-"mN" = (
-/obj/structure/table/rack,
-/obj/random/maintenance/clean,
-/turf/simulated/floor/carpet/blue,
 /area/gaia/urbanrebels)
 "mO" = (
 /obj/structure/noticeboard{
@@ -4463,9 +4388,9 @@
 /turf/simulated/floor/wood/walnut,
 /area/gaia/urbanrebels)
 "mU" = (
-/obj/structure/storage/chestdrawer,
-/obj/random/maintenance/clean,
-/turf/simulated/floor/wood/bamboo,
+/obj/machinery/door/unpowered/simple,
+/obj/lock_helper/unlocked/gaia_police,
+/turf/simulated/floor/tiled/dark,
 /area/gaia/urbanrebels)
 "mV" = (
 /obj/floor_decal/spline/fancy/black{
@@ -4518,10 +4443,6 @@
 "ne" = (
 /obj/floor_decal/corner/white/border,
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
-/area/gaia/urbanrebels)
-"nf" = (
-/obj/structure/flora/pottedplant/decorative,
-/turf/simulated/floor/wood,
 /area/gaia/urbanrebels)
 "ng" = (
 /obj/structure/curtain/open/military,
@@ -4707,8 +4628,7 @@
 "nJ" = (
 /obj/structure/table/standard,
 /obj/item/device/radio/intercom/interrogation{
-	pixel_y = -6;
-	dir = 1
+	pixel_y = -6
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/urbanrebels)
@@ -4859,11 +4779,11 @@
 /turf/simulated/wall/r_concrete,
 /area/gaia/urbanrebels)
 "of" = (
-/obj/structure/filingcabinet,
 /obj/floor_decal/corner/darkblue/mono,
 /obj/machinery/light/small/red{
 	dir = 8
 	},
+/obj/structure/closet/secure_closet,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/urbanrebels)
 "og" = (
@@ -5256,9 +5176,6 @@
 	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/urbanrebels)
-"pi" = (
-/turf/simulated/floor/wood/bamboo,
-/area/gaia/urbanrebels)
 "pj" = (
 /obj/machinery/door/unpowered/simple/wood,
 /obj/decal/cleanable/dirt,
@@ -5310,12 +5227,6 @@
 "ps" = (
 /obj/wallframe_spawn/reinforced/titanium,
 /turf/simulated/floor/shuttle/black,
-/area/gaia/urbanrebels)
-"pt" = (
-/obj/structure/table/rack,
-/obj/random/maintenance/clean,
-/obj/random/maintenance/clean,
-/turf/simulated/floor/tiled/techfloor,
 /area/gaia/urbanrebels)
 "pu" = (
 /obj/machinery/papershredder,
@@ -5835,14 +5746,9 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/urbanrebels)
 "qP" = (
-/obj/structure/table/marble,
-/obj/structure/hygiene/sink/modern{
-	dir = 4
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
+/obj/structure/coatrack,
+/obj/item/clothing/suit/storage/toggle/labcoat,
+/turf/simulated/floor/lino,
 /area/gaia/urbanrebels)
 "qQ" = (
 /obj/landmark/scorcher,
@@ -6235,8 +6141,8 @@
 /turf/simulated/floor/wood,
 /area/gaia/urbanrebels)
 "rW" = (
-/obj/structure/table/glass,
-/turf/simulated/floor/wood/bamboo,
+/obj/structure/closet/secure_closet/police,
+/turf/simulated/floor/wood/walnut,
 /area/gaia/urbanrebels)
 "rX" = (
 /obj/structure/wall_frame/concrete,
@@ -6538,10 +6444,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/gaia/urbanrebels)
-"sS" = (
-/obj/structure/flora/pottedplant/largebush,
-/turf/simulated/floor/wood/bamboo,
-/area/gaia/urbanrebels)
 "sU" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark/monotile,
@@ -6659,11 +6561,6 @@
 /obj/machinery/door/unpowered/simple,
 /turf/simulated/floor/wood,
 /area/gaia/urbanrebels)
-"tm" = (
-/obj/structure/bed/padded,
-/obj/item/bedsheet,
-/turf/simulated/floor/carpet,
-/area/gaia/urbanrebels)
 "tn" = (
 /obj/paint_stripe/gunmetal,
 /obj/structure/gaia/truck_shadow/right{
@@ -6681,22 +6578,9 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/gravel,
 /area/gaia/urbanrebels)
-"tp" = (
-/obj/structure/bed/chair/wood/maple{
-	dir = 1
-	},
-/turf/simulated/floor/wood/bamboo,
-/area/gaia/urbanrebels)
 "tq" = (
 /obj/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
-/area/gaia/urbanrebels)
-"tr" = (
-/obj/structure/hygiene/sink{
-	dir = 1;
-	pixel_y = 17
-	},
-/turf/simulated/floor/tiled/white,
 /area/gaia/urbanrebels)
 "ts" = (
 /obj/decal/cleanable/dirt,
@@ -6815,11 +6699,6 @@
 /obj/paint_stripe/yellow,
 /obj/structure/sign/warning/fire,
 /turf/simulated/wall/titanium,
-/area/gaia/urbanrebels)
-"tM" = (
-/obj/structure/coatrack,
-/obj/random/maintenance/clean,
-/turf/simulated/floor/wood,
 /area/gaia/urbanrebels)
 "tN" = (
 /obj/structure/closet/hydrant{
@@ -6970,9 +6849,11 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/gaia/mineshafts/shafts)
 "uk" = (
-/obj/structure/storage/chestdrawer,
-/obj/random/maintenance/clean,
-/turf/simulated/floor/carpet/green,
+/obj/floor_decal/corner/darkblue/mono,
+/obj/machinery/uniform_vendor{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/urbanrebels)
 "ul" = (
 /obj/landmark/scorcher,
@@ -7114,11 +6995,11 @@
 /turf/simulated/floor/wood/maple,
 /area/gaia/urbanrebels)
 "uJ" = (
-/obj/structure/filingcabinet,
 /obj/floor_decal/corner/darkblue/mono,
 /obj/machinery/light/small/red{
 	dir = 4
 	},
+/obj/structure/closet/secure_closet,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/urbanrebels)
 "uK" = (
@@ -7601,7 +7482,7 @@
 	},
 /obj/structure/table/standard,
 /obj/machinery/photocopier/faxmachine,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/gaia/urbanrebels)
 "wl" = (
 /obj/floor_decal/corner/grey/diagonal,
@@ -8216,7 +8097,7 @@
 	dir = 4
 	},
 /obj/machinery/photocopier,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/gaia/urbanrebels)
 "xT" = (
 /obj/structure/platform/hybrisa/metalplatform6{
@@ -8243,10 +8124,8 @@
 /turf/simulated/floor/exoplanet/desert,
 /area/gaia/urbanrebels)
 "xX" = (
-/obj/structure/bed/chair/wood/maple{
-	dir = 4
-	},
-/turf/simulated/floor/carpet/red,
+/obj/structure/window/basic,
+/turf/simulated/floor/tiled/white,
 /area/gaia/urbanrebels)
 "xY" = (
 /obj/structure/bed/chair/shuttle/green{
@@ -8322,12 +8201,6 @@
 /obj/item/reagent_containers/food/drinks/bottle/small/cola,
 /obj/item/reagent_containers/food/drinks/bottle/small/cola,
 /turf/simulated/floor/tiled/freezer,
-/area/gaia/urbanrebels)
-"yh" = (
-/obj/structure/bed/chair/wood/maple{
-	dir = 4
-	},
-/turf/simulated/floor/wood/bamboo,
 /area/gaia/urbanrebels)
 "yi" = (
 /obj/floor_decal/corner/white/bordercorner{
@@ -8689,12 +8562,6 @@
 /obj/structure/closet/fridge,
 /turf/simulated/floor/tiled,
 /area/gaia/urbanrebels)
-"zl" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/carpet,
-/area/gaia/urbanrebels)
 "zm" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 1
@@ -8822,14 +8689,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
-/area/gaia/urbanrebels)
-"zG" = (
-/obj/structure/bed/padded,
-/obj/item/bedsheet/red,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/carpet/green,
 /area/gaia/urbanrebels)
 "zH" = (
 /obj/structure/wall_frame/concrete,
@@ -9543,11 +9402,6 @@
 /obj/item/stool/padded/red,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/urbanrebels)
-"BO" = (
-/obj/structure/storage/chest/wardrobe2,
-/obj/random/maintenance/clean,
-/turf/simulated/floor/carpet/blue,
-/area/gaia/urbanrebels)
 "BP" = (
 /obj/machinery/computer/modular/preset/security,
 /turf/simulated/floor/tiled/dark,
@@ -9790,10 +9644,9 @@
 /turf/simulated/floor/tiled/white,
 /area/gaia/urbanrebels)
 "Cz" = (
-/obj/structure/bed/chair/wood/maple{
-	dir = 4
-	},
-/turf/simulated/floor/carpet/purple,
+/obj/decal/cleanable/liquid_fuel,
+/obj/landmark/damager,
+/turf/simulated/floor/exoplanet/barren,
 /area/gaia/urbanrebels)
 "CA" = (
 /obj/structure/table/marble,
@@ -9933,15 +9786,6 @@
 /obj/machinery/door/unpowered/simple/wood,
 /obj/structure/barricade,
 /turf/simulated/floor/wood,
-/area/gaia/urbanrebels)
-"CR" = (
-/obj/item/clothing/suit/storage/toggle/labcoat,
-/obj/structure/window/basic{
-	dir = 4
-	},
-/obj/structure/window/basic,
-/obj/structure/coatrack,
-/turf/simulated/floor/tiled/white,
 /area/gaia/urbanrebels)
 "CS" = (
 /obj/machinery/light{
@@ -10341,9 +10185,14 @@
 /turf/simulated/wall/titanium,
 /area/gaia/urbanrebels)
 "DT" = (
-/obj/structure/storage/chest/wardrobe,
-/obj/random/maintenance/clean,
-/turf/simulated/floor/carpet/blue,
+/obj/machinery/recharger/wallcharger{
+	dir = 4;
+	pixel_x = -22
+	},
+/obj/item/stool/padded{
+	pixel_y = 17
+	},
+/turf/simulated/floor/tiled/dark,
 /area/gaia/urbanrebels)
 "DU" = (
 /obj/structure/ladder/hatch/up,
@@ -10472,12 +10321,6 @@
 /obj/structure/storage/chest/wardrobe,
 /turf/simulated/floor/tiled/dark,
 /area/gaia/urbanrebels)
-"El" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/gaia/urbanrebels)
 "Em" = (
 /obj/structure/table/woodentable,
 /obj/item/reagent_containers/food/drinks/bottle/whiskey,
@@ -10502,11 +10345,6 @@
 /obj/structure/bed/chair/padded/blue,
 /obj/floor_decal/corner/paleblue/border,
 /turf/simulated/floor/tiled/white,
-/area/gaia/urbanrebels)
-"Eq" = (
-/obj/structure/table/rack,
-/obj/random/maintenance/clean,
-/turf/simulated/floor/carpet/orange,
 /area/gaia/urbanrebels)
 "Er" = (
 /obj/paint_stripe/gunmetal,
@@ -10921,10 +10759,6 @@
 /obj/structure/table,
 /turf/simulated/floor/carpet/purple,
 /area/gaia/urbanrebels)
-"Fz" = (
-/obj/machinery/door/unpowered/simple/wood,
-/turf/simulated/floor/tiled/techfloor,
-/area/gaia/urbanrebels)
 "FA" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -11141,12 +10975,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/techfloor,
 /area/gaia/mineshafts/shafts)
-"Ge" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/wood/bamboo,
-/area/gaia/urbanrebels)
 "Gf" = (
 /obj/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -11228,10 +11056,6 @@
 /obj/structure/barricade,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood/maple,
-/area/gaia/urbanrebels)
-"Gu" = (
-/obj/structure/table/woodentable,
-/turf/simulated/floor/wood/bamboo,
 /area/gaia/urbanrebels)
 "Gv" = (
 /obj/structure/bed/chair/shuttle/blue{
@@ -12201,8 +12025,9 @@
 /turf/simulated/floor/tiled/white,
 /area/gaia/urbanrebels)
 "Jk" = (
-/obj/machinery/door/airlock/highsecurity,
-/turf/simulated/floor/tiled/dark/monotile,
+/obj/structure/table/marble,
+/obj/landmark/damager,
+/turf/simulated/floor/tiled,
 /area/gaia/urbanrebels)
 "Jl" = (
 /obj/structure/table/reinforced,
@@ -12327,8 +12152,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/gaia/urbanrebels)
 "JB" = (
-/obj/machinery/door/airlock/highsecurity/bolted,
-/turf/simulated/floor/tiled/dark,
+/obj/floor_decal/corner/darkblue/mono,
+/obj/structure/closet/secure_closet,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/urbanrebels)
 "JC" = (
 /obj/item/tape/engineering{
@@ -12626,13 +12452,6 @@
 /obj/item/clothing/head/hardhat/firefighter/chief,
 /obj/item/storage/belt/utility/engi_command,
 /turf/simulated/floor/lino,
-/area/gaia/urbanrebels)
-"Ks" = (
-/obj/structure/table/woodentable,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
 /area/gaia/urbanrebels)
 "Kt" = (
 /obj/structure/lattice,
@@ -13897,7 +13716,7 @@
 /obj/floor_decal/corner/darkblue/border{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/gaia/urbanrebels)
 "Od" = (
 /obj/structure/table/reinforced,
@@ -14015,16 +13834,10 @@
 /obj/random/cash,
 /turf/simulated/floor/plating,
 /area/gaia/urbanrebels)
-"Or" = (
-/obj/machinery/light/small{
-	dir = 8;
-	pixel_y = 8
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/gaia/urbanrebels)
 "Os" = (
 /obj/structure/table/reinforced,
 /obj/item/modular_computer/pda/forensics,
+/obj/item/clothing/gloves/forensic,
 /turf/simulated/floor/tiled/white,
 /area/gaia/urbanrebels)
 "Ot" = (
@@ -14310,8 +14123,10 @@
 /turf/simulated/floor/exoplanet/desert,
 /area/gaia/urbanrebels)
 "Ph" = (
-/obj/structure/closet/secure_closet,
 /obj/floor_decal/corner/darkblue/mono,
+/obj/machinery/vending/security{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/urbanrebels)
 "Pi" = (
@@ -14340,10 +14155,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/gaia/urbanrebels)
 "Pl" = (
-/obj/structure/table/woodentable,
-/obj/structure/storage/nightstand,
-/obj/random/maintenance/clean,
-/turf/simulated/floor/wood,
+/obj/item/stool/padded{
+	pixel_y = 17
+	},
+/turf/simulated/floor/tiled/dark,
 /area/gaia/urbanrebels)
 "Pm" = (
 /obj/floor_decal/corner/grey/diagonal,
@@ -14731,10 +14546,6 @@
 /obj/item/pipe,
 /turf/simulated/floor/exoplanet/barren,
 /area/gaia/urbanrebels)
-"Qs" = (
-/obj/item/clothing/gloves/forensic,
-/turf/simulated/floor/tiled/white,
-/area/gaia/urbanrebels)
 "Qt" = (
 /obj/structure/platform/hybrisa/engineer{
 	dir = 1
@@ -14972,12 +14783,6 @@
 "Re" = (
 /obj/machinery/door/window/southleft,
 /turf/simulated/floor/tiled,
-/area/gaia/urbanrebels)
-"Rf" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/wood/maple,
 /area/gaia/urbanrebels)
 "Rg" = (
 /obj/floor_decal/spline/fancy{
@@ -15349,10 +15154,9 @@
 /turf/simulated/floor/plating,
 /area/gaia/urbanrebels)
 "Sn" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/wood,
+/obj/floor_decal/corner/darkblue/mono,
+/obj/structure/closet/secure_closet/police,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/urbanrebels)
 "So" = (
 /obj/machinery/cooker/grill,
@@ -15464,15 +15268,6 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark/monotile,
-/area/gaia/urbanrebels)
-"SF" = (
-/obj/structure/bed/chair/wood/maple{
-	dir = 8
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/wood/bamboo,
 /area/gaia/urbanrebels)
 "SG" = (
 /obj/floor_decal/corner/brown/mono,
@@ -15746,9 +15541,12 @@
 /turf/simulated/floor/tiled,
 /area/gaia/urbanrebels)
 "Tw" = (
-/obj/structure/storage/chest,
-/obj/random/maintenance/clean,
-/turf/simulated/floor/carpet,
+/obj/floor_decal/corner/darkblue/mono,
+/obj/machinery/recharger/wallcharger{
+	dir = 4;
+	pixel_x = -22
+	},
+/turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/urbanrebels)
 "Tx" = (
 /obj/structure/reagent_dispensers/fueltank,
@@ -15783,10 +15581,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/gaia/urbanrebels)
 "TD" = (
-/obj/machinery/light{
-	dir = 8
+/obj/machinery/recharger/wallcharger{
+	dir = 4;
+	pixel_x = -22
 	},
-/turf/simulated/floor/carpet/orange,
+/obj/item/stool/padded,
+/turf/simulated/floor/tiled/dark,
 /area/gaia/urbanrebels)
 "TE" = (
 /obj/machinery/light{
@@ -16240,10 +16040,6 @@
 /obj/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/barren,
 /area/gaia/urbanrebels)
-"UX" = (
-/obj/structure/bed/chair/wood/maple,
-/turf/simulated/floor/wood/bamboo,
-/area/gaia/urbanrebels)
 "UY" = (
 /obj/floor_decal/spline/fancy/black,
 /turf/simulated/floor/exoplanet/grass,
@@ -16332,9 +16128,8 @@
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels)
 "Vl" = (
-/obj/wallframe_spawn/concrete,
-/obj/structure/curtain/bed,
-/turf/simulated/floor/plating,
+/obj/item/stool/padded,
+/turf/simulated/floor/tiled/dark,
 /area/gaia/urbanrebels)
 "Vm" = (
 /obj/structure/railing/mapped,
@@ -16659,8 +16454,13 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/urbanrebels)
 "Wi" = (
-/obj/structure/bed/chair/armchair/black,
-/turf/simulated/floor/wood,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/open,
 /area/gaia/urbanrebels)
 "Wj" = (
 /obj/structure/window/basic{
@@ -17038,13 +16838,6 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/urbanrebels)
-"Xm" = (
-/obj/structure/table/woodentable,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/wood/maple,
-/area/gaia/urbanrebels)
 "Xn" = (
 /obj/item/tape/engineering{
 	icon_state = "stripetape_dir_0";
@@ -17267,11 +17060,6 @@
 	},
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels)
-"XY" = (
-/obj/structure/table/rack,
-/obj/random/maintenance/clean,
-/turf/simulated/floor/wood,
-/area/gaia/urbanrebels)
 "XZ" = (
 /obj/floor_decal/corner/black/half{
 	dir = 4
@@ -17382,12 +17170,6 @@
 	icon_state = "stripetape_h_0"
 	},
 /turf/simulated/floor/exoplanet/gravel,
-/area/gaia/urbanrebels)
-"Yp" = (
-/obj/structure/bed/chair/armchair/black{
-	dir = 1
-	},
-/turf/simulated/floor/wood,
 /area/gaia/urbanrebels)
 "Yq" = (
 /obj/floor_decal/industrial/warning/dust{
@@ -162021,15 +161803,15 @@ mM
 ub
 ub
 ic
-ic
-kP
+Qo
+Ui
 ub
 KR
-Ph
-YE
-Ph
-YE
-Ph
+Sn
+DT
+Tw
+TD
+Sn
 KR
 fb
 fb
@@ -162377,11 +162159,11 @@ ic
 ic
 ic
 KR
-Ph
-YE
-Ph
-YE
-Ph
+Sn
+Pl
+uk
+Vl
+Sn
 KR
 fb
 fb
@@ -162725,14 +162507,14 @@ YE
 Vj
 ub
 ic
-fF
-fF
+Wi
+hM
 ic
 KR
 fH
-YE
+Pl
 Ph
-YE
+Vl
 dA
 KR
 fb
@@ -163079,13 +162861,13 @@ ub
 ub
 ub
 ub
-Uf
+mU
 KR
-Ph
-YE
+Sn
+Pl
 Gb
-YE
-Ph
+Vl
+Sn
 KR
 fb
 fb
@@ -163435,7 +163217,7 @@ Oc
 KR
 KR
 KR
-Jk
+ZA
 KR
 KR
 KR
@@ -164121,7 +163903,7 @@ XF
 PW
 fb
 ub
-rZ
+rW
 dI
 zd
 zd
@@ -166234,9 +166016,9 @@ PW
 fb
 ub
 Os
-Qs
 FQ
-lK
+xX
+Pt
 sF
 dy
 lK
@@ -166587,7 +166369,7 @@ fb
 ub
 rb
 nQ
-CR
+nQ
 lK
 Fb
 Fb
@@ -166606,7 +166388,7 @@ hV
 hV
 hV
 MS
-xl
+ub
 fb
 fb
 PW
@@ -166937,13 +166719,13 @@ XF
 PW
 fb
 ub
-Pt
+kp
 lK
 lK
 lK
 sL
 lK
-lK
+qP
 Kz
 YE
 Vj
@@ -166958,9 +166740,9 @@ ic
 ic
 cX
 ic
-ub
-fb
-fb
+Uy
+PW
+PW
 PW
 nL
 Xe
@@ -167659,7 +167441,7 @@ fg
 YH
 KR
 Gb
-dE
+JB
 of
 dE
 KR
@@ -168014,9 +167796,9 @@ YE
 YE
 YE
 YE
-JB
-PW
-PW
+KR
+fb
+fb
 PW
 nL
 jh
@@ -168362,8 +168144,8 @@ Lv
 we
 rV
 KR
-dE
-dE
+JB
+JB
 uJ
 dE
 KR
@@ -171175,7 +170957,7 @@ ub
 sU
 cD
 EQ
-EQ
+gS
 ub
 PW
 Xe
@@ -188220,17 +188002,17 @@ jH
 ub
 TL
 jb
-Vl
-zk
-qP
-bz
 ub
-tM
-Sn
 rV
-Fz
-Or
-pt
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -188573,16 +188355,16 @@ ub
 PW
 PW
 ub
-ic
-ic
-ic
-eW
 rV
 rV
 rV
-ub
-ub
-ub
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -188924,17 +188706,17 @@ rV
 ub
 PW
 PW
-rY
-rV
-rV
-rV
 ub
-uX
-uX
-uX
-ub
-aR
-vu
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -189277,16 +189059,16 @@ ub
 PW
 PW
 ub
-Wi
-Lv
-Yp
-ub
-tm
-uX
-uX
-RD
-FQ
-wc
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -189628,17 +189410,17 @@ rV
 ub
 PW
 PW
-Vl
-nf
-El
-nf
 ub
-Tw
-zl
-uX
-ub
-tr
-ZY
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -189981,16 +189763,16 @@ tl
 PW
 PW
 ub
-ub
-ub
-ub
-ub
-ub
-ub
-ub
-ub
-ub
-ub
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -190332,17 +190114,17 @@ jH
 ub
 PW
 PW
-Vl
-zk
-qP
-aW
 ub
-kI
-Ge
-pi
-Fz
-Or
-pt
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -190685,16 +190467,16 @@ ub
 PW
 PW
 ub
-ic
-ic
-ic
-eW
-Fb
-Fb
-Fb
-ub
-ub
-ub
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -191036,17 +190818,17 @@ hG
 ub
 PW
 PW
-rY
-pi
-pi
-pi
 ub
-Fb
-Fb
-Fb
-ub
-aR
-vu
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -191389,16 +191171,16 @@ ub
 PW
 PW
 ub
-my
-Gu
-pi
-ub
-Fb
-Fb
-Fb
-RD
-FQ
-wc
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -191740,17 +191522,17 @@ ub
 ub
 PW
 PW
-Vl
-my
-kp
-sS
 ub
-uk
-zG
-Fb
-ub
-tr
-ZY
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -192093,16 +191875,16 @@ ub
 PW
 PW
 ub
-ub
-ub
-ub
-ub
-ub
-ub
-ub
-ub
-ub
-ub
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -192444,17 +192226,17 @@ xw
 ub
 PW
 PW
-Vl
-zk
-qP
-aW
 ub
-xn
-TD
-pi
-Fz
-Or
-pt
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -192797,16 +192579,16 @@ ub
 PW
 PW
 ub
-ic
-ic
-ic
-eW
-xn
-xn
-pi
-ub
-ub
-ub
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -193148,17 +192930,17 @@ xw
 ub
 PW
 PW
-rY
-pi
-yh
-pi
 ub
-Eq
-Eq
-pi
-ub
-aR
-vu
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -193501,16 +193283,16 @@ ub
 PW
 PW
 ub
-UX
-rW
-tp
-ub
-pi
-pi
-pi
-RD
-FQ
-wc
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -193852,17 +193634,17 @@ eG
 tl
 PW
 PW
-Vl
-pi
-SF
-pi
 ub
-mU
-ix
-pi
-ub
-tr
-ZY
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -194205,16 +193987,16 @@ ub
 PW
 PW
 ub
-ub
-ub
-ub
-ub
-ub
-ub
-ub
-ub
-ub
-ub
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -194556,17 +194338,17 @@ VG
 ub
 PW
 PW
-Vl
-zk
-qP
-aW
 ub
-XY
-jS
 rV
-Fz
-Or
-pt
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -194909,16 +194691,16 @@ ub
 PW
 PW
 ub
-pK
-pK
-pK
-eW
 rV
 rV
 rV
-ub
-ub
-ub
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -195260,17 +195042,17 @@ rV
 ub
 Bx
 PW
-rY
-pK
-pK
-pK
 ub
-XY
 rV
 rV
-ub
-aR
-vu
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -195613,16 +195395,16 @@ ub
 oR
 PW
 ub
-xX
-xX
-xX
-ub
-Pl
-gb
 rV
-RD
-FQ
-wc
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 Ec
 PW
@@ -195964,17 +195746,17 @@ VG
 ub
 LU
 PW
-Vl
-Lv
-Ks
-Lv
 ub
-Lv
-mI
-Lv
-ub
-tr
-ZY
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -196317,16 +196099,16 @@ PW
 PW
 PW
 ub
-ub
-ub
-ub
-ub
-ub
-ub
-ub
-ub
-ub
-ub
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -196668,17 +196450,17 @@ rV
 ub
 PW
 PW
-Vl
-zk
-qP
-aW
 ub
-ih
-Rf
-RJ
-Fz
-Or
-pt
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -197021,16 +196803,16 @@ ub
 PW
 PW
 ub
-rM
-rM
-rM
-eW
-zd
-zd
-mN
-ub
-ub
-ub
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -197372,17 +197154,17 @@ VG
 ub
 PW
 PW
-rY
-rM
-rM
-rM
 ub
-zd
-zd
-mN
-ub
-aR
-vu
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -197725,16 +197507,16 @@ tl
 PW
 PW
 ub
-rM
-Cz
-rM
-ub
-BO
-zd
-zd
-RD
-FQ
-wc
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -198076,17 +197858,17 @@ jH
 ub
 PW
 PW
-Vl
-RJ
-Xm
-bt
 ub
-DT
-gS
-zd
-ub
-tr
-ZY
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -198429,16 +198211,16 @@ ub
 PW
 PW
 ub
-ub
-ub
-ub
-ub
-ub
-ub
-ub
-ub
-ub
-ub
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
 ub
 PW
 PW
@@ -198777,7 +198559,7 @@ rV
 rV
 rV
 rV
-ub
+tC
 PW
 PW
 ub
@@ -199129,7 +198911,7 @@ rV
 rV
 jH
 jH
-ub
+tC
 PW
 PW
 ub
@@ -201238,9 +201020,9 @@ ub
 ub
 ub
 ub
-ub
-ub
-ub
+tC
+tC
+tC
 ub
 PW
 PW
@@ -201941,7 +201723,7 @@ Ws
 GQ
 Ry
 Ws
-ub
+tC
 PW
 fb
 fb
@@ -202293,7 +202075,7 @@ Gg
 dm
 Ws
 Ha
-ub
+tC
 PW
 fb
 fb
@@ -202645,7 +202427,7 @@ Ws
 au
 au
 jH
-ub
+tC
 PW
 fb
 fb
@@ -204078,7 +203860,7 @@ uV
 UY
 PW
 PW
-ub
+tC
 rV
 rV
 Wl
@@ -204089,7 +203871,7 @@ Zy
 xw
 bd
 xw
-ub
+tC
 PW
 dh
 Wl
@@ -204430,7 +204212,7 @@ OU
 UY
 PW
 PW
-ub
+tC
 uy
 Ws
 Nb
@@ -204441,7 +204223,7 @@ rD
 VG
 ri
 eG
-ub
+tC
 PW
 Uk
 VG
@@ -204782,7 +204564,7 @@ uV
 UY
 PW
 PW
-ub
+tC
 uy
 Wl
 VG
@@ -204793,7 +204575,7 @@ Hq
 Nb
 cb
 eG
-ub
+tC
 PW
 tt
 VG
@@ -205134,7 +204916,7 @@ uV
 UY
 PW
 PW
-ub
+tC
 Hq
 Wl
 VG
@@ -205145,7 +204927,7 @@ Ws
 Nb
 wy
 VG
-ub
+tC
 PW
 PW
 ub
@@ -205486,7 +205268,7 @@ uV
 UY
 PW
 PW
-ub
+tC
 Ws
 uy
 VG
@@ -205497,7 +205279,7 @@ Zi
 Nb
 fW
 rV
-ub
+tC
 PW
 PW
 VG
@@ -205838,7 +205620,7 @@ uV
 UY
 PW
 PW
-ub
+tC
 rD
 VG
 ri
@@ -205849,7 +205631,7 @@ uy
 cb
 wy
 rV
-ub
+tC
 PW
 PW
 VG
@@ -206190,7 +205972,7 @@ uV
 UY
 PW
 PW
-ub
+tC
 Hq
 Nb
 cb
@@ -206201,7 +205983,7 @@ uy
 VG
 VG
 ub
-ub
+tC
 PW
 PW
 ub
@@ -206517,7 +206299,7 @@ ub
 ub
 ub
 ub
-ub
+tC
 LU
 PW
 ub
@@ -206553,7 +206335,7 @@ VG
 ri
 eG
 rV
-ub
+tC
 PW
 PW
 WV
@@ -206869,7 +206651,7 @@ jH
 Gg
 dm
 Ws
-ub
+tC
 kU
 PW
 ub
@@ -208280,7 +208062,7 @@ Ws
 ub
 PW
 PW
-ub
+tC
 au
 Gg
 dm
@@ -208632,7 +208414,7 @@ Ha
 ub
 PW
 PW
-ub
+tC
 Le
 Le
 Ws
@@ -208984,7 +208766,7 @@ jH
 ub
 PW
 PW
-ub
+tC
 jH
 jH
 Gg
@@ -209006,7 +208788,7 @@ uV
 UY
 PW
 PW
-ub
+tC
 aW
 aW
 aW
@@ -209336,7 +209118,7 @@ au
 tl
 PW
 PW
-ub
+tC
 Gg
 dm
 Ws
@@ -209358,7 +209140,7 @@ uV
 UY
 PW
 PW
-ub
+tC
 ub
 Cq
 ub
@@ -210040,7 +209822,7 @@ au
 ub
 Nn
 Gr
-ub
+tC
 jH
 Gg
 dm
@@ -210392,11 +210174,11 @@ ub
 ub
 LU
 PW
+tC
 ub
-ub
-ub
-ub
-ub
+tC
+tC
+tC
 ub
 ub
 ub
@@ -210415,9 +210197,9 @@ Aw
 Aw
 PW
 ub
-ub
-ub
-ub
+tC
+tC
+tC
 MG
 hG
 Ha
@@ -212857,7 +212639,7 @@ ub
 ub
 ub
 ub
-ub
+tC
 PW
 PW
 ub
@@ -212894,8 +212676,8 @@ PW
 PW
 ub
 ub
-ub
-ub
+tC
+tC
 ub
 ub
 Hq
@@ -213209,7 +212991,7 @@ VG
 cb
 eG
 rV
-ub
+tC
 PW
 PW
 ub
@@ -214617,7 +214399,7 @@ Zy
 MY
 bd
 xw
-ub
+tC
 PW
 PW
 ub
@@ -214969,7 +214751,7 @@ PW
 xw
 Wl
 xw
-ub
+tC
 PW
 PW
 ub
@@ -215321,7 +215103,7 @@ Zy
 xw
 bd
 xw
-ub
+tC
 PW
 PW
 ub
@@ -215673,7 +215455,7 @@ rD
 VG
 ri
 eG
-ub
+tC
 PW
 PW
 ub
@@ -215868,7 +215650,7 @@ dh
 dh
 dh
 dh
-hA
+ub
 nC
 lK
 ub
@@ -216025,7 +215807,7 @@ Hq
 Nb
 cb
 eG
-ub
+tC
 PW
 PW
 ub
@@ -216060,7 +215842,7 @@ VG
 ub
 PW
 PW
-ub
+tC
 rD
 VG
 ri
@@ -216377,7 +216159,7 @@ Ws
 Nb
 wy
 VG
-ub
+tC
 PW
 PW
 ub
@@ -216412,7 +216194,7 @@ rV
 ub
 PW
 PW
-ub
+tC
 Hq
 Nb
 cb
@@ -216729,7 +216511,7 @@ Zi
 Nb
 fW
 rV
-ub
+tC
 PW
 PW
 ub
@@ -216764,7 +216546,7 @@ rV
 ub
 PW
 PW
-ub
+tC
 Ws
 Nb
 wy
@@ -217081,7 +216863,7 @@ uy
 cb
 wy
 rV
-ub
+tC
 PW
 PW
 ub
@@ -217116,7 +216898,7 @@ ub
 ub
 PW
 PW
-ub
+tC
 Wl
 VG
 cb
@@ -217447,7 +217229,7 @@ Nb
 wy
 VG
 rV
-ub
+tC
 PW
 PW
 uV
@@ -217468,7 +217250,7 @@ rV
 ub
 PW
 PW
-ub
+tC
 Wl
 VG
 cb
@@ -217791,6 +217573,7 @@ PW
 ub
 rV
 rV
+Ke
 rV
 rV
 rV
@@ -217798,8 +217581,7 @@ rV
 rV
 rV
 rV
-rV
-ub
+tC
 PW
 PW
 uV
@@ -217820,7 +217602,7 @@ rV
 ub
 PW
 PW
-ub
+tC
 rV
 rV
 rV
@@ -218143,15 +217925,15 @@ PW
 ub
 ub
 ub
+tC
+tC
+tC
+tC
+tC
+tC
 ub
 ub
-ub
-ub
-ub
-ub
-ub
-ub
-ub
+tC
 PW
 PW
 uV
@@ -218173,9 +217955,9 @@ ub
 PW
 PW
 ub
-ub
-ub
-ub
+tC
+tC
+tC
 ub
 ub
 ub
@@ -219566,7 +219348,7 @@ uV
 UY
 PW
 PW
-ub
+tC
 ev
 vn
 vn
@@ -219918,7 +219700,7 @@ uV
 UY
 PW
 PW
-ub
+tC
 aW
 aW
 aW
@@ -220270,7 +220052,7 @@ uV
 UY
 PW
 PW
-ub
+tC
 ub
 Cq
 ub
@@ -220632,7 +220414,7 @@ ub
 LC
 wy
 ux
-aW
+Jk
 ub
 PW
 PW
@@ -220984,8 +220766,8 @@ VG
 PW
 xw
 Wl
-xw
-ub
+Cz
+tC
 PW
 PW
 ub
@@ -221337,7 +221119,7 @@ Zy
 xw
 bd
 xw
-ub
+tC
 PW
 PW
 ub

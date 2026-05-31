@@ -25,7 +25,7 @@
 	l_ear = /obj/item/device/radio/headset/heads/captain
 	l_pocket = /obj/item/device/megaphone
 	id_types = list(/obj/item/card/id/gaia/mayor)
-	backpack_contents = list(/obj/item/melee/telebaton = 1, /obj/item/storage/keychain/mayor = 1)
+	backpack_contents = list(/obj/item/melee/baton/telebaton = 1, /obj/item/storage/keychain/mayor = 1)
 
 // POLICE
 /singleton/hierarchy/outfit/job/gaia/police
@@ -35,7 +35,7 @@
 	head = /obj/item/clothing/head/gaiacop
 	id_types = list(/obj/item/card/id/gaia/cop)
 	l_ear = /obj/item/device/radio/headset/headset_sec
-	l_pocket = /obj/item/device/flash/advanced
+	l_pocket = /obj/item/device/flash
 	r_pocket = /obj/item/handcuffs
 	backpack_contents = list(/obj/item/device/radio/hailing = 1, /obj/item/key/gaia/police = 1)
 

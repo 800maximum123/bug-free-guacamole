@@ -53,7 +53,7 @@
 		/obj/item/device/radio,
 		/obj/item/device/scanner/gas,
 		/obj/item/storage/briefcase/inflatable,
-		/obj/item/melee/baton,
+		/obj/item/melee/baton/stun,
 		/obj/item/gun,
 		/obj/item/storage/firstaid,
 		/obj/item/reagent_containers/hypospray,

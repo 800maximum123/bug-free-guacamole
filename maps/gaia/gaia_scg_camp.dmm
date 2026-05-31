@@ -409,14 +409,12 @@
 /turf/simulated/floor/plating,
 /area/gaia/scg/command/briefing)
 "cL" = (
-/obj/floor_decal/borderfloorwhite{
-	dir = 4
-	},
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/structure/ladder/dirt,
-/turf/simulated/floor/tiled/white,
+/obj/structure/catwalk,
+/turf/simulated/open,
 /area/gaia/scg/barracks/officer/bathroom)
 "cN" = (
 /obj/structure/platform/hybrisa/metalplatform6{
@@ -3393,7 +3391,7 @@
 /area/gaia/scg/barracks)
 "vN" = (
 /obj/structure/table/standard,
-/obj/item/tableflag/rainbow,
+/obj/item/tableflag/rainbow/pride,
 /turf/simulated/floor/lino,
 /area/gaia/scg/barracks/ps)
 "vO" = (

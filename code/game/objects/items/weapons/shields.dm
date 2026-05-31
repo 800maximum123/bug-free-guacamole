@@ -90,7 +90,7 @@
 
 
 /obj/item/shield/riot/use_tool(obj/item/W, mob/living/user, list/click_params)
-	if(istype(W, /obj/item/melee/baton))
+	if(istype(W, /obj/item/melee))
 		if(cooldown < world.time - 25)
 			user.visible_message(SPAN_WARNING("\The [user] bashes \the [src] with \the [W]!"))
 			playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)

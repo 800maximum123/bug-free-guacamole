@@ -477,7 +477,7 @@ Passports
 
 // Overrides
 
-/obj/item/melee/baton
+/obj/item/melee/baton/stun
 	icon = 'maps/sierra/icons/obj/baton.dmi'
 	icon_state = "stunbaton"
 	item_state = "baton"
@@ -486,7 +486,7 @@ Passports
 		slot_l_hand_str = 'maps/sierra/icons/mob/onmob/item/lefthand.dmi',
 		)
 
-/obj/item/melee/baton/on_update_icon()
+/obj/item/melee/baton/stun/on_update_icon()
 	if(status)
 		icon_state = "[initial(icon_state)]_active"
 		item_state = "[initial(item_state)]_active"

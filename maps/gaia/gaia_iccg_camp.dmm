@@ -3068,6 +3068,9 @@
 	id_tag = "iccg_reception";
 	name = "Reception"
 	},
+/obj/item/tableflag/rainbow{
+	pixel_x = -8
+	},
 /turf/simulated/floor/plating,
 /area/gaia/iccg/citadel)
 "nY" = (
@@ -5826,7 +5829,7 @@
 /area/turbolift/iccg_masha_boat)
 "Bd" = (
 /obj/structure/closet,
-/obj/item/melee/baton/cattleprod,
+/obj/item/melee/baton/stun/cattleprod,
 /obj/item/cell/high,
 /obj/machinery/light/small{
 	dir = 4
@@ -9151,12 +9154,12 @@
 /area/gaia/iccg)
 "Ry" = (
 /obj/structure/table/rack/dark,
-/obj/item/melee/baton/loaded,
-/obj/item/melee/baton/loaded,
-/obj/item/melee/baton/loaded,
-/obj/item/melee/baton/loaded,
-/obj/item/melee/baton/loaded,
-/obj/item/melee/baton/loaded,
+/obj/item/melee/baton/stun/loaded,
+/obj/item/melee/baton/stun/loaded,
+/obj/item/melee/baton/stun/loaded,
+/obj/item/melee/baton/stun/loaded,
+/obj/item/melee/baton/stun/loaded,
+/obj/item/melee/baton/stun/loaded,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/gaia/iccg/security)
 "Rz" = (

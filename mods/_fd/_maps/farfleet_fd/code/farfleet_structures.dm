@@ -65,7 +65,7 @@
 /obj/structure/closet/secure_closet/farfleet/WillContain()
 	return list(
 		/obj/item/storage/belt/holster/security/tactical,
-		/obj/item/melee/telebaton,
+		/obj/item/melee/baton/telebaton,
 		/obj/item/clothing/glasses/hud/security/prot/aviators,
 		/obj/item/clothing/glasses/tacgoggles,
 		/obj/item/clothing/accessory/storage/black_vest,
@@ -89,7 +89,7 @@
 /obj/structure/closet/secure_closet/farfleet/sergeant/WillContain()
 	return list(
 		/obj/item/storage/belt/holster/security/tactical,
-		/obj/item/melee/telebaton,
+		/obj/item/melee/baton/telebaton,
 		/obj/item/clothing/glasses/hud/security/prot/aviators,
 		/obj/item/clothing/glasses/tacgoggles,
 		/obj/item/clothing/accessory/storage/black_vest,
@@ -171,7 +171,7 @@
 
 /obj/structure/closet/secure_closet/farfleet/fleet_cpt/WillContain()
 	return list(
-		/obj/item/melee/telebaton,
+		/obj/item/melee/baton/telebaton,
 		/obj/item/storage/firstaid/sleekstab,
 		/obj/item/device/megaphone,
 		/obj/item/clothing/accessory/storage/black_drop,
@@ -191,7 +191,7 @@
 
 /obj/structure/closet/secure_closet/farfleet/css/WillContain()
 	return list(
-		/obj/item/melee/telebaton,
+		/obj/item/melee/baton/telebaton,
 		/obj/item/storage/firstaid/sleekstab,
 		/obj/item/device/megaphone,
 		/obj/item/clothing/accessory/storage/holster/armpit,
@@ -306,7 +306,7 @@
 
 /obj/structure/closet/secure_closet/farfleet/fleet_cpt/WillContain()
 	return list(
-		/obj/item/melee/telebaton,
+		/obj/item/melee/baton/telebaton,
 		/obj/item/storage/firstaid/sleekstab,
 		/obj/item/device/megaphone,
 		/obj/item/clothing/accessory/storage/black_drop,

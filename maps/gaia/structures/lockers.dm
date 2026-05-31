@@ -39,7 +39,7 @@
 		/obj/item/device/megaphone,
 		/obj/item/device/binoculars/nvg,
 		/obj/item/device/gps/scg,
-		/obj/item/melee/telebaton,
+		/obj/item/melee/baton/telebaton,
 		/obj/item/solbanner,
 		/obj/random/cash,
 		/obj/item/material/knife/folding/swiss/officer,
@@ -65,7 +65,7 @@
 		/obj/item/device/megaphone,
 		/obj/item/device/binoculars/nvg,
 		/obj/item/device/gps/scg,
-		/obj/item/melee/telebaton,
+		/obj/item/melee/baton/telebaton,
 		/obj/random/cash,
 		/obj/item/material/knife/folding/swiss/officer,
 		/obj/item/storage/mre/random,
@@ -143,7 +143,7 @@
 		/obj/item/device/megaphone,
 		/obj/item/device/binoculars/nvg,
 		/obj/item/device/gps/iccg,
-		/obj/item/melee/telebaton,
+		/obj/item/melee/baton/telebaton,
 //		/obj/item/solbanner, TODO: make a custom ICCG one
 		/obj/random/cash,
 		/obj/item/material/knife/folding/swiss/loot,
@@ -168,7 +168,7 @@
 		/obj/item/device/megaphone,
 		/obj/item/device/binoculars/nvg,
 		/obj/item/device/gps/iccg,
-		/obj/item/melee/telebaton,
+		/obj/item/melee/baton/telebaton,
 		/obj/random/cash,
 		/obj/item/material/knife/folding/swiss/loot,
 		/obj/item/reagent_containers/food/snacks/liquidfood,
@@ -215,3 +215,41 @@
 		/obj/item/material/knife/folding/swiss/loot,
 		/obj/item/reagent_containers/food/snacks/liquidfood,
 	)
+
+// CIVVIES
+/obj/structure/closet/secure_closet/police
+	name = "police officer's locker"
+	req_access = list(access_brig)
+	closet_appearance = /singleton/closet_appearance/secure_closet/police
+
+/obj/structure/closet/secure_closet/police/WillContain()
+	return list(
+		new/datum/atom_creator/weighted(list(/obj/item/storage/backpack/command, /obj/item/storage/backpack/satchel/com)),
+		new/datum/atom_creator/simple(/obj/item/storage/backpack/dufflebag/com, 50),
+		/obj/item/clothing/suit/armor/pcarrier/medium/police,
+		/obj/item/clothing/head/helmet/solgov/security/police,
+		/obj/item/device/radio/headset/headset_sec,
+		/obj/item/storage/belt/holster/security,
+		/obj/item/clothing/accessory/storage/holster/armpit,
+		/obj/item/device/flash,
+		/obj/item/reagent_containers/spray/pepper,
+		/obj/item/grenade/chem_grenade/teargas,
+		/obj/item/melee/baton/black,
+		/obj/item/clothing/glasses/hud/security/prot/aviators,
+		/obj/item/taperoll/police,
+		/obj/item/device/hailer,
+		/obj/item/clothing/accessory/storage/brown_vest,
+		/obj/item/clothing/head/gaiacop,
+		/obj/item/clothing/under/gaiacop/towner,
+		/obj/item/clothing/shoes/dutyboots,
+		/obj/item/gun/energy/stunrevolver,
+		/obj/item/device/holowarrant,
+	)
+
+/obj/structure/closet/wardrobe/camo
+	name = "camo wardrobe"
+	closet_appearance = /singleton/closet_appearance/tactical
+
+/obj/structure/closet/wardrobe/camo/New()
+	..()
+	new /obj/item/clothing/under/gray_camo

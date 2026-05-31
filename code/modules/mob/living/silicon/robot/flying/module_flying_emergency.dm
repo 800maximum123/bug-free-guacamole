@@ -33,7 +33,7 @@
 	)
 	synths = list(/datum/matter_synth/medicine = 15000)
 	emag_gear = list(
-		/obj/item/melee/baton/robot/electrified_arm,
+		/obj/item/melee/baton/stun/robot/electrified_arm,
 		/obj/item/device/flash,
 		/obj/item/gun/energy/gun,
 		/obj/item/reagent_containers/spray,

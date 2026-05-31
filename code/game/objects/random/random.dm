@@ -246,7 +246,7 @@
 				/obj/item/contraband/poster = 5,
 				/obj/item/material/small_blade = 3,
 				/obj/item/material/butterflyhandle = 3,
-				/obj/item/melee/baton/cattleprod = 1,
+				/obj/item/melee/baton/stun/cattleprod = 1,
 				/obj/item/material/knife/combat = 1,
 				/obj/item/material/knife/folding = 1,
 				/obj/item/material/knife/folding/wood = 1,
@@ -1092,7 +1092,7 @@ something, make sure it's not in one of the other lists.*/
 				/obj/item/bonegel = 7,
 				/obj/item/circular_saw = 7,
 				/obj/item/scalpel/basic = 7,
-				/obj/item/melee/baton/loaded = 9,
+				/obj/item/melee/baton/stun/loaded = 9,
 				/obj/item/device/radio/headset/syndicate = 6)
 
 /obj/random/voidhelmet

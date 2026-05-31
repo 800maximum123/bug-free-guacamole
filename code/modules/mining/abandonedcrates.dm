@@ -51,7 +51,7 @@
 		if(31 to 35)
 			spawn_money(rand(300,800), src)
 		if(36 to 40)
-			new/obj/item/melee/baton(src)
+			new/obj/item/melee/baton/stun(src)
 		if(41 to 45)
 			new/obj/item/clothing/under/shorts/red(src)
 			new/obj/item/clothing/under/shorts/blue(src)
@@ -60,7 +60,7 @@
 			for(var/i = 0, i < 7, i++)
 				new/obj/item/clothing/accessory/horrible(src)
 		if(51 to 52) // Uncommon, 2% each
-			new/obj/item/melee/classic_baton(src)
+			new/obj/item/melee/baton(src)
 		if(53 to 54)
 			new/obj/item/latexballon(src)
 		if(55 to 56)

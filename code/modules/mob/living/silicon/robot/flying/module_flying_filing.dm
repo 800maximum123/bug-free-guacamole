@@ -19,7 +19,7 @@
 		/obj/item/stack/package_wrap/cargo_wrap/cyborg
 	)
 	emag_gear = list(
-		/obj/item/melee/baton/robot/electrified_arm,
+		/obj/item/melee/baton/stun/robot/electrified_arm,
 		/obj/item/device/flash,
 		/obj/item/gun/energy/gun,
 		/obj/item/flamethrower/full/loaded,

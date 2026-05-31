@@ -28,7 +28,7 @@
 	var/is_ranged = 0
 	var/awaiting_surrender = 0
 
-	var/obj/item/melee/baton/stun_baton
+	var/obj/item/melee/baton/stun/stun_baton
 	var/obj/item/handcuffs/cyborg/handcuffs
 
 	var/list/threat_found_sounds = list('sound/voice/bcriminal.ogg', 'sound/voice/bjustice.ogg', 'sound/voice/bfreeze.ogg')
@@ -245,7 +245,7 @@
 	visible_message(SPAN_WARNING("[src] blows apart!"))
 	var/turf/Tsec = get_turf(src)
 	new /obj/item/device/assembly/prox_sensor(Tsec)
-	new /obj/item/melee/baton(Tsec)
+	new /obj/item/melee/baton/stun(Tsec)
 	if(prob(50))
 		new /obj/item/robot_parts/l_arm(Tsec)
 

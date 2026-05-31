@@ -422,7 +422,7 @@
 				/obj/item/bonegel = 7,
 				/obj/item/circular_saw = 7,
 				/obj/item/scalpel = 7,
-				/obj/item/melee/baton/loaded = 9,
+				/obj/item/melee/baton/stun/loaded = 9,
 				/obj/item/device/radio/headset/syndicate = 6)
 
 /obj/random/junkyard/hostile
