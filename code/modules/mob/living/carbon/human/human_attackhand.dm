@@ -192,7 +192,11 @@
 			playsound(loc, attack.attack_sound, 25, 1, -1)
 
 			if(simple_combat_on)
-				simple_health_calculation(H.unarmed_simple_damage, H.unarmed_simple_sharpness, 1, 0, H)
+				if(get_status_effect(/datum/simple_status/invisibility))
+					remove_status_effect(/datum/simple_status/invisibility)
+					simple_health_calculation(unarmed_simple_damage + 10, unarmed_simple_sharpness, 1, 0, H)
+				else
+					simple_health_calculation(unarmed_simple_damage, unarmed_simple_sharpness, 1, 0, H)
 				return
 			else
 				attack.apply_effects(H, src, real_damage, hit_zone)

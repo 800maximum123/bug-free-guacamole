@@ -70,6 +70,12 @@
 				to_chat(target, SPAN_NOTICE("Вы ощущаете приятное тепло...ваши раны заживают."))
 				new /obj/temporary(get_turf(target),8, 'icons/effects/effects.dmi', "redaction_healing")
 
+				if(target.simple_combat_on)
+					if(target.simple_health < target.max_simple_health)
+						target.simple_health_calculation(-10,0,0,0)
+						return 1
+					return
+
 				if(user.skill_check(SKILL_ANATOMY, SKILL_TRAINED) && user.skill_check(SKILL_MEDICAL, SKILL_TRAINED))
 					to_chat(user, SPAN_NOTICE("Помимо прочего, благодаря имеющимся навыкам, вам удалогсь залечить некоторые из менее заметных ран [target], значительно ускорив его реабилитацию."))
 					target.adjustBruteLoss(-rand(20,40))
@@ -94,6 +100,13 @@
 						to_chat(user, SPAN_NOTICE("Помимо прочего, вы также извлекли [removing] из [E.name] вашего пациента."))
 				return 1
 		if(option == "Переломы")
+
+			if(target.simple_combat_on)
+				if(target.get_status_effect(/datum/simple_status/legbroke) && do_after(user, 60))
+					new /obj/temporary(get_turf(target),8, 'icons/effects/effects.dmi', "redaction_healing")
+					target.remove_status_effect(/datum/simple_status/legbroke)
+					return 1
+				return
 
 //It's easier to repair severed tendon, than put bones in place or either repair it structure, so no rank check
 
@@ -138,6 +151,14 @@
 			if(red_rank < PSI_RANK_OPERANT)
 				to_chat(user, SPAN_WARNING("Боюсь, ваших сил недостаточно для проведения данной операции!"))
 				return 0
+
+			if(target.simple_combat_on)
+				if(target.get_status_effect(/datum/simple_status/bleed) && do_after(user, 10))
+					new /obj/temporary(get_turf(target),8, 'icons/effects/effects.dmi', "redaction_healing")
+					target.remove_status_effect(/datum/simple_status/bleed)
+					return 1
+				return
+
 			if(!E)
 				to_chat(user, SPAN_WARNING("Эта конечность отсутствует!"))
 				return 0
@@ -271,8 +292,8 @@
 
 /singleton/psionic_power/revive
 	name =            "Revive"
-	cost =            25
-	cooldown =        80
+	cost =            80
+	cooldown =        500
 	use_grab =        TRUE
 	min_rank =        PSI_RANK_GRANDMASTER
 	faculty =         PSI_REDACTION
@@ -288,10 +309,6 @@
 			to_chat(user, SPAN_WARNING("Этот человек ещё жив!"))
 			return TRUE
 
-		if((world.time - target.timeofdeath) > 6000)
-			to_chat(user, SPAN_WARNING("[target] пролежал здесь слишком долго. Нет никакой надежды на то, что его выйдет оживить."))
-			return TRUE
-
 		user.visible_message(SPAN_NOTICE("<i>[user] кладёт обе руки на тело [target]...</i>"))
 		new /obj/temporary(get_turf(target),6, 'icons/effects/effects.dmi', "green_sparkles")
 		if(!do_after(user, 100, target))
@@ -305,6 +322,11 @@
 		to_chat(target, SPAN_NOTICE("<font size = 3><b>Жизненные силы снова наполняют ваше тело.</b></font>"))
 		target.visible_message(SPAN_NOTICE("[target] трясётся в ужасе!"))
 		new /obj/temporary(get_turf(target),8, 'icons/effects/effects.dmi', "rune_convert")
+
+		if(target.simple_combat_on)
+			target.rejuvenate()
+			return TRUE
+
 		target.adjustOxyLoss(-rand(30,45))
 		target.basic_revival()
 		return TRUE

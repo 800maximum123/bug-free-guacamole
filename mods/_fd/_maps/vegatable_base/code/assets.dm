@@ -157,9 +157,15 @@
 	switch(chosen_option)
 		if("НАПИСАТЬ")
 
-			desc_special = input(user, "Сообщение:", "Введите сообщение, которое вы хотели бы отобразить другим на доске:", "...") as null|text
+			if(desc_special_show)
+				balloon_alert(user, "|НА ДОСКЕ УЖЕ ЧТО-ТО ЕСТЬ!|", COLOR_RED)
+				return FALSE
+
+			var/text_to_input = input(user, "Сообщение:", "Введите сообщение, которое вы хотели бы отобразить другим на доске:", "...") as null|text
 			if(!desc_special_show)
 				desc_special_show = TRUE
+
+			desc_special = {"[text_to_input]"}
 
 			var/list/drawings = list()
 			for(var/S in icon_states(icon))
@@ -170,17 +176,21 @@
 				drawing = "overlay_1"
 
 			playsound(user, pick('sound/effects/pen1.ogg','sound/effects/pen2.ogg'), 10)
-			AddOverlays(image('mods/_fd/fd_assets/icons/aurora/whiteboard.dmi', drawing))
+			AddOverlays(drawing)
 			return TRUE
 
 		if("СТЕРЕТЬ")
+			if(!desc_special_show)
+				balloon_alert(user, "|ЗДЕСЬ НЕЧЕГО СТИРАТЬ!|", COLOR_RED)
+				return FALSE
 			desc_special_show = FALSE
 			desc_special = null
-			CutOverlays(image('mods/_fd/fd_assets/icons/aurora/whiteboard.dmi', drawing))
+			CutOverlays(drawing)
 			return TRUE
 
 		if("ПРОЧИТАТЬ")
 			if(!desc_special_show)
+				balloon_alert(user, "|ЗДЕСЬ НЕЧЕГО ЧИТАТЬ!|", COLOR_RED)
 				return FALSE
 
 			. = ..()

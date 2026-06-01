@@ -364,34 +364,20 @@
 /singleton/psionic_power/consciousness/invis
 	name =            "Invisibility"
 	cost =            50
-	cooldown =        250
+	cooldown =        50
 	use_ranged =     TRUE
 	use_melee =     TRUE
 	min_rank =        PSI_RANK_OPERANT
 	use_description = "Выберите глаза на зелёном интенте, и затем нажмите по себе или другому человеку(начиная с мастера), чтобы временно сделать его или себя невидимым для остальных."
 
-/mob/living/proc/run_timer_invisibility()
-	var/invis_timer = 30
-	var/con_rank_user = psi.get_rank(PSI_CONSCIOUSNESS)
+/mob/living/proc/reset_invisibility()
+	if(alpha != 255)
+		animate(src, alpha = 255, time = 0.5 SECONDS, easing = SINE_EASING|EASE_OUT)
 
-	set waitfor = 0
-	var/T = invis_timer*con_rank_user
-	while(T > 0)
-		sleep(1 SECOND)
-		T--
-	src.visible_message(SPAN_WARNING("[src] внезапно материализуется из воздуха!"))
-	src.alpha = 100
-	spawn(1 SECONDS)
-		src.alpha = 150
-	spawn(2 SECONDS)
-		src.alpha = 200
-	spawn(3 SECONDS)
-		src.alpha = 255
-/*	if(src.psi)
-		var/con_rank_user = src.psi.get_rank(PSI_CONSCIOUSNESS)
-		if(con_rank_user == PSI_RANK_GRANDMASTER)
-			src.RemoveMovementHandler(/datum/movement_handler/mob/incorporeal)
-*/
+	if(simple_combat_on)
+		if(get_status_effect(/datum/simple_status/invisibility))
+			remove_status_effect(/datum/simple_status/invisibility)
+
 /singleton/psionic_power/consciousness/invis/invoke(mob/living/user, mob/living/target)
 	var/con_rank_user = user.psi.get_rank(PSI_CONSCIOUSNESS)
 	if(user.zone_sel.selecting != BP_EYES || user.a_intent != I_HELP)
@@ -405,38 +391,39 @@
 		if(do_after(user, 30))
 			log_and_message_admins("<b> \[ALLAXETIA | Invis \] [user] сделал невидимым [target]!</b>")
 			user.visible_message(SPAN_WARNING("[user] касается [target] и тот исчезает на глазах!"))
-			target.alpha = 200
-			spawn(1 SECONDS)
-				target.alpha = 150
-			spawn(2 SECONDS)
-				target.alpha = 100
-			spawn(3 SECONDS)
-				target.alpha = 50
-			spawn(4 SECONDS)
-				target.alpha = 25
-			spawn(5 SECONDS)
-				target.alpha = 10
-			target.run_timer_invisibility()
+			animate(target, alpha = 10, time = 0.5 SECONDS, easing = SINE_EASING|EASE_IN)
+			if(target.simple_combat_on)
+				target.add_status_effect(/datum/simple_status/invisibility)
+			addtimer(new Callback(target, TYPE_PROC_REF(/mob/living, reset_invisibility)), 60*con_rank_user)
 			return TRUE
 
 	if(target == user)
 		user.visible_message(SPAN_WARNING("[user] исчезает у всех на глазах!"))
-		user.alpha = 200
-		spawn(1 SECONDS)
-			user.alpha = 150
-		spawn(2 SECONDS)
-			user.alpha = 100
-		spawn(3 SECONDS)
-			user.alpha = 50
-		spawn(4 SECONDS)
-			user.alpha = 25
-		spawn(5 SECONDS)
-			user.alpha = 10
-/*		if(con_rank_user == PSI_RANK_GRANDMASTER)
-			user.AddMovementHandler(/datum/movement_handler/mob/incorporeal)
-*/
-		user.run_timer_invisibility()
+		animate(user, alpha = 10, time = 0.5 SECONDS, easing = SINE_EASING|EASE_IN)
+		if(user.simple_combat_on)
+			user.add_status_effect(/datum/simple_status/invisibility)
+		addtimer(new Callback(user, TYPE_PROC_REF(/mob/living, reset_invisibility)), 120*con_rank_user)
 		return TRUE
+
+/singleton/psionic_power/consciousness/invis_tele
+	name =            "Invisibility Teleport"
+	cost =            80
+	cooldown =        50
+	use_ranged =     TRUE
+	min_rank =        PSI_RANK_MASTER
+	use_description = "Выберите пятку на зелёном интенте, и затем нажмите по любому тайлу, чтобы переместиться туда. РАБОТАЕТ ТОЛЬКО В НЕВИДИМОСТИ!"
+
+/singleton/psionic_power/consciousness/invis_tele/invoke(mob/living/user, turf/simulated/floor/target)
+	var/target_part = user.zone_sel?.selecting
+	if(!(target_part in BP_FEET_ONLY) || user.a_intent != I_HELP)
+		return FALSE
+
+	if(!istype(target))
+		to_chat(user, SPAN_WARNING("Вы не можете переместиться туда."))
+		return FALSE
+
+	user.forceMove(target)
+	return TRUE
 
 /singleton/psionic_power/consciousness/curse
 	name =            "Hallucinations"
@@ -468,7 +455,7 @@
 	min_rank =       PSI_RANK_MASTER
 	use_description = "Выберите пятки или ноги на зелёном интенте. Затем, нажмите по цели на дистанции, чтобы незаметно обменяться с ней местами."
 
-/singleton/psionic_power/consciousness/swap/invoke(mob/living/user, mob/living/carbon/human/target)
+/singleton/psionic_power/consciousness/swap/invoke(mob/living/user, mob/living/target)
 	var/cn_rank_user = user.psi.get_rank(PSI_CONSCIOUSNESS)
 
 	if(!istype(target))
@@ -548,6 +535,13 @@
 
 	. = ..()
 	if(.)
+		var/list/options = list(
+			"FREE FOR ALL" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "red"),
+			"ALLIED" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "green")
+		)
+		var/chosen_option = show_radial_menu(user, user, options, radius = 25, require_near = TRUE)
+		if (!chosen_option)
+			return 0
 		if(do_after(user, 10))
 			log_and_message_admins(SPAN_DANGER("<b> \[ALLAXETIA | Copies \] [user] размножился на [amount] копий!</b>"))
 			to_chat(user, SPAN_WARNING("Ты разделяешь своё подсознание на [amount] копий"))
@@ -555,13 +549,75 @@
 				var/mob/living/simple_animal/hostile/mirror_shade/MS = new(pick(get_adjacent_open_turfs(user)), user)
 				MS.CopyOverlays(user, TRUE)
 				MS.icon = null
+
+				MS.alpha = user.alpha
+
+				if(user.simple_combat_on)
+					MS.simple_combat_on = TRUE
+
+					for(var/datum/simple_status/effect in user.status_effects)
+						if(!effect.positive_effect)
+							continue
+						MS.add_status_effect(effect)
+
+				if(ishuman(user))
+					var/mob/living/carbon/human/H = user
+					var/obj/item/I = H.get_inactive_hand()
+					if(I)
+
+						if(istype(I,/obj/item/gun))
+							var/obj/item/gun/G = I
+							MS.ranged = TRUE
+							MS.base_attack_cooldown = G.fire_delay
+							if(istype(G,/obj/item/gun/energy))
+								var/obj/item/gun/energy/E = G
+								MS.projectiletype = E.projectile_type
+							if(istype(G,/obj/item/gun/projectile))
+								var/obj/item/gun/projectile/P = G
+								if(P.ammo_magazine)
+									var/obj/item/ammo_casing/casing = P.ammo_magazine.ammo_type
+									MS.projectiletype = casing.projectile_type
+								if(P.ammo_type)
+									var/obj/item/ammo_casing/casing = P.ammo_type
+									MS.projectiletype = casing.projectile_type
+							else
+								MS.projectiletype = /obj/item/projectile/bullet/rifle
+							MS.projectilesound = G.fire_sound
+							MS.needs_reload = TRUE
+							MS.reload_time = 5 SECONDS
+							if(istype(G,/obj/item/gun/energy))
+								var/obj/item/gun/energy/E = G
+								MS.reload_max = E.max_shots
+								MS.reload_sound = 'sound/machines/defib_charge.ogg'
+							if(istype(G,/obj/item/gun/projectile))
+								var/obj/item/gun/projectile/P = G
+								if(P.ammo_magazine)
+									MS.reload_max = P.ammo_magazine.max_ammo
+									MS.reload_sound = P.mag_insert_sound
+								if(P.ammo_type)
+									MS.reload_max = P.max_shells
+									MS.reload_sound = P.load_sound
+								else
+									MS.reload_max = 10
+									MS.reload_sound = 'sound/weapons/guns/interaction/pistol_magin.ogg'
+							else
+								MS.reload_max = 10
+								MS.reload_sound = 'sound/weapons/guns/interaction/pistol_magin.ogg'
+
+						else
+							MS.natural_weapon = I
+					else
+						MS.natural_weapon = /obj/item/natural_weapon/punch/holo
+
+				if(chosen_option == "ALLIED")
+					MS.faction = user.faction
 			return TRUE
 
 /obj/item/natural_weapon/punch/holo
 	damtype = DAMAGE_PAIN
+	simple_damage = 10
 
 /mob/living/simple_animal/hostile/mirror_shade
-
 	turns_per_move = 2
 	response_help = "pokes"
 	response_disarm = "shoves"
@@ -569,10 +625,14 @@
 	movement_cooldown = 0
 	maxHealth = 20
 	health = 20
-	harm_intent_damage = 5
 	natural_weapon = /obj/item/natural_weapon/punch/holo
+
+	ai_holder = /datum/ai_holder/simple_animal/humanoid/hostile/angry
 	a_intent = I_HURT
 	status_flags = CANPUSH
+
+	simple_health = 40
+	max_simple_health = 40
 
 	var/mob/living/carbon/human/owner
 
@@ -589,7 +649,13 @@
 		return owner.examine(user)
 	return ..()
 
+/mob/living/simple_animal/hostile/mirror_shade/death()
+	if(owner.simple_combat_on)
+		owner.simple_health_calculation(10,0,0,0)
+	. = ..()
+
 /mob/living/simple_animal/hostile/mirror_shade/Destroy()
+
 	owner = null
 	visible_message(SPAN_WARNING("[src] dissipates into nothingness, as if it were air all along!"))
 	return ..()

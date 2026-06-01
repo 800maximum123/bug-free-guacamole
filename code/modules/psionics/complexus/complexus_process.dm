@@ -194,6 +194,10 @@
 	if(!heal_rate || stamina < heal_rate)
 		return // Don't backblast from trying to heal ourselves thanks.
 
+	if(owner.simple_combat_on)
+		if(owner.simple_health < owner.max_simple_health)
+			owner.simple_health_calculation(-2,0,0,0)
+
 	if(ishuman(owner))
 
 		var/mob/living/carbon/human/H = owner

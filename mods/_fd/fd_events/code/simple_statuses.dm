@@ -851,7 +851,7 @@
 
 /datum/simple_status/shielded
 	name = "Щит (Даёт временную нат. броню)"
-	desc_text = "- Защищён"
+	desc_text = "+ Защищён"
 	status_type = STATUS_EFFECT_UNIQUE
 	status_color = COLOR_CYAN
 	positive_effect = TRUE
@@ -961,6 +961,40 @@
 	. = ..()
 
 	owner.remove_filter("zzaped")
+
+/datum/simple_status/invisibility
+	name = "Невидимость"
+	desc_text = null
+	status_type = STATUS_EFFECT_UNIQUE
+	status_color = COLOR_CYAN
+	positive_effect = TRUE
+
+/datum/simple_status/invisibility/tick()
+	. = ..()
+
+	if(owner.psi)
+		if(owner.psi.get_rank(PSI_CONSCIOUSNESS) >= PSI_RANK_MASTER)
+			owner.update_dead_sight()
+
+/datum/simple_status/invisibility/on_apply()
+	. = ..()
+
+	owner.appearance_flags |= KEEP_TOGETHER
+	owner.add_filter("invisible", 1, list("type" = "outline", , "size" =1, "color" = COLOR_WHITE))
+
+/datum/simple_status/invisibility/on_remove()
+	. = ..()
+
+	animate(owner, alpha = 255, time = 0.5 SECONDS, easing = SINE_EASING|EASE_OUT)
+	owner.remove_filter("invisible")
+
+/datum/simple_status/adrenaline
+	name = "Адреналин"
+	desc_text = "+ Адреналиновый приход"
+	status_type = STATUS_EFFECT_UNIQUE
+	status_color = COLOR_YELLOW
+
+	positive_effect = TRUE
 
 ///////////////////////////////////////
 

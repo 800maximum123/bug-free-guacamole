@@ -252,17 +252,17 @@
 			<center>Схема карабина Чертёж карабина Восхождения</center><br>*Начерчённая схема карабина восхождения, представленная в схеме сборки. Отдельно отмечены места расположения процессора и материнской платы а так же расположеных на ных чипов, часть с которых отмечена с пометкой, за что они отвечают*
 			"}
 
-obj/item/paper/bunker/stuff/cannon
+/obj/item/paper/bunker/stuff/cannon
 	name = "Турель карабин на датчике"
 	info = {"<span style='font-family: Garamond; color: #1c1713'><center> Турель - карабин восхождения (просто датчик) </center> <BR><BR>*расписан чертёж турели, с лафетом, приспособленным для стрельбы с карабина Восхождения. С обртаной стороны имеется поэтапная инструкция по соединению обычного датчика движения, давая возможность вести огонь без нарушения целостности оболочки*</span>
 	"}
 
-obj/item/paper/bunker/stuff/crab
+/obj/item/paper/bunker/stuff/crab
 	name = "Караб-турель с распознованием"
 	info = {"<span style='font-family: Garamond; color: #1c1713'><center> Турель-карабин, система свой-чужой </center><BR><BR>*Начерченая схема создания турели осхождния, от лаффета до соединения электорники от карабина на консоль. С обратной стороны расписана схема подключения консоли, сначала идёт датчик движения, соеденённый к консоли в одну цепь, закрытой стальным блоком, затем присоединение этого блока к лафету с турелью. Отдельно выведена запись: если я не успею, введите по консоли комбинацию ⍑𝙹ᓭℸ ̣ ╎ꖎᒷ ℸ ̣ ᔑ∷⊣ᒷℸ ̣ : 0% 𝙹∷⊣ᔑリ╎ᓵ, 90-100% ᒷꖎᒷᓵℸ ̣ ∷𝙹リ╎ᓵ. ℸ ̣ ∷╎⊣⊣ᒷ∷ ∷╎ᓭꖌ ╎ᓭ ᒲᔑ ̇/╎ᒲ⚍ᒲ. ᒷ ̇/ᓵᒷ!¡ℸ ̣ ╎𝙹リᓭ: リ𝙹リᒷ. - так же отдельно прилагается чертёж-схема консоли и схема изменения контроллера ввода*</span>"}
 
 
-obj/item/paper/bunker/stuff/crazy
+/obj/item/paper/bunker/stuff/crazy
 	name = "Белый чёрный"
 	info = {"Белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный серый"}
 
@@ -811,7 +811,7 @@ obj/item/paper/bunker/stuff/crazy
 	name = "bodysuit"
 	desc = "Bodysuit."
 
-	mouse_opacity = TRUE
+	mouse_opacity = FALSE
 
 	icon = 'mods/_fd/fd_customs/customs/zakterar/zakterar_robot.dmi'
 	item_icons = list(slot_w_uniform_str = 'mods/_fd/fd_customs/customs/zakterar/zakterar_robot_worn.dmi')
@@ -826,7 +826,7 @@ obj/item/paper/bunker/stuff/crazy
 	icon_state = null
 	item_state = null
 
-	mouse_opacity = TRUE
+	mouse_opacity = FALSE
 
 /datum/job/submap/bunker/perci
 	title = "Percival Endsley"
@@ -836,32 +836,10 @@ obj/item/paper/bunker/stuff/crazy
 /datum/job/submap/bunker/perci/post_equip_rank(mob/living/person, alt_title)
 	. = ..()
 
-	for(var/obj/item/organ/external/E in person.contents)
-		E.robotize("Pure Improvisation", FALSE, FALSE, TRUE)
-
 	person.max_simple_health = 200
 	person.simple_health = 200
 
 	person.simple_armor_natural = 5
-
-/mob/living/carbon/human/proc/perci_fix()
-	for(var/obj/item/organ/external/E in contents)
-		E.robotize("Pure Improvisation", FALSE, FALSE, TRUE)
-
-	if(simple_combat_on)
-		simple_health_calculation(-max_simple_health, 0, 0, 0)
-
-		for(var/obj/item/clothing/armor in get_equipped_items())
-			armor.simple_armor_blockchance = armor.simple_armor_blockchance_max
-
-		if(get_status_effect(/datum/simple_status/hardcrit))
-			stabilized = TRUE
-			remove_status_effect(/datum/simple_status/hardcrit)
-
-		for(var/datum/simple_status/effects in status_effects)
-			if(effects.positive_effect)
-				continue
-			remove_status_effect(effects)
 
 /singleton/hierarchy/outfit/bunker/perci
 	name = "Percival Endsley"

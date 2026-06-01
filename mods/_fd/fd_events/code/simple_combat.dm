@@ -622,12 +622,17 @@
 
 	if(simple_combat_on) // Мы в простом режиме?
 
-// БАФФ АФТИКА
+// БАФФЫ ДАМАГА
 		if(source && isliving(source))
 			var/mob/living/L = source
 			if(L.get_status_effect(/datum/simple_status/attack_damage_buff))
 				amount += 10
-// БАФФ АФТИКА
+
+			if(L.get_status_effect(/datum/simple_status/invisibility))
+				amount += 20
+				L.remove_status_effect(/datum/simple_status/invisibility)
+
+// БАФФЫ ДАМАГА
 
 		if(should_block) // Должны ли мы попытаться заблокировать входящий урон?
 			amount = clamp(amount - simple_armor_natural, 0, amount) // Если ДА, то сначала вычтем из урона наш натуральный показатель брони, привязанный к мобу
@@ -649,7 +654,8 @@
 			simple_health = clamp(simple_health - amount, 0, max_simple_health)
 
 		if(amount > 0) // Урон выше чем ноль?
-			regen_period = base_regen_period // Стопорим регенерацию на некоторое время
+			if(!get_status_effect(/datum/simple_status/adrenaline))
+				regen_period = base_regen_period // Стопорим регенерацию на некоторое время
 
 			overlay_fullscreen("damage",/obj/screen/fullscreen/simple_damage)
 
@@ -664,6 +670,9 @@
 				var/datum/simple_status/shielded/S = get_status_effect(/datum/simple_status/shielded)
 				S.amount = clamp(S.amount - 2, 0, S.amount_max)
 				new /obj/temp_visual/discharge(src.loc)
+
+			if(get_status_effect(/datum/simple_status/invisibility))
+				remove_status_effect(/datum/simple_status/invisibility)
 
 			if(source)
 				bloodyness += 2
@@ -699,6 +708,9 @@
 				var/datum/simple_status/shielded/S = get_status_effect(/datum/simple_status/shielded)
 				S.amount = clamp(S.amount - 1, 0, S.amount_max)
 				new /obj/temp_visual/discharge(src.loc)
+
+			if(get_status_effect(/datum/simple_status/invisibility))
+				remove_status_effect(/datum/simple_status/invisibility)
 
 			if(add_effect && effect_apply_anyway) // Если эффект накладывается даже без необходимости пробития
 				add_status_effect(add_effect, effect_duration)
@@ -1096,6 +1108,8 @@
 			base_regen_period = 2
 			regen_for = 5
 
+			add_status_effect(/datum/simple_status/adrenaline)
+
 			playsound(src, 'sound/effects/refill.ogg', 50)
 			addtimer(new Callback(src, PROC_REF(reset_adrenaline)), 15 SECONDS)
 
@@ -1118,6 +1132,8 @@
 			H.base_regen_period = 2
 			H.regen_for = 5
 
+			H.add_status_effect(/datum/simple_status/adrenaline)
+
 			playsound(H, 'sound/effects/refill.ogg', 50)
 			addtimer(new Callback(H, TYPE_PROC_REF(/mob/living, reset_adrenaline)), 1 MINUTE)
 
@@ -1129,6 +1145,7 @@
 			return FALSE
 
 /mob/living/proc/reset_adrenaline()
+	remove_status_effect(/datum/simple_status/adrenaline)
 	base_regen_period = initial(base_regen_period)
 	regen_for = initial(regen_for)
 

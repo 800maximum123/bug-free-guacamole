@@ -39,6 +39,9 @@
 /mob/living/carbon/human/machine/Initialize(mapload)
 	. = ..(mapload, SPECIES_IPC)
 
+/mob/living/carbon/human/machine_perci/Initialize(mapload)
+	. = ..(mapload, SPECIES_PERCI)
+
 /mob/living/carbon/human/nabber/Initialize(mapload)
 	pulling_punches = TRUE
 	. = ..(mapload, SPECIES_NABBER)
