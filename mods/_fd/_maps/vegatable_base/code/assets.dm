@@ -483,8 +483,8 @@
 /mob/living/simple_animal/hostile/terra/grabber/death(gibbed, deathmessage, show_dead_message)
 	. = ..()
 
-	natural_weapon.clawed_time_current = 0
-
-	remove_status_effect(/datum/simple_status/fixation)
-	natural_weapon.clawed.remove_status_effect(/datum/simple_status/fixation)
-	natural_weapon.clawed = null
+	if(natural_weapon.clawed)
+		natural_weapon.clawed_time_current = 0
+		remove_status_effect(/datum/simple_status/fixation)
+		natural_weapon.clawed.remove_status_effect(/datum/simple_status/fixation)
+		natural_weapon.clawed = null
