@@ -11,6 +11,7 @@ GLOBAL_LIST_EMPTY(templates_cache)
 
 	var/list/mob/living/carbon/human/occupants
 	var/obj/effect/vehicle_entrance/entrance
+	var/obj/effect/vehicle_entrance_driver/driver_entrance
 	var/obj/vehicles/large/vehicle
 	var/turf/middle_turf
 	var/area/area
@@ -50,18 +51,27 @@ GLOBAL_LIST_EMPTY(templates_cache)
 		entrance.id = id
 		break
 
+	for(var/obj/structure/vehicledoor_driver/E in area)
+		E.id = id
+		E.interior = src
+
+	for(var/obj/effect/vehicle_entrance_driver/E in area)
+		driver_entrance = E
+		driver_entrance.id = id
+		break
+
 	for(var/obj/structure/vehicledoor/E in area)
 		E.id = id
 		E.interior = src
+
+	for(var/obj/structure/vehiclewindow/W in area)
+		W.vehicle = new_vehicle
 
 	vehicle = new_vehicle
 	if(!vehicle)
 		return
 
 	GLOB.vehicle_interiors += src
-
-/obj/effect/vehicle_entrance
-	var/id
 
 /obj/vehicles/large
 	var/datum/vehicle_interior/interior = null
@@ -77,18 +87,28 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	interior = new(interior_template, src)
 
 /obj/vehicles/large/proc/move_to_interior(atom/movable/user, puller)
+	var/is_driver = FALSE
+	if(user in get_occupants_in_position(VP_DRIVER) && !interior.driver_entrance)
+		to_chat(user, SPAN_WARNING("The [src]'s cockpit doesn't have a way into interiors!"))
+		return
+	else if(user in get_occupants_in_position(VP_DRIVER))
+		is_driver = TRUE
+
 	if(user == puller)
 		visible_message(SPAN_NOTICE("[user] enters the interior of [src]."))
 	else
 		visible_message(SPAN_NOTICE("[puller] puts [user] into interior of \the [src]."))
 	to_chat(user, SPAN_NOTICE("You are now in the interior of [src]."))
-	playsound(src, null, 150, 1, 5)
+	playsound(src, 'mods/_fd/multitile_vehicles/sounds/enter.ogg', 50, TRUE)
 
 	if(!interior?.entrance)
 		to_chat(user, SPAN_OCCULT("or not."))
 		return
 
-	user.forceMove(get_turf(interior.entrance))
+	if(is_driver)
+		user.forceMove(get_turf(interior.driver_entrance))
+	else
+		user.forceMove(get_turf(interior.entrance))
 	occupants[user] = VP_INTERIOR
 
 	return TRUE
@@ -103,6 +123,18 @@ GLOBAL_LIST_EMPTY(templates_cache)
 
 	return TRUE
 
+/obj/vehicles/large/proc/look_in_interior(mob/user)
+	if(!interior || !user.client || !interior.driver_entrance)
+		to_chat(user, SPAN_INFO("You can't look inside the interior of [src]."))
+		return
+
+	if(user.client.eye == interior.driver_entrance)
+		user.reset_view()
+		to_chat(user, SPAN_INFO("You stop looking inside the interior."))
+		return
+	to_chat(user, SPAN_INFO("You look inside the interior..."))
+	user.client.perspective = EYE_PERSPECTIVE
+	user.client.eye = interior.driver_entrance
 
 /obj/vehicles/large/enter_as_position(user, position, mob/puller)
 	if(position == VP_INTERIOR)
@@ -111,6 +143,7 @@ GLOBAL_LIST_EMPTY(templates_cache)
 		return move_to_interior(user, puller)
 	return ..()
 
+// Fluff wall
 /obj/structure/vehiclewall
 	name = "vehicle wall"
 	icon = 'mods/_fd/multitile_vehicles/icons/walls.dmi'
@@ -123,8 +156,10 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	fragile = FALSE
 	anchored = TRUE
 
+// DOORS
 /obj/structure/vehicledoor
 	name = "vehicle door"
+	desc = "A door to get in and out of the vehicle."
 	icon = 'mods/_fd/multitile_vehicles/icons/walls.dmi'
 	icon_state = "ambulancedoor"
 
@@ -139,7 +174,6 @@ GLOBAL_LIST_EMPTY(templates_cache)
 
 	atmos_canpass = CANPASS_DENSITY
 
-// ;(
 /obj/structure/vehicledoor/Move()
 	return
 
@@ -159,14 +193,103 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	else
 		target.forceMove(interior.vehicle.pick_valid_exit_loc())
 
+/obj/effect/vehicle_entrance
+	alpha = 0
+	var/id
+
+// DOORS TO THE DRIVER CABIN
+/obj/structure/vehicledoor_driver
+	name = "driver vehicle door"
+	desc = "A door to the driver's cabin."
+	icon = 'icons/obj/doors/station/door.dmi'
+	icon_state = "preview"
+
+	layer = ABOVE_HUMAN_LAYER
+
+	density = TRUE
+	opacity = TRUE
+	anchored = TRUE
+
+	var/id
+	var/datum/vehicle_interior/interior = null
+
+	atmos_canpass = CANPASS_DENSITY
+
+/obj/structure/vehicledoor_driver/Move()
+	return
+
+/obj/structure/vehicledoor_driver/forceMove(atom/dest)
+	return
+
+/obj/structure/vehicledoor_driver/attack_hand(mob/user)
+	if(interior.vehicle.loc == null)
+		to_chat(user, "\The [src] is locked.")
+		return
+
+	if(length(interior.vehicle.get_occupants_in_position(VP_DRIVER)) > 0)
+		to_chat(user, "\The driver's cabin is occupied.")
+		return
+
+	interior.vehicle.enter_as_position(user, VP_DRIVER, user)
+
+/obj/effect/vehicle_entrance_driver
+	alpha = 0
+	var/id
+
+// YOU CLICK ON IT AND SEE THE OUTSIDE WOW
+/obj/structure/vehiclewindow
+	name = "vehicle window"
+	desc = "A window to know where the hell we are going."
+	icon = 'mods/_fd/multitile_vehicles/icons/windows.dmi'
+	icon_state = "apc_window"
+
+	layer = ABOVE_HUMAN_LAYER
+
+	density = FALSE
+	anchored = TRUE
+
+	var/obj/vehicles/large/vehicle = null
+	var/datum/action/vehicle_action/stop_verb = null
+
+/obj/structure/vehiclewindow/Initialize()
+	. = ..()
+	stop_verb = list(new /datum/action/vehicle_action/stop_looking_outside(src))
+
+/obj/structure/vehiclewindow/attack_hand(mob/user)
+	. = ..()
+	look_outside(user)
+
+/obj/structure/vehiclewindow/examine(mob/user)
+	. = ..()
+	look_outside(user)
+
+/obj/structure/vehiclewindow/proc/look_outside(mob/user)
+	if(!vehicle || !user.client || !stop_verb || !istype(user, /mob/living))
+		return
+
+	visible_message(SPAN_NOTICE("[user] looks outside the window of [src]."))
+	to_chat(user, SPAN_INFO("You look outside the window..."))
+	user.client.perspective = EYE_PERSPECTIVE
+	user.client.eye = vehicle
+	stop_verb.Grant(user)
+
+/obj/structure/vehiclewindow/proc/stop_looking_outside(mob/user)
+	to_chat(user, SPAN_INFO("You stop looking outside the window."))
+	user.reset_view()
+	stop_verb.Remove(user)
+
 /obj/structure/vehicledoor/airlock
 	icon = 'icons/obj/doors/station/door.dmi'
 	icon_state = "preview"
 
 /area/interior
-	name = "interior"
+	name = "vehicle interior"
 	dynamic_lighting = 1
 	requires_power = 0
+	forced_ambience = list('mods/_fd/multitile_vehicles/sounds/working.ogg')
+	ambience = null
+	sound_env = SMALL_ENCLOSED
+	base_turf = /turf/simulated/floor/plating
 
 /area/interiors_spawn
 	name = "interiors spawn"

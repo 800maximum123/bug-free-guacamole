@@ -69,8 +69,18 @@
 		return
 
 	if(!active)
-		active = TRUE
+		activate()
 		to_chat(user, SPAN_NOTICE("You turned the engine ingnition key."))
 	else
-		active = FALSE
+		deactivate()
 		to_chat(user, SPAN_NOTICE("You stop the engine."))
+
+/obj/vehicles/proc/activate()
+	active = TRUE
+	if(working_sounds)
+		play_working_soundloop()
+
+/obj/vehicles/proc/deactivate()
+	active = FALSE
+	if(working_sounds)
+		stop_working_soundloop()

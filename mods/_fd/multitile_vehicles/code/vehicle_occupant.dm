@@ -8,9 +8,6 @@
 		if(VP_INTERIOR)
 			return "[prefix && "in the"] interiors"
 
-// call before changing position
-/obj/vehicles/proc/handle_position_change(mob/user)
-
 /obj/vehicles/proc/exit_vehicle(mob/user, ignore_incap_check = FALSE, mob/puller = null)
 	if(!(user in get_occupants_in_position(VP_INTERIOR)) && user.loc != src)
 		to_chat(user, SPAN_NOTICE("[puller || "You"] must be inside [src] to exit it."))
@@ -22,12 +19,13 @@
 	if(!loc_moveto)
 		to_chat(user, SPAN_NOTICE("There is no valid location to exit at."))
 		return
-
-	handle_position_change(user)
+	if(user in get_occupants_in_position(VP_DRIVER))
+		add_remove_vehicle_actions(user, TRUE)
 
 	occupants -= user
 	contents -= user
 	user.forceMove(loc_moveto)
+	user.reset_view()
 
 	update_icon()
 
@@ -76,7 +74,7 @@
 		to_chat(msg_recipient, SPAN_WARNING("\The [src] is locked."))
 		return FALSE
 
-	if((position != VP_INTERIOR) && bounds_dist(src, msg_recipient) > 48)
+	if((position != VP_INTERIOR) && bounds_dist(src, msg_recipient) > 48 && !(user in get_occupants_in_position(VP_INTERIOR)))
 		to_chat(msg_recipient, SPAN_WARNING("\The [src] is too far."))
 		return FALSE
 
@@ -99,7 +97,6 @@
 	return TRUE
 
 /obj/vehicles/proc/handle_entering(mob/user, position, puller)
-	handle_position_change(user)
 	occupants |= user
 	//user.client.view = "[round(VIEW_SIZE_X * vehicle_view_modifier)]x[round(VIEW_SIZE_Y * vehicle_view_modifier)]"
 	occupants[user] = position
@@ -111,6 +108,9 @@
 	else
 		visible_message(SPAN_NOTICE("[user] enters the [position_name(position, null)] of [src]."))
 	to_chat(user, SPAN_INFO("You are now [position_name(position)] of [src]."))
+	user.reset_view()
+	if(position == VP_DRIVER)
+		add_remove_vehicle_actions(user, FALSE)
 
 /obj/vehicles/proc/enter_as_position(mob/user, position, mob/puller)
 	if(!check_entering(user, position))

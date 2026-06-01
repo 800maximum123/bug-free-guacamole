@@ -3,14 +3,18 @@
 /obj/vehicles
 	name = "Vehicle"
 	desc = "Vehicle"
-	density = 1
+	density = TRUE
 	layer = ABOVE_HUMAN_LAYER
 
-	var/active = 0
-	var/guns_disabled = 0
-	var/movement_destroyed = 0
+	var/active = FALSE
+	var/guns_disabled = FALSE
+	var/movement_destroyed = FALSE
 	var/block_enter_exit //Set this to block entering/exiting.
-	var/can_traverse_zs = 0
+	var/can_traverse_zs = FALSE
+
+	var/complex_controls = FALSE //If true, requires a mech skill check to move the vehicle.
+	var/driving_skill = SKILL_MECH //What skill is required to drive this?
+	var/skill_level = SKILL_BASIC
 
 	var/next_move_input_at = 0 //When can we send our next movement input?
 	var/moving_x = 0
@@ -22,7 +26,13 @@
 	var/max_speed = 1 //What's the lowest number we can go to in terms of delay?
 	var/acceleration = 1 //By how much does our speed change per input?
 	var/braking_mode = 0 //1 = brakes active, -1 = purposefully reducing drag to slide.
-	var/can_space_move = 0
+	var/can_space_move = FALSE
+
+	var/dangerous_to_people = TRUE //Hitting people hurts them
+	var/dangerous_to_obstacles = TRUE //Hitting obstacles hurts them
+	var/weaken_to_people = 5
+	var/damage_to_people = 30
+	var/damage_to_obstacles = 30
 
 	//Action Button Handling
 	var/list/driver_actions = list()
@@ -35,7 +45,7 @@
 	//Passenger Management
 	var/list/occupants = list(1,1) //Contains all occupants of the vehicle including the driver. First 2 values defines max passengers /gunners. Format: [MobRef] = [PositionName]
 	var/list/passengers = list()
-	var/list/exposed_positions = list(VP_DRIVER = 0.0) //Assoc. Value is the chance of hitting this position
+	var/list/exposed_positions = list(VP_DRIVER = 0) //Assoc. Value is the chance of hitting this position
 
 	//Cargo
 	var/used_cargo_space = 0
@@ -49,8 +59,6 @@
 	var/obj/vehicles/carried_vehicle
 
 	var/vehicle_view_modifier = 1 //The view-size modifier to apply to the occupants of the vehicle.
-	var/move_sound = null
-	var/collision_sound = 'sound/effects/meteorimpact.ogg'
 
 	var/datum/gas_mixture/internal_air = null//If this is new()'d, the vehicle provides air to the occupants.
 	//I would make it require refilling, but that's likely to just be boring tedium for players.
@@ -124,7 +132,7 @@
 	return loc.return_air()
 
 /obj/vehicles/attack_generic( mob/living/simple_animal/attacker, damage, text)
-	visible_message("<span class = 'danger'>[attacker] [text] [src]</span>")
+	visible_message(SPAN_DANGER("[attacker] [text] [src]"))
 	var/pos_to_dam = should_damage_occ()
 	if(!isnull(pos_to_dam))
 		var/list/occ_list = get_occupants_in_position(pos_to_dam)
@@ -173,7 +181,7 @@
 	//check for atmos safe turfs
 	for(var/turf/t in locs)
 		for(var/turf/t_2 in range(1,t))
-			if(!(t_2 in locs) && !istype(t_2,/turf/simulated/open) && t_2.density == 0)
+			if(!(t_2 in locs) && !istype(t_2,/turf/simulated/open) && t_2.density == FALSE)
 				if(locate(/obj/shield) in t_2.contents) //No putting people inside shields.
 					continue
 				if(locate(/obj/structure/wall_frame) in t_2.contents)
@@ -198,20 +206,21 @@
 		return null
 
 	return pick(valid_exit_locs)
-//
+
 /obj/vehicles/Destroy()
 	STOP_PROCESSING(SSobj, src)
+	stop_working_soundloop()
 	kick_occupants()
 	. = ..()
 
 /obj/vehicles/on_death()
-	movement_destroyed = 1
-	guns_disabled = 1
+	movement_destroyed = TRUE
+	guns_disabled = TRUE
 	icon_state = "[initial(icon_state)]_destroyed"
 	fall()
 
 	//get a viable list of places to eject our cargo
-	density = 0
+	density = FALSE
 	var/list/turfs_base = list()
 	for(var/turf/T in src.locs)
 		if(not_turf_contains_dense_objects(T))
@@ -221,7 +230,7 @@
 	var/list/free_turfs = turfs_base.Copy()
 
 	//reset the vehicle density
-	density = 1
+	density = TRUE
 
 	while(cargo_contents.len)
 
@@ -347,9 +356,9 @@
 		else
 			newdir = SOUTH
 	if(anchored)
-		anchored = 0
+		anchored = FALSE
 		. = ..()
-		anchored = 1
+		anchored = TRUE
 	else
 		. = ..()
 
@@ -359,10 +368,18 @@
 	. = ..()
 
 /obj/vehicles/proc/collide_with_obstacle(atom/obstacle)
+	if(speed[1] <= max_speed && speed[2] <= max_speed) // soft bump
+		return
 	if(istype(obstacle,/mob/living))
 		var/mob/living/hit_mob = obstacle
-		playsound(loc,collision_sound,100,0,4)
-		hit_mob.Weaken(2) //No damage for now, let's just knock them over.
+		to_chat(hit_mob, SPAN_DANGER("You are hit by [src]!"))
+		playsound(hit_mob, get_sfx("swing_hit"), 100, TRUE)
+		hit_mob.Weaken(weaken_to_people)
+
+		if(dangerous_to_people)
+			hit_mob.apply_damage(damage_to_people, DAMAGE_BRUTE, UPPER_TORSO)
+			if(speed[1] == min_speed || speed[2] == min_speed)
+				hit_mob.throw_at(get_step(hit_mob, last_move), 2, 3)
 	else
 		next_move_input_at = world.time + min_speed
 		if(last_move == EAST || last_move == WEST)
@@ -372,19 +389,11 @@
 			speed[2] = 0
 			moving_y = 0
 		last_moved_axis = 0
-	visible_message("<span class = 'notice'>[src] collides wth [obstacle]</span>")
-	if(istype(obstacle,/obj/structure/wall_frame))
-		comp_prof.take_component_damage(5)
-		qdel(obstacle)
-	if(istype(obstacle,/obj/structure/grille))
-		comp_prof.take_component_damage(5)
-		qdel(obstacle)
-	if(istype(obstacle,/obj/structure/girder))
-		comp_prof.take_component_damage(5)
-		qdel(obstacle)
-	if(istype(obstacle,/obj/structure/window))
-		comp_prof.take_component_damage(5)
-		qdel(obstacle)
+	visible_message(SPAN_NOTICE("[src] collides with [obstacle]"))
+	play_crash_sound()
+	if(dangerous_to_obstacles)
+		comp_prof.take_component_damage(damage_to_obstacles)
+		obstacle.damage_health(damage_to_obstacles, DAMAGE_BRUTE)
 
 /obj/vehicles/Bump(atom/obstacle)
 	..()
@@ -397,9 +406,9 @@
 		speed[index] = min(speed[index] + drag,0)
 
 /obj/vehicles/proc/movement_loop(speed_index_target = 1)
-	var/noprocstart = 0
+	var/noprocstart = FALSE
 	if(moving_x || moving_y)
-		noprocstart = 1
+		noprocstart = TRUE
 	switch(speed_index_target)
 		if(1)
 			moving_x = 1
@@ -437,9 +446,11 @@
 			if(world.time >= next_move_input_at)
 				last_moved_axis = 0
 			if(move_sound && world.time % 2 == 0)
-				playsound(loc,move_sound,75,0,4)
+				play_move_sound()
 
 /obj/vehicles/bullet_act(obj/item/projectile/P, def_zone)
+	P.on_hit(src, 0, def_zone)
+	. = 0
 	var/pos_to_dam = should_damage_occ()
 	var/mob/mob_to_dam
 	if(movement_destroyed)
@@ -479,7 +490,7 @@
 		return 0
 	next_move_input_at = world.time + max(max_speed,min_speed - (abs(speed[1]) + abs(speed[2])))
 
-	if(!user.skill_check(SKILL_MECH, SKILL_BASIC))
+	if(!user.skill_check(driving_skill, skill_level) && complex_controls)
 		to_chat(user, SPAN_NOTICE("You can't understand how to control [src]!"))
 		return
 	if(occupants[user] != VP_DRIVER)

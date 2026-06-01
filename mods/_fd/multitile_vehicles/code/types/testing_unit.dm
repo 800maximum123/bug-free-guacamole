@@ -4,7 +4,9 @@
 
 	icon = 'mods/_fd/multitile_vehicles/icons/GCPD_Warthog.dmi'
 	icon_state = "Warthog"
-	anchored = 1
+	anchored = TRUE
+
+	complex_controls = TRUE
 
 	bound_height = 64
 	bound_width = 64
@@ -12,7 +14,7 @@
 	comp_prof = /datum/component_profile/warthog
 
 	occupants = list(1,1)
-	exposed_positions = list("driver" = 0,"passenger" = 5)
+	exposed_positions = list("driver" = 5,"passenger" = 5)
 
 	vehicle_size = ITEM_SIZE_VEHICLE
 	capacity_flag = ITEM_SIZE_VEHICLE

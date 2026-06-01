@@ -162,8 +162,8 @@
 		// Simulating an RPG going inside the vehicle and blowing up by causing an explosion inside of it
 		// We spawn it on either of the entrance waypoints
 		var/turf/pierce = get_turf(interior.entrance)
-/*		if(prob(50) && interior.driver_entrance)
-			pierce = get_turf(interior.driver_entrance)*/
+		if(prob(50) && interior.driver_entrance)
+			pierce = get_turf(interior.driver_entrance)
 		cell_explosion(pierce, explosion_power, explosion_falloff)
 		playsound(pierce ,'sound/weapons/rpg_pierce.ogg', 70, FALSE)
 		pierce.visible_message(FONT_LARGE(SPAN_DANGER("[src] COMES THROUGH THE HULL OF [M], OH FUCK!")), FONT_LARGE(SPAN_DANGER("YOU HEARD A LOUD METALLIC PIERCE!")))

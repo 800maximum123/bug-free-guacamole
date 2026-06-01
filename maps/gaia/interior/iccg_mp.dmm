@@ -1,0 +1,183 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/vehicledoor/airlock,
+/turf/simulated/floor/shuttle/black,
+/area/interior)
+"b" = (
+/obj/floor_decal/industrial/outline/red,
+/turf/simulated/floor/shuttle/black,
+/area/interior)
+"f" = (
+/obj/structure/bed/chair/shuttle/red{
+	dir = 8
+	},
+/obj/structure/vehiclewindow{
+	dir = 8;
+	pixel_x = 24
+	},
+/obj/floor_decal/spline/fancy/black{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/darkred,
+/area/interior)
+"o" = (
+/obj/structure/bed/chair/shuttle/red{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/floor_decal/spline/fancy/black{
+	dir = 9
+	},
+/turf/simulated/floor/shuttle/darkred,
+/area/interior)
+"q" = (
+/obj/structure/bed/chair/shuttle/red{
+	dir = 4
+	},
+/obj/structure/vehiclewindow{
+	dir = 4;
+	pixel_x = -24
+	},
+/obj/machinery/light/small,
+/obj/floor_decal/spline/fancy/black{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/darkred,
+/area/interior)
+"s" = (
+/obj/structure/bed/chair/shuttle/red{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/floor_decal/spline/fancy/black{
+	dir = 5
+	},
+/turf/simulated/floor/shuttle/darkred,
+/area/interior)
+"t" = (
+/obj/floor_decal/industrial/loading,
+/obj/effect/vehicle_entrance_driver,
+/turf/simulated/floor/shuttle/black,
+/area/interior)
+"x" = (
+/obj/machinery/hologram/holopad/longrange,
+/obj/floor_decal/industrial/outline/red,
+/turf/simulated/floor/shuttle/black,
+/area/interior)
+"z" = (
+/obj/structure/bed/chair/shuttle/red{
+	dir = 8
+	},
+/obj/structure/vehiclewindow{
+	dir = 8;
+	pixel_x = 24
+	},
+/obj/structure/extinguisher_cabinet{
+	dir = 1;
+	pixel_y = -26
+	},
+/obj/floor_decal/spline/fancy/black{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/darkred,
+/area/interior)
+"A" = (
+/obj/paint/red/dark,
+/turf/simulated/wall/invincible,
+/area/interior)
+"B" = (
+/obj/structure/railing/mapped,
+/obj/structure/closet,
+/turf/simulated/floor/shuttle/black,
+/area/interior)
+"F" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 23;
+	pixel_x = 7
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 23;
+	pixel_x = -7
+	},
+/obj/structure/reagent_dispensers/peppertank{
+	pixel_x = 32
+	},
+/obj/floor_decal/industrial/outline/grey,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/shuttle/black,
+/area/interior)
+"N" = (
+/obj/structure/bed/chair/shuttle/red{
+	dir = 4
+	},
+/obj/structure/vehiclewindow{
+	dir = 4;
+	pixel_x = -24
+	},
+/obj/floor_decal/spline/fancy/black{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/darkred,
+/area/interior)
+"S" = (
+/obj/floor_decal/industrial/loading{
+	dir = 1
+	},
+/obj/effect/vehicle_entrance,
+/turf/simulated/floor/shuttle/black,
+/area/interior)
+"U" = (
+/obj/machinery/flasher,
+/obj/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/shuttle/black,
+/area/interior)
+
+(1,1,1) = {"
+A
+A
+A
+A
+A
+A
+A
+"}
+(2,1,1) = {"
+A
+B
+s
+N
+N
+q
+A
+"}
+(3,1,1) = {"
+a
+t
+b
+U
+x
+S
+a
+"}
+(4,1,1) = {"
+A
+F
+o
+f
+f
+z
+A
+"}
+(5,1,1) = {"
+A
+A
+A
+A
+A
+A
+A
+"}

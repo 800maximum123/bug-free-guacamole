@@ -4,7 +4,9 @@
 
 	icon = 'mods/_fd/multitile_vehicles/icons/glider.dmi'
 	icon_state = "glider"
-	anchored = 1
+	anchored = TRUE
+
+	complex_controls = TRUE
 
 	bound_height = 96
 	bound_width = 96
@@ -12,7 +14,7 @@
 	comp_prof = /datum/component_profile/exploration
 
 	occupants = list(1,1)
-	exposed_positions = list("driver" = 0,"passenger" = 8)
+	exposed_positions = list("driver" = 3,"passenger" = 4)
 
 	vehicle_size = ITEM_SIZE_VEHICLE_LARGE
 	capacity_flag = ITEM_SIZE_VEHICLE_LARGE
