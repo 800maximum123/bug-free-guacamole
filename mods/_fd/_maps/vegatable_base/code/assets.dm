@@ -228,6 +228,9 @@
 	charge_cost = 50
 	max_shots = 20
 
+	self_recharge = 1
+	recharge_time = 20
+
 /obj/item/projectile/energy/anti_terra
 	icon = 'mods/_fd/fd_assets/icons/goons/projectiles.dmi'
 	icon_state = "pulse"
@@ -258,8 +261,6 @@
 		qdel(src)
 
 /obj/item/fd/simple_grenade/attack_hand(mob/user)
-	. = ..()
-
 	if(has_motion_sensor && primed && !motion_sensor_triggered)
 		if(do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
 			alpha = 255
@@ -276,12 +277,13 @@
 			motion_sensor_triggered = FALSE
 		return
 
+	. = ..()
+
 /obj/item/fd/simple_grenade/attack_self(mob/user)
 	. = ..()
 
-	primed = !primed
-
 	if(primed)
+		primed = FALSE
 		life_span = initial(life_span)
 		icon_state = initial(icon_state)
 		maptext = ""
@@ -289,7 +291,8 @@
 		STOP_PROCESSING(SSobj,src)
 		return TRUE
 
-	else
+	if(!primed)
+		primed = TRUE
 		add_filter("active", 1, list("type" = "outline", , "size" =1, "color" = COLOR_WHITE))
 		START_PROCESSING(SSobj,src)
 
@@ -303,10 +306,16 @@
 		return TRUE
 
 /obj/item/fd/simple_grenade/Process()
+
+	if(life_span <= 0)
+		qdel(src)
+
 	if(has_motion_sensor) // это мина?
 		var/list/mob/living/targets = list()
-		for(var/mob/living/L in view(3,src)) // в радиусе трёх тайлов ЗРЕНИЯ есть противник?
+		for(var/mob/living/L in view(1,src)) // в радиусе трёх тайлов ЗРЕНИЯ есть противник?
 			if(L.faction == faction)
+				continue
+			if(L.stat != CONSCIOUS)
 				continue
 			targets += L // добавляем его в лист
 		if(length(targets) && icon_state != active_state) // если в листе есть хоть кто-то и мы ещё не тикаем - пора начинать
@@ -328,9 +337,6 @@
 
 		animate(src, pixel_y = 5, time = 8, easing = SINE_EASING | EASE_IN)
 		animate(pixel_y = 0, time = 3, easing = SINE_EASING | EASE_OUT)
-
-	if(life_span <= 0)
-		qdel(src)
 
 /obj/item/fd/simple_grenade/Destroy()
 
@@ -398,6 +404,7 @@
 	for(var/mob/living/mobik in where_to_check)
 		if(!mobik.simple_combat_on)
 			continue
+		shake_camera_MARINE(mobik, steps = 2, strength = 2, time_per_step = 2)
 		mobik.simple_health_calculation(rand(20,30), 10, 1, 0)
 
 	QDEL_IN(src, 4 SECONDS)
@@ -418,11 +425,13 @@
 	for(var/mob/living/mobik in where_to_check)
 		if(!mobik.simple_combat_on)
 			continue
+
+		shake_camera_MARINE(mobik, steps = 2, strength = 2, time_per_step = 2)
+
 		if(!mobik.robotic)
 			mobik.simple_health_calculation(rand(5,10), 0, 0, 0)
 		else
 			mobik.add_status_effect(/datum/simple_status/discharge, 15 SECONDS)
-			mobik.add_status_effect(/datum/simple_status/fixation/timed, 5 SECONDS)
 
 	QDEL_IN(src, 4 SECONDS)
 
@@ -444,6 +453,7 @@
 			continue
 
 		mobik.add_status_effect(/datum/simple_status/shocked, 10 SECONDS)
+		mobik.add_status_effect(/datum/simple_status/fixation/timed, 5 SECONDS)
 
 	QDEL_IN(src, 4 SECONDS)
 
