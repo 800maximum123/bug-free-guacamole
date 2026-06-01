@@ -260,7 +260,7 @@
 
 /obj/item/storage/box/ammo/heavy_bullpup
 	name = "box of heavy bullpup magazines"
-	startswith = list(/obj/item/ammo_magazine/mil_rifle = 6)
+	startswith = list(/obj/item/ammo_magazine/mil_rifle/heavy = 6)
 
 /obj/item/storage/box/ammo/light_bullpup
 	name = "box of light bullpup magazines"
