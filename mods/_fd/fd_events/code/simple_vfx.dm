@@ -1,3 +1,25 @@
+/obj/effect/danger_area
+	icon = 'icons/turf/overlays.dmi'
+	icon_state = "whiteOverlay"
+	alpha = 0
+
+/obj/effect/danger_area/Initialize(new_loc, new_color, start_time, duration, end_time)
+	. = ..()
+
+	if(!start_time)
+		return INITIALIZE_HINT_QDEL
+
+	color = new_color
+	animate(src, start_time, alpha = 255, easing = CUBIC_EASING | EASE_OUT)
+
+	if(duration != -1)
+		addtimer(new Callback(src, TYPE_PROC_REF(/obj/effect/danger_area, end), end_time), start_time + duration)
+
+/obj/effect/danger_area/proc/end(end_time = 0.2 SECONDS)
+	animate(src, end_time, alpha = 0, easing = SINE_EASING | EASE_IN)
+
+	QDEL_IN(src, end_time)
+
 /obj/effect/simple_combat_particle
 	icon = 'mods/_fd/fd_events/icons/simple_vfx_statuses.dmi'
 	layer = ABOVE_HUMAN_LAYER
@@ -80,6 +102,18 @@
 /obj/effect/simple_combat_particle/overheated/Initialize()
 	SetTransform(0.5)
 	. = ..()
+
+/obj/effect/simple_combat_particle/explosion
+	icon = 'mods/_fd/fd_assets/icons/goons/64x64.dmi'
+	alpha = 255
+	icon_state = "screamstack"
+	pixel_y = -16
+	pixel_x = -16
+
+	layer = ABOVE_HUMAN_LAYER
+
+/obj/effect/simple_combat_particle/animation()
+	QDEL_IN(src, 1.5 SECONDS)
 
 /obj/effect/simple_combat_particle/impact
 	icon = 'mods/_fd/fd_events/icons/simple_vfx_impact.dmi'

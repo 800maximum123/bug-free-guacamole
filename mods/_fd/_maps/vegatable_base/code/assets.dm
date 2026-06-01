@@ -142,7 +142,7 @@
 	density = TRUE
 
 	bound_width = 64
-	var/drawing = "bleh"
+	var/image/drawing
 
 /obj/structure/fd/random_junk/whiteboard/interact_with(mob/living/user)
 
@@ -171,9 +171,11 @@
 			for(var/S in icon_states(icon))
 				drawings[S] = icon(icon, S)
 
-			drawing = show_radial_menu(user, src, drawings, radius = 128, require_near = TRUE)
-			if(!drawing)
-				drawing = "overlay_1"
+			var/drawing_state = show_radial_menu(user, src, drawings, radius = 128, require_near = TRUE)
+			if(!drawing_state)
+				drawing_state = "overlay_1"
+
+			drawing = image(icon, icon_state = "drawing_state")
 
 			playsound(user, pick('sound/effects/pen1.ogg','sound/effects/pen2.ogg'), 10)
 			AddOverlays(drawing)
@@ -235,6 +237,215 @@
 	status_timer_to_add = 10 SECONDS
 	status_ignore_armor = TRUE
 	step_delay = 0.35
+
+/obj/item/fd/simple_grenade
+	name = "grenade"
+	icon_state = "igniter"
+	var/active_state = "igniter_light"
+	icon = 'mods/_fd/fd_assets/icons/goons/device.dmi'
+
+	var/primed = FALSE
+	var/life_span = 5
+	var/grenade_type = /obj/effect/simple_grenade/basic
+
+	var/has_motion_sensor = FALSE
+	var/motion_sensor_triggered = FALSE
+	var/faction = "neutral"
+
+/obj/item/fd/simple_grenade/Initialize()
+	. = ..()
+	if(life_span <= 0)
+		qdel(src)
+
+/obj/item/fd/simple_grenade/attack_hand(mob/user)
+	. = ..()
+
+	if(has_motion_sensor && primed && !motion_sensor_triggered)
+		if(do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
+			alpha = 255
+			anchored = FALSE
+			user.put_in_active_hand(src)
+
+			primed = FALSE
+
+			life_span = initial(life_span)
+			icon_state = initial(icon_state)
+			maptext = ""
+			remove_filter("active")
+			STOP_PROCESSING(SSobj,src)
+			motion_sensor_triggered = FALSE
+		return
+
+/obj/item/fd/simple_grenade/attack_self(mob/user)
+	. = ..()
+
+	primed = !primed
+
+	if(primed)
+		life_span = initial(life_span)
+		icon_state = initial(icon_state)
+		maptext = ""
+		remove_filter("active")
+		STOP_PROCESSING(SSobj,src)
+		return TRUE
+
+	else
+		add_filter("active", 1, list("type" = "outline", , "size" =1, "color" = COLOR_WHITE))
+		START_PROCESSING(SSobj,src)
+
+		if(has_motion_sensor)
+			user.drop_from_inventory(src)
+			alpha = 100
+			anchored = TRUE
+			faction = user.faction
+		else
+			icon_state = active_state
+		return TRUE
+
+/obj/item/fd/simple_grenade/Process()
+	if(has_motion_sensor) // это мина?
+		var/list/mob/living/targets = list()
+		for(var/mob/living/L in view(3,src)) // в радиусе трёх тайлов ЗРЕНИЯ есть противник?
+			if(L.faction == faction)
+				continue
+			targets += L // добавляем его в лист
+		if(length(targets) && icon_state != active_state) // если в листе есть хоть кто-то и мы ещё не тикаем - пора начинать
+			animate(src, alpha = 255, time = 5, easing = LINEAR_EASING)
+			icon_state = active_state
+			motion_sensor_triggered = TRUE
+
+		if(primed && motion_sensor_triggered)
+
+			life_span -= 1
+			maptext = STYLE_SMALLFONTS_OUTLINE("[life_span]", 7, COLOR_WHITE, COLOR_BLACK)
+
+			animate(src, pixel_y = 5, time = 8, easing = SINE_EASING | EASE_IN)
+			animate(pixel_y = 0, time = 3, easing = SINE_EASING | EASE_OUT)
+
+	else
+		life_span -= 1
+		maptext = STYLE_SMALLFONTS_OUTLINE("[life_span]", 7, COLOR_WHITE, COLOR_BLACK)
+
+		animate(src, pixel_y = 5, time = 8, easing = SINE_EASING | EASE_IN)
+		animate(pixel_y = 0, time = 3, easing = SINE_EASING | EASE_OUT)
+
+	if(life_span <= 0)
+		qdel(src)
+
+/obj/item/fd/simple_grenade/Destroy()
+
+	if(isturf(src.loc))
+		new grenade_type(get_turf(src))
+
+	if(ismob(src.loc))
+		var/mob/living/L = loc
+		new grenade_type(get_turf(L))
+	. = ..()
+
+/obj/item/fd/simple_grenade/anti_terra
+	name = "grenade"
+	icon_state = "motion0"
+	active_state = "motion1"
+
+	grenade_type = /obj/effect/simple_grenade/anti_terra
+
+/obj/item/fd/simple_grenade/shock_mine
+	name = "mine"
+	icon_state = "powersink0"
+	active_state = "powersink1"
+
+	life_span = 1
+	grenade_type = /obj/effect/simple_grenade/shock
+
+	has_motion_sensor = TRUE
+
+/obj/effect/simple_grenade
+	icon = null
+	var/trigger_delay = 0.3 SECONDS
+	var/splash_zone = 1
+	var/zone_color = COLOR_WHITE
+	var/explosion_sound = "explosion"
+
+/obj/effect/simple_grenade/Initialize()
+	. = ..()
+	bomb_trigger()
+
+/obj/effect/simple_grenade/proc/bomb_trigger()
+	set waitfor = FALSE
+
+	playsound(get_turf(src), explosion_sound, 100, TRUE, falloff = 2)
+
+	for(var/floor in RANGE_TURFS(src, splash_zone))
+		new /obj/effect/danger_area(floor, zone_color, trigger_delay)
+		bomb_effect(floor)
+
+/obj/effect/simple_grenade/proc/bomb_effect(turf/where_to_check)
+	return
+
+/obj/effect/simple_grenade/basic
+	splash_zone = 2
+	zone_color = COLOR_RED
+
+/obj/effect/simple_grenade/basic/bomb_trigger()
+	new /obj/effect/simple_combat_particle/explosion(get_turf(src))
+	. = ..()
+
+/obj/effect/simple_grenade/basic/bomb_effect(turf/where_to_check)
+	set waitfor = FALSE
+
+	sleep(trigger_delay)
+
+	for(var/mob/living/mobik in where_to_check)
+		if(!mobik.simple_combat_on)
+			continue
+		mobik.simple_health_calculation(rand(20,30), 10, 1, 0)
+
+	QDEL_IN(src, 4 SECONDS)
+
+/obj/effect/simple_grenade/anti_terra
+	splash_zone = 1
+	zone_color = COLOR_CYAN
+
+/obj/effect/simple_grenade/anti_terra/bomb_trigger()
+	new /obj/effect/simple_combat_particle/explosion(get_turf(src))
+	. = ..()
+
+/obj/effect/simple_grenade/anti_terra/bomb_effect(turf/where_to_check)
+	set waitfor = FALSE
+
+	sleep(trigger_delay)
+
+	for(var/mob/living/mobik in where_to_check)
+		if(!mobik.simple_combat_on)
+			continue
+		if(!mobik.robotic)
+			mobik.simple_health_calculation(rand(5,10), 0, 0, 0)
+		else
+			mobik.add_status_effect(/datum/simple_status/discharge, 15 SECONDS)
+			mobik.add_status_effect(/datum/simple_status/fixation/timed, 5 SECONDS)
+
+	QDEL_IN(src, 4 SECONDS)
+
+/obj/effect/simple_grenade/shock
+	splash_zone = 2
+	zone_color = COLOR_YELLOW
+
+/obj/effect/simple_grenade/shock/bomb_trigger()
+	new /obj/effect/simple_combat_particle/explosion(get_turf(src))
+	. = ..()
+
+/obj/effect/simple_grenade/shock/bomb_effect(turf/where_to_check)
+	set waitfor = FALSE
+
+	sleep(trigger_delay)
+
+	for(var/mob/living/mobik in where_to_check)
+		if(!mobik.simple_combat_on)
+			continue
+
+		mobik.add_status_effect(/datum/simple_status/shocked, 10 SECONDS)
+
+	QDEL_IN(src, 4 SECONDS)
 
 /mob/living
 	var/robotic = FALSE
