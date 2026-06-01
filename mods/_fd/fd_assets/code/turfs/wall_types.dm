@@ -9,7 +9,7 @@
 
 /turf/simulated/wall/invincible/Initialize()
 	. = ..()
-	desc = "A huge chunk of metal used to separate rooms. This one looks very durable."
+	desc = "A wall. You cannot pass through this one."
 
 /turf/simulated/wall/invincible/bullet_act()
 	return
@@ -36,3 +36,134 @@
 
 /turf/simulated/wall/invincible/prepainted
 	paint_color = COLOR_GUNMETAL
+
+// CM COOL BEAUTIFUL WALLS //
+
+/turf/simulated/wall/invincible/blend
+	icon = 'mods/_fd/fd_assets/icons/turfs/wall/strata_jungle.dmi'
+	icon_state = "strata_jungle"
+	floor_type = /turf/simulated/floor/exoplanet/fd/drought
+	mouse_opacity = MOUSE_OPACITY_NORMAL
+
+/turf/simulated/wall/invincible/blend/update_material()
+	if(!material)
+		material = SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
+	update_connections(1)
+	update_icon()
+	calculate_damage_data()
+
+/turf/simulated/wall/invincible/blend/set_material(material/newmaterial, material/newrmaterial)
+	material = newmaterial
+	reinf_material = newrmaterial
+	update_material()
+
+/turf/simulated/wall/invincible/blend/on_update_icon()
+	queue_ao(FALSE)
+
+	if(!material)
+		return
+
+	if(!damage_overlays[1]) //list hasn't been populated; note that it is always of fixed length, so we must check for membership.
+		generate_overlays()
+
+	ClearOverlays()
+
+	var/image/I
+	var/base_color = paint_color
+	for(var/i = 1 to 4)
+		I = image(initial(icon), "[initial(icon_state)][wall_connections[i]]", dir = SHIFTL(1, i - 1))
+		I.color = base_color
+		AddOverlays(I)
+
+	if(get_damage_value() != 0)
+		var/overlay = round((get_damage_percentage() / 100) * length(damage_overlays)) + 1
+		overlay = clamp(overlay, 1, length(damage_overlays))
+
+		AddOverlays(damage_overlays[overlay])
+	return
+
+/turf/simulated/wall/invincible/blend/generate_overlays()
+	var/alpha_inc = 256 / length(damage_overlays)
+
+	for(var/i = 1; i <= length(damage_overlays); i++)
+		var/image/img = image(icon = 'icons/turf/walls.dmi', icon_state = "overlay_damage")
+		img.blend_mode = BLEND_MULTIPLY
+		img.alpha = (i * alpha_inc) - 1
+		damage_overlays[i] = img
+
+/turf/simulated/wall/invincible/blend/update_connections(propagate = 0)
+	if(!material)
+		return
+	var/list/wall_dirs = list()
+	var/list/other_dirs = list()
+
+	for(var/turf/simulated/wall/W in orange(src, 1))
+		switch(can_join_with(W))
+			if(0)
+				continue
+			if(1)
+				wall_dirs += get_dir(src, W)
+			if(2)
+				wall_dirs += get_dir(src, W)
+				other_dirs += get_dir(src, W)
+		if(propagate)
+			W.update_connections()
+			W.update_icon()
+
+	for(var/turf/T in orange(src, 1))
+		var/success = 0
+		for(var/obj/O in T)
+			for(var/b_type in blend_objects)
+				if(istype(O, b_type))
+					success = 1
+				for(var/nb_type in noblend_objects)
+					if(istype(O, nb_type))
+						success = 0
+				if(success)
+					break
+			if(success)
+				break
+
+		if(success)
+			wall_dirs += get_dir(src, T)
+			if(get_dir(src, T) in GLOB.cardinal)
+				other_dirs += get_dir(src, T)
+
+	wall_connections = dirs_to_corner_states(wall_dirs)
+	other_connections = dirs_to_corner_states(other_dirs)
+
+/turf/simulated/wall/invincible/blend/can_join_with(turf/simulated/wall/W)
+	if(material && W.material && material.wall_icon_base == W.material.wall_icon_base)
+		if((reinf_material && W.reinf_material) || (!reinf_material && !W.reinf_material))
+			return 1
+		return 2
+	for(var/wb_type in blend_turfs)
+		if(istype(W, wb_type))
+			return 2
+	return 0
+
+// Walls here
+
+/turf/simulated/wall/invincible/blend/jungle
+	icon = 'mods/_fd/fd_assets/icons/turfs/wall/strata_jungle.dmi'
+	icon_state = "strata_jungle"
+	floor_type = /turf/simulated/floor/exoplanet/fd/grass
+
+/turf/simulated/wall/invincible/blend/cave
+	icon = 'mods/_fd/fd_assets/icons/turfs/wall/cave.dmi'
+	icon_state = "cavewall"
+	floor_type = /turf/simulated/floor/exoplanet/fd/drought
+
+/turf/simulated/wall/invincible/blend/cave/gray
+	color = "#3d3a37"
+
+/turf/simulated/wall/invincible/blend/cave/brown
+	color = "#544332"
+
+/turf/simulated/wall/invincible/blend/rock
+	icon = 'mods/_fd/fd_assets/icons/turfs/wall/kutjevo.dmi'
+	icon_state = "rock_border"
+	floor_type = /turf/simulated/floor/exoplanet/fd/drought
+
+/turf/simulated/wall/invincible/blend/rock/dark
+	icon = 'mods/_fd/fd_assets/icons/turfs/wall/kutjevorockdark.dmi'
