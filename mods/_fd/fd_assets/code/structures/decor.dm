@@ -601,3 +601,48 @@
 
 	throwpass = TRUE
 	atom_flags = ATOM_FLAG_CLIMBABLE
+
+/obj/random/flora/trk17
+	name = "random TRK-17 flora 50%"
+	desc = "This is a random flora spawn"
+	icon = 'icons/obj/flora/ausflora.dmi'
+	icon_state = "firstbush_1"
+	spawn_nothing_percentage = 50
+
+/obj/random/flora/trk17/spawn_choices()
+	return list(
+				/obj/structure/flora/ausbushes/brflowers,
+				/obj/structure/flora/ausbushes/fullgrass,
+				/obj/structure/flora/ausbushes/grassybush,
+				/obj/structure/flora/ausbushes/lavendergrass,
+				/obj/structure/flora/ausbushes/ppflowers,
+				/obj/structure/flora/ausbushes/sparsegrass,
+				/obj/structure/flora/ausbushes/ywflowers,
+				/obj/structure/flora/ausbushes/genericbush,
+				/obj/structure/flora/ausbushes/sunnybush,
+				/obj/structure/flora/jungle/bush,
+				/obj/structure/flora/trk17_simple,
+				/obj/structure/flora/trk17_regrowing/coffee,
+				/obj/structure/flora/trk17_regrowing/cucumber,
+				/obj/structure/flora/trk17_regrowing/hot_dylov,
+				/obj/structure/flora/trk17_regrowing/ice_tricord,
+				/obj/structure/flora/trk17_regrowing/sugar,
+				/obj/structure/flora/tall,
+				/obj/structure/flora/tall/second,
+				/obj/structure/flora/tall/third,
+				/obj/structure/flora/tall/fourth)
+
+/obj/random/flora/trk17/per20
+	name = "random TRK-17 flora 20%"
+	icon_state = "palebush_1"
+	spawn_nothing_percentage = 80
+
+/obj/random/flora/trk17/per80
+	name = "random TRK-17 flora 80%"
+	icon_state = "pointybush_1"
+	spawn_nothing_percentage = 20
+
+/obj/random/flora/trk17/per95
+	name = "random TRK-17 flora 95%"
+	icon_state = "fullgrass_3"
+	spawn_nothing_percentage = 5
