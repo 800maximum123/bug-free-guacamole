@@ -15,7 +15,7 @@
 	reagent_state = LIQUID
 	color = "#ff0000"
 	metabolism = REM
-	overdose = 15
+	overdose = 5
 	should_admin_log = TRUE
 	high_message_list = list(
 		"Hello? You hear me?",
@@ -39,7 +39,7 @@
 	)
 	var/static/list/overdose_messages = list(
 		"NOTHING CAN STOP YOU",
-		"JUST STOP HIM",
+		"JUST KILL HIM",
 		"YOU NEED US, WE NEED YOU",
 		"THAT IS NOT FOR YOU",
 		"IT RUNS IT RUNS IT RUNS IT RUNS",
@@ -58,7 +58,7 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/coral_user = M
 		if(!(locate(/obj/item/organ/internal/augment/ibis) in coral_user.internal_organs) && prob(5))
-			coral_user.vomit(1, 1)
+			coral_user.vomit(1, 2)
 	if(prob(0.1) && ishuman(M))
 		var/mob/living/carbon/human/H = M
 		H.seizure()
@@ -75,11 +75,14 @@
 
 /datum/reagent/drugs/coral/overdose(mob/living/carbon/M)
 	..()
+	M.adjustBrainLoss(rand(2, 4))
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(isnull(original_eye_color))
 			original_eye_color = H.eye_color
 		H.change_eye_color(255, 0, 0)
+	if(prob(10))
+		to_chat(M, SPAN_DANGER(SPAN_SIZE(rand(2,4), pick(overdose_messages))))
 	// НА БУДУЩЕЕ
 	// CДЕЛАТЬ ПОЯВЛЕНИЕ ВООБРАЖАЕМОГО ДРУГА
 
