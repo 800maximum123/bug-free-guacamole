@@ -4171,6 +4171,21 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/fort_manticore/rooms/manticora)
+"lI" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/floor_decal/hull{
+	dir = 1
+	},
+/obj/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/item/seeds/bluespacetomatoseed{
+	pixel_x = -8;
+	pixel_y = -4
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/ship/bomber/upper_deck/engine_east)
 "lJ" = (
 /obj/floor_decal/hull{
 	dir = 4
@@ -6615,6 +6630,14 @@
 /obj/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/item/seeds/bluespacetomatoseed{
+	pixel_x = 5;
+	pixel_y = -3
+	},
+/obj/item/seeds/bluespacetomatoseed{
+	pixel_x = -7;
+	pixel_y = -4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/bomber/upper_deck/engine_east)
 "ty" = (
@@ -7692,6 +7715,11 @@
 /area/fort_manticore/rooms/cube/fl2)
 "wz" = (
 /obj/structure/catwalk,
+/obj/item/storage/lockbox/coral{
+	pixel_x = -38;
+	pixel_y = 18;
+	layer = 2.20
+	},
 /turf/simulated/floor/plating,
 /area/ship/bomber/main_deck/cargo)
 "wA" = (
@@ -10431,18 +10459,6 @@
 /obj/structure/table/steel,
 /obj/structure/catwalk,
 /obj/decal/cleanable/dirt,
-/obj/item/reagent_containers/syringe/coral{
-	pixel_x = 2;
-	pixel_y = -6
-	},
-/obj/item/reagent_containers/syringe/coral{
-	pixel_x = -4;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/syringe/coral{
-	pixel_x = 7;
-	pixel_y = 8
-	},
 /turf/simulated/floor/plating,
 /area/fort_manticore/rooms/emmy)
 "EW" = (
@@ -13598,7 +13614,9 @@
 	anchored = 1;
 	desc = "A man-portable minigun lacking any branding on it. It fires small 7mm projectiles at an obscene rate of fire. Six barrels of fun. IT'S FCKNG BROKEN";
 	jam_chance = 1000;
-	name = "Broken Vulcan"
+	name = "Broken Vulcan";
+	is_jammed = 1;
+	starts_loaded = 0
 	},
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/blood/oil/streak,
@@ -81294,7 +81312,7 @@ xU
 WU
 wE
 wr
-kr
+lI
 Pe
 vO
 kk

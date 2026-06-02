@@ -96,3 +96,13 @@
 	reagents.add_reagent(/datum/reagent/drugs/coral, 15)
 	mode = SYRINGE_INJECT
 	update_icon()
+
+
+/obj/item/storage/lockbox/coral
+	name = "Biological Hazard"
+	desc = "You have a bad feeling about opening this. Maybe throw this away?"
+	req_access = list()
+	startswith = list(
+		/obj/item/reagent_containers/syringe/coral = 3,
+		/obj/item/reagent_containers/syringe = 1,
+	)

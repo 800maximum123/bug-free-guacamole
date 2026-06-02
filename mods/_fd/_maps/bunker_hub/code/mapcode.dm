@@ -169,6 +169,8 @@
 
 /area/bunker/lower/corridos
 	name = "Bunker - Corridors"
+	unbreathable = 1
+	icon_state = "green"
 
 /area/bunker/lower/kpp1
 	name = "Bunker - Stairs KPP"
@@ -190,10 +192,14 @@
 //Монорельс
 /area/bunker/lower/monorail
 	name = "Bunker - Monorail"
+	unbreathable = 1
+	icon_state = "green"
 
 //Мед крыло
 /area/bunker/lower/med
 	name = "Bunker - Medical Wing"
+	unbreathable = 1
+	icon_state = "green"
 
 /area/bunker/lower/med/cryo
 	name = "Bunker - Cryocell"
@@ -220,6 +226,8 @@
 
 /area/bunker/lower/lab
 	name = "Bunker - Laboratory"
+	unbreathable = 1
+	icon_state = "green"
 
 /area/bunker/lower/lab/office
 	name = "Bunker - Office"
@@ -229,6 +237,8 @@
 
 /area/bunker/lower/lab/virology
 	name = "Bunker - Virology Lab"
+	unbreathable = 1
+	icon_state = ""
 
 /area/bunker/lower/lab/bslab
 	name = "Bunker - Hydroponics Lab"
