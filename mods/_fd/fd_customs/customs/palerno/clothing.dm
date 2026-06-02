@@ -17,10 +17,10 @@
 	cold_protection = ARMS | FULL_TORSO | LEGS
 	heat_protection = ARMS | FULL_TORSO | LEGS
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
+		melee = ARMOR_MELEE_SMALL,
 		bullet = ARMOR_BALLISTIC_MINOR,
 		laser = ARMOR_LASER_MINOR,
-		energy = ARMOR_ENERGY_MINOR,
+		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_MINOR
 		)
 
@@ -52,6 +52,16 @@
 	item_icons = list(
 		slot_wear_suit_str = 'mods/_fd/fd_customs/customs/palerno/onmob/suit.dmi'
 		)
+
+	body_parts_covered = UPPER_TORSO | ARMS
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_MINOR,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_MINOR
+		)
+
 
 /obj/item/clothing/suit/storage/toggle/bomber/ibis
 	name = "Оfficer bomber jacket"

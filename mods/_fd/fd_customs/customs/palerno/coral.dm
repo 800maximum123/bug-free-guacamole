@@ -1,8 +1,8 @@
 /datum/client_color/coral
 	client_color = list(
-		1.0, 0, 0,
-		0, 1.0, 0,
-		0, 0, 1.0)
+		1.0, 0.35, 0.35,
+		0, 0.12, 0,
+		0, 0, 0.12)
 	order = 300
 	ignore_blood = TRUE
 
@@ -46,27 +46,40 @@
 		"THE DARK BLOOD ON YOUR ARM",
 		"THE LIGHT THE DARK A STAR IN CHAINS"
 	)
+	var/original_eye_color
 
 /datum/reagent/drugs/coral/affect_blood(mob/living/carbon/M, removed)
 	M.add_client_color(/datum/client_color/coral)
 	M.add_chemical_effect(CE_MIND, -1)
 	M.hallucination(50, 50)
 	M.make_jittery(3)
-	M.emote("giggle")
 	M.make_dizzy(3)
+	M.adjustBrainLoss(0.2 * removed)
+	if(ishuman(M))
+		var/mob/living/carbon/human/coral_user = M
+		if(!(locate(/obj/item/organ/internal/augment/ibis) in coral_user.internal_organs) && prob(5))
+			coral_user.vomit(1, 1)
 	if(prob(0.1) && ishuman(M))
 		var/mob/living/carbon/human/H = M
 		H.seizure()
-		H.adjustBrainLoss(rand(5, 8))
+		H.adjustBrainLoss(rand(2, 4))
 	if(prob(5))
 		M.emote(pick("twitch", "giggle"))
 	..()
 
 /datum/reagent/drugs/coral/on_leaving_metabolism(mob/parent, metabolism_class)
 	parent.remove_client_color(/datum/client_color/coral)
+	if(ishuman(parent) && !isnull(original_eye_color))
+		var/mob/living/carbon/human/H = parent
+		H.change_eye_color(arglist(GetHexColors(original_eye_color)))
 
 /datum/reagent/drugs/coral/overdose(mob/living/carbon/M)
 	..()
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(isnull(original_eye_color))
+			original_eye_color = H.eye_color
+		H.change_eye_color(255, 0, 0)
 	// НА БУДУЩЕЕ
 	// CДЕЛАТЬ ПОЯВЛЕНИЕ ВООБРАЖАЕМОГО ДРУГА
 
