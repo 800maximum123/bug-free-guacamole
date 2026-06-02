@@ -255,6 +255,9 @@
 	var/motion_sensor_triggered = FALSE
 	var/faction = "neutral"
 
+	throw_range = 10
+	w_class = ITEM_SIZE_SMALL
+
 /obj/item/fd/simple_grenade/Initialize()
 	. = ..()
 	if(life_span <= 0)
@@ -364,6 +367,8 @@
 	grenade_type = /obj/effect/simple_grenade/shock
 
 	has_motion_sensor = TRUE
+	throw_range = 5
+	w_class = ITEM_SIZE_LARGE
 
 /obj/effect/simple_grenade
 	icon = null
