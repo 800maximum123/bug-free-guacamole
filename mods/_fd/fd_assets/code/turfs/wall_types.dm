@@ -44,6 +44,12 @@
 	icon_state = "strata_jungle"
 	floor_type = /turf/simulated/floor/exoplanet/fd/drought
 	mouse_opacity = MOUSE_OPACITY_NORMAL
+	/// If TRUE, then allow mine wall with pickaxe's.
+	var/can_mine = FALSE
+	/// Mining with emitter
+	var/emitter_blasts_taken = 0
+	/// For message spamming
+	var/last_act = 0
 
 /turf/simulated/wall/invincible/blend/update_material()
 	if(!material)
@@ -141,6 +147,59 @@
 		if(istype(W, wb_type))
 			return 2
 	return 0
+
+/turf/simulated/wall/invincible/blend/bullet_act(obj/item/projectile/Proj)
+
+	// Emitter blasts
+	if(istype(Proj, /obj/item/projectile/beam/emitter))
+		if(can_mine)
+			emitter_blasts_taken++
+			if(emitter_blasts_taken > 2) // 3 blasts per tile
+				new/obj/particle_emitter/burst/rocks(src, 1 SECOND, color)
+				ChangeTurf(floor_type)
+
+/turf/simulated/wall/invincible/blend/Bumped(AM)
+	. = ..()
+	if (ismob(AM))
+		var/mob/mob = AM
+		var/obj/item/pickaxe/pickaxe = mob.IsHolding(/obj/item/pickaxe)
+		if (pickaxe)
+			if(can_mine)
+				use_tool(pickaxe, mob)
+			else
+				to_chat(usr, SPAN_WARNING("You can't mine this wall!"))
+
+/turf/simulated/wall/invincible/blend/use_tool(obj/item/W, mob/living/user, list/click_params)
+	if (!user.IsAdvancedToolUser())
+		to_chat(usr, SPAN_WARNING("You don't have the dexterity to do this!"))
+		return TRUE
+
+	if (istype(W, /obj/item/pickaxe))
+		if(!istype(user.loc, /turf))
+			return
+		if(!can_mine)
+			to_chat(usr, SPAN_WARNING("You can't mine this wall!"))
+			return
+		var/obj/item/pickaxe/P = W
+		if(last_act + P.digspeed > world.time)//prevents message spam
+			to_chat(user, SPAN_WARNING("You cannot use \the [W] again so soon!"))
+			return TRUE
+
+		last_act = world.time
+		playsound(user, P.drill_sound, 20, 1)
+
+		to_chat(user, SPAN_NOTICE("You start [P.drill_verb]."))
+
+		if(do_after(user, P.digspeed, src,  DO_DEFAULT | DO_PUBLIC_PROGRESS))
+
+			to_chat(user, SPAN_NOTICE("You finish [P.drill_verb] \the [src]."))
+			//Let's add some effects
+			new/obj/particle_emitter/burst/rocks(src, 1 SECOND, color)
+			ChangeTurf(floor_type)
+		return TRUE
+
+	else
+		return ..()
 
 // Walls here
 
