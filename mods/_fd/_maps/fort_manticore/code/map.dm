@@ -744,3 +744,5 @@
 
 /obj/submap_landmark/spawnpoint/manticore/lin
 	name = "Lin Mei"
+
+#include "..\map\fort_manticore.dmm"
