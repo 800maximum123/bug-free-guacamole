@@ -492,6 +492,8 @@
 	projectiletype = /obj/item/projectile/energy/terra
 	projectilesound = 'sound/magic/mm_hit.ogg'
 
+	pass_flags = PASS_FLAG_TABLE
+
 	needs_reload = TRUE
 	reload_max = 5
 	reload_time = 5 SECONDS
