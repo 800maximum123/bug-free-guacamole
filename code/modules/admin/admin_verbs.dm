@@ -144,7 +144,10 @@ var/global/list/admin_verbs_fun = list(
 	/datum/admins/proc/ai_hologram_set,
 	/client/proc/bombard_zlevel,
 	/client/proc/rename_shuttle,
-	/client/proc/commander_message, // GAIA
+	// [GAIA]
+	/client/proc/commander_message,
+	/client/proc/set_ambient_group_color,
+	/datum/admins/proc/toggle_gaia_sun_updates,
 	)
 
 var/global/list/admin_verbs_spawn = list(

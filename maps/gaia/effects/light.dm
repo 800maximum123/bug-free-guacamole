@@ -8,6 +8,7 @@
 	. = ..()
 	set_light(light_range, light_power, light_color)
 
+// OUTDATED, DO NOT USE
 /obj/landmark/light/gaia
 	light_range = 20
 	light_power = 0.7

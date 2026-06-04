@@ -16,7 +16,11 @@
 	sound_env = ASTEROID
 	ambience = list('sound/effects/wind/wind_2_1.ogg','sound/effects/wind/wind_2_2.ogg','sound/effects/wind/wind_3_1.ogg','sound/effects/wind/wind_4_1.ogg','sound/effects/wind/wind_4_2.ogg','sound/effects/wind/wind_5_1.ogg')
 	base_turf = /turf/simulated/floor/exoplanet/barren
-
+	area_flags = AREA_FLAG_EXTERNAL
+	ambient_group_type = /area/gaia
+	ambient_group_color = "#ffffff"
+	ambient_group_multiplier = 0.75
+	ambient_group_enabled = TRUE
 /*
 * -- Area of Operations --
 */
@@ -34,10 +38,13 @@
 	name = "\improper Maricarbonia's Mineshafts Building"
 	icon_state = "gaia_mineshafts_inside"
 	sound_env = STANDARD_STATION
+	ambient_group_enabled = FALSE
+	area_flags = null
 
 /area/gaia/mineshafts/inside/big
 	name = "\improper Maricarbonia's Mineshafts Big Building"
 	sound_env = LARGE_ENCLOSED
+	ambient_group_enabled = FALSE
 
 /area/gaia/mineshafts/shafts
 	name = "\improper Maricarbonia's Mineshafts"
@@ -45,11 +52,12 @@
 	forced_ambience = list('sound/ambience/maintambience.ogg')
 	ambience = list('sound/ambience/spookyspace1.ogg', 'sound/ambience/spookyspace2.ogg',)
 	sound_env = HALLWAY
+	ambient_group_enabled = FALSE
+	area_flags = null
 
 /area/gaia/mineshafts/shafts/phoron_room
 	name = "\improper Maricarbonia's Mineshafts Phoron Storage"
 	icon_state = "gaia_mineshafts_phoron"
-
 /area/gaia/mineshafts/shafts/chasm
 	name = "\improper Maricarbonia's Mineshafts Chasm"
 	icon_state = "gaia_mineshafts_chasm"
@@ -85,11 +93,19 @@
 	icon_state = "scg_outskirts"
 	ambience = list('maps/gaia/sounds/ambipartisan_outskirts.ogg')
 
+/area/gaia/scg/undeground
+	name = "\improper SCG Camp - Underground"
+	icon_state = "scg"
+	sound_env = TUNNEL_ENCLOSED
+	area_flags = null
+
 // Barracks and Officer Barracks
 /area/gaia/scg/barracks
 	name = "\improper SCG Camp - Barracks"
 	icon_state = "scg_barracks"
 	sound_env = STANDARD_STATION
+	ambient_group_enabled = FALSE
+	area_flags = null
 
 /area/gaia/scg/barracks/bathroom
 	name = "\improper SCG Camp - Barracks Bathroom"
@@ -104,6 +120,7 @@
 	name = "\improper SCG Camp - Officer Barracks"
 	icon_state = "scg_barracks_officer"
 	sound_env = MEDIUM_SOFTFLOOR
+	ambient_group_enabled = FALSE
 
 /area/gaia/scg/barracks/officer/breakroom
 	name = "\improper SCG Camp - Officer Breakroom"
@@ -118,11 +135,14 @@
 	icon_state = "scg_armory"
 	req_access = list(access_solgov_crew, access_armory)
 	sound_env = LARGE_ENCLOSED
+	ambient_group_enabled = FALSE
+	area_flags = null
 
 /area/gaia/scg/shooting_range
 	name = "\improper SCG Camp - Shooting Range"
 	icon_state = "scg_shooting_range"
 	sound_env = LARGE_ENCLOSED
+	ambient_group_enabled = FALSE
 
 // Engineering
 /area/gaia/scg/engineering
@@ -130,6 +150,8 @@
 	icon_state = "scg_engineering"
 	req_access = list(access_solgov_crew, access_engine)
 	sound_env = SMALL_SOFTFLOOR
+	ambient_group_enabled = FALSE
+	area_flags = null
 
 /area/gaia/scg/engineering/communications
 	name = "\improper SCG Camp - Communications"
@@ -148,6 +170,8 @@
 	icon_state = "scg_hospital"
 	req_access = list(access_solgov_crew, access_medical)
 	sound_env = STANDARD_STATION
+	ambient_group_enabled = FALSE
+	area_flags = null
 
 /area/gaia/scg/hospital/surgery
 	name = "\improper SCG Camp - Surgical"
@@ -160,6 +184,8 @@
 	req_access = list(access_solgov_crew, access_heads)
 	ambience = list('maps/gaia/sounds/ambipartisan_command.ogg')
 	sound_env = MEDIUM_SOFTFLOOR
+	ambient_group_enabled = FALSE
+	area_flags = null
 
 /area/gaia/scg/command/briefing
 	name = "\improper SCG Camp - Briefing Area"
@@ -175,6 +201,8 @@
 	icon_state = "scg_security"
 	req_access = list(access_solgov_crew, access_security)
 	sound_env = SMALL_SOFTFLOOR
+	ambient_group_enabled = FALSE
+	area_flags = null
 
 /area/gaia/scg/security/prison
 	name = "\improper SCG Camp - Prison"
@@ -205,6 +233,8 @@
 	name = "\improper ICCG Camp - Citadel"
 	icon_state = "iccg_citadel"
 	sound_env = STANDARD_STATION
+	ambient_group_enabled = FALSE
+	area_flags = null
 
 /area/gaia/iccg/citadel/armory
 	name = "\improper ICCG Camp - Armory"
@@ -233,3 +263,5 @@
 	name = "\improper ICCG Camp - Police Station"
 	icon_state = "iccg_police"
 	sound_env = STANDARD_STATION
+	ambient_group_enabled = FALSE
+	area_flags = null

@@ -77,6 +77,11 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	var/turf/base_turf
 	/// Boolean. Whether or not the area belongs to a planet.
 	var/planetary_surface = FALSE
+	/// Area-based ambient light registration.
+	var/ambient_group_type = null
+	var/ambient_group_color = null
+	var/ambient_group_multiplier = 1.0
+	var/ambient_group_enabled = FALSE
 	/// Boolean. Some base_turfs might cause issues with changing turfs, this flags it as a special case. See `/proc/get_base_turf_by_area()`.
 	var/base_turf_special_handling = FALSE
 	/// Boolean (Default `FALSE`) - If set, floor turfs in the area will be set to airless when they initialize. This is unset during `LateInitialize()` to avoid interfering with player-placed tiles.

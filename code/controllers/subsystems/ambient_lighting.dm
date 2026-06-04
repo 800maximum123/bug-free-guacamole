@@ -14,6 +14,7 @@ SUBSYSTEM_DEF(ambient_lighting) //A simple SS that handles updating ambient ligh
 	var/list/ambient_groups[AMBIENT_GROUP_MAX_BITS]
 
 /datum/ambient_group
+	var/name = "Ambient Group"
 	/// Index in SSambient_lighting map
 	var/global_index
 	var/list/member_turfs_by_z = list()
@@ -23,11 +24,15 @@ SUBSYSTEM_DEF(ambient_lighting) //A simple SS that handles updating ambient ligh
 	var/apparent_b
 	/// Prevent modification of member turfs or colour while an operation is taking place
 	var/busy = FALSE
+	/// What area the group is associated with?
+	var/area/ambient_area
 
-/datum/ambient_group/New(ncolor, nmultiplier, nindex)
+/datum/ambient_group/New(ncolor, nmultiplier, nindex, area/_type, name)
 	. = ..()
 	set_color(ncolor, nmultiplier)
 	global_index = nindex
+	ambient_area = _type
+	name = name
 
 /datum/ambient_group/Destroy()
 	SSambient_lighting.ambient_groups[global_index] = null
@@ -154,7 +159,7 @@ SUBSYSTEM_DEF(ambient_lighting) //A simple SS that handles updating ambient ligh
 
 	ASSERT(index == SPACE_AMBIENT_GROUP)
 
-	ambient_groups[index] = new /datum/ambient_group(SSskybox.background_color, config.starlight, index )
+	ambient_groups[index] = new /datum/ambient_group(SSskybox.background_color, config.starlight, index, name = "Space Ambient Group")
 
 /**
  * Removes turf from ambient group if it is part of it. Removes group's ambient light and flag from turf
@@ -162,10 +167,12 @@ SUBSYSTEM_DEF(ambient_lighting) //A simple SS that handles updating ambient ligh
  * **Parameters**:
  * - `color` color - Initial color
  * - `multiplier` float - Initial multiplier of light strength
+ * - `area/_type` type - What area its associated with? (optional)
+ * - `name` string - Name of the ambient group
  *
  * Returns index or -1 if no indices are left
  */
-/datum/controller/subsystem/ambient_lighting/proc/create_ambient_group(color, multiplier)
+/datum/controller/subsystem/ambient_lighting/proc/create_ambient_group(color, multiplier, area/_type, name)
 
 	if(isnull(ambient_groups[SPACE_AMBIENT_GROUP])) //Something (probably a planet) wants to add an ambient group, add space first
 		add_space_ambient_group()
@@ -176,9 +183,100 @@ SUBSYSTEM_DEF(ambient_lighting) //A simple SS that handles updating ambient ligh
 	if(index <= 0)
 		return index
 
-	ambient_groups[index] = new /datum/ambient_group(color, multiplier, index)
+	ambient_groups[index] = new /datum/ambient_group(color, multiplier, index, _type, name)
 
 	return index
+
+/datum/controller/subsystem/ambient_lighting/proc/create_area_ambient_group(area/_type, color, multiplier)
+	if(_type == null)
+		return -1
+
+	var/index = get_area_ambient_group(_type)
+	if(index > 0)
+		return index
+
+	index = create_ambient_group(color, multiplier, _type, "[_type.name] Ambient Group")
+
+	return index
+
+/datum/controller/subsystem/ambient_lighting/proc/get_area_ambient_group(area/A)
+	for(var/datum/ambient_group/choosen in ambient_groups)
+		if (choosen)
+			// ambient_area may be stored as a type, while callers may pass either
+			// an area instance or a type. Match either exact equality for types
+			// or `istype()` for instances.
+			if (A == choosen.ambient_area || istype(A, choosen.ambient_area))
+				return choosen.global_index
+
+	return -1
+
+/datum/controller/subsystem/ambient_lighting/proc/update_area_sun(area/_type, daycycle, sun_brightness_modifier = 1.0)
+	var/group_index = get_area_ambient_group(_type)
+	if (group_index <= 0)
+		if (_type && _type.ambient_group_enabled && _type.ambient_group_type && _type.ambient_group_color)
+			group_index = create_area_ambient_group(_type.ambient_group_type, _type.ambient_group_color, _type.ambient_group_multiplier)
+		if (group_index <= 0)
+			return FALSE // no ambient group available for this area type
+	if(sun_last_process == world.time) //For now, calling it several times in same frame is not valid. Add a parameter to ignore this if weather is added
+		return
+	sun_last_process = world.time
+
+	var/time_of_day = (world.time % daycycle) / daycycle //0 to 1 range.
+	var/distance_from_night = abs(time_of_day - 0.5)
+	var/sun_position = distance_from_night / 0.5 // 0 to 1 range
+	sun_position = abs(sun_position - 1)
+
+	var/low_brightness = null
+	var/high_brightness = null
+	var/low_color = null
+	var/high_color = null
+	var/min = 0
+	var/max = 0
+
+	// Yes night and noon are swapped around unlike the _exoplanet.dm one
+	// I had to do it so all missions start at the Noon
+	// If we ever want them to start at the night I guess you can manually replace the positions
+	switch(sun_position)
+		if(0 to 0.40) // Noon
+			low_brightness = 0.8
+			low_color = "#dddddd"
+			high_brightness = 1.0
+			high_color = "#ffffff"
+			min = 0.70
+			max = 1.0
+
+		if(0.40 to 0.50) // Sunrise/set
+			low_brightness = 0.5
+			low_color = "#cc3300"
+			high_brightness = 0.8
+			high_color = "#ff9933"
+			min = 0.50
+			max = 0.70
+
+		if(0.50 to 0.70) // Twilight
+			low_brightness = 0.2
+			low_color = "#66004d"
+			high_brightness = 0.5
+			high_color = "#cc3300"
+			min = 0.40
+			max = 0.50
+
+		if(0.70 to 1.00) // Night
+			low_brightness = 0.01
+			low_color = "#000066"
+			high_brightness = 0.2
+			high_color = "#66004d"
+			min = 0
+			max = 0.4
+
+	var/interpolate_weight = (sun_position - min) / (max - min)
+	var/new_brightness = (Interpolate(low_brightness, high_brightness, interpolate_weight)) * sun_brightness_modifier
+	var/new_color = UNLINT(gradient(low_color, high_color, space = COLORSPACE_HSV, index=interpolate_weight))
+
+	var/datum/ambient_group/A = ambient_groups[group_index]
+	A.set_color(new_color, new_brightness)
+
+	return TRUE
 
 /**
  * Removes turf from all ambient groups it is part of (if any)
@@ -198,6 +296,8 @@ SUBSYSTEM_DEF(ambient_lighting) //A simple SS that handles updating ambient ligh
 	//Create space ambient group if nothing created it until now.
 	if(isnull(ambient_groups[SPACE_AMBIENT_GROUP]))
 		add_space_ambient_group()
+
+	gaia_initialize_sun()
 
 	fire(FALSE, TRUE)
 	return ..()
@@ -226,15 +326,35 @@ SUBSYSTEM_DEF(ambient_lighting) //A simple SS that handles updating ambient ligh
 						break
 
 			if (needs_ambience)
-				var/obj/overmap/visitable/sector/exoplanet/E = map_sectors["[target.z]"]
-				if (istype(E))
-					if(E.ambient_group_index > 0)
-						var/datum/ambient_group/A = ambient_groups[E.ambient_group_index]
-						A.add_turf(target)
-				else
-					if (starlight_enabled) //Assume we can light up exterior with space light generally
-						var/datum/ambient_group/A = ambient_groups[SPACE_AMBIENT_GROUP]
-						A.add_turf(target)
+				var area_group_index = -1
+				var/area/A = isarea(target) ? target : get_step(target, 0)?.loc
+				var/skip_ambient_fallback = FALSE
+				if (A)
+					if (!A.ambient_group_enabled)
+						skip_ambient_fallback = TRUE
+						if (target.ambient_bitflag != 0)
+							for (var/datum/ambient_group/A5 in ambient_groups)
+								A5.remove_turf(target)
+								if (!target.ambient_bitflag)
+									break
+					else
+						area_group_index = get_area_ambient_group(A)
+						if (area_group_index <= 0 && A.ambient_group_type && A.ambient_group_color)
+							area_group_index = create_area_ambient_group(A.ambient_group_type, A.ambient_group_color, A.ambient_group_multiplier)
+
+				if (area_group_index > 0)
+					var/datum/ambient_group/A2 = ambient_groups[area_group_index]
+					A2.add_turf(target)
+				else if (!skip_ambient_fallback)
+					var/obj/overmap/visitable/sector/exoplanet/E = map_sectors["[target.z]"]
+					if (istype(E))
+						if(E.ambient_group_index > 0)
+							var/datum/ambient_group/A3 = ambient_groups[E.ambient_group_index]
+							A3.add_turf(target)
+					else
+						if (starlight_enabled) //Assume we can light up exterior with space light generally
+							var/datum/ambient_group/A4 = ambient_groups[SPACE_AMBIENT_GROUP]
+							A4.add_turf(target)
 		else if (TURF_IS_AMBIENT_LIT_UNSAFE(target))
 			//Remove from all groups
 			if(target.ambient_bitflag != 0)
@@ -247,3 +367,7 @@ SUBSYSTEM_DEF(ambient_lighting) //A simple SS that handles updating ambient ligh
 			CHECK_TICK
 		else if (MC_TICK_CHECK)
 			return
+
+	// Update Gaia sun cycle
+	if(sun_last_process <= (world.time - sun_process_interval) && do_update_gaia)
+		update_gaia_sun()

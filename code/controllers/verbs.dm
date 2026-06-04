@@ -39,5 +39,7 @@
 			debug_variables(appearance_manager)
 		if("Military Branches")
 			debug_variables(GLOB.mil_branches)
+		if("Ambient Lighting")
+			debug_variables(SSambient_lighting)
 	message_admins("Admin [key_name_admin(usr)] is debugging the [controller] controller.")
 	return
