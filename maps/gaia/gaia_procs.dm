@@ -155,6 +155,5 @@
 
 	for(var/mob/living/Player in listeners)
 		Player.client.screen += visuals
-//		playsound(Player, sound, 50, FALSE, -1, 100)
-		sound_to(Player, sound)
+		sound_to(Player, sound(sound, volume = 30))
 	visuals.set_text("[choice]: [msg]", colored, time = 20 SECONDS)
