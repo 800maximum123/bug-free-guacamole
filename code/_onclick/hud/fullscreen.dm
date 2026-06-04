@@ -165,3 +165,11 @@
 	icon_state = "brutedamageoverlay6"
 	alpha = 0
 	scale_to_view = TRUE
+
+// [GAIA]
+// Used in death sequence with sound
+/obj/screen/fullscreen/deathflash
+	icon_state = "deathflash"
+	scale_to_view = TRUE
+	allstate = TRUE
+	layer = DEATHFLASH_LAYER

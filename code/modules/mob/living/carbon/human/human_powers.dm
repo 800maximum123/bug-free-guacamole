@@ -45,6 +45,32 @@
 		to_chat(src, SPAN_CLASS("alium", "You channel a message: \"[msg]\" to [M]"))
 	return
 
+// [GAIA]
+/mob/living/carbon/human/proc/give_in(mob/user = null)
+	set name = "Give In"
+	set desc = "Surrender to your fate and give in to death."
+	set category = "IC"
+
+	if(stat != UNCONSCIOUS && health >= maxHealth/2)
+		to_chat(src, SPAN_WARNING("You can't give in right now!"))
+		return
+
+	var/last_words = sanitize(input("Any last words?", "Give In") as text|null)
+
+	death(FALSE, last_words = last_words)
+	return
+
+/datum/action/give_in
+	name = "Give In"
+	action_type = AB_GENERIC
+	procname = "give_in"
+	button_icon = 'icons/obj/action_buttons/actions.dmi'
+	button_icon_state = "give_in"
+	procname = "give_in"
+
+/datum/action/give_in/CheckRemoval(mob/living/user)
+	return !user || user.stat != UNCONSCIOUS
+
 /***********
  diona verbs
 ***********/

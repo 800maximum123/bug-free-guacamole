@@ -12,6 +12,9 @@
 	var/list/grasp_limbs
 	var/step_count
 	var/dream_timer
+	var/crit_sound_token = 0
+	var/crit_sound_severity = 0
+	var/datum/action/give_in_action = null
 
 
 /mob/living/carbon/human/Initialize(mapload, new_species = null)
@@ -52,6 +55,8 @@
 	GLOB.human_mobs |= src
 	. = ..()
 
+	give_in_action = new /datum/action/give_in(src)
+
 	if(dna)
 		dna.ready_dna(src)
 		dna.real_name = real_name
@@ -68,6 +73,8 @@
 	worn_underwear = null
 	for(var/organ in organs)
 		qdel(organ)
+	if(give_in_action)
+		qdel(give_in_action)
 	return ..()
 
 /mob/living/carbon/human/get_ingested_reagents()

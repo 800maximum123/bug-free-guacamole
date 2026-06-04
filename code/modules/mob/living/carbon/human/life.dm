@@ -113,6 +113,13 @@
 	. = ..()
 	if(stat)
 		update_skin(1)
+	if(give_in_action)
+		if(stat == UNCONSCIOUS)
+			if(give_in_action.owner != src)
+				give_in_action.Grant(src)
+		else
+			if(give_in_action.owner == src)
+				give_in_action.Remove(src)
 	if(client && client.is_afk())
 		if(old_stat == UNCONSCIOUS && stat == CONSCIOUS)
 			playsound_local(null, 'sound/effects/bells.ogg', 100, is_global=TRUE)
@@ -699,8 +706,26 @@
 				if(-95 to -90)			severity = 9
 				if(-INFINITY to -95)	severity = 10
 			overlay_fullscreen("crit", /obj/screen/fullscreen/crit, severity)
+			var/sev_volume = 10 * severity
+			var/crit_sound
+			if(severity >= 9)
+				crit_sound = 'sound/effects/crit3.ogg'
+			else if(severity >= 6)
+				crit_sound = 'sound/effects/crit2.ogg'
+			else
+				crit_sound = 'sound/effects/crit1.ogg'
+			if(!crit_sound_token || severity != crit_sound_severity)
+				if(crit_sound_token)
+					sound_to(src, sound(null, channel = GLOB.crit_sound_channel))
+				sound_to(src, sound(crit_sound, repeat = 1, wait = 0, volume = sev_volume, channel = GLOB.crit_sound_channel))
+				crit_sound_token = TRUE
+				crit_sound_severity = severity
 		else
 			clear_fullscreen("crit")
+			if(crit_sound_token)
+				sound_to(src, sound(null, channel = GLOB.crit_sound_channel))
+				crit_sound_token = FALSE
+				crit_sound_severity = 0
 			//Oxygen damage overlay
 			if(getOxyLoss())
 				var/severity = 0
@@ -858,6 +883,13 @@
 						bodytemp.icon_state = "temp-1"
 					else
 						bodytemp.icon_state = "temp0"
+	else
+		clear_fullscreen("crit")
+		clear_fullscreen("oxy")
+		clear_fullscreen("brute")
+		if(crit_sound_token)
+			sound_to(src, sound(null, channel = GLOB.crit_sound_channel))
+			crit_sound_token = FALSE
 	return 1
 
 /mob/living/carbon/human/handle_random_events()

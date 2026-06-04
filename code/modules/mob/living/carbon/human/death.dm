@@ -23,9 +23,13 @@
 	else
 		..()
 
-/mob/living/carbon/human/death(gibbed,deathmessage="seizes up and falls limp...", show_dead_message = "You have died.")
+/mob/living/carbon/human/death(gibbed, deathmessage="seizes up and falls limp...", show_dead_message = "You have died.", last_words)
 
 	if(stat == DEAD) return
+
+	if(last_words)
+		last_words = stutter(last_words)
+		audible_message(SPAN_ITALIC("<b>[src]</b> whispers on his last breath: \"[last_words]\")"), deaf_message = SPAN_ITALIC("<b>[src]</b> weakly whispers something..."), hearing_distance = 2, runemessage = last_words)
 
 	SET_BIT(hud_updateflag, HEALTH_HUD)
 	SET_BIT(hud_updateflag, STATUS_HUD)
@@ -34,6 +38,18 @@
 	//Handle species-specific deaths.
 	species.handle_death(src)
 
+	// [GAIA]
+	// "Friendly fire - isn't"
+	sound_to(src, 'sound/effects/shellshock.ogg')
+	if(crit_sound_token)
+		sound_to(src, sound(null, channel = GLOB.crit_sound_channel))
+		crit_sound_token = 0
+	overlay_fullscreen("deathflash", /obj/screen/fullscreen/deathflash)
+	spawn(22) // 22 ticks is how long "deathflash" lasts
+		clear_fullscreen("deathflash")
+		clear_fullscreen("crit")
+		clear_fullscreen("oxy")
+		clear_fullscreen("brute")
 	animate_tail_stop()
 
 	//Handle brain slugs.

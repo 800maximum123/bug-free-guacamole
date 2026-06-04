@@ -180,9 +180,9 @@ GLOBAL_LIST(end_titles)
 	if(scg_casualties != 0)
 		titles += "<center>[scg_casualties] SolGov troops have died...</center>"
 	if(iccg_casualties != 0)
-		titles += "<center>[iccg_casualties] Indie soldiers have perished...</center>"
+		titles += "<center>[iccg_casualties] Indie soldiers have died...</center>"
 	if(civilian_casualties != 0)
-		titles += "<center>[civilian_casualties] innocent civilians have been lost...</center>"
+		titles += "<center>[civilian_casualties] innocent civilians have died...</center>"
 	titles += "<center><b>WAR NEVER CHANGES.</b></center>"
 
 	var/list/staff = list("DEVELOPERS:")

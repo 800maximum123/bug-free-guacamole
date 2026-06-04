@@ -154,6 +154,8 @@
 	#define BLIND_LAYER         3
 	#define CRIT_LAYER          4
 	#define AUG_LAYER           5
+	// [GAIA]
+	#define DEATHFLASH_LAYER    6
 
 #define HUD_PLANE                    6
 	#define UNDER_HUD_LAYER              0
