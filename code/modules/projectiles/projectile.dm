@@ -384,7 +384,7 @@
 			for(var/mob/living/nearby in range(2, src))
 				if(nearby != firer && !(nearby in warned_mobs))
 					warned_mobs += nearby
-					playsound(nearby.loc, pick(miss_sounds), 40, TRUE, -1, 100)
+					sound_to(nearby, sound(pick(miss_sounds), repeat = 0, wait = 0, volume = 60))
 
 		if(!bumped && !isturf(original))
 			if(loc == get_turf(original))
