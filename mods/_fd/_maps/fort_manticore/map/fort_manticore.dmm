@@ -846,10 +846,18 @@
 "cx" = (
 /obj/structure/catwalk,
 /obj/structure/table/rack,
-/obj/item/storage/med_pouch/trauma,
-/obj/item/storage/med_pouch/trauma,
-/obj/item/storage/firstaid/trauma,
-/obj/item/storage/firstaid/combat,
+/obj/item/fd/simple_combat/adrenaline,
+/obj/item/fd/simple_combat/adrenaline,
+/obj/item/fd/simple_combat/bonegel,
+/obj/item/fd/simple_combat/revive,
+/obj/item/fd/simple_combat/small_heal,
+/obj/item/fd/simple_combat/small_heal,
+/obj/item/fd/simple_combat/small_heal,
+/obj/item/fd/simple_combat/small_heal,
+/obj/item/fd/simple_combat/big_heal,
+/obj/item/fd/simple_combat/big_heal,
+/obj/item/fd/simple_combat/big_heal,
+/obj/item/fd/simple_combat/big_heal,
 /turf/simulated/floor/plating,
 /area/ship/bomber/main_deck/cargo)
 "cy" = (
@@ -1057,7 +1065,7 @@
 /obj/floor_decal/industrial/outline/blood_red,
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
-/mob/living/exosuit/premade/rain_echo,
+/mob/living/simple_animal/simple_mecha/echo,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/fort_manticore/rooms/emmy)
 "cU" = (
@@ -1067,21 +1075,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
-	},
-/obj/item/fd/perci_robo_parts{
-	icon_state = "groin";
-	pixel_y = 12;
-	pixel_x = -7
-	},
-/obj/item/fd/perci_robo_parts{
-	icon_state = "l_leg";
-	pixel_x = -7;
-	pixel_y = 12
-	},
-/obj/item/fd/perci_robo_parts{
-	icon_state = "l_foot";
-	pixel_y = 12;
-	pixel_x = -8
 	},
 /turf/simulated/floor/plating,
 /area/ship/bomber/main_deck/reactor)
@@ -1904,6 +1897,10 @@
 /obj/item/storage/firstaid/toxin,
 /obj/item/storage/firstaid/toxin,
 /obj/item/storage/firstaid/stab,
+/obj/item/storage/firstaid/combat,
+/obj/item/storage/firstaid/trauma,
+/obj/item/storage/med_pouch/trauma,
+/obj/item/storage/med_pouch/trauma,
 /turf/simulated/floor/plating,
 /area/ship/bomber/main_deck/cargo)
 "fu" = (
@@ -2818,6 +2815,10 @@
 	},
 /obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/r_n_d/protolathe,
+/obj/item/fd/mech/module/impact_shield{
+	pixel_x = -1;
+	pixel_y = 10
+	},
 /turf/simulated/floor/plating,
 /area/ship/bomber/main_deck/east_ammunition)
 "hD" = (
@@ -3850,15 +3851,49 @@
 	pixel_y = 33
 	},
 /obj/structure/table/steel_reinforced,
-/obj/item/stack/medical/splint{
-	pixel_x = 8;
-	pixel_y = 6
+/obj/item/fd/simple_combat/splint,
+/obj/item/fd/simple_combat/splint,
+/obj/item/fd/simple_combat/splint,
+/obj/item/fd/simple_combat/splint,
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 14
 	},
-/obj/item/stack/medical/splint{
-	pixel_x = -7;
-	pixel_y = 10
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 14
 	},
-/obj/item/stack/medical/splint/ghetto,
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 14
+	},
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 14
+	},
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 14
+	},
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 14
+	},
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 14
+	},
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 14
+	},
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 14
+	},
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 14
+	},
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 14
+	},
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 14
+	},
+/obj/item/fd/simple_combat/bandage{
+	pixel_y = 14
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/bomber/main_deck/cargo)
 "kP" = (
@@ -4089,18 +4124,6 @@
 	storage_capacity = 60
 	},
 /obj/item/reagent_containers/food/snacks/chocolatebar,
-/obj/item/ammo_magazine/rifle/mech_machinegun{
-	pixel_x = 10;
-	pixel_y = -7
-	},
-/obj/item/ammo_magazine/proto_smg/mech{
-	pixel_x = 7;
-	pixel_y = 14
-	},
-/obj/item/ammo_magazine/proto_smg/mech{
-	pixel_x = 7;
-	pixel_y = 22
-	},
 /turf/simulated/floor/plating,
 /area/fort_manticore/rooms/emmy)
 "lx" = (
@@ -6429,7 +6452,16 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/port_gen/pacman,
+/obj/machinery/power/port_gen/pacman{
+	color = "red";
+	interactive = 1;
+	desc_special_show = 1;
+	desc_special = "Генератор питавший Мантикору всё это время...";
+	has_something_inside = 1;
+	hidden_loot = /obj/item/fd/mech/engine/coral;
+	desc_special_after_finding = "Внутри пусто, осталась одна оболочка";
+	anchored = 1
+	},
 /obj/structure/sign/double/solgovflag/right{
 	pixel_y = 32;
 	color = "grey"
@@ -6440,11 +6472,6 @@
 	},
 /obj/machinery/light/small/red{
 	dir = 1
-	},
-/obj/item/fd/perci_robo_parts{
-	icon_state = "r_leg";
-	pixel_y = 18;
-	pixel_x = -6
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/ship/bomber/main_deck/reactor)
@@ -9979,6 +10006,8 @@
 /obj/item/reagent_containers/ivbag,
 /obj/item/reagent_containers/ivbag,
 /obj/item/reagent_containers/ivbag,
+/obj/item/fd/simple_combat/bloodbag,
+/obj/item/fd/simple_combat/bloodbag,
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/bomber/main_deck/cargo)
 "DD" = (
@@ -10790,21 +10819,6 @@
 	pixel_y = 16;
 	icon_state = "beret_orange";
 	icon = 'maps/torch/icons/obj/obj_head_solgov.dmi'
-	},
-/obj/item/fd/perci_robo_parts{
-	icon_state = "torso";
-	pixel_x = 10;
-	pixel_y = -13
-	},
-/obj/item/fd/perci_robo_parts{
-	icon_state = "head";
-	pixel_x = 10;
-	pixel_y = -13
-	},
-/obj/item/fd/perci_robo_parts{
-	icon_state = "r_arm";
-	pixel_x = 11;
-	pixel_y = -12
 	},
 /turf/simulated/floor/plating,
 /area/ship/bomber/main_deck/reactor)
@@ -12602,6 +12616,14 @@
 	icon = 'icons/turf/flooring/tiles.dmi';
 	icon_state = "broken2"
 	},
+/obj/item/fd/mech/restorer{
+	icon_state = "ammobag-sp-d"
+	},
+/obj/item/fd/mech/restorer{
+	icon_state = "ammobag-sp-d";
+	pixel_x = 10;
+	pixel_y = -5
+	},
 /turf/simulated/floor/plating,
 /area/fort_manticore/rooms/warehouse)
 "Lq" = (
@@ -13608,15 +13630,9 @@
 /obj/machinery/recharger/wallcharger{
 	pixel_y = 21
 	},
-/obj/item/gun/projectile/automatic/minigun{
-	pixel_x = 2;
-	pixel_y = 11;
-	anchored = 1;
-	desc = "A man-portable minigun lacking any branding on it. It fires small 7mm projectiles at an obscene rate of fire. Six barrels of fun. IT'S FCKNG BROKEN";
-	jam_chance = 1000;
-	name = "Broken Vulcan";
-	is_jammed = 1;
-	starts_loaded = 0
+/obj/item/gun/projectile/automatic/mecha/chang{
+	pixel_x = 3;
+	pixel_y = 10
 	},
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/blood/oil/streak,
@@ -14753,10 +14769,6 @@
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
-	},
-/obj/item/fd/perci_robo_parts{
-	icon_state = "r_foot";
-	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/bomber/main_deck/reactor)
@@ -16654,10 +16666,6 @@
 	pixel_y = 11
 	},
 /obj/machinery/cell_charger,
-/obj/item/cell/super/empty{
-	pixel_x = 6;
-	pixel_y = 2
-	},
 /obj/item/cell/hyper{
 	pixel_x = 6;
 	pixel_y = -5
@@ -16665,6 +16673,10 @@
 /obj/item/clothing/glasses/welding/superior{
 	pixel_x = 6;
 	pixel_y = 8
+	},
+/obj/item/cell/super/empty{
+	pixel_x = 6;
+	pixel_y = 2
 	},
 /turf/simulated/floor/plating,
 /area/fort_manticore/rooms/emmy)
@@ -17446,6 +17458,10 @@
 /obj/structure/sign/poster/nyc/blood_donation{
 	pixel_x = 13;
 	pixel_y = 30
+	},
+/obj/item/fd/simple_combat/full_heal{
+	pixel_x = 26;
+	pixel_y = -15
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/bomber/main_deck/cargo)

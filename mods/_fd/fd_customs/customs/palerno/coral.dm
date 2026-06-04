@@ -103,6 +103,6 @@
 	desc = "You have a bad feeling about opening this. Maybe throw this away?"
 	req_access = list()
 	startswith = list(
-		/obj/item/reagent_containers/syringe/coral = 3,
-		/obj/item/reagent_containers/syringe = 1,
+		/obj/item/reagent_containers/syringe/coral = 2,
+		/obj/item/reagent_containers/syringe = 2,
 	)

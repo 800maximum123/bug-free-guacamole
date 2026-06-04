@@ -52,7 +52,6 @@
 /area/bunker/kitchen/bufet)
 "acl" = (
 /obj/floor_decal/industrial/hatch/orange,
-/obj/machinery/power/port_gen/pacman,
 /obj/structure/cable/green,
 /turf/simulated/floor/plating,
 /area/bunker/eng)
@@ -132,6 +131,11 @@
 	color = "grey"
 	},
 /obj/decal/cleanable/dirt,
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 1;
+	flipped = 1
+	},
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
 "afq" = (
@@ -268,6 +272,14 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
+"alC" = (
+/obj/machinery/light{
+	color = "#a1d2d6";
+	light_color = "#a1d2d6";
+	dir = 8
+	},
+/turf/simulated/mineral/volcanic,
+/area/bunker)
 "alQ" = (
 /obj/machinery/constructable_frame/machine_frame,
 /obj/floor_decal/industrial/hatch/grey,
@@ -304,10 +316,12 @@
 /area/bunker/lower/med/lobby)
 "anf" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
@@ -414,6 +428,15 @@
 "arg" = (
 /turf/simulated/floor/plating,
 /area/bunker/lower/monorail)
+"arr" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/rubble,
+/turf/simulated/floor/tiled,
+/area/bunker/lower/med)
 "arE" = (
 /obj/overlay/diona/floor,
 /obj/structure/flora/ausbushes/fernybush,
@@ -427,10 +450,12 @@
 /area/bunker)
 "asW" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -442,7 +467,8 @@
 "atQ" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/kpp)
@@ -481,6 +507,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/bunker/lower/lab/gateway)
+"ayl" = (
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 8
+	},
+/obj/decal/cleanable/blood/gibs/robot,
+/turf/simulated/floor/plating,
+/area/bunker/kpp)
 "ayq" = (
 /obj/structure/table,
 /turf/simulated/floor/plating,
@@ -775,7 +810,8 @@
 /area/bunker/lower/eng/reactor)
 "aIL" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 1
@@ -941,6 +977,14 @@
 /obj/structure/flora/tree/tropic,
 /turf/simulated/floor/exoplanet/fd/desertsand,
 /area/bunker/jungle)
+"aQj" = (
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/corridors/north)
 "aQC" = (
 /turf/simulated/floor/exoplanet/samosbor/env{
 	icon_state = "sa"
@@ -1144,10 +1188,12 @@
 /area/bunker/lower/kpp2)
 "aVM" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/floor_decal/corner/yellow/border{
 	color = "#ceb734";
@@ -1198,12 +1244,16 @@
 /area/bunker/lower/lab)
 "aWT" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/fake_lattice{
 	layer = 2.11
 	},
@@ -1273,15 +1323,18 @@
 	color = "#526833"
 	},
 /area/bunker/jungle)
+"aYV" = (
+/obj/machinery/door/blast/regular{
+	id_tag = "bunker_exit2"
+	},
+/obj/floor_decal/industrial/warning/fulltile,
+/obj/decal/cleanable/blood/drip,
+/turf/simulated/floor/plating,
+/area/bunker/kpp)
 "aZg" = (
 /obj/structure/girder,
 /turf/simulated/floor/plating,
 /area/bunker/rooms/room1)
-"aZo" = (
-/obj/structure/fd/bs_vines,
-/obj/floor_decal/borderfloorwhite,
-/turf/simulated/floor/plating,
-/area/bunker/lower/lab/bslab)
 "aZV" = (
 /obj/structure/flora/tree/jungle/small,
 /turf/simulated/floor/exoplanet/fd/grass{
@@ -1292,6 +1345,14 @@
 /obj/structure/vines/heavy4,
 /turf/simulated/floor/exoplanet/fd/muddirt,
 /area/bunker)
+"baB" = (
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/corridors/west)
 "bbG" = (
 /obj/structure/platform_decoration/shiva{
 	dir = 8
@@ -1320,6 +1381,7 @@
 	light_color = "#a1d2d6";
 	dir = 8
 	},
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/eng/workshop)
 "bcT" = (
@@ -1352,6 +1414,14 @@
 /obj/item/pen,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/gateway)
+"bdM" = (
+/obj/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/decal/cleanable/blood/gibs/robot,
+/obj/decal/cleanable/blood/oil,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/bunker/eng/workshop)
 "bdN" = (
 /obj/catwalk_plated/dark,
 /obj/structure/cable/green{
@@ -1420,7 +1490,8 @@
 /area/bunker/jungle)
 "bfZ" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/fd/drought{
@@ -1485,7 +1556,9 @@
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/virology)
 "bhN" = (
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/fake_lattice{
 	layer = 2.11
 	},
@@ -1572,7 +1645,8 @@
 /area/bunker/lower/kpp1)
 "bjP" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought{
 	color = "#bebebe"
@@ -1874,6 +1948,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/eng)
+"buH" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/catwalk_plated,
+/obj/structure/rubble,
+/turf/simulated/floor/plating,
+/area/bunker/lower/med)
 "buL" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 4
@@ -1941,13 +2026,16 @@
 /obj/structure/table/standard{
 	icon_state = "metal_flip0";
 	dir = 1;
-	flipped = 1
+	flipped = 1;
+	layer = 2.24
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/kpp)
@@ -2015,10 +2103,16 @@
 /area/bunker/interlude)
 "bxc" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/decal/cleanable/dirt,
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
+/obj/structure/fd/interactive/jeff_killer_gun_deployed{
+	dir = 8
+	},
 /turf/simulated/floor/exoplanet/fd/drought{
 	color = "#bebebe"
 	},
@@ -2188,13 +2282,23 @@
 /area/bunker/interlude)
 "bDL" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/fake_lattice{
 	layer = 2.11
 	},
 /turf/simulated/floor/exoplanet/wet_stone,
 /area/bunker/interlude)
+"bEw" = (
+/obj/floor_decal/corner/paleblue/mono,
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/bunker/lower/med)
 "bEU" = (
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = -10
@@ -2281,6 +2385,15 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med)
+"bGp" = (
+/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform_decoration/kutjevo/rock{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
+/area/bunker/jungle)
 "bGu" = (
 /obj/overlay/diona/floor,
 /obj/structure/flora/ausbushes/brflowers,
@@ -2352,7 +2465,8 @@
 "bJS" = (
 /obj/structure/flora/tall/fourth,
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
@@ -2540,6 +2654,18 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/eng/workshop)
+"bQo" = (
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 8;
+	layer = 2.23
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
+/area/bunker/jungle)
 "bQE" = (
 /obj/structure/flora/ausbushes/stalkybush,
 /obj/structure/flora/ausbushes/under_grass,
@@ -2593,6 +2719,18 @@
 /obj/paint/black,
 /turf/simulated/wall/r_wall,
 /area/bunker/rooms/room10)
+"bRy" = (
+/obj/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate,
+/obj/item/clothing/mask/gas/poltergeist,
+/obj/item/clothing/mask/gas/poltergeist,
+/obj/item/clothing/mask/gas/poltergeist,
+/obj/item/clothing/mask/gas/poltergeist,
+/obj/item/clothing/mask/gas/poltergeist,
+/obj/item/clothing/mask/gas/poltergeist,
+/obj/item/clothing/mask/gas/poltergeist,
+/turf/simulated/floor/plating,
+/area/bunker/eng/workshop)
 "bRD" = (
 /obj/floor_decal/borderfloorblack{
 	dir = 8
@@ -2688,7 +2826,8 @@
 /area/bunker/corridors/center)
 "bWd" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/decal/cleanable/dirt,
 /obj/structure/flora/tree/grim/ghost,
@@ -2756,6 +2895,7 @@
 /obj/floor_decal/borderfloorwhite{
 	dir = 1
 	},
+/obj/structure/fd/bs_vines,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/bslab)
 "bZm" = (
@@ -2768,16 +2908,20 @@
 /area/bunker/lower/med/surgery)
 "bZv" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/platform/kutjevo/rock,
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "cab" = (
 /obj/structure/flora/trk17_regrowing/sugar,
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
@@ -2791,10 +2935,18 @@
 "caZ" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
+"cbo" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 1
+	},
+/obj/structure/rubble,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/kpp2)
 "cbp" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -2896,6 +3048,14 @@
 	},
 /obj/catwalk_plated/dark,
 /turf/simulated/floor/plating,
+/area/bunker/corridors/north)
+"cet" = (
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/corridors/north)
 "ceL" = (
 /obj/structure/grille,
@@ -3011,7 +3171,8 @@
 /area/bunker/barracks)
 "ciC" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 1
@@ -3246,7 +3407,8 @@
 /area/bunker/jungle)
 "cnX" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 8
@@ -3346,6 +3508,14 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med)
+"cqp" = (
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/corridors/north)
 "cqB" = (
 /obj/machinery/door/airlock/autoname,
 /obj/structure/cable/green{
@@ -3379,6 +3549,7 @@
 /obj/floor_decal/techfloor/orange/corner{
 	dir = 4
 	},
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/eng/workshop)
 "crT" = (
@@ -3560,6 +3731,13 @@
 /obj/floor_decal/messygrass,
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
+"cuU" = (
+/obj/structure/railing/mapped,
+/obj/floor_decal/corner/darkblue/half,
+/obj/structure/platform,
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/command)
 "cuY" = (
 /obj/floor_decal/industrial/hatch/red,
 /obj/floor_decal/industrial/outline/yellow,
@@ -3794,7 +3972,8 @@
 /area/bunker/rooms/room4)
 "cBA" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/muddirt,
 /area/bunker/jungle)
@@ -3836,6 +4015,14 @@
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab)
+"cCO" = (
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/corridors/center)
 "cCU" = (
 /obj/structure/fd/junk{
 	icon_state = "2,0";
@@ -3868,6 +4055,11 @@
 /obj/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/bunker/lower/kpp2)
+"cFw" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/barricade,
+/turf/simulated/floor/tiled/techfloor,
+/area/bunker/eng/workshop)
 "cFC" = (
 /obj/floor_decal/step{
 	color = "grey"
@@ -3890,10 +4082,12 @@
 /area/bunker)
 "cFN" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -3979,7 +4173,8 @@
 /obj/structure/vines,
 /obj/structure/flora/tall/fourth,
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#6E8C44"
@@ -4004,7 +4199,8 @@
 /area/bunker/lower/lab/gateway)
 "cIz" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform_decoration/kutjevo/rock,
 /obj/structure/fd/chasm{
@@ -4164,7 +4360,8 @@
 /area/bunker/lower/kpp2)
 "cNM" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#6E8C44"
@@ -4238,6 +4435,20 @@
 /obj/decal/cleanable/generic,
 /turf/simulated/floor/tiled/white,
 /area/bunker/lower/lab/gateway)
+"cOU" = (
+/obj/floor_decal/borderfloor{
+	dir = 1
+	},
+/obj/floor_decal/corner/darkblue/border{
+	dir = 1
+	},
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/command)
 "cQu" = (
 /obj/floor_decal/borderfloor,
 /obj/decal/cleanable/dirt,
@@ -4258,6 +4469,16 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/old_tile,
 /area/bunker/barracks/preporation)
+"cQH" = (
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass,
+/obj/floor_decal/messygrass{
+	dir = 4
+	},
+/obj/structure/flora/tall,
+/obj/item/modular_computer/pda,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/bunker/jungle)
 "cQZ" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -4469,8 +4690,9 @@
 /area/bunker/jungle)
 "cXV" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6"
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 2
 	},
 /obj/structure/closet/secure_closet/personal/patient,
 /obj/floor_decal/borderfloor{
@@ -4480,7 +4702,7 @@
 /area/bunker/lower/med/surgery)
 "cYp" = (
 /obj/overlay/diona/wall,
-/turf/simulated/floor/plating,
+/turf/simulated/wall/wood,
 /area/bunker/lower/eng/reactor)
 "cYq" = (
 /obj/decal/cleanable/dirt,
@@ -4598,7 +4820,8 @@
 /area/bunker/lower/med/warehouse)
 "deG" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
@@ -4667,10 +4890,12 @@
 /area/bunker/lower/kpp2)
 "dgw" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 1
@@ -4785,6 +5010,14 @@
 /obj/decal/cleanable/ash,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/rooms/room1)
+"dkj" = (
+/obj/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/bunker/eng/workshop)
 "dks" = (
 /obj/floor_decal/industrial/outline/orange,
 /obj/machinery/power/smes/buildable,
@@ -4861,8 +5094,8 @@
 /area/bunker/jungle)
 "dlV" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6"
+	color = "#fd1d21";
+	light_color = "#fd1d21"
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/eng/workshop)
@@ -4996,7 +5229,9 @@
 /area/bunker/lower/monorail)
 "dqX" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "drC" = (
@@ -5007,6 +5242,15 @@
 	color = "#526833"
 	},
 /area/bunker/jungle)
+"drI" = (
+/obj/floor_decal/borderfloorblack,
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/corridos)
 "dsm" = (
 /obj/floor_decal/steeldecal/steel_decals_central2{
 	dir = 4;
@@ -5180,8 +5424,8 @@
 "dAW" = (
 /obj/floor_decal/borderfloorblack,
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
+	color = "#fd1d21";
+	light_color = "#fd1d21";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/monotile,
@@ -5205,6 +5449,7 @@
 /area/bunker/jungle)
 "dBG" = (
 /obj/decal/cleanable/dirt,
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/plating,
 /area/bunker/corridors/north)
 "dCJ" = (
@@ -5276,7 +5521,9 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/rooms/room2)
 "dEG" = (
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 8
 	},
@@ -5390,9 +5637,7 @@
 /obj/machinery/power/terminal{
 	dir = 1
 	},
-/obj/overlay/diona/decorator{
-	dir = 4
-	},
+/obj/overlay/diona/floor,
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
 "dLl" = (
@@ -5435,7 +5680,10 @@
 /obj/structure/table/marble,
 /obj/item/material/kitchen/rollingpin,
 /obj/item/book/manual/chef_recipes,
-/obj/machinery/light,
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21"
+	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/kitchen)
 "dMN" = (
@@ -5511,9 +5759,12 @@
 /area/bunker/command)
 "dQP" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/fake_lattice{
 	layer = 2.11
 	},
@@ -5521,6 +5772,10 @@
 	icon_state = "gd_da"
 	},
 /area/bunker/interlude)
+"dRr" = (
+/obj/decal/cleanable/blood/splatter,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/corridors/north)
 "dRw" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -5580,6 +5835,11 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/bunker/corridors/north)
+"dUL" = (
+/obj/floor_decal/borderfloorblack,
+/obj/structure/rubble,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/kpp2)
 "dUP" = (
 /obj/floor_decal/industrial/warning/corner,
 /obj/floor_decal/techfloor{
@@ -5616,6 +5876,11 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/eng/workshop)
+"dVS" = (
+/obj/structure/vines/heavy2,
+/obj/decal/cleanable/blood/oil/streak,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/bunker)
 "dWC" = (
 /obj/floor_decal/borderfloor{
 	dir = 9
@@ -5673,6 +5938,24 @@
 /obj/structure/closet/fridge/meat,
 /turf/simulated/floor/tiled/freezer,
 /area/bunker/kitchen/freezer)
+"dZq" = (
+/obj/structure/railing/mapped{
+	dir = 4;
+	icon_state = "railing0-1"
+	},
+/obj/floor_decal/floordetail/edgedrain{
+	dir = 4
+	},
+/obj/structure/platform{
+	dir = 4
+	},
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 1;
+	flipped = 1
+	},
+/turf/simulated/floor/plating,
+/area/bunker/eng/workshop)
 "dZr" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -5685,10 +5968,12 @@
 /area/bunker/lower/med/surgery)
 "dZM" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought{
 	color = "#bebebe"
@@ -5822,7 +6107,8 @@
 /area/bunker/lower/lab/bslab)
 "efD" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/desertsand,
 /area/bunker/jungle)
@@ -5839,7 +6125,8 @@
 /area/bunker/jungle)
 "egu" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought{
 	color = "#bebebe"
@@ -5900,9 +6187,12 @@
 /area/bunker/kpp)
 "eij" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/env{
 	icon_state = "gl"
@@ -5923,9 +6213,12 @@
 /area/bunker/lower/eng/warehouse)
 "ekc" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "eki" = (
@@ -5938,8 +6231,8 @@
 /area/bunker/eng)
 "ekk" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
+	color = "#fd1d21";
+	light_color = "#fd1d21";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/monotile,
@@ -6074,6 +6367,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
+"epz" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/floor_decal/corner/darkblue/mono,
+/obj/structure/roller_bed,
+/obj/decal/cleanable/blood,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/command)
 "eqa" = (
 /obj/structure/flora/tall/fourth,
 /obj/structure/platform_decoration/kutjevo/rock{
@@ -6095,9 +6398,12 @@
 "eqD" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
-/obj/structure/platform/kutjevo/rock,
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 4
@@ -6253,8 +6559,8 @@
 /area/bunker/jungle)
 "exF" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
+	color = "#fd1d21";
+	light_color = "#fd1d21";
 	dir = 4
 	},
 /obj/floor_decal/borderfloor{
@@ -6269,7 +6575,9 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "exI" = (
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/drought{
 	color = "#bebebe"
 	},
@@ -6282,6 +6590,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/bunker/lower/lab/office)
+"eyb" = (
+/obj/catwalk_plated/dark,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/decal/cleanable/blood/drip,
+/turf/simulated/floor/plating,
+/area/bunker/corridors/center)
 "eyD" = (
 /obj/item/shellfish/mussel,
 /turf/simulated/floor/exoplanet/fd/desertsand,
@@ -6384,7 +6702,8 @@
 "eDa" = (
 /obj/floor_decal/asteroid,
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
@@ -6399,7 +6718,9 @@
 /turf/simulated/wall/r_wall,
 /area/bunker/lower/lab)
 "eDS" = (
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/bunker/interlude)
 "eEh" = (
@@ -6414,7 +6735,8 @@
 /area/bunker/kitchen/bufet)
 "eEv" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/fake_lattice{
 	layer = 2.11
@@ -6516,13 +6838,15 @@
 	dir = 6
 	},
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6"
+	color = "#fd1d21";
+	light_color = "#fd1d21"
 	},
 /turf/simulated/floor/tiled,
 /area/bunker/lower/med/warehouse)
 "eJD" = (
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "eKI" = (
@@ -6692,6 +7016,15 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/eng/workshop)
+"eRp" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark,
+/area/bunker/corridors/north)
 "eRH" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -6729,9 +7062,12 @@
 /area/bunker/kitchen/bufet)
 "eUA" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/fake_lattice{
 	layer = 2.11
 	},
@@ -6766,6 +7102,7 @@
 /obj/floor_decal/corner/darkblue/border{
 	dir = 8
 	},
+/obj/machinery/power/port_gen/pacman,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "eUV" = (
@@ -6813,9 +7150,12 @@
 /area/bunker/lower/eng/reactor)
 "eWq" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
 	has_fall_damage = 0;
@@ -6909,9 +7249,12 @@
 /area/bunker/rooms/room11)
 "faG" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/fake_lattice{
 	layer = 2.11
 	},
@@ -6929,7 +7272,8 @@
 /area/bunker/lower/lab)
 "faZ" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 8
@@ -7055,10 +7399,12 @@
 /area/bunker/command)
 "fdL" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/samosbor/env{
 	icon_state = "gl"
@@ -7117,10 +7463,12 @@
 /area/bunker/barracks/preporation_gvardiya)
 "fhu" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -7255,9 +7603,12 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/med)
 "fkY" = (
-/obj/structure/platform/kutjevo/rock,
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 8;
+	layer = 2.23
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/fd/drought{
@@ -7546,7 +7897,8 @@
 /area/bunker/interlude)
 "fxN" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/fd/mapping/light_marker{
 	marker_power = 0.8;
@@ -7599,10 +7951,12 @@
 /area/bunker/lower/corridos)
 "fzu" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/fd/drought{
@@ -7611,10 +7965,12 @@
 /area/bunker/kpp)
 "fzw" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/decal/cleanable/dirt,
 /obj/structure/platform_decoration/kutjevo/rock{
@@ -7717,7 +8073,8 @@
 "fCa" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
@@ -7836,6 +8193,11 @@
 	color = "#bebebe"
 	},
 /area/bunker/jungle)
+"fFg" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/barricade,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/corridors/north)
 "fFs" = (
 /obj/machinery/door/airlock/autoname{
 	door_color = "#ffffff";
@@ -8007,10 +8369,19 @@
 /obj/structure/vines,
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
+"fIR" = (
+/obj/floor_decal/borderfloorblack,
+/obj/structure/table/reinforced,
+/obj/item/clothing/mask/gas/poltergeist{
+	pixel_x = -1;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/kpp1)
 "fJa" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
+	color = "#fd1d21";
+	light_color = "#fd1d21";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -8039,6 +8410,11 @@
 	id_tag = "garage"
 	},
 /obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/bunker/eng/workshop)
+"fLc" = (
+/obj/decal/cleanable/blood/gibs/robot,
+/obj/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
 "fLe" = (
@@ -8094,7 +8470,8 @@
 /area/bunker/interlude)
 "fMx" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#5F773B"
@@ -8595,7 +8972,9 @@
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
 "gdL" = (
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#6E8C44"
 	},
@@ -8796,7 +9175,8 @@
 "glf" = (
 /obj/structure/flora/tall/fourth,
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#6E8C44"
@@ -8804,7 +9184,8 @@
 /area/bunker/jungle)
 "glv" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
@@ -8902,9 +9283,12 @@
 /area/bunker/lower/kpp1)
 "gqn" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/fake_lattice{
 	layer = 2.11
 	},
@@ -8982,6 +9366,17 @@
 	},
 /turf/simulated/floor/exoplanet/fd/muddirt,
 /area/bunker/jungle)
+"gvA" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 8
+	},
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 2
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/corridos)
 "gvB" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -9138,10 +9533,12 @@
 /area/bunker/lower/med/cryo)
 "gzQ" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/samosbor/env{
 	icon_state = "gd"
@@ -9283,6 +9680,15 @@
 "gEJ" = (
 /turf/simulated/floor/tiled/white,
 /area/bunker/lower/lab/cryolab)
+"gFb" = (
+/obj/floor_decal/corner/paleblue/mono,
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/bunker/lower/med)
 "gFm" = (
 /obj/machinery/floodlight{
 	dir = 1
@@ -9310,7 +9716,8 @@
 /area/bunker/jungle)
 "gFr" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/samosbor/env{
 	icon_state = "gd"
@@ -9333,6 +9740,18 @@
 	icon_state = "gd"
 	},
 /area/bunker/interlude)
+"gFA" = (
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 8
+	},
+/obj/floor_decal/borderfloorblack{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/corridos)
 "gFN" = (
 /obj/structure/flora/ausbushes/grassybush,
 /turf/simulated/floor/exoplanet/fd/drought,
@@ -9371,8 +9790,8 @@
 /area/bunker/lower/lab)
 "gHt" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
+	color = "#fd1d21";
+	light_color = "#fd1d21";
 	dir = 1
 	},
 /obj/floor_decal/borderfloorblack,
@@ -9440,7 +9859,8 @@
 /area/bunker/barracks/preporation)
 "gJz" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/flora/tree/beet_decorative,
 /obj/structure/platform_decoration/kutjevo/rock{
@@ -9510,11 +9930,12 @@
 /area/bunker/kpp)
 "gLB" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
+	color = "#fd1d21";
+	light_color = "#fd1d21";
 	dir = 4
 	},
 /obj/decal/cleanable/dirt,
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/plating,
 /area/bunker/kpp)
 "gMf" = (
@@ -9635,7 +10056,6 @@
 	icon_state = "warning"
 	},
 /obj/machinery/light/small/emergency,
-/obj/structure/inflatable,
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
 "gQu" = (
@@ -9719,9 +10139,12 @@
 /area/bunker/lower/kpp1)
 "gSy" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
 	has_fall_damage = 0;
@@ -9841,9 +10264,12 @@
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med/chem)
 "gUf" = (
-/obj/structure/platform/kutjevo/rock,
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/samosbor/env{
 	icon_state = "gd"
@@ -9913,6 +10339,16 @@
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
+"gUW" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 1
+	},
+/obj/structure/barricade,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/corridors/north)
 "gVX" = (
 /obj/structure/table/rack,
 /obj/floor_decal/corner/paleblue/mono,
@@ -9920,9 +10356,12 @@
 /area/bunker/lower/med/warehouse)
 "gWc" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#6E8C44"
 	},
@@ -10097,6 +10536,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
+"hcT" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 1;
+	flipped = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bunker/corridors/center)
 "hdh" = (
 /obj/structure/cable/green{
 	d1 = 32;
@@ -10181,9 +10633,12 @@
 "hdX" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "heo" = (
@@ -10221,15 +10676,23 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/eng/workshop)
 "heD" = (
-/obj/decal/cleanable/dirt,
-/obj/item/stack/material/phoron/ten,
-/turf/simulated/floor/plating,
-/area/bunker/eng)
+/obj/floor_decal/corner/paleblue/border,
+/obj/floor_decal/corner/paleblue/border{
+	dir = 1
+	},
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/bunker/lower/med/warehouse)
 "heN" = (
 /obj/floor_decal/corner/grey/diagonal,
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6"
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 2
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -10281,6 +10744,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bunker/rooms/room14)
+"hgd" = (
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21"
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/corridors/north)
 "hgx" = (
 /obj/floor_decal/spline/plain/black{
 	dir = 4
@@ -10345,6 +10815,11 @@
 /area/bunker/jungle)
 "hiW" = (
 /obj/floor_decal/corner_techfloor_grid/full,
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 1;
+	flipped = 1
+	},
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
 "hjc" = (
@@ -10397,7 +10872,9 @@
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
 "hmA" = (
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/env{
 	icon_state = "gl"
@@ -10411,6 +10888,20 @@
 /obj/structure/flora/tall,
 /turf/simulated/floor/exoplanet/fd/waste,
 /area/bunker/jungle)
+"hmQ" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 6
+	},
+/obj/structure/platform{
+	dir = 8
+	},
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 1;
+	flipped = 1
+	},
+/turf/simulated/floor/plating,
+/area/bunker/eng/workshop)
 "hny" = (
 /obj/structure/table/rack,
 /obj/item/stack/material/plasteel/ten,
@@ -10477,7 +10968,8 @@
 /area/bunker/lower/med)
 "hqz" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/fd/cave_flora{
 	icon_state = "underwatergrass"
@@ -10564,10 +11056,12 @@
 /area/bunker/jungle)
 "hsM" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/fake_lattice{
 	layer = 2.11
@@ -10597,7 +11091,9 @@
 /turf/simulated/floor/plating,
 /area/bunker/jungle)
 "htF" = (
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/fake_lattice{
 	layer = 2.11
 	},
@@ -10650,7 +11146,8 @@
 /area/bunker/rooms/room7)
 "huW" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 4
@@ -10664,6 +11161,10 @@
 	icon_state = "gd_da"
 	},
 /area/bunker/interlude)
+"hva" = (
+/obj/structure/barricade,
+/turf/simulated/floor/plating,
+/area/bunker/corridors/north)
 "hvC" = (
 /obj/structure/flora/ausbushes/fernybush,
 /obj/fd_water/alt_ver1,
@@ -10700,7 +11201,8 @@
 /area/bunker/corridors/west)
 "hxj" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/item/shovel{
 	pixel_x = -6;
@@ -10711,9 +11213,12 @@
 	},
 /area/bunker/jungle)
 "hxB" = (
-/obj/structure/platform/kutjevo/rock,
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -10771,6 +11276,16 @@
 /obj/submap_landmark/spawnpoint/manticore/luke,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
+"hyX" = (
+/obj/catwalk_plated/dark,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/decal/cleanable/blood/drip,
+/turf/simulated/floor/plating,
+/area/bunker/corridors/north)
 "hzp" = (
 /obj/structure/table/standard{
 	icon_state = "metal_flip0";
@@ -10890,7 +11405,9 @@
 /turf/simulated/floor/tiled/old_tile,
 /area/bunker/barracks/preporation_gvardiya)
 "hCI" = (
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/fake_lattice{
 	layer = 2.11
 	},
@@ -10911,6 +11428,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/bunker/lower/lab/gateway)
+"hDD" = (
+/obj/structure/barricade,
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/bunker/jungle)
 "hEB" = (
 /obj/machinery/door/airlock/autoname{
 	dir = 4
@@ -10979,10 +11500,12 @@
 /area/bunker/jungle)
 "hHn" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/muddirt{
 	color = "#5E5643"
@@ -11075,10 +11598,12 @@
 "hMb" = (
 /obj/machinery/light,
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/kpp)
@@ -11181,7 +11706,8 @@
 /area/bunker/jungle)
 "hPP" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 4
@@ -11438,10 +11964,12 @@
 /area/bunker/jungle)
 "hYP" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/fd/mapping/light_marker{
 	marker_power = 0.8;
@@ -11452,6 +11980,16 @@
 	icon_state = "gd"
 	},
 /area/bunker/interlude)
+"hYW" = (
+/obj/floor_decal/corner/paleblue/mono,
+/obj/machinery/light{
+	color = "#a1d2d6";
+	light_color = "#a1d2d6";
+	dir = 4
+	},
+/obj/structure/rubble,
+/turf/simulated/floor/tiled/monotile,
+/area/bunker/lower/med)
 "hZl" = (
 /obj/structure/flora/ausbushes/purple_bush,
 /turf/simulated/floor/exoplanet/fd/grass,
@@ -11545,7 +12083,8 @@
 /area/bunker/lower/kpp1)
 "icy" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -11622,6 +12161,16 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/eng)
+"igD" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/decal/cleanable/dirt,
+/obj/structure/barricade,
+/turf/simulated/floor/tiled/dark,
+/area/bunker/corridors/north)
 "iha" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -11987,7 +12536,8 @@
 /area/bunker/eng)
 "isR" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/decal/cleanable/dirt,
 /obj/structure/platform_decoration/kutjevo/rock,
@@ -12069,6 +12619,16 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
+"iuF" = (
+/obj/floor_decal/borderfloor{
+	dir = 8
+	},
+/obj/floor_decal/corner/darkblue/border{
+	dir = 8
+	},
+/obj/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/command)
 "ivh" = (
 /obj/structure/flora/seaweed{
 	layer = 2.21;
@@ -12130,7 +12690,8 @@
 /area/bunker/jungle)
 "ixF" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/samosbor/env{
 	icon_state = "gd"
@@ -12251,6 +12812,11 @@
 	icon_state = "gd_da"
 	},
 /area/bunker/interlude)
+"iDH" = (
+/obj/decal/cleanable/blood/drip,
+/obj/structure/barricade,
+/turf/simulated/floor/plating,
+/area/bunker/corridors/north)
 "iEX" = (
 /obj/floor_decal/corner/grey/border{
 	dir = 9
@@ -12426,6 +12992,15 @@
 	color = "#6E8C44"
 	},
 /area/bunker/jungle)
+"iLN" = (
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 1
+	},
+/obj/floor_decal/borderfloorblack,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/kpp2)
 "iLT" = (
 /obj/fd_water/alt_ver1,
 /obj/floor_decal/messygrass{
@@ -12437,6 +13012,14 @@
 /obj/floor_decal/messygrass,
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
+"iMa" = (
+/obj/floor_decal/techfloor/orange{
+	dir = 1
+	},
+/obj/decal/cleanable/blood/gibs/robot,
+/obj/decal/cleanable/blood/oil,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/bunker/eng/workshop)
 "iMv" = (
 /obj/structure/flora/tree/jungle/small,
 /turf/simulated/floor/exoplanet/fd/grass{
@@ -12520,6 +13103,16 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
+"iOY" = (
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 1
+	},
+/obj/floor_decal/borderfloorblack,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/kpp1)
 "iPb" = (
 /obj/structure/rubble/house,
 /turf/simulated/floor/plating,
@@ -12551,7 +13144,8 @@
 /area/bunker/lower/lab/virology)
 "iQy" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
@@ -12635,8 +13229,8 @@
 	dir = 1
 	},
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6"
+	color = "#fd1d21";
+	light_color = "#fd1d21"
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/med)
@@ -12772,6 +13366,14 @@
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/office)
+"iXF" = (
+/obj/machinery/light{
+	color = "#a1d2d6";
+	light_color = "#a1d2d6";
+	dir = 1
+	},
+/turf/simulated/mineral/volcanic,
+/area/bunker)
 "iXQ" = (
 /obj/overlay/diona/floor,
 /obj/structure/flora/ausbushes/lavendergrass,
@@ -12840,6 +13442,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/corridors/west)
+"iZv" = (
+/obj/paint/black,
+/obj/structure/wall_frame/standard,
+/obj/structure/barricade,
+/turf/simulated/floor/plating,
+/area/bunker/kpp)
 "iZx" = (
 /obj/structure/flora/seaweed,
 /obj/fd_water/alt_ver1,
@@ -13103,6 +13711,10 @@
 	color = "#a19e74";
 	dir = 1
 	},
+/obj/overlay/diona/decorator{
+	color = "#a19e74";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
 "jih" = (
@@ -13243,9 +13855,12 @@
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med)
 "jna" = (
-/obj/structure/platform/kutjevo/rock,
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -13302,9 +13917,23 @@
 /obj/floor_decal/corner/grey{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21"
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/bunker/kitchen/freezer)
+"joB" = (
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 4
+	},
+/obj/floor_decal/techfloor/orange{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/bunker/eng/workshop)
 "jpb" = (
 /obj/machinery/atmospherics/unary/freezer{
 	dir = 1
@@ -13436,8 +14065,8 @@
 /area/bunker/lower/med/surgery)
 "jrY" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6"
+	color = "#fd1d21";
+	light_color = "#fd1d21"
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
@@ -13569,10 +14198,11 @@
 /area/bunker/eng/workshop)
 "jAG" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
+	color = "#fd1d21";
+	light_color = "#fd1d21";
 	dir = 8
 	},
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/corridors/center)
 "jBM" = (
@@ -13703,7 +14333,8 @@
 /area/bunker/lower/kpp2)
 "jJd" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -13727,9 +14358,12 @@
 "jJp" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "jJG" = (
@@ -13762,6 +14396,17 @@
 	color = "#272727"
 	},
 /area/bunker/jungle)
+"jKO" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 1
+	},
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/corridos)
 "jKT" = (
 /obj/structure/flora/trk17_regrowing/cucumber,
 /turf/simulated/floor/exoplanet/fd/grass{
@@ -13821,10 +14466,12 @@
 "jNf" = (
 /obj/structure/flora/trk17_regrowing/coffee,
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
@@ -13881,7 +14528,8 @@
 /area/bunker/eng)
 "jOU" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -13899,7 +14547,8 @@
 /area/bunker/jungle)
 "jPk" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/samosbor/env{
 	icon_state = "gl"
@@ -13997,7 +14646,8 @@
 /area/bunker/lower/eng)
 "jSc" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#6E8C44"
@@ -14020,10 +14670,12 @@
 "jSZ" = (
 /obj/floor_decal/asteroid,
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/decal/cleanable/dirt,
 /obj/structure/platform_decoration/kutjevo/rock{
@@ -14118,6 +14770,7 @@
 /obj/floor_decal/borderfloorblack{
 	dir = 5
 	},
+/obj/structure/rubble,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/med)
 "jYc" = (
@@ -14136,11 +14789,11 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
-/obj/structure/inflatable,
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
 "jYD" = (
 /obj/floor_decal/borderfloorwhite,
+/obj/structure/fd/bs_vines,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/bslab)
 "jYL" = (
@@ -14236,10 +14889,12 @@
 /area/bunker/lower/kpp1)
 "kbR" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
@@ -14364,6 +15019,8 @@
 /area/bunker/barracks/preporation_gvardiya)
 "kiZ" = (
 /obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
 	dir = 1
 	},
 /obj/machinery/cooker/fryer,
@@ -14484,8 +15141,8 @@
 /area/bunker/jungle)
 "kql" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
+	color = "#fd1d21";
+	light_color = "#fd1d21";
 	dir = 1
 	},
 /obj/floor_decal/borderfloorblack,
@@ -14497,7 +15154,9 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp1)
 "kqm" = (
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
 	has_fall_damage = 0;
@@ -14573,6 +15232,10 @@
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/rooms/room13)
+"krO" = (
+/obj/decal/cleanable/blood,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/bunker/kpp)
 "krS" = (
 /obj/floor_decal/messygrass{
 	dir = 1
@@ -14602,11 +15265,15 @@
 /area/bunker/corridors/north)
 "kts" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 8;
+	layer = 2.23
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/fd/drought{
@@ -14638,8 +15305,8 @@
 	},
 /obj/floor_decal/borderfloorblack,
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
+	color = "#fd1d21";
+	light_color = "#fd1d21";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/monotile,
@@ -14859,7 +15526,8 @@
 /area/bunker)
 "kBI" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/fake_lattice{
 	layer = 2.11
@@ -14961,13 +15629,11 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/eng/workshop)
 "kFy" = (
-/obj/item/stack/material/phoron,
-/obj/item/stack/material/phoron{
-	pixel_y = 6;
-	pixel_x = 12
-	},
+/obj/structure/catwalk,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/plating,
-/area/bunker/eng)
+/area/bunker/kpp)
 "kFY" = (
 /obj/catwalk_plated/dark,
 /obj/structure/cable/green{
@@ -15003,7 +15669,8 @@
 /area/bunker/command)
 "kII" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/floor_decal/hull{
 	dir = 4
@@ -15049,7 +15716,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/overlay/diona/decorator,
+/obj/overlay/diona/floor,
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
 "kKH" = (
@@ -15143,6 +15810,16 @@
 	color = "#272727"
 	},
 /area/bunker/jungle)
+"kPA" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/catwalk_plated/dark,
+/obj/structure/barricade,
+/turf/simulated/floor/plating,
+/area/bunker/corridors/north)
 "kPJ" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -15261,9 +15938,12 @@
 /area/bunker/jungle)
 "kSe" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
 	has_fall_damage = 0;
@@ -15710,6 +16390,9 @@
 	light_color = "#a1d2d6"
 	},
 /obj/structure/fd/bs_vines,
+/obj/floor_decal/borderfloorwhite{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/bslab)
 "lga" = (
@@ -15988,6 +16671,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/bunker/kitchen)
+"lsk" = (
+/obj/structure/platform_decoration/kutjevo/rock{
+	dir = 1
+	},
+/obj/structure/platform_decoration/kutjevo/rock{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt,
+/area/bunker/jungle)
 "lsB" = (
 /obj/paint/black,
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -16000,12 +16692,6 @@
 /obj/structure/flora/ausbushes/redglow_plant,
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
-"ltC" = (
-/obj/structure/fd/bs_vines,
-/obj/floor_decal/borderfloorwhite,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/bunker/lower/lab/bslab)
 "ltK" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/corner/blue/bordercorner{
@@ -16116,7 +16802,8 @@
 "lwv" = (
 /obj/structure/flora/tall/fourth,
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
@@ -16145,9 +16832,12 @@
 /turf/simulated/mineral/volcanic,
 /area/bunker/lower/med)
 "lyC" = (
-/obj/structure/platform/kutjevo/rock,
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
@@ -16166,6 +16856,14 @@
 	color = "#5F773B"
 	},
 /area/bunker/jungle)
+"lzA" = (
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 2
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/corridors/south)
 "lzB" = (
 /obj/floor_decal/step{
 	color = "grey";
@@ -16311,7 +17009,8 @@
 /area/bunker/kitchen)
 "lEb" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/fd/drought,
@@ -16338,10 +17037,11 @@
 /area/bunker/jungle/lz)
 "lFh" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
+	color = "#fd1d21";
+	light_color = "#fd1d21";
 	dir = 4
 	},
+/obj/decal/cleanable/blood/gibs/robot,
 /turf/simulated/floor/plating,
 /area/bunker/kpp)
 "lFn" = (
@@ -16455,6 +17155,14 @@
 	},
 /obj/floor_decal/messygrass,
 /turf/simulated/floor/exoplanet/fd/drought,
+/area/bunker/jungle)
+"lIw" = (
+/obj/structure/flora/tall/fourth,
+/obj/structure/platform/kutjevo/rock{
+	dir = 1;
+	layer = 2.23
+	},
+/turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "lIy" = (
 /obj/paint/silver,
@@ -16651,10 +17359,12 @@
 /area/bunker/jungle)
 "lQC" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -16667,12 +17377,19 @@
 /area/bunker/interlude)
 "lRb" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/muddirt{
 	color = "#5E5643"
 	},
 /area/bunker/jungle)
+"lRB" = (
+/obj/structure/table/rack,
+/obj/floor_decal/corner/paleblue/mono,
+/obj/item/fd/simple_combat/full_heal,
+/turf/simulated/floor/tiled/monotile,
+/area/bunker/lower/med/warehouse)
 "lRC" = (
 /turf/simulated/floor/lino,
 /area/bunker/command)
@@ -16827,9 +17544,12 @@
 /area/bunker/lower/kpp2)
 "lYn" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "lZk" = (
@@ -16842,7 +17562,8 @@
 /area/bunker/eng/workshop)
 "lZo" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/floor_decal/hull{
 	dir = 1
@@ -16926,7 +17647,8 @@
 /area/bunker/lower/corridos)
 "mfV" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -16971,7 +17693,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/bunker/corridors/north)
 "mis" = (
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 4
 	},
@@ -17072,7 +17796,8 @@
 /area/bunker/jungle)
 "mlx" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#6E8C44"
@@ -17122,7 +17847,9 @@
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/warehouse)
 "mmY" = (
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 8
 	},
@@ -17143,7 +17870,8 @@
 /area/bunker/jungle)
 "mnw" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/platform_decoration/kutjevo/rock,
 /obj/structure/fake_lattice{
@@ -17183,10 +17911,12 @@
 /area/bunker/lower/med)
 "mpX" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -17212,10 +17942,12 @@
 /obj/structure/table/standard{
 	icon_state = "metal_flip0";
 	dir = 1;
-	flipped = 1
+	flipped = 1;
+	layer = 2.24
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/kpp)
@@ -17262,9 +17994,12 @@
 /area/bunker/barracks/gvardiya)
 "msU" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
 	has_fall_damage = 0;
@@ -17328,7 +18063,8 @@
 /area/bunker/barracks/gvardiya)
 "mvg" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/decal/cleanable/dirt,
 /obj/structure/platform_decoration/kutjevo/rock{
@@ -17432,9 +18168,12 @@
 /area/bunker/jungle)
 "mAu" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/muddirt{
 	color = "#5E5643"
 	},
@@ -17489,8 +18228,8 @@
 /area/bunker/lower/monorail)
 "mBY" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
+	color = "#fd1d21";
+	light_color = "#fd1d21";
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -17560,9 +18299,12 @@
 /area/bunker/rooms/room12)
 "mFB" = (
 /obj/decal/cleanable/dirt,
-/obj/structure/platform/kutjevo/rock,
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 1;
+	layer = 2.23
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/fd/drought{
@@ -17602,10 +18344,12 @@
 /area/bunker/lower/med/lobby)
 "mHv" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/muddirt{
 	color = "#5E5643"
@@ -17613,10 +18357,12 @@
 /area/bunker/jungle)
 "mHM" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -17790,7 +18536,8 @@
 /obj/structure/vines/light3,
 /obj/structure/flora/tall/fourth,
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#6E8C44"
@@ -17871,7 +18618,8 @@
 /area/bunker/kitchen/freezer)
 "mQr" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -17883,7 +18631,8 @@
 "mQy" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
@@ -17977,7 +18726,8 @@
 /area/bunker/lower/kpp1)
 "mUj" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/kpp)
@@ -18061,7 +18811,8 @@
 /area/bunker/lower/lab/cryolab)
 "mXa" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/fake_lattice{
 	layer = 2.11
@@ -18093,6 +18844,16 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/barracks)
+"mYD" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark,
+/area/bunker/corridors/center)
 "mYJ" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
@@ -18157,14 +18918,15 @@
 	},
 /area/bunker/interlude)
 "nak" = (
-/obj/floor_decal/borderfloorblack,
-/obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
-	dir = 1
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/lower/corridos)
+/obj/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood,
+/turf/simulated/floor/tiled/dark,
+/area/bunker/corridors/north)
 "nay" = (
 /obj/overlay/diona/floor,
 /obj/overlay/diona/decorator{
@@ -18180,10 +18942,12 @@
 "naU" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
@@ -18451,8 +19215,8 @@
 /area/bunker/lower/kpp1)
 "nkE" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
+	color = "#fd1d21";
+	light_color = "#fd1d21";
 	dir = 8
 	},
 /turf/simulated/open,
@@ -18475,7 +19239,8 @@
 /area/bunker/lower/med/warehouse)
 "nll" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 8
@@ -18504,10 +19269,12 @@
 /area/bunker/lower/med)
 "nlM" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought{
 	color = "#bebebe"
@@ -18684,10 +19451,12 @@
 /area/bunker/jungle)
 "nsj" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/env{
@@ -18787,6 +19556,8 @@
 /obj/floor_decal/corner_techfloor_grid/full{
 	dir = 8
 	},
+/obj/decal/cleanable/blood/oil/streak,
+/obj/decal/cleanable/blood/gibs/robot,
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
 "nwh" = (
@@ -18867,6 +19638,14 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/jungle)
+"nAU" = (
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bunker/command)
 "nBp" = (
 /obj/structure/platform_decoration/kutjevo/rock,
 /turf/simulated/floor/exoplanet/fd/muddirt,
@@ -18899,7 +19678,6 @@
 "nCy" = (
 /obj/decal/cleanable/generic,
 /obj/structure/fd/bs_vines,
-/obj/floor_decal/borderfloorwhite,
 /turf/simulated/floor/exoplanet/fd/waste,
 /area/bunker/lower/lab/bslab)
 "nCE" = (
@@ -18925,6 +19703,7 @@
 	icon_state = "2-4"
 	},
 /obj/catwalk_plated,
+/obj/structure/rubble,
 /turf/simulated/floor/plating,
 /area/bunker/lower/med)
 "nCO" = (
@@ -18939,7 +19718,8 @@
 /area/bunker/lower/eng)
 "nCR" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 4
@@ -18979,6 +19759,16 @@
 /obj/floor_decal/corner/darkblue/border{
 	dir = 8
 	},
+/obj/item/stack/material/phoron{
+	pixel_y = 6;
+	pixel_x = 12
+	},
+/obj/item/stack/material/phoron{
+	pixel_x = 8;
+	pixel_y = 9
+	},
+/obj/item/stack/material/phoron/ten,
+/obj/item/stack/material/phoron/ten,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "nDF" = (
@@ -19009,9 +19799,12 @@
 	},
 /area/bunker/jungle)
 "nEn" = (
-/obj/structure/platform/kutjevo/rock,
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -19040,7 +19833,8 @@
 /area/bunker/jungle)
 "nGr" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 8
@@ -19067,7 +19861,8 @@
 /area/bunker/eng/workshop)
 "nIr" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 8
@@ -19253,7 +20048,8 @@
 	pixel_y = -25
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
@@ -19352,6 +20148,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/rooms/room14)
+"nXb" = (
+/obj/decal/cleanable/blood/oil/streak,
+/obj/structure/platform/kutjevo/rock{
+	dir = 1;
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
+/area/bunker/jungle)
 "nXm" = (
 /obj/structure/table/steel,
 /obj/item/material/hatchet{
@@ -19431,6 +20240,16 @@
 /obj/catwalk_plated/white,
 /turf/simulated/floor/plating,
 /area/bunker/lower/lab/gateway)
+"nYv" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 1
+	},
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21"
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/kpp1)
 "nYN" = (
 /obj/structure/flora/seaweed/large{
 	layer = 2.21;
@@ -19447,7 +20266,8 @@
 /area/bunker/lower/lab)
 "nZb" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -19487,10 +20307,12 @@
 "nZm" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
@@ -19679,7 +20501,8 @@
 /area/bunker/barracks)
 "oeq" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -19833,7 +20656,8 @@
 /area/bunker/lower/med/warehouse)
 "oji" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -19916,9 +20740,12 @@
 /turf/simulated/floor/plating,
 /area/bunker/lower/lab)
 "onn" = (
-/obj/structure/platform/kutjevo/rock,
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/desertsand,
 /area/bunker/jungle)
@@ -20040,7 +20867,9 @@
 /area/bunker/rooms/room8)
 "orL" = (
 /obj/decal/cleanable/dirt,
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
 "osy" = (
@@ -20218,12 +21047,26 @@
 	color = "#272727"
 	},
 /area/bunker/jungle)
+"ozZ" = (
+/obj/decal/cleanable/dirt,
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 6
+	},
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 1;
+	flipped = 1
+	},
+/turf/simulated/floor/plating,
+/area/bunker/eng/workshop)
 "oAo" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
@@ -20555,6 +21398,17 @@
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/rooms/room13)
+"oKb" = (
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 8
+	},
+/obj/floor_decal/borderfloorblack{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/corridos)
 "oKK" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -20679,6 +21533,10 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/bunker/lower/corridos)
+"oNS" = (
+/obj/decal/cleanable/blood/oil/streak,
+/turf/simulated/floor/exoplanet/fd/muddirt,
+/area/bunker/jungle)
 "oOy" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/exoplanet/fd/grass{
@@ -20720,10 +21578,12 @@
 /area/bunker/lower/eng)
 "oOV" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -20823,7 +21683,9 @@
 	},
 /area/bunker/jungle)
 "oTK" = (
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "oUa" = (
@@ -20881,10 +21743,12 @@
 /area/bunker/jungle)
 "oVB" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/muddirt{
 	color = "#5E5643"
@@ -20907,6 +21771,9 @@
 	},
 /obj/machinery/power/terminal{
 	dir = 1
+	},
+/obj/overlay/diona/decorator{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
@@ -21002,6 +21869,10 @@
 /obj/structure/vines/light2,
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
+"pcC" = (
+/obj/structure/rubble,
+/turf/simulated/floor/tiled,
+/area/bunker/lower/med)
 "pcR" = (
 /obj/floor_decal/hull/corner{
 	dir = 4
@@ -21094,13 +21965,16 @@
 /area/bunker)
 "pfc" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 4
@@ -21122,12 +21996,16 @@
 /area/bunker/lower/monorail)
 "pfT" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "pgR" = (
@@ -21136,8 +22014,8 @@
 /area/bunker/lower/eng/warehouse)
 "pgZ" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6"
+	color = "#fd1d21";
+	light_color = "#fd1d21"
 	},
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
@@ -21173,9 +22051,12 @@
 /area/bunker/corridors/south)
 "phl" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
 "pht" = (
@@ -21240,7 +22121,8 @@
 /area/bunker/jungle)
 "pjR" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/fake_lattice{
 	layer = 2.11
@@ -21285,7 +22167,8 @@
 "pmm" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought{
 	color = "#bebebe"
@@ -21339,6 +22222,23 @@
 /obj/structure/wall_frame,
 /turf/simulated/floor/plating,
 /area/bunker/jungle/lz)
+"ppZ" = (
+/obj/floor_decal/borderfloorblack,
+/obj/item/clothing/mask/gas/poltergeist{
+	pixel_x = -19;
+	pixel_y = 6
+	},
+/obj/item/clothing/mask/gas/poltergeist{
+	pixel_x = -3;
+	pixel_y = 5
+	},
+/obj/structure/table/reinforced,
+/obj/item/clothing/mask/gas/poltergeist{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/kpp1)
 "pqb" = (
 /obj/structure/bed/chair/office/brown,
 /turf/simulated/floor/tiled/white,
@@ -21408,6 +22308,7 @@
 	icon_state = "4-8"
 	},
 /obj/catwalk_plated/dark,
+/obj/structure/rubble,
 /turf/simulated/floor/plating,
 /area/bunker/lower/med)
 "prO" = (
@@ -21435,9 +22336,9 @@
 /area/bunker/lower/lab/virology)
 "psN" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
-	dir = 4
+	color = "#fd1d21";
+	dir = 4;
+	light_color = "#fd1d21"
 	},
 /obj/structure/bed/sofa/l/black{
 	dir = 8
@@ -21483,7 +22384,9 @@
 /area/bunker/rooms/room14)
 "puY" = (
 /obj/structure/flora/tall/fourth,
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "pvD" = (
@@ -21494,7 +22397,8 @@
 /area/bunker/jungle)
 "pvQ" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
@@ -21512,7 +22416,8 @@
 /area/bunker/lower/med/warehouse)
 "pwm" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/muddirt{
 	color = "#5E5643"
@@ -21685,9 +22590,12 @@
 /area/bunker/jungle)
 "pDR" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
 	has_fall_damage = 0;
@@ -21709,9 +22617,12 @@
 /area/bunker)
 "pFu" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/fd/drought{
 	color = "#bebebe"
@@ -21761,7 +22672,8 @@
 "pGI" = (
 /obj/structure/flora/trk17_regrowing/coffee,
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
@@ -21823,8 +22735,8 @@
 /area/bunker/rooms/room2)
 "pJx" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
+	color = "#fd1d21";
+	light_color = "#fd1d21";
 	dir = 4
 	},
 /obj/overlay/diona/decorator,
@@ -21886,6 +22798,14 @@
 	},
 /obj/item/reagent_containers/food/snacks/grown/harebell,
 /turf/simulated/floor/plating,
+/area/bunker/corridors/center)
+"pLl" = (
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 1;
+	flipped = 1
+	},
+/turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/corridors/center)
 "pLu" = (
 /obj/machinery/light{
@@ -21957,6 +22877,14 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med/surgery)
+"pOL" = (
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/corridors/center)
 "pPc" = (
 /obj/structure/fd/placeholder/better{
 	density = 0
@@ -21973,6 +22901,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/bunker/lower/lab)
+"pPt" = (
+/obj/decal/cleanable/blood/gibs/robot,
+/turf/simulated/floor/plating,
+/area/bunker/kpp)
 "pPy" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/light{
@@ -22000,10 +22932,12 @@
 /area/bunker/lower/lab)
 "pQd" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/fd/decorative_pipes{
 	layer = 2.0
@@ -22107,9 +23041,12 @@
 "pSR" = (
 /obj/structure/flora/tall/fourth,
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "pSS" = (
@@ -22155,7 +23092,9 @@
 	},
 /area/bunker/jungle)
 "pUd" = (
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/vines/light3,
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
@@ -22265,6 +23204,14 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/bunker/kitchen/freezer)
+"pZr" = (
+/obj/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/floor_decal/techfloor,
+/obj/structure/barricade,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/bunker/eng/workshop)
 "qaf" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/blood/oil,
@@ -22294,10 +23241,12 @@
 /area/bunker/lower/lab/gateway)
 "qbu" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -22363,7 +23312,9 @@
 /turf/simulated/floor/exoplanet/grim_asphalt2,
 /area/bunker/interlude)
 "qfi" = (
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 4
 	},
@@ -22408,6 +23359,15 @@
 /obj/structure/inflatable,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp1)
+"qfP" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark,
+/area/bunker/corridors/center)
 "qgc" = (
 /obj/structure/vines/light3,
 /turf/simulated/floor/plating,
@@ -22589,6 +23549,15 @@
 /obj/floor_decal/corner/beige/mono,
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med/chem)
+"qnX" = (
+/obj/floor_decal/corner/paleblue/mono,
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 2
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/bunker/lower/med)
 "qof" = (
 /obj/structure/vines/heavy2,
 /turf/simulated/floor/exoplanet/fd/muddirt,
@@ -22600,11 +23569,13 @@
 /area/bunker/jungle)
 "qoi" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/decal/cleanable/dirt,
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought{
 	color = "#bebebe"
@@ -22725,12 +23696,16 @@
 /area/bunker/command)
 "qri" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/decal/cleanable/dirt,
+/obj/decal/cleanable/blood/gibs/robot,
+/obj/decal/cleanable/blood/oil,
 /turf/simulated/floor/exoplanet/fd/drought{
 	color = "#bebebe"
 	},
@@ -22767,7 +23742,8 @@
 /area/bunker/eng/workshop)
 "qsG" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought{
 	color = "#bebebe"
@@ -22909,8 +23885,8 @@
 /area/bunker/corridors/east)
 "qws" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6"
+	color = "#fd1d21";
+	light_color = "#fd1d21"
 	},
 /turf/simulated/open,
 /area/bunker/lower/kpp1)
@@ -22991,7 +23967,9 @@
 /turf/simulated/floor/tiled,
 /area/bunker/lower/med/chem)
 "qxX" = (
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/drought{
 	color = "#bebebe"
 	},
@@ -23092,7 +24070,9 @@
 /turf/simulated/floor/plating,
 /area/bunker/rooms/room2)
 "qAb" = (
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/desertsand,
 /area/bunker/jungle)
 "qAm" = (
@@ -23146,6 +24126,18 @@
 	},
 /turf/simulated/floor/tiled/old_cargo,
 /area/bunker/barracks/preporation_gvardiya)
+"qDy" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 1;
+	layer = 2.23
+	},
+/obj/structure/platform_decoration/kutjevo/rock{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
+/area/bunker/jungle)
 "qDK" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/cable/green{
@@ -23164,7 +24156,8 @@
 /area/bunker/jungle)
 "qEg" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
@@ -23480,7 +24473,8 @@
 /area/bunker/lower/monorail)
 "qQx" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought{
 	color = "#bebebe"
@@ -23591,8 +24585,8 @@
 "qSz" = (
 /obj/structure/table/standard,
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
+	color = "#fd1d21";
+	light_color = "#fd1d21";
 	dir = 8
 	},
 /obj/item/reagent_containers/food/snacks/meta_plate{
@@ -23606,20 +24600,24 @@
 /area/bunker/kitchen/bufet)
 "qTf" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "qTs" = (
 /obj/structure/flora/trk17_regrowing/ice_tricord,
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
@@ -23657,8 +24655,8 @@
 /area/bunker/lower/lab)
 "qTJ" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6"
+	color = "#fd1d21";
+	light_color = "#fd1d21"
 	},
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/simulated/floor/tiled/dark/monotile,
@@ -23700,7 +24698,8 @@
 "qVn" = (
 /obj/structure/vines/light3,
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#6E8C44"
@@ -23973,10 +24972,12 @@
 /area/bunker/barracks)
 "rdT" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#6E8C44"
@@ -24096,9 +25097,12 @@
 /area/bunker/lower/eng)
 "rgc" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/muddirt{
 	color = "#5E5643"
 	},
@@ -24116,9 +25120,12 @@
 /area/bunker/barracks)
 "rgw" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/drought{
 	color = "#bebebe"
 	},
@@ -24220,7 +25227,8 @@
 /area/bunker/lower/kpp1)
 "rjC" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/fd/drought{
@@ -24270,6 +25278,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bunker/lower/corridos)
+"rmv" = (
+/obj/structure/barricade,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/bunker)
 "rmX" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -24618,9 +25630,12 @@
 /area/bunker/rooms/room6)
 "rzk" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
 	has_fall_damage = 0;
@@ -24813,7 +25828,8 @@
 "rHk" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
@@ -24846,22 +25862,18 @@
 	color = "black"
 	},
 /area/bunker/jungle)
-"rHP" = (
-/obj/decal/cleanable/dirt,
-/obj/structure/fd/bs_vines,
-/obj/floor_decal/borderfloorwhite,
-/turf/simulated/floor/exoplanet/fd/waste,
-/area/bunker/lower/lab/bslab)
 "rHY" = (
 /obj/machinery/door/airlock/multi_tile/engineering,
 /turf/simulated/floor/plating,
 /area/bunker/eng)
 "rHZ" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -24892,6 +25904,9 @@
 /obj/overlay/diona/decorator{
 	dir = 4
 	},
+/obj/overlay/diona/decorator{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
 "rJM" = (
@@ -24903,7 +25918,9 @@
 /turf/space,
 /area/bunker/lower/eng/reactor)
 "rJY" = (
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
 	has_fall_damage = 0;
@@ -24913,10 +25930,20 @@
 	icon_state = "gd_da"
 	},
 /area/bunker/interlude)
+"rKc" = (
+/obj/structure/flora/trk17_regrowing/coffee,
+/obj/structure/platform_decoration/kutjevo/rock{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
+	},
+/area/bunker/jungle)
 "rKn" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 4
@@ -24940,6 +25967,7 @@
 	icon_state = "1-2"
 	},
 /obj/catwalk_plated,
+/obj/structure/rubble,
 /turf/simulated/floor/plating,
 /area/bunker/lower/med)
 "rLe" = (
@@ -24957,9 +25985,12 @@
 /area/bunker/jungle)
 "rLw" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "rLx" = (
@@ -24980,8 +26011,8 @@
 /area/bunker/kitchen/bufet)
 "rLO" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
+	color = "#fd1d21";
+	light_color = "#fd1d21";
 	dir = 4
 	},
 /turf/simulated/open,
@@ -25125,6 +26156,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
+"rOR" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 4
+	},
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 2
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/corridos)
 "rPa" = (
 /obj/structure/fd/bs_spikes,
 /obj/structure/fd/chasm{
@@ -25302,7 +26344,8 @@
 /area/bunker/barracks/gvardiya)
 "rUU" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/fd/drought,
@@ -25461,6 +26504,11 @@
 	icon_state = "gd"
 	},
 /area/bunker/interlude)
+"saD" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/corridors/north)
 "sbh" = (
 /obj/floor_decal/industrial/outline/grey,
 /obj/structure/table/rack,
@@ -25604,9 +26652,12 @@
 /area/bunker/jungle)
 "seX" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/samosbor/env{
 	icon_state = "gl"
 	},
@@ -25615,6 +26666,15 @@
 /obj/paint/brown,
 /turf/simulated/wall/r_wall,
 /area/bunker/barracks)
+"sfu" = (
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 1
+	},
+/obj/structure/barricade,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/corridors/north)
 "sgk" = (
 /obj/machinery/door/airlock/lift,
 /turf/simulated/floor/plating,
@@ -25663,8 +26723,8 @@
 "siV" = (
 /obj/floor_decal/borderfloorblack,
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
+	color = "#fd1d21";
+	light_color = "#fd1d21";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/monotile,
@@ -25696,6 +26756,8 @@
 	dir = 5
 	},
 /obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -25724,6 +26786,14 @@
 /obj/structure/barricade,
 /turf/simulated/floor/tiled/white,
 /area/bunker/lower/lab/bslab)
+"slt" = (
+/obj/machinery/light{
+	color = "#a1d2d6";
+	light_color = "#a1d2d6";
+	dir = 2
+	},
+/turf/simulated/mineral/volcanic,
+/area/bunker)
 "slO" = (
 /obj/floor_decal/iccglogo/corner{
 	dir = 8
@@ -25802,6 +26872,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/plating,
 /area/bunker/corridors/south)
 "snJ" = (
@@ -25828,7 +26899,9 @@
 	},
 /area/bunker/interlude)
 "snO" = (
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/samosbor/env{
 	icon_state = "gl"
 	},
@@ -25870,10 +26943,12 @@
 /area/bunker/lower/monorail)
 "sqy" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#6E8C44"
@@ -25947,9 +27022,12 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
 "ssQ" = (
-/obj/structure/platform/kutjevo/rock,
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -25971,6 +27049,12 @@
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
+	},
+/obj/overlay/diona/decorator{
+	dir = 2
+	},
+/obj/overlay/diona/decorator{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
@@ -26028,9 +27112,12 @@
 	pixel_x = -24
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/fd/drought{
 	color = "#bebebe"
@@ -26134,6 +27221,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bunker/corridors/center)
+"szj" = (
+/obj/decal/cleanable/dirt,
+/obj/catwalk_plated,
+/obj/structure/rubble,
+/turf/simulated/floor/plating,
+/area/bunker/lower/med)
 "szK" = (
 /turf/simulated/floor/exoplanet/fd/drought{
 	color = "#bebebe"
@@ -26150,7 +27243,8 @@
 /area/bunker/interlude)
 "sBn" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform_decoration/kutjevo/rock,
 /obj/structure/fake_lattice{
@@ -26297,12 +27391,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/kitchen/bufet)
 "sFP" = (
-/obj/machinery/light_construct{
-	dir = 4
-	},
-/obj/floor_decal/borderfloorblack{
-	dir = 8
-	},
+/obj/structure/rubble,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/corridos)
 "sFR" = (
@@ -26338,6 +27427,8 @@
 /obj/structure/platform_decoration{
 	dir = 8
 	},
+/obj/decal/cleanable/blood/oil/streak,
+/obj/decal/cleanable/blood/gibs/robot,
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
 "sHR" = (
@@ -26440,7 +27531,8 @@
 /area/bunker/corridors/west)
 "sIO" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 8
@@ -26567,10 +27659,12 @@
 /area/bunker/command)
 "sOy" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -26651,6 +27745,18 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
+"sRa" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 9
+	},
+/obj/decal/cleanable/dirt,
+/obj/structure/table/standard{
+	icon_state = "metal_flip0";
+	dir = 1;
+	flipped = 1
+	},
+/turf/simulated/floor/plating,
+/area/bunker/eng/workshop)
 "sRn" = (
 /obj/overlay/diona/wall,
 /obj/overlay/diona/wall{
@@ -26834,7 +27940,9 @@
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab)
 "sXQ" = (
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 4
 	},
@@ -26904,10 +28012,12 @@
 /area/bunker/lower/kpp1)
 "sZh" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/fd/drought{
@@ -27181,15 +28291,16 @@
 /area/bunker/lower/med)
 "tkm" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
+	color = "#fd1d21";
+	light_color = "#fd1d21";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp1)
 "tkD" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/muddirt{
 	color = "#5E5643"
@@ -27214,8 +28325,9 @@
 	},
 /obj/floor_decal/borderfloor/corner,
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6"
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 2
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
@@ -27330,6 +28442,11 @@
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/bs_vines,
 /obj/decal/cleanable/dirt,
+/obj/particle_emitter/gasleak,
+/obj/decal/cleanable/dirt{
+	icon = 'icons/turf/flooring/tiles.dmi';
+	icon_state = "broken1"
+	},
 /turf/simulated/floor/exoplanet/fd/waste,
 /area/bunker/lower/lab/bslab)
 "tpu" = (
@@ -27518,7 +28635,8 @@
 /area/bunker/barracks/gvardiya)
 "ttr" = (
 /obj/item/clothing/accessory/flag{
-	pixel_x = 31
+	pixel_x = 31;
+	anchored = 1
 	},
 /turf/simulated/floor/wood/ebony,
 /area/bunker/rooms/room8)
@@ -27604,7 +28722,8 @@
 "twq" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought{
 	color = "#bebebe"
@@ -27750,7 +28869,9 @@
 /turf/simulated/floor/tiled,
 /area/bunker/lower/med/surgery)
 "tBY" = (
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
 	has_fall_damage = 0;
@@ -27795,14 +28916,12 @@
 	dir = 8;
 	flipped = 1
 	},
-/obj/structure/fd/interactive/jeff_killer_gun_deployed{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/bunker/corridors/north)
 "tDN" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 8
@@ -27814,6 +28933,16 @@
 	},
 /turf/simulated/floor/exoplanet/wet_stone,
 /area/bunker/interlude)
+"tDU" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark,
+/area/bunker/corridors/north)
 "tEg" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 10
@@ -28056,6 +29185,11 @@
 	color = "#526833"
 	},
 /area/bunker/jungle)
+"tLh" = (
+/obj/floor_decal/corner/paleblue/mono,
+/obj/structure/rubble,
+/turf/simulated/floor/tiled/monotile,
+/area/bunker/lower/med)
 "tLQ" = (
 /obj/landmark/damager,
 /obj/paint/dark_gunmetal,
@@ -28110,7 +29244,8 @@
 /area/bunker/corridors/north)
 "tNv" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
@@ -28120,8 +29255,8 @@
 /area/bunker/jungle)
 "tOf" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
+	color = "#fd1d21";
+	light_color = "#fd1d21";
 	dir = 4
 	},
 /obj/floor_decal/borderfloorblack{
@@ -28199,6 +29334,13 @@
 	dir = 8
 	},
 /obj/decal/cleanable/dirt,
+/obj/decal/cleanable/blood/gibs/robot,
+/obj/decal/cleanable/blood/oil/streak,
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/corridors/north)
 "tSj" = (
@@ -28233,16 +29375,20 @@
 /area/bunker/corridors/center)
 "tSB" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/muddirt{
 	color = "#5E5643"
 	},
 /area/bunker/jungle)
 "tTk" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
@@ -28362,6 +29508,9 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/overlay/diona/decorator{
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
 "tVe" = (
@@ -28465,9 +29614,12 @@
 /turf/simulated/floor/bluespace/more_stable,
 /area/bunker/interlude)
 "tYe" = (
-/obj/structure/platform/kutjevo/rock,
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -28592,10 +29744,12 @@
 /area/bunker/lower/eng/reactor)
 "uac" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -28605,13 +29759,14 @@
 /turf/simulated/floor/bluespace/more_stable,
 /area/bunker/interlude)
 "uaj" = (
-/obj/decal/cleanable/dirt,
-/obj/item/stack/material/phoron{
-	pixel_x = 8;
-	pixel_y = 9
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
-/area/bunker/eng)
+/obj/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark,
+/area/bunker/corridors/south)
 "uar" = (
 /obj/structure/flora/seaweed{
 	layer = 2.21
@@ -28634,6 +29789,16 @@
 /obj/overlay/diona/floor,
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
+"uax" = (
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21"
+	},
+/obj/floor_decal/borderfloorblack{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/kpp2)
 "uaH" = (
 /obj/floor_decal/messygrass{
 	dir = 4
@@ -28645,10 +29810,12 @@
 /obj/structure/table/standard{
 	icon_state = "metal_flip0";
 	dir = 1;
-	flipped = 1
+	flipped = 1;
+	layer = 2.24
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/kpp)
@@ -28696,6 +29863,10 @@
 	color = "#6E8C44"
 	},
 /area/bunker/jungle)
+"ucM" = (
+/obj/structure/barricade,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/corridors/north)
 "ucN" = (
 /obj/structure/closet/hydrant{
 	pixel_y = 32
@@ -28771,9 +29942,12 @@
 /area/bunker/jungle)
 "uhb" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
 	has_fall_damage = 0;
@@ -29040,6 +30214,16 @@
 	icon_state = "gd_da"
 	},
 /area/bunker/interlude)
+"utq" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/decal/cleanable/blood/gibs/robot,
+/obj/decal/cleanable/blood/oil/streak,
+/turf/simulated/floor/tiled/dark,
+/area/bunker/corridors/north)
 "utt" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4
@@ -29076,7 +30260,8 @@
 /area/bunker/corridors/north)
 "uuN" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/fd/cave_flora{
 	icon_state = "underwatergrass"
@@ -29103,9 +30288,12 @@
 /area/bunker/jungle)
 "uvq" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
 	has_fall_damage = 0;
@@ -29114,9 +30302,12 @@
 /turf/simulated/floor/exoplanet/wet_stone,
 /area/bunker/interlude)
 "uvt" = (
-/obj/structure/platform/kutjevo/rock,
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/fake_lattice{
 	layer = 2.11
@@ -29125,10 +30316,12 @@
 /area/bunker/interlude)
 "uvJ" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/fd/drought{
@@ -29256,7 +30449,8 @@
 "uzW" = (
 /obj/structure/flora/trk17_regrowing/sugar,
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
@@ -29417,10 +30611,12 @@
 /area/bunker/lower/med/cryo)
 "uEb" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/kpp)
@@ -29462,10 +30658,12 @@
 /area/bunker/kpp)
 "uFq" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 4
@@ -29535,6 +30733,14 @@
 /obj/floor_decal/corner/darkblue/mono,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
+"uHO" = (
+/obj/floor_decal/corner/paleblue/mono,
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21"
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/bunker/lower/med)
 "uHX" = (
 /obj/overlay/diona/floor,
 /obj/structure/flora/tropic/small_tree,
@@ -29717,7 +30923,8 @@
 "uML" = (
 /obj/structure/flora/trk17_regrowing/coffee,
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
@@ -29798,6 +31005,17 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/bunker/lower/monorail)
+"uPL" = (
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 4
+	},
+/obj/floor_decal/borderfloorblack{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/corridos)
 "uPO" = (
 /obj/floor_decal/industrial/warning/corner{
 	dir = 1;
@@ -29933,10 +31151,12 @@
 /area/bunker/corridors/west)
 "uUL" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/fd/decorative_pipes{
 	layer = 2.0
@@ -29957,10 +31177,30 @@
 	color = "#526833"
 	},
 /area/bunker/jungle)
+"uVP" = (
+/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	dir = 4;
+	layer = 2.23
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
+/area/bunker/jungle)
+"uVV" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/rubble,
+/turf/simulated/floor/tiled/dark,
+/area/bunker/lower/med)
 "uWr" = (
 /obj/structure/platform_decoration/kutjevo/rock,
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/muddirt{
 	color = "#5E5643"
@@ -30040,7 +31280,8 @@
 /area/bunker/lower/lab/cryolab)
 "uZc" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -30068,8 +31309,22 @@
 "uZl" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/vines/light3,
+/obj/structure/platform/kutjevo/rock{
+	dir = 4;
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
+"uZY" = (
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21"
+	},
+/obj/floor_decal/borderfloorblack{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/kpp1)
 "vaf" = (
 /obj/machinery/r_n_d/circuit_imprinter,
 /turf/simulated/floor/tiled/white/monotile,
@@ -30116,6 +31371,10 @@
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
+"vbm" = (
+/obj/structure/rubble,
+/turf/simulated/floor/tiled/dark,
+/area/bunker/lower/med)
 "vbA" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel_ridged,
@@ -30417,6 +31676,10 @@
 	color = "#a19e74";
 	dir = 1
 	},
+/obj/overlay/diona/decorator{
+	color = "#a19e74";
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
 "vpo" = (
@@ -30563,6 +31826,7 @@
 /obj/floor_decal/techfloor{
 	dir = 1
 	},
+/obj/structure/barricade,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/eng/workshop)
 "vvr" = (
@@ -30604,7 +31868,8 @@
 /area/bunker/rooms/room12)
 "vww" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 1
@@ -30812,10 +32077,12 @@
 /area/bunker/lower/eng/warehouse)
 "vEJ" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought{
 	color = "#bebebe"
@@ -31058,9 +32325,12 @@
 "vNJ" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "vOK" = (
@@ -31159,9 +32429,12 @@
 /area/bunker/rooms/room7)
 "vQg" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 4
 	},
@@ -31244,6 +32517,10 @@
 /turf/simulated/floor/exoplanet/fd/whitesand{
 	color = "#868686"
 	},
+/area/bunker/jungle)
+"vSW" = (
+/obj/structure/barricade,
+/turf/simulated/floor/exoplanet/fd/waste,
 /area/bunker/jungle)
 "vSY" = (
 /obj/decal/cleanable/dirt,
@@ -31369,7 +32646,8 @@
 "vWJ" = (
 /obj/structure/flora/tall/fourth,
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#6E8C44"
@@ -31462,9 +32740,25 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/warehouse)
+"wah" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 1
+	},
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21"
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/corridos)
+"wai" = (
+/obj/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
+/turf/simulated/floor/plating,
+/area/bunker/eng/workshop)
 "waD" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
@@ -31495,6 +32789,14 @@
 /obj/overlay/diona/floor,
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
+"wbC" = (
+/obj/machinery/light{
+	color = "#a1d2d6";
+	light_color = "#a1d2d6";
+	dir = 4
+	},
+/turf/simulated/mineral/volcanic,
+/area/bunker)
 "wbZ" = (
 /obj/floor_decal/borderfloorwhite{
 	dir = 1
@@ -31510,6 +32812,14 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/old_cargo,
 /area/bunker/barracks/preporation)
+"wcd" = (
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/corridors/south)
 "wcg" = (
 /obj/machinery/door/airlock/autoname,
 /obj/structure/cable/green{
@@ -31628,8 +32938,8 @@
 "wgr" = (
 /obj/floor_decal/corner/paleblue/mono,
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
+	color = "#fd1d21";
+	light_color = "#fd1d21";
 	dir = 1
 	},
 /obj/machinery/libraryscanner{
@@ -31777,8 +33087,8 @@
 "wmO" = (
 /obj/structure/table/steel,
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
+	color = "#fd1d21";
+	light_color = "#fd1d21";
 	dir = 1
 	},
 /obj/item/material/drill_head/diamond{
@@ -31859,9 +33169,19 @@
 /area/bunker/interlude)
 "wnP" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/waste,
+/area/bunker/jungle)
+"wob" = (
+/obj/decal/cleanable/blood/gibs/robot{
+	pixel_x = 8;
+	pixel_y = 20
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
 /area/bunker/jungle)
 "wok" = (
 /obj/structure/window/reinforced{
@@ -31921,7 +33241,8 @@
 /area/bunker/jungle/lz)
 "wrJ" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform_decoration/kutjevo/rock,
 /obj/structure/fd/chasm{
@@ -32073,7 +33394,9 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/corridors/center)
 "wvz" = (
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
 "wvQ" = (
@@ -32219,8 +33542,8 @@
 /area/bunker/lower/eng)
 "wAt" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6"
+	color = "#fd1d21";
+	light_color = "#fd1d21"
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp1)
@@ -32274,12 +33597,16 @@
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/rooms/room6)
 "wBF" = (
-/obj/structure/platform/kutjevo/rock,
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 8;
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
@@ -32354,6 +33681,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/fd/bs_vines,
 /turf/simulated/floor/tiled/white,
 /area/bunker/lower/lab/bslab)
 "wEp" = (
@@ -32365,10 +33693,12 @@
 /area/bunker/barracks)
 "wEY" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/fake_lattice{
 	layer = 2.11
@@ -32377,7 +33707,8 @@
 /area/bunker/interlude)
 "wFc" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/drought{
 	color = "#bebebe"
@@ -32420,7 +33751,8 @@
 /area/bunker/lower/eng)
 "wFy" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/fake_lattice{
 	layer = 2.11
@@ -32540,6 +33872,15 @@
 /obj/structure/closet,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp1)
+"wKz" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/barricade,
+/turf/simulated/floor/tiled/dark,
+/area/bunker/corridors/north)
 "wLe" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -32646,7 +33987,8 @@
 /area/bunker/lower/corridos)
 "wOC" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -32802,20 +34144,26 @@
 "wWW" = (
 /obj/structure/flora/trk17_regrowing/ice_tricord,
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "wXf" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 8;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
@@ -32850,7 +34198,8 @@
 /area/bunker/corridors/center)
 "wXv" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 8
@@ -33048,7 +34397,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/bunker/lower/kpp1)
 "xdt" = (
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /turf/simulated/floor/exoplanet/fd/muddirt{
 	color = "#5E5643"
 	},
@@ -33065,7 +34416,8 @@
 /area/bunker/jungle)
 "xdv" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/structure/fd/cave_flora{
 	desc = "Just some grass, nothing more.";
@@ -33134,10 +34486,12 @@
 /area/bunker/eng/workshop)
 "xge" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#5F773B"
@@ -33207,6 +34561,16 @@
 "xhX" = (
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
+"xis" = (
+/obj/catwalk_plated/dark,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/barricade,
+/turf/simulated/floor/plating,
+/area/bunker/corridors/north)
 "xiu" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -33276,10 +34640,15 @@
 /obj/floor_decal/borderfloor,
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med/surgery)
+"xjV" = (
+/obj/structure/catwalk,
+/obj/decal/cleanable/blood/drip,
+/turf/simulated/floor/plating,
+/area/bunker/kpp)
 "xkX" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
+	color = "#fd1d21";
+	light_color = "#fd1d21";
 	dir = 8
 	},
 /obj/floor_decal/corner/paleblue/mono,
@@ -33439,7 +34808,8 @@
 /area/bunker/jungle/lz)
 "xrp" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 1
@@ -33502,10 +34872,12 @@
 /area/bunker/interlude)
 "xtA" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
@@ -33547,8 +34919,8 @@
 /area/bunker/jungle)
 "xzb" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6"
+	color = "#fd1d21";
+	light_color = "#fd1d21"
 	},
 /turf/simulated/floor/plating,
 /area/bunker/corridors/north)
@@ -33608,6 +34980,17 @@
 	},
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/bunker/interlude)
+"xCd" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 1
+	},
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/corridos)
 "xCf" = (
 /obj/structure/fd/cave_decor{
 	icon_state = "stalagmite5";
@@ -33936,7 +35319,8 @@
 /area/bunker)
 "xRg" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/samosbor/env{
 	icon_state = "gl"
@@ -33991,8 +35375,8 @@
 /area/bunker/jungle)
 "xTL" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6"
+	color = "#fd1d21";
+	light_color = "#fd1d21"
 	},
 /turf/simulated/floor/tiled,
 /area/bunker/lower/med/lobby)
@@ -34093,7 +35477,8 @@
 /area/bunker/lower/lab)
 "xWS" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/flora/tree/grim/ghost,
 /turf/simulated/floor/exoplanet/samosbor/env{
@@ -34104,6 +35489,15 @@
 /obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/bunker/eng)
+"xXs" = (
+/obj/floor_decal/borderfloorblack,
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/corridos)
 "xXS" = (
 /obj/structure/fd/junk{
 	icon_state = "3,2"
@@ -34352,6 +35746,13 @@
 	},
 /turf/simulated/floor/exoplanet/grim_wood_log,
 /area/bunker/barracks)
+"yeG" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 1
+	},
+/obj/structure/rubble,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/lower/med)
 "yfw" = (
 /obj/structure/bed/chair/shuttle/blue{
 	dir = 1
@@ -34362,10 +35763,12 @@
 /area/bunker/lower/monorail)
 "yfD" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 1
+	dir = 1;
+	layer = 2.23
 	},
 /obj/structure/platform/kutjevo/rock{
-	dir = 8
+	dir = 8;
+	layer = 2.23
 	},
 /obj/structure/platform_decoration/kutjevo/rock,
 /obj/decal/cleanable/dirt,
@@ -34412,7 +35815,8 @@
 /area/bunker/corridors/west)
 "yhu" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /obj/decal/cleanable/dirt,
 /obj/structure/platform_decoration/kutjevo/rock{
@@ -34424,9 +35828,12 @@
 /area/bunker)
 "yhN" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
-/obj/structure/platform/kutjevo/rock,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 4
 	},
@@ -34480,7 +35887,8 @@
 /area/bunker/lower/monorail)
 "yit" = (
 /obj/structure/platform/kutjevo/rock{
-	dir = 4
+	dir = 4;
+	layer = 2.23
 	},
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#526833"
@@ -34545,8 +35953,8 @@
 /area/bunker/rooms/room2)
 "ykp" = (
 /obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
+	color = "#fd1d21";
+	light_color = "#fd1d21";
 	dir = 1
 	},
 /obj/machinery/recharge_station,
@@ -60387,7 +61795,7 @@ sty
 dKA
 rIU
 vOT
-cYp
+chN
 wcS
 toB
 goK
@@ -60741,7 +62149,7 @@ goK
 goK
 goK
 lIy
-rHP
+xEf
 fRy
 bYR
 lIy
@@ -61145,7 +62553,7 @@ aTm
 aTm
 goK
 lIy
-aZo
+erR
 tps
 trn
 lIy
@@ -61347,7 +62755,7 @@ jBZ
 aTm
 goK
 lIy
-ltC
+trn
 jxC
 trn
 lIy
@@ -61767,9 +63175,9 @@ goK
 goK
 goK
 lMN
-jGm
+iLN
 sYw
-fwy
+uax
 lMN
 goK
 goK
@@ -62981,7 +64389,7 @@ jIq
 vNw
 cNz
 sYw
-fwy
+uax
 lMN
 goK
 goK
@@ -64191,7 +65599,7 @@ goK
 goK
 goK
 lMN
-cNz
+dUL
 sYw
 lXI
 lMN
@@ -64393,9 +65801,9 @@ goK
 goK
 goK
 lMN
-cNz
+dUL
 sYw
-lXI
+cbo
 lMN
 goK
 goK
@@ -64797,9 +66205,9 @@ goK
 goK
 goK
 fyu
-dIA
+drI
 oLs
-mbK
+xCd
 fyu
 goK
 goK
@@ -64999,7 +66407,7 @@ goK
 goK
 goK
 fyu
-ofm
+dIA
 oLs
 mbK
 fyu
@@ -65204,7 +66612,7 @@ fyu
 dIA
 mfN
 urr
-wOg
+rOR
 fyu
 wOg
 dQf
@@ -65222,13 +66630,13 @@ afJ
 fyu
 wOg
 wOg
-dQf
+oKb
 wOg
 wOg
 fyu
 wOg
 afJ
-lDK
+gFA
 jkA
 nrN
 wOi
@@ -65608,14 +67016,14 @@ fyu
 ucN
 mfN
 ccX
-ctX
+gvA
 fyu
-ctX
+sFP
+sFP
 sFP
 ctX
 ctX
-ctX
-ybB
+uPL
 ctX
 fyu
 uCd
@@ -65626,13 +67034,13 @@ ctX
 uJZ
 aOy
 ctX
-ybB
+uPL
 ctX
 ctX
 fyu
 ctX
 ctX
-ybB
+uPL
 ctX
 aOy
 ctX
@@ -66009,9 +67417,9 @@ goK
 goK
 goK
 fyu
-nak
+dIA
 oLs
-trs
+mbK
 fyu
 goK
 goK
@@ -66025,7 +67433,7 @@ goK
 fyu
 ktZ
 oLs
-trs
+wah
 fyu
 goK
 goK
@@ -66211,9 +67619,9 @@ goK
 goK
 goK
 fyu
-dIA
+xXs
 oLs
-mbK
+jKO
 fyu
 goK
 goK
@@ -66629,9 +68037,9 @@ goK
 goK
 goK
 jbk
-wlo
+iOY
 gqf
-cpS
+uZY
 jbk
 goK
 goK
@@ -67235,7 +68643,7 @@ goK
 goK
 goK
 jbk
-noL
+fIR
 oUt
 lfG
 jbk
@@ -67437,7 +68845,7 @@ goK
 goK
 goK
 jbk
-noL
+ppZ
 gqf
 lfG
 jbk
@@ -67620,8 +69028,8 @@ hTf
 wAF
 kMp
 dDW
-lfB
-pGW
+uVV
+vbm
 iSR
 kMp
 goK
@@ -67823,8 +69231,8 @@ hTf
 ocF
 pGW
 pry
-pGW
-lBD
+vbm
+yeG
 kMp
 goK
 goK
@@ -68025,7 +69433,7 @@ fXY
 jmy
 rII
 idp
-pGW
+vbm
 jXG
 kMp
 goK
@@ -68220,7 +69628,7 @@ goK
 goK
 goK
 kMp
-nZS
+gFb
 fmD
 pnv
 uTp
@@ -68624,7 +70032,7 @@ rGT
 fId
 ron
 itA
-aAC
+gFb
 mbE
 xGd
 aAC
@@ -68651,7 +70059,7 @@ goK
 jbk
 siV
 qTX
-xUc
+nYv
 nfj
 frT
 qTX
@@ -69028,10 +70436,10 @@ iwl
 vqp
 jWi
 itA
-nZS
+gFb
 vru
 mre
-nDi
+uHO
 xAI
 suo
 hyd
@@ -69863,7 +71271,7 @@ goK
 jbk
 wlo
 oUt
-cpS
+uZY
 jbk
 goK
 goK
@@ -70240,10 +71648,10 @@ ctG
 vSY
 jWi
 itA
-nZS
+gFb
 vru
 jpR
-nDi
+uHO
 xAI
 mGP
 xme
@@ -70644,10 +72052,10 @@ rGT
 fId
 ekO
 itA
-nZS
+gFb
 uti
 tke
-nDi
+uHO
 xAI
 iYk
 xlj
@@ -71443,19 +72851,19 @@ goK
 goK
 iRF
 nkY
-deB
+heD
 rCX
 oiU
-deB
+heD
 bwF
 kwo
 deB
-gVX
+lRB
 iRF
 aAC
 vru
 tke
-nDi
+qnX
 kMp
 alQ
 gDX
@@ -72257,11 +73665,11 @@ aAC
 aAC
 xkX
 mre
-nyX
+bEw
 aAC
 nyX
 aAC
-hTf
+pcC
 oAq
 twM
 aAC
@@ -72462,10 +73870,10 @@ tke
 vru
 hTf
 hTf
-hTf
-uti
-tke
-uti
+pcC
+szj
+buH
+szj
 aAC
 hTf
 uti
@@ -72663,8 +74071,8 @@ fXY
 lEf
 bSN
 wSk
-wSk
-wSk
+arr
+arr
 rKW
 nCE
 fXY
@@ -72866,8 +74274,8 @@ aAC
 aAC
 aAC
 aAC
-aAC
-qTO
+tLh
+hYW
 mre
 bGn
 kMp
@@ -73962,10 +75370,10 @@ goK
 goK
 goK
 goK
-goK
-goK
-goK
-goK
+jmh
+jmh
+jmh
+jmh
 jmh
 "}
 (196,1,1) = {"
@@ -74164,7 +75572,7 @@ goK
 goK
 goK
 goK
-goK
+jmh
 goK
 goK
 goK
@@ -74366,7 +75774,7 @@ goK
 goK
 goK
 goK
-goK
+jmh
 goK
 goK
 goK
@@ -74568,7 +75976,7 @@ goK
 goK
 goK
 goK
-goK
+jmh
 goK
 goK
 goK
@@ -74770,7 +76178,7 @@ goK
 goK
 goK
 goK
-goK
+jmh
 goK
 goK
 goK
@@ -79389,7 +80797,7 @@ hoj
 kdV
 kdV
 jOY
-oIo
+cQH
 hkC
 nwX
 hkC
@@ -102818,7 +104226,7 @@ vhD
 axq
 mvT
 fRC
-uaj
+axq
 nRI
 rpe
 rpe
@@ -103019,8 +104427,8 @@ dks
 wDM
 axq
 jOH
-heD
-kFy
+axq
+fRC
 axq
 axq
 axq
@@ -104046,7 +105454,7 @@ lMK
 tnb
 aMi
 tcZ
-iST
+baB
 tcZ
 tcZ
 aMi
@@ -104770,7 +106178,7 @@ xJB
 biG
 hkC
 hkC
-lNB
+vSW
 lNB
 bfQ
 lNB
@@ -104971,8 +106379,8 @@ hkC
 fjx
 hkC
 hkC
-hkC
-hkC
+hDD
+hDD
 hkC
 lNB
 ord
@@ -105010,7 +106418,7 @@ dbt
 elT
 eie
 uFp
-iql
+cet
 mhC
 xzb
 vcs
@@ -105818,9 +107226,9 @@ mSO
 qWA
 cRB
 uFp
-iql
+cet
 bdN
-qPj
+hgd
 vcs
 gHK
 kAa
@@ -106207,8 +107615,8 @@ goK
 goK
 goK
 goK
-xnI
-xnI
+rmv
+rmv
 qxX
 yfD
 rKn
@@ -106217,14 +107625,14 @@ hMb
 uFp
 uFp
 uFp
-kST
+iZv
 kST
 kST
 uFp
 uFp
-brq
+gUW
 oPh
-qPj
+hgd
 vcs
 vcs
 vcs
@@ -106402,7 +107810,7 @@ rnv
 reD
 kbd
 hrl
-sUN
+oNS
 waI
 sat
 dpZ
@@ -106422,10 +107830,10 @@ mBY
 qWA
 qWA
 qWA
-mBY
+ayl
 mKP
-gyI
-bdN
+hva
+xis
 gyI
 imc
 ohg
@@ -106435,7 +107843,7 @@ xna
 xna
 dMk
 xna
-xna
+hmQ
 mPZ
 jAF
 goK
@@ -106824,7 +108232,7 @@ qWA
 aCT
 uLm
 uLm
-qWA
+pPt
 qWA
 qWA
 mKP
@@ -106832,7 +108240,7 @@ gyI
 bdN
 gyI
 cfT
-nLF
+fLc
 rGX
 cQu
 lzB
@@ -107021,13 +108429,13 @@ sxW
 wBF
 mFB
 mqv
-ujn
-lvC
+krO
+xjV
 kin
 lvC
 lvC
 lvC
-pMJ
+kFy
 pMJ
 qkj
 aHl
@@ -107038,7 +108446,7 @@ qoU
 eoU
 cQu
 gGQ
-rzG
+ozZ
 rzG
 nzP
 oKX
@@ -107213,7 +108621,7 @@ nBp
 giF
 aeL
 pcZ
-pcZ
+dVS
 dpZ
 xnI
 xnI
@@ -107231,16 +108639,16 @@ gLB
 qWA
 lFh
 qWA
-mKP
-gyI
-bdN
+aYV
+iDH
+xis
 gyI
 cfT
 nLF
 cwa
 sHr
 iMH
-vJZ
+sRa
 iMH
 iMH
 vJZ
@@ -107434,15 +108842,15 @@ uFp
 uFp
 uFp
 uFp
-iql
+sfu
 oPh
-qPj
+hgd
 jAF
 jAF
 jAF
 nrD
 oUa
-oUa
+dZq
 xjm
 cTk
 oUa
@@ -107637,7 +109045,7 @@ goK
 goK
 pLV
 nfH
-cfg
+nak
 ujj
 jAF
 kLf
@@ -107808,8 +109216,8 @@ uNE
 bia
 xJB
 lRb
-cdO
-rgc
+bfe
+xdt
 qTf
 mlx
 glv
@@ -108010,9 +109418,9 @@ loM
 jdQ
 oBL
 pwm
-rgc
-qTf
-hkC
+pwm
+bGp
+xtA
 xJB
 biG
 fXu
@@ -108213,8 +109621,8 @@ jdQ
 xhl
 mlx
 glv
-hkC
-akp
+qDy
+bQo
 hkC
 biG
 ktN
@@ -108242,8 +109650,8 @@ qvE
 kUq
 rGJ
 qyN
-iql
-bnu
+cet
+tDU
 jrY
 jAF
 wmO
@@ -108415,8 +109823,8 @@ wrh
 gTW
 bej
 pTV
-xJB
-xJB
+glv
+tSB
 biG
 pTV
 cmc
@@ -108444,8 +109852,8 @@ gFw
 bii
 nXY
 qyN
-ujj
-cfg
+ucM
+wKz
 ujj
 jAF
 eQZ
@@ -108454,8 +109862,8 @@ qBZ
 gyy
 jAF
 jAF
-tMq
-sMN
+pZr
+cFw
 vvg
 jAF
 goK
@@ -108487,7 +109895,7 @@ bPp
 hZK
 jHY
 qyL
-jPN
+lzA
 rzb
 goK
 goK
@@ -108617,8 +110025,8 @@ gTW
 gTW
 aLQ
 bej
-xJB
-ugY
+tNv
+nXb
 biG
 biG
 pTV
@@ -108818,9 +110226,9 @@ gDV
 oBF
 gTW
 mnL
-hkC
-xJB
-xJB
+tNv
+tkD
+xdt
 cmc
 biG
 biG
@@ -108899,7 +110307,7 @@ goK
 dfw
 hBG
 bTZ
-oBZ
+cOU
 bXI
 vxo
 vTt
@@ -109020,9 +110428,9 @@ xaY
 tQD
 tQD
 uZl
-xJB
-fEb
-sUN
+tkD
+uVP
+lsk
 sUN
 hkC
 cmc
@@ -109052,7 +110460,7 @@ bAM
 qyN
 gKy
 rfe
-wpg
+hyX
 tlK
 kNW
 emK
@@ -109221,9 +110629,9 @@ xJB
 xJB
 xJB
 jqq
-xJB
-hkC
-biG
+tkD
+wob
+glf
 biG
 sUN
 sUN
@@ -109423,9 +110831,9 @@ hkC
 hkC
 hkC
 hkC
-hkC
-xJB
-pTV
+mHv
+pwm
+lIw
 biG
 hkC
 xJB
@@ -109455,15 +110863,15 @@ qyN
 qyN
 qyN
 gKy
-bnu
-ujj
+igD
+ucM
 jAF
 pRK
-tWB
+dkj
 tWB
 pRK
 jAF
-pRK
+bdM
 pRK
 pRK
 dVH
@@ -109495,7 +110903,7 @@ hZK
 gbO
 hZK
 hZK
-jHY
+wcd
 qyL
 sgm
 kXP
@@ -109504,7 +110912,7 @@ lRC
 lRC
 kXP
 bCL
-anE
+epz
 gOw
 aVN
 ciL
@@ -109625,9 +111033,9 @@ hkC
 xJB
 xJB
 hkC
-hkC
-hkC
-vLt
+glv
+glv
+rKc
 xJB
 xNc
 pTV
@@ -109656,7 +111064,7 @@ goK
 goK
 goK
 pLV
-iql
+cet
 cfg
 jrY
 jAF
@@ -109669,7 +111077,7 @@ smy
 smy
 grl
 mlp
-xOR
+bRy
 xOR
 jAF
 goK
@@ -110060,14 +111468,14 @@ ujj
 pLV
 goK
 pLV
-ujj
-cfg
+dRr
+utq
 ujj
 jAF
 sOi
 wnF
 ogd
-kFv
+iMa
 ygR
 oVJ
 qsy
@@ -110319,7 +111727,7 @@ pma
 gKI
 bvu
 tFM
-mOO
+nAU
 dfw
 goK
 goK
@@ -110471,7 +111879,7 @@ jAF
 ygR
 mTl
 ulL
-mLP
+joB
 ygR
 rlu
 qkB
@@ -110505,12 +111913,12 @@ vVy
 hSK
 rzj
 apQ
-jHY
+wcd
 qyL
 jPN
 xew
 pLu
-nDo
+iuF
 vlK
 xew
 eUS
@@ -110666,7 +112074,7 @@ ujj
 pLV
 pLV
 pLV
-ujj
+dRr
 bnu
 ujj
 jAF
@@ -110674,7 +112082,7 @@ jAF
 jAF
 jAF
 jAF
-nLF
+wai
 jAF
 jAF
 jAF
@@ -110871,14 +112279,14 @@ ujj
 fYL
 tDM
 ujj
-qPj
+hgd
 pLV
 ujj
 ujj
 fJU
 dBG
 gyI
-gKy
+saD
 sIj
 ujj
 pLV
@@ -110886,22 +112294,22 @@ ujj
 fJU
 ujj
 ujj
-fJU
+cqp
 ujj
 fjI
 vts
 jAG
 mIl
-jAG
+pOL
 nrx
 fjI
 nrx
 nrx
-jAG
+pOL
 nrx
 nrx
 nrx
-mIl
+eyb
 nrx
 nrx
 qzX
@@ -111084,32 +112492,32 @@ cRT
 xQC
 xQC
 dPQ
-fvn
+eRp
 xQC
 lqE
 ksd
 aoR
-fvn
+eRp
 iHU
 bFc
 vwQ
 vIx
 sFs
-bFc
+mYD
 iHU
 aiv
 sFs
-aiv
+qfP
 aiv
 aiv
 sFs
 lBe
 uoj
-aiv
-aiv
+hcT
+qfP
 aiv
 opi
-fhS
+uaj
 fhS
 sNf
 tix
@@ -111123,7 +112531,7 @@ fdz
 nLj
 mBJ
 qdH
-vxo
+cuU
 dWP
 gtU
 pxd
@@ -111270,7 +112678,7 @@ kJt
 gyI
 ujj
 ujj
-sMZ
+aQj
 ujj
 ujj
 bdN
@@ -111290,7 +112698,7 @@ ujj
 sMZ
 ujj
 rQk
-sMZ
+aQj
 kmF
 fjI
 nrx
@@ -111307,8 +112715,8 @@ nrx
 nrx
 fnP
 nrx
-nrx
-uQf
+pLl
+cCO
 nrx
 uLd
 sgm
@@ -111676,7 +113084,7 @@ ujj
 pLV
 goK
 pLV
-sMZ
+aQj
 cfg
 sMZ
 pLV
@@ -112485,8 +113893,8 @@ goK
 goK
 iJt
 ujj
-uJL
-gKy
+kPA
+fFg
 iJt
 goK
 sMg
@@ -113292,8 +114700,8 @@ goK
 goK
 goK
 pLV
-ujj
-cfg
+ucM
+wKz
 ujj
 pLV
 goK
@@ -113948,7 +115356,7 @@ cnR
 kzB
 pnA
 mQo
-lZk
+mQo
 pIn
 kzB
 goK
@@ -114363,10 +115771,10 @@ goK
 goK
 goK
 goK
-goK
-goK
-goK
-goK
+jmh
+jmh
+jmh
+jmh
 jmh
 "}
 (196,1,2) = {"
@@ -114565,9 +115973,9 @@ goK
 goK
 goK
 goK
+jmh
 goK
-goK
-goK
+iXF
 goK
 jmh
 "}
@@ -114767,9 +116175,9 @@ goK
 goK
 goK
 goK
+jmh
 goK
-goK
-goK
+slt
 goK
 jmh
 "}
@@ -114969,9 +116377,9 @@ goK
 goK
 goK
 goK
+jmh
 goK
-goK
-goK
+wbC
 goK
 jmh
 "}
@@ -115171,9 +116579,9 @@ goK
 goK
 goK
 goK
+jmh
 goK
-goK
-goK
+alC
 goK
 jmh
 "}
