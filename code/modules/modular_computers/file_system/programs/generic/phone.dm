@@ -112,7 +112,7 @@ But it cannot be always inside of the mob as that would be weird
 		return
 	var/atom/movable/A = nano_host()
 	var/mob/living/carbon/human/carrier = A.loc
-	if(carrier)
+	if(istype(carrier))
 		phantom_holopad.loc = carrier
 		return
 
