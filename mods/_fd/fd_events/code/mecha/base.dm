@@ -587,8 +587,8 @@
 
 /obj/item/fd/mech/restorer
 	name = "equipment crate"
-	icon = 'mods/_fd/fd_assets/icons/goons/large_storage.dmi'
-	icon_state = "attachecase"
+	icon = 'mods/_fd/fd_assets/icons/goons/ammo.dmi'
+	icon_state = "ammobag-sp"
 
 	w_class = ITEM_SIZE_NO_CONTAINER
 
@@ -812,6 +812,8 @@
 
 	. = ..()
 
+	pixel_x = -8
+
 /mob/living/simple_animal/simple_mecha/proc/change_engine_state()
 
 	if(!engine.engine_burning && engine.fuel_current > 0)
@@ -876,6 +878,7 @@
 
 /mob/living/simple_animal/simple_mecha/use_tool(obj/item/tool, mob/user, list/click_params)
 	if(istype(tool,/obj/item/fd/mech/restorer))
+		tool.icon_state = "ammobag-sp-d"
 		if(do_after(user, 30 SECONDS, src, DO_PUBLIC_UNIQUE, DO_BOTH_CAN_MOVE))
 			if(engine && engine.fuel_current < engine.fuel_max)
 				engine.fuel_current = engine.fuel_max
@@ -894,6 +897,7 @@
 						for(var/i in 1 to P.max_shells)
 							P.loaded += new P.ammo_type(src)
 			qdel(tool)
+		tool.icon_state = "ammobag-sp"
 		return TRUE
 
 	if(istype(tool,/obj/item/fd/mech/engine))

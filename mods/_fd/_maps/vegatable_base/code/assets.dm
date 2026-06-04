@@ -243,9 +243,9 @@
 
 /obj/item/fd/simple_grenade
 	name = "grenade"
-	icon_state = "igniter"
-	var/active_state = "igniter_light"
-	icon = 'mods/_fd/fd_assets/icons/goons/device.dmi'
+	icon_state = "timer-igniter-tank0"
+	var/active_state = "timer-igniter-tank2"
+	icon = 'mods/_fd/fd_assets/icons/goons/assemblies.dmi'
 
 	var/primed = FALSE
 	var/life_span = 5
@@ -254,12 +254,47 @@
 	var/has_motion_sensor = FALSE
 	var/motion_sensor_triggered = FALSE
 	var/faction = "neutral"
+	var/premade_faction = "neutral"
+
+	var/drop_from_the_sky = FALSE // НЕ ставить минам
+	var/fallspeed = 0.8 SECONDS
+
+	var/show_activation_status = TRUE
 
 	throw_range = 10
 	w_class = ITEM_SIZE_SMALL
 
 /obj/item/fd/simple_grenade/Initialize()
 	. = ..()
+
+	if(drop_from_the_sky)
+		alpha = 0
+		pixel_y = 128
+		layer = 4.14
+		SetTransform(3)
+
+		animate(src, transform = matrix(1, MATRIX_SCALE), pixel_y = 0, alpha = 255, time = fallspeed, easing = SINE_EASING|EASE_OUT, ANIMATION_PARALLEL)
+		spawn(fallspeed)
+			layer = initial(layer)
+
+			primed = TRUE
+			if(show_activation_status)
+				add_filter("active", 1, list("type" = "outline", , "size" =1, "color" = COLOR_WHITE))
+			START_PROCESSING(SSobj,src)
+			icon_state = active_state
+
+	if(primed && !drop_from_the_sky)
+		if(show_activation_status)
+			add_filter("active", 1, list("type" = "outline", , "size" =1, "color" = COLOR_WHITE))
+		START_PROCESSING(SSobj,src)
+
+		if(has_motion_sensor)
+			alpha = 100
+			anchored = TRUE
+			faction = premade_faction
+		else
+			icon_state = active_state
+
 	if(life_span <= 0)
 		qdel(src)
 
@@ -296,7 +331,8 @@
 
 	if(!primed)
 		primed = TRUE
-		add_filter("active", 1, list("type" = "outline", , "size" =1, "color" = COLOR_WHITE))
+		if(show_activation_status)
+			add_filter("active", 1, list("type" = "outline", , "size" =1, "color" = COLOR_WHITE))
 		START_PROCESSING(SSobj,src)
 
 		if(has_motion_sensor)
@@ -329,17 +365,19 @@
 		if(primed && motion_sensor_triggered)
 
 			life_span -= 1
+			if(show_activation_status)
+				maptext = STYLE_SMALLFONTS_OUTLINE("[life_span]", 7, COLOR_WHITE, COLOR_BLACK)
+
+				animate(src, pixel_y = 5, time = 8, easing = SINE_EASING | EASE_IN)
+				animate(pixel_y = 0, time = 3, easing = SINE_EASING | EASE_OUT)
+
+	else
+		life_span -= 1
+		if(show_activation_status)
 			maptext = STYLE_SMALLFONTS_OUTLINE("[life_span]", 7, COLOR_WHITE, COLOR_BLACK)
 
 			animate(src, pixel_y = 5, time = 8, easing = SINE_EASING | EASE_IN)
 			animate(pixel_y = 0, time = 3, easing = SINE_EASING | EASE_OUT)
-
-	else
-		life_span -= 1
-		maptext = STYLE_SMALLFONTS_OUTLINE("[life_span]", 7, COLOR_WHITE, COLOR_BLACK)
-
-		animate(src, pixel_y = 5, time = 8, easing = SINE_EASING | EASE_IN)
-		animate(pixel_y = 0, time = 3, easing = SINE_EASING | EASE_OUT)
 
 /obj/item/fd/simple_grenade/Destroy()
 
@@ -353,8 +391,9 @@
 
 /obj/item/fd/simple_grenade/anti_terra
 	name = "grenade"
-	icon_state = "motion0"
-	active_state = "motion1"
+	icon_state = "cryo"
+	active_state = "cryo1"
+	icon = 'mods/_fd/fd_assets/icons/goons/grenade.dmi'
 
 	grenade_type = /obj/effect/simple_grenade/anti_terra
 
@@ -362,6 +401,7 @@
 	name = "mine"
 	icon_state = "powersink0"
 	active_state = "powersink1"
+	icon = 'mods/_fd/fd_assets/icons/goons/device.dmi'
 
 	life_span = 1
 	grenade_type = /obj/effect/simple_grenade/shock
@@ -369,6 +409,18 @@
 	has_motion_sensor = TRUE
 	throw_range = 5
 	w_class = ITEM_SIZE_LARGE
+
+/obj/item/fd/simple_grenade/neuro_drop
+	name = "canister"
+	icon_state = "black"
+	active_state = "black-1"
+	icon = 'mods/_fd/fd_assets/icons/goons/atmos.dmi'
+
+	life_span = 2
+	grenade_type = /obj/effect/simple_grenade/neuro
+
+	drop_from_the_sky = TRUE
+	show_activation_status = FALSE
 
 /obj/effect/simple_grenade
 	icon = null
@@ -384,7 +436,7 @@
 /obj/effect/simple_grenade/proc/bomb_trigger()
 	set waitfor = FALSE
 
-	playsound(get_turf(src), explosion_sound, 100, TRUE, falloff = 2)
+	playsound(get_turf(src), explosion_sound, 50, TRUE, falloff = 2)
 
 	for(var/floor in RANGE_TURFS(src, splash_zone))
 		new /obj/effect/danger_area(floor, zone_color, trigger_delay)
@@ -459,6 +511,54 @@
 
 		mobik.add_status_effect(/datum/simple_status/shocked, 10 SECONDS)
 		mobik.add_status_effect(/datum/simple_status/fixation/timed, 5 SECONDS)
+
+	QDEL_IN(src, 4 SECONDS)
+
+/obj/temp_visual/smoke_fd
+	icon_state = "smoke wall"
+	anchored = TRUE
+	opacity = FALSE
+	layer = ABOVE_HUMAN_LAYER
+	icon = 'icons/effects/smoke.dmi'
+	icon_state = "smoke"
+	pixel_x = -9
+	pixel_y = -6
+	duration = 5 SECONDS
+	color = COLOR_DARK_GREEN_GRAY
+	var/do_scaling_animation = TRUE
+
+/obj/temp_visual/smoke_fd/Initialize(mapload, set_dir)
+	if(do_scaling_animation)
+		SetTransform(0)
+		animate(src, transform = matrix(3, MATRIX_SCALE), time = 4 SECONDS, easing = SINE_EASING|EASE_OUT, ANIMATION_PARALLEL)
+
+	animate(src, alpha = 255, time = 3 SECONDS, easing = SINE_EASING|EASE_OUT, ANIMATION_PARALLEL)
+	spawn(3 SECONDS)
+		animate(src, alpha = 0, time = 2 SECONDS, easing = SINE_EASING|EASE_IN, ANIMATION_PARALLEL)
+	. = ..()
+
+/obj/effect/simple_grenade/neuro
+	splash_zone = 2
+	zone_color = COLOR_GREEN
+
+/obj/effect/simple_grenade/neuro/bomb_trigger()
+	new /obj/effect/simple_combat_particle/explosion(get_turf(src))
+	. = ..()
+
+/obj/effect/simple_grenade/neuro/bomb_effect(turf/where_to_check)
+	set waitfor = FALSE
+
+	sleep(trigger_delay)
+
+	for(var/floor in RANGE_TURFS(src, splash_zone))
+		new /obj/temp_visual/smoke_fd(floor)
+
+	for(var/mob/living/mobik in where_to_check)
+		if(!mobik.simple_combat_on)
+			continue
+
+		mobik.simple_health_calculation(rand(5,10), 0, 0, 0)
+		mobik.add_status_effect(/datum/simple_status/poison, 15 MINUTES)
 
 	QDEL_IN(src, 4 SECONDS)
 
@@ -634,7 +734,7 @@
 /obj/item/natural_weapon/terra/grabber/apply_hit_effect(mob/living/target, mob/living/user, hit_zone)
 	if(target.simple_combat_on)
 
-		if(!clawed)
+		if(!clawed && !target.kaiju)
 			if(prob(clawed_chance))
 				user.add_status_effect(/datum/simple_status/fixation)
 				clawed_chance = initial(clawed_chance)

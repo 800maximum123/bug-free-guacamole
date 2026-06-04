@@ -22,8 +22,14 @@
 			return
 
 		if(!can_emote(m_type))
-			to_chat(src, SPAN_WARNING("You cannot currently [m_type == AUDIBLE_MESSAGE ? "audibly" : "visually"] emote!"))
-			return
+			if(isliving(src))
+				var/mob/living/L = src
+				if(!L.get_status_effect(/datum/simple_status/poison))
+					to_chat(src, SPAN_WARNING("You cannot currently [m_type == AUDIBLE_MESSAGE ? "audibly" : "visually"] emote!"))
+					return
+			else
+				to_chat(src, SPAN_WARNING("You cannot currently [m_type == AUDIBLE_MESSAGE ? "audibly" : "visually"] emote!"))
+				return
 
 		if(act == "me")
 			return custom_emote(m_type, message)

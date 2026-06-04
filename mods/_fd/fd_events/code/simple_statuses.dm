@@ -706,6 +706,9 @@
 	if(owner.robotic)
 		return FALSE
 
+	if(owner.kaiju)
+		return FALSE
+
 /datum/simple_status/bleed/tick()
 	. = ..()
 
@@ -783,6 +786,9 @@
 /datum/simple_status/fixation/on_apply()
 	. = ..()
 
+	if(owner.kaiju)
+		return FALSE
+
 	owner.appearance_flags |= KEEP_TOGETHER
 	new /obj/effect/simple_combat_particle/zzaped(owner.loc)
 
@@ -804,6 +810,54 @@
 /datum/simple_status/fixation/timed
 	status_type = STATUS_EFFECT_ADJUST
 	duration = 0
+
+/datum/simple_status/poison
+	name = "Отравление"
+	desc_text = "- Отравлен"
+	status_type = STATUS_EFFECT_ADJUST
+	status_color = COLOR_RED
+	duration = 0
+
+/datum/simple_status/poison/on_apply()
+	. = ..()
+
+	if(issilicon(owner))
+		return FALSE
+
+	if(owner.isSynthetic())
+		return FALSE
+
+	if(owner.robotic)
+		return FALSE
+
+	if(owner.kaiju)
+		return FALSE
+
+	if(ishuman(owner))
+		var/mob/living/carbon/human/H = owner
+		if (H.wear_mask && (H.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT)) // If they're protected by a mask
+			return FALSE
+		if (H.head && (H.head.item_flags & ITEM_FLAG_AIRTIGHT)) // If they're protected by a helmet
+			return FALSE
+
+/datum/simple_status/poison/tick()
+	. = ..()
+
+	new /obj/effect/simple_combat_particle/poisoned(owner.loc)
+	owner.simple_health_calculation(1, 0, 0, 0)
+
+	if(prob(10))
+
+		var/emote_to_pick = pick("cough","gasp")
+		owner.emote(emote_to_pick)
+		if(emote_to_pick == "cough")
+			var/obj/decal/cleanable/blood/B = blood_splatter(get_step(owner, SOUTH), owner, 0, SOUTH)
+			B.icon_state = "dir_splatter_1"
+			B.SetTransform(0.5)
+
+	if(owner.simple_health <= owner.max_simple_health / 4 && owner.sleeping <= 0)
+		owner.sleeping += 10
+
 
 /datum/simple_status/attack_damage_buff
 	name = "Бафф Афтика (Скорость передвижения + ДМГ)"
@@ -937,6 +991,9 @@
 
 /datum/simple_status/shocked/on_apply()
 	. = ..()
+
+	if(owner.kaiju)
+		return FALSE
 
 	new /obj/effect/simple_combat_particle/zzaped(owner.loc)
 	new /obj/temp_visual/swift_electro(owner.loc)

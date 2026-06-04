@@ -2,6 +2,7 @@
 	icon = 'icons/turf/overlays.dmi'
 	icon_state = "whiteOverlay"
 	alpha = 0
+	layer = ABOVE_OBJ_LAYER
 
 /obj/effect/danger_area/Initialize(new_loc, new_color, start_time, duration, end_time)
 	. = ..()
@@ -62,6 +63,23 @@
 	. = ..()
 
 /obj/effect/simple_combat_particle/zzaped/animation()
+	pixel_x = rand(-10, 10)
+	pixel_y = rand(-15, 15)
+	var/pixel_y_adjust = pixel_y + 15
+
+	animate(src, 0.3 SECOND, alpha = 255, flags = ANIMATION_PARALLEL)
+	animate(src, pixel_y = pixel_y_adjust, alpha = 0, time = 0.8 SECONDS, easing = BOUNCE_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
+
+	QDEL_IN(src, 1 SECONDS)
+
+/obj/effect/simple_combat_particle/poisoned
+	icon_state = "poisoned"
+
+/obj/effect/simple_combat_particle/poisoned/Initialize()
+	SetTransform(0.5)
+	. = ..()
+
+/obj/effect/simple_combat_particle/poisoned/animation()
 	pixel_x = rand(-10, 10)
 	pixel_y = rand(-15, 15)
 	var/pixel_y_adjust = pixel_y + 15

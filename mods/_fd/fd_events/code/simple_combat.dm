@@ -845,8 +845,6 @@
 	. = ..()
 
 	if(simple_combat_on)
-		simple_health_calculation(-max_simple_health, 0, 0, 0)
-
 		if(ishuman(src))
 			var/mob/living/carbon/human/H = src
 			for(var/obj/item/clothing/armor in H.get_equipped_items())
@@ -855,6 +853,8 @@
 		if(get_status_effect(/datum/simple_status/hardcrit))
 			stabilized = TRUE
 			remove_status_effect(/datum/simple_status/hardcrit)
+
+		simple_health_calculation(-max_simple_health, 0, 0, 0)
 
 		for(var/datum/simple_status/effects in status_effects)
 			if(effects.positive_effect)
