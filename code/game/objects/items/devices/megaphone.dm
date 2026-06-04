@@ -30,17 +30,14 @@
 	if ((src.loc == user && usr.stat == 0))
 		if(emagged)
 			if(insults)
-				for(var/mob/O in (viewers(user)))
-					O.audible_message(message = SPAN_DANGER("([FONT_GIANT("\"[pick(insultmsg)]\"")])"))
-					playsound(src, 'sound/items/megaphone.ogg', 100, TRUE)
+				user.audible_message(message = SPAN_DANGER("<b>[user]</b> announces: ([FONT_GIANT("\"[pick(insultmsg)]\"")])"), runemessage = insultmsg)
+				playsound(src, 'sound/items/megaphone.ogg', 100, TRUE)
 				insults--
 			else
 				to_chat(user, SPAN_WARNING("*BZZZZzzzzzt*"))
 		else
-			for(var/mob/O in (viewers(user)))
-				O.audible_message(message = "[FONT_GIANT("\"[message]\"")]")
-				playsound(src, 'sound/items/megaphone.ogg', 50, TRUE)
-
+			user.audible_message(message = "<b>[user]</b> announces: [FONT_GIANT("\"[message]\"")]", runemessage = message)
+			playsound(src, 'sound/items/megaphone.ogg', 50, TRUE)
 		spamcheck = 1
 		spawn(20)
 			spamcheck = 0

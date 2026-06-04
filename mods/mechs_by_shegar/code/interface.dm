@@ -30,8 +30,8 @@
 	if(!message)
 		return
 	message = capitalize(message)
-	owner.audible_message(message = FONT_GIANT("[message]"))
-	playsound(src, 'sound/items/megaphone.ogg', 50, TRUE)
+	owner.audible_message(message = "<b>[owner]</b> announces: [FONT_GIANT("\"[message]\"")]", runemessage = message)
+	playsound(owner, 'sound/items/megaphone.ogg', 50, TRUE)
 	return
 
 /obj/screen/movable/exosuit/toggle/gps
