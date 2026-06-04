@@ -29,6 +29,8 @@
 
 /obj/item/melee/baton/use_before(mob/M as mob, mob/living/user as mob)
 	. = FALSE
+	if (!istype(M))
+		return FALSE
 	if ((MUTATION_CLUMSY in user.mutations) && prob(50))
 		to_chat(user, SPAN_WARNING("You club yourself over the head."))
 		user.Weaken(3 * force)
