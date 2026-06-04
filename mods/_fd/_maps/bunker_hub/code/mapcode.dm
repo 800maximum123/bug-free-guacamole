@@ -806,6 +806,28 @@
 /obj/submap_landmark/spawnpoint/amelia
 	name = "Amelia Brown"
 
+/obj/effect/simple_grenade/basic/smaller
+	splash_zone = 1
+
+/obj/item/gun/projectile/automatic/iccgn/bolter/simple // использует патроны из симплбоёвки
+	magazine_type = /obj/item/ammo_magazine/rifle/bolter/simple
+	allowed_magazines = /obj/item/ammo_magazine/rifle/bolter/simple
+
+/obj/item/ammo_magazine/rifle/bolter/simple
+	ammo_type = /obj/item/ammo_casing/rifle/bolter/simple
+
+/obj/item/ammo_casing/rifle/bolter/simple
+	projectile_type = /obj/item/projectile/bullet/rifle/bolter/simple
+
+/obj/item/projectile/bullet/rifle/bolter/simple
+	simple_damage = 30
+	simple_armor_penetration = 10
+
+/obj/item/projectile/bullet/rifle/bolter/simple/on_hit(atom/target, blocked)
+	new /obj/effect/simple_grenade/basic/smaller(get_turf(target))
+
+	. = ..()
+
 /obj/item/clothing/suit/storage/perci_coat
 	name = "dark coat"
 	desc = "Furcoat with pretty dark colors and installed armored plates."
@@ -858,10 +880,13 @@
 	suit = /obj/item/clothing/suit/storage/perci_coat
 	back = /obj/item/storage/backpack/satchel/pocketbook/gray
 
+	r_hand = /obj/item/gun/projectile/automatic/iccgn/bolter/simple
+
 	shoes = /obj/item/clothing/shoes/jackboots/perci_invisible
 
 	l_ear = /obj/item/device/radio/headset/headset_com
 
+	backpack_contents = list(/obj/item/ammo_magazine/rifle/bolter/simple = 2)
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 

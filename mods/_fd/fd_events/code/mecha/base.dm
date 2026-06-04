@@ -606,8 +606,11 @@
 
 	var/mob/living/simple_animal/simple_mecha/mecha
 
-	var/fuel_current = 500
-	var/fuel_max = 500
+	var/fuel_current = 10000
+	var/fuel_max = 10000
+
+	var/first_warning = FALSE
+	var/second_warning = FALSE
 
 /obj/item/fd/mech/engine/Initialize()
 	. = ..()
@@ -616,17 +619,25 @@
 
 /obj/item/fd/mech/engine/Process()
 
-	if(fuel_current == fuel_max / 2)
+	if(fuel_current > 1000 && second_warning)
+		second_warning = FALSE
+
+	if(fuel_current > fuel_max / 2 && first_warning)
+		first_warning = FALSE
+
+	if(fuel_current <= fuel_max / 2 && !first_warning)
+		first_warning = TRUE
 		mecha.balloon_alert(mecha, "|ВНИМАНИЕ! ПОТЕРЯ ПОЛОВИНЫ ТОПЛИВА|", COLOR_YELLOW)
 
-	if(fuel_current == 20)
+	if(fuel_current <= 1000 && !second_warning)
+		second_warning = TRUE
 		mecha.balloon_alert(mecha, "|ВНИМАНИЕ! КРИТИЧЕСКАЯ НЕХВАТКА ТОПЛИВА|", COLOR_RED)
 
 	if(fuel_current <= 0 && engine_burning)
 		engine_burning = FALSE
 		mecha.movement_cooldown = initial(mecha.movement_cooldown)
 		mecha.pass_flags = initial(mecha.pass_flags)
-		balloon_alert_to_viewers("|ФШШшшш...|", "|ДВИГАТЕЛЬ: ВЫКЛЮЧЕН|", COLOR_WHITE)
+		mecha.balloon_alert_to_viewers("|ФШШшшш...|", "|ДВИГАТЕЛЬ: ВЫКЛЮЧЕН|", COLOR_WHITE)
 
 /obj/item/fd/mech/engine/coral
 	power = 6
@@ -694,8 +705,20 @@
 	movement_cooldown = 4
 	see_in_dark = 8
 
+/mob/living/simple_animal/simple_mecha/death(gibbed, deathmessage, show_dead_message)
+	if(pilot)
+		pilot.teleop = null
+		pilot.ckey = ckey
+		pilot.forceMove(get_turf(get_step(src, reverse_direction(dir))))
+		pilot = null
+	if(passenger)
+		passenger.forceMove(get_turf(get_step(src, reverse_direction(dir))))
+		passenger = null
+	. = ..()
+
 /mob/living/simple_animal/simple_mecha/UnarmedAttack(atom/A, proximity, atom/newloc)
 	if(A == src && pilot)
+		pilot.teleop = null
 		pilot.ckey = ckey
 		pilot.forceMove(get_turf(get_step(src, reverse_direction(dir))))
 		pilot = null
@@ -705,6 +728,7 @@
 
 /mob/living/simple_animal/simple_mecha/attack_hand(mob/living/carbon/human/M)
 	if(M == src && pilot)
+		pilot.teleop = null
 		pilot.ckey = ckey
 		pilot.forceMove(get_turf(get_step(src, reverse_direction(dir))))
 		pilot = null
@@ -718,13 +742,15 @@
 		if(pilot)
 			balloon_alert(src, "|ВНИМАНИЕ! ПОПЫТКА ВНЕШНЕГО ИЗЪЯТИЯ|", COLOR_RED)
 			if(do_after(M, 10 SECONDS, src, DO_PUBLIC_UNIQUE))
+				pilot.teleop = null
+				pilot.ckey = ckey
 				pilot.forceMove(get_turf(get_step(src, reverse_direction(dir))))
 				pilot = null
 			return TRUE
 		if(passenger)
 			if(do_after(M, 10 SECONDS, src, DO_PUBLIC_UNIQUE))
-				pilot.forceMove(get_turf(get_step(src, reverse_direction(dir))))
-				pilot = null
+				passenger.forceMove(get_turf(get_step(src, reverse_direction(dir))))
+				passenger = null
 			return TRUE
 
 	. = ..()
@@ -754,6 +780,7 @@
 			if(do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
 				H.forceMove(src)
 				pilot = H
+				H.teleop = pilot
 				ckey = H.ckey
 				balloon_alert(src, "|ДОБРО ПОЖАЛОВАТЬ, [pilot.real_name]|", COLOR_GREEN)
 			return
@@ -805,16 +832,12 @@
 	return 1
 
 /mob/living/simple_animal/simple_mecha/ClickOn(atom/A, params)
-	if(actual_weapon_slot)
+	if(primary.active || aux1.active || aux2.active)
 		mech_click(A, params)
 
 	. = ..()
 
 /mob/living/simple_animal/simple_mecha/proc/mech_click(atom/A, params)
-
-	if(istype(A,/obj/item) && Adjacent(A))
-		A.attack_hand(src)
-
 	if(primary.active)
 		if(istype(actual_weapon_slot,/obj/item/gun))
 			var/obj/item/gun/G = actual_weapon_slot
@@ -870,7 +893,7 @@
 					else
 						for(var/i in 1 to P.max_shells)
 							P.loaded += new P.ammo_type(src)
-		qdel(tool)
+			qdel(tool)
 		return TRUE
 
 	if(istype(tool,/obj/item/fd/mech/engine))
@@ -1025,9 +1048,10 @@
 	auto_eject = TRUE
 
 	burst = 6
-	burst_delay = 0
+	burst_delay = 1
 	fire_delay = 0
 
+	mecha_can_hold = TRUE
 	firemodes = list()
 
 /obj/item/ammo_magazine/box/mecha/chang
@@ -1043,7 +1067,7 @@
 
 	if(mecha_can_hold && istype(user, /mob/living/simple_animal/simple_mecha))
 		var/mob/living/simple_animal/simple_mecha/mech = user
-		if(!mech.actual_weapon_slot && !(mech.actual_aux1 == src || mech.actual_aux2 == src))
+		if(!mech.actual_weapon_slot && !(src in mech.contents))
 			forceMove(mech)
 			mech.actual_weapon_slot = src
 			mech.balloon_alert(mech, "|УСТАНОВЛЕНО НОВОЕ ОБОРУДОВАНИЕ: [name]|", COLOR_GREEN)
@@ -1055,7 +1079,7 @@
 			mech.primary.update_status()
 			return TRUE
 
-		if(!mech.actual_aux1 && !(mech.actual_weapon_slot == src || mech.actual_aux2 == src))
+		if(!mech.actual_aux1 && !(src in mech.contents))
 			forceMove(mech)
 			mech.actual_aux1 = src
 			mech.balloon_alert(mech, "|УСТАНОВЛЕНО НОВОЕ ОБОРУДОВАНИЕ: [name]|", COLOR_GREEN)
@@ -1066,7 +1090,8 @@
 
 			mech.aux1.update_status()
 			return TRUE
-		if(!mech.actual_aux2 && !(mech.actual_aux1 == src || mech.actual_weapon_slot == src))
+
+		if(!mech.actual_aux2 && !(src in mech.contents))
 			forceMove(mech)
 			mech.actual_aux2 = src
 			mech.balloon_alert(mech, "|УСТАНОВЛЕНО НОВОЕ ОБОРУДОВАНИЕ: [name]|", COLOR_GREEN)

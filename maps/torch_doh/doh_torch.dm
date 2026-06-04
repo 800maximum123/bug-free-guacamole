@@ -204,7 +204,7 @@
 	#include "cutscenes/s2ep5/characters.dm"
 	#include "cutscenes/s2ep5/cutscenes.dm"
 
-	#include "cutscenes/s2ep6/stuff.dm"
+	#include "cutscenes/s2ep7/stuff.dm"
 
 	#include "music_videos/s2opening1.dm"
 
