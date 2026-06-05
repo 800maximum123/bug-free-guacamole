@@ -126,6 +126,9 @@
 	/// Overlay to apply to gun based on safety state, if any.
 	var/safety_icon
 
+	/// Crosshair icon
+	var/crosshair_icon = 'icons/crosshairs/crosshair.dmi'
+
 	/// What skill governs safe handling of this gun. Basic skill level and higher will also show the safety overlay to the player.
 	var/gun_skill = SKILL_WEAPONS
 	/// What skill level is needed in the gun's skill to completely negate the chance of an accident.
@@ -246,7 +249,12 @@
 /obj/item/gun/dropped(mob/living/user)
 	check_accidents(user)
 	update_icon()
+	update_mouse_pointer(user, FALSE)
 	return ..()
+
+///Turns the mouse cursor into a crosshair if new_cursor is set to TRUE. If set to FALSE, returns the cursor to its initial icon.
+/obj/item/gun/proc/update_mouse_pointer(mob/user, new_cursor)
+	user.client?.mouse_pointer_icon = new_cursor ? crosshair_icon : initial(user.client?.mouse_pointer_icon)
 
 /obj/item/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 	if(!user || !target) return
@@ -706,6 +714,7 @@
 	if(user)
 		user.visible_message(SPAN_WARNING("[user] switches the safety of \the [src] [safety_state ? "on" : "off"]."), SPAN_NOTICE("You switch the safety of \the [src] [safety_state ? "on" : "off"]."), range = 3)
 		last_safety_check = world.time
+		update_mouse_pointer(user, safety_state ? FALSE : TRUE)
 		playsound(src, 'sound/weapons/flipblade.ogg', 15, 1)
 
 
@@ -734,9 +743,16 @@
 /obj/item/gun/proc/safety()
 	return has_safety && safety_state
 
-/obj/item/gun/equipped()
+/obj/item/gun/equipped(mob/user, slot)
 	..()
 	update_icon()
+	if(slot == slot_l_hand || slot == slot_r_hand)
+		if(safety())
+			update_mouse_pointer(user, FALSE)
+		else
+			update_mouse_pointer(user, TRUE)
+	else
+		update_mouse_pointer(user, FALSE)
 	last_handled = world.time
 
 /obj/item/gun/on_active_hand()
