@@ -1065,50 +1065,26 @@
 		src.New()
 		to_chat(user, "You reattached conveyors with [src], that have the same ID.")
 
-/obj/item/device/binoculars
-	var/zoom_offset = 14
-	var/zoom_size = 9
-
 /obj/item/device/binoculars/blue
-	name = "advanced binoculars"
-	desc = "A pair of binoculars with extra range."
 	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi'
 	icon_state = "binoculars1"
 	zoom_offset = 16
 	zoom_size = 9
 
-/obj/item/device/binoculars/blue/attack_self(mob/user)
-	if(zoom)
-		unzoom(user)
-	else
-		zoom(user, zoom_offset, zoom_size)
-
 /obj/item/device/binoculars/nvg
-	name = "ultra binoculars"
-	desc = "A pair of binoculars with extra-EXTRA range."
 	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi'
 	icon_state = "binoculars_nvg"
 	zoom_offset = 19
 	zoom_size = 11
-
-/obj/item/device/binoculars/nvg/attack_self(mob/user)
-	if(zoom)
-		unzoom(user)
-	else
-		zoom(user, zoom_offset, zoom_size)
 
 /obj/item/device/binoculars/random/New()
 	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi'
 	icon_state = pick("binoculars","binoculars1","binoculars_nvg")
 	switch(icon_state)
 		if("binoculars1")
-			name = "advanced binoculars"
-			desc = "A pair of binoculars with extra range."
 			zoom_offset = 16
 			zoom_size = 9
 		if("binoculars_nvg")
-			name = "ultra binoculars"
-			desc = "A pair of binoculars with extra-EXTRA range."
 			zoom_offset = 19
 			zoom_size = 11
 		else
