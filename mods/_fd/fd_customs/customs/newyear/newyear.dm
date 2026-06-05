@@ -105,8 +105,8 @@
 // ------
 
 /obj/item/book/manual/autostopgalactic
-	name = "A Freaking Big Space Encyclopedia About How to Live In XIV Century and Not To Be Stupid Moron"
-	desc = "A Freaking Big Space Encyclopedia About How to Live In XIV Century and Not To Be Stupid Moron or FBSEAHWtLIXIVCaNTBSM to short is <i>really</i> thick book with azure-black cover"
+	name = "A Freaking Big Space Encyclopedia About How to Live In XXIV Century and Not To Be Stupid Moron"
+	desc = "A Freaking Big Space Encyclopedia About How to Live In XXIV Century and Not To Be Stupid Moron or FBSEAHWtLIXXIVCaNTBSM to short is <i>really</i> thick book with azure-black cover"
 	url = "https://teotr.miraheze.org/wiki/Заглавная_страница" // idk what to put here, so i put it
 	icon = 'newyear.dmi'
 	icon_state = "galacticbook"

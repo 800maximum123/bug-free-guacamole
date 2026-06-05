@@ -2167,6 +2167,14 @@
 	d2 = 0;
 	icon_state = "16-0"
 	},
+/obj/item/storage/backpack/dufflebag/eng{
+	pixel_x = 0;
+	pixel_y = 39
+	},
+/obj/item/storage/backpack/dufflebag/syndie{
+	pixel_x = 0;
+	pixel_y = 29
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/bomber/main_deck/shield)
@@ -15851,6 +15859,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
+	},
+/obj/item/storage/backpack/dufflebag{
+	pixel_x = -2;
+	pixel_y = 41
+	},
+/obj/item/storage/backpack/dufflebag{
+	pixel_x = -1;
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /turf/simulated/floor/tiled/techfloor,
@@ -35084,7 +35100,7 @@ CJ
 CJ
 NB
 CJ
-CJ
+bc
 CJ
 NB
 NB
@@ -35692,12 +35708,12 @@ CJ
 HZ
 CJ
 CJ
-NB
+gQ
 CJ
 NB
 NB
 NB
-CJ
+bc
 NB
 NB
 YD
@@ -36301,7 +36317,7 @@ NB
 CJ
 CJ
 NB
-CJ
+bc
 NB
 NB
 NB
@@ -40327,7 +40343,7 @@ NB
 CJ
 CJ
 CJ
-CJ
+bc
 NB
 NB
 CJ
