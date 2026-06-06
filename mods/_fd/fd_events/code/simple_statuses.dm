@@ -655,6 +655,9 @@
 	if(owner.isSynthetic())
 		return FALSE
 
+	if(owner.robotic)
+		return FALSE
+
 	if(ishuman(owner))
 		var/mob/living/carbon/human/H = owner
 		if(!H.is_species(SPECIES_RESOMI)) // Я потом сделаю модульность. Пока что это будет смотреться слишком смешно на них
@@ -775,6 +778,9 @@
 /datum/simple_status/legbroke/on_apply()
 	. = ..()
 
+	if(istype(owner,/mob/living/simple_animal/simple_mecha))
+		return FALSE
+
 	new /obj/effect/simple_combat_particle/fracture(owner.loc)
 
 /datum/simple_status/fixation
@@ -787,6 +793,9 @@
 	. = ..()
 
 	if(owner.kaiju)
+		return FALSE
+
+	if(istype(owner,/mob/living/simple_animal/simple_mecha))
 		return FALSE
 
 	owner.appearance_flags |= KEEP_TOGETHER
