@@ -650,7 +650,7 @@
 					qdel(messages)
 
 /proc/s2ep7sc8_screentext()
-	var/message = {"<span style="color: yellow;">Йозеф</span>: Может быть хотя бы тогда..."}
+	var/message = {"<span style="color: yellow;">Йозеф</span>: Может быть хоть так...хоть у кого-то из нас-"}
 
 	var/obj/screen/player_message/maintext = new /obj/screen/player_message()
 	maintext.plane = HUD_PLANE
@@ -667,7 +667,7 @@
 		maintext.set_text(message, COLOR_WHITE)
 
 	spawn(8 SECONDS)
-		message = {"<span style="color: yellow;">Йозеф</span>: У кого-нибудь из нас будет шанс снова коснутся звёзд."}
+		message = {"<span style="color: yellow;">Йозеф</span>: ...появится шанс дотянутся до звёзд. <b>Ещё</b> разок."}
 		maintext.set_text(message, COLOR_WHITE)
 
 	spawn(14 SECONDS)
@@ -917,12 +917,12 @@
 		TALK_ACTOR(actor("Терра - 7-2-1"), "Признаться честно, я искренне удивлена тому, что они смогли обойти +\"ключ\"+ партикального копья.") = 8 SECONDS,
 		TALK_ACTOR(actor("Терра - 7-2-1"), "Не устрани я +Амелию+ - процесс захвата был бы +гораздо+ трудней.") = 6 SECONDS,
 		TALK_ACTOR(actor("Терра - 7-2-1"), "...") = 4 SECONDS,
-		TALK_ACTOR(actor("Терра - 7-2-1"), "Хм...") = 6 SECONDS,
+		TALK_ACTOR(actor("Терра - 7-2-1"), "Хм...") = 4 SECONDS,
 		CHANGE_ACTOR_VISUALS(actor("Терра - 7-2-1"), "Current"),
 		TURN_ACTOR(actor("Терра - 7-2-1"), SOUTH),
-		TALK_ACTOR(actor("Терра - 7-2-1"), "Как бы то ни было...") = 4 SECONDS,
+		TALK_ACTOR(actor("Терра - 7-2-1"), "Как бы то ни было...") = 3 SECONDS,
 		TALK_ACTOR(actor("Терра - 7-2-1"), "Я смогу разобраться с ним позже. У нас есть задачи важнее ловли \"мышей\"."),
-		CHANGE_ACTOR_VISUALS(actor("Терра - 7-2-1"), "Terra - Super Earth") = 2 SECONDS,
+		CHANGE_ACTOR_VISUALS(actor("Терра - 7-2-1"), "Terra - Super Earth") = 1 SECONDS,
 
 		MOVE_CAMERA(0, 4, 8 SECONDS, SINE_EASING|EASE_OUT) = 2 SECONDS,
 		MOVE_ACTOR(actor("Свифт - 7-2-1"), SOUTH) = 2 SECONDS,

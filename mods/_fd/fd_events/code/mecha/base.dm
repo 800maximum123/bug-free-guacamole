@@ -549,7 +549,7 @@
 	else
 		if(host.actual_aux2)
 			host.actual_aux2.forceMove(get_turf(get_step(host, host.dir)))
-			host.actual_aux1 = null
+			host.actual_aux2 = null
 
 			if(active)
 				active = FALSE
@@ -916,9 +916,10 @@
 				passenger = H
 			return
 
-	var/obj/something = dropping
-	something.forceMove(src)
-	storage += something
+	if(istype(dropping,/obj/))
+		var/obj/something = dropping
+		something.forceMove(src)
+		storage += something
 	return
 
 /mob/living/simple_animal/simple_mecha/proc/eject_cargo_item(obj/object_removed)
@@ -973,8 +974,6 @@
 
 		if(!istype(actual_weapon_slot,/obj/item/gun) && Adjacent(A))
 			var/obj/item/M = actual_weapon_slot
-			if(world.time <= next_move)
-				return FALSE
 
 			if(melee_assist)
 				var/turf/target_turf = get_turf(get_step(src, Get_Compass_Dir(src, A)))
@@ -1111,7 +1110,7 @@
 
 	shield_overlay = image(icon = 'icons/mecha/shield.dmi', icon_state = "shield")
 	shield_overlay.pixel_y = 12
-	shield_overlay.pixel_x = -16
+	shield_overlay.pixel_x = 16
 
 	var/matrix/M = matrix()
 	M.Scale(3)
@@ -1242,6 +1241,7 @@
 
 	simple_damage = 30
 	simple_armor_penetration = 10
+	force = 2
 
 	attack_cooldown = 0
 
@@ -1258,6 +1258,7 @@
 
 	simple_damage = 60
 	simple_armor_penetration = 20
+	force = 2
 
 	aux_usable = TRUE
 	aux_instant = TRUE
@@ -1269,12 +1270,12 @@
 	var/on_cooldown = FALSE
 
 /obj/item/melee/mech/pilebunker/aux_can_use(mob/living/user)
+	if(on_cooldown)
+		user.balloon_alert(user, "|МЕХАНИЗМ ЗАЕЛО|", COLOR_YELLOW)
+		return FALSE
 	if(pile_ready)
 		user.balloon_alert(user, "|КОПЬЁ УБРАНО|", COLOR_GREEN)
 		pile_ready = FALSE
-		return FALSE
-	if(on_cooldown)
-		user.balloon_alert(user, "|МЕХАНИЗМ ЗАЕЛО|", COLOR_YELLOW)
 		return FALSE
 
 	return TRUE
@@ -1293,6 +1294,7 @@
 		else
 			target.death()
 		on_cooldown = TRUE
+		pile_ready = FALSE
 		addtimer(new Callback(src, PROC_REF(reset_module)), 10 SECONDS)
 		return TRUE
 

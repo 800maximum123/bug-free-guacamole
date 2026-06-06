@@ -44,7 +44,7 @@
 
 /singleton/psionic_power/redaction/mend
 	name =            "Mend"
-	cost =            7
+	cost =            15
 	cooldown =        50
 	use_melee =       TRUE
 	min_rank =        PSI_RANK_APPRENTICE
