@@ -133,6 +133,22 @@
 /obj/effect/simple_combat_particle/animation()
 	QDEL_IN(src, 1.5 SECONDS)
 
+/obj/effect/simple_combat_particle/explosion_alt
+	icon = 'mods/_fd/fd_assets/icons/tgmc/64x64.dmi'
+	alpha = 255
+	icon_state = "seismic_fracture"
+	pixel_y = 64
+	pixel_x = -16
+
+	layer = ABOVE_HUMAN_LAYER
+
+/obj/effect/simple_combat_particle/explosion_alt/Initialize()
+	SetTransform(3)
+	. = ..()
+
+/obj/effect/simple_combat_particle/animation()
+	QDEL_IN(src, 1 SECONDS)
+
 /obj/effect/simple_combat_particle/impact
 	icon = 'mods/_fd/fd_events/icons/simple_vfx_impact.dmi'
 	alpha = 255

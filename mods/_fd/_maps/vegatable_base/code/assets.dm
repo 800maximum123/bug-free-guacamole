@@ -562,6 +562,8 @@
 
 	QDEL_IN(src, 4 SECONDS)
 
+/////////////////////////////////////////
+
 /mob/living
 	var/robotic = FALSE
 
@@ -572,7 +574,7 @@
 	name = "ranger drone"
 	desc = "Overload it's shields!"
 
-	icon = 'mods/_fd/fd_assets/icons/aurora/robots.dmi'
+	icon = 'mods/_fd/fd_assets/icons/ranger.dmi'
 	icon_state = "ranger"
 	icon_living = "ranger"
 	icon_dead = "gib7"
@@ -624,7 +626,7 @@
 /obj/item/natural_weapon/terra/jumper
 	name = "hands"
 	attack_verb = list("smashed")
-	simple_damage = 20
+	simple_damage = 15
 
 	hitsound = 'sound/weapons/heavysmash.ogg'
 
@@ -632,13 +634,72 @@
 	status_apply_prob = 50
 	force = 2
 
+/obj/item/natural_weapon/terra/jumper/apply_hit_effect(mob/living/target, mob/living/user, hit_zone)
+	if(target.simple_combat_on)
+
+		if(!clawed && !(target.kaiju || istype(target,/mob/living/simple_animal/simple_mecha)))
+			if(prob(clawed_chance))
+				user.add_status_effect(/datum/simple_status/fixation)
+				clawed_chance = initial(clawed_chance)
+
+				target.add_status_effect(/datum/simple_status/fixation)
+				clawed = target
+
+				clawed.forceMove(get_turf(src))
+				clawed.dir = SOUTH
+				user.dir = SOUTH
+
+			else
+				clawed_chance += 50
+
+		if(clawed && clawed == target)
+			clawed_time_current += 1
+			if(clawed_time_current >= clawed_time_needed)
+				clawed_time_current = 0
+
+				user.remove_status_effect(/datum/simple_status/fixation)
+				clawed.remove_status_effect(/datum/simple_status/fixation)
+				clawed = null
+
+		if(status_to_add)
+			if(status_apply_prob > 0)
+				if(prob(status_apply_prob))
+					target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user,status_to_add,status_ignore_armor,status_timer_to_add)
+					return TRUE
+				else
+					target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user)
+					return TRUE
+
+			else
+				target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user,status_to_add,status_ignore_armor,status_timer_to_add)
+				return TRUE
+
+		else
+			target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user)
+			return TRUE
+
+/mob/living/simple_animal/hostile/terra/jumper/Life()
+	. = ..()
+
+	if(natural_weapon.clawed)
+		if(natural_weapon.clawed.stat != CONSCIOUS || natural_weapon.clawed.get_status_effect(/datum/simple_status/hardcrit))
+			natural_weapon.clawed_time_current = 0
+			remove_status_effect(/datum/simple_status/fixation)
+			natural_weapon.clawed.remove_status_effect(/datum/simple_status/fixation)
+			natural_weapon.clawed = null
+
+		layer = 4.12
+
+		natural_weapon.clawed.dir = SOUTH
+		dir = SOUTH
+
 /mob/living/simple_animal/hostile/terra/jumper
 	name = "jumper drone"
 	desc = "Overload it's shields!"
 
-	icon = 'mods/_fd/fd_assets/icons/aurora/robots.dmi'
-	icon_state = "grabber"
-	icon_living = "grabber"
+	icon = 'mods/_fd/fd_assets/icons/jumper.dmi'
+	icon_state = "jumper"
+	icon_living = "jumper"
 	icon_dead = "gib7"
 
 	health = 999999
@@ -683,6 +744,15 @@
 
 	add_status_effect(/datum/simple_status/shielded/better)
 
+/mob/living/simple_animal/hostile/terra/jumper/death(gibbed, deathmessage, show_dead_message)
+	. = ..()
+
+	if(natural_weapon.clawed)
+		natural_weapon.clawed_time_current = 0
+		remove_status_effect(/datum/simple_status/fixation)
+		natural_weapon.clawed.remove_status_effect(/datum/simple_status/fixation)
+		natural_weapon.clawed = null
+
 /mob/living/simple_animal/hostile/terra/jumper/do_special_attack(atom/A)
 	set waitfor = FALSE
 	set_AI_busy(TRUE)
@@ -715,7 +785,7 @@
 		victim = L
 		break
 
-	if(victim)
+	if(victim && !(victim.kaiju || istype(victim,/mob/living/simple_animal/simple_mecha)))
 		victim.resting = TRUE
 		victim.visible_message(SPAN_DANGER("\The [src] knocks down \the [victim]!"))
 		to_chat(victim, SPAN_CLASS("critical", "\The [src] jumps on you!"))
@@ -734,7 +804,7 @@
 /obj/item/natural_weapon/terra/grabber/apply_hit_effect(mob/living/target, mob/living/user, hit_zone)
 	if(target.simple_combat_on)
 
-		if(!clawed && !target.kaiju)
+		if(!clawed && !(target.kaiju || istype(target,/mob/living/simple_animal/simple_mecha)))
 			if(prob(clawed_chance))
 				user.add_status_effect(/datum/simple_status/fixation)
 				clawed_chance = initial(clawed_chance)
@@ -778,9 +848,9 @@
 	name = "grabber drone"
 	desc = "Overload it's shields!"
 
-	icon = 'mods/_fd/fd_assets/icons/aurora/robots.dmi'
-	icon_state = "standart"
-	icon_living = "standart"
+	icon = 'mods/_fd/fd_assets/icons/grabber.dmi'
+	icon_state = "grabber"
+	icon_living = "grabber"
 	icon_dead = "gib7"
 
 	health = 999999
@@ -818,6 +888,17 @@
 
 	add_status_effect(/datum/simple_status/shielded)
 
+
+/mob/living/simple_animal/hostile/terra/grabber/Life()
+	. = ..()
+
+	if(natural_weapon.clawed)
+		if(natural_weapon.clawed.stat != CONSCIOUS || natural_weapon.clawed.get_status_effect(/datum/simple_status/hardcrit))
+			natural_weapon.clawed_time_current = 0
+			remove_status_effect(/datum/simple_status/fixation)
+			natural_weapon.clawed.remove_status_effect(/datum/simple_status/fixation)
+			natural_weapon.clawed = null
+
 /mob/living/simple_animal/hostile/terra/grabber/death(gibbed, deathmessage, show_dead_message)
 	. = ..()
 
@@ -826,3 +907,300 @@
 		remove_status_effect(/datum/simple_status/fixation)
 		natural_weapon.clawed.remove_status_effect(/datum/simple_status/fixation)
 		natural_weapon.clawed = null
+
+/////////////////////////////////////////
+
+#define ICON_SIZE_ALL 32
+/// The X/Width dimension of ICON_SIZE. This will more than likely be the bigger axis.
+#define ICON_SIZE_X 32
+/// The Y/Height dimension of ICON_SIZE. This will more than likely be the smaller axis.
+#define ICON_SIZE_Y 32
+
+/obj/item/fd/turret_undeployed
+	name = "compacted weapon"
+	desc = "For easier transportation."
+	icon = 'mods/_fd/fd_assets/icons/goons/deployableturret.dmi'
+	icon_state = "turret_undeployed"
+	slot_flags = SLOT_BACK
+
+	item_icons = list(
+		slot_back_str = 'mods/_fd/_maps/metro/icons/cool_weapon.dmi')
+	item_state_slots = list(
+		slot_back_str = "weapon_onback")
+
+	var/obj/structure/fd/turret/inside_gun
+
+/obj/item/fd/turret_undeployed/attack_self(mob/user)
+	. = ..()
+
+	if(do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
+		deploy(user)
+
+/obj/item/fd/turret_undeployed/proc/deploy(mob/living/caller)
+
+	if(!inside_gun)
+		inside_gun = new /obj/structure/fd/turret(src)
+		inside_gun.inside_bag = src
+
+	inside_gun.forceMove(get_step(caller,caller.dir))
+	inside_gun.dir = 1
+
+	inside_gun.faction = caller.faction
+
+	caller.drop_from_inventory(src)
+	forceMove(inside_gun)
+
+	if(inside_gun.connected_weapon)
+		START_PROCESSING(SSobj, inside_gun)
+
+/obj/item/gun
+	var/sprite_direction = "east"
+
+/obj/structure/fd/turret
+	name = "turret"
+	desc = "Yeah, this is totally a turret"
+
+	icon = 'mods/_fd/fd_assets/icons/goons/deployableturret.dmi'
+	icon_state = "turret"
+
+	anchored = 1
+	density = TRUE
+	var/faction = "neutral"
+
+	var/obj/item/fd/turret_undeployed/inside_bag
+	var/obj/item/gun/connected_weapon
+	var/obj/item/projectile/projectile
+
+	var/obj/item/ammo_magazine/magazine
+	var/obj/item/cell/powersource
+
+	var/image/gun_overlay
+	var/image/targeting
+
+	var/start_with_gun = FALSE
+	var/premade_gun = /obj/item/gun
+
+	var/mob/living/current_target
+	var/list/mob/living/possible_targets = list()
+
+/obj/structure/fd/turret/Initialize()
+	. = ..()
+
+	targeting = image(icon = 'mods/_fd/fd_assets/icons/tgmc/telegraph.dmi', icon_state = "exclamation")
+
+	if(start_with_gun)
+		connected_weapon = new premade_gun(src)
+
+		setup_gun(connected_weapon)
+
+/obj/structure/fd/turret/Process()
+
+	for(var/mob/living/L in possible_targets)
+		if(L.stat != CONSCIOUS)
+			possible_targets -= L
+		if(L.get_status_effect(/datum/simple_status/crit) || L.get_status_effect(/datum/simple_status/hardcrit))
+			possible_targets -= L
+
+	if((!can_shoot() || !length(possible_targets)) && current_target)
+		current_target.CutOverlays(targeting)
+		current_target = null
+
+	if(can_shoot())
+		for(var/mob/living/L in view(7,src))
+			if(L.faction == faction)
+				continue
+			if(L.stat != CONSCIOUS)
+				continue
+			if(L.get_status_effect(/datum/simple_status/crit) || L.get_status_effect(/datum/simple_status/hardcrit))
+				continue
+			possible_targets |= L
+
+		if(!current_target)
+			if(length(possible_targets))
+				playsound(loc, 'sound/weapons/TargetOff.ogg', 75, 1)
+				current_target = pick(possible_targets)
+				current_target.AddOverlays(targeting)
+
+		if(current_target && (current_target.stat != CONSCIOUS || current_target.get_status_effect(/datum/simple_status/crit) || current_target.get_status_effect(/datum/simple_status/hardcrit)))
+			current_target.CutOverlays(targeting)
+			if(length(possible_targets))
+				playsound(loc, 'sound/weapons/TargetOff.ogg', 75, 1)
+				current_target = pick(possible_targets)
+				current_target.AddOverlays(targeting)
+
+		if(current_target && !(current_target in view(7,src)))
+			current_target.CutOverlays(targeting)
+			if(length(possible_targets))
+				playsound(loc, 'sound/weapons/TargetOff.ogg', 75, 1)
+				current_target = pick(possible_targets)
+				current_target.AddOverlays(targeting)
+
+		if(current_target)
+			setup_direction(current_target)
+
+			var/turf/T = get_turf(src)
+			var/turf/U = get_turf(current_target)
+			if(!istype(T) || !istype(U))
+				return
+
+			var/obj/item/projectile/A
+			A = new projectile(loc)
+			playsound(loc, connected_weapon.fire_sound, 75, 1)
+
+			var/def_zone = get_exposed_defense_zone(current_target)
+			A.launch(current_target, def_zone)
+
+			remove_cost()
+
+/obj/structure/fd/turret/use_tool(obj/item/tool, mob/user, list/click_params)
+	if(istype(tool,/obj/item/gun) && do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
+		user.drop_from_inventory(tool)
+		setup_gun(tool)
+		return TRUE
+
+	if(isScrewdriver(tool) && do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
+		unattach_gun(user)
+		return TRUE
+
+	if(isWrench(tool) && do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
+		undeploy(user)
+		return TRUE
+
+	. = ..()
+
+/obj/item/cell/proc/checked_use_no_spending(amount)
+	if(!check_charge(amount))
+		return 0
+	return 1
+
+/obj/structure/fd/turret/proc/can_shoot()
+	if(istype(connected_weapon,/obj/item/gun/energy))
+		var/obj/item/gun/energy/E = connected_weapon
+		if(powersource.checked_use_no_spending(E.charge_cost))
+			return TRUE
+
+	if(istype(connected_weapon,/obj/item/gun/projectile))
+		var/obj/item/gun/projectile/P = connected_weapon
+		if(P.load_method == MAGAZINE)
+			if(length(magazine.stored_ammo))
+				return TRUE
+		if(P.load_method == SINGLE_CASING|SPEEDLOADER)
+			if(length(P.loaded))
+				return TRUE
+	playsound(loc, 'sound/weapons/empty.ogg', 75, 1)
+	return FALSE
+
+/obj/structure/fd/turret/proc/remove_cost()
+	if(istype(connected_weapon,/obj/item/gun/energy))
+		var/obj/item/gun/energy/E = connected_weapon
+		powersource.use(E.charge_cost)
+		if(E.self_recharge)
+			E.charge_tick = 0
+			START_PROCESSING(SSobj, connected_weapon)
+		return TRUE
+
+	if(istype(connected_weapon,/obj/item/gun/projectile))
+		var/obj/item/gun/projectile/P = connected_weapon
+		var/obj/item/ammo_casing/chambered
+
+		if(P.load_method == MAGAZINE)
+			chambered = magazine.stored_ammo[1]
+			magazine.stored_ammo -= chambered
+			return TRUE
+
+		if(P.load_method == SINGLE_CASING|SPEEDLOADER)
+			chambered = P.loaded[1]
+			P.loaded -= chambered
+			return TRUE
+	return FALSE
+
+/obj/structure/fd/turret/proc/setup_gun(obj/item/gun/weapon)
+	START_PROCESSING(SSobj, src)
+
+	weapon.forceMove(src)
+	connected_weapon = weapon
+
+	gun_overlay = image(icon = weapon.icon, icon_state = weapon.icon_state)
+
+	var/matrix/M = matrix()
+	if(weapon.sprite_direction != "east")
+		M.Turn(90)
+	else
+		M.Turn(-90)
+	gun_overlay.transform = M
+
+	AddOverlays(gun_overlay)
+
+	if(istype(weapon,/obj/item/gun/energy))
+		var/obj/item/gun/energy/E = weapon
+		projectile = E.projectile_type
+		powersource = E.power_supply
+		return TRUE
+	if(istype(weapon,/obj/item/gun/projectile))
+		var/obj/item/gun/projectile/P = weapon
+		if(P.load_method == MAGAZINE)
+			magazine = P.ammo_magazine
+			var/obj/item/ammo_casing/casing
+
+			for(var/obj/item/ammo_casing/C in magazine.stored_ammo)
+				if(!casing)
+					casing = C
+
+			projectile = casing.projectile_type
+			return TRUE
+		if(P.load_method == SINGLE_CASING|SPEEDLOADER)
+			var/obj/item/ammo_casing/casing
+			for(var/obj/item/ammo_casing/C in P.loaded)
+				if(!casing)
+					casing = C
+
+			projectile = casing.projectile_type
+			return TRUE
+
+/obj/structure/fd/turret/proc/unattach_gun(mob/living/caller)
+	if(current_target)
+		current_target.CutOverlays(targeting)
+		current_target = null
+
+	connected_weapon.forceMove(get_turf(src))
+	caller.put_in_inactive_hand(connected_weapon)
+	connected_weapon = null
+	projectile = null
+
+	magazine = null
+	powersource = null
+
+	STOP_PROCESSING(SSobj, src)
+
+	CutOverlays(gun_overlay)
+	gun_overlay = null
+
+/proc/get_angle_tg(atom/movable/start, atom/movable/end)
+	if(!start || !end)
+		return 0
+	var/dy =(ICON_SIZE_Y * end.y + end.pixel_y) - (ICON_SIZE_Y * start.y + start.pixel_y)
+	var/dx =(ICON_SIZE_X * end.x + end.pixel_x) - (ICON_SIZE_X * start.x + start.pixel_x)
+	return delta_to_angle(dx, dy)
+
+/proc/delta_to_angle(x, y)
+	if(!y)
+		return (x >= 0) ? 90 : 270
+	. = arctan(x/y)
+	if(y < 0)
+		. += 180
+	else if(x < 0)
+		. += 360
+
+/obj/structure/fd/turret/proc/setup_direction(mob/living/target)
+	playsound(loc, 'sound/effects/turret/move1.wav', 75, 1)
+	animate(src, transform = matrix(get_angle_tg(src,target), MATRIX_ROTATE), time = 3, easing = SINE_EASING|EASE_IN)
+
+/obj/structure/fd/turret/proc/undeploy(mob/living/caller)
+	if(!inside_bag)
+		inside_bag = new /obj/item/fd/turret_undeployed(src)
+		inside_bag.inside_gun = src
+
+	STOP_PROCESSING(SSobj, src)
+
+	caller.put_in_inactive_hand(inside_bag)
+	forceMove(inside_bag)

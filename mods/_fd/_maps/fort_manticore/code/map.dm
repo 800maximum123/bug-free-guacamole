@@ -239,6 +239,7 @@
 		energy = ARMOR_ENERGY_STRONG,
 		bomb = ARMOR_BOMB_PADDED
 		)
+	allowed = list(/obj/item/gun/energy,/obj/item/device/radio,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/gun/magnetic,/obj/item/clothing/head/helmet,/obj/item/device/flashlight)
 
 /obj/item/clothing/head/helmet/manticore_combat
 	name = "modern armored helmet"
@@ -291,22 +292,12 @@
 	descriptor = "Rebel camp."
 	map = "TRK-17 Fort \"Manticore\""
 	crew_jobs = list(
-		/datum/job/submap/fort_manticore/roku,
-		/datum/job/submap/fort_manticore/rifler,
-		/datum/job/submap/fort_manticore/ace,
-		/datum/job/submap/fort_manticore/krieger,
-		/datum/job/submap/fort_manticore/rain,
-		/datum/job/submap/fort_manticore/lukash,
-		/datum/job/submap/fort_manticore/xrim,
-		/datum/job/submap/fort_manticore/victor,
-		/datum/job/submap/fort_manticore/kai,
-		/datum/job/submap/fort_manticore/cf355,
-		/datum/job/submap/fort_manticore/rk381,
-		/datum/job/submap/fort_manticore/pavel,
-		/datum/job/submap/fort_manticore/cubic,
-		/datum/job/submap/fort_manticore/luke,
-		/datum/job/submap/fort_manticore/adriano,
-		/datum/job/submap/fort_manticore/lin
+		/datum/job/submap/bunker/looney, // Здоров. Мантикора. Экипирован. Метка поставлена
+		/datum/job/submap/fort_manticore/rain, // Здорова. Мантикора. Экипирована. Метка поставлена
+		/datum/job/submap/fort_manticore/kai, // Здоров. Мантикора. Метка поставлена
+		/datum/job/submap/fort_manticore/cf355, // Здорова. Мантикора. Экипирована. Метка поставлена
+		/datum/job/submap/fort_manticore/pavel, // Будет отсутствовать. Нужно будет чтобы за него кто-то поиграл какое-то время
+		/datum/job/submap/fort_manticore/cubic, // Здоров. Мантикора. Экипирован. Метка поставлена
 	)
 
 /obj/submap_landmark/joinable_submap/fort_manticore
@@ -317,7 +308,7 @@
 	title = "Citizen"
 	total_positions = -1
 	create_record = TRUE
-	skill_points = 62
+	skill_points = 70
 	no_skill_buffs = TRUE
 	max_skill = list(
 		SKILL_BUREAUCRACY = SKILL_MAX,
@@ -346,6 +337,7 @@
 /datum/job/submap/fort_manticore/post_equip_rank(mob/living/person, alt_title)
 	. = ..()
 	person.generate_binds()
+	person.simple_combat_on = TRUE
 
 /singleton/hierarchy/outfit/fort_manticore
 	name = "Default Fort Appearance"
@@ -389,8 +381,11 @@
 /singleton/hierarchy/outfit/fort_manticore/roku
 	name = "DAIS-Roku-2349"
 
+	back = /obj/item/storage/backpack/satchel/grey
+
 	glasses = /obj/item/clothing/glasses/hud/it
 	r_hand = /obj/item/fd/custom_implanter/roku
+	l_hand = /obj/item/storage/pill_bottle/foodpill
 
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
@@ -406,11 +401,16 @@
 /singleton/hierarchy/outfit/fort_manticore/rifler
 	name = "Christiana Rifler"
 
+	back = /obj/item/storage/backpack/satchel/grey
 	r_hand = /obj/item/fd/crew_photo
+	l_hand = /obj/item/gun/projectile/pistol/magnum_pistol
+
+	suit = /obj/item/clothing/suit/storage/manticore_combat
 
 	head = /obj/item/clothing/head/beret/rifler
 	mask = /obj/item/clothing/accessory/scarf/shouldercape/rifler
 
+	backpack_contents = list(/obj/item/ammo_magazine/magnum = 2)
 	l_ear = /obj/item/device/radio/headset/syndicate
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
@@ -432,7 +432,6 @@
 	r_hand = /obj/item/melee/knuckle
 	l_hand = /obj/item/gun/projectile/revolver/medium/captain
 
-	l_ear = /obj/item/device/radio/headset/syndicate
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 
@@ -443,6 +442,11 @@
 	title = "Aldegar Krieger"
 	total_positions = 1
 	outfit_type = /singleton/hierarchy/outfit/fort_manticore/krieger
+
+/datum/job/submap/fort_manticore/krieger/post_equip_rank(mob/living/person, alt_title)
+	. = ..()
+
+	person.add_status_effect(/datum/simple_status/aftercrit, 5 HOURS)
 
 /singleton/hierarchy/outfit/fort_manticore/krieger
 	name = "Aldegar Krieger"
@@ -520,7 +524,11 @@
 	name = "Emmy Rain"
 
 	r_hand = /obj/item/fd/custom_implanter/rain
+	l_hand = /obj/item/gun/projectile/pistol/magnum_pistol
 
+	l_ear = /obj/item/device/radio/headset/syndicate
+
+	suit = /obj/item/clothing/suit/storage/toggle/bomber/ibis_alt
 	uniform = /obj/item/clothing/under/ibis
 	head = /obj/item/clothing/head/helmet/ibis
 
@@ -643,7 +651,11 @@
 /singleton/hierarchy/outfit/fort_manticore/cf355
 	name = "CF-355"
 
+	back = /obj/item/storage/backpack/satchel/grey
+
 	r_hand = /obj/item/book/manual/autostopgalactic
+	uniform = /obj/item/clothing/under/plugsuit_vatgrown
+	suit = /obj/item/clothing/suit/storage/manticore_combat
 
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
@@ -658,6 +670,8 @@
 
 /singleton/hierarchy/outfit/fort_manticore/rk381
 	name = "RK-381"
+
+	back = /obj/item/storage/backpack/satchel/grey
 
 	uniform = /obj/item/clothing/under/plugsuit_vatgrown
 	id_types = list(/obj/item/card/id/campaign)
@@ -674,7 +688,6 @@
 /singleton/hierarchy/outfit/fort_manticore/pavel
 	name = "Pavel Strelkov"
 
-	l_ear = /obj/item/device/radio/headset/syndicate
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 
@@ -688,6 +701,10 @@
 
 /singleton/hierarchy/outfit/fort_manticore/cubic
 	name = "Uximzu Qoobic"
+	suit = /obj/item/clothing/suit/storage/manticore_combat
+
+	back = /obj/item/storage/backpack/satchel/grey
+	r_hand = /obj/item/material/twohanded/jack
 
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
@@ -699,6 +716,11 @@
 	title = "Luke Liltroy"
 	total_positions = 1
 	outfit_type = /singleton/hierarchy/outfit/fort_manticore/luke
+
+/datum/job/submap/fort_manticore/luke/post_equip_rank(mob/living/person, alt_title)
+	. = ..()
+
+	person.add_status_effect(/datum/simple_status/aftercrit, 5 HOURS)
 
 /singleton/hierarchy/outfit/fort_manticore/luke
 	name = "Luke Liltroy"
@@ -718,7 +740,9 @@
 /singleton/hierarchy/outfit/fort_manticore/adriano
 	name = "Adriano Martiesa"
 
-	l_ear = /obj/item/device/radio/headset/syndicate
+	r_hand = /obj/item/gun/energy/ionrifle/anti_terra
+	suit = /obj/item/clothing/suit/storage/manticore_combat
+	suit_store = /obj/item/gun/projectile/pistol/m22f
 
 	back = /obj/item/storage/backpack/satchel/pocketbook
 	backpack_contents = list(/obj/item/storage/bible/bible = 1, /obj/item/nullrod/holycross = 1)

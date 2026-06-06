@@ -858,6 +858,17 @@
 	if(owner.simple_health <= owner.max_simple_health / 4 && owner.sleeping <= 0)
 		owner.sleeping += 10
 
+/datum/simple_status/explosion
+	name = "Взрыв"
+	desc_text = null
+	status_type = STATUS_EFFECT_UNIQUE
+	status_color = COLOR_RED
+
+/datum/simple_status/explosion/on_apply()
+	. = ..()
+
+	new /obj/effect/simple_grenade/basic/smaller(get_turf(owner))
+	return FALSE
 
 /datum/simple_status/attack_damage_buff
 	name = "Бафф Афтика (Скорость передвижения + ДМГ)"

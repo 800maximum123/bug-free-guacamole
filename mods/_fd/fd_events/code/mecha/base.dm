@@ -648,6 +648,8 @@
 	name = "IB-ECHO"
 	desc = "Old war-period machine, used to vaporize bugs and now repurposed to press robots."
 
+	faction = "TRK-17"
+
 /mob/living/simple_animal/simple_mecha/echo/combat_ready/Initialize()
 	. = ..()
 
@@ -668,9 +670,128 @@
 	aux1.update_status()
 	aux2.update_status()
 
+/datum/simple_status/devildog
+	name = "Берсерк"
+	desc_text = "???-Озверевший-???"
+	status_type = STATUS_EFFECT_UNIQUE
+	status_color = COMMS_COLOR_ICCG
+	positive_effect = TRUE
+
+	var/image/coral
+
+/datum/simple_status/devildog/on_apply()
+	. = ..()
+
+	playsound(owner, 'sound/weapons/anime_sword.wav', 75, 1)
+	owner.add_filter("berserk", 1, list("type" = "outline", "size" = 1, "color" = COMMS_COLOR_ICCG))
+
+	coral = image(icon = 'mods/_fd/fd_assets/icons/goons/rituals_160x160.dmi', icon_state = "rit-heal-aoe")
+	coral.pixel_x = -48
+	coral.pixel_y = -40
+	coral.color = COLOR_RED
+
+	owner.AddOverlays(coral)
+
+	var/mob/living/simple_animal/simple_mecha/M = owner
+	if(M.actual_weapon_slot)
+		M.actual_weapon_slot.forceMove(get_turf(get_step(M, M.dir)))
+		M.actual_weapon_slot = null
+
+		if(M.primary.active)
+			M.primary.active = FALSE
+
+	if(M.actual_aux1)
+		M.actual_aux1.forceMove(get_turf(get_step(M, M.dir)))
+		M.actual_aux1 = null
+
+		if(M.aux1.active)
+			M.aux1.active = FALSE
+
+	if(M.actual_aux2)
+		M.actual_aux2.forceMove(get_turf(get_step(M, M.dir)))
+		M.actual_aux2 = null
+
+		if(M.aux2.active)
+			M.aux2.active = FALSE
+
+	M.actual_weapon_slot = new /obj/item/melee/mech/claws(src)
+	M.actual_aux1 = new /obj/item/gun/energy/laser/lasgun/mech(src)
+
+	M.primary.update_status()
+	M.aux1.update_status()
+	M.aux2.update_status()
+
+	M.engine.power = 10
+
+/datum/simple_status/devildog/tick()
+	. = ..()
+
+	if(prob(5))
+		playsound(owner, 'sound/weapons/katana_out.wav', 75, 1)
+
+	var/mob/living/simple_animal/simple_mecha/M = owner
+	if(!M.pilot)
+		M.remove_status_effect(src)
+
+	M.engine.fuel_current = clamp(M.engine.fuel_current + 5, 0, M.engine.fuel_max)
+
+	for(var/obj/item/gun/G in M.contents)
+		if(istype(G,/obj/item/gun/energy))
+			var/obj/item/gun/energy/E = G
+			E.power_supply.give(10)
+
+	if(M.pilot && !M.pilot.get_status_effect(/datum/simple_status/crit))
+		M.pilot.simple_health_calculation(0.2,0,0,0)
+
+	if(M.pilot && M.pilot.get_status_effect(/datum/simple_status/crit))
+		M.pilot.teleop = null
+		M.pilot.ckey = M.ckey
+
+	if(!M.get_filter("berserk"))
+		M.add_filter("berserk", 1, list("type" = "outline", "size" = 1, "color" = COLOR_ORANGE))
+
+/datum/simple_status/devildog/on_remove()
+	. = ..()
+
+	owner.CutOverlays(coral)
+
+	var/mob/living/simple_animal/simple_mecha/M = owner
+	if(M.actual_weapon_slot)
+		qdel(M.actual_weapon_slot)
+		M.actual_weapon_slot = null
+
+		if(M.primary.active)
+			M.primary.active = FALSE
+
+	if(M.actual_aux1)
+		qdel(M.actual_aux1)
+		M.actual_aux1 = null
+
+		if(M.aux1.active)
+			M.aux1.active = FALSE
+
+	if(M.actual_aux2)
+		qdel(M.actual_aux2)
+		M.actual_aux2 = null
+
+		if(M.aux2.active)
+			M.aux2.active = FALSE
+
+	M.primary.update_status()
+	M.aux1.update_status()
+	M.aux2.update_status()
+
+	M.engine.power = initial(M.engine.power)
+	M.remove_filter("berserk")
+
+/mob/living/simple_animal/simple_mecha/proc/mikazuki_mode()
+	add_status_effect(/datum/simple_status/devildog)
+
 /mob/living/simple_animal/simple_mecha
 	icon = 'mods/_fd/fd_events/icons/mech.dmi'
 	icon_state = "mechbase"
+	icon_living = "mechbase"
+	icon_dead = "mechbase_damaged"
 
 	name = "mech"
 	desc = "SCAAARY-"
@@ -704,6 +825,7 @@
 
 	movement_cooldown = 4
 	see_in_dark = 8
+	pixel_x = -16
 
 /mob/living/simple_animal/simple_mecha/death(gibbed, deathmessage, show_dead_message)
 	if(pilot)
@@ -730,6 +852,10 @@
 	if(M == src && pilot)
 		pilot.teleop = null
 		pilot.ckey = ckey
+		pilot.forceMove(get_turf(get_step(src, reverse_direction(dir))))
+		pilot = null
+		return TRUE
+	if(M != src && M == pilot)
 		pilot.forceMove(get_turf(get_step(src, reverse_direction(dir))))
 		pilot = null
 		return TRUE
@@ -808,11 +934,11 @@
 	. = ..()
 
 /mob/living/simple_animal/simple_mecha/Life()
-	pixel_x = -8
+	pixel_x = -16
 
 	. = ..()
 
-	pixel_x = -8
+	pixel_x = -16
 
 /mob/living/simple_animal/simple_mecha/proc/change_engine_state()
 
@@ -845,8 +971,8 @@
 			var/obj/item/gun/G = actual_weapon_slot
 			G.Fire(A, src)
 
-		if(istype(actual_weapon_slot,/obj/item/melee) && Adjacent(A))
-			var/obj/item/melee/M = actual_weapon_slot
+		if(!istype(actual_weapon_slot,/obj/item/gun) && Adjacent(A))
+			var/obj/item/M = actual_weapon_slot
 			if(world.time <= next_move)
 				return FALSE
 
@@ -886,7 +1012,7 @@
 			for(var/obj/item/gun/G in contents)
 				if(istype(G,/obj/item/gun/energy))
 					var/obj/item/gun/energy/E = G
-					E.power_supply.charge = E.power_supply.maxcharge
+					E.power_supply.give(E.power_supply.maxcharge)
 				if(istype(G,/obj/item/gun/projectile))
 					var/obj/item/gun/projectile/P = G
 					if(P.load_method == MAGAZINE)
@@ -985,6 +1111,12 @@
 
 	shield_overlay = image(icon = 'icons/mecha/shield.dmi', icon_state = "shield")
 	shield_overlay.pixel_y = 12
+	shield_overlay.pixel_x = -16
+
+	var/matrix/M = matrix()
+	M.Scale(3)
+	shield_overlay.transform = M
+
 	owner.AddOverlays(shield_overlay)
 
 /datum/simple_status/shielded/timed/on_remove()
@@ -1029,8 +1161,8 @@
 	name = "DF-MG-02 CHANG-CHEN"
 	desc = "Machine gun developed by Dafeng Core Industry. This weapon was designed for sustained combat potential, and uses oversize ammunition magazines. \
 			Minimal need for reloading makes it well suited for suppressive fire."
-	icon = 'icons/obj/guns/minigun.dmi'
-	icon_state = "minigun"
+	icon = 'mods/_fd/fd_events/icons/mech.dmi'
+	icon_state = "machinegun"
 	item_state = "l6closedmag" /// Onmob is WIP sprite
 	w_class = ITEM_SIZE_NO_CONTAINER
 	caliber = CALIBER_PISTOL_MAGNUM
@@ -1060,12 +1192,114 @@
 
 /obj/item/ammo_magazine/box/mecha/chang
 	name = "minigun box"
-	icon_state = "minigun"
+	icon = 'mods/_fd/fd_events/icons/mech.dmi'
+	icon_state = "mag"
 	mag_type = MAGAZINE
 	caliber = CALIBER_PISTOL_MAGNUM
 	ammo_type = /obj/item/ammo_casing/pistol/magnum
 	max_ammo = 1200
-	multiple_sprites = TRUE
+	multiple_sprites = FALSE
+
+/obj/item/gun/energy/laser/lasgun/mech
+	name = "WS-1200 THERAPIST"
+	desc = "Stun round launcher developed by RaD. Fires special projectiles that scatter electrified metallic shards, \
+			the effects of which build up to induce a forced electrical discharge in the afflicted craft."
+	icon = 'mods/_fd/fd_events/icons/mech_equipment.dmi'
+	icon_state = "mecha_souljavelin"
+	mecha_sprite_change = "mechbase"
+	w_class = ITEM_SIZE_NO_CONTAINER
+	force = 15
+	screen_shake=0
+	one_hand_penalty=0
+	burst=3
+	burst_delay=1
+	fire_delay=0
+	move_delay=0
+	accuracy=7
+	charge_cost=10
+	cell_type = /obj/item/cell/guncell/lasgun
+	bulk = GUN_BULK_RIFLE
+	projectile_type = /obj/item/projectile/lasbolt/lasgun/mech
+	firemodes = list()
+
+	mecha_can_hold = TRUE
+	aux_usable = TRUE
+
+/obj/item/projectile/lasbolt/lasgun/mech
+	simple_damage = 20
+	simple_armor_penetration = 10
+
+	status_to_add = /datum/simple_status/discharge
+	status_timer_to_add = 5 SECONDS
+	status_ignore_armor = TRUE
+
+/obj/item/melee/mech/claws
+	name = "claws"
+	desc = "LITERAL CLAWS."
+	icon = 'mods/_fd/fd_events/icons/mech_equipment.dmi'
+	icon_state = "mecha_bulb-on"
+	mecha_sprite_change = "mechbase"
+
+	simple_damage = 30
+	simple_armor_penetration = 10
+
+	attack_cooldown = 0
+
+	mecha_can_hold = TRUE
+	hitsound = 'sound/weapons/spike.ogg'
+
+/obj/item/melee/mech/pilebunker
+	name = "PB-033M ASHMEAD"
+	desc = "Pile bunker developed by Balam. This weapon gores the target with a massive steel pile, obliterating it through sheer physical force. \
+			Charge to prime the firing hammer, enabling attacks that are enhanced by explosive damage."
+	icon = 'mods/_fd/fd_events/icons/mech.dmi'
+	icon_state = "pilebunker"
+	mecha_sprite_change = "mechmelee"
+
+	simple_damage = 60
+	simple_armor_penetration = 20
+
+	aux_usable = TRUE
+	aux_instant = TRUE
+	mecha_can_hold = TRUE
+
+	hitsound = 'sound/weapons/spike.ogg'
+
+	var/pile_ready = FALSE
+	var/on_cooldown = FALSE
+
+/obj/item/melee/mech/pilebunker/aux_can_use(mob/living/user)
+	if(pile_ready)
+		user.balloon_alert(user, "|КОПЬЁ УБРАНО|", COLOR_GREEN)
+		pile_ready = FALSE
+		return FALSE
+	if(on_cooldown)
+		user.balloon_alert(user, "|МЕХАНИЗМ ЗАЕЛО|", COLOR_YELLOW)
+		return FALSE
+
+	return TRUE
+
+/obj/item/melee/mech/pilebunker/aux_instant_effect(mob/living/user)
+
+	pile_ready = TRUE
+	user.balloon_alert(user, "|КОПЬЁ ВЫПУЩЕНО|", COLOR_GREEN)
+
+/obj/item/melee/mech/pilebunker/apply_hit_effect(mob/living/target, mob/living/user, hit_zone)
+	if(pile_ready && target.simple_combat_on)
+		playsound(user, 'sound/weapons/railgun.ogg', 75, 1)
+		if(ishuman(target))
+			target.throw_at(get_edge_target_turf(user, user.dir), 8, 2, user)
+			target.simple_health_calculation(200,simple_armor_penetration+20,1,1,user)
+		else
+			target.death()
+		on_cooldown = TRUE
+		addtimer(new Callback(src, PROC_REF(reset_module)), 10 SECONDS)
+		return TRUE
+
+	. = ..()
+
+/obj/item/melee/mech/pilebunker/proc/reset_module()
+	on_cooldown = FALSE
 
 /obj/item/attack_hand(mob/user)
 

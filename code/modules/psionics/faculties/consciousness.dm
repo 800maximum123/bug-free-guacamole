@@ -574,11 +574,21 @@
 								MS.projectiletype = E.projectile_type
 							if(istype(G,/obj/item/gun/projectile))
 								var/obj/item/gun/projectile/P = G
-								if(P.ammo_magazine)
-									var/obj/item/ammo_casing/casing = P.ammo_magazine.ammo_type
+								if(P.load_method == MAGAZINE)
+									var/obj/item/ammo_casing/casing
+
+									for(var/obj/item/ammo_casing/C in P.ammo_magazine.stored_ammo)
+										if(!casing)
+											casing = C
+
 									MS.projectiletype = casing.projectile_type
-								if(P.ammo_type)
-									var/obj/item/ammo_casing/casing = P.ammo_type
+									return TRUE
+								if(P.load_method == SINGLE_CASING|SPEEDLOADER)
+									var/obj/item/ammo_casing/casing
+									for(var/obj/item/ammo_casing/C in P.loaded)
+										if(!casing)
+											casing = C
+
 									MS.projectiletype = casing.projectile_type
 							else
 								MS.projectiletype = /obj/item/projectile/bullet/rifle
@@ -591,10 +601,10 @@
 								MS.reload_sound = 'sound/machines/defib_charge.ogg'
 							if(istype(G,/obj/item/gun/projectile))
 								var/obj/item/gun/projectile/P = G
-								if(P.ammo_magazine)
+								if(P.load_method == MAGAZINE)
 									MS.reload_max = P.ammo_magazine.max_ammo
 									MS.reload_sound = P.mag_insert_sound
-								if(P.ammo_type)
+								if(P.load_method == SINGLE_CASING|SPEEDLOADER)
 									MS.reload_max = P.max_shells
 									MS.reload_sound = P.load_sound
 								else

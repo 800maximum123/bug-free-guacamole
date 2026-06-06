@@ -13,7 +13,7 @@ GLOBAL_LIST_INIT(music_fd, list("Danger Bound.ogg",
 	set name = "Play Music"
 	if(!check_rights(R_SOUNDS))	return
 
-	var/melody = "mods/_fd/fd_assets/sounds/music/"
+	var/melody = "maps/torch_doh/cutscenes/sounds/"
 	melody += input("Select a sound from the server to play", "Server sound list") as null|anything in GLOB.music_fd
 
 	play_sound(melody)

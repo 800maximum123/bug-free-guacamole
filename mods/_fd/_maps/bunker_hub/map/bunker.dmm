@@ -23,6 +23,11 @@
 	icon_state = "gl"
 	},
 /area/bunker/interlude)
+"abj" = (
+/obj/paint/black,
+/obj/decal/cleanable/dirt,
+/turf/simulated/wall/r_wall,
+/area/bunker/corridors/center)
 "abn" = (
 /obj/catwalk_plated/dark,
 /obj/decal/cleanable/dirt,
@@ -43,8 +48,40 @@
 /obj/floor_decal/techfloor/orange{
 	dir = 4
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/rooms/room12)
+"abK" = (
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/bunker/jungle)
 "acc" = (
 /obj/wallframe_spawn/reinforced/no_grille,
 /obj/structure/vines/light2,
@@ -249,8 +286,50 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/concrete,
 /area/bunker/interlude)
+"ajn" = (
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/bunker/kpp)
 "ajy" = (
 /obj/structure/table/steel_reinforced,
+/obj/item/gun/projectile/automatic/bullpup_rifle{
+	pixel_y = 12
+	},
+/obj/item/ammo_magazine/mil_rifle/heavy{
+	pixel_x = 5;
+	pixel_y = 2
+	},
+/obj/item/ammo_magazine/mil_rifle/heavy{
+	pixel_x = 5;
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/kpp)
 "ajV" = (
@@ -278,7 +357,7 @@
 	light_color = "#a1d2d6";
 	dir = 8
 	},
-/turf/simulated/mineral/volcanic,
+/turf/simulated/floor/plating,
 /area/bunker)
 "alQ" = (
 /obj/machinery/constructable_frame/machine_frame,
@@ -336,6 +415,7 @@
 /obj/structure/window/reinforced,
 /obj/floor_decal/corner/darkblue/mono,
 /obj/structure/roller_bed,
+/obj/submap_landmark/spawnpoint/amelia,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "anF" = (
@@ -397,6 +477,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/lab)
+"api" = (
+/turf/simulated/floor/plating,
+/area/bunker)
 "apQ" = (
 /obj/paint/hull,
 /turf/simulated/wall/r_wall,
@@ -469,6 +552,34 @@
 /obj/structure/platform/kutjevo/rock{
 	dir = 8;
 	layer = 2.23
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/kpp)
@@ -656,12 +767,39 @@
 	id_tag = "bunker_exit1"
 	},
 /obj/floor_decal/industrial/warning/fulltile,
-/obj/effect/cutscene_camera/opening_cameras,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/kpp)
 "aDv" = (
 /turf/simulated/floor/tiled/white,
 /area/bunker/lower/lab/gateway)
+"aDS" = (
+/obj/decal/cleanable/dirt,
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bunker/command)
 "aDY" = (
 /obj/machinery/light{
 	dir = 1
@@ -682,6 +820,19 @@
 	icon_state = "gl"
 	},
 /area/bunker/interlude)
+"aEl" = (
+/obj/floor_decal/techfloor{
+	dir = 1
+	},
+/obj/item/gun/projectile/pistol/m22f{
+	layer = 3.01
+	},
+/obj/machinery/recharger/wallcharger{
+	dir = 1;
+	pixel_y = -20
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bunker/command)
 "aEt" = (
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#526833"
@@ -719,7 +870,10 @@
 /area/bunker/jungle)
 "aFv" = (
 /obj/machinery/floor_light/mapped_off,
-/mob/living/exosuit/premade/friend,
+/obj/item/fd/turret_undeployed,
+/obj/item/gun/projectile/automatic/l6_saw{
+	pixel_y = -15
+	},
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
 "aGs" = (
@@ -836,6 +990,12 @@
 /obj/floor_decal/techfloor{
 	dir = 9
 	},
+/obj/item/material/hatchet/machete/steel,
+/obj/item/material/hatchet/machete/steel,
+/obj/item/material/hatchet/machete/steel,
+/obj/item/material/hatchet/machete/steel,
+/obj/item/material/hatchet/machete/steel,
+/obj/item/material/hatchet/machete/steel,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/eng/workshop)
 "aJu" = (
@@ -862,10 +1022,12 @@
 	},
 /area/bunker/jungle)
 "aKb" = (
-/obj/floor_decal/corner/paleblue/mono,
-/obj/effect/cutscene_camera/opening_cameras,
-/turf/simulated/floor/tiled/monotile,
-/area/bunker/lower/med)
+/obj/floor_decal/techfloor/orange{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/bunker/rooms/room12)
 "aKG" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/item/pen,
@@ -1798,7 +1960,6 @@
 /area/bunker/corridors/center)
 "bqo" = (
 /obj/floor_decal/industrial/outline/yellow,
-/obj/submap_landmark/spawnpoint/joseph,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "bqW" = (
@@ -1854,6 +2015,34 @@
 /obj/item/weldingtool/electric{
 	pixel_x = -10;
 	pixel_y = 10
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
@@ -2124,6 +2313,47 @@
 /obj/machinery/camera,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/gateway)
+"bxs" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 4;
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 8;
+	layer = 2.23
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
+/area/bunker/jungle)
 "bya" = (
 /obj/catwalk_plated/dark,
 /obj/decal/cleanable/dirt,
@@ -2186,6 +2416,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
+"bAs" = (
+/obj/machinery/button/blast_door{
+	id_tag = "bunker_red"
+	},
+/turf/simulated/floor/plating,
+/area/bunker/corridors/south)
 "bAD" = (
 /obj/decal/cleanable/blood/oil/streak,
 /turf/simulated/floor/exoplanet/fd/drought,
@@ -2394,6 +2630,38 @@
 	color = "#5E5643"
 	},
 /area/bunker/jungle)
+"bGt" = (
+/obj/decal/cleanable/dirt,
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/plating,
+/area/bunker/lower/eng/reactor)
 "bGu" = (
 /obj/overlay/diona/floor,
 /obj/structure/flora/ausbushes/brflowers,
@@ -2467,6 +2735,34 @@
 /obj/structure/platform/kutjevo/rock{
 	dir = 8;
 	layer = 2.23
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
@@ -2808,6 +3104,10 @@
 /obj/structure/table/standard,
 /obj/item/paper_bin,
 /obj/item/pen,
+/obj/item/reagent_containers/food/drinks/coffee{
+	pixel_x = -5;
+	pixel_y = 14
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
 "bVM" = (
@@ -3153,6 +3453,34 @@
 /obj/structure/platform{
 	dir = 8
 	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
 "ciq" = (
@@ -3185,7 +3513,7 @@
 /obj/structure/railing/mapped,
 /obj/floor_decal/corner/darkblue/half,
 /obj/structure/platform,
-/obj/submap_landmark/spawnpoint/amelia,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "cjh" = (
@@ -3225,13 +3553,12 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/eng/workshop)
 "cjJ" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 8
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 9
 	},
-/obj/catwalk_plated/dark,
-/obj/submap_landmark/spawnpoint/olivia,
+/obj/submap_landmark/spawnpoint/wind,
 /turf/simulated/floor/plating,
-/area/bunker/command)
+/area/bunker/eng/workshop)
 "cjK" = (
 /obj/wallframe_spawn/reinforced/no_grille,
 /obj/paint/black,
@@ -3481,9 +3808,8 @@
 /area/bunker/rooms/room12)
 "cpi" = (
 /obj/decal/cleanable/dirt,
-/obj/effect/cutscene_camera/opening_cameras,
-/turf/simulated/floor/tiled/white,
-/area/bunker/lower/lab/gateway)
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/corridors/south)
 "cpq" = (
 /obj/structure/closet,
 /turf/simulated/floor/plating,
@@ -3799,6 +4125,34 @@
 /obj/structure/platform{
 	dir = 4
 	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
 "cwl" = (
@@ -3877,6 +4231,37 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/lab/gateway)
+"cxz" = (
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bunker/command)
 "cye" = (
 /obj/overlay/diona/floor,
 /obj/structure/flora/tree/beet_decorative,
@@ -3925,6 +4310,20 @@
 /obj/fd_water,
 /turf/simulated/floor/exoplanet/fd/whitesand{
 	color = "#272727"
+	},
+/area/bunker/jungle)
+"czs" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 4;
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 8;
+	layer = 2.23
+	},
+/obj/submap_landmark/spawnpoint/manticore/adriano,
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
 	},
 /area/bunker/jungle)
 "czA" = (
@@ -4100,6 +4499,11 @@
 /obj/decal/cleanable/blood/drip,
 /obj/structure/iv_stand{
 	pixel_x = 9
+	},
+/obj/machinery/rotating_alarm/door{
+	id_tag = "bunker_red";
+	light_range = 1;
+	light_color = "#800000"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
@@ -4447,8 +4851,46 @@
 	light_color = "#fd1d21";
 	dir = 1
 	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
+"cQb" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 4;
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 8;
+	layer = 2.23
+	},
+/obj/submap_landmark/spawnpoint/maxim,
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
+/area/bunker/jungle)
 "cQu" = (
 /obj/floor_decal/borderfloor,
 /obj/decal/cleanable/dirt,
@@ -4621,6 +5063,42 @@
 	color = "#272727"
 	},
 /area/bunker/jungle)
+"cTL" = (
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
+/area/bunker/jungle)
 "cUI" = (
 /obj/floor_decal/hull{
 	dir = 1
@@ -4631,9 +5109,7 @@
 	light_color = "#28c513"
 	},
 /obj/structure/table/rack,
-/obj/item/fd/perci_mvi{
-	pixel_y = 3
-	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/rooms/room12)
 "cUR" = (
@@ -4656,6 +5132,12 @@
 /obj/floor_decal/techfloor{
 	dir = 4
 	},
+/obj/item/fd/turret_undeployed{
+	pixel_y = 14;
+	pixel_x = 6
+	},
+/obj/item/fd/turret_undeployed,
+/obj/submap_landmark/spawnpoint/bunker/duke,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "cWQ" = (
@@ -4736,6 +5218,36 @@
 	color = "#a1d2d6";
 	light_color = "#a1d2d6";
 	dir = 8
+	},
+/obj/item/clothing/suit/storage/manticore_combat{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/suit/storage/manticore_combat{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/suit/storage/manticore_combat{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/suit/storage/manticore_combat{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/suit/storage/manticore_combat{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/suit/storage/manticore_combat{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/suit/storage/manticore_combat{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/suit/storage/manticore_combat{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/suit/storage/manticore_combat{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/suit/storage/manticore_combat{
+	simple_armor_bonus = 10
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/kpp)
@@ -5251,6 +5763,10 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/corridos)
+"dsd" = (
+/obj/submap_landmark/spawnpoint/bunker/anna,
+/turf/simulated/floor/tiled/dark,
+/area/bunker/command)
 "dsm" = (
 /obj/floor_decal/steeldecal/steel_decals_central2{
 	dir = 4;
@@ -5476,6 +5992,40 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med/cryo)
+"dDp" = (
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/bunker/jungle)
 "dDv" = (
 /obj/structure/flora/ausbushes/fernybush,
 /obj/fd_water/alt_ver1,
@@ -5508,6 +6058,15 @@
 /obj/decal/cleanable/generic,
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/lower/eng)
+"dEo" = (
+/obj/machinery/rotating_alarm/door{
+	id_tag = "bunker_red";
+	light_range = 1;
+	light_color = "#800000";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/corridors/center)
 "dEs" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -5638,6 +6197,34 @@
 	dir = 1
 	},
 /obj/overlay/diona/floor,
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
 "dLl" = (
@@ -5674,6 +6261,21 @@
 /obj/structure/platform{
 	dir = 8
 	},
+/obj/structure/table/rack,
+/obj/item/fd/simple_grenade{
+	pixel_y = 7
+	},
+/obj/item/fd/simple_grenade,
+/obj/item/fd/simple_grenade,
+/obj/item/fd/simple_grenade,
+/obj/item/fd/simple_grenade,
+/obj/item/fd/simple_grenade,
+/obj/item/fd/simple_grenade,
+/obj/item/fd/simple_grenade,
+/obj/item/fd/simple_grenade,
+/obj/item/fd/simple_grenade,
+/obj/item/fd/simple_grenade,
+/obj/item/fd/simple_grenade,
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
 "dME" = (
@@ -5886,6 +6488,7 @@
 	dir = 9
 	},
 /obj/floor_decal/techfloor,
+/obj/submap_landmark/spawnpoint/joseph,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "dWM" = (
@@ -5911,6 +6514,20 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/lower/eng)
+"dXk" = (
+/obj/structure/railing/mapped{
+	dir = 4;
+	icon_state = "railing0-1"
+	},
+/obj/floor_decal/floordetail/edgedrain{
+	dir = 4
+	},
+/obj/structure/platform{
+	dir = 4
+	},
+/obj/submap_landmark/spawnpoint/manticore/roku,
+/turf/simulated/floor/plating,
+/area/bunker/eng/workshop)
 "dXr" = (
 /obj/floor_decal/borderfloorwhite{
 	dir = 8
@@ -6025,11 +6642,28 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/eng)
+"ebi" = (
+/obj/machinery/rotating_alarm/door{
+	id_tag = "bunker_red";
+	light_range = 1;
+	light_color = "#800000";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/corridors/west)
 "ebo" = (
 /obj/structure/vines,
 /obj/paint/dark_gunmetal,
 /turf/simulated/wall,
 /area/bunker/jungle)
+"ebZ" = (
+/obj/machinery/rotating_alarm/door{
+	id_tag = "bunker_red";
+	light_range = 1;
+	light_color = "#800000"
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/corridors/west)
 "ecc" = (
 /obj/catwalk_plated/dark,
 /obj/decal/cleanable/dirt,
@@ -6169,13 +6803,17 @@
 	},
 /area/bunker/jungle)
 "ehC" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 8
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/obj/catwalk_plated/dark,
-/obj/submap_landmark/spawnpoint/manticore/ace,
-/turf/simulated/floor/plating,
-/area/bunker/command)
+/obj/item/fd/simple_grenade/shock_mine{
+	premade_faction = "TRK-17";
+	primed = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bunker/corridors/north)
 "eib" = (
 /obj/structure/flora/ausbushes/reedbush,
 /obj/fd_water/alt_ver1,
@@ -6183,6 +6821,30 @@
 /area/bunker/jungle)
 "eie" = (
 /obj/structure/table/rack,
+/obj/item/clothing/head/helmet/manticore_combat{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/head/helmet/manticore_combat{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/head/helmet/manticore_combat{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/head/helmet/manticore_combat{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/head/helmet/manticore_combat{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/head/helmet/manticore_combat{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/head/helmet/manticore_combat{
+	simple_armor_bonus = 10
+	},
+/obj/item/clothing/head/helmet/manticore_combat{
+	simple_armor_bonus = 10
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/kpp)
 "eij" = (
@@ -6247,6 +6909,37 @@
 	color = "#272727"
 	},
 /area/bunker/jungle)
+"ekJ" = (
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/bunker/eng/workshop)
 "ekO" = (
 /obj/floor_decal/corner/paleblue/border{
 	dir = 1
@@ -6349,6 +7042,34 @@
 	color = "grey";
 	icon = 'icons/turf/structures.dmi';
 	icon_state = "rampbottom"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
 	},
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
@@ -6482,6 +7203,9 @@
 	pixel_y = 18;
 	pixel_x = 7
 	},
+/obj/item/clothing/mask/gas/budget,
+/obj/item/clothing/mask/gas/budget,
+/obj/item/clothing/mask/gas/budget,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/bunker/eng/workshop)
 "esH" = (
@@ -6598,6 +7322,7 @@
 	icon_state = "4-8"
 	},
 /obj/decal/cleanable/blood/drip,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/bunker/corridors/center)
 "eyD" = (
@@ -6657,12 +7382,8 @@
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "eBM" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 8
-	},
-/obj/catwalk_plated/dark,
-/obj/submap_landmark/spawnpoint/manticore/rk381,
-/turf/simulated/floor/plating,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
 /area/bunker/command)
 "eCg" = (
 /obj/fd_water/alt_ver1,
@@ -6813,13 +7534,41 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp2)
 "eIP" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 8
+/obj/item/clothing/head/helmet/manticore_combat/rifler{
+	pixel_x = 9;
+	pixel_y = -11
 	},
-/obj/catwalk_plated/dark,
-/obj/submap_landmark/spawnpoint/manticore/lukash,
-/turf/simulated/floor/plating,
-/area/bunker/command)
+/obj/item/clothing/accessory/scarf/shouldercape/rifler,
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/bunker/jungle)
 "eJg" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/flour,
@@ -6921,6 +7670,34 @@
 	pixel_x = 12;
 	pixel_y = 3
 	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/bunker/eng/workshop)
 "eOt" = (
@@ -6975,13 +7752,14 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "eQA" = (
-/obj/floor_decal/borderfloor{
-	dir = 1
+/obj/machinery/light{
+	color = "#fd1d21";
+	light_color = "#fd1d21";
+	dir = 8
 	},
-/obj/floor_decal/corner/black/half,
-/obj/submap_landmark/spawnpoint/manticore/krieger,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/command)
+/area/bunker/corridors/center)
 "eQB" = (
 /obj/floor_decal/industrial/outline/grey,
 /obj/machinery/light{
@@ -7324,65 +8102,16 @@
 /turf/simulated/floor/tiled,
 /area/bunker/lower/med/warehouse)
 "fcG" = (
-/obj/decal/cleanable/dirt,
-/obj/floor_decal/industrial/outline/grey,
-/obj/structure/table/rack,
-/obj/item/clothing/head/helmet/manticore_combat{
-	simple_armor_bonus = 10
+/obj/structure/platform/kutjevo/rock{
+	dir = 1;
+	layer = 2.23
 	},
-/obj/item/clothing/head/helmet/manticore_combat{
-	simple_armor_bonus = 10
+/obj/item/fd/turret_undeployed,
+/obj/item/gun/energy/particle,
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
 	},
-/obj/item/clothing/head/helmet/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/head/helmet/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/head/helmet/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/head/helmet/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/head/helmet/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/head/helmet/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/head/helmet/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/head/helmet/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/head/helmet/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/head/helmet/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/head/helmet/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/head/helmet/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/head/helmet/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/head/helmet/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/device/radio/headset/syndicate/alt,
-/obj/item/device/radio/headset/syndicate/alt,
-/obj/item/device/radio/headset/syndicate/alt,
-/obj/item/device/radio/headset/syndicate/alt,
-/obj/item/device/radio/headset/syndicate/alt,
-/obj/item/device/radio/headset/syndicate/alt,
-/turf/simulated/floor/plating,
-/area/bunker/lower/eng/warehouse)
+/area/bunker/jungle)
 "fcM" = (
 /obj/machinery/camera,
 /obj/catwalk_plated/dark,
@@ -7739,6 +8468,34 @@
 	dir = 4
 	},
 /obj/overlay/diona/floor,
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
 "fsG" = (
@@ -7959,6 +8716,34 @@
 	layer = 2.23
 	},
 /obj/decal/cleanable/dirt,
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
 /turf/simulated/floor/exoplanet/fd/drought{
 	color = "#bebebe"
 	},
@@ -8244,7 +9029,6 @@
 	light_color = "#a1d2d6";
 	pixel_x = 15
 	},
-/obj/submap_landmark/spawnpoint/manticore/rain,
 /turf/simulated/floor/plating,
 /area/bunker/command)
 "fGJ" = (
@@ -8611,6 +9395,12 @@
 /obj/item/fd/simple_combat/big_heal,
 /obj/item/fd/simple_combat/adrenaline,
 /obj/item/fd/simple_combat/adrenaline,
+/obj/item/fd/simple_combat/adrenaline,
+/obj/item/fd/simple_combat/adrenaline,
+/obj/item/fd/simple_combat/adrenaline,
+/obj/item/fd/simple_combat/adrenaline,
+/obj/item/fd/simple_combat/adrenaline,
+/obj/item/fd/simple_combat/adrenaline,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
 "fRs" = (
@@ -8789,9 +9579,7 @@
 /turf/simulated/floor/plating,
 /area/bunker/lower/med)
 "fYj" = (
-/obj/map_effect/portal/line/side_a{
-	dir = 8
-	},
+/obj/structure/fd/placeholder/better,
 /turf/simulated/floor/plating,
 /area/bunker/lower/monorail)
 "fYs" = (
@@ -9144,6 +9932,45 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med)
+"gjW" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 1;
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 8;
+	layer = 2.23
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/bunker/jungle)
 "gkc" = (
 /obj/paint/brown,
 /obj/paint_stripe{
@@ -9332,11 +10159,6 @@
 /area/bunker/lower/eng)
 "gtU" = (
 /obj/decal/cleanable/dirt,
-/obj/item/clothing/head/helmet/manticore_combat/rifler{
-	pixel_x = -7;
-	pixel_y = -11;
-	simple_armor_bonus = 10
-	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/command)
 "gun" = (
@@ -9366,6 +10188,38 @@
 	},
 /turf/simulated/floor/exoplanet/fd/muddirt,
 /area/bunker/jungle)
+"gvt" = (
+/obj/decal/cleanable/dirt,
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bunker/command)
 "gvA" = (
 /obj/floor_decal/borderfloorblack{
 	dir = 8
@@ -9450,9 +10304,15 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "gxA" = (
-/obj/submap_landmark/spawnpoint/manticore/pavel,
-/turf/simulated/floor/tiled/dark,
-/area/bunker/command)
+/obj/catwalk_plated/dark,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/bunker/corridors/center)
 "gxP" = (
 /obj/structure/table/rack,
 /obj/floor_decal/borderfloorblack/corner,
@@ -9487,6 +10347,34 @@
 	},
 /obj/overlay/diona/floor,
 /obj/structure/diona_gestalt,
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
 "gyv" = (
@@ -9506,6 +10394,10 @@
 /obj/item/device/scanner/gas{
 	pixel_y = 8;
 	pixel_x = 12
+	},
+/obj/machinery/recharger/wallcharger{
+	dir = 1;
+	pixel_y = -20
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/eng/workshop)
@@ -9610,9 +10502,6 @@
 /obj/structure/fd/candle_wall{
 	layer = 2.24;
 	pixel_y = 19
-	},
-/obj/item/material/sword/katana/replica{
-	name = "Катана Кассандры"
 	},
 /obj/item/clothing/glasses/prescription,
 /obj/floor_decal/hull{
@@ -9966,23 +10855,22 @@
 /turf/simulated/floor/exoplanet/fd/muddirt,
 /area/bunker/jungle)
 "gNw" = (
-/obj/floor_decal/industrial/outline/grey,
-/obj/structure/table/rack,
-/obj/item/gun/energy/laser{
-	pixel_y = 7
+/obj/floor_decal/techfloor/orange{
+	dir = 1
 	},
-/obj/item/gun/energy/laser{
-	pixel_y = -9
-	},
-/obj/item/gun/projectile/automatic/bullpup_rifle,
-/obj/item/gun/projectile/automatic/bullpup_rifle{
-	starts_loaded = 0
-	},
-/obj/item/gun/projectile/automatic/bullpup_rifle,
-/turf/simulated/floor/plating,
-/area/bunker/lower/eng/warehouse)
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/bunker/rooms/room12)
 "gNM" = (
 /obj/floor_decal/corner/darkblue/mono,
+/obj/structure/fd/junk{
+	icon_state = "0,3";
+	layer = 2.21
+	},
+/obj/structure/fd/junk{
+	icon_state = "2,3"
+	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/rooms/room5)
 "gOd" = (
@@ -10174,7 +11062,6 @@
 /area/bunker/lower/eng/warehouse)
 "gSS" = (
 /obj/floor_decal/industrial/loading,
-/obj/submap_landmark/spawnpoint/manticore/rifler,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "gTf" = (
@@ -10362,6 +11249,34 @@
 /obj/structure/platform/kutjevo/rock{
 	layer = 2.23
 	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#6E8C44"
 	},
@@ -10492,6 +11407,12 @@
 	icon_state = "gl"
 	},
 /area/bunker/interlude)
+"hbu" = (
+/obj/machinery/door/blast/regular{
+	id_tag = "bunker_red"
+	},
+/turf/simulated/floor/plating,
+/area/bunker/corridors/south)
 "hcj" = (
 /obj/structure/fd/chasm{
 	layer = 2.1;
@@ -10700,8 +11621,6 @@
 "heV" = (
 /obj/machinery/light/golden,
 /obj/structure/table/rack,
-/obj/item/gun/energy/particle/small,
-/obj/item/gun/energy/particle,
 /obj/item/material/knife/kitchen/cleaver/ascent,
 /obj/item/mop/advanced/ascent,
 /obj/item/clothing/mask/gas/ascent{
@@ -10751,21 +11670,49 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/corridors/north)
+"hgj" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 4;
+	layer = 2.23
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
+/area/bunker/jungle)
 "hgx" = (
 /obj/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/bunker/corridors/center)
-"hgG" = (
-/obj/floor_decal/hull{
-	dir = 1
-	},
-/obj/map_effect/portal/line/side_a{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/bunker/lower/monorail)
 "hgL" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -11208,6 +12155,37 @@
 	pixel_x = -6;
 	pixel_y = -15
 	},
+/obj/item/gun/projectile/pistol/m22f{
+	pixel_y = -35
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#6E8C44"
 	},
@@ -11273,7 +12251,6 @@
 /obj/floor_decal/corner/black/half{
 	dir = 1
 	},
-/obj/submap_landmark/spawnpoint/manticore/luke,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "hyX" = (
@@ -11605,6 +12582,34 @@
 	dir = 4;
 	layer = 2.23
 	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/kpp)
 "hMn" = (
@@ -11825,9 +12830,14 @@
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/rooms/room6)
 "hSO" = (
-/obj/effect/cutscene_camera/opening_cameras,
-/turf/simulated/floor/exoplanet/fd/muddirt,
-/area/bunker/jungle)
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bunker/corridors/center)
 "hST" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/wall_decor2{
@@ -12029,13 +13039,42 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp2)
 "ibb" = (
-/obj/effect/cutscene_camera/opening_cameras,
 /turf/simulated/floor/plating,
 /area/bunker/barracks/preporation)
 "ibf" = (
 /obj/paint/black,
 /turf/simulated/wall/r_wall,
 /area/bunker/lower/lab/gateway)
+"ibq" = (
+/obj/structure/railing/mapped,
+/obj/floor_decal/corner/darkblue/half,
+/obj/structure/platform,
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/command)
 "ibx" = (
 /obj/fd_water/alt_ver1,
 /obj/floor_decal/messygrass{
@@ -12354,58 +13393,13 @@
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
 "iqj" = (
-/obj/floor_decal/industrial/outline/grey,
-/obj/structure/table/rack,
-/obj/item/clothing/suit/storage/manticore_combat{
-	simple_armor_bonus = 10
+/obj/decal/cleanable/dirt,
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
 	},
-/obj/item/clothing/suit/storage/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/suit/storage/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/suit/storage/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/suit/storage/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/suit/storage/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/suit/storage/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/suit/storage/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/suit/storage/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/suit/storage/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/suit/storage/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/suit/storage/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/suit/storage/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/suit/storage/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/suit/storage/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/suit/storage/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/turf/simulated/floor/plating,
-/area/bunker/lower/eng/warehouse)
+/obj/item/material/hatchet/machete/steel,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/bunker)
 "iql" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -12627,6 +13621,8 @@
 	dir = 8
 	},
 /obj/decal/cleanable/blood/drip,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "ivh" = (
@@ -12757,6 +13753,8 @@
 	pixel_x = -4;
 	pixel_y = -3
 	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/bunker/rooms/room12)
 "iAt" = (
@@ -13027,8 +14025,8 @@
 	},
 /area/bunker/jungle)
 "iMx" = (
-/obj/item/reagent_containers/food/drinks/coffee{
-	pixel_x = -5;
+/obj/item/paper/memo/medical/spacies{
+	pixel_x = 7;
 	pixel_y = 14
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
@@ -13213,6 +14211,48 @@
 /obj/machinery/cell_charger,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/lower/eng)
+"iSD" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 1;
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 8;
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/bunker/jungle)
 "iSF" = (
 /obj/structure/grille/broken,
 /obj/floor_decal/messygrass{
@@ -13286,8 +14326,6 @@
 /obj/structure/closet/crate/bin,
 /obj/item/storage/firstaid/light,
 /obj/item/storage/belt/medical/emt,
-/obj/item/gun/projectile/automatic/iccgn/bolter,
-/obj/item/ammo_magazine/rifle/bolter,
 /obj/item/storage/belt/utility/full,
 /turf/simulated/floor/wood/ebony,
 /area/bunker/barracks)
@@ -13372,7 +14410,7 @@
 	light_color = "#a1d2d6";
 	dir = 1
 	},
-/turf/simulated/mineral/volcanic,
+/turf/simulated/floor/plating,
 /area/bunker)
 "iXQ" = (
 /obj/overlay/diona/floor,
@@ -13635,6 +14673,21 @@
 /obj/structure/inflatable/door,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp1)
+"jgt" = (
+/obj/floor_decal/techfloor/orange,
+/obj/structure/showcase{
+	density = 0;
+	desc = "Cool lights for the Union Day!";
+	icon = 'mods/_fd/fd_assets/icons/christmas_1.dmi';
+	icon_state = "xmaslights";
+	layer = 4.08;
+	name = "colored lights";
+	pixel_x = -1;
+	pixel_y = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/bunker/rooms/room12)
 "jgu" = (
 /obj/structure/vines/heavy5,
 /turf/simulated/floor/exoplanet/fd/grass{
@@ -13646,6 +14699,16 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list("ACCESS_QUARTERMASTER")
 	},
+/obj/item/gun/projectile/automatic/machine_pistol,
+/obj/item/ammo_magazine/machine_pistol,
+/obj/item/ammo_magazine/machine_pistol/empty,
+/obj/item/ammo_magazine/machine_pistol/empty,
+/obj/item/ammo_magazine/machine_pistol/empty,
+/obj/item/ammo_magazine/machine_pistol,
+/obj/item/ammo_magazine/machine_pistol/empty,
+/obj/item/ammo_magazine/machine_pistol/empty,
+/obj/item/ammo_magazine/machine_pistol/empty,
+/obj/item/ammo_magazine/machine_pistol/empty,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/kpp)
 "jgw" = (
@@ -13691,6 +14754,34 @@
 /obj/structure/barricade,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/monorail)
+"jhQ" = (
+/obj/catwalk_plated/dark,
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/turf/simulated/floor/plating,
+/area/bunker/command)
 "jhX" = (
 /obj/structure/flora/jungle/bush{
 	color = "#bebebe"
@@ -14482,13 +15573,14 @@
 	},
 /area/bunker/jungle)
 "jNV" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 8
+/obj/decal/cleanable/dirt,
+/obj/item/fd/simple_grenade/shock_mine{
+	premade_faction = "TRK-17";
+	primed = 1
 	},
-/obj/catwalk_plated/dark,
-/obj/submap_landmark/spawnpoint/manticore/cubic,
+/obj/effect/cutscene_camera/opening_cameras,
 /turf/simulated/floor/plating,
-/area/bunker/command)
+/area/bunker/kpp)
 "jOf" = (
 /obj/floor_decal/techfloor{
 	dir = 6
@@ -14569,18 +15661,15 @@
 /turf/simulated/floor/plating,
 /area/bunker/lower/kpp2)
 "jPJ" = (
-/obj/floor_decal/borderfloor{
-	dir = 1
-	},
-/obj/floor_decal/corner/black/half,
-/obj/submap_landmark/spawnpoint/manticore/kai,
-/turf/simulated/floor/tiled/dark/monotile,
+/obj/submap_landmark/spawnpoint/manticore/krieger,
+/turf/simulated/floor/tiled/dark,
 /area/bunker/command)
 "jPN" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
 	light_color = "#a1d2d6"
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/corridors/south)
 "jPV" = (
@@ -14742,6 +15831,8 @@
 /obj/item/device/paint_sprayer{
 	pixel_y = 1
 	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/rooms/room12)
 "jWi" = (
@@ -14952,6 +16043,39 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
+"keQ" = (
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
+/area/bunker/jungle)
 "kfe" = (
 /obj/floor_decal/hull{
 	dir = 4
@@ -15172,13 +16296,27 @@
 	dir = 4
 	},
 /obj/structure/table/rack,
-/obj/item/fd/simple_combat/small_heal,
-/obj/item/fd/simple_combat/small_heal,
-/obj/item/fd/simple_combat/small_heal,
+/obj/item/fd/simple_combat/small_heal{
+	pixel_y = 10
+	},
+/obj/item/fd/simple_combat/small_heal{
+	pixel_y = 8
+	},
+/obj/item/fd/simple_combat/small_heal{
+	pixel_y = 7
+	},
 /obj/item/fd/simple_combat/bandage,
 /obj/item/fd/simple_combat/bandage,
 /obj/item/fd/simple_combat/bandage,
 /obj/item/fd/simple_combat/splint,
+/obj/item/fd/simple_combat/splint,
+/obj/item/fd/simple_combat/splint,
+/obj/item/fd/simple_combat/splint,
+/obj/item/fd/simple_combat/splint,
+/obj/item/fd/simple_combat/splint,
+/obj/item/fd/simple_combat/splint,
+/obj/item/fd/simple_combat/bandage,
+/obj/item/fd/simple_combat/bandage,
 /obj/item/fd/simple_combat/splint,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
@@ -15234,6 +16372,34 @@
 /area/bunker/rooms/room13)
 "krO" = (
 /obj/decal/cleanable/blood,
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/kpp)
 "krS" = (
@@ -15259,6 +16425,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -15721,6 +16888,7 @@
 /area/bunker/lower/eng/reactor)
 "kKH" = (
 /obj/decal/cleanable/blood/drip,
+/obj/submap_landmark/spawnpoint/bunker/tau,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
 "kLf" = (
@@ -15756,18 +16924,31 @@
 /obj/paint/black,
 /turf/simulated/wall/r_wall,
 /area/bunker/lower/med)
+"kMK" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 4;
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
+/obj/submap_landmark/spawnpoint/bunker/silas,
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
+/area/bunker/jungle)
 "kNk" = (
 /obj/structure/showcase{
-	icon_state = "h_maptable";
+	icon_state = "h_maptable_on";
 	icon = 'mods/_fd/fd_assets/icons/structures/almayer_props96.dmi';
 	desc = "It's a maptable, for putting things on. Or standing on, if you really want to. It's broken, maybe";
 	bound_width = 96;
 	bound_height = 64;
 	name = "Maptable"
 	},
-/obj/item/paper/memo/medical/spacies{
-	pixel_x = 7;
-	pixel_y = 14
+/obj/item/gun/projectile/automatic/assault_rifle/heltek{
+	pixel_y = 26;
+	pixel_x = 3
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/command)
@@ -16101,6 +17282,9 @@
 	pixel_x = 12
 	},
 /obj/item/clothing/head/hardhat,
+/obj/item/clothing/mask/gas/budget{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/eng/workshop)
 "kXl" = (
@@ -16289,6 +17473,11 @@
 	icon_state = "gd"
 	},
 /area/bunker/interlude)
+"lcO" = (
+/obj/structure/roller_bed,
+/obj/submap_landmark/spawnpoint/bunker/tongtong,
+/turf/simulated/floor/tiled/dark,
+/area/bunker/command)
 "ldm" = (
 /obj/floor_decal/borderfloor{
 	dir = 1
@@ -16436,7 +17625,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/cutscene_camera/opening_cameras,
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/kitchen/bufet)
 "ljE" = (
@@ -16492,6 +17680,43 @@
 /obj/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/bunker/lower/corridos)
+"lly" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 8;
+	layer = 2.23
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
+	},
+/area/bunker/jungle)
 "llF" = (
 /obj/catwalk_plated/dark,
 /obj/structure/cable/green{
@@ -16869,6 +18094,7 @@
 	color = "grey";
 	dir = 1
 	},
+/obj/submap_landmark/spawnpoint/bunker/ivy,
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
 "lzS" = (
@@ -17678,9 +18904,7 @@
 /area/bunker/jungle)
 "mgU" = (
 /obj/floor_decal/hull,
-/obj/map_effect/portal/line/side_a{
-	dir = 8
-	},
+/obj/structure/fd/placeholder/better,
 /turf/simulated/floor/plating,
 /area/bunker/lower/monorail)
 "mhC" = (
@@ -17985,6 +19209,11 @@
 	icon_state = "gl"
 	},
 /area/bunker/interlude)
+"mse" = (
+/obj/catwalk_plated/dark,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/bunker/command)
 "msL" = (
 /obj/structure/closet/secure_closet/personal/empty,
 /obj/floor_decal/corner_techfloor_grid/diagonal{
@@ -18207,6 +19436,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
+"mBB" = (
+/obj/floor_decal/borderfloor{
+	dir = 4
+	},
+/obj/floor_decal/corner/darkblue/border{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/command)
 "mBJ" = (
 /obj/floor_decal/borderfloor{
 	dir = 1
@@ -18295,8 +19534,26 @@
 	pixel_x = 16;
 	pixel_y = 17
 	},
+/obj/item/fd/simple_grenade/anti_terra{
+	pixel_y = 8;
+	pixel_x = -10
+	},
+/obj/item/fd/simple_grenade/anti_terra{
+	pixel_y = -1;
+	pixel_x = -10
+	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/rooms/room12)
+"mEm" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bunker/corridors/south)
 "mFB" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/platform/kutjevo/rock{
@@ -18399,6 +19656,34 @@
 /area/bunker/corridors/center)
 "mID" = (
 /obj/machinery/light,
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/kpp)
 "mJc" = (
@@ -18728,6 +20013,12 @@
 /obj/structure/platform/kutjevo/rock{
 	dir = 1;
 	layer = 2.23
+	},
+/obj/machinery/rotating_alarm/door{
+	id_tag = "bunker_red";
+	light_range = 1;
+	light_color = "#800000";
+	dir = 1
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/kpp)
@@ -19477,7 +20768,7 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "ntA" = (
-/obj/item/paper/memo/medical/chemlab,
+/obj/item/ammo_magazine/rifle,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/command)
 "ntF" = (
@@ -19515,6 +20806,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/monorail)
+"nuq" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 8;
+	layer = 2.23
+	},
+/obj/submap_landmark/spawnpoint/bunker/dan,
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
+/area/bunker/jungle)
 "nuz" = (
 /obj/floor_decal/messygrass{
 	dir = 10
@@ -19532,6 +20833,11 @@
 	color = "#5F773B"
 	},
 /area/bunker/jungle)
+"nuY" = (
+/turf/unsimulated/wall{
+	color = "black"
+	},
+/area/bunker/corridors/south)
 "nvf" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/fd/drought{
@@ -19548,6 +20854,41 @@
 	icon_state = "me_pi_4"
 	},
 /area/bunker/lower/lab/gateway)
+"nvy" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 4;
+	layer = 2.23
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/bunker/jungle)
 "nvG" = (
 /obj/wallframe_spawn/reinforced/no_grille,
 /turf/simulated/floor/tiled/white/monotile,
@@ -19628,6 +20969,11 @@
 	color = "#6E8C44"
 	},
 /area/bunker/jungle)
+"nAD" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/effect/cutscene_camera/opening_cameras,
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/bunker/jungle)
 "nAH" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/hull{
@@ -19644,6 +20990,7 @@
 	light_color = "#fd1d21";
 	dir = 2
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
 "nBp" = (
@@ -19769,6 +21116,34 @@
 	},
 /obj/item/stack/material/phoron/ten,
 /obj/item/stack/material/phoron/ten,
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "nDF" = (
@@ -19876,6 +21251,46 @@
 	icon_state = "gd_da"
 	},
 /area/bunker/interlude)
+"nJw" = (
+/obj/machinery/light{
+	color = "#a1d2d6";
+	light_color = "#a1d2d6";
+	dir = 1
+	},
+/obj/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/floor_decal/techfloor,
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/bunker/eng/workshop)
 "nJJ" = (
 /obj/floor_decal/industrial/hatch/yellow,
 /obj/machinery/seed_extractor,
@@ -20021,6 +21436,42 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp2)
+"nPx" = (
+/obj/structure/flora/tall/fourth,
+/obj/structure/platform/kutjevo/rock{
+	dir = 4;
+	layer = 2.23
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/bunker/jungle)
 "nPU" = (
 /obj/floor_decal/borderfloorwhite{
 	dir = 4
@@ -20077,7 +21528,6 @@
 /obj/floor_decal/industrial/loading{
 	dir = 1
 	},
-/obj/submap_landmark/spawnpoint/meat,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "nRO" = (
@@ -20087,13 +21537,9 @@
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med/surgery)
 "nRR" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 8
-	},
-/obj/catwalk_plated/dark,
-/obj/submap_landmark/spawnpoint/manticore/cf355,
+/obj/submap_landmark/spawnpoint/alma,
 /turf/simulated/floor/plating,
-/area/bunker/command)
+/area/bunker/kpp)
 "nTg" = (
 /obj/floor_decal/corner/blue/half{
 	dir = 8
@@ -20592,6 +22038,12 @@
 /area/bunker/jungle)
 "ohg" = (
 /obj/decal/cleanable/dirt,
+/obj/machinery/rotating_alarm/door{
+	id_tag = "bunker_red";
+	light_range = 1;
+	light_color = "#800000";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
 "ohI" = (
@@ -20874,6 +22326,11 @@
 /area/bunker)
 "osy" = (
 /obj/decal/cleanable/generic,
+/obj/machinery/rotating_alarm/door{
+	id_tag = "bunker_red";
+	light_range = 1;
+	light_color = "#800000"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
 "otd" = (
@@ -20947,6 +22404,34 @@
 /obj/item/device/assembly/prox_sensor{
 	pixel_x = -19;
 	pixel_y = 0
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/eng/workshop)
@@ -21138,16 +22623,22 @@
 	light_color = "#a1d2d6";
 	dir = 1
 	},
+/obj/submap_landmark/spawnpoint/lira,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "oCH" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 8
-	},
 /obj/catwalk_plated/dark,
-/obj/submap_landmark/spawnpoint/manticore/adriano,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/item/fd/simple_grenade/shock_mine{
+	premade_faction = "TRK-17";
+	primed = 1
+	},
 /turf/simulated/floor/plating,
-/area/bunker/command)
+/area/bunker/corridors/north)
 "oCO" = (
 /obj/floor_decal/techfloor/orange,
 /obj/structure/barricade,
@@ -21214,6 +22705,8 @@
 /obj/machinery/computer/rdconsole/robotics{
 	dir = 1
 	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/rooms/room12)
 "oET" = (
@@ -21370,11 +22863,12 @@
 /turf/simulated/floor/plating,
 /area/bunker/eng)
 "oJx" = (
-/obj/floor_decal/borderfloor{
-	dir = 1
+/obj/structure/window/reinforced{
+	dir = 4
 	},
-/obj/floor_decal/corner/black/half,
-/obj/submap_landmark/spawnpoint/alma,
+/obj/floor_decal/corner/darkblue/mono,
+/obj/structure/roller_bed,
+/obj/submap_landmark/spawnpoint/manticore/luke,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "oJB" = (
@@ -21775,6 +23269,34 @@
 /obj/overlay/diona/decorator{
 	dir = 4
 	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
 "oYn" = (
@@ -22018,6 +23540,34 @@
 	light_color = "#fd1d21"
 	},
 /obj/structure/reagent_dispensers/watertank,
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
 "phb" = (
@@ -22218,6 +23768,44 @@
 /obj/structure/flora/tall,
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
+"ppo" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 4;
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	layer = 2.23
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/bunker/jungle)
 "ppS" = (
 /obj/structure/wall_frame,
 /turf/simulated/floor/plating,
@@ -22286,17 +23874,13 @@
 /turf/simulated/floor/tiled/white,
 /area/bunker/lower/lab)
 "pru" = (
-/obj/item/paper/memo/medical/organfab{
-	pixel_x = 12;
-	pixel_y = 2;
-	layer = 3
-	},
 /obj/item/device/flashlight/lamp{
 	pixel_y = 16;
 	on = 1
 	},
-/obj/item/gun/projectile/pistol/m22f{
-	layer = 3.01
+/obj/item/fd/simple_grenade/anti_terra{
+	pixel_x = -2;
+	pixel_y = 7
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/command)
@@ -22432,13 +24016,14 @@
 	},
 /area/bunker/lower/lab)
 "pxd" = (
-/obj/item/clothing/accessory/scarf/shouldercape/rifler{
-	pixel_y = 13;
-	pixel_x = 1
+/obj/item/fd/simple_grenade/shock_mine{
+	pixel_y = 15
 	},
-/obj/item/clothing/head/beret/rifler{
-	pixel_x = -1;
-	pixel_y = 37
+/obj/item/fd/simple_grenade/shock_mine{
+	pixel_y = 22
+	},
+/obj/item/fd/simple_grenade/shock_mine{
+	pixel_y = 29
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/command)
@@ -22528,10 +24113,13 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/lower/eng)
 "pBS" = (
-/obj/structure/railing/mapped,
-/obj/floor_decal/corner/darkblue/half,
-/obj/structure/platform,
-/obj/submap_landmark/spawnpoint/perci,
+/obj/floor_decal/borderfloor{
+	dir = 1
+	},
+/obj/floor_decal/corner/darkblue/border{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "pCd" = (
@@ -22636,6 +24224,16 @@
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
+"pGd" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bunker/corridors/north)
 "pGi" = (
 /obj/item/flame/candle/grim{
 	icon_state = "candle3_lit";
@@ -23022,7 +24620,6 @@
 /obj/floor_decal/corner/black{
 	dir = 8
 	},
-/obj/submap_landmark/spawnpoint/wind,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "pSK" = (
@@ -23046,6 +24643,34 @@
 	},
 /obj/structure/platform/kutjevo/rock{
 	layer = 2.23
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
@@ -23160,6 +24785,8 @@
 /obj/floor_decal/hull/corner{
 	dir = 8
 	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/rooms/room12)
 "pWQ" = (
@@ -23366,6 +24993,7 @@
 	icon_state = "1-2"
 	},
 /obj/decal/cleanable/blood/drip,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/corridors/center)
 "qgc" = (
@@ -23650,6 +25278,21 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/lower/eng)
+"qpH" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 9
+	},
+/obj/item/fd/simple_grenade/shock_mine{
+	pixel_y = 17;
+	pixel_x = -5
+	},
+/obj/item/fd/simple_grenade/shock_mine{
+	pixel_y = 24;
+	pixel_x = -5
+	},
+/obj/item/fd/simple_grenade/shock_mine,
+/turf/simulated/floor/plating,
+/area/bunker/eng/workshop)
 "qpR" = (
 /obj/decal/cleanable/dirt,
 /obj/catwalk_plated/dark,
@@ -23665,6 +25308,10 @@
 /obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp1)
+"qqb" = (
+/obj/submap_landmark/spawnpoint/manticore/ace,
+/turf/simulated/floor/plating,
+/area/bunker/kpp)
 "qqp" = (
 /obj/floor_decal/borderfloorwhite,
 /obj/structure/window/reinforced,
@@ -23815,6 +25462,15 @@
 	color = "#5F773B"
 	},
 /area/bunker/jungle)
+"qux" = (
+/obj/machinery/rotating_alarm/door{
+	id_tag = "bunker_red";
+	light_range = 1;
+	light_color = "#800000";
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/bunker/kpp)
 "quz" = (
 /obj/machinery/power/apc{
 	pixel_y = -24
@@ -24305,6 +25961,34 @@
 /area/bunker/jungle/lz)
 "qKl" = (
 /obj/decal/cleanable/dirt,
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
 /turf/simulated/floor/exoplanet/fd/drought{
 	color = "#bebebe"
 	},
@@ -24375,6 +26059,37 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp2)
+"qMz" = (
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/plating,
+/area/bunker/lower/eng/reactor)
 "qMF" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/techfloor/orange{
@@ -25260,6 +26975,10 @@
 /obj/floor_decal/techfloor/orange{
 	dir = 1
 	},
+/obj/item/gun/energy/ionrifle/anti_terra{
+	pixel_y = -5
+	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/rooms/room12)
 "rlu" = (
@@ -25681,6 +27400,16 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/bunker/jungle/lz)
+"rAm" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 4;
+	layer = 2.23
+	},
+/obj/submap_landmark/spawnpoint/manticore/rk381,
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
+/area/bunker/jungle)
 "rAL" = (
 /obj/overlay/diona/floor,
 /obj/structure/vines/light3,
@@ -25709,6 +27438,47 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought{
 	color = "#bebebe"
+	},
+/area/bunker/jungle)
+"rBZ" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 4;
+	layer = 2.23
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
 	},
 /area/bunker/jungle)
 "rCi" = (
@@ -25823,8 +27593,49 @@
 	icon_state = "rampbottom"
 	},
 /obj/decal/cleanable/dirt,
+/obj/item/fd/simple_grenade/shock_mine{
+	premade_faction = "TRK-17";
+	primed = 1
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
+"rHf" = (
+/obj/machinery/rotating_alarm/door{
+	id_tag = "bunker_red";
+	light_range = 1;
+	light_color = "#800000";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/corridors/center)
 "rHk" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/platform/kutjevo/rock{
@@ -25907,6 +27718,7 @@
 /obj/overlay/diona/decorator{
 	dir = 1
 	},
+/obj/submap_landmark/spawnpoint/meat,
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
 "rJM" = (
@@ -26342,6 +28154,41 @@
 "rTW" = (
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/barracks/gvardiya)
+"rUx" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 8;
+	layer = 2.23
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/bunker/jungle)
 "rUU" = (
 /obj/structure/platform/kutjevo/rock{
 	dir = 4;
@@ -26401,6 +28248,12 @@
 /area/bunker/kpp)
 "rXN" = (
 /obj/structure/platform_decoration,
+/obj/item/paper/memo/medical/organfab{
+	pixel_x = 12;
+	pixel_y = 2;
+	layer = 3
+	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "rXP" = (
@@ -26512,9 +28365,6 @@
 "sbh" = (
 /obj/floor_decal/industrial/outline/grey,
 /obj/structure/table/rack,
-/obj/item/material/hatchet/machete/steel,
-/obj/item/material/hatchet/machete/steel,
-/obj/item/material/hatchet/machete/steel,
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/warehouse)
 "sbz" = (
@@ -26792,7 +28642,7 @@
 	light_color = "#a1d2d6";
 	dir = 2
 	},
-/turf/simulated/mineral/volcanic,
+/turf/simulated/floor/plating,
 /area/bunker)
 "slO" = (
 /obj/floor_decal/iccglogo/corner{
@@ -26935,12 +28785,18 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "spD" = (
-/obj/map_effect/portal/master/side_a{
-	dir = 8;
-	portal_id = "metro"
+/obj/floor_decal/hull{
+	dir = 1
 	},
+/obj/structure/fd/placeholder/better,
 /turf/simulated/floor/plating,
 /area/bunker/lower/monorail)
+"sql" = (
+/obj/catwalk_plated/dark,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/bunker/command)
 "sqy" = (
 /obj/structure/platform/kutjevo/rock{
 	dir = 1;
@@ -26956,6 +28812,12 @@
 /area/bunker/jungle)
 "sqG" = (
 /obj/structure/closet,
+/obj/item/ammo_magazine/pistol/double,
+/obj/item/ammo_magazine/pistol/double,
+/obj/item/ammo_magazine/pistol/double,
+/obj/item/ammo_magazine/pistol/double,
+/obj/item/ammo_magazine/pistol/double,
+/obj/item/ammo_magazine/pistol/double,
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/eng/workshop)
 "sqV" = (
@@ -27161,6 +29023,13 @@
 	},
 /turf/simulated/floor/tiled/old_cargo,
 /area/bunker/barracks/preporation)
+"swP" = (
+/obj/structure/railing/mapped,
+/obj/floor_decal/corner/darkblue/half,
+/obj/structure/platform,
+/obj/submap_landmark/spawnpoint/bunker/jeanne,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/command)
 "swY" = (
 /obj/structure/flora/ausbushes/grassybush,
 /turf/simulated/floor/exoplanet/fd/grass{
@@ -27357,7 +29226,10 @@
 	},
 /area/bunker/jungle)
 "sFr" = (
-/obj/submap_landmark/spawnpoint/maxim,
+/obj/machinery/recharger/wallcharger{
+	dir = 1;
+	pixel_y = -20
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
 "sFs" = (
@@ -27537,6 +29409,34 @@
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 8
 	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
 /turf/simulated/floor/exoplanet/fd/muddirt{
 	color = "#5E5643"
 	},
@@ -27564,6 +29464,33 @@
 /obj/structure/vines/light3,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/corridors/west)
+"sJA" = (
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bunker/command)
 "sJN" = (
 /obj/fd_water/alt_ver1,
 /obj/floor_decal/messygrass{
@@ -27757,6 +29684,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
+"sRe" = (
+/obj/decal/cleanable/dirt,
+/obj/catwalk_plated/dark,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/bunker/corridors/north)
 "sRn" = (
 /obj/overlay/diona/wall,
 /obj/overlay/diona/wall{
@@ -27909,6 +29848,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/lab/bslab)
+"sWi" = (
+/obj/machinery/rotating_alarm/door{
+	id_tag = "bunker_red";
+	light_range = 1;
+	light_color = "#800000";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/corridors/north)
 "sWl" = (
 /obj/catwalk_plated/white,
 /turf/simulated/floor/plating,
@@ -28106,6 +30054,43 @@
 /obj/structure/vines/light2,
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
+"tcz" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 4;
+	layer = 2.23
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
+	},
+/area/bunker/jungle)
 "tcA" = (
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#5F773B"
@@ -28258,6 +30243,8 @@
 	dir = 1;
 	flipped = 1
 	},
+/obj/item/fd/turret_undeployed,
+/obj/item/gun/energy/particle/small,
 /turf/simulated/floor/plating,
 /area/bunker/corridors/south)
 "tjv" = (
@@ -28328,6 +30315,30 @@
 	color = "#fd1d21";
 	light_color = "#fd1d21";
 	dir = 2
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
@@ -28759,14 +30770,21 @@
 /obj/paint/iccgn,
 /turf/simulated/wall/r_wall,
 /area/bunker/barracks)
-"tyd" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 8
+"txV" = (
+/obj/machinery/rotating_alarm/door{
+	id_tag = "bunker_red";
+	light_range = 1;
+	light_color = "#800000"
 	},
-/obj/catwalk_plated/dark,
-/obj/submap_landmark/spawnpoint/manticore/roku,
 /turf/simulated/floor/plating,
-/area/bunker/command)
+/area/bunker/corridors/south)
+"tyd" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 9
+	},
+/obj/submap_landmark/spawnpoint/olivia,
+/turf/simulated/floor/plating,
+/area/bunker/eng/workshop)
 "tye" = (
 /obj/fd_water/alt_ver1,
 /obj/floor_decal/messygrass{
@@ -29030,7 +31048,7 @@
 /area/bunker/corridors/north)
 "tFM" = (
 /obj/machinery/hologram/holopad,
-/obj/effect/cutscene_camera/opening_cameras,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
 "tGi" = (
@@ -29765,6 +31783,8 @@
 	icon_state = "1-2"
 	},
 /obj/decal/cleanable/blood/drip,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/corridors/south)
 "uar" = (
@@ -30049,9 +32069,14 @@
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
 "ukP" = (
-/obj/submap_landmark/spawnpoint/lira,
-/turf/simulated/floor/tiled/dark,
-/area/bunker/command)
+/obj/floor_decal/corner/blue/half{
+	dir = 8
+	},
+/obj/structure/fd/junk{
+	icon_state = "4,3"
+	},
+/turf/simulated/floor/tiled/white/monotile,
+/area/bunker/rooms/room5)
 "ulL" = (
 /obj/structure/table/rack,
 /obj/item/tank/air,
@@ -30139,6 +32164,34 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
 	},
 /turf/simulated/floor/plating,
 /area/bunker/kpp)
@@ -30362,6 +32415,35 @@
 	},
 /obj/decal/cleanable/dirt,
 /obj/overlay/diona/floor,
+/obj/effect/cutscene_camera/opening_cameras,
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
 "uwx" = (
@@ -30835,6 +32917,10 @@
 /obj/floor_decal/corner/blue/half{
 	dir = 4
 	},
+/obj/structure/fd/junk{
+	icon_state = "0,3";
+	layer = 2.21
+	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/rooms/room5)
 "uKZ" = (
@@ -31049,6 +33135,11 @@
 	pixel_x = -6;
 	pixel_y = -8
 	},
+/obj/item/fd/simple_grenade{
+	pixel_y = 16;
+	pixel_x = 6
+	},
+/obj/submap_landmark/spawnpoint/bunker/rin,
 /turf/simulated/floor/tiled/steel_grid,
 /area/bunker/eng/workshop)
 "uRW" = (
@@ -31063,8 +33154,6 @@
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/industrial/outline/grey,
 /obj/structure/table/rack,
-/obj/item/material/twohanded/jack,
-/obj/item/gun/projectile/pistol/m22f,
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/warehouse)
 "uTd" = (
@@ -31089,6 +33178,13 @@
 /obj/structure/holoplant,
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med)
+"uTr" = (
+/obj/item/fd/simple_grenade/shock_mine{
+	premade_faction = "TRK-17";
+	primed = 1
+	},
+/turf/simulated/floor/plating,
+/area/bunker/corridors/north)
 "uUj" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/cable/green{
@@ -31315,6 +33411,43 @@
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
+"uZu" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 8;
+	layer = 2.23
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
+/area/bunker/jungle)
 "uZY" = (
 /obj/machinery/light{
 	color = "#fd1d21";
@@ -31470,6 +33603,8 @@
 	pixel_y = -17;
 	pixel_x = -5
 	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/bunker/rooms/room12)
 "vgk" = (
@@ -31533,6 +33668,7 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/corridors/center)
 "vja" = (
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/corridors/south)
 "vjn" = (
@@ -31778,7 +33914,6 @@
 /obj/floor_decal/industrial/warning/dust{
 	dir = 4
 	},
-/obj/effect/cutscene_camera/opening_cameras,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/corridors/center)
 "vtb" = (
@@ -32112,7 +34247,6 @@
 	dir = 8
 	},
 /obj/catwalk_plated/dark,
-/obj/submap_landmark/spawnpoint/looney,
 /turf/simulated/floor/plating,
 /area/bunker/command)
 "vHm" = (
@@ -32283,6 +34417,34 @@
 /obj/item/storage/toolbox/emergency{
 	pixel_x = 16
 	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/eng/workshop)
 "vNh" = (
@@ -32343,6 +34505,34 @@
 /obj/decal/cleanable/dirt,
 /obj/overlay/diona/decorator{
 	dir = 4
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
 	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
@@ -32552,6 +34742,14 @@
 /obj/structure/flora/tall,
 /turf/simulated/floor/exoplanet/fd/muddirt,
 /area/bunker/jungle)
+"vUT" = (
+/obj/machinery/rotating_alarm/door{
+	id_tag = "bunker_red";
+	light_range = 1;
+	light_color = "#800000"
+	},
+/turf/simulated/floor/plating,
+/area/bunker/eng)
 "vVn" = (
 /obj/structure/sign/solgov,
 /turf/simulated/wall/r_wall/hull,
@@ -32605,6 +34803,10 @@
 	dir = 1
 	},
 /obj/floor_decal/corner/blue/half,
+/obj/structure/fd/junk{
+	icon_state = "1,3";
+	pixel_x = 13
+	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/rooms/room5)
 "vWo" = (
@@ -32795,7 +34997,7 @@
 	light_color = "#a1d2d6";
 	dir = 4
 	},
-/turf/simulated/mineral/volcanic,
+/turf/simulated/floor/plating,
 /area/bunker)
 "wbZ" = (
 /obj/floor_decal/borderfloorwhite{
@@ -33104,6 +35306,34 @@
 	pixel_y = 7
 	},
 /obj/item/screwdriver,
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/bunker/eng/workshop)
 "wmS" = (
@@ -33565,6 +35795,11 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med)
+"wBf" = (
+/obj/decal/cleanable/dirt,
+/obj/submap_landmark/spawnpoint/bunker/bobby,
+/turf/simulated/floor/plating,
+/area/bunker/kpp)
 "wBg" = (
 /obj/floor_decal/messygrass{
 	dir = 8
@@ -33802,22 +36037,16 @@
 	},
 /area/bunker/jungle)
 "wHt" = (
+/obj/floor_decal/borderfloor{
+	dir = 4
+	},
+/obj/floor_decal/corner/darkblue/border{
+	dir = 4
+	},
 /obj/decal/cleanable/dirt,
-/obj/floor_decal/industrial/outline/grey,
-/obj/structure/table/rack,
-/obj/item/ammo_magazine/mil_rifle/heavy{
-	pixel_x = -7;
-	pixel_y = 7
-	},
-/obj/item/ammo_magazine/mil_rifle/heavy{
-	pixel_x = 5
-	},
-/obj/item/ammo_magazine/mil_rifle/heavy{
-	pixel_x = 5;
-	pixel_y = 6
-	},
-/turf/simulated/floor/plating,
-/area/bunker/lower/eng/warehouse)
+/mob/living/exosuit/premade/friend,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/command)
 "wHC" = (
 /obj/structure/bed/chair/padded/blue,
 /obj/floor_decal/spline/fancy/black{
@@ -34127,6 +36356,44 @@
 	color = "#5F773B"
 	},
 /area/bunker)
+"wVd" = (
+/obj/structure/fd/cave_flora{
+	desc = "Just some grass, nothing more.";
+	icon_state = "tree_stump";
+	name = "flora";
+	icon = 'mods/_fd/fd_assets/icons/structures/jungletreesmall.dmi';
+	pixel_x = -32
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/bunker/jungle)
 "wVO" = (
 /obj/floor_decal/borderfloorwhite{
 	dir = 1
@@ -34307,6 +36574,8 @@
 	pixel_x = -1;
 	pixel_y = 1
 	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/rooms/room12)
 "xae" = (
@@ -34342,6 +36611,11 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/rooms/room1)
+"xaW" = (
+/obj/catwalk_plated/dark,
+/obj/submap_landmark/spawnpoint/perci,
+/turf/simulated/floor/plating,
+/area/bunker/command)
 "xaY" = (
 /obj/structure/girder,
 /turf/simulated/floor/exoplanet/fd/grass{
@@ -34612,21 +36886,47 @@
 /obj/machinery/button/blast_door{
 	id_tag = "garage";
 	name = "Workshop door-control";
-	dir = 4
+	dir = 4;
+	pixel_y = 8;
+	pixel_x = -3
 	},
+/obj/effect/cutscene_camera/opening_cameras,
+/obj/item/gun/projectile/pistol/sol_service,
+/obj/item/gun/projectile/pistol/sol_service,
+/obj/item/gun/projectile/pistol/sol_service,
+/obj/item/gun/projectile/pistol/sol_service,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/eng/workshop)
 "xjm" = (
-/obj/structure/railing/mapped{
-	dir = 4;
-	icon_state = "railing0-1"
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 6
 	},
-/obj/floor_decal/floordetail/edgedrain{
-	dir = 4
-	},
-/obj/effect/cutscene_camera/opening_cameras,
 /obj/structure/platform{
-	dir = 4
+	dir = 8
+	},
+/obj/structure/table/rack,
+/obj/item/fd/simple_grenade/anti_terra{
+	pixel_y = 18;
+	pixel_x = -6
+	},
+/obj/item/fd/simple_grenade/anti_terra{
+	pixel_y = 17;
+	pixel_x = 0
+	},
+/obj/item/fd/simple_grenade/anti_terra{
+	pixel_x = -4
+	},
+/obj/item/fd/simple_grenade/anti_terra{
+	pixel_x = -4
+	},
+/obj/item/fd/simple_grenade/anti_terra{
+	pixel_x = -4
+	},
+/obj/item/fd/simple_grenade/anti_terra{
+	pixel_x = -4
+	},
+/obj/item/fd/simple_grenade/anti_terra{
+	pixel_x = -4
 	},
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
@@ -34671,13 +36971,15 @@
 /turf/simulated/floor/wood/ebony,
 /area/bunker/rooms/room8)
 "xmc" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 8
+/obj/structure/platform/kutjevo/rock{
+	dir = 8;
+	layer = 2.23
 	},
-/obj/catwalk_plated/dark,
 /obj/submap_landmark/spawnpoint/wilhelm,
-/turf/simulated/floor/plating,
-/area/bunker/command)
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
+/area/bunker/jungle)
 "xme" = (
 /turf/simulated/floor/tiled,
 /area/bunker/lower/med/lobby)
@@ -34881,6 +37183,12 @@
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
+"xup" = (
+/obj/floor_decal/hull,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techfloor,
+/area/bunker/rooms/room12)
 "xut" = (
 /obj/decal/cleanable/generic,
 /turf/simulated/floor/tiled/dark,
@@ -34893,6 +37201,10 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
+"xvz" = (
+/obj/effect/cutscene_camera/opening_cameras,
+/turf/simulated/floor/tiled/dark,
+/area/bunker/command)
 "xwW" = (
 /obj/structure/grille,
 /obj/floor_decal/messygrass{
@@ -34903,9 +37215,75 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
+"xwY" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 1;
+	layer = 2.23
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
+/area/bunker/jungle)
 "xxt" = (
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 4
+	},
+/obj/item/material/hatchet/machete/steel,
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
 	},
 /turf/simulated/floor/exoplanet/fd/muddirt{
 	color = "#5E5643"
@@ -35022,6 +37400,7 @@
 /area/bunker/lower/lab/gateway)
 "xDS" = (
 /obj/floor_decal/industrial/loading,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/bunker/rooms/room12)
 "xEf" = (
@@ -35071,6 +37450,7 @@
 /obj/machinery/light_construct{
 	dir = 8
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
 "xFQ" = (
@@ -35124,10 +37504,75 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bunker/lower/med/mortuary)
+"xHz" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 1;
+	layer = 2.23
+	},
+/obj/structure/platform/kutjevo/rock{
+	dir = 8;
+	layer = 2.23
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
+	trigger_id = "tut1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
+	trigger_id = "tut2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
+	trigger_id = "tut4"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
+	trigger_id = "combat1"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
+	trigger_id = "combat2"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
+	trigger_id = "combat3"
+	},
+/obj/effect/add_note{
+	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
+	trigger_id = "combat4"
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
+/area/bunker/jungle)
 "xHP" = (
 /obj/structure/table/rack,
+/obj/machinery/recharger{
+	pixel_y = 14;
+	pixel_x = -5
+	},
+/obj/machinery/recharger{
+	pixel_y = 14;
+	pixel_x = 5
+	},
+/obj/item/gun/energy/laser,
+/obj/item/gun/energy/laser{
+	pixel_y = -9
+	},
+/obj/item/gun/energy/laser{
+	pixel_y = -5
+	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/kpp)
+"xIq" = (
+/obj/machinery/rotating_alarm/door{
+	id_tag = "bunker_red";
+	light_range = 1;
+	light_color = "#800000";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/bunker/corridors/north)
 "xIC" = (
 /obj/floor_decal/borderfloorwhite{
 	dir = 4
@@ -35837,6 +38282,7 @@
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 4
 	},
+/obj/submap_landmark/spawnpoint/manticore/rifler,
 /turf/simulated/floor/exoplanet/fd/muddirt{
 	color = "#5E5643"
 	},
@@ -61995,8 +64441,8 @@ hmd
 hcJ
 bAk
 oXe
-chN
-dwU
+qMz
+bGt
 dwU
 dwU
 toB
@@ -63546,7 +65992,7 @@ jdD
 bAJ
 ocz
 sRw
-cpi
+kVF
 aDv
 cnK
 cax
@@ -64193,7 +66639,7 @@ goK
 goK
 goK
 kfU
-iqj
+sbh
 tZO
 gSM
 iJH
@@ -64597,7 +67043,7 @@ goK
 goK
 goK
 tkJ
-fcG
+uSX
 xYn
 qDK
 ejA
@@ -65001,10 +67447,10 @@ goK
 goK
 goK
 kfU
-gNw
+sbh
 pgR
 rXo
-wHt
+uSX
 uSX
 fyu
 fyu
@@ -70690,12 +73136,12 @@ goK
 goK
 fbt
 gXw
-arg
-uMH
-nue
-arg
-uMH
-nue
+fYj
+mgU
+spD
+fYj
+mgU
+spD
 gXw
 fbt
 goK
@@ -70892,12 +73338,12 @@ goK
 goK
 fbt
 gXw
-spD
-mgU
-hgG
-fYj
-mgU
-hgG
+arg
+uMH
+nue
+arg
+uMH
+nue
 gXw
 fbt
 goK
@@ -71244,7 +73690,7 @@ rGT
 fId
 eBD
 xae
-aKb
+aAC
 hTf
 oAq
 aAC
@@ -78542,7 +80988,7 @@ akp
 swY
 kOH
 sUN
-hSO
+sUN
 jOY
 jOY
 kdV
@@ -103207,7 +105653,7 @@ goK
 goK
 goK
 hvO
-tcZ
+ebZ
 dih
 uJE
 mQK
@@ -104625,7 +107071,7 @@ uJE
 coi
 gfa
 mQK
-fRC
+vUT
 ebc
 wmS
 lSV
@@ -105043,7 +107489,7 @@ tcZ
 tcZ
 hvO
 tcZ
-tcZ
+ebi
 tcZ
 fFx
 nhg
@@ -106187,7 +108633,7 @@ hkC
 hkC
 hkC
 eJD
-tkD
+fcG
 bfe
 bfe
 bfe
@@ -107197,10 +109643,10 @@ tNv
 tNv
 pTV
 lwv
-tNv
-ekc
-lRb
-oVB
+nvy
+ppo
+uZu
+bxs
 lRb
 bfe
 mOI
@@ -107223,11 +109669,11 @@ goK
 uFp
 iHS
 mSO
-qWA
+nRR
 cRB
 uFp
 cet
-bdN
+oCH
 hgd
 vcs
 gHK
@@ -107397,12 +109843,12 @@ oVB
 oVB
 oVB
 mAu
-hkC
-hHn
-oVB
-oVB
-rgc
-pfT
+abK
+xHz
+bxs
+czs
+kMK
+iSD
 bfe
 bfe
 glf
@@ -107599,12 +110045,12 @@ jSc
 xJB
 gdL
 xdt
-hkC
+eIP
 tSB
-glv
+rUx
 bJS
 bJS
-eJD
+dDp
 bfe
 mRY
 kHl
@@ -107803,7 +110249,7 @@ gdL
 ciC
 sIO
 yhN
-btx
+wVd
 pTV
 pTV
 rnv
@@ -107819,7 +110265,7 @@ pCN
 xnI
 lKv
 lKv
-orL
+iqj
 pFu
 gFm
 jSZ
@@ -107840,7 +110286,7 @@ ohg
 cih
 mJc
 xna
-xna
+xjm
 dMk
 xna
 hmQ
@@ -108003,9 +110449,9 @@ irq
 tQD
 sEO
 tQD
-tkD
+xwY
 hxj
-hkC
+abK
 hkC
 hkC
 pTV
@@ -108044,7 +110490,7 @@ gMR
 nvK
 iMH
 cNs
-iMH
+cjJ
 hiW
 wfS
 jAF
@@ -108207,7 +110653,7 @@ cEx
 rnv
 hrl
 oEX
-akp
+nAD
 hkC
 hkC
 xJB
@@ -108230,13 +110676,13 @@ mqv
 qKl
 qWA
 aCT
-uLm
-uLm
+wBf
+jNV
 pPt
 qWA
 qWA
 mKP
-gyI
+uTr
 bdN
 gyI
 cfT
@@ -108613,9 +111059,9 @@ cnU
 hkC
 hkC
 ugY
-hkC
-cNM
-cNM
+abK
+tcz
+rBZ
 giF
 nBp
 giF
@@ -108631,8 +111077,8 @@ orL
 uvJ
 eqD
 uaR
-ujn
-qWA
+ajn
+qqb
 kin
 qWA
 gLB
@@ -108647,9 +111093,9 @@ cfT
 nLF
 cwa
 sHr
-iMH
+tyd
 sRa
-iMH
+qpH
 iMH
 vJZ
 pNp
@@ -108812,12 +111258,12 @@ jyS
 jyS
 rfq
 brM
-tNv
-lwv
-lwv
+nvy
+nPx
+nPx
 pSR
-lRb
-lRb
+xmc
+uZu
 xxt
 bfe
 cdO
@@ -108851,9 +111297,9 @@ jAF
 nrD
 oUa
 dZq
-xjm
-cTk
 oUa
+cTk
+dXk
 fQH
 jAF
 goK
@@ -109014,13 +111460,13 @@ qJv
 gTW
 xTD
 gWc
-lRb
+nuq
 uWr
 oVB
-oVB
+cQb
 pwm
-pwm
-pwm
+rAm
+hgj
 pwm
 rgc
 dRL
@@ -109035,7 +111481,7 @@ ium
 jOC
 iqD
 ujn
-ujn
+qux
 uFp
 goK
 goK
@@ -109215,14 +111661,14 @@ gTW
 uNE
 bia
 xJB
-lRb
-bfe
-xdt
-qTf
-mlx
-glv
-mlx
-mlx
+uZu
+keQ
+cTL
+gjW
+lly
+rUx
+lly
+lly
 mlx
 cBA
 dRL
@@ -109449,7 +111895,7 @@ qyN
 qyN
 qyN
 ujj
-cfg
+ehC
 ujj
 jAF
 kBh
@@ -109503,8 +111949,8 @@ bXI
 bXI
 bXI
 xFH
-bXI
-bXI
+eBM
+eBM
 mOO
 dfw
 goK
@@ -109660,8 +112106,8 @@ ovF
 vNf
 jAF
 jAF
-cQZ
-dXR
+nJw
+ekJ
 pgZ
 jAF
 goK
@@ -109701,8 +112147,8 @@ goK
 dfw
 kqu
 qqC
-qqC
-qqC
+mBB
+wHt
 hKm
 vrZ
 rMN
@@ -109902,10 +112348,10 @@ goK
 goK
 dfw
 eZN
-bXI
-stz
-bXI
-vxo
+eBM
+pBS
+aDS
+ibq
 tlw
 dfw
 dfw
@@ -110106,7 +112552,7 @@ dfw
 osy
 bXI
 stz
-aVN
+jhQ
 vxo
 vTt
 qjV
@@ -110308,7 +112754,7 @@ dfw
 hBG
 bTZ
 cOU
-bXI
+sJA
 vxo
 vTt
 gSS
@@ -110495,7 +112941,7 @@ pQr
 ncI
 hZK
 mvE
-nTg
+ukP
 nTg
 bQX
 hZK
@@ -110507,10 +112953,10 @@ dfw
 dfw
 dfw
 dfw
-jeW
+lcO
 wRH
 stz
-aVN
+mse
 vxo
 ldm
 bKJ
@@ -110714,10 +113160,10 @@ kKH
 stz
 aVN
 vxo
-eQA
+smC
 vGV
-oCH
-jNV
+vGV
+vGV
 dfw
 goK
 goK
@@ -110911,14 +113357,14 @@ rxG
 lRC
 lRC
 kXP
-bCL
+oJx
 epz
 gOw
 aVN
 ciL
-oJx
-ehC
-cjJ
+smC
+vGV
+vGV
 fFW
 dfw
 goK
@@ -111117,10 +113563,10 @@ jeW
 obv
 ckZ
 bXI
-pBS
-jPJ
-gxA
-ukP
+swP
+smC
+bXI
+bXI
 sFr
 dfw
 goK
@@ -111300,7 +113746,7 @@ goK
 fjI
 nrx
 sWw
-nrx
+dEo
 apQ
 hvN
 tWb
@@ -111316,14 +113762,14 @@ buL
 buL
 dfw
 cFR
-bXI
+dsd
 stz
-aVN
+xaW
 vxo
 smC
-xmc
-nRR
-eBM
+vGV
+vGV
+vGV
 dfw
 goK
 goK
@@ -111520,12 +113966,12 @@ xew
 bCL
 anE
 oBZ
-bXI
+xvz
 vxo
 pSF
 hyQ
-tyd
-eIP
+vGV
+vGV
 dfw
 goK
 goK
@@ -111720,7 +114166,7 @@ euG
 euG
 fDS
 gCg
-bXI
+cxz
 stz
 aVN
 pma
@@ -111914,7 +114360,7 @@ hSK
 rzj
 apQ
 wcd
-qyL
+mEm
 jPN
 xew
 pLu
@@ -112116,7 +114562,7 @@ apQ
 apQ
 apQ
 sgm
-qyL
+mEm
 vja
 mai
 bXI
@@ -112124,9 +114570,9 @@ bXI
 bXI
 mai
 bXI
-bXI
-stz
-aVN
+gvt
+pBS
+sql
 rXN
 kjt
 pru
@@ -112293,7 +114739,7 @@ pLV
 ujj
 fJU
 ujj
-ujj
+xIq
 cqp
 ujj
 fjI
@@ -112304,13 +114750,13 @@ pOL
 nrx
 fjI
 nrx
-nrx
-pOL
+vts
+eQA
 nrx
 nrx
 nrx
 eyb
-nrx
+vts
 nrx
 qzX
 nrx
@@ -112328,7 +114774,7 @@ xew
 dQs
 uHp
 stz
-bXI
+jPJ
 vxo
 dWC
 ntA
@@ -112489,24 +114935,24 @@ xQC
 aoR
 nXv
 cRT
-xQC
+pGd
 xQC
 dPQ
 eRp
-xQC
+pGd
 lqE
 ksd
-aoR
+sRe
 eRp
 iHU
 bFc
 vwQ
 vIx
-sFs
+gxA
 mYD
 iHU
 aiv
-sFs
+gxA
 qfP
 aiv
 aiv
@@ -112515,7 +114961,7 @@ lBe
 uoj
 hcT
 qfP
-aiv
+hSO
 opi
 uaj
 fhS
@@ -112535,7 +114981,7 @@ cuU
 dWP
 gtU
 pxd
-mvk
+aEl
 dfw
 goK
 goK
@@ -112704,14 +115150,14 @@ fjI
 nrx
 wXt
 vts
-uQf
+wXt
 nrx
-fjI
+abj
 nrx
 nrx
 uQf
 tSp
-nrx
+vts
 nrx
 fnP
 nrx
@@ -112721,7 +115167,7 @@ nrx
 uLd
 sgm
 ekk
-sgm
+cpi
 eYS
 rTp
 kXP
@@ -112884,7 +115330,7 @@ srp
 pLV
 ujj
 cfg
-ujj
+sWi
 pLV
 pLV
 sMg
@@ -113293,10 +115739,10 @@ pLV
 goK
 sMg
 vwm
-wZT
+jgt
 vgd
 sDf
-rlj
+gNw
 oEP
 sMg
 goK
@@ -113318,7 +115764,7 @@ goK
 goK
 goK
 fjI
-nrx
+rHf
 pQr
 nrx
 fjI
@@ -113498,7 +115944,7 @@ cUI
 oCO
 xDS
 tGi
-rlj
+aKb
 qOb
 sMg
 goK
@@ -113701,7 +116147,7 @@ wZT
 xDS
 izB
 rlj
-qOb
+xup
 sMg
 goK
 scz
@@ -115974,9 +118420,9 @@ goK
 goK
 goK
 jmh
-goK
+api
 iXF
-goK
+api
 jmh
 "}
 (197,1,2) = {"
@@ -116175,10 +118621,10 @@ goK
 goK
 goK
 goK
-jmh
-goK
+nuY
+hbu
 slt
-goK
+api
 jmh
 "}
 (198,1,2) = {"
@@ -116377,10 +118823,10 @@ goK
 goK
 goK
 goK
-jmh
-goK
+nuY
+bAs
 wbC
-goK
+api
 jmh
 "}
 (199,1,2) = {"
@@ -116579,10 +119025,10 @@ goK
 goK
 goK
 goK
-jmh
-goK
+nuY
+txV
 alC
-goK
+api
 jmh
 "}
 (200,1,2) = {"

@@ -1509,30 +1509,30 @@
 // Этот код - безумие. Но мне лень делать нормальный сейчас
 
 /proc/credits_devs()
-	var/novel_message = "НАД КОДОМ РАБОТАЛИ: DOCTOR ALEX, MAXIMUM123, DANILCUS, KCALCUBE"
+	var/novel_message = "НАД КОДОМ РАБОТАЛИ: DOCTOR ALEX"
 	var/colored = COLOR_ASSEMBLY_BLACK
 
 	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
 	visuals.maptext_x = -110
-	visuals.maptext_y = -5
+	visuals.maptext_y = -420
 	visuals.maptext_width = 192
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 16 SECONDS)
 
 /proc/credits_mappers()
-	var/novel_message = "ПРОЕКТИРОВАЛИ ЛОКАЦИИ: PALERNO, DOCTOR ALEX"
+	var/novel_message = "ПРОЕКТИРОВАЛИ ЛОКАЦИИ: PALERNO, IVAN2004FANTOM"
 	var/colored = COLOR_ASSEMBLY_BLACK
 
 	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
 	visuals.maptext_x = -100
-	visuals.maptext_y = -15
+	visuals.maptext_y = -5
 	for(var/client/M in GLOB.clients)
 		M.screen += visuals
 		visuals.set_text(novel_message, colored, time = 16 SECONDS)
 
 /proc/credits_spriters()
-	var/novel_message = "РИСОВАЛИ ДЛЯ ВАС: FAILU, DARKSOVET"
+	var/novel_message = "РИСОВАЛИ ДЛЯ ВАС: DARKSOVET"
 	var/colored = COLOR_ASSEMBLY_BLACK
 
 	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
@@ -1543,7 +1543,7 @@
 		visuals.set_text(novel_message, colored, time = 16 SECONDS)
 
 /proc/credits_writers_new()
-	var/novel_message = "СЦЕНАРИЙ ПИСАЛИ: DOCTOR ALEX, PALERNO"
+	var/novel_message = "СЦЕНАРИЙ ПИСАЛИ: DOCTOR ALEX"
 	var/colored = COLOR_ASSEMBLY_BLACK
 
 	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
@@ -1566,7 +1566,7 @@
 
 /proc/episode5_sponsors2()
 	var/novel_message = "KRABINATIOR3000, RaviolliBorchevidze, illerk, Grigpashtet, DenXays, Aftik, LimboBaggins, Rogver Snott, fast_zummer"
-	var/colored = COLOR_ORANGE
+	var/colored = COLOR_RED
 
 	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
 	visuals.maptext_x = -110
@@ -1587,8 +1587,8 @@
 		visuals.set_text(novel_message, colored, time = 8 SECONDS)
 
 /proc/episode5_specials2()
-	var/novel_message = "CuddleAndTea, techpriest34, Zakterar, GhostGamer, Sliva, HelpMeee"
-	var/colored = COLOR_ORANGE
+	var/novel_message = "CuddleAndTea, techpriest34, Zakterar, GhostGamer, Sliva, HelpMeee, Maximum123"
+	var/colored = COLOR_RED
 
 	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
 	visuals.maptext_x = -110

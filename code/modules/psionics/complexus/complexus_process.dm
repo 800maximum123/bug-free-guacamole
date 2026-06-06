@@ -195,8 +195,8 @@
 		return // Don't backblast from trying to heal ourselves thanks.
 
 	if(owner.simple_combat_on)
-		if(owner.simple_health < owner.max_simple_health)
-			owner.simple_health_calculation(-2,0,0,0)
+		if(owner.simple_health < owner.max_simple_health && spend_power(heal_rate))
+			owner.simple_health_calculation(-1,0,0,0)
 
 	if(ishuman(owner))
 

@@ -1936,6 +1936,9 @@
 /obj/item/projectile/beam/smalllaser
 	simple_damage = 15
 
+/obj/item/projectile/beam/particle
+	simple_damage = 25
+
 /obj/item/projectile/bullet
 	status_to_add = /datum/simple_status/bleed
 	status_timer_to_add = 20 SECONDS

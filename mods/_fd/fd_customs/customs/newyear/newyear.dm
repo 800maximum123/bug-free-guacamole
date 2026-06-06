@@ -360,6 +360,7 @@
 
 	status_to_add = /datum/simple_status/legbroke
 	status_apply_prob = 10
+	w_class = ITEM_SIZE_TINY
 
 //
 
@@ -565,6 +566,7 @@
 	desc = "An odd gold coin, with a clover on it. On the flip side there is a text ingraved on the gold surface \"Our final hope, our one more chance\""
 	icon = 'addon.dmi'
 	icon_state = "coin"
+	w_class = ITEM_SIZE_TINY
 
 /obj/item/storage/bible/bible
 	name = "Humility"
