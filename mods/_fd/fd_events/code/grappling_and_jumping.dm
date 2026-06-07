@@ -132,6 +132,8 @@
 /datum/keybinding/living/fd/dash/can_use(client/user)
 	. = ..()
 
+	if(!isliving(user.mob))
+		return FALSE
 	var/mob/living/L = user.mob
 
 	if(istype(L,/mob/living/cutscene_pov))
