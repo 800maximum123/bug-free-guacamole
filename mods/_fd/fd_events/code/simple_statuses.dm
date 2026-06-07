@@ -557,7 +557,7 @@
 	. = ..()
 
 	if(owner.simple_health > 0)
-		owner.remove_status_effect(src)
+		owner.remove_status_effect(/datum/simple_status/crit)
 
 	owner.resting = TRUE
 	owner.UpdateLyingBuckledAndVerbStatus()
@@ -754,7 +754,7 @@
 	. = ..()
 
 	if(!owner.get_status_effect(/datum/simple_status/bleed))
-		owner.remove_status_effect(src)
+		owner.remove_status_effect(/datum/simple_status/bandaged)
 
 /datum/simple_status/splinted
 	name = "Шина"
@@ -767,7 +767,7 @@
 	. = ..()
 
 	if(!owner.get_status_effect(/datum/simple_status/legbroke))
-		owner.remove_status_effect(src)
+		owner.remove_status_effect(/datum/simple_status/splinted)
 
 /datum/simple_status/legbroke
 	name = "Перелом"
@@ -955,7 +955,7 @@
 		amount = clamp(amount + 1, 0, amount_max)
 
 	if(amount <= 0)
-		owner.remove_status_effect(src)
+		owner.remove_status_effect(/datum/simple_status/shielded)
 
 /datum/simple_status/shielded/on_remove()
 	. = ..()

@@ -731,14 +731,14 @@
 
 	var/mob/living/simple_animal/simple_mecha/M = owner
 	if(!M.pilot)
-		M.remove_status_effect(src)
+		M.remove_status_effect(/datum/simple_status/devildog)
 
 	M.engine.fuel_current = clamp(M.engine.fuel_current + 5, 0, M.engine.fuel_max)
 
 	for(var/obj/item/gun/G in M.contents)
 		if(istype(G,/obj/item/gun/energy))
 			var/obj/item/gun/energy/E = G
-			E.power_supply.give(10)
+			E.power_supply.give(50)
 
 	if(M.pilot && !M.pilot.get_status_effect(/datum/simple_status/crit))
 		M.pilot.simple_health_calculation(0.2,0,0,0)
@@ -748,7 +748,7 @@
 		M.pilot.ckey = M.ckey
 
 	if(!M.get_filter("berserk"))
-		M.add_filter("berserk", 1, list("type" = "outline", "size" = 1, "color" = COLOR_ORANGE))
+		M.add_filter("berserk", 1, list("type" = "outline", "size" = 1, "color" = COMMS_COLOR_ICCG))
 
 /datum/simple_status/devildog/on_remove()
 	. = ..()

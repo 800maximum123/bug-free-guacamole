@@ -143,6 +143,7 @@
 
 	var/kaiju_timeframe = 1000
 	var/kaiju_timeframe_current = 1000
+	var/list/mob/living/carbon/alien/diona/kaiju_followers = list()
 
 /mob/living/carbon/human/Life()
 	if(kaiju_timer && !(kaiju_timer in client.screen))
@@ -180,7 +181,11 @@
 	if(kaiju)
 
 		if(prob(1))
-			new /mob/living/carbon/alien/diona(get_turf(src))
+			if(length(kaiju_followers) >= 5)
+				for(var/mob/living/carbon/alien/diona/D in kaiju_followers)
+					qdel(D)
+
+			kaiju_followers += new /mob/living/carbon/alien/diona(get_turf(src))
 
 		for(var/turf/simulated/wall/W in orange(1,src))
 			W.dismantle_wall(TRUE,TRUE)

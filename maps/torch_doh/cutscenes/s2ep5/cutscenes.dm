@@ -1707,6 +1707,12 @@
 
 			client.mob.reset_view()
 
+		if(client.mob && isliving(client.mob))
+			var/mob/living/L = client.mob
+			if(L.holding_camera && L != M)
+				L.balloon_alert(L, "|ЗА ВАМИ БОЛЬШЕ НЕ НАБЛЮДАЮТ|", COLOR_GOLD)
+				L.holding_camera = FALSE
+
 		if(client.ignore_focus)
 			continue
 
@@ -1751,6 +1757,7 @@
 
 	if(M.client)
 		M.client.ignore_focus = FALSE
+		M.holding_camera = FALSE
 		M.balloon_alert(M, "|ЗА ВАМИ БОЛЬШЕ НЕ НАБЛЮДАЮТ|", COLOR_GOLD)
 
 /mob/living/simple_animal/fd/terra

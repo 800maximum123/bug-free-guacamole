@@ -228,28 +228,29 @@
 	var/status_apply_prob = -1
 
 /obj/item/apply_hit_effect(mob/living/target, mob/living/user, hit_zone)
-	if(target.simple_combat_on)
+	if(target && user)
+		if(target.simple_combat_on)
 
-		if(user.lying && !target.lying)
-			if(!(user.zone_sel.selecting in list(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)))
-				user.zone_sel.selecting = pick(list(BP_L_LEG, BP_R_LEG))
+			if(user.lying && !target.lying)
+				if(!(user.zone_sel.selecting in list(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)))
+					user.zone_sel.selecting = pick(list(BP_L_LEG, BP_R_LEG))
 
-		if(status_to_add)
-			if(status_apply_prob > 0)
-				if(prob(status_apply_prob))
-					target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user,status_to_add,status_ignore_armor,status_timer_to_add)
-					return TRUE
+			if(status_to_add)
+				if(status_apply_prob > 0)
+					if(prob(status_apply_prob))
+						target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user,status_to_add,status_ignore_armor,status_timer_to_add)
+						return TRUE
+					else
+						target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user)
+						return TRUE
+
 				else
-					target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user)
+					target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user,status_to_add,status_ignore_armor,status_timer_to_add)
 					return TRUE
 
 			else
-				target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user,status_to_add,status_ignore_armor,status_timer_to_add)
+				target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user)
 				return TRUE
-
-		else
-			target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user)
-			return TRUE
 	..()
 
 /obj/item/throw_impact(atom/hit_atom, datum/thrownthing/TT)

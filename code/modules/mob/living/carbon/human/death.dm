@@ -1,4 +1,23 @@
 /mob/living/carbon/human/gib()
+	if(holding_camera)
+		for(var/client/client in GLOB.clients)
+			if(client.ignore_focus)
+				continue
+			if(client.holder)
+				continue
+
+			client.watching_scene = FALSE
+
+			client.mob.clear_fullscreen("borders")
+			client.adminobs = null
+
+			client.mob.reset_view()
+
+		if(client)
+			client.ignore_focus = FALSE
+			holding_camera = FALSE
+			balloon_alert(src, "|ЗА ВАМИ БОЛЬШЕ НЕ НАБЛЮДАЮТ|", COLOR_GOLD)
+
 	for(var/obj/item/organ/I in internal_organs)
 		I.removed()
 		if(!QDELETED(I) && isturf(loc))

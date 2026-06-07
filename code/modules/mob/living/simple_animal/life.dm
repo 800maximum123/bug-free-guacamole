@@ -91,6 +91,25 @@
 		purge -= 1
 
 /mob/living/simple_animal/gib(anim = icon_gib, do_gibs = TRUE)
+	if(holding_camera)
+		for(var/client/client in GLOB.clients)
+			if(client.ignore_focus)
+				continue
+			if(client.holder)
+				continue
+
+			client.watching_scene = FALSE
+
+			client.mob.clear_fullscreen("borders")
+			client.adminobs = null
+
+			client.mob.reset_view()
+
+		if(client)
+			client.ignore_focus = FALSE
+			holding_camera = FALSE
+			balloon_alert(src, "|ЗА ВАМИ БОЛЬШЕ НЕ НАБЛЮДАЮТ|", COLOR_GOLD)
+
 	..()
 
 /mob/living/simple_animal/proc/handle_special()

@@ -398,6 +398,10 @@
 			return TRUE
 
 	if(target == user)
+		if(user.alpha <= 10 || user.get_status_effect(/datum/simple_status/invisibility))
+			user.reset_invisibility()
+			return FALSE
+
 		user.visible_message(SPAN_WARNING("[user] исчезает у всех на глазах!"))
 		animate(user, alpha = 10, time = 0.5 SECONDS, easing = SINE_EASING|EASE_IN)
 		if(user.simple_combat_on)
@@ -420,6 +424,9 @@
 
 	if(!istype(target))
 		to_chat(user, SPAN_WARNING("Вы не можете переместиться туда."))
+		return FALSE
+
+	if(user.alpha > 10)
 		return FALSE
 
 	user.forceMove(target)
@@ -539,7 +546,7 @@
 			"FREE FOR ALL" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "red"),
 			"ALLIED" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "green")
 		)
-		var/chosen_option = show_radial_menu(user, user, options, radius = 25, require_near = TRUE)
+		var/chosen_option = show_radial_menu(user, get_turf(user), options, radius = 25, require_near = TRUE)
 		if (!chosen_option)
 			return 0
 		if(do_after(user, 10))

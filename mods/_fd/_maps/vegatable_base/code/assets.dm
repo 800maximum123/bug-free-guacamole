@@ -996,6 +996,8 @@
 /obj/structure/fd/turret/Process()
 
 	for(var/mob/living/L in possible_targets)
+		if(!(L in view(7,src)))
+			possible_targets -= L
 		if(L.stat != CONSCIOUS)
 			possible_targets -= L
 		if(L.get_status_effect(/datum/simple_status/crit) || L.get_status_effect(/datum/simple_status/hardcrit))
@@ -1013,6 +1015,9 @@
 				continue
 			if(L.get_status_effect(/datum/simple_status/crit) || L.get_status_effect(/datum/simple_status/hardcrit))
 				continue
+			if(L.mob_size <= MOB_SMALL)
+				continue
+
 			possible_targets |= L
 
 		if(!current_target)
@@ -1029,6 +1034,13 @@
 				current_target.AddOverlays(targeting)
 
 		if(current_target && !(current_target in view(7,src)))
+			current_target.CutOverlays(targeting)
+			if(length(possible_targets))
+				playsound(loc, 'sound/weapons/TargetOff.ogg', 75, 1)
+				current_target = pick(possible_targets)
+				current_target.AddOverlays(targeting)
+
+		if(current_target && current_target.alpha <= FAKE_INVIS_ALPHA_THRESHOLD)
 			current_target.CutOverlays(targeting)
 			if(length(possible_targets))
 				playsound(loc, 'sound/weapons/TargetOff.ogg', 75, 1)
@@ -1053,12 +1065,12 @@
 			remove_cost()
 
 /obj/structure/fd/turret/use_tool(obj/item/tool, mob/user, list/click_params)
-	if(istype(tool,/obj/item/gun) && do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
+	if(istype(tool,/obj/item/gun) && connected_weapon && do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
 		user.drop_from_inventory(tool)
 		setup_gun(tool)
 		return TRUE
 
-	if(isScrewdriver(tool) && do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
+	if(isScrewdriver(tool) && connected_weapon && do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
 		unattach_gun(user)
 		return TRUE
 
@@ -1162,6 +1174,9 @@
 		current_target.CutOverlays(targeting)
 		current_target = null
 
+	if(length(possible_targets))
+		possible_targets.Cut()
+
 	connected_weapon.forceMove(get_turf(src))
 	caller.put_in_inactive_hand(connected_weapon)
 	connected_weapon = null
@@ -1199,6 +1214,14 @@
 	if(!inside_bag)
 		inside_bag = new /obj/item/fd/turret_undeployed(src)
 		inside_bag.inside_gun = src
+
+	if(connected_weapon)
+		if(current_target)
+			current_target.CutOverlays(targeting)
+			current_target = null
+
+		if(length(possible_targets))
+			possible_targets.Cut()
 
 	STOP_PROCESSING(SSobj, src)
 
