@@ -236,7 +236,7 @@
 	Also, demontage can be done with a crowbar.In case of structural damage, can be repaired with welding tool."
 	icon = 'packs/infinity/icons/obj/items.dmi'
 	icon_state = "barrier_hand"
-	w_class = ITEM_SIZE_NORMAL // Normal sized for Gaian field engineers
+	w_class = ITEM_SIZE_LARGE
 	var/health = 200
 
 /obj/item/barrier/proc/turf_check(mob/user as mob)
