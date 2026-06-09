@@ -372,6 +372,24 @@
 	max_ammo = 80
 	multiple_sprites = 1
 
+/obj/item/ammo_magazine/piercing_smg
+	name = "stick magazine"
+	desc = "A polymer stick magazine for high-velocity SMGs."
+	icon_state = CALIBER_PISTOL_FLECHETTE
+	mag_type = MAGAZINE
+	origin_tech = list(TECH_COMBAT = 4)
+	caliber = CALIBER_PISTOL_FLECHETTE
+	matter = list(MATERIAL_PLASTIC = 500, MATERIAL_STEEL = 1500)
+	labels = list("AP")
+	ammo_type = /obj/item/ammo_casing/flechette/piercer
+	max_ammo = 40
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/piercing_smg/expander
+	origin_tech = list(TECH_COMBAT = 3)
+	labels = list("JHP")
+	ammo_type = /obj/item/ammo_casing/flechette/expander
+
 /obj/item/ammo_magazine/caps
 	name = "speed loader"
 	desc = "A cheap plastic speed loader for some kind of revolver."

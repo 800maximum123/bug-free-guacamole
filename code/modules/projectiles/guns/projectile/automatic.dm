@@ -805,6 +805,69 @@
 		icon_state = "squadauto-mag"
 	else
 		icon_state = "squadauto-empty"
+
+/obj/item/gun/projectile/automatic/contempt
+	name = "compact SMG"
+	desc = "An Aussec Armoury 'Contempt' SMG. Designed with versatility in mind, this gun can easily switch between superior mobility and \
+	precision by simply extending the stock. Not cheap, but it wins the competition against commonly used rifles in close quarters."
+	icon = 'icons/obj/guns/contempt.dmi'
+	icon_state = "contempt"
+	magazine_type = /obj/item/ammo_magazine/piercing_smg
+	allowed_magazines = /obj/item/ammo_magazine/piercing_smg
+	bulk = -1
+	caliber = CALIBER_PISTOL_FLECHETTE
+	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 3)
+	slot_flags = SLOT_BELT
+	accuracy_power = 7
+	multi_aim = 1
+	burst_delay = 2
+	one_hand_penalty = 4
+	var/unfolded = FALSE
+	firemodes = list(
+		list(mode_name="semi auto",       burst=1, fire_delay=null,    move_delay=null, one_hand_penalty=4, burst_accuracy=null, dispersion=null),
+		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4,    one_hand_penalty=5, burst_accuracy=list(0,-1,-1),       dispersion=list(0.0, 0.6, 1.0)),
+		list(mode_name="full auto",   can_autofire=1, burst=1, fire_delay=0.5,    one_hand_penalty=6, burst_accuracy=list(0,-1,-1,-1,-2), dispersion=list(0.6, 0.6, 1.0, 1.0, 1.2)),
+		)
+
+/obj/item/gun/projectile/automatic/contempt/on_update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "contempt-[unfolded]"
+	else
+		icon_state = "contempt-[unfolded]-empty"
+
+/obj/item/gun/projectile/automatic/contempt/Initialize()
+	..()
+	verbs += /obj/item/gun/projectile/automatic/contempt/proc/stock
+
+/obj/item/gun/projectile/automatic/contempt/proc/stock()
+	set category = "Object"
+	set name = "Toggle Weapon Stock"
+	set popup_menu = 1
+
+	toggle_stock(usr)
+
+/obj/item/gun/projectile/automatic/contempt/proc/toggle_stock(mob/user) //TODO: figure out how to change accuracy in firemodes without breaking them
+	unfolded = !unfolded
+	if(unfolded)
+		w_class = ITEM_SIZE_HUGE
+		bulk = GUN_BULK_RIFLE
+		accuracy = 1
+		accuracy_power = 9
+		multi_aim = 1
+		one_hand_penalty = 10
+		user.visible_message(SPAN_NOTICE("[user] extends \the [src]'s stock."), SPAN_NOTICE("You extend \the [src]'s stock outwards and lock it in place."), range = 3)
+	else
+		w_class = ITEM_SIZE_NORMAL
+		bulk = -1
+		accuracy = 0
+		accuracy_power = 7
+		multi_aim = 1
+		one_hand_penalty = 4
+		user.visible_message(SPAN_NOTICE("[user] retracts \the [src]'s stock."), SPAN_NOTICE("You unlock \the [src]'s stock and retract it back into the gun."), range = 3)
+	update_icon()
+	playsound(get_turf(src), 'sound/weapons/flipblade.ogg', 25, 1)
+
 //gaia guns end
 
 /obj/item/gun/projectile/automatic/minigun

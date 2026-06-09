@@ -45,6 +45,7 @@
 	#include "../gaia/items/cards_ids.dm"
 	#include "../gaia/items/clothes.dm"
 	#include "../gaia/items/gaian_cops.dm"
+	#include "../gaia/items/pmc_gear.dm"
 	#include "../gaia/items/pcarriers.dm"
 	#include "../gaia/items/key.dm"
 	#include "../gaia/items/shooting_range.dm"
