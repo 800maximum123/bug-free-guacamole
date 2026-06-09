@@ -237,7 +237,9 @@
 
 /obj/item/projectile/bullet/rifle/caseless
 	damage = 40
-	armor_penetration = 35
+	armor_penetration = 40
+	penetration_modifier = 0.8
+	embed = FALSE
 
 /obj/item/projectile/bullet/rifle/shell
 	damage = 80
