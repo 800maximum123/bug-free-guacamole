@@ -177,6 +177,20 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/caseless
 	icon_state = "rifle_caseless"
 
+/obj/item/ammo_casing/flechette/piercer
+	desc = "An armour-piercing pistol bullet casing."
+	caliber = CALIBER_PISTOL_FLECHETTE
+	projectile_type = /obj/item/projectile/bullet/flechette/piercer
+	icon_state = "flechette-casing"
+	spent_icon = "flechette-casing-spent"
+
+/obj/item/ammo_casing/flechette/expander
+	desc = "A jacketed hollow point pistol bullet casing."
+	caliber = CALIBER_PISTOL_FLECHETTE
+	projectile_type = /obj/item/projectile/bullet/flechette/expander
+	icon_state = "flechette-casing"
+	spent_icon = "flechette-casing-spent"
+
 // GAIA ROCKET SHELLS
 /obj/item/ammo_casing/rocket
 	name = "fragmentation rocket shell"

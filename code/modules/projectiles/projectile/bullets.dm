@@ -171,6 +171,20 @@
 	embed = FALSE
 	distance_falloff = 2
 
+//4mm variations for Gaia and stuff
+/obj/item/projectile/bullet/flechette/piercer
+	damage = 15 //yes, I know it's dumb, it's done for balancing and nothing else.
+	armor_penetration = 60
+	penetration_modifier = 0.1
+	distance_falloff = 1
+
+/obj/item/projectile/bullet/flechette/expander
+	damage = 35
+	armor_penetration = 10
+	penetration_modifier = 1.2
+	distance_falloff = 1
+	embed = TRUE
+
 /* shotgun projectiles */
 
 /obj/item/projectile/bullet/shotgun
@@ -223,7 +237,9 @@
 
 /obj/item/projectile/bullet/rifle/caseless
 	damage = 40
-	armor_penetration = 35
+	armor_penetration = 40
+	penetration_modifier = 0.8
+	embed = FALSE
 
 /obj/item/projectile/bullet/rifle/shell
 	damage = 80
