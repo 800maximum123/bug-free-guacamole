@@ -77,12 +77,13 @@
 /area/fort_manticore/jungle)
 "aj" = (
 /obj/decal/cleanable/dirt,
-/obj/structure/table/reinforced,
-/obj/item/weldingtool,
-/obj/item/clothing/glasses/welding{
-	pixel_y = 5
+/obj/decal/cleanable/dirt{
+	icon = 'icons/turf/flooring/tiles.dmi';
+	icon_state = "broken1"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
 /area/fort_manticore/jungle)
 "ak" = (
 /obj/structure/catwalk,
@@ -135,7 +136,11 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/fort_manticore/rooms/rifler)
 "an" = (
-/obj/submap_landmark/spawnpoint/manticore/pavel,
+/obj/structure/flora/jungle/bush,
+/obj/decal/cleanable/blood/gibs/robot{
+	pixel_x = 8;
+	pixel_y = 20
+	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/fort_manticore/jungle)
 "ao" = (
@@ -850,18 +855,6 @@
 "cx" = (
 /obj/structure/catwalk,
 /obj/structure/table/rack,
-/obj/item/fd/simple_combat/adrenaline,
-/obj/item/fd/simple_combat/adrenaline,
-/obj/item/fd/simple_combat/bonegel,
-/obj/item/fd/simple_combat/revive,
-/obj/item/fd/simple_combat/small_heal,
-/obj/item/fd/simple_combat/small_heal,
-/obj/item/fd/simple_combat/small_heal,
-/obj/item/fd/simple_combat/small_heal,
-/obj/item/fd/simple_combat/big_heal,
-/obj/item/fd/simple_combat/big_heal,
-/obj/item/fd/simple_combat/big_heal,
-/obj/item/fd/simple_combat/big_heal,
 /turf/simulated/floor/plating,
 /area/ship/bomber/main_deck/cargo)
 "cy" = (
@@ -1135,37 +1128,14 @@
 /turf/simulated/wall/r_titanium,
 /area/ship/bomber/main_deck/shield)
 "dk" = (
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
-	trigger_id = "tut1"
+/obj/structure/flora/ausbushes/fullgrass,
+/mob/living/simple_animal/hostile/retaliate/bob{
+	simple_combat_on = 1;
+	simple_health = 0;
+	faction = "TRK-17";
+	health = 0
 	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
-	trigger_id = "tut2"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
-	trigger_id = "tut4"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
-	trigger_id = "combat1"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
-	trigger_id = "combat2"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
-	trigger_id = "combat3"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
-	trigger_id = "combat4"
-	},
-/turf/simulated/floor/exoplanet/fd/grass{
-	color = "#5F773B"
-	},
+/turf/simulated/floor/exoplanet/fd/muddirt,
 /area/fort_manticore/jungle)
 "dm" = (
 /obj/structure/flora/ausbushes/fullgrass,
@@ -1214,9 +1184,11 @@
 /turf/simulated/floor/plating,
 /area/ship/bomber/main_deck/west_wing)
 "dp" = (
-/obj/structure/catwalk,
-/obj/structure/lattice,
-/turf/simulated/open,
+/obj/decal/cleanable/blood/gibs/robot,
+/obj/decal/cleanable/blood/gibs/robot,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
+	},
 /area/fort_manticore/jungle)
 "ds" = (
 /obj/paint/silver,
@@ -1377,6 +1349,16 @@
 /obj/structure/railing/mapped,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
+/area/fort_manticore/jungle)
+"dN" = (
+/obj/floor_decal/hull{
+	dir = 1
+	},
+/obj/floor_decal/corner/black/border{
+	dir = 1
+	},
+/obj/decal/cleanable/blood/gibs/robot,
+/turf/simulated/floor/exoplanet/fd/drought,
 /area/fort_manticore/jungle)
 "dO" = (
 /obj/structure/flora/tropic/rock,
@@ -2139,6 +2121,11 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/bomber/main_deck/west_ammunition)
+"fQ" = (
+/obj/structure/flora/tropic/rock,
+/obj/decal/cleanable/blood/gibs/robot,
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/fort_manticore/jungle)
 "fR" = (
 /obj/floor_decal/hull{
 	dir = 1
@@ -2485,10 +2472,13 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/fort_manticore/rooms/manticora)
 "gM" = (
-/obj/structure/railing/mapped{
-	layer = 2.8
+/obj/decal/cleanable/blood/gibs/robot{
+	pixel_x = 8;
+	pixel_y = 20
 	},
-/turf/simulated/open,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
+	},
 /area/fort_manticore/jungle)
 "gN" = (
 /obj/floor_decal/hull{
@@ -2720,19 +2710,20 @@
 /area/fort_manticore/jungle)
 "hi" = (
 /obj/structure/table/woodentable/walnut,
-/obj/item/storage/pill_bottle/paracetamol{
-	pixel_x = 7;
-	pixel_y = 2
-	},
 /obj/item/pen{
 	pixel_x = -2;
 	pixel_y = 8
 	},
 /obj/item/device/flashlight/lamp/small{
-	pixel_x = -6
+	pixel_x = -8;
+	pixel_y = 0
 	},
 /obj/floor_decal/techfloor,
 /obj/decal/cleanable/dirt,
+/obj/item/paper{
+	pixel_x = 7;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/fort_manticore/rooms/emmy)
 "hk" = (
@@ -2860,10 +2851,6 @@
 	},
 /obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/r_n_d/protolathe,
-/obj/item/fd/mech/module/impact_shield{
-	pixel_x = -1;
-	pixel_y = 10
-	},
 /turf/simulated/floor/plating,
 /area/ship/bomber/main_deck/east_ammunition)
 "hD" = (
@@ -2995,21 +2982,16 @@
 	pixel_x = 9;
 	pixel_y = -10
 	},
-/obj/item/fd/simple_grenade{
-	pixel_x = -16
-	},
-/obj/item/fd/simple_grenade{
-	pixel_x = -6;
-	pixel_y = -9
-	},
 /turf/simulated/floor/plating,
 /area/ship/bomber/main_deck/reactor)
 "hW" = (
-/obj/structure/railing/mapped{
-	dir = 1;
-	icon_state = "railing0-1"
+/obj/decal/cleanable/dirt{
+	pixel_y = 0
 	},
-/turf/simulated/open,
+/obj/decal/cleanable/dirt{
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt,
 /area/fort_manticore/jungle)
 "hX" = (
 /obj/structure/vines/light2,
@@ -3341,18 +3323,6 @@
 /obj/floor_decal/corner/lightgrey/bordercorner{
 	dir = 1
 	},
-/obj/item/stack/material/plasteel/ten{
-	pixel_x = 12;
-	pixel_y = -3
-	},
-/obj/item/stack/material/plasteel/ten{
-	pixel_x = 12;
-	pixel_y = 2
-	},
-/obj/item/stack/material/steel/ten{
-	pixel_x = 1;
-	pixel_y = -3
-	},
 /turf/simulated/floor/plating,
 /area/fort_manticore/rooms/emmy)
 "ja" = (
@@ -3461,6 +3431,18 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/fort_manticore/rooms/kriger)
+"jp" = (
+/obj/decal/cleanable/dirt{
+	icon = 'icons/turf/flooring/tiles.dmi';
+	icon_state = "broken2"
+	},
+/obj/decal/cleanable/dirt{
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
+/area/fort_manticore/jungle)
 "jq" = (
 /obj/floor_decal/paint/navy/diagonal{
 	dir = 8
@@ -3471,34 +3453,10 @@
 /turf/simulated/floor/armored,
 /area/fort_manticore/jungle)
 "jr" = (
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
-	trigger_id = "tut1"
+/obj/floor_decal/hull{
+	dir = 1
 	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
-	trigger_id = "tut2"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
-	trigger_id = "tut4"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
-	trigger_id = "combat1"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
-	trigger_id = "combat2"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
-	trigger_id = "combat3"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
-	trigger_id = "combat4"
-	},
+/obj/decal/cleanable/blood/gibs/robot,
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/fort_manticore/jungle)
 "js" = (
@@ -3696,6 +3654,13 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor,
 /area/fort_manticore/rooms/emmy)
+"jW" = (
+/obj/decal/cleanable/blood/gibs/robot{
+	pixel_x = 8;
+	pixel_y = 20
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt,
+/area/fort_manticore/jungle)
 "jZ" = (
 /obj/floor_decal/hull{
 	dir = 4
@@ -3934,49 +3899,6 @@
 	pixel_y = 33
 	},
 /obj/structure/table/steel_reinforced,
-/obj/item/fd/simple_combat/splint,
-/obj/item/fd/simple_combat/splint,
-/obj/item/fd/simple_combat/splint,
-/obj/item/fd/simple_combat/splint,
-/obj/item/fd/simple_combat/bandage{
-	pixel_y = 14
-	},
-/obj/item/fd/simple_combat/bandage{
-	pixel_y = 14
-	},
-/obj/item/fd/simple_combat/bandage{
-	pixel_y = 14
-	},
-/obj/item/fd/simple_combat/bandage{
-	pixel_y = 14
-	},
-/obj/item/fd/simple_combat/bandage{
-	pixel_y = 14
-	},
-/obj/item/fd/simple_combat/bandage{
-	pixel_y = 14
-	},
-/obj/item/fd/simple_combat/bandage{
-	pixel_y = 14
-	},
-/obj/item/fd/simple_combat/bandage{
-	pixel_y = 14
-	},
-/obj/item/fd/simple_combat/bandage{
-	pixel_y = 14
-	},
-/obj/item/fd/simple_combat/bandage{
-	pixel_y = 14
-	},
-/obj/item/fd/simple_combat/bandage{
-	pixel_y = 14
-	},
-/obj/item/fd/simple_combat/bandage{
-	pixel_y = 14
-	},
-/obj/item/fd/simple_combat/bandage{
-	pixel_y = 14
-	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/bomber/main_deck/cargo)
 "kP" = (
@@ -4152,6 +4074,22 @@
 	},
 /turf/simulated/floor/carpet/purple,
 /area/fort_manticore/rooms/cube)
+"lp" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/decal/cleanable/blood/gibs/robot,
+/turf/simulated/floor/plating,
+/area/ship/bomber/main_deck/west_wing)
 "lq" = (
 /obj/floor_decal/techfloor{
 	dir = 1
@@ -4207,6 +4145,34 @@
 	storage_capacity = 60
 	},
 /obj/item/reagent_containers/food/snacks/chocolatebar,
+/obj/decal/cleanable/blood/drip{
+	pixel_y = 33;
+	pixel_x = 8
+	},
+/obj/decal/cleanable/blood/drip{
+	pixel_y = 31;
+	pixel_x = 8
+	},
+/obj/decal/cleanable/blood/drip{
+	pixel_y = 35;
+	pixel_x = 8
+	},
+/obj/decal/cleanable/blood/drip{
+	pixel_y = 28;
+	pixel_x = 8
+	},
+/obj/decal/cleanable/blood/drip{
+	pixel_y = 30;
+	pixel_x = 8
+	},
+/obj/decal/cleanable/blood/drip{
+	pixel_y = 15;
+	pixel_x = 11
+	},
+/obj/decal/cleanable/blood/drip{
+	pixel_y = 13;
+	pixel_x = 14
+	},
 /turf/simulated/floor/plating,
 /area/fort_manticore/rooms/emmy)
 "lx" = (
@@ -4370,15 +4336,11 @@
 /obj/structure/catwalk,
 /obj/item/stack/cable_coil/blue,
 /obj/item/stack/cable_coil/blue,
-/obj/item/welder_tank,
 /obj/item/screwdriver{
 	pixel_x = 0;
 	pixel_y = 21
 	},
-/obj/item/stack/material/rods/ten{
-	pixel_x = -15;
-	pixel_y = -9
-	},
+/obj/item/fd/mech/engine,
 /turf/simulated/floor/plating,
 /area/fort_manticore/rooms/emmy)
 "ma" = (
@@ -5140,6 +5102,15 @@
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/ship/bomber/main_deck/east_ammunition)
+"oo" = (
+/obj/structure/flora/jungle/bush,
+/obj/decal/cleanable/blood/gibs/robot,
+/obj/decal/cleanable/blood/gibs/robot{
+	pixel_x = 8;
+	pixel_y = 20
+	},
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/fort_manticore/jungle)
 "op" = (
 /obj/structure/fake_lattice{
 	layer = 2.21
@@ -5310,7 +5281,8 @@
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/fort_manticore/jungle)
 "oZ" = (
-/obj/submap_landmark/spawnpoint/manticore/kai,
+/obj/structure/fake_lattice,
+/obj/decal/cleanable/blood/gibs/robot,
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#5F773B"
 	},
@@ -5374,36 +5346,10 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/bomber/main_deck/west_wing)
 "pu" = (
-/obj/structure/flora/jungle/bush,
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
-	trigger_id = "tut1"
+/obj/decal/cleanable/dirt{
+	pixel_y = 0
 	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
-	trigger_id = "tut2"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
-	trigger_id = "tut4"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
-	trigger_id = "combat1"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
-	trigger_id = "combat2"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
-	trigger_id = "combat3"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
-	trigger_id = "combat4"
-	},
-/turf/simulated/floor/exoplanet/fd/grass,
+/turf/simulated/floor/exoplanet/fd/muddirt,
 /area/fort_manticore/jungle)
 "pv" = (
 /obj/floor_decal/techfloor{
@@ -5459,13 +5405,15 @@
 /turf/simulated/floor/armored,
 /area/fort_manticore/jungle)
 "pJ" = (
-/obj/structure/fd/radio_tower{
-	pixel_x = -13;
-	layer = 4.10;
-	pixel_y = 6
-	},
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
+/obj/decal/cleanable/dirt{
+	icon = 'icons/turf/flooring/tiles.dmi';
+	icon_state = "broken1";
+	layer = 2
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
 /area/fort_manticore/jungle)
 "pL" = (
 /obj/floor_decal/corner_techfloor_grid{
@@ -5505,9 +5453,11 @@
 	},
 /area/fort_manticore/jungle)
 "pO" = (
-/obj/structure/grille,
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
+/obj/decal/cleanable/blood/gibs/robot,
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
 /area/fort_manticore/jungle)
 "pP" = (
 /obj/floor_decal/messygrass{
@@ -5560,6 +5510,19 @@
 	color = "#bebebe"
 	},
 /area/fort_manticore)
+"pU" = (
+/obj/decal/cleanable/dirt{
+	icon = 'icons/turf/flooring/tiles.dmi';
+	icon_state = "broken1";
+	layer = 2
+	},
+/obj/decal/cleanable/dirt{
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
+/area/fort_manticore/jungle)
 "pV" = (
 /obj/structure/vines/heavy6,
 /turf/simulated/floor/exoplanet/fd/grass{
@@ -5577,6 +5540,10 @@
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/corner/lightgrey/border{
 	dir = 8
+	},
+/obj/item/stack/material/plasteel/ten{
+	pixel_x = -8;
+	pixel_y = -1
 	},
 /turf/simulated/floor/plating,
 /area/fort_manticore/rooms/emmy)
@@ -5706,72 +5673,8 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/bomber/main_deck/bridge)
 "qq" = (
-/obj/structure/closet/crate/large,
-/obj/item/clothing/suit/storage/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/suit/storage/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/suit/storage/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/suit/storage/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/gun/projectile/automatic/bullpup_rifle,
-/obj/item/gun/projectile/automatic/bullpup_rifle,
-/obj/item/ammo_magazine/mil_rifle/heavy{
-	pixel_x = 5;
-	pixel_y = 2
-	},
-/obj/item/ammo_magazine/mil_rifle/heavy{
-	pixel_x = 5;
-	pixel_y = 2
-	},
-/obj/item/fd/simple_combat/full_heal,
-/obj/item/fd/simple_combat/revive,
-/obj/item/fd/simple_combat/revive,
-/obj/item/fd/simple_combat/adrenaline,
-/obj/item/fd/simple_combat/adrenaline,
-/obj/item/fd/simple_combat/adrenaline,
-/obj/item/fd/simple_combat/adrenaline,
-/obj/item/fd/simple_combat/bloodbag,
-/obj/item/storage/belt/medical,
-/obj/item/fd/simple_combat/bonegel,
-/obj/item/fd/simple_combat/bonegel,
-/obj/item/fd/simple_combat/small_heal,
-/obj/item/fd/simple_combat/small_heal,
-/obj/item/fd/simple_combat/small_heal,
-/obj/item/fd/simple_combat/small_heal,
-/obj/item/ammo_magazine/mil_rifle/heavy{
-	pixel_x = 5;
-	pixel_y = 2
-	},
-/obj/item/ammo_magazine/mil_rifle/heavy{
-	pixel_x = 5;
-	pixel_y = 2
-	},
-/obj/item/clothing/under/plugsuit_vatgrown,
-/obj/item/fd/simple_grenade,
-/obj/item/fd/simple_grenade,
-/obj/item/fd/simple_grenade,
-/obj/item/fd/simple_grenade,
-/obj/item/fd/simple_grenade,
-/obj/item/fd/simple_grenade,
-/obj/item/fd/simple_grenade/anti_terra,
-/obj/item/fd/simple_grenade/anti_terra,
-/obj/item/fd/simple_grenade/anti_terra,
-/obj/item/fd/simple_grenade/anti_terra,
-/obj/item/clothing/head/helmet/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/obj/item/clothing/head/helmet/manticore_combat{
-	simple_armor_bonus = 10
-	},
-/turf/simulated/floor/exoplanet/fd/grass{
-	color = "#6E8C44"
-	},
+/obj/decal/cleanable/blood/gibs/robot,
+/turf/simulated/floor/exoplanet/fd/muddirt,
 /area/fort_manticore/jungle)
 "qs" = (
 /obj/floor_decal/techfloor{
@@ -6112,6 +6015,11 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
+/obj/item/fd/mech/engine/coral{
+	fuel_current = 0;
+	icon_state = "plater-nopower";
+	pixel_y = -12
+	},
 /turf/simulated/floor/plating,
 /area/fort_manticore/rooms/emmy)
 "rj" = (
@@ -6223,42 +6131,8 @@
 /turf/simulated/floor/plating,
 /area/ship/bomber/upper_deck/engine_west)
 "rG" = (
-/obj/floor_decal/messygrass{
-	dir = 8
-	},
-/obj/floor_decal/messygrass{
-	dir = 4
-	},
-/obj/floor_decal/messygrass,
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
-	trigger_id = "tut1"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
-	trigger_id = "tut2"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
-	trigger_id = "tut4"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
-	trigger_id = "combat1"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
-	trigger_id = "combat2"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
-	trigger_id = "combat3"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
-	trigger_id = "combat4"
-	},
-/turf/simulated/floor/exoplanet/fd/drought,
+/obj/decal/cleanable/blood/gibs/robot,
+/turf/simulated/floor/exoplanet/fd/grass,
 /area/fort_manticore/jungle)
 "rH" = (
 /obj/floor_decal/industrial/outline/yellow,
@@ -6472,12 +6346,15 @@
 /turf/simulated/floor/armored,
 /area/fort_manticore/jungle)
 "sm" = (
-/obj/structure/flora/ausbushes/grassybush,
-/obj/floor_decal/hull/corner{
-	dir = 1
+/obj/decal/cleanable/dirt{
+	icon = 'icons/turf/flooring/tiles.dmi';
+	icon_state = "broken1"
 	},
-/turf/simulated/floor/exoplanet/fd/grass{
-	color = "#6E8C44"
+/obj/decal/cleanable/dirt{
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
 	},
 /area/fort_manticore/jungle)
 "sn" = (
@@ -6601,6 +6478,15 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/fort_manticore/jungle)
+"sJ" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/decal/cleanable/blood/gibs/robot,
+/obj/decal/cleanable/blood/gibs/robot{
+	pixel_x = 8;
+	pixel_y = 20
+	},
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/fort_manticore/jungle)
 "sK" = (
 /obj/floor_decal/hull{
 	dir = 1
@@ -6679,16 +6565,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/port_gen/pacman{
-	color = "red";
-	interactive = 1;
-	desc_special_show = 1;
-	desc_special = "Генератор питавший Мантикору всё это время...";
-	has_something_inside = 1;
-	hidden_loot = /obj/item/fd/mech/engine/coral;
-	desc_special_after_finding = "Внутри пусто, осталась одна оболочка";
-	anchored = 1
-	},
+/obj/machinery/power/port_gen/pacman,
 /obj/structure/sign/double/solgovflag/right{
 	pixel_y = 32;
 	color = "grey"
@@ -6930,36 +6807,15 @@
 /turf/simulated/floor/reinforced,
 /area/ship/bomber/main_deck/atmos)
 "tC" = (
-/obj/structure/flora/ausbushes/grassybush,
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
-	trigger_id = "tut1"
+/obj/decal/cleanable/dirt{
+	pixel_y = 0
 	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
-	trigger_id = "tut2"
+/obj/decal/cleanable/dirt{
+	pixel_y = 0
 	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
-	trigger_id = "tut4"
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
 	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
-	trigger_id = "combat1"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
-	trigger_id = "combat2"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
-	trigger_id = "combat3"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
-	trigger_id = "combat4"
-	},
-/turf/simulated/floor/exoplanet/fd/grass,
 /area/fort_manticore/jungle)
 "tE" = (
 /obj/structure/cable/green{
@@ -7775,24 +7631,14 @@
 /turf/simulated/floor/plating,
 /area/ship/bomber/main_deck/bridge)
 "vM" = (
-/obj/structure/catwalk,
-/obj/structure/lattice,
-/obj/machinery/computer/dummy{
-	layer = 3.03;
-	density = 0;
-	dir = 4;
-	pixel_y = 9;
-	pixel_x = -12
+/obj/decal/cleanable/dirt{
+	icon = 'icons/turf/flooring/tiles.dmi';
+	icon_state = "broken1"
 	},
-/obj/item/stool/stone{
-	pixel_x = 11;
-	pixel_y = 8
+/obj/decal/cleanable/dirt{
+	pixel_y = 0
 	},
-/obj/item/material/ashtray/plastic{
-	pixel_y = 5;
-	pixel_x = 6
-	},
-/turf/simulated/open,
+/turf/simulated/floor/exoplanet/fd/muddirt,
 /area/fort_manticore/jungle)
 "vN" = (
 /obj/structure/fake_lattice,
@@ -8001,11 +7847,6 @@
 /area/fort_manticore/rooms/cube/fl2)
 "wz" = (
 /obj/structure/catwalk,
-/obj/item/storage/lockbox/coral{
-	pixel_x = -38;
-	pixel_y = 18;
-	layer = 2.20
-	},
 /turf/simulated/floor/plating,
 /area/ship/bomber/main_deck/cargo)
 "wA" = (
@@ -8259,10 +8100,6 @@
 /obj/item/stock_parts/power/battery/buildable/stock{
 	pixel_x = -11;
 	pixel_y = -9
-	},
-/obj/item/fd/simple_grenade{
-	pixel_x = -9;
-	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/ship/bomber/main_deck/reactor)
@@ -8701,6 +8538,15 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
+/obj/item/welder_tank,
+/obj/item/welder_tank{
+	pixel_x = 6;
+	pixel_y = 12
+	},
+/obj/item/welder_tank{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/plating,
 /area/fort_manticore/rooms/emmy)
 "yF" = (
@@ -8769,6 +8615,20 @@
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor,
+/area/fort_manticore/jungle)
+"yX" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/decal/cleanable/blood/gibs/robot{
+	pixel_x = 8;
+	pixel_y = 20
+	},
+/obj/decal/cleanable/blood/gibs/robot{
+	pixel_x = 8;
+	pixel_y = 20
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
+	},
 /area/fort_manticore/jungle)
 "yY" = (
 /obj/paint/silver,
@@ -8969,6 +8829,14 @@
 	},
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/corner/lightgrey/bordercorner,
+/obj/item/stack/material/rods/ten{
+	pixel_x = 10;
+	pixel_y = -6
+	},
+/obj/item/stack/material/rods/ten{
+	pixel_x = 5;
+	pixel_y = -3
+	},
 /turf/simulated/floor/plating,
 /area/fort_manticore/rooms/emmy)
 "zA" = (
@@ -9100,6 +8968,7 @@
 "zW" = (
 /obj/structure/closet/secure_closet/personal/empty,
 /obj/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/under/plugsuit_vatgrown,
 /turf/simulated/floor/armored,
 /area/fort_manticore/rooms/cf_rk)
 "zY" = (
@@ -10268,8 +10137,6 @@
 /obj/item/reagent_containers/ivbag,
 /obj/item/reagent_containers/ivbag,
 /obj/item/reagent_containers/ivbag,
-/obj/item/fd/simple_combat/bloodbag,
-/obj/item/fd/simple_combat/bloodbag,
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/bomber/main_deck/cargo)
 "DD" = (
@@ -10469,6 +10336,11 @@
 /obj/item/device/scanner/health,
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/bomber/main_deck/cargo)
+"Eg" = (
+/obj/structure/flora/jungle/bush,
+/obj/decal/cleanable/blood/gibs/robot,
+/turf/simulated/floor/exoplanet/fd/grass,
+/area/fort_manticore/jungle)
 "Ek" = (
 /obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
@@ -10613,6 +10485,7 @@
 	dir = 4
 	},
 /obj/structure/cable/green,
+/obj/decal/cleanable/blood/gibs/robot,
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/bomber/main_deck/west_wing)
 "EG" = (
@@ -10750,6 +10623,15 @@
 /obj/structure/table/steel,
 /obj/structure/catwalk,
 /obj/decal/cleanable/dirt,
+/obj/item/fd/mech/module/impact_shield{
+	pixel_x = -1;
+	pixel_y = 10
+	},
+/obj/item/gun/projectile/automatic/mecha/chang,
+/obj/item/melee/mech/pilebunker{
+	pixel_x = -7;
+	pixel_y = 10
+	},
 /turf/simulated/floor/plating,
 /area/fort_manticore/rooms/emmy)
 "EW" = (
@@ -10826,8 +10708,14 @@
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/fort_manticore)
 "Fl" = (
-/obj/submap_landmark/spawnpoint/manticore/cubic,
-/turf/simulated/floor/exoplanet/fd/grass,
+/obj/decal/cleanable/blood/gibs/robot,
+/obj/decal/cleanable/blood/gibs/robot{
+	pixel_x = 8;
+	pixel_y = 20
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
+	},
 /area/fort_manticore/jungle)
 "Fo" = (
 /obj/floor_decal/paint/navy/side_corner{
@@ -11363,6 +11251,16 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/fort_manticore/rooms/warehouse/ace)
+"GU" = (
+/obj/decal/cleanable/dirt{
+	icon = 'icons/turf/flooring/tiles.dmi';
+	icon_state = "broken1";
+	layer = 2
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
+/area/fort_manticore/jungle)
 "GY" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/exoplanet/fd/grass,
@@ -11553,33 +11451,13 @@
 /turf/simulated/floor/carpet,
 /area/fort_manticore/rooms/martiesa)
 "Hz" = (
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
-	trigger_id = "tut1"
+/obj/decal/cleanable/blood/gibs/robot{
+	pixel_x = 8;
+	pixel_y = 20
 	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
-	trigger_id = "tut2"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
-	trigger_id = "tut4"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
-	trigger_id = "combat1"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
-	trigger_id = "combat2"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
-	trigger_id = "combat3"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
-	trigger_id = "combat4"
+/obj/decal/cleanable/blood/gibs/robot{
+	pixel_x = 8;
+	pixel_y = 20
 	},
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#6E8C44"
@@ -11831,6 +11709,10 @@
 	pixel_x = -30;
 	dir = 4
 	},
+/obj/item/stack/material/steel/ten{
+	pixel_x = 6;
+	pixel_y = 6
+	},
 /turf/simulated/floor/plating,
 /area/fort_manticore/rooms/emmy)
 "Is" = (
@@ -11839,6 +11721,9 @@
 	},
 /obj/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/item/bioreactor{
+	color = "green"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/bomber/upper_deck/engine_east)
@@ -11876,42 +11761,18 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/bomber/main_deck/shield)
 "IC" = (
-/obj/floor_decal/messygrass{
-	dir = 8
+/obj/decal/cleanable/blood/gibs/robot,
+/obj/decal/cleanable/blood/gibs/robot{
+	pixel_x = 8;
+	pixel_y = 20
 	},
-/obj/floor_decal/messygrass,
-/obj/floor_decal/messygrass{
-	dir = 5
+/obj/decal/cleanable/blood/gibs/robot{
+	pixel_x = 8;
+	pixel_y = 20
 	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
-	trigger_id = "tut1"
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#5F773B"
 	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
-	trigger_id = "tut2"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
-	trigger_id = "tut4"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
-	trigger_id = "combat1"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
-	trigger_id = "combat2"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
-	trigger_id = "combat3"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
-	trigger_id = "combat4"
-	},
-/turf/simulated/floor/exoplanet/fd/drought,
 /area/fort_manticore/jungle)
 "ID" = (
 /obj/structure/closet/walllocker{
@@ -11994,6 +11855,21 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/grim_wood,
 /area/fort_manticore/rooms/ufur)
+"IM" = (
+/obj/decal/cleanable/dirt{
+	icon = 'icons/turf/flooring/tiles.dmi';
+	icon_state = "broken1"
+	},
+/obj/decal/cleanable/dirt{
+	pixel_y = 0
+	},
+/obj/decal/cleanable/dirt{
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
+/area/fort_manticore/jungle)
 "IN" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -12196,44 +12072,11 @@
 /turf/simulated/floor/plating,
 /area/fort_manticore/jungle)
 "Jy" = (
-/obj/floor_decal/messygrass{
-	dir = 8
+/obj/decal/cleanable/blood/gibs/robot{
+	pixel_x = 8;
+	pixel_y = 20
 	},
-/obj/floor_decal/messygrass{
-	dir = 4
-	},
-/obj/floor_decal/messygrass{
-	dir = 1
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
-	trigger_id = "tut1"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
-	trigger_id = "tut2"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
-	trigger_id = "tut4"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
-	trigger_id = "combat1"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
-	trigger_id = "combat2"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
-	trigger_id = "combat3"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
-	trigger_id = "combat4"
-	},
-/turf/simulated/floor/exoplanet/fd/drought,
+/turf/simulated/floor/exoplanet/fd/grass,
 /area/fort_manticore/jungle)
 "Jz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -12549,6 +12392,7 @@
 	},
 /obj/machinery/light,
 /obj/decal/cleanable/dirt,
+/obj/machinery/biogenerator,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/ship/bomber/upper_deck/engine_east)
 "Kl" = (
@@ -12830,9 +12674,17 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/ship/bomber/main_deck/reactor)
 "KV" = (
-/obj/floor_decal/hull/corner,
-/turf/simulated/floor/exoplanet/fd/grass{
-	color = "#5F773B"
+/obj/decal/cleanable/generic,
+/obj/decal/cleanable/dirt{
+	icon = 'icons/turf/flooring/tiles.dmi';
+	icon_state = "broken1"
+	},
+/obj/decal/cleanable/dirt{
+	icon = 'icons/turf/flooring/tiles.dmi';
+	icon_state = "broken2"
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
 	},
 /area/fort_manticore/jungle)
 "KW" = (
@@ -12992,14 +12844,6 @@
 /obj/decal/cleanable/dirt{
 	icon = 'icons/turf/flooring/tiles.dmi';
 	icon_state = "broken2"
-	},
-/obj/item/fd/mech/restorer{
-	icon_state = "ammobag-sp-d"
-	},
-/obj/item/fd/mech/restorer{
-	icon_state = "ammobag-sp-d";
-	pixel_x = 10;
-	pixel_y = -5
 	},
 /turf/simulated/floor/plating,
 /area/fort_manticore/rooms/warehouse)
@@ -13923,8 +13767,13 @@
 /turf/simulated/wall/r_titanium,
 /area/ship/bomber/main_deck/west_wing)
 "Oc" = (
-/obj/structure/railing/mapped,
-/turf/simulated/open,
+/obj/decal/cleanable/dirt{
+	pixel_y = 0
+	},
+/obj/decal/cleanable/blood/gibs/robot,
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
 /area/fort_manticore/jungle)
 "Od" = (
 /obj/structure/railing/mapped,
@@ -13944,11 +13793,11 @@
 /turf/simulated/floor/armored,
 /area/fort_manticore/jungle)
 "Og" = (
-/obj/structure/railing/mapped{
-	dir = 8;
-	icon_state = "railing0-1"
+/obj/structure/flora/jungle/bush,
+/obj/decal/cleanable/blood/gibs/robot,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
 	},
-/turf/simulated/open,
 /area/fort_manticore/jungle)
 "Oi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -14007,10 +13856,6 @@
 /obj/machinery/recharger/wallcharger{
 	pixel_y = 21
 	},
-/obj/item/gun/projectile/automatic/mecha/chang{
-	pixel_x = 3;
-	pixel_y = 10
-	},
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/blood/oil/streak,
 /obj/item/screwdriver{
@@ -14019,6 +13864,11 @@
 	},
 /obj/item/stack/cable_coil/single{
 	pixel_y = -5
+	},
+/obj/item/fd/mech/restorer{
+	icon_state = "ammobag-sp-d";
+	pixel_x = -2;
+	pixel_y = 18
 	},
 /turf/simulated/floor/plating,
 /area/fort_manticore/rooms/warehouse)
@@ -14052,16 +13902,19 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/bomber/main_deck/west_wing)
 "Ov" = (
-/obj/floor_decal/hull{
-	dir = 1
+/obj/decal/cleanable/dirt{
+	icon = 'icons/turf/flooring/tiles.dmi';
+	icon_state = "broken1";
+	layer = 2
 	},
-/obj/floor_decal/step{
-	color = "grey";
-	dir = 1;
-	pixel_y = -17
+/obj/decal/cleanable/dirt{
+	pixel_y = 0
 	},
-/turf/simulated/floor/exoplanet/fd/grass{
-	color = "#6E8C44"
+/obj/decal/cleanable/dirt{
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
 	},
 /area/fort_manticore/jungle)
 "Ow" = (
@@ -14158,6 +14011,11 @@
 	},
 /obj/floor_decal/corner_techfloor_gray{
 	dir = 10
+	},
+/obj/item/paper/bunker/stuff/crazy{
+	icon_state = "scrap";
+	pixel_x = 9;
+	pixel_y = -4
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/fort_manticore/rooms/emmy)
@@ -14418,13 +14276,16 @@
 /turf/simulated/floor/plating,
 /area/ship/bomber/main_deck/east_wing)
 "Pp" = (
-/obj/floor_decal/hull{
-	dir = 4
+/obj/decal/cleanable/dirt{
+	icon = 'icons/turf/flooring/tiles.dmi';
+	icon_state = "broken1"
 	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/fd/grass{
-	color = "#5F773B"
+/obj/decal/cleanable/dirt{
+	pixel_y = 0
 	},
+/obj/decal/cleanable/blood/gibs/robot,
+/obj/decal/cleanable/blood/gibs/robot,
+/turf/simulated/floor/exoplanet/fd/muddirt,
 /area/fort_manticore/jungle)
 "Pq" = (
 /obj/catwalk_plated/dark,
@@ -14436,8 +14297,10 @@
 /turf/simulated/floor/plating,
 /area/fort_manticore/jungle)
 "Ps" = (
-/obj/machinery/power/port_gen/pacman,
-/turf/simulated/floor/plating,
+/obj/decal/cleanable/blood/gibs/robot,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#526833"
+	},
 /area/fort_manticore/jungle)
 "Pt" = (
 /obj/structure/vines/heavy6,
@@ -14465,11 +14328,12 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/fort_manticore/rooms/rifler)
 "PC" = (
-/obj/floor_decal/hull/corner{
-	dir = 8
+/obj/decal/cleanable/dirt{
+	pixel_y = 0
 	},
-/turf/simulated/floor/exoplanet/fd/grass{
-	color = "#6E8C44"
+/obj/item/clothing/glasses/welding/weldingrock,
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
 	},
 /area/fort_manticore/jungle)
 "PF" = (
@@ -14489,17 +14353,11 @@
 /turf/simulated/floor/plating,
 /area/ship/bomber/main_deck/shield)
 "PG" = (
-/obj/floor_decal/hull{
-	dir = 8
+/obj/decal/cleanable/dirt{
+	icon = 'icons/turf/flooring/tiles.dmi';
+	icon_state = "broken1"
 	},
-/obj/floor_decal/step{
-	color = "grey";
-	dir = 8;
-	pixel_x = 17
-	},
-/turf/simulated/floor/exoplanet/fd/grass{
-	color = "#6E8C44"
-	},
+/turf/simulated/floor/exoplanet/fd/muddirt,
 /area/fort_manticore/jungle)
 "PH" = (
 /obj/floor_decal/hull{
@@ -14769,6 +14627,10 @@
 	pixel_x = -8;
 	density = 0
 	},
+/obj/item/storage/pill_bottle/paracetamol{
+	pixel_x = -4;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/fort_manticore/rooms/emmy)
 "Qk" = (
@@ -14858,6 +14720,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
+/area/fort_manticore/jungle)
+"QE" = (
+/obj/decal/cleanable/blood/gibs/robot,
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
 /area/fort_manticore/jungle)
 "QF" = (
 /obj/floor_decal/hull{
@@ -15117,10 +14985,12 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/fort_manticore/jungle)
 "Rs" = (
-/obj/submap_landmark/spawnpoint/manticore/cf355,
-/turf/simulated/floor/exoplanet/fd/grass{
-	color = "#6E8C44"
+/obj/structure/flora/tropic/rock,
+/obj/decal/cleanable/blood/gibs/robot{
+	pixel_x = 8;
+	pixel_y = 20
 	},
+/turf/simulated/floor/exoplanet/fd/grass,
 /area/fort_manticore/jungle)
 "Rt" = (
 /obj/floor_decal/industrial/warning/corner{
@@ -15218,44 +15088,23 @@
 /turf/simulated/floor/plating,
 /area/ship/bomber/upper_deck/engine_east)
 "RE" = (
-/mob/living/simple_animal/hostile/retaliate/bob{
-	dir = 8
+/obj/decal/cleanable/blood/gibs/robot,
+/obj/decal/cleanable/blood/gibs/robot{
+	pixel_x = 8;
+	pixel_y = 20
 	},
-/obj/fd_water/alt_ver1,
-/turf/simulated/floor/exoplanet/fd/messygrass,
-/area/fort_manticore/rooms/ufur)
+/turf/simulated/floor/exoplanet/fd/muddirt,
+/area/fort_manticore/jungle)
 "RG" = (
-/obj/structure/vines/light2,
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc;
-	trigger_id = "tut1"
+/obj/decal/cleanable/dirt{
+	pixel_y = 0
 	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc2;
-	trigger_id = "tut2"
+/obj/decal/cleanable/dirt{
+	pixel_y = 0
 	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/nightmare/tutorial_ooc4;
-	trigger_id = "tut4"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat1;
-	trigger_id = "combat1"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat2;
-	trigger_id = "combat2"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat3;
-	trigger_id = "combat3"
-	},
-/obj/effect/add_note{
-	note_to_add = /datum/interactive_note/tutorial_ooc/combat4;
-	trigger_id = "combat4"
-	},
-/turf/simulated/floor/exoplanet/fd/grass{
-	color = "#5F773B"
+/obj/decal/cleanable/blood/gibs/robot,
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
 	},
 /area/fort_manticore/jungle)
 "RH" = (
@@ -15443,14 +15292,18 @@
 /turf/simulated/floor/armored,
 /area/fort_manticore/jungle)
 "Sn" = (
-/obj/floor_decal/hull/corner{
-	dir = 4
+/obj/decal/cleanable/dirt{
+	icon = 'icons/turf/flooring/tiles.dmi';
+	icon_state = "broken2"
 	},
-/obj/item/wrench{
-	pixel_y = 12
+/obj/decal/cleanable/dirt{
+	pixel_y = 0
 	},
-/turf/simulated/floor/exoplanet/fd/grass{
-	color = "#6E8C44"
+/obj/decal/cleanable/dirt{
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
 	},
 /area/fort_manticore/jungle)
 "Sq" = (
@@ -15575,10 +15428,12 @@
 /turf/simulated/floor/tiled/steel_ridged,
 /area/ship/bomber/main_deck/east_ammunition)
 "SC" = (
-/obj/submap_landmark/spawnpoint/manticore/rain,
-/turf/simulated/floor/exoplanet/fd/grass{
-	color = "#6E8C44"
+/obj/decal/cleanable/blood/gibs/robot,
+/obj/decal/cleanable/blood/gibs/robot{
+	pixel_x = 8;
+	pixel_y = 20
 	},
+/turf/simulated/floor/exoplanet/fd/grass,
 /area/fort_manticore/jungle)
 "SD" = (
 /obj/structure/catwalk,
@@ -16082,13 +15937,13 @@
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/fort_manticore/jungle)
 "Ub" = (
-/obj/structure/railing/mapped,
-/obj/structure/fd/radio_tower{
-	pixel_x = -13;
-	layer = 2.9;
-	pixel_y = 6
+/obj/floor_decal/hull{
+	dir = 1
 	},
-/turf/simulated/open,
+/obj/decal/cleanable/blood/gibs/robot,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
+	},
 /area/fort_manticore/jungle)
 "Uc" = (
 /obj/floor_decal/hull{
@@ -16305,6 +16160,15 @@
 	pixel_x = -18;
 	pixel_y = -13
 	},
+/obj/item/stack/material/plasteel/ten{
+	pixel_x = 12;
+	pixel_y = 2
+	},
+/obj/item/weldingtool,
+/obj/item/clothing/glasses/welding/superior{
+	pixel_x = 6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/plating,
 /area/fort_manticore/rooms/emmy)
 "UR" = (
@@ -16327,6 +16191,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/decal/cleanable/blood/gibs/robot,
 /turf/simulated/floor/plating,
 /area/ship/bomber/main_deck/west_wing)
 "UT" = (
@@ -16640,6 +16505,19 @@
 	pixel_x = 24;
 	pixel_y = 7
 	},
+/obj/item/storage/lockbox/coral{
+	pixel_x = -5;
+	pixel_y = 15;
+	layer = 2.20
+	},
+/obj/structure/sign/poster/humpost/hum_14{
+	pixel_y = 33
+	},
+/obj/item/paper{
+	info = "Прости меня, прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меням прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меня прости меняя всё исправлюя знаю как всё исправить";
+	pixel_x = 9;
+	pixel_y = 12
+	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/fort_manticore/rooms/emmy)
 "VK" = (
@@ -16694,15 +16572,10 @@
 /turf/simulated/floor/armored,
 /area/fort_manticore/jungle)
 "VR" = (
-/obj/floor_decal/messygrass{
-	dir = 8
+/obj/decal/cleanable/blood/gibs/robot,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
 	},
-/obj/floor_decal/messygrass,
-/obj/floor_decal/messygrass{
-	dir = 5
-	},
-/obj/submap_landmark/spawnpoint/looney,
-/turf/simulated/floor/exoplanet/fd/drought,
 /area/fort_manticore/jungle)
 "VS" = (
 /obj/floor_decal/hull/corner,
@@ -16770,6 +16643,12 @@
 /obj/structure/flora/ausbushes/reedbush,
 /obj/fd_water/alt_ver1,
 /turf/simulated/floor/exoplanet/fd/drought,
+/area/fort_manticore/jungle)
+"Wc" = (
+/obj/decal/cleanable/blood/gibs/robot,
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#5F773B"
+	},
 /area/fort_manticore/jungle)
 "Wd" = (
 /obj/structure/flora/ausbushes/grassybush,
@@ -17044,17 +16923,9 @@
 /turf/simulated/wall/r_titanium,
 /area/fort_manticore/rooms/warehouse)
 "WT" = (
-/obj/floor_decal/messygrass{
-	dir = 4
-	},
-/obj/floor_decal/messygrass{
-	dir = 1
-	},
-/obj/floor_decal/messygrass{
-	dir = 10
-	},
-/obj/effect/cutscene_camera/opening_cameras,
-/turf/simulated/floor/exoplanet/fd/drought,
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/decal/cleanable/blood/gibs/robot,
+/turf/simulated/floor/exoplanet/fd/grass,
 /area/fort_manticore/jungle)
 "WU" = (
 /obj/structure/catwalk,
@@ -17118,7 +16989,8 @@
 	},
 /obj/item/storage/mirror{
 	pixel_x = -17;
-	pixel_y = 30
+	pixel_y = 30;
+	icon_state = "mirror_broke"
 	},
 /obj/machinery/cell_charger{
 	pixel_x = -1;
@@ -17128,10 +17000,6 @@
 /obj/item/cell/hyper{
 	pixel_x = 6;
 	pixel_y = -5
-	},
-/obj/item/clothing/glasses/welding/superior{
-	pixel_x = 6;
-	pixel_y = 8
 	},
 /obj/item/cell/super/empty{
 	pixel_x = 6;
@@ -17199,9 +17067,6 @@
 	pixel_x = 24
 	},
 /obj/structure/catwalk,
-/obj/item/weldingtool,
-/obj/item/welder_tank,
-/obj/item/welder_tank,
 /obj/item/device/multitool,
 /obj/item/wirecutters{
 	pixel_y = 11
@@ -17569,11 +17434,12 @@
 	},
 /area/fort_manticore/jungle)
 "Yo" = (
-/obj/structure/railing/mapped{
-	dir = 4;
-	icon_state = "railing0-1"
+/obj/decal/cleanable/dirt{
+	pixel_y = 0
 	},
-/turf/simulated/open,
+/turf/simulated/floor/exoplanet/fd/muddirt{
+	color = "#5E5643"
+	},
 /area/fort_manticore/jungle)
 "Yp" = (
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -17917,10 +17783,6 @@
 /obj/structure/sign/poster/nyc/blood_donation{
 	pixel_x = 13;
 	pixel_y = 30
-	},
-/obj/item/fd/simple_combat/full_heal{
-	pixel_x = 26;
-	pixel_y = -15
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/bomber/main_deck/cargo)
@@ -18452,18 +18314,18 @@ sL
 (2,1,1) = {"
 sL
 EU
-EU
-EU
-EU
-EU
+Wc
+zg
+QE
+QE
+zg
+wA
+wA
+yX
+gM
 NB
-cl
-cl
-cl
 NB
-NB
-NB
-NB
+gM
 NB
 CJ
 nQ
@@ -18654,17 +18516,17 @@ sL
 (3,1,1) = {"
 sL
 EU
-tO
-EU
-EU
-EU
-NB
-EU
-EU
-EU
-NB
-NB
-NB
+Ps
+pu
+IM
+sm
+Yo
+zg
+zg
+IC
+Fl
+gM
+Hz
 CJ
 CJ
 CJ
@@ -18855,14 +18717,14 @@ sL
 "}
 (4,1,1) = {"
 sL
-KV
+zg
 Pp
-cd
-cd
+Oc
+Ov
 Sn
-EU
-EU
-EU
+Ov
+pU
+Vc
 EU
 EU
 NB
@@ -19057,17 +18919,17 @@ sL
 "}
 (5,1,1) = {"
 sL
-CY
+Vc
 pO
-oh
-xF
-Ov
-EU
-po
-EU
-EU
+QE
+KV
+PC
+Yo
+Yo
+zg
+zg
 Se
-NB
+VR
 CJ
 CJ
 sS
@@ -19259,18 +19121,18 @@ sL
 "}
 (6,1,1) = {"
 sL
-CY
-uW
+qq
+Vc
 pJ
 aj
 Ov
-EU
-EU
-EU
-NB
-NB
-NB
-CJ
+pU
+hW
+vM
+zg
+zg
+gM
+SC
 CJ
 CS
 rX
@@ -19461,14 +19323,14 @@ sL
 "}
 (7,1,1) = {"
 sL
-CY
-Qc
-Ps
-Qc
-Ov
-EU
-NB
-NB
+zg
+qq
+Vc
+GU
+Yo
+jp
+tC
+pu
 NB
 HZ
 HZ
@@ -19663,14 +19525,14 @@ sL
 "}
 (8,1,1) = {"
 sL
-PC
-PG
-PG
-PG
-sm
 NB
-NB
-HZ
+VR
+PG
+RG
+Vc
+PG
+zg
+dk
 HZ
 HZ
 NB
@@ -19865,13 +19727,13 @@ sL
 "}
 (9,1,1) = {"
 sL
-NB
-NB
-NB
-HZ
-CJ
-NB
-af
+VR
+qq
+zg
+Vc
+zg
+zg
+zg
 CJ
 NB
 NB
@@ -20068,12 +19930,12 @@ sL
 (10,1,1) = {"
 sL
 NB
-CJ
-CJ
-HZ
-CJ
-HZ
-CJ
+SC
+RE
+zg
+qq
+RE
+jW
 QK
 NB
 EU
@@ -20273,10 +20135,10 @@ CJ
 HZ
 CJ
 HZ
-HZ
-CJ
-CJ
-nQ
+WT
+RE
+SC
+Og
 NB
 EU
 EU
@@ -20474,10 +20336,10 @@ sL
 NB
 NB
 NB
-NB
-NB
-CJ
-NB
+gM
+gM
+Jy
+gM
 nQ
 nQ
 vy
@@ -34502,11 +34364,11 @@ ge
 CJ
 Th
 ZS
-CJ
+rG
 HZ
 HZ
 HZ
-CJ
+rG
 CJ
 YR
 wh
@@ -34903,8 +34765,8 @@ HZ
 HZ
 HZ
 CJ
-rc
-CJ
+fQ
+rG
 PS
 CJ
 CJ
@@ -35109,7 +34971,7 @@ NB
 NB
 fn
 NB
-NB
+VR
 NB
 NB
 NB
@@ -35311,7 +35173,7 @@ ui
 Sb
 QD
 NB
-ui
+oZ
 ui
 ui
 EU
@@ -36521,7 +36383,7 @@ gf
 YM
 LZ
 gf
-do
+lp
 uk
 uk
 uk
@@ -37154,13 +37016,13 @@ NB
 HZ
 HZ
 CJ
-CJ
+rG
 pX
 CJ
 CJ
 CJ
 HZ
-CJ
+rG
 CJ
 NB
 NB
@@ -37356,7 +37218,7 @@ NB
 HZ
 NB
 CJ
-CJ
+rG
 CJ
 CJ
 CJ
@@ -38369,7 +38231,7 @@ XQ
 EK
 iR
 iz
-NB
+VR
 CJ
 HZ
 CJ
@@ -38569,7 +38431,7 @@ aU
 dZ
 XQ
 bE
-Pg
+dN
 wK
 ew
 cn
@@ -42411,7 +42273,7 @@ UT
 Gb
 ad
 QY
-RE
+QY
 Gr
 ip
 za
@@ -43211,7 +43073,7 @@ CJ
 CJ
 YD
 xu
-fR
+Ub
 CJ
 NB
 NB
@@ -43409,17 +43271,17 @@ NB
 Gl
 tm
 HZ
-CJ
-CJ
+rG
+rG
 xa
 Az
-Mt
+jr
 CJ
 NB
 NB
 NB
 EU
-NB
+VR
 NB
 NB
 NB
@@ -43611,19 +43473,19 @@ NB
 Gl
 NB
 HZ
-NB
-CJ
+VR
+rG
 xa
 Zl
 fR
 CJ
 CJ
 CJ
-NB
+gM
 NB
 CJ
 HZ
-HZ
+WT
 NB
 NB
 NB
@@ -43821,12 +43683,12 @@ Mt
 CJ
 CJ
 CJ
-CJ
+Jy
 CJ
 CJ
 QK
 CJ
-NB
+gM
 NB
 HZ
 HZ
@@ -44020,15 +43882,15 @@ CJ
 YD
 Pq
 Mt
-CJ
-NB
-NB
-NB
-CJ
-CJ
-CJ
-CJ
-CJ
+rG
+VR
+Fl
+gM
+rG
+SC
+Jy
+Jy
+Jy
 QK
 CJ
 CJ
@@ -44226,11 +44088,11 @@ CJ
 CJ
 CJ
 NB
-NB
-CJ
-CJ
-CJ
-QK
+VR
+rG
+Jy
+Jy
+an
 QK
 QK
 CJ
@@ -44425,14 +44287,14 @@ VG
 Pq
 fR
 CJ
-CJ
+rG
 CJ
 QK
 NB
-NB
-CJ
-QK
-QK
+Fl
+Jy
+an
+an
 QK
 QK
 NB
@@ -44631,11 +44493,11 @@ CJ
 CJ
 CJ
 CJ
-rc
-CJ
-QK
-QK
-QK
+Rs
+Jy
+an
+oo
+oo
 CJ
 NB
 EU
@@ -44836,10 +44698,10 @@ CJ
 CJ
 QK
 QK
-QK
-CJ
-NB
-NB
+Eg
+rG
+gM
+VR
 EU
 NB
 CJ
@@ -45034,7 +44896,7 @@ fR
 CJ
 NB
 NB
-CJ
+rG
 CJ
 CJ
 CJ
@@ -45239,8 +45101,8 @@ CJ
 CJ
 NB
 NB
-NB
-NB
+VR
+VR
 NB
 EU
 po
@@ -45437,13 +45299,13 @@ yW
 Mt
 CJ
 CJ
-CJ
+rG
 CJ
 NB
 NB
 EU
 EU
-NB
+gM
 EU
 NB
 EU
@@ -45639,13 +45501,13 @@ UL
 fR
 NB
 CJ
-CJ
+rG
 CJ
 EU
 tO
 EU
 EU
-NB
+gM
 NB
 EU
 EU
@@ -45839,8 +45701,8 @@ Xj
 VG
 gN
 Rb
-NB
-CJ
+VR
+rG
 CJ
 CJ
 NB
@@ -46047,8 +45909,8 @@ QK
 CJ
 NB
 NB
-CJ
-NB
+rG
+dp
 NB
 HZ
 NB
@@ -46244,10 +46106,10 @@ EU
 EU
 NB
 NB
+rG
 CJ
 CJ
-CJ
-QK
+an
 QK
 CJ
 HZ
@@ -46446,9 +46308,9 @@ NB
 NB
 NB
 CJ
-HZ
+sJ
 NB
-CJ
+rG
 CJ
 QK
 QK
@@ -46652,8 +46514,8 @@ HZ
 NB
 CJ
 NB
-NB
-NB
+VR
+VR
 NB
 NB
 CJ
@@ -50949,12 +50811,12 @@ CJ
 nQ
 nQ
 CJ
-Jy
-IC
-jr
-jr
-jr
-pu
+Sq
+ib
+CJ
+CJ
+CJ
+QK
 QK
 QK
 CJ
@@ -51151,12 +51013,12 @@ CJ
 QK
 QK
 NB
-jr
+CJ
 YR
 wh
-an
 CJ
-jr
+CJ
+CJ
 CJ
 QK
 NB
@@ -51353,12 +51215,12 @@ QK
 QK
 QK
 NB
-Hz
+NB
 CJ
 CJ
 Sq
-VR
-jr
+ib
+CJ
 HZ
 CJ
 NB
@@ -51555,12 +51417,12 @@ QK
 QK
 QK
 CJ
-Hz
-SC
+NB
+NB
 CJ
 CJ
-WT
-rG
+YR
+wh
 CJ
 CJ
 CJ
@@ -51757,12 +51619,12 @@ QK
 QK
 CJ
 NB
-Hz
 NB
-qq
+NB
+NB
 NB
 CJ
-jr
+CJ
 CJ
 eX
 eX
@@ -51959,12 +51821,12 @@ QK
 CJ
 CJ
 NB
-dk
 EU
 EU
-Rs
-Fl
-Hz
+EU
+NB
+CJ
+NB
 NB
 CJ
 CJ
@@ -52161,12 +52023,12 @@ QK
 CJ
 CJ
 NB
-RG
+jI
 po
-oZ
+EU
 NB
 CJ
-Hz
+NB
 NB
 CJ
 CJ
@@ -52363,12 +52225,12 @@ CJ
 CJ
 CJ
 Bw
-RG
-RG
-dk
-Hz
-jr
-tC
+jI
+jI
+EU
+NB
+CJ
+AR
 NB
 NB
 CJ
@@ -59257,7 +59119,7 @@ sL
 (4,1,2) = {"
 sL
 kk
-Yo
+kk
 kk
 kk
 kk
@@ -59458,10 +59320,10 @@ sL
 "}
 (5,1,2) = {"
 sL
-Oc
-dp
 kk
-Yo
+kk
+kk
+kk
 kk
 kk
 kk
@@ -59660,11 +59522,11 @@ sL
 "}
 (6,1,2) = {"
 sL
-gM
-dp
-Ub
-vM
-hW
+kk
+kk
+kk
+kk
+kk
 kk
 kk
 kk
@@ -59862,11 +59724,11 @@ sL
 "}
 (7,1,2) = {"
 sL
-Oc
-dp
-dp
-dp
-hW
+kk
+kk
+kk
+kk
+kk
 kk
 kk
 kk
@@ -60065,9 +59927,9 @@ sL
 (8,1,2) = {"
 sL
 kk
-Og
-Og
-Og
+kk
+kk
+kk
 kk
 kk
 kk

@@ -2,91 +2,11 @@
 	category = CATEGORY_FD_MECH
 
 /datum/keybinding/living/fd/mech/can_use(client/user)
-	. = ..()
-
 	var/mob/living/L = user.mob
 	if(!istype(L,/mob/living/simple_animal/simple_mecha))
 		return FALSE
 
-/datum/keybinding/living/fd/mech/boost_up
-	hotkey_keys = list("North")
-	name = "boost_up"
-	full_name = "MECH: Quick Boost (UP)"
-	description = ""
-
-/datum/keybinding/living/fd/mech/boost_up/can_use(client/user)
 	. = ..()
-
-	var/mob/living/simple_animal/simple_mecha/mecha = user.mob
-	if(!mecha.engine || !mecha.engine.engine_burning)
-		return FALSE
-	if(!mecha.engine.can_quick_boost)
-		return FALSE
-
-/datum/keybinding/living/fd/mech/boost_up/down(client/user)
-	var/mob/living/simple_animal/simple_mecha/L = user.mob
-	L.engine.fuel_current = clamp(L.engine.fuel_current - 5, 0, L.engine.fuel_max)
-	L.throw_at(get_edge_target_turf(L, NORTH), 10, 2, L, 0)
-
-/datum/keybinding/living/fd/mech/boost_down
-	hotkey_keys = list("South")
-	name = "boost_down"
-	full_name = "MECH: Quick Boost (DOWN)"
-	description = ""
-
-/datum/keybinding/living/fd/mech/boost_down/can_use(client/user)
-	. = ..()
-
-	var/mob/living/simple_animal/simple_mecha/mecha = user.mob
-	if(!mecha.engine || !mecha.engine.engine_burning)
-		return FALSE
-	if(!mecha.engine.can_quick_boost)
-		return FALSE
-
-/datum/keybinding/living/fd/mech/boost_down/down(client/user)
-	var/mob/living/simple_animal/simple_mecha/L = user.mob
-	L.engine.fuel_current = clamp(L.engine.fuel_current - 5, 0, L.engine.fuel_max)
-	L.throw_at(get_edge_target_turf(L, SOUTH), 10, 2, L, 0)
-
-/datum/keybinding/living/fd/mech/boost_left
-	hotkey_keys = list("West")
-	name = "boost_left"
-	full_name = "MECH: Quick Boost (LEFT)"
-	description = ""
-
-/datum/keybinding/living/fd/mech/boost_left/can_use(client/user)
-	. = ..()
-
-	var/mob/living/simple_animal/simple_mecha/mecha = user.mob
-	if(!mecha.engine || !mecha.engine.engine_burning)
-		return FALSE
-	if(!mecha.engine.can_quick_boost)
-		return FALSE
-
-/datum/keybinding/living/fd/mech/boost_left/down(client/user)
-	var/mob/living/simple_animal/simple_mecha/L = user.mob
-	L.engine.fuel_current = clamp(L.engine.fuel_current - 5, 0, L.engine.fuel_max)
-	L.throw_at(get_edge_target_turf(L, WEST), 10, 2, L, 0)
-
-/datum/keybinding/living/fd/mech/boost_right
-	hotkey_keys = list("East")
-	name = "boost_right"
-	full_name = "MECH: Quick Boost (RIGHT)"
-	description = ""
-
-/datum/keybinding/living/fd/mech/boost_right/can_use(client/user)
-	. = ..()
-
-	var/mob/living/simple_animal/simple_mecha/mecha = user.mob
-	if(!mecha.engine || !mecha.engine.engine_burning)
-		return FALSE
-	if(!mecha.engine.can_quick_boost)
-		return FALSE
-
-/datum/keybinding/living/fd/mech/boost_right/down(client/user)
-	var/mob/living/simple_animal/simple_mecha/L = user.mob
-	L.engine.fuel_current = clamp(L.engine.fuel_current - 5, 0, L.engine.fuel_max)
-	L.throw_at(get_edge_target_turf(L, EAST), 10, 2, L, 0)
 
 /datum/keybinding/living/fd/mech/primary_show
 	hotkey_keys = list("E")
@@ -164,7 +84,9 @@
 	description = ""
 
 /datum/keybinding/living/fd/mech/fixeye/down(client/user)
-	user.mob.set_face_dir()
+	var/mob/living/simple_animal/simple_mecha/M = user.mob
+
+	M.fixed_eye = !M.fixed_eye
 
 /obj/screen/primary_weapon_slot
 	name = "slot"
@@ -189,12 +111,13 @@
 		CutOverlays(active_overlay)
 
 	if(!host.actual_weapon_slot)
-		host.icon_state = initial(host.icon_state)
+		host.icon_state = initial(host.base_icon)
 		CutOverlays(item_overlay)
 		return TRUE
 
 	if(host.actual_weapon_slot)
-		host.icon_state = host.actual_weapon_slot.mecha_sprite_change
+		if(host.actual_weapon_slot.mecha_sprite_change)
+			host.icon_state = "[host.base_icon][host.actual_weapon_slot.mecha_sprite_change]"
 
 		CutOverlays(item_overlay)
 		CutOverlays(active_overlay)
@@ -557,9 +480,29 @@
 			update_status()
 			return TRUE
 
+/client
+	var/last_mouse_params
+
+/client/MouseMove(object, location, control, params)
+	. = ..()
+
+	if(istype(mob,/mob/living/simple_animal/simple_mecha))
+		var/mob/living/simple_animal/simple_mecha/M = mob
+
+		if(last_mouse_params != params && !M.fixed_eye)
+			sleep(5)
+
+			if(M.facing_dir)
+				M.set_face_dir()
+
+			if(!istype(object,/obj/screen))
+				M.set_face_dir(Get_Compass_Dir(M,object))
+
+				last_mouse_params = params
+
 /obj/temp_visual/burning_effect
 	name = "trail"
-	icon_state = "buff-air-obj"
+	icon_state = "buff-air-obj2"
 	icon = 'mods/_fd/fd_assets/icons/goons/chaplainRitual.dmi'
 
 	color = COLOR_ORANGE
@@ -595,7 +538,7 @@
 /obj/item/fd/mech/engine
 	name = "mech engine"
 	icon = 'mods/_fd/fd_assets/icons/goons/crafting.dmi'
-	icon_state = "plater1"
+	icon_state = "loom-on"
 
 	var/power = 2
 	var/can_quick_boost = FALSE
@@ -644,11 +587,26 @@
 	can_quick_boost = TRUE
 	burning_effect = /obj/temp_visual/burning_effect/coral
 
+	icon = 'mods/_fd/fd_assets/icons/goons/crafting.dmi'
+	icon_state = "plater1"
+
 /mob/living/simple_animal/simple_mecha/echo
 	name = "IB-ECHO"
 	desc = "Old war-period machine, used to vaporize bugs and now repurposed to press robots."
 
+	icon_state = "mechpatched"
+	icon_living = "mechpatched"
+	icon_dead = "mechbase_damaged"
+
+	base_icon = "mechpatched"
 	faction = "TRK-17"
+
+/mob/living/simple_animal/simple_mecha/echo/combat_ready
+	icon_state = "mechbase"
+	icon_living = "mechbase"
+	icon_dead = "mechbase_damaged"
+
+	base_icon = "mechbase"
 
 /mob/living/simple_animal/simple_mecha/echo/combat_ready/Initialize()
 	. = ..()
@@ -793,6 +751,8 @@
 	icon_living = "mechbase"
 	icon_dead = "mechbase_damaged"
 
+	var/base_icon = "mechbase"
+
 	name = "mech"
 	desc = "SCAAARY-"
 
@@ -826,6 +786,8 @@
 	movement_cooldown = 4
 	see_in_dark = 8
 	pixel_x = -16
+
+	var/fixed_eye = FALSE
 
 /mob/living/simple_animal/simple_mecha/death(gibbed, deathmessage, show_dead_message)
 	if(pilot)
@@ -1081,7 +1043,7 @@
 
 /obj/item
 	var/mecha_can_hold = FALSE
-	var/mecha_sprite_change = "mechbase"
+	var/mecha_sprite_change = null
 	var/aux_usable = FALSE
 	var/aux_instant = FALSE
 
@@ -1154,7 +1116,7 @@
 	on_cooldown = FALSE
 
 /obj/item/gun
-	mecha_sprite_change = "mechgun"
+	mecha_sprite_change = "_gun"
 
 /obj/item/gun/projectile/automatic/mecha/chang
 	name = "DF-MG-02 CHANG-CHEN"
@@ -1205,7 +1167,7 @@
 			the effects of which build up to induce a forced electrical discharge in the afflicted craft."
 	icon = 'mods/_fd/fd_events/icons/mech_equipment.dmi'
 	icon_state = "mecha_souljavelin"
-	mecha_sprite_change = "mechbase"
+	mecha_sprite_change = null
 	w_class = ITEM_SIZE_NO_CONTAINER
 	force = 15
 	screen_shake=0
@@ -1237,7 +1199,7 @@
 	desc = "LITERAL CLAWS."
 	icon = 'mods/_fd/fd_events/icons/mech_equipment.dmi'
 	icon_state = "mecha_bulb-on"
-	mecha_sprite_change = "mechbase"
+	mecha_sprite_change = null
 
 	simple_damage = 30
 	simple_armor_penetration = 10
@@ -1254,7 +1216,7 @@
 			Charge to prime the firing hammer, enabling attacks that are enhanced by explosive damage."
 	icon = 'mods/_fd/fd_events/icons/mech.dmi'
 	icon_state = "pilebunker"
-	mecha_sprite_change = "mechmelee"
+	mecha_sprite_change = "_pile"
 
 	simple_damage = 60
 	simple_armor_penetration = 20
