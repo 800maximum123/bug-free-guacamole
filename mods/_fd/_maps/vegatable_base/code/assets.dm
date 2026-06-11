@@ -564,9 +564,6 @@
 
 /////////////////////////////////////////
 
-/mob/living
-	var/robotic = FALSE
-
 /mob/living/simple_animal/hostile/terra
 	sa_accuracy = 100
 

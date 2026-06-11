@@ -1974,3 +1974,13 @@
 
 	player.simple_combat_on = !player.simple_combat_on
 	log_and_message_admins("[player.simple_combat_on? "включил" : "выключил"] симплкомбат для [player]")
+
+// [I hate you, Void. - Maximum123]
+/mob/living
+	var/robotic = FALSE
+
+
+/obj/item/gun
+	var/sprite_direction = "east"
+
+// [/I hate you, Void. - Maximum123]
