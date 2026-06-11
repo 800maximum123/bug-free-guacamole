@@ -1,5 +1,6 @@
 /mob/living
 	var/mob_fishing = FALSE
+	var/atom/fishing_in
 
 /atom
 	var/allow_fishing = FALSE
@@ -34,15 +35,6 @@
 
 	..()
 
-/*/atom/use_tool(obj/item/tool, mob/living/user, list/click_params)
-	. = ..()
-	if(can_fish(user, tool))
-		if(currently_fishing)
-			stop_fishing(click_params)
-			return TRUE
-		else
-			do_fishing(tool, user, click_params)*/
-
 /atom/proc/stop_fishing()
 	CutOverlays(fishing_overlay)
 	currently_fishing = FALSE
@@ -60,7 +52,8 @@
 	prefish_icon = null
 
 	fisherman.anchored = FALSE
-	fisherman.mob_fishing = TRUE
+	fisherman.mob_fishing = FALSE
+	fisherman.fishing_in = null
 	fisherman = null
 
 	fisherman_tool = null
@@ -76,7 +69,8 @@
 	currently_fishing = TRUE
 
 	user.anchored = TRUE
-	user.currently_fishing = TRUE
+	user.mob_fishing = TRUE
+	user.fishing_in = src
 	fisherman = user
 
 	fisherman_tool = tool
@@ -90,11 +84,11 @@
 	if(!tool.can_fish)
 		return FALSE
 
-	if(user.mob_fishing)
-		return FALSE
-
 	if(currently_fishing && user != fisherman)
 		to_chat(user, SPAN_WARNING("Тут уже кто-то рыбачит."))
+		return FALSE
+
+	if(user.mob_fishing && user.fishing_in != src)
 		return FALSE
 
 	if(tool.fishing_range < get_dist(user, src))
@@ -129,27 +123,16 @@
 	prefish_icon.icon = prefish.icon
 	prefish_icon.icon_state = prefish.icon_state
 	prefish_icon.dir = WEST
-
 	prefish_icon.connected_pool = src
 
-	animate(prefish_icon, transform = matrix(0, MATRIX_SCALE), time = 0, SINE_EASING|EASE_IN)
-
-	var/ui_position = rand(1,4)
-	switch(ui_position)
-		if(1)
-			prefish_icon.screen_loc = "CENTER+3,CENTER+1"
-		if(2)
-			prefish_icon.screen_loc = "CENTER,CENTER-3"
-		if(3)
-			prefish_icon.screen_loc = "CENTER+3,CENTER+3"
-		if(4)
-			prefish_icon.screen_loc = "CENTER-3,CENTER-1"
-
 	user.client.screen += prefish_icon
-	animate(prefish_icon, transform = matrix(3, MATRIX_SCALE), time = 5, BOUNCE_EASING|EASE_IN)
 
 	addtimer(new Callback(src, PROC_REF(fail_qte), user, fisherman_tool), fisherman_tool.fishing_timing)
 	playsound(get_turf(src), 'packs/infinity/sound/effects/Splash_Small_01_mono.ogg', 100, TRUE)
+
+	animate(prefish_icon, tool.fishing_timing/2, easing = SINE_EASING|EASE_OUT, transform = matrix().Update(scale_x = 2.5, scale_y = 2.5, rotation = 30))
+	sleep(tool.fishing_timing/2)
+	animate(prefish_icon, tool.fishing_timing/2, easing = SINE_EASING|EASE_IN, transform = matrix())
 
 /atom/proc/fail_qte(mob/living/carbon/user, obj/item/tool)
 	if(prefish)
@@ -189,36 +172,8 @@
 	prefish_icon = null
 	addtimer(new Callback(src, PROC_REF(fishing_qte), user, fisherman_tool), rand(fisherman_tool.min_fishing_duration, fisherman_tool.max_fishing_duration))
 
-/client/
+/client
 	var/obj/screen/fish/connected_fish
-
-/client/MouseMove(object, location, control, params)
-	. = ..()
-
-	if(connected_fish)
-		handle_fishloc(params)
-
-		if(location == get_turf(mob))
-			connected_fish.connected_pool.catch_fish(mob, connected_fish.connected_pool.fisherman_tool)
-
-/client/proc/handle_fishloc(params)
-	var/list/coords = screen_loc2pixels(params, view)
-
-	var/anim_time = abs(pixel_x - coords[1]) + abs(pixel_y - coords[2]) / 48
-	animate(connected_fish, anim_time, transform = matrix(coords[1], coords[2], MATRIX_TRANSLATE), easing = LINEAR_EASING, flags = ANIMATION_PARALLEL|ANIMATION_LINEAR_TRANSFORM)
-
-/proc/screen_loc2pixels(params, view_range = 7)
-	RETURN_TYPE(/list)
-
-	var/list/screen_loc = splittext(params2list(params)["screen-loc"], ",")
-	screen_loc = splittext(screen_loc[1], ":") + splittext(screen_loc[2], ":")
-
-	var/list/view_size = getviewsize(view_range)
-
-	var/screen_pixel_x = text2num(screen_loc[1]) * WORLD_ICON_SIZE + text2num(screen_loc[2]) - view_size[1] * 16 - WORLD_ICON_SIZE
-	var/screen_pixel_y = text2num(screen_loc[3]) * WORLD_ICON_SIZE + text2num(screen_loc[4]) - view_size[2] * 16 - WORLD_ICON_SIZE
-
-	return list(screen_pixel_x, screen_pixel_y)
 
 /obj/screen/fish
 	name = "РЫБА"
@@ -227,17 +182,19 @@
 	plane = HUD_PLANE
 	layer = 5.3
 
-	screen_loc = "CENTER-0.2,CENTER"
+	mouse_opacity = 2
+	screen_loc = "TOP-1, CENTER"
+
 	var/atom/connected_pool
 
 /obj/screen/fish/Initialize()
 	. = ..()
-	SetTransform(2)
+	add_filter("lefish", 1, list("type" = "outline", "size" = 1, "color" = COLOR_GREEN))
 
 /obj/screen/fish/Click(location, control, params)
 	. = ..()
-
-	usr.client.connected_fish = src
+	animate(src, transform = matrix(0, -96, MATRIX_TRANSLATE), alpha = 0, time = 5, easing = SINE_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
+	connected_pool.catch_fish(usr, connected_pool.fisherman_tool)
 
 // FISH TYPES
 

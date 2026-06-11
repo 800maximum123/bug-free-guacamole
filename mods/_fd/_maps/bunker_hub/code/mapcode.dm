@@ -535,37 +535,26 @@
 	descriptor = "Abandoned Bunker."
 	map = "TRK-17 Torch Bunker"
 	crew_jobs = list(
-		/datum/job/submap/bunker/amelia, // Ранена. Бункер. Метка поставлена
-		/datum/job/submap/bunker/perci, // Здоров. Бункер. Экипирован. Метка поставлена
-		/datum/job/submap/bunker/maxim, // Здоров. Бункер. Метка поставлена
-		/datum/job/submap/bunker/olivia, // Здорова. Бункер. Метка поставлена
-		/datum/job/submap/bunker/wilhelm, // Здоров. Бункер. Метка поставлена
-		/datum/job/submap/bunker/wind, // Здоров. Бункер. Метка поставлена
-		/datum/job/submap/bunker/joseph, // Здоров. Бункер. Метка поставлена
-		/datum/job/submap/bunker/meat, // Здоров. Бункер. Метка поставлена
-		/datum/job/submap/bunker/lira, // Здорова. Бункер. Метка поставлена
-		/datum/job/submap/bunker/alma, // Ранена. Бункер. Экипирована. Метка поставлена
+		/datum/job/submap/bunker/amelia,
+		/datum/job/submap/bunker/perci,
+		/datum/job/submap/bunker/maxim,
+		/datum/job/submap/bunker/olivia,
+		/datum/job/submap/bunker/wilhelm,
+		/datum/job/submap/bunker/wind,
+		/datum/job/submap/bunker/joseph,
+		/datum/job/submap/bunker/meat,
+		/datum/job/submap/bunker/lira,
+		/datum/job/submap/bunker/alma,
+		/datum/job/submap/bunker/anna,
+		/datum/job/submap/bunker/rin,
+		/datum/job/submap/bunker/tau,
+		/datum/job/submap/bunker/tongtong,
+		/datum/job/submap/bunker/duke,
+		/datum/job/submap/bunker/bobby,
+		/datum/job/submap/bunker/jeanne,
+		/datum/job/submap/bunker/ivy,
+		/datum/job/submap/bunker/silas,
 
-		///VEGETABLES///
-		/datum/job/submap/bunker/anna, // Здорова. Бункер. Метка поставлена
-		/datum/job/submap/bunker/rin, // Здорова. Бункер. Метка поставлена
-		/datum/job/submap/bunker/tau, // Здорова. Бункер. Метка поставлена
-		/datum/job/submap/bunker/tongtong, // Здорова. Бункер. Метка поставлена
-		/datum/job/submap/bunker/duke, // Здоров. Бункер. Метка поставлена
-		/datum/job/submap/bunker/bobby, // Здоров. Бункер. Метка поставлена
-		/datum/job/submap/bunker/jeanne, // Здорова. Бункер. Метка поставлена
-		/datum/job/submap/bunker/ivy, // Здорова. Бункер. Метка поставлена
-		/datum/job/submap/bunker/dan, // Ранен. Бункер. Экипирован. Метка поставлена
-		/datum/job/submap/bunker/silas, // Здоров. Бункер. Экипирован. Метка поставлена
-
-		///MANTICORE GUESTS///
-		/datum/job/submap/fort_manticore/roku, // Здорова. Бункер. Метка поставлена
-		/datum/job/submap/fort_manticore/rifler, // Здорова. Бункер. Экипирована. Метка поставлена
-		/datum/job/submap/fort_manticore/ace, // Здоров. Бункер. Метка поставлена
-		/datum/job/submap/fort_manticore/krieger, // Ранен. Бункер. Метка поставлена
-		/datum/job/submap/fort_manticore/rk381, // ???
-		/datum/job/submap/fort_manticore/luke, // Ранен. Бункер. Метка поставлена
-		/datum/job/submap/fort_manticore/adriano, // Здоров. Бункер. Экипирован. Метка поставлена
 	)
 
 /obj/submap_landmark/joinable_submap/bunker
@@ -794,8 +783,6 @@
 
 /singleton/hierarchy/outfit/bunker/silas
 	name = "Silas Kane"
-
-	suit = /obj/item/clothing/suit/storage/manticore_combat
 	r_hand = /obj/item/device/synthesized_instrument/guitar/multi
 
 	id_types = list(/obj/item/card/id/campaign)
@@ -845,15 +832,13 @@
 	belt = /obj/item/storage/belt/utility/full
 	gloves = /obj/item/clothing/gloves/insulated
 
-	r_hand = /obj/item/gun/energy/ionrifle/anti_terra
-
 	head = /obj/item/clothing/head/welding
 	back = /obj/item/storage/backpack/weldpack
 
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 
-/obj/submap_landmark/spawnpoint/maxim
+/obj/submap_landmark/spawnpoint/bunker/maxim
 	name = "Maxim Kuznetsov"
 
 /datum/job/submap/bunker/meat
@@ -876,7 +861,7 @@
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 
-/obj/submap_landmark/spawnpoint/meat
+/obj/submap_landmark/spawnpoint/bunker/meat
 	name = "Mr Meat"
 
 /datum/job/submap/bunker/wind
@@ -900,7 +885,7 @@
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 
-/obj/submap_landmark/spawnpoint/wind
+/obj/submap_landmark/spawnpoint/bunker/wind
 	name = "Wind in the Void"
 
 /datum/job/submap/bunker/olivia
@@ -920,7 +905,7 @@
 	id_slot = slot_wear_id
 	glasses = /obj/item/clothing/glasses/hud/science/lobster
 
-/obj/submap_landmark/spawnpoint/olivia
+/obj/submap_landmark/spawnpoint/bunker/olivia
 	name = "Olivia Kellong"
 
 /datum/job/submap/bunker/swift
@@ -982,11 +967,6 @@
 	total_positions = 1
 	outfit_type = /singleton/hierarchy/outfit/bunker/amelia
 
-/datum/job/submap/bunker/amelia/post_equip_rank(mob/living/person, alt_title)
-	. = ..()
-
-	person.add_status_effect(/datum/simple_status/aftercrit, 5 HOURS)
-
 /singleton/hierarchy/outfit/bunker/amelia
 	name = "Amelia Brown"
 
@@ -999,7 +979,7 @@
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 
-/obj/submap_landmark/spawnpoint/amelia
+/obj/submap_landmark/spawnpoint/bunker/amelia
 	name = "Amelia Brown"
 
 /obj/effect/simple_grenade/basic/smaller
@@ -1087,11 +1067,11 @@
 
 	l_ear = /obj/item/device/radio/headset/syndicate
 
-	backpack_contents = list(/obj/item/ammo_magazine/rifle/bolter/simple = 4)
+	backpack_contents = list(/obj/item/ammo_magazine/rifle/bolter/simple = 1)
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 
-/obj/submap_landmark/spawnpoint/perci
+/obj/submap_landmark/spawnpoint/bunker/perci
 	name = "Percival Endsley"
 
 /datum/job/submap/bunker/wilhelm
@@ -1113,18 +1093,13 @@
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 
-/obj/submap_landmark/spawnpoint/wilhelm
+/obj/submap_landmark/spawnpoint/bunker/wilhelm
 	name = "Wilhelm Canaris"
 
 /datum/job/submap/bunker/alma
 	title = "Alma Cointreau"
 	total_positions = 1
 	outfit_type = /singleton/hierarchy/outfit/bunker/alma
-
-/datum/job/submap/bunker/alma/post_equip_rank(mob/living/person, alt_title)
-	. = ..()
-
-	person.add_status_effect(/datum/simple_status/aftercrit, 5 HOURS)
 
 /singleton/hierarchy/outfit/bunker/alma
 	name = "Alma Cointreau"
@@ -1133,17 +1108,15 @@
 	suit = /obj/item/clothing/suit/armor/pcarrier/medium/security
 	back = /obj/item/storage/backpack/satchel/grey
 
-	suit_store = /obj/item/gun/projectile/automatic/bullpup_rifle
-
 	r_hand = /obj/item/gun/projectile/automatic/bullpup_rifle
 	l_hand = /obj/item/clothing/accessory/storage/black_vest
 
-	backpack_contents = list(/obj/item/ammo_magazine/mil_rifle = 4)
+	backpack_contents = list(/obj/item/ammo_magazine/mil_rifle = 1)
 
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 
-/obj/submap_landmark/spawnpoint/alma
+/obj/submap_landmark/spawnpoint/bunker/alma
 	name = "Alma Cointreau"
 
 /datum/job/submap/bunker/gora
@@ -1228,7 +1201,7 @@
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 
-/obj/submap_landmark/spawnpoint/joseph
+/obj/submap_landmark/spawnpoint/bunker/joseph
 	name = "Joseph Fiddler"
 
 /datum/job/submap/bunker/lira
@@ -1251,7 +1224,7 @@
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 
-/obj/submap_landmark/spawnpoint/lira
+/obj/submap_landmark/spawnpoint/bunker/lira
 	name = "Lira Schatten"
 
 #include "..\map\bunker.dmm"

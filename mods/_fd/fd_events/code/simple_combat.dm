@@ -909,8 +909,11 @@
 /proc/Get_Compass_Dir(atom/start, atom/end)//get_dir() only considers an object to be north/south/east/west if there is zero deviation. This uses rounding instead.
 	return angle_to_dir(Get_Angle(get_turf(start), get_turf(end)))
 
+/obj/item/
+	var/robot_friendly = TRUE
+
 /obj/item/fd/simple_combat
-	var/robot_friendly = FALSE
+	robot_friendly = FALSE
 
 /obj/item/fd/simple_combat/attack_self(mob/living/user)
 
@@ -1216,18 +1219,21 @@
 			animation_flash_color(src, COLOR_RED)
 			return FALSE
 
-/obj/item/fd/simple_combat/splint
+/*/obj/item/fd/simple_combat/splint
 	name = "splint"
 	desc = "Used to fixate your bone, but not fix it."
 
 	icon = 'mods/_fd/fd_events/icons/simple_medicine.dmi'
 	icon_state = "fracturetempfix"
 
-	w_class = ITEM_SIZE_SMALL
+	w_class = ITEM_SIZE_SMALL*/
+
+/obj/item/stack/medical/splint
+	robot_friendly = FALSE
 
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
-	if(istype(tool,/obj/item/fd/simple_combat/splint))
-		var/obj/item/fd/simple_combat/splint/S = tool
+	if(istype(tool,/obj/item/stack/medical/splint) && simple_combat_on)
+		var/obj/item/stack/medical/splint/S = tool
 
 		if(issilicon(src) && !S.robot_friendly)
 			animation_flash_color(S, COLOR_RED)
@@ -1250,23 +1256,24 @@
 
 	. = ..()
 
-/obj/item/fd/simple_combat/splint/attack_self(mob/user)
-	. = ..()
-
+/obj/item/stack/medical/splint/attack_self(mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.get_status_effect(/datum/simple_status/legbroke) && do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
-			animation_flash_color(src, COLOR_GREEN)
-			H.add_status_effect(/datum/simple_status/splinted, 10 MINUTES)
+		if(H.simple_combat_on)
+			if(H.get_status_effect(/datum/simple_status/legbroke) && do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
+				animation_flash_color(src, COLOR_GREEN)
+				H.add_status_effect(/datum/simple_status/splinted, 10 MINUTES)
 
-			sleep(5)
-			qdel(src)
+				sleep(5)
+				qdel(src)
 
-		else
-			animation_flash_color(src, COLOR_RED)
-			return FALSE
+			else
+				animation_flash_color(src, COLOR_RED)
+				return FALSE
 
-/obj/item/fd/simple_combat/bandage
+	. = ..()
+
+/*/obj/item/fd/simple_combat/bandage
 	name = "bandage"
 	desc = "Used to stop bleeding."
 
@@ -1280,23 +1287,34 @@
 	maptext_height = 16
 	maptext_width = 96
 	maptext_x = 4
+	maptext_y = 2*/
+
+/obj/item/stack/medical/bruise_pack
+	robot_friendly = FALSE
+	var/uses = 5
+	var/uses_max = 5
+
+	maptext_height = 16
+	maptext_width = 96
+	maptext_x = 4
 	maptext_y = 2
 
-/obj/item/fd/simple_combat/bandage/MouseEntered(location, control, params)
+/obj/item/stack/medical/bruise_pack/MouseEntered(location, control, params)
 	. = ..()
 
-	if(loc == usr)
+	var/mob/living/L = usr
+	if(loc == L && L.simple_combat_on)
 		maptext = STYLE_SMALLFONTS_OUTLINE("[uses]/[uses_max]", 7, COLOR_WHITE, COLOR_BLACK)
 
-/obj/item/fd/simple_combat/bandage/MouseExited(location, control, params)
+/obj/item/stack/medical/bruise_pack/MouseExited(location, control, params)
 	. = ..()
 
 	if(maptext)
 		maptext = ""
 
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
-	if(istype(tool,/obj/item/fd/simple_combat/bandage))
-		var/obj/item/fd/simple_combat/bandage/B = tool
+	if(istype(tool,/obj/item/stack/medical/bruise_pack) && simple_combat_on)
+		var/obj/item/stack/medical/bruise_pack/B = tool
 
 		if(issilicon(src) && !B.robot_friendly)
 			animation_flash_color(B, COLOR_RED)
@@ -1323,27 +1341,28 @@
 
 	. = ..()
 
-/obj/item/fd/simple_combat/bandage/attack_self(mob/user)
-	. = ..()
-
+/obj/item/stack/medical/bruise_pack/attack_self(mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.get_status_effect(/datum/simple_status/bleed) && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
-			animation_flash_color(src, COLOR_GREEN)
-			H.remove_status_effect(/datum/simple_status/bleed)
+		if(H.simple_combat_on)
+			if(H.get_status_effect(/datum/simple_status/bleed) && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
+				animation_flash_color(src, COLOR_GREEN)
+				H.remove_status_effect(/datum/simple_status/bleed)
 
-			uses -= 1
+				uses -= 1
 
-			sleep(5)
+				sleep(5)
 
-			if(uses <= 0)
-				qdel(src)
+				if(uses <= 0)
+					qdel(src)
 
-		else
-			animation_flash_color(src, COLOR_RED)
-			return FALSE
+			else
+				animation_flash_color(src, COLOR_RED)
+				return FALSE
 
-/obj/item/fd/simple_combat/bonegel
+	. = ..()
+
+/*/obj/item/fd/simple_combat/bonegel
 	name = "bone gel"
 	desc = "Used to restore broken bones."
 
@@ -1354,21 +1373,37 @@
 	var/uses = 4
 	var/uses_max = 4
 
-/obj/item/fd/simple_combat/bonegel/MouseEntered(location, control, params)
+	maptext_height = 16
+	maptext_width = 96
+	maptext_x = 4
+	maptext_y = 2*/
+
+/obj/item/bonegel
+	var/uses = 4
+	var/uses_max = 4
+
+	maptext_height = 16
+	maptext_width = 96
+	maptext_x = 4
+	maptext_y = 2
+	robot_friendly = FALSE
+
+/obj/item/bonegel/MouseEntered(location, control, params)
 	. = ..()
 
-	if(loc == usr)
+	var/mob/living/L = usr
+	if(loc == L && L.simple_combat_on)
 		maptext = STYLE_SMALLFONTS_OUTLINE("[uses]/[uses_max]", 7, COLOR_WHITE, COLOR_BLACK)
 
-/obj/item/fd/simple_combat/bonegel/MouseExited(location, control, params)
+/obj/item/bonegel/MouseExited(location, control, params)
 	. = ..()
 
 	if(maptext)
 		maptext = ""
 
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
-	if(istype(tool,/obj/item/fd/simple_combat/bonegel))
-		var/obj/item/fd/simple_combat/bonegel/B = tool
+	if(istype(tool,/obj/item/bonegel) && simple_combat_on)
+		var/obj/item/bonegel/B = tool
 
 		if(issilicon(src) && !B.robot_friendly)
 			animation_flash_color(B, COLOR_RED)
@@ -1395,38 +1430,42 @@
 
 	. = ..()
 
-/obj/item/fd/simple_combat/bonegel/attack_self(mob/user)
-	. = ..()
-
+/obj/item/bonegel/attack_self(mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.get_status_effect(/datum/simple_status/legbroke) && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
-			animation_flash_color(src, COLOR_GREEN)
-			H.remove_status_effect(/datum/simple_status/legbroke)
+		if(H.simple_combat_on)
+			if(H.get_status_effect(/datum/simple_status/legbroke) && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
+				animation_flash_color(src, COLOR_GREEN)
+				H.remove_status_effect(/datum/simple_status/legbroke)
 
-			uses -= 1
+				uses -= 1
 
-			sleep(5)
+				sleep(5)
 
-			if(uses <= 0)
-				qdel(src)
+				if(uses <= 0)
+					qdel(src)
 
-		else
-			animation_flash_color(src, COLOR_RED)
-			return FALSE
+			else
+				animation_flash_color(src, COLOR_RED)
+				return FALSE
 
-/obj/item/fd/simple_combat/small_heal
+	. = ..()
+
+/*/obj/item/fd/simple_combat/small_heal
 	name = "medical gel"
 	desc = "Used to heal minor body damage."
 
 	icon = 'mods/_fd/fd_events/icons/simple_medicine.dmi'
 	icon_state = "small_heal"
 
-	w_class = ITEM_SIZE_TINY
+	w_class = ITEM_SIZE_TINY*/
+
+/obj/item/stack/medical/ointment
+	robot_friendly = FALSE
 
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
-	if(istype(tool,/obj/item/fd/simple_combat/small_heal))
-		var/obj/item/fd/simple_combat/small_heal/S = tool
+	if(istype(tool,/obj/item/stack/medical/ointment) && simple_combat_on)
+		var/obj/item/stack/medical/ointment/S = tool
 
 		if(issilicon(src) && !S.robot_friendly)
 			animation_flash_color(S, COLOR_RED)
@@ -1454,34 +1493,38 @@
 
 	. = ..()
 
-/obj/item/fd/simple_combat/small_heal/attack_self(mob/user)
-	. = ..()
-
+/obj/item/stack/medical/ointment/attack_self(mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.simple_health < H.max_simple_health)
-			animation_flash_color(src, COLOR_GREEN)
-			H.simple_health_calculation(-20,0,0,0)
+		if(H.simple_combat_on)
+			if(H.simple_health < H.max_simple_health)
+				animation_flash_color(src, COLOR_GREEN)
+				H.simple_health_calculation(-20,0,0,0)
 
-			sleep(5)
-			qdel(src)
+				sleep(5)
+				qdel(src)
 
-		else
-			animation_flash_color(src, COLOR_RED)
-			return FALSE
+			else
+				animation_flash_color(src, COLOR_RED)
+				return FALSE
 
-/obj/item/fd/simple_combat/big_heal
+	. = ..()
+
+/*/obj/item/fd/simple_combat/big_heal
 	name = "medical injector"
 	desc = "Used to heal heavy wounds."
 
 	icon = 'mods/_fd/fd_events/icons/simple_medicine.dmi'
 	icon_state = "big_heal"
 
-	w_class = ITEM_SIZE_TINY
+	w_class = ITEM_SIZE_TINY*/
+
+/obj/item/stack/medical/advanced/bruise_pack
+	robot_friendly = FALSE
 
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
-	if(istype(tool,/obj/item/fd/simple_combat/big_heal))
-		var/obj/item/fd/simple_combat/big_heal/B = tool
+	if(istype(tool,/obj/item/stack/medical/advanced/bruise_pack) && simple_combat_on)
+		var/obj/item/stack/medical/advanced/bruise_pack/B = tool
 
 		if(issilicon(src) && !B.robot_friendly)
 			animation_flash_color(B, COLOR_RED)
@@ -1510,24 +1553,25 @@
 
 	. = ..()
 
-/obj/item/fd/simple_combat/big_heal/attack_self(mob/user)
-	. = ..()
-
+/obj/item/stack/medical/advanced/bruise_pack/attack_self(mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.simple_health < H.max_simple_health && do_after(H, 2 SECONDS, H, DO_PUBLIC_UNIQUE))
-			animation_flash_color(src, COLOR_GREEN)
-			H.remove_status_effect(/datum/simple_status/bleed)
-			H.simple_health_calculation(-60,0,0,0)
+		if(H.simple_combat_on)
+			if(H.simple_health < H.max_simple_health && do_after(H, 2 SECONDS, H, DO_PUBLIC_UNIQUE))
+				animation_flash_color(src, COLOR_GREEN)
+				H.remove_status_effect(/datum/simple_status/bleed)
+				H.simple_health_calculation(-60,0,0,0)
 
-			sleep(5)
-			qdel(src)
+				sleep(5)
+				qdel(src)
 
-		else
-			animation_flash_color(src, COLOR_RED)
-			return FALSE
+			else
+				animation_flash_color(src, COLOR_RED)
+				return FALSE
 
-/obj/item/fd/simple_combat/full_heal
+	. = ..()
+
+/*/obj/item/fd/simple_combat/full_heal
 	name = "medkit"
 	desc = "Used to fully restore your body."
 
@@ -1541,23 +1585,34 @@
 	maptext_height = 16
 	maptext_width = 96
 	maptext_x = 4
-	maptext_y = 2
+	maptext_y = 2*/
 
-/obj/item/fd/simple_combat/full_heal/MouseEntered(location, control, params)
+/obj/item/storage/firstaid/combat
+	var/uses = 3
+	var/uses_max = 3
+
+	maptext_height = 16
+	maptext_width = 96
+	maptext_x = 4
+	maptext_y = 2
+	robot_friendly = FALSE
+
+/obj/item/storage/firstaid/combat/MouseEntered(location, control, params)
 	. = ..()
 
-	if(loc == usr)
+	var/mob/living/L = usr
+	if(loc == L && L.simple_combat_on)
 		maptext = STYLE_SMALLFONTS_OUTLINE("[uses]/[uses_max]", 7, COLOR_WHITE, COLOR_BLACK)
 
-/obj/item/fd/simple_combat/full_heal/MouseExited(location, control, params)
+/obj/item/storage/firstaid/combat/MouseExited(location, control, params)
 	. = ..()
 
 	if(maptext)
 		maptext = ""
 
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
-	if(istype(tool,/obj/item/fd/simple_combat/full_heal) && src != user)
-		var/obj/item/fd/simple_combat/full_heal/F = tool
+	if(istype(tool,/obj/item/storage/firstaid/combat) && src != user && simple_combat_on)
+		var/obj/item/storage/firstaid/combat/F = tool
 
 		if(issilicon(src) && !F.robot_friendly)
 			animation_flash_color(F, COLOR_RED)
@@ -1593,11 +1648,47 @@
 
 	. = ..()
 
-/obj/item/fd/simple_combat/full_heal/attack_self(mob/user)
+/obj/item/storage/firstaid/combat/attack_self(mob/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.simple_combat_on)
+			animation_flash_color(src, COLOR_RED)
+			return FALSE
+
 	. = ..()
 
-	animation_flash_color(src, COLOR_RED)
-	return FALSE
+/obj/item/storage/firstaid/combat/attack_hand(mob/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.simple_combat_on)
+			animation_flash_color(src, COLOR_RED)
+			return FALSE
+
+	. = ..()
+
+/obj/item/storage/firstaid/combat/MouseDrop(obj/over_object as obj)
+	var/mob/living/L = usr
+	if(L.simple_combat_on)
+		animation_flash_color(src, COLOR_RED)
+		return FALSE
+
+	. = ..()
+
+/obj/item/storage/firstaid/combat/AltClick(mob/usr)
+	var/mob/living/L = usr
+	if(L.simple_combat_on)
+		animation_flash_color(src, COLOR_RED)
+		return FALSE
+
+	. = ..()
+
+/obj/item/storage/firstaid/combat/can_be_inserted(obj/item/W, mob/user, stop_messages = 0)
+	var/mob/living/L = user
+	if(L.simple_combat_on)
+		animation_flash_color(src, COLOR_RED)
+		return FALSE
+
+	. = ..()
 
 /mob/living/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	if(isWelder(tool) && isSynthetic() && simple_combat_on)
@@ -1979,8 +2070,7 @@
 /mob/living
 	var/robotic = FALSE
 
-
 /obj/item/gun
 	var/sprite_direction = "east"
 
-// [/I hate you, Void. - Maximum123]
+// [/I hate you, Void. - Maximum123] // Если переносишь - не забывай удалять прошлые инстанции, Макс >:(

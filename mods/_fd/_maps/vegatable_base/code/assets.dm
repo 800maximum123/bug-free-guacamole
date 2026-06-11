@@ -950,9 +950,6 @@
 	if(inside_gun.connected_weapon)
 		START_PROCESSING(SSobj, inside_gun)
 
-/obj/item/gun
-	var/sprite_direction = "east"
-
 /obj/structure/fd/turret
 	name = "turret"
 	desc = "Yeah, this is totally a turret"

@@ -1276,14 +1276,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/metro)
 "db" = (
-/obj/item/fd/simple_combat/bandage{
-	pixel_y = 12
-	},
-/obj/item/fd/simple_combat/bandage,
-/obj/item/fd/simple_combat/bandage,
 /obj/structure/closet/crate/medical,
-/obj/item/fd/simple_combat/bandage,
-/obj/item/fd/simple_combat/bandage,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -6161,12 +6154,6 @@
 /obj/structure/closet/medical_wall{
 	pixel_y = 32
 	},
-/obj/item/fd/simple_combat/adrenaline,
-/obj/item/fd/simple_combat/adrenaline,
-/obj/item/fd/simple_combat/big_heal,
-/obj/item/fd/simple_combat/big_heal,
-/obj/item/fd/simple_combat/full_heal,
-/obj/item/fd/simple_combat/bonegel,
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/east/med)
 "nO" = (
@@ -6769,10 +6756,6 @@
 	dir = 9
 	},
 /obj/decal/cleanable/dirt,
-/obj/item/fd/simple_combat/small_heal{
-	pixel_x = -13;
-	pixel_y = -13
-	},
 /turf/simulated/floor/tiled/white,
 /area/metro/maintain/east/med)
 "ph" = (
@@ -8439,7 +8422,6 @@
 	layer = 2.1;
 	color = "#3f0000"
 	},
-/obj/item/fd/simple_combat/adrenaline,
 /turf/simulated/floor/plating,
 /area/metro/maintain/south)
 "tc" = (
@@ -10972,15 +10954,6 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro)
-"zr" = (
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 10
-	},
-/obj/structure/closet,
-/obj/item/fd/simple_combat/bandage,
-/obj/item/fd/simple_combat/bandage,
-/turf/simulated/floor/tiled/dark,
-/area/metro/maintain/south)
 "zs" = (
 /obj/structure/table/standard,
 /obj/machinery/light{
@@ -11110,12 +11083,6 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/metro/maintain/gen3)
-"zJ" = (
-/obj/structure/closet,
-/obj/item/fd/simple_combat/splint,
-/obj/item/fd/simple_combat/splint,
-/turf/simulated/floor/plating,
-/area/metro/maintain/south)
 "zK" = (
 /obj/structure/ore_box{
 	interactive = 1;
@@ -11229,10 +11196,6 @@
 /area/metro/maintain/gas)
 "zX" = (
 /obj/structure/table/rack,
-/obj/item/fd/simple_combat/bandage,
-/obj/item/fd/simple_combat/bandage,
-/obj/item/fd/simple_combat/bandage,
-/obj/item/fd/simple_combat/bandage,
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/east/med)
 "zY" = (
@@ -11435,7 +11398,6 @@
 /obj/structure/fd/junk{
 	icon_state = "5,0"
 	},
-/obj/item/fd/simple_combat/full_heal,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south/blast_door)
@@ -15371,13 +15333,6 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/metro)
 "IU" = (
-/obj/item/fd/simple_combat/adrenaline,
-/obj/item/fd/simple_combat/bonegel,
-/obj/item/fd/simple_combat/small_heal,
-/obj/item/fd/simple_combat/small_heal,
-/obj/item/fd/simple_combat/small_heal,
-/obj/item/fd/simple_combat/big_heal,
-/obj/item/fd/simple_combat/revive,
 /obj/structure/closet/crate/medical,
 /turf/simulated/floor/plating,
 /area/metro/maintain/south/blast_door)
@@ -16524,11 +16479,6 @@
 /obj/item/storage/box/greenglowsticks,
 /turf/simulated/floor/plating,
 /area/metro/maintain)
-"LE" = (
-/obj/item/fd/simple_combat/splint,
-/obj/structure/closet/crate/medical,
-/turf/simulated/floor/plating,
-/area/metro/maintain/south/blast_door)
 "LF" = (
 /obj/machinery/door/airlock/hatch/maintenance{
 	dir = 4
@@ -18398,12 +18348,6 @@
 	icon_state = "tube1"
 	},
 /obj/structure/table/rack,
-/obj/item/fd/simple_combat/splint,
-/obj/item/fd/simple_combat/splint,
-/obj/item/fd/simple_combat/splint,
-/obj/item/fd/simple_combat/splint,
-/obj/item/fd/simple_combat/small_heal,
-/obj/item/fd/simple_combat/small_heal,
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/east/med)
 "PI" = (
@@ -24768,7 +24712,7 @@ gO
 WK
 mM
 mH
-LE
+IU
 WK
 Au
 dd
@@ -25201,7 +25145,7 @@ gO
 Oj
 IS
 hx
-zJ
+cD
 Oj
 ya
 ya
@@ -27633,7 +27577,7 @@ Oj
 Oj
 QT
 RF
-zr
+Xe
 Oj
 gO
 gO
