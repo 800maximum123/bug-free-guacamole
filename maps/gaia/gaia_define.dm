@@ -27,7 +27,7 @@
 	company_short = "SolGov"
 	system_name   = "Galilei System"
 
-	evil_station_name  = "\improper Okkupatsionnyy Garnizon Morskiye Draguny"
+	evil_station_name  = "\improper Garnizon Morskiye Draguny"
 	evil_station_short = "\improper Morskiye Draguny"
 	evil_boss_name     = "Kapitan Sasha Alistratova"
 	evil_boss_short    = "Kap. Alistratova"
