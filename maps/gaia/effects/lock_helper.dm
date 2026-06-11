@@ -2,7 +2,7 @@
 // You can customize the lock's lock_data so that you can create specific keys that open it.
 /obj/lock_helper
 	name = "door locker helper"
-	icon = 'maps/gaia/icons/effects.dmi'
+	icon = 'maps/gaia/icons/effects/lock.dmi'
 	icon_state = "lock"
 	layer = ABOVE_DOOR_LAYER
 	blend_mode = BLEND_MULTIPLY

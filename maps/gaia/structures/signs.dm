@@ -9,7 +9,7 @@
 /obj/structure/sign/double/mariacarbonia
 	name = "\improper Maricarbonia City Sign"
 	desc = "A sign in Iberian welcoming people into the city named 'Maricarbonia'."
-	icon = 'maps/gaia/icons/gaia-decals.dmi'
+	icon = 'maps/gaia/icons/structures/gaia-decals.dmi'
 
 /obj/structure/sign/double/mariacarbonia/left
 	icon_state = "maricarbonia-left"

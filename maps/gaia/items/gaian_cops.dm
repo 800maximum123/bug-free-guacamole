@@ -1,7 +1,7 @@
 /obj/item/clothing/accessory/gaiacop
 	desc = "Do not believe the lies, someone fucked up and gave you this instead of the real badge."
-	icon = 'maps/gaia/icons/gaian_cops.dmi'
-	accessory_icons = list(slot_w_uniform_str = 'maps/gaia/icons/gaian_cops_mob.dmi', slot_wear_suit_str = 'maps/gaia/icons/gaian_cops_mob.dmi')
+	icon = 'maps/gaia/icons/items/clothing/gaian_cops.dmi'
+	accessory_icons = list(slot_w_uniform_str = 'maps/gaia/icons/items/clothing/gaian_cops_mob.dmi', slot_wear_suit_str = 'maps/gaia/icons/items/clothing/gaian_cops_mob.dmi')
 	icon_state = "copbadge"
 	w_class = ITEM_SIZE_TINY
 
@@ -15,8 +15,8 @@
 /obj/item/clothing/accessory/badge/holo/gaiacop
 	name = "police officer badge"
 	desc = "A shiny gold-plated badge of the Napoleon Region Police Force. Denotes the wearer as Patrol Officer."
-	icon = 'maps/gaia/icons/gaian_cops.dmi'
-	accessory_icons = list(slot_w_uniform_str = 'maps/gaia/icons/gaian_cops_mob.dmi', slot_wear_suit_str = 'maps/gaia/icons/gaian_cops_mob.dmi')
+	icon = 'maps/gaia/icons/items/clothing/gaian_cops.dmi'
+	accessory_icons = list(slot_w_uniform_str = 'maps/gaia/icons/items/clothing/gaian_cops_mob.dmi', slot_wear_suit_str = 'maps/gaia/icons/items/clothing/gaian_cops_mob.dmi')
 	color = null
 	icon_state = "copbadge"
 	badge_string = "Napoleon Region Police Force"
@@ -33,11 +33,11 @@
 /obj/item/clothing/under/gaiacop
 	name = "gaian police uniform"
 	desc = "A french grey policeman's uniform of Napoleon Region Police Force. Comes with a sharp collar, sturdy pants and an awesome synthleather belt."
-	icon = 'maps/gaia/icons/gaian_cops.dmi'
+	icon = 'maps/gaia/icons/items/clothing/gaian_cops.dmi'
 	item_icons = list(
 		slot_l_hand_str = "under_utility_held_l",
 		slot_r_hand_str = "under_utility_held_r",
-		slot_w_uniform_str = 'maps/gaia/icons/gaian_cops_mob.dmi'
+		slot_w_uniform_str = 'maps/gaia/icons/items/clothing/gaian_cops_mob.dmi'
 	)
 	sprite_sheets = list()
 	body_parts_covered = FULL_TORSO | ARMS | FULL_LEGS
@@ -58,8 +58,8 @@
 /obj/item/clothing/head/gaiacop
 	name = "gaian police hat"
 	desc = "A light grey wide-brimmed hat with a Napoleon Region Police Force pin and a blue ribbon. Displays your authority and saves you from heat stroke."
-	icon = 'maps/gaia/icons/gaian_cops.dmi'
-	item_icons = list(slot_head_str = 'maps/gaia/icons/gaian_cops_mob.dmi')
+	icon = 'maps/gaia/icons/items/clothing/gaian_cops.dmi'
+	item_icons = list(slot_head_str = 'maps/gaia/icons/items/clothing/gaian_cops_mob.dmi')
 	icon_state = "cophat"
 	siemens_coefficient = 0.9
 	item_state_slots = list(

@@ -5,7 +5,7 @@
 	// Whether we've shown the initial launch message to occupants
 	var/launch_msg_shown = FALSE
 	// Dramatic musical sting when shuttle lands
-	var/sting = 'maps/gaia/sounds/arrivesting.ogg'
+	var/sting = 'maps/gaia/sounds/ambience/stings/arrivesting.ogg'
 
 // Show a one-time start credits style message to all occupants when the truck first launches
 /datum/shuttle/autodock/ferry/gaia/short_jump(destination)
@@ -37,7 +37,7 @@
 * -- SCG Trucks --
 */
 /obj/machinery/computer/shuttle_control/scg_truck
-	icon = 'maps/gaia/icons/truck.dmi'
+	icon = 'maps/gaia/icons/structures/truck.dmi'
 	icon_state = "half_computer"
 	icon_keyboard = "car_key"
 	icon_screen = "car"
@@ -64,8 +64,8 @@
 	arrive_time = 10
 	waypoint_station = "nav_scg_truck_a_camp"
 	waypoint_offsite = "nav_scg_truck_a_areaofop"
-	sound_takeoff = 'maps/gaia/sounds/truck_start.ogg'
-	sound_landing = 'maps/gaia/sounds/truck_stop.ogg'
+	sound_takeoff = 'maps/gaia/sounds/vehicles/truck_start.ogg'
+	sound_landing = 'maps/gaia/sounds/vehicles/truck_stop.ogg'
 	ceiling_type = /turf/simulated/floor/reinforced/airmix
 	knockdown = 0
 
@@ -170,8 +170,8 @@
 	arrive_time = 10
 	waypoint_station = "nav_iccg_masha_boat_camp"
 	waypoint_offsite = "nav_iccg_masha_boat_areaofop"
-	sound_takeoff = 'maps/gaia/sounds/boat_start.ogg'
-	sound_landing = 'maps/gaia/sounds/boat_stop.ogg'
+	sound_takeoff = 'maps/gaia/sounds/vehicles/boat_start.ogg'
+	sound_landing = 'maps/gaia/sounds/vehicles/boat_stop.ogg'
 	knockdown = 0
 	ceiling_type = /turf/simulated/open
 
@@ -199,7 +199,7 @@
 * -- ICCG Trucks --
 */
 /obj/machinery/computer/shuttle_control/iccg_truck
-	icon = 'maps/gaia/icons/truck.dmi'
+	icon = 'maps/gaia/icons/structures/truck.dmi'
 	icon_state = "half_computer"
 	icon_keyboard = "car_key"
 	icon_screen = "car"
@@ -229,8 +229,8 @@
 	arrive_time = 10
 	waypoint_station = "nav_iccg_truck_mp_camp"
 	waypoint_offsite = "nav_iccg_truck_mp_areaofop"
-	sound_takeoff = 'maps/gaia/sounds/truck_start.ogg'
-	sound_landing = 'maps/gaia/sounds/truck_stop.ogg'
+	sound_takeoff = 'maps/gaia/sounds/vehicles/truck_start.ogg'
+	sound_landing = 'maps/gaia/sounds/vehicles/truck_stop.ogg'
 	ceiling_type = /turf/simulated/floor/reinforced/airmix
 	knockdown = 0
 

@@ -3,17 +3,17 @@
 /obj/item/clothing/accessory/armor_tag/solgov/army
 	name = "\improper Army crest"
 	desc = "An emblem depicting the crest of the SCG Army."
-	icon_override = 'maps/gaia/icons/obj_accessories.dmi'
-	icon = 'maps/gaia/icons/obj_accessories.dmi'
-	accessory_icons = list(slot_w_uniform_str = 'maps/gaia/icons/onmob_accessories.dmi', slot_wear_suit_str = 'maps/gaia/icons/onmob_accessories.dmi')
+	icon_override = 'maps/gaia/icons/items/clothing/obj_accessories.dmi'
+	icon = 'maps/gaia/icons/items/clothing/obj_accessories.dmi'
+	accessory_icons = list(slot_w_uniform_str = 'maps/gaia/icons/items/clothing/onmob_accessories.dmi', slot_wear_suit_str = 'maps/gaia/icons/items/clothing/onmob_accessories.dmi')
 	icon_state = "armyflag"
 
 /obj/item/clothing/accessory/armor_tag/iccg
 	name = "\improper ICCG Flag"
 	desc = "An emblem depicting the Independent Colonial Confederation of Gilgamesh flag."
-	icon_override = 'maps/gaia/icons/obj_accessories.dmi'
-	icon = 'maps/gaia/icons/obj_accessories.dmi'
-	accessory_icons = list(slot_w_uniform_str = 'maps/gaia/icons/onmob_accessories.dmi', slot_wear_suit_str = 'maps/gaia/icons/onmob_accessories.dmi')
+	icon_override = 'maps/gaia/icons/items/clothing/obj_accessories.dmi'
+	icon = 'maps/gaia/icons/items/clothing/obj_accessories.dmi'
+	accessory_icons = list(slot_w_uniform_str = 'maps/gaia/icons/items/clothing/onmob_accessories.dmi', slot_wear_suit_str = 'maps/gaia/icons/items/clothing/onmob_accessories.dmi')
 	icon_state = "iccgflag"
 	slot = ACCESSORY_SLOT_ARMOR_M
 
@@ -31,9 +31,10 @@
 	badge_access = access_iccg_sec
 
 // MISC CLOTHING
-/obj/item/clothing/under/rank/atmospheric_technician/firefighter
-	desc = "It's a jumpsuit worn by firefighters."
+/obj/item/clothing/under/color/red/firefighter
 	name = "firefighter's jumpsuit"
+	desc = "It's a jumpsuit worn by firefighters."
+	color = "#99211f"
 	accessories = list(/obj/item/clothing/accessory/fire_overpants)
 
 // MISC ARMOR

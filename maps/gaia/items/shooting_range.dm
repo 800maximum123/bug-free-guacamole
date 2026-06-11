@@ -1,5 +1,5 @@
 /obj/item/target/gaia
-	icon = 'maps/gaia/icons/shooting_range.dmi'
+	icon = 'maps/gaia/icons/items/shooting_range.dmi'
 
 /obj/item/target/gaia/iccg
 	desc = "A shooting target shaped like an evil Indie."

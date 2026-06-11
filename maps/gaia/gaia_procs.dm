@@ -131,10 +131,10 @@
 	var/sound = 'sound/misc/null.ogg'
 	if(choice == scg_commander)
 		colored = COLOR_CYAN_BLUE
-		sound = 'maps/gaia/sounds/scg_commander_msg.ogg'
+		sound = 'maps/gaia/sounds/voice/radio/scg_commander_msg.ogg'
 	else if(choice == iccg_commander)
 		colored = COLOR_RED
-		sound = 'maps/gaia/sounds/iccg_commander_msg.ogg'
+		sound = 'maps/gaia/sounds/voice/radio/iccg_commander_msg.ogg'
 
 	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
 	visuals.maptext_x = -10

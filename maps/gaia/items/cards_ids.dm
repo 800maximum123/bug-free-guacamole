@@ -5,26 +5,6 @@
 	desc = "A national identification card issued by Gaian Republic."
 	job_access_type = DEFAULT_JOB_TYPE
 
-/obj/item/card/id/gaia/mayor
-	name = "identification card"
-	desc = "A national identification card issued by the Gaian Republic."
-	job_access_type = /datum/job/mayor
-
-/obj/item/card/id/gaia/cop
-	name = "identification card"
-	desc = "A national identification card issued by the Gaian Republic."
-	job_access_type = /datum/job/police_officer
-
-/obj/item/card/id/gaia/firefighter
-	name = "identification card"
-	desc = "A national identification card issued by the Gaian Republic."
-	job_access_type = /datum/job/firefighter
-
-/obj/item/card/id/gaia/paramedic
-	name = "identification card"
-	desc = "A national identification card issued by the Gaian Republic."
-	job_access_type = /datum/job/paramedic
-
 // SCG
 /obj/item/card/id/gaia/scg
 	name = "military identification card"
@@ -93,3 +73,29 @@
 	desc = "A military identification card issued to engineering personnel by Independent Colonial Confederation of Gilgamesh Navy"
 	job_access_type = /datum/job/iccg_engineer
 	detail_color = COLOR_YELLOW_GRAY
+
+// Civilian
+/obj/item/card/id/gaia/mayor
+	desc = "A national identification card issued by the Gaian Republic to government officials."
+	job_access_type = /datum/job/mayor
+	extra_details = list("goldstripe")
+
+/obj/item/card/id/gaia/cop
+	desc = "A national identification card issued by the Gaian Republic to Police Officers."
+	job_access_type = /datum/job/police_officer
+	detail_color = COLOR_DARK_BLUE_GRAY
+
+/obj/item/card/id/gaia/firefighter
+	desc = "A national identification card issued by the Gaian Republic to Firefighters."
+	job_access_type = /datum/job/firefighter
+	detail_color = COLOR_RED_GRAY
+
+/obj/item/card/id/gaia/worker
+	desc = "A national identification card issued by the Gaian Republic to Municipal Workers."
+	job_access_type = /datum/job/worker
+	detail_color = COLOR_YELLOW_GRAY
+
+/obj/item/card/id/gaia/paramedic
+	desc = "A national identification card issued by the Gaian Republic to Paramedics and Doctors."
+	job_access_type = /datum/job/paramedic
+	detail_color = COLOR_BLUE_GRAY

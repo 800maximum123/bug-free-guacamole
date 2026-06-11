@@ -47,7 +47,7 @@
 
 	id_hud_icons = 'maps/gaia/icons/assignment_hud.dmi'
 
-	welcome_sound = 'maps/gaia/sounds/roundstart.ogg'
+	welcome_sound = 'maps/gaia/sounds/ambience/stings/roundstart.ogg'
 
 	loadout_blacklist = list( // Fifth Fleet doesn't exist in the Gaian Conflict. Also you can't get veteran hats as war didn't end yet.
 		/obj/item/clothing/head/soft/solgov/veteranhat,

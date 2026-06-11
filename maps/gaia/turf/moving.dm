@@ -1,7 +1,7 @@
 /turf/unsimulated/floor/moving
 	name = "moving floor"
 	desc = "Not the smartest idea to jump out."
-	icon = 'maps/gaia/icons/turf.dmi'
+	icon = 'maps/gaia/icons/turf/moving.dmi'
 
 /turf/unsimulated/floor/moving/Entered(mob/living/L)
 	. = ..()

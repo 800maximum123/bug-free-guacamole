@@ -6,8 +6,6 @@
 	spawn_positions = -1
 	supervisors = "the local authorities and your judgement"
 	alt_titles = list(
-				"Shopkeeper",
-				"Pharmacist",
 				"Homeless (No ID)" = /singleton/hierarchy/outfit/job/gaia/homeless,
 				)
 	economic_power = 1
@@ -31,6 +29,7 @@
 				"Facility Administrator",
 				)
 	economic_power = 10
+	selection_color = COLOR_GRAY20
 	faction = MOB_FACTION_NEUTRAL
 	head_position = TRUE
 	min_skill = list(SKILL_BUREAUCRACY = SKILL_TRAINED)

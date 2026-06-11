@@ -58,11 +58,11 @@
 
 	if(prob(95))
 		if(H.gender == FEMALE)
-			playsound(src, 'maps/gaia/sounds/fallscream_female.ogg', 100, TRUE)
+			playsound(src, 'maps/gaia/sounds/voice/fallscream_female.ogg', 100, TRUE)
 		else
-			playsound(src, 'maps/gaia/sounds/fallscream_male.ogg', 100, TRUE)
+			playsound(src, 'maps/gaia/sounds/voice/fallscream_male.ogg', 100, TRUE)
 	else
-		playsound(src, 'maps/gaia/sounds/fallscream_rare.ogg', 100, TRUE)
+		playsound(src, 'maps/gaia/sounds/voice/fallscream_rare.ogg', 100, TRUE)
 
 	if(teleport_x && teleport_y && teleport_z)
 		//Teleports to where chasm hole location is

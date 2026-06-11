@@ -13,6 +13,7 @@
 	// --- GAIA --- //
 	#include "../gaia/gaia_areas.dm"
 	#include "../gaia/gaia_ranks.dm"
+	#include "../gaia/gaia_security_state.dm"
 	#include "../gaia/gaia_ambient_sun.dm"
 	#include "../gaia/gaia_antagonism.dm"
 	#include "../gaia/gaia_setup.dm"
@@ -51,6 +52,7 @@
 	#include "../gaia/items/shooting_range.dm"
 
 	#include "../gaia/structures/barrier.dm"
+	#include "../gaia/structures/city.dm"
 	#include "../gaia/structures/gaiaflags.dm"
 	#include "../gaia/structures/lockers_appearance.dm"
 	#include "../gaia/structures/lockers.dm"

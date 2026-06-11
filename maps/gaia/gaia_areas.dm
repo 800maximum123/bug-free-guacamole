@@ -1,5 +1,4 @@
 /datum/map/gaia
-
 	base_floor_type = /turf/simulated/floor/exoplanet/barren
 	base_floor_area = /area/gaia
 
@@ -15,7 +14,6 @@
 	requires_power = 0
 	sound_env = ASTEROID
 	ambience = list('sound/effects/wind/wind_2_1.ogg','sound/effects/wind/wind_2_2.ogg','sound/effects/wind/wind_3_1.ogg','sound/effects/wind/wind_4_1.ogg','sound/effects/wind/wind_4_2.ogg','sound/effects/wind/wind_5_1.ogg')
-	base_turf = /turf/simulated/floor/exoplanet/barren
 	area_flags = AREA_FLAG_EXTERNAL
 	ambient_group_type = /area/gaia
 	ambient_group_color = "#ffffff"
@@ -70,13 +68,39 @@
 			'sound/ambience/ominous1.ogg',
 			'sound/ambience/ominous2.ogg',
 			'sound/ambience/ominous3.ogg',
-			'maps/gaia/sounds/propaganda1.ogg',
-			'maps/gaia/sounds/propaganda2.ogg',
-			'maps/gaia/sounds/propaganda3.ogg',
-			'maps/gaia/sounds/propaganda4.ogg',
-			'maps/gaia/sounds/propaganda5.ogg',
-			'maps/gaia/sounds/propaganda6.ogg',
+			'maps/gaia/sounds/ambience/propaganda/propaganda1.ogg',
+			'maps/gaia/sounds/ambience/propaganda/propaganda2.ogg',
+			'maps/gaia/sounds/ambience/propaganda/propaganda3.ogg',
+			'maps/gaia/sounds/ambience/propaganda/propaganda4.ogg',
+			'maps/gaia/sounds/ambience/propaganda/propaganda5.ogg',
+			'maps/gaia/sounds/ambience/propaganda/propaganda6.ogg',
 			)
+
+/area/gaia/urbanrebels/street
+	name = "\improper Urbomanka - Street"
+
+/area/gaia/urbanrebels/inside
+	name = "\improper Urbomanka - Inside Building"
+	sound_env = SMALL_ENCLOSED
+	ambience = list(
+			'sound/ambience/ambigen10.ogg',
+			'maps/gaia/sounds/ambience/propaganda/propaganda_muffled1.ogg',
+			'maps/gaia/sounds/ambience/propaganda/propaganda_muffled2.ogg',
+			'maps/gaia/sounds/ambience/propaganda/propaganda_muffled3.ogg',
+			'maps/gaia/sounds/ambience/propaganda/propaganda_muffled4.ogg',
+			'maps/gaia/sounds/ambience/propaganda/propaganda_muffled5.ogg',
+			'maps/gaia/sounds/ambience/propaganda/propaganda_muffled6.ogg',
+			)
+
+/area/gaia/urbanrebels/underground
+	name = "\improper Urbomanka - Underground"
+	forced_ambience = list('sound/ambience/maintambience.ogg')
+	ambience = list('sound/ambience/spookyspace1.ogg', 'sound/ambience/spookyspace2.ogg',)
+	sound_env = TUNNEL_ENCLOSED
+
+/area/gaia/urbanrebels/sewers
+	name = "\improper Urbomanka - Sewers"
+	forced_ambience = list('maps/gaia/sounds/ambience/sewerambience.ogg')
 
 /*
 * -- SCG Camp "Boxcutters" Platoon camp --
@@ -86,12 +110,12 @@
 	name = "\improper SCG Camp"
 	icon_state = "scg"
 	req_access = list(access_solgov_crew)
-	ambience = list('maps/gaia/sounds/ambipartisan_base.ogg')
+	ambience = list('maps/gaia/sounds/ambience/ambipartisan_base.ogg')
 
 /area/gaia/scg/outskirts
 	name = "\improper SCG Camp - Outskirts"
 	icon_state = "scg_outskirts"
-	ambience = list('maps/gaia/sounds/ambipartisan_outskirts.ogg')
+	ambience = list('maps/gaia/sounds/ambience/ambipartisan_outskirts.ogg')
 
 /area/gaia/scg/undeground
 	name = "\improper SCG Camp - Underground"
@@ -182,7 +206,7 @@
 	name = "\improper SCG Camp - Command Office"
 	icon_state = "scg_command"
 	req_access = list(access_solgov_crew, access_heads)
-	ambience = list('maps/gaia/sounds/ambipartisan_command.ogg')
+	ambience = list('maps/gaia/sounds/ambience/ambipartisan_command.ogg')
 	sound_env = MEDIUM_SOFTFLOOR
 	ambient_group_enabled = FALSE
 	area_flags = null
@@ -221,12 +245,12 @@
 	name = "\improper ICCG Camp"
 	icon_state = "iccg"
 	req_access = list(access_iccg)
-	ambience = list('maps/gaia/sounds/ambioccupation_base.ogg')
+	ambience = list('maps/gaia/sounds/ambience/ambioccupation_base.ogg')
 
 /area/gaia/iccg/outskirts
 	name = "\improper ICCG Camp - Outskirts"
 	icon_state = "iccg_outskirts"
-	ambience = list('maps/gaia/sounds/ambioccupation_outskirts.ogg')
+	ambience = list('maps/gaia/sounds/ambience/ambioccupation_outskirts.ogg')
 
 // Main Citadel
 /area/gaia/iccg/citadel
@@ -251,7 +275,7 @@
 	name = "\improper ICCG Camp - CIC"
 	icon_state = "iccg_command"
 	req_access = list(access_iccg_com)
-	ambience = list('maps/gaia/sounds/ambioccupation_command.ogg')
+	ambience = list('maps/gaia/sounds/ambience/ambioccupation_command.ogg')
 
 /area/gaia/iccg/citadel/command/briefing
 	name = "\improper ICCG Camp - Briefing"

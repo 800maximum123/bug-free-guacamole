@@ -1,7 +1,7 @@
 /obj/structure/gaia/wheel
 	name = "wheel"
 	desc = "A wheel, used for vehicles."
-	icon = 'maps/gaia/icons/truck.dmi'
+	icon = 'maps/gaia/icons/structures/truck.dmi'
 	icon_state = "wheel"
 	density = FALSE
 	anchored = TRUE
@@ -14,7 +14,7 @@
 /obj/structure/gaia/truck_shadow
 	name = "shadow"
 	desc = "A shadow cast by something."
-	icon = 'maps/gaia/icons/truck.dmi'
+	icon = 'maps/gaia/icons/structures/truck.dmi'
 	icon_state = "truck_shadow1"
 	density = FALSE
 	anchored = TRUE
@@ -33,7 +33,7 @@
 	fixture_type = /obj/machinery/light/small/headlight/alt
 
 /obj/machinery/light/small/headlight
-	icon = 'maps/gaia/icons/truck.dmi'
+	icon = 'maps/gaia/icons/structures/truck.dmi'
 	icon_state = "headlight_map"
 	base_state = "headlight"
 	desc = "A small yet powerful lighting fixture for vehicle headlights."
@@ -49,7 +49,7 @@
 /obj/structure/gaia/truck_sign
 	name = "truck sign"
 	desc = "A fading sign on the truck, it reads: 'Gaia El Envío. Llamar 1338.'"
-	icon = 'maps/gaia/icons/truck.dmi'
+	icon = 'maps/gaia/icons/structures/truck.dmi'
 	icon_state = "truck_sign1"
 	density = FALSE
 	anchored = TRUE
@@ -75,7 +75,7 @@
 	icon_state = "mp_sign"
 
 /obj/structure/window/reinforced/windshield
-	icon = 'maps/gaia/icons/truck.dmi'
+	icon = 'maps/gaia/icons/structures/truck.dmi'
 	icon_state = "windshield"
 	basestate = "windshield"
 	reinf_basestate = "windshield"

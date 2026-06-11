@@ -2,9 +2,8 @@ var/global/const/POSTER_FLAG_GAIA = FLAG(2)
 
 /obj/structure/sign/poster/gaia
 	name = "ICCG propaganda poster"
-	icon = 'maps/gaia/icons/posters.dmi'
+	icon = 'maps/gaia/icons/structures/posters.dmi'
 	random_poster_base_type = /singleton/poster/gaia
-	excluded_poster_flags = POSTER_FLAG_CONTRABAND || POSTER_FLAG_RANDOM_PICK
 
 // Gaia propaganda posters
 /singleton/poster/gaia
@@ -60,37 +59,30 @@ var/global/const/POSTER_FLAG_GAIA = FLAG(2)
 	poster_flags = POSTER_FLAG_GAIA
 
 // non-random posters
-/obj/structure/sign/poster/gaia_1
-	name = "ICCG propaganda poster"
-	icon = 'maps/gaia/icons/posters.dmi'
+/obj/structure/sign/poster/gaia/one
+	icon_state = "gaiaposter1"
 	random_poster_base_type = /singleton/poster/gaia/gaia_1
 
-/obj/structure/sign/poster/gaia_2
-	name = "ICCG propaganda poster"
-	icon = 'maps/gaia/icons/posters.dmi'
+/obj/structure/sign/poster/gaia/two
+	icon_state = "gaiaposter2"
 	random_poster_base_type = /singleton/poster/gaia/gaia_2
 
-/obj/structure/sign/poster/gaia_3
-	name = "ICCG propaganda poster"
-	icon = 'maps/gaia/icons/posters.dmi'
+/obj/structure/sign/poster/gaia/three
+	icon_state = "gaiaposter3"
 	random_poster_base_type = /singleton/poster/gaia/gaia_3
 
-/obj/structure/sign/poster/gaia_4
-	name = "ICCG propaganda poster"
-	icon = 'maps/gaia/icons/posters.dmi'
+/obj/structure/sign/poster/gaia/four
+	icon_state = "gaiaposter4"
 	random_poster_base_type = /singleton/poster/gaia/gaia_4
 
-/obj/structure/sign/poster/gaia_5
-	name = "ICCG propaganda poster"
-	icon = 'maps/gaia/icons/posters.dmi'
+/obj/structure/sign/poster/gaia/five
+	icon_state = "gaiaposter5"
 	random_poster_base_type = /singleton/poster/gaia/gaia_5
 
-/obj/structure/sign/poster/gaia_6
-	name = "ICCG propaganda poster"
-	icon = 'maps/gaia/icons/posters.dmi'
+/obj/structure/sign/poster/gaia/six
+	icon_state = "gaiaposter6"
 	random_poster_base_type = /singleton/poster/gaia/gaia_6
 
-/obj/structure/sign/poster/gaia_7
-	name = "ICCG propaganda poster"
-	icon = 'maps/gaia/icons/posters.dmi'
+/obj/structure/sign/poster/gaia/seven
+	icon_state = "gaiaposter7"
 	random_poster_base_type = /singleton/poster/gaia/gaia_7

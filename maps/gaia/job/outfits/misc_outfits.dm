@@ -42,23 +42,17 @@
 // FIREFIGHTER
 /singleton/hierarchy/outfit/job/gaia/firefighter
 	name = OUTFIT_JOB_NAME("Gaian Firefighter")
-	uniform = /obj/item/clothing/under/rank/atmospheric_technician/firefighter
-	suit = /obj/item/clothing/suit/fire/firefighter
+	uniform = /obj/item/clothing/under/color/red/firefighter
 	shoes = /obj/item/clothing/shoes/workboots
-	head = /obj/item/clothing/head/hardhat/firefighter
-	gloves = /obj/item/clothing/gloves/fire
-	belt = /obj/item/storage/belt/fire_belt/full
 	id_types = list(/obj/item/card/id/gaia/firefighter)
 	l_ear = /obj/item/device/radio/headset/headset_eng
-	backpack_contents = list(/obj/item/device/radio/hailing = 1, /obj/item/extinguisher = 1, /obj/item/key/gaia/firefighter = 1, /obj/item/key/gaia/engineering = 1)
+	backpack_contents = list(/obj/item/device/radio/hailing = 1, /obj/item/extinguisher/mini = 1, /obj/item/key/gaia/firefighter = 1)
 
 // MEDICAL
 /singleton/hierarchy/outfit/job/gaia/paramedic
 	name = OUTFIT_JOB_NAME("Gaian Paramedic")
 	uniform = /obj/item/clothing/under/rank/medical/scrubs/blue
-	suit = /obj/item/clothing/suit/storage/hazardvest/med
 	shoes = /obj/item/clothing/shoes/white
-	head = /obj/item/clothing/head/hardhat/light/medic
 	gloves = /obj/item/clothing/gloves/latex
 	id_types = list(/obj/item/card/id/gaia/paramedic)
 	l_ear = /obj/item/device/radio/headset/headset_med
@@ -69,7 +63,6 @@
 /singleton/hierarchy/outfit/job/gaia/doctor
 	name = OUTFIT_JOB_NAME("Gaian Doctor")
 	uniform = /obj/item/clothing/under/rank/medical
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/white
 	gloves = /obj/item/clothing/gloves/latex/nitrile
 	id_types = list(/obj/item/card/id/gaia/paramedic)
@@ -82,20 +75,20 @@
 /singleton/hierarchy/outfit/job/gaia/worker
 	name = OUTFIT_JOB_NAME("Gaian Construction Worker")
 	uniform = /obj/item/clothing/under/hazard
-	suit = /obj/item/clothing/suit/storage/hazardvest
 	shoes = /obj/item/clothing/shoes/workboots
 	head = /obj/item/clothing/head/hardhat
 	belt = /obj/item/storage/belt/utility/full
+	id_types = list(/obj/item/card/id/gaia/worker)
 	l_ear = /obj/item/device/radio/headset/headset_eng
 	backpack_contents = list(/obj/item/device/radio/hailing = 1, /obj/item/key/gaia/engineering = 1)
 
 /singleton/hierarchy/outfit/job/gaia/miner
 	name = OUTFIT_JOB_NAME("Gaian Shaft Miner")
 	uniform = /obj/item/clothing/under/rank/miner
-	suit = /obj/item/clothing/suit/storage/hazardvest
 	shoes = /obj/item/clothing/shoes/workboots
-	head = /obj/item/clothing/head/hardhat
+	head = /obj/item/clothing/head/hardhat/orange
 	belt = /obj/item/storage/belt/archaeology
+	id_types = list(/obj/item/card/id/gaia/worker)
 	l_hand = /obj/item/pickaxe/drill
 	l_ear = /obj/item/device/radio/headset/headset_eng
 	l_pocket = /obj/item/key/gaia/engineering

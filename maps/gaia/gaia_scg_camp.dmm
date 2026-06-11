@@ -87,18 +87,18 @@
 /obj/floor_decal/hull,
 /obj/structure/closet/secure_closet/guncabinet,
 /obj/decal/cleanable/dirt,
+/obj/item/gun/projectile/pistol/sol_service,
+/obj/item/gun/projectile/pistol/sol_service,
+/obj/item/gun/projectile/pistol/sol_compact,
+/obj/item/gun/projectile/pistol/sol_compact,
 /obj/item/gun/projectile/pistol/sec/lethal,
 /obj/item/gun/projectile/pistol/sec/lethal,
+/obj/item/gun/projectile/pistol/sec/lethal,
+/obj/item/gun/projectile/pistol/throwback,
+/obj/item/gun/projectile/pistol/throwback,
+/obj/item/gun/projectile/pistol/throwback,
 /obj/item/gun/projectile/revolver/medium,
 /obj/item/gun/projectile/revolver/medium,
-/obj/item/gun/energy/gun,
-/obj/item/gun/energy/gun,
-/obj/item/gun/projectile/pistol/sol_compact,
-/obj/item/gun/projectile/pistol/sol_compact,
-/obj/item/gun/projectile/pistol/sol_compact,
-/obj/item/gun/projectile/pistol/sol_service,
-/obj/item/gun/projectile/pistol/sol_service,
-/obj/item/gun/projectile/pistol/sol_service,
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "aT" = (
@@ -118,6 +118,7 @@
 /area/gaia/scg)
 "aV" = (
 /obj/floor_decal/industrial/outline/red,
+/obj/machinery/power/port_gen/pacman,
 /turf/simulated/floor/exoplanet/concrete/reinforced,
 /area/gaia/scg)
 "aW" = (
@@ -265,10 +266,14 @@
 /area/gaia/scg/barracks/ps)
 "bP" = (
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/item/gun/projectile/shotgun/doublebarrel,
-/obj/item/gun/projectile/shotgun/pump,
 /obj/decal/cleanable/dirt,
-/obj/item/gun/projectile/automatic/shotgun,
+/obj/item/gun/projectile/shotgun/pump/empty,
+/obj/item/gun/projectile/shotgun/pump/empty,
+/obj/item/gun/projectile/shotgun/pump/empty,
+/obj/item/gun/projectile/shotgun/pump/combat/empty,
+/obj/item/gun/projectile/shotgun/pump/combat/empty,
+/obj/item/gun/projectile/shotgun/doublebarrel/sawn/empty,
+/obj/item/gun/projectile/shotgun/doublebarrel/sawn/empty,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "bQ" = (
@@ -423,11 +428,13 @@
 /area/turbolift/scg_truck)
 "cS" = (
 /obj/structure/table/rack,
-/obj/item/storage/firstaid/combat,
-/obj/item/storage/firstaid/combat,
-/obj/item/storage/firstaid/combat,
-/obj/item/storage/firstaid/combat,
-/obj/item/storage/box/nitrilegloves,
+/obj/item/device/flashlight/lamp/floodlamp/green,
+/obj/item/device/flashlight/lamp/floodlamp/green,
+/obj/item/device/flashlight/lamp/floodlamp/green,
+/obj/item/device/flashlight/lamp/floodlamp/green,
+/obj/item/device/flashlight/lamp/floodlamp/green,
+/obj/item/device/flashlight/lamp/floodlamp/green,
+/obj/item/device/flashlight/lamp/floodlamp/green,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "cV" = (
@@ -894,13 +901,12 @@
 /obj/item/gun/projectile/automatic/caseless,
 /obj/item/gun/projectile/automatic/caseless,
 /obj/item/gun/projectile/automatic/caseless,
-/obj/item/gun/projectile/automatic/caseless/carbine,
-/obj/item/gun/projectile/automatic/caseless/carbine,
-/obj/item/gun/projectile/automatic/caseless/carbine,
-/obj/item/gun/projectile/automatic/caseless/carbine,
-/obj/item/gun/projectile/automatic/caseless/grenadier,
-/obj/item/gun/projectile/automatic/caseless/grenadier,
-/obj/item/gun/projectile/automatic/caseless/grenadier,
+/obj/item/gun/projectile/automatic/caseless,
+/obj/item/gun/projectile/automatic/caseless,
+/obj/item/gun/projectile/automatic/caseless,
+/obj/item/gun/projectile/automatic/caseless,
+/obj/item/gun/projectile/automatic/caseless,
+/obj/item/gun/projectile/automatic/caseless,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "fE" = (
@@ -926,27 +932,31 @@
 /area/gaia/scg)
 "fM" = (
 /obj/structure/table/rack,
-/obj/item/stack/material/glass/fifty,
-/obj/item/stack/material/glass/fifty,
-/obj/item/stack/material/steel/fifty,
-/obj/item/stack/material/steel/fifty,
-/obj/item/stack/material/steel/fifty,
-/obj/item/stack/material/rods/fifty,
-/obj/item/stack/material/rods/fifty,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "fQ" = (
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/item/clothing/accessory/glassesmod/nvg,
-/obj/item/clothing/accessory/glassesmod/nvg,
-/obj/item/clothing/accessory/glassesmod/nvg,
-/obj/item/storage/box/greenglowsticks,
-/obj/item/storage/box/greenglowsticks,
-/obj/item/storage/box/greenglowsticks,
-/obj/item/gun/projectile/flare/loaded,
-/obj/item/storage/box/ammo/flashshells,
-/obj/item/storage/box/ammo/flashshells,
+/obj/item/clothing/suit/armor/pcarrier/gaia/sol,
+/obj/item/clothing/suit/armor/pcarrier/gaia/sol,
+/obj/item/clothing/suit/armor/pcarrier/gaia/sol,
+/obj/item/clothing/suit/armor/pcarrier/gaia/sol,
+/obj/item/clothing/suit/armor/pcarrier/gaia/sol,
+/obj/item/clothing/suit/armor/pcarrier/gaia/sol,
+/obj/item/clothing/suit/armor/pcarrier/gaia/sol,
+/obj/item/clothing/suit/armor/pcarrier/gaia/sol,
+/obj/item/clothing/suit/armor/pcarrier/gaia/sol,
+/obj/item/clothing/suit/armor/pcarrier/gaia/sol,
+/obj/item/clothing/head/helmet/gaia/sol,
+/obj/item/clothing/head/helmet/gaia/sol,
+/obj/item/clothing/head/helmet/gaia/sol,
+/obj/item/clothing/head/helmet/gaia/sol,
+/obj/item/clothing/head/helmet/gaia/sol,
+/obj/item/clothing/head/helmet/gaia/sol,
+/obj/item/clothing/head/helmet/gaia/sol,
+/obj/item/clothing/head/helmet/gaia/sol,
+/obj/item/clothing/head/helmet/gaia/sol,
+/obj/item/clothing/head/helmet/gaia/sol,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "fU" = (
@@ -994,7 +1004,7 @@
 /area/gaia/scg/command/briefing)
 "gi" = (
 /obj/structure/displaycase,
-/obj/item/gun/projectile/pistol/magnum_pistol,
+/obj/item/gun/projectile/pistol/broomstick,
 /turf/simulated/floor/carpet/green,
 /area/gaia/scg/command)
 "gl" = (
@@ -1328,11 +1338,7 @@
 /turf/simulated/floor/lino,
 /area/gaia/scg/barracks/ps)
 "jc" = (
-/obj/structure/table/rack,
-/obj/item/storage/box/lights/tubes,
-/obj/item/storage/box/lights/tubes,
-/obj/item/storage/box/lights/bulbs,
-/obj/item/storage/box/lights/bulbs,
+/obj/machinery/power/port_gen/pacman,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "jf" = (
@@ -1541,19 +1547,6 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/accessory/storage/bandolier,
-/obj/item/clothing/accessory/storage/bandolier,
-/obj/item/clothing/accessory/storage/bandolier,
-/obj/item/clothing/accessory/storage/brown_vest,
-/obj/item/clothing/accessory/storage/brown_vest,
-/obj/item/clothing/accessory/storage/brown_vest,
-/obj/item/clothing/accessory/storage/black_vest,
-/obj/item/clothing/accessory/storage/black_vest,
-/obj/item/clothing/accessory/storage/black_vest,
-/obj/item/clothing/accessory/storage/webbing_large,
-/obj/item/clothing/accessory/storage/webbing_large,
-/obj/item/clothing/accessory/storage/webbing,
-/obj/item/clothing/accessory/storage/webbing,
 /obj/machinery/light/spot{
 	dir = 8
 	},
@@ -1566,16 +1559,6 @@
 /turf/simulated/floor/steel_dirty,
 /area/gaia/scg/barracks/officer)
 "kF" = (
-/obj/item/tank/oxygen_emergency_double,
-/obj/item/tank/oxygen_emergency_double,
-/obj/item/tank/oxygen_emergency_double,
-/obj/item/tank/oxygen_emergency_extended,
-/obj/item/tank/oxygen_emergency_extended,
-/obj/item/tank/oxygen_emergency_extended,
-/obj/item/tank/oxygen_emergency,
-/obj/item/tank/oxygen_emergency,
-/obj/item/tank/oxygen_emergency,
-/obj/item/tank/oxygen_emergency,
 /obj/structure/closet/crate/internals,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
@@ -1731,23 +1714,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/gaia/scg/command/briefing)
 "ly" = (
-/obj/floor_decal/industrial/warning/dust{
-	dir = 1
-	},
-/obj/item/wheelchair_kit,
-/obj/item/wheelchair_kit,
-/obj/item/wheelchair_kit,
-/obj/item/wheelchair_kit,
-/obj/item/cane/crutch,
-/obj/item/cane/crutch,
-/obj/item/cane/crutch,
-/obj/item/cane/crutch,
-/obj/structure/table/rack,
-/obj/machinery/button/blast_door{
-	pixel_y = 23
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/gaia/scg/hospital)
+/obj/landmark/damager,
+/turf/simulated/wall/concrete,
+/area/gaia/scg/command/briefing)
 "lA" = (
 /obj/structure/gaia/truck_shadow{
 	pixel_y = -32
@@ -1771,11 +1740,11 @@
 /area/turbolift/scg_truck)
 "lB" = (
 /obj/structure/table/rack,
-/obj/item/grenade/light,
-/obj/item/grenade/light,
-/obj/item/grenade/light,
-/obj/item/grenade/light,
 /obj/machinery/light/small,
+/obj/item/grenade/fake,
+/obj/item/grenade/fake,
+/obj/item/grenade/fake,
+/obj/item/grenade/fake,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/shooting_range)
 "lD" = (
@@ -2114,7 +2083,6 @@
 "nQ" = (
 /obj/structure/table/standard,
 /obj/item/defibrillator/loaded,
-/obj/item/storage/box/bloodpacks,
 /turf/simulated/floor/tiled/old_cargo,
 /area/gaia/scg/hospital/surgery)
 "nS" = (
@@ -2140,28 +2108,13 @@
 /turf/simulated/floor/exoplanet/gravel,
 /area/gaia/scg/outskirts)
 "oe" = (
-/obj/floor_decal/hull{
-	dir = 1
-	},
-/obj/structure/table/rack,
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical/emt,
-/obj/item/storage/belt/medical/emt,
-/obj/item/storage/firstaid/small_combat,
-/obj/item/storage/firstaid/small_combat,
-/obj/item/storage/firstaid/small_combat,
-/turf/simulated/floor/plating,
-/area/gaia/scg/armory)
+/obj/paint/hull,
+/obj/landmark/damager,
+/turf/simulated/wall/titanium,
+/area/gaia/scg/shooting_range)
 "oh" = (
 /obj/floor_decal/hull,
 /obj/structure/table/rack,
-/obj/item/storage/belt/utility,
-/obj/item/storage/belt/utility,
-/obj/item/storage/belt/holster/machete,
-/obj/item/storage/belt/holster/machete,
-/obj/item/storage/belt/general,
-/obj/item/storage/belt/security,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
@@ -2178,21 +2131,25 @@
 "on" = (
 /obj/floor_decal/hull,
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/item/clothing/suit/armor/pcarrier/gaia/sol,
-/obj/item/clothing/suit/armor/pcarrier/gaia/sol,
-/obj/item/clothing/suit/armor/pcarrier/gaia/sol,
-/obj/item/clothing/suit/armor/pcarrier/gaia/sol,
-/obj/item/clothing/suit/armor/pcarrier/gaia/sol,
-/obj/item/clothing/suit/armor/pcarrier/gaia/sol,
-/obj/item/clothing/suit/armor/pcarrier/gaia/sol,
-/obj/item/clothing/suit/armor/pcarrier/gaia/sol,
-/obj/item/clothing/head/helmet/gaia/sol,
-/obj/item/clothing/head/helmet/gaia/sol,
-/obj/item/clothing/head/helmet/gaia/sol,
-/obj/item/clothing/head/helmet/gaia/sol,
-/obj/item/clothing/head/helmet/gaia/sol,
-/obj/item/clothing/head/helmet/gaia/sol,
-/obj/item/clothing/head/helmet/gaia/sol,
+/obj/item/clothing/accessory/glassesmod/nvg,
+/obj/item/clothing/accessory/glassesmod/nvg,
+/obj/item/clothing/accessory/glassesmod/nvg,
+/obj/item/clothing/accessory/glassesmod/nvg,
+/obj/item/clothing/accessory/glassesmod/nvg,
+/obj/item/clothing/accessory/glassesmod/nvg,
+/obj/item/gun/projectile/flare/loaded,
+/obj/item/gun/projectile/flare/loaded,
+/obj/item/gun/projectile/flare/loaded,
+/obj/item/gun/projectile/flare/loaded,
+/obj/item/storage/box/ammo/flashshells,
+/obj/item/storage/box/ammo/flashshells,
+/obj/item/storage/box/ammo/flashshells,
+/obj/item/storage/box/ammo/flashshells,
+/obj/item/storage/box/ammo/flashshells,
+/obj/item/storage/box/ammo/flashshells,
+/obj/item/storage/box/glowsticks,
+/obj/item/storage/box/glowsticks,
+/obj/item/storage/box/glowsticks,
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "op" = (
@@ -2217,21 +2174,12 @@
 "oG" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/item/storage/box/claymore,
-/obj/item/storage/box/claymore,
-/obj/item/storage/box/claymore,
-/obj/item/storage/box/claymore,
-/obj/item/storage/box/claymore,
-/obj/item/beartrap,
-/obj/item/beartrap,
-/obj/item/beartrap,
-/obj/item/beartrap,
-/obj/item/beartrap,
-/obj/item/beartrap,
-/obj/item/beartrap,
-/obj/item/beartrap,
-/obj/item/beartrap,
-/obj/item/beartrap,
+/obj/item/gun/projectile/automatic/caseless/grenadier,
+/obj/item/gun/projectile/automatic/caseless/grenadier,
+/obj/item/storage/box/fragshells,
+/obj/item/storage/box/fragshells,
+/obj/item/storage/box/fragshells,
+/obj/item/storage/box/fragshells,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "oH" = (
@@ -2585,12 +2533,9 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/gaia/scg/outskirts)
 "rN" = (
-/obj/structure/table/rack,
-/obj/item/inflatable_dispenser,
-/obj/item/storage/briefcase/inflatable,
-/obj/item/storage/briefcase/inflatable,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/gaia/scg/armory)
+/obj/landmark/scorcher,
+/turf/simulated/floor/exoplanet/grass,
+/area/gaia/scg)
 "rO" = (
 /obj/structure/window/reinforced/polarized,
 /obj/floor_decal/hull{
@@ -2839,18 +2784,6 @@
 "tz" = (
 /obj/floor_decal/hull,
 /obj/structure/closet/crate/secure/weapon,
-/obj/item/storage/box/ammo/doublestack,
-/obj/item/storage/box/ammo/doublestack,
-/obj/item/storage/box/ammo/doublestack,
-/obj/item/storage/box/ammo/doublestack,
-/obj/item/storage/box/ammo/doublestack,
-/obj/item/storage/box/ammo/doublestack,
-/obj/item/storage/box/ammo/pistol,
-/obj/item/storage/box/ammo/pistol,
-/obj/item/storage/box/ammo/pistol,
-/obj/item/storage/box/ammo/pistol,
-/obj/item/storage/box/ammo/pistol,
-/obj/item/storage/box/ammo/pistol,
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "tA" = (
@@ -3246,21 +3179,27 @@
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/item/gun/energy/laser,
-/obj/item/gun/energy/laser,
-/obj/item/gun/energy/k342,
-/obj/item/gun/energy/k342,
-/obj/item/gun/energy/confuseray,
-/obj/item/gun/energy/ionrifle,
-/obj/item/gun/energy/taser,
-/obj/item/cell/guncell,
-/obj/item/cell/guncell,
-/obj/item/cell/guncell,
-/obj/item/cell/guncell,
 /obj/decal/cleanable/dirt,
 /obj/machinery/light/spot{
 	dir = 8
 	},
+/obj/item/storage/box/claymore,
+/obj/item/storage/box/claymore,
+/obj/item/storage/box/claymore,
+/obj/item/storage/box/claymore,
+/obj/item/storage/box/claymore,
+/obj/item/storage/box/claymore,
+/obj/item/beartrap,
+/obj/item/beartrap,
+/obj/item/beartrap,
+/obj/item/beartrap,
+/obj/item/beartrap,
+/obj/item/beartrap,
+/obj/item/beartrap,
+/obj/item/beartrap,
+/obj/item/beartrap,
+/obj/item/beartrap,
+/obj/item/beartrap,
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "vP" = (
@@ -3334,20 +3273,6 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
-/obj/item/storage/box/freezer/blood/human,
-/obj/item/reagent_containers/ivbag/nanoblood,
-/obj/item/FixOVein,
-/obj/item/FixOVein,
-/obj/item/storage/box/freezer/blood/human,
-/obj/item/storage/firstaid/regular,
-/obj/item/storage/firstaid/regular,
-/obj/item/storage/firstaid/adv,
-/obj/item/gripper/auto_cpr,
-/obj/item/gripper/auto_cpr,
-/obj/item/storage/firstaid/trauma,
-/obj/item/storage/firstaid/stab,
-/obj/item/storage/firstaid/o2,
-/obj/item/storage/firstaid/fire,
 /turf/simulated/floor/tiled/techmaint,
 /area/gaia/scg/hospital)
 "wm" = (
@@ -3409,40 +3334,8 @@
 /obj/floor_decal/industrial/warning/dust/corner,
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/scg)
-"wC" = (
-/obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/security/alt/prepared,
-/obj/item/clothing/suit/space/void/security/alt/prepared,
-/obj/item/clothing/suit/space/void/security/alt/prepared,
-/obj/item/clothing/suit/space/void/atmos/alt/sol/prepared,
-/obj/item/clothing/suit/space/void/atmos/alt/sol/prepared,
-/obj/item/clothing/suit/space/void/pilot/sol/prepared,
-/obj/item/clothing/suit/space/void/engineering/alt/sol/prepared,
-/obj/item/clothing/suit/space/void/engineering/alt/sol/prepared,
-/obj/item/clothing/suit/space/void/command/prepared,
-/obj/item/clothing/suit/space/void/command/prepared,
-/obj/item/clothing/suit/space/void/command/prepared,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/gaia/scg/armory)
 "wD" = (
 /obj/structure/closet/crate/secure/weapon,
-/obj/item/ammo_magazine/speedloader/clip,
-/obj/item/ammo_magazine/speedloader/clip,
-/obj/item/ammo_magazine/speedloader/clip,
-/obj/item/ammo_magazine/speedloader/clip,
-/obj/item/ammo_magazine/speedloader/clip,
-/obj/item/ammo_magazine/speedloader/clip,
-/obj/item/ammo_magazine/speedloader/clip,
-/obj/item/ammo_magazine/speedloader/clip,
-/obj/item/ammo_magazine/iclipr,
-/obj/item/ammo_magazine/iclipr,
-/obj/item/ammo_magazine/iclipr,
-/obj/item/ammo_magazine/iclipr,
-/obj/item/ammo_magazine/iclipr,
-/obj/item/ammo_magazine/iclipr,
-/obj/item/ammo_magazine/iclipr,
-/obj/item/ammo_magazine/iclipr,
-/obj/item/ammo_magazine/iclipr,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "wF" = (
@@ -3661,18 +3554,6 @@
 /area/gaia/scg/shooting_range)
 "xY" = (
 /obj/structure/table/rack,
-/obj/item/clothing/accessory/storage/holster/thigh,
-/obj/item/clothing/accessory/storage/holster/thigh,
-/obj/item/clothing/accessory/storage/holster/waist,
-/obj/item/clothing/accessory/storage/holster/waist,
-/obj/item/clothing/accessory/storage/holster/armpit,
-/obj/item/clothing/accessory/storage/holster/hip,
-/obj/item/clothing/accessory/storage/holster/hip,
-/obj/item/clothing/accessory/storage/holster/knife,
-/obj/item/clothing/accessory/storage/holster/knife,
-/obj/item/clothing/accessory/storage/holster/knife,
-/obj/item/clothing/accessory/storage/holster/machete,
-/obj/item/clothing/accessory/storage/holster/machete,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "yc" = (
@@ -3689,29 +3570,12 @@
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "yd" = (
-/obj/floor_decal/hull,
-/obj/structure/table/rack,
-/obj/item/material/hatchet/machete/steel,
-/obj/item/material/hatchet/machete/steel,
-/obj/item/material/knife/combat,
-/obj/item/material/knife/combat,
-/obj/item/material/knife/combat,
-/obj/item/material/knife/folding/combat/switchblade,
-/obj/item/material/knife/folding/tacticool,
-/turf/simulated/floor/plating,
-/area/gaia/scg/armory)
+/obj/landmark/scorcher,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/scg/shooting_range)
 "ye" = (
 /turf/simulated/floor/carpet/blue,
 /area/gaia/scg/command/monty)
-"yi" = (
-/obj/structure/table/rack,
-/obj/item/stack/flag/blue,
-/obj/item/stack/flag/green,
-/obj/item/stack/flag/red,
-/obj/item/stack/flag/teal,
-/obj/item/stack/flag/yellow,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/gaia/scg/armory)
 "yl" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/ywflowers,
@@ -3850,9 +3714,6 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
-/obj/item/shield/buckler,
-/obj/item/shield/riot/metal,
-/obj/item/shield/riot/metal,
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "zw" = (
@@ -3923,13 +3784,10 @@
 /turf/simulated/floor/plating,
 /area/gaia/scg/security/prison)
 "Al" = (
-/obj/structure/table/rack,
-/obj/item/stack/material/plastic/fifty,
-/obj/item/stack/material/plasteel/fifty,
-/obj/item/stack/material/cardboard/fifty,
-/obj/item/stack/material/aluminium/fifty,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/gaia/scg/armory)
+/obj/structure/target_stake,
+/obj/landmark/scorcher,
+/turf/simulated/floor/exoplanet/barren,
+/area/gaia/scg)
 "Aq" = (
 /obj/floor_decal/stairs{
 	dir = 1
@@ -4286,14 +4144,6 @@
 	dir = 1
 	},
 /obj/structure/closet/crate/secure/weapon,
-/obj/item/storage/box/ammo/shotgunammo,
-/obj/item/storage/box/ammo/shotgunammo,
-/obj/item/storage/box/ammo/shotgunammo,
-/obj/item/storage/box/ammo/shotgunammo,
-/obj/item/storage/box/ammo/shotgunshells,
-/obj/item/storage/box/ammo/shotgunshells,
-/obj/item/storage/box/ammo/shotgunshells,
-/obj/item/storage/box/ammo/shotgunshells,
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "Db" = (
@@ -4456,20 +4306,6 @@
 /obj/structure/mattress,
 /turf/simulated/floor/plating,
 /area/gaia/scg/security/prison)
-"Eg" = (
-/obj/structure/table/rack,
-/obj/item/storage/toolbox/mechanical,
-/obj/item/storage/toolbox/mechanical,
-/obj/item/storage/toolbox/electrical,
-/obj/item/storage/toolbox/emergency,
-/obj/item/storage/toolbox/emergency,
-/obj/item/storage/toolbox/syndicate,
-/obj/decal/cleanable/dirt,
-/obj/item/screwdriver/lockpick,
-/obj/item/screwdriver/lockpick,
-/obj/item/screwdriver/lockpick,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/gaia/scg/armory)
 "Ei" = (
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/gaia/scg/security/prison)
@@ -4529,20 +4365,6 @@
 "EF" = (
 /obj/floor_decal/hull,
 /obj/structure/table/rack,
-/obj/item/storage/belt/holster/security/tactical,
-/obj/item/storage/belt/holster/security/tactical,
-/obj/item/storage/belt/holster/security/tactical,
-/obj/item/storage/belt/holster/security/tactical,
-/obj/item/storage/belt/holster/security/tactical,
-/obj/item/storage/belt/holster/security/tactical,
-/obj/item/storage/belt/holster/security/tactical,
-/obj/item/storage/belt/holster/security/tactical,
-/obj/item/storage/belt/holster/security/tactical,
-/obj/item/storage/belt/holster/security/tactical,
-/obj/item/storage/belt/holster/security/tactical,
-/obj/item/storage/belt/holster/security/tactical,
-/obj/item/storage/belt/holster/security/tactical,
-/obj/item/storage/belt/holster/security/tactical,
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "EJ" = (
@@ -4625,10 +4447,23 @@
 /turf/simulated/floor/shuttle/black,
 /area/gaia/scg)
 "Ff" = (
+/obj/floor_decal/hull,
+/obj/decal/cleanable/dirt,
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun/small,
+/obj/item/gun/energy/laser,
+/obj/item/gun/energy/k342/prereg,
+/obj/item/gun/energy/retro,
+/obj/item/gun/energy/taser,
 /obj/floor_decal/hull{
 	dir = 1
 	},
-/obj/machinery/power/port_gen/pacman,
+/obj/item/gun/energy/taser,
+/obj/item/gun/energy/taser,
+/obj/item/cell/guncell,
+/obj/item/cell/guncell,
+/obj/item/cell/guncell,
 /obj/machinery/light/spot{
 	dir = 4
 	},
@@ -4722,12 +4557,11 @@
 /area/gaia/scg/outskirts)
 "FO" = (
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/item/storage/box/frags,
-/obj/item/storage/box/frags,
-/obj/item/storage/box/frags,
-/obj/item/storage/box/fragshells,
-/obj/item/storage/box/fragshells,
-/obj/item/storage/box/emps,
+/obj/item/gun/projectile/automatic/caseless/carbine,
+/obj/item/gun/projectile/automatic/caseless/carbine,
+/obj/item/gun/projectile/automatic/sec_smg/lethal,
+/obj/item/gun/projectile/automatic/sec_smg/lethal,
+/obj/item/gun/projectile/automatic/sec_smg/lethal,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "FP" = (
@@ -5115,6 +4949,7 @@
 "Ix" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/ash,
+/obj/landmark/scorcher,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg)
 "IA" = (
@@ -5126,7 +4961,6 @@
 /area/gaia/scg/barracks/ps)
 "IB" = (
 /obj/structure/table/standard,
-/obj/item/storage/firstaid/o2,
 /obj/item/autopsy_scanner,
 /turf/simulated/floor/tiled/old_cargo,
 /area/gaia/scg/hospital/surgery)
@@ -5332,6 +5166,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/landmark/scorcher,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/shooting_range)
 "JM" = (
@@ -5539,13 +5374,7 @@
 /turf/simulated/floor/steel_dirty,
 /area/gaia/scg/hospital)
 "KJ" = (
-/obj/structure/table/rack,
-/obj/item/storage/backpack/rucksack/green,
-/obj/item/storage/backpack/rucksack/green,
-/obj/item/storage/backpack/rucksack/green,
-/obj/item/storage/backpack/rucksack/tan,
-/obj/item/storage/backpack/rucksack/tan,
-/obj/item/storage/backpack/rucksack/tan,
+/obj/structure/closet/crate/secure/large/phoron,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "KK" = (
@@ -5750,19 +5579,11 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "Mf" = (
-/obj/structure/table/rack,
-/obj/item/clothing/mask/gas,
-/obj/item/clothing/mask/gas,
-/obj/item/clothing/mask/gas,
-/obj/item/clothing/mask/gas/budget,
-/obj/item/clothing/mask/gas/budget,
-/obj/item/clothing/mask/gas/budget,
-/obj/item/clothing/mask/gas/budget,
-/obj/item/clothing/mask/gas/budget,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/gaia/scg/armory)
+/obj/structure/table/standard,
+/obj/item/device/gps/scg,
+/obj/item/device/gps/scg,
+/turf/simulated/floor/lino,
+/area/gaia/scg/command)
 "Mh" = (
 /obj/structure/table/woodentable,
 /obj/decal/cleanable/dirt,
@@ -5770,16 +5591,6 @@
 	icon_state = "wood_broken2"
 	},
 /area/gaia/scg/undeground)
-"Mm" = (
-/obj/structure/table/rack,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/teargas,
-/obj/item/storage/box/handcuffs,
-/obj/item/storage/box/handcuffs,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/gaia/scg/armory)
 "Mp" = (
 /obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/old_cargo,
@@ -5787,7 +5598,7 @@
 "Ms" = (
 /obj/structure/target_stake,
 /obj/decal/cleanable/dirt,
-/obj/item/target/gaia/iccg,
+/obj/landmark/scorcher,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/shooting_range)
 "Mv" = (
@@ -5964,10 +5775,9 @@
 /turf/simulated/floor/exoplanet/gravel,
 /area/gaia/scg/outskirts)
 "NN" = (
-/obj/floor_decal/hull,
 /obj/structure/target_stake,
-/obj/item/target/gaia/iccg,
-/turf/simulated/floor/plating,
+/obj/landmark/scorcher,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/shooting_range)
 "NR" = (
 /obj/floor_decal/corner/white/border{
@@ -5986,15 +5796,6 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
-/obj/item/barrier,
-/obj/item/barrier,
-/obj/item/barrier,
-/obj/item/barrier,
-/obj/item/barrier,
-/obj/item/barrier,
-/obj/item/barrier,
-/obj/item/barrier,
-/obj/item/barrier,
 /obj/machinery/light/spot{
 	dir = 4
 	},
@@ -6081,13 +5882,13 @@
 /area/gaia/scg/command/briefing)
 "OU" = (
 /obj/decal/cleanable/dirt,
-/obj/structure/railing/mapped{
+/obj/structure/barrier/simple{
 	dir = 1
 	},
-/obj/structure/railing/mapped{
+/obj/structure/barrier/simple{
 	dir = 4
 	},
-/obj/structure/railing/mapped{
+/obj/structure/barrier/simple{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/barren,
@@ -6253,6 +6054,9 @@
 "Qz" = (
 /obj/structure/closet/crate/secure/weapon,
 /obj/decal/cleanable/dirt,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
 /obj/item/storage/box/ammo/caseless,
 /obj/item/storage/box/ammo/caseless,
 /obj/item/storage/box/ammo/caseless,
@@ -6642,14 +6446,9 @@
 /turf/simulated/wall/concrete,
 /area/gaia/scg/security/prison)
 "Ts" = (
-/obj/structure/table/rack,
-/obj/item/stack/material/wood/fifty,
-/obj/item/stack/material/wood/fifty,
-/obj/item/stack/material/wood/fifty,
-/obj/item/stack/material/wood/fifty,
-/obj/item/material/hatchet,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/gaia/scg/armory)
+/obj/landmark/scorcher,
+/turf/simulated/floor/exoplanet/barren,
+/area/gaia/scg)
 "Tv" = (
 /obj/floor_decal/industrial/warning/dust/corner{
 	dir = 8
@@ -6675,15 +6474,10 @@
 /turf/simulated/floor/plating,
 /area/gaia/scg/engineering/water)
 "TJ" = (
-/obj/structure/closet/secure_closet/guncabinet,
-/obj/item/storage/backpack/dufflebag/firefighter,
-/obj/item/flamethrower/full/loaded,
-/obj/item/tank/phoron,
-/obj/item/tank/phoron,
-/obj/item/tank/phoron,
-/obj/item/clothing/accessory/armor_plate/sneaky/tactical,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/gaia/scg/armory)
+/obj/decal/cleanable/dirt,
+/obj/landmark/scorcher,
+/turf/simulated/floor/exoplanet/barren,
+/area/gaia/scg)
 "TM" = (
 /obj/structure/bed/sofa/r/green,
 /obj/decal/cleanable/dirt,
@@ -6727,8 +6521,7 @@
 "Uj" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/hull,
-/obj/structure/target_stake,
-/obj/item/target/gaia/iccg,
+/obj/landmark/scorcher,
 /turf/simulated/floor/plating,
 /area/gaia/scg/shooting_range)
 "Uk" = (
@@ -6894,17 +6687,6 @@
 /obj/floor_decal/borderfloor,
 /turf/simulated/floor/tiled/techfloor,
 /area/gaia/scg/security/prison)
-"Vs" = (
-/obj/structure/table/rack,
-/obj/decal/cleanable/dirt,
-/obj/item/clothing/accessory/glassesmod/vision/welding,
-/obj/item/clothing/accessory/glassesmod/vision/welding,
-/obj/item/clothing/accessory/glassesmod/vision/welding,
-/obj/item/clothing/accessory/glassesmod/hud/medical,
-/obj/item/clothing/accessory/glassesmod/hud/medical,
-/obj/item/clothing/accessory/glassesmod/hud/medical,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/gaia/scg/armory)
 "Vu" = (
 /obj/item/stool/wood,
 /turf/simulated/floor/lino,
@@ -6930,11 +6712,10 @@
 /obj/structure/closet/secure_closet/guncabinet,
 /obj/item/gun/projectile/heavysniper/boltaction,
 /obj/item/gun/projectile/heavysniper/boltaction,
-/obj/item/gun/projectile/heavysniper/boltaction/scope,
+/obj/item/gun/projectile/heavysniper/boltaction,
 /obj/item/gun/projectile/sniper/garand,
 /obj/item/gun/projectile/sniper/garand,
 /obj/item/gun/projectile/sniper/garand,
-/obj/item/gun/projectile/sniper/caseless,
 /obj/item/gun/projectile/sniper/caseless,
 /obj/item/gun/projectile/sniper/caseless,
 /turf/simulated/floor/tiled/dark/monotile,
@@ -7093,10 +6874,18 @@
 /area/gaia/scg/shooting_range)
 "WP" = (
 /obj/floor_decal/hull,
-/obj/item/stack/material/phoron/fifty,
-/obj/item/stack/material/phoron/fifty,
-/obj/structure/closet/crate/secure/large/phoron,
 /obj/decal/cleanable/dirt,
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/storage/box/frags,
+/obj/item/storage/box/frags,
+/obj/item/storage/box/emps,
+/obj/item/storage/box/emps,
+/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/smokes,
+/obj/item/storage/box/smokes,
+/obj/item/storage/box/smokes,
+/obj/item/storage/box/smokes,
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "WS" = (
@@ -7448,16 +7237,6 @@
 /obj/paint/dark_gunmetal,
 /turf/simulated/floor/plating,
 /area/gaia/scg/barracks)
-"Zg" = (
-/obj/floor_decal/hull,
-/obj/structure/table/rack,
-/obj/item/shovel,
-/obj/item/shovel,
-/obj/item/shovel,
-/obj/item/pickaxe,
-/obj/item/pickaxe,
-/turf/simulated/floor/plating,
-/area/gaia/scg/armory)
 "Zh" = (
 /obj/paint/dark_gunmetal,
 /turf/simulated/wall/concrete,
@@ -7581,13 +7360,6 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
-/obj/item/storage/box/masks,
-/obj/item/storage/box/nitrilegloves,
-/obj/item/storage/box/pillbottles,
-/obj/item/roller_bed,
-/obj/item/roller_bed,
-/obj/item/roller_bed,
-/obj/item/roller_bed,
 /obj/machinery/button/blast_door{
 	pixel_y = 23
 	},
@@ -22246,10 +22018,10 @@ el
 el
 rx
 rx
-rx
+ly
 yw
 yw
-rx
+ly
 rx
 DF
 mz
@@ -22864,7 +22636,7 @@ mz
 nc
 nc
 DF
-rx
+ly
 UA
 UA
 DR
@@ -23394,7 +23166,7 @@ vT
 ds
 jL
 Gq
-rx
+ly
 DF
 mz
 nc
@@ -23581,7 +23353,7 @@ Vk
 gY
 sw
 sp
-Cw
+Mf
 Cw
 tw
 sw
@@ -25030,14 +24802,14 @@ mM
 mM
 mM
 AA
-xX
+oe
 Ms
 ul
 WO
-Vk
-wF
+rN
+TJ
 rp
-AA
+Ts
 OU
 fd
 ul
@@ -25134,14 +24906,14 @@ mM
 mM
 Vk
 AA
-xX
+oe
 JI
-ul
-Uj
+yd
+WO
 AA
 wF
 rp
-AA
+Ts
 wF
 xX
 ul
@@ -25238,12 +25010,12 @@ mM
 mM
 Vk
 AA
-xX
-Ms
-ul
+oe
+Db
+NN
 WO
 Hm
-wF
+TJ
 rp
 Vk
 OU
@@ -25342,14 +25114,14 @@ Vk
 EQ
 lk
 ka
-xX
+oe
 ul
 ul
 Uj
-Vk
+rN
 Lt
 wF
-AA
+Ts
 es
 xX
 ul
@@ -25446,12 +25218,12 @@ Vk
 EQ
 Vk
 AA
-xX
-Ms
-ul
+oe
+Db
+yd
 qT
-Vk
-AA
+rN
+Al
 rp
 AA
 OU
@@ -25550,10 +25322,10 @@ Vk
 mM
 Vk
 AA
-xX
+oe
 Fc
 ul
-NN
+qT
 rp
 AA
 rp
@@ -25572,7 +25344,7 @@ Zl
 Sj
 RM
 iq
-ly
+ZJ
 VI
 fz
 iq
@@ -25654,9 +25426,9 @@ dV
 Vk
 Vk
 AA
-xX
+oe
 Ms
-ul
+yd
 qT
 AA
 Vk
@@ -26173,7 +25945,7 @@ xN
 Vk
 IJ
 fQ
-TJ
+fQ
 on
 vO
 UN
@@ -26181,7 +25953,7 @@ UN
 EF
 kD
 fM
-Ts
+xY
 Ys
 rO
 ga
@@ -26385,11 +26157,11 @@ ga
 gL
 vP
 cS
-Eg
+fM
 oh
-oe
-Al
-wC
+zv
+xY
+xY
 Sz
 cd
 Vi
@@ -26592,12 +26364,12 @@ bP
 Vi
 aS
 eX
-Mm
-Vs
-yd
+fM
+fM
+EF
 zv
 xY
-Mf
+xY
 Sz
 cd
 Vi
@@ -26802,10 +26574,10 @@ WP
 Ff
 jc
 KJ
-Zg
+EF
 NW
-rN
-yi
+xY
+xY
 WK
 yc
 ga

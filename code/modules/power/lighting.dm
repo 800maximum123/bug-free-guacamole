@@ -51,7 +51,7 @@
 	switch(stage)
 		if(LIGHT_STAGE_EMPTY) icon_state = "tube-construct-stage1"
 		if(LIGHT_STAGE_WIRED) icon_state = "tube-construct-stage2"
-		if(LIGHT_STAGE_COMPLETE) icon_state = "tube-empty"
+		if(LIGHT_STAGE_COMPLETE) icon_state = "tube_empty"
 
 /obj/machinery/light_construct/examine(mob/user, distance)
 	. = ..()
@@ -150,7 +150,7 @@
 	switch(stage)
 		if(LIGHT_STAGE_EMPTY) icon_state = "bulb-construct-stage1"
 		if(LIGHT_STAGE_WIRED) icon_state = "bulb-construct-stage2"
-		if(LIGHT_STAGE_COMPLETE) icon_state = "bulb-empty"
+		if(LIGHT_STAGE_COMPLETE) icon_state = "bulb_empty"
 
 /obj/machinery/light_construct/spot
 	name = "large light fixture frame"
