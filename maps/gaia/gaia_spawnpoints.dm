@@ -9,11 +9,49 @@ GLOBAL_LIST_EMPTY(latejoin_officer_barracks_iccg)
 // -- Miscellaneous Spawnpoints --
 /datum/spawnpoint/area_of_operations
 	display_name = "Area of Operations"
-	restrict_job = list("Citizen", "Town Mayor", "Policeman", "Paramedic", "Firefighter", "Construction Worker", "Priest")
+	restrict_job = list("Citizen", "Town Mayor", "Police Officer", "Paramedic", "Firefighter", "Municipal Engineer", "Priest")
+	/// Cover the spawned people in dirt? Used for maps of city ruins or similiar.
+	var/is_dirty = TRUE
 
 /datum/spawnpoint/area_of_operations/New()
 	..()
 	turfs = GLOB.latejoin_area_of_operations
+
+/datum/spawnpoint/area_of_operations/after_join(mob/living/carbon/human/victim)
+	if(!is_dirty)
+		return
+	if(!istype(victim))
+		return
+	var/list/to_cover = list(
+		victim.head,
+		victim.wear_mask,
+		victim.wear_suit,
+		victim.w_uniform,
+		victim.gloves,
+		victim.shoes,
+		victim.glasses,
+		victim.belt,
+		victim.s_store,
+		)
+
+	for(var/obj/item/clothing/C in to_cover)
+		if(prob(50))
+			return
+		C.blood_color = SYNTH_BLOOD_COLOUR
+		if(!C.blood_overlay)
+			C.generate_blood_overlay()
+			C.blood_DNA = list()
+			C.blood_overlay.color = SYNTH_BLOOD_COLOUR
+			C.AddOverlays(C.blood_overlay)
+		if(istype(C, /obj/item/clothing/shoes))
+			var/obj/item/clothing/shoes/S = C
+			S.track_blood = max(3,S.track_blood)
+
+	if (victim.buckled && istype(victim.buckled, /obj/structure/bed/chair/wheelchair))
+		var/obj/structure/bed/chair/wheelchair/W = victim.buckled
+		W.bloodiness = 4
+
+	victim.update_icons()
 
 // -- SCG Spawnpoints --
 /datum/spawnpoint/scg_barracks

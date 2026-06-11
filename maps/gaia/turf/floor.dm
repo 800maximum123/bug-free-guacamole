@@ -105,13 +105,24 @@
 /turf/simulated/floor/exoplanet/water/shallow/sewers/Crossed(mob/living/carbon/human/perp)
 	if(!istype(perp))
 		return
+	var/list/to_cover = list(
+		perp.head,
+		perp.wear_mask,
+		perp.wear_suit,
+		perp.w_uniform,
+		perp.gloves,
+		perp.shoes,
+		perp.glasses,
+		perp.belt,
+		perp.s_store,
+		)
 
 	var/obj/item/organ/external/l_foot = perp.get_organ(BP_L_FOOT)
 	var/obj/item/organ/external/r_foot = perp.get_organ(BP_R_FOOT)
 	var/hasfeet = 1
 	if((!l_foot || l_foot.is_stump()) && (!r_foot || r_foot.is_stump()))
 		hasfeet = 0
-	for(var/obj/item/clothing/C in list(perp.head, perp.wear_mask, perp.wear_suit, perp.w_uniform, perp.gloves, perp.shoes))
+	for(var/obj/item/clothing/C in to_cover)
 		C.blood_color = dirt_color
 		if(!C.blood_overlay)
 			C.generate_blood_overlay()
@@ -130,4 +141,4 @@
 		var/obj/structure/bed/chair/wheelchair/W = perp.buckled
 		W.bloodiness = 4
 
-	perp.update_inv_shoes(1)
+	perp.update_icons()
