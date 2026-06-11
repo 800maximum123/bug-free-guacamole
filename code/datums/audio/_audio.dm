@@ -29,7 +29,7 @@
 
 
 /singleton/audio/proc/get_sound(channel)
-	var/sound/S = sound(source, FALSE, FALSE, channel, volume || 100)
+	var/sound/S = sound(file = source, repeat = FALSE, wait = FALSE, channel = channel, volume = volume || 100)
 	return S
 
 

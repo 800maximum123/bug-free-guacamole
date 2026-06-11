@@ -156,7 +156,8 @@ var/global/const/FALLOFF_SOUNDS = 0.5
 			else
 				var/area/A = get_area(src)
 				S.environment = A.sound_env
-
+		else if (istype(src, /mob/new_player))
+			S.environment = -1
 		else if (pressure_factor < 0.5)
 			S.environment = SPACE
 		else

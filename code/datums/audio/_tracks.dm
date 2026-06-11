@@ -297,30 +297,30 @@
 	license = /singleton/license/cc_by_sa_3_0
 	url = "https://soundcloud.com/adrop_aday/14-wild-encounters"
 
-// Gaian Shenanigans
+// Pyrrhic Victory
 /singleton/audio/track/hellmet
 	source = 'sound/music/tuxedo/HELLMET.ogg'
 	title = "HELLMET"
 	author = "DrTuxedo"
-	collection = "Gaian Shenanigans"
+	collection = "Pyrrhic Victory"
 	license = /singleton/license/cc_by_sa_3_0
-	url = "https://drtuxedo.bandcamp.com/track/hellmet"
+	url = "https://drtuxedo.bandcamp.com/track/hellmet" // TODO: Replace with a link to the album
 
-/singleton/audio/track/blackhawk_of_space
-	source = 'sound/music/tuxedo/BlackhawkOfSpace.ogg'
-	title = "Blackhawk of Space"
+/singleton/audio/track/blackhawk_of_space_remix
+	source = 'sound/music/tuxedo/BlackhawkOfSpaceRemix.ogg' // TODO: Finish the remix and replace it
+	title = "Blackhawk of Space Remix"
 	author = "DrTuxedo"
-	collection = "Gaian Shenanigans"
+	collection = "Pyrrhic Victory"
 	license = /singleton/license/cc_by_sa_3_0
-	url = "https://www.newgrounds.com/audio/listen/1150011"
+	url = "https://drtuxedo.bandcamp.com/album/pyrrhic-victory"
 
-/singleton/audio/track/unrest_at_mars
-	source = 'sound/music/tuxedo/UnrestAtMars.ogg'
-	title = "Unrest at Mars"
+/singleton/audio/track/unrest_at_mars_remix
+	source = 'sound/music/tuxedo/UnrestAtMarsRemix.ogg'
+	title = "Unrest at Mars Remix"
 	author = "DrTuxedo"
-	collection = "Gaian Shenanigans"
+	collection = "Pyrrhic Victory"
 	license = /singleton/license/cc_by_sa_3_0
-	url = "https://www.newgrounds.com/audio/listen/1113474"
+	url = "https://drtuxedo.bandcamp.com/album/pyrrhic-victory"
 
 /singleton/audio/track/spooky_fields
 	source = 'sound/music/spooky_fields.ogg'
