@@ -22,14 +22,18 @@
 	holder = null
 	..()
 
-/datum/lock/proc/unlock(key = "", mob/user)
+/datum/lock/proc/unlock(key = "", mob/user, lockpick)
+	if(status == LOCK_BROKEN)
+		to_chat(user, SPAN_WARNING("Its broken!"))
+		return 2
 	if(status ^ LOCK_LOCKED)
 		to_chat(user, SPAN_WARNING("Its already unlocked!"))
 		return 2
 	playsound(holder, 'sound/items/metal_clicking_13.ogg', 30, 1)
-	user.visible_message(SPAN_NOTICE("\The [user] unlocks [holder] with [key]."))
+	if(!lockpick)
+		user.visible_message(SPAN_NOTICE("\The [user] unlocks [holder] with [key]."))
 	key = get_key_data(key, user)
-	if(cmptext(lock_data,key) && (status ^ LOCK_BROKEN))
+	if(cmptext(lock_data, key) && (status ^ LOCK_BROKEN))
 		status &= ~LOCK_LOCKED
 		return 1
 	return 0
@@ -41,7 +45,7 @@
 	playsound(holder, 'sound/items/metal_clicking_14.ogg', 30, 1)
 	user.visible_message(SPAN_NOTICE("\The [user] locks [holder] with [key]."))
 	key = get_key_data(key, user)
-	if(cmptext(lock_data,key) && (status ^ LOCK_BROKEN))
+	if(cmptext(lock_data, key) && (status ^ LOCK_BROKEN))
 		status |= LOCK_LOCKED
 		return 1
 	return 0
@@ -72,18 +76,21 @@
 	var/unlock_power = I.lock_picking_level
 	if(!unlock_power)
 		return 0
+	var/complexity = getComplexity()
+	var/skill = user.get_skill_value(SKILL_FORENSICS)
 	user.visible_message(SPAN_WARNING("\The [user] takes out \the [I], picking \the [holder]'s lock."))
-	playsound(holder, 'sound/items/metal_clicking_1.ogg', 10, 1)
-	if (!do_after(user, 2 SECONDS, holder, DO_PUBLIC_UNIQUE))
+	playsound(holder, 'sound/items/metal_clicking_1.ogg', 10, TRUE, -5)
+	var/lockpick_time = (30 + complexity) - (skill * unlock_power) // in ticks
+	if(!do_after(user, lockpick_time SECONDS, holder, DO_PUBLIC_UNIQUE))
 		return 0
-	if(prob(20*(unlock_power/getComplexity())))
+	if(prob(20*((unlock_power * skill) / complexity)))
 		to_chat(user, SPAN_NOTICE("You pick open \the [holder]'s lock!"))
-		unlock(lock_data)
-		playsound(holder, 'sound/items/metal_clicking_14.ogg', 10, 1)
+		unlock(lock_data, user, TRUE)
+		playsound(holder, 'sound/items/metal_clicking_14.ogg', 10, TRUE, -5)
 		return 1
-	else if(prob(5 * unlock_power))
+	else if(prob(5 * unlock_power / skill))
 		to_chat(user, SPAN_WARNING("You accidently break \the [holder]'s lock with your [I]!"))
-		playsound(holder, 'sound/items/metal_clack.ogg', 50, 1)
+		playsound(holder, 'sound/items/metal_clack.ogg', 50, TRUE)
 		status |= LOCK_BROKEN
 	else
 		to_chat(user, SPAN_WARNING("You fail to pick open \the [holder]."))
