@@ -6655,10 +6655,6 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/airlock)
-"mK" = (
-/obj/structure/girder/displaced,
-/turf/simulated/floor/plating,
-/area/tempeterra/medical/hallway)
 "mL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -9042,6 +9038,9 @@
 	layer = 3.11;
 	pixel_x = 0;
 	pixel_y = 9
+	},
+/obj/landmark{
+	name = "JoinLate"
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/command/bunks)
@@ -19267,6 +19266,9 @@
 	pixel_x = 0;
 	pixel_y = 9
 	},
+/obj/landmark{
+	name = "JoinLate"
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/command/bunks)
 "Lo" = (
@@ -26503,6 +26505,9 @@
 	layer = 3.11;
 	pixel_x = 0;
 	pixel_y = 9
+	},
+/obj/landmark{
+	name = "JoinLate"
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/tempeterra/command/bunks)
@@ -80674,7 +80679,7 @@ cj
 dF
 RU
 cx
-mK
+RU
 CB
 CB
 CB
