@@ -203,8 +203,7 @@
 		else
 			playsound(src, 'sound/items/baseball/swing_woosh.wav', 75, 1)
 			visible_message(SPAN_NOTICE("\The [user] tries to bat \the [O] but misses!"))
-		user.cool_attack_on(O)
-		//user.do_attack_animation(O)
+		user.do_attack_animation(O)
 		return TRUE
 
 //Predefined materials go here.

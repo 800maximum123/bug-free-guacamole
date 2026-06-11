@@ -46,7 +46,6 @@ var/global/all_tooltip_styles = list(
 	//update UI
 	var/list/icons = usr.hud_used.adding + usr.hud_used.other + usr.hud_used.hotkeybuttons
 	icons.Add(usr.zone_sel)
-	icons.Add(usr.melee_assistant_icon)
 	icons.Add(usr.gun_setting_icon)
 	icons.Add(usr.item_use_icon)
 	icons.Add(usr.gun_move_icon)

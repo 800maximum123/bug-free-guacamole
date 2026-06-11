@@ -31,12 +31,6 @@
 		return FALSE
 
 	var/user_psi_leech = user.do_psionics_check(cost, user)
-
-	var/area/A = get_area(user)
-	if(A.adventure_mode)
-		to_chat(user, SPAN_WARNING("You reach for \the [target] but your telekinetic power is leeched away..."))
-		return
-
 	if(user_psi_leech)
 		to_chat(user, SPAN_WARNING("Your power is leeched away by \the [user_psi_leech] as fast as you can focus it..."))
 		return FALSE

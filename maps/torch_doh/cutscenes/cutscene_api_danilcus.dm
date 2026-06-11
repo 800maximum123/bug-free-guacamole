@@ -2,10 +2,10 @@
 #define CALL_TYPE(target, type, proc, args...) new Callback(target, TYPE_PROC_REF(type, proc), ##args)
 #define CALL_GLOB(proc, args...) new Callback(GLOBAL_PROC, GLOBAL_PROC_REF(proc), ##args)
 
-#define START_CUTSCENE(type) CALL_GLOB(start_cutscene, type, ckey2body, camera_mobs)
+#define START_CUTSCENE(type) CALL_GLOB(start_cutscene, type, ckey2body)
 /proc/start_cutscene(cutscene_type, list/old_viewers, ...)
-	var/datum/modular_cutscene/scene = new cutscene_type(arglist(args.Copy(2)), arglist(args.Copy(3)))
-	scene.play()
+	var/datum/modular_cutscene/scene = new cutscene_type(arglist(args.Copy(2)))
+	scene.play(arglist(args.Copy(3)))
 
 #define DO_NOTHING CALL_GLOB(src, do_nothing)
 /proc/do_nothing()
@@ -68,25 +68,30 @@
 		/* CALL = DURATION, */
 	)
 
-/datum/modular_cutscene/New(list/old_viewers, list/old_cameras, ...)
+/datum/modular_cutscene/New(list/old_viewers, ...)
 	. = ..()
 	if(actions)
 		message_admins("Список actions должен быть заполнен через функцию setup_actions(), а не прописан в сабтайпе катсцены!")
 
-	if(length(old_viewers))
+	if(old_viewers)
 		ckey2body = old_viewers.Copy()
 	else
 		for(var/client/viewer in GLOB.clients)
 			ckey2body[viewer.ckey] = viewer.mob
 			viewer.mob.no_ssd = TRUE
 
-	if(length(old_cameras))
-		camera_mobs += old_cameras
-	else
-		for(var/ckey in ckey2body)
-			camera_mobs += ckey2body[ckey]
+	for(var/ckey in ckey2body)
+		camera_mobs += ckey2body[ckey]
 
 	setup_actions(arglist(args.Copy(2)))
+
+/datum/modular_cutscene/Destroy()
+	for(var/camera in camera_mobs)
+		if(!istype(camera, /mob/living/cutscene_pov))
+			continue // Мы НЕ хотим удалять наших изначальных мобов
+		qdel(camera)
+
+	. = ..()
 
 /datum/modular_cutscene/proc/play(...)
 	if(!actions)
@@ -121,8 +126,8 @@ GLOBAL_LIST_EMPTY(cutscene_actors)
 GLOBAL_LIST_EMPTY(cutscene_cameras)
 
 /obj/effect/cutscene_camera
-	icon = 'mods/_fd/fd_utilities/icons/newsource.dmi'
-	icon_state = "camera"
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "repel_missiles"
 	anchored = TRUE
 	var/camera_id = ""
 
@@ -156,28 +161,18 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 		message_admins("КАМЕРА \"[camera_id]\" В [type] ОТСУТСТВУЕТ, ПРОПУСКАЮ")
 		return
 
-	var/turf/target_turf = get_turf(GLOB.cutscene_cameras[camera_id])
-	var/amount = 0
-
-	for(var/mob/camera in camera_mobs)
+	for(var/camera in camera_mobs)
 		if(!istype(camera, /mob/living/cutscene_pov))
-			continue // Мы НЕ хотим телепортировать наших изначальных мобов
-		camera.forceMove(target_turf)
-		amount++
+			continue // Мы НЕ хотим удалять наших изначальных мобов
+		qdel(camera)
 
-	if(amount)
-		return
+	camera_mobs.Cut()
 
+	var/turf/target_turf = get_turf(GLOB.cutscene_cameras[camera_id])
 	for(var/ckey in ckey2body)
 		var/mob/new_camera = new /mob/living/cutscene_pov(target_turf)
 		new_camera.ckey = ckey
 		camera_mobs += new_camera
-
-#define MOVE_CAMERA_MOB(move_x, move_y) CALL(src, move_camera_mob, move_x, move_y)
-/datum/modular_cutscene/proc/move_camera_mob(move_x, move_y)
-	for(var/mob/viewer as() in camera_mobs)
-		viewer.x = move_x
-		viewer.y = move_y
 
 #define MOVE_CAMERA(move_x, move_y, duration, easing) CALL(src, move_camera, move_x, move_y, duration, easing)
 /datum/modular_cutscene/proc/move_camera(move_x, move_y, duration, easing)
@@ -209,14 +204,6 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 #define CHANGE_ACTOR_MATRIX(actor, rotation, duration, easing, flags) CALL(src, change_actor_matrix, actor, rotation, duration, easing, flags)
 /datum/modular_cutscene/proc/change_actor_matrix(mob/living/actor, rotation, duration, easing, flags)
 	animate(actor, transform = matrix(rotation, MATRIX_ROTATE), time = duration, easing = easing, flags = flags)
-
-#define EASY_TRANSFORM_ACTOR(actor, size, new_angle) CALL(src, easy_transform_actor, actor, size, new_angle)
-/datum/modular_cutscene/proc/easy_transform_actor(mob/living/actor, size, new_angle)
-	return actor.SetTransform(scale = size, rotation = new_angle)
-
-#define CHANGE_ACTOR_LAYER(actor, new_layer) CALL(src, change_actor_layer, actor, new_layer)
-/datum/modular_cutscene/proc/change_actor_layer(mob/living/actor, new_layer)
-	return actor.forced_layer = new_layer
 
 #define MOVE_ACTOR(actor, direction) CALL(src, move_actor, actor, direction)
 /datum/modular_cutscene/proc/move_actor(mob/living/actor, direction)
@@ -255,43 +242,10 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 	for(var/mob/viewer as() in camera_mobs)
 		viewer.clear_fullscreen(fullscreen, time)
 
-/obj/screen/player_message/audio
-	alpha = 0
-
-/obj/screen/player_message/audio/set_text(text, text_color)
-	maptext = "<span class='maptext' style='text-align: center; font-size: 32px; color: [text_color]'>[text]</span>"
-	animate(src, alpha = 255, 1 SECOND, SINE_EASING)
-
-#define PLAY_SOUND(sound, show_name) CALL(src, play_sound, sound, show_name)
-/datum/modular_cutscene/proc/play_sound(sound/sound, show_name = null)
+#define PLAY_SOUND(sound) CALL(src, play_sound, sound)
+/datum/modular_cutscene/proc/play_sound(sound/sound)
 	for(var/viewer in camera_mobs)
 		sound_to(viewer, sound)
-
-		if(show_name)
-
-			var/obj/screen/player_message/audio/maintext = new /obj/screen/player_message/audio()
-			maintext.plane = HUD_PLANE
-			maintext.layer = HUD_ABOVE_HUD_LAYER
-			maintext.maptext_x = 0
-			maintext.maptext_y = -380
-
-			var/message = {"Сейчас играет: <b><span style="color: yellow;">[show_name]</span></b>"}
-
-			for(var/mob/A in world)
-				if(!A.client)
-					continue
-				A.client.screen += maintext
-				maintext.set_text(message, COLOR_WHITE)
-
-			addtimer(new Callback(src, PROC_REF(remove_audio_name)), 5 SECONDS)
-
-/datum/modular_cutscene/proc/remove_audio_name()
-	for(var/mob/viewer in world)
-		if(!viewer.client)
-			continue
-		for(var/obj/screen/player_message/audio/A in viewer.client.screen)
-			viewer.client.screen -= A
-			qdel(A)
 
 #define COPY_APPEARANCE(actor, target) CALL(src, copy_appearance, actor, target)
 /datum/modular_cutscene/proc/copy_appearance(mob/living/actor, mob/living/target)
@@ -308,11 +262,6 @@ GLOBAL_LIST_EMPTY(cutscene_cameras)
 			continue
 		viewer.ckey = ckey
 		viewer.no_ssd = FALSE
-
-	for(var/camera in camera_mobs)
-		if(!istype(camera, /mob/living/cutscene_pov))
-			continue // Мы НЕ хотим удалять наших изначальных мобов
-		qdel(camera)
 
 /// Фуллскрины
 

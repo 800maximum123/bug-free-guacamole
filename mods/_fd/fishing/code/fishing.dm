@@ -1,9 +1,5 @@
-/mob/living
-	var/mob_fishing = FALSE
-
 /atom
 	var/allow_fishing = FALSE
-	var/image/fishing_overlay
 	var/list/fish_types = list(
 		/mob/living/simple_animal/aquatic/fish = 100,
 		/mob/living/simple_animal/aquatic/fish/grump = 100,
@@ -16,72 +12,23 @@
 		/mob/living/simple_animal/aquatic/fish/salmon = 100,
 		/mob/living/simple_animal/aquatic/fish/bass = 100
 		)
-	var/currently_fishing = FALSE
-	var/mob/living/fisherman
-	var/obj/item/fisherman_tool
+	var/currently_fishing = FALSE // Одновременно и время старта последней рыбалки.
 
-	var/mob/living/prefish
-	var/obj/screen/fish/prefish_icon
-
-/obj/item/afterattack(atom/A as mob|obj|turf|area, mob/living/user as mob, proximity)
-
-	if(A.can_fish(user, src))
-		if(A.currently_fishing)
-			A.stop_fishing()
-			return TRUE
-		else
-			A.do_fishing(src, user)
-
-	..()
-
-/*/atom/use_tool(obj/item/tool, mob/living/user, list/click_params)
+/atom/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	. = ..()
 	if(can_fish(user, tool))
-		if(currently_fishing)
-			stop_fishing(click_params)
-			return TRUE
-		else
-			do_fishing(tool, user, click_params)*/
+		do_fishing(tool, user, click_params)
 
-/atom/proc/stop_fishing()
-	CutOverlays(fishing_overlay)
-	currently_fishing = FALSE
-
-	for(var/obj/screen/F in fisherman.client.screen)
-		if(istype(F, /obj/screen/fish))
-			fisherman.client.screen -= F
-
-	fisherman.client.connected_fish = null
-
-	qdel(prefish)
-	qdel(prefish_icon)
-
-	prefish = null
-	prefish_icon = null
-
-	fisherman.anchored = FALSE
-	fisherman.mob_fishing = TRUE
-	fisherman = null
-
-	fisherman_tool = null
-
-/atom/proc/do_fishing(obj/item/tool, mob/living/carbon/user)
+/atom/proc/do_fishing(obj/item/tool, mob/living/carbon/user, list/click_params)
 	set waitfor = FALSE
-	fishing_overlay = image(icon = 'mods/_fd/fd_assets/icons/goons/64x64.dmi', icon_state = "scream")
-	fishing_overlay.pixel_x = -16
-	fishing_overlay.pixel_y = -16
-	fishing_overlay.alpha = 100
 
-	AddOverlays(fishing_overlay)
-	currently_fishing = TRUE
+	currently_fishing = world.time
+	var/timer_data = addtimer(new Callback(src, PROC_REF(fishing_qte), user, tool), rand(tool.min_fishing_duration, tool.max_fishing_duration), TIMER_OVERRIDE)
 
-	user.anchored = TRUE
-	user.currently_fishing = TRUE
-	fisherman = user
+	do_after(user, tool.max_fishing_duration, src, DO_PUBLIC_UNIQUE)
 
-	fisherman_tool = tool
-
-	addtimer(new Callback(src, PROC_REF(fishing_qte), user, fisherman_tool), rand(fisherman_tool.min_fishing_duration, fisherman_tool.max_fishing_duration))
+	deltimer(timer_data)
+	currently_fishing = FALSE
 
 /atom/proc/can_fish(mob/living/user, obj/item/tool)
 	if(!allow_fishing)
@@ -90,12 +37,9 @@
 	if(!tool.can_fish)
 		return FALSE
 
-	if(user.mob_fishing)
-		return FALSE
-
-	if(currently_fishing && user != fisherman)
+	if(currently_fishing)
 		to_chat(user, SPAN_WARNING("Тут уже кто-то рыбачит."))
-		return FALSE
+		return
 
 	if(tool.fishing_range < get_dist(user, src))
 		return FALSE
@@ -119,125 +63,38 @@
 /atom/proc/fishing_qte(mob/living/carbon/user, obj/item/tool)
 	set waitfor = FALSE
 
-	if(!fisherman || !currently_fishing || !fisherman_tool)
+	if(currently_fishing < tool.last_use_fishing)
+		to_chat(user, SPAN_WARNING("Вы должны использовать [tool] в момент, когда рыба клюнет!"))
+		return
+
+	addtimer(new Callback(src, PROC_REF(catch_fish), user, tool), tool.fishing_timing)
+	playsound(get_turf(src), 'packs/infinity/sound/effects/Splash_Small_01_mono.ogg', 100, TRUE)
+
+	animate(tool, tool.fishing_timing/2, easing = SINE_EASING|EASE_OUT, transform = matrix().Update(scale_x = 1.5, scale_y = 1.5, rotation = 30))
+	sleep(tool.fishing_timing/2)
+	animate(tool, tool.fishing_timing/2, easing = SINE_EASING|EASE_IN, transform = matrix())
+
+/atom/proc/catch_fish(mob/living/carbon/user, obj/item/tool)
+	if(!currently_fishing)
+		return FALSE
+
+	// Выключаем ду_афтер вторым ду_афтер'ом
+	do_after(user, 1, src, DO_PUBLIC_UNIQUE)
+	currently_fishing = FALSE
+
+	if(tool.last_use_fishing < (world.time - tool.fishing_timing))
+		to_chat(user, SPAN_WARNING("Вы упустили рыбу!"))
 		return FALSE
 
 	var/new_fish_type = pickweight(fish_types)
-	prefish = new new_fish_type(src)
+	var/mob/fish = new new_fish_type(get_turf(src))
 
-	prefish_icon = new /obj/screen/fish()
-	prefish_icon.icon = prefish.icon
-	prefish_icon.icon_state = prefish.icon_state
-	prefish_icon.dir = WEST
+	fish.kill_health()
+	fish.update_icon()
 
-	prefish_icon.connected_pool = src
+	fish.throw_at(get_turf(user), get_dist(src, user), fish.throw_speed, spin = TRUE)
 
-	animate(prefish_icon, transform = matrix(0, MATRIX_SCALE), time = 0, SINE_EASING|EASE_IN)
-
-	var/ui_position = rand(1,4)
-	switch(ui_position)
-		if(1)
-			prefish_icon.screen_loc = "CENTER+3,CENTER+1"
-		if(2)
-			prefish_icon.screen_loc = "CENTER,CENTER-3"
-		if(3)
-			prefish_icon.screen_loc = "CENTER+3,CENTER+3"
-		if(4)
-			prefish_icon.screen_loc = "CENTER-3,CENTER-1"
-
-	user.client.screen += prefish_icon
-	animate(prefish_icon, transform = matrix(3, MATRIX_SCALE), time = 5, BOUNCE_EASING|EASE_IN)
-
-	addtimer(new Callback(src, PROC_REF(fail_qte), user, fisherman_tool), fisherman_tool.fishing_timing)
-	playsound(get_turf(src), 'packs/infinity/sound/effects/Splash_Small_01_mono.ogg', 100, TRUE)
-
-/atom/proc/fail_qte(mob/living/carbon/user, obj/item/tool)
-	if(prefish)
-
-		for(var/obj/screen/F in user.client.screen)
-			if(istype(F, /obj/screen/fish))
-				user.client.screen -= F
-
-		user.client.connected_fish = null
-
-		qdel(prefish)
-		qdel(prefish_icon)
-
-		prefish = null
-		prefish_icon = null
-
-		addtimer(new Callback(src, PROC_REF(fishing_qte), user, fisherman_tool), rand(fisherman_tool.min_fishing_duration, fisherman_tool.max_fishing_duration))
-
-/atom/proc/catch_fish(mob/living/carbon/user, obj/item/tool)
-
-	user.client.connected_fish = null
-
-	prefish.kill_health()
-	prefish.update_icon()
-
-	prefish.forceMove(get_turf(user))
 	playsound(get_turf(src), 'sound/effects/watersplash.ogg', 100, TRUE)
-	sleep(5)
-
-	for(var/obj/screen/F in user.client.screen)
-		if(istype(F, /obj/screen/fish))
-			user.client.screen -= F
-
-	qdel(prefish_icon)
-
-	prefish = null
-	prefish_icon = null
-	addtimer(new Callback(src, PROC_REF(fishing_qte), user, fisherman_tool), rand(fisherman_tool.min_fishing_duration, fisherman_tool.max_fishing_duration))
-
-/client/
-	var/obj/screen/fish/connected_fish
-
-/client/MouseMove(object, location, control, params)
-	. = ..()
-
-	if(connected_fish)
-		handle_fishloc(params)
-
-		if(location == get_turf(mob))
-			connected_fish.connected_pool.catch_fish(mob, connected_fish.connected_pool.fisherman_tool)
-
-/client/proc/handle_fishloc(params)
-	var/list/coords = screen_loc2pixels(params, view)
-
-	var/anim_time = abs(pixel_x - coords[1]) + abs(pixel_y - coords[2]) / 48
-	animate(connected_fish, anim_time, transform = matrix(coords[1], coords[2], MATRIX_TRANSLATE), easing = LINEAR_EASING, flags = ANIMATION_PARALLEL|ANIMATION_LINEAR_TRANSFORM)
-
-/proc/screen_loc2pixels(params, view_range = 7)
-	RETURN_TYPE(/list)
-
-	var/list/screen_loc = splittext(params2list(params)["screen-loc"], ",")
-	screen_loc = splittext(screen_loc[1], ":") + splittext(screen_loc[2], ":")
-
-	var/list/view_size = getviewsize(view_range)
-
-	var/screen_pixel_x = text2num(screen_loc[1]) * WORLD_ICON_SIZE + text2num(screen_loc[2]) - view_size[1] * 16 - WORLD_ICON_SIZE
-	var/screen_pixel_y = text2num(screen_loc[3]) * WORLD_ICON_SIZE + text2num(screen_loc[4]) - view_size[2] * 16 - WORLD_ICON_SIZE
-
-	return list(screen_pixel_x, screen_pixel_y)
-
-/obj/screen/fish
-	name = "РЫБА"
-	desc = "ТАЩИ ЕЁ БЛЯТЬ!!!"
-
-	plane = HUD_PLANE
-	layer = 5.3
-
-	screen_loc = "CENTER-0.2,CENTER"
-	var/atom/connected_pool
-
-/obj/screen/fish/Initialize()
-	. = ..()
-	SetTransform(2)
-
-/obj/screen/fish/Click(location, control, params)
-	. = ..()
-
-	usr.client.connected_fish = src
 
 // FISH TYPES
 

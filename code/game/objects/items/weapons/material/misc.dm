@@ -78,7 +78,6 @@
 	attack_cooldown_modifier = 1
 	max_force = 20
 	force_multiplier = 0.2
-	var/pick_handle = TRUE
 
 /obj/item/material/hatchet/machete/unbreakable
 	unbreakable = TRUE
@@ -91,8 +90,7 @@
 	matter = list(MATERIAL_STEEL = 15000, MATERIAL_PLASTIC = 2500)
 
 /obj/item/material/hatchet/machete/Initialize()
-	if(pick_handle)
-		icon_state = "machete[pick("","_red","_blue", "_black", "_olive")]"
+	icon_state = "machete[pick("","_red","_blue", "_black", "_olive")]"
 	. = ..()
 
 /obj/item/material/hatchet/machete/deluxe

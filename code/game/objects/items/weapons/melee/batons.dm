@@ -285,8 +285,7 @@
 		return TRUE
 	if (user.a_intent != I_HURT) //If not harm-batonning; bypass use_weapon entirely and just apply stun effect. Set cooldowns since bypassing use_weapon.
 		user.setClickCooldown(user.get_attack_speed(src))
-		user.cool_attack_on(M)
-		//user.do_attack_animation(M)
+		user.do_attack_animation(M)
 		apply_hit_effect(M, user, user.zone_sel? user.zone_sel.selecting : ran_zone())
 		return TRUE
 

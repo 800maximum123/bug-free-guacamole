@@ -284,11 +284,6 @@
 		else if(get_turf(M) in hearturfs)
 			mobs |= M
 
-	for(var/client/client in GLOB.clients)
-		if(client.watching_scene)
-			mobs |= client.mob
-			hearturfs |= get_turf(client.mob)
-
 	for(var/obj/O in GLOB.listening_objects)
 		if(get_turf(O) in hearturfs)
 			objs |= O

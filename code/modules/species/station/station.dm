@@ -305,8 +305,8 @@
 		)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/diona_heal_toggle,
-		/mob/living/carbon/human/proc/diona_spawn_custom_item)
+		/mob/living/carbon/human/proc/diona_heal_toggle
+		)
 
 	warning_low_pressure = 50
 	hazard_low_pressure = -1

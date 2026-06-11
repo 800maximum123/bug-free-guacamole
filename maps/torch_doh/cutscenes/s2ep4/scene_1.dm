@@ -10,7 +10,7 @@
 		MOVE_CAMERA(0, -6, 0, null),
 		REMOVE_SCREEN(/blackout/animated_better, 1 SECONDS),
 		TP_CAMERA("Сцена 4-1 - Кадр 1"),
-		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/ambienceNV.ogg', volume = 40), null),
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/ambienceNV.ogg', volume = 40)),
 		MOVE_CAMERA(0, 0, 4 SECONDS, LINEAR_EASING|EASE_IN),
 		ADD_SCREEN(/cinema_borders),
 		TALK_ACTOR(actor("Райфлер - 4-1-1"), "Значит, ситуация снаружи не сильно краше чем здесь...") = 6 SECONDS,
@@ -37,13 +37,13 @@
 
 		TALK_ACTOR(actor("Канарис - 4-1-1"), "Во всяком случае, небольшое обезвоживание от задротства в лигу двадцать четыре на семь звучит не так страшно, как перспектива вполне реальной и крайне болезненной смерти.") = 7.5 SECONDS,
 
-		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/ambienceNV.ogg', volume = 40), null),
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/ambienceNV.ogg', volume = 40)),
 
 		TALK_ACTOR(actor("Люк - 4-1-1"), "!начинает повторять за ассашитом.") = 0.5 SECONDS,
 		SHIFT_ACTOR(actor("Амелия - 4-1-1"), -10, 37, 1 SECONDS, SINE_EASING|EASE_IN, null),
 		TURN_ACTOR(actor("Амелия - 4-1-1"), EAST),
 
-		PLAY_SOUND(sound('mods/emote_panel/sound/sigh_female.ogg', volume = 30), null),
+		PLAY_SOUND(sound('mods/emote_panel/sound/sigh_female.ogg', volume = 30)),
 		TALK_ACTOR(actor("Райфлер - 4-1-1"), "!вздыхает.") = 2 SECONDS,
 
 		TALK_ACTOR(actor("Люк - 4-1-1"), "...и пахнет как человек.") = 1 SECONDS,
@@ -63,7 +63,7 @@
 		TALK_ACTOR(actor("Року - 4-1-1"), "!пожимает плечами.") = 2 SECONDS,
 		TALK_ACTOR(actor("Року - 4-1-1"), "Даже при цивилизации никто не мог дать точное определение тому, как блюспейс функционирует. Теперь же - мы в целом на вряд ли об этом узнаем.") = 8 SECONDS,
 
-		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/ambienceNV.ogg', volume = 40), null),
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/ambienceNV.ogg', volume = 40)),
 
 		TALK_ACTOR(actor("Року - 4-1-1"), "Ну, точнее будет сказать, что совершить это открытие доведётся точно не нашему поколению.") = 6 SECONDS,
 		TALK_ACTOR(actor("Року - 4-1-1"), "!заправила руки в карманы."),
@@ -73,18 +73,18 @@
 		TALK_ACTOR(actor("Райфлер - 4-1-1"), "Боюсь, ещё немного, и мой котелок точно закипит...") = 2 SECONDS,
 		TURN_ACTOR(actor("Райфлер - 4-1-1"), WEST) = 1 SECONDS,
 		MOVE_CAMERA(-2, 0, 3 SECONDS, CUBIC_EASING|EASE_OUT),
-		PLAY_SOUND(sound('sound/effects/footstep/asteroid4.ogg', volume = 70), null),
+		PLAY_SOUND(sound('sound/effects/footstep/asteroid4.ogg', volume = 70)),
 		MOVE_ACTOR(actor("Райфлер - 4-1-1"), WEST) = 2 SECONDS,
 		TURN_ACTOR(actor("Канарис - 4-1-1"), WEST),
-		PLAY_SOUND(sound('sound/effects/footstep/asteroid2.ogg', volume = 70), null),
+		PLAY_SOUND(sound('sound/effects/footstep/asteroid2.ogg', volume = 70)),
 		MOVE_ACTOR(actor("Райфлер - 4-1-1"), WEST) = 2 SECONDS,
 		TURN_ACTOR(actor("Райфлер - 4-1-1"), EAST) = 2 SECONDS,
 
-		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/ambienceNV.ogg', volume = 40), null),
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/ambienceNV.ogg', volume = 40)),
 
 		TALK_ACTOR(actor("Райфлер - 4-1-1"), "!сверлит мужчину взглядом.") = 4 SECONDS,
 		TALK_ACTOR(actor("Канарис - 4-1-1"), "Послушай, я прекрасно понимаю твоё возможное разочарование, сметение...и не хочу сильно назидать, но...") = 6 SECONDS,
-		PLAY_SOUND(sound('sound/effects/footstep/asteroid1.ogg', volume = 70), null),
+		PLAY_SOUND(sound('sound/effects/footstep/asteroid1.ogg', volume = 70)),
 		MOVE_ACTOR(actor("Эйс - 4-1-1"), WEST),
 		TALK_ACTOR(actor("Эйс - 4-1-1"), "Мы точно должны отвечать на их вопросы?") = 4 SECONDS,
 		TURN_ACTOR(actor("Канарис - 4-1-1"), EAST) = 2 SECONDS,
@@ -95,7 +95,7 @@
 		TALK_ACTOR(actor("Эйс - 4-1-1"), "!разводит руки в стороны."),
 		MOVE_ACTOR(actor("Эйс - 4-1-1"), EAST) = 1 SECONDS,
 		TURN_ACTOR(actor("Эйс - 4-1-1"), WEST),
-		PLAY_SOUND(sound('sound/effects/footstep/asteroid3.ogg', volume = 70), null),
+		PLAY_SOUND(sound('sound/effects/footstep/asteroid3.ogg', volume = 70)),
 		MOVE_ACTOR(actor("Райфлер - 4-1-1"), EAST) = 1 SECONDS,
 		TALK_ACTOR(actor("Райфлер - 4-1-1"), "Уговор - есть уговор. Что вы хотите знать?") = 6 SECONDS,
 		TURN_ACTOR(actor("Канарис - 4-1-1"), WEST),

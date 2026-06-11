@@ -1,12 +1,5 @@
 /datum/species/proc/hug(mob/living/carbon/human/H, mob/living/target)
 
-	if(ishuman(target))
-		var/mob/living/carbon/human/L = target
-		if(L.glitching || L.lost_in_nightmare)
-			return FALSE
-	if(H.glitching || H.lost_in_nightmare)
-		return FALSE
-
 	var/t_him = "them"
 	var/obj/item/organ/external/affecting
 	if(ishuman(target))

@@ -1090,22 +1090,14 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return 1
 	return 0
 
-// [FD-EDIT] - FD-CUSTOMS: robotdolboyob.dm
-/*
 /obj/item/organ/external/robotize(company, skip_prosthetics = 0, keep_organs = 0)
 
 	if(BP_IS_ROBOTIC(src))
 		return
 
 	..()
-*/
-/obj/item/organ/external/robotize(company, skip_prosthetics = 0, keep_organs = 0, skip_rob_check = 0 )
 
-	if(BP_IS_ROBOTIC(src) && !skip_rob_check)
-		return
 
-	..()
-// [/FD-EDIT] - FD-CUSTOMS: robotdolboyob.dm
 	if(company)
 		var/datum/robolimb/R = all_robolimbs[company]
 		if(!istype(R) || (species && (species.name in R.species_cannot_use)) || \

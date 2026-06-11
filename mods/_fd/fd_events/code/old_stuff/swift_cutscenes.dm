@@ -1,7 +1,7 @@
 /obj/npc_ship_spawner
 	name = "ТЫ НЕ ДОЛЖЕН ЭТОГО ВИДЕТЬ"
 	desc = "Не, серьёзно, это баг!"
-	icon = 'mods/_fd/fd_events/icons/landmarks_static.dmi'
+	icon = 'mods/_fd/event_tools/icons/landmarks_static.dmi'
 	icon_state = "ai_spawn"
 	var/ship = null
 	var/ship_dir = SOUTH
@@ -33,7 +33,7 @@
 		target.mouse_opacity = TRUE
 		qdel(rift)
 		qdel(src)
-/*
+
 // BOMBER EVENT 1
 
 /proc/titles(list/sequence)
@@ -1033,4 +1033,3 @@
 
 	var/sound/sound_field2 = 'mods/_fd/fd_assets/sounds/field_siren_titles.ogg'
 	world << sound_field2
-*/

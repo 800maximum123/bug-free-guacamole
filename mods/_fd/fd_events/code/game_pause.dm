@@ -2,7 +2,7 @@
 	icon = null
 	icon_state = null
 	mouse_opacity = MOUSE_OPACITY_UNCLICKABLE
-	alpha = 255
+	alpha = 0
 	screen_loc = "TOP, CENTER - 3"
 	maptext_width = 256
 	maptext_height = 480
@@ -12,6 +12,7 @@
 	layer = HUD_ABOVE_HUD_LAYER
 
 /obj/screen/player_message/proc/set_text(text, text_color)
+	animate(src, 1 SECOND, alpha = 255)
 	maptext = "<span class='maptext' style='text-align: center; font-size: 32px; color: [text_color]'>[text]</span>"
 
 /obj/screen/fullscreen/city

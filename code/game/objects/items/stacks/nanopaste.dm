@@ -13,31 +13,8 @@
 		return FALSE
 	if (istype(M,/mob/living/silicon/robot))	//Repairing cyborgs
 		var/mob/living/silicon/robot/R = M
-
-		if(R.simple_combat_on)
-			if(do_after(user, 2 SECONDS, R, DO_PUBLIC_UNIQUE))
-				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-				if(R.simple_health < R.max_simple_health)
-					R.simple_health_calculation(-20,0,0,0)
-					animation_flash_color(src, COLOR_GREEN)
-					use(1)
-				if(R.get_status_effect(/datum/simple_status/legbroke))
-					R.remove_status_effect(/datum/simple_status/legbroke)
-					animation_flash_color(src, COLOR_GREEN)
-					use(1)
-				if(R.get_status_effect(/datum/simple_status/hardcrit))
-					R.stabilized = TRUE
-					R.remove_status_effect(/datum/simple_status/hardcrit)
-					animation_flash_color(src, COLOR_GREEN)
-					use(1)
-
-			else
-				animation_flash_color(src, COLOR_RED)
-			return TRUE
-
-		if (R.getBruteLoss() || R.getFireLoss())
+		if (R.getBruteLoss() || R.getFireLoss() )
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-
 			R.adjustBruteLoss(-15)
 			R.adjustFireLoss(-15)
 			R.updatehealth()
@@ -60,32 +37,11 @@
 			to_chat(user, SPAN_WARNING("\The [M]'s [S.name] is hard and brittle - \the [src] cannot repair it."))
 			return TRUE
 
-		if(H.simple_combat_on && S && BP_IS_ROBOTIC(S))
-			if(can_use(1) && do_after(user, 2 SECONDS, H, DO_PUBLIC_UNIQUE))
-				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-				if(H.simple_health < H.max_simple_health)
-					H.simple_health_calculation(-20,0,0,0)
-					animation_flash_color(src, COLOR_GREEN)
-					use(1)
-				if(H.get_status_effect(/datum/simple_status/legbroke))
-					H.remove_status_effect(/datum/simple_status/legbroke)
-					animation_flash_color(src, COLOR_GREEN)
-					use(1)
-				if(H.get_status_effect(/datum/simple_status/hardcrit))
-					H.stabilized = TRUE
-					H.remove_status_effect(/datum/simple_status/hardcrit)
-					animation_flash_color(src, COLOR_GREEN)
-					use(1)
-			else
-				animation_flash_color(src, COLOR_RED)
-			return TRUE
-
 		if(S && BP_IS_ROBOTIC(S) && S.hatch_state == HATCH_OPENED)
 			if (!S.get_damage())
 				to_chat(user, SPAN_NOTICE("Nothing to fix here."))
 			else if (can_use(1))
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-
 				S.heal_damage(15, 15, robo_repair = 1)
 				H.updatehealth()
 				use(1)

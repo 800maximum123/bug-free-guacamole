@@ -67,13 +67,13 @@
 	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/engineering/engineer/fleet
 	allowed_branches = list(
 		/datum/mil_branch/fleet,
-		// /datum/mil_branch/civilian = /singleton/hierarchy/outfit/job/torch/crew/engineering/contractor
+		/datum/mil_branch/civilian = /singleton/hierarchy/outfit/job/torch/crew/engineering/contractor
 	)
 	allowed_ranks = list(
 		/datum/mil_rank/fleet/e3,
 		/datum/mil_rank/fleet/e4,
 		/datum/mil_rank/fleet/e5,
-		// /datum/mil_rank/civ/contractor
+		/datum/mil_rank/civ/contractor
 	)
 	min_skill = list(   SKILL_COMPUTER     = SKILL_BASIC,
 	                    SKILL_EVA          = SKILL_BASIC,

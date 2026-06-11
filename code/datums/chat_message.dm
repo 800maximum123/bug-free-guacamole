@@ -120,39 +120,6 @@ GLOBAL_LIST_EMPTY(runechat_image_cache)
 	qdel_self()
 
 
-/proc/build_runechat_text(text, color, atom/target, list/extra_classes = list(), list/extra_styles = list())
-	// Get rid of any URL schemes that might cause BYOND to automatically wrap something in an anchor tag
-	var/static/regex/url_scheme = new(@"[A-Za-z][A-Za-z0-9+-\.]*:\/\/", "g")
-	text = replacetext(text, url_scheme, "")
-
-	// Reject whitespace
-	var/static/regex/whitespace = new(@"^\s*$")
-	if (whitespace.Find(text))
-		return
-
-	// Append radio icon if from a virtual speaker
-	if (extra_classes.Find("virtual-speaker"))
-		var/image/r_icon = image('icons/chaticons.dmi', icon_state = "radio")
-		text = "\icon[r_icon]&nbsp;" + text
-	else if (extra_classes.Find("emote"))
-		var/image/r_icon = image('icons/chaticons.dmi', icon_state = "emote")
-		text = "\icon[r_icon]&nbsp;" + text
-
-	if(!color)
-		if(target)
-			if (!target.chat_color || target.chat_color_name != target.name)
-				target.chat_color = colorize_string(target.name)
-				target.chat_color_darkened = colorize_string(target.name, 0.85, 0.85)
-				target.chat_color_name = target.name
-
-			color = (extra_classes.Find("italics") || extra_classes.Find("emote")) ? \
-				target.chat_color_darkened : target.chat_color
-		else
-			color = "#fff"
-
-	return "<span class='center maptext [jointext(extra_classes, " ")]' style='color: [color]; [jointext(extra_styles, "; ")]'>[text]</span>"
-
-
 /**
   * Generates a chat message image representation
   *
@@ -178,6 +145,22 @@ GLOBAL_LIST_EMPTY(runechat_image_cache)
 	if (length_char(text) > maxlen)
 		text = copytext_char(text, 1, maxlen + 1) + "..." // BYOND index moment
 
+	// Calculate target color if not already present
+	if (!target.chat_color || target.chat_color_name != target.name)
+		target.chat_color = colorize_string(target.name)
+		target.chat_color_darkened = colorize_string(target.name, 0.85, 0.85)
+		target.chat_color_name = target.name
+
+	// Get rid of any URL schemes that might cause BYOND to automatically wrap something in an anchor tag
+	var/static/regex/url_scheme = new(@"[A-Za-z][A-Za-z0-9+-\.]*:\/\/", "g")
+	text = replacetext(text, url_scheme, "")
+
+	// Reject whitespace
+	var/static/regex/whitespace = new(@"^\s*$")
+	if (whitespace.Find(text))
+		qdel(src)
+		return
+
 	// If haven't been deleted, watch for the owner
 	GLOB.destroyed_event.register(owned_by, src, PROC_REF(unregister_and_qdel_self))
 
@@ -189,16 +172,25 @@ GLOBAL_LIST_EMPTY(runechat_image_cache)
 	if(copytext_char(text, -2) == "!!")
 		extra_classes |= "yell"
 
-	var/complete_text = build_runechat_text(text, target = target, extra_classes = extra_classes)
-	if(!complete_text)
-		qdel(src)
-		return
+	// Append radio icon if from a virtual speaker
+	if (extra_classes.Find("virtual-speaker"))
+		var/image/r_icon = image('icons/chaticons.dmi', icon_state = "radio")
+		text = "\icon[r_icon]&nbsp;" + text
+	else if (extra_classes.Find("emote"))
+		var/image/r_icon = image('icons/chaticons.dmi', icon_state = "emote")
+		text = "\icon[r_icon]&nbsp;" + text
+
+	// We dim italicized text to make it more distinguishable from regular text
+	var/tgt_color = target.chat_color
+	if (extra_classes.Find("italics") || extra_classes.Find("emote"))
+		tgt_color = target.chat_color_darkened
 
 	// Approximate text height
 	// Note we have to replace HTML encoded metacharacters otherwise MeasureText will return a zero height
 	// BYOND Bug #2563917
 	// Construct text
 	var/static/regex/html_metachars = new(@"&[A-Za-z]{1,7};", "g")
+	var/complete_text = "<span class='center maptext [extra_classes != null ? extra_classes.Join(" ") : ""]' style='color: [tgt_color]'>[text]</span>"
 	var/mheight
 	WXH_TO_HEIGHT(owned_by.MeasureText(replacetext(complete_text, html_metachars, "m"), null, msgwidth), mheight)
 
@@ -342,7 +334,7 @@ GLOBAL_LIST_EMPTY(runechat_image_cache)
   * * sat_shift - A value between 0 and 1 that will be multiplied against the saturation
   * * lum_shift - A value between 0 and 1 that will be multiplied against the luminescence
   */
-/proc/colorize_string(name, sat_shift = 1, lum_shift = 1)
+/datum/chatmessage/proc/colorize_string(name, sat_shift = 1, lum_shift = 1)
 	// seed to help randomness
 	var/static/rseed = rand(1,26)
 

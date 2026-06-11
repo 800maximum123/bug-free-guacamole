@@ -15,12 +15,12 @@
 	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/medical/senior/fleet
 	allowed_branches = list(
 		/datum/mil_branch/fleet,
-		// /datum/mil_branch/civilian = /singleton/hierarchy/outfit/job/torch/crew/medical/contractor/senior
+		/datum/mil_branch/civilian = /singleton/hierarchy/outfit/job/torch/crew/medical/contractor/senior
 	)
 	allowed_ranks = list(
 		/datum/mil_rank/fleet/o1,
 		/datum/mil_rank/fleet/o2,
-		// /datum/mil_rank/civ/contractor
+		/datum/mil_rank/civ/contractor
 	)
 	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
 	                    SKILL_MEDICAL     = SKILL_EXPERIENCED,
@@ -58,14 +58,14 @@
 	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/medical/doctor/fleet
 	allowed_branches = list(
 		/datum/mil_branch/fleet,
-		// /datum/mil_branch/civilian = /singleton/hierarchy/outfit/job/torch/crew/medical/contractor
+		/datum/mil_branch/civilian = /singleton/hierarchy/outfit/job/torch/crew/medical/contractor
 	)
 	allowed_ranks = list(
 		/datum/mil_rank/fleet/e3,
 		/datum/mil_rank/fleet/e4,
 		/datum/mil_rank/fleet/e5,
 		/datum/mil_rank/fleet/e6,
-		// /datum/mil_rank/civ/contractor
+		/datum/mil_rank/civ/contractor
 	)
 	min_skill = list(   SKILL_EVA     = SKILL_BASIC,
 	                    SKILL_MEDICAL = SKILL_BASIC,

@@ -1,14 +1,13 @@
-//DRONE: weak chaff enemy
 /obj/overmap/simulated_ship/iccgn/drone_hmg
-	name = "D/F-S Chaffee drone"
-	desc = "A tiny unmanned drone, weak and fast, often used in swarms to overwhelm foes. IFF broadcasts ICCGN codes."
+	name = "RBD-6 drone"
+	desc = "Tiny close-combat automated battle drone. Weak, but fast - effective solution to swarm enemies down with high quantity of these."
 	icon = 'mods/_fd/ai_overmap_objects/icons/scg/sfv32.dmi'
 	icon_state = "drone"
 	moving_state = "drone_moving"
-	characteristic = new /datum/ship_characteristic/iccgn/drone_hmg()
+	characteristic = new /datum/ship_characteristic/scg/drone_hmg()
 
 /datum/ship_characteristic/iccgn/drone_hmg
-	max_health = 100 //8k initial
+	max_health = 8000
 	max_shield = 0
 	shield_regen_speed = 7 *(1 SECOND)
 	vessel_mass = 5000

@@ -59,8 +59,7 @@
 			update_hud = TRUE
 	else
 		var/psi_leech = owner.do_psionics_check()
-		var/area/A = get_area(owner)
-		if(psi_leech || A.adventure_mode)
+		if(psi_leech)
 			if(stamina > 10)
 				stamina = max(0, stamina - rand(15,20))
 				//to_chat(owner, SPAN_DANGER("You feel your psi-power leeched away by \the [psi_leech]..."))

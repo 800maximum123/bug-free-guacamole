@@ -92,16 +92,8 @@
 		if (CtrlClickOn(A))
 			return TRUE
 
-	if(stat || paralysis || stunned || sleeping)
+	if(stat || paralysis || stunned || weakened || sleeping)
 		return
-
-	if(weakened)
-		if(!isliving(src))
-			return
-		if(isliving(src))
-			var/mob/living/L = src
-			if(!L.simple_combat_on || !L.get_status_effect(/datum/simple_status/crit))
-				return
 
 	// Do not allow player facing change in fixed chairs
 	if(!istype(buckled) || buckled.buckle_movable)

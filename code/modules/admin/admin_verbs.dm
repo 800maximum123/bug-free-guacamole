@@ -48,7 +48,6 @@ var/global/list/admin_verbs_admin = list(
 	/client/proc/cmd_admin_audible_narrate,
 	/client/proc/cmd_admin_local_narrate,
 	/client/proc/cmd_admin_world_narrate,	//sends text to all players with no padding,
-	/client/proc/screen_alert_menu, // [FD-ADD] - FD-EVENTS, screentext_marine.dm
 	/client/proc/cmd_admin_create_centcom_report,
 	/client/proc/check_ai_laws,			//shows AI and borg laws,
 	/client/proc/rename_silicon,		//properly renames silicons,
@@ -76,12 +75,6 @@ var/global/list/admin_verbs_admin = list(
 	/client/proc/close_slot_crew,			//frees slot for chosen job,
 	/client/proc/cmd_admin_change_custom_event,
 	/client/proc/cmd_admin_rejuvenate,
-	// [FD-ADD]
-	/client/proc/cmd_admin_camera_unfocus,
-	/client/proc/cmd_admin_camera_focus,
-	/client/proc/cmd_admin_combat_on,
-	/datum/admins/proc/simplecombat_changer,
-	// [/FD-ADD]
 	/client/proc/toggleghostwriters,
 	/client/proc/toggledrones,
 	/datum/admins/proc/show_skills, //Right click skill menu,
@@ -279,7 +272,6 @@ var/global/list/admin_verbs_hideable = list(
 	/client/proc/cmd_admin_audible_narrate,
 	/client/proc/cmd_admin_local_narrate,
 	/client/proc/cmd_admin_world_narrate,
-	/client/proc/screen_alert_menu, // [FD-ADD] - FD-EVENTS, screentext_marine.dm
 	/client/proc/play_local_sound,
 	/client/proc/play_sound,
 	/client/proc/play_server_sound,

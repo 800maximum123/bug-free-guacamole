@@ -108,7 +108,7 @@
 
 
 /obj/item/stock_parts/computer/hard_drive/portable/afterattack(mob/living/carbon/human/H, mob/living/user, target_zone, animate = TRUE)
-	if((H.is_species(SPECIES_IPC) || H.is_species(SPECIES_PERCI)) && ishuman(user) && (user.zone_sel.selecting == BP_MOUTH || user.zone_sel.selecting == BP_HEAD))
+	if(H.is_species(SPECIES_IPC) && ishuman(user) && (user.zone_sel.selecting == BP_MOUTH || user.zone_sel.selecting == BP_HEAD))
 		var/obj/item/organ/internal/ecs/T = H.internal_organs_by_name[BP_EXONET]
 		if (do_after(user, 10, src))
 			user.visible_message( \

@@ -259,12 +259,6 @@
 	mymob.zone_sel.AddOverlays(image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]"))
 	hud_elements |= mymob.zone_sel
 
-	mymob.melee_assistant_icon = new /obj/screen/melee_assistant(null)
-	mymob.melee_assistant_icon.icon = ui_style
-	mymob.melee_assistant_icon.color = ui_color
-	mymob.melee_assistant_icon.alpha = ui_alpha
-	hud_elements |= mymob.melee_assistant_icon
-
 	//Handle the gun settings buttons
 	mymob.gun_setting_icon = new /obj/screen/gun/mode(null)
 	mymob.gun_setting_icon.icon = ui_style

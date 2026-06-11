@@ -27,7 +27,7 @@
 			A.levitation = TRUE
 			A.pass_flags |= PASS_FLAG_TABLE
 			A.pixel_y = 8
-			A.AddOverlays(image('icons/screen/psi.dmi', "levitation"), ATOM_ICON_CACHE_ALL)
+			A.overlays += image('icons/screen/psi.dmi', "levitation")
 			A.make_floating(5)
 	else
 		to_chat(owner, SPAN_NOTICE("You will no longer use your psionics to deflect or block incoming attacks."))
@@ -36,7 +36,7 @@
 			A.levitation = FALSE
 			A.pass_flags &= ~PASS_FLAG_TABLE
 			A.pixel_y = 0
-			A.CutOverlays(image('icons/screen/psi.dmi', "levitation"), ATOM_ICON_CACHE_ALL)
+			A.overlays -= image('icons/screen/psi.dmi', "levitation")
 			A.stop_floating()
 	update_icon()
 

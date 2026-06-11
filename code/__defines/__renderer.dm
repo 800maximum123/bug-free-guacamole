@@ -165,7 +165,6 @@
 	#define HUD_ABOVE_HUD_LAYER          5
 
 #define RUNECHAT_PLANE               7
-#define BALOON_CHAT_PLANE            8
 
 /// This plane masks out lighting, to create an "emissive" effect for e.g glowing screens in otherwise dark areas.
 #define EMISSIVE_PLANE 10

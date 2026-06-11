@@ -5,7 +5,7 @@
 	if (!istype(user))
 		return
 
-	if (user.get_species() == SPECIES_IPC || user.get_species() == SPECIES_PERCI)
+	if (user.get_species() == SPECIES_IPC)
 		to_chat(user, SPAN_WARNING("Как ты планируешь прихорашивать свой металлический корпус?"))
 		return
 

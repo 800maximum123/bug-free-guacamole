@@ -333,10 +333,8 @@
 		if (check_penetrate(atom))
 			passthrough = TRUE
 		--penetrating
-	if (passthrough)
-		var/turf/T = get_turf(atom)
-		if(T)
-			forceMove(T)
+	if (passthrough && isturf(atom))
+		forceMove(atom)
 		permutated += atom
 		bumped = FALSE
 		return FALSE

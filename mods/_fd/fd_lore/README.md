@@ -19,32 +19,7 @@ ID мода: FD_LORE
 
 ### Описание мода
 
-Это мод, содержащий все правки относительно Лора ФД.
-
----
-
-Изменяет оверрайдит ксенорасы и (возможно в будущем) добавляет их согласно тому, что находится на сервере Файнал Дестинейшена
-Убирает ВЛ:
-
-- ИПСам
-
-- Дионам
-
-Убирает из игры:
-
-- Мулов
-
-Убирает ограничения для:
-
-- ИПС (Веймед)
-
-Маскирует веймед-ИПС под людей
-
-Добавляет:
-
-- Тартакан
-
-
+Это мод, содержащий все правки относительно Лора ФД. Не путать с FD-Species, что затрагивает только Расы.
 <!--
   Что он делает, что добавляет: что, куда, зачем и почему - всё здесь.
   А также любая полезная информация.
@@ -73,18 +48,6 @@ ID мода: FD_LORE
 - `/obj/item/gun/projectile/revolver/foundation`: `var/name`, `var/desc`
 - `/obj/item/storage/briefcase/foundation`: `var/name`
 - `/obj/item/book/manual/psionics`: `var/dat`
-
-- `code\modules\organs\robolimbs.dm`: `var/species_cannot_use`
-- `mods\ipc_mods\code\machine.dm`: `var/genders`, `var/appearance_flags`
-- `code\modules\sprite_accessories\_accessory.dm`: `var/species_allowed`
-- `code\modules\sprite_accessories\_accessory_hair.dm`: `var/species_allowed`
-- `code\modules\sprite_accessories\accessory_human.dm`: `var/species_allowed`
-- `code\modules\sprite_accessories\accessory_hair_fade.dm`: `var/species_allowed`
-- `code\modules\species\station\machine.dm`: `var/spawn_flags`
-- `code\modules\species\station\station.dm`: `var/spawn_flags`
-- `mods\tajara\code\datum\species.dm`: `var/spawn_flags`
-- `code\modules\species\station\human_subspecies.dm`: `var/spawn_flags`
-- `code\modules\mob\living\carbon\human\examine.dm`: `proc/examine`
 <!--
   Если ты добавлял новый модульный оверрайд, его нужно указать здесь.
   Здесь указываются оверрайды в твоём моде и папке `_master_files`
@@ -94,7 +57,7 @@ ID мода: FD_LORE
 
 ### Дефайны
 
-- `_fd_lore.dme`: `SPECIES_COCKROACH`
+- Отсутствуют
 <!--
   Если требовалось добавить какие-либо дефайны, укажи файлы,
   в которые ты их добавил, а также перечисли имена.

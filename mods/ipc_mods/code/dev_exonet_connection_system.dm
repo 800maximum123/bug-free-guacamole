@@ -22,7 +22,7 @@
 	var/dist = get_dist(src_object, src)
 	var/obj/item/modular_computer/ecs/computer = src_object
 	if(computer.parent_type == /obj/item/modular_computer/ecs)
-		if((is_species(SPECIES_IPC) || is_species(SPECIES_PERCI)) && dist == 0)
+		if(is_species(SPECIES_IPC) && dist == 0)
 			return STATUS_INTERACTIVE
 		else if (dist <= 3)
 			return STATUS_UPDATE

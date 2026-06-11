@@ -46,17 +46,8 @@
 				dealt_damage = attack.damage <= dealt_damage ? dealt_damage : attack.damage
 				harm_verb = pick(attack.attack_verb)
 				playsound(loc, attack.attack_sound, 25, 1, -1)
-				if(!simple_combat_on)
-					if(attack.sharp || attack.edge)
-						adjustBleedTicks(dealt_damage)
-
-			if(simple_combat_on)
-				simple_health_calculation(M.unarmed_simple_damage, M.unarmed_simple_sharpness, 1, 0, M)
-				M.visible_message(SPAN_WARNING("\The [M] [harm_verb] \the [src]!"))
-				M.do_attack_animation(src)
-				if (ai_holder)
-					ai_holder.react_to_attack(M)
-				return
+				if(attack.sharp || attack.edge)
+					adjustBleedTicks(dealt_damage)
 
 			adjustBruteLoss(dealt_damage)
 			M.visible_message(SPAN_WARNING("\The [M] [harm_verb] \the [src]!"))

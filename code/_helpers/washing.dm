@@ -5,11 +5,6 @@
 
 	var/mob/living/L = washing
 
-	if(L.bloodyness > 0)
-		L.bloodyness = clamp(L.bloodyness - 10, 0, L.bloodyness)
-		L.setup_bloodyness_overlay_self()
-		L.setup_bloodyness_overlay_other()
-
 	if(L.on_fire)
 		L.visible_message(SPAN_DANGER("A cloud of steam rises up as the water hits \the [L]!"))
 		L.ExtinguishMob()

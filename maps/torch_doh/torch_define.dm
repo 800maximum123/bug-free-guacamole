@@ -5,9 +5,9 @@
 	flags = MAP_HAS_BRANCH | MAP_HAS_RANK
 	config_path = "config/torch_config.txt"
 
-	admin_levels = list(3)
-	empty_levels = list(4)
-	accessible_z_levels = list("1"=1, "2"=2, "4"=30)
+	admin_levels = list(2)
+	empty_levels = list(3)
+	accessible_z_levels = list("1"=1, "3"=30)
 	overmap_size = 10
 	overmap_event_areas = 5
 	usable_email_tlds = list("torch.ec.scg", "torch.fleet.mil", "freemail.net", "torch.scg")

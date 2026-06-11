@@ -238,10 +238,3 @@
 	labels = list("haywire")
 	ammo_type = /obj/item/ammo_casing/rifle/dmr/haywire
 	max_ammo = 4
-
-
-/* Ammo boxes */
-
-/obj/item/storage/box/ammo/assault_rifle
-	name = "box of assault rifle magazines"
-	startswith = list(/obj/item/ammo_magazine/rifle = 6)

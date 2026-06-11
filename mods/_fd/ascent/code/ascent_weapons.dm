@@ -17,8 +17,6 @@
 	charge_meter = 0
 	has_safety = FALSE
 
-	sprite_direction = "west"
-
 	firemodes = list(
 		list(mode_name="kill", projectile_type=/obj/item/projectile/beam/particle),
 		list(mode_name="shock", projectile_type=/obj/item/projectile/beam/stun/shock),

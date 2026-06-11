@@ -215,8 +215,6 @@
 
 	var/obj/item/cell/charging_cell = A.get_cell()
 	if(istype(charging_cell))
-		if(istype(A, /obj/item/gun/energy/ionrifle/anti_terra))
-			return FALSE
 
 		if(A.do_psionics_check(maintain_cost, user))
 			to_chat(user, SPAN_WARNING("Your power skates across \the [A.name], but cannot get a grip..."))

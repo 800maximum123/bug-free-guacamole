@@ -4,15 +4,12 @@
 	icon = 'mods/_fd/fd_customs/customs/helpmeee/gestalt_structures.dmi'
 	icon_state = "cracks_dark"
 
-	layer = 4.10
-
 /obj/effect/gestalt_spike
 	name = "spike"
 	desc = "spike"
 	icon = 'mods/_fd/fd_customs/customs/helpmeee/gestalt_structures.dmi'
 	icon_state = "vinespike"
-
-	layer = 4.10
+	pixel_y = 16
 
 /obj/structure/gestalt_prison
 	name = "vines"
@@ -107,7 +104,7 @@
 		animate(targeting, 1 SECOND, alpha = 0)
 		new /obj/structure/gestalt_prison(get_turf(src))
 		for(var/mob/living/actual_target in get_turf(src))
-			actual_target.anchored = TRUE
+			actual_target.stunned = 999999
 	spawn(3 SECONDS)
 		qdel(targeting)
 
@@ -117,7 +114,7 @@
 		spawn(1 SECOND)
 			qdel(prison)
 	for(var/mob/living/actual_target in get_turf(src))
-		actual_target.anchored = FALSE
+		actual_target.stunned = 0
 
 /turf/proc/gestalt_shield()
 	for(var/turf/zone in range(1,src))
@@ -129,10 +126,7 @@
 		animate(targeting, 1 SECOND, alpha = 0)
 		new /obj/effect/gestalt_spike(get_turf(src))
 		for(var/mob/living/actual_target in get_turf(src))
-			if(actual_target.simple_combat_on)
-				actual_target.simple_health_calculation(20,10,1,0)
-			else
-				actual_target.adjustBruteLoss(rand(30,40))
+			actual_target.adjustBruteLoss(rand(30,40))
 	spawn(3 SECONDS)
 		qdel(targeting)
 		for(var/obj/effect/gestalt_spike/spike in get_turf(src))

@@ -637,14 +637,6 @@
 /atom/proc/clean_blood()
 	if(!simulated)
 		return
-
-	if(isliving(src))
-		var/mob/living/L = src
-		if(L.bloodyness > 0)
-			L.bloodyness = clamp(L.bloodyness - 5, 0, L.bloodyness)
-			L.setup_bloodyness_overlay_self()
-			L.setup_bloodyness_overlay_other()
-
 	fluorescent = ATOM_FLOURESCENCE_NONE
 	germ_level = 0
 	blood_color = null

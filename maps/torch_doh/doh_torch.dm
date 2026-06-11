@@ -201,19 +201,13 @@
 	#include "cutscenes/s2ep4/scene_2.dm"
 	#include "cutscenes/s2ep4/scene_3.dm"
 
-	#include "cutscenes/s2ep5/characters.dm"
-	#include "cutscenes/s2ep5/cutscenes.dm"
-
-	#include "cutscenes/s2ep7/stuff.dm"
-
 	#include "music_videos/s2opening1.dm"
 
 	// --- MAP FILES --- //
 
 		// ~TORCH~ //
 	#include "z1_empty.dmm"
-	#include "z2_empty.dmm"
-	#include "z3_admin.dmm"
+	#include "z2_admin.dmm"
 
 	#include "../bluespace_interlude/bluespace_interlude.dm"
 	#include "../bluespace_interlude/bluespace_interlude.dmm"
@@ -277,6 +271,7 @@
 	#include "../../mods/_fd/fd_customs/_fd_customs.dme"
 	#include "../../mods/_fd/fd_guns/_fd_guns.dme"
 	#include "../../mods/_fd/fd_lore/_fd_lore.dme"
+	#include "../../mods/_fd/fd_species/_fd_species.dme"
 	#include "../../mods/_fd/old_space_cannons/_old_space_cannons.dme"
 	#include "../../mods/_fd/runechat/_runechat.dme"
 
@@ -312,6 +307,7 @@
 	#include "../../mods/_fd/small_holopad/_small_holopad.dme"
 	#include "../../mods/_fd/structure_storage/_structure_storage.dme"
 	#include "../../mods/_fd/tajaran_stuff/_tajaran_stuff.dme"
+	#include "../../mods/_fd/tartakans/_tartakans.dme"
 	#include "../../mods/_fd/v_posters/_v_posters.dme"
 
 	#include "../../mods/_fd/_maps/a_destroyer/_a_destroyer.dme"
@@ -376,11 +372,6 @@
 
 	#include "../../mods/_fd/_maps/bunker_hub/_bunker_hub.dme"
 	#include "../../mods/_fd/_maps/fort_manticore/_fort_manticore.dme"
-	#include "../../mods/_fd/_maps/metro/_metro.dme"
-	#include "../../mods/_fd/_maps/vegatable_base/_vegatable_base.dme"
-	#include "../../mods/_fd/_maps/long_forest/_long_forest.dme"
-	#include "../../mods/_fd/_maps/collective_nightmare/_collective_nightmare.dme"
-	#include "../../mods/_fd/_maps/aaaa_facility/_aaaa_facility.dme"
 
 	#define using_map_DATUM /datum/map/torch
 
