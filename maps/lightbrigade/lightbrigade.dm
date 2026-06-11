@@ -299,7 +299,6 @@
 	#include "../../mods/_fd/v_posters/_v_posters.dme"
 	#include "../../mods/_fd/random_rooms/_random_rooms.dme"
 	#include "../../mods/_fd/resomi_fd/_resomi.dme"
-	#include "../../mods/_fd/tartakans/_tartakans.dme"
 	#include "../../mods/_fd/marines_explosion/_marines_explosion.dme"
 	#include "../../mods/_fd/roll_dice/_roll_dice.dme"
 	#include "../../mods/_fd/ai_overmap_objects/_ai_overmap_objects.dme"

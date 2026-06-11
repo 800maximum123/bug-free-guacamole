@@ -122,7 +122,8 @@
 			update_hud = TRUE
 	else
 		var/psi_leech = owner.do_psionics_check()
-		if(psi_leech)
+		var/area/A = get_area(owner)
+		if(psi_leech || A.adventure_mode)
 			if(stamina > 10)
 				stamina = max(0, stamina - rand(15,20))
 				//to_chat(owner, SPAN_DANGER("You feel your psi-power leeched away by \the [psi_leech]..."))
@@ -192,6 +193,10 @@
 
 	if(!heal_rate || stamina < heal_rate)
 		return // Don't backblast from trying to heal ourselves thanks.
+
+	if(owner.simple_combat_on)
+		if(owner.simple_health < owner.max_simple_health && spend_power(heal_rate))
+			owner.simple_health_calculation(-1,0,0,0)
 
 	if(ishuman(owner))
 

@@ -77,6 +77,7 @@
 		laser = ARMOR_LASER_MINOR,
 		bio = ARMOR_BIO_RESISTANT
 		)
+	gasmaskoverlay = FALSE
 
 //In scaling order of utility and seriousness
 
@@ -116,6 +117,7 @@
 		laser = ARMOR_LASER_MINOR,
 		bio = ARMOR_BIO_STRONG
 		)
+	gasmaskoverlay = FALSE
 
 /obj/item/clothing/mask/gas/syndicate
 	name = "tactical mask"
@@ -129,6 +131,7 @@
 		laser = ARMOR_LASER_MINOR,
 		bio = ARMOR_BIO_STRONG
 		)
+	gasmaskoverlay = FALSE
 
 /obj/item/clothing/mask/gas/death_commando
 	name = "\improper Death Commando mask"
@@ -136,12 +139,14 @@
 	icon_state = "death"
 	item_state = "death"
 	siemens_coefficient = 0.2
+	gasmaskoverlay = FALSE
 
 /obj/item/clothing/mask/gas/cyborg
 	name = "cyborg visor"
 	desc = "Beep boop!"
 	icon_state = "death"
 	item_state = "death"
+	gasmaskoverlay = FALSE
 
 //Plague Dr suit can be found in clothing/suits/bio.dm
 /obj/item/clothing/mask/gas/plaguedoctor
@@ -153,24 +158,28 @@
 		bio = ARMOR_BIO_SHIELDED
 		)
 	body_parts_covered = HEAD|FACE|EYES
+	gasmaskoverlay = FALSE
 
 /obj/item/clothing/mask/gas/clown_hat
 	name = "clown wig and mask"
 	desc = "A true prankster's facial attire. A clown is incomplete without their wig and mask."
 	icon_state = "clown"
 	item_state = "clown"
+	gasmaskoverlay = FALSE
 
 /obj/item/clothing/mask/gas/sexyclown
 	name = "sexy-clown wig and mask"
 	desc = "A feminine clown mask for the dabbling crossdressers or female entertainers."
 	icon_state = "sexyclown"
 	item_state = "sexyclown"
+	gasmaskoverlay = FALSE
 
 /obj/item/clothing/mask/gas/mime
 	name = "mime mask"
 	desc = "The traditional mime's mask. It has an eerie facial posture."
 	icon_state = "mime"
 	item_state = "mime"
+	gasmaskoverlay = FALSE
 
 /obj/item/clothing/mask/gas/monkeymask
 	name = "monkey mask"
@@ -178,12 +187,14 @@
 	icon_state = "monkeymask"
 	item_state = "monkeymask"
 	body_parts_covered = HEAD|FACE|EYES
+	gasmaskoverlay = FALSE
 
 /obj/item/clothing/mask/gas/sexymime
 	name = "sexy mime mask"
 	desc = "A traditional female mime's mask."
 	icon_state = "sexymime"
 	item_state = "sexymime"
+	gasmaskoverlay = FALSE
 
 /obj/item/clothing/mask/gas/owl_mask
 	name = "owl mask"
@@ -191,6 +202,7 @@
 	icon_state = "owl"
 	item_state = "owl"
 	body_parts_covered = HEAD|FACE|EYES
+	gasmaskoverlay = FALSE
 
 //Vox Unique Masks
 
@@ -204,6 +216,7 @@
 	species_restricted = list(SPECIES_VOX)
 	filtered_gases = list(GAS_OXYGEN)
 	item_flags = ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT | ITEM_FLAG_AIRTIGHT | ITEM_FLAG_INVALID_FOR_CHAMELEON
+	gasmaskoverlay = FALSE
 
 /obj/item/clothing/mask/gas/swat/vox
 	name = "alien mask"
@@ -223,6 +236,7 @@
 		GAS_METHANE
 		)
 	item_flags = ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT | ITEM_FLAG_AIRTIGHT | ITEM_FLAG_INVALID_FOR_CHAMELEON
+	gasmaskoverlay = FALSE
 
 /obj/item/clothing/mask/gas/aquabreather
 	name = "aquabreather"
@@ -231,3 +245,4 @@
 	filter_water = TRUE
 	body_parts_covered = FACE
 	w_class = 2
+	gasmaskoverlay = FALSE

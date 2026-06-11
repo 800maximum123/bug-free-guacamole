@@ -86,14 +86,15 @@
 
 /obj/structure/fd/placeholder
 	name = "there is nothing"
-	icon = 'icons/mob/screen1.dmi'
-	icon_state = "x2"
+	icon = 'mods/_fd/fd_utilities/icons/newsource.dmi'
+	icon_state = "blue"
 	invisibility = 101
 	anchored = TRUE
 	density = TRUE
 
 /obj/structure/fd/placeholder/better
 	opacity = 1
+	icon_state = "red"
 
 // [GAIA]
 /obj/structure/fd/placeholder/fog
@@ -387,7 +388,7 @@
 
 /obj/structure/fd/bs_vines/use_tool(obj/item/I, mob/user, params)
 	SHOULD_CALL_PARENT(FALSE)
-	if(istype(I, /obj/item/material/hatchet)) //|| istype(I, /obj/item/psychic_power/psiaxe) || istype(I,/obj/item/psychic_power/psiblade))
+	if(istype(I, /obj/item/material/hatchet) || istype(I, /obj/item/crowbar/emergency_forcing_tool))
 		if(do_after(user, 80))
 			qdel(src)
 
@@ -587,3 +588,73 @@
 
 	health_max = 9999999
 	//всё равно сбрасывается, бред... Оставлю, чтоб просто масс-модифить этот подтип
+
+/obj/structure/fd/general_decorations
+
+/obj/structure/fd/general_decorations/car
+	name = "car"
+	desc = "Old wheeled car."
+
+	anchored = TRUE
+	density = TRUE
+
+	icon = 'mods/_fd/fd_assets/icons/vampires/cars.dmi'
+	icon_state = "taxi"
+
+/obj/structure/fd/general_decorations/roadblock
+	name = "roadblock"
+	desc = "For vehicle movement blockage."
+
+	anchored = TRUE
+	density = TRUE
+
+	icon = 'mods/_fd/fd_assets/icons/vampires/barriers.dmi'
+	icon_state = "barrier"
+
+	throwpass = TRUE
+	atom_flags = ATOM_FLAG_CLIMBABLE
+
+/obj/random/flora/trk17
+	name = "random TRK-17 flora 50%"
+	desc = "This is a random flora spawn"
+	icon = 'icons/obj/flora/ausflora.dmi'
+	icon_state = "firstbush_1"
+	spawn_nothing_percentage = 50
+
+/obj/random/flora/trk17/spawn_choices()
+	return list(
+				/obj/structure/flora/ausbushes/brflowers,
+				/obj/structure/flora/ausbushes/fullgrass,
+				/obj/structure/flora/ausbushes/grassybush,
+				/obj/structure/flora/ausbushes/lavendergrass,
+				/obj/structure/flora/ausbushes/ppflowers,
+				/obj/structure/flora/ausbushes/sparsegrass,
+				/obj/structure/flora/ausbushes/ywflowers,
+				/obj/structure/flora/ausbushes/genericbush,
+				/obj/structure/flora/ausbushes/sunnybush,
+				/obj/structure/flora/jungle/bush,
+				/obj/structure/flora/trk17_simple,
+				/obj/structure/flora/trk17_regrowing/coffee,
+				/obj/structure/flora/trk17_regrowing/cucumber,
+				/obj/structure/flora/trk17_regrowing/hot_dylov,
+				/obj/structure/flora/trk17_regrowing/ice_tricord,
+				/obj/structure/flora/trk17_regrowing/sugar,
+				/obj/structure/flora/tall,
+				/obj/structure/flora/tall/second,
+				/obj/structure/flora/tall/third,
+				/obj/structure/flora/tall/fourth)
+
+/obj/random/flora/trk17/per20
+	name = "random TRK-17 flora 20%"
+	icon_state = "palebush_1"
+	spawn_nothing_percentage = 80
+
+/obj/random/flora/trk17/per80
+	name = "random TRK-17 flora 80%"
+	icon_state = "pointybush_1"
+	spawn_nothing_percentage = 20
+
+/obj/random/flora/trk17/per95
+	name = "random TRK-17 flora 95%"
+	icon_state = "fullgrass_3"
+	spawn_nothing_percentage = 5

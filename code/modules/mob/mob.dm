@@ -40,6 +40,7 @@
 	pain = null
 	item_use_icon = null
 	gun_move_icon = null
+	melee_assistant_icon = null
 	gun_setting_icon = null
 	ability_master = null
 	zone_sel = null
@@ -528,6 +529,13 @@
 
 /mob/proc/start_pulling(atom/movable/AM)
 
+	if(isliving(src))
+		var/mob/living/L = src
+		if(L.simple_combat_on)
+			if(lying && !L.get_status_effect(/datum/simple_status/crit))
+				to_chat(src, SPAN_BAD("I can't pulls thing in this position!"))
+				return
+
 	if ( !AM || !usr || src==AM || !isturf(src.loc))	//if there's no person pulling OR the person is pulling themself OR the object being pulled is inside something: abort!
 		return
 
@@ -639,7 +647,7 @@
 /mob/proc/is_mechanical()
 	if(mind && (mind.assigned_role == "Robot" || mind.assigned_role == "AI"))
 		return 1
-	return istype(src, /mob/living/silicon) || get_species() == SPECIES_IPC
+	return istype(src, /mob/living/silicon) || get_species() == SPECIES_IPC || get_species() == SPECIES_PERCI
 
 /mob/proc/is_ready()
 	return client && !!mind
@@ -752,8 +760,15 @@
 
 	if(lying)
 		set_density(0)
-		for (var/obj/item/item as anything in GetAllHeld())
-			unEquip(item)
+
+		if(isliving(src))
+			var/mob/living/L = src
+			if(!L.simple_combat_on || !L.get_status_effect(/datum/simple_status/crit))
+				for (var/obj/item/item as anything in GetAllHeld())
+					unEquip(item)
+		if(!isliving(src))
+			for (var/obj/item/item as anything in GetAllHeld())
+				unEquip(item)
 	else
 		set_density(initial(density))
 	reset_layer()

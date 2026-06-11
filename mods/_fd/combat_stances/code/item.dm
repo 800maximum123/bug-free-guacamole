@@ -16,12 +16,10 @@
 			melee_strikes -= type
 			melee_strikes += strike
 
-/obj/item/attack_self(mob/living/carbon/user)
-	. = ..()
+/obj/item/AltClick(mob/user)
+	..()
 
-	var/obj/item/melee/I
-
-	if(melee_strikes && !istype(I, /obj/item/melee/energy))
+	if(melee_strikes)
 		swap_stances(user)
 
 /obj/item/proc/swap_stances(mob/user)

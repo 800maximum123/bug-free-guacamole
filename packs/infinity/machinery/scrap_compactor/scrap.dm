@@ -5,7 +5,7 @@
 	name = MATERIAL_SCRAP
 	stack_type = /obj/item/stack/material/scrap
 	icon_colour = "#999966"
-	sheet_icon_base = "sheet"
+	sheet_icon_base = "unrefined"
 	sheet_icon_reinf = "reinf-overlay"
 	wall_icon_base = "metal"
 	door_icon_base = "metal"
@@ -25,6 +25,7 @@
 /material/scrap/refined
 	name = MATERIAL_SCRAP_REFINED
 	stack_type = /obj/item/stack/material/refined_scrap
+	sheet_icon_base = "refined"
 	melting_point = 820
 	brute_armor = 4
 	integrity = 120
@@ -36,7 +37,7 @@
 /obj/item/stack/material/scrap
 	name = MATERIAL_SCRAP
 	icon = 'packs/infinity/machinery/scrap_compactor/icons/refine.dmi'
-	icon_state = "refined"
+	icon_state = "unrefined"
 	default_type = MATERIAL_SCRAP
 
 /obj/item/stack/material/refined_scrap

@@ -6,6 +6,9 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 	var/turf/remember_position
 	var/remember_camera_size
 
+	var/should_update_layer = FALSE
+	var/forced_layer
+
 /mob/living/simple_animal/cutscene_character
 	name = "TEST"
 	desc = "TEST"
@@ -52,6 +55,12 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 
 		AddOverlays(maptext_name)
 
+/mob/living/simple_animal/cutscene_character/Life()
+	. = ..()
+
+	if(should_update_layer)
+		layer = forced_layer
+
 /mob/living/simple_animal/cutscene_character/proc/do_stuff() //Сюда писать всё что должен этот моб в сцене сделать
 	return
 
@@ -91,6 +100,10 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 	spawn(time)
 		animate(src, 3 SECOND, alpha = 0)
 
+		spawn(3 SECONDS)
+			for(var/client/players in GLOB.clients)
+				players.screen -= src
+
 	QDEL_IN(src, countdown)
 
 /obj/screen/novel_message/start_credits/nofade
@@ -100,6 +113,9 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 
 	spawn(time)
 		alpha = 0
+		for(var/client/players in GLOB.clients)
+			players.screen -= src
+
 	QDEL_IN(src, time)
 
 /obj/screen/novel_message/start_credits/nofade_simple
@@ -109,6 +125,9 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 
 	spawn(time)
 		alpha = 0
+		for(var/client/players in GLOB.clients)
+			players.screen -= src
+
 	QDEL_IN(src, time)
 
 /obj/screen/novel_message/start_credits/big/set_text(text, text_color, time = 5 SECONDS)
@@ -120,6 +139,10 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 
 	spawn(time)
 		animate(src, 3 SECOND, alpha = 0)
+
+		spawn(3 SECONDS)
+			for(var/client/players in GLOB.clients)
+				players.screen -= src
 
 	QDEL_IN(src, countdown)
 
@@ -133,6 +156,9 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 
 	spawn(time)
 		alpha = 0
+		for(var/client/players in GLOB.clients)
+			players.screen -= src
+
 	QDEL_IN(src, time)
 
 /obj/screen/novel_message/start_credits/blinking
@@ -210,6 +236,10 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 		animate(src, 0.2 SECOND, alpha = 255)
 	spawn(6.6 SECOND)
 		animate(src, 0.2 SECOND, alpha = 0)
+
+		spawn(0.2 SECONDS)
+			for(var/client/players in GLOB.clients)
+				players.screen -= src
 
 	QDEL_IN(src, 6.8 SECONDS)
 

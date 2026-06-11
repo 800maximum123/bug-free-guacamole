@@ -144,7 +144,7 @@
 		ADD_SCREEN(/cinema_borders),
 		CALL_GLOB(episode4_maxteller1),
 		MOVE_CAMERA(0, 0, 12 SECONDS, LINEAR_EASING|EASE_IN),
-		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/orphansmaintheme.ogg', volume = 20)),
+		PLAY_SOUND(sound('maps/torch_doh/cutscenes/sounds/orphansmaintheme.ogg', volume = 20), null),
 		CHANGE_ACTOR_VISIBILITY(actor("Максим - 4-2-1"), 255, 2 SECONDS, SINE_EASING, ANIMATION_PARALLEL),
 		SHIFT_ACTOR(actor("Максим - 4-2-1"), 0, 0, 6 SECONDS, CUBIC_EASING|EASE_OUT, ANIMATION_PARALLEL) = 2 SECONDS,
 		TURN_ACTOR(actor("Максим - 4-2-1"), WEST) = 1 SECONDS,

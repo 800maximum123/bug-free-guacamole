@@ -124,7 +124,9 @@
 		var/num = 1
 		for(var/datum/objective/O in objectives)
 			out += "<b>Objective #[num]:</b> [O.explanation_text] "
-			out += " <a href='byond://?src=\ref[src];obj_delete=\ref[O]'>\[remove\]</a><br>"
+			out += " <a href='byond://?src=\ref[src];obj_delete=\ref[O]'>\[remove\]</a> "
+			out += " <a href='byond://?src=\ref[src];obj_complete=\ref[O]'>\[finish\]</a> "
+			out += " <a href='byond://?src=\ref[src];obj_failed=\ref[O]'>\[fail\]</a><br>"
 			num++
 		out += "<br><a href='byond://?src=\ref[src];obj_announce=1'>\[announce objectives\]</a>"
 
@@ -401,6 +403,16 @@
 		var/datum/objective/objective = locate(href_list["obj_delete"])
 		if(!istype(objective))	return
 		objectives -= objective
+
+	else if (href_list["obj_complete"])
+		var/datum/objective/objective = locate(href_list["obj_complete"])
+		if(!istype(objective))	return
+		objective.explanation_text = {"[initial(objective.explanation_text)] | <b><span style="color: green;">ВЫПОЛНЕНО</span></b>"}
+
+	else if (href_list["obj_failed"])
+		var/datum/objective/objective = locate(href_list["obj_failed"])
+		if(!istype(objective))	return
+		objective.explanation_text = {"[initial(objective.explanation_text)] | <b><span style="color: red;">НЕ ВЫПОЛНЕНО</span></b>"}
 
 	else if(href_list["implant"])
 		var/mob/living/carbon/human/H = current

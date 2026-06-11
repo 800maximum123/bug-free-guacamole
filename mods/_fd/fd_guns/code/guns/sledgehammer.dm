@@ -48,7 +48,8 @@
 				return
 			src.in_use = 0
 			W.shatter()
-			user.do_attack_animation(src)
+			user.cool_attack_on(src)
+			//user.do_attack_animation(src)
 			return
 
 		else if(istype(A,/obj/structure/grille))
@@ -61,7 +62,8 @@
 				return
 			src.in_use = 0
 			A.Destroy()
-			user.do_attack_animation(src)
+			user.cool_attack_on(src)
+			//user.do_attack_animation(src)
 			return
 
 		else if(istype(A,/obj/machinery/suit_storage_unit)) //suit storage unit
@@ -76,7 +78,8 @@
 			src.in_use = 0
 			if(!S.isopen)
 				to_chat(user, "<span class='danger'>You critically damaged and made \the [A] open up.</span>")
-				user.do_attack_animation(src)
+				user.cool_attack_on(src)
+				//user.do_attack_animation(src)
 				playsound(src, 'sound/weapons/smash.ogg', 50, 0)
 				S.islocked = FALSE
 				S.isopen = TRUE
@@ -87,7 +90,8 @@
 			if(prob(40))
 				var/obj/machinery/door/airlock/S = A
 				to_chat(user, "<span class='danger'>You critically damaged \the [A]!</span>")
-				user.do_attack_animation(src)
+				user.cool_attack_on(src)
+				//user.do_attack_animation(src)
 				if(S.health_current <= 0)
 					S.health_current = 0
 				else
@@ -127,7 +131,8 @@
 				return
 			src.in_use = 0
 			to_chat(user, "<span class='danger'>You smash through \the [A]!</span>")
-			user.do_attack_animation(src)
+			user.cool_attack_on(src)
+			//user.do_attack_animation(src)
 			A.kill_health()
 			return
 

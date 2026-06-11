@@ -13,7 +13,7 @@
 	if(statpanel("Status"))
 		var/obj/item/organ/internal/cell/potato = internal_organs_by_name[BP_CELL]
 		var/obj/item/organ/internal/cooling_system/coolant = internal_organs_by_name[BP_COOLING]
-		if(potato && potato.cell && src.is_species(SPECIES_IPC))
+		if(potato && potato.cell && (src.is_species(SPECIES_IPC) || src.is_species(SPECIES_PERCI)))
 			stat("Coolant remaining:","[coolant.get_coolant_remaining()]/[coolant.refrigerant_max]")
 
 /obj/item/organ/internal/cell/Process()
@@ -21,9 +21,9 @@
 	if(isnull(owner)) return
 	var/cost = get_power_drain()
 	if(!checked_use(cost) && owner.isSynthetic())
-		if(owner.species.name == SPECIES_IPC)
+		if(owner.species.name == SPECIES_IPC || owner.species.name == SPECIES_PERCI)
 			owner.species.passive_temp_gain = 0
-	if(owner.species.name == SPECIES_IPC)
+	if(owner.species.name == SPECIES_IPC || owner.species.name == SPECIES_PERCI)
 		var/obj/item/organ/internal/cooling_system/cooling_organ = owner.internal_organs_by_name[BP_COOLING]
 		var/normal_passive_temp_gain = 30
 		if(!cooling_organ)

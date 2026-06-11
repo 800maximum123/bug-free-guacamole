@@ -1,6 +1,6 @@
 /datum/build_mode/visible_portals
 	name = "Visible Portals"
-	icon_state = "mode_vis_portal"
+	icon_state = "buildmode15"
 	var/list/entrance
 	var/list/exit
 	var/help_text = {"\

@@ -283,6 +283,8 @@
 	flashlight_range = 5
 	light_wedge = LIGHT_OMNI
 
+	var/infinite = FALSE
+
 /obj/item/device/flashlight/flare/Initialize()
 	. = ..()
 	fuel = rand(4 MINUTES, 5 MINUTES) // Sorry for changing this so much but I keep under-estimating how long X number of ticks last in seconds.v
@@ -298,7 +300,7 @@
 		if(T)
 			T.hotspot_expose(produce_heat, 5)
 	fuel = max(fuel - 1, 0)
-	if (fuel <= 0)
+	if (fuel <= 0 && !infinite)
 		on = FALSE
 	if(!on)
 		update_damage()
@@ -307,7 +309,7 @@
 		STOP_PROCESSING(SSobj, src)
 
 /obj/item/device/flashlight/flare/attack_self(mob/user)
-	if(fuel <= 0)
+	if(fuel <= 0 && !infinite)
 		to_chat(user,SPAN_NOTICE("\The [src] is spent."))
 		return 0
 
@@ -370,7 +372,7 @@
 /obj/item/device/flashlight/flare/glowstick/on_update_icon()
 	item_state = "glowstick"
 	ClearOverlays()
-	if(fuel <= 0)
+	if(fuel <= 0 && !infinite)
 		icon_state = "glowstick-empty"
 		on = FALSE
 	else if (on)

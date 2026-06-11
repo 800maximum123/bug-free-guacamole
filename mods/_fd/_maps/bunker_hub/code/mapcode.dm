@@ -52,6 +52,10 @@
 	icon_state = "rain"
 	requires_power = 0
 
+/area/bunker/interlude
+	name = "Bluespace Interlude (Bunker)"
+	requires_power = 0
+
 /area/bunker/jungle/lz
 	name = "Landing Zone"
 
@@ -187,6 +191,9 @@
 /area/bunker/lower/monorail
 	name = "Bunker - Monorail"
 
+/area/bunker/lower/monorail/tramway
+	name = "Bunker - Tramway"
+
 //Мед крыло
 /area/bunker/lower/med
 	name = "Bunker - Medical Wing"
@@ -217,6 +224,7 @@
 /area/bunker/lower/lab
 	name = "Bunker - Laboratory"
 
+
 /area/bunker/lower/lab/office
 	name = "Bunker - Office"
 
@@ -226,8 +234,62 @@
 /area/bunker/lower/lab/virology
 	name = "Bunker - Virology Lab"
 
+
 /area/bunker/lower/lab/bslab
 	name = "Bunker - Hydroponics Lab"
+
+
+/area/bunker/lower/lab/gateway
+	name = "Bunker - Gateway Research Wing"
+
+//////////////////
+//Записьки
+//////////////////
+/obj/item/paper/bunker/stuff/reactor
+	name = "Реактор-мина"
+	info = {"
+			<span style='font-family: Garamond; color: #1c1713'><center> Схема мины на основе мини-ядерной батареи Восхождения/резеврный реактор в ЛКП </center> <BR><BR>*Чертёж, включающий в себя адаптер на ЛКП, сам реактор и возможность его установки. На чертеже в свободном месте расписано: адаптер должен ключать в себя тумблер, положение соеденить между держать стабильную выработку и адаптивную. На последней он с высоким шансом взорвётся, что закроет проблемное направление, на первой же не даст флангу остатся без энергии*</span>
+			"}
+
+/obj/item/paper/bunker/stuff/carabin
+	name = "Карабин Восхождения"
+	info = {"
+			<center>Схема карабина Чертёж карабина Восхождения</center><br>*Начерчённая схема карабина восхождения, представленная в схеме сборки. Отдельно отмечены места расположения процессора и материнской платы а так же расположеных на ных чипов, часть с которых отмечена с пометкой, за что они отвечают*
+			"}
+
+/obj/item/paper/bunker/stuff/cannon
+	name = "Турель карабин на датчике"
+	info = {"<span style='font-family: Garamond; color: #1c1713'><center> Турель - карабин восхождения (просто датчик) </center> <BR><BR>*расписан чертёж турели, с лафетом, приспособленным для стрельбы с карабина Восхождения. С обртаной стороны имеется поэтапная инструкция по соединению обычного датчика движения, давая возможность вести огонь без нарушения целостности оболочки*</span>
+	"}
+
+/obj/item/paper/bunker/stuff/crab
+	name = "Караб-турель с распознованием"
+	info = {"<span style='font-family: Garamond; color: #1c1713'><center> Турель-карабин, система свой-чужой </center><BR><BR>*Начерченая схема создания турели осхождния, от лаффета до соединения электорники от карабина на консоль. С обратной стороны расписана схема подключения консоли, сначала идёт датчик движения, соеденённый к консоли в одну цепь, закрытой стальным блоком, затем присоединение этого блока к лафету с турелью. Отдельно выведена запись: если я не успею, введите по консоли комбинацию ⍑𝙹ᓭℸ ̣ ╎ꖎᒷ ℸ ̣ ᔑ∷⊣ᒷℸ ̣ : 0% 𝙹∷⊣ᔑリ╎ᓵ, 90-100% ᒷꖎᒷᓵℸ ̣ ∷𝙹リ╎ᓵ. ℸ ̣ ∷╎⊣⊣ᒷ∷ ∷╎ᓭꖌ ╎ᓭ ᒲᔑ ̇/╎ᒲ⚍ᒲ. ᒷ ̇/ᓵᒷ!¡ℸ ̣ ╎𝙹リᓭ: リ𝙹リᒷ. - так же отдельно прилагается чертёж-схема консоли и схема изменения контроллера ввода*</span>"}
+
+
+/obj/item/paper/bunker/stuff/crazy
+	name = "Белый чёрный"
+	info = {"Белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный белый чёрный серый"}
+
+/obj/item/paper/bunker/gateway/warning
+	name = "Gateway Notes"
+	info = {"
+			<center><b><span style='color: green'>ТРЕНИРОВАЧНЫЙ ПОЛИГОН 9-B</span></b></center>
+			<center><b><span style='color: red'><small>ТОЛЬКО ДЛЯ ПЕРСОНАЛА УРОВНЯ 4 И ВЫШЕ</small></span></b></center>
+			<i>Последниее открытие GATEWAY повредило энергосистему ПОЛИГОНА, что повлекло за собой досрочный вывод из ВРа испытуемых. По решению главного исследователя и главного инженера ПОЛИГОНА все последующие открытия GATEWAY только по разрешению 3 и более учёных не ниже 4 уровня.</i>
+			<br>
+			<small>Через 3 суток Терра должна доставить необходимые детали для замены, примите их на взлётной площадке.</small>
+			"}
+
+/obj/item/paper/bunker/gateway/warning2
+	name = "We have a problem"
+	info = {"
+			<i>Проблема оказалась куда глубже чем мы думали. 5-й и 6-й контур от перегрева вывело из строя всю программу запуска с сохранёнными данными, 3 набора предохранителей и поджарил консоль управления. Если и проводить запуск, то только после полной замены всех комплектующих. А если спрашивать лично меня - перевести ворота на Южный Полигон 31-К. Там есть все условия для стабильных запусков ворот. </i>
+			"}
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////
 
 /obj/structure/fd/wild_crops
 	name = "crop"
@@ -473,34 +535,37 @@
 	descriptor = "Abandoned Bunker."
 	map = "TRK-17 Torch Bunker"
 	crew_jobs = list(
-		/datum/job/submap/bunker/amelia,
-		/datum/job/submap/bunker/maxim,
-		/datum/job/submap/bunker/gora,
-		/datum/job/submap/bunker/olivia,
-		/datum/job/submap/bunker/naia,
-		/datum/job/submap/bunker/wilhelm,
-		/datum/job/submap/bunker/wind,
-		/datum/job/submap/bunker/joseph,
-		/datum/job/submap/bunker/froise,
-		/datum/job/submap/bunker/looney,
-		/datum/job/submap/bunker/meat,
-		/datum/job/submap/bunker/lira,
-		/datum/job/submap/bunker/alma,
+		/datum/job/submap/bunker/amelia, // Ранена. Бункер. Метка поставлена
+		/datum/job/submap/bunker/perci, // Здоров. Бункер. Экипирован. Метка поставлена
+		/datum/job/submap/bunker/maxim, // Здоров. Бункер. Метка поставлена
+		/datum/job/submap/bunker/olivia, // Здорова. Бункер. Метка поставлена
+		/datum/job/submap/bunker/wilhelm, // Здоров. Бункер. Метка поставлена
+		/datum/job/submap/bunker/wind, // Здоров. Бункер. Метка поставлена
+		/datum/job/submap/bunker/joseph, // Здоров. Бункер. Метка поставлена
+		/datum/job/submap/bunker/meat, // Здоров. Бункер. Метка поставлена
+		/datum/job/submap/bunker/lira, // Здорова. Бункер. Метка поставлена
+		/datum/job/submap/bunker/alma, // Ранена. Бункер. Экипирована. Метка поставлена
+
+		///VEGETABLES///
+		/datum/job/submap/bunker/anna, // Здорова. Бункер. Метка поставлена
+		/datum/job/submap/bunker/rin, // Здорова. Бункер. Метка поставлена
+		/datum/job/submap/bunker/tau, // Здорова. Бункер. Метка поставлена
+		/datum/job/submap/bunker/tongtong, // Здорова. Бункер. Метка поставлена
+		/datum/job/submap/bunker/duke, // Здоров. Бункер. Метка поставлена
+		/datum/job/submap/bunker/bobby, // Здоров. Бункер. Метка поставлена
+		/datum/job/submap/bunker/jeanne, // Здорова. Бункер. Метка поставлена
+		/datum/job/submap/bunker/ivy, // Здорова. Бункер. Метка поставлена
+		/datum/job/submap/bunker/dan, // Ранен. Бункер. Экипирован. Метка поставлена
+		/datum/job/submap/bunker/silas, // Здоров. Бункер. Экипирован. Метка поставлена
+
 		///MANTICORE GUESTS///
-		/datum/job/submap/fort_manticore/roku,
-		/datum/job/submap/fort_manticore/rifler,
-		/datum/job/submap/fort_manticore/ace,
-		/datum/job/submap/fort_manticore/rain,
-		/datum/job/submap/fort_manticore/lukash,
-		/datum/job/submap/fort_manticore/xrim,
-		/datum/job/submap/fort_manticore/victor,
-		/datum/job/submap/fort_manticore/kai,
-		/datum/job/submap/fort_manticore/cf355,
-		/datum/job/submap/fort_manticore/rk381,
-		/datum/job/submap/fort_manticore/pavel,
-		/datum/job/submap/fort_manticore/luke,
-		/datum/job/submap/fort_manticore/adriano,
-		/datum/job/submap/fort_manticore/lin
+		/datum/job/submap/fort_manticore/roku, // Здорова. Бункер. Метка поставлена
+		/datum/job/submap/fort_manticore/rifler, // Здорова. Бункер. Экипирована. Метка поставлена
+		/datum/job/submap/fort_manticore/ace, // Здоров. Бункер. Метка поставлена
+		/datum/job/submap/fort_manticore/krieger, // Ранен. Бункер. Метка поставлена
+		/datum/job/submap/fort_manticore/rk381, // ???
+		/datum/job/submap/fort_manticore/luke, // Ранен. Бункер. Метка поставлена
+		/datum/job/submap/fort_manticore/adriano, // Здоров. Бункер. Экипирован. Метка поставлена
 	)
 
 /obj/submap_landmark/joinable_submap/bunker
@@ -511,7 +576,7 @@
 	title = "Survivor"
 	total_positions = -1
 	create_record = TRUE
-	skill_points = 62
+	skill_points = 70
 	no_skill_buffs = TRUE
 	max_skill = list(
 		SKILL_BUREAUCRACY = SKILL_MAX,
@@ -536,12 +601,208 @@
 		SKILL_ANATOMY = SKILL_MAX,
 		SKILL_CHEMISTRY = SKILL_MAX
 	)
+	required_language = LANGUAGE_HUMAN_EURO
+
+/datum/job/submap/bunker/post_equip_rank(mob/living/person, alt_title)
+	. = ..()
+	person.generate_binds()
+	person.simple_combat_on = TRUE
 
 /singleton/hierarchy/outfit/bunker
 	name = "Default Bunker Appearance"
 
 	uniform = /obj/item/clothing/under/solgov/utility
 	shoes = /obj/item/clothing/shoes/jackboots
+
+/datum/job/submap/bunker/anna
+	title = "Anna Ortiz"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/anna
+
+/singleton/hierarchy/outfit/bunker/anna
+	name = "Anna Ortiz"
+
+	l_ear = /obj/item/device/radio/headset/syndicate
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/bunker/anna
+	name = "Anna Ortiz"
+
+/datum/job/submap/bunker/rin
+	title = "Rinirili"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/rin
+
+/singleton/hierarchy/outfit/bunker/rin
+	name = "Rinirili"
+
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/bunker/rin
+	name = "Rinirili"
+
+/datum/job/submap/bunker/tau
+	title = "Ruth Solveig Erin Tau"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/tau
+
+/singleton/hierarchy/outfit/bunker/tau
+	name = "Ruth Solveig Erin Tau"
+
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/bunker/tau
+	name = "Ruth Solveig Erin Tau"
+
+/datum/job/submap/bunker/tongtong
+	title = "Tongtong"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/tongtong
+
+/singleton/hierarchy/outfit/bunker/tongtong
+	name = "Tongtong"
+
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/bunker/tongtong
+	name = "Tongtong"
+
+/datum/job/submap/bunker/duke
+	title = "Duke Pratt"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/duke
+
+/singleton/hierarchy/outfit/bunker/duke
+	name = "Duke Pratt"
+
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/bunker/duke
+	name = "Duke Pratt"
+
+/datum/job/submap/bunker/bobby
+	title = "Bobby Rankovich"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/bobby
+
+/singleton/hierarchy/outfit/bunker/bobby
+	name = "Bobby Rankovich"
+
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/bunker/bobby
+	name = "Bobby Rankovich"
+
+/datum/job/submap/bunker/jeanne
+	title = "Jeanne Gerber"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/jeanne
+
+/singleton/hierarchy/outfit/bunker/jeanne
+	name = "Jeanne Gerber"
+
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/bunker/jeanne
+	name = "Jeanne Gerber"
+
+/datum/job/submap/bunker/ivy
+	title = "Takehiko Ivy"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/ivy
+
+/singleton/hierarchy/outfit/bunker/ivy
+	name = "Takehiko Ivy"
+
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/bunker/ivy
+	name = "Takehiko Ivy"
+
+/obj/item/fd/simple_grenade/insta_kill
+	name = "grenade (SUICIDE)"
+	icon_state = "wasp"
+	active_state = "wasp1"
+	icon = 'mods/_fd/fd_assets/icons/goons/grenade.dmi'
+	life_span = 2
+	grenade_type = /obj/effect/simple_grenade/suicide
+
+/obj/effect/simple_grenade/suicide
+	splash_zone = 1
+	zone_color = COLOR_RED
+
+/obj/effect/simple_grenade/suicide/bomb_trigger()
+	new /obj/effect/simple_combat_particle/explosion_alt(get_turf(src))
+	. = ..()
+
+/obj/effect/simple_grenade/suicide/bomb_effect(turf/where_to_check)
+	set waitfor = FALSE
+
+	sleep(trigger_delay)
+
+	for(var/mob/living/mobik in where_to_check)
+		if(!mobik.simple_combat_on)
+			continue
+		shake_camera_MARINE(mobik, steps = 2, strength = 2, time_per_step = 2)
+		mobik.simple_health_calculation(mobik.max_simple_health, 50, 0, 0)
+		if(mobik.simple_health <= 0)
+			if(ishuman(mobik))
+				var/mob/living/carbon/human/H = mobik
+				H.gib()
+			else
+				mobik.death()
+
+	QDEL_IN(src, 4 SECONDS)
+
+/datum/job/submap/bunker/dan
+	title = "Daniels McDavish"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/dan
+
+/datum/job/submap/bunker/dan/post_equip_rank(mob/living/person, alt_title)
+	. = ..()
+
+	person.add_status_effect(/datum/simple_status/aftercrit, 5 HOURS)
+
+/singleton/hierarchy/outfit/bunker/dan
+	name = "Daniels McDavish"
+
+	suit = /obj/item/clothing/suit/storage/manticore_combat
+	uniform = /obj/item/clothing/under/manticore_combat
+
+	r_hand = /obj/item/gun/energy/laser
+	l_hand = /obj/item/fd/simple_grenade/insta_kill
+
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/bunker/dan
+	name = "Daniels McDavish"
+
+/datum/job/submap/bunker/silas
+	title = "Silas Kane"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/silas
+
+/singleton/hierarchy/outfit/bunker/silas
+	name = "Silas Kane"
+
+	suit = /obj/item/clothing/suit/storage/manticore_combat
+	r_hand = /obj/item/device/synthesized_instrument/guitar/multi
+
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/bunker/silas
+	name = "Silas Kane"
 
 /datum/job/submap/bunker/raymond
 	title = "Raymond Datura"
@@ -584,10 +845,11 @@
 	belt = /obj/item/storage/belt/utility/full
 	gloves = /obj/item/clothing/gloves/insulated
 
+	r_hand = /obj/item/gun/energy/ionrifle/anti_terra
+
 	head = /obj/item/clothing/head/welding
 	back = /obj/item/storage/backpack/weldpack
 
-	l_ear = /obj/item/device/radio/headset/headset_com
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 
@@ -599,10 +861,18 @@
 	total_positions = 1
 	outfit_type = /singleton/hierarchy/outfit/bunker/meat
 
+/datum/job/submap/bunker/meat/post_equip_rank(mob/living/person, alt_title)
+	. = ..()
+	person.max_simple_health = 500
+	person.simple_health = 500
+
+	person.simple_armor_natural = 5
+	person.add_status_effect(/datum/simple_status/meat_movement)
+
 /singleton/hierarchy/outfit/bunker/meat
 	name = "Mr Meat"
 
-	l_ear = /obj/item/device/radio/headset/headset_com
+	l_ear = /obj/item/device/radio/headset/syndicate
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 
@@ -614,13 +884,19 @@
 	total_positions = 1
 	outfit_type = /singleton/hierarchy/outfit/bunker/wind
 
+/datum/job/submap/bunker/wind/post_equip_rank(mob/living/person, alt_title)
+	. = ..()
+	person.max_simple_health = 500
+	person.simple_health = 500
+
+	person.simple_armor_natural = 5
+
 /singleton/hierarchy/outfit/bunker/wind
 	name = "Wind in the Void"
 
 	head = /obj/item/clothing/head/hardhat
 	belt = /obj/item/storage/belt/utility/full
 
-	l_ear = /obj/item/device/radio/headset
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 
@@ -635,12 +911,14 @@
 /singleton/hierarchy/outfit/bunker/olivia
 	name = "Olivia Kellong"
 
-	r_hand = /obj/item/clothing/accessory/wristwatch/null
+	back = /obj/item/storage/backpack/satchel/grey
+
+	r_hand = /obj/item/clothing/accessory/wristwatch/nullwatch
 	belt = /obj/item/nullrod
 
-	l_ear = /obj/item/device/radio/headset/headset_com
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
+	glasses = /obj/item/clothing/glasses/hud/science/lobster
 
 /obj/submap_landmark/spawnpoint/olivia
 	name = "Olivia Kellong"
@@ -704,6 +982,11 @@
 	total_positions = 1
 	outfit_type = /singleton/hierarchy/outfit/bunker/amelia
 
+/datum/job/submap/bunker/amelia/post_equip_rank(mob/living/person, alt_title)
+	. = ..()
+
+	person.add_status_effect(/datum/simple_status/aftercrit, 5 HOURS)
+
 /singleton/hierarchy/outfit/bunker/amelia
 	name = "Amelia Brown"
 
@@ -711,7 +994,6 @@
 	suit = /obj/item/clothing/suit/storage/amelia_combatrig
 	back = /obj/item/storage/backpack/satchel/pocketbook/gray
 
-	l_ear = /obj/item/device/radio/headset/headset_com
 	glasses = /obj/item/clothing/glasses/prescription
 
 	id_types = list(/obj/item/card/id/campaign)
@@ -719,6 +1001,98 @@
 
 /obj/submap_landmark/spawnpoint/amelia
 	name = "Amelia Brown"
+
+/obj/effect/simple_grenade/basic/smaller
+	splash_zone = 1
+
+/obj/item/gun/projectile/automatic/iccgn/bolter/simple // использует патроны из симплбоёвки
+	magazine_type = /obj/item/ammo_magazine/rifle/bolter/simple
+	allowed_magazines = /obj/item/ammo_magazine/rifle/bolter/simple
+
+/obj/item/ammo_magazine/rifle/bolter/simple
+	ammo_type = /obj/item/ammo_casing/rifle/bolter/simple
+
+/obj/item/ammo_casing/rifle/bolter/simple
+	projectile_type = /obj/item/projectile/bullet/rifle/bolter/simple
+
+/obj/item/projectile/bullet/rifle/bolter/simple
+	simple_damage = 30
+	simple_armor_penetration = 10
+
+	status_to_add = /datum/simple_status/explosion
+	status_ignore_armor = TRUE
+
+	status_apply_prob = 50
+
+/obj/item/projectile/bullet/rifle/bolter/simple/on_hit(atom/target, blocked)
+	new /obj/effect/simple_grenade/basic/smaller(get_turf(target))
+
+	. = ..()
+
+/obj/item/clothing/suit/storage/perci_coat
+	name = "dark coat"
+	desc = "Furcoat with pretty dark colors and installed armored plates."
+	icon = 'mods/_fd/fd_customs/customs/zakterar/zakterar_robot.dmi'
+	icon_state = "domo arigato"
+	item_icons = list(
+		slot_wear_suit_str = 'mods/_fd/fd_customs/customs/zakterar/zakterar_robot.dmi')
+
+	simple_armor_bonus = 20
+	simple_armor_deformation_speed = 2
+
+/obj/item/clothing/under/perci_invisible
+	name = "bodysuit"
+	desc = "Bodysuit."
+
+	mouse_opacity = FALSE
+
+	icon = 'mods/_fd/fd_customs/customs/zakterar/zakterar_robot.dmi'
+	item_icons = list(slot_w_uniform_str = 'mods/_fd/fd_customs/customs/zakterar/zakterar_robot_worn.dmi')
+	icon_state = "worn"
+	worn_state = "worn"
+	gender_icons = 0
+
+/obj/item/clothing/shoes/jackboots/perci_invisible
+	name = "heels"
+	desc = "Heels."
+
+	icon_state = null
+	item_state = null
+
+	mouse_opacity = FALSE
+
+/datum/job/submap/bunker/perci
+	title = "Percival Endsley"
+	total_positions = 1
+	outfit_type = /singleton/hierarchy/outfit/bunker/perci
+
+/datum/job/submap/bunker/perci/post_equip_rank(mob/living/person, alt_title)
+	. = ..()
+
+	person.max_simple_health = 200
+	person.simple_health = 200
+
+	person.simple_armor_natural = 5
+
+/singleton/hierarchy/outfit/bunker/perci
+	name = "Percival Endsley"
+
+	uniform = /obj/item/clothing/under/perci_invisible
+	suit = /obj/item/clothing/suit/storage/perci_coat
+	back = /obj/item/storage/backpack/satchel/pocketbook/gray
+
+	r_hand = /obj/item/gun/projectile/automatic/iccgn/bolter/simple
+
+	shoes = /obj/item/clothing/shoes/jackboots/perci_invisible
+
+	l_ear = /obj/item/device/radio/headset/syndicate
+
+	backpack_contents = list(/obj/item/ammo_magazine/rifle/bolter/simple = 4)
+	id_types = list(/obj/item/card/id/campaign)
+	id_slot = slot_wear_id
+
+/obj/submap_landmark/spawnpoint/perci
+	name = "Percival Endsley"
 
 /datum/job/submap/bunker/wilhelm
 	title = "Wilhelm Canaris"
@@ -736,8 +1110,6 @@
 	r_hand = /obj/item/clothing/head/helmet/willheim
 	l_hand = /obj/item/gun/energy/laser/lasgun/kanarys
 
-	l_ear = /obj/item/device/radio/headset
-
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 
@@ -749,6 +1121,11 @@
 	total_positions = 1
 	outfit_type = /singleton/hierarchy/outfit/bunker/alma
 
+/datum/job/submap/bunker/alma/post_equip_rank(mob/living/person, alt_title)
+	. = ..()
+
+	person.add_status_effect(/datum/simple_status/aftercrit, 5 HOURS)
+
 /singleton/hierarchy/outfit/bunker/alma
 	name = "Alma Cointreau"
 
@@ -756,10 +1133,12 @@
 	suit = /obj/item/clothing/suit/armor/pcarrier/medium/security
 	back = /obj/item/storage/backpack/satchel/grey
 
+	suit_store = /obj/item/gun/projectile/automatic/bullpup_rifle
+
 	r_hand = /obj/item/gun/projectile/automatic/bullpup_rifle
 	l_hand = /obj/item/clothing/accessory/storage/black_vest
 
-	l_ear = /obj/item/device/radio/headset
+	backpack_contents = list(/obj/item/ammo_magazine/mil_rifle = 4)
 
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
@@ -785,6 +1164,22 @@
 /obj/submap_landmark/spawnpoint/gora
 	name = "Gora MoRr"
 
+/obj/item/material/sword/katana/vibro/cassandra
+	simple_damage = 60
+	name = "Катана Кассандры"
+	desc = "Фамильное оружие семьи Де Виго. Что бы это ни значило."
+
+	icon = 'mods/_fd/fd_assets/icons/tgmc/sword.dmi'
+	icon_state = "energy_katana"
+	item_icons = list(
+		slot_l_hand_str = 'mods/_fd/fd_assets/icons/tgmc/onmob/swords_lefthand.dmi',
+		slot_r_hand_str = 'mods/_fd/fd_assets/icons/tgmc/onmob/swords_righthand.dmi',
+	)
+	item_state_slots = list(
+		slot_l_hand_str = "energy_katana",
+		slot_r_hand_str = "energy_katana",
+	)
+
 /datum/job/submap/bunker/looney
 	title = "Looney"
 	total_positions = 1
@@ -794,14 +1189,15 @@
 	name = "Looney"
 
 	uniform = /obj/item/clothing/under/syndicate/tacticool
-	suit = /obj/item/clothing/suit/storage/looney_jacket
+	suit = /obj/item/clothing/suit/storage/slivacoat
 	back = /obj/item/gun/projectile/automatic/shotgun/scg
 	mask = /obj/item/clothing/mask/gas/half
 
 	r_hand = /obj/item/clothing/suit/space/void/battlewizards/captain/prepared
 	l_hand = /obj/item/storage/fancy/smokable/phosphor
+	belt = /obj/item/material/sword/katana/vibro/cassandra
 
-	l_ear = /obj/item/device/radio/headset
+	l_ear = /obj/item/device/radio/headset/syndicate
 
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
@@ -814,13 +1210,20 @@
 	total_positions = 1
 	outfit_type = /singleton/hierarchy/outfit/bunker/joseph
 
+/datum/job/submap/bunker/joseph/post_equip_rank(mob/living/person, alt_title)
+	. = ..()
+	person.max_simple_health = 200
+	person.simple_health = 200
+
+	person.simple_armor_natural = 5
+
 /singleton/hierarchy/outfit/bunker/joseph
 	name = "Joseph Fiddler"
 
 	uniform = /obj/item/clothing/under/solgov/utility/expeditionary/officer/research
 	gloves = /obj/item/clothing/gloves/thick/duty/solgov/sci
 
-	l_ear = /obj/item/device/radio/headset/headset_com
+	l_ear = /obj/item/device/radio/headset/syndicate
 
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
@@ -841,11 +1244,14 @@
 	glasses = /obj/item/clothing/glasses/hud/health
 	belt = /obj/item/storage/belt/medical/emt
 	back = /obj/item/storage/backpack/satchel/pocketbook/brown
+	backpack_contents = list(/obj/item/luckycoin = 1)
 
-	l_ear = /obj/item/device/radio/headset/headset_com
+	l_ear = /obj/item/device/radio/headset/syndicate
 
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 
 /obj/submap_landmark/spawnpoint/lira
 	name = "Lira Schatten"
+
+#include "..\map\bunker.dmm"

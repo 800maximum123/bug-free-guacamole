@@ -204,7 +204,17 @@
 		/obj/item/clothing/head/beret,
 		/obj/item/material/knife/folding,
 		/obj/item/modular_computer/tablet,
-		/obj/item/modular_computer/pda
+		/obj/item/modular_computer/pda,
+
+		/obj/item/fd/simple_combat/bloodbag,
+		/obj/item/fd/simple_combat/adrenaline,
+		/obj/item/fd/simple_combat/revive,
+		/obj/item/fd/simple_combat/splint,
+		/obj/item/fd/simple_combat/bandage,
+		/obj/item/fd/simple_combat/bonegel,
+		/obj/item/fd/simple_combat/small_heal,
+		/obj/item/fd/simple_combat/big_heal,
+		/obj/item/fd/simple_combat/full_heal
 		)
 
 /obj/item/storage/belt/medical/emt

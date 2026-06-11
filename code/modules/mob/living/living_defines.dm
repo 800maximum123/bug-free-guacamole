@@ -71,3 +71,4 @@
 
 	/// Some combination of HAZARD_FLAG_*. When set, the flagged hazard types will not damage the mob.
 	var/ignore_hazard_flags = EMPTY_BITFIELD
+	var/bleed_colour = COLOR_BLOOD_HUMAN

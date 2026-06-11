@@ -139,7 +139,6 @@
 	var/supernatural = FALSE		// Ditto.
 
 	var/bleed_ticks = 0
-	var/bleed_colour = COLOR_BLOOD_HUMAN
 	var/can_bleed = TRUE
 
 	// contained in a cage

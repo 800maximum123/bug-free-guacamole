@@ -122,13 +122,25 @@
 
 //Puts the item into your l_hand if possible and calls all necessary triggers/updates. returns 1 on success.
 /mob/proc/put_in_l_hand(obj/item/W)
-	if(lying || !istype(W))
+	if(lying)
+		if(istype(W))
+			if(isliving(src))
+				var/mob/living/L = src
+				if(!L.simple_combat_on || !L.get_status_effect(/datum/simple_status/crit))
+					return 0
+			return 1
 		return 0
 	return 1
 
 //Puts the item into your r_hand if possible and calls all necessary triggers/updates. returns 1 on success.
 /mob/proc/put_in_r_hand(obj/item/W)
-	if(lying || !istype(W))
+	if(lying)
+		if(istype(W))
+			if(isliving(src))
+				var/mob/living/L = src
+				if(!L.simple_combat_on || !L.get_status_effect(/datum/simple_status/crit))
+					return 0
+			return 1
 		return 0
 	return 1
 

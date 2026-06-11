@@ -1,19 +1,38 @@
-GLOBAL_LIST_INIT(music_fd, list("Danger Bound.ogg",
-								"Active Contract.ogg",
-								"Cautious Operation.ogg",
-								"Clear Skies.ogg",
-								"Fire and Dust.ogg",
-								"Peacekeeper.ogg",
-								"To the Death for the Glory.ogg",
-								"Valkyries Call.ogg",
-								"Consequence of Power.ogg",))
+GLOBAL_LIST_INIT(music_fd, list("IBO - Adapting to Extremity.mp3",
+								"IBO - All out.ogg",
+								"IBO - Barren.ogg",
+								"IBO - Behind Them.ogg",
+								"IBO - Betrayal.ogg",
+								"IBO - Defenders of the Wild.ogg",
+								"IBO - Break Through.ogg",
+								"IBO - Dual for Life.ogg",
+								"IBO - Fallen Flower.ogg",
+								"IBO - In a fury.ogg",
+								"IBO - Last Extremity.ogg",
+								"IBO - Main.ogg",
+								"IBO - Make You Believe.ogg",
+								"IBO - Military Scheme.ogg",
+								"IBO - Sandy Desert.ogg",
+								"IBO - Sign of Disaster.ogg",
+								"IBO - Sorrow.ogg",
+								"IBO - Speculative Methods.ogg",
+								"IBO - Standing on the edge of the Cliff.ogg",
+								"IBO - Strengths Focus.ogg",
+								"IBO - Survive the Battle.ogg",
+								"IBO - Tending to Others.ogg",
+								"IBO - The battle for death.ogg",
+								"IBO - Trust in Orga.ogg",
+								"IBO - Typical Areas.ogg",
+								"IBO - Under the Pressure.ogg",
+								"IBO - Vulnerable Surface.ogg",
+								"IBO - Hashmal.ogg",))
 
 /client/proc/play_server_sound_fd()
 	set category = "Fun"
 	set name = "Play Music"
 	if(!check_rights(R_SOUNDS))	return
 
-	var/melody = "mods/_fd/fd_assets/sounds/music/"
+	var/melody = "maps/torch_doh/cutscenes/sounds/"
 	melody += input("Select a sound from the server to play", "Server sound list") as null|anything in GLOB.music_fd
 
 	play_sound(melody)

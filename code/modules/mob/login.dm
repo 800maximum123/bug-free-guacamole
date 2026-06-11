@@ -144,6 +144,14 @@
 		ability_master.update_abilities(1, src)
 		ability_master.toggle_open(1)
 
+	if(client.watching_scene)
+		client.watching_scene = FALSE
+
+		client.mob.clear_fullscreen("borders")
+		client.adminobs = null
+
+		client.mob.reset_view()
+
 	//set macro to normal incase it was overriden (like cyborg currently does)
 	// [SIERRA-REMOVE] - SSINPUT
 	// winset(src, null, "mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true input.background-color=#d3b5b5")

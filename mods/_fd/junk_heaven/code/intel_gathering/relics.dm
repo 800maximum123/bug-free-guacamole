@@ -879,7 +879,7 @@
 			to_chat(L, "<span class='occult'>You feel like someone absorbing your mind!</span>")
 			if(do_after(user, 20))
 				playsound(src.loc, 'sound/effects/ghost2.ogg', 50, 1)
-				if(prob(20))
+				if(prob(50))
 					souls += 1
 					L.eye_blind += 4
 					L.adjust_hallucination(10,10)
