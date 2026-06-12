@@ -241,6 +241,9 @@
 		)
 	allowed = list(/obj/item/gun/energy,/obj/item/device/radio,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/gun/magnetic,/obj/item/clothing/head/helmet,/obj/item/device/flashlight)
 
+	simple_armor_bonus = 20
+	simple_armor_deformation_speed = 2
+
 /obj/item/clothing/head/helmet/manticore_combat
 	name = "modern armored helmet"
 	desc = "Used by planet security and PMC."
@@ -258,6 +261,9 @@
 		energy = ARMOR_ENERGY_STRONG,
 		bomb = ARMOR_BOMB_PADDED
 		)
+
+	simple_armor_bonus = 10
+	simple_armor_deformation_speed = 5
 
 /obj/item/clothing/head/helmet/manticore_combat/rifler
 	icon_state = "helmet_rifler"
@@ -292,17 +298,16 @@
 	descriptor = "Rebel camp."
 	map = "TRK-17 Fort \"Manticore\""
 	crew_jobs = list(
-		/datum/job/submap/fort_manticore/rain,
 		/datum/job/submap/fort_manticore/kai,
 		/datum/job/submap/fort_manticore/cf355,
 		/datum/job/submap/fort_manticore/cubic,
 		/datum/job/submap/fort_manticore/roku,
 		/datum/job/submap/fort_manticore/rifler,
 		/datum/job/submap/fort_manticore/ace,
-		/datum/job/submap/fort_manticore/krieger,
 		/datum/job/submap/fort_manticore/rk381,
 		/datum/job/submap/fort_manticore/luke,
 		/datum/job/submap/fort_manticore/adriano,
+		/datum/job/submap/fort_manticore/lukash
 	)
 
 /obj/submap_landmark/joinable_submap/fort_manticore
@@ -570,6 +575,7 @@
 /singleton/hierarchy/outfit/fort_manticore/lukash
 	name = "Lukash Prochazka"
 
+	suit = /obj/item/clothing/suit/storage/jacket/solgov/fleet/linch
 	mask = /obj/item/clothing/accessory/badge/dog_tags_lukash
 
 	l_ear = /obj/item/device/radio/headset/syndicate

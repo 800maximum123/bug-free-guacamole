@@ -555,6 +555,8 @@
 		/datum/job/submap/bunker/ivy,
 		/datum/job/submap/bunker/silas,
 
+		/datum/job/submap/fort_manticore/krieger,
+		/datum/job/submap/fort_manticore/rain,
 	)
 
 /obj/submap_landmark/joinable_submap/bunker

@@ -1085,8 +1085,8 @@
 	name = "stabilization drug"
 	desc = "Used to speed-up your regeneration."
 
-	icon = 'mods/_fd/fd_events/icons/simple_medicine.dmi'
-	icon_state = "adrenaline"
+	icon = 'mods/_fd/fd_assets/icons/tgmc/syringe.dmi'
+	icon_state = "stimpen"
 
 	w_class = ITEM_SIZE_SMALL
 
@@ -1108,6 +1108,7 @@
 			return FALSE
 
 		if(base_regen_period > 2 && !get_status_effect(/datum/simple_status/crit))
+			A.icon_state = "stimpen0"
 			animation_flash_color(A, COLOR_GREEN)
 			base_regen_period = 2
 			regen_for = 5
@@ -1132,6 +1133,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.base_regen_period > 2 && !H.get_status_effect(/datum/simple_status/crit))
+			icon_state = "stimpen0"
 			animation_flash_color(src, COLOR_GREEN)
 			H.base_regen_period = 2
 			H.regen_for = 5
@@ -1157,8 +1159,8 @@
 	name = "revival fluid"
 	desc = "Used to get you up."
 
-	icon = 'mods/_fd/fd_events/icons/simple_medicine.dmi'
-	icon_state = "revive"
+	icon = 'mods/_fd/fd_assets/icons/tgmc/syringe.dmi'
+	icon_state = "syndipen"
 
 	w_class = ITEM_SIZE_TINY
 
@@ -1175,6 +1177,7 @@
 			return FALSE
 
 		if((get_status_effect(/datum/simple_status/crit) || get_status_effect(/datum/simple_status/hardcrit)) && do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
+			R.icon_state = "syndipen0"
 			animation_flash_color(R, COLOR_GREEN)
 			if(get_status_effect(/datum/simple_status/hardcrit))
 				stabilized = TRUE
@@ -1200,6 +1203,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if((H.get_status_effect(/datum/simple_status/crit) || H.get_status_effect(/datum/simple_status/hardcrit)) && do_after(H, 2 SECONDS, H, DO_PUBLIC_UNIQUE))
+			icon_state = "syndipen0"
 			animation_flash_color(src, COLOR_GREEN)
 			if(H.get_status_effect(/datum/simple_status/hardcrit))
 				H.stabilized = TRUE
