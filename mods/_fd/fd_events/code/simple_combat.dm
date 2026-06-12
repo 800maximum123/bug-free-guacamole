@@ -1665,8 +1665,9 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.simple_combat_on)
-			animation_flash_color(src, COLOR_RED)
-			return FALSE
+			if(src.loc == user)
+				animation_flash_color(src, COLOR_RED)
+				return FALSE
 
 	. = ..()
 

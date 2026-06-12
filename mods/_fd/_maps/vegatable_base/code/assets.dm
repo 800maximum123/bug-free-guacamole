@@ -1059,7 +1059,7 @@
 			remove_cost()
 
 /obj/structure/fd/turret/use_tool(obj/item/tool, mob/user, list/click_params)
-	if(istype(tool,/obj/item/gun) && connected_weapon && do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
+	if(istype(tool,/obj/item/gun) && !connected_weapon && do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
 		user.drop_from_inventory(tool)
 		setup_gun(tool)
 		return TRUE
