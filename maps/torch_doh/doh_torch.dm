@@ -281,6 +281,7 @@
 	#include "../../mods/_fd/fd_lore/_fd_lore.dme"
 	#include "../../mods/_fd/old_space_cannons/_old_space_cannons.dme"
 	#include "../../mods/_fd/runechat/_runechat.dme"
+	#include "../../mods/_fd/fd_tea/_fd_tea.dme"
 
 	#include "../../mods/_fd/fd_events/_fd_events.dme"
 	#include "../../mods/_fd/fd_utilities/_fd_utilities.dme"
