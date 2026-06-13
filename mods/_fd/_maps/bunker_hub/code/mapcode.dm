@@ -597,7 +597,6 @@
 /datum/job/submap/bunker/post_equip_rank(mob/living/person, alt_title)
 	. = ..()
 	person.generate_binds()
-	person.simple_combat_on = TRUE
 
 /singleton/hierarchy/outfit/bunker
 	name = "Default Bunker Appearance"

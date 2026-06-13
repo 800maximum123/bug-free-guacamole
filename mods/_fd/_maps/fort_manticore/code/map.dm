@@ -347,7 +347,6 @@
 /datum/job/submap/fort_manticore/post_equip_rank(mob/living/person, alt_title)
 	. = ..()
 	person.generate_binds()
-	person.simple_combat_on = TRUE
 
 /singleton/hierarchy/outfit/fort_manticore
 	name = "Default Fort Appearance"
