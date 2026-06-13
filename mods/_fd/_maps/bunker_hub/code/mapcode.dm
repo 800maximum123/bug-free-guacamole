@@ -714,6 +714,8 @@
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
 
+	r_hand = /obj/item/material/sword/katana
+
 /obj/submap_landmark/spawnpoint/bunker/ivy
 	name = "Takehiko Ivy"
 

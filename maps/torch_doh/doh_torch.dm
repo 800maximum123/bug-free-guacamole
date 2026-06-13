@@ -206,6 +206,8 @@
 
 	#include "cutscenes/s2ep7/stuff.dm"
 
+	#include "cutscenes/s2ep8/cutscene.dm"
+
 	#include "music_videos/s2opening1.dm"
 
 	// --- MAP FILES --- //
