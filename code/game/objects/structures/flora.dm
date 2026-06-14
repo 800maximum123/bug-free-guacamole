@@ -3,6 +3,8 @@
 	name = "tree"
 	anchored = TRUE
 	density = TRUE
+	// [GAIA]
+	opacity = TRUE
 	pixel_x = -16
 	layer = ABOVE_HUMAN_LAYER
 
