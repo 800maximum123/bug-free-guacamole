@@ -196,3 +196,29 @@
 		if(WEST)
 			pixel_y = 0
 			pixel_x = 0
+
+///////////////
+// INTERCOMS //
+///////////////
+/obj/item/device/radio/megaphones
+	name = "public announcment intercom"
+	desc = "Massive speakers to speak to all of the city."
+	icon = 'maps/gaia/icons/structures/streetpoles.dmi'
+	icon_state = "intercom"
+	randpixel = 0
+	anchored = TRUE
+	w_class = ITEM_SIZE_HUGE
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_BLOOD
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+	layer = ABOVE_HUMAN_LAYER
+	cell = null
+	power_usage = 0
+	canhear_range = 12 // A few extra tiles won't hurt
+	power_usage = 0
+	pixel_x = -32
+
+/obj/item/device/radio/megaphones/interact(mob/user)
+	return
+
+/obj/item/device/radio/megaphones/ToggleBroadcast()
+	return

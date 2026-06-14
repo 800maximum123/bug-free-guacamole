@@ -53,6 +53,7 @@
 
 	#include "../gaia/structures/barrier.dm"
 	#include "../gaia/structures/city.dm"
+	#include "../gaia/structures/fog.dm"
 	#include "../gaia/structures/gaiaflags.dm"
 	#include "../gaia/structures/lockers_appearance.dm"
 	#include "../gaia/structures/lockers.dm"

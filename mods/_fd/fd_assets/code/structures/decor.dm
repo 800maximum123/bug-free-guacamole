@@ -95,18 +95,6 @@
 /obj/structure/fd/placeholder/better
 	opacity = 1
 
-// [GAIA]
-/obj/structure/fd/placeholder/fog
-	name = "fog of war"
-	desc = "Thick fog. Return to the battlezone!"
-	icon = 'icons/effects/96x96.dmi'
-	icon_state = "smoke"
-	invisibility = 0
-	mouse_opacity = 1
-	pixel_x = -32
-	pixel_y = -32
-	layer = 4.09
-
 /obj/item/storage/cargo_containers
 	name = "cargo container"
 	desc = "Probably used for transporting something!"

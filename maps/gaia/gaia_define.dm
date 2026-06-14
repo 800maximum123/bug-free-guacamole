@@ -5,11 +5,13 @@
 	flags = MAP_HAS_BRANCH | MAP_HAS_RANK
 	config_path = "config/gaia_config.txt"
 
-	admin_levels  = list(5)
-	escape_levels = list(1, 2, 3, 4, 5)
-	empty_levels  = list(10)
-	accessible_z_levels = list(1, 2, 3, 4, 5, 6, 7, 8, 9) // 1-2 - SCG Camp, 3-4 ICCG Camp, 5 - Admin, 6 - Transit, 7-9 - Area of Operations
+	// 1-2 - SCG Camp, 3-4 ICCG Camp, 5 - Admin, 6 - Transit, 7-9 - Area of Operations
 	station_levels = list(1, 2, 3, 4, 7, 8, 9) // 1-2 - SCG Camp, 3-4 ICCG Camp, 7-9 - Area of Operations
+	contact_levels = list(1, 2, 3, 4, 6, 7, 8, 9)
+	player_levels = list(1, 2, 3, 4, 7, 8, 9)
+	admin_levels  = list(5)
+	empty_levels  = list(10)
+	escape_levels = list(1, 2, 3, 4, 5)
 	usable_email_tlds = list("army.mil.scg", "fleet.mil.scg", "gaia.scg", "nrpf.gaia.scg", "freemail.gaia", "freemail.net", "navy.gcc")
 
 	base_floor_area = /area/gaia

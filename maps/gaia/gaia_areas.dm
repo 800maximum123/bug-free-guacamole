@@ -14,19 +14,27 @@
 	requires_power = 0
 	sound_env = ASTEROID
 	ambience = list('sound/effects/wind/wind_2_1.ogg','sound/effects/wind/wind_2_2.ogg','sound/effects/wind/wind_3_1.ogg','sound/effects/wind/wind_4_1.ogg','sound/effects/wind/wind_4_2.ogg','sound/effects/wind/wind_5_1.ogg')
+	base_turf = /turf/simulated/floor/exoplanet/barren
 	area_flags = AREA_FLAG_EXTERNAL
+
 	ambient_group_type = /area/gaia
 	ambient_group_color = "#ffffff"
 	ambient_group_multiplier = 0.75
 	ambient_group_enabled = TRUE
+
+/area/gaia/deserter
+	name = "\improper Out of Battlezone"
+
 /*
 * -- Area of Operations --
 */
+// MARICARBONIA
 /area/gaia/city
 	name = "\improper Maricarbonia"
 	icon_state = "gaia_city"
 	ambience = list('sound/ambience/ominous1.ogg', 'sound/ambience/ominous2.ogg', 'sound/ambience/ominous3.ogg',)
 
+// MARICARBONIA MINESHAFTS
 /area/gaia/mineshafts
 	name = "\improper Maricarbonia's Mineshafts Outskirts"
 	icon_state = "gaia_mineshafts_outskirts"
@@ -61,6 +69,7 @@
 	icon_state = "gaia_mineshafts_chasm"
 	sound_env = FOREST
 
+// URBOMANKA
 /area/gaia/urbanrebels
 	name = "\improper Urbomanka"
 	icon_state = "gaia_city"
@@ -83,7 +92,27 @@
 	name = "\improper Urbomanka - Inside Building"
 	sound_env = SMALL_ENCLOSED
 	ambience = list(
+			'sound/ambience/ambigen5.ogg',
+			'sound/ambience/ambigen7.ogg',
+			'sound/ambience/ambigen9.ogg',
 			'sound/ambience/ambigen10.ogg',
+			'maps/gaia/sounds/ambience/propaganda/propaganda_muffled1.ogg',
+			'maps/gaia/sounds/ambience/propaganda/propaganda_muffled2.ogg',
+			'maps/gaia/sounds/ambience/propaganda/propaganda_muffled3.ogg',
+			'maps/gaia/sounds/ambience/propaganda/propaganda_muffled4.ogg',
+			'maps/gaia/sounds/ambience/propaganda/propaganda_muffled5.ogg',
+			'maps/gaia/sounds/ambience/propaganda/propaganda_muffled6.ogg',
+			)
+
+/area/gaia/urbanrebels/inside/metro
+	name = "\improper Urbomanka - Metro Station"
+	sound_env = SMALL_ENCLOSED
+	ambience = list(
+			'sound/ambience/ambigen1.ogg',
+			'sound/ambience/ambigen9.ogg',
+			'sound/ambience/ambigen11.ogg',
+			'sound/ambience/ambigen13.ogg',
+			'sound/ambience/ambigen14.ogg',
 			'maps/gaia/sounds/ambience/propaganda/propaganda_muffled1.ogg',
 			'maps/gaia/sounds/ambience/propaganda/propaganda_muffled2.ogg',
 			'maps/gaia/sounds/ambience/propaganda/propaganda_muffled3.ogg',
@@ -98,7 +127,7 @@
 	ambience = list('sound/ambience/spookyspace1.ogg', 'sound/ambience/spookyspace2.ogg',)
 	sound_env = TUNNEL_ENCLOSED
 
-/area/gaia/urbanrebels/sewers
+/area/gaia/urbanrebels/underground/sewers
 	name = "\improper Urbomanka - Sewers"
 	forced_ambience = list('maps/gaia/sounds/ambience/sewerambience.ogg')
 
