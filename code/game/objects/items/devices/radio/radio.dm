@@ -30,7 +30,7 @@
 	var/const/FREQ_LISTENING = 1
 	var/list/internal_channels
 
-	var/obj/item/cell/device/cell = /obj/item/cell/device/standard
+	var/obj/item/cell/device/cell = /obj/item/cell/device/high
 	var/power_usage = 11 // about an hour, give or take 10 minutes.
 
 	var/datum/radio_frequency/radio_connection

@@ -34,13 +34,13 @@
 
 /datum/map/gaia/default_internal_channels()
 	return list(
-		num2text(PUB_FREQ)   = list(access_maint_tunnels),
+		num2text(PUB_FREQ)   = list(access_maint_tunnels), // Default for civvies
 		num2text(AI_FREQ)    = list(access_synth),
 		num2text(ENT_FREQ)   = list(),
 		num2text(ERT_FREQ)   = list(access_cent_specops),
 		num2text(MED_I_FREQ) = list(access_iccg_med),
 		num2text(SEC_I_FREQ) = list(access_iccg_sec),
-		num2text(HAIL_FREQ)  = list(), // Default for civvies
+		num2text(HAIL_FREQ)  = list(),
 		num2text(SFV_FREQ)   = list(access_solgov_crew),
 		num2text(ICCGN_FREQ) = list(access_iccg),
 		// USED BY CIVVIES

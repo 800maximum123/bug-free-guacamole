@@ -2,7 +2,7 @@
 	name = OUTFIT_JOB_NAME("Gaian Outfit")
 	hierarchy_type = /singleton/hierarchy/outfit/job/gaia
 	uniform = /obj/item/clothing/under/color/grey
-	r_pocket = /obj/item/device/radio/hailing
+	r_pocket = /obj/item/device/radio
 	id_types = list(/obj/item/card/id/gaia)
 
 	flags = OUTFIT_FLAGS_JOB_DEFAULT | OUTFIT_ADJUSTMENT_SKIP_SURVIVAL_GEAR
@@ -37,7 +37,7 @@
 	l_ear = /obj/item/device/radio/headset/headset_sec
 	l_pocket = /obj/item/device/flash
 	r_pocket = /obj/item/handcuffs
-	backpack_contents = list(/obj/item/device/radio/hailing = 1, /obj/item/key/gaia/police = 1)
+	backpack_contents = list(/obj/item/device/radio = 1, /obj/item/key/gaia/police = 1)
 
 // FIREFIGHTER
 /singleton/hierarchy/outfit/job/gaia/firefighter
@@ -46,7 +46,7 @@
 	shoes = /obj/item/clothing/shoes/workboots
 	id_types = list(/obj/item/card/id/gaia/firefighter)
 	l_ear = /obj/item/device/radio/headset/headset_eng
-	backpack_contents = list(/obj/item/device/radio/hailing = 1, /obj/item/extinguisher/mini = 1, /obj/item/key/gaia/firefighter = 1)
+	backpack_contents = list(/obj/item/device/radio = 1, /obj/item/extinguisher/mini = 1, /obj/item/key/gaia/firefighter = 1)
 
 // MEDICAL
 /singleton/hierarchy/outfit/job/gaia/paramedic
@@ -58,7 +58,7 @@
 	l_ear = /obj/item/device/radio/headset/headset_med
 	l_pocket = /obj/item/device/scanner/health
 	l_hand = /obj/item/storage/firstaid/stab
-	backpack_contents = list(/obj/item/device/radio/hailing = 1, /obj/item/key/gaia/medical = 1)
+	backpack_contents = list(/obj/item/device/radio = 1, /obj/item/key/gaia/medical = 1)
 
 /singleton/hierarchy/outfit/job/gaia/doctor
 	name = OUTFIT_JOB_NAME("Gaian Doctor")
@@ -69,7 +69,7 @@
 	l_ear = /obj/item/device/radio/headset/headset_med
 	l_pocket = /obj/item/device/scanner/health
 	l_hand = /obj/item/storage/firstaid/stab
-	backpack_contents = list(/obj/item/device/radio/hailing = 1, /obj/item/key/gaia/medical = 1)
+	backpack_contents = list(/obj/item/device/radio = 1, /obj/item/key/gaia/medical = 1)
 
 // WORKER
 /singleton/hierarchy/outfit/job/gaia/worker
@@ -80,7 +80,7 @@
 	belt = /obj/item/storage/belt/utility/full
 	id_types = list(/obj/item/card/id/gaia/worker)
 	l_ear = /obj/item/device/radio/headset/headset_eng
-	backpack_contents = list(/obj/item/device/radio/hailing = 1, /obj/item/key/gaia/engineering = 1)
+	backpack_contents = list(/obj/item/device/radio = 1, /obj/item/key/gaia/engineering = 1)
 
 /singleton/hierarchy/outfit/job/gaia/miner
 	name = OUTFIT_JOB_NAME("Gaian Shaft Miner")
