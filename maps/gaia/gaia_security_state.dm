@@ -21,7 +21,7 @@
 	overlay_status_display = "status_display_green"
 	alert_border = "alert_border_green"
 
-	var/static/datum/announcement/priority/security/security_announcement_green = new(do_log = 0, do_newscast = 1, new_sound = sound('sound/misc/notice2.ogg'))
+	var/static/datum/announcement/priority/security/security_announcement_green = new(do_log = 0, do_newscast = 1, new_sound = sound('sound/effects/siren_single_long.ogg'))
 
 /singleton/security_level/default/gaiadept/code_green/switching_down_to()
 	security_announcement_green.Announce("The situation has been resolved, and all citizens can return to their usual activity.", "Attention! Alert level lowered to 'business as usual'.")
@@ -42,6 +42,17 @@
 	up_description = "A high risk of terrorist activity has developed. Citizens must stay tuned for updates and avoid gathering. Thanks for your cooperation."
 	down_description = "Terrorism alert procedures are now in effect. Citizens must stay tuned for updates and avoid gathering. Thanks for your cooperation."
 
+	var/static/datum/announcement/priority/security/security_announcement_blue = new(do_log = 0, do_newscast = 1, new_sound = sound('sound/effects/siren_single.ogg'))
+
+/singleton/security_level/default/gaiadept/code_blue/switching_up_to()
+	security_announcement_blue.Announce(up_description, "A high risk of terrorist activity has developed. Citizens must stay tuned for updates and avoid gathering. Thanks for your cooperation.")
+	notify_station()
+	GLOB.using_map.unbolt_saferooms()
+
+/singleton/security_level/default/gaiadept/code_blue/switching_down_to()
+	security_announcement_blue.Announce("Terrorism alert procedures are now in effect. Citizens must stay tuned for updates and avoid gathering. Thanks for your cooperation.", "Attention! Terrorism alert!")
+	notify_station()
+
 /singleton/security_level/default/gaiadept/code_red
 	name = "curfew"
 	alarm_level = "on"
@@ -56,7 +67,7 @@
 
 	up_description = "A curfew has been imposed. All citizens must remain indoors until the situation is resolved, violation of which may result in penalties. Please follow the orders of emergency personnel."
 
-	var/static/datum/announcement/priority/security/security_announcement_red = new(do_log = 0, do_newscast = 1, new_sound = sound('sound/misc/redalert1.ogg'))
+	var/static/datum/announcement/priority/security/security_announcement_red = new(do_log = 0, do_newscast = 1, new_sound = sound('sound/effects/siren_single.ogg'))
 
 /singleton/security_level/default/gaiadept/code_red/switching_up_to()
 	security_announcement_red.Announce(up_description, "Attention! Curfew procedures now in effect!")

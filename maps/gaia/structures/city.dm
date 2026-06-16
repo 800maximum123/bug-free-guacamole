@@ -212,6 +212,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	layer = ABOVE_HUMAN_LAYER
 	cell = null
+	on = TRUE
 	power_usage = 0
 	canhear_range = 12 // A few extra tiles won't hurt
 	power_usage = 0
