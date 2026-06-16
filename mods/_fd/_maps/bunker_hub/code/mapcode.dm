@@ -291,47 +291,11 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
-/obj/structure/fd/wild_crops
-	name = "crop"
-	desc = "Some kind of harvestable crop. You can pull it out with your bare hands!"
-
-	icon = 'maps/torch_doh/growing_vegetables.dmi'
-	icon_state = "corn-harvest"
-
-	var/harvest_result = /obj/item/reagent_containers/food/snacks/fd_crops
-
-/obj/structure/fd/wild_crops/Initialize()
-	. = ..()
-	add_filter("harvestable", 1, list("type" = "outline", , "size" = 0.75, "color" = COLOR_LIME))
-
-/obj/structure/fd/wild_crops/attack_hand(mob/living/user)
-	. = ..()
-
-	if(do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
-
-		alpha = 0
-		mouse_opacity = 0
-
-		addtimer(new Callback(src, PROC_REF(refill)), 10 MINUTES)
-
-		if(!user.skill_check(SKILL_BOTANY, SKILL_TRAINED) && prob(50))
-			return
-		else
-			new harvest_result(get_turf(src))
-
-/obj/structure/fd/wild_crops/proc/refill()
-	animate(src, 1 SECONDS, alpha = 255)
-	mouse_opacity = 1
-
 /obj/item/reagent_containers/food/snacks/fd_crops
 	name = "crop"
 	desc = "Some kind of harvestable crop. Looks kinda tasty."
 	icon = 'maps/torch_doh/harvest.dmi'
 	icon_state = "berrypile"
-
-//КУКУРУЗА
-/obj/structure/fd/wild_crops/trk_corn
-	harvest_result = /obj/item/reagent_containers/food/snacks/fd_crops/corn
 
 /obj/item/reagent_containers/food/snacks/fd_crops/corn
 	icon_state = "corn"
@@ -342,12 +306,6 @@
 	.=..()
 	reagents.add_reagent(/datum/reagent/nutriment/cornoil, 5)
 
-//ПРОЧИЕ ФРУКТЫ И ОВОЩИ
-/obj/structure/fd/wild_crops/trk_saltygreen
-	icon = 'maps/torch_doh/growing_flowers.dmi'
-	icon_state = "corpse-flower-harvest"
-	harvest_result = /obj/item/reagent_containers/food/snacks/fd_crops/saltygreen
-
 /obj/item/reagent_containers/food/snacks/fd_crops/saltygreen
 	icon_state = "siti"
 	nutriment_desc = list("salt" = 5, "dryness" = 2)
@@ -356,11 +314,6 @@
 /obj/item/reagent_containers/food/snacks/fd_crops/saltygreen/Initialize()
 	.=..()
 	reagents.add_reagent(/datum/reagent/sodiumchloride, 2)
-
-/obj/structure/fd/wild_crops/trk_tastycactus
-	icon = 'maps/torch_doh/growing_flowers.dmi'
-	icon_state = "galaxythistle-harvest"
-	harvest_result = /obj/item/reagent_containers/food/snacks/fd_crops/tastycactus
 
 /obj/item/reagent_containers/food/snacks/fd_crops/tastycactus
 	icon_state = "galaxythistle"
@@ -372,12 +325,6 @@
 	reagents.add_reagent(/datum/reagent/nutriment/honey, 5)
 	reagents.add_reagent(/datum/reagent/bicaridine, 5)
 
-//ПРИПРАВЫ
-/obj/structure/fd/wild_crops/trk_sugarcrop
-	icon = 'maps/torch_doh/growing_flowers.dmi'
-	icon_state = "moonflower-harvest"
-	harvest_result = /obj/item/reagent_containers/food/snacks/fd_crops/sugarcrop
-
 /obj/item/reagent_containers/food/snacks/fd_crops/sugarcrop
 	icon_state = "moonflower"
 	nutriment_desc = list("sugar" = 5)
@@ -386,11 +333,6 @@
 /obj/item/reagent_containers/food/snacks/fd_crops/sugarcrop/Initialize()
 	.=..()
 	reagents.add_reagent(/datum/reagent/sugar, 5)
-
-/obj/structure/fd/wild_crops/trk_coldcrop
-	icon = 'maps/torch_doh/growing_fruits.dmi'
-	icon_state = "bluetomato-grow6"
-	harvest_result = /obj/item/reagent_containers/food/snacks/fd_crops/coldcrop
 
 /obj/item/reagent_containers/food/snacks/fd_crops/coldcrop
 	icon_state = "ambrosiadeus"
@@ -403,11 +345,6 @@
 	reagents.add_reagent(/datum/reagent/nutriment/mint, 2)
 	reagents.add_reagent(/datum/reagent/tricordrazine, 5)
 
-/obj/structure/fd/wild_crops/trk_firecrop
-	icon = 'maps/torch_doh/growing_fruits.dmi'
-	icon_state = "cherry_bomb-harvest"
-	harvest_result = /obj/item/reagent_containers/food/snacks/fd_crops/firecrop
-
 /obj/item/reagent_containers/food/snacks/fd_crops/firecrop
 	icon_state = "coffee_arabica"
 	nutriment_desc = list("pepper" = 2, "spicy!" = 5, "popcorn" = 2)
@@ -418,11 +355,6 @@
 	reagents.add_reagent(/datum/reagent/capsaicin, 4)
 	reagents.add_reagent(/datum/reagent/blackpepper, 2)
 	reagents.add_reagent(/datum/reagent/dylovene, 4)
-
-/obj/structure/fd/wild_crops/trk_coffecrop
-	icon = 'maps/torch_doh/growing_fruits.dmi'
-	icon_state = "apple-grow5"
-	harvest_result = /obj/item/reagent_containers/food/snacks/fd_crops/coffecrop
 
 /obj/item/reagent_containers/food/snacks/fd_crops/coffecrop
 	icon_state = "coffee_robusta"
@@ -438,7 +370,7 @@
 	icon_state = "oldcomp"
 	name = "old console"
 	desc = "Старьё, которое, по всем законам, кажется не должно работать."
-	var/mob/living/currently_connected_texter_1
+/*	var/mob/living/currently_connected_texter_1
 	var/mob/currently_connected_texter_2
 
 /obj/structure/fd/perci_console/attack_hand(mob/living/user)
@@ -509,7 +441,7 @@
 		if(M.client)
 			M.client.screen += visuals
 
-	visuals.set_text(final_message)
+	visuals.set_text(final_message)*/
 
 /mob/living/simple_animal/fd/perci_bot1
 	name = "drone"
@@ -530,6 +462,108 @@
 	maxHealth = 99999
 	health = 99999
 	icon_state = "baseline_grey_off"
+
+/obj/structure/fd/random_junk/big_fire
+	mouse_opacity = FALSE
+
+	icon = 'mods/_fd/fd_assets/icons/goons/fire_chemical.dmi'
+	icon_state = "red_full"
+
+	layer = 4.10
+	plane = 6
+
+	alpha = 0
+	pixel_y = 22
+
+	light_color = COLOR_DARK_ORANGE
+
+/obj/structure/fd/random_junk/big_fire/Initialize()
+	. = ..()
+	SetTransform(null,1.3,2)
+
+/obj/structure/fd/random_junk/big_campfire
+	name = "campfire"
+	desc = "Very big campfire."
+	icon = 'mods/_fd/fd_assets/icons/goons/exploration.dmi'
+	icon_state = "woodclutter4"
+
+	anchored = TRUE
+	density = TRUE
+
+	interactive = TRUE
+	desc_special_show = TRUE
+
+	var/can_be_lit = FALSE
+	var/already_lit = FALSE
+	var/obj/structure/fd/random_junk/big_fire/fire
+
+	desc_special = {"Костёр уже давно потух."}
+
+	color = "#333333"
+
+/obj/structure/fd/random_junk/big_campfire/Initialize()
+	. = ..()
+	SetTransform(3)
+	fire = new /obj/structure/fd/random_junk/big_fire(get_turf(src))
+
+/obj/structure/fd/random_junk/big_campfire/interact_with(mob/living/user)
+
+	if(!can_be_lit)
+		. = ..()
+		return TRUE
+
+	var/list/options = list(
+		"ПОТУШИТЬ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "red"),
+		"ЗАЖЕЧЬ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "green"),
+	)
+	var/chosen_option = show_radial_menu(user, src, options, radius = 25, require_near = TRUE)
+	if(!chosen_option)
+		return FALSE
+	switch(chosen_option)
+		if("ПОТУШИТЬ")
+
+			if(!already_lit)
+				balloon_alert(user, "|КОСТЁР И НЕ ГОРИТ!|", COLOR_RED)
+				return FALSE
+
+			desc_special = {"Куча обугленных дров."}
+			animate(fire, alpha = 0, time = 0.3 SECONDS, easing = SINE_EASING)
+			fire.light_power = initial(fire.light_power)
+			fire.light_range = initial(fire.light_range)
+
+			already_lit = FALSE
+			return TRUE
+
+		if("ЗАЖЕЧЬ")
+			if(already_lit)
+				balloon_alert(user, "|КОСТЁР УЖЕ ГОРИТ!|", COLOR_RED)
+				return FALSE
+
+			desc_special = {"Тепло костра наполняет вас решимостью."}
+			animate(fire, alpha = 255, time = 0.3 SECONDS, easing = SINE_EASING)
+			fire.light_power = 2
+			fire.light_range = 5
+
+			already_lit = TRUE
+			return TRUE
+
+/obj/structure/fd/random_junk/horn
+	name = "white horn"
+	desc = "Belongs to some kind of animal probably."
+	icon = 'mods/_fd/fd_assets/icons/goons/tail.dmi'
+	icon_state = "tail-lizard-detail-1"
+
+	anchored = TRUE
+	density = FALSE
+
+	interactive = TRUE
+	desc_special_show = TRUE
+
+	desc_special = {"/"В честь победы Амелии над лесным чудищем/". Под тесктом указана дата - <b>XX.XX.2338</b>."}
+
+/obj/structure/fd/random_junk/horn/Initialize()
+	. = ..()
+	SetTransform(1.5)
 
 /singleton/submap_archetype/bunker
 	descriptor = "Abandoned Bunker."

@@ -175,7 +175,7 @@
 			if(!drawing_state)
 				drawing_state = "overlay_1"
 
-			drawing = image(icon, icon_state = "drawing_state")
+			drawing = image(icon, icon_state = "[drawing_state]")
 
 			playsound(user, pick('sound/effects/pen1.ogg','sound/effects/pen2.ogg'), 10)
 			AddOverlays(drawing)
