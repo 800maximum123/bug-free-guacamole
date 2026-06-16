@@ -1,12 +1,13 @@
 // ADMIN
 /obj/structure/closet/secure_closet/gaia/scg_montgomery
-	name = "colonel's locker"
-	req_access = list(access_cent_captain)
+	name = "Colonel Montogomery's locker"
 	closet_appearance = /singleton/closet_appearance/secure_closet/command
 
 /obj/structure/closet/secure_closet/gaia/scg_montgomery/WillContain()
 	return list(
 		/obj/item/storage/backpack/satchel/leather/khaki,
+		/obj/item/screwdriver,
+		/obj/item/clothing/glasses/aviators_black,
 		/obj/item/clothing/suit/scga/service_officer,
 		/obj/item/clothing/head/scga/beret/firstinf,
 		/obj/item/clothing/under/scga/service_command,
@@ -18,6 +19,29 @@
 		/obj/item/clothing/accessory/storage/holster/armpit,
 		/obj/item/device/radio/headset/specops,
 		/obj/item/gun/projectile/revolver,
+	)
+
+/obj/structure/closet/secure_closet/gaia/iccg_alistratova
+	name = "Kapitan Alistratova's locker"
+	closet_appearance = /singleton/closet_appearance/secure_closet/command
+
+/obj/structure/closet/secure_closet/gaia/iccg_alistratova/WillContain()
+	return list(
+		/obj/item/storage/backpack/satchel/leather/black,
+		/obj/item/screwdriver,
+		/obj/item/clothing/glasses/eyepatch/hud/security,
+		/obj/item/clothing/suit/iccgn/dress_command,
+		/obj/item/clothing/head/iccgn/service_command,
+		/obj/item/clothing/under/iccgn/service_command,
+		/obj/item/clothing/shoes/iccgn/service,
+		/obj/item/clothing/accessory/iccgn_rank/of6,
+		/obj/item/clothing/accessory/iccgn_badge/officer,
+		/obj/item/clothing/accessory/iccgn_patch/surface,
+		/obj/item/clothing/accessory/medal/iron,
+		/obj/item/clothing/accessory/armband,
+		/obj/item/clothing/accessory/storage/holster/armpit,
+		/obj/item/device/radio/headset/specops,
+		/obj/item/gun/projectile/pistol/magnum_pistol,
 	)
 
 // SOLAR CENTRAL GOVERNMENT

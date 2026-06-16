@@ -678,6 +678,15 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
+"adG" = (
+/obj/structure/sign/double/iccgflag/left{
+	pixel_y = 32
+	},
+/obj/machinery/light/navigation{
+	pixel_x = 16
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
 "adK" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
@@ -1861,6 +1870,10 @@
 /obj/item/inflatable_duck,
 /turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_beach)
+"aiQ" = (
+/obj/floor_decal/techfloor/blood_red,
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/montogemory)
 "aiY" = (
 /obj/machinery/computer/crew{
 	dir = 4
@@ -2027,6 +2040,11 @@
 /obj/overlay/palmtree_r,
 /turf/unsimulated/beach/sand,
 /area/beach)
+"amV" = (
+/obj/machinery/door/airlock/highsecurity/bolted,
+/obj/structure/barricade,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/montogemory)
 "anb" = (
 /obj/landmark{
 	name = "endgame_exit"
@@ -2052,6 +2070,10 @@
 	},
 /turf/unsimulated/beach/sand,
 /area/beach)
+"anB" = (
+/obj/floor_decal/iccglogo/bottom_left,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
 "anP" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/snacks/chips,
@@ -2104,6 +2126,18 @@
 "aqa" = (
 /turf/unsimulated/beach/water,
 /area/beach)
+"aqg" = (
+/obj/structure/holoplant,
+/turf/simulated/floor/wood/walnut,
+/area/gaia/alistratova)
+"arI" = (
+/obj/machinery/chemical_dispenser/bar_alc/full{
+	pixel_y = 8
+	},
+/obj/structure/table/woodentable/walnut,
+/obj/item/storage/box/mixedglasses,
+/turf/simulated/floor/carpet/red,
+/area/gaia/alistratova)
 "asP" = (
 /turf/unsimulated/wall,
 /area/centcom)
@@ -4815,6 +4849,16 @@
 	icon_state = "dark"
 	},
 /area/centcom/specops)
+"aBH" = (
+/obj/structure/sign/double/solgovflag/right{
+	pixel_y = 32
+	},
+/obj/decal/cleanable/dirt,
+/obj/structure/platform_decoration/hybrisa/metalplatformdeco6{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/montogemory)
 "aBI" = (
 /obj/structure/closet/crate,
 /turf/unsimulated/floor{
@@ -5135,6 +5179,10 @@
 	icon_state = "steel"
 	},
 /area/centcom/control)
+"aCN" = (
+/obj/machinery/acting/changer,
+/turf/simulated/floor/lino,
+/area/gaia/montogemory)
 "aCP" = (
 /obj/machinery/vending/cola{
 	name = "Robust Softdrinks";
@@ -5594,6 +5642,12 @@
 	icon_state = "steel"
 	},
 /area/centcom/holding)
+"aFg" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/light,
+/obj/machinery/icecream_vat,
+/turf/simulated/floor/lino,
+/area/gaia/montogemory)
 "aFo" = (
 /turf/unsimulated/floor{
 	dir = 9;
@@ -5695,6 +5749,12 @@
 	name = "plating"
 	},
 /area/centcom/holding)
+"aFV" = (
+/obj/machinery/newscaster/security_unit{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/montogemory)
 "aFY" = (
 /obj/machinery/light/small/readylight{
 	dir = 4
@@ -6929,6 +6989,15 @@
 /obj/item/bedsheet/blue,
 /turf/simulated/floor/shuttle/blue,
 /area/shuttle/transport1/centcom)
+"aKi" = (
+/obj/floor_decal/spline/fancy/black{
+	dir = 1
+	},
+/obj/structure/table/steel_reinforced,
+/obj/item/paper/memo/command/njprules,
+/obj/item/paper/memo/command/punishments,
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
 "aKl" = (
 /obj/machinery/vending/cigarette,
 /turf/unsimulated/floor{
@@ -8009,6 +8078,14 @@
 /obj/landmark/damager,
 /turf/simulated/floor/plating,
 /area/gaia/deserter)
+"aNw" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/light,
+/obj/structure/platform_decoration/hybrisa/metalplatformdeco6{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/gaia/montogemory)
 "aNC" = (
 /obj/machinery/door/unpowered/simple/walnut,
 /turf/simulated/floor/wood,
@@ -8558,6 +8635,10 @@
 /obj/structure/fog/no_desert,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/deserter)
+"aRh" = (
+/obj/floor_decal/iccglogo/top_right,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
 "aRl" = (
 /obj/random/junk,
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
@@ -8815,10 +8896,6 @@
 /area/gaia/deserter)
 "aTm" = (
 /obj/structure/closet/kitchen,
-/obj/item/key{
-	key_data = "DESERTER_HOUSE";
-	color = "#ff9900"
-	},
 /turf/simulated/floor/tiled,
 /area/gaia/deserter)
 "aTo" = (
@@ -9047,6 +9124,11 @@
 	icon_state = "wood_broken1"
 	},
 /area/gaia/deserter)
+"aVR" = (
+/obj/machinery/door/airlock/highsecurity/bolted,
+/obj/machinery/door/blast/regular/open,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
 "aVS" = (
 /obj/decal/cleanable/dirt,
 /obj/item/stool/bar/padded,
@@ -9076,6 +9158,11 @@
 /obj/random/medical/lite,
 /turf/simulated/floor/plating,
 /area/gaia/deserter)
+"aWw" = (
+/obj/structure/closet/walllocker/emerglocker/south,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/montogemory)
 "aWy" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/landmark/damager,
@@ -9127,6 +9214,17 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/plating,
 /area/gaia/deserter)
+"aXi" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/platform/hybrisa/metalplatform6{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/montogemory)
+"aXq" = (
+/obj/machinery/door/window/northleft,
+/turf/simulated/floor/holofloor/space,
+/area/gaia/alistratova)
 "aXs" = (
 /obj/structure/table/woodentable,
 /obj/item/pen/crayon/red,
@@ -9156,6 +9254,13 @@
 	icon_state = "steel"
 	},
 /area/centcom/control)
+"aZY" = (
+/obj/structure/displaycase,
+/obj/item/gun/energy/stunrevolver{
+	pixel_y = 3
+	},
+/turf/simulated/floor/wood/walnut,
+/area/gaia/alistratova)
 "baD" = (
 /obj/item/device/radio/intercom/syndicate{
 	dir = 8;
@@ -9256,6 +9361,31 @@
 	icon_state = "desert2"
 	},
 /area/centcom/holding)
+"bqq" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/closet/crate,
+/obj/item/clothing/under/scga/utility/urban/command,
+/obj/item/clothing/under/scga/utility/urban/command,
+/obj/item/clothing/under/scga/utility/urban/command,
+/obj/item/clothing/under/scga/utility/urban/command,
+/obj/item/clothing/under/scga/utility/urban/command,
+/obj/item/clothing/under/scga/service_command,
+/obj/item/clothing/under/scga/service_command,
+/obj/item/clothing/under/scga/service_command,
+/obj/item/clothing/under/scga/service_command,
+/obj/item/clothing/under/scga/service_command,
+/obj/item/clothing/head/scga/service/wheel_command,
+/obj/item/clothing/head/scga/service/wheel_command,
+/obj/item/clothing/head/scga/service/wheel_command,
+/obj/item/clothing/head/scga/service/wheel_command,
+/obj/item/clothing/head/scga/service/wheel_command,
+/obj/item/clothing/head/scga/beret/airborne,
+/obj/item/clothing/head/scga/beret/airborne,
+/obj/item/clothing/head/scga/beret/airborne,
+/obj/item/clothing/head/scga/beret/airborne,
+/obj/item/clothing/head/scga/beret/airborne,
+/turf/simulated/floor/lino,
+/area/gaia/montogemory)
 "brb" = (
 /obj/machinery/hologram/holopad,
 /turf/unsimulated/beach/sand{
@@ -9331,6 +9461,11 @@
 	icon_state = "steel"
 	},
 /area/centcom/holding)
+"byi" = (
+/obj/floor_decal/techfloor/blood_red,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/montogemory)
 "bBb" = (
 /obj/machinery/computer/modular/preset/library{
 	dir = 8;
@@ -9359,6 +9494,15 @@
 	name = "plating"
 	},
 /area/acting/backstage)
+"bEi" = (
+/obj/floor_decal/spline/fancy/black{
+	dir = 1
+	},
+/obj/floor_decal/step{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
 "bFb" = (
 /obj/machinery/libraryscanner,
 /turf/unsimulated/floor{
@@ -9366,16 +9510,63 @@
 	name = "plating"
 	},
 /area/acting/backstage)
+"bFv" = (
+/obj/item/modular_computer/telescreen/preset/generic{
+	pixel_y = 40
+	},
+/obj/item/modular_computer/telescreen/preset/generic{
+	pixel_y = 22
+	},
+/obj/floor_decal/techfloor/blood_red/corner{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
 "bGb" = (
 /obj/structure/table/holotable,
 /obj/item/toy/ringbell,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_boxingcourt)
+"bGF" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/captain,
+/turf/simulated/floor/carpet/blue,
+/area/gaia/montogemory)
 "bHb" = (
 /obj/structure/table/holotable,
 /obj/item/device/megaphone,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_boxingcourt)
+"bHW" = (
+/obj/floor_decal/techfloor/blood_red,
+/obj/structure/sign/directions/evac{
+	pixel_x = -32;
+	dir = 8
+	},
+/obj/structure/sign/directions/science{
+	pixel_x = -32;
+	pixel_y = 6;
+	dir = 8
+	},
+/obj/structure/sign/directions/janitor{
+	pixel_x = -32;
+	pixel_y = -5;
+	dir = 8
+	},
+/obj/machinery/porta_turret/ballistic/shotgun{
+	dir = 4;
+	req_access = list(list("ACCESS_ICCG"))
+	},
+/obj/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
+"bJm" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/newscaster/security_unit{
+	pixel_y = 32
+	},
+/turf/simulated/floor/carpet/blue,
+/area/gaia/montogemory)
 "bKU" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/holofloor/grass,
@@ -9389,16 +9580,50 @@
 	icon_state = "wood"
 	},
 /area/centcom/living)
+"bND" = (
+/obj/structure/hygiene/sink{
+	dir = 1;
+	pixel_y = 16
+	},
+/obj/item/storage/mirror{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/white,
+/area/gaia/alistratova)
 "bOb" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/green,
 /area/gaia/deserter)
+"bQN" = (
+/obj/structure/table/steel_reinforced,
+/obj/floor_decal/spline/fancy/black/corner{
+	dir = 4
+	},
+/obj/item/tableflag/iccg,
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
 "bRY" = (
 /obj/floor_decal/beach/corner{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/concrete,
 /area/holodeck/source_volleyball)
+"bVI" = (
+/obj/machinery/papershredder,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
+"bWH" = (
+/obj/machinery/flasher{
+	dir = 8;
+	pixel_x = -24
+	},
+/obj/machinery/porta_turret/ballistic/shotgun{
+	dir = 4;
+	req_access = list(list("ACCESS_ICCG"))
+	},
+/obj/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
 "cay" = (
 /obj/structure/bed/chair/wood{
 	dir = 8;
@@ -9406,6 +9631,10 @@
 	},
 /turf/simulated/floor/holofloor/concrete,
 /area/holodeck/source_plaza)
+"cdX" = (
+/obj/floor_decal/techfloor/blood_red,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/montogemory)
 "cjX" = (
 /obj/landmark{
 	name = "Syndicate-Commando"
@@ -9414,6 +9643,19 @@
 	icon_state = "dark"
 	},
 /area/syndicate_elite_squad)
+"ckA" = (
+/mob/living/simple_animal/friendly/megamoth,
+/obj/structure/dogbed,
+/obj/decal/cleanable/cobweb2{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/lino,
+/area/gaia/montogemory)
+"cpF" = (
+/obj/machinery/door/airlock/terran,
+/turf/simulated/floor/wood/walnut,
+/area/gaia/alistratova)
 "cqu" = (
 /obj/structure/holostool,
 /obj/floor_decal/beach{
@@ -9421,6 +9663,35 @@
 	},
 /turf/simulated/floor/holofloor/concrete,
 /area/holodeck/source_volleyball)
+"cwz" = (
+/turf/simulated/floor/lino,
+/area/gaia/montogemory)
+"cxh" = (
+/obj/structure/hygiene/toilet,
+/obj/item/newspaper,
+/turf/simulated/floor/tiled/white,
+/area/gaia/alistratova)
+"cCu" = (
+/obj/machinery/ai_status_display{
+	pixel_x = 32
+	},
+/turf/simulated/floor/wood/walnut,
+/area/gaia/alistratova)
+"cHH" = (
+/obj/structure/table/steel_reinforced,
+/obj/floor_decal/spline/fancy/black/corner,
+/obj/item/tableflag/iccg,
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
+"cKy" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/floor_decal/spline/fancy/black{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
 "cMe" = (
 /obj/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -9444,16 +9715,99 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_cafe)
+"cRH" = (
+/obj/paint/dark_gunmetal,
+/obj/paint_stripe/red,
+/obj/machinery/status_display{
+	pixel_y = 32
+	},
+/turf/simulated/wall/r_concrete,
+/area/gaia/alistratova)
+"cRY" = (
+/obj/floor_decal/step,
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
+"cXf" = (
+/obj/item/device/radio/intercom/locked/ai_private{
+	pixel_y = 22
+	},
+/obj/item/device/radio/intercom/specops{
+	dir = 8;
+	pixel_x = 22
+	},
+/obj/item/device/radio/intercom/syndicate{
+	dir = 4;
+	pixel_x = -22
+	},
+/obj/item/device/radio/intercom/hailing{
+	dir = 1;
+	layer = 2.23;
+	pixel_y = -32
+	},
+/obj/structure/decoy{
+	name = "L.E.H.A.";
+	icon_state = "ai-redoctober"
+	},
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
+"cZJ" = (
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
+"dfi" = (
+/obj/structure/table/woodentable/walnut,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/machinery/recharger,
+/obj/item/device/flashlight/lamp/lava/green{
+	pixel_x = -10
+	},
+/obj/floor_decal/techfloor/blood_red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/montogemory)
+"dgg" = (
+/obj/machinery/vending/cigarette{
+	dir = 8
+	},
+/obj/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
 "djm" = (
 /obj/item/beach_ball/holovolleyball,
 /turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_volleyball)
+"djZ" = (
+/obj/floor_decal/carpet/red,
+/obj/floor_decal/carpet/red{
+	dir = 8
+	},
+/obj/floor_decal/carpet/red{
+	dir = 10
+	},
+/turf/simulated/floor/carpet/red,
+/area/gaia/alistratova)
+"dnz" = (
+/obj/machinery/hologram/holopad/longrange/adminpad,
+/obj/floor_decal/iccglogo,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
 "dnO" = (
 /obj/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
 /turf/simulated/floor/holofloor/concrete,
 /area/holodeck/source_plaza)
+"dvM" = (
+/obj/machinery/camera/network/crescent{
+	dir = 1
+	},
+/turf/simulated/floor/lino,
+/area/gaia/montogemory)
 "dzK" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/ywflowers,
@@ -9470,6 +9824,12 @@
 	},
 /turf/simulated/floor/holofloor/concrete,
 /area/holodeck/source_plaza)
+"dCk" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/wood/walnut,
+/area/gaia/alistratova)
 "dCA" = (
 /obj/structure/table/holo_woodentable,
 /turf/simulated/floor/holofloor/wood,
@@ -9493,6 +9853,17 @@
 	},
 /turf/simulated/floor/holofloor/beach/water,
 /area/holodeck/source_temple)
+"dRr" = (
+/obj/machinery/door/airlock/hatch,
+/turf/simulated/floor/lino,
+/area/gaia/montogemory)
+"dTP" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/montogemory)
 "dTZ" = (
 /obj/structure/table/holo_woodentable,
 /obj/item/reagent_containers/food/drinks/glass2/coffeecup{
@@ -9509,9 +9880,53 @@
 	},
 /turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_volleyball)
+"ebL" = (
+/obj/floor_decal/ul_decals/iccg_floor,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
+"eef" = (
+/obj/structure/table/woodentable/walnut,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/photocopier/faxmachine,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/montogemory)
 "efq" = (
 /turf/simulated/floor/holofloor/concrete,
 /area/holodeck/source_cafe)
+"ehR" = (
+/obj/structure/bed/chair/office/light{
+	dir = 4
+	},
+/obj/floor_decal/techfloor/blood_red{
+	dir = 5
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/montogemory)
+"ehX" = (
+/obj/structure/platform/hybrisa/metalplatform6{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/montogemory)
+"eoQ" = (
+/obj/floor_decal/iccglogo/corner,
+/obj/floor_decal/spline/plain/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/alistratova)
+"eqy" = (
+/obj/structure/table/rack,
+/obj/item/storage/box/scga_badges,
+/obj/item/storage/box/scga_badges,
+/obj/item/storage/box/scga_badges,
+/obj/item/storage/box/scga_badges,
+/obj/item/storage/box/scga_badges,
+/turf/simulated/floor/lino,
+/area/gaia/montogemory)
 "etB" = (
 /obj/machinery/button/blast_door{
 	id_tag = "syndicate_elite_mech_room";
@@ -9532,16 +9947,43 @@
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_cafe)
+"eBA" = (
+/obj/floor_decal/techfloor/blood_red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
 "eGq" = (
 /obj/machinery/vending/engineering,
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
+"eMt" = (
+/obj/structure/table/marble,
+/obj/machinery/chemical_dispenser/bar_coffee/full{
+	pixel_y = 6
+	},
+/turf/simulated/floor/wood,
+/area/gaia/alistratova)
 "eRk" = (
 /obj/structure/table/rack/holorack,
 /turf/simulated/floor/holofloor/wood{
 	icon_state = "wood_broken1"
 	},
 /area/holodeck/source_temple)
+"fbd" = (
+/obj/floor_decal/spline/fancy/black{
+	dir = 4
+	},
+/obj/structure/table/steel_reinforced,
+/obj/item/modular_computer/laptop/preset/custom_loadout/advanced/commander,
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
+"fbL" = (
+/obj/structure/sign/double/iccgflag/right{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
 "fcv" = (
 /obj/structure/holostool,
 /obj/floor_decal/beach{
@@ -9549,9 +9991,61 @@
 	},
 /turf/simulated/floor/holofloor/concrete,
 /area/holodeck/source_volleyball)
+"fcB" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/platform/hybrisa/metalplatform6{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/montogemory)
+"fcH" = (
+/obj/structure/bed/chair/office/light{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/montogemory)
+"fei" = (
+/obj/machinery/camera/network/crescent{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/gaia/alistratova)
 "ffh" = (
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
+"fgt" = (
+/obj/machinery/computer/modular/preset/full/ert{
+	dir = 8
+	},
+/obj/floor_decal/techfloor/blood_red{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/montogemory)
+"fhV" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/hos,
+/turf/simulated/floor/carpet/red,
+/area/gaia/alistratova)
+"fio" = (
+/obj/structure/table/standard,
+/obj/item/device/flashlight/lamp,
+/obj/floor_decal/techfloor/blood_red{
+	dir = 6
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/montogemory)
+"foe" = (
+/obj/structure/table/steel_reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/item/device/radio/phone,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
 "fpW" = (
 /obj/floor_decal/spline/fancy/wood/corner{
 	dir = 8
@@ -9568,18 +10062,95 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_cafe)
+"fCU" = (
+/obj/item/music_player/boombox/custom_tape,
+/turf/simulated/floor/tiled/white,
+/area/gaia/alistratova)
 "fJf" = (
 /obj/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/concrete,
 /area/holodeck/source_plaza)
+"fMx" = (
+/obj/structure/dogbed,
+/mob/living/simple_animal/friendly/cat/floppa{
+	name = "Commissar"
+	},
+/obj/machinery/turretid{
+	pixel_x = -24;
+	dir = 4
+	},
+/turf/simulated/floor/wood/walnut,
+/area/gaia/alistratova)
+"fRu" = (
+/obj/structure/table/standard,
+/obj/item/storage/toolbox/mechanical,
+/obj/floor_decal/techfloor/blood_red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/montogemory)
+"fRE" = (
+/obj/machinery/photocopier,
+/turf/simulated/floor/wood/walnut,
+/area/gaia/alistratova)
+"fVz" = (
+/obj/paint/dark_gunmetal,
+/obj/paint_stripe/red,
+/obj/machinery/ai_status_display{
+	pixel_y = 32
+	},
+/turf/simulated/wall/r_concrete,
+/area/gaia/alistratova)
+"fZS" = (
+/turf/simulated/floor/pool,
+/area/gaia/alistratova)
+"ghN" = (
+/obj/structure/flora/pottedplant/dead,
+/obj/decal/cleanable/cobweb2,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/montogemory)
+"giZ" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/hologram/holopad/longrange/adminpad,
+/turf/simulated/floor/greengrid,
+/area/gaia/montogemory)
+"gkc" = (
+/obj/structure/coatrack,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/wood/walnut,
+/area/gaia/alistratova)
 "glo" = (
 /turf/simulated/floor/holofloor/concrete,
 /area/holodeck/source_volleyball)
+"glv" = (
+/obj/machinery/constructable_frame/machine_frame,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/montogemory)
 "gnX" = (
 /turf/simulated/floor/holofloor/beach/water,
 /area/holodeck/source_temple)
+"gpO" = (
+/obj/floor_decal/step,
+/obj/item/modular_computer/telescreen/preset/generic{
+	pixel_y = 32
+	},
+/obj/item/modular_computer/telescreen/preset/generic{
+	pixel_y = 32
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/montogemory)
+"grh" = (
+/obj/structure/bed/chair/office/red{
+	dir = 1
+	},
+/obj/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/alistratova)
 "gse" = (
 /obj/structure/table/holo_woodentable,
 /obj/floor_decal/spline/fancy/wood{
@@ -9596,6 +10167,122 @@
 	icon_state = "wood_broken4"
 	},
 /area/holodeck/source_temple)
+"gxs" = (
+/obj/floor_decal/carpet/red{
+	dir = 1
+	},
+/obj/floor_decal/carpet/red{
+	dir = 8
+	},
+/obj/floor_decal/carpet/red{
+	dir = 9
+	},
+/turf/simulated/floor/carpet/red,
+/area/gaia/alistratova)
+"gyd" = (
+/obj/structure/hygiene/drain/bath,
+/turf/simulated/floor/pool,
+/area/gaia/alistratova)
+"gDi" = (
+/obj/floor_decal/sign/c,
+/obj/floor_decal/spline/fancy/black{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
+"gRb" = (
+/obj/structure/table/steel_reinforced,
+/obj/item/paper_bin,
+/obj/structure/noticeboard{
+	dir = 4;
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/alistratova)
+"gWf" = (
+/obj/structure/sign/directions/evac{
+	pixel_y = -23
+	},
+/obj/structure/sign/directions/infirmary{
+	pixel_y = -29
+	},
+/obj/structure/sign/directions/engineering{
+	pixel_y = -35
+	},
+/obj/structure/sign/directions/supply{
+	pixel_y = -41
+	},
+/obj/machinery/porta_turret/ballistic/shotgun{
+	dir = 9;
+	req_access = list(list("ACCESS_ICCG"))
+	},
+/obj/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
+"gYN" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/gaia/montogemory)
+"haL" = (
+/obj/floor_decal/spline/fancy/black,
+/obj/structure/table/steel_reinforced,
+/obj/item/pen/retractable,
+/obj/item/pen/retractable/red,
+/obj/item/pen/retractable/green,
+/obj/item/pen/retractable/blue,
+/obj/item/paper_bin,
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
+"hcq" = (
+/obj/structure/bed/chair/padded/black,
+/turf/simulated/floor/carpet/red,
+/area/gaia/alistratova)
+"hfM" = (
+/obj/machinery/door/airlock/silver,
+/turf/simulated/floor/tiled/white,
+/area/gaia/alistratova)
+"hhs" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/uniform_vendor,
+/turf/simulated/floor/lino,
+/area/gaia/montogemory)
+"hmN" = (
+/obj/floor_decal/step{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/gaia/montogemory)
+"hnk" = (
+/obj/structure/table/steel_reinforced,
+/obj/item/device/radio/phone,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/alistratova)
+"hoX" = (
+/obj/machinery/uniform_vendor{
+	dir = 8
+	},
+/obj/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
+"hrg" = (
+/obj/floor_decal/techfloor/blood_red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
+"hzv" = (
+/obj/floor_decal/spline/fancy/black{
+	dir = 1
+	},
+/obj/floor_decal/step{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
 "hzB" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/ywflowers,
@@ -9606,9 +10293,55 @@
 	},
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_plaza)
+"hAX" = (
+/obj/floor_decal/techfloor/blood_red{
+	dir = 4
+	},
+/obj/structure/sign/directions/evac{
+	pixel_y = -23
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
+"hCA" = (
+/obj/structure/sign/double/iccgflag/left{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
+"hFM" = (
+/obj/structure/bookcase,
+/obj/decal/cleanable/dirt,
+/obj/item/book/manual/military_law,
+/obj/item/book/manual/nuclear,
+/obj/item/book/manual/solgov_law,
+/turf/simulated/floor/lino,
+/area/gaia/montogemory)
 "hJx" = (
 /turf/simulated/wall/r_titanium,
 /area/centcom/evac)
+"hJR" = (
+/turf/simulated/floor/plating,
+/area/gaia/montogemory)
+"hKz" = (
+/turf/unsimulated/mineral,
+/area/space)
+"hLM" = (
+/obj/machinery/light,
+/turf/simulated/floor/carpet/red,
+/area/gaia/alistratova)
+"hSK" = (
+/obj/machinery/constructable_frame/computerframe{
+	dir = 4
+	},
+/obj/item/stack/cable_coil/cut,
+/obj/decal/cleanable/blood/oil,
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/montogemory)
+"ibb" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/ntnet_relay,
+/turf/simulated/floor/lino,
+/area/gaia/montogemory)
 "icO" = (
 /obj/structure/bed/chair/wood{
 	dir = 1;
@@ -9617,12 +10350,51 @@
 /obj/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/holofloor/concrete,
 /area/holodeck/source_plaza)
+"icX" = (
+/obj/machinery/photocopier,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
+"ieo" = (
+/obj/machinery/button/blast_door{
+	pixel_x = 24
+	},
+/turf/simulated/floor/wood/walnut,
+/area/gaia/alistratova)
+"ihV" = (
+/obj/floor_decal/spline/fancy/black{
+	dir = 1
+	},
+/obj/structure/table/steel_reinforced,
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
+"ijk" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/wood/walnut,
+/area/gaia/alistratova)
+"inn" = (
+/turf/simulated/wall/concrete,
+/area/gaia/montogemory)
 "iqj" = (
 /obj/machinery/door/airlock/external,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
 /area/syndicate_elite_squad)
+"iur" = (
+/obj/floor_decal/techfloor/blood_red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/montogemory)
+"iwU" = (
+/obj/floor_decal/iccglogo/corner{
+	dir = 1
+	},
+/obj/floor_decal/spline/plain/red,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/alistratova)
 "izl" = (
 /obj/paint/black,
 /turf/simulated/wall/r_titanium,
@@ -9649,10 +10421,31 @@
 	icon_state = "wood_broken6"
 	},
 /area/holodeck/source_temple)
+"iPH" = (
+/obj/structure/table/steel_reinforced,
+/obj/floor_decal/spline/fancy/black/corner{
+	dir = 8
+	},
+/obj/item/tableflag/iccg,
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
 "iSJ" = (
 /obj/wallframe_spawn/reinforced/titanium,
 /turf/simulated/floor/plating,
 /area/shuttle/transport1/centcom)
+"iXM" = (
+/obj/structure/table/steel_reinforced,
+/obj/floor_decal/spline/fancy/black{
+	dir = 4
+	},
+/obj/item/documents,
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
+"jaZ" = (
+/obj/wallframe_spawn/reinforced/polarized/concrete,
+/obj/machinery/door/blast/regular/open,
+/turf/simulated/floor/plating,
+/area/gaia/alistratova)
 "jed" = (
 /obj/floor_decal/beach{
 	dir = 1
@@ -9675,10 +10468,25 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_cafe)
+"jik" = (
+/obj/structure/table/woodentable,
+/turf/simulated/floor/wood,
+/area/gaia/alistratova)
+"jjE" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
 "jlA" = (
 /obj/machinery/light/spot,
 /turf/simulated/floor/plating,
 /area/supply/dock)
+"jlB" = (
+/obj/structure/sign/double/solgovflag/right{
+	pixel_y = 32
+	},
+/obj/structure/platform/hybrisa/metalplatform6,
+/turf/simulated/floor/plating,
+/area/gaia/montogemory)
 "joZ" = (
 /obj/structure/fountain{
 	alpha = 204;
@@ -9686,11 +10494,28 @@
 	},
 /turf/simulated/floor/holofloor/beach/water,
 /area/holodeck/source_temple)
+"jph" = (
+/turf/simulated/floor/wood/walnut,
+/area/gaia/alistratova)
 "jps" = (
 /turf/simulated/floor/holofloor/beach/sand{
 	icon_state = "desert2"
 	},
 /area/holodeck/source_volleyball)
+"jsx" = (
+/obj/structure/bed/chair/office/comfy/blue,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/montogemory)
+"juK" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/space,
+/area/gaia/alistratova)
 "jvm" = (
 /obj/floor_decal/spline/plain,
 /turf/simulated/floor/holofloor/beach/sand{
@@ -9707,6 +10532,22 @@
 	},
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_plaza)
+"jyo" = (
+/obj/floor_decal/techfloor/hole,
+/obj/floor_decal/spline/plain/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/alistratova)
+"jCq" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/obj/structure/filingcabinet/chestdrawer,
+/obj/floor_decal/techfloor/blood_red,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/montogemory)
 "jHQ" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/floor_decal/spline/plain/grey{
@@ -9714,16 +10555,69 @@
 	},
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_cafe)
+"jKl" = (
+/obj/floor_decal/industrial/outline/dark_red,
+/obj/structure/bed/chair/office/comfy/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
+"jMJ" = (
+/obj/structure/closet/fridge,
+/turf/simulated/floor/wood,
+/area/gaia/alistratova)
+"jPp" = (
+/obj/machinery/camera/network/crescent{
+	dir = 4
+	},
+/turf/simulated/floor/wood/walnut,
+/area/gaia/alistratova)
+"jQz" = (
+/obj/machinery/porta_turret/ballistic/shotgun{
+	dir = 1;
+	req_access = list(list("ACCESS_ICCG"))
+	},
+/obj/floor_decal/industrial/hatch/yellow,
+/obj/structure/sign/iccg{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
+"jRJ" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/projectile/automatic/caseless/carbine,
+/obj/item/gun/projectile/automatic/caseless/carbine,
+/obj/item/gun/projectile/automatic/caseless/carbine,
+/obj/item/gun/projectile/automatic/caseless/carbine,
+/obj/item/gun/projectile/automatic/caseless/carbine,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
+/obj/item/storage/box/ammo/caseless,
+/turf/simulated/floor/lino,
+/area/gaia/montogemory)
 "jSi" = (
 /obj/structure/table/holo_woodentable,
 /turf/simulated/floor/holofloor/tiled/stone,
 /area/holodeck/source_temple)
+"jXk" = (
+/obj/item/bikehorn/rubberducky,
+/obj/item/bikehorn/rubberducky,
+/turf/simulated/floor/pool,
+/area/gaia/alistratova)
 "jXw" = (
 /obj/structure/bed/chair/wood{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/concrete,
 /area/holodeck/source_plaza)
+"kaM" = (
+/obj/structure/table/steel_reinforced,
+/obj/item/storage/slide_projector,
+/obj/floor_decal/spline/fancy/black,
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
 "kce" = (
 /turf/simulated/floor/holofloor/beach/sand{
 	icon_state = "desert4"
@@ -9747,6 +10641,12 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_cafe)
+"kku" = (
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
+"ksR" = (
+/turf/simulated/floor/carpet/red,
+/area/gaia/alistratova)
 "kBT" = (
 /obj/floor_decal/spline/plain{
 	dir = 4
@@ -9758,15 +10658,100 @@
 	icon_state = "dark"
 	},
 /area/syndicate_elite_squad)
+"kFC" = (
+/obj/floor_decal/sign/b,
+/obj/floor_decal/spline/fancy/black{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
+"kOw" = (
+/obj/floor_decal/techfloor/blood_red/corner{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
+"kQp" = (
+/obj/structure/sign/double/iccgflag/right{
+	pixel_y = 32
+	},
+/obj/machinery/light/navigation{
+	pixel_x = -16
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
 "kSV" = (
 /obj/machinery/portable_atmospherics/powered/pump,
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
+"kUI" = (
+/obj/floor_decal/techfloor/blood_red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/montogemory)
+"kVc" = (
+/mob/living/simple_animal/butterfly,
+/obj/machinery/light,
+/turf/simulated/floor/holofloor/space,
+/area/gaia/alistratova)
+"kYj" = (
+/obj/structure/table/glass,
+/obj/item/book/manual/evaguide,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
+"kYo" = (
+/obj/structure/table/steel_reinforced,
+/obj/floor_decal/spline/fancy/black{
+	dir = 4
+	},
+/obj/item/modular_computer/tablet/lease/preset/command,
+/obj/item/folder/envelope,
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
+"kZe" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/material/ashtray/bronze,
+/turf/simulated/floor/lino,
+/area/gaia/montogemory)
+"kZq" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/carpet/blue,
+/area/gaia/montogemory)
+"lek" = (
+/obj/structure/sign/deck/bridge{
+	dir = 4;
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
+"lhq" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/lino,
+/area/gaia/montogemory)
+"lic" = (
+/obj/floor_decal/spline/plain/red,
+/obj/machinery/light/navigation,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/alistratova)
 "ljS" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_plaza)
+"llt" = (
+/obj/floor_decal/spline/fancy/black{
+	dir = 8
+	},
+/obj/structure/table/steel_reinforced,
+/obj/item/paper/memo/supply/shipping,
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
+"llR" = (
+/obj/machinery/door/airlock/highsecurity,
+/obj/machinery/door/blast/regular/open,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
 "lwD" = (
 /obj/structure/bed/chair/wood{
 	dir = 1;
@@ -9774,10 +10759,70 @@
 	},
 /turf/simulated/floor/holofloor/tiled/stone,
 /area/holodeck/source_temple)
+"lBs" = (
+/obj/floor_decal/spline/fancy/black{
+	dir = 8
+	},
+/obj/structure/table/steel_reinforced,
+/obj/item/reagent_containers/food/drinks/glass2/coffeecup,
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
+"lBA" = (
+/obj/structure/hygiene/shower{
+	dir = 4
+	},
+/turf/simulated/floor/pool,
+/area/gaia/alistratova)
+"lBD" = (
+/obj/decal/cleanable/dirt,
+/obj/landmark/start{
+	name = "Ground Commander-in-Chief"
+	},
+/turf/simulated/floor/carpet/blue,
+/area/gaia/montogemory)
+"lDD" = (
+/obj/item/storage/belt/holster/security/tactical,
+/obj/item/storage/belt/holster/security/tactical,
+/obj/item/storage/belt/holster/security/tactical,
+/obj/item/storage/belt/holster/security/tactical,
+/obj/item/storage/belt/holster/security/tactical,
+/obj/item/clothing/head/helmet/gaia/sol,
+/obj/item/clothing/head/helmet/gaia/sol,
+/obj/item/clothing/head/helmet/gaia/sol,
+/obj/item/clothing/head/helmet/gaia/sol,
+/obj/item/clothing/head/helmet/gaia/sol,
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/clothing/suit/armor/pcarrier/gaia/sol,
+/obj/item/clothing/suit/armor/pcarrier/gaia/sol,
+/obj/item/clothing/suit/armor/pcarrier/gaia/sol,
+/obj/item/clothing/suit/armor/pcarrier/gaia/sol,
+/obj/item/clothing/suit/armor/pcarrier/gaia/sol,
+/turf/simulated/floor/lino,
+/area/gaia/montogemory)
+"lDS" = (
+/obj/paint/red/dark,
+/turf/simulated/wall/r_titaplast,
+/area/gaia/alistratova)
+"lFu" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/floor_decal/spline/fancy/black{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
 "lGk" = (
 /obj/wallframe_spawn/reinforced/titanium,
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
+"lGD" = (
+/obj/floor_decal/sign/d,
+/obj/floor_decal/spline/fancy/black{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
 "lIX" = (
 /obj/structure/curtain{
 	color = "#cd6889"
@@ -9786,10 +10831,27 @@
 	icon_state = "wood_broken3"
 	},
 /area/holodeck/source_temple)
+"lPz" = (
+/obj/item/clothing/under/bathrobe,
+/obj/item/towel,
+/obj/item/reagent_containers/syringe/drugs,
+/obj/item/reagent_containers/syringe/drugs,
+/obj/structure/closet,
+/obj/item/flame/lighter/zippo/fancy/gold,
+/obj/item/storage/candle_box/scented,
+/turf/simulated/floor/tiled/white,
+/area/gaia/alistratova)
 "lQU" = (
 /obj/machinery/door/airlock/centcom,
 /turf/simulated/floor/shuttle/blue,
 /area/shuttle/transport1/centcom)
+"lRd" = (
+/obj/structure/sign/directions/bridge{
+	dir = 1;
+	pixel_y = 23
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
 "lRq" = (
 /obj/structure/bed/chair/wood{
 	holographic = 1
@@ -9808,13 +10870,54 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_cafe)
+"lVn" = (
+/obj/floor_decal/techfloor/hole/right,
+/obj/floor_decal/spline/plain/red,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/alistratova)
 "lWf" = (
 /obj/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/holofloor/concrete,
 /area/holodeck/source_plaza)
+"mff" = (
+/obj/floor_decal/techfloor/blood_red,
+/obj/structure/sign/directions/evac{
+	pixel_x = 32;
+	dir = 4
+	},
+/obj/structure/sign/directions/security{
+	pixel_x = 32;
+	pixel_y = 6;
+	dir = 4
+	},
+/obj/machinery/porta_turret/ballistic/shotgun{
+	dir = 8;
+	req_access = list(list("ACCESS_ICCG"))
+	},
+/obj/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
+"mir" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/space,
+/area/gaia/alistratova)
 "mjR" = (
 /turf/simulated/floor/holofloor/concrete,
 /area/holodeck/source_plaza)
+"mkk" = (
+/obj/machinery/computer/modular/preset/full/ert{
+	dir = 4
+	},
+/obj/floor_decal/techfloor/blood_red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/montogemory)
 "mkT" = (
 /obj/landmark{
 	name = "DesertWaypoint"
@@ -9828,6 +10931,11 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_cafe)
+"mmN" = (
+/obj/floor_decal/techfloor/hole,
+/obj/floor_decal/spline/plain/red,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/alistratova)
 "mmW" = (
 /obj/structure/curtain{
 	color = "#68ccab"
@@ -9836,6 +10944,13 @@
 	icon_state = "wood_broken6"
 	},
 /area/holodeck/source_temple)
+"mnL" = (
+/obj/floor_decal/sign/v,
+/obj/floor_decal/spline/fancy/black{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
 "moq" = (
 /obj/floor_decal/spline/fancy/wood/corner{
 	dir = 4
@@ -9848,6 +10963,19 @@
 	},
 /turf/simulated/floor/holofloor/concrete,
 /area/holodeck/source_plaza)
+"mvN" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/obj/machinery/photocopier,
+/obj/floor_decal/techfloor/blood_red,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/montogemory)
+"mwk" = (
+/obj/machinery/light,
+/turf/simulated/floor/holofloor/space,
+/area/gaia/alistratova)
 "myy" = (
 /obj/item/device/radio/intercom/syndicate{
 	pixel_y = 22
@@ -9856,6 +10984,35 @@
 	icon_state = "dark"
 	},
 /area/syndicate_elite_squad)
+"mEU" = (
+/obj/structure/closet/medical_wall/filled{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/montogemory)
+"mFI" = (
+/obj/floor_decal/techfloor/blood_red{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/montogemory)
+"mHM" = (
+/obj/structure/bed/chair/wood{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/gaia/alistratova)
+"mOF" = (
+/obj/floor_decal/sign/tr,
+/obj/floor_decal/spline/fancy/black{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
 "mRm" = (
 /turf/simulated/floor/holofloor/beach/sand{
 	icon_state = "desert1"
@@ -9877,6 +11034,15 @@
 	},
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_cafe)
+"mVN" = (
+/obj/floor_decal/spline/fancy/black{
+	dir = 1
+	},
+/obj/floor_decal/step{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
 "mXz" = (
 /obj/machinery/button/blast_door{
 	dir = 1;
@@ -9887,6 +11053,17 @@
 	icon_state = "lino"
 	},
 /area/tdome/tdomeadmin)
+"ndH" = (
+/obj/structure/holoplant,
+/obj/machinery/camera/network/crescent,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
+"nge" = (
+/obj/floor_decal/techfloor/blood_red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/montogemory)
 "niJ" = (
 /obj/structure/bed/chair/wood{
 	dir = 4
@@ -9896,6 +11073,21 @@
 	},
 /turf/simulated/floor/holofloor/concrete,
 /area/holodeck/source_plaza)
+"nlA" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/light,
+/obj/structure/platform_decoration/hybrisa/metalplatformdeco6{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/montogemory)
+"noy" = (
+/obj/structure/bed/chair/office/red{
+	dir = 8
+	},
+/obj/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
 "ntZ" = (
 /obj/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -9913,6 +11105,14 @@
 	},
 /turf/simulated/floor/holofloor/concrete,
 /area/holodeck/source_plaza)
+"nMm" = (
+/obj/structure/barrier{
+	density = 0;
+	icon_state = "barrier_downed";
+	dir = 4
+	},
+/turf/simulated/floor/lino,
+/area/gaia/montogemory)
 "nQJ" = (
 /obj/machinery/door/airlock/glass/security{
 	name = "Airlock"
@@ -9925,12 +11125,59 @@
 	icon_state = "dark"
 	},
 /area/syndicate_elite_squad)
+"nSw" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/computer/modular/preset/full/merc,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/alistratova)
+"obl" = (
+/obj/structure/filingcabinet{
+	pixel_x = 11
+	},
+/obj/structure/filingcabinet{
+	pixel_x = 1
+	},
+/obj/structure/filingcabinet{
+	pixel_x = -9
+	},
+/turf/simulated/floor/wood/walnut,
+/area/gaia/alistratova)
+"obO" = (
+/obj/decal/cleanable/dirt,
+/obj/item/stool/padded/red,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/lino,
+/area/gaia/montogemory)
 "occ" = (
 /obj/floor_decal/spline/plain{
 	dir = 6
 	},
 /turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_volleyball)
+"ogy" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/computer/modular/preset/cardslot/command_sec,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
+"olq" = (
+/obj/paint/dark_gunmetal,
+/obj/paint_stripe/red,
+/turf/simulated/wall/r_concrete,
+/area/gaia/alistratova)
+"olz" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/constructable_frame/machine_frame,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/montogemory)
 "olJ" = (
 /obj/floor_decal/beach{
 	dir = 4
@@ -9938,6 +11185,12 @@
 /obj/structure/holostool,
 /turf/simulated/floor/holofloor/concrete,
 /area/holodeck/source_volleyball)
+"omL" = (
+/obj/machinery/uniform_vendor{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/blue,
+/area/gaia/montogemory)
 "oql" = (
 /obj/structure/bed/chair/wood{
 	dir = 1;
@@ -9948,12 +11201,142 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_cafe)
+"orv" = (
+/obj/floor_decal/carpet/red,
+/obj/floor_decal/carpet/red{
+	dir = 4
+	},
+/obj/floor_decal/carpet/red{
+	dir = 6
+	},
+/obj/landmark/start{
+	name = "Glava Okkupatsii Gaii"
+	},
+/turf/simulated/floor/carpet/red,
+/area/gaia/alistratova)
+"orO" = (
+/obj/structure/flora/pottedplant/dead,
+/obj/decal/cleanable/cobweb,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/gaia/montogemory)
+"oyx" = (
+/obj/structure/coatrack,
+/turf/simulated/floor/lino,
+/area/gaia/montogemory)
+"oBr" = (
+/obj/structure/safe,
+/obj/item/gun/projectile/automatic/l6_caseless,
+/obj/item/gun/projectile/automatic/l6_caseless,
+/obj/item/ammo_magazine/caseless_box,
+/obj/item/ammo_magazine/caseless_box,
+/obj/item/ammo_magazine/caseless_box,
+/obj/item/ammo_magazine/caseless_box,
+/turf/simulated/floor/carpet/red,
+/area/gaia/alistratova)
+"oEF" = (
+/obj/structure/table/rack,
+/obj/decal/cleanable/dirt,
+/obj/item/storage/box/large/scga_ranks,
+/obj/item/storage/box/large/scga_ranks,
+/obj/item/storage/box/large/scga_ranks,
+/obj/item/storage/box/large/scga_ranks,
+/obj/item/storage/box/large/scga_ranks,
+/obj/item/storage/box/large/scga_ranks_officer,
+/obj/item/storage/box/large/scga_ranks_officer,
+/obj/item/storage/box/large/scga_ranks_officer,
+/obj/item/storage/box/large/scga_ranks_officer,
+/obj/item/storage/box/large/scga_ranks_officer,
+/turf/simulated/floor/lino,
+/area/gaia/montogemory)
 "oFc" = (
 /obj/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/lino,
 /area/holodeck/source_meetinghall)
+"oFQ" = (
+/obj/structure/table/steel_reinforced,
+/obj/floor_decal/spline/fancy/black/corner{
+	dir = 1
+	},
+/obj/item/tableflag/iccg,
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
+"oJG" = (
+/obj/machinery/papershredder,
+/obj/structure/sign/directions/bridge{
+	dir = 1;
+	pixel_y = 23
+	},
+/turf/simulated/floor/wood/walnut,
+/area/gaia/alistratova)
+"oPc" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/computer/modular/preset/cardslot/command_sec,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/alistratova)
+"oQO" = (
+/obj/structure/table/woodentable_reinforced/walnut,
+/obj/item/paper_bin,
+/obj/item/pen/multi/cmd/co,
+/turf/simulated/floor/carpet/red,
+/area/gaia/alistratova)
+"oRC" = (
+/obj/structure/table/steel_reinforced,
+/obj/item/paper_bin,
+/obj/structure/noticeboard{
+	dir = 8;
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
+"oSM" = (
+/obj/structure/bed/chair/office/comfy/black{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/red,
+/area/gaia/alistratova)
+"oSX" = (
+/obj/structure/table/woodentable_reinforced/walnut,
+/obj/item/device/radio/phone,
+/turf/simulated/floor/carpet/red,
+/area/gaia/alistratova)
+"oXt" = (
+/turf/simulated/floor/holofloor/space,
+/area/gaia/alistratova)
+"pbZ" = (
+/obj/structure/table/marble,
+/obj/item/key{
+	key_data = "DESERTER_HOUSE";
+	color = "#ff9900"
+	},
+/turf/simulated/floor/tiled,
+/area/gaia/deserter)
+"pcM" = (
+/obj/item/modular_computer/telescreen/preset/generic{
+	pixel_y = 40
+	},
+/obj/item/modular_computer/telescreen/preset/generic{
+	pixel_y = 22
+	},
+/obj/floor_decal/techfloor/blood_red/corner,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
+"pdb" = (
+/obj/structure/hygiene/faucet{
+	dir = 1
+	},
+/obj/structure/sign/poster/number4{
+	pixel_y = -32
+	},
+/turf/simulated/floor/pool,
+/area/gaia/alistratova)
 "pgJ" = (
 /obj/structure/holostool,
 /turf/simulated/floor/holofloor/tiled/stone,
@@ -9964,9 +11347,74 @@
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_cafe)
+"pkJ" = (
+/obj/machinery/computer/modular/preset/cardslot/command{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/red,
+/area/gaia/alistratova)
+"plB" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
+"pmx" = (
+/obj/floor_decal/iccglogo/bottom_right,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
+"pny" = (
+/obj/floor_decal/iccglogo/corner{
+	dir = 8
+	},
+/obj/floor_decal/techfloor/hole,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/alistratova)
 "pqa" = (
 /turf/simulated/wall/r_titanium,
 /area/shuttle/transport1/centcom)
+"pqC" = (
+/obj/structure/hygiene/toilet,
+/obj/structure/sign/poster/bay_9{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/white,
+/area/gaia/alistratova)
+"pra" = (
+/obj/floor_decal/techfloor/blood_red{
+	dir = 8
+	},
+/obj/machinery/camera/network/crescent{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
+"puG" = (
+/obj/structure/table/steel_reinforced,
+/obj/machinery/photocopier/faxmachine,
+/obj/machinery/recharger/wallcharger{
+	dir = 1;
+	pixel_y = -24;
+	pixel_x = -8
+	},
+/obj/machinery/recharger/wallcharger{
+	dir = 1;
+	pixel_y = -24;
+	pixel_x = 8
+	},
+/obj/structure/noticeboard{
+	dir = 1;
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
+"pvT" = (
+/obj/structure/displaycase,
+/obj/item/gun/energy/retro{
+	pixel_y = 1
+	},
+/turf/simulated/floor/wood/walnut,
+/area/gaia/alistratova)
 "pAh" = (
 /obj/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -9974,10 +11422,39 @@
 /obj/structure/table/holo_woodentable,
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_cafe)
+"pBN" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/storage/box/ammo/pistol,
+/obj/item/storage/box/ammo/pistol,
+/obj/item/storage/box/ammo/pistol,
+/obj/item/storage/box/ammo/pistol,
+/obj/item/storage/box/ammo/pistol,
+/obj/item/clothing/accessory/storage/holster/thigh,
+/obj/item/clothing/accessory/storage/holster/thigh,
+/obj/item/clothing/accessory/storage/holster/thigh,
+/obj/item/clothing/accessory/storage/holster/thigh,
+/obj/item/clothing/accessory/storage/holster/thigh,
+/turf/simulated/floor/plating,
+/area/gaia/montogemory)
 "pET" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
+"pIF" = (
+/obj/structure/table/steel_reinforced,
+/obj/floor_decal/spline/fancy/black{
+	dir = 8
+	},
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
+"pIQ" = (
+/turf/simulated/floor/carpet/blue,
+/area/gaia/montogemory)
+"pKM" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/montogemory)
 "pKU" = (
 /turf/simulated/floor/exoplanet/barren,
 /area/gaia/deserter)
@@ -9992,6 +11469,22 @@
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_cafe)
+"qau" = (
+/obj/floor_decal/iccglogo/bottom_center,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
+"qdY" = (
+/obj/floor_decal/spline/fancy/black{
+	dir = 1
+	},
+/obj/structure/table/steel_reinforced,
+/obj/item/reagent_containers/food/drinks/glass2/coffeecup/STC,
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
+"qgq" = (
+/obj/floor_decal/techfloor/blood_red,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
 "qir" = (
 /obj/floor_decal/stoneborder/corner,
 /turf/simulated/floor/holofloor/beach/water,
@@ -10002,6 +11495,33 @@
 	},
 /turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_volleyball)
+"qoX" = (
+/obj/floor_decal/techfloor/blood_red{
+	dir = 4
+	},
+/obj/structure/sign/warning/secure_area{
+	dir = 1;
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
+"qqr" = (
+/obj/structure/bed/chair/office/red{
+	dir = 1
+	},
+/obj/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
+"qua" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/platform/hybrisa/metalplatform6{
+	dir = 1
+	},
+/obj/machinery/camera/network/crescent{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/montogemory)
 "quq" = (
 /obj/structure/table/holo_woodentable,
 /obj/item/reagent_containers/food/drinks/teapot{
@@ -10009,21 +11529,101 @@
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_cafe)
+"quw" = (
+/obj/decal/cleanable/cobweb{
+	dir = 8
+	},
+/obj/structure/closet/secure_closet/gaia/scg_montgomery,
+/turf/simulated/floor/carpet/blue,
+/area/gaia/montogemory)
+"qxj" = (
+/obj/machinery/camera/network/crescent{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
+"qEd" = (
+/obj/machinery/flasher,
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
+"qGD" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/computer/modular/preset/cardslot/command_eng,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/alistratova)
+"qGQ" = (
+/obj/structure/closet/secure_closet/gaia/iccg_alistratova,
+/turf/simulated/floor/carpet/red,
+/area/gaia/alistratova)
 "qIk" = (
 /obj/machinery/door/unpowered/simple/sandstone,
 /turf/simulated/floor/holofloor/tiled/stone,
 /area/holodeck/source_temple)
+"qJJ" = (
+/obj/structure/table/steel_reinforced,
+/obj/floor_decal/spline/fancy/black,
+/obj/machinery/button/flasher{
+	pixel_y = 7;
+	pixel_x = -5
+	},
+/obj/machinery/button/blast_door{
+	pixel_x = -5;
+	pixel_y = -2
+	},
+/obj/machinery/turretid{
+	dir = 8;
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
 "qMl" = (
 /obj/floor_decal/stoneborder/corner{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/beach/water,
 /area/holodeck/source_temple)
+"qQH" = (
+/obj/structure/extinguisher_cabinet{
+	dir = 1;
+	pixel_y = -26
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/gaia/montogemory)
 "qRm" = (
 /turf/simulated/floor/holofloor/beach/sand{
 	icon_state = "desert3"
 	},
 /area/holodeck/source_volleyball)
+"qSR" = (
+/obj/floor_decal/techfloor/blood_red{
+	dir = 9
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/montogemory)
+"qSV" = (
+/obj/structure/table/steel_reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/item/device/radio/phone,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/alistratova)
+"qTz" = (
+/obj/floor_decal/spline/fancy/black{
+	dir = 1
+	},
+/obj/structure/table/steel_reinforced,
+/obj/item/clothing/head/iccgn/service_command,
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
 "qTC" = (
 /obj/structure/decoy{
 	icon_state = "ai-malf";
@@ -10037,6 +11637,29 @@
 /obj/structure/holonet,
 /turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_volleyball)
+"rbt" = (
+/obj/structure/bed/chair/office/light{
+	dir = 4
+	},
+/obj/floor_decal/techfloor/blood_red{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/montogemory)
+"rby" = (
+/obj/structure/table/steel_reinforced,
+/obj/floor_decal/spline/fancy/black,
+/obj/item/device/megaphone,
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
+"rcO" = (
+/obj/structure/bed/chair/office/red{
+	dir = 4
+	},
+/obj/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
 "reF" = (
 /obj/structure/bed/chair/wood{
 	dir = 1;
@@ -10045,6 +11668,35 @@
 /obj/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_cafe)
+"rgq" = (
+/obj/structure/table/woodentable_reinforced/walnut,
+/obj/item/device/flashlight/lamp/lava/red,
+/turf/simulated/floor/carpet/red,
+/area/gaia/alistratova)
+"rhg" = (
+/obj/floor_decal/step{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/montogemory)
+"rhH" = (
+/obj/floor_decal/techfloor/blood_red/corner,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
+"rko" = (
+/obj/structure/sign/double/solgovflag/left{
+	pixel_y = 32
+	},
+/obj/structure/platform_decoration/hybrisa/metalplatformdeco6,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/montogemory)
+"rkU" = (
+/obj/machinery/camera/network/crescent{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/montogemory)
 "rms" = (
 /obj/floor_decal/spline/plain{
 	dir = 9
@@ -10066,20 +11718,124 @@
 	},
 /turf/simulated/floor/plating,
 /area/supply/dock)
+"rxZ" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/computer/modular/preset/full/merc,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
+"rAP" = (
+/obj/structure/bed/chair/wood{
+	dir = 8
+	},
+/obj/structure/sign/warning/smoking{
+	dir = 8;
+	pixel_x = 32
+	},
+/turf/simulated/floor/wood,
+/area/gaia/alistratova)
+"rCy" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/computer/modular/preset/cardslot/command_eng,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/alistratova)
+"rEw" = (
+/obj/floor_decal/spline/fancy/black,
+/obj/structure/table/steel_reinforced,
+/obj/item/documents,
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
+"rFI" = (
+/obj/floor_decal/carpet/red{
+	dir = 1
+	},
+/obj/floor_decal/carpet/red{
+	dir = 4
+	},
+/obj/floor_decal/carpet/red{
+	dir = 5
+	},
+/obj/structure/bed/chair/rounded/black{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/red,
+/area/gaia/alistratova)
+"rHY" = (
+/obj/structure/table/steel_reinforced,
+/obj/item/paper_bin,
+/obj/structure/noticeboard{
+	dir = 8;
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/alistratova)
 "rIb" = (
 /obj/structure/table/rack/holorack,
 /turf/simulated/floor/holofloor/wood{
 	icon_state = "wood_broken3"
 	},
 /area/holodeck/source_temple)
+"rIk" = (
+/obj/structure/sign/double/solgovflag/left{
+	pixel_y = 32
+	},
+/obj/decal/cleanable/dirt,
+/obj/structure/platform/hybrisa/metalplatform6,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/montogemory)
 "rIu" = (
 /turf/simulated/wall/sandstone,
 /area/holodeck/source_temple)
+"rJx" = (
+/obj/structure/bed/sofa/l/green,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/gaia/montogemory)
 "rJY" = (
 /turf/simulated/floor/holofloor/beach/sand{
 	icon_state = "desert2"
 	},
 /area/holodeck/source_temple)
+"rKP" = (
+/obj/item/inflatable_duck,
+/obj/machinery/light/small,
+/turf/simulated/floor/pool,
+/area/gaia/alistratova)
+"rNG" = (
+/obj/structure/table/woodentable,
+/obj/machinery/microwave{
+	pixel_y = 5
+	},
+/turf/simulated/floor/wood,
+/area/gaia/alistratova)
+"rTH" = (
+/obj/floor_decal/spline/fancy/black{
+	dir = 4
+	},
+/obj/structure/table/steel_reinforced,
+/obj/floor_decal/spline/plain/red,
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
+"rUe" = (
+/obj/paint/dark_gunmetal,
+/turf/simulated/wall/r_concrete,
+/area/gaia/alistratova)
+"sbI" = (
+/turf/simulated/wall/walnut,
+/area/gaia/alistratova)
+"sgN" = (
+/obj/machinery/camera/network/crescent{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
+"skh" = (
+/obj/structure/bed/chair/padded/red,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
 "skD" = (
 /obj/floor_decal/beach{
 	dir = 8
@@ -10087,12 +11843,103 @@
 /obj/structure/holostool,
 /turf/simulated/floor/holofloor/concrete,
 /area/holodeck/source_volleyball)
+"smm" = (
+/obj/machinery/door/window/northright,
+/turf/simulated/floor/holofloor/space,
+/area/gaia/alistratova)
+"snG" = (
+/obj/structure/hygiene/shower{
+	dir = 8
+	},
+/obj/structure/curtain/open/shower,
+/obj/floor_decal/spline/fancy{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/gaia/alistratova)
+"suq" = (
+/obj/floor_decal/techfloor/blood_red{
+	dir = 4
+	},
+/obj/decal/cleanable/blood/oil/streak,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/montogemory)
+"sxh" = (
+/obj/structure/bed/chair/rounded/black,
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
+"sxP" = (
+/obj/floor_decal/techfloor/blood_red{
+	dir = 6
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/montogemory)
+"sxX" = (
+/obj/structure/table/woodentable/walnut,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/item/paper_bin,
+/obj/floor_decal/techfloor/blood_red{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/obj/item/stamp/boss,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/montogemory)
+"syI" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/storage/mirror/grim/golden{
+	pixel_y = 32
+	},
+/obj/item/storage/secure/briefcase/nukedisk,
+/turf/simulated/floor/carpet/red,
+/area/gaia/alistratova)
 "szh" = (
 /obj/machinery/mech_recharger,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
 /area/syndicate_elite_squad)
+"sAJ" = (
+/obj/floor_decal/iccglogo/corner{
+	dir = 4
+	},
+/obj/floor_decal/techfloor/hole/right,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/alistratova)
+"sAY" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/flora/pottedplant/dead,
+/obj/machinery/light,
+/obj/machinery/camera/network/crescent{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/montogemory)
+"sEz" = (
+/obj/machinery/washing_machine/samosbor,
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/white/monotile,
+/area/gaia/alistratova)
+"sFq" = (
+/obj/structure/filingcabinet/chestdrawer,
+/turf/simulated/floor/carpet/red,
+/area/gaia/alistratova)
+"sFx" = (
+/obj/floor_decal/iccglogo/center_right,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
 "sGJ" = (
 /obj/structure/holostool,
 /turf/simulated/floor/holofloor/wood{
@@ -10106,12 +11953,62 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
+"sKN" = (
+/obj/floor_decal/techfloor/hole/right,
+/obj/floor_decal/spline/plain/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/alistratova)
+"sLa" = (
+/obj/structure/table,
+/obj/item/stack/material/steel,
+/obj/floor_decal/techfloor/blood_red{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/montogemory)
+"sNU" = (
+/obj/structure/table/standard,
+/obj/floor_decal/techfloor/blood_red,
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/montogemory)
+"sOf" = (
+/obj/machinery/computer/modular/preset/full/ert{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/montogemory)
+"sQK" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/acting/changer/mirror{
+	pixel_y = -32
+	},
+/obj/structure/hygiene/sink{
+	pixel_y = -16
+	},
+/turf/simulated/floor/lino,
+/area/gaia/montogemory)
+"sSP" = (
+/obj/structure/reagent_dispensers/water_cooler,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
 "sWJ" = (
 /obj/floor_decal/beach{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/concrete,
 /area/holodeck/source_volleyball)
+"tbj" = (
+/obj/structure/table/rack,
+/obj/item/storage/backpack/dufflebag/scga_accessories,
+/obj/item/storage/backpack/dufflebag/scga_accessories,
+/obj/item/storage/backpack/dufflebag/scga_accessories,
+/obj/item/storage/backpack/dufflebag/scga_accessories,
+/obj/item/storage/backpack/dufflebag/scga_accessories,
+/turf/simulated/floor/lino,
+/area/gaia/montogemory)
 "tcf" = (
 /turf/simulated/floor/holofloor/beach/sand{
 	icon_state = "desert3"
@@ -10128,24 +12025,67 @@
 	},
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_cafe)
+"tix" = (
+/obj/item/flame/candle/scented,
+/obj/item/flame/candle/scented,
+/obj/item/flame/candle/scented,
+/turf/simulated/floor/tiled/white,
+/area/gaia/alistratova)
 "tsJ" = (
 /obj/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
 /turf/simulated/floor/holofloor/concrete,
 /area/holodeck/source_plaza)
+"tvY" = (
+/obj/machinery/status_display{
+	pixel_x = -32
+	},
+/turf/simulated/floor/wood/walnut,
+/area/gaia/alistratova)
 "twU" = (
 /obj/floor_decal/beach{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/concrete,
 /area/holodeck/source_volleyball)
+"tAk" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/barrier{
+	density = 0;
+	icon_state = "barrier_downed";
+	dir = 8
+	},
+/turf/simulated/floor/lino,
+/area/gaia/montogemory)
+"tCV" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/westleft,
+/obj/item/clothing/accessory/cloak/hos,
+/obj/item/rig/military/equipped,
+/obj/item/tank/oxygen/full,
+/obj/item/clothing/mask/gas/swat,
+/obj/item/melee/energy/sword/red/activated,
+/turf/simulated/floor/carpet/red,
+/area/gaia/alistratova)
 "tDw" = (
 /obj/floor_decal/stoneborder{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/beach/water,
 /area/holodeck/source_temple)
+"tEo" = (
+/obj/floor_decal/techfloor/blood_red,
+/obj/decal/cleanable/ash,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/montogemory)
 "tGT" = (
 /obj/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -10156,6 +12096,31 @@
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
+"tHg" = (
+/obj/machinery/floodlight,
+/obj/structure/barrier,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/montogemory)
+"tHh" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/floodlight{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/montogemory)
+"tMH" = (
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/montogemory)
+"tOJ" = (
+/obj/item/modular_computer/telescreen/preset/generic{
+	pixel_y = 40
+	},
+/obj/item/modular_computer/telescreen/preset/generic{
+	pixel_y = 22
+	},
+/obj/floor_decal/techfloor/blood_red,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
 "tQu" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/floor_decal/spline/plain/grey{
@@ -10166,6 +12131,24 @@
 "tQw" = (
 /turf/unsimulated/mineral,
 /area/gaia/deserter)
+"uaQ" = (
+/obj/floor_decal/techfloor/hole,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/alistratova)
+"ubJ" = (
+/obj/structure/hygiene/sink{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 2
+	},
+/obj/item/storage/mirror{
+	pixel_x = -24
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/gaia/alistratova)
 "ufC" = (
 /obj/structure/table/holo_woodentable,
 /turf/simulated/floor/holofloor/concrete,
@@ -10189,12 +12172,23 @@
 	icon_state = "dark"
 	},
 /area/syndicate_elite_squad)
+"uxZ" = (
+/obj/floor_decal/iccglogo/top_center,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
 "uzq" = (
 /obj/structure/bed/chair/wood{
 	holographic = 1
 	},
 /turf/simulated/floor/holofloor/tiled/stone,
 /area/holodeck/source_temple)
+"uAz" = (
+/obj/machinery/vending/hotfood{
+	dir = 8
+	},
+/obj/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
 "uFd" = (
 /obj/paint/red,
 /turf/simulated/wall/r_titanium,
@@ -10214,6 +12208,30 @@
 "uJY" = (
 /turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_volleyball)
+"uPL" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/computer/modular/preset/cardslot/command_eng,
+/obj/machinery/newscaster/security_unit{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/alistratova)
+"uSz" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/light,
+/obj/item/stool/padded/red,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/lino,
+/area/gaia/montogemory)
+"uZg" = (
+/obj/floor_decal/sign/a,
+/obj/floor_decal/spline/fancy/black{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
 "uZF" = (
 /turf/simulated/floor/plating,
 /turf/simulated/wall/r_titanium,
@@ -10221,27 +12239,158 @@
 "vbR" = (
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_cafe)
+"vgk" = (
+/obj/floor_decal/techfloor/blood_red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
 "vgY" = (
 /obj/structure/table/rack/holorack,
 /turf/simulated/floor/holofloor/wood{
 	icon_state = "wood_broken2"
 	},
 /area/holodeck/source_temple)
+"vhj" = (
+/obj/structure/bed/sofa/r/green,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/lino,
+/area/gaia/montogemory)
+"vmU" = (
+/obj/machinery/door/airlock/terran,
+/obj/machinery/door/blast/regular/open{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
+"vuk" = (
+/obj/machinery/uniform_vendor{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/red,
+/area/gaia/alistratova)
+"vuz" = (
+/obj/structure/table/steel_reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/item/device/radio/phone,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/alistratova)
+"vwf" = (
+/obj/structure/table/steel_reinforced,
+/obj/floor_decal/spline/fancy/black{
+	dir = 8
+	},
+/obj/item/modular_computer/laptop/preset/custom_loadout/advanced/commander,
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
+"vBt" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/camera/network/crescent{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/gaia/montogemory)
+"vDB" = (
+/obj/structure/platform/hybrisa/metalplatform6{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/montogemory)
+"vEd" = (
+/obj/structure/fireaxecabinet{
+	pixel_x = 32
+	},
+/turf/simulated/floor/plating,
+/area/gaia/montogemory)
+"vEw" = (
+/obj/structure/table/woodentable_reinforced/walnut,
+/obj/item/material/ashtray/bronze,
+/turf/simulated/floor/carpet/red,
+/area/gaia/alistratova)
+"vKU" = (
+/obj/structure/table,
+/obj/item/stack/material/steel,
+/obj/floor_decal/techfloor/blood_red,
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/montogemory)
+"vMm" = (
+/obj/machinery/flasher{
+	pixel_y = 24
+	},
+/obj/machinery/porta_turret/ballistic/shotgun{
+	dir = 10;
+	req_access = list(list("ACCESS_ICCG"))
+	},
+/obj/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
 "vOe" = (
 /obj/floor_decal/stoneborder/corner{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled/stone,
 /area/holodeck/source_temple)
+"vPb" = (
+/obj/structure/undies_wardrobe,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/carpet/blue,
+/area/gaia/montogemory)
+"vQD" = (
+/obj/floor_decal/iccglogo/top_left,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
 "vQS" = (
 /obj/overlay/palmtree_r,
 /turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_temple)
+"vQV" = (
+/obj/machinery/door/airlock/glass/terran,
+/turf/simulated/floor/wood,
+/area/gaia/alistratova)
+"vRO" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/device/flashlight/lamp/lava/red,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/carpet/red,
+/area/gaia/alistratova)
+"vTi" = (
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
+"vVX" = (
+/obj/floor_decal/spline/plain/red{
+	dir = 1
+	},
+/obj/machinery/light/navigation,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/alistratova)
+"vXB" = (
+/obj/structure/table/standard,
+/obj/item/device/flashlight/lamp,
+/obj/floor_decal/techfloor/blood_red{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/montogemory)
+"vYZ" = (
+/turf/simulated/wall/r_concrete,
+/area/gaia/montogemory)
 "wda" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_plaza)
+"whM" = (
+/obj/structure/bed/chair/office/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/montogemory)
 "wjw" = (
 /obj/floor_decal/stoneborder{
 	dir = 8
@@ -10256,6 +12405,13 @@
 /obj/paint/black,
 /turf/simulated/floor/plating,
 /area/shuttle/administration/centcom)
+"wrV" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/computer/modular/preset/cardslot/command_eng,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/alistratova)
 "wyK" = (
 /obj/structure/shuttle/engine/propulsion,
 /turf/space,
@@ -10266,6 +12422,14 @@
 /obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_plaza)
+"wCC" = (
+/obj/floor_decal/step,
+/obj/item/modular_computer/telescreen/preset/generic{
+	pixel_y = 32
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/montogemory)
 "wCU" = (
 /obj/structure/window/holowindow/full,
 /turf/simulated/floor/holofloor,
@@ -10273,6 +12437,57 @@
 "wDD" = (
 /turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_temple)
+"wER" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/montogemory)
+"wJj" = (
+/obj/structure/table/standard,
+/obj/item/material/ashtray/plastic,
+/obj/floor_decal/techfloor/blood_red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/montogemory)
+"wQA" = (
+/obj/machinery/door/airlock/highsecurity/bolted,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
+"wTg" = (
+/obj/machinery/floodlight{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/montogemory)
+"wUg" = (
+/obj/floor_decal/techfloor/blood_red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
+"wWs" = (
+/turf/simulated/floor/wood,
+/area/gaia/alistratova)
+"xeC" = (
+/mob/living/simple_animal/butterfly,
+/turf/simulated/floor/holofloor/space,
+/area/gaia/alistratova)
+"xhd" = (
+/obj/floor_decal/techfloor/blood_red,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/montogemory)
+"xnJ" = (
+/obj/structure/barrier{
+	density = 0;
+	icon_state = "barrier_downed"
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/montogemory)
+"xoy" = (
+/obj/machinery/door/airlock/highsecurity/bolted,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/montogemory)
 "xqW" = (
 /obj/structure/bed/chair/wood{
 	holographic = 1
@@ -10282,6 +12497,10 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_cafe)
+"xsC" = (
+/obj/floor_decal/iccglogo/center_left,
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/alistratova)
 "xHn" = (
 /obj/floor_decal/spline/plain{
 	dir = 8
@@ -10289,6 +12508,17 @@
 /obj/structure/holonet/end,
 /turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_volleyball)
+"xJz" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/computer/modular/preset/cardslot/command_sec,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/alistratova)
+"xLe" = (
+/obj/floor_decal/techfloor/hole/right,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/alistratova)
 "xTc" = (
 /obj/structure/table/holo_woodentable,
 /obj/item/tray{
@@ -10304,10 +12534,41 @@
 	icon_state = "desert2"
 	},
 /area/holodeck/source_volleyball)
+"xTO" = (
+/obj/floor_decal/techfloor/blood_red{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/montogemory)
+"xVr" = (
+/obj/structure/table/standard,
+/obj/item/device/flashlight/lamp,
+/obj/floor_decal/techfloor/blood_red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/montogemory)
 "xXB" = (
 /obj/floor_decal/spline/plain,
 /turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_volleyball)
+"yfA" = (
+/obj/paint/dark_gunmetal,
+/turf/simulated/wall/concrete,
+/area/gaia/alistratova)
+"yjS" = (
+/obj/floor_decal/step,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/montogemory)
+"ylB" = (
+/obj/structure/table/steel_reinforced,
+/obj/floor_decal/spline/fancy/black{
+	dir = 4
+	},
+/obj/item/reagent_containers/food/drinks/glass2/coffeecup/metal,
+/turf/simulated/floor/redgrid,
+/area/gaia/alistratova)
 
 (1,1,1) = {"
 ala
@@ -23844,44 +26105,44 @@ aab
 aab
 "}
 (68,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
 aab
 ath
 aub
@@ -24046,44 +26307,44 @@ aab
 aab
 "}
 (69,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+olq
+wQA
+olq
+olq
+olq
+olq
+olq
+olq
+olq
+olq
+olq
+olq
+olq
+rUe
+rUe
+rUe
+rUe
+rUe
+rUe
+rUe
+rUe
+hKz
+hKz
+hKz
 aab
 ath
 aub
@@ -24248,44 +26509,44 @@ aab
 aab
 "}
 (70,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+vYZ
+vYZ
+vYZ
+vYZ
+amV
+vYZ
+vYZ
+vYZ
+vYZ
+vYZ
+vYZ
+hKz
+hKz
+olq
+cZJ
+bHW
+xJz
+gRb
+cKy
+xJz
+gRb
+cKy
+xJz
+gRb
+cKy
+olq
+aqg
+gkc
+jPp
+tvY
+ijk
+fMx
+aZY
+rUe
+rUe
+rUe
+hKz
 atx
 ath
 aua
@@ -24450,44 +26711,44 @@ aab
 aab
 "}
 (71,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+vYZ
+orO
+vBt
+tHh
+wER
+glv
+inn
+jRJ
+lDD
+pBN
+vYZ
+hKz
+hKz
+olq
+plB
+qgq
+nSw
+grh
+uZg
+nSw
+grh
+kFC
+nSw
+grh
+gDi
+olq
+obl
+ksR
+ksR
+vEw
+pkJ
+ksR
+juK
+xeC
+mwk
+rUe
+hKz
 atx
 atR
 atR
@@ -24652,44 +26913,44 @@ aab
 aab
 "}
 (72,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+vYZ
+hJR
+tMH
+wER
+wER
+tMH
+dRr
+cwz
+lhq
+dvM
+vYZ
+hKz
+hKz
+olq
+cZJ
+qgq
+qGD
+qSV
+hzv
+qGD
+hnk
+hzv
+qGD
+qSV
+hzv
+olq
+fRE
+ksR
+hcq
+oSX
+oSM
+ksR
+aXq
+oXt
+oXt
+rUe
+hKz
 atx
 atR
 atR
@@ -24854,44 +27115,44 @@ aab
 aab
 "}
 (73,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+vYZ
+tMH
+qSR
+rbt
+kUI
+tMH
+inn
+bqq
+lhq
+ibb
+vYZ
+hKz
+hKz
+olq
+cZJ
+kOw
+eBA
+eBA
+eBA
+eBA
+eBA
+eBA
+eBA
+eBA
+pra
+olq
+oJG
+ksR
+hcq
+oQO
+ksR
+ksR
+smm
+xeC
+oXt
+rUe
+hKz
 atx
 atR
 rxE
@@ -25056,44 +27317,44 @@ aab
 aab
 "}
 (74,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+vYZ
+dTP
+vXB
+sOf
+sNU
+aFV
+inn
+hhs
+gYN
+uSz
+vYZ
+hKz
+hKz
+olq
+ndH
+cZJ
+vTi
+qEd
+vTi
+vTi
+vTi
+vTi
+qEd
+vTi
+cRY
+llR
+jph
+ksR
+ksR
+rgq
+sFq
+ksR
+mir
+oXt
+kVc
+rUe
+hKz
 atx
 atR
 rxE
@@ -25258,44 +27519,44 @@ aab
 aab
 "}
 (75,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+vYZ
+wER
+xTO
+fcH
+xhd
+mEU
+inn
+tbj
+lhq
+obO
+vYZ
+hKz
+hKz
+olq
+cZJ
+rhH
+vgk
+vgk
+vgk
+vgk
+vgk
+vgk
+vgk
+vgk
+qoX
+olq
+aqg
+jph
+dCk
+cCu
+jph
+ieo
+pvT
+rUe
+rUe
+rUe
+hKz
 atx
 atR
 rxE
@@ -25460,44 +27721,44 @@ aab
 aab
 "}
 (76,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+vYZ
+tMH
+fRu
+fgt
+fio
+qQH
+inn
+oEF
+lhq
+obO
+vYZ
+hKz
+hKz
+olq
+cZJ
+qgq
+ebL
+rcO
+rcO
+rcO
+rcO
+rcO
+ebL
+kku
+jQz
+olq
+rUe
+vmU
+rUe
+yfA
+cpF
+yfA
+yfA
+rUe
+hKz
+hKz
+hKz
 atx
 atR
 rxE
@@ -25662,44 +27923,44 @@ aab
 aab
 "}
 (77,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+vYZ
+rko
+fcB
+fcB
+ehX
+aNw
+inn
+eqy
+nMm
+aCN
+vYZ
+hKz
+olq
+olq
+adG
+qgq
+cHH
+ylB
+kYo
+iXM
+fbd
+rTH
+oFQ
+kku
+jjE
+olq
+bWH
+cZJ
+rUe
+arI
+ksR
+oBr
+vuk
+rUe
+hKz
+hKz
+hKz
 atx
 atR
 atR
@@ -25864,44 +28125,44 @@ aab
 aab
 "}
 (78,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+vYZ
+jlB
+sxX
+olz
+mvN
+aXi
+inn
+inn
+dRr
+inn
+vYZ
+hKz
+olq
+olq
+fbL
+qgq
+haL
+jyo
+uaQ
+pny
+uaQ
+mmN
+aKi
+jKl
+sSP
+jaZ
+skh
+cZJ
+rUe
+vRO
+gxs
+djZ
+hLM
+rUe
+hKz
+hKz
+hKz
 atx
 atR
 atR
@@ -26066,44 +28327,44 @@ aab
 aab
 "}
 (79,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+vYZ
+wCC
+mFI
+pKM
+byi
+hmN
+xnJ
+tMH
+tMH
+yjS
+xoy
+hKz
+olq
+cRH
+pcM
+hrg
+rby
+vVX
+vQD
+xsC
+anB
+lic
+qdY
+kku
+bVI
+jaZ
+skh
+cZJ
+rUe
+syI
+rFI
+orv
+fhV
+rUe
+hKz
+hKz
+hKz
 atx
 atS
 atS
@@ -26268,44 +28529,44 @@ aab
 aab
 "}
 (80,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+vYZ
+gpO
+nge
+giZ
+tEo
+rhg
+tHg
+tMH
+hJR
+sAY
+vYZ
+hKz
+olq
+fVz
+tOJ
+sxh
+kaM
+eoQ
+uxZ
+dnz
+qau
+iwU
+mVN
+kku
+puG
+olq
+kYj
+cZJ
+rUe
+sFq
+ksR
+qGQ
+tCV
+rUe
+hKz
+hKz
+hKz
 aab
 aab
 aab
@@ -26470,44 +28731,44 @@ aab
 aab
 "}
 (81,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+vYZ
+wCC
+mFI
+jsx
+cdX
+rhg
+xnJ
+vEd
+tMH
+yjS
+xoy
+hKz
+olq
+cRH
+bFv
+wUg
+qJJ
+vVX
+aRh
+sFx
+pmx
+lic
+ihV
+kku
+icX
+jaZ
+skh
+sgN
+rUe
+sbI
+hfM
+sbI
+sbI
+rUe
+hKz
+hKz
+hKz
 aab
 aab
 aab
@@ -26672,44 +28933,44 @@ aab
 aab
 "}
 (82,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+vYZ
+rIk
+dfi
+eef
+jCq
+qua
+inn
+inn
+dRr
+inn
+vYZ
+hKz
+olq
+olq
+hCA
+qgq
+rEw
+sKN
+xLe
+sAJ
+xLe
+lVn
+qTz
+jKl
+kku
+jaZ
+skh
+cZJ
+rUe
+ubJ
+tix
+jXk
+lBA
+rUe
+hKz
+hKz
+hKz
 aab
 aab
 aab
@@ -26874,44 +29135,44 @@ aab
 aab
 "}
 (83,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+vYZ
+aBH
+vDB
+vDB
+vDB
+nlA
+inn
+kZe
+tAk
+ckA
+vYZ
+hKz
+olq
+olq
+kQp
+qgq
+iPH
+vwf
+pIF
+vwf
+llt
+lBs
+bQN
+kku
+jjE
+olq
+cZJ
+cZJ
+rUe
+cxh
+fCU
+gyd
+pdb
+rUe
+hKz
+hKz
+hKz
 aab
 aab
 aab
@@ -27076,44 +29337,44 @@ aab
 aab
 "}
 (84,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+vYZ
+wER
+wJj
+mkk
+xVr
+qQH
+inn
+rJx
+cwz
+oyx
+vYZ
+hKz
+hKz
+olq
+cZJ
+qgq
+ebL
+noy
+noy
+noy
+noy
+noy
+ebL
+kku
+jQz
+olq
+cZJ
+cZJ
+rUe
+lPz
+tix
+fZS
+rKP
+rUe
+hKz
+hKz
+hKz
 aab
 aab
 aab
@@ -27278,44 +29539,44 @@ aab
 aab
 "}
 (85,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+vYZ
+wER
+iur
+whM
+aiQ
+aWw
+inn
+vhj
+lhq
+sQK
+vYZ
+hKz
+hKz
+olq
+cZJ
+kOw
+eBA
+eBA
+eBA
+eBA
+eBA
+eBA
+eBA
+eBA
+pra
+olq
+lRd
+cZJ
+rUe
+rUe
+rUe
+rUe
+rUe
+rUe
+hKz
+hKz
+hKz
 aab
 aab
 aab
@@ -27480,44 +29741,44 @@ aab
 aab
 "}
 (86,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+vYZ
+dTP
+sLa
+hSK
+vKU
+wER
+inn
+hFM
+lhq
+aFg
+vYZ
+hKz
+hKz
+olq
+ndH
+cZJ
+vTi
+qEd
+vTi
+vTi
+vTi
+vTi
+qEd
+vTi
+cRY
+llR
+cZJ
+cZJ
+cZJ
+cZJ
+qxj
+cZJ
+lek
+aVR
+hKz
+hKz
+hKz
 aab
 aab
 aab
@@ -27682,44 +29943,44 @@ aab
 aab
 "}
 (87,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+vYZ
+tMH
+ehR
+suq
+sxP
+tMH
+inn
+bJm
+kZq
+pIQ
+vYZ
+hKz
+hKz
+olq
+cZJ
+rhH
+vgk
+vgk
+vgk
+vgk
+vgk
+vgk
+vgk
+vgk
+hAX
+olq
+vMm
+cZJ
+dgg
+hoX
+uAz
+cZJ
+gWf
+rUe
+hKz
+hKz
+hKz
 aab
 aab
 aab
@@ -27884,44 +30145,44 @@ aab
 aab
 "}
 (88,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+vYZ
+hJR
+tMH
+tMH
+hJR
+hJR
+dRr
+pIQ
+lBD
+omL
+vYZ
+hKz
+hKz
+olq
+cZJ
+qgq
+ogy
+foe
+bEi
+oPc
+vuz
+bEi
+oPc
+vuz
+bEi
+olq
+yfA
+vQV
+yfA
+yfA
+yfA
+hfM
+yfA
+rUe
+hKz
+hKz
+hKz
 aab
 aab
 aab
@@ -28086,44 +30347,44 @@ aab
 aab
 "}
 (89,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+vYZ
+ghN
+rkU
+wTg
+tMH
+hJR
+inn
+quw
+bGF
+vPb
+vYZ
+hKz
+hKz
+olq
+plB
+qgq
+rxZ
+qqr
+lGD
+nSw
+grh
+mOF
+nSw
+grh
+mnL
+olq
+jMJ
+wWs
+fei
+jik
+rUe
+bND
+sEz
+rUe
+hKz
+hKz
+hKz
 aab
 aab
 aab
@@ -28288,44 +30549,44 @@ aab
 aab
 "}
 (90,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+vYZ
+vYZ
+vYZ
+vYZ
+amV
+vYZ
+vYZ
+vYZ
+vYZ
+vYZ
+vYZ
+hKz
+hKz
+olq
+cZJ
+mff
+wrV
+oRC
+lFu
+uPL
+rHY
+lFu
+rCy
+rHY
+lFu
+olq
+eMt
+mHM
+rAP
+rNG
+rUe
+pqC
+snG
+rUe
+hKz
+hKz
+hKz
 aab
 aab
 aab
@@ -28490,44 +30751,44 @@ aab
 aab
 "}
 (91,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+olq
+wQA
+olq
+olq
+olq
+olq
+olq
+olq
+olq
+olq
+olq
+olq
+olq
+rUe
+rUe
+rUe
+rUe
+rUe
+rUe
+rUe
+rUe
+hKz
+hKz
+hKz
 aab
 aab
 aab
@@ -28692,44 +30953,44 @@ aab
 aab
 "}
 (92,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
 aab
 aab
 aab
@@ -28894,44 +31155,44 @@ aab
 aab
 "}
 (93,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+lDS
+lDS
+lDS
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
 aab
 aab
 aab
@@ -29096,44 +31357,44 @@ aab
 aab
 "}
 (94,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+lDS
+cXf
+lDS
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
 aab
 aab
 aab
@@ -29298,44 +31559,44 @@ aab
 aab
 "}
 (95,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+lDS
+lDS
+lDS
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
 aab
 aab
 aab
@@ -29500,44 +31761,44 @@ aab
 aab
 "}
 (96,1,1) = {"
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
+hKz
 aab
 aab
 aab
@@ -36043,7 +38304,7 @@ aSh
 aNs
 aVS
 aRo
-aSp
+pbZ
 aQd
 aPc
 aTm

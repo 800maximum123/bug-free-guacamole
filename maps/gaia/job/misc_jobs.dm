@@ -1,4 +1,95 @@
-/datum/job/assistant // Assistant override for Gaia
+// -- ADMIN --
+/datum/job/scg_montogomery
+	title = "Ground Commander-in-Chief"
+	total_positions = 0
+	spawn_positions = 0
+	supervisors = "the Sol Central Government and the Sol Code of Uniform Justice"
+	department = "Solar Central Government"
+	department_flag = SPT // SPT = SCG, SEC = ICCG
+	minimal_player_age = 14
+	economic_power = 20
+	minimum_character_age = list(SPECIES_HUMAN = 22)
+	ideal_character_age = 30
+	outfit_type = /singleton/hierarchy/outfit/job/gaia/scg/command/montogomery
+	required_language = LANGUAGE_HUMAN_EURO
+	selection_color = MANIFEST_COLOR_MISC
+	faction = MOB_FACTION_SCG
+	head_position = TRUE
+	create_record = FALSE
+	allowed_branches = list(
+		/datum/mil_branch/scga,
+	)
+	allowed_ranks = list(
+		/datum/mil_rank/scga/o6,
+	)
+	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
+	                    SKILL_PILOT       = SKILL_TRAINED,
+	                    SKILL_COMBAT      = SKILL_BASIC,
+	                    SKILL_WEAPONS     = SKILL_BASIC)
+
+	max_skill = list(   SKILL_PILOT       = SKILL_MAX,
+	                    SKILL_SCIENCE     = SKILL_MAX,
+	                    SKILL_COMBAT      = SKILL_MAX,
+	                    SKILL_WEAPONS     = SKILL_MAX)
+
+	access = list(
+		access_medical, access_morgue, access_maint_tunnels,
+		access_surgery, access_medical_equip, access_solgov_crew,
+		access_engine, access_network, access_network_admin,
+		access_armory, access_security,
+		access_captain, access_hop, access_heads
+	)
+
+	skill_points = 30
+
+/datum/job/scg_montogomery/get_description_blurb()
+	return "You are the leader of all SCG ground operations on the Gaia, you're the Colonel 'fucking' Montogomery."
+
+/datum/job/iccg_alistratova
+	title = "Glava Okkupatsii Gaii"
+	total_positions = 0
+	spawn_positions = 0
+	supervisors = "Vysshemu Komandovaniye ICCG"
+	department = "Gilgamesh Colonial Confederation"
+	department_flag = SEC // SPT = SCG, SEC = ICCG
+	minimal_player_age = 14
+	economic_power = 20
+	minimum_character_age = list(SPECIES_HUMAN = 22)
+	ideal_character_age = 30
+	outfit_type = /singleton/hierarchy/outfit/job/gaia/iccg/command/alistratova
+	required_language = LANGUAGE_HUMAN_RUSSIAN
+	selection_color = MANIFEST_COLOR_MISC
+	faction = MOB_FACTION_ICCG
+	head_position = TRUE
+	allowed_branches = list(
+		/datum/mil_branch/iccgn,
+	)
+	allowed_ranks = list(
+		/datum/mil_rank/iccgn/of6,
+	)
+	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
+	                    SKILL_PILOT       = SKILL_TRAINED,
+	                    SKILL_COMBAT      = SKILL_BASIC,
+	                    SKILL_WEAPONS     = SKILL_BASIC)
+
+	max_skill = list(   SKILL_PILOT       = SKILL_MAX,
+	                    SKILL_SCIENCE     = SKILL_MAX,
+	                    SKILL_COMBAT      = SKILL_MAX,
+	                    SKILL_WEAPONS     = SKILL_MAX)
+
+	access = list(
+		access_iccg, access_iccg_com, access_iccg_com_cap,
+		access_iccg_engi, access_iccg_med, access_iccg_sec,
+		access_iccg_com_xo, access_network, access_network_admin, access_ai_upload
+	)
+
+	skill_points = 30
+
+/datum/job/iccg_alistratova/get_description_blurb()
+	return "Ty - 'Darth Vader' etoi planeti, tebya boyatsia vse zhiteli Gaii ved' ti glava okkupatsii, ti - Kapitan Sasha Alistratova."
+
+// -- CIVVIES --
+/datum/job/assistant
 	title = "Citizen"
 	department = "Civilian"
 	department_flag = CIV

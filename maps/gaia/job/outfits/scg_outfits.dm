@@ -1,4 +1,4 @@
-// JOBS FOR SCG ON GAIA
+// -- SCG --
 // Default = Army; Fleet = Armsmen and other deployed/rescued Detachments; Civilain = Loyalist partisans
 /singleton/hierarchy/outfit/job/gaia/scg
 	name = OUTFIT_JOB_NAME("SCG Gaia Default Outfit")

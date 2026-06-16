@@ -3,7 +3,7 @@
 	title = "Komandir Vzvoda"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "Vysshemu Komandovaniye ICCG"
+	supervisors = "Kapitan Alistratova, Gilgamesh Colonial Confederation and its Military Code"
 	department = "Gilgamesh Colonial Confederation"
 	department_flag = SEC // SPT = SCG, SEC = ICCG
 	minimal_player_age = 14

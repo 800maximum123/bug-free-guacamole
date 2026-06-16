@@ -25,6 +25,22 @@
 /area/gaia/deserter
 	name = "\improper Out of Battlezone"
 
+/area/gaia/montogemory
+	name = "\improper Colonel Montogemory HQ"
+	icon_state = "scg_command"
+	ambience = list('maps/gaia/sounds/ambience/ambipartisan_command.ogg')
+	sound_env = SMALL_ENCLOSED
+	ambient_group_enabled = FALSE
+	area_flags = null
+
+/area/gaia/alistratova
+	name = "\improper Kapitan Alistratova HQ"
+	icon_state = "iccg_command"
+	ambience = list('maps/gaia/sounds/ambience/ambioccupation_command.ogg')
+	sound_env = LARGE_ENCLOSED
+	ambient_group_enabled = FALSE
+	area_flags = null
+
 /*
 * -- Area of Operations --
 */
@@ -243,10 +259,6 @@
 /area/gaia/scg/command/briefing
 	name = "\improper SCG Camp - Briefing Area"
 	sound_env = STANDARD_STATION
-
-/area/gaia/scg/command/monty
-	name = "\improper Colonel Montogemory HQ"
-	sound_env = LARGE_ENCLOSED
 
 // Security
 /area/gaia/scg/security

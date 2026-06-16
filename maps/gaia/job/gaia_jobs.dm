@@ -9,8 +9,8 @@
 
 #define ALL_JOBS list(/datum/job/scg_co, /datum/job/scg_engineer, /datum/job/scg_medic, /datum/job/scg_ps, /datum/job/scg_squad_leader, /datum/job/scg_trooper, \
 			/datum/job/iccg_co, /datum/job/iccg_engineer, /datum/job/iccg_medic, /datum/job/iccg_mp, /datum/job/iccg_squad_leader, /datum/job/iccg_trooper, /datum/job/iccg_xo, \
-			/datum/job/mayor, /datum/job/police_officer, /datum/job/paramedic, /datum/job/firefighter, /datum/job/worker, /datum/job/priest)
-#define ICCG_JOBS list(/datum/job/iccg_co, /datum/job/iccg_engineer, /datum/job/iccg_medic, /datum/job/iccg_mp, /datum/job/iccg_squad_leader, /datum/job/iccg_trooper, /datum/job/iccg_xo)
+			/datum/job/mayor, /datum/job/police_officer, /datum/job/paramedic, /datum/job/firefighter, /datum/job/worker, /datum/job/priest, /datum/job/scg_montogomery, /datum/job/iccg_alistratova)
+#define ICCG_JOBS list(/datum/job/iccg_co, /datum/job/iccg_engineer, /datum/job/iccg_medic, /datum/job/iccg_mp, /datum/job/iccg_squad_leader, /datum/job/iccg_trooper, /datum/job/iccg_xo, /datum/job/iccg_alistratova)
 
 	species_to_job_blacklist = list(
 		/datum/species/unathi  = list(ALL_JOBS),
@@ -25,7 +25,8 @@
 	allowed_jobs = list(
 		/datum/job/scg_co, /datum/job/scg_ps, /datum/job/scg_squad_leader, /datum/job/scg_engineer, /datum/job/scg_medic, /datum/job/scg_trooper,
 		/datum/job/iccg_co, /datum/job/iccg_xo, /datum/job/iccg_mp, /datum/job/iccg_squad_leader, /datum/job/iccg_engineer, /datum/job/iccg_medic, /datum/job/iccg_trooper,
-		/datum/job/mayor, /datum/job/police_officer, /datum/job/paramedic, /datum/job/firefighter, /datum/job/worker, /datum/job/priest
+		/datum/job/mayor, /datum/job/police_officer, /datum/job/paramedic, /datum/job/firefighter, /datum/job/worker, /datum/job/priest,
+		/datum/job/scg_montogomery, /datum/job/iccg_alistratova,
 	)
 
 	access_modify_region = list(

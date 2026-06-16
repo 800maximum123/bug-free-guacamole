@@ -1,4 +1,4 @@
-// JOBS FOR ICCG ON GAIA
+// -- ICCG --
 /singleton/hierarchy/outfit/job/gaia/iccg
 	name = OUTFIT_JOB_NAME("ICCG Gaia Default Outfit")
 	hierarchy_type = /singleton/hierarchy/outfit/job/gaia/iccg

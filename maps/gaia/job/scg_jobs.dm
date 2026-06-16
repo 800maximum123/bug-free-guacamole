@@ -3,7 +3,7 @@
 	title = "Commanding Officer"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Sol Central Government and the Sol Code of Uniform Justice"
+	supervisors = "Colonel Montogomery, the Sol Central Government and the Sol Code of Uniform Justice"
 	department = "Solar Central Government"
 	department_flag = SPT // SPT = SCG, SEC = ICCG
 	minimal_player_age = 14

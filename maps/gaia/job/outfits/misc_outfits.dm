@@ -7,6 +7,20 @@
 
 	flags = OUTFIT_FLAGS_JOB_DEFAULT | OUTFIT_ADJUSTMENT_SKIP_SURVIVAL_GEAR
 
+// -- ADMIN --
+/singleton/hierarchy/outfit/job/gaia/scg/command/montogomery
+	name = OUTFIT_JOB_NAME("SCG Gaia Colonel Monotogomery")
+	uniform = /obj/item/clothing/under/scga/service_command
+	shoes = /obj/item/clothing/shoes/scga/dress
+	id_types = list(/obj/item/card/id/gaia/scg/co)
+
+/singleton/hierarchy/outfit/job/gaia/iccg/command/alistratova
+	name = OUTFIT_JOB_NAME("ICCG Gaia Kapitan Alistratova")
+	uniform = /obj/item/clothing/under/iccgn/service_command
+	shoes = /obj/item/clothing/shoes/iccgn/service
+	id_types = list(/obj/item/card/id/gaia/iccg/co)
+
+// -- CIVVIES --
 // CITIZEN
 /singleton/hierarchy/outfit/job/gaia/citizen
 	name = OUTFIT_JOB_NAME("Gaian Citizen")
