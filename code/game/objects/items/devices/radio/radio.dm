@@ -40,8 +40,9 @@
 
 	var/intercom_handling = FALSE
 
+	// [GAIA]
 	var/command = FALSE
-
+	var/can_command = FALSE
 
 /obj/item/device/radio/hailing
 	name = "shortwave radio (Hailing)"
@@ -100,6 +101,18 @@
 	if(get_cell())
 		STOP_PROCESSING(SSobj, src)
 	return ..()
+
+// [GAIA]
+/obj/item/device/radio/AltClick(mob/user)
+	. = ..()
+	if(!can_command)
+		return
+	if(command)
+		to_chat(user, SPAN_NOTICE("You set the radio microphone to normal volume."))
+		command = FALSE
+	else
+		to_chat(user, SPAN_WARNING("You set the radio microphone to high-volume."))
+		command = TRUE
 
 /obj/item/device/radio/attack_self(mob/user as mob)
 	user.set_machine(src)
@@ -642,6 +655,8 @@
 			to_chat(user, SPAN_NOTICE("\The [src] can not be modified or attached!"))
 		if (power_usage && cell)
 			to_chat(user, SPAN_NOTICE("\The [src] charge meter reads [round(cell.percent(), 0.1)]%."))
+		if(can_command)
+			to_chat(user, SPAN_NOTICE("\The [src] has high-volume microphone turned <b>[command ? "on" : "off"]</b>."))
 
 
 /obj/item/device/radio/use_tool(obj/item/tool, mob/user, list/click_params)
