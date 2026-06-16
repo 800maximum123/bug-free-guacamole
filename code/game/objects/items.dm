@@ -739,19 +739,22 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	var/is_distracted = FALSE
 	var/mob/living/carbon/human/H = user
 
-	if(user.incapacitated(INCAPACITATION_DISABLED))
-		to_chat(user, SPAN_WARNING("You are unable to focus through the [devicename]."))
-		return
-	else if(!zoom && istype(H) && H.equipment_tint_total >= TINT_MODERATE)
-		to_chat(user, SPAN_WARNING("Your eyewear gets in the way of looking through the [devicename]."))
-		return
-	if (H) // Humans can zoom through items they wear on their eyes
-		is_distracted = !zoom && H.get_active_hand() != src && H.get_equipped_item(slot_glasses) != src
-	else
-		is_distracted = !zoom && user.get_active_hand() != src
-	if(is_distracted)
-		to_chat(user, SPAN_WARNING("You are too distracted to look through the [devicename]. Perhaps if it was in your active hand this might work better."))
-		return
+	// [GAIA]
+	// The most stupid way to make a "look into distance" button
+	if(!istype(src, /obj/item/organ/internal/eyes))
+		if(user.incapacitated(INCAPACITATION_DISABLED))
+			to_chat(user, SPAN_WARNING("You are unable to focus through the [devicename]."))
+			return
+		else if(!zoom && istype(H) && H.equipment_tint_total >= TINT_MODERATE)
+			to_chat(user, SPAN_WARNING("Your eyewear gets in the way of looking through the [devicename]."))
+			return
+		if (H) // Humans can zoom through items they wear on their eyes
+			is_distracted = !zoom && H.get_active_hand() != src && H.get_equipped_item(slot_glasses) != src
+		else
+			is_distracted = !zoom && user.get_active_hand() != src
+		if(is_distracted)
+			to_chat(user, SPAN_WARNING("You are too distracted to look through the [devicename]. Perhaps if it was in your active hand this might work better."))
+			return
 
 	var/viewoffset = WORLD_ICON_SIZE * tileoffset
 	switch(user.dir)
@@ -783,7 +786,12 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 	GLOB.stat_set_event.register(user, src, TYPE_PROC_REF(/obj/item, unzoom))
 
-	user.visible_message("\The [user] peers through [zoomdevicename ? "the [zoomdevicename] of [src]" : "[src]"].")
+	// [GAIA]
+	if(istype(src, /obj/item/organ/internal/eyes))
+		user.visible_message("\The [user] squints their \the [src] into the distance.")
+	else
+		user.visible_message("\The [user] peers through [zoomdevicename ? "the [zoomdevicename] of [src]" : "[src]"].")
+		playsound(src, 'sound/effects/zoomin.ogg', 30, FALSE, -5, 5)
 
 /mob/living/proc/unzoom(obj/item/I)
 	if(I)
@@ -823,7 +831,12 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	var/mob/living/carbon/human/H = user
 	if(istype(H))
 		H.handle_vision()
-	user.visible_message("[zoomdevicename ? "\The [user] looks up from [src]" : "\The [user] lowers [src]"].")
+	// [GAIA]
+	if(istype(src, /obj/item/organ/internal/eyes))
+		user.visible_message("\The [user] stops squinting their \the [src].")
+	else
+		user.visible_message("[zoomdevicename ? "\The [user] looks up from [src]" : "\The [user] lowers [src]"].")
+		playsound(src, 'sound/effects/zoomout.ogg', 30, FALSE, -5, 5)
 
 /obj/item/proc/pwr_drain()
 	return 0 // Process Kill

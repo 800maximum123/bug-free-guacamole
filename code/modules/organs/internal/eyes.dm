@@ -1,6 +1,6 @@
 
 /obj/item/organ/internal/eyes
-	name = "eyeballs"
+	name = "\improper eyeballs"
 	icon_state = "eyes"
 	gender = PLURAL
 	organ_tag = BP_EYES
@@ -18,6 +18,10 @@
 	var/flash_mod
 	var/darksight_range
 	var/darksight_tint
+	// [GAIA]
+	action_button_name = "Look into the distance"
+	var/zoom_offset = 7
+	var/zoom_size = 7
 
 /obj/item/organ/internal/eyes/proc/get_eye_cache_key()
 	last_cached_eye_colour = rgb(eye_colour[1],eye_colour[2], eye_colour[3])
@@ -100,8 +104,29 @@
 /obj/item/organ/internal/eyes/proc/additional_flash_effects(intensity)
 	return -1
 
+// [GAIA]
+/obj/item/organ/internal/eyes/attack_self(mob/user)
+	. = ..()
+	if(!owner)
+		to_chat(user, SPAN_WARNING("You cannot see through someone else eyes!"))
+		return
+	if(damage == max_damage)
+		to_chat(user, SPAN_WARNING("Your eyes are useless!"))
+		return
+
+	if(zoom)
+		unzoom(user)
+	else
+		zoom(user, zoom_offset, zoom_size)
+
+/obj/item/organ/internal/eyes/refresh_action_button()
+	. = ..()
+	if(.)
+		action.button_icon_state = "look"
+		if(action.button) action.button.UpdateIcon()
+
 /obj/item/organ/internal/eyes/robot
-	name = "optical sensor"
+	name = "\improper optical sensor"
 	status = ORGAN_ROBOTIC
 
 /obj/item/organ/internal/eyes/robot/New()
@@ -110,7 +135,7 @@
 
 /obj/item/organ/internal/eyes/robotize()
 	..()
-	name = "optical sensor"
+	name = "\improper optical sensor"
 	icon = 'icons/obj/robot_component.dmi'
 	icon_state = "camera"
 	dead_icon = "camera_broken"
