@@ -10,7 +10,7 @@
 	dir = EAST
 	density = TRUE
 	anchored = TRUE
-	time_till_despawn = -1 // Disable auto-despawn to prevent disappearance
+	time_till_despawn = 1 DAY // Disable auto-despawn to prevent disappearance
 	announce_despawn = FALSE
 	applies_stasis = FALSE // Optional: no stasis if not needed
 
