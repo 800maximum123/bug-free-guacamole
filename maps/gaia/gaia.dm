@@ -21,6 +21,8 @@
 	#include "../gaia/gaia_spawnpoints.dm"
 	#include "../gaia/gaia_lobby.dm"
 	#include "../gaia/gaia_procs.dm"
+	#include "../gaia/gaia_pmc_uplinks.dm"
+
 	#include "../gaia/ai_law_sets.dm"
 
 	#include "../gaia/loadout/_defines.dm"

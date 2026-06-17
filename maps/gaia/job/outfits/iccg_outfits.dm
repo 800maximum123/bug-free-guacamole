@@ -55,7 +55,6 @@
 	uniform = /obj/item/clothing/under/sestris_pmc
 	suit = /obj/item/clothing/suit/surgicalapron
 	shoes = /obj/item/clothing/shoes/jackboots
-	backpack_contents = list(/obj/item/clothing/accessory/armor_tag/scp = 1, /obj/item/clothing/accessory/armor/helmcover/scp_cover = 1)
 
 /singleton/hierarchy/outfit/job/gaia/iccg/medic/New()
 	..()
@@ -73,8 +72,6 @@
 	name = OUTFIT_JOB_NAME("ICCG PMC Gaia Engineer")
 	uniform = /obj/item/clothing/under/sestris_pmc
 	shoes = /obj/item/clothing/shoes/jackboots
-	head = /obj/item/clothing/head/soft/scp_cap
-	backpack_contents = list(/obj/item/clothing/accessory/armor_tag/scp = 1, /obj/item/clothing/accessory/armor/helmcover/scp_cover = 1)
 
 /singleton/hierarchy/outfit/job/gaia/iccg/engineer/New()
 	..()
@@ -112,5 +109,3 @@
 	name = OUTFIT_JOB_NAME("ICCG PMC Gaia Trooper")
 	uniform = /obj/item/clothing/under/sestris_pmc
 	shoes = /obj/item/clothing/shoes/jackboots
-	head = /obj/item/clothing/head/soft/scp_cap
-	backpack_contents = list(/obj/item/clothing/accessory/armor_tag/scp = 1, /obj/item/clothing/accessory/armor/helmcover/scp_cover = 1)

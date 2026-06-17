@@ -173,7 +173,7 @@
 
 //4mm variations for Gaia and stuff
 /obj/item/projectile/bullet/flechette/piercer
-	damage = 15 //yes, I know it's dumb, it's done for balancing and nothing else.
+	damage = 18 //yes, I know it's dumb, it's done for balancing and nothing else.
 	armor_penetration = 60
 	penetration_modifier = 0.1
 	distance_falloff = 1

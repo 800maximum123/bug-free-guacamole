@@ -51,6 +51,7 @@
 #define MODE_PARAMOUNT     "paramount"
 #define MODE_FOUNDATION    "foundation agent"
 #define MODE_MISC_AGITATOR "provocateur"
+#define MODE_MISC_PMC "Private Contractor"
 #define MODE_HUNTER        "hunter"
 #define MODE_VOXRAIDER     "vox raider"
 

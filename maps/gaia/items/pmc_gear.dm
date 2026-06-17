@@ -80,6 +80,16 @@
 		bomb = ARMOR_BOMB_MINOR
 	)
 
+/obj/item/clothing/accessory/armor_tag/pmc
+	name = "BLPMC armor tag"
+	desc = "A green armor tag with BRIGADE LEGERE written on it."
+	accessory_icons = list(
+		slot_tie_str = 'maps/gaia/icons/items/clothing/pmc_gear_mob.dmi',
+		slot_wear_suit_str = 'maps/gaia/icons/items/clothing/pmc_gear_mob.dmi'
+	)
+	icon_state = "tag_pmc"
+	slot = ACCESSORY_SLOT_ARMOR_M
+
 /obj/item/clothing/accessory/helmet_cover/pmc
 	name = "BLPMC helmet cover"
 	desc = "A fabric cover for armored helmets. This one is crimson and bears a red IFF stripe of the Brigade Legere PMC."
@@ -102,3 +112,4 @@
 		bomb = ARMOR_BOMB_PADDED
 		)
 	accessories = list(/obj/item/clothing/accessory/helmet_cover/pmc)
+

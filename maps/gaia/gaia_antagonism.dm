@@ -96,6 +96,38 @@
 /datum/antagonist/revolutionary/spawn_uplink(mob/living/carbon/human/revolutionary_mob)
 	setup_uplink_source(revolutionary_mob, DEFAULT_TELECRYSTAL_AMOUNT)
 
+// PMCs are "antags" since they get their gear from uplinks. They also don't get paid to win :P
+GLOBAL_DATUM_INIT(pmcs, /datum/antagonist/pmc, new)
+
+/datum/antagonist/pmc
+	id = MODE_MISC_PMC
+	role_text = "Private Military Contractor"
+	role_text_plural = "PMCs"
+	antaghud_indicator = "hud_traitor"
+	flags = ANTAG_RANDOM_EXCEPTED
+	antag_text = "You are a PMC Operator, tasked with assisting ICCG forces on the planet in their tasks. Fight those pesky Solarians and remember: you're not getting paid to be a hero!"
+	welcome_text = "Welcome to Gaia, dear Operator!"
+	blacklisted_jobs = list()
+	skill_setter = null
+	min_player_age = 0
+
+	var/antag_text_updated
+	no_prior_faction = TRUE
+
+/datum/job/post_equip_rank(mob/person, alt_title)
+	..()
+	var/mob/living/carbon/human/player = person
+
+	if(player.char_rank == /datum/mil_rank/civ/pmc)
+		GLOB.pmcs.add_antagonist(player.mind)
+
+/datum/antagonist/pmc/equip(mob/living/carbon/human/pmc_mob)
+	spawn_uplink(pmc_mob)
+
+/datum/antagonist/pmc/proc/spawn_uplink(mob/living/carbon/human/pmc_mob)
+	setup_uplink_source(pmc_mob, DEFAULT_TELECRYSTAL_AMOUNT)
+
+
 #undef ALL_JOBS
 /*
 #undef ICCG_JOBS
