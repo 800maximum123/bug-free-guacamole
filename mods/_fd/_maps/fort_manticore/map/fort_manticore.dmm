@@ -8175,7 +8175,6 @@
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/personal/empty,
-/obj/item/clothing/suit/storage/vista_labcoat,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/fort_manticore/rooms/chlothilde)
 "xQ" = (
@@ -8705,6 +8704,10 @@
 /obj/decal/cleanable/dirt{
 	icon = 'icons/turf/flooring/tiles.dmi';
 	icon_state = "broken2"
+	},
+/obj/item/modular_computer/pda{
+	name = "\improper Crudely modified PDA";
+	desc = "Обыкновенной модели ПДА, с разбитым и испачканным чем-то экраном, в трещинах которого заметны клочки шерсти. Он кажется чуть более увесистым, чем ПДА той же модели, в первую очередь, из-за коробочки, грубо припаянной к основному корпусу. Она напоминает модифицированное пишущее устройство диктофона. Рядом с динамиком также проделаны мелкие отверстия, которых здесь быть не должно."
 	},
 /turf/simulated/floor/exoplanet/grim_wood,
 /area/fort_manticore/rooms/ufur)
@@ -14940,6 +14943,10 @@
 /area/ship/bomber/main_deck/atmos)
 "RR" = (
 /obj/structure/table/rack/dark,
+/obj/item/seeds/bluespacetomatoseed,
+/obj/item/seeds/bluespacetomatoseed,
+/obj/item/seeds/bluespacetomatoseed,
+/obj/item/seeds/bluespacetomatoseed,
 /turf/simulated/floor/armored,
 /area/fort_manticore/rooms/martiesa)
 "RS" = (

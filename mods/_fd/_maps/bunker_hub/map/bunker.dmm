@@ -347,7 +347,6 @@
 	dir = 8
 	},
 /obj/item/stool/padded,
-/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/lower/med/mortuary)
 "amL" = (
@@ -941,7 +940,6 @@
 /area/bunker/eng/workshop)
 "aJu" = (
 /obj/floor_decal/corner/paleblue/mono,
-/obj/decal/cleanable/dirt,
 /obj/machinery/light{
 	color = "#a1d2d6";
 	light_color = "#a1d2d6";
@@ -1462,13 +1460,9 @@
 	},
 /area/bunker/jungle)
 "aYV" = (
-/obj/floor_decal/industrial/warning/fulltile,
-/obj/decal/cleanable/blood/drip,
-/obj/machinery/door/blast/regular{
-	id_tag = "bunker_exit2"
-	},
-/turf/simulated/floor/plating,
-/area/bunker/kpp)
+/obj/structure/closet/crate/large,
+/turf/simulated/floor/tiled/dark,
+/area/bunker/command)
 "aZg" = (
 /obj/structure/girder,
 /turf/simulated/floor/plating,
@@ -1744,6 +1738,12 @@
 /obj/structure/roller_bed,
 /obj/item/storage/firstaid/surgery{
 	pixel_x = -6
+	},
+/obj/item/implant/codex{
+	pixel_x = 8;
+	pixel_y = -6;
+	malfunction = 1;
+	name = "Broken codex implant"
 	},
 /turf/simulated/floor/tiled/white,
 /area/bunker/rooms/room13)
@@ -2349,6 +2349,27 @@
 /obj/floor_decal/spline/fancy/black{
 	dir = 1
 	},
+/obj/item/clothing/head/helmet/manticore_combat,
+/obj/item/gun/projectile/pistol/sol_service{
+	pixel_y = -1;
+	pixel_x = 18
+	},
+/obj/item/gun/projectile/pistol/sol_service{
+	pixel_y = 3;
+	pixel_x = 14
+	},
+/obj/item/gun/projectile/pistol/sol_service{
+	pixel_y = 9;
+	pixel_x = 9
+	},
+/obj/item/ammo_magazine/pistol/double{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/ammo_magazine/pistol/double{
+	pixel_x = -8;
+	pixel_y = 4
+	},
 /turf/simulated/floor/lino,
 /area/bunker/command)
 "byC" = (
@@ -2471,7 +2492,10 @@
 /area/bunker/lower/monorail)
 "bCL" = (
 /obj/floor_decal/corner/darkblue/mono,
-/obj/structure/bed/chair/office/dark,
+/obj/structure/table/standard,
+/obj/item/reagent_containers/food/drinks/coffee{
+	pixel_y = 11
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "bDc" = (
@@ -2927,6 +2951,18 @@
 	dir = 1
 	},
 /obj/floor_decal/corner/blue/half,
+/obj/structure/coatrack{
+	pixel_x = 6;
+	pixel_y = 1
+	},
+/obj/item/clothing/suit/storage/toggle/labcoat/dark{
+	pixel_x = 3;
+	pixel_y = 7
+	},
+/obj/item/clothing/head/beret/solgov/expedition{
+	pixel_x = 3;
+	pixel_y = 15
+	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/rooms/room5)
 "bRh" = (
@@ -2993,12 +3029,10 @@
 /area/bunker/rooms/room10)
 "bTZ" = (
 /obj/floor_decal/corner/darkblue/mono,
-/obj/structure/fd/junk{
-	icon_state = "2,1"
-	},
-/obj/structure/fd/junk{
-	icon_state = "3,0";
-	pixel_x = -12
+/obj/structure/bed/chair/office/dark{
+	dir = 4;
+	pixel_x = -4;
+	pixel_y = 14
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
@@ -3454,15 +3488,6 @@
 /obj/floor_decal/corner/darkblue/half,
 /obj/structure/platform,
 /obj/decal/cleanable/dirt,
-/obj/structure/roller_bed,
-/obj/item/stack/medical/bruise_pack{
-	pixel_x = 18;
-	pixel_y = 2
-	},
-/obj/item/stack/medical/advanced/bruise_pack{
-	pixel_x = 10;
-	pixel_y = 10
-	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "cjh" = (
@@ -3615,7 +3640,6 @@
 /obj/floor_decal/corner/darkblue/border{
 	dir = 1
 	},
-/obj/decal/cleanable/blood/drip,
 /obj/structure/fd/junk{
 	icon_state = "2,0";
 	pixel_y = 4;
@@ -3627,7 +3651,6 @@
 /obj/structure/fd/junk{
 	pixel_x = -7
 	},
-/obj/item/gun/projectile/pistol/magnum_pistol,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "clJ" = (
@@ -3825,11 +3848,6 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp1)
-"cqi" = (
-/obj/floor_decal/corner/paleblue/mono,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/monotile,
-/area/bunker/lower/med)
 "cqp" = (
 /obj/floor_decal/industrial/outline/orange,
 /mob/living/simple_animal/hostile/terra/jumper{
@@ -3840,13 +3858,15 @@
 /turf/simulated/floor/tiled/steel_ridged,
 /area/bunker/eng)
 "cqB" = (
-/obj/machinery/door/airlock/autoname,
+/obj/machinery/door/airlock/autoname{
+	stripe_color = "#54654c"
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/bunker/kitchen/bufet)
 "cqZ" = (
 /obj/floor_decal/industrial/warning,
@@ -4033,13 +4053,6 @@
 /obj/floor_decal/messygrass,
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
-"cuU" = (
-/obj/structure/railing/mapped,
-/obj/floor_decal/corner/darkblue/half,
-/obj/structure/platform,
-/obj/structure/closet/crate/freezer/rations,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/command)
 "cuY" = (
 /obj/floor_decal/industrial/hatch/red,
 /obj/floor_decal/industrial/outline/yellow,
@@ -4435,10 +4448,6 @@
 	},
 /turf/simulated/floor/bluespace/more_stable,
 /area/bunker/interlude)
-"cFR" = (
-/obj/decal/cleanable/blood/drip,
-/turf/simulated/floor/plating,
-/area/bunker/command)
 "cFT" = (
 /obj/structure/table/woodentable_reinforced,
 /obj/structure/window/reinforced{
@@ -4603,6 +4612,7 @@
 /obj/item/hand_labeler,
 /obj/item/storage/firstaid/light,
 /obj/item/clothing/mask/gas/half,
+/obj/item/clothing/under/ghoticdress,
 /turf/simulated/floor/wood/ebony,
 /area/bunker/rooms/room8)
 "cJW" = (
@@ -5764,6 +5774,8 @@
 	light_color = "#a1d2d6";
 	dir = 1
 	},
+/obj/item/storage/firstaid/surgery,
+/obj/structure/roller_bed,
 /turf/simulated/floor/tiled,
 /area/bunker/lower/med/warehouse)
 "dAI" = (
@@ -5825,10 +5837,18 @@
 /turf/simulated/floor/exoplanet/fd/waste,
 /area/bunker/jungle)
 "dBG" = (
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/blood/drip,
-/turf/simulated/floor/plating,
-/area/bunker/corridors/north)
+/obj/floor_decal/corner/paleblue/mono,
+/obj/machinery/light{
+	color = "#a1d2d6";
+	light_color = "#a1d2d6";
+	dir = 8
+	},
+/obj/item/caution/cone{
+	pixel_x = -2;
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/bunker/lower/med)
 "dCe" = (
 /obj/structure/platform/kutjevo/rock{
 	dir = 1;
@@ -6181,10 +6201,13 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
 "dQs" = (
+/obj/floor_decal/corner/darkblue/mono,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/floor_decal/corner/darkblue/mono,
+/obj/machinery/constructable_frame/computerframe/deconstruct{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "dQP" = (
@@ -6270,11 +6293,6 @@
 	color = "#bebebe"
 	},
 /area/bunker/jungle)
-"dTC" = (
-/obj/catwalk_plated/dark,
-/obj/structure/iv_stand,
-/turf/simulated/floor/plating,
-/area/bunker/command)
 "dTQ" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -6784,7 +6802,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/simulated/floor/tiled/dark,
 /area/bunker/eng)
 "ekk" = (
 /obj/machinery/light{
@@ -6877,6 +6895,10 @@
 	},
 /obj/floor_decal/borderfloor,
 /obj/floor_decal/corner/b_green/border,
+/obj/item/fd/jeff_killer_gun_undeployed{
+	pixel_x = 11;
+	pixel_y = -3
+	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/rooms/room13)
 "enc" = (
@@ -6957,9 +6979,10 @@
 /obj/floor_decal/corner/darkblue/mono,
 /obj/decal/cleanable/blood,
 /obj/structure/table/standard,
-/obj/item/storage/firstaid/combat,
-/obj/item/storage/firstaid/combat{
-	pixel_y = 8
+/obj/item/material/clipboard/ebony,
+/obj/item/stack/medical/ointment{
+	pixel_x = 6;
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
@@ -7152,9 +7175,6 @@
 /obj/floor_decal/corner/darkblue/border{
 	dir = 1
 	},
-/obj/machinery/constructable_frame/computerframe{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "exI" = (
@@ -7180,7 +7200,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/decal/cleanable/blood/drip,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/bunker/corridors/center)
@@ -7575,15 +7594,6 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/eng/workshop)
-"eRp" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/decal/cleanable/blood/drip,
-/turf/simulated/floor/tiled/dark,
-/area/bunker/corridors/north)
 "eRH" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -7664,17 +7674,6 @@
 /obj/machinery/power/port_gen/pacman,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
-"eUV" = (
-/obj/item/clothing/head/beret/solgov/expedition{
-	pixel_x = 6;
-	pixel_y = 15
-	},
-/obj/item/clothing/head/hairflower/yellow{
-	pixel_x = 12;
-	pixel_y = 12
-	},
-/turf/simulated/floor/exoplanet/grim_wood_log,
-/area/bunker/barracks)
 "eVi" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -7801,31 +7800,11 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/lower/med)
 "eYM" = (
-/obj/structure/closet/crate,
-/obj/item/stack/medical/splint,
-/obj/item/stack/medical/splint,
-/obj/item/stack/medical/splint,
-/obj/item/stack/medical/splint,
-/obj/item/stack/medical/splint,
-/obj/item/stack/medical/splint,
-/obj/item/stack/medical/splint,
-/obj/item/stack/medical/splint,
-/obj/item/stack/medical/bruise_pack,
-/obj/item/stack/medical/bruise_pack,
-/obj/item/stack/medical/bruise_pack,
-/obj/item/stack/medical/bruise_pack,
-/obj/item/stack/medical/bruise_pack,
-/obj/item/stack/medical/bruise_pack,
-/obj/item/stack/medical/advanced/bruise_pack,
-/obj/item/stack/medical/advanced/bruise_pack,
-/obj/item/stack/medical/advanced/bruise_pack,
-/obj/item/stack/medical/advanced/bruise_pack,
-/obj/item/stack/medical/advanced/bruise_pack,
-/obj/item/stack/medical/advanced/bruise_pack,
-/obj/item/stack/medical/ointment,
-/obj/item/stack/medical/ointment,
-/obj/item/stack/medical/ointment,
-/obj/item/stack/medical/ointment,
+/obj/structure/table/standard,
+/obj/item/gun/energy/ionrifle/anti_terra,
+/obj/item/gun/energy/ionrifle/anti_terra{
+	pixel_y = 9
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
 "eYS" = (
@@ -8812,7 +8791,10 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "fDS" = (
-/obj/machinery/door/airlock/autoname,
+/obj/machinery/door/airlock/autoname{
+	door_color = "#46698c";
+	stripe_color = "#3366cc"
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -9282,7 +9264,9 @@
 	light_color = "#a1d2d6";
 	dir = 1
 	},
-/obj/structure/closet/crate/large,
+/obj/structure/table/standard,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
 "fRs" = (
@@ -9513,18 +9497,6 @@
 	},
 /obj/floor_decal/corner/darkblue/border{
 	dir = 1
-	},
-/obj/structure/table/standard,
-/obj/item/fd/simple_combat/revive{
-	pixel_y = 10;
-	pixel_x = 7
-	},
-/obj/item/fd/simple_combat/revive{
-	pixel_y = 3;
-	pixel_x = 6
-	},
-/obj/item/fd/simple_combat/adrenaline{
-	pixel_x = -9
 	},
 /obj/item/fd/simple_combat/adrenaline{
 	pixel_x = -9
@@ -11168,6 +11140,7 @@
 "gVX" = (
 /obj/structure/table/rack,
 /obj/floor_decal/corner/paleblue/mono,
+/obj/item/fd/simple_combat/bloodbag,
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med/warehouse)
 "gWc" = (
@@ -11379,18 +11352,15 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/bunker/lower/monorail/tramway)
 "hcT" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/table/standard{
-	icon_state = "metal_flip0";
-	dir = 1;
-	flipped = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/bunker/corridors/center)
+/obj/structure/table/rack,
+/obj/floor_decal/corner/paleblue/mono,
+/obj/item/storage/firstaid/empty,
+/obj/item/storage/firstaid/empty,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
+/turf/simulated/floor/tiled/monotile,
+/area/bunker/lower/med/warehouse)
 "hcV" = (
 /obj/submap_landmark/spawnpoint/bunker/meat,
 /turf/simulated/floor/exoplanet/fd/desertsand,
@@ -11508,6 +11478,9 @@
 	pixel_y = 4;
 	pixel_x = 2
 	},
+/obj/item/storage/pill_bottle{
+	name = "pill bottle (dexalin)"
+	},
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med/warehouse)
 "heC" = (
@@ -11530,7 +11503,6 @@
 	color = "#a1d2d6";
 	light_color = "#a1d2d6"
 	},
-/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/lower/med/mortuary)
 "heV" = (
@@ -11542,6 +11514,14 @@
 	dir = 1
 	},
 /obj/structure/table/woodentable,
+/obj/item/clothing/under/dark{
+	pixel_x = 10;
+	pixel_y = 3
+	},
+/obj/item/clothing/gloves/insulated/dark{
+	pixel_x = -7;
+	pixel_y = 1
+	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/rooms/room5)
 "hfi" = (
@@ -12090,9 +12070,14 @@
 	name = "IV Blood Cabinet";
 	pixel_x = -32
 	},
+/obj/item/reagent_containers/ivbag/blood/human/opos,
 /obj/item/reagent_containers/ivbag/blood/human/oneg,
 /obj/item/reagent_containers/ivbag/blood/human/oneg,
-/obj/item/reagent_containers/ivbag/glucose,
+/obj/item/reagent_containers/ivbag/blood/human/oneg,
+/obj/item/reagent_containers/ivbag/blood/human/oneg,
+/obj/item/reagent_containers/ivbag/blood/human/abpos,
+/obj/item/reagent_containers/ivbag/blood/human/abpos,
+/obj/item/reagent_containers/ivbag/blood/human/aneg,
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med/lobby)
 "hye" = (
@@ -12123,15 +12108,16 @@
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/virology)
 "hyC" = (
-/obj/floor_decal/borderfloor{
-	dir = 1
+/obj/item/paper/bunker/poems/decay{
+	pixel_x = 7;
+	pixel_y = 8
 	},
-/obj/floor_decal/corner/darkblue/border{
-	dir = 1
+/obj/item/paper/bunker/poems/smoke{
+	pixel_x = -11;
+	pixel_y = 5
 	},
-/obj/item/storage/firstaid/empty,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/command)
+/turf/simulated/floor/wood/bamboo,
+/area/bunker/rooms/room4)
 "hyQ" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 8
@@ -12311,6 +12297,8 @@
 /area/bunker/jungle)
 "hEB" = (
 /obj/machinery/door/airlock/autoname{
+	door_color = "#c9a344";
+	stripe_color = "#b88a3b";
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -12663,6 +12651,13 @@
 /obj/decal/cleanable/dirt,
 /obj/structure/table/rack,
 /obj/floor_decal/corner/paleblue/mono,
+/obj/item/rolled_towel{
+	pixel_y = 7
+	},
+/obj/item/rolled_towel,
+/obj/item/rolled_towel{
+	pixel_y = 14
+	},
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med/warehouse)
 "hSK" = (
@@ -13009,12 +13004,10 @@
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/bunker/jungle)
 "ieZ" = (
-/obj/structure/table/standard,
-/obj/item/gun/energy/laser{
-	pixel_y = -22
-	},
-/turf/simulated/floor/tiled/dark,
-/area/bunker/command)
+/obj/floor_decal/corner/paleblue/diagonal,
+/obj/structure/iv_stand,
+/turf/simulated/floor/tiled,
+/area/bunker/lower/med/med_bay)
 "ifw" = (
 /obj/machinery/computer/ship/helm/controller{
 	pixel_x = 20;
@@ -13155,31 +13148,24 @@
 /turf/simulated/floor/exoplanet/fd/muddirt,
 /area/bunker/jungle)
 "ikI" = (
-/obj/catwalk_plated/dark,
-/obj/structure/table/standard,
-/obj/item/material/ashtray/plastic,
-/obj/item/gun/projectile/pistol/sol_service{
-	pixel_y = 9;
-	pixel_x = 9
+/obj/floor_decal/corner/paleblue/border,
+/obj/floor_decal/corner/paleblue/border{
+	dir = 1
 	},
-/obj/item/gun/projectile/pistol/sol_service{
-	pixel_y = 3;
-	pixel_x = 14
+/obj/machinery/light{
+	color = "#a1d2d6";
+	light_color = "#a1d2d6";
+	dir = 8
 	},
-/obj/item/gun/projectile/pistol/sol_service{
-	pixel_y = -1;
-	pixel_x = 18
+/obj/item/storage/belt/medical{
+	pixel_y = 24
 	},
-/obj/item/ammo_magazine/pistol/double{
-	pixel_x = -8;
-	pixel_y = 4
+/obj/item/bonegel{
+	pixel_x = -6;
+	pixel_y = 49
 	},
-/obj/item/ammo_magazine/pistol/double{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/turf/simulated/floor/plating,
-/area/bunker/command)
+/turf/simulated/floor/tiled,
+/area/bunker/lower/med/warehouse)
 "ikM" = (
 /obj/fd_water/alt_ver1,
 /obj/floor_decal/messygrass{
@@ -13546,7 +13532,6 @@
 /obj/floor_decal/corner/darkblue/border{
 	dir = 8
 	},
-/obj/decal/cleanable/blood/drip,
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
@@ -13596,6 +13581,7 @@
 "ivZ" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
+/obj/structure/barricade,
 /turf/simulated/floor/plating,
 /area/bunker/lower/med)
 "iwl" = (
@@ -13732,10 +13718,13 @@
 /turf/simulated/floor/plating,
 /area/bunker/lower/lab)
 "iCI" = (
-/obj/floor_decal/corner/grey/diagonal,
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/bunker/lower/med/mortuary)
+/obj/structure/table/rack,
+/obj/floor_decal/corner/paleblue/mono,
+/obj/item/storage/firstaid/adv,
+/obj/item/storage/firstaid/adv,
+/turf/simulated/floor/tiled/monotile,
+/area/bunker/lower/med/warehouse)
 "iDm" = (
 /obj/structure/fd/bs_spikes,
 /obj/structure/fd/chasm{
@@ -14359,7 +14348,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/bunker/corridors/west)
 "iZv" = (
 /obj/structure/table/marble,
@@ -14846,6 +14835,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/bunker/corridors/west)
 "jmJ" = (
@@ -15211,15 +15201,6 @@
 /obj/paint/black,
 /turf/simulated/wall/r_wall,
 /area/bunker/eng/workshop)
-"jAG" = (
-/obj/machinery/light{
-	color = "#a1d2d6";
-	light_color = "#a1d2d6";
-	dir = 8
-	},
-/obj/decal/cleanable/blood/drip,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/corridors/center)
 "jBb" = (
 /turf/simulated/floor/exoplanet/samosbor/carpet{
 	icon_state = "ca_da_gy_7"
@@ -16403,6 +16384,10 @@
 	pixel_x = -4;
 	pixel_y = -1
 	},
+/obj/item/clothing/head/hairflower/yellow{
+	pixel_x = 8;
+	pixel_y = -3
+	},
 /turf/simulated/floor/exoplanet/grim_wood_log,
 /area/bunker/barracks)
 "kuT" = (
@@ -16439,7 +16424,7 @@
 /obj/decal/cleanable/dirt,
 /obj/structure/table/rack,
 /obj/floor_decal/corner/paleblue/mono,
-/obj/item/storage/pill_bottle/spaceacillin,
+/obj/item/storage/firstaid/trauma,
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med/warehouse)
 "kws" = (
@@ -16556,12 +16541,16 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/bunker/lower/monorail/tramway)
 "kzi" = (
-/obj/item/device/flashlight/lamp/floodlamp{
-	on = 1;
-	spawn_dir = 2
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
-/area/bunker/command)
+/obj/floor_decal/corner/paleblue/half{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/bunker/lower/med)
 "kzB" = (
 /obj/paint/silver,
 /turf/simulated/wall/r_wall,
@@ -16848,11 +16837,13 @@
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
 "kKH" = (
-/obj/decal/cleanable/blood/drip,
-/obj/structure/bed/chair/office/dark{
-	dir = 4;
-	pixel_x = -4;
-	pixel_y = 14
+/obj/structure/table/standard,
+/obj/item/gun/energy/laser{
+	pixel_y = -5
+	},
+/obj/item/gun/projectile/pistol/magnum_pistol{
+	pixel_x = -2;
+	pixel_y = 7
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
@@ -17280,11 +17271,12 @@
 /turf/simulated/floor/exoplanet/wet_stone,
 /area/bunker/interlude)
 "kYt" = (
-/obj/structure/table/standard,
 /obj/floor_decal/spline/fancy/black{
 	dir = 1
 	},
-/obj/item/clothing/head/helmet/manticore_combat,
+/obj/machinery/constructable_frame/computerframe/deconstruct{
+	dir = 4
+	},
 /turf/simulated/floor/lino,
 /area/bunker/command)
 "kYv" = (
@@ -17430,15 +17422,9 @@
 /obj/decal/cleanable/dirt,
 /obj/structure/table/rack,
 /obj/floor_decal/corner/paleblue/mono,
-/obj/item/storage/pill_bottle{
-	name = "pill bottle (dyloven)";
-	pixel_y = -7;
-	pixel_x = 5
-	},
-/obj/item/storage/pill_bottle{
-	name = "pill bottle (dyloven)";
-	pixel_y = 3;
-	pixel_x = -5
+/obj/item/storage/firstaid/combat,
+/obj/item/storage/firstaid/combat{
+	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med/warehouse)
@@ -18527,6 +18513,7 @@
 /turf/simulated/floor/exoplanet/fd/waste,
 /area/bunker/jungle)
 "lNY" = (
+/obj/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/bunker/corridors/west)
 "lOf" = (
@@ -18808,7 +18795,10 @@
 /turf/simulated/open,
 /area/bunker/corridors/north)
 "mai" = (
-/obj/machinery/door/airlock/autoname,
+/obj/machinery/door/airlock/autoname{
+	door_color = "#46698c";
+	stripe_color = "#3366cc"
+	},
 /turf/simulated/floor/plating,
 /area/bunker/command)
 "mak" = (
@@ -18858,18 +18848,8 @@
 /turf/simulated/floor/plating,
 /area/bunker/jungle/lz)
 "mdx" = (
-/obj/floor_decal/borderfloor{
-	dir = 1
-	},
-/obj/floor_decal/corner/darkblue/border{
-	dir = 1
-	},
-/obj/structure/table/standard,
-/obj/item/gun/energy/ionrifle/anti_terra{
-	pixel_y = 9
-	},
-/obj/item/gun/energy/ionrifle/anti_terra,
-/turf/simulated/floor/tiled/dark/monotile,
+/obj/paint/dark_blue_gray,
+/turf/simulated/wall/r_wall,
 /area/bunker/command)
 "mdL" = (
 /obj/machinery/computer/modular/preset/medical{
@@ -19270,9 +19250,6 @@
 "mse" = (
 /obj/catwalk_plated/dark,
 /obj/decal/cleanable/dirt,
-/obj/structure/bed/chair/office/dark{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/bunker/command)
 "msL" = (
@@ -19572,18 +19549,6 @@
 	dir = 4
 	},
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/command)
-"mBJ" = (
-/obj/floor_decal/borderfloor{
-	dir = 1
-	},
-/obj/floor_decal/corner/darkblue/border{
-	dir = 1
-	},
-/obj/structure/bed/chair/office/comfy/brown{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "mBS" = (
@@ -20248,18 +20213,21 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/eng)
 "mYD" = (
-/obj/decal/cleanable/dirt,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/structure/table/standard,
+/obj/structure/window/reinforced{
+	dir = 4
 	},
-/obj/decal/cleanable/blood/drip,
+/obj/item/material/ashtray/plastic,
 /turf/simulated/floor/tiled/dark,
-/area/bunker/corridors/center)
+/area/bunker/command)
 "mYJ" = (
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/obj/catwalk_plated,
+/obj/item/caution/cone{
+	pixel_x = -8;
+	pixel_y = 5
+	},
+/turf/simulated/floor/plating,
 /area/bunker/lower/med)
 "mYN" = (
 /obj/structure/flora/seaweed/large{
@@ -20510,7 +20478,6 @@
 /area/bunker/kitchen/bufet)
 "nhb" = (
 /obj/floor_decal/corner/grey/diagonal,
-/obj/decal/cleanable/dirt,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
@@ -20641,8 +20608,25 @@
 "nkY" = (
 /obj/floor_decal/corner/paleblue/mono,
 /obj/structure/table/rack,
-/obj/item/storage/pill_bottle{
-	name = "pill bottle (dexalin)"
+/obj/item/fd/simple_combat/adrenaline{
+	pixel_x = -9
+	},
+/obj/item/fd/simple_combat/revive{
+	pixel_y = 3;
+	pixel_x = 6
+	},
+/obj/item/fd/simple_combat/revive{
+	pixel_y = 10;
+	pixel_x = 7
+	},
+/obj/item/fd/simple_combat/adrenaline{
+	pixel_x = -9
+	},
+/obj/item/fd/simple_combat/adrenaline{
+	pixel_x = -9
+	},
+/obj/item/fd/simple_combat/adrenaline{
+	pixel_x = -9
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med/warehouse)
@@ -21252,16 +21236,14 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/jungle)
 "nGc" = (
-/obj/structure/railing/mapped,
-/obj/floor_decal/corner/darkblue/half,
-/obj/structure/platform,
-/obj/structure/iv_stand,
-/obj/item/stack/medical/bruise_pack{
-	pixel_x = 18;
-	pixel_y = 10
+/obj/structure/table/rack,
+/obj/floor_decal/corner/paleblue/mono,
+/obj/item/storage/firstaid/o2{
+	pixel_y = -7;
+	pixel_x = 4
 	},
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/command)
+/turf/simulated/floor/tiled/monotile,
+/area/bunker/lower/med/warehouse)
 "nGr" = (
 /obj/structure/platform/kutjevo/rock{
 	dir = 4;
@@ -21376,11 +21358,18 @@
 	},
 /area/bunker/jungle)
 "nLj" = (
-/obj/structure/bed/chair/office/comfy/brown{
+/obj/floor_decal/corner/paleblue/mono,
+/obj/machinery/light{
+	color = "#a1d2d6";
+	light_color = "#a1d2d6";
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/bunker/command)
+/obj/item/caution/cone{
+	pixel_x = -7;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/bunker/lower/med)
 "nLB" = (
 /obj/fd_water/alt_ver1,
 /obj/floor_decal/messygrass{
@@ -21840,17 +21829,17 @@
 	pixel_x = 9;
 	pixel_y = -10
 	},
+/obj/item/clothing/under/ibis{
+	pixel_x = 10;
+	pixel_y = 6;
+	name = "Old pilot suit 'Aegis-8'";
+	desc = "Standard anti-G suit for a mech pilot, released in a limited series for participants in the experimental neurointerface program. This is don t have any interface and spec anti-G plate"
+	},
 /turf/simulated/floor/wood/ebony,
 /area/bunker/barracks)
 "obv" = (
-/obj/structure/table/standard,
-/obj/item/material/clipboard/ebony,
-/obj/item/reagent_containers/food/drinks/coffee{
-	pixel_y = 11
-	},
-/obj/item/stack/medical/ointment{
-	pixel_x = 6;
-	pixel_y = 3
+/obj/structure/bed/chair/office/dark{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
@@ -22113,6 +22102,17 @@
 	pixel_y = -7;
 	pixel_x = 5
 	},
+/obj/item/storage/pill_bottle/spaceacillin,
+/obj/item/storage/pill_bottle{
+	name = "pill bottle (dyloven)";
+	pixel_y = 3;
+	pixel_x = -5
+	},
+/obj/item/storage/pill_bottle{
+	name = "pill bottle (dyloven)";
+	pixel_y = -7;
+	pixel_x = 5
+	},
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med/warehouse)
 "oji" = (
@@ -22189,19 +22189,6 @@
 /obj/structure/fd/bs_vines,
 /turf/simulated/floor/plating,
 /area/bunker/lower/lab)
-"olm" = (
-/obj/catwalk_plated/dark,
-/obj/structure/closet/crate/medical,
-/obj/item/storage/firstaid/light,
-/obj/item/storage/firstaid/regular,
-/obj/item/storage/firstaid/regular,
-/obj/item/storage/firstaid/regular,
-/obj/item/storage/firstaid/trauma,
-/obj/item/storage/firstaid/adv,
-/obj/item/storage/firstaid/stab,
-/obj/item/storage/firstaid/empty,
-/turf/simulated/floor/plating,
-/area/bunker/command)
 "olB" = (
 /obj/structure/platform/mineral/sandstone{
 	layer = 2.24
@@ -22389,6 +22376,11 @@
 /area/bunker/jungle)
 "osy" = (
 /obj/decal/cleanable/generic,
+/obj/structure/table/standard,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/item/stack/material/plastic/ten,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
 "otd" = (
@@ -22590,6 +22582,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/floor_decal/corner/paleblue/half{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/bunker/lower/med)
 "oAz" = (
@@ -22639,22 +22634,18 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
 "oBZ" = (
-/obj/floor_decal/borderfloor{
-	dir = 1
-	},
-/obj/floor_decal/corner/darkblue/border{
-	dir = 1
-	},
-/obj/structure/table/standard,
-/obj/item/screwdriver{
-	pixel_y = 20
-	},
-/obj/item/wrench,
-/obj/item/fd/simple_grenade/anti_terra{
-	pixel_x = 6;
-	pixel_y = -8
-	},
-/turf/simulated/floor/tiled/dark/monotile,
+/obj/decal/cleanable/dirt,
+/obj/structure/closet/crate/large,
+/obj/item/clothing/head/helmet/manticore_combat,
+/obj/item/clothing/head/helmet/manticore_combat,
+/obj/item/clothing/head/helmet/manticore_combat,
+/obj/item/clothing/suit/storage/manticore_combat,
+/obj/item/clothing/suit/storage/manticore_combat,
+/obj/item/clothing/suit/storage/manticore_combat,
+/obj/item/clothing/suit/storage/manticore_combat,
+/obj/item/clothing/suit/storage/manticore_combat,
+/obj/item/clothing/head/helmet/manticore_combat,
+/turf/simulated/floor/tiled/dark,
 /area/bunker/command)
 "oCO" = (
 /obj/floor_decal/techfloor/orange,
@@ -23034,11 +23025,17 @@
 /turf/simulated/floor/plating,
 /area/bunker/lower/corridos)
 "oNG" = (
-/obj/structure/fd/interactive/jeff_killer_gun_deployed{
-	dir = 8
+/obj/structure/table/standard,
+/obj/item/fd/simple_grenade/anti_terra{
+	pixel_x = 6;
+	pixel_y = -8
 	},
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/corridors/north)
+/obj/item/wrench,
+/obj/item/screwdriver{
+	pixel_y = 20
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bunker/command)
 "oOy" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/exoplanet/fd/grass{
@@ -23828,12 +23825,8 @@
 /obj/floor_decal/corner/darkblue/border{
 	dir = 4
 	},
-/obj/structure/table/standard,
-/obj/item/paper_bin,
-/obj/item/pen,
-/obj/item/bonegel{
-	pixel_x = -14;
-	pixel_y = 4
+/obj/structure/bed/chair/office/comfy/brown{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
@@ -23988,10 +23981,18 @@
 /obj/decal/cleanable/dirt,
 /obj/structure/table/rack,
 /obj/floor_decal/corner/paleblue/mono,
-/obj/item/storage/firstaid/adv,
-/obj/item/storage/firstaid/o2{
-	pixel_y = -7;
-	pixel_x = 4
+/obj/item/storage/firstaid/light,
+/obj/item/stack/medical/bruise_pack{
+	pixel_x = 18;
+	pixel_y = 2
+	},
+/obj/item/stack/medical/bruise_pack{
+	pixel_x = 18;
+	pixel_y = 10
+	},
+/obj/item/stack/medical/advanced/bruise_pack{
+	pixel_x = 10;
+	pixel_y = 10
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med/warehouse)
@@ -24421,13 +24422,9 @@
 /turf/simulated/floor/plating,
 /area/bunker/corridors/center)
 "pLl" = (
-/obj/structure/table/standard{
-	icon_state = "metal_flip0";
-	dir = 1;
-	flipped = 1
-	},
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/corridors/center)
+/obj/structure/roller_bed,
+/turf/simulated/floor/tiled,
+/area/bunker/lower/med/lobby)
 "pLu" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -24667,7 +24664,6 @@
 /obj/floor_decal/corner/black{
 	dir = 8
 	},
-/obj/item/fd/simple_combat/bloodbag,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "pSK" = (
@@ -24947,9 +24943,6 @@
 "qdH" = (
 /obj/decal/cleanable/dirt,
 /obj/catwalk_plated/dark,
-/obj/machinery/constructable_frame/computerframe/deconstruct{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/bunker/command)
 "qeR" = (
@@ -25029,16 +25022,6 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/eng)
-"qfP" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/decal/cleanable/blood/drip,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/bunker/corridors/center)
 "qgc" = (
 /obj/structure/vines/light3,
 /turf/simulated/floor/plating,
@@ -25094,15 +25077,10 @@
 /turf/simulated/floor/exoplanet/grim_wood_good2,
 /area/bunker/barracks)
 "qhX" = (
-/obj/floor_decal/corner/grey/diagonal,
-/obj/decal/cleanable/dirt,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/bunker/lower/med/mortuary)
+/obj/floor_decal/corner/paleblue/mono,
+/obj/structure/barricade,
+/turf/simulated/floor/tiled/monotile,
+/area/bunker/lower/med)
 "qij" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -25395,16 +25373,7 @@
 /obj/floor_decal/corner/darkblue/border{
 	dir = 4
 	},
-/obj/structure/closet/crate/large,
-/obj/item/clothing/suit/storage/manticore_combat,
-/obj/item/clothing/suit/storage/manticore_combat,
-/obj/item/clothing/suit/storage/manticore_combat,
-/obj/item/clothing/suit/storage/manticore_combat,
-/obj/item/clothing/suit/storage/manticore_combat,
-/obj/item/clothing/head/helmet/manticore_combat,
-/obj/item/clothing/head/helmet/manticore_combat,
-/obj/item/clothing/head/helmet/manticore_combat,
-/obj/item/clothing/head/helmet/manticore_combat,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "qri" = (
@@ -26712,11 +26681,9 @@
 /turf/simulated/wall/r_wall,
 /area/bunker/kitchen/bufet)
 "rdB" = (
-/obj/structure/railing/mapped,
-/obj/floor_decal/corner/darkblue/half,
-/obj/structure/platform,
-/obj/machinery/constructable_frame/computerframe/deconstruct,
-/turf/simulated/floor/tiled/dark/monotile,
+/obj/decal/cleanable/dirt,
+/obj/structure/bed/chair/office/dark,
+/turf/simulated/floor/tiled/dark,
 /area/bunker/command)
 "rdT" = (
 /obj/structure/platform/kutjevo/rock{
@@ -26779,7 +26746,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/bunker/corridors/center)
 "rey" = (
 /obj/machinery/light{
@@ -27275,6 +27242,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/airlock/autoname{
+	door_color = "#46698c";
+	stripe_color = "#3366cc"
+	},
 /turf/simulated/floor/plating,
 /area/bunker/command)
 "ruM" = (
@@ -27365,6 +27336,7 @@
 /obj/floor_decal/spline/fancy/black{
 	dir = 1
 	},
+/obj/structure/table/standard,
 /turf/simulated/floor/lino,
 /area/bunker/command)
 "rxJ" = (
@@ -27727,7 +27699,7 @@
 /area/bunker/jungle)
 "rHY" = (
 /obj/machinery/door/airlock/multi_tile/virology,
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/simulated/floor/tiled/dark,
 /area/bunker/eng)
 "rHZ" = (
 /obj/structure/platform/kutjevo/rock{
@@ -27889,10 +27861,6 @@
 /obj/structure/table/rack/samosbor/mod{
 	icon_state = "table_plank_13"
 	},
-/obj/item/modular_computer/pda{
-	name = "\improper Crudely modified PDA";
-	desc = "Обыкновенной модели ПДА, с разбитым и испачканным чем-то экраном, в трещинах которого заметны клочки шерсти. Он кажется чуть более увесистым, чем ПДА той же модели, в первую очередь, из-за коробочки, грубо припаянной к основному корпусу. Она напоминает модифицированное пишущее устройство диктофона. Рядом с динамиком также проделаны мелкие отверстия, которых здесь быть не должно."
-	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/eng)
 "rMj" = (
@@ -27926,7 +27894,6 @@
 /area/bunker/command)
 "rMR" = (
 /obj/floor_decal/industrial/outline/grey,
-/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/med/mortuary)
 "rMU" = (
@@ -28103,15 +28070,12 @@
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med/surgery)
 "rRK" = (
-/obj/structure/railing/mapped,
-/obj/floor_decal/corner/darkblue/half,
-/obj/structure/platform,
-/obj/structure/roller_bed,
-/obj/item/storage/belt/medical{
-	pixel_y = 5
+/obj/item/paper/bunker/poems/wave{
+	pixel_x = -3;
+	pixel_y = 6
 	},
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/command)
+/turf/simulated/floor/wood/bamboo,
+/area/bunker/rooms/room4)
 "rRR" = (
 /obj/overlay/diona/floor,
 /obj/structure/flora/ausbushes/ppflowers,
@@ -28409,9 +28373,11 @@
 /area/bunker/interlude)
 "saD" = (
 /obj/decal/cleanable/dirt,
-/obj/decal/cleanable/blood/drip,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/corridors/north)
+/obj/structure/table/rack,
+/obj/floor_decal/corner/paleblue/mono,
+/obj/item/storage/firstaid/stab,
+/turf/simulated/floor/tiled/monotile,
+/area/bunker/lower/med/warehouse)
 "sbh" = (
 /obj/floor_decal/industrial/outline/grey,
 /obj/structure/table/rack,
@@ -28584,8 +28550,6 @@
 /area/bunker/corridors/south)
 "sgI" = (
 /obj/floor_decal/corner/grey/diagonal,
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -28792,7 +28756,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/plating,
 /area/bunker/corridors/south)
 "snJ" = (
@@ -29447,7 +29410,6 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/bunker/jungle)
 "sIi" = (
-/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/lower/med/mortuary)
 "sIj" = (
@@ -30419,7 +30381,9 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
 "tlK" = (
-/obj/machinery/door/airlock/autoname,
+/obj/machinery/door/airlock/autoname{
+	door_color = "#c9a344"
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -30515,6 +30479,10 @@
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
 /obj/catwalk_plated,
+/obj/item/caution/cone{
+	pixel_x = -4;
+	pixel_y = 7
+	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/med)
 "toS" = (
@@ -30581,7 +30549,6 @@
 /area/bunker/kpp)
 "tqe" = (
 /obj/structure/table/standard,
-/obj/item/storage/firstaid/surgery,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
 "tqj" = (
@@ -31420,17 +31387,16 @@
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker)
 "tRb" = (
-/obj/catwalk_plated/dark,
-/obj/structure/table/standard,
-/obj/item/rolled_towel{
-	pixel_y = 14
+/obj/item/paper/bunker/poems/light{
+	pixel_x = 4;
+	pixel_y = 6
 	},
-/obj/item/rolled_towel{
-	pixel_y = 7
+/obj/item/paper/bunker/poems/water_key{
+	pixel_x = -13;
+	pixel_y = 4
 	},
-/obj/item/rolled_towel,
-/turf/simulated/floor/plating,
-/area/bunker/command)
+/turf/simulated/floor/wood/bamboo,
+/area/bunker/rooms/room4)
 "tRJ" = (
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 1
@@ -31903,7 +31869,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/decal/cleanable/blood/drip,
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -32302,7 +32267,9 @@
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med)
 "uoS" = (
-/obj/machinery/door/airlock/autoname,
+/obj/machinery/door/airlock/autoname{
+	door_color = "#420d0d"
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -32412,7 +32379,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/bunker/corridors/east)
 "utH" = (
 /obj/structure/bed/chair/padded/green{
@@ -32961,11 +32928,14 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/corridos)
 "uHp" = (
+/obj/structure/window/reinforced,
+/obj/floor_decal/corner/darkblue/mono,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/window/reinforced,
-/obj/floor_decal/corner/darkblue/mono,
+/obj/machinery/constructable_frame/computerframe/deconstruct{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "uHX" = (
@@ -34936,14 +34906,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/bunker/lower/med/med_bay)
-"vTa" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
-/area/bunker/corridors/center)
 "vTt" = (
 /obj/floor_decal/borderfloor{
 	dir = 1
@@ -35181,9 +35143,12 @@
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/warehouse)
 "wai" = (
-/obj/decal/cleanable/blood/drip,
-/obj/decal/cleanable/blood/drip,
-/turf/simulated/floor/plating,
+/obj/machinery/door/airlock/autoname{
+	door_color = "#c9a344";
+	stripe_color = "#b88a3b";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/eng/workshop)
 "waD" = (
 /obj/structure/platform/kutjevo/rock{
@@ -35525,6 +35490,7 @@
 	light_color = "#a1d2d6"
 	},
 /obj/structure/table/rack,
+/obj/item/clothing/suit/storage/vista_labcoat,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/lower/eng)
 "wmp" = (
@@ -36391,16 +36357,10 @@
 /turf/simulated/floor/exoplanet/fd/desertsand,
 /area/bunker/jungle)
 "wMr" = (
-/obj/floor_decal/borderfloor{
-	dir = 4
-	},
-/obj/floor_decal/corner/darkblue/border{
-	dir = 4
-	},
 /obj/decal/cleanable/dirt,
-/obj/item/stack/material/plastic/ten,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/bunker/command)
+/obj/structure/barricade,
+/turf/simulated/floor/plating,
+/area/bunker/lower/med)
 "wMD" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -36436,12 +36396,6 @@
 	info = "You tried to read what was written here, but the handwriting is so 'medical' that it is impossible without special knowledge.";
 	pixel_x = 2;
 	pixel_y = 23
-	},
-/obj/item/paper/memo/medical{
-	name = "Медицинские записи Луни";
-	info = "You tried to read what was written here, but the handwriting is so 'medical' that it is impossible without special knowledge.";
-	pixel_x = -6;
-	pixel_y = 19
 	},
 /turf/simulated/floor/tiled,
 /area/bunker/lower/med)
@@ -36953,6 +36907,11 @@
 /obj/structure/table/standard,
 /obj/floor_decal/borderfloorwhite{
 	dir = 8
+	},
+/obj/item/paper/memo/medical{
+	name = "Медицинские записи Луни";
+	info = "You tried to read what was written here, but the handwriting is so 'medical' that it is impossible without special knowledge.";
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/office)
@@ -37669,10 +37628,36 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/bunker/jungle)
 "xFH" = (
-/obj/machinery/light_construct{
+/obj/structure/closet/crate,
+/obj/item/stack/medical/splint,
+/obj/item/stack/medical/splint,
+/obj/item/stack/medical/splint,
+/obj/item/stack/medical/splint,
+/obj/item/stack/medical/splint,
+/obj/item/stack/medical/splint,
+/obj/item/stack/medical/splint,
+/obj/item/stack/medical/splint,
+/obj/item/stack/medical/bruise_pack,
+/obj/item/stack/medical/bruise_pack,
+/obj/item/stack/medical/bruise_pack,
+/obj/item/stack/medical/bruise_pack,
+/obj/item/stack/medical/bruise_pack,
+/obj/item/stack/medical/bruise_pack,
+/obj/item/stack/medical/advanced/bruise_pack,
+/obj/item/stack/medical/advanced/bruise_pack,
+/obj/item/stack/medical/advanced/bruise_pack,
+/obj/item/stack/medical/advanced/bruise_pack,
+/obj/item/stack/medical/advanced/bruise_pack,
+/obj/item/stack/medical/advanced/bruise_pack,
+/obj/item/stack/medical/ointment,
+/obj/item/stack/medical/ointment,
+/obj/item/stack/medical/ointment,
+/obj/item/stack/medical/ointment,
+/obj/machinery/light{
+	color = "#a1d2d6";
+	light_color = "#a1d2d6";
 	dir = 8
 	},
-/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
 "xFQ" = (
@@ -37717,13 +37702,15 @@
 /turf/simulated/floor/tiled,
 /area/bunker/lower/med)
 "xGs" = (
-/obj/machinery/door/airlock/autoname,
+/obj/machinery/door/airlock/autoname{
+	stripe_color = "#54654c"
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/bunker/rooms/room10)
 "xHj" = (
 /turf/simulated/floor/plating,
@@ -37734,7 +37721,6 @@
 /area/bunker/corridors/west)
 "xHy" = (
 /obj/floor_decal/corner/grey/diagonal,
-/obj/decal/cleanable/dirt,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
@@ -38579,7 +38565,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/bunker/corridors/west)
 "yhu" = (
 /obj/structure/platform/kutjevo/rock{
@@ -73425,7 +73411,7 @@ wvp
 uzh
 lnu
 lnu
-xme
+pLl
 xAI
 goK
 goK
@@ -73615,7 +73601,7 @@ goK
 goK
 itA
 uiE
-rGT
+ieZ
 fId
 eBD
 cjK
@@ -73822,7 +73808,7 @@ aEu
 eBD
 cjK
 aAC
-hTf
+nob
 oAq
 aAC
 aOV
@@ -74024,7 +74010,7 @@ fId
 eBD
 xae
 aAC
-hTf
+nob
 oAq
 aAC
 aOV
@@ -74221,12 +74207,12 @@ goK
 goK
 itA
 uiE
-rGT
+ieZ
 edm
 eBD
 xae
 aAC
-hTf
+nob
 oAq
 aAC
 aOV
@@ -75034,7 +75020,7 @@ itA
 itA
 itA
 aAC
-hTf
+nob
 oAq
 aAC
 xAI
@@ -75236,7 +75222,7 @@ goK
 goK
 kMp
 bBA
-hTf
+nob
 oAq
 aAC
 kMp
@@ -75438,7 +75424,7 @@ iRF
 iRF
 iRF
 aAC
-hTf
+nob
 oAq
 aAC
 kMp
@@ -75630,14 +75616,14 @@ goK
 goK
 iRF
 nkY
-deB
+ikI
 hSo
 oiU
 deB
-hSo
+saD
 kwo
 deB
-gVX
+hcT
 iRF
 aAC
 vru
@@ -75837,9 +75823,9 @@ gVX
 pvX
 tdp
 lcu
-gVX
+nGc
 tdp
-hSo
+iCI
 iRF
 aAC
 vru
@@ -76246,7 +76232,7 @@ iRF
 iRF
 iRF
 nZS
-hTf
+nob
 oAq
 twM
 kMp
@@ -76436,8 +76422,8 @@ moQ
 tzA
 lys
 aOe
-aAC
-nyX
+qhX
+dBG
 aAC
 aAC
 aAC
@@ -76448,7 +76434,7 @@ nyX
 aAC
 nyX
 aAC
-hTf
+nob
 oAq
 twM
 aAC
@@ -76642,14 +76628,14 @@ ivZ
 toM
 gUx
 gUx
-hTf
-hTf
+fmD
+fmD
 uti
 tke
 vru
-hTf
-hTf
-hTf
+fmD
+fmD
+fmD
 uti
 tke
 uti
@@ -76840,18 +76826,18 @@ tzA
 lys
 lys
 lys
-aOe
-uti
+wMr
+mYJ
 fjN
 bSN
-wSk
-wSk
+kzi
+kzi
 fXY
 lEf
 bSN
-wSk
-wSk
-wSk
+kzi
+kzi
+kzi
 rKW
 nCE
 fXY
@@ -77042,8 +77028,8 @@ lwg
 tzA
 lys
 aOe
-aOe
-qTO
+wMr
+nLj
 mre
 aAC
 aAC
@@ -77059,14 +77045,14 @@ mre
 bGn
 kMp
 aAC
-mYJ
+hTf
 mre
 aAC
 hst
 bvU
-qhX
+pNm
 bvU
-iCI
+cwv
 hst
 goK
 goK
@@ -77261,12 +77247,12 @@ vzB
 ogJ
 ogJ
 aAC
-cqi
+aAC
 aJu
 rET
 hst
 dvp
-qhX
+pNm
 bvU
 heN
 hst
@@ -77469,7 +77455,7 @@ fFs
 hst
 bvU
 pNm
-kkS
+bvU
 cwv
 hst
 goK
@@ -77670,9 +77656,9 @@ qHx
 xYS
 hst
 bvU
-qhX
+pNm
 kkS
-iCI
+cwv
 hst
 goK
 goK
@@ -77874,7 +77860,7 @@ hst
 vAy
 xHy
 cwv
-iCI
+cwv
 hst
 goK
 goK
@@ -111418,7 +111404,7 @@ gLB
 qWA
 lFh
 qWA
-aYV
+sZD
 gyI
 bdN
 gyI
@@ -111438,7 +111424,7 @@ goK
 goK
 tAs
 kuR
-eUV
+hqo
 hqo
 aHr
 oZz
@@ -111658,7 +111644,7 @@ pQr
 lab
 fCW
 sDi
-sDi
+rRK
 gTf
 gMl
 fCW
@@ -111860,7 +111846,7 @@ pQr
 ncI
 fCW
 ojx
-sDi
+tRb
 gTf
 utb
 mxP
@@ -112062,7 +112048,7 @@ pQr
 ncI
 fCW
 sDi
-sDi
+hyC
 gTf
 cBs
 fCW
@@ -112282,8 +112268,8 @@ cpn
 bXI
 bXI
 xFH
-eBM
-eBM
+aYV
+oBZ
 mOO
 dfw
 goK
@@ -112481,7 +112467,7 @@ dfw
 qqC
 pqE
 mBB
-wMr
+mBB
 hKm
 vrZ
 rMN
@@ -112631,7 +112617,7 @@ gFw
 bii
 nXY
 qyN
-oNG
+ujj
 cfg
 gyI
 jAF
@@ -112680,8 +112666,8 @@ goK
 goK
 goK
 dfw
-bXI
-eBM
+iKe
+rdB
 pBS
 eBM
 vxo
@@ -112883,9 +112869,9 @@ goK
 goK
 dfw
 osy
-ahw
-mdx
-ikI
+mYD
+stz
+aVN
 vxo
 vTt
 qjV
@@ -113086,8 +113072,8 @@ goK
 dfw
 hBG
 bTZ
-oBZ
-ieZ
+stz
+bXI
 vxo
 lqx
 gSS
@@ -113286,9 +113272,9 @@ dfw
 dfw
 dfw
 dfw
-bXI
-bXI
-hyC
+eYM
+oNG
+stz
 mse
 vxo
 ldm
@@ -113488,11 +113474,11 @@ byf
 ntF
 vgO
 kXP
-eYM
+tqe
 kKH
 stz
 aVN
-nGc
+vxo
 smC
 vGV
 vGV
@@ -113688,7 +113674,7 @@ sgm
 kXP
 rxG
 lRC
-dyq
+lRC
 kXP
 bCL
 epz
@@ -113889,10 +113875,10 @@ qyL
 sgm
 kXP
 kYt
-dyq
 lRC
-dyq
-bXI
+lRC
+kXP
+ahw
 obv
 ckZ
 bXI
@@ -114093,12 +114079,12 @@ dfw
 wHC
 buL
 buL
-kzi
-cFR
+dfw
+dyq
 bXI
 stz
-dTC
-rRK
+aVN
+vxo
 smC
 vGV
 vGV
@@ -114295,7 +114281,7 @@ xew
 qjV
 qjV
 dyq
-dyq
+mdx
 anE
 anE
 hAI
@@ -114501,7 +114487,7 @@ ruF
 gCg
 bXI
 wRz
-olm
+aVN
 pma
 gKI
 bvu
@@ -114703,7 +114689,7 @@ xew
 eUS
 nDo
 fZq
-tRb
+aVN
 qjV
 bOq
 cWI
@@ -114860,9 +114846,9 @@ jAF
 jAF
 jAF
 jAF
-jAF
+vEj
 wai
-jAF
+vEj
 jAF
 jAF
 jAF
@@ -114886,7 +114872,7 @@ fjI
 fjI
 fjI
 eRH
-vTa
+pQr
 xgP
 apQ
 apQ
@@ -115063,9 +115049,9 @@ pLV
 ujj
 ujj
 fJU
-dBG
+tcz
 gyI
-saD
+gKy
 sIj
 gyI
 ujj
@@ -115077,7 +115063,7 @@ fJU
 ujj
 fjI
 vts
-jAG
+pOL
 mIl
 pOL
 nrx
@@ -115271,29 +115257,29 @@ cRT
 pGd
 xQC
 dPQ
-eRp
+fvn
 pGd
 lqE
 ksd
 sRe
-eRp
+fvn
 iHU
 bFc
 vwQ
 vIx
 gxA
-mYD
+bFc
 iHU
 aiv
 gxA
-qfP
+hSO
 aiv
 aiv
 sFs
 lBe
 uoj
-hcT
-qfP
+aiv
+hSO
 hSO
 opi
 uaj
@@ -115307,10 +115293,10 @@ skD
 vcR
 kXP
 fdz
-nLj
-mBJ
+fdz
+stz
 qdH
-cuU
+vxo
 dWP
 gtU
 pxd
@@ -115494,7 +115480,7 @@ vts
 nrx
 fnP
 nrx
-pLl
+nrx
 uQf
 nrx
 uLd
@@ -115511,8 +115497,8 @@ kXP
 bVv
 aKG
 exF
-iKe
-rdB
+bXI
+vxo
 hrJ
 jzX
 qtc
@@ -118135,7 +118121,7 @@ cnR
 kzB
 pnA
 mQo
-mQo
+lZk
 pIn
 kzB
 goK
