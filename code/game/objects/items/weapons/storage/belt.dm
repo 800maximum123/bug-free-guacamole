@@ -555,12 +555,19 @@
 	contents_allowed = list(/obj/item/clothing/mask/luchador)
 
 /obj/item/storage/belt/holster/security/tactical
-	name = "combat belt"
-	desc = "Can hold security gear like handcuffs and flashes, with more pouches for more storage."
+	name = "combat holster belt"
+	desc = "Can hold security gear like handcuffs and flashes, with more pouches for more storage. Comes with a holster."
 	icon_state = "swatbelt"
 	item_state = "swatbelt"
 	storage_slots = 10
 
+// [GAIA]
+/obj/item/storage/belt/security/tactical
+	name = "combat belt"
+	desc = "Can hold security gear like handcuffs and flashes, with more pouches for more storage. Holsterless."
+	icon_state = "basicswatbelt"
+	item_state = "basicswatbelt"
+	storage_slots = 9
 
 /obj/item/storage/belt/waistpack
 	name = "waist pack"
