@@ -326,6 +326,7 @@ var/global/list/channel_to_radio_key = new
 		eavesdroping_obj -= listening_obj
 		for(var/mob/M in eavesdroping)
 			if(M)
+				// [FD-ADD]
 				var/mob/living/carbon/human/H
 				var/temp
 				if(ishuman(M))
@@ -334,6 +335,7 @@ var/global/list/channel_to_radio_key = new
 				else
 					temp = stars(message)
 				M.hear_say(temp, verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
+				// [/FD-ADD]
 				if(M.client)
 					speech_bubble_recipients |= M.client
 
