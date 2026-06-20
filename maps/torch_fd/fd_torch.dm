@@ -181,11 +181,6 @@
 	#include "../torch/loadout/~defines.dm"
 	#include "loadout/overrides.dm"
 
-	// --- CUTSCENES --- //
-	#include "../torch_doh/cutscenes/cutscene_api_danilcus.dm"
-	#include "../torch_doh/cutscenes/animations.dm"
-	#include "../torch_doh/cutscenes/framework.dm"
-
 	// --- MAP FILES --- //
 
 		// ~TORCH~ //
@@ -330,6 +325,14 @@
 	#include "../../mods/_fd/_maps/torch_as_ruin/_torch_as_ruin.dme"
 	#include "../../mods/_fd/_maps/iccgn_samosbor/_samosbor.dme" // We don't need it for now -- Окей, эта штука не дает запустить иные. Оставлю, пока не будет лень пофиксить
 //	#include "../../mods/_fd/_maps/new_new_year_house/_new_new_year_house.dme" // We don't need it for now
+
+	#include "../../mods/_fd/_maps/bunker_hub/_bunker_hub.dme"
+	#include "../../mods/_fd/_maps/fort_manticore/_fort_manticore.dme"
+	#include "../../mods/_fd/_maps/metro/_metro.dme"
+	#include "../../mods/_fd/_maps/vegatable_base/_vegatable_base.dme"
+	#include "../../mods/_fd/_maps/long_forest/_long_forest.dme"
+	#include "../../mods/_fd/_maps/collective_nightmare/_collective_nightmare.dme"
+	#include "../../mods/_fd/_maps/aaaa_facility/_aaaa_facility.dme"
 
 		// ~DANILCUS WIP~ //
 

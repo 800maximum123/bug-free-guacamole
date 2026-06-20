@@ -919,6 +919,13 @@
 /obj/submap_landmark/spawnpoint/swift
 	name = "SWIFT"
 
+/obj/item/fd/perci_mvi
+	name = "MVI Implant"
+	desc = "Устройство, собранное Ампером и Мири'ам перед смертью. Что оно вообще делает?..."
+	icon = 'mods/_fd/fd_assets/icons/obj/items/stock_parts.dmi'
+	icon_state = "adv_scan_module"
+	w_class = ITEM_SIZE_TINY
+
 /datum/job/submap/bunker/zlata
 	title = "Zlata Savina"
 	total_positions = 1
@@ -930,7 +937,6 @@
 	uniform = /obj/item/clothing/under/dark
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/dark
 	gloves = /obj/item/clothing/gloves/insulated/dark
-	r_hand = /obj/item/fd/perci_mvi
 
 	l_ear = /obj/item/device/radio/headset/headset_com
 	id_types = list(/obj/item/card/id/campaign)
@@ -1221,4 +1227,4 @@
 /obj/submap_landmark/spawnpoint/bunker/lira
 	name = "Lira Schatten"
 
-#include "..\map\bunker.dmm"
+// #include "..\map\bunker.dmm"

@@ -72,6 +72,12 @@
 
 	QDEL_IN(src, 1 SECONDS)
 
+/obj/temp_visual/electro
+	duration = 0.5 SECONDS
+	icon = 'mods/_fd/fd_assets/icons/goons/electile.dmi'
+	icon_state = "1a"
+	layer = 4.5
+
 /obj/effect/simple_combat_particle/poisoned
 	icon_state = "poisoned"
 

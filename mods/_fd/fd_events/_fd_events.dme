@@ -9,7 +9,8 @@
 
 #include "code/adventure_mode.dm"
 #include "code/casual_gasmask.dm"
-#include "code/fullscreens.dm"
+#include "code/cinematic_helpers.dm"
+#include "code/cutscenes_framework.dm"
 #include "code/rezadone.dm"
 #include "code/game_pause.dm"
 #include "code/grappling_and_jumping.dm"
@@ -20,6 +21,7 @@
 #include "code/simple_combat.dm"
 #include "code/simple_statuses.dm"
 #include "code/simple_vfx.dm"
+#include "code/various_fullscreens.dm"
 
 #include "code/mecha/base.dm"
 

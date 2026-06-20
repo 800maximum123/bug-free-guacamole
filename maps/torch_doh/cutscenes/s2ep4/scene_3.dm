@@ -133,9 +133,6 @@
 		START_CUTSCENE(/datum/modular_cutscene/s2ep4sc15)
 	)
 
-/proc/cutscene_cinema_end()
-	SSticker.forced_end = TRUE
-
 /datum/modular_cutscene/s2ep4sc15/setup_actions(...)
 	actions = list(
 		TP_CAMERA("Сцена 4-3 - Кадр 6"),

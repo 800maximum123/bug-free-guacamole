@@ -179,37 +179,6 @@
 	#include "../torch/loadout/~defines.dm"
 	#include "loadout/overrides.dm"
 
-	// --- CUTSCENES --- //
-	#include "cutscenes/cutscene_api_danilcus.dm"
-	#include "cutscenes/animations.dm"
-	#include "cutscenes/framework.dm"
-	#include "cutscenes/s2ep1/characters.dm"
-	#include "cutscenes/s2ep1/scene_1to4.dm"
-	#include "cutscenes/s2ep1/scene_5to13.dm"
-	#include "cutscenes/s2ep1/scene_14to20.dm"
-
-	#include "cutscenes/s2ep2/scene_1.dm"
-	#include "cutscenes/s2ep2/scene_2.dm"
-	#include "cutscenes/s2ep2/characters.dm"
-
-	#include "cutscenes/s2ep3/scene_1.dm"
-	#include "cutscenes/s2ep3/scene_2.dm"
-	#include "cutscenes/s2ep3/characters.dm"
-
-	#include "cutscenes/s2ep4/characters.dm"
-	#include "cutscenes/s2ep4/scene_1.dm"
-	#include "cutscenes/s2ep4/scene_2.dm"
-	#include "cutscenes/s2ep4/scene_3.dm"
-
-	#include "cutscenes/s2ep5/characters.dm"
-	#include "cutscenes/s2ep5/cutscenes.dm"
-
-	#include "cutscenes/s2ep7/stuff.dm"
-
-	#include "cutscenes/s2ep8/cutscene.dm"
-
-	#include "music_videos/s2opening1.dm"
-
 	// --- MAP FILES --- //
 
 		// ~TORCH~ //
@@ -362,6 +331,33 @@
 //	#include "../../mods/_fd/cat_alchemist/_cat_alchemist.dme"
 //	#include "../../mods/_fd/fd_tbs/_fd_tbs.dme"
 
+	// --- CUTSCENES --- //
+	#include "cutscenes/s2ep1/characters.dm"
+	#include "cutscenes/s2ep1/scene_1to4.dm"
+	#include "cutscenes/s2ep1/scene_5to13.dm"
+	#include "cutscenes/s2ep1/scene_14to20.dm"
+
+	#include "cutscenes/s2ep2/scene_1.dm"
+	#include "cutscenes/s2ep2/scene_2.dm"
+	#include "cutscenes/s2ep2/characters.dm"
+
+	#include "cutscenes/s2ep3/scene_1.dm"
+	#include "cutscenes/s2ep3/scene_2.dm"
+	#include "cutscenes/s2ep3/characters.dm"
+
+	#include "cutscenes/s2ep4/characters.dm"
+	#include "cutscenes/s2ep4/scene_1.dm"
+	#include "cutscenes/s2ep4/scene_2.dm"
+	#include "cutscenes/s2ep4/scene_3.dm"
+
+	#include "cutscenes/s2ep5/characters.dm"
+	#include "cutscenes/s2ep5/cutscenes.dm"
+
+	#include "cutscenes/s2ep7/stuff.dm"
+
+	#include "cutscenes/s2ep8/cutscene.dm"
+
+	#include "music_videos/s2opening1.dm"
 
 		// ~EXOPLANET RUINS~ //
 

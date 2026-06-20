@@ -1016,7 +1016,7 @@
 		return FALSE
 
 	new /obj/effect/simple_combat_particle/zzaped(owner.loc)
-	new /obj/temp_visual/swift_electro(owner.loc)
+	new /obj/temp_visual/electro(owner.loc)
 
 	owner.add_filter("zzaped", 1, list("type" = "outline", , "size" =1, "color" = COLOR_YELLOW))
 
@@ -1024,7 +1024,7 @@
 	. = ..()
 
 	new /obj/effect/simple_combat_particle/zzaped(owner.loc)
-	new /obj/temp_visual/swift_electro(owner.loc)
+	new /obj/temp_visual/electro(owner.loc)
 
 	animate(owner, transform = matrix(rand(-3,3), rand(-3,3), MATRIX_TRANSLATE), time = 0.5, easing = EASE_IN)
 	for(var/i in 0 to 5)

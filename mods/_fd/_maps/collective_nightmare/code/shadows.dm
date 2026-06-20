@@ -59,38 +59,6 @@
 
 	QDEL_IN(src, duration)
 
-/obj/screen/fullscreen/screamer
-	icon = 'mods/_fd/_maps/collective_nightmare/icons/largenoise.dmi'
-	icon_state = "1"
-	scale_to_view = TRUE
-
-/obj/screen/fullscreen/connection_damage
-	icon = 'mods/_fd/_maps/collective_nightmare/icons/is12_screens.dmi'
-	icon_state = "ghost2"
-	scale_to_view = TRUE
-
-/obj/screen/fullscreen/underworld_vision
-	icon = 'mods/_fd/_maps/collective_nightmare/icons/is12_screens.dmi'
-	icon_state = "ghost1"
-	scale_to_view = TRUE
-
-/obj/screen/fullscreen/almost_done
-	icon = 'mods/_fd/_maps/collective_nightmare/icons/tgmc_screens.dmi'
-	icon_state = "bloodlust"
-	scale_to_view = TRUE
-	alpha = 0
-
-/obj/screen/fullscreen/almost_done/Initialize()
-	. = ..()
-	animate(src, alpha = 255, time = 5, LINEAR_EASING)
-
-/obj/screen/fullscreen/almost_done/black
-	icon = 'mods/_fd/_maps/collective_nightmare/icons/tgmc_screens.dmi'
-	icon_state = "bloodlust"
-	color = COLOR_BLACK
-	scale_to_view = TRUE
-	alpha = 0
-
 /obj/structure/fd/shadow_follower/proc/face_atom(atom/A)
 	if(!A || !x || !y || !A.x || !A.y) return
 	var/dx = A.x - x
