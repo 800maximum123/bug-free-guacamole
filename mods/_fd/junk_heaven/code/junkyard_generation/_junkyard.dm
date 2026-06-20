@@ -8,7 +8,7 @@
 
 /obj/overmap/visitable/sector/junkyard
 	name = "junkyard"
-	icon_state = "globe"
+	icon_state = "junkyard"
 	sector_flags = OVERMAP_SECTOR_KNOWN
 	sensor_visibility = 60
 	var/area/junkyard_area
