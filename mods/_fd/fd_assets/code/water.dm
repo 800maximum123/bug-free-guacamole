@@ -44,6 +44,12 @@
 
 /obj/fd_water/deep
 	water_overlay_height = 23
+	color = "#969696"
+
+/obj/fd_water/deep/Initialize()
+	. = ..()
+
+	color = COLOR_WHITE
 
 /obj/fd_water/alt_ver1
 	icon_state = "water3"

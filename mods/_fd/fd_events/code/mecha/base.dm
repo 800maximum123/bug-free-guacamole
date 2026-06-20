@@ -849,15 +849,16 @@
 	if(istype(target,/mob/living/simple_animal/simple_mecha))
 		var/mob/living/simple_animal/simple_mecha/mecha = target
 
-		var/list/cargo_list_names = list("Cancel")
-		for(var/obj/item in mecha.storage)
-			cargo_list_names += item.name
-			cargo_list_names[item.name] = item
-		var/item_name_remove = input(user,"Pick an item to remove","Item removal selection","Cancel") in cargo_list_names
-		if(item_name_remove == "Cancel")
-			return
-		if(do_after(user, 10 SECONDS, src, DO_PUBLIC_UNIQUE))
-			mecha.eject_cargo_item(cargo_list_names[item_name_remove])
+		if(ishuman(user))
+			var/list/cargo_list_names = list("Cancel")
+			for(var/obj/item in mecha.storage)
+				cargo_list_names += item.name
+				cargo_list_names[item.name] = item
+			var/item_name_remove = input(user,"Pick an item to remove","Item removal selection","Cancel") in cargo_list_names
+			if(item_name_remove == "Cancel")
+				return
+			if(do_after(user, 10 SECONDS, src, DO_PUBLIC_UNIQUE))
+				mecha.eject_cargo_item(cargo_list_names[item_name_remove])
 
 /mob/living/simple_animal/simple_mecha/MouseDrop_T(atom/dropping, mob/user)
 	if(dropping == src)

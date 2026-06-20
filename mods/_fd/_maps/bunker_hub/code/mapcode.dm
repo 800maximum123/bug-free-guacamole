@@ -52,6 +52,10 @@
 	icon_state = "rain"
 	requires_power = 0
 
+/area/bunker/lounge
+	name = "Beach Lounge"
+	requires_power = 0
+
 /area/bunker/interlude
 	name = "Bluespace Interlude (Bunker)"
 	requires_power = 0
@@ -456,7 +460,7 @@
 
 /obj/structure/fd/random_junk/big_campfire/Initialize()
 	. = ..()
-	SetTransform(3)
+	SetTransform(2)
 	fire = new /obj/structure/fd/random_junk/big_fire(get_turf(src))
 
 /obj/structure/fd/random_junk/big_campfire/interact_with(mob/living/user)
@@ -469,7 +473,7 @@
 		"ПОТУШИТЬ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "red"),
 		"ЗАЖЕЧЬ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "green"),
 	)
-	var/chosen_option = show_radial_menu(user, src, options, radius = 25, require_near = TRUE)
+	var/chosen_option = show_radial_menu(user, src, options, radius = 60, require_near = TRUE)
 	if(!chosen_option)
 		return FALSE
 	switch(chosen_option)

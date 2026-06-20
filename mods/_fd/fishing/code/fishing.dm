@@ -110,7 +110,7 @@
 
 	return TRUE
 
-/atom/proc/fishing_qte(mob/living/carbon/user, obj/item/tool)
+/atom/proc/fishing_qte(mob/living/carbon/human/user, obj/item/tool)
 	set waitfor = FALSE
 
 	if(!fisherman || !currently_fishing || !fisherman_tool)
@@ -134,7 +134,7 @@
 	sleep(tool.fishing_timing/2)
 	animate(prefish_icon, tool.fishing_timing/2, easing = SINE_EASING|EASE_IN, transform = matrix())
 
-/atom/proc/fail_qte(mob/living/carbon/user, obj/item/tool)
+/atom/proc/fail_qte(mob/living/carbon/human/user, obj/item/tool)
 	if(prefish)
 
 		for(var/obj/screen/F in user.client.screen)
@@ -151,15 +151,26 @@
 
 		addtimer(new Callback(src, PROC_REF(fishing_qte), user, fisherman_tool), rand(fisherman_tool.min_fishing_duration, fisherman_tool.max_fishing_duration))
 
-/atom/proc/catch_fish(mob/living/carbon/user, obj/item/tool)
+/atom/proc/catch_fish(mob/living/carbon/human/user, obj/item/tool)
 
 	user.client.connected_fish = null
-
 	prefish.kill_health()
 	prefish.update_icon()
 
-	prefish.forceMove(get_turf(user))
-	playsound(get_turf(src), 'sound/effects/watersplash.ogg', 100, TRUE)
+	if(user.raft)
+		if(length(user.raft.raft_storage) >= user.raft.raft_storage_cap)
+			user.raft.balloon_alert(user, "|НА ПЛОТУ НЕДОСТАТОЧНО МЕСТА!|", COLOR_RED)
+
+			qdel(prefish)
+
+		else
+			user.raft.put_in_storage(prefish)
+			playsound(get_turf(src), 'sound/effects/watersplash.ogg', 100, TRUE)
+
+	else
+		prefish.forceMove(get_turf(user))
+		playsound(get_turf(src), 'sound/effects/watersplash.ogg', 100, TRUE)
+
 	sleep(5)
 
 	for(var/obj/screen/F in user.client.screen)
@@ -195,6 +206,255 @@
 	. = ..()
 	animate(src, transform = matrix(0, -96, MATRIX_TRANSLATE), alpha = 0, time = 5, easing = SINE_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
 	connected_pool.catch_fish(usr, connected_pool.fisherman_tool)
+
+// RAFT
+
+/client/
+	var/atom/raft_moving_atom
+
+/client/Click(object,location,control,params)
+	if(raft_moving_atom)
+		var/list/coords = screen_loc2pixels(params)
+
+		animate(raft_moving_atom, pixel_y = coords[2], pixel_x = coords[1], 5, SINE_EASING|EASE_OUT)
+		raft_moving_atom = null
+		return TRUE
+
+	. = ..()
+
+/proc/screen_loc2pixels(params, view_range = 7, max_range = view_range)
+	RETURN_TYPE(/list)
+
+	var/list/screen_loc = splittext(params2list(params)["screen-loc"], ",")
+	screen_loc = splittext(screen_loc[1], ":") + splittext(screen_loc[2], ":")
+
+	var/list/view_size = getviewsize(view_range)
+
+	var/screen_pixel_x = text2num(screen_loc[1]) * WORLD_ICON_SIZE + text2num(screen_loc[2]) - view_size[1] * 16 - WORLD_ICON_SIZE
+	var/screen_pixel_y = text2num(screen_loc[3]) * WORLD_ICON_SIZE + text2num(screen_loc[4]) - view_size[2] * 16 - WORLD_ICON_SIZE
+
+	if(max_range)
+		var/limit = max_range * WORLD_ICON_SIZE
+		screen_pixel_x = clamp(screen_pixel_x, -limit, limit)
+		screen_pixel_y = clamp(screen_pixel_y, -limit, limit)
+
+	return list(screen_pixel_x, screen_pixel_y)
+
+/mob/living/carbon/human
+	var/obj/structure/fd/makeshift_raft/raft
+
+/mob/living/carbon/human/movement_delay()
+	. = ..()
+
+	if(raft)
+		. += 3
+
+	for(var/obj/structure/fd/makeshift_raft/R in loc)
+		if(src in R.raft_storage)
+			. += 3
+
+/mob/living/carbon/human/SelfMove(direction)
+	var/turf/old_location = get_turf(src)
+	var/list/atom/connected_elements = list()
+	if(raft)
+		connected_elements += raft.raft_storage
+
+	. = ..()
+
+	if(raft)
+		var/turf/new_location = get_turf(src)
+		var/raft_newdir = get_dir(old_location,new_location)
+
+		raft.forceMove(get_step(raft,raft_newdir))
+
+		if(length(connected_elements))
+			for(var/obj/F in connected_elements)
+				F.forceMove(get_step(F,raft_newdir))
+			for(var/mob/F in connected_elements)
+				F.forceMove(get_step(F,raft_newdir))
+
+/obj/structure/fd/makeshift_raft
+	var/mob/living/carbon/human/ship_captain
+	icon = 'mods/_fd/fd_assets/icons/aurora/wood.dmi'
+	icon_state = "plank_deep"
+	name = "makeshift raft"
+	desc = "Are you sure it will NOT break?"
+
+	var/list/atom/raft_storage = list()
+	var/list/exclude_this_types = list(/obj/effect,
+									/obj/temp_visual,
+									/obj/decal,
+									/obj/fd_water)
+	var/raft_storage_cap = 20
+
+	bound_height = 96
+	bound_width = 96
+
+	pixel_x = 32
+	pixel_y = 32
+
+	do_water_overlay = FALSE
+	glide_size = 0.9
+
+/obj/structure/fd/makeshift_raft/Initialize()
+	. = ..()
+	SetTransform(3)
+
+/obj/structure/fd/makeshift_raft/Move()
+	var/turf/old_location = get_turf(src)
+	var/list/atom/connected_elements = list()
+	connected_elements += raft_storage
+
+	. = ..()
+
+	var/turf/new_location = get_turf(src)
+	var/direction = get_dir(old_location,new_location)
+
+	if(!ship_captain && length(connected_elements))
+		for(var/obj/F in connected_elements)
+			F.forceMove(get_step(F,direction))
+
+		for(var/mob/F in connected_elements)
+			F.forceMove(get_step(F,direction))
+
+/obj/structure/fd/makeshift_raft/proc/put_in_storage(atom/movable/A)
+	A.forceMove(get_turf(src))
+
+	A.pixel_y = rand(-8,8)
+	A.pixel_x = rand(-8,8)
+	A.layer += 0.01
+	A.glide_size = glide_size
+
+	A.do_water_overlay = FALSE
+	A.CutOverlays(A.water_overlay)
+
+	A.anchored = TRUE
+
+	if(isobj(A))
+		A.density = FALSE
+
+	raft_storage += A
+
+/obj/structure/fd/makeshift_raft/AltClick(mob/user)
+	. = ..()
+
+	var/list/atom/candidates = list()
+	for(var/atom/A in raft_storage)
+		var/image/radial_button = image(icon = A.icon, icon_state = A.icon_state)
+		radial_button.name = "[A.name]"
+		LAZYSET(candidates, A, radial_button)
+
+	var/atom/movable/selected = show_radial_menu(user, user, candidates, radius = 45, require_near = TRUE, use_labels = TRUE)
+	if(!selected)
+		return FALSE
+
+	var/list/what_to_do = list(
+		"ИЗМЕНИТЬ ПОЛОЖЕНИЕ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "radial_point"),
+		"ИЗМЕНИТЬ ПРИВЯЗКУ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "radial_lock"),
+		"ИЗМЕНИТЬ ПЛОТНОСТЬ" = image('mods/_fd/_maps/collective_nightmare/icons/radial.dmi', "radial_pull"),
+	)
+	var/chosen_option = show_radial_menu(user, user, what_to_do, radius = 45, require_near = TRUE)
+	if(!chosen_option)
+		return FALSE
+	switch(chosen_option)
+		if("ИЗМЕНИТЬ ПРИВЯЗКУ")
+			if(do_after(user, 1 SECONDS, user, DO_PUBLIC_UNIQUE))
+
+				selected.anchored = !selected.anchored
+				return TRUE
+			return FALSE
+		if("ИЗМЕНИТЬ ПЛОТНОСТЬ")
+			if(do_after(user, 1 SECONDS, user, DO_PUBLIC_UNIQUE))
+
+				selected.density = !selected.density
+				return TRUE
+			return FALSE
+		if("ИЗМЕНИТЬ ПОЛОЖЕНИЕ")
+			user.client.raft_moving_atom = selected
+			return TRUE
+
+/obj/structure/fd/makeshift_raft/MouseDrop_T(atom/dropping, mob/user)
+	if(dropping == src)
+		return
+	if(dropping == ship_captain)
+		return
+	if(dropping in raft_storage)
+		return
+
+	if(dropping.type in exclude_this_types)
+		return
+
+	if(isobj(dropping))
+		var/obj/O = dropping
+		if(O.anchored && !istype(O,/obj/structure/bed))
+			return
+
+	if(do_after(user, 5 SECONDS, user, DO_PUBLIC_UNIQUE))
+		put_in_storage(dropping)
+	return
+
+/obj/structure/fd/makeshift_raft/attack_hand(mob/living/user)
+	if(!ship_captain && ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(do_after(user, 5 SECONDS, user, DO_PUBLIC_UNIQUE))
+			if(H in raft_storage)
+				raft_storage -= H
+			ship_captain = H
+
+			H.raft = src
+			H.pixel_y += 10
+			H.do_water_overlay = FALSE
+			H.CutOverlays(H.water_overlay)
+
+			H.forceMove(get_turf(src))
+
+			return TRUE
+		return FALSE
+
+	if(ship_captain)
+		if(do_after(user, 5 SECONDS, user, DO_PUBLIC_UNIQUE))
+			ship_captain.raft = null
+			ship_captain.pixel_y = initial(ship_captain.pixel_y)
+			ship_captain.do_water_overlay = TRUE
+			ship_captain = null
+
+			return TRUE
+		return FALSE
+
+	. = ..()
+
+// Experimental
+
+/obj/structure/fd/makeshift_raft/Crossed(O)
+	. = ..()
+	if(O != ship_captain && !(O in raft_storage))
+		var/atom/movable/A = O
+
+		A.layer += 0.01
+		A.glide_size = glide_size
+
+		A.do_water_overlay = FALSE
+		A.CutOverlays(A.water_overlay)
+
+		raft_storage += A
+
+/obj/structure/fd/makeshift_raft/Uncrossed(O)
+	. = ..()
+	if(O in raft_storage)
+		var/atom/movable/A = O
+
+		A.pixel_y = initial(A.pixel_y)
+		A.pixel_x = initial(A.pixel_x)
+
+		A.do_water_overlay = TRUE
+		A.glide_size = initial(A.glide_size)
+		A.layer = initial(A.layer)
+
+		A.density = initial(A.density)
+		A.anchored = FALSE
+
+		raft_storage -= A
+
 
 // FISH TYPES
 

@@ -61,24 +61,36 @@
 
 /datum/component/pixel_shift/proc/pixel_shift(mob/source, direct)
 	var/mob/living/owner = parent
-	if(owner.incapacitated(INCAPACITATION_ALL) || length(owner.pulledby) || length(owner.grabbed_by))
+	var/raft_additional_pixels = 0
+
+	if(owner.stat != CONSCIOUS || length(owner.pulledby) || length(owner.grabbed_by))
 		return
+
+	if(ishuman(owner))
+		var/mob/living/carbon/human/H = owner
+		if(H.raft)
+			raft_additional_pixels = 15
+
+	for(var/obj/structure/fd/makeshift_raft/R in owner.loc)
+		if(owner in R.raft_storage)
+			raft_additional_pixels = 15
+
 	passthroughable = NONE
 	switch(direct)
 		if(NORTH)
-			if(owner.pixel_y <= maximum_pixel_shift + owner.default_pixel_y)
+			if(owner.pixel_y <= maximum_pixel_shift + owner.default_pixel_y + raft_additional_pixels)
 				owner.pixel_y++
 				is_shifted = TRUE
 		if(EAST)
-			if(owner.pixel_x <= maximum_pixel_shift + owner.default_pixel_x)
+			if(owner.pixel_x <= maximum_pixel_shift + owner.default_pixel_x + raft_additional_pixels)
 				owner.pixel_x++
 				is_shifted = TRUE
 		if(SOUTH)
-			if(owner.pixel_y >= -maximum_pixel_shift + owner.default_pixel_y)
+			if(owner.pixel_y >= -(maximum_pixel_shift + raft_additional_pixels) + owner.default_pixel_y)
 				owner.pixel_y--
 				is_shifted = TRUE
 		if(WEST)
-			if(owner.pixel_x >= -maximum_pixel_shift + owner.default_pixel_x)
+			if(owner.pixel_x >= -(maximum_pixel_shift + raft_additional_pixels) + owner.default_pixel_x)
 				owner.pixel_x--
 				is_shifted = TRUE
 

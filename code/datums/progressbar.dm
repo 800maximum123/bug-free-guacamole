@@ -30,7 +30,7 @@
 	visible = actor.get_preference_value(/datum/client_preference/show_progress_bar) == GLOB.PREF_SHOW
 	if (!visible)
 		return
-	bar = image('icons/effects/progessbar.dmi', display_on_actor ? actor : actee, "priv_prog_bar_0", HUD_ABOVE_ITEM_LAYER)
+	bar = image('icons/effects/progessbar.dmi', display_on_actor ? actor : actee, "priv_prog_bar_0", HUD_ABOVE_HUD_LAYER)
 	bar.appearance_flags = DEFAULT_APPEARANCE_FLAGS | APPEARANCE_UI_IGNORE_ALPHA
 	bar.pixel_y = WORLD_ICON_SIZE
 	bar.plane = HUD_PLANE
