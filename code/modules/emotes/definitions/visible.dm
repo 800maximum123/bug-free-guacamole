@@ -316,6 +316,7 @@
 	key = "rsalute"
 	check_restraints = TRUE
 	emote_message_3p = "USER returns the salute."
+	emote_sound = 'sound/misc/salute.ogg'
 
 /singleton/emote/visible/atten
 	key = "atten"

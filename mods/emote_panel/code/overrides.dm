@@ -88,6 +88,7 @@
 	emote_message_3p_target = "USER выполняет воинское приветствие TARGET."
 	emote_message_3p = "USER выполняет воинское приветствие."
 	check_restraints = TRUE
+	emote_sound = 'sound/misc/salute.ogg'
 
 /singleton/emote/visible/flap
 	key = "flap"
