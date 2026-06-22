@@ -22,7 +22,7 @@
 	if(!working_sound_token)
 		if(startup_sound)
 			playsound(src, startup_sound, (startup_volume), FALSE)
-			addtimer(new Callback(src, PROC_REF(assign_working_sound_token), startup_length))
+			addtimer(new Callback(src, PROC_REF(assign_working_sound_token)), startup_length)
 		else
 			assign_working_sound_token()
 

@@ -8,7 +8,7 @@
 		if(VP_INTERIOR)
 			return "[prefix && "in the"] interiors"
 
-/obj/vehicles/proc/exit_vehicle(mob/user, ignore_incap_check = FALSE, mob/puller = null)
+/obj/vehicles/proc/exit_vehicle(mob/user, ignore_incap_check = FALSE, mob/puller = null, eject = FALSE)
 	if(!(user in get_occupants_in_position(VP_INTERIOR)) && user.loc != src)
 		to_chat(user, SPAN_NOTICE("[puller || "You"] must be inside [src] to exit it."))
 		return
@@ -26,6 +26,9 @@
 	contents -= user
 	user.forceMove(loc_moveto)
 	user.reset_view()
+	if(eject)
+		user.Weaken(rand(1, 5))
+		user.throw_at_random(FALSE, 3, 2)
 
 	update_icon()
 
@@ -40,9 +43,10 @@
 			if(occupants[M] in exposed_positions)
 				M.examine(user)
 
-/obj/vehicles/proc/kick_occupants()
+/obj/vehicles/proc/kick_occupants(eject)
 	for(var/mob/m in occupants)
-		exit_vehicle(m, TRUE)
+		exit_vehicle(m, TRUE, eject = TRUE)
+
 
 /obj/vehicles/proc/get_occupants_in_position(position)
 	var/list/to_return = list()

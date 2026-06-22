@@ -64,21 +64,26 @@
 	if(!istype(user) || !(user in get_occupants_in_position("driver")))
 		to_chat(user, SPAN_NOTICE("You must be the driver of [src] to reach for the ignition."))
 		return
+	if(health_dead)
+		to_chat(user, SPAN_WARNING("\The [src] is dead!"))
+		return
 	if(!inserted_key)
 		to_chat(user, SPAN_NOTICE("There are no keys in the ignition."))
 		return
 
 	if(!active)
+		to_chat(user, SPAN_NOTICE("You're turning the engine ingnition key..."))
 		activate()
-		to_chat(user, SPAN_NOTICE("You turned the engine ingnition key."))
+		to_chat(user, SPAN_NOTICE("The engine is on!"))
 	else
 		deactivate()
 		to_chat(user, SPAN_NOTICE("You stop the engine."))
 
 /obj/vehicles/proc/activate()
-	active = TRUE
 	if(working_sounds)
 		play_working_soundloop()
+	sleep(startup_length) // Gotta start that engine
+	active = TRUE
 
 /obj/vehicles/proc/deactivate()
 	active = FALSE

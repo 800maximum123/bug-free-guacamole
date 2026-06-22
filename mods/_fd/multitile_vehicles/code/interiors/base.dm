@@ -143,6 +143,14 @@ GLOBAL_LIST_EMPTY(templates_cache)
 		return move_to_interior(user, puller)
 	return ..()
 
+/obj/vehicles/large/on_death()
+	. = ..()
+	cell_explosion(interior.middle_turf, 200, 50, shrapnel = FALSE)
+	for(var/mob/victim in get_occupants_in_position(VP_INTERIOR))
+		to_chat(victim, SPAN_DANGER("All of the interior gets engulfed in the flames as [src] breaks down!"))
+	for(var/turf/tile in interior.area)
+		tile.IgniteTurf(20, COLOR_YELLOW)
+
 // Fluff wall
 /obj/structure/vehiclewall
 	name = "vehicle wall"

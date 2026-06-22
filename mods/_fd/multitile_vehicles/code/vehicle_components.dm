@@ -49,7 +49,7 @@
 		comps_to_dam = vital_components
 	for(var/obj/item/vehicle_component/component in comps_to_dam)
 		var/comp_resistance = component.get_resistance_for("bomb")/100
-		component.damage_integrity((650/ex_severity) * (1- comp_resistance))
+		component.damage_integrity((ex_severity) * (1- comp_resistance))
 
 /datum/component_profile/proc/inspect_components(mob/user)
 	var/obj/item/vehicle_component/chosen = input(user, "Which component would you like to inspect?","Compoenent Inspection") in components + vital_components

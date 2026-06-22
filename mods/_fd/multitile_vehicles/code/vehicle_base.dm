@@ -5,6 +5,7 @@
 	desc = "Vehicle"
 	density = TRUE
 	layer = ABOVE_HUMAN_LAYER
+	w_class = ITEM_SIZE_GARGANTUAN
 
 	var/active = FALSE
 	var/guns_disabled = FALSE
@@ -31,8 +32,8 @@
 	var/dangerous_to_people = TRUE //Hitting people hurts them
 	var/dangerous_to_obstacles = TRUE //Hitting obstacles hurts them
 	var/weaken_to_people = 5
-	var/damage_to_people = 30
-	var/damage_to_obstacles = 30
+	var/damage_to_people = 50
+	var/damage_to_obstacles = 100
 
 	//Action Button Handling
 	var/list/driver_actions = list()
@@ -214,10 +215,14 @@
 	. = ..()
 
 /obj/vehicles/on_death()
+	if(health_dead)
+		return
+	health_dead = TRUE
 	movement_destroyed = TRUE
 	guns_disabled = TRUE
 	icon_state = "[initial(icon_state)]_destroyed"
 	fall()
+	deactivate()
 
 	//get a viable list of places to eject our cargo
 	density = FALSE
@@ -252,12 +257,18 @@
 		var/dam_max = BASE_VEHICLE_DEATH_EXPLODE_DAMAGE * ((bound_height / 32) + (bound_width / 32))/2
 		l.adjustBruteLoss(dam_max/2)
 		dam_max /= 2
+		l.adjust_fire_stacks(10)
+		l.IgniteMob()
 		while(dam_max > 0)
 			var/dam_deal = rand(dam_max/3,dam_max)
 			dam_max -= dam_deal
 			l.adjustBruteLoss(dam_deal)
-	kick_occupants()
-	explosion(loc, 20, 10)
+	kick_occupants(TRUE)
+	cell_explosion(src.loc, 150, 50, shrapnel = FALSE)
+	var/list/fire_spread = get_turfs_in_range(src.loc, 2)
+
+	for(var/turf/around in fire_spread)
+		around.IgniteTurf(20, COLOR_YELLOW)
 
 /obj/vehicles/proc/inactive_pilot_effects() //Overriden on a vehicle-by-vehicle basis.
 
@@ -368,7 +379,7 @@
 	. = ..()
 
 /obj/vehicles/proc/collide_with_obstacle(atom/obstacle)
-	if(speed[1] <= max_speed && speed[2] <= max_speed) // soft bump
+	if((speed[1] == 0 && speed[2] == 0)) // soft bump
 		return
 	if(istype(obstacle,/mob/living))
 		var/mob/living/hit_mob = obstacle
@@ -377,9 +388,9 @@
 		hit_mob.Weaken(weaken_to_people)
 
 		if(dangerous_to_people)
-			hit_mob.apply_damage(damage_to_people, DAMAGE_BRUTE, UPPER_TORSO)
-			if(speed[1] == min_speed || speed[2] == min_speed)
-				hit_mob.throw_at(get_step(hit_mob, last_move), 2, 3)
+			hit_mob.apply_damage(damage_to_people, DAMAGE_BRUTE, UPPER_TORSO, used_weapon = "[src] ramming")
+			if((speed[1] == max_speed || speed[2] == max_speed) || (speed[1] == -max_speed || speed[2] == -max_speed))
+				hit_mob.throw_at(get_edge_target_turf(hit_mob, last_move), 2, 4, spin = TRUE)
 	else
 		next_move_input_at = world.time + min_speed
 		if(last_move == EAST || last_move == WEST)
@@ -470,11 +481,11 @@
 	comp_prof.take_component_damage(P.get_structure_damage())
 	visible_message("<span class = 'danger'>[P] hits [src]!</span>")
 
-/obj/vehicles/ex_act(severity)
+/obj/vehicles/ex_act(severity, direction)
 	comp_prof.take_comp_explosion_dam(severity)
-	for(var/position in exposed_positions)
+/*	for(var/position in exposed_positions)
 		for(var/mob/living/m in get_occupants_in_position(position))
-			m.apply_damage(250/severity, DAMAGE_BRUTE)
+			m.ex_act(severity) */
 
 /obj/vehicles/relaymove(mob/user, direction)
 	if(world.time < next_move_input_at)

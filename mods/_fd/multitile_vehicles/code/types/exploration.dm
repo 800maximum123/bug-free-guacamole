@@ -14,7 +14,7 @@
 	comp_prof = /datum/component_profile/exploration
 
 	occupants = list(1,1)
-	exposed_positions = list("driver" = 3,"passenger" = 4)
+	exposed_positions = list("driver" = 0,"passenger" = 0)
 
 	vehicle_size = ITEM_SIZE_VEHICLE_LARGE
 	capacity_flag = ITEM_SIZE_VEHICLE_LARGE
