@@ -79,7 +79,25 @@
 			S.take_damage(20,SHIELD_DAMTYPE_PHYSICAL)
 			walk(src,dir,0)
 	detonate(obstacle)
+
+
+// [GAIA]
+/obj/structure/missile/Bumped(atom/movable/AM)
+	if(!active)
+		return
+	if(prob(10)) // Lucky ass
+		visible_message(SPAN_WARNING("\The [AM] bumps into the [src] carelessly! Happily nothing happens.."), SPAN_WARNING("You hear an unnerving bump!"))
+		return
+	if(AM && istype(AM))
+		visible_message(SPAN_WARNING("\The [AM] bumps into the [src] carelessly activating it!"), SPAN_WARNING("You hear a bump and ominous clicking!"))
+		to_chat(AM, FONT_HUGE(SPAN_DANGER("Uh-oh..."))) // Whoopsie daisy
+		detonate(AM)
 	..()
+
+/obj/structure/missile/examine(mob/user)
+	. = ..()
+	if(active)
+		to_chat(user, SPAN_WARNING("It hisses ominously, better not touch it..."))
 
 /obj/structure/missile/ex_act(severity, turf_breaker)
 	..()
