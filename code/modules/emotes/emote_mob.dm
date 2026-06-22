@@ -55,6 +55,10 @@
 	if(m_type != use_emote.message_type && use_emote.conscious && stat != CONSCIOUS)
 		return
 
+	if(last_emote >= world.time)
+		return
+	last_emote = world.time + emote_cooldown
+
 	if(use_emote.message_type == AUDIBLE_MESSAGE && is_muzzled())
 		audible_message("<b>\The [src]</b> makes a muffled sound.")
 		return
