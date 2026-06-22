@@ -1,6 +1,6 @@
 
 /obj/item/organ/internal/eyes
-	name = "\improper eyeballs"
+	name = "eyeballs"
 	icon_state = "eyes"
 	gender = PLURAL
 	organ_tag = BP_EYES

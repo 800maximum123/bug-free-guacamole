@@ -788,7 +788,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 	// [GAIA]
 	if(istype(src, /obj/item/organ/internal/eyes))
-		user.visible_message("\The [user] squints their \the [src] into the distance.")
+		user.visible_message("\The [user] squints into the distance.")
 	else
 		user.visible_message("\The [user] peers through [zoomdevicename ? "the [zoomdevicename] of [src]" : "[src]"].")
 		playsound(src, 'sound/effects/zoomin.ogg', 30, FALSE, -5, 5)
@@ -833,7 +833,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		H.handle_vision()
 	// [GAIA]
 	if(istype(src, /obj/item/organ/internal/eyes))
-		user.visible_message("\The [user] stops squinting their \the [src].")
+		user.visible_message("\The [user] stops squinting.")
 	else
 		user.visible_message("[zoomdevicename ? "\The [user] looks up from [src]" : "\The [user] lowers [src]"].")
 		playsound(src, 'sound/effects/zoomout.ogg', 30, FALSE, -5, 5)
