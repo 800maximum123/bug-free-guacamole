@@ -95,8 +95,11 @@
 	// Eject the pilot.
 	if(LAZYLEN(pilots))
 		hatch_locked = 0 // So they can get out.
-		for(var/pilot in pilots)
+		for(var/mob/pilot in pilots)
 			eject(pilot, silent=1)
+			pilot.Weaken(rand(1, 5))
+			if(gibbed)
+				pilot.throw_at_random(FALSE, 3, 2)
 
 	// Salvage moves into the wreck unless we're exploding violently.
 	var/obj/wreck = new wreckage_path(get_turf(src), src, gibbed)
@@ -125,6 +128,11 @@
 		qdel(src)
 		return
 
+	var/list/fire_spread = get_turfs_in_range(src.loc, 1)
+
+	for(var/turf/around in fire_spread)
+		around.IgniteTurf(20, COLOR_YELLOW)
+
 	// Hurl our component pieces about.
 	var/list/stuff_to_throw = list()
 	for(var/obj/item/thing in list(arms, legs, head, body))
@@ -137,7 +145,7 @@
 	for(var/obj/item/thing in stuff_to_throw)
 		thing.forceMove(T)
 		thing.throw_at(get_edge_target_turf(src,pick(GLOB.alldirs)),rand(3,6),40)
-	explosion(T, 2, EX_ACT_LIGHT)
+	cell_explosion(T, 150, 50, shrapnel = FALSE)
 	qdel(src)
 	return
 
