@@ -52,6 +52,35 @@
 	},
 /turf/simulated/floor/plating,
 /area/gaia/scg/security/prison)
+"aE" = (
+/obj/item/cell/potato,
+/turf/simulated/floor/exoplanet/grass,
+/area/gaia/scg)
+"aG" = (
+/obj/structure/table/rack,
+/obj/decal/cleanable/dirt,
+/obj/item/clothing/accessory/storage/holster/thigh,
+/obj/item/clothing/accessory/storage/holster/thigh,
+/obj/item/clothing/accessory/storage/holster/thigh,
+/obj/item/clothing/accessory/storage/holster/thigh,
+/obj/item/clothing/accessory/storage/holster/thigh,
+/obj/item/clothing/accessory/storage/holster/thigh,
+/obj/item/clothing/accessory/storage/holster/thigh,
+/obj/item/clothing/accessory/storage/holster/thigh,
+/obj/item/clothing/accessory/storage/holster/thigh,
+/obj/item/clothing/accessory/storage/holster/thigh,
+/obj/item/clothing/accessory/storage/holster/hip,
+/obj/item/clothing/accessory/storage/holster/hip,
+/obj/item/clothing/accessory/storage/holster/hip,
+/obj/item/clothing/accessory/storage/holster/hip,
+/obj/item/clothing/accessory/storage/holster/hip,
+/obj/item/clothing/accessory/storage/holster/waist,
+/obj/item/clothing/accessory/storage/holster/waist,
+/obj/item/clothing/accessory/storage/holster/waist,
+/obj/item/clothing/accessory/storage/holster/waist,
+/obj/item/clothing/accessory/storage/holster/waist,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/scg/armory)
 "aJ" = (
 /obj/landmark{
 	name = "JoinLateSCGOfficerBarracks"
@@ -244,6 +273,16 @@
 /obj/item/gun/projectile/shotgun/pump/combat/empty,
 /obj/item/gun/projectile/shotgun/doublebarrel/sawn/empty,
 /obj/item/gun/projectile/shotgun/doublebarrel/sawn/empty,
+/obj/machinery/light/spot{
+	dir = 1
+	},
+/obj/item/clothing/accessory/storage/bandolier,
+/obj/item/clothing/accessory/storage/bandolier,
+/obj/item/clothing/accessory/storage/bandolier,
+/obj/item/clothing/accessory/storage/bandolier,
+/obj/item/clothing/accessory/storage/bandolier,
+/obj/item/clothing/accessory/storage/bandolier,
+/obj/item/clothing/accessory/storage/bandolier,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "bQ" = (
@@ -354,6 +393,12 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck)
+"cD" = (
+/obj/floor_decal/spline/fancy/black/corner{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete/reinforced/road,
+/area/gaia/scg/outskirts)
 "cI" = (
 /obj/structure/bed/chair/wood/walnut{
 	dir = 4
@@ -386,6 +431,9 @@
 /area/turbolift/scg_truck)
 "cS" = (
 /obj/structure/table/rack,
+/obj/item/device/flashlight/lamp/floodlamp/green,
+/obj/item/device/flashlight/lamp/floodlamp/green,
+/obj/item/device/flashlight/lamp/floodlamp/green,
 /obj/item/device/flashlight/lamp/floodlamp/green,
 /obj/item/device/flashlight/lamp/floodlamp/green,
 /obj/item/device/flashlight/lamp/floodlamp/green,
@@ -535,6 +583,7 @@
 "dQ" = (
 /obj/machinery/door/blast/shutters,
 /obj/floor_decal/industrial/warning/fulltile,
+/obj/structure/barricade,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/engineering/communications)
 "dU" = (
@@ -646,6 +695,14 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/gaia/scg/security/prison)
+"eB" = (
+/obj/structure/dispenser/oxygen,
+/obj/structure/sign/warning/detailed{
+	pixel_y = 25;
+	name = "\improper ARMORY"
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/gaia/scg)
 "eC" = (
 /obj/floor_decal/industrial/outline/yellow,
 /obj/landmark{
@@ -960,6 +1017,13 @@
 "gn" = (
 /turf/simulated/wall/r_concrete,
 /area/gaia/scg/worship)
+"gs" = (
+/obj/floor_decal/stairs{
+	dir = 1;
+	icon_state = "above_ramp"
+	},
+/turf/simulated/floor/exoplanet/concrete/reinforced/damaged,
+/area/gaia/scg/outskirts)
 "gu" = (
 /obj/structure/table/standard,
 /obj/floor_decal/techfloor{
@@ -1007,15 +1071,11 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg/outskirts)
 "gL" = (
-/obj/floor_decal/hull,
-/obj/structure/table/reinforced,
-/obj/machinery/recharger,
-/obj/decal/cleanable/dirt,
-/obj/machinery/recharger{
-	pixel_x = 16
+/obj/floor_decal/spline/fancy/black/corner{
+	dir = 8
 	},
-/turf/simulated/floor/plating,
-/area/gaia/scg/armory)
+/turf/simulated/floor/exoplanet/concrete/reinforced/road,
+/area/gaia/scg)
 "gN" = (
 /obj/floor_decal/borderfloor{
 	dir = 8
@@ -1150,6 +1210,13 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/scg/hospital)
+"hY" = (
+/obj/floor_decal/corner/white/border{
+	dir = 8
+	},
+/obj/floor_decal/spline/fancy/black,
+/turf/simulated/floor/exoplanet/concrete/reinforced/road,
+/area/gaia/scg)
 "ib" = (
 /obj/floor_decal/industrial/warning/dust,
 /obj/machinery/light/spot,
@@ -1187,6 +1254,7 @@
 /obj/machinery/door/blast/shutters{
 	dir = 4
 	},
+/obj/structure/barricade,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg)
 "io" = (
@@ -1234,6 +1302,12 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/exoplanet/grass,
+/area/gaia/scg/outskirts)
+"iB" = (
+/obj/floor_decal/spline/fancy/black{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/scg/outskirts)
 "iD" = (
 /obj/structure/bed/chair/wood{
@@ -1315,6 +1389,7 @@
 /obj/floor_decal/techfloor{
 	dir = 4
 	},
+/obj/spawner/newbomb,
 /obj/spawner/newbomb,
 /turf/simulated/floor/tiled/techfloor,
 /area/gaia/scg/engineering)
@@ -1439,6 +1514,11 @@
 /obj/item/folder/nt,
 /turf/simulated/floor/steel_dirty,
 /area/gaia/scg/command)
+"ko" = (
+/obj/floor_decal/spline/fancy/black,
+/obj/floor_decal/spline/fancy/black/corner,
+/turf/simulated/floor/exoplanet/concrete/reinforced/road,
+/area/gaia/scg)
 "ks" = (
 /obj/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -1473,7 +1553,22 @@
 /turf/simulated/floor/steel_dirty,
 /area/gaia/scg/barracks/officer)
 "kF" = (
-/obj/structure/closet/crate/internals,
+/obj/structure/closet/crate/secure/weapon{
+	name = "smg ammo crate"
+	},
+/obj/item/storage/box/ammo/smg,
+/obj/item/storage/box/ammo/smg,
+/obj/item/storage/box/ammo/smg,
+/obj/item/storage/box/ammo/smg,
+/obj/item/storage/box/ammo/smg,
+/obj/item/storage/box/ammo/smg,
+/obj/item/storage/box/ammo/smg,
+/obj/item/storage/box/ammo/smg,
+/obj/item/storage/box/ammo/smg,
+/obj/item/storage/box/ammo/smg,
+/obj/item/storage/box/ammo/smg,
+/obj/item/storage/box/ammo/smg,
+/obj/item/storage/box/ammo/smg,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "kI" = (
@@ -1987,7 +2082,22 @@
 "oh" = (
 /obj/floor_decal/hull,
 /obj/structure/table/rack,
-/obj/decal/cleanable/dirt,
+/obj/item/cell/device/high,
+/obj/item/cell/device/high,
+/obj/item/cell/device/high,
+/obj/item/cell/device/high,
+/obj/item/cell/device/high,
+/obj/item/cell/device/high,
+/obj/item/cell/device/high,
+/obj/item/cell/device/high,
+/obj/item/cell/high,
+/obj/item/cell/high,
+/obj/item/cell/high,
+/obj/item/cell/high,
+/obj/item/cell/high,
+/obj/item/cell/high,
+/obj/item/cell/high,
+/obj/item/cell/high,
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "oi" = (
@@ -2250,6 +2360,31 @@
 	},
 /turf/simulated/floor/lino,
 /area/gaia/scg/command)
+"qy" = (
+/obj/floor_decal/hull,
+/obj/structure/table/rack,
+/obj/item/storage/firstaid/combat,
+/obj/item/storage/firstaid/combat,
+/obj/item/storage/firstaid/combat,
+/obj/item/storage/firstaid/combat,
+/obj/item/storage/firstaid/combat,
+/obj/item/storage/firstaid/combat,
+/obj/item/storage/firstaid/combat,
+/obj/item/storage/firstaid/combat,
+/obj/item/storage/firstaid/combat,
+/obj/item/storage/firstaid/combat,
+/obj/item/storage/firstaid/small_combat,
+/obj/item/storage/firstaid/small_combat,
+/obj/item/storage/firstaid/small_combat,
+/obj/item/storage/firstaid/small_combat,
+/obj/item/storage/firstaid/small_combat,
+/obj/item/storage/firstaid/small_combat,
+/obj/item/storage/firstaid/small_combat,
+/obj/item/storage/firstaid/small_combat,
+/obj/item/storage/firstaid/small_combat,
+/obj/item/storage/firstaid/small_combat,
+/turf/simulated/floor/plating,
+/area/gaia/scg/armory)
 "qB" = (
 /obj/structure/barrier{
 	icon_state = "barrier_downed";
@@ -2272,11 +2407,33 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg)
 "qQ" = (
-/obj/landmark{
-	name = "Observer-Start"
-	},
-/turf/simulated/floor/exoplanet/concrete/reinforced/road,
-/area/gaia/scg)
+/obj/structure/table/rack,
+/obj/decal/cleanable/dirt,
+/obj/item/storage/belt/security/tactical,
+/obj/item/storage/belt/security/tactical,
+/obj/item/storage/belt/security/tactical,
+/obj/item/storage/belt/security/tactical,
+/obj/item/storage/belt/security/tactical,
+/obj/item/storage/belt/security/tactical,
+/obj/item/storage/belt/security/tactical,
+/obj/item/storage/belt/security/tactical,
+/obj/item/storage/belt/security/tactical,
+/obj/item/storage/belt/security/tactical,
+/obj/item/storage/belt/security/tactical,
+/obj/item/storage/belt/security/tactical,
+/obj/item/storage/belt/security/tactical,
+/obj/item/storage/belt/security/tactical,
+/obj/item/storage/belt/security/tactical,
+/obj/item/storage/belt/security/tactical,
+/obj/item/storage/belt/security/tactical,
+/obj/item/storage/belt/security/tactical,
+/obj/item/storage/belt/security/tactical,
+/obj/item/storage/belt/security/tactical,
+/obj/item/storage/belt/security/tactical,
+/obj/item/storage/belt/security/tactical,
+/obj/item/storage/belt/security/tactical,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/scg/armory)
 "qT" = (
 /obj/floor_decal/hull,
 /obj/structure/curtain/open/military,
@@ -2315,6 +2472,16 @@
 /obj/paint/sun,
 /turf/simulated/wall/titanium,
 /area/gaia/scg)
+"rk" = (
+/obj/structure/closet/crate/large,
+/turf/simulated/floor/exoplanet/barren,
+/area/gaia/scg)
+"rn" = (
+/obj/floor_decal/spline/fancy/black{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/concrete/reinforced/road,
+/area/gaia/scg)
 "ro" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -2327,6 +2494,20 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg)
+"rr" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/flame/candle/scented,
+/obj/item/flame/candle/scented{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/flame/candle/scented{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/clothing/accessory/chaplain/christianity,
+/turf/simulated/floor/exoplanet/barren,
+/area/gaia/scg/worship)
 "rx" = (
 /turf/simulated/wall/concrete,
 /area/gaia/scg/command/briefing)
@@ -2594,7 +2775,29 @@
 /area/gaia/scg/command)
 "tz" = (
 /obj/floor_decal/hull,
-/obj/structure/closet/crate/secure/weapon,
+/obj/structure/closet/crate/secure/weapon{
+	name = "shotgun ammo crate"
+	},
+/obj/item/storage/box/ammo/shotgunammo,
+/obj/item/storage/box/ammo/shotgunammo,
+/obj/item/storage/box/ammo/shotgunammo,
+/obj/item/storage/box/ammo/shotgunammo,
+/obj/item/storage/box/ammo/shotgunammo,
+/obj/item/storage/box/ammo/shotgunammo,
+/obj/item/storage/box/ammo/shotgunammo,
+/obj/item/storage/box/ammo/shotgunammo,
+/obj/item/storage/box/ammo/shotgunammo,
+/obj/item/storage/box/ammo/shotgunammo,
+/obj/item/storage/box/ammo/shotgunshells,
+/obj/item/storage/box/ammo/shotgunshells,
+/obj/item/storage/box/ammo/shotgunshells,
+/obj/item/storage/box/ammo/shotgunshells,
+/obj/item/storage/box/ammo/shotgunshells,
+/obj/item/storage/box/ammo/shotgunshells,
+/obj/item/storage/box/ammo/shotgunshells,
+/obj/item/storage/box/ammo/shotgunshells,
+/obj/item/storage/box/ammo/shotgunshells,
+/obj/item/storage/box/ammo/shotgunshells,
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "tA" = (
@@ -2615,6 +2818,10 @@
 /obj/structure/railing/mapped,
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/exoplanet/grass,
+/area/gaia/scg)
+"tI" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/exoplanet/concrete,
 /area/gaia/scg)
 "tJ" = (
 /obj/structure/platform/hybrisa/metalplatform2{
@@ -2715,7 +2922,7 @@
 	pixel_x = -32
 	},
 /obj/structure/table/standard,
-/obj/item/device/binoculars,
+/obj/item/device/synthesized_instrument/guitar,
 /turf/simulated/floor/steel_dirty,
 /area/gaia/scg/command/briefing)
 "uo" = (
@@ -2808,6 +3015,16 @@
 /obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/exoplanet/concrete/reinforced,
 /area/gaia/scg)
+"vb" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/floor_decal/stairs{
+	dir = 1;
+	icon_state = "above_ramp"
+	},
+/turf/simulated/floor/exoplanet/concrete/reinforced/damaged,
+/area/gaia/scg/outskirts)
 "vd" = (
 /obj/structure/barricade/spike,
 /obj/structure/platform/hybrisa/metalplatform2{
@@ -3039,6 +3256,10 @@
 	icon_state = "wood_broken4"
 	},
 /area/gaia/scg/undeground)
+"wr" = (
+/obj/floor_decal/spline/fancy/black/corner,
+/turf/simulated/floor/exoplanet/concrete/reinforced/road,
+/area/gaia/scg)
 "ws" = (
 /obj/structure/barricade/spike{
 	dir = 8
@@ -3063,7 +3284,9 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/scg)
 "wD" = (
-/obj/structure/closet/crate/secure/weapon,
+/obj/structure/closet/crate/secure/weapon{
+	name = "rifle ammo crate"
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "wF" = (
@@ -3087,6 +3310,12 @@
 /obj/machinery/uniform_vendor,
 /turf/simulated/floor/steel_dirty,
 /area/gaia/scg/barracks/officer)
+"wN" = (
+/obj/floor_decal/spline/fancy/black{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/concrete/reinforced/road,
+/area/gaia/scg)
 "wO" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/railing/mapped,
@@ -3177,6 +3406,10 @@
 /obj/structure/flora/ausbushes/grassybush,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg)
+"xg" = (
+/obj/floor_decal/spline/fancy/black,
+/turf/simulated/floor/exoplanet/concrete/reinforced/road,
+/area/gaia/scg/outskirts)
 "xl" = (
 /obj/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/shutters,
@@ -3363,6 +3596,11 @@
 /obj/machinery/chem_master,
 /turf/simulated/floor/steel_dirty,
 /area/gaia/scg/hospital)
+"yF" = (
+/obj/structure/fog,
+/obj/floor_decal/spline/fancy/black,
+/turf/simulated/floor/exoplanet/concrete/reinforced/road,
+/area/gaia/scg/outskirts)
 "yK" = (
 /obj/floor_decal/corner/green/border{
 	dir = 1
@@ -3383,6 +3621,12 @@
 /obj/item/stack/nanopaste,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/gaia/scg/engineering/electricity)
+"yP" = (
+/obj/floor_decal/spline/fancy/black/corner{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/concrete/reinforced/road,
+/area/gaia/scg)
 "yR" = (
 /obj/structure/platform_decoration/hybrisa/metalplatformdeco6{
 	dir = 1
@@ -3435,6 +3679,12 @@
 /obj/lock_helper/unlocked/gaia_scg,
 /turf/simulated/floor/steel_dirty,
 /area/gaia/scg/barracks)
+"zm" = (
+/obj/floor_decal/spline/fancy/black{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/concrete/reinforced/road,
+/area/gaia/scg)
 "zs" = (
 /turf/simulated/wall/invincible,
 /area/gaia/scg/outskirts)
@@ -3485,6 +3735,12 @@
 /obj/floor_decal/borderfloorwhite/full,
 /turf/simulated/floor/tiled/white,
 /area/gaia/scg/barracks/bathroom)
+"zX" = (
+/obj/floor_decal/spline/fancy/black/corner{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete/reinforced/road,
+/area/gaia/scg)
 "zY" = (
 /turf/simulated/open,
 /area/gaia/scg)
@@ -3555,6 +3811,16 @@
 "AA" = (
 /turf/simulated/floor/exoplanet/barren,
 /area/gaia/scg)
+"AE" = (
+/obj/floor_decal/techfloor/orange,
+/obj/floor_decal/techfloor/orange{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/scg/engineering)
 "AL" = (
 /obj/machinery/ntnet_relay,
 /turf/simulated/floor/tiled/old_cargo,
@@ -3770,6 +4036,7 @@
 /area/gaia/scg/security/prison)
 "Cw" = (
 /obj/structure/table/standard,
+/obj/item/device/paicard,
 /turf/simulated/floor/lino,
 /area/gaia/scg/command)
 "Cx" = (
@@ -3859,7 +4126,29 @@
 /obj/floor_decal/hull{
 	dir = 1
 	},
-/obj/structure/closet/crate/secure/weapon,
+/obj/structure/closet/crate/secure/weapon{
+	name = "pistol ammo crate"
+	},
+/obj/item/storage/box/ammo/pistol,
+/obj/item/storage/box/ammo/pistol,
+/obj/item/storage/box/ammo/pistol,
+/obj/item/storage/box/ammo/pistol,
+/obj/item/storage/box/ammo/pistol,
+/obj/item/storage/box/ammo/pistol,
+/obj/item/storage/box/ammo/pistol,
+/obj/item/storage/box/ammo/pistol,
+/obj/item/storage/box/ammo/pistol,
+/obj/item/storage/box/ammo/pistol,
+/obj/item/storage/box/ammo/doublestack,
+/obj/item/storage/box/ammo/doublestack,
+/obj/item/storage/box/ammo/doublestack,
+/obj/item/storage/box/ammo/doublestack,
+/obj/item/storage/box/ammo/doublestack,
+/obj/item/storage/box/ammo/doublestack,
+/obj/item/storage/box/ammo/doublestack,
+/obj/item/storage/box/ammo/doublestack,
+/obj/item/storage/box/ammo/doublestack,
+/obj/item/storage/box/ammo/doublestack,
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "Db" = (
@@ -3879,6 +4168,13 @@
 /obj/floor_decal/industrial/warning/dust,
 /turf/simulated/floor/exoplanet/concrete/reinforced,
 /area/gaia/scg)
+"Do" = (
+/obj/structure/fog,
+/obj/floor_decal/spline/fancy/black{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/concrete/reinforced/road,
+/area/gaia/scg/outskirts)
 "Ds" = (
 /obj/floor_decal/industrial/warning/dust{
 	dir = 4
@@ -4031,7 +4327,7 @@
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "EJ" = (
-/obj/machinery/light/small,
+/obj/machinery/light/spot,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "EK" = (
@@ -4129,6 +4425,8 @@
 /obj/machinery/light/spot{
 	dir = 4
 	},
+/obj/item/gun/energy/ionrifle/small,
+/obj/item/gun/energy/ionrifle,
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "Fg" = (
@@ -4284,10 +4582,10 @@
 /turf/simulated/floor/shuttle/black,
 /area/gaia/scg)
 "Gg" = (
-/obj/machinery/fabricator/hacked,
-/obj/item/stack/material/glass/ten,
-/obj/item/stack/material/steel/ten,
-/obj/item/stack/material/plastic/ten,
+/obj/machinery/vending/engivend{
+	req_access = null;
+	dir = 1
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/gaia/scg/engineering)
 "Gk" = (
@@ -4639,11 +4937,23 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/gaia/scg/outskirts)
+"IY" = (
+/obj/machinery/light/small/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/gaia/scg/engineering/electricity)
 "Ja" = (
 /obj/structure/undies_wardrobe,
 /obj/floor_decal/borderfloor,
 /turf/simulated/floor/steel_dirty,
 /area/gaia/scg/barracks)
+"Jd" = (
+/obj/floor_decal/spline/fancy/black{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/concrete/reinforced/road,
+/area/gaia/scg)
 "Je" = (
 /obj/paint_stripe/gunmetal,
 /obj/structure/gaia/truck_sign/second,
@@ -4677,9 +4987,33 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/gaia/scg/security/prison)
 "Jk" = (
-/obj/machinery/light/small{
-	dir = 1
+/obj/structure/closet/walllocker{
+	pixel_y = 32;
+	name = "knife sheath locker"
 	},
+/obj/item/clothing/accessory/storage/holster/knife/polymer,
+/obj/item/clothing/accessory/storage/holster/knife/polymer,
+/obj/item/clothing/accessory/storage/holster/knife/polymer,
+/obj/item/clothing/accessory/storage/holster/knife/polymer,
+/obj/item/clothing/accessory/storage/holster/knife/polymer,
+/obj/item/clothing/accessory/storage/holster/knife/polymer,
+/obj/item/clothing/accessory/storage/holster/knife/polymer,
+/obj/item/clothing/accessory/storage/holster/knife/polymer,
+/obj/item/clothing/accessory/storage/holster/knife,
+/obj/item/clothing/accessory/storage/holster/knife,
+/obj/item/clothing/accessory/storage/holster/knife,
+/obj/item/clothing/accessory/storage/holster/knife,
+/obj/item/clothing/accessory/storage/holster/knife,
+/obj/item/clothing/accessory/storage/holster/knife,
+/obj/item/clothing/accessory/storage/holster/knife,
+/obj/item/clothing/accessory/storage/holster/knife,
+/obj/item/clothing/accessory/storage/holster/knife,
+/obj/item/clothing/accessory/storage/holster/knife,
+/obj/item/clothing/accessory/storage/holster/machete,
+/obj/item/clothing/accessory/storage/holster/machete,
+/obj/item/clothing/accessory/storage/holster/machete,
+/obj/item/clothing/accessory/storage/holster/machete,
+/obj/item/clothing/accessory/storage/holster/machete,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "Jl" = (
@@ -4702,6 +5036,13 @@
 	icon_state = "wood_broken6"
 	},
 /area/gaia/scg/undeground)
+"Jo" = (
+/obj/machinery/fabricator/hacked,
+/obj/item/stack/material/glass/ten,
+/obj/item/stack/material/steel/ten,
+/obj/item/stack/material/plastic/ten,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/scg/armory)
 "Jr" = (
 /obj/machinery/door/unpowered/simple/glass,
 /obj/lock_helper/unlocked/gaia_scg,
@@ -4866,7 +5207,7 @@
 /area/gaia/scg/undeground)
 "Kl" = (
 /obj/floor_decal/hull,
-/obj/structure/barricade,
+/obj/structure/curtain/open/military,
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "Km" = (
@@ -5126,9 +5467,33 @@
 /area/gaia/scg)
 "Me" = (
 /obj/decal/cleanable/dirt,
-/obj/machinery/light/small{
-	dir = 1
+/obj/structure/closet/walllocker{
+	pixel_y = 32;
+	name = "knife locker"
 	},
+/obj/item/material/knife/combat,
+/obj/item/material/knife/combat,
+/obj/item/material/knife/combat,
+/obj/item/material/knife/combat,
+/obj/item/material/knife/combat,
+/obj/item/material/knife/combat,
+/obj/item/material/knife/combat,
+/obj/item/material/knife/combat,
+/obj/item/material/knife/combat,
+/obj/item/material/knife/combat,
+/obj/item/material/knife/combat,
+/obj/item/material/knife/combat,
+/obj/item/material/knife/combat,
+/obj/item/material/knife/combat,
+/obj/item/material/knife/combat,
+/obj/item/material/knife/combat,
+/obj/item/material/knife/combat,
+/obj/item/material/knife/combat,
+/obj/item/material/hatchet/machete/steel,
+/obj/item/material/hatchet/machete/steel,
+/obj/item/material/hatchet/machete/steel,
+/obj/item/material/hatchet/machete/steel,
+/obj/item/material/hatchet/machete/steel,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "Mf" = (
@@ -5252,6 +5617,18 @@
 /obj/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/dark,
 /area/gaia/scg/command/briefing)
+"No" = (
+/obj/floor_decal/spline/fancy/black{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/concrete/reinforced/road,
+/area/gaia/scg)
+"Np" = (
+/obj/floor_decal/spline/fancy/black/corner{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/concrete/reinforced/road,
+/area/gaia/scg/outskirts)
 "Nr" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -5308,13 +5685,12 @@
 /turf/simulated/floor/steel_dirty,
 /area/gaia/scg/command/briefing)
 "NG" = (
-/obj/structure/closet/crate/large,
-/obj/structure/sign/warning/detailed{
-	pixel_y = 25;
-	name = "\improper ARMORY"
+/obj/structure/fog,
+/obj/floor_decal/spline/fancy/black{
+	dir = 8
 	},
-/turf/simulated/floor/exoplanet/concrete,
-/area/gaia/scg)
+/turf/simulated/floor/exoplanet/concrete/reinforced/road,
+/area/gaia/scg/outskirts)
 "NI" = (
 /obj/structure/platform_decoration/hybrisa/metalplatformdeco2,
 /turf/simulated/floor/exoplanet/gravel,
@@ -5330,6 +5706,34 @@
 	},
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/scg)
+"NS" = (
+/obj/floor_decal/hull,
+/obj/structure/table/rack,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/turf/simulated/floor/plating,
+/area/gaia/scg/armory)
 "NT" = (
 /obj/floor_decal/industrial/warning/dust{
 	dir = 1
@@ -5500,6 +5904,12 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/turbolift/scg_truck)
+"Pz" = (
+/obj/floor_decal/spline/fancy/black{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/concrete/reinforced/road,
+/area/gaia/scg/outskirts)
 "PB" = (
 /obj/floor_decal/steeldecal/steel_decals_central2{
 	dir = 1
@@ -5516,11 +5926,9 @@
 /turf/simulated/floor/wood,
 /area/gaia/scg/undeground)
 "PI" = (
-/obj/floor_decal/hull,
-/obj/machinery/door/unpowered/simple,
-/obj/lock_helper/unlocked/gaia_scg,
-/turf/simulated/floor/plating,
-/area/gaia/scg/armory)
+/obj/floor_decal/spline/fancy/black,
+/turf/simulated/floor/exoplanet/concrete/reinforced/road,
+/area/gaia/scg)
 "PL" = (
 /obj/structure/roller_bed,
 /obj/floor_decal/industrial/outline/yellow,
@@ -5628,6 +6036,12 @@
 	},
 /turf/simulated/floor/exoplanet/gravel,
 /area/gaia/scg/undeground)
+"QC" = (
+/obj/floor_decal/spline/fancy/black{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/concrete/reinforced/road,
+/area/gaia/scg/outskirts)
 "QD" = (
 /obj/floor_decal/borderfloor{
 	dir = 6
@@ -5677,6 +6091,7 @@
 /obj/machinery/door/blast/shutters/open{
 	dir = 4
 	},
+/obj/structure/curtain/open/military,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "QU" = (
@@ -5715,6 +6130,18 @@
 /obj/structure/towel/black,
 /turf/simulated/floor/exoplanet/barren,
 /area/gaia/scg/worship)
+"Rz" = (
+/obj/structure/table/rack,
+/obj/decal/cleanable/dirt,
+/obj/item/clothing/accessory/glassesmod/vision/welding,
+/obj/item/clothing/accessory/glassesmod/vision/welding,
+/obj/item/clothing/accessory/glassesmod/vision/welding,
+/obj/item/clothing/accessory/glassesmod/hud/medical,
+/obj/item/clothing/accessory/glassesmod/hud/medical,
+/obj/item/clothing/accessory/glassesmod/hud/medical,
+/obj/item/clothing/glasses/meson,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/scg/armory)
 "RF" = (
 /obj/machinery/flasher/portable,
 /obj/machinery/light/spot{
@@ -5727,6 +6154,7 @@
 /obj/floor_decal/industrial/warning/dust{
 	dir = 4
 	},
+/obj/machinery/light/small/red,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/gaia/scg/engineering/water)
 "RL" = (
@@ -5838,7 +6266,10 @@
 /turf/simulated/wall/titanium,
 /area/gaia/scg)
 "Sw" = (
-/obj/structure/closet/crate/large,
+/obj/structure/sign/warning/detailed{
+	pixel_y = 25;
+	name = "\improper ARMORY"
+	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/scg)
 "Sz" = (
@@ -5868,6 +6299,13 @@
 /obj/machinery/microwave,
 /turf/simulated/floor/lino,
 /area/gaia/scg/barracks/officer/breakroom)
+"SK" = (
+/obj/structure/fog,
+/obj/floor_decal/spline/fancy/black{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete/reinforced/road,
+/area/gaia/scg/outskirts)
 "SL" = (
 /obj/machinery/conveyor{
 	dir = 10
@@ -5920,6 +6358,12 @@
 	},
 /turf/simulated/floor/steel_dirty,
 /area/gaia/scg/command)
+"SV" = (
+/obj/floor_decal/spline/fancy/black{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/concrete/reinforced/road,
+/area/gaia/scg/outskirts)
 "SW" = (
 /obj/floor_decal/step,
 /turf/simulated/floor/steel_dirty,
@@ -5985,6 +6429,16 @@
 	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/scg)
+"Tx" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/floor_decal/stairs{
+	dir = 1;
+	icon_state = "above_ramp"
+	},
+/turf/simulated/floor/exoplanet/concrete/reinforced/damaged,
+/area/gaia/scg/outskirts)
 "TC" = (
 /obj/floor_decal/borderfloor,
 /turf/simulated/floor/tiled/techfloor,
@@ -6032,6 +6486,12 @@
 /obj/item/stool/wood,
 /turf/simulated/floor/carpet,
 /area/gaia/scg/barracks)
+"Uh" = (
+/obj/floor_decal/spline/fancy/black{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/concrete/reinforced/road,
+/area/gaia/scg)
 "Ui" = (
 /obj/floor_decal/corner/green/border,
 /obj/floor_decal/corner/green/border{
@@ -6223,6 +6683,9 @@
 /obj/item/gun/projectile/sniper/garand,
 /obj/item/gun/projectile/sniper/caseless,
 /obj/item/gun/projectile/sniper/caseless,
+/obj/machinery/light/spot{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/scg/armory)
 "VE" = (
@@ -6347,6 +6810,12 @@
 /obj/structure/flora/tree/jungle/small,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg)
+"WJ" = (
+/obj/floor_decal/spline/fancy/black{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete/reinforced/road,
+/area/gaia/scg/outskirts)
 "WK" = (
 /obj/floor_decal/hull,
 /obj/structure/sign/double/solgovflag/left{
@@ -6383,6 +6852,7 @@
 /obj/item/storage/box/smokes,
 /obj/item/storage/box/smokes,
 /obj/item/storage/box/smokes,
+/obj/item/storage/box/teargas,
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "WT" = (
@@ -17652,9 +18122,9 @@ RY
 RY
 So
 Em
+SK
 AU
-AU
-AU
+yF
 Em
 So
 RY
@@ -17756,9 +18226,9 @@ xq
 xq
 Ke
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 dt
 RY
@@ -17860,9 +18330,9 @@ Xx
 Xx
 Ke
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 Ke
 RY
@@ -17964,9 +18434,9 @@ aK
 Xx
 Ke
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 Ke
 RY
@@ -18068,9 +18538,9 @@ aK
 Xx
 Ke
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 Ke
 RY
@@ -18172,9 +18642,9 @@ aK
 aK
 aK
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 Wn
 Ce
@@ -18276,9 +18746,9 @@ Wn
 Wn
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 Wn
 GD
@@ -18380,9 +18850,9 @@ Wn
 Wn
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 Wn
 GD
@@ -18484,9 +18954,9 @@ Wn
 Wn
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 pM
 GD
@@ -18588,9 +19058,9 @@ jK
 Wn
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 Wn
 GD
@@ -18692,9 +19162,9 @@ Wn
 Wn
 gI
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 Wn
 GD
@@ -18796,9 +19266,9 @@ pM
 Wn
 gI
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 jK
 GD
@@ -18900,9 +19370,9 @@ Wn
 Wn
 gI
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 Wn
 GD
@@ -19004,9 +19474,9 @@ Wn
 Wn
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 bQ
 GD
@@ -19042,9 +19512,9 @@ Gw
 LD
 gb
 DF
-mz
-nc
-nc
+rn
+No
+wN
 DF
 lW
 lW
@@ -19066,13 +19536,13 @@ lW
 lW
 lW
 DF
-mz
-nc
-nc
-nc
-nc
-nc
-nc
+rn
+No
+No
+No
+No
+No
+wN
 DF
 dV
 xN
@@ -19108,9 +19578,9 @@ eY
 Wn
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 bQ
 GD
@@ -19148,7 +19618,7 @@ Xk
 DF
 mz
 nc
-nc
+PI
 DF
 lW
 vw
@@ -19176,7 +19646,7 @@ nc
 nc
 nc
 nc
-nc
+PI
 DF
 Rn
 xN
@@ -19212,9 +19682,9 @@ Wn
 Wn
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 bQ
 GD
@@ -19252,7 +19722,7 @@ nf
 DF
 mz
 nc
-nc
+PI
 DF
 lW
 Lj
@@ -19280,7 +19750,7 @@ nc
 nc
 nc
 nc
-nc
+PI
 DF
 Vk
 xN
@@ -19316,9 +19786,9 @@ Wn
 bQ
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 Wn
 GD
@@ -19356,7 +19826,7 @@ DF
 DF
 mz
 nc
-nc
+PI
 DF
 lW
 pB
@@ -19384,7 +19854,7 @@ nc
 NR
 NR
 NR
-NR
+hY
 DF
 dV
 xN
@@ -19420,9 +19890,9 @@ Wn
 ed
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 bQ
 GD
@@ -19460,7 +19930,7 @@ xf
 DF
 mz
 nc
-nc
+PI
 DF
 lW
 nO
@@ -19488,7 +19958,7 @@ nc
 nc
 nc
 nc
-nc
+PI
 DF
 dV
 xN
@@ -19524,9 +19994,9 @@ Wn
 xQ
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 fU
 GD
@@ -19564,7 +20034,7 @@ qN
 DF
 mz
 nc
-nc
+PI
 DF
 lW
 vi
@@ -19592,7 +20062,7 @@ nc
 nc
 nc
 nc
-nc
+PI
 DF
 Rn
 xN
@@ -19628,9 +20098,9 @@ Wn
 xQ
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 bQ
 GD
@@ -19668,7 +20138,7 @@ JV
 DF
 mz
 nc
-nc
+PI
 DF
 lW
 Qd
@@ -19696,7 +20166,7 @@ nc
 NR
 NR
 NR
-NR
+hY
 DF
 Vk
 xN
@@ -19732,9 +20202,9 @@ Wn
 bQ
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 Wn
 GD
@@ -19772,7 +20242,7 @@ bR
 DF
 mz
 nc
-nc
+PI
 DF
 lW
 pB
@@ -19800,7 +20270,7 @@ nc
 nc
 nc
 nc
-nc
+PI
 DF
 Vk
 xN
@@ -19836,9 +20306,9 @@ Wn
 jK
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 bQ
 GD
@@ -19876,7 +20346,7 @@ DF
 DF
 mz
 nc
-nc
+PI
 DF
 lW
 lj
@@ -19904,7 +20374,7 @@ nc
 nc
 nc
 nc
-nc
+PI
 DF
 dV
 xN
@@ -19940,9 +20410,9 @@ Wn
 bQ
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 Wn
 GD
@@ -19980,7 +20450,7 @@ xf
 DF
 mz
 nc
-nc
+PI
 DF
 lW
 tf
@@ -20008,7 +20478,7 @@ nc
 NR
 NR
 NR
-NR
+hY
 DF
 Rn
 xN
@@ -20044,9 +20514,9 @@ Wn
 Wn
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 sb
 GD
@@ -20084,7 +20554,7 @@ gb
 DF
 mz
 nc
-nc
+PI
 DF
 lW
 ki
@@ -20112,7 +20582,7 @@ nc
 nc
 nc
 nc
-nc
+PI
 DF
 Vk
 xN
@@ -20148,9 +20618,9 @@ Wn
 bQ
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 Wn
 GD
@@ -20188,7 +20658,7 @@ JV
 DF
 mz
 nc
-nc
+PI
 DF
 lW
 pB
@@ -20216,7 +20686,7 @@ nc
 nc
 nc
 nc
-nc
+PI
 DF
 Vk
 xN
@@ -20252,9 +20722,9 @@ Wn
 Wn
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 bQ
 GD
@@ -20292,7 +20762,7 @@ Et
 DF
 mz
 nc
-nc
+PI
 DF
 lW
 ki
@@ -20320,7 +20790,7 @@ nc
 NR
 NR
 NR
-NR
+hY
 DF
 Vk
 xN
@@ -20356,9 +20826,9 @@ Wn
 bQ
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 bQ
 GD
@@ -20396,7 +20866,7 @@ DF
 DF
 mz
 nc
-nc
+PI
 DF
 lW
 FY
@@ -20424,7 +20894,7 @@ nc
 nc
 nc
 nc
-nc
+PI
 DF
 ke
 xN
@@ -20460,9 +20930,9 @@ Wn
 Wn
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 bQ
 GD
@@ -20500,7 +20970,7 @@ xf
 DF
 mz
 nc
-nc
+PI
 DF
 lW
 YZ
@@ -20524,11 +20994,11 @@ Zh
 DF
 mz
 nc
-nc
-nc
-nc
-nc
-nc
+wr
+zm
+zm
+zm
+Uh
 DF
 Vk
 xN
@@ -20564,9 +21034,9 @@ Wn
 sb
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 fU
 GD
@@ -20604,7 +21074,7 @@ qN
 DF
 mz
 nc
-nc
+PI
 DF
 lW
 Tb
@@ -20628,7 +21098,7 @@ Zh
 DF
 mz
 nc
-nc
+PI
 DF
 DF
 DF
@@ -20668,9 +21138,9 @@ Wn
 Wn
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 xQ
 GD
@@ -20708,7 +21178,7 @@ LK
 DF
 mz
 nc
-nc
+PI
 DF
 lW
 mx
@@ -20732,7 +21202,7 @@ Zh
 DF
 mz
 nc
-nc
+PI
 DF
 uT
 Vk
@@ -20772,9 +21242,9 @@ Wn
 bQ
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 xQ
 GD
@@ -20812,7 +21282,7 @@ LK
 DF
 mz
 nc
-nc
+PI
 DF
 lW
 lW
@@ -20836,7 +21306,7 @@ Zh
 DF
 mz
 nc
-nc
+PI
 DF
 vE
 Vk
@@ -20876,9 +21346,9 @@ Wn
 fU
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 Wn
 GD
@@ -20916,7 +21386,7 @@ gb
 DF
 mz
 nc
-nc
+PI
 DF
 DF
 DF
@@ -20940,7 +21410,7 @@ DF
 DF
 mz
 nc
-nc
+PI
 DF
 DF
 DF
@@ -20980,9 +21450,9 @@ Wn
 bQ
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 Wn
 GD
@@ -21020,37 +21490,37 @@ Et
 DF
 mz
 nc
+gL
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+yP
 nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
+gL
+No
+No
+No
+No
+No
+wN
 oS
 gm
 aK
@@ -21084,9 +21554,9 @@ Wn
 Wn
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 Wn
 GD
@@ -21154,7 +21624,7 @@ nc
 nc
 nc
 nc
-nc
+PI
 oS
 gm
 mk
@@ -21188,9 +21658,9 @@ Wn
 eY
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 jK
 GD
@@ -21228,37 +21698,37 @@ hl
 DF
 mz
 nc
+wr
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zX
 nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
+wr
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+Uh
 oS
 gm
 aK
@@ -21292,9 +21762,9 @@ Wn
 Wn
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 Wn
 GD
@@ -21332,7 +21802,7 @@ Xk
 DF
 mz
 nc
-nc
+PI
 DF
 DF
 DF
@@ -21348,7 +21818,7 @@ DF
 DF
 mz
 nc
-nc
+ko
 XJ
 Ds
 Ds
@@ -21396,9 +21866,9 @@ Wn
 Wn
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 Wn
 GD
@@ -21436,7 +21906,7 @@ YS
 DF
 mz
 nc
-nc
+PI
 DF
 rx
 rx
@@ -21452,7 +21922,7 @@ rx
 DF
 mz
 nc
-nc
+PI
 vn
 st
 JP
@@ -21500,9 +21970,9 @@ Wn
 Wn
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 Wn
 GD
@@ -21540,7 +22010,7 @@ qN
 DF
 mz
 nc
-nc
+PI
 DF
 rx
 Er
@@ -21556,7 +22026,7 @@ rx
 DF
 mz
 nc
-nc
+PI
 vn
 YO
 SM
@@ -21604,9 +22074,9 @@ Wn
 Wn
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 pM
 GD
@@ -21644,7 +22114,7 @@ LK
 DF
 mz
 nc
-nc
+PI
 DF
 OE
 UA
@@ -21660,7 +22130,7 @@ OE
 DF
 mz
 nc
-nc
+PI
 vn
 bV
 Gf
@@ -21708,9 +22178,9 @@ Wn
 jK
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 Wn
 GD
@@ -21748,7 +22218,7 @@ LK
 DF
 mz
 nc
-nc
+PI
 DF
 OE
 UA
@@ -21764,7 +22234,7 @@ OE
 DF
 mz
 nc
-nc
+PI
 vn
 bV
 wy
@@ -21812,9 +22282,9 @@ Wn
 Wn
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 Wn
 GD
@@ -21852,7 +22322,7 @@ Xk
 DF
 mz
 nc
-nc
+PI
 DF
 rx
 fG
@@ -21868,7 +22338,7 @@ rx
 DF
 mz
 nc
-nc
+PI
 vn
 bV
 LI
@@ -21916,9 +22386,9 @@ Wn
 Wn
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 Wn
 GD
@@ -21956,7 +22426,7 @@ CJ
 DF
 mz
 nc
-nc
+PI
 DF
 el
 iE
@@ -21972,7 +22442,7 @@ el
 DF
 mz
 nc
-nc
+PI
 vn
 bV
 vv
@@ -22020,9 +22490,9 @@ Wn
 Wn
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 Wn
 GD
@@ -22060,7 +22530,7 @@ Et
 DF
 mz
 nc
-nc
+PI
 DF
 ly
 UA
@@ -22076,7 +22546,7 @@ zI
 DF
 mz
 nc
-nc
+PI
 vn
 bV
 mB
@@ -22124,9 +22594,9 @@ Wn
 Wn
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
+xg
 hS
 hS
 GD
@@ -22164,7 +22634,7 @@ xD
 DF
 mz
 nc
-nc
+PI
 DF
 OE
 UA
@@ -22180,7 +22650,7 @@ OE
 DF
 mz
 nc
-nc
+PI
 vn
 ZU
 Uy
@@ -22228,10 +22698,10 @@ Wn
 Wn
 Wn
 hS
+WJ
 Ru
-Ru
-Ru
-Ru
+Np
+SV
 hS
 Em
 zs
@@ -22268,7 +22738,7 @@ xD
 DF
 mz
 nc
-nc
+PI
 DF
 OE
 UA
@@ -22284,7 +22754,7 @@ OE
 DF
 mz
 nc
-nc
+PI
 Tv
 MN
 MN
@@ -22332,12 +22802,12 @@ aK
 mk
 mk
 mk
+WJ
 Ru
 Ru
-Ru
-Ru
-Ru
-AU
+Np
+iB
+NG
 zs
 "}
 (48,1,2) = {"
@@ -22372,7 +22842,7 @@ hl
 DF
 mz
 nc
-nc
+PI
 DF
 rx
 GK
@@ -22388,7 +22858,7 @@ rx
 DF
 mz
 nc
-nc
+PI
 iI
 Jy
 bE
@@ -22436,8 +22906,8 @@ aK
 mk
 mk
 mk
-Ru
-Ru
+QC
+cD
 Ru
 Ru
 Ru
@@ -22476,7 +22946,7 @@ yx
 DF
 mz
 nc
-nc
+PI
 DF
 el
 UA
@@ -22492,7 +22962,7 @@ el
 DF
 mz
 nc
-nc
+PI
 iI
 ux
 ef
@@ -22541,11 +23011,11 @@ aK
 aK
 mk
 mk
-Ru
-Ru
-Ru
-Ru
-AU
+QC
+Pz
+Pz
+Pz
+Do
 zs
 "}
 (50,1,2) = {"
@@ -22580,7 +23050,7 @@ qN
 DF
 mz
 nc
-nc
+PI
 DF
 rx
 fG
@@ -22596,7 +23066,7 @@ ly
 DF
 mz
 nc
-nc
+PI
 iI
 UD
 yY
@@ -22684,7 +23154,7 @@ JV
 DF
 mz
 nc
-nc
+PI
 DF
 OE
 GK
@@ -22700,7 +23170,7 @@ OE
 DF
 mz
 nc
-nc
+PI
 DF
 cN
 cN
@@ -22788,7 +23258,7 @@ LK
 DF
 mz
 nc
-nc
+PI
 DF
 OE
 gc
@@ -22804,7 +23274,7 @@ OE
 DF
 mz
 nc
-nc
+PI
 DF
 fX
 mM
@@ -22892,7 +23362,7 @@ gb
 DF
 mz
 nc
-nc
+PI
 DF
 rx
 bq
@@ -22908,7 +23378,7 @@ rx
 DF
 mz
 nc
-nc
+PI
 DF
 fX
 eo
@@ -22996,7 +23466,7 @@ LK
 DF
 mz
 nc
-nc
+PI
 DF
 rx
 rx
@@ -23012,7 +23482,7 @@ rx
 DF
 mz
 nc
-nc
+PI
 DF
 mM
 eo
@@ -23100,7 +23570,7 @@ LK
 DF
 mz
 nc
-nc
+PI
 DF
 DF
 DF
@@ -23116,7 +23586,7 @@ DF
 DF
 mz
 nc
-nc
+PI
 DF
 mM
 eo
@@ -23204,23 +23674,23 @@ Et
 DF
 mz
 nc
+gL
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+yP
 nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
+PI
 DF
 mM
 eo
@@ -23315,7 +23785,6 @@ nc
 nc
 nc
 nc
-qQ
 nc
 nc
 nc
@@ -23325,6 +23794,7 @@ nc
 nc
 nc
 nc
+PI
 DF
 mM
 eo
@@ -23412,30 +23882,30 @@ Vk
 DF
 mz
 nc
+wr
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zX
 nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
+PI
 DF
 fX
 eo
 jM
 yT
 yT
-Sn
+AE
 yT
 am
 CR
@@ -23516,7 +23986,7 @@ Vk
 DF
 mz
 nc
-nc
+PI
 DF
 DF
 DF
@@ -23532,7 +24002,7 @@ DF
 DF
 mz
 nc
-nc
+PI
 DF
 mM
 eo
@@ -23620,7 +24090,7 @@ AA
 DF
 mz
 nc
-nc
+PI
 DF
 iq
 iq
@@ -23636,7 +24106,7 @@ iq
 DF
 mz
 nc
-nc
+PI
 DF
 DF
 DF
@@ -23724,7 +24194,7 @@ AA
 DF
 mz
 nc
-nc
+PI
 DF
 iq
 It
@@ -23740,7 +24210,7 @@ iq
 DF
 mz
 nc
-nc
+PI
 DF
 dV
 CV
@@ -23828,7 +24298,7 @@ AA
 DF
 mz
 nc
-nc
+PI
 DF
 ZA
 YE
@@ -23844,7 +24314,7 @@ ZA
 DF
 mz
 nc
-nc
+PI
 DF
 Ww
 CV
@@ -23932,7 +24402,7 @@ AA
 DF
 mz
 nc
-nc
+PI
 DF
 iq
 jg
@@ -23948,7 +24418,7 @@ iq
 DF
 mz
 nc
-nc
+PI
 DF
 mM
 CV
@@ -24036,7 +24506,7 @@ AA
 DF
 mz
 nc
-nc
+PI
 DF
 iq
 YE
@@ -24052,7 +24522,7 @@ iq
 DF
 mz
 nc
-nc
+PI
 DF
 DT
 CV
@@ -24060,7 +24530,7 @@ WD
 WD
 WD
 CV
-zh
+IY
 zh
 AV
 RX
@@ -24079,8 +24549,8 @@ mk
 mk
 VA
 gB
-gB
-gm
+Tx
+aK
 mk
 mk
 mk
@@ -24140,7 +24610,7 @@ xX
 DF
 mz
 nc
-nc
+PI
 DF
 iq
 uq
@@ -24156,7 +24626,7 @@ iq
 DF
 mz
 nc
-nc
+PI
 DF
 Vk
 CV
@@ -24183,8 +24653,8 @@ mk
 aK
 VA
 mk
-mk
-gm
+gs
+aK
 mk
 mk
 mk
@@ -24244,7 +24714,7 @@ qT
 DF
 mz
 nc
-nc
+PI
 DF
 iq
 YE
@@ -24260,7 +24730,7 @@ iq
 DF
 mz
 nc
-nc
+PI
 DF
 fX
 CV
@@ -24287,8 +24757,8 @@ mk
 aK
 VA
 sj
-sj
-gm
+vb
+aK
 aK
 aK
 Wn
@@ -24348,7 +24818,7 @@ xX
 DF
 mz
 nc
-nc
+PI
 DF
 iq
 jg
@@ -24364,7 +24834,7 @@ iq
 DF
 mz
 nc
-nc
+PI
 DF
 DF
 DF
@@ -24452,7 +24922,7 @@ xX
 DF
 mz
 nc
-nc
+PI
 DF
 ZA
 YE
@@ -24468,7 +24938,7 @@ ZA
 DF
 mz
 nc
-nc
+PI
 DF
 Tr
 Tr
@@ -24556,7 +25026,7 @@ xX
 pz
 mz
 nc
-nc
+PI
 DF
 iq
 It
@@ -24572,7 +25042,7 @@ iq
 DF
 mz
 nc
-nc
+PI
 ef
 Cl
 uD
@@ -24580,7 +25050,7 @@ uD
 uD
 RF
 IH
-IH
+RF
 uD
 bF
 Su
@@ -24660,7 +25130,7 @@ xX
 DF
 mz
 nc
-nc
+PI
 DF
 iq
 iq
@@ -24676,7 +25146,7 @@ iq
 DF
 mz
 nc
-nc
+PI
 ef
 Cl
 uD
@@ -24764,7 +25234,7 @@ xX
 DF
 mz
 nc
-nc
+PI
 DF
 Zl
 Sj
@@ -24780,7 +25250,7 @@ vk
 DF
 mz
 nc
-nc
+PI
 ef
 Cl
 yz
@@ -24868,7 +25338,7 @@ qT
 DF
 mz
 nc
-nc
+PI
 DF
 DF
 DF
@@ -24884,7 +25354,7 @@ DF
 DF
 mz
 nc
-nc
+PI
 Br
 Tr
 LG
@@ -24972,7 +25442,7 @@ xX
 DF
 mz
 nc
-nc
+PI
 DF
 DF
 DF
@@ -24988,7 +25458,7 @@ DF
 DF
 mz
 nc
-nc
+PI
 DF
 Tr
 YV
@@ -25066,8 +25536,8 @@ AA
 AA
 AA
 AA
-AA
-AA
+rk
+rk
 AA
 AA
 AA
@@ -25076,7 +25546,7 @@ AA
 DF
 mz
 nc
-nc
+PI
 DF
 XN
 zD
@@ -25092,7 +25562,7 @@ Ln
 DF
 mz
 nc
-nc
+PI
 DF
 Co
 YV
@@ -25168,10 +25638,10 @@ AA
 AA
 AA
 AA
-AA
+rk
 xn
-AA
-AA
+rk
+rk
 AA
 AA
 AA
@@ -25180,7 +25650,7 @@ AA
 DF
 mz
 nc
-nc
+PI
 DF
 iq
 iq
@@ -25196,7 +25666,7 @@ iq
 DF
 mz
 nc
-nc
+PI
 DF
 Tr
 YV
@@ -25284,7 +25754,7 @@ IJ
 Sw
 mz
 nc
-nc
+PI
 DF
 iq
 fa
@@ -25300,7 +25770,7 @@ iq
 DF
 mz
 nc
-nc
+PI
 DF
 Tr
 LG
@@ -25368,15 +25838,15 @@ bQ
 bQ
 bv
 xN
-Vk
+aE
 IJ
 yw
 fQ
 on
 vO
 UN
-UN
-EF
+Jo
+qy
 kD
 fM
 xY
@@ -25385,10 +25855,10 @@ rO
 ga
 Vi
 IJ
-Sw
+DF
 mz
 nc
-nc
+PI
 DF
 ZA
 oi
@@ -25404,7 +25874,7 @@ ZA
 DF
 mz
 nc
-nc
+PI
 DF
 Tr
 sG
@@ -25489,10 +25959,10 @@ GJ
 Ov
 Vi
 Kl
-Sw
+DF
 mz
 nc
-nc
+PI
 DF
 iq
 DJ
@@ -25508,7 +25978,7 @@ iq
 DF
 mz
 nc
-nc
+PI
 DF
 Tr
 fb
@@ -25580,10 +26050,10 @@ dV
 IJ
 VC
 ga
-gL
+MH
 vP
 cS
-fM
+Rz
 oh
 zv
 xY
@@ -25593,10 +26063,10 @@ cd
 Vi
 EJ
 IJ
-NG
+DF
 mz
 nc
-nc
+PI
 DF
 iq
 oi
@@ -25612,7 +26082,7 @@ iq
 DF
 mz
 nc
-nc
+PI
 DF
 Tr
 xM
@@ -25696,11 +26166,11 @@ Sz
 ie
 Vi
 ga
-PI
+Kl
 DF
 mz
 nc
-nc
+PI
 DF
 iq
 fa
@@ -25716,7 +26186,7 @@ iq
 DF
 mz
 nc
-nc
+PI
 DF
 Tr
 YV
@@ -25790,9 +26260,9 @@ bP
 Vi
 aS
 eX
-fM
-fM
-EF
+qQ
+aG
+NS
 zv
 xY
 xY
@@ -25804,7 +26274,7 @@ IJ
 DF
 mz
 nc
-nc
+PI
 DF
 iq
 oi
@@ -25820,7 +26290,7 @@ iq
 DF
 mz
 nc
-nc
+PI
 DF
 Tr
 yz
@@ -25908,7 +26378,7 @@ Kl
 DF
 mz
 nc
-nc
+PI
 DF
 iq
 DJ
@@ -25924,7 +26394,7 @@ iq
 DF
 mz
 nc
-nc
+PI
 DF
 Tr
 aC
@@ -26009,10 +26479,10 @@ yc
 ga
 xy
 IJ
-DF
+tI
 mz
 nc
-nc
+PI
 DF
 ZA
 oi
@@ -26028,7 +26498,7 @@ ZA
 DF
 mz
 nc
-nc
+PI
 DF
 Tr
 YV
@@ -26113,10 +26583,10 @@ IJ
 QP
 QP
 IJ
-DF
+eB
 mz
 nc
-nc
+PI
 DF
 iq
 fa
@@ -26132,7 +26602,7 @@ iq
 DF
 mz
 nc
-nc
+PI
 DF
 Co
 YV
@@ -26220,7 +26690,7 @@ AA
 DF
 mz
 nc
-nc
+PI
 DF
 iq
 iq
@@ -26236,7 +26706,7 @@ iq
 DF
 mz
 nc
-nc
+PI
 DF
 Tr
 LG
@@ -26324,7 +26794,7 @@ WE
 DF
 mz
 nc
-nc
+PI
 DF
 DF
 DF
@@ -26340,7 +26810,7 @@ DF
 DF
 mz
 nc
-nc
+PI
 DF
 Tr
 nL
@@ -26411,7 +26881,7 @@ xN
 bU
 bU
 uM
-KK
+rr
 Rv
 Rv
 Rv
@@ -26428,23 +26898,23 @@ dD
 DF
 mz
 nc
+gL
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+yP
 nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
+PI
 DF
 Tr
 uD
@@ -26548,7 +27018,7 @@ nc
 nc
 nc
 nc
-nc
+PI
 DF
 Tr
 uD
@@ -26556,7 +27026,7 @@ uD
 uD
 xH
 uD
-uD
+xH
 uD
 uD
 uD
@@ -26634,25 +27104,25 @@ Vk
 Vk
 dD
 DF
-mz
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
-nc
+Jd
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+zm
+Uh
 DF
 Tr
 Tr
