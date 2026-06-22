@@ -4,8 +4,8 @@
 */
 
 /obj/item/device/claymore
-	name = "claymore"
-	desc = "It's a mine. Set the face towards the enemy and activate. Do not stand in front."
+	name = "APD-2 claymore"
+	desc = "Anti-Personnel-Directional mine Mk2 produced by Hephaestus Industries. Advanced mine activated by an IFF tripwire sending a cloud of shrapnel into a single direction. Face towards enemy!"
 	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi'
 	icon_state = "mine"
 	w_class = ITEM_SIZE_SMALL
@@ -14,6 +14,9 @@
 	var/triggered = FALSE
 	var/hard_iff_lock = FALSE
 	var/obj/effect/mine_tripwire/tripwire
+
+	var/power = 300
+	var/falloff = 50
 
 	var/map_deployed = FALSE
 
@@ -72,7 +75,7 @@
 		iff_signal = user.faction
 
 	anchored = TRUE
-	playsound(loc, 'sound/weapons/TargetOff.ogg', 25, 1)
+	playsound(loc, 'sound/effects/bomb.ogg', 25, 1)
 	if(user)
 		user.drop_from_inventory(src, user.loc)
 		dir = user.dir //The direction it is planted in is the direction the user faces at that time
@@ -160,7 +163,7 @@
 
 //Note : May not be actual explosion depending on linked method
 /obj/item/device/claymore/proc/prime()
-	cell_explosion(epicenter = loc, power = 150, falloff = 10, direction = dir) // Fixes mines GAIA
+	cell_explosion(epicenter = loc, power = power, falloff = falloff, direction = dir) // Fixes mines GAIA
 	qdel(src)
 
 
@@ -192,6 +195,7 @@
 		return
 
 	if(linked_claymore)
+		playsound(src, 'sound/effects/tripwire.ogg', 30, FALSE)
 		linked_claymore.try_to_prime(AM)
 
 
