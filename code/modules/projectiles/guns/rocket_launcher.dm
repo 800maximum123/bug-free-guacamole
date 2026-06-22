@@ -1,18 +1,18 @@
 // Single-shot multi-use rocket launcher with backblast
 /obj/item/gun/projectile/rocket_launcher
-	name = "HI-SRL-1 Rocket Launcher"
-	desc = "A single-shot multi-use rocket launcher manufactured by Hephaestus Industries. Creates a dangerous backblast when fired. Marked with the distinctive forge emblem of its maker."
+	name = "SMRL-1 rocket launcher"
+	desc = "A single-shot multi-use rocket launcher manufactured by Hephaestus Industries."
 	icon = 'icons/obj/guns/launchers.dmi'
-	icon_state = "rocket"
+	icon_state = "rocket" // TODO: Change the sprite XeroX!
 	item_state = "rocket"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 	w_class = ITEM_SIZE_HUGE
 	slot_flags = SLOT_BACK
 	matter = list(MATERIAL_STEEL = 2000)
 	screen_shake = 1
-	space_recoil = 0 //Learn physics son
-	accuracy = 2
-	accuracy_power = 10
+	space_recoil = 0 // Learn physics son
+	accuracy_power = 7
+	starts_loaded = FALSE
 
 	// single heavy rocket
 	caliber = "rocket"
@@ -24,39 +24,112 @@
 	far_fire_sound = 'sound/weapons/gunshot/general/rocket_launch_far.ogg'
 	load_sound = 'sound/weapons/guns/interaction/rpg_insert.ogg'
 
-// After firing, perform normal behaviour then apply backblast behind the shooter
-/obj/item/gun/projectile/rocket_launcher/afterattack(atom/A, mob/living/user)
-	// Only create backblast if the launcher actually fired (not a dry-click)
-	var/before_ammo = 0
-	if(istype(src, /obj/item/gun/projectile))
-		before_ammo = src.getAmmo()
+	var/backblast_power = 300
+	var/backblast_falloff = 50
 
-	..()
+/obj/item/gun/projectile/rocket_launcher/examine(mob/user)
+	. = ..()
+	if(backblast_power > 0)
+		to_chat(user, SPAN_WARNING("\The [src] creates a lethal backblast when fired."))
 
-	var/after_ammo = 0
-	if(istype(src, /obj/item/gun/projectile))
-		after_ammo = src.getAmmo()
-
-	// If ammo didn't decrease, no shot was fired (dry click/failed), so skip backblast
-	if(after_ammo >= before_ammo)
-		return
-
+// Apply backblast behind the shooter
+/obj/item/gun/projectile/rocket_launcher/handle_post_fire(mob/user, atom/target, pointblank = 0, reflex = 0, obj/projectile)
+	. = ..()
 	// backblast affects the turf immediately behind the shooter
 	var/turf/T = get_ranged_target_turf(get_turf(user), turn(user.dir, 180), 1)
+	var/direction = get_dir(user, T)
 	if(!T)
 		return
-	// visual feedback
 	if(isturf(T))
-		var/datum/effect/smoke_spread/smoke = new
-		smoke.set_up(3,3, T, 0)
-		smoke.start(FALSE)
-	// damage any living mob on that turf (excluding the shooter)
-	for(var/mob/living/thing in T.contents) // TODO: Make backblast actual explosion lmao
-		if(thing != user && isghost(thing) == FALSE)
-			// apply a strong burst of damage from the backblast
-			var/hit_area = pick(BP_CHEST, BP_HEAD, BP_L_ARM, BP_R_ARM)
-			thing.apply_damage(40, DAMAGE_EXPLODE, def_zone = hit_area, used_weapon = "[src]'s backblast")
-			thing.Weaken(20)
-			thing.ear_deaf = max(thing.ear_deaf, 20)
-			visible_message(SPAN_DANGER("The backblast from [user.name] hits [thing.name] with a powerful force!"), SPAN_DANGER("You hear as if someone got hit by a backblast!"))
-			thing.show_message(SPAN_DANGER("The backblast from [user.name] hits you with a powerful force, burning and deafening you!"))
+		if(T.density)
+			user.visible_message(SPAN_DANGER("\The [src]'s backblast bounces off the [T]!"), SPAN_DANGER("\The [src]'s backblast bounces off [T] onto you!"))
+			T = get_turf(user) // fuck you
+			direction = null // and fuck anyone around you
+		cell_explosion(T, backblast_power, backblast_falloff, direction = direction, shrapnel = FALSE)
+
+/obj/item/gun/projectile/rocket_launcher/gcc
+	name = "RPG-2 rocket launcher"
+	desc = "A single-shot multi-use rocket launcher manufactured by Novaya Zemlya Arms."
+	icon_state = "rocket_gcc"
+	item_state = "rocket_gcc"
+
+// Single-shot single-use rocket launcher
+/obj/item/gun/projectile/rocket_launcher/single
+	name = "SU-4 (Frag) rocket launcher"
+	desc = "A single-shot single-use rocket launcher manufactured by Hephaestus Industries. Can be collapsed to fit into a backpack."
+	icon_state = "rocket_tube-off"
+	item_state = "rocket_tube-off"
+	w_class = ITEM_SIZE_LARGE
+	matter = list(MATERIAL_STEEL = 1000, MATERIAL_ALUMINIUM = 1000)
+	starts_loaded = TRUE
+
+	handle_casings = HOLD_CASINGS
+	ammo_type = /obj/item/ammo_casing/rocket
+	/// Was it used already?
+	var/used = FALSE
+	/// Is it unfolded or not?
+	var/activated = FALSE
+
+/obj/item/gun/projectile/rocket_launcher/single/proc/unfold(mob/user)
+	to_chat(user, SPAN_NOTICE("You unfold \the [src]. Ready to fire."))
+	playsound(src, 'sound/weapons/rpg_unfold.ogg', 40, TRUE)
+	icon_state = "rocket_tube-on"
+	item_state = "rocket_tube-on"
+	w_class = ITEM_SIZE_HUGE
+	activated = TRUE
+	update_icon()
+
+/obj/item/gun/projectile/rocket_launcher/single/proc/fold(mob/user)
+	to_chat(user, SPAN_NOTICE("You fold \the [src]."))
+	playsound(src, 'sound/weapons/rpg_fold.ogg', 40, TRUE)
+	icon_state = "rocket_tube-off"
+	item_state = "rocket_tube-off"
+	w_class = ITEM_SIZE_LARGE
+	activated = FALSE
+	update_icon()
+
+/obj/item/gun/projectile/rocket_launcher/single/attack_self(mob/user)
+	if(used)
+		to_chat(user, SPAN_WARNING("\The [src] have been used up!"))
+		return
+	if(activated)
+		fold(user)
+	else
+		unfold(user)
+
+/obj/item/gun/projectile/rocket_launcher/single/afterattack(atom/A, mob/living/user)
+	if(!activated)
+		to_chat(user, SPAN_WARNING("\The [src] must be unfolded first!"))
+		return
+	. = ..()
+
+/obj/item/gun/projectile/rocket_launcher/single/handle_post_fire(mob/user, atom/target, pointblank = 0, reflex = 0, obj/projectile)
+	used = TRUE
+	icon_state = "rocket_tube-used"
+	item_state = "rocket_tube-used"
+	update_icon()
+	. = ..()
+
+/obj/item/gun/projectile/rocket_launcher/single/unload_ammo(mob/user, allow_dump=1)
+	to_chat(user, SPAN_WARNING("\The [src] is single-use!"))
+	return
+
+/obj/item/gun/projectile/rocket_launcher/single/load_ammo(obj/item/A, mob/user)
+	to_chat(user, SPAN_WARNING("\The [src] is single-use!"))
+	return
+
+/obj/item/gun/projectile/rocket_launcher/single/he
+	name = "SU-4 (HE) rocket launcher"
+	ammo_type = /obj/item/ammo_casing/rocket/he
+
+/obj/item/gun/projectile/rocket_launcher/single/thermobaric
+	name = "SU-4 (Thermobaric) rocket launcher"
+	ammo_type = /obj/item/ammo_casing/rocket/thermobaric
+
+/obj/item/gun/projectile/rocket_launcher/single/aphe
+	name = "SU-4 (APHE) rocket launcher"
+	ammo_type = /obj/item/ammo_casing/rocket/aphe
+
+/obj/item/gun/projectile/rocket_launcher/single/tandem
+	name = "SU-4 (APHE tandem) rocket launcher"
+	ammo_type = /obj/item/ammo_casing/rocket/tandem

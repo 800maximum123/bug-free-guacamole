@@ -223,7 +223,7 @@
 	name = "HEAT tandem rocket shell"
 	desc = "A high-explosive anti-tank rocket designed to be fired from a launcher. Has double charge for piercing through ERA on vehicles before firing a jet of copper lining inside."
 	icon_state = "rocket_tandem"
-	projectile_type = /obj/item/projectile/missile/tandem
+	projectile_type = /obj/item/projectile/missile/aphe/tandem
 
 /obj/item/ammo_casing/cap
 	name = "cap"

@@ -333,6 +333,10 @@
 		if (check_penetrate(atom))
 			passthrough = TRUE
 		--penetrating
+	// [GAIA]
+	// So cell explosions do not delete shrapnel for no reason
+	if(istype(atom, /obj/effect/particle_effect/shockwave))
+		passthrough = TRUE
 	if (passthrough)
 		var/turf/T = get_turf(atom)
 		if(T)

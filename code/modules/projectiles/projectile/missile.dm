@@ -9,7 +9,7 @@
 	icon_state = "rocketshell"
 	damage = 40
 	weaken = 20
-	step_delay = 1.5 // Surely slower then bullets
+	step_delay = 1.2 // Surely slower then bullets
 	penetration_modifier = 100 // If it sticks - it sticks
 	damage_type = DAMAGE_BRUTE
 	embed = TRUE
@@ -65,7 +65,7 @@
 /obj/item/projectile/missile/thermobaric
 	name = "thermobaric rocket"
 	icon_state = "rocket"
-//	shrapnel_type = /obj/item/grenade/frag/dud_missile/thermobaric
+	shrapnel_type = /obj/item/grenade/frag/dud_missile/thermobaric
 
 	explosion_power = 150
 	explosion_falloff = 100
@@ -100,70 +100,45 @@
 /obj/item/projectile/missile/aphe
 	name = "APHE rocket"
 	icon_state = "rocket_aphe"
-	penetrating = 5
-	penetration_modifier = 1.0
+	penetrating = 1
 	shrapnel_type = /obj/item/grenade/frag/dud_missile/aphe
 
-	explosion_power = 200
-	explosion_falloff = 50
+	explosion_power = 1000
+	explosion_falloff = 500
+	shrapnel = FALSE
+
+	var/internal_explosion_power = 500
+	var/internal_explosion_falloff = 50
 
 /obj/item/projectile/missile/aphe/special_action(atom/A, turf/T) // TODO: Make damaging vehicles actually harsh
-	var/mob/living/exosuit/M = A
 	// Heavily damages any exosuits or vehicles
-	if(M && istype(M, /mob/living/exosuit))
-		M.visible_message(SPAN_DANGER("The [src] pierces through the armor of [M]!"), SPAN_DANGER("You hear a loud metallic pierce!"))
-		playsound(M ,'sound/weapons/rpg_pierce.ogg', 70, FALSE)
-		M.ex_act(EX_ACT_DEVASTATING)
-	if(M && istype(M, /obj/vehicles))
-		M.visible_message(SPAN_DANGER("The [src] pierces through the hull of [M]!"), SPAN_DANGER("You hear a loud metallic pierce!"))
-		playsound(M ,'sound/weapons/rpg_pierce.ogg', 70, FALSE)
-		M.ex_act(EX_ACT_DEVASTATING)
-		var/obj/vehicles/large/large_m = M
-		var/datum/vehicle_interior/interior = large_m.interior
-		if(!large_m || !interior)
+	var/obj/vehicles/vehicle = A
+	var/mob/living/exosuit/mech = A
+	if(istype(mech))
+		mech.visible_message(SPAN_DANGER("The [src] pierces through the armor of [mech]!"), SPAN_DANGER("You hear a loud metallic pierce!"))
+		mech.gib()
+		playsound(mech ,'sound/weapons/rpg_pierce.ogg', 100, FALSE)
+	if(istype(vehicle))
+		vehicle.visible_message(SPAN_DANGER("The [src] pierces through the hull of [vehicle]!"), SPAN_DANGER("You hear a loud metallic pierce!"))
+		playsound(vehicle ,'sound/weapons/rpg_pierce.ogg', 100, FALSE)
+		vehicle.deactivate()
+		var/obj/vehicles/large/large_v = vehicle
+		var/datum/vehicle_interior/interior = large_v.interior
+		if(!large_v || !interior)
 			return TRUE
-		// TODO: Make it work bruh
 		// Simulating an RPG going inside the vehicle and blowing up by causing an explosion inside of it
-		// We spawn it on either of the entrance waypoints
-		var/turf/pierce = get_turf(interior.entrance)
-		if(prob(50) && interior.driver_entrance)
-			pierce = get_turf(interior.driver_entrance)
-		cell_explosion(pierce, explosion_power, explosion_falloff)
-		playsound(pierce ,'sound/weapons/rpg_pierce.ogg', 70, FALSE)
-		pierce.visible_message(FONT_LARGE(SPAN_DANGER("[src] COMES THROUGH THE HULL OF [M], OH FUCK!")), FONT_LARGE(SPAN_DANGER("YOU HEARD A LOUD METALLIC PIERCE!")))
+		// We spawn it on middle of the interior
+		var/turf/pierce = interior.middle_turf
+		playsound(pierce ,'sound/weapons/rpg_pierce.ogg', 100, FALSE)
+		cell_explosion(pierce, internal_explosion_power, internal_explosion_falloff)
+		pierce.visible_message(FONT_LARGE(SPAN_DANGER("[src] comes through the hell of [A], OH FUCK!")), FONT_LARGE(SPAN_DANGER("You hear a loud metallic pierce!")))
 
 // TANDEM (APHE) MISSILE
 // Same as APHE but circumvents any ERA armor
-/obj/item/projectile/missile/tandem // TODO: Actually make tandem be different from APHE
+/obj/item/projectile/missile/aphe/tandem // TODO: Actually make tandem be different from APHE
 	name = "tandem APHE rocket"
 	icon_state = "rocket_tandem"
-	penetrating = 5
-	penetration_modifier = 1.0
 	shrapnel_type = /obj/item/grenade/frag/dud_missile/tandem
 
-	explosion_power = 200
-	explosion_falloff = 50
-
 /obj/item/projectile/missile/tandem/special_action(atom/A, turf/T) // TODO: Make damaging vehicles actually harsh
-	var/mob/living/exosuit/M = A
-	// Heavily damages any exosuits or vehicles
-	if(M && istype(M, /mob/living/exosuit))
-		M.visible_message(SPAN_DANGER("The [src] pierces through the armor of [M]!"), SPAN_DANGER("You hear a loud metallic pierce!"))
-		playsound(M ,'sound/weapons/rpg_pierce.ogg', 70, FALSE)
-		M.ex_act(EX_ACT_DEVASTATING)
-	if(M && istype(M, /obj/vehicles))
-		M.visible_message(SPAN_DANGER("The [src] pierces through the hull of [M]!"), SPAN_DANGER("You hear a loud metallic pierce!"))
-		playsound(M ,'sound/weapons/rpg_pierce.ogg', 70, FALSE)
-		M.ex_act(EX_ACT_DEVASTATING)
-		var/obj/vehicles/large/large_m = M
-		var/datum/vehicle_interior/interior = large_m.interior
-		if(!large_m || !interior)
-			return TRUE
-		// Simulating an RPG going inside the vehicle and blowing up by causing an explosion inside of it
-		// We spawn it on either of the entrance waypoints
-		var/turf/pierce = get_turf(interior.entrance)
-		if(prob(50) && interior.driver_entrance)
-			pierce = get_turf(interior.driver_entrance)
-		cell_explosion(pierce, explosion_power, explosion_falloff)
-		playsound(pierce ,'sound/weapons/rpg_pierce.ogg', 70, FALSE)
-		pierce.visible_message(FONT_LARGE(SPAN_DANGER("[src] COMES THROUGH THE HULL OF [M], OH FUCK!")), FONT_LARGE(SPAN_DANGER("YOU HEARD A LOUD METALLIC PIERCE!")))
+	. = ..()

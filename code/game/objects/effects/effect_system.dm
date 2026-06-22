@@ -332,6 +332,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	var/suffocation = 5
 	var/fire_stacks = 15
 	var/detonation_time = 1 SECONDS
+	var/blown_up = FALSE
 
 /obj/effect/smoke/thermobaric/Initialize()
 	. = ..()
@@ -360,9 +361,10 @@ would spawn and follow the beaker, even if it is carried or thrown.
 
 /obj/effect/smoke/thermobaric/proc/blow_up()
 	var/turf/location = src.loc
-	if(location)
+	if(location && !blown_up)
+		blown_up = TRUE // Just in case
 		location.hotspot_expose(1000,500,1)
-		cell_explosion(location, 150, 50, shrapnel = FALSE)
+		cell_explosion(location, 150, 50, shrapnel = FALSE, thermobaric = TRUE)
 		for(var/mob/living/carbon/human/victim in location)
 			victim.rupture_lung()
 		qdel(src)

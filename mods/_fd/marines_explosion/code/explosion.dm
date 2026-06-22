@@ -70,6 +70,9 @@
 	// Whether or not the explosion should merge with other explosions
 	var/should_merge = TRUE
 
+	// If it should only damage mobs
+	var/thermobaric = FALSE
+
 	// Workaround to account for the fact that this is subsystemized
 	// See on_turf_entered
 	var/list/atom/exploded_atoms = list()
@@ -159,6 +162,9 @@
 			continue
 		if(A.gc_destroyed)
 			continue
+		if(thermobaric) // Thermobaric doesn't damage structures
+			if(!istype(A, /mob/living))
+				continue
 		invoke_async(A, TYPE_PROC_REF(/atom, ex_act), power, direction)
 		exploded_atoms += A
 		log_explosion(A, src)
@@ -246,13 +252,17 @@ as having entered the turf.
 	if(A.gc_destroyed)
 		return
 
+	if(thermobaric) // Thermobaric doesn't damage structures
+		if(!istype(A, /mob/living))
+			return
+
 	invoke_async(A, TYPE_PROC_REF(/atom, ex_act), power, null)
 	log_explosion(A, src)
 
 // I'll admit most of the code from here on out is basically just copypasta from DOREC
 
 // Spawns a cellular automaton of an explosion
-/proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR, direction, shrapnel = TRUE, z_transfer = UP|DOWN, original = TRUE, datum/effect/system/effective = /datum/effect/system/explosion)
+/proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR, direction, shrapnel = TRUE, z_transfer = UP|DOWN, original = TRUE, datum/effect/system/effective = /datum/effect/system/explosion, thermobaric = FALSE)
 	var/mob/living/carbon/psionic
 
 	if(!istype(epicenter))
@@ -295,6 +305,7 @@ as having entered the turf.
 	E.power_falloff = falloff
 	E.falloff_shape = falloff_shape
 	E.direction = direction
+	E.thermobaric = thermobaric
 
 	// Make explosion effect
 //	new /obj/effect/temp_visual/shockwave(epicenter, explosion_range)
@@ -310,11 +321,11 @@ as having entered the turf.
 		if(z_transfer & UP)
 			var/turf/above_epicenter = GetAbove(epicenter)
 			if(above_epicenter)
-				cell_explosion(above_epicenter, z_level_scaled, falloff, falloff_shape, direction, shrapnel, UP, FALSE)
+				cell_explosion(above_epicenter, z_level_scaled, falloff, falloff_shape, direction, shrapnel, UP, FALSE, thermobaric = thermobaric)
 		if(z_transfer & DOWN)
 			var/turf/below_epicenter = GetBelow(epicenter)
 			if(below_epicenter)
-				cell_explosion(below_epicenter, z_level_scaled, falloff, falloff_shape, direction, shrapnel, DOWN, FALSE)
+				cell_explosion(below_epicenter, z_level_scaled, falloff, falloff_shape, direction, shrapnel, DOWN, FALSE, thermobaric = thermobaric)
 
 /proc/log_explosion(atom/A, datum/automata_cell/explosion/E)
 	if(isliving(A))
