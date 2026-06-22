@@ -331,8 +331,10 @@
 /obj/item/gun/proc/handle_click_empty(mob/user)
 	if (user)
 		user.visible_message("*click click*", SPAN_DANGER("*click*"))
+		user.balloon_alert(user, "*click*")
 	else
 		src.visible_message("*click click*")
+		src.balloon_alert_to_viewers("*click*")
 	playsound(src.loc, dry_fire_sound, 100, 1)
 
 /obj/item/gun/proc/handle_click_safety(mob/user)

@@ -11,7 +11,6 @@
 	far_fire_sound = 'sound/weapons/gunshot/general/grenade_launch_far.ogg'
 	fire_sound_text = "a metallic thunk"
 	screen_shake = 0
-	throw_distance = 7
 	release_force = 5
 	combustion = 1
 
