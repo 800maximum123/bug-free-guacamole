@@ -294,12 +294,18 @@
 		if(!O.anchored)
 			step(O, src.last_move)
 		O.hitby(src,TT)
-		playsound(src, 'sound/weapons/genhit.ogg', 30, TRUE)
+		if(istype(src, /obj/item/grenade))
+			playsound(src, 'sound/weapons/grenade_fall.ogg', 100, TRUE)
+		else
+			playsound(src, 'sound/weapons/genhit.ogg', 30, TRUE)
 
 	else if(isturf(hit_atom))
 		var/turf/T = hit_atom
 		T.hitby(src,TT)
-		playsound(src, 'sound/weapons/genhit.ogg', 30, TRUE)
+		if(istype(src, /obj/item/grenade))
+			playsound(src, 'sound/weapons/grenade_fall.ogg', 100, TRUE)
+		else
+			playsound(src, 'sound/weapons/genhit.ogg', 30, TRUE)
 
 /atom/movable/proc/throw_at(atom/target, range, speed, mob/thrower, spin = TRUE, datum/callback/callback) //If this returns FALSE then callback will not be called.
 	. = TRUE

@@ -14,7 +14,6 @@
 	var/fail_det_time = 5 // If you are clumsy and fail, you get this time.
 	var/arm_sound = 'sound/weapons/armbomb.ogg'
 
-
 /obj/item/grenade/proc/clown_check(mob/living/user)
 	if((MUTATION_CLUMSY in user.mutations) && prob(50))
 		to_chat(user, SPAN_WARNING("Huh? How does this thing work?"))
@@ -23,7 +22,6 @@
 		add_fingerprint(user)
 		return 0
 	return 1
-
 
 /obj/item/grenade/examine(mob/user, distance)
 	. = ..()
@@ -35,7 +33,6 @@
 			return
 		to_chat(user, "\The [src] is set for instant detonation.")
 
-
 /obj/item/grenade/attack_self(mob/living/user)
 	if(!active)
 		if(clown_check(user))
@@ -46,7 +43,6 @@
 				var/mob/living/carbon/C = user
 				C.throw_mode_on()
 
-
 /obj/item/grenade/proc/activate(mob/living/user)
 	if (active)
 		return
@@ -54,9 +50,8 @@
 		msg_admin_attack("[user.name] ([user.ckey]) primed \a [src] (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
 	icon_state = initial(icon_state) + "_active"
 	active = TRUE
-	playsound(loc, arm_sound, 75, 0, -3)
+	playsound(loc, arm_sound, 75, FALSE)
 	addtimer(new Callback(src, PROC_REF(detonate), user), det_time)
-
 
 /obj/item/grenade/proc/detonate(mob/living/user)
 	var/turf/T = get_turf(src)
@@ -81,6 +76,11 @@
 		return TRUE
 	return ..()
 
-/obj/item/grenade/attack_hand()
-	walk(src, null, null)
+/obj/item/grenade/attack_hand(mob/living/user)
+	if(active && user.a_intent == I_HURT)
+		var/distance = rand(3, 7)
+		throw_at(get_edge_target_turf(user, user.dir), distance, throw_speed, user, TRUE)
+		user.visible_message(SPAN_WARNING("\The [user] kicks \the [src] away!"), SPAN_WARNING("You kick away \the [src]!"))
+		playsound(user, 'sound/weapons/throwtap.ogg', 30, TRUE)
+		return
 	..()
