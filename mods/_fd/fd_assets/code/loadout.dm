@@ -38,3 +38,9 @@
 	display_name = "very revealing dress"
 	path = /obj/item/clothing/under/veryrevealingdress
 	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/utility/umbrella
+	display_name = "umbrella"
+	path = /obj/item/melee/umbrella
+	cost = 1
+	flags = GEAR_HAS_COLOR_SELECTION
