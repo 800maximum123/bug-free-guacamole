@@ -102,7 +102,7 @@
 
 	var/radio_interrupt_cooldown = 0
 	var/last_emote = 0
-	var/emote_cooldown = 5 SECONDS
+	var/emote_cooldown = 2 SECONDS
 
 	var/unacidable = FALSE
 	var/list/pinned = list()            // List of things pinning this creature to walls (see living_defense.dm)
