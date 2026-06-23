@@ -111,8 +111,14 @@
 
 /obj/effect/fd/fishing_spot_clues/Initialize()
 	. = ..()
-	SetTransform(2)
+	SetTransform(1.2)
 	add_filter("fish", 2, list("type" = "outline", , "size" = 1, "color" = COLOR_WHITE))
+	START_PROCESSING(SSobj,src)
+
+/obj/effect/fd/fishing_spot_clues/Process()
+	animate(src, pixel_x = pixel_x - pick(0,1), pixel_y = pixel_y - pick(0,1), time = 0.5, easing = EASE_IN)
+	animate(pixel_x = pixel_x + pick(0,1), pixel_y = pixel_y + pick(0,1), time = 1)
+	animate(pixel_x = pixel_x, pixel_y = pixel_y, time = 0.3, easing = EASE_OUT)
 
 /obj/landmark/fd/fishgen
 	name = "fishing spot"
@@ -241,6 +247,7 @@
 	fisherman.fishing_in = null
 	fisherman = null
 
+	fisherman_tool.busy_fishing = FALSE
 	fisherman_tool = null
 
 /atom/proc/do_fishing(obj/item/tool, mob/living/carbon/user)
@@ -259,8 +266,17 @@
 	fisherman = user
 
 	fisherman_tool = tool
+	fisherman_tool.busy_fishing = TRUE
 
-	addtimer(new Callback(src, PROC_REF(fishing_qte), user, fisherman_tool), rand(fisherman_tool.min_fishing_duration, fisherman_tool.max_fishing_duration))
+	var/min_speed = fisherman_tool.min_fishing_duration
+	var/max_speed = fisherman_tool.max_fishing_duration
+	if(istype(fisherman_tool,/obj/item/fishing_rod))
+		var/obj/item/fishing_rod/F = fisherman_tool
+		if(F.reel)
+			min_speed = clamp(min_speed - F.reel.speed_buff, 10 SECONDS, INFINITY)
+			max_speed = clamp(max_speed - F.reel.speed_buff, min_speed + 10 SECONDS, INFINITY)
+
+	addtimer(new Callback(src, PROC_REF(fishing_qte), user, fisherman_tool), rand(min_speed, max_speed))
 
 /atom/proc/can_fish(mob/living/user, obj/item/tool)
 	if(!allow_fishing)
@@ -319,12 +335,18 @@
 
 	user.client.screen += prefish_icon
 
+	var/qte_timing = fisherman_tool.fishing_timing
+	if(istype(fisherman_tool,/obj/item/fishing_rod))
+		var/obj/item/fishing_rod/F = fisherman_tool
+		if(F.lure && istype(F.lure,/obj/item/fd/fishing/lure/buzz))
+			qte_timing += 10 SECONDS
+
 	addtimer(new Callback(src, PROC_REF(fail_qte), user, fisherman_tool), fisherman_tool.fishing_timing)
 	playsound(get_turf(src), 'packs/infinity/sound/effects/Splash_Small_01_mono.ogg', 100, TRUE)
 
-	animate(prefish_icon, tool.fishing_timing/2, easing = SINE_EASING|EASE_OUT, transform = matrix().Update(scale_x = 2.5, scale_y = 2.5, rotation = 30))
-	sleep(tool.fishing_timing/2)
-	animate(prefish_icon, tool.fishing_timing/2, easing = SINE_EASING|EASE_IN, transform = matrix())
+	animate(prefish_icon, qte_timing/2, easing = SINE_EASING|EASE_OUT, transform = matrix().Update(scale_x = 2.5, scale_y = 2.5, rotation = 30))
+	sleep(qte_timing/2)
+	animate(prefish_icon, qte_timing/2, easing = SINE_EASING|EASE_IN, transform = matrix())
 
 /atom/proc/fail_qte(mob/living/carbon/human/user, obj/item/tool)
 	if(prefish)
@@ -332,6 +354,12 @@
 		for(var/obj/screen/F in user.client.screen)
 			if(istype(F, /obj/screen/fish))
 				user.client.screen -= F
+
+		if(istype(fisherman_tool,/obj/item/fishing_rod))
+			var/obj/item/fishing_rod/F = fisherman_tool
+			if(F.lure && istype(F.lure,/obj/item/fd/fishing/lure/led) && prob(50))
+				catch_fish(user, fisherman_tool)
+				return
 
 		user.client.connected_fish = null
 
@@ -341,7 +369,15 @@
 		prefish = null
 		prefish_icon = null
 
-		addtimer(new Callback(src, PROC_REF(fishing_qte), user, fisherman_tool), rand(fisherman_tool.min_fishing_duration, fisherman_tool.max_fishing_duration))
+		var/min_speed = fisherman_tool.min_fishing_duration
+		var/max_speed = fisherman_tool.max_fishing_duration
+		if(istype(fisherman_tool,/obj/item/fishing_rod))
+			var/obj/item/fishing_rod/F = fisherman_tool
+			if(F.reel)
+				min_speed = clamp(min_speed - F.reel.speed_buff, 10 SECONDS, INFINITY)
+				max_speed = clamp(max_speed - F.reel.speed_buff, min_speed + 10 SECONDS, INFINITY)
+
+		addtimer(new Callback(src, PROC_REF(fishing_qte), user, fisherman_tool), rand(min_speed, max_speed))
 
 /atom/proc/catch_fish(mob/living/carbon/human/user, obj/item/tool)
 
@@ -367,9 +403,43 @@
 		prefish.forceMove(get_turf(user))
 		playsound(get_turf(src), 'sound/effects/watersplash.ogg', 100, TRUE)
 
+		if(istype(fisherman_tool,/obj/item/fishing_rod))
+			var/obj/item/fishing_rod/F = fisherman_tool
+			if(F.lure && istype(F.lure,/obj/item/fd/fishing/lure/lucky) && prob(50))
+				var/new_fish_type = pickweight(connected_landmark.possible_fish_spawns)
+				var/mob/living/additional_fish = new new_fish_type(get_turf(user))
+				additional_fish.kill_health()
+				additional_fish.update_icon()
+
+				additional_fish.layer += 0.01
+				additional_fish.glide_size = user.raft.glide_size
+
+				additional_fish.do_water_overlay = FALSE
+				additional_fish.toggle_water_overlay(FALSE)
+
+				additional_fish.pass_flags |= PASS_FLAG_TABLE
+
+				additional_fish.can_sunk = FALSE
+
+				additional_fish.sunking = FALSE
+				additional_fish.update_sunking(FALSE)
+
+				user.raft.raft_storage += additional_fish
+				playsound(get_turf(src), 'sound/effects/watersplash.ogg', 100, TRUE)
+
 	else
 		prefish.forceMove(get_turf(user))
 		playsound(get_turf(src), 'sound/effects/watersplash.ogg', 100, TRUE)
+
+		if(istype(fisherman_tool,/obj/item/fishing_rod))
+			var/obj/item/fishing_rod/F = fisherman_tool
+			if(F.lure && istype(F.lure,/obj/item/fd/fishing/lure/lucky) && prob(50))
+				var/new_fish_type = pickweight(connected_landmark.possible_fish_spawns)
+				var/mob/living/additional_fish = new new_fish_type(get_turf(user))
+
+				additional_fish.kill_health()
+				additional_fish.update_icon()
+				playsound(get_turf(src), 'sound/effects/watersplash.ogg', 100, TRUE)
 
 	sleep(5)
 
@@ -386,7 +456,15 @@
 		connected_landmark.fishing_spot_richness = clamp(connected_landmark.fishing_spot_richness - 1, 0,connected_landmark.fishing_spot_richness)
 		connected_landmark.update_fishing_spot_status()
 
-	addtimer(new Callback(src, PROC_REF(fishing_qte), user, fisherman_tool), rand(fisherman_tool.min_fishing_duration, fisherman_tool.max_fishing_duration))
+	var/min_speed = fisherman_tool.min_fishing_duration
+	var/max_speed = fisherman_tool.max_fishing_duration
+	if(istype(fisherman_tool,/obj/item/fishing_rod))
+		var/obj/item/fishing_rod/F = fisherman_tool
+		if(F.reel)
+			min_speed = clamp(min_speed - F.reel.speed_buff, 10 SECONDS, INFINITY)
+			max_speed = clamp(max_speed - F.reel.speed_buff, min_speed + 10 SECONDS, INFINITY)
+
+	addtimer(new Callback(src, PROC_REF(fishing_qte), user, fisherman_tool), rand(min_speed, max_speed))
 
 /client
 	var/obj/screen/fish/connected_fish

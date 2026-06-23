@@ -92,6 +92,9 @@
 	// Аватар данилкус проснулся, теперь всё хорошо
 
 	layer = 2.22
+	var/list/acceptable_fishgens = list(/obj/landmark/fd/fishgen,
+										/obj/landmark/fd/fishgen/dionacave,
+										/obj/landmark/fd/fishgen/ocean)
 
 /obj/fd_water/Process()
 	for(var/atom/movable/A in loc)

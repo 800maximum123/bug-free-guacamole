@@ -438,6 +438,13 @@
 	. = ..()
 	SetTransform(null,1.3,2)
 
+/obj/item/beach_ball/bleba
+	icon = 'mods/_fd/fd_assets/icons/tg/rift.dmi'
+	icon_state = "mossglob"
+
+	name = "Блёба"
+	desc = "Странный сгусток мха. Кажется, у него есть глаза."
+
 /obj/structure/fd/random_junk/big_campfire
 	name = "campfire"
 	desc = "Very big campfire."

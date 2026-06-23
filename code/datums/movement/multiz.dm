@@ -17,7 +17,7 @@
 		return MOVEMENT_HANDLED
 
 	var/area/area = get_area(mob)
-	if(!(locate(/obj/fd_water) in destination) && direction == UP && area.has_gravity() && !mob.can_overcome_gravity())
+	if(direction == UP && area.has_gravity() && !mob.can_overcome_gravity() && !(locate(/obj/fd_water) in destination))
 		to_chat(mover, SPAN_WARNING("Gravity stops you from moving upward."))
 		return MOVEMENT_HANDLED
 
@@ -27,7 +27,7 @@
 			return MOVEMENT_HANDLED
 
 	area = get_area(destination)
-	if(!(locate(/obj/fd_water) in destination) && direction == UP && area.has_gravity() && mob.can_fall(FALSE, destination))
+	if(direction == UP && area.has_gravity() && mob.can_fall(FALSE, destination) && !(locate(/obj/fd_water) in destination))
 		to_chat(mover, SPAN_WARNING("You see nothing to hold on to."))
 		return MOVEMENT_HANDLED
 
