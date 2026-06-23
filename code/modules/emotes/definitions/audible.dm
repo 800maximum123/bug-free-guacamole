@@ -237,11 +237,11 @@
 			else
 				warcry_sounds = GLOB.male_panslavic_warcries
 
-	if(!warcry_sounds || !warcry_sounds.len)
+	if(!warcry_sounds || !warcry_sounds.len || prob(30))
 		if(user.gender == FEMALE)
-			warcry_sounds = GLOB.female_zac_warcries
+			warcry_sounds = GLOB.female_generic_warcries
 		else
-			warcry_sounds = GLOB.male_zac_warcries
+			warcry_sounds = GLOB.male_generic_warcries
 
 	if(!warcry_sounds || !warcry_sounds.len)
 		return
