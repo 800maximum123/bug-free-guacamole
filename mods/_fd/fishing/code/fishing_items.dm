@@ -98,17 +98,20 @@
 /obj/item/fd/fishing/worm_can/attack_hand(mob/user)
 
 	if(length(worms) && loc == user)
-		var/obj/item/fd/fishing/worm/random_worm = pick(worms)
-		worms -= random_worm
-		update_can_sprite()
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			if(H.r_hand == src || H.l_hand == src)
+				var/obj/item/fd/fishing/worm/random_worm = pick(worms)
+				worms -= random_worm
+				update_can_sprite()
 
-		user.put_in_active_hand(random_worm)
-		return TRUE
+				user.put_in_active_hand(random_worm)
+				return TRUE
 
 	. = ..()
 
 /obj/item/fd/fishing/worm_can/proc/update_can_sprite()
-	if(!length(worms))
+	if(length(worms) <= 0)
 		icon_state = "bait_can_empty"
 	if(length(worms) >= maximum_capacity)
 		icon_state = "bait_can"

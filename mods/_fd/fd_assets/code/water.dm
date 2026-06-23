@@ -1,3 +1,33 @@
+/datum/species
+	var/water_adapted = 2 // 0 is perfect adaptation, -1 and less means you literally can't sunk at this point
+
+/datum/species/nabber
+	water_adapted = 4
+
+/datum/species/resomi
+	water_adapted = 4
+
+/datum/species/machine
+	water_adapted = 4
+
+/datum/species/human/gravworlder
+	water_adapted = 4
+
+/datum/species/human/tritonian
+	water_adapted = 0
+
+/datum/species/adherent
+	water_adapted = -1
+
+/datum/species/unathi/yeosa
+	water_adapted = -1
+
+/datum/species/skrell
+	water_adapted = -1
+
+/datum/species/diona
+	water_adapted = -1
+
 /atom/movable
 	var/sunking = FALSE
 	var/can_sunk = FALSE
@@ -6,6 +36,12 @@
 
 /mob/living
 	can_sunk = TRUE
+
+/mob/living/carbon/human/Initialize(mapload)
+	. = ..()
+
+	if(species.water_adapted < 0)
+		can_sunk = FALSE
 
 /obj/item
 	can_sunk = TRUE
@@ -20,7 +56,11 @@
 			current_sunking += amount
 			if(istype(src,/obj/item))
 				var/obj/item/I = src
-				current_sunking += I.w_class
+				current_sunking = clamp(current_sunking + I.w_class, 0, 32)
+
+			if(ishuman(src))
+				var/mob/living/carbon/human/H = src
+				current_sunking = clamp(current_sunking + H.species.water_adapted, 0, 32)
 
 			sunking_overlay = image(source.icon, src, source.icon_state)
 

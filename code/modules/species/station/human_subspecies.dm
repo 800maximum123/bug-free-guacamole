@@ -26,9 +26,14 @@
 	appearance_flags = SPECIES_APPEARANCE_HAS_HAIR_COLOR | SPECIES_APPEARANCE_HAS_SKIN_TONE_GRAV | SPECIES_APPEARANCE_HAS_LIPS | SPECIES_APPEARANCE_HAS_UNDERWEAR | SPECIES_APPEARANCE_HAS_EYE_COLOR
 
 /datum/species/human/gravworlder/can_float(mob/living/carbon/human/H)
-	. = ..()
-	if(.)
-		return H.skill_check(SKILL_HAULING, SKILL_EXPERIENCED) //Hard for them to swim
+	if(!H.is_physically_disabled())
+		if(!H.skill_check(SKILL_HAULING, SKILL_TRAINED))
+			if(H.get_stamina() < 40)
+				return FALSE
+			H.adjust_stamina(-40)
+		if(H.encumbrance() < 1)
+			return TRUE
+	return FALSE
 
 /datum/species/human/spacer
 	name = SPECIES_SPACER

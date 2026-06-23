@@ -167,6 +167,16 @@
 		)
 	)
 
+/datum/species/resomi/can_float(mob/living/carbon/human/H)
+	if(!H.is_physically_disabled())
+		if(!H.skill_check(SKILL_HAULING, SKILL_TRAINED)) // с крыльями не поплаваешь, ты не утка
+			if(H.get_stamina() < 40)
+				return FALSE
+			H.adjust_stamina(-40)
+		if(H.encumbrance() < 1)
+			return TRUE
+	return FALSE
+
 /datum/species/resomi/equip_survival_gear(mob/living/carbon/human/H)
 	..()
 	H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/lenses(H), slot_glasses)

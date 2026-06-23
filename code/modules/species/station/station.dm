@@ -346,6 +346,12 @@
 		/singleton/trait/general/nonpermeable_skin = TRAIT_LEVEL_EXISTS
 	)
 
+/datum/species/diona/can_float(mob/living/carbon/human/H)
+	if(!H.is_physically_disabled())
+		if(H.encumbrance() < 1)
+			return TRUE
+	return FALSE
+
 /proc/spawn_diona_nymph(turf/target)
 	if (!istype(target))
 		return

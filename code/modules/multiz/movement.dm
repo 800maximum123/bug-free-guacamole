@@ -357,14 +357,14 @@
 /mob/living/can_float()
 	return !is_physically_disabled()
 
+/mob/living/silicon/can_float()
+	return !is_physically_disabled()
+
 /mob/living/aquatic/can_float()
 	return TRUE
 
 /mob/living/carbon/human/can_float()
 	return species.can_float(src)
-
-/mob/living/silicon/can_float()
-	return FALSE //If they can fly otherwise it will be checked first
 
 /mob/living
 	var/atom/movable/z_observer/z_eye

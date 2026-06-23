@@ -385,7 +385,7 @@
 	prefish.kill_health()
 	prefish.update_icon()
 
-	if(user.raft)
+	if(locate(/obj/structure/fd/makeshift_raft) in user.loc)
 		prefish.layer += 0.01
 		prefish.glide_size = user.raft.glide_size
 

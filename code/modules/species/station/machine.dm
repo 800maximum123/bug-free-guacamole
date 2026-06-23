@@ -133,5 +133,8 @@
 	var/datum/pronouns/P = H.choose_from_pronouns()
 	return "[SPAN_DANGER("[P.His] monitor is completely busted!")]\n"
 
-/datum/species/machine/can_float(mob/living/carbon/human/H)
+/datum/species/machine/can_float(mob/living/carbon/human/H) // Кримзон, я всё понимаю, ты любишь брать на удушающий, но можно пожалуйста игроки на ИПС не будут обречены на судьбу ОушенГейта?
+	if(!H.is_physically_disabled())
+		if(H.encumbrance() < 1)
+			return TRUE
 	return FALSE
