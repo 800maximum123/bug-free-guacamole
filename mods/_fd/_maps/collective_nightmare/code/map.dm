@@ -1089,8 +1089,8 @@
 /obj/effect/fakerain
 	name = "rain"
 	desc = "rain"
-	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi'
-	icon_state = "rain"
+	icon = 'mods/_fd/fd_assets/icons/tg/weather_effects.dmi'
+	icon_state = "rain_high"
 	mouse_opacity = FALSE
 	anchored = TRUE
 	layer = 4.12

@@ -45,8 +45,8 @@
 //ВНЕШНИЙ МИР
 /area/fort_manticore/jungle
 	name = "Jungle"
-	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi'
-	icon_state = "rain"
+	icon = 'mods/_fd/fd_assets/icons/tg/weather_effects.dmi'
+	icon_state = "rain_high"
 	requires_power = 0
 
 // Комнаты экипажа
@@ -757,4 +757,4 @@
 /obj/submap_landmark/spawnpoint/manticore/lin
 	name = "Lin Mei"
 
-// #include "..\map\fort_manticore.dmm"
+#include "..\map\fort_manticore.dmm"

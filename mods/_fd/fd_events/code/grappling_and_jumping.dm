@@ -165,6 +165,11 @@
 	if(L.get_stamina() < L.dash_stamina_use)
 		return FALSE
 
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		if(H.raft)
+			return FALSE
+
 /datum/keybinding/living/fd/dash/down(client/user)
 	var/mob/living/L = user.mob
 	L.preparing_to_dash = TRUE

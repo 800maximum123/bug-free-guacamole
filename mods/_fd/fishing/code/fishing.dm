@@ -158,14 +158,22 @@
 	prefish.update_icon()
 
 	if(user.raft)
-		if(length(user.raft.raft_storage) >= user.raft.raft_storage_cap)
-			user.raft.balloon_alert(user, "|НА ПЛОТУ НЕДОСТАТОЧНО МЕСТА!|", COLOR_RED)
+		prefish.layer += 0.01
+		prefish.glide_size = user.raft.glide_size
 
-			qdel(prefish)
+		prefish.do_water_overlay = FALSE
+		prefish.toggle_water_overlay(FALSE)
 
-		else
-			user.raft.put_in_storage(prefish)
-			playsound(get_turf(src), 'sound/effects/watersplash.ogg', 100, TRUE)
+		prefish.pass_flags |= PASS_FLAG_TABLE
+
+		prefish.can_sunk = FALSE
+
+		prefish.sunking = FALSE
+		prefish.update_sunking(FALSE)
+
+		user.raft.raft_storage += prefish
+		prefish.forceMove(get_turf(user))
+		playsound(get_turf(src), 'sound/effects/watersplash.ogg', 100, TRUE)
 
 	else
 		prefish.forceMove(get_turf(user))
@@ -284,21 +292,22 @@
 	var/list/exclude_this_types = list(/obj/effect,
 									/obj/temp_visual,
 									/obj/decal,
-									/obj/fd_water)
-	var/raft_storage_cap = 20
+									/obj/fd_water,
+									/obj/machinery/atmospherics/pipe,
+									/obj/structure/cable)
 
-	bound_height = 96
-	bound_width = 96
+	bound_height = 128
+	bound_width = 128
 
-	pixel_x = 32
-	pixel_y = 32
+	pixel_x = 48
+	pixel_y = 48
 
 	do_water_overlay = FALSE
 	glide_size = 0.9
 
 /obj/structure/fd/makeshift_raft/Initialize()
 	. = ..()
-	SetTransform(3)
+	SetTransform(4)
 
 /obj/structure/fd/makeshift_raft/Move()
 	var/turf/old_location = get_turf(src)
@@ -316,24 +325,6 @@
 
 		for(var/mob/F in connected_elements)
 			F.forceMove(get_step(F,direction))
-
-/obj/structure/fd/makeshift_raft/proc/put_in_storage(atom/movable/A)
-	A.forceMove(get_turf(src))
-
-	A.pixel_y = rand(-8,8)
-	A.pixel_x = rand(-8,8)
-	A.layer += 0.01
-	A.glide_size = glide_size
-
-	A.do_water_overlay = FALSE
-	A.CutOverlays(A.water_overlay)
-
-	A.anchored = TRUE
-
-	if(isobj(A))
-		A.density = FALSE
-
-	raft_storage += A
 
 /obj/structure/fd/makeshift_raft/AltClick(mob/user)
 	. = ..()
@@ -373,26 +364,6 @@
 			user.client.raft_moving_atom = selected
 			return TRUE
 
-/obj/structure/fd/makeshift_raft/MouseDrop_T(atom/dropping, mob/user)
-	if(dropping == src)
-		return
-	if(dropping == ship_captain)
-		return
-	if(dropping in raft_storage)
-		return
-
-	if(dropping.type in exclude_this_types)
-		return
-
-	if(isobj(dropping))
-		var/obj/O = dropping
-		if(O.anchored && !istype(O,/obj/structure/bed))
-			return
-
-	if(do_after(user, 5 SECONDS, user, DO_PUBLIC_UNIQUE))
-		put_in_storage(dropping)
-	return
-
 /obj/structure/fd/makeshift_raft/attack_hand(mob/living/user)
 	if(!ship_captain && ishuman(user))
 		var/mob/living/carbon/human/H = user
@@ -404,7 +375,14 @@
 			H.raft = src
 			H.pixel_y += 10
 			H.do_water_overlay = FALSE
-			H.CutOverlays(H.water_overlay)
+			H.can_sunk = FALSE
+			H.toggle_water_overlay(FALSE)
+
+			H.pass_flags |= PASS_FLAG_TABLE
+
+			if(H.sunking)
+				H.sunking = FALSE
+				H.update_sunking(FALSE)
 
 			H.forceMove(get_turf(src))
 
@@ -415,7 +393,17 @@
 		if(do_after(user, 5 SECONDS, user, DO_PUBLIC_UNIQUE))
 			ship_captain.raft = null
 			ship_captain.pixel_y = initial(ship_captain.pixel_y)
-			ship_captain.do_water_overlay = TRUE
+
+			if(ship_captain in loc)
+				ship_captain.layer += 0.01
+				ship_captain.glide_size = glide_size
+
+				raft_storage += ship_captain
+			else
+				ship_captain.do_water_overlay = TRUE
+				ship_captain.can_sunk = initial(ship_captain.can_sunk)
+				ship_captain.pass_flags = initial(pass_flags)
+
 			ship_captain = null
 
 			return TRUE
@@ -429,14 +417,21 @@
 	. = ..()
 	if(O != ship_captain && !(O in raft_storage))
 		var/atom/movable/A = O
+		if(!(A.type in exclude_this_types))
 
-		A.layer += 0.01
-		A.glide_size = glide_size
+			A.layer += 0.01
+			A.glide_size = glide_size
 
-		A.do_water_overlay = FALSE
-		A.CutOverlays(A.water_overlay)
+			A.do_water_overlay = FALSE
+			A.can_sunk = FALSE
+			A.toggle_water_overlay(FALSE)
 
-		raft_storage += A
+			A.pass_flags |= PASS_FLAG_TABLE
+
+			A.sunking = FALSE
+			A.update_sunking(FALSE)
+
+			raft_storage += A
 
 /obj/structure/fd/makeshift_raft/Uncrossed(O)
 	. = ..()
@@ -447,8 +442,11 @@
 		A.pixel_x = initial(A.pixel_x)
 
 		A.do_water_overlay = TRUE
+		A.can_sunk = initial(A.can_sunk)
 		A.glide_size = initial(A.glide_size)
 		A.layer = initial(A.layer)
+
+		A.pass_flags = initial(pass_flags)
 
 		A.density = initial(A.density)
 		A.anchored = FALSE

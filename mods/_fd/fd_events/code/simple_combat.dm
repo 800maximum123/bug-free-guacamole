@@ -1085,7 +1085,7 @@
 	name = "stabilization drug"
 	desc = "Used to speed-up your regeneration."
 
-	icon = 'mods/_fd/fd_assets/icons/tgmc/syringe.dmi'
+	icon = 'mods/_fd/fd_assets/icons/tg/syringe.dmi'
 	icon_state = "stimpen"
 
 	w_class = ITEM_SIZE_SMALL
@@ -1159,7 +1159,7 @@
 	name = "revival fluid"
 	desc = "Used to get you up."
 
-	icon = 'mods/_fd/fd_assets/icons/tgmc/syringe.dmi'
+	icon = 'mods/_fd/fd_assets/icons/tg/syringe.dmi'
 	icon_state = "syndipen"
 
 	w_class = ITEM_SIZE_TINY

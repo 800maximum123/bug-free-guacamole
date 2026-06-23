@@ -48,8 +48,8 @@
 //ВНЕШНИЙ МИР
 /area/bunker/jungle
 	name = "Jungle"
-	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/weather.dmi'
-	icon_state = "rain"
+	icon = 'mods/_fd/fd_assets/icons/tg/weather_effects.dmi'
+	icon_state = "rain_high"
 	requires_power = 0
 
 /area/bunker/lounge
@@ -1142,11 +1142,11 @@
 	name = "Катана Кассандры"
 	desc = "Фамильное оружие семьи Де Виго. Что бы это ни значило."
 
-	icon = 'mods/_fd/fd_assets/icons/tgmc/sword.dmi'
+	icon = 'mods/_fd/fd_assets/icons/tg/sword.dmi'
 	icon_state = "energy_katana"
 	item_icons = list(
-		slot_l_hand_str = 'mods/_fd/fd_assets/icons/tgmc/onmob/swords_lefthand.dmi',
-		slot_r_hand_str = 'mods/_fd/fd_assets/icons/tgmc/onmob/swords_righthand.dmi',
+		slot_l_hand_str = 'mods/_fd/fd_assets/icons/tg/onmob/swords_lefthand.dmi',
+		slot_r_hand_str = 'mods/_fd/fd_assets/icons/tg/onmob/swords_righthand.dmi',
 	)
 	item_state_slots = list(
 		slot_l_hand_str = "energy_katana",
@@ -1227,4 +1227,4 @@
 /obj/submap_landmark/spawnpoint/bunker/lira
 	name = "Lira Schatten"
 
-// #include "..\map\bunker.dmm"
+#include "..\map\bunker.dmm"

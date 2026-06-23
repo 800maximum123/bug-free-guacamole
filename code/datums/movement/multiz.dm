@@ -17,7 +17,7 @@
 		return MOVEMENT_HANDLED
 
 	var/area/area = get_area(mob)
-	if(direction == UP && area.has_gravity() && !mob.can_overcome_gravity())
+	if(!(locate(/obj/fd_water) in destination) && direction == UP && area.has_gravity() && !mob.can_overcome_gravity())
 		to_chat(mover, SPAN_WARNING("Gravity stops you from moving upward."))
 		return MOVEMENT_HANDLED
 

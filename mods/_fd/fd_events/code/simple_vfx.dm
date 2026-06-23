@@ -140,7 +140,7 @@
 	QDEL_IN(src, 1.5 SECONDS)
 
 /obj/effect/simple_combat_particle/explosion_alt
-	icon = 'mods/_fd/fd_assets/icons/tgmc/64x64.dmi'
+	icon = 'mods/_fd/fd_assets/icons/tg/64x64.dmi'
 	alpha = 255
 	icon_state = "seismic_fracture"
 	pixel_y = 64

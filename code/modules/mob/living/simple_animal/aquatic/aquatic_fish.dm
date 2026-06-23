@@ -19,8 +19,8 @@
 /obj/item/holder/fish
 	w_class = ITEM_SIZE_TINY
 	item_icons = list(
-		slot_l_hand_str = 'mods/_fd/fd_assets/icons/tgmc/onmob/fish_lefthand.dmi',
-		slot_r_hand_str = 'mods/_fd/fd_assets/icons/tgmc/onmob/fish_righthand.dmi',
+		slot_l_hand_str = 'mods/_fd/fd_assets/icons/tg/onmob/fish_lefthand.dmi',
+		slot_r_hand_str = 'mods/_fd/fd_assets/icons/tg/onmob/fish_righthand.dmi',
 		)
 
 /mob/living/simple_animal/aquatic/fish/grump

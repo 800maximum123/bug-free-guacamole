@@ -980,7 +980,7 @@
 /obj/structure/fd/turret/Initialize()
 	. = ..()
 
-	targeting = image(icon = 'mods/_fd/fd_assets/icons/tgmc/telegraph.dmi', icon_state = "exclamation")
+	targeting = image(icon = 'mods/_fd/fd_assets/icons/tg/telegraph.dmi', icon_state = "exclamation")
 
 	if(start_with_gun)
 		connected_weapon = new premade_gun(src)

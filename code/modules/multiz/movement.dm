@@ -155,6 +155,9 @@
 	if(lastloc && (locate(/obj/fd_water) in T) && lastloc.z <= T.z)
 		return
 
+	if((locate(/obj/fd_water) in T) && !istype(src, /mob/living) && can_sunk && current_sunking < 32)
+		return
+
 	if(can_fall())
 		begin_falling(lastloc, below)
 
