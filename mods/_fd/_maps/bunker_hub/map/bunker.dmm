@@ -423,6 +423,13 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/bunker/corridors/north)
+"aoT" = (
+/obj/fd_water,
+/obj/landmark/fd/fishgen/ocean,
+/turf/simulated/floor/exoplanet/fd/whitesand{
+	color = "#868686"
+	},
+/area/bunker/jungle)
 "aph" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -745,6 +752,13 @@
 "aDv" = (
 /turf/simulated/floor/tiled/white,
 /area/bunker/lower/lab/gateway)
+"aDx" = (
+/obj/fd_water,
+/obj/landmark/fd/fishgen/ocean,
+/turf/simulated/floor/exoplanet/fd/whitesand{
+	color = "#575757"
+	},
+/area/bunker/jungle)
 "aDA" = (
 /obj/machinery/door/airlock/hatch{
 	locked = 1
@@ -15497,6 +15511,11 @@
 /obj/floor_decal/floordetail/tiled,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/lower/lab/cryolab)
+"jut" = (
+/obj/fd_water/alt_ver1,
+/obj/landmark/fd/fishgen/dionacave,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/bunker)
 "jvW" = (
 /obj/floor_decal/messygrass{
 	dir = 8
@@ -37797,6 +37816,13 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/rooms/room1)
+"xbb" = (
+/obj/fd_water/deep,
+/obj/landmark/fd/fishgen/ocean,
+/turf/simulated/floor/exoplanet/fd/whitesand{
+	color = "#272727"
+	},
+/area/bunker/jungle)
 "xbp" = (
 /obj/structure/catwalk,
 /obj/decal/cleanable/dirt,
@@ -122721,7 +122747,7 @@ wzT
 wzT
 wzT
 wHo
-wHo
+aoT
 wHo
 wHo
 wHo
@@ -127138,7 +127164,7 @@ kRr
 kRr
 kRr
 kRr
-kRr
+xbb
 kRr
 kRr
 kRr
@@ -131202,7 +131228,7 @@ wHo
 wHo
 wHo
 wHo
-wHo
+aoT
 wHo
 wHo
 wHo
@@ -138262,7 +138288,7 @@ wzT
 wzT
 wzT
 wHo
-wzT
+aDx
 wHo
 wHo
 wHo
@@ -146325,7 +146351,7 @@ kRr
 kRr
 mKb
 kRr
-kRr
+xbb
 kRr
 kRr
 kRr
@@ -147321,7 +147347,7 @@ qMV
 qMV
 qMV
 qMV
-qMV
+jut
 qMV
 qMV
 agC
@@ -151606,7 +151632,7 @@ wHo
 wHo
 wHo
 wHo
-wHo
+aoT
 wHo
 wHo
 wHo
@@ -154821,7 +154847,7 @@ kRr
 kRr
 kRr
 kRr
-kRr
+xbb
 kRr
 wzT
 wzT
@@ -159254,7 +159280,7 @@ kRr
 kRr
 kRr
 kRr
-kRr
+xbb
 cKq
 kRr
 kRr
@@ -159282,7 +159308,7 @@ wHo
 wHo
 wHo
 wHo
-wHo
+aoT
 wHo
 wHo
 wHo

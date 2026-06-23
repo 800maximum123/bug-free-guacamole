@@ -54,7 +54,8 @@
 	var/image/I = image(icon, src, "platform_overlay", BELOW_OBJ_LAYER, dir)
 	switch(dir)
 		if(SOUTH)
-			layer = ABOVE_HUMAN_LAYER-0.01
+			if(!(locate(/obj/fd_water) in loc))
+				layer = ABOVE_HUMAN_LAYER-0.01
 			I.pixel_y = -16
 		if(NORTH)
 			I.pixel_y = 16

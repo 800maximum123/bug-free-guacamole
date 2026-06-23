@@ -1,11 +1,125 @@
+/datum/keybinding/living/fd/fishing_eye
+	hotkey_keys = list("F")
+	name = "fishing_eye"
+	full_name = "General: FISHING EYE"
+	description = ""
+
+/datum/keybinding/living/fd/fishing_eye/can_use(client/user)
+	. = ..()
+	var/mob/living/L = user.mob
+
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		if(H.get_skill_value(SKILL_COOKING) < SKILL_EXPERIENCED)
+			H.balloon_alert(H, "|НЕДОСТАТОЧНЫЙ УРОВЕНЬ: ГОТОВКА|", COLOR_RED)
+			return FALSE
+
+/datum/keybinding/living/fd/fishing_eye/down(client/user)
+	var/mob/living/L = user.mob
+	user.view = 30
+	L.overlay_fullscreen(/obj/screen/fullscreen/fd/blackout/alt)
+	L.show_fisherman(L)
+
+	for(var/obj/landmark/fd/fishgen/F in world)
+		if(F.fishing_spot_richness == 0)
+			continue
+		L.show_spot(F)
+
+	return TRUE
+
+/datum/keybinding/living/fd/fishing_eye/up(client/user)
+	var/mob/living/L = user.mob
+	user.view = 7
+	L.clear_fullscreen(/obj/screen/fullscreen/fd/blackout/alt)
+
+	for(var/obj/landmark/fd/fishgen/F in world)
+		L.hide_spot(F)
+
+	L.hide_fisherman(L)
+
+	return TRUE
+
+/image/fishing_spot
+/image/fisherman
+
 /mob/living
 	var/mob_fishing = FALSE
 	var/atom/fishing_in
 
-/atom
-	var/allow_fishing = FALSE
-	var/image/fishing_overlay
-	var/list/fish_types = list(
+	var/list/revealed_fishspots = list()
+	var/list/revealed_fishermans = list()
+
+/mob/living/proc/show_fisherman(atom/A)
+	if(!client || (A in revealed_fishermans))
+		return
+
+	var/image/fisherman/new_fisherman = new /image/hint('mods/_fd/fd_assets/icons/aurora/overmap_effects.dmi', A, "globe", layer = HUD_PLANE)
+
+	new_fisherman.plane = HUD_PLANE
+	new_fisherman.color = COLOR_CYAN
+	new_fisherman.filters = list(filter(type = "outline", size = 2, color = COLOR_WHITE))
+
+	var/matrix/M = matrix()
+	M.Scale(6)
+
+	new_fisherman.transform = M
+
+	client.images += new_fisherman
+	revealed_fishermans[A] = new_fisherman
+
+/mob/living/proc/hide_fisherman(atom/A)
+	if(!client || !(A in revealed_fishermans))
+		return
+
+	var/image/fisherman/the_fisherman = revealed_fishermans[A]
+	if(client)
+		client.images -= the_fisherman
+	revealed_fishermans -= A
+
+/mob/living/proc/show_spot(atom/A)
+	if(!client || (A in revealed_fishspots))
+		return
+
+	var/image/fishing_spot/new_spot = new /image/hint('mods/_fd/fd_assets/icons/aurora/overmap_effects.dmi', A, "carp", layer = HUD_PLANE)
+
+	new_spot.plane = HUD_PLANE
+
+	var/matrix/M = matrix()
+	M.Scale(6)
+
+	new_spot.transform = M
+
+	client.images += new_spot
+	revealed_fishspots[A] = new_spot
+
+/mob/living/proc/hide_spot(atom/A)
+	if(!client || !(A in revealed_fishspots))
+		return
+
+	var/image/fishing_spot/the_spot = revealed_fishspots[A]
+	if(client)
+		client.images -= the_spot
+	revealed_fishspots -= A
+
+/obj/effect/fd/fishing_spot_clues
+	mouse_opacity = FALSE
+	icon = 'mods/_fd/fd_assets/icons/overmap_eris.dmi'
+	icon_state = "carps_school0_g"
+	layer = 2.21
+
+	color = COLOR_BLACK
+
+/obj/effect/fd/fishing_spot_clues/Initialize()
+	. = ..()
+	SetTransform(2)
+	add_filter("fish", 2, list("type" = "outline", , "size" = 1, "color" = COLOR_WHITE))
+
+/obj/landmark/fd/fishgen
+	name = "fishing spot"
+	icon_state = "carp"
+	icon = 'mods/_fd/fd_assets/icons/aurora/overmap_effects.dmi'
+
+	var/list/possible_fish_spawns = list(
 		/mob/living/simple_animal/aquatic/fish = 100,
 		/mob/living/simple_animal/aquatic/fish/grump = 100,
 		/mob/living/simple_animal/aquatic/fish/judge = 100,
@@ -17,6 +131,77 @@
 		/mob/living/simple_animal/aquatic/fish/salmon = 100,
 		/mob/living/simple_animal/aquatic/fish/bass = 100
 		)
+
+	var/fishing_spot_richness = -1 // means there is infinite fish amount
+	var/regenerate = TRUE
+
+	var/generation_radius = 3
+	var/list/atom/connected_atoms = list()
+
+/obj/landmark/fd/fishgen/Initialize()
+	. = ..()
+
+	if(regenerate)
+
+		for(var/atom/A in range(generation_radius,src))
+			if(!A.allow_fishing)
+				continue
+			if(A.has_fish)
+				continue
+
+			A.has_fish = TRUE
+			A.connected_landmark = src
+			connected_atoms += A
+
+			if(prob(10))
+				new /obj/effect/fd/fishing_spot_clues(get_turf(A))
+
+		if(fishing_spot_richness > 0)
+			fishing_spot_richness = rand(1,fishing_spot_richness)
+
+/obj/landmark/fd/fishgen/proc/update_fishing_spot_status()
+	if(fishing_spot_richness == 0)
+		for(var/atom/A in connected_atoms)
+			for(var/obj/effect/fd/fishing_spot_clues/C in get_turf(A))
+				qdel(C)
+
+			A.has_fish = FALSE
+			A.connected_landmark = null
+			connected_atoms -= A
+
+/obj/landmark/fd/fishgen/dionacave
+	possible_fish_spawns = list(
+		/mob/living/simple_animal/aquatic/fish = 100,
+		/mob/living/simple_animal/aquatic/fish/grump = 100,
+		/mob/living/simple_animal/aquatic/fish/judge = 100,
+		)
+	generation_radius = 5
+
+/obj/landmark/fd/fishgen/dionacave/Initialize()
+	. = ..()
+	regenerate = FALSE
+
+/obj/landmark/fd/fishgen/ocean
+	fishing_spot_richness = 20
+
+/proc/regenerate_fishspots(minimum_needed)
+	var/current_regenerated = 0
+	for(var/obj/landmark/fd/fishgen/F in world)
+		if(current_regenerated < minimum_needed)
+			F.fishing_spot_richness = initial(F.fishing_spot_richness)
+			F.Initialize()
+
+			current_regenerated++
+		else
+			if(prob(40))
+				F.fishing_spot_richness = initial(F.fishing_spot_richness)
+				F.Initialize()
+
+/atom
+	var/allow_fishing = FALSE
+	var/has_fish = FALSE
+	var/image/fishing_overlay
+	var/obj/landmark/fd/fishgen/connected_landmark
 	var/currently_fishing = FALSE
 	var/mob/living/fisherman
 	var/obj/item/fisherman_tool
@@ -81,6 +266,9 @@
 	if(!allow_fishing)
 		return FALSE
 
+	if(!has_fish)
+		return FALSE
+
 	if(!tool.can_fish)
 		return FALSE
 
@@ -116,7 +304,11 @@
 	if(!fisherman || !currently_fishing || !fisherman_tool)
 		return FALSE
 
-	var/new_fish_type = pickweight(fish_types)
+	if(!has_fish)
+		stop_fishing()
+		return FALSE
+
+	var/new_fish_type = pickweight(connected_landmark.possible_fish_spawns)
 	prefish = new new_fish_type(src)
 
 	prefish_icon = new /obj/screen/fish()
@@ -189,6 +381,11 @@
 
 	prefish = null
 	prefish_icon = null
+
+	if(connected_landmark.fishing_spot_richness > 0)
+		connected_landmark.fishing_spot_richness = clamp(connected_landmark.fishing_spot_richness - 1, 0,connected_landmark.fishing_spot_richness)
+		connected_landmark.update_fishing_spot_status()
+
 	addtimer(new Callback(src, PROC_REF(fishing_qte), user, fisherman_tool), rand(fisherman_tool.min_fishing_duration, fisherman_tool.max_fishing_duration))
 
 /client
