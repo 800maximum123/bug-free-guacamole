@@ -133,8 +133,8 @@
 
 	layer = 2.22
 	var/list/acceptable_fishgens = list(/obj/landmark/fd/fishgen,
-										/obj/landmark/fd/fishgen/dionacave,
-										/obj/landmark/fd/fishgen/ocean)
+										/obj/landmark/fd/fishgen/ocean,
+										/obj/landmark/fd/fishgen/eldritch)
 
 /obj/fd_water/Process()
 	for(var/atom/movable/A in loc)
@@ -229,6 +229,10 @@
 /obj/fd_water/alt_ver1
 	icon_state = "water3"
 	alpha = 70
+
+	acceptable_fishgens = list(/obj/landmark/fd/fishgen/swamp,
+							/obj/landmark/fd/fishgen/dionacave,
+							/obj/landmark/fd/fishgen/eldritch)
 
 /obj/fd_water/alt_ver2
 	icon_state = "water4"

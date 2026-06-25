@@ -17,6 +17,27 @@
 	fishing_range = 0
 	fishing_timing = 2 SECONDS
 
+/turf/simulated/floor/exoplanet/fd/muddirt/use_tool(obj/item/C, mob/living/user, list/click_params)
+	if(istype(C,/obj/item/shovel/spade))
+
+		for(var/i=1,i<=5,i++)
+			if(!do_after(user, 1 SECONDS, user, DO_PUBLIC_UNIQUE))
+				break
+
+			if(prob(30))
+				if(prob(10))
+					new /obj/item/fd/fishing/worm/eldritch(src)
+				else
+					new /obj/item/fd/fishing/worm/swamp(src)
+			else
+				new /obj/item/ore/glass(src)
+
+			sleep(0.5 SECONDS)
+
+		return TRUE
+
+	. = ..()
+
 /turf/simulated/floor/exoplanet/fd/desertsand/use_tool(obj/item/C, mob/living/user, list/click_params)
 	if(istype(C,/obj/item/shovel/spade))
 
@@ -25,7 +46,10 @@
 				break
 
 			if(prob(30))
-				new /obj/item/fd/fishing/worm(src)
+				if(prob(10))
+					new /obj/item/fd/fishing/worm/eldritch(src)
+				else
+					new /obj/item/fd/fishing/worm(src)
 			else
 				new /obj/item/ore/glass(src)
 
@@ -52,7 +76,7 @@
 	maptext_y = 2
 
 	can_sunk = FALSE
-	var/fishgen = /obj/landmark/fd/fishgen/ocean
+	var/list/cant_store_this = list(/obj/item/fd/fishing/worm/eldritch)
 
 /obj/item/fd/fishing/worm_can/Initialize()
 	. = ..()
@@ -65,12 +89,12 @@
 			if(!water.has_fish)
 				var/obj/item/fd/fishing/worm/random_worm = pick(worms)
 				worms -= random_worm
+
+				if(prob(random_worm.spawn_chance) && (random_worm.fishgen in water.acceptable_fishgens))
+					new random_worm.fishgen(get_turf(water))
+
 				qdel(random_worm)
-
 				update_can_sprite()
-
-				if(prob(10) && (fishgen in water.acceptable_fishgens))
-					new fishgen(get_turf(water))
 
 /obj/item/fd/fishing/worm_can/MouseEntered(location, control, params)
 	. = ..()
@@ -86,7 +110,7 @@
 		maptext = ""
 
 /obj/item/fd/fishing/worm_can/use_tool(obj/item/item, mob/living/user, list/click_params)
-	if(istype(item,/obj/item/fd/fishing/worm) && length(worms) < maximum_capacity)
+	if(istype(item,/obj/item/fd/fishing/worm) && length(worms) < maximum_capacity && !(item.type in cant_store_this))
 		user.drop_from_inventory(item)
 		item.forceMove(src)
 		worms += item
@@ -128,6 +152,7 @@
 
 	can_sunk = FALSE
 	var/fishgen = /obj/landmark/fd/fishgen/ocean
+	var/spawn_chance = 10
 
 /obj/item/fd/fishing/worm/Initialize()
 	. = ..()
@@ -137,10 +162,29 @@
 	var/obj/fd_water/water = locate(/obj/fd_water) in loc
 	if(water && !(locate(/obj/structure/fd/makeshift_raft) in loc))
 		if(!water.has_fish)
-			if(prob(10) && (fishgen in water.acceptable_fishgens))
+			if(prob(spawn_chance) && (fishgen in water.acceptable_fishgens))
 				new fishgen(get_turf(water))
 
 			qdel(src)
+
+/obj/item/fd/fishing/worm/eldritch
+	icon = 'mods/_fd/fd_assets/icons/goons/artifacts/artifactsitemS.dmi'
+	icon_state = "eldritch-1"
+
+	w_class = ITEM_SIZE_TINY
+	name = "what"
+	desc = "The fuck is this thing even?"
+
+	fishgen = /obj/landmark/fd/fishgen/eldritch
+	spawn_chance = 50
+
+/obj/item/fd/fishing/worm/eldritch/New()
+	. = ..()
+	icon_state = "eldritch-[rand(1,7)]"
+
+/obj/item/fd/fishing/worm/swamp
+	color = COLOR_GREEN_GRAY
+	fishgen = /obj/landmark/fd/fishgen/swamp
 
 /obj/item/fd/fishing/lure
 	icon = 'mods/_fd/fd_assets/icons/tg/fishing.dmi'
@@ -151,6 +195,10 @@
 	desc = "Fishing lure"
 
 /obj/item/fd/fishing/lure/buzz // увеличивает окно QTE
+
+/obj/item/fd/fishing/lure/algae // даёт шанс выловить редкую рыбу из любого водоёма
+	icon = 'mods/_fd/fd_assets/icons/tg/fishing.dmi'
+	icon_state = "algae"
 
 /obj/item/fd/fishing/lure/lucky // даёт шанс получить две рыбы с одного QTE
 	icon = 'mods/_fd/fd_assets/icons/tg/fishing.dmi'

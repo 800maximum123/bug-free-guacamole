@@ -5132,6 +5132,17 @@
 	},
 /obj/structure/table/rack,
 /obj/decal/cleanable/dirt,
+/obj/item/fd/fishing/reel{
+	pixel_y = 9;
+	pixel_x = -3
+	},
+/obj/item/fd/fishing/lure/led{
+	pixel_x = 3;
+	pixel_y = -1
+	},
+/obj/item/fd/fishing/lure/buzz{
+	pixel_y = -3
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/bunker/rooms/room12)
 "cUR" = (
@@ -11322,6 +11333,7 @@
 	layer = 2.21;
 	pixel_y = 9
 	},
+/obj/fluid_mapped,
 /turf/simulated/floor/exoplanet/fd/whitesand{
 	color = "#868686"
 	},
@@ -11927,6 +11939,11 @@
 /obj/decal/cleanable/blood/oil/streak,
 /turf/simulated/floor/tiled/white,
 /area/bunker/lower/lab/gateway)
+"hhn" = (
+/obj/fd_water/alt_ver1,
+/obj/landmark/fd/fishgen/swamp,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/bunker/jungle)
 "hhA" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -16500,6 +16517,7 @@
 /mob/living/simple_animal/aquatic/fish/judge{
 	dir = 8
 	},
+/obj/fluid_mapped,
 /turf/simulated/floor/exoplanet/fd/whitesand{
 	color = "#868686"
 	},
@@ -18153,11 +18171,12 @@
 	pixel_y = -9;
 	pixel_x = -6
 	},
-/mob/living/simple_animal/aquatic/fish/trout{
+/mob/living/simple_animal/aquatic/fish/minnow{
 	dir = 4;
 	name = "Mr. Silver"
 	},
 /obj/machinery/floor_light/mapped_on,
+/obj/fluid_mapped,
 /turf/simulated/floor/exoplanet/fd/whitesand{
 	color = "#868686"
 	},
@@ -18810,6 +18829,7 @@
 /area/bunker/jungle)
 "lGx" = (
 /obj/structure/table/woodentable/ebony,
+/obj/item/fishing_rod,
 /turf/simulated/floor/exoplanet/samosbor/wood{
 	icon_state = "wood_fancy"
 	},
@@ -20525,6 +20545,16 @@
 /obj/structure/platform,
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
+"mQm" = (
+/obj/structure/platform/kutjevo/rock{
+	dir = 1;
+	layer = 2.23
+	},
+/obj/item/beach_ball/bleba,
+/turf/simulated/floor/exoplanet/fd/desertsand{
+	color = "#a0a0a0"
+	},
+/area/bunker/jungle)
 "mQo" = (
 /turf/simulated/floor/tiled/freezer,
 /area/bunker/kitchen/freezer)
@@ -20786,6 +20816,7 @@
 /mob/living/simple_animal/aquatic/fish/grump{
 	dir = 4
 	},
+/obj/fluid_mapped,
 /turf/simulated/floor/exoplanet/fd/whitesand{
 	color = "#868686"
 	},
@@ -22180,6 +22211,8 @@
 /obj/floor_decal/borderfloor{
 	dir = 8
 	},
+/obj/item/shovel/spade,
+/obj/item/shovel/spade,
 /turf/simulated/floor/tiled,
 /area/bunker/rooms/room10)
 "nXn" = (
@@ -25125,6 +25158,14 @@
 /obj/structure/platform,
 /turf/simulated/floor/plating,
 /area/bunker/eng/workshop)
+"pNE" = (
+/obj/fd_water/alt_ver1,
+/obj/floor_decal/messygrass{
+	dir = 8
+	},
+/obj/landmark/fd/fishgen/swamp,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/bunker/jungle)
 "pNI" = (
 /obj/structure/table/standard,
 /obj/machinery/light{
@@ -27680,6 +27721,7 @@
 "rky" = (
 /obj/structure/flora/seaweed/mid,
 /mob/living/simple_animal/aquatic/fish/judge,
+/obj/fluid_mapped,
 /turf/simulated/floor/exoplanet/fd/whitesand{
 	color = "#868686"
 	},
@@ -29333,6 +29375,19 @@
 /obj/paint/black,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/corridors/north)
+"sjv" = (
+/obj/structure/table/woodentable/ebony,
+/obj/item/fd/fishing/worm_can{
+	pixel_y = 16;
+	pixel_x = 4
+	},
+/obj/item/shovel/spade{
+	pixel_x = -24
+	},
+/turf/simulated/floor/exoplanet/samosbor/wood{
+	icon_state = "wood_fancy"
+	},
+/area/bunker/lounge)
 "skz" = (
 /obj/machinery/smartfridge/secure/virology,
 /obj/decal/cleanable/dirt,
@@ -36511,6 +36566,7 @@
 	},
 /obj/structure/flora/seaweed,
 /mob/living/simple_animal/aquatic/fish/grump,
+/obj/fluid_mapped,
 /turf/simulated/floor/exoplanet/fd/whitesand{
 	color = "#868686"
 	},
@@ -36528,10 +36584,11 @@
 	pixel_y = 35;
 	pixel_x = 7
 	},
-/mob/living/simple_animal/aquatic/fish/murkin{
+/mob/living/simple_animal/aquatic/fish/goldfish{
 	dir = 4;
 	name = "Mrs. Gold"
 	},
+/obj/fluid_mapped,
 /turf/simulated/floor/exoplanet/fd/whitesand{
 	color = "#868686"
 	},
@@ -37553,6 +37610,7 @@
 	pixel_x = 9;
 	pixel_y = 11
 	},
+/obj/fluid_mapped,
 /turf/simulated/floor/exoplanet/fd/whitesand{
 	color = "#868686"
 	},
@@ -37777,6 +37835,7 @@
 /obj/structure/flora/seaweed/glow{
 	layer = 2.21
 	},
+/obj/fluid_mapped,
 /turf/simulated/floor/exoplanet/fd/whitesand{
 	color = "#868686"
 	},
@@ -121461,7 +121520,7 @@ eib
 kdV
 kdV
 kdV
-kdV
+hhn
 kdV
 kdV
 kjo
@@ -121489,7 +121548,7 @@ kdV
 kdV
 kdV
 eib
-kdV
+hhn
 kdV
 kdV
 kdV
@@ -122685,7 +122744,7 @@ kdV
 kdV
 kdV
 kdV
-kdV
+hhn
 kdV
 kdV
 kdV
@@ -122864,7 +122923,7 @@ sUN
 mRJ
 kdV
 kdV
-kdV
+hhn
 kdV
 kdV
 kdV
@@ -123456,7 +123515,7 @@ sUN
 sUN
 sUN
 kdV
-rcb
+pNE
 owE
 qtR
 ijt
@@ -124084,7 +124143,7 @@ gdS
 ruj
 jOY
 kdV
-kdV
+hhn
 jOY
 kdV
 kdV
@@ -124315,7 +124374,7 @@ hkC
 tZr
 kdV
 kdV
-kdV
+hhn
 kdV
 kdV
 kdV
@@ -151445,7 +151504,7 @@ vSC
 xlz
 tPu
 vsQ
-lGx
+sjv
 qSN
 oBF
 vVJ
@@ -154671,7 +154730,7 @@ cCf
 vVJ
 vVJ
 vVJ
-uYA
+mQm
 euO
 euO
 pUd

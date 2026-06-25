@@ -80,7 +80,7 @@
 	if(!client || (A in revealed_fishspots))
 		return
 
-	var/image/fishing_spot/new_spot = new /image/hint('mods/_fd/fd_assets/icons/aurora/overmap_effects.dmi', A, "carp", layer = HUD_PLANE)
+	var/image/fishing_spot/new_spot = new /image/hint(A.icon, A, A.icon_state, layer = HUD_PLANE)
 
 	new_spot.plane = HUD_PLANE
 
@@ -126,16 +126,67 @@
 	icon = 'mods/_fd/fd_assets/icons/aurora/overmap_effects.dmi'
 
 	var/list/possible_fish_spawns = list(
-		/mob/living/simple_animal/aquatic/fish = 100,
-		/mob/living/simple_animal/aquatic/fish/grump = 100,
-		/mob/living/simple_animal/aquatic/fish/judge = 100,
-		/mob/living/simple_animal/aquatic/fish/pike = 100,
-		/mob/living/simple_animal/aquatic/fish/murkin = 100,
-		/mob/living/simple_animal/aquatic/fish/solarfin = 100,
-		/mob/living/simple_animal/aquatic/fish/sifbass = 100,
-		/mob/living/simple_animal/aquatic/fish/trout = 100,
+		/mob/living/simple_animal/aquatic/fish/bass = 100,
+		/mob/living/simple_animal/aquatic/fish/anchovy = 100,
+		/mob/living/simple_animal/aquatic/fish/angelfish = 100,
+		/mob/living/simple_animal/aquatic/fish/arctic_char = 100,
+		/mob/living/simple_animal/aquatic/fish/baby_carp = 100,
+		/mob/living/simple_animal/aquatic/fish/bc_angel = 100,
+		/mob/living/simple_animal/aquatic/fish/betta = 100,
+		/mob/living/simple_animal/aquatic/fish/blue_tang = 100,
+		/mob/living/simple_animal/aquatic/fish/bumpy = 100,
+		/mob/living/simple_animal/aquatic/fish/cardinalfish = 100,
+		/mob/living/simple_animal/aquatic/fish/carp = 100,
+		/mob/living/simple_animal/aquatic/fish/catfish = 100,
+		/mob/living/simple_animal/aquatic/fish/chub = 100,
+		/mob/living/simple_animal/aquatic/fish/clownfish = 100,
+		/mob/living/simple_animal/aquatic/fish/cod = 100,
+		/mob/living/simple_animal/aquatic/fish/code_worm = 100,
+		/mob/living/simple_animal/aquatic/fish/coelacanth = 100,
+		/mob/living/simple_animal/aquatic/fish/dace = 100,
+		/mob/living/simple_animal/aquatic/fish/damselfish = 100,
+		/mob/living/simple_animal/aquatic/fish/dwarf_moonfish = 100,
+		/mob/living/simple_animal/aquatic/fish/eel = 100,
+		/mob/living/simple_animal/aquatic/fish/emulsijack = 100,
+		/mob/living/simple_animal/aquatic/fish/eyefish = 100,
+		/mob/living/simple_animal/aquatic/fish/firefish = 100,
+		/mob/living/simple_animal/aquatic/fish/flounder = 100,
+		/mob/living/simple_animal/aquatic/fish/goldenfish = 100,
+		/mob/living/simple_animal/aquatic/fish/goldfish = 100,
+		/mob/living/simple_animal/aquatic/fish/greenchromis = 100,
+		/mob/living/simple_animal/aquatic/fish/guppy = 100,
+		/mob/living/simple_animal/aquatic/fish/herring = 100,
+		/mob/living/simple_animal/aquatic/fish/jumpercable = 100,
+		/mob/living/simple_animal/aquatic/fish/lanternfish = 100,
+		/mob/living/simple_animal/aquatic/fish/lava_loop = 100,
+		/mob/living/simple_animal/aquatic/fish/lavafish = 100,
+		/mob/living/simple_animal/aquatic/fish/lionfish = 100,
+		/mob/living/simple_animal/aquatic/fish/mahimahi = 100,
+		/mob/living/simple_animal/aquatic/fish/mandarin_fish = 100,
+		/mob/living/simple_animal/aquatic/fish/meat = 100,
+		/mob/living/simple_animal/aquatic/fish/minnow = 100,
+		/mob/living/simple_animal/aquatic/fish/moltenfish = 100,
+		/mob/living/simple_animal/aquatic/fish/needlefish = 100,
+		/mob/living/simple_animal/aquatic/fish/plasma_loop = 100,
+		/mob/living/simple_animal/aquatic/fish/plastetra = 100,
+		/mob/living/simple_animal/aquatic/fish/pufferfish = 100,
+		/mob/living/simple_animal/aquatic/fish/red_herring = 100,
+		/mob/living/simple_animal/aquatic/fish/rosefin_shiner = 100,
+		/mob/living/simple_animal/aquatic/fish/royal_gramma = 100,
 		/mob/living/simple_animal/aquatic/fish/salmon = 100,
-		/mob/living/simple_animal/aquatic/fish/bass = 100
+		/mob/living/simple_animal/aquatic/fish/sand_surfer = 100,
+		/mob/living/simple_animal/aquatic/fish/sardine = 100,
+		/mob/living/simple_animal/aquatic/fish/sockeye = 100,
+		/mob/living/simple_animal/aquatic/fish/stingray = 100,
+		/mob/living/simple_animal/aquatic/fish/sun_fish = 100,
+		/mob/living/simple_animal/aquatic/fish/three_eyes = 100,
+		/mob/living/simple_animal/aquatic/fish/tiger_oscar = 100,
+		/mob/living/simple_animal/aquatic/fish/tizira_moonfish = 100,
+		/mob/living/simple_animal/aquatic/fish/trout = 100,
+		/mob/living/simple_animal/aquatic/fish/tuna = 100,
+		/mob/living/simple_animal/aquatic/fish/void_fish = 100,
+		/mob/living/simple_animal/aquatic/fish/yellow_tang = 100,
+		/mob/living/simple_animal/aquatic/fish/zipzap = 100
 		)
 
 	var/fishing_spot_richness = -1 // means there is infinite fish amount
@@ -177,9 +228,9 @@
 
 /obj/landmark/fd/fishgen/dionacave
 	possible_fish_spawns = list(
-		/mob/living/simple_animal/aquatic/fish = 100,
-		/mob/living/simple_animal/aquatic/fish/grump = 100,
-		/mob/living/simple_animal/aquatic/fish/judge = 100,
+		/mob/living/simple_animal/aquatic/fish/anchovy = 100,
+		/mob/living/simple_animal/aquatic/fish/plastetra = 100,
+		/mob/living/simple_animal/aquatic/fish/sardine = 100,
 		)
 	generation_radius = 5
 
@@ -188,7 +239,101 @@
 	regenerate = FALSE
 
 /obj/landmark/fd/fishgen/ocean
+	possible_fish_spawns = list(
+		/mob/living/simple_animal/aquatic/fish/bass = 80,
+		/mob/living/simple_animal/aquatic/fish/anchovy = 80,
+		/mob/living/simple_animal/aquatic/fish/bc_angel = 50,
+		/mob/living/simple_animal/aquatic/fish/betta = 20,
+		/mob/living/simple_animal/aquatic/fish/blue_tang = 50,
+		/mob/living/simple_animal/aquatic/fish/cardinalfish = 50,
+		/mob/living/simple_animal/aquatic/fish/carp = 80,
+		/mob/living/simple_animal/aquatic/fish/catfish = 80,
+		/mob/living/simple_animal/aquatic/fish/chub = 80,
+		/mob/living/simple_animal/aquatic/fish/clownfish = 50,
+		/mob/living/simple_animal/aquatic/fish/cod = 80,
+		/mob/living/simple_animal/aquatic/fish/coelacanth = 50,
+		/mob/living/simple_animal/aquatic/fish/dace = 50,
+		/mob/living/simple_animal/aquatic/fish/damselfish = 50,
+		/mob/living/simple_animal/aquatic/fish/dwarf_moonfish = 20,
+		/mob/living/simple_animal/aquatic/fish/firefish = 20,
+		/mob/living/simple_animal/aquatic/fish/goldfish = 20,
+		/mob/living/simple_animal/aquatic/fish/greenchromis = 80,
+		/mob/living/simple_animal/aquatic/fish/herring = 50,
+		/mob/living/simple_animal/aquatic/fish/lionfish = 50,
+		/mob/living/simple_animal/aquatic/fish/mahimahi = 80,
+		/mob/living/simple_animal/aquatic/fish/mandarin_fish = 50,
+		/mob/living/simple_animal/aquatic/fish/plastetra = 80,
+		/mob/living/simple_animal/aquatic/fish/pufferfish = 80,
+		/mob/living/simple_animal/aquatic/fish/red_herring = 20,
+		/mob/living/simple_animal/aquatic/fish/rosefin_shiner = 20,
+		/mob/living/simple_animal/aquatic/fish/royal_gramma = 50,
+		/mob/living/simple_animal/aquatic/fish/salmon = 80,
+		/mob/living/simple_animal/aquatic/fish/sardine = 80,
+		/mob/living/simple_animal/aquatic/fish/stingray = 50,
+		/mob/living/simple_animal/aquatic/fish/tizira_moonfish = 20,
+		/mob/living/simple_animal/aquatic/fish/trout = 80,
+		/mob/living/simple_animal/aquatic/fish/tuna = 80,
+		/mob/living/simple_animal/aquatic/fish/yellow_tang = 50,
+		)
 	fishing_spot_richness = 20
+
+/obj/landmark/fd/fishgen/swamp
+	possible_fish_spawns = list(
+		/mob/living/simple_animal/aquatic/fish/bass = 80,
+		/mob/living/simple_animal/aquatic/fish/angelfish = 50,
+		/mob/living/simple_animal/aquatic/fish/arctic_char = 80,
+		/mob/living/simple_animal/aquatic/fish/greenchromis = 50,
+		/mob/living/simple_animal/aquatic/fish/carp = 80,
+		/mob/living/simple_animal/aquatic/fish/catfish = 80,
+		/mob/living/simple_animal/aquatic/fish/cod = 50,
+		/mob/living/simple_animal/aquatic/fish/eel = 50,
+		/mob/living/simple_animal/aquatic/fish/flounder = 50,
+		/mob/living/simple_animal/aquatic/fish/guppy = 20,
+		/mob/living/simple_animal/aquatic/fish/minnow = 20,
+		/mob/living/simple_animal/aquatic/fish/needlefish = 80,
+		/mob/living/simple_animal/aquatic/fish/salmon = 50,
+		/mob/living/simple_animal/aquatic/fish/sockeye = 50,
+		/mob/living/simple_animal/aquatic/fish/trout = 50,
+		/mob/living/simple_animal/aquatic/fish/tuna = 50,
+		)
+	fishing_spot_richness = 20
+
+/obj/landmark/fd/fishgen/eldritch
+	icon_state = "carp_dark"
+	possible_fish_spawns = list(
+		/mob/living/simple_animal/aquatic/fish/bass = 80,
+		/mob/living/simple_animal/aquatic/fish/baby_carp = 20,
+		/mob/living/simple_animal/aquatic/fish/bumpy = 20,
+		/mob/living/simple_animal/aquatic/fish/carp = 80,
+		/mob/living/simple_animal/aquatic/fish/catfish = 80,
+		/mob/living/simple_animal/aquatic/fish/cod = 80,
+		/mob/living/simple_animal/aquatic/fish/code_worm = 20,
+		/mob/living/simple_animal/aquatic/fish/emulsijack = 20,
+		/mob/living/simple_animal/aquatic/fish/eyefish = 20,
+		/mob/living/simple_animal/aquatic/fish/goldenfish = 20,
+		/mob/living/simple_animal/aquatic/fish/greenchromis = 80,
+		/mob/living/simple_animal/aquatic/fish/jumpercable = 20,
+		/mob/living/simple_animal/aquatic/fish/lanternfish = 20,
+		/mob/living/simple_animal/aquatic/fish/lava_loop = 20,
+		/mob/living/simple_animal/aquatic/fish/lavafish = 20,
+		/mob/living/simple_animal/aquatic/fish/meat = 20,
+		/mob/living/simple_animal/aquatic/fish/moltenfish = 20,
+		/mob/living/simple_animal/aquatic/fish/plasma_loop = 20,
+		/mob/living/simple_animal/aquatic/fish/salmon = 80,
+		/mob/living/simple_animal/aquatic/fish/sand_surfer = 20,
+		/mob/living/simple_animal/aquatic/fish/sun_fish = 20,
+		/mob/living/simple_animal/aquatic/fish/three_eyes = 20,
+		/mob/living/simple_animal/aquatic/fish/tiger_oscar = 20,
+		/mob/living/simple_animal/aquatic/fish/trout = 80,
+		/mob/living/simple_animal/aquatic/fish/tuna = 80,
+		/mob/living/simple_animal/aquatic/fish/void_fish = 20,
+		/mob/living/simple_animal/aquatic/fish/zipzap = 20
+		)
+	fishing_spot_richness = 5
+
+/obj/landmark/fd/fishgen/eldritch/Initialize()
+	. = ..()
+	regenerate = FALSE
 
 /proc/regenerate_fishspots(minimum_needed)
 	var/current_regenerated = 0
@@ -325,6 +470,33 @@
 		return FALSE
 
 	var/new_fish_type = pickweight(connected_landmark.possible_fish_spawns)
+
+	if(istype(fisherman_tool,/obj/item/fishing_rod))
+		var/obj/item/fishing_rod/F = fisherman_tool
+		if(F.lure && istype(F.lure,/obj/item/fd/fishing/lure/algae) && prob(50))
+			var/list/strange_fish = list(
+				/mob/living/simple_animal/aquatic/fish/baby_carp = 20,
+				/mob/living/simple_animal/aquatic/fish/bumpy = 80,
+				/mob/living/simple_animal/aquatic/fish/code_worm = 20,
+				/mob/living/simple_animal/aquatic/fish/emulsijack = 80,
+				/mob/living/simple_animal/aquatic/fish/eyefish = 20,
+				/mob/living/simple_animal/aquatic/fish/goldenfish = 80,
+				/mob/living/simple_animal/aquatic/fish/jumpercable = 20,
+				/mob/living/simple_animal/aquatic/fish/lanternfish = 50,
+				/mob/living/simple_animal/aquatic/fish/lava_loop = 50,
+				/mob/living/simple_animal/aquatic/fish/lavafish = 80,
+				/mob/living/simple_animal/aquatic/fish/meat = 50,
+				/mob/living/simple_animal/aquatic/fish/moltenfish = 80,
+				/mob/living/simple_animal/aquatic/fish/plasma_loop = 50,
+				/mob/living/simple_animal/aquatic/fish/sand_surfer = 50,
+				/mob/living/simple_animal/aquatic/fish/sun_fish = 80,
+				/mob/living/simple_animal/aquatic/fish/three_eyes = 20,
+				/mob/living/simple_animal/aquatic/fish/tiger_oscar = 50,
+				/mob/living/simple_animal/aquatic/fish/void_fish = 20,
+				/mob/living/simple_animal/aquatic/fish/zipzap = 80
+			)
+			new_fish_type = pickweight(strange_fish)
+
 	prefish = new new_fish_type(src)
 
 	prefish_icon = new /obj/screen/fish()
@@ -733,43 +905,366 @@
 
 /mob/living/simple_animal/aquatic/fish/bass
 	icon = 'mods/_fd/fishing/icons/fish.dmi'
-	icon_state = "bass-swim"
-	icon_living = "bass-swim"
-	icon_dead = "bass-dead"
+	icon_state = "bass"
+	icon_living = "bass"
+	icon_dead = "bass"
 
 /mob/living/simple_animal/aquatic/fish/trout
 	icon = 'mods/_fd/fishing/icons/fish.dmi'
-	icon_state = "trout-swim"
-	icon_living = "trout-swim"
-	icon_dead = "trout-dead"
+	icon_state = "trout"
+	icon_living = "trout"
+	icon_dead = "trout"
 
 /mob/living/simple_animal/aquatic/fish/salmon
 	icon = 'mods/_fd/fishing/icons/fish.dmi'
-	icon_state = "salmon-swim"
-	icon_living = "salmon-swim"
-	icon_dead = "salmon-dead"
+	icon_state = "salmon"
+	icon_living = "salmon"
+	icon_dead = "salmon"
 
-/mob/living/simple_animal/aquatic/fish/sifbass
+/mob/living/simple_animal/aquatic/fish/carp
 	icon = 'mods/_fd/fishing/icons/fish.dmi'
-	icon_state = "sifbass-swim"
-	icon_living = "sifbass-swim"
-	icon_dead = "sifbass-dead"
-	meat_amount = 2
+	icon_state = "carp"
+	icon_living = "carp"
+	icon_dead = "carp"
 
-/mob/living/simple_animal/aquatic/fish/solarfin
+/mob/living/simple_animal/aquatic/fish/cod
 	icon = 'mods/_fd/fishing/icons/fish.dmi'
-	icon_state = "solarfin-swim"
-	icon_living = "solarfin-swim"
-	icon_dead = "solarfin-dead"
+	icon_state = "cod"
+	icon_living = "cod"
+	icon_dead = "cod"
 
-/mob/living/simple_animal/aquatic/fish/murkin
+/mob/living/simple_animal/aquatic/fish/tuna
 	icon = 'mods/_fd/fishing/icons/fish.dmi'
-	icon_state = "murkin-swim"
-	icon_living = "murkin-swim"
-	icon_dead = "murkin-dead"
+	icon_state = "tuna"
+	icon_living = "tuna"
+	icon_dead = "tuna"
 
-/mob/living/simple_animal/aquatic/fish/pike
+/mob/living/simple_animal/aquatic/fish/greenchromis
 	icon = 'mods/_fd/fishing/icons/fish.dmi'
-	icon_state = "pike-swim"
-	icon_living = "pike-swim"
-	icon_dead = "pike-dead"
+	icon_state = "greenchromis"
+	icon_living = "greenchromis"
+	icon_dead = "greenchromis"
+
+/mob/living/simple_animal/aquatic/fish/catfish
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "catfish"
+	icon_living = "catfish"
+	icon_dead = "catfish"
+
+/mob/living/simple_animal/aquatic/fish/royal_gramma
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "royal_gramma"
+	icon_living = "royal_gramma"
+	icon_dead = "royal_gramma"
+
+/mob/living/simple_animal/aquatic/fish/bc_angel
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "bc_angel"
+	icon_living = "bc_angel"
+	icon_dead = "bc_angel"
+
+/mob/living/simple_animal/aquatic/fish/blue_tang
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "blue_tang"
+	icon_living = "blue_tang"
+	icon_dead = "blue_tang"
+
+/mob/living/simple_animal/aquatic/fish/firefish
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "firefish"
+	icon_living = "firefish"
+	icon_dead = "firefish"
+
+/mob/living/simple_animal/aquatic/fish/yellow_tang
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "yellow_tang"
+	icon_living = "yellow_tang"
+	icon_dead = "yellow_tang"
+
+/mob/living/simple_animal/aquatic/fish/mandarin_fish
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "mandarin_fish"
+	icon_living = "mandarin_fish"
+	icon_dead = "mandarin_fish"
+
+/mob/living/simple_animal/aquatic/fish/cardinalfish
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "cardinalfish"
+	icon_living = "cardinalfish"
+	icon_dead = "cardinalfish"
+
+/mob/living/simple_animal/aquatic/fish/clownfish
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "clownfish"
+	icon_living = "clownfish"
+	icon_dead = "clownfish"
+
+/mob/living/simple_animal/aquatic/fish/damselfish
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "damselfish"
+	icon_living = "damselfish"
+	icon_dead = "damselfish"
+
+/mob/living/simple_animal/aquatic/fish/sardine
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "sardine"
+	icon_living = "sardine"
+	icon_dead = "sardine"
+
+/mob/living/simple_animal/aquatic/fish/anchovy
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "anchovy"
+	icon_living = "anchovy"
+	icon_dead = "anchovy"
+
+/mob/living/simple_animal/aquatic/fish/plastetra
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "plastetra"
+	icon_living = "plastetra"
+	icon_dead = "plastetra"
+
+/mob/living/simple_animal/aquatic/fish/pufferfish
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "pufferfish"
+	icon_living = "pufferfish"
+	icon_dead = "pufferfish"
+
+/mob/living/simple_animal/aquatic/fish/goldfish
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "goldfish"
+	icon_living = "goldfish"
+	icon_dead = "goldfish"
+
+/mob/living/simple_animal/aquatic/fish/chub
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "chub"
+	icon_living = "chub"
+	icon_dead = "chub"
+
+/mob/living/simple_animal/aquatic/fish/herring
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "herring"
+	icon_living = "herring"
+	icon_dead = "herring"
+
+/mob/living/simple_animal/aquatic/fish/red_herring
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "red_herring"
+	icon_living = "red_herring"
+	icon_dead = "red_herring"
+
+/mob/living/simple_animal/aquatic/fish/betta
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "betta"
+	icon_living = "betta"
+	icon_dead = "betta"
+
+/mob/living/simple_animal/aquatic/fish/lionfish
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "lionfish"
+	icon_living = "lionfish"
+	icon_dead = "lionfish"
+
+/mob/living/simple_animal/aquatic/fish/dace
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "dace"
+	icon_living = "dace"
+	icon_dead = "dace"
+
+/mob/living/simple_animal/aquatic/fish/rosefin_shiner
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "rosefin_shiner"
+	icon_living = "rosefin_shiner"
+	icon_dead = "rosefin_shiner"
+
+/mob/living/simple_animal/aquatic/fish/mahimahi
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "mahimahi"
+	icon_living = "mahimahi"
+	icon_dead = "mahimahi"
+
+/mob/living/simple_animal/aquatic/fish/coelacanth
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "coelacanth"
+	icon_living = "coelacanth"
+	icon_dead = "coelacanth"
+
+/mob/living/simple_animal/aquatic/fish/dwarf_moonfish
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "dwarf_moonfish"
+	icon_living = "dwarf_moonfish"
+	icon_dead = "dwarf_moonfish"
+
+/mob/living/simple_animal/aquatic/fish/tizira_moonfish
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "tizira_moonfish"
+	icon_living = "tizira_moonfish"
+	icon_dead = "tizira_moonfish"
+
+/mob/living/simple_animal/aquatic/fish/stingray
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "stingray"
+	icon_living = "stingray"
+	icon_dead = "stingray"
+
+/mob/living/simple_animal/aquatic/fish/needlefish
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "needlefish"
+	icon_living = "needlefish"
+	icon_dead = "needlefish"
+
+/mob/living/simple_animal/aquatic/fish/angelfish
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "angelfish"
+	icon_living = "angelfish"
+	icon_dead = "angelfish"
+
+/mob/living/simple_animal/aquatic/fish/eel
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "eel"
+	icon_living = "eel"
+	icon_dead = "eel"
+
+/mob/living/simple_animal/aquatic/fish/minnow
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "minnow"
+	icon_living = "minnow"
+	icon_dead = "minnow"
+
+/mob/living/simple_animal/aquatic/fish/flounder
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "flounder"
+	icon_living = "flounder"
+	icon_dead = "flounder"
+
+/mob/living/simple_animal/aquatic/fish/guppy
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "guppy"
+	icon_living = "guppy"
+	icon_dead = "guppy"
+
+/mob/living/simple_animal/aquatic/fish/arctic_char
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "arctic_char"
+	icon_living = "arctic_char"
+	icon_dead = "arctic_char"
+
+/mob/living/simple_animal/aquatic/fish/sockeye
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "sockeye"
+	icon_living = "sockeye"
+	icon_dead = "sockeye"
+
+/mob/living/simple_animal/aquatic/fish/eyefish
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "eyefish"
+	icon_living = "eyefish"
+	icon_dead = "eyefish"
+
+/mob/living/simple_animal/aquatic/fish/void_fish
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "void_fish"
+	icon_living = "void_fish"
+	icon_dead = "void_fish"
+
+/mob/living/simple_animal/aquatic/fish/sun_fish
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "sun_fish"
+	icon_living = "sun_fish"
+	icon_dead = "sun_fish"
+
+/mob/living/simple_animal/aquatic/fish/meat
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "meat"
+	icon_living = "meat"
+	icon_dead = "meat"
+
+/mob/living/simple_animal/aquatic/fish/code_worm
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "code_worm"
+	icon_living = "code_worm"
+	icon_dead = "code_worm"
+
+/mob/living/simple_animal/aquatic/fish/tiger_oscar
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "tiger_oscar"
+	icon_living = "tiger_oscar"
+	icon_dead = "tiger_oscar"
+
+/mob/living/simple_animal/aquatic/fish/goldenfish
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "goldenfish"
+	icon_living = "goldenfish"
+	icon_dead = "goldenfish"
+
+/mob/living/simple_animal/aquatic/fish/lavafish
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "lavafish"
+	icon_living = "lavafish"
+	icon_dead = "lavafish"
+
+/mob/living/simple_animal/aquatic/fish/moltenfish
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "moltenfish"
+	icon_living = "moltenfish"
+	icon_dead = "moltenfish"
+
+/mob/living/simple_animal/aquatic/fish/lanternfish
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "lanternfish"
+	icon_living = "lanternfish"
+	icon_dead = "lanternfish"
+
+/mob/living/simple_animal/aquatic/fish/emulsijack
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "emulsijack"
+	icon_living = "emulsijack"
+	icon_dead = "emulsijack"
+
+/mob/living/simple_animal/aquatic/fish/lava_loop
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "lava_loop"
+	icon_living = "lava_loop"
+	icon_dead = "lava_loop"
+
+/mob/living/simple_animal/aquatic/fish/plasma_loop
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "plasma_loop"
+	icon_living = "plasma_loop"
+	icon_dead = "plasma_loop"
+
+/mob/living/simple_animal/aquatic/fish/zipzap
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "zipzap"
+	icon_living = "zipzap"
+	icon_dead = "zipzap"
+
+/mob/living/simple_animal/aquatic/fish/jumpercable
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "jumpercable"
+	icon_living = "jumpercable"
+	icon_dead = "jumpercable"
+
+/mob/living/simple_animal/aquatic/fish/bumpy
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "bumpy"
+	icon_living = "bumpy"
+	icon_dead = "bumpy"
+
+/mob/living/simple_animal/aquatic/fish/sand_surfer
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "sand_surfer"
+	icon_living = "sand_surfer"
+	icon_dead = "sand_surfer"
+
+/mob/living/simple_animal/aquatic/fish/three_eyes
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "three_eyes"
+	icon_living = "three_eyes"
+	icon_dead = "three_eyes"
+
+/mob/living/simple_animal/aquatic/fish/baby_carp
+	icon = 'mods/_fd/fishing/icons/fish.dmi'
+	icon_state = "baby_carp"
+	icon_living = "baby_carp"
+	icon_dead = "baby_carp"

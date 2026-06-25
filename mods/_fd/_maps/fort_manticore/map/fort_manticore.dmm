@@ -1850,6 +1850,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/bomber/upper_deck/engine_east)
+"fk" = (
+/obj/fd_water/alt_ver1,
+/obj/landmark/fd/fishgen/swamp,
+/turf/simulated/floor/exoplanet/fd/drought{
+	color = "#bebebe"
+	},
+/area/fort_manticore/jungle)
 "fm" = (
 /obj/floor_decal/hull{
 	dir = 4
@@ -3388,6 +3395,9 @@
 /obj/structure/table/steel_reinforced,
 /obj/item/device/synthesized_instrument/guitar{
 	pixel_x = -14
+	},
+/obj/item/screwdriver{
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/fort_manticore/rooms/kriger)
@@ -8192,6 +8202,11 @@
 /obj/paint/silver,
 /turf/simulated/wall/r_titanium,
 /area/fort_manticore/jungle)
+"xS" = (
+/obj/fd_water/alt_ver1,
+/obj/landmark/fd/fishgen/swamp,
+/turf/simulated/floor/exoplanet/fd/drought,
+/area/fort_manticore/jungle)
 "xT" = (
 /obj/structure/catwalk,
 /obj/item/material/minihoe{
@@ -11581,6 +11596,10 @@
 	dir = 8
 	},
 /obj/floor_decal/spline/plain/black,
+/obj/item/shovel/spade{
+	pixel_x = 7;
+	pixel_y = -7
+	},
 /turf/simulated/floor/exoplanet/grim_wood_good,
 /area/fort_manticore/jungle)
 "Ir" = (
@@ -11942,6 +11961,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/fort_manticore/rooms/kriger)
+"Jw" = (
+/obj/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/obj/item/fd/fishing/worm_can{
+	pixel_y = 16;
+	pixel_x = -5
+	},
+/obj/item/fd/fishing/worm_can{
+	pixel_y = 25;
+	pixel_x = -5
+	},
+/turf/simulated/floor/exoplanet/grim_wood_good,
+/area/fort_manticore/jungle)
 "Jx" = (
 /obj/floor_decal/hull/corner,
 /obj/floor_decal/corner_techfloor_grid{
@@ -17153,6 +17187,10 @@
 	},
 /obj/structure/closet/secure_closet/personal/empty,
 /obj/item/fishing_rod,
+/obj/item/shovel/spade,
+/obj/item/fd/fishing/worm_can,
+/obj/item/fd/fishing/reel,
+/obj/item/fd/fishing/lure/lucky,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/fort_manticore/rooms/kriger)
 "Ye" = (
@@ -18843,7 +18881,7 @@ uO
 uO
 uO
 uO
-uO
+xS
 uO
 uO
 uO
@@ -20321,7 +20359,7 @@ uO
 uO
 uO
 uO
-uO
+xS
 uO
 uO
 uO
@@ -21697,7 +21735,7 @@ Hn
 Hn
 uO
 uO
-uO
+xS
 uO
 uO
 uO
@@ -22397,7 +22435,7 @@ uO
 uO
 uO
 uO
-uO
+xS
 uO
 uO
 uO
@@ -24786,7 +24824,7 @@ uO
 uO
 uO
 uO
-uO
+xS
 uO
 uO
 uO
@@ -25663,7 +25701,7 @@ Hn
 Hn
 Hn
 Hn
-Hn
+fk
 Hn
 Hn
 Hn
@@ -26363,7 +26401,7 @@ VI
 VI
 VI
 uO
-uO
+xS
 uO
 uO
 uO
@@ -26708,7 +26746,7 @@ Hn
 Hn
 Hn
 Hn
-Hn
+fk
 Hn
 Hn
 Hn
@@ -27552,7 +27590,7 @@ uO
 uO
 uO
 uO
-uO
+xS
 uO
 uO
 uO
@@ -28764,7 +28802,7 @@ VI
 uO
 uO
 eq
-Ja
+Jw
 Vl
 BN
 uO
@@ -30067,7 +30105,7 @@ uO
 Hn
 Hn
 Hn
-Hn
+fk
 Hn
 Hn
 Hn
@@ -31031,7 +31069,7 @@ uO
 uO
 uO
 uO
-uO
+xS
 uO
 uO
 uO
@@ -38348,7 +38386,7 @@ uO
 uO
 uO
 uO
-uO
+xS
 uO
 uO
 uO
@@ -42762,7 +42800,7 @@ uO
 uO
 uO
 uO
-uO
+xS
 uO
 uO
 uO
