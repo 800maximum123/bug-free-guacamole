@@ -183,7 +183,7 @@
 	. = ..()	//calls mob.Login()
 
 //	[FD-EDIT]
-	view = 7
+	view = CLIENT_DEFAULT_VIEW
 /*
 	view = get_preference_value(/datum/client_preference/client_view)
 	[/FD-EDIT]

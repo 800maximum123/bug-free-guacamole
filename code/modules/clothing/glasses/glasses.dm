@@ -179,7 +179,7 @@
 	icon_state = "night"
 	item_state = "glasses"
 	origin_tech = list(TECH_MAGNET = 2)
-	darkness_view = 7
+	darkness_view = CLIENT_DEFAULT_VIEW
 	action_button_name = "Toggle Goggles"
 	toggleable = TRUE
 	see_invisible = SEE_INVISIBLE_NOLIGHTING

@@ -84,7 +84,7 @@
 	maybe_send_staffwarns("joined the round")
 
 //	[FD-EDIT]
-	client.view = 7
+	client.view = CLIENT_DEFAULT_VIEW
 /*
 	client.view = get_preference_value(/datum/client_preference/client_view)
 	[/FD-EDIT]

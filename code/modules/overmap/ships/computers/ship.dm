@@ -83,7 +83,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	user.reset_view(null, FALSE)
 	if(user.client)
 //	[FD-EDIT]
-		user.client.view = 7
+		user.client.view = CLIENT_DEFAULT_VIEW
 /*
 		user.client.view = user.get_preference_value(/datum/client_preference/client_view)
 	[/FD-EDIT]

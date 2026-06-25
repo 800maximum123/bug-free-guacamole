@@ -124,7 +124,9 @@
 		to_chat(owner, SPAN_WARNING("You must be conscious and standing to keep track of your target!"))
 	else if(aiming_at.is_invisible_to(owner))
 		to_chat(owner, SPAN_WARNING("Your target has become invisible!"))
-	else if(!(aiming_at in view(owner)))
+	// [GAIA]
+	// So you can aim through scopes and when looking afar
+	else if(!(aiming_at in view(owner)) && owner.client.view == CLIENT_DEFAULT_VIEW)
 		to_chat(owner, SPAN_WARNING("Your target is too far away to track!"))
 	else
 		cancel_aim = 0

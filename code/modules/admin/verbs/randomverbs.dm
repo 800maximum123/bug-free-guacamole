@@ -797,10 +797,10 @@ Ccomp's first proc.
 	set desc = "switches between 1x and custom views"
 
 //	[FD-EDIT]
-	if(view == 7)
+	if(view == CLIENT_DEFAULT_VIEW)
 		view = input("Select view range:", "FUCK YE", 7) in list(1,2,4,6,7,8,10,12,13,14,18,24,30,128)
 	else
-		view = 7
+		view = CLIENT_DEFAULT_VIEW
 
 	log_and_message_admins("changed their view range to [view].")
 /*
