@@ -536,6 +536,8 @@
 
 /obj/item/stack/material/generic/brick/throw_impact(atom/hit_atom, datum/thrownthing/TT)
 	. = ..()
+	if(!break_chance)
+		break_chance = 50
 	if(prob(break_chance) && amount <= 1)
 		material.place_shard(src.loc)
 		playsound(src, 'sound/effects/brickbreak.ogg', 50, TRUE)
