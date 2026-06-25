@@ -94,6 +94,7 @@
 	//#include "../gaia/area_of_op/city.dmm"
 	//#include "../gaia/area_of_op/outskirts.dmm"
 
+	// --- TORCH --- //
 	// --- MAP MAINTENANCE --- //
 	#include "../torch/torch_areas.dm"
 	#include "../torch/torch_events.dm"
