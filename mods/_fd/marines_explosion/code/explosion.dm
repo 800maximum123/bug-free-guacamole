@@ -217,6 +217,7 @@
 			E.power = new_power
 			E.power_falloff = new_falloff
 			E.falloff_shape = falloff_shape
+			E.thermobaric = thermobaric
 
 			// Set the direction the explosion is traveling in
 			E.direction = dir

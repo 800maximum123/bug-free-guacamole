@@ -197,7 +197,7 @@
 	desc = "A explosive fragmentation rocket designed to be fired from a launcher. Uses fragmentation to kill enemies."
 	icon_state = "rocketshell"
 	projectile_type = /obj/item/projectile/missile
-	caliber = "rocket"
+	caliber = CALIBER_ROCKET
 	w_class = ITEM_SIZE_NORMAL
 	spent_icon = "rocket-spent"
 

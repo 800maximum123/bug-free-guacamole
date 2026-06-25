@@ -353,7 +353,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	R.adjust_fire_stacks(fire_stacks)
 	if (R.coughedtime != 1)
 		R.coughedtime = 1
-		R.emote("cough")
+		R.emote("gasp")
 		to_chat(R, SPAN_DANGER("You smell harsh fuel!"))
 		addtimer(new Callback(R, TYPE_PROC_REF(/mob/living/carbon, clear_coughedtime)), 2 SECONDS)
 	R.updatehealth()

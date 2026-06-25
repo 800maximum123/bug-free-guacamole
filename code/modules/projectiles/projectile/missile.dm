@@ -7,7 +7,7 @@
 	name = "fragmentation rocket"
 	icon = 'icons/obj/weapons/grenade.dmi'
 	icon_state = "rocketshell"
-	damage = 40
+	damage = 50
 	weaken = 20
 	step_delay = 1.2 // Surely slower then bullets
 	penetration_modifier = 100 // If it sticks - it sticks
@@ -17,7 +17,7 @@
 
 	// Looping sound of death
 	var/list/flight_sounds = list('sound/weapons/rpg_fly.ogg')
-	var/flight_volume = 60
+	var/flight_volume = 100
 	var/flight_sound_range = 12
 	var/flight_sound_id = ""
 	var/datum/sound_token/flight_sound_token = null
@@ -26,7 +26,7 @@
 //	var/fuse = 3 // How long should a rocket exist before being able to detonate in step_delays
 
 	// Explosion
-	var/explosion_power = 200
+	var/explosion_power = 300
 	var/explosion_falloff = 50
 	var/shrapnel = TRUE
 
@@ -68,7 +68,7 @@
 	shrapnel_type = /obj/item/grenade/frag/dud_missile/thermobaric
 
 	explosion_power = 150
-	explosion_falloff = 100
+	explosion_falloff = 50
 	shrapnel = FALSE
 
 	var/gas_amount = 20
@@ -79,7 +79,7 @@
 		var/datum/effect/smoke_spread/thermobaric/smoke = new
 		smoke.set_up(gas_amount, loca = T)
 		smoke.start(TRUE)
-		visible_message(SPAN_DANGER("Fine mist shoots from [src]!"), SPAN_DANGER("You hear massive puff of air!"))
+		visible_message(SPAN_DANGER("Fine mist shoots from [src]!"), SPAN_DANGER("You hear a massive puff of air!"))
 
 // HE MISSILE
 // Massive shockwave, no shrapnel

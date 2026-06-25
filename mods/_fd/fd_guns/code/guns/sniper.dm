@@ -22,7 +22,7 @@
 	ammo_type = /obj/item/ammo_casing/scg/shell
 	one_hand_penalty = 6
 	accuracy = -2
-	bulk = 8
+	bulk = GUN_BULK_ANTI_TANK
 	scoped_accuracy = 8
 	scope_zoom = 2
 	bolt_open = 0

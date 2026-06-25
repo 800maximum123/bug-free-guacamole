@@ -5,17 +5,20 @@
 	icon = 'icons/obj/guns/launchers.dmi'
 	icon_state = "rocket" // TODO: Change the sprite XeroX!
 	item_state = "rocket"
-	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
+	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 5)
 	w_class = ITEM_SIZE_HUGE
+	force = 10
 	slot_flags = SLOT_BACK
 	matter = list(MATERIAL_STEEL = 2000)
 	screen_shake = 1
 	space_recoil = 0 // Learn physics son
-	accuracy_power = 7
+	accuracy = -2
+	bulk = GUN_BULK_ANTI_TANK
+	one_hand_penalty = 6
 	starts_loaded = FALSE
 
 	// single heavy rocket
-	caliber = "rocket"
+	caliber = CALIBER_ROCKET
 	handle_casings = CLEAR_CASINGS
 	load_method = SINGLE_CASING
 	max_shells = 1
@@ -23,6 +26,7 @@
 	fire_sound = 'sound/weapons/gunshot/general/rocket_launch.ogg'
 	far_fire_sound = 'sound/weapons/gunshot/general/rocket_launch_far.ogg'
 	load_sound = 'sound/weapons/guns/interaction/rpg_insert.ogg'
+	fire_delay = 12
 
 	var/backblast_power = 300
 	var/backblast_falloff = 50
@@ -42,7 +46,7 @@
 		return
 	if(isturf(T))
 		if(T.density)
-			user.visible_message(SPAN_DANGER("\The [src]'s backblast bounces off the [T]!"), SPAN_DANGER("\The [src]'s backblast bounces off [T] onto you!"))
+			user.visible_message(SPAN_DANGER("\The [src]'s backblast bounces off \the [T]!"), SPAN_DANGER("\The [src]'s backblast bounces off \the [T] onto you!"))
 			T = get_turf(user) // fuck you
 			direction = null // and fuck anyone around you
 		cell_explosion(T, backblast_power, backblast_falloff, direction = direction, shrapnel = FALSE)
@@ -64,7 +68,6 @@
 	starts_loaded = TRUE
 
 	handle_casings = HOLD_CASINGS
-	ammo_type = /obj/item/ammo_casing/rocket
 	/// Was it used already?
 	var/used = FALSE
 	/// Is it unfolded or not?
