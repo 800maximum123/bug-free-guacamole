@@ -12,9 +12,10 @@
 	minbodytemp = 0
 
 	ai_holder = /datum/ai_holder/simple_animal/melee/aquatic
+	var/has_dying_state = FALSE
 
 /mob/living/simple_animal/hostile/aquatic/Life()
-	if(!submerged())
+	if(!submerged() && has_dying_state)
 		if(icon_state == icon_living)
 			icon_state = "[icon_living]_dying"
 		walk(src, 0)

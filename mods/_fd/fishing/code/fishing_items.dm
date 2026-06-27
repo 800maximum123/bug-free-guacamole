@@ -272,10 +272,10 @@
 
 	var/mob/living/carbon/human/H = loc
 
-	if(!H)
+	if(!ishuman(H))
 		H = locate(/mob/living/carbon/human) in get_turf(src)
 
-	if(H)
+	if(H && ishuman(H))
 		if(H.mob_fishing && float.loc == src)
 			last_loc = loc
 			float.forceMove(get_turf(H.fishing_in))

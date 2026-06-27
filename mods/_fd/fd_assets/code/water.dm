@@ -145,7 +145,7 @@
 			if(A.current_sunking < 32)
 				if(isliving(A))
 					var/mob/living/L = A
-					if(L.get_stamina() > 0)
+					if(ishuman(L) && L.get_stamina() > 0)
 						L.adjust_stamina(-2)
 					else
 						L.update_sunking(src,1)

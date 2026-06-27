@@ -513,7 +513,7 @@
 		if(F.lure && istype(F.lure,/obj/item/fd/fishing/lure/buzz))
 			qte_timing += 10 SECONDS
 
-	addtimer(new Callback(src, PROC_REF(fail_qte), user, fisherman_tool), fisherman_tool.fishing_timing)
+	addtimer(new Callback(src, PROC_REF(fail_qte), user, fisherman_tool), qte_timing)
 	playsound(get_turf(src), 'packs/infinity/sound/effects/Splash_Small_01_mono.ogg', 100, TRUE)
 
 	animate(prefish_icon, qte_timing/2, easing = SINE_EASING|EASE_OUT, transform = matrix().Update(scale_x = 2.5, scale_y = 2.5, rotation = 30))
@@ -549,17 +549,26 @@
 				min_speed = clamp(min_speed - F.reel.speed_buff, 10 SECONDS, INFINITY)
 				max_speed = clamp(max_speed - F.reel.speed_buff, min_speed + 10 SECONDS, INFINITY)
 
+		if(!has_fish)
+			stop_fishing()
+			return FALSE
+
 		addtimer(new Callback(src, PROC_REF(fishing_qte), user, fisherman_tool), rand(min_speed, max_speed))
 
 /atom/proc/catch_fish(mob/living/carbon/human/user, obj/item/tool)
+
+	animate(prefish_icon, 5, easing = SINE_EASING|EASE_IN, transform = matrix(), alpha = 0)
 
 	user.client.connected_fish = null
 	prefish.kill_health()
 	prefish.update_icon()
 
-	if(locate(/obj/structure/fd/makeshift_raft) in user.loc)
+	var/obj/structure/fd/makeshift_raft/raft = locate(/obj/structure/fd/makeshift_raft) in user.loc
+
+	if(raft)
+		prefish.forceMove(get_turf(user))
 		prefish.layer += 0.01
-		prefish.glide_size = user.raft.glide_size
+		prefish.glide_size = raft.glide_size
 
 		prefish.do_water_overlay = FALSE
 		prefish.toggle_water_overlay(FALSE)
@@ -571,8 +580,7 @@
 		prefish.sunking = FALSE
 		prefish.update_sunking(FALSE)
 
-		user.raft.raft_storage += prefish
-		prefish.forceMove(get_turf(user))
+		raft.raft_storage += prefish
 		playsound(get_turf(src), 'sound/effects/watersplash.ogg', 100, TRUE)
 
 		if(istype(fisherman_tool,/obj/item/fishing_rod))
@@ -584,7 +592,7 @@
 				additional_fish.update_icon()
 
 				additional_fish.layer += 0.01
-				additional_fish.glide_size = user.raft.glide_size
+				additional_fish.glide_size = raft.glide_size
 
 				additional_fish.do_water_overlay = FALSE
 				additional_fish.toggle_water_overlay(FALSE)
@@ -596,7 +604,7 @@
 				additional_fish.sunking = FALSE
 				additional_fish.update_sunking(FALSE)
 
-				user.raft.raft_storage += additional_fish
+				raft.raft_storage += additional_fish
 				playsound(get_turf(src), 'sound/effects/watersplash.ogg', 100, TRUE)
 
 	else
@@ -636,10 +644,24 @@
 			min_speed = clamp(min_speed - F.reel.speed_buff, 10 SECONDS, INFINITY)
 			max_speed = clamp(max_speed - F.reel.speed_buff, min_speed + 10 SECONDS, INFINITY)
 
+	if(!has_fish)
+		stop_fishing()
+		return FALSE
+
 	addtimer(new Callback(src, PROC_REF(fishing_qte), user, fisherman_tool), rand(min_speed, max_speed))
 
 /client
 	var/obj/screen/fish/connected_fish
+
+/client/MouseMove(object, location, control, params)
+	. = ..()
+
+	if(connected_fish)
+		var/list/coords = screen_loc2pixels(params)
+		connected_fish.set_position(coords[1],coords[2])
+
+		if(abs(connected_fish.x_off) < 10 && abs(connected_fish.y_off) < 10)
+			connected_fish.connected_pool.catch_fish(connected_fish.connected_pool.fisherman, connected_fish.connected_pool.fisherman_tool)
 
 /obj/screen/fish
 	name = "РЫБА"
@@ -649,18 +671,40 @@
 	layer = 5.3
 
 	mouse_opacity = 2
-	screen_loc = "TOP-1, CENTER"
+	screen_loc = "CENTER, CENTER"
 
 	var/atom/connected_pool
+	var/x_off
+	var/y_off
 
 /obj/screen/fish/Initialize()
 	. = ..()
-	add_filter("lefish", 1, list("type" = "outline", "size" = 1, "color" = COLOR_GREEN))
+	set_position(rand(-200,200), rand(-200,200))
 
 /obj/screen/fish/Click(location, control, params)
 	. = ..()
-	animate(src, transform = matrix(0, -96, MATRIX_TRANSLATE), alpha = 0, time = 5, easing = SINE_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
-	connected_pool.catch_fish(usr, connected_pool.fisherman_tool)
+	if(!usr.client.connected_fish)
+
+		add_filter("lefish", 1, list("type" = "outline", "size" = 1, "color" = COLOR_GREEN))
+		usr.client.connected_fish = src
+		return TRUE
+	else
+		usr.client.connected_fish = null
+		remove_filter("lefish")
+
+/obj/screen/fish/proc/update_screen_loc()
+	var/tile_size = world.icon_size
+	var/tx = round(x_off / tile_size)
+	var/px = x_off - tx * tile_size
+	var/ty = round(y_off / tile_size)
+	var/py = y_off - ty * tile_size
+	screen_loc = "CENTER+[tx]:[px], CENTER+[ty]:[py]"
+
+/// Set a new position and refresh
+/obj/screen/fish/proc/set_position(px_off, py_off)
+	x_off = px_off
+	y_off = py_off
+	update_screen_loc()
 
 // RAFT
 

@@ -17,6 +17,8 @@
 	skin_material = MATERIAL_SKIN_FISH
 
 	say_list_type = /datum/say_list/aquatic
+	var/has_dying_state = FALSE
+	can_sunk = FALSE
 
 
 /mob/living/simple_animal/aquatic/Initialize(mapload)
@@ -28,7 +30,7 @@
 
 
 /mob/living/simple_animal/aquatic/Life()
-	if(!submerged())
+	if(!submerged() && has_dying_state)
 		if(icon_state == icon_living)
 			icon_state = "[icon_living]_dying"
 		walk(src, 0)
