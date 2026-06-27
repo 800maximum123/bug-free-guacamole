@@ -20,9 +20,8 @@
 	icon_state = "frggrenade"
 
 	var/list/fragment_types = list(/obj/item/projectile/bullet/pellet/fragment = 1)
+	var/num_fragments = 72  //total number of fragments produced by the grenade
 	var/explosion_size = 200   //size of the center explosion. CHANGED IN GAIA
-	var/explosion_falloff = 50 //how much the explosion falloffs
-	var/num_fragments = 50     //total number of fragments produced by the grenade
 
 	//The radius of the circle used to launch projectiles. Lower values mean less projectiles are used but if set too low gaps may appear in the spread pattern
 	var/spread_range = 7 //leave as is, for some reason setting this higher makes the spread pattern have gaps close to the epicenter
@@ -93,14 +92,14 @@
 
 /obj/item/grenade/frag/proc/on_explosion(turf/O)
 	if(explosion_size)
-		cell_explosion(epicenter = loc, power = explosion_size, falloff = explosion_falloff, shrapnel = FALSE) // Gaia
+		cell_explosion(epicenter = loc, power = explosion_size, falloff = 50, shrapnel = FALSE) // Gaia
 
 /obj/item/grenade/frag/shell
 	name = "fragmentation grenade"
 	desc = "A light fragmentation grenade, designed to be fired from a launcher. It can still be activated and thrown by hand if necessary."
 	icon_state = "fragshell"
 
-	num_fragments = 40 //less powerful than a regular frag grenade
+	num_fragments = 50 //less powerful than a regular frag grenade
 
 /obj/item/grenade/frag/high_yield
 	name = "fragmentation bomb"
@@ -112,9 +111,8 @@
 	throw_range = 5 //heavy, can't be thrown as far
 
 	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment=1,/obj/item/projectile/bullet/pellet/fragment/strong=4)
-	num_fragments = 72  //total number of fragments produced by the grenade
-	explosion_size = 300
-	explosion_falloff = 100
+	num_fragments = 144  //total number of fragments produced by the grenade
+	explosion_size = 300 // gaia
 
 /obj/item/grenade/frag/makeshift
 	name = "improvised explosive device"
@@ -122,7 +120,7 @@
 	icon_state = "ghetto"
 	arm_sound = 'sound/effects/flare.ogg'
 
-	num_fragments = 15  // Its a /can/ , not nearly as strong as an industrially produced grenade.
+	num_fragments = 10  // Its a /can/ , not nearly as strong as an industrially produced grenade.
 	explosion_size = 150 // Gaia
 
 	det_time = 5
@@ -172,7 +170,8 @@
 	w_class = ITEM_SIZE_NORMAL
 
 	det_time = 3 SECONDS
-	num_fragments = 60
+	num_fragments = 72
+	explosion_size = 200
 
 	var/blowup_chance = 30
 	var/disarm_time = 4 SECONDS
@@ -242,12 +241,12 @@
 	name = "dud APHE rocket"
 	icon_state = "rocket_aphe_dud"
 
-	num_fragments = 50
+	num_fragments = 72
 	explosion_size = 150
 
 /obj/item/grenade/frag/dud_missile/tandem
 	name = "dud tandem APHE rocket"
 	icon_state = "rocket_tandem_dud"
 
-	num_fragments = 50
+	num_fragments = 72
 	explosion_size = 200
