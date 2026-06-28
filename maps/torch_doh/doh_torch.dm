@@ -380,6 +380,7 @@
 	#include "../../mods/_fd/_maps/long_forest/_long_forest.dme"
 	#include "../../mods/_fd/_maps/collective_nightmare/_collective_nightmare.dme"
 	#include "../../mods/_fd/_maps/aaaa_facility/_aaaa_facility.dme"
+	#include "../../mods/_fd/_maps/parkour_course/_parkour_course.dme"
 
 	#define using_map_DATUM /datum/map/torch
 
