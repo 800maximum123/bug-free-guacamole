@@ -182,9 +182,20 @@
 	// --- MAP FILES --- //
 
 		// ~TORCH~ //
-	#include "z1_empty.dmm"
-	#include "z2_empty.dmm"
-	#include "z3_admin.dmm"
+	#ifdef EXAMPLEMAP
+		#include "../example/example-1.dmm"
+		#include "../example/example-2.dmm"
+		#include "../example/example-3.dmm"
+		#include "../example/example_areas.dm"
+		#include "../example/example_shuttles.dm"
+		#include "../example/example_radio.dm"
+		#include "../example/example_unit_testing.dm"
+	#endif
+	#ifndef EXAMPLEMAP
+		#include "z1_empty.dmm"
+		#include "z2_empty.dmm"
+		#include "z3_admin.dmm"
+	#endif
 
 	#include "../bluespace_interlude/bluespace_interlude.dm"
 	#include "../bluespace_interlude/bluespace_interlude.dmm"
