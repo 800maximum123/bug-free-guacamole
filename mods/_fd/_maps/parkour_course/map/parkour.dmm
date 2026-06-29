@@ -28,12 +28,24 @@
 	},
 /turf/space,
 /area/space)
+"x" = (
+/obj/structure/fake_lattice{
+	icon_state = "lattice4";
+	layer = 4.10;
+	dir = 1;
+	directional_booster = 1;
+	sudden_boost = 1;
+	directional_helper = 4
+	},
+/turf/simulated/open,
+/area/parkour)
 "y" = (
 /obj/structure/fake_lattice{
 	icon_state = "lattice4";
 	layer = 4.10;
 	directional_booster = 1;
-	sudden_boost = 1
+	sudden_boost = 1;
+	directional_helper = 8
 	},
 /turf/simulated/open,
 /area/parkour)
@@ -43,9 +55,19 @@
 	layer = 4.10;
 	dir = 1;
 	directional_booster = 1;
-	sudden_boost = 1
+	sudden_boost = 1;
+	directional_helper = 1
 	},
 /turf/simulated/open,
+/area/parkour)
+"B" = (
+/obj/fd_water,
+/obj/structure/fd/cyberspace{
+	icon_state = "teleblocker-on";
+	upwards_booster = 1;
+	sudden_boost = 1
+	},
+/turf/simulated/floor/tiled/white,
 /area/parkour)
 "I" = (
 /obj/submap_landmark/spawnpoint/parkour,
@@ -59,6 +81,16 @@
 "K" = (
 /obj/paint/red,
 /turf/simulated/wall/r_wall,
+/area/parkour)
+"L" = (
+/obj/structure/fake_lattice{
+	icon_state = "lattice4";
+	layer = 4.10;
+	directional_booster = 1;
+	sudden_boost = 1;
+	directional_helper = 1
+	},
+/turf/simulated/open,
 /area/parkour)
 "M" = (
 /turf/simulated/floor/tiled/white/monotile,
@@ -77,6 +109,12 @@
 "U" = (
 /obj/fd_water,
 /turf/simulated/floor/tiled/white,
+/area/parkour)
+"X" = (
+/obj/paint/green,
+/turf/simulated/wall/r_wall{
+	can_attach_to = 1
+	},
 /area/parkour)
 "Y" = (
 /obj/paint,
@@ -2058,7 +2096,7 @@ U
 U
 U
 U
-U
+B
 U
 U
 U
@@ -2245,6 +2283,7 @@ U
 U
 U
 U
+B
 U
 U
 U
@@ -2273,8 +2312,7 @@ U
 U
 U
 U
-U
-U
+B
 U
 U
 U
@@ -2674,6 +2712,7 @@ U
 U
 U
 U
+X
 U
 U
 U
@@ -2681,8 +2720,7 @@ U
 U
 U
 U
-U
-U
+X
 U
 U
 U
@@ -2876,6 +2914,7 @@ U
 U
 U
 U
+X
 U
 U
 U
@@ -2883,8 +2922,7 @@ U
 U
 U
 U
-U
-U
+X
 U
 U
 U
@@ -3078,6 +3116,7 @@ U
 U
 U
 U
+X
 U
 U
 U
@@ -3085,8 +3124,7 @@ U
 U
 U
 U
-U
-U
+X
 U
 U
 U
@@ -3457,6 +3495,7 @@ U
 U
 U
 U
+B
 U
 U
 U
@@ -3485,8 +3524,7 @@ U
 U
 U
 U
-U
-U
+B
 U
 U
 U
@@ -3674,7 +3712,7 @@ U
 U
 U
 U
-U
+B
 U
 U
 U
@@ -41847,7 +41885,7 @@ a
 Y
 T
 T
-A
+x
 T
 T
 T
@@ -43277,7 +43315,7 @@ o
 o
 o
 o
-Y
+X
 T
 T
 T
@@ -43285,7 +43323,7 @@ j
 T
 T
 T
-Y
+X
 o
 o
 o
@@ -43469,7 +43507,7 @@ Y
 T
 T
 T
-A
+x
 T
 T
 T
@@ -44681,7 +44719,7 @@ T
 T
 T
 T
-y
+L
 T
 T
 T
