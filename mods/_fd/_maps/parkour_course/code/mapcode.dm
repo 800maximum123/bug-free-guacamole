@@ -56,6 +56,7 @@
 /datum/job/submap/parkour/post_equip_rank(mob/living/person, alt_title)
 	. = ..()
 	person.simple_combat_on = TRUE
+	person.can_coyote_jump = TRUE
 	person.generate_binds()
 
 /singleton/hierarchy/outfit/parkour

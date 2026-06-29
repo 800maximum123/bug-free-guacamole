@@ -147,6 +147,9 @@
 	var/atom/surface
 	var/image/surface_overlay
 
+	var/can_coyote_jump = FALSE
+	var/coyote_jump_frames = 1
+
 /mob/living/proc/update_surface_overlay(atom/source, pixel_position)
 	if(source)
 		CutOverlays(surface_overlay)
@@ -160,7 +163,7 @@
 		surface_overlay.blend_mode = BLEND_INSET_OVERLAY
 
 		surface_overlay.pixel_y = pixel_position
-		surface_overlay.add_filter("alpha_mask", 1, list("type" = "alpha", "icon" = icon('icons/turf/space.dmi', "blank")))
+		surface_overlay.add_filter("alpha_mask", 1, list("type" = "alpha", "icon" = icon('icons/turf/space.dmi', "black")))
 
 		AddOverlays(surface_overlay)
 	else
@@ -219,6 +222,9 @@
 	if(attached_to_surface)
 		return FALSE
 
+	if(can_coyote_jump && coyote_jump_frames > 0)
+		return FALSE
+
 	. = ..()
 
 /mob/living/can_overcome_gravity()
@@ -226,7 +232,14 @@
 		return TRUE
 	. =..()
 
+/mob/living/carbon/human/can_overcome_gravity()
+	if(attached_to_surface && surface && surface.can_attach_to)
+		return TRUE
+	. =..()
+
 /mob/living/SelfMove(direction)
+	var/turf/last_location = get_turf(src)
+
 	. = ..()
 
 	if(attached_to_surface && surface && surface.can_attach_to)
@@ -236,14 +249,33 @@
 			if(turf.density && turf.can_attach_to)
 				turf.attach_jumper(src)
 
-		else
+		else if(last_location != get_turf(src))
 			unattach_mob()
 
-/mob/living/Bump(atom/A)
-	if(A.can_attach_to && (!l_hand || !r_hand))
-		A.attach_jumper(src)
+/turf/simulated/open/Exited(atom/movable/Obj, atom/newloc)
+	if(isliving(Obj))
+		var/mob/living/L = Obj
+		if(L.can_coyote_jump)
+			new /obj/temp_visual/coyote_jump(src)
+
+	if(isopenspace(newloc) && isliving(Obj))
+		var/mob/living/L = Obj
+		if(L.can_coyote_jump && L.coyote_jump_frames > 0)
+			L.coyote_jump_frames = 0
 
 	. = ..()
+
+	if(!isopenspace(newloc) && isliving(Obj))
+		var/mob/living/L = Obj
+		if(L.can_coyote_jump && L.coyote_jump_frames <= initial(L.coyote_jump_frames))
+			L.coyote_jump_frames = initial(L.coyote_jump_frames)
+
+
+/mob/living/Bump(atom/A)
+	. = ..()
+
+	if(A.can_attach_to && (!l_hand || !r_hand) && !jumper)
+		A.attach_jumper(src)
 
 /mob/living/proc/unattach_mob()
 	update_surface_overlay()
@@ -266,9 +298,15 @@
 		check_grapple_conditions()
 
 		if(surface && surface.directional_booster)
-			animate(src, pixel_x = pixel_x - 3, time = 2, easing = EASE_IN)
-			animate(pixel_x = pixel_x + 3, time = 2.5)
-			animate(pixel_x = pixel_x, time = 1.7, easing = EASE_OUT)
+			animate(src, pixel_x = pixel_x - 6, time = 5, easing = EASE_IN)
+			animate(pixel_x = pixel_x + 6, time = 5.5)
+			animate(pixel_x = pixel_x, time = 4.7, easing = EASE_OUT)
+
+	if(!attached_to_surface && isopenspace(get_turf(src)) && can_coyote_jump)
+		if(coyote_jump_frames > 0)
+			coyote_jump_frames = clamp(coyote_jump_frames - 1, 0, initial(coyote_jump_frames))
+		if(coyote_jump_frames <= 0 && isopenspace(get_turf(src)))
+			fall()
 
 	. = ..()
 
@@ -297,8 +335,45 @@
 	else if(C)
 		adjust_stamina(-10)
 
+/obj/temp_visual/coyote_jump
+	duration = 1 SECONDS
+	icon = 'mods/_fd/fd_assets/icons/goons/mob.dmi'
+	icon_state = "sprint_cloud"
+	layer = 4.5
+
+/obj/temp_visual/coyote_jump/Initialize(mapload, set_dir)
+	animate(src, pixel_y = -5, time = 5, easing = SINE_EASING | EASE_IN)
+	animate(src, pixel_y = 0, time = 5, easing = SINE_EASING | EASE_IN)
+	. = ..()
+
+/obj/temp_visual/upwards_boost
+	duration = 1 SECONDS
+	icon = 'mods/_fd/fd_assets/icons/goons/mob.dmi'
+	icon_state = "muzzle_flash_waveb"
+	layer = 3.9
+
+/obj/temp_visual/parkour_guru
+	duration = 10
+	layer = 3.9
+	color = COLOR_CYAN
+
+/obj/temp_visual/parkour_guru/Initialize(mapload, direction)
+	dir = direction
+	switch(dir)
+		if(NORTH)
+			animate(src, pixel_y = 192, time = 5, easing = SINE_EASING | EASE_IN)
+		if(SOUTH)
+			animate(src, pixel_y = -192, time = 5, easing = SINE_EASING | EASE_IN)
+		if(WEST)
+			animate(src, pixel_x = -192, time = 5, easing = SINE_EASING | EASE_IN)
+		if(EAST)
+			animate(src, pixel_x = 192, time = 5, easing = SINE_EASING | EASE_IN)
+
+	. = ..()
+
 /atom
 	var/directional_booster = FALSE
+	var/directional_helper = SOUTH
 
 	var/upwards_booster = FALSE
 	var/upwards_booster_controlled = TRUE
@@ -328,11 +403,11 @@
 
 	switch(shift_direction)
 		if(NORTH)
-			animate(jumper, pixel_y = -20, time = 3, easing = SINE_EASING | EASE_IN)
+			animate(jumper, pixel_y = -12, time = 3, easing = SINE_EASING | EASE_IN)
 			jumper.update_surface_overlay(src, -20)
 		if(SOUTH)
-			animate(jumper, pixel_y = 20, time = 3, easing = SINE_EASING | EASE_IN)
-			jumper.update_surface_overlay(src, 20)
+			animate(jumper, pixel_y = 28, time = 3, easing = SINE_EASING | EASE_IN)
+			jumper.update_surface_overlay(src, 15)
 		if(WEST)
 			animate(jumper, pixel_x = 10, time = 3, easing = SINE_EASING | EASE_IN)
 		if(EAST)
@@ -362,6 +437,7 @@
 	set waitfor = FALSE
 
 	if(isopenspace(GetAbove(jumper)) && jumper)
+		new /obj/temp_visual/upwards_boost(get_turf(src))
 		jumper.spin(4, 1)
 		animate(jumper, alpha = 0, pixel_y = 64, time = 5, easing = SINE_EASING|EASE_IN)
 		sleep(5)
@@ -434,6 +510,11 @@
 		jumper.balloon_alert(jumper, "|ПРЫГ!|", COLOR_WHITE)
 
 		if(sudden_boost)
+			var/obj/temp_visual/parkour_guru/MS = new(get_turf(jumper), directional_helper)
+			MS.CopyOverlays(user, TRUE)
+			MS.icon = null
+			MS.alpha = 150
+
 			sleep(10)
 			perform_directional_boost()
 		return TRUE
