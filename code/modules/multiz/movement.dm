@@ -344,9 +344,15 @@
 			return FALSE
 
 		visible_message(SPAN_NOTICE("[src] starts climbing onto \the [A]!"), SPAN_NOTICE("You start climbing onto \the [A]!"))
-		if(do_after(src, 5 SECONDS, A, DO_PUBLIC_UNIQUE))
-			visible_message(SPAN_NOTICE("[src] climbs onto \the [A]!"), SPAN_NOTICE("You climb onto \the [A]!"))
-			src.Move(T)
+		if(!attached_to_surface || surface.can_attach_to)
+			if(do_after(src, 5 SECONDS, A, DO_PUBLIC_UNIQUE))
+				visible_message(SPAN_NOTICE("[src] climbs onto \the [A]!"), SPAN_NOTICE("You climb onto \the [A]!"))
+				if(!surface.can_attach_to)
+					src.Move(T)
+				else
+					src.Move(above)
+		if(attached_to_surface && !surface.can_attach_to)
+			src.Move(above)
 		else
 			visible_message(SPAN_WARNING("[src] gives up on trying to climb onto \the [A]!"), SPAN_WARNING("You give up on trying to climb onto \the [A]!"))
 		return TRUE

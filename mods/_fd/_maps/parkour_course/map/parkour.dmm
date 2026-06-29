@@ -2,57 +2,86 @@
 "a" = (
 /turf/space,
 /area/space)
+"f" = (
+/obj/submap_landmark/joinable_submap/parkour,
+/turf/simulated/floor/tiled/white,
+/area/parkour)
 "j" = (
 /obj/paint/green,
 /turf/simulated/wall/r_wall,
-/area/space)
+/area/parkour)
+"l" = (
+/obj/structure/fake_lattice{
+	icon_state = "lattice4";
+	layer = 4.10;
+	dir = 1;
+	directional_booster = 1
+	},
+/turf/simulated/open,
+/area/parkour)
 "o" = (
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/parkour)
 "r" = (
 /obj/landmark/map_data{
 	height = 3
 	},
 /turf/space,
 /area/space)
+"y" = (
+/obj/structure/fake_lattice{
+	icon_state = "lattice4";
+	layer = 4.10;
+	directional_booster = 1;
+	sudden_boost = 1
+	},
+/turf/simulated/open,
+/area/parkour)
 "A" = (
 /obj/structure/fake_lattice{
 	icon_state = "lattice4";
 	layer = 4.10;
-	dir = 1
+	dir = 1;
+	directional_booster = 1;
+	sudden_boost = 1
 	},
 /turf/simulated/open,
-/area/space)
+/area/parkour)
+"I" = (
+/obj/submap_landmark/spawnpoint/parkour,
+/turf/simulated/floor/tiled/white,
+/area/parkour)
 "J" = (
 /obj/structure/catwalk,
 /obj/structure/lattice,
 /turf/simulated/open,
-/area/space)
+/area/parkour)
 "K" = (
 /obj/paint/red,
 /turf/simulated/wall/r_wall,
-/area/space)
+/area/parkour)
 "M" = (
 /turf/simulated/floor/tiled/white/monotile,
-/area/space)
+/area/parkour)
 "Q" = (
 /obj/structure/fake_lattice{
 	icon_state = "lattice4";
-	layer = 4.10
+	layer = 4.10;
+	directional_booster = 1
 	},
 /turf/simulated/open,
-/area/space)
+/area/parkour)
 "T" = (
 /turf/simulated/open,
-/area/space)
+/area/parkour)
 "U" = (
 /obj/fd_water,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/parkour)
 "Y" = (
 /obj/paint,
 /turf/simulated/wall/r_wall,
-/area/space)
+/area/parkour)
 
 (1,1,1) = {"
 a
@@ -42242,7 +42271,7 @@ M
 T
 T
 T
-A
+l
 T
 T
 T
@@ -42260,10 +42289,10 @@ o
 T
 M
 o
-o
-o
-o
-o
+I
+I
+I
+I
 Y
 a
 a
@@ -42462,10 +42491,10 @@ o
 T
 M
 o
-o
-o
-o
-o
+I
+I
+I
+I
 Y
 a
 a
@@ -42664,10 +42693,10 @@ o
 T
 M
 o
-o
-o
-o
-o
+I
+I
+I
+I
 Y
 a
 a
@@ -42866,10 +42895,10 @@ o
 T
 M
 o
-o
-o
-o
-o
+I
+I
+I
+I
 Y
 a
 a
@@ -43036,7 +43065,7 @@ Y
 T
 T
 T
-Q
+y
 T
 T
 T
@@ -43068,10 +43097,10 @@ o
 T
 M
 o
-o
-o
-o
-o
+I
+I
+I
+I
 Y
 a
 a
@@ -43269,11 +43298,11 @@ T
 Y
 T
 Y
-o
-o
-o
-o
-o
+f
+I
+I
+I
+I
 Y
 a
 a
@@ -43454,7 +43483,7 @@ M
 T
 T
 T
-A
+l
 T
 T
 T
@@ -43472,10 +43501,10 @@ o
 T
 M
 o
-o
-o
-o
-o
+I
+I
+I
+I
 Y
 a
 a
@@ -43674,10 +43703,10 @@ o
 T
 M
 o
-o
-o
-o
-o
+I
+I
+I
+I
 Y
 a
 a
@@ -43876,10 +43905,10 @@ o
 T
 M
 o
-o
-o
-o
-o
+I
+I
+I
+I
 Y
 a
 a
@@ -44078,10 +44107,10 @@ o
 T
 M
 o
-o
-o
-o
-o
+I
+I
+I
+I
 Y
 a
 a
@@ -44280,10 +44309,10 @@ o
 T
 M
 o
-o
-o
-o
-o
+I
+I
+I
+I
 Y
 a
 a
@@ -44646,13 +44675,13 @@ a
 Y
 T
 T
-Q
+y
 T
 T
 T
 T
 T
-Q
+y
 T
 T
 T

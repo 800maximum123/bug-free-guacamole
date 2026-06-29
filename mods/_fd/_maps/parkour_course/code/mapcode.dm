@@ -73,3 +73,5 @@
 	name = "PARKOUR COURSE"
 	requires_power = FALSE
 	dynamic_lighting = FALSE
+
+#include "..\map\parkour.dmm"
