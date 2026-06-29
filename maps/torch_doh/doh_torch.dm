@@ -300,6 +300,7 @@
 	#include "../../mods/_fd/_maps/a_destroyer/_a_destroyer.dme"
 	#include "../../mods/_fd/_maps/airfield/_airfield.dme"
 	#include "../../mods/_fd/_maps/ares/_ares.dme"
+	#include "../../mods/_fd/_maps/aegis/_aegis.dme"
 	#include "../../mods/_fd/_maps/biodome/_biodome.dme"
 	#include "../../mods/_fd/_maps/capsule/_capsule.dme"
 	#include "../../mods/_fd/_maps/casino/_casino.dme"
