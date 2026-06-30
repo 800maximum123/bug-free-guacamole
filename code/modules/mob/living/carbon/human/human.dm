@@ -1118,6 +1118,10 @@
 			QDEL_NULL(z_eye)
 			return
 		var/turf/above = GetAbove(src)
+		if(!TURF_IS_MIMICING(above))
+			var/turf/near_above = get_step(above,dir)
+			above = near_above
+
 		if(TURF_IS_MIMICING(above))
 			z_eye = new /atom/movable/z_observer/z_up(src, src)
 			to_chat(src, SPAN_NOTICE("You look up."))
@@ -1172,6 +1176,9 @@
 			QDEL_NULL(z_eye)
 			return
 		var/turf/T = get_turf(src)
+		if(!TURF_IS_MIMICING(T))
+			T = get_step(src,dir)
+
 		if(TURF_IS_MIMICING(T) && HasBelow(T.z))
 			z_eye = new /atom/movable/z_observer/z_down(src, src)
 			to_chat(src, SPAN_NOTICE("You look down."))

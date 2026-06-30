@@ -57,6 +57,7 @@
 	. = ..()
 	person.simple_combat_on = TRUE
 	person.can_coyote_jump = TRUE
+	person.coyote_jump_frames = 1
 	person.generate_binds()
 
 /singleton/hierarchy/outfit/parkour
