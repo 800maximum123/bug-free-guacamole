@@ -128,6 +128,8 @@
 
 	multiple_icons = TRUE
 	base_icon_name = "tallgrass"
+	has_drop = TRUE
+	item_to_drop = /obj/item/stack/material/fiber
 
 /obj/structure/flora/tall/second
 	icon_state = "drytallgrass_4"

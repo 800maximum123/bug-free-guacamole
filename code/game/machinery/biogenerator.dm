@@ -50,7 +50,11 @@
 			/obj/item/clothing/suit/leathercoat = 500,
 			/obj/item/clothing/suit/storage/toggle/brown_jacket = 500,
 			/obj/item/clothing/suit/storage/toggle/bomber = 500,
-			/obj/item/clothing/suit/storage/hooded/wintercoat = 500))
+			/obj/item/clothing/suit/storage/hooded/wintercoat = 500),
+		// [FD-ADD]
+		"Misc" = list(
+			/obj/item/stack/material/rope = 100))
+		// [/FD-ADD]
 
 /obj/machinery/biogenerator/New()
 	..()

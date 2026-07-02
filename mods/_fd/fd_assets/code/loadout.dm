@@ -1,3 +1,8 @@
+/datum/map
+	loadout_blacklist = list(
+		/datum/gear/head/informalhat
+	)
+
 /datum/gear/uniform/rippedpunk
 	display_name = "ripped punk clothes"
 	path = /obj/item/clothing/under/rippedpunk
@@ -44,3 +49,22 @@
 	path = /obj/item/melee/umbrella
 	cost = 1
 	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/head/buckethat
+	display_name = "hat, bucket"
+	path = /obj/item/clothing/head/buckethat
+	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/head/informalhat_fd
+	display_name = "informal hat selection"
+	path = /obj/item/clothing/head
+
+/datum/gear/head/informalhat_fd/New()
+	..()
+	var/informalhats = list()
+	informalhats["cowboy hat"] = /obj/item/clothing/head/cowboy_hat
+	informalhats["dark cowboy hat"] = /obj/item/clothing/head/cowboy
+	informalhats["light cowboy hat"] = /obj/item/clothing/head/cowboy/light
+	informalhats["ushanka"] = /obj/item/clothing/head/ushanka
+	informalhats["straw hat"] = /obj/item/clothing/head/straw
+	gear_tweaks += new/datum/gear_tweak/path(informalhats)

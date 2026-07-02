@@ -109,6 +109,11 @@
 /datum/gear/eyes/medical/resomi/New()
 	return
 
+/datum/gear/eyes/lightgoggles
+	display_name = "(Resomi) airtight orange goggles"
+	path = /obj/item/clothing/glasses/lightgoggles
+	whitelisted = list(SPECIES_RESOMI)
+	sort_category = "Xenowear"
 
 /datum/gear/accessory/resomi_mantle
 	display_name = "(Resomi) small mantle"

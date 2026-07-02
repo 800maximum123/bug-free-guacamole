@@ -10,6 +10,7 @@
 #include "code/clothing/clothing_under.dm"
 #include "code/clothing/ftu_voidsuits.dm"
 #include "code/clothing/scgf_voidsuits.dm"
+#include "code/clothing/head.dm"
 
 #include "code/machinery/ai_slipper.dm"
 #include "code/machinery/autoaccess_machinery.dm"
@@ -46,11 +47,18 @@
 #include "code/structures/wallframe_types.dm"
 #include "code/structures/tent.dm"
 #include "code/structures/chair_shifting.dm"
+#include "code/structures/bed.dm"
 
 #include "code/turfs/turfs.dm"
 #include "code/turfs/wall_paint.dm"
 #include "code/turfs/wall_types.dm"
 #include "code/turfs/jungle.dm"
+
+#include "code/materials/materials.dm"
+#include "code/materials/material_sheets.dm"
+#include "code/materials/material_recipes.dm"
+#include "code/materials/recipes_items.dm"
+#include "code/materials/recipes_furniture.dm"
 
 
 #include "code/accessory.dm"

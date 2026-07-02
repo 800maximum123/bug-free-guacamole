@@ -7,3 +7,7 @@
 #define BURST_3_ROUND		list(mode_name="3-round bursts", mode_desc = "Short, controlled bursts", burst=3, fire_delay=null, move_delay=4, one_hand_penalty=3)
 #define BURST_5_ROUND		list(mode_name="5-round bursts", mode_desc = "Short, controlled bursts", burst=5, fire_delay=null, move_delay=6, one_hand_penalty=3)
 #define BURST_8_ROUND		list(mode_name="8-round bursts", mode_desc = "Short, uncontrolled bursts", burst=8, fire_delay=null, move_delay=8, one_hand_penalty=4)
+
+//Materials
+#define MATERIAL_ROPE "rope"
+#define MATERIAL_FIBER "fiber"
