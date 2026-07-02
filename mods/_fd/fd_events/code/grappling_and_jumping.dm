@@ -1,6 +1,179 @@
 /datum/keybinding/living/fd
 	category = CATEGORY_FD
 
+/mob/living/proc/fd_look_up()
+	if(client && !is_physically_disabled())
+		if(z_eye)
+			reset_view(null)
+			QDEL_NULL(z_eye)
+			return
+		var/turf/above = GetAbove(src)
+		if(!TURF_IS_MIMICING(above)) // FD
+			var/turf/near_above = get_step(above,dir) // FD
+			above = near_above // FD
+
+		if(TURF_IS_MIMICING(above))
+			z_eye = new /atom/movable/z_observer/z_up(src, src)
+			to_chat(src, SPAN_NOTICE("You look up."))
+			reset_view(z_eye)
+			return
+
+		var/turf/T= get_turf(src)
+
+		if(T.is_outside())// They're outside and hopefully on a planet.
+			var/obj/overmap/visitable/sector/exoplanet/E = map_sectors["[T.z]"]
+			if (!istype(E))
+				to_chat(usr, SPAN_NOTICE("You see... things, it's hard to put into words what you're seeing specifically."))
+				return
+
+			//Weather hook here when it is a thing
+
+			// Sun-related output.
+			//Calculate time of day
+			var/time_of_day = E.sun_last_process % E.daycycle
+			var/afternoon = time_of_day > (E.daycycle / 2)
+			var/star_name = GLOB.using_map.system_name
+
+			var/sun_message = null
+			switch(E.sun_position)
+				if(0 to 0.4) // Night
+					sun_message = "It is night time, [star_name] is not visible."
+				if(0.4 to 0.5) // Twilight
+					sun_message = "The sky is in twilight, however [star_name] is not visible."
+				if(0.5 to 0.7) // Sunrise/set.
+					sun_message = "[star_name] is slowly [!afternoon ? "rising from" : "setting on"] the horizon."
+				if(0.7 to 0.9) // Morning/evening
+					sun_message = "[star_name]'s position implies it is currently [!afternoon ? "early" : "late"] in the day."
+				if(0.9 to 1.0) // Noon
+					sun_message = "It's high noon. [star_name] hangs directly above you."
+
+			to_chat(usr, SPAN_NOTICE(sun_message))
+			return
+
+
+		to_chat(src, SPAN_NOTICE("You can see \the [above ? above : "ceiling"]."))
+	else
+		to_chat(src, SPAN_NOTICE("You can't look up right now."))
+
+/mob/living/proc/fd_look_down()
+	if(client && !is_physically_disabled())
+		if(z_eye)
+			reset_view(null)
+			QDEL_NULL(z_eye)
+			return
+		var/turf/T = get_turf(src)
+		if(!TURF_IS_MIMICING(T)) // FD
+			T = get_step(src,dir) // FD
+
+		if(TURF_IS_MIMICING(T) && HasBelow(T.z))
+			z_eye = new /atom/movable/z_observer/z_down(src, src)
+			to_chat(src, SPAN_NOTICE("You look down."))
+			reset_view(z_eye)
+			return
+		to_chat(src, SPAN_NOTICE("You can see \the [T ? T : "floor"]."))
+	else
+		to_chat(src, SPAN_NOTICE("You can't look below right now."))
+
+/datum/keybinding/living/fd/look_above
+	hotkey_keys = list("None")
+	name = "look_above"
+	full_name = "General: LOOK UP"
+	description = ""
+
+/datum/keybinding/living/fd/look_above/can_use(client/user)
+	if(!isliving(user.mob))
+		return FALSE
+
+	. = ..()
+
+/datum/keybinding/living/fd/look_above/down(client/user)
+	var/mob/living/L = user.mob
+	L.fd_look_up()
+	return TRUE
+
+/datum/keybinding/living/fd/look_below
+	hotkey_keys = list("None")
+	name = "look_below"
+	full_name = "General: LOOK DOWN"
+	description = ""
+
+/datum/keybinding/living/fd/look_below/can_use(client/user)
+	if(!isliving(user.mob))
+		return FALSE
+
+	. = ..()
+
+/datum/keybinding/living/fd/look_below/down(client/user)
+	var/mob/living/L = user.mob
+	L.fd_look_down()
+	return TRUE
+
+/datum/keybinding/living/fd/move_above
+	hotkey_keys = list("None")
+	name = "move_above"
+	full_name = "General: RUN UP"
+	description = ""
+
+/datum/keybinding/living/fd/move_above/can_use(client/user)
+	if(!isliving(user.mob))
+		return FALSE
+	var/mob/living/L = user.mob
+
+	if(L.stat != CONSCIOUS)
+		return FALSE
+	if(L.anchored)
+		return FALSE
+
+	if(!L.attached_to_surface || !L.surface || !L.surface.wallrun)
+		return FALSE
+
+	if(!HasAbove(L.z))
+		return FALSE
+
+	var/turf/T = GetAbove(L)
+	if(!isopenspace(T))
+		return FALSE
+
+	. = ..()
+
+/datum/keybinding/living/fd/move_above/down(client/user)
+	var/mob/living/L = user.mob
+	L.forceMove(GetAbove(L))
+	return TRUE
+
+/datum/keybinding/living/fd/move_below
+	hotkey_keys = list("None")
+	name = "move_below"
+	full_name = "General: RUN DOWN"
+	description = ""
+
+/datum/keybinding/living/fd/move_below/can_use(client/user)
+	if(!isliving(user.mob))
+		return FALSE
+	var/mob/living/L = user.mob
+
+	if(L.stat != CONSCIOUS)
+		return FALSE
+	if(L.anchored)
+		return FALSE
+
+	if(!L.attached_to_surface || !L.surface || !L.surface.wallrun)
+		return FALSE
+
+	if(!HasBelow(L.z))
+		return FALSE
+
+	var/turf/T = GetBelow(L)
+	if(!isopenspace(T))
+		return FALSE
+
+	. = ..()
+
+/datum/keybinding/living/fd/move_below/down(client/user)
+	var/mob/living/L = user.mob
+	L.forceMove(GetBelow(L))
+	return TRUE
+
 /datum/keybinding/living/fd/dash_up
 	hotkey_keys = list("None")
 	name = "dash_up"
@@ -8,14 +181,14 @@
 	description = ""
 
 /datum/keybinding/living/fd/dash_up/can_use(client/user)
-	. = ..()
-
 	if(!isliving(user.mob))
 		return FALSE
 	var/mob/living/L = user.mob
 
 	if(!L.preparing_to_dash)
 		return FALSE
+
+	. = ..()
 
 /datum/keybinding/living/fd/dash_up/down(client/user)
 	var/mob/living/L = user.mob
@@ -35,8 +208,6 @@
 	description = ""
 
 /datum/keybinding/living/fd/dash_down/can_use(client/user)
-	. = ..()
-
 	if(!isliving(user.mob))
 		return FALSE
 	var/mob/living/L = user.mob
@@ -46,6 +217,8 @@
 
 	if(L.dash_bonus_points <= 0)
 		return FALSE
+
+	. = ..()
 
 /datum/keybinding/living/fd/dash_down/down(client/user)
 	var/mob/living/L = user.mob
@@ -61,8 +234,6 @@
 	description = ""
 
 /datum/keybinding/living/fd/dash/can_use(client/user)
-	. = ..()
-
 	if(!isliving(user.mob))
 		return FALSE
 	var/mob/living/L = user.mob
@@ -102,6 +273,8 @@
 			return FALSE
 		if(H.mob_fishing)
 			return FALSE
+
+	. = ..()
 
 /datum/keybinding/living/fd/dash/down(client/user)
 	var/mob/living/L = user.mob
@@ -148,7 +321,9 @@
 	var/image/surface_overlay
 
 	var/can_coyote_jump = FALSE
-	var/coyote_jump_frames = 0
+	var/coyote_jump_frames = 1
+
+	var/wallrunner_stillstanding_allowed = 2
 
 /mob/living/proc/update_surface_overlay(atom/source, pixel_position)
 	if(source)
@@ -195,21 +370,15 @@
 /mob/living/proc/resolve_dash()
 	pass_flags = initial(pass_flags)
 
-	if((!l_hand || !r_hand) && !attached_to_surface)
+	if((!l_hand || !r_hand) && (!attached_to_surface || !surface))
 		var/turf/turf = get_step(src,dir)
 
 		if(turf.density && turf.can_attach_to)
 			turf.attach_jumper(src)
-		else
-			for(var/atom/A in turf)
-				if(A.directional_booster || A.upwards_booster || A.can_attach_to)
-					A.attach_jumper(src)
 
-		if(!surface)
-			turf = get_turf(src)
+		if(!attached_to_surface || !surface)
 			for(var/atom/A in turf)
-
-				if(A.directional_booster || A.upwards_booster)
+				if(A.directional_booster || A.upwards_booster || A.can_attach_to || A.wallrun)
 					A.attach_jumper(src)
 
 	in_dash = FALSE
@@ -295,9 +464,13 @@
 	pixel_y = 0
 	pixel_x = 0
 
+	SetTransform(null,null,null,0)
+
 	surface.jumper = null
 	surface = null
 	attached_to_surface = FALSE
+
+	wallrunner_stillstanding_allowed = 2
 
 	if(isopenspace(get_turf(src)))
 		fall(get_turf(src))
@@ -337,6 +510,12 @@
 
 	if(l_hand && r_hand)
 		unattach_mob()
+
+	if(surface.wallrun)
+		if(wallrunner_stillstanding_allowed > 0)
+			wallrunner_stillstanding_allowed = clamp(wallrunner_stillstanding_allowed - 1, 0, initial(wallrunner_stillstanding_allowed))
+		if(wallrunner_stillstanding_allowed <= 0)
+			unattach_mob()
 
 	// Мы соскальзываем лишь при условии того, что нам есть куда
 	var/obj/structure/fd/chasm/C = locate() in placed_on
@@ -385,6 +564,59 @@
 
 	. = ..()
 
+/obj/structure/fd/parkour/wallrunning_mark
+
+	wallrun = TRUE
+	icon = 'mods/_fd/fd_assets/icons/tg/mapping_helpers.dmi'
+	icon_state = "airlock_cyclelink_helper"
+
+	invisibility = 101
+
+	density = FALSE
+	anchored = TRUE
+
+/obj/structure/fd/parkour/jumping_platform
+	upwards_booster = TRUE
+
+	icon = 'mods/_fd/fd_assets/icons/goons/ship.dmi'
+	icon_state = "chute0x"
+
+	density = FALSE
+	anchored = TRUE
+
+/obj/structure/fd/parkour/jumping_platform/Crossed(mob/living/M)
+	icon_state = "chute1"
+
+	. = ..()
+
+/obj/structure/fd/parkour/jumping_platform/Uncrossed(mob/living/M)
+	icon_state = "chute0"
+	. = ..()
+
+/obj/structure/fd/parkour/grabbing_triangle
+	directional_booster = TRUE
+
+	icon = 'mods/_fd/fd_assets/icons/goons/instruments.dmi'
+	icon_state = "triangle"
+
+	density = FALSE
+	anchored = TRUE
+	layer = 4.10
+	pixel_y = 18
+
+/obj/structure/fd/parkour/grabbing_triangle/Initialize()
+	. = ..()
+	SetTransform(1.5)
+
+/obj/structure/fd/parkour/grabbing_triangle/Crossed(mob/living/M)
+	animate(src, pixel_y = 8, time = 3, easing = SINE_EASING | EASE_IN)
+
+	. = ..()
+
+/obj/structure/fd/parkour/grabbing_triangle/Uncrossed(mob/living/M)
+	animate(src, pixel_y = 18, time = 3, easing = SINE_EASING | EASE_IN)
+	. = ..()
+
 /atom
 	var/directional_booster = FALSE
 	var/directional_helper = SOUTH
@@ -396,16 +628,22 @@
 
 	var/sudden_boost = FALSE
 
+	var/wallrun = FALSE
+	var/wallrun_direction = EAST
+
 	var/mob/living/jumper
 
 /atom/Crossed(mob/living/M)
-	if(directional_booster || upwards_booster)
+	if(directional_booster || upwards_booster || wallrun)
 		attach_jumper(M)
 	. = ..()
 
 /atom/Uncrossed(mob/living/M)
 	if(jumper && directional_booster)
 		perform_directional_boost()
+
+	if(jumper && wallrun)
+		M.unattach_mob()
 	. = ..()
 
 /atom/proc/adjust_grappling()
@@ -445,8 +683,6 @@
 		addtimer(new Callback(controlled_mob, TYPE_PROC_REF(/mob/living, jump_layer_shift_end)), 4.5)
 
 /atom/proc/perform_upwards_boost()
-	set waitfor = FALSE
-
 	if(isopenspace(GetAbove(jumper)) && jumper)
 		jumper.anchored = TRUE
 		new /obj/temp_visual/upwards_boost(get_turf(src))
@@ -461,7 +697,8 @@
 		sleep(5)
 
 		var/mob/living/target = jumper
-		animate(target, pixel_y = 0, time = 10, easing = SINE_EASING|EASE_IN)
+		jumper = null
+		animate(target, pixel_y = 0, time = 15, easing = SINE_EASING|EASE_IN)
 
 		target.attached_to_surface = FALSE
 		target.surface = null
@@ -480,6 +717,22 @@
 			target.throw_at(get_ranged_target_turf(get_turf(target), target.dir, 5), 5, 1, target, FALSE, new Callback(target, TYPE_PROC_REF(/mob/living, resolve_dash)))
 			addtimer(new Callback(target, TYPE_PROC_REF(/mob/living, jump_layer_shift_end)), 4.5)
 
+/atom/proc/make_wallrunner()
+
+	switch(wallrun_direction)
+		if(EAST)
+			jumper.pixel_x = 17
+			jumper.SetTransform(null,null,null,-15)
+		if(WEST)
+			jumper.pixel_x = -17
+			jumper.SetTransform(null,null,null,15)
+		if(NORTH)
+			jumper.pixel_y = 17
+			jumper.SetTransform(null,null,null,0)
+		if(SOUTH)
+			jumper.pixel_y = -12
+			jumper.update_surface_overlay(src, -20)
+
 /atom/proc/attach_jumper(mob/living/user)
 	set waitfor = FALSE
 
@@ -487,6 +740,12 @@
 		return FALSE
 
 	if(user.surface && user.surface == src)
+		return FALSE
+
+	if(jumper)
+		return FALSE
+
+	if(get_z(user) != z)
 		return FALSE
 
 	if(!QDELETED(user.throwing))
@@ -503,7 +762,11 @@
 		return TRUE
 
 	if(upwards_booster) // for objects, that boost player one level higher, giving him momentum for a jump
-		user.forceMove(get_turf(src))
+
+		if(user.loc != get_turf(src))
+			user.forceMove(get_turf(src))
+			return FALSE
+
 		jumper = user
 		jumper.surface = src
 
@@ -514,7 +777,11 @@
 		return TRUE
 
 	if(directional_booster) // for objects, that boost player forward in the specific direction
-		user.forceMove(get_turf(src))
+
+		if(user.loc != get_turf(src))
+			user.forceMove(get_turf(src))
+			return FALSE
+
 		jumper = user
 		jumper.surface = src
 
@@ -529,6 +796,21 @@
 
 			sleep(10)
 			perform_directional_boost()
+		return TRUE
+
+	if(wallrun)
+		if(user.loc != get_turf(src))
+			user.forceMove(get_turf(src))
+			return FALSE
+
+		jumper = user
+		jumper.surface = src
+
+		jumper.wallrunner_stillstanding_allowed = 2
+
+		jumper.attached_to_surface = TRUE
+
+		make_wallrunner()
 		return TRUE
 
 /obj/structure/fd/chasm

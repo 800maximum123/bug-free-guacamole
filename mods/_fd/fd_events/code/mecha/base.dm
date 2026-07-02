@@ -67,11 +67,15 @@
 	description = ""
 
 /datum/keybinding/living/fd/mech/assault_boost/can_use(client/user)
-	. = ..()
+	var/mob/living/L = user.mob
+	if(!istype(L,/mob/living/simple_animal/simple_mecha))
+		return FALSE
 
 	var/mob/living/simple_animal/simple_mecha/mecha = user.mob
 	if(!mecha.engine || mecha.engine.fuel_current <= 0)
 		return FALSE
+
+	. = ..()
 
 /datum/keybinding/living/fd/mech/assault_boost/down(client/user)
 	var/mob/living/simple_animal/simple_mecha/L = user.mob
@@ -570,17 +574,20 @@
 
 	if(fuel_current <= fuel_max / 2 && !first_warning)
 		first_warning = TRUE
-		mecha.balloon_alert(mecha, "|ВНИМАНИЕ! ПОТЕРЯ ПОЛОВИНЫ ТОПЛИВА|", COLOR_YELLOW)
+		if(mecha)
+			mecha.balloon_alert(mecha, "|ВНИМАНИЕ! ПОТЕРЯ ПОЛОВИНЫ ТОПЛИВА|", COLOR_YELLOW)
 
 	if(fuel_current <= 1000 && !second_warning)
 		second_warning = TRUE
-		mecha.balloon_alert(mecha, "|ВНИМАНИЕ! КРИТИЧЕСКАЯ НЕХВАТКА ТОПЛИВА|", COLOR_RED)
+		if(mecha)
+			mecha.balloon_alert(mecha, "|ВНИМАНИЕ! КРИТИЧЕСКАЯ НЕХВАТКА ТОПЛИВА|", COLOR_RED)
 
 	if(fuel_current <= 0 && engine_burning)
 		engine_burning = FALSE
-		mecha.movement_cooldown = initial(mecha.movement_cooldown)
-		mecha.pass_flags = initial(mecha.pass_flags)
-		mecha.balloon_alert_to_viewers("|ФШШшшш...|", "|ДВИГАТЕЛЬ: ВЫКЛЮЧЕН|", COLOR_WHITE)
+		if(mecha)
+			mecha.movement_cooldown = initial(mecha.movement_cooldown)
+			mecha.pass_flags = initial(mecha.pass_flags)
+			mecha.balloon_alert_to_viewers("|ФШШшшш...|", "|ДВИГАТЕЛЬ: ВЫКЛЮЧЕН|", COLOR_WHITE)
 
 /obj/item/fd/mech/engine/coral
 	power = 6

@@ -176,11 +176,11 @@
 	category = CATEGORY_FD
 
 /datum/keybinding/living/fd/monster/can_use(client/user)
-	. = ..()
-
 	var/mob/living/L = user.mob
 	if(!istype(L, /mob/living/simple_animal/metro_jeff))
 		return FALSE
+
+	. = ..()
 
 /datum/keybinding/living/fd/event/monster/reveal_hiding_players
 	category = CATEGORY_FD_EVENT

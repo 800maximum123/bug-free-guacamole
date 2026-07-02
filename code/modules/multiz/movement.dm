@@ -276,42 +276,57 @@
 		return 150
 	return BASE_STORAGE_COST(w_class)
 
-/mob/living/carbon/human
-	var/final_damage_min = 0
-	var/final_damage_max = 0
+/mob/living/carbon/human // FD
+	var/final_damage_min = 0 // FD
+	var/final_damage_max = 0 // FD
 
 /mob/living/carbon/human/handle_fall_effect(turf/landing)
 	if(species && species.handle_fall_special(src, landing))
+		final_damage_min = 0 // FD
+		final_damage_max = 0 // FD
 		return
 
 	var/obj/item/rig/rig = get_rig()
 	if (istype(rig))
 		for (var/obj/item/rig_module/actuators/A in rig.installed_modules)
 			if (A.active && rig.check_power_cost(src, 50 KILOWATTS, A, 0))
+				final_damage_min = 0 // FD
+				final_damage_max = 0 // FD
 				return
 
-	if(locate(/obj/fd_water) in landing)
+	if(locate(/obj/fd_water) in landing) // FD
+		final_damage_min = 0 // FD
+		final_damage_max = 0 // FD
 		return
+
+	var/atom/jumpad // FD
+	for(var/atom/A in landing) // FD
+		if(A.directional_booster || A.upwards_booster) // FD
+			jumpad = A // FD
+	if(jumpad) // FD
+		final_damage_min = 0 // FD
+		final_damage_max = 0 // FD
+		return // FD
 
 	..()
 
 	var/min_damage = 5
 	var/max_damage = 10
 
-	if(isopenspace(landing))
-		final_damage_min += min_damage
-		final_damage_max += max_damage
+	if(isopenspace(landing)) // FD
+		final_damage_min += min_damage // FD
+		final_damage_max += max_damage // FD
 
-	if(!isopenspace(landing))
-		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_HEAD, armor_pen = 50)
-		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_CHEST, armor_pen = 50)
-		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_GROIN, armor_pen = 75)
-		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_L_LEG, armor_pen = 100)
-		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_R_LEG, armor_pen = 100)
-		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_L_FOOT, armor_pen = 100)
-		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_R_FOOT, armor_pen = 100)
-		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_L_ARM, armor_pen = 75)
-		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_R_ARM, armor_pen = 75)
+	if(!isopenspace(landing)) // FD
+		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_HEAD, armor_pen = 50) // FD
+		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_CHEST, armor_pen = 50) // FD
+		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_GROIN, armor_pen = 75) // FD
+		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_L_LEG, armor_pen = 100) // FD
+		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_R_LEG, armor_pen = 100) // FD
+		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_L_FOOT, armor_pen = 100) // FD
+		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_R_FOOT, armor_pen = 100) // FD
+		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_L_ARM, armor_pen = 75) // FD
+		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_R_ARM, armor_pen = 75) // FD
 		weakened = max(weakened, 3)
 		if(prob(skill_fail_chance(SKILL_HAULING, 40, SKILL_EXPERIENCED, 2)))
 			var/list/victims = list()
@@ -323,8 +338,8 @@
 				var/obj/item/organ/external/victim = pick(victims)
 				victim.dislocate()
 				to_chat(src, SPAN_WARNING("You feel a sickening pop as your [victim.joint] is wrenched out of the socket."))
-		final_damage_min = 0
-		final_damage_max = 0
+		final_damage_min = 0 // FD
+		final_damage_max = 0 // FD
 		updatehealth()
 
 
@@ -359,15 +374,13 @@
 			return FALSE
 
 		visible_message(SPAN_NOTICE("[src] starts climbing onto \the [A]!"), SPAN_NOTICE("You start climbing onto \the [A]!"))
-		if(!attached_to_surface || surface.can_attach_to)
+		if(!attached_to_surface || (attached_to_surface && surface && surface.can_attach_to)) // FD
 			if(do_after(src, 5 SECONDS, A, DO_PUBLIC_UNIQUE))
 				visible_message(SPAN_NOTICE("[src] climbs onto \the [A]!"), SPAN_NOTICE("You climb onto \the [A]!"))
-				if(!surface.can_attach_to)
+				if(!surface.can_attach_to) // FD
 					src.Move(T)
-				else
-					src.Move(above)
-		if(attached_to_surface && !surface.can_attach_to)
-			src.Move(above)
+				else // FD
+					src.Move(above) // FD
 		else
 			visible_message(SPAN_WARNING("[src] gives up on trying to climb onto \the [A]!"), SPAN_WARNING("You give up on trying to climb onto \the [A]!"))
 		return TRUE
@@ -410,9 +423,9 @@
 	if(isturf(src.loc))
 		var/turf/T = src.loc
 
-		if(!TURF_IS_MIMICING(T))
-			var/turf/near_above = get_step(T,owner.dir)
-			T = near_above
+		if(!TURF_IS_MIMICING(T)) // FD
+			var/turf/near_above = get_step(T,owner.dir) // FD
+			T = near_above // FD
 
 		if(T.z_flags & ZM_MIMIC_BELOW)
 			return
@@ -424,8 +437,8 @@
 	forceMove(get_step(owner, DOWN))
 	var/turf/T = get_turf(owner)
 
-	if(!TURF_IS_MIMICING(T))
-		T = get_step(owner,owner.dir)
+	if(!TURF_IS_MIMICING(T)) // FD
+		T = get_step(owner,owner.dir) // FD
 
 	if(T && (T.z_flags & ZM_MIMIC_BELOW))
 		return
