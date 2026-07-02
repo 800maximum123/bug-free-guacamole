@@ -148,7 +148,7 @@
 	var/image/surface_overlay
 
 	var/can_coyote_jump = FALSE
-	var/coyote_jump_frames = 1
+	var/coyote_jump_frames = 0
 
 /mob/living/proc/update_surface_overlay(atom/source, pixel_position)
 	if(source)
@@ -195,7 +195,7 @@
 /mob/living/proc/resolve_dash()
 	pass_flags = initial(pass_flags)
 
-	if(!l_hand || !r_hand)
+	if((!l_hand || !r_hand) && !attached_to_surface)
 		var/turf/turf = get_step(src,dir)
 
 		if(turf.density && turf.can_attach_to)
@@ -237,19 +237,32 @@
 		return TRUE
 	. =..()
 
-/mob/living/SelfMove(direction)
-	var/turf/last_location = get_turf(src)
+/mob/living/Move(a, b, flag)
+	var/old_z = get_z(src)
+	var/last_direction = dir
+	var/turf/old_loc = get_turf(src)
 
 	. = ..()
 
 	if(attached_to_surface && surface && surface.can_attach_to)
-		if(direction == UP && (!l_hand || !r_hand))
-			var/turf/turf = get_step(src,dir)
+		if(old_z != get_z(src) && (!l_hand || !r_hand))
+			var/turf/turf = get_step(src,last_direction)
+			dir = last_direction
 
 			if(turf.density && turf.can_attach_to)
 				turf.attach_jumper(src)
 
-		else if(last_location != get_turf(src))
+			if(!isopenspace(turf) && !turf.density)
+				var/can_climb_onto = TRUE
+				for(var/atom/A in turf)
+					if(A.density)
+						can_climb_onto = FALSE
+
+				if(can_climb_onto)
+					forceMove(turf)
+					unattach_mob()
+
+		else if(old_loc != get_turf(src) && old_z == get_z(src))
 			unattach_mob()
 
 /turf/simulated/open/Exited(atom/movable/Obj, atom/newloc)
@@ -270,7 +283,6 @@
 		if(L.can_coyote_jump && L.coyote_jump_frames <= initial(L.coyote_jump_frames))
 			L.coyote_jump_frames = initial(L.coyote_jump_frames)
 
-
 /mob/living/Bump(atom/A)
 	. = ..()
 
@@ -287,6 +299,9 @@
 	surface = null
 	attached_to_surface = FALSE
 
+	if(isopenspace(get_turf(src)))
+		fall(get_turf(src))
+
 /mob/living/set_dir()
 	. = ..()
 	if(preparing_to_dash)
@@ -300,8 +315,8 @@
 	if(!(in_dash == TRUE || attached_to_surface == TRUE) && isopenspace(get_turf(src)) && can_coyote_jump)
 		if(coyote_jump_frames > 0)
 			coyote_jump_frames = clamp(coyote_jump_frames - 1, 0, initial(coyote_jump_frames))
-		if(coyote_jump_frames <= 0 && isopenspace(get_turf(src)))
-			fall()
+	if(!(in_dash == TRUE || attached_to_surface == TRUE) && can_coyote_jump && coyote_jump_frames <= 0 && isopenspace(get_turf(src)))
+		fall(get_turf(src))
 
 	. = ..()
 
@@ -342,10 +357,14 @@
 	. = ..()
 
 /obj/temp_visual/upwards_boost
-	duration = 1 SECONDS
+	duration = 1.5 SECONDS
 	icon = 'mods/_fd/fd_assets/icons/goons/mob.dmi'
 	icon_state = "muzzle_flash_waveb"
 	layer = 3.9
+
+/obj/temp_visual/upwards_boost/Initialize(mapload, set_dir)
+	SetTransform(1.5)
+	. = ..()
 
 /obj/temp_visual/parkour_guru
 	duration = 10
@@ -426,46 +445,49 @@
 		addtimer(new Callback(controlled_mob, TYPE_PROC_REF(/mob/living, jump_layer_shift_end)), 4.5)
 
 /atom/proc/perform_upwards_boost()
+	set waitfor = FALSE
+
 	if(isopenspace(GetAbove(jumper)) && jumper)
 		jumper.anchored = TRUE
 		new /obj/temp_visual/upwards_boost(get_turf(src))
-		animate(jumper, alpha = 0, pixel_y = 64, time = 5, easing = SINE_EASING|EASE_IN)
-		spawn(5)
+		if(upwards_booster_controlled)
+			jumper.spin(8,2)
+		animate(jumper, pixel_y = 128, time = 10, easing = SINE_EASING|EASE_IN)
+		sleep(5)
 
-			animate(jumper, alpha = 255, pixel_y = 0, time = 1, easing = SINE_EASING|EASE_IN)
-			jumper.anchored = FALSE
-			jumper.forceMove(GetAbove(jumper))
+		jumper.anchored = FALSE
+		jumper.forceMove(GetAbove(jumper))
 
-		spawn(10)
+		sleep(5)
 
-			if(upwards_booster_controlled && jumper)
-				animate(jumper, alpha = 0, pixel_y = -64, time = 5, easing = SINE_EASING|EASE_IN)
-				spawn(5)
-					jumper.forceMove(GetBelow(jumper))
-					perform_upwards_boost()
+		var/mob/living/target = jumper
+		animate(target, pixel_y = 0, time = 10, easing = SINE_EASING|EASE_IN)
 
-			if(!upwards_booster_controlled)
-				jumper.pass_flags |= PASS_FLAG_TABLE
-				jumper.in_dash = TRUE
-				jumper.attached_to_surface = FALSE
-				jumper.surface = null
+		target.attached_to_surface = FALSE
+		target.surface = null
 
-				var/mob/living/controlled_mob = jumper
-				jumper = null
+		if(!upwards_booster_controlled)
+			target.pass_flags |= PASS_FLAG_TABLE
+			target.in_dash = TRUE
 
-				controlled_mob.jump_layer_shift()
-				if(controlled_mob.client)
-					controlled_mob.client_jump_shift()
+			target.jump_layer_shift()
+			if(target.client)
+				target.client_jump_shift()
 
-				animate(controlled_mob, pixel_z = 16, time = 7, easing = SINE_EASING | EASE_IN)
-				animate(pixel_z = controlled_mob.default_pixel_z, time = 7, easing = SINE_EASING | EASE_OUT)
+			animate(target, pixel_z = 16, time = 7, easing = SINE_EASING | EASE_IN)
+			animate(pixel_z = target.default_pixel_z, time = 7, easing = SINE_EASING | EASE_OUT)
 
-				controlled_mob.throw_at(get_ranged_target_turf(get_turf(controlled_mob), controlled_mob.dir, 5), 5, 1, controlled_mob, FALSE, new Callback(controlled_mob, TYPE_PROC_REF(/mob/living, resolve_dash)))
-				addtimer(new Callback(controlled_mob, TYPE_PROC_REF(/mob/living, jump_layer_shift_end)), 4.5)
-		return TRUE
+			target.throw_at(get_ranged_target_turf(get_turf(target), target.dir, 5), 5, 1, target, FALSE, new Callback(target, TYPE_PROC_REF(/mob/living, resolve_dash)))
+			addtimer(new Callback(target, TYPE_PROC_REF(/mob/living, jump_layer_shift_end)), 4.5)
 
 /atom/proc/attach_jumper(mob/living/user)
 	set waitfor = FALSE
+
+	if(!user || !isliving(user))
+		return FALSE
+
+	if(user.surface && user.surface == src)
+		return FALSE
 
 	if(!QDELETED(user.throwing))
 		user.throwing.finalize(hit = FALSE, t_target = src)

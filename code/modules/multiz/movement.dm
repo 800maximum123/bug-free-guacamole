@@ -276,6 +276,10 @@
 		return 150
 	return BASE_STORAGE_COST(w_class)
 
+/mob/living/carbon/human
+	var/final_damage_min = 0
+	var/final_damage_max = 0
+
 /mob/living/carbon/human/handle_fall_effect(turf/landing)
 	if(species && species.handle_fall_special(src, landing))
 		return
@@ -286,31 +290,42 @@
 			if (A.active && rig.check_power_cost(src, 50 KILOWATTS, A, 0))
 				return
 
+	if(locate(/obj/fd_water) in landing)
+		return
+
 	..()
 
-	var/min_damage = 7
-	var/max_damage = 14
-	apply_damage(rand(min_damage, max_damage), DAMAGE_BRUTE, BP_HEAD, armor_pen = 50)
-	apply_damage(rand(min_damage, max_damage), DAMAGE_BRUTE, BP_CHEST, armor_pen = 50)
-	apply_damage(rand(min_damage, max_damage), DAMAGE_BRUTE, BP_GROIN, armor_pen = 75)
-	apply_damage(rand(min_damage, max_damage), DAMAGE_BRUTE, BP_L_LEG, armor_pen = 100)
-	apply_damage(rand(min_damage, max_damage), DAMAGE_BRUTE, BP_R_LEG, armor_pen = 100)
-	apply_damage(rand(min_damage, max_damage), DAMAGE_BRUTE, BP_L_FOOT, armor_pen = 100)
-	apply_damage(rand(min_damage, max_damage), DAMAGE_BRUTE, BP_R_FOOT, armor_pen = 100)
-	apply_damage(rand(min_damage, max_damage), DAMAGE_BRUTE, BP_L_ARM, armor_pen = 75)
-	apply_damage(rand(min_damage, max_damage), DAMAGE_BRUTE, BP_R_ARM, armor_pen = 75)
-	weakened = max(weakened, 3)
-	if(prob(skill_fail_chance(SKILL_HAULING, 40, SKILL_EXPERIENCED, 2)))
-		var/list/victims = list()
-		for(var/tag in list(BP_L_FOOT, BP_R_FOOT, BP_L_ARM, BP_R_ARM))
-			var/obj/item/organ/external/E = get_organ(tag)
-			if(E && !E.is_stump() && !E.dislocated && !BP_IS_ROBOTIC(E))
-				victims += E
-		if(length(victims))
-			var/obj/item/organ/external/victim = pick(victims)
-			victim.dislocate()
-			to_chat(src, SPAN_WARNING("You feel a sickening pop as your [victim.joint] is wrenched out of the socket."))
-	updatehealth()
+	var/min_damage = 5
+	var/max_damage = 10
+
+	if(isopenspace(landing))
+		final_damage_min += min_damage
+		final_damage_max += max_damage
+
+	if(!isopenspace(landing))
+		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_HEAD, armor_pen = 50)
+		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_CHEST, armor_pen = 50)
+		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_GROIN, armor_pen = 75)
+		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_L_LEG, armor_pen = 100)
+		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_R_LEG, armor_pen = 100)
+		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_L_FOOT, armor_pen = 100)
+		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_R_FOOT, armor_pen = 100)
+		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_L_ARM, armor_pen = 75)
+		apply_damage(rand(min_damage, max_damage) + rand(final_damage_min, final_damage_max), DAMAGE_BRUTE, BP_R_ARM, armor_pen = 75)
+		weakened = max(weakened, 3)
+		if(prob(skill_fail_chance(SKILL_HAULING, 40, SKILL_EXPERIENCED, 2)))
+			var/list/victims = list()
+			for(var/tag in list(BP_L_FOOT, BP_R_FOOT, BP_L_ARM, BP_R_ARM))
+				var/obj/item/organ/external/E = get_organ(tag)
+				if(E && !E.is_stump() && !E.dislocated && !BP_IS_ROBOTIC(E))
+					victims += E
+			if(length(victims))
+				var/obj/item/organ/external/victim = pick(victims)
+				victim.dislocate()
+				to_chat(src, SPAN_WARNING("You feel a sickening pop as your [victim.joint] is wrenched out of the socket."))
+		final_damage_min = 0
+		final_damage_max = 0
+		updatehealth()
 
 
 /mob/living/carbon/human/proc/climb_up(atom/A)
@@ -394,6 +409,11 @@
 	forceMove(get_step(owner, UP))
 	if(isturf(src.loc))
 		var/turf/T = src.loc
+
+		if(!TURF_IS_MIMICING(T))
+			var/turf/near_above = get_step(T,owner.dir)
+			T = near_above
+
 		if(T.z_flags & ZM_MIMIC_BELOW)
 			return
 	owner.reset_view(null)
@@ -403,6 +423,10 @@
 /atom/movable/z_observer/z_down/follow()
 	forceMove(get_step(owner, DOWN))
 	var/turf/T = get_turf(owner)
+
+	if(!TURF_IS_MIMICING(T))
+		T = get_step(owner,owner.dir)
+
 	if(T && (T.z_flags & ZM_MIMIC_BELOW))
 		return
 	owner.reset_view(null)
