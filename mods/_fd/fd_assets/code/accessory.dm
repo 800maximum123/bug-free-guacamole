@@ -161,10 +161,10 @@
 	icon = 'mods/_fd/fd_assets/icons/ipc_screens.dmi'
 	icon_state = "ipc_blue_eyes"
 
-/datum/sprite_accessory/facial_hair/ipc/eyesfortune
-	name = "Fortune eyes"
+/datum/sprite_accessory/facial_hair/ipc/eyesfortuna
+	name = "Fortuna eyes"
 	icon = 'mods/_fd/fd_assets/icons/ipc_screens.dmi'
-	icon_state = "ipc_eyes_fortune"
+	icon_state = "ipc_eyes_fortuna"
 
 /datum/sprite_accessory/facial_hair/ipc/nyaru
 	name = "Nyaru"
