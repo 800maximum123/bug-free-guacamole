@@ -68,3 +68,8 @@
 	informalhats["ushanka"] = /obj/item/clothing/head/ushanka
 	informalhats["straw hat"] = /obj/item/clothing/head/straw
 	gear_tweaks += new/datum/gear_tweak/path(informalhats)
+
+/datum/gear/uniform/harness
+	display_name = "gear harness"
+	path = /obj/item/clothing/under/harness
+	sort_category = "Xenowear"
