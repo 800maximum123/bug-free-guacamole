@@ -22,6 +22,15 @@
 	if (!choice || !(choice in options))
 		return
 	facial_hair_style = choice
+	// [FD-ADD] - IPC SCREEN COLOR CHOICE
+	if(facial_hair_style)
+		var/datum/sprite_accessory/facial_hair/ipc/chosen_screen = GLOB.facial_hair_styles_list[facial_hair_style]
+		if(chosen_screen.do_coloration)
+			var/color_choice = input(src, "Which color do you want your screen to be?", "Color Change") as null | color
+			if(!color_choice)
+				return
+			facial_hair_color = sanitize_hexcolor(color_choice)
+	// [/FD-ADD]
 	update_hair()
 
 

@@ -160,6 +160,21 @@
 
 // IPC SCREENS
 
+/datum/sprite_accessory/facial_hair/ipc/scroll
+	do_coloration = TRUE
+
+/datum/sprite_accessory/facial_hair/ipc/dot
+	do_coloration = TRUE
+
+/datum/sprite_accessory/facial_hair/ipc/four
+	do_coloration = TRUE
+
+/datum/sprite_accessory/facial_hair/ipc/eye
+	do_coloration = TRUE
+
+/datum/sprite_accessory/facial_hair/ipc/eyes
+	do_coloration = TRUE
+
 /datum/sprite_accessory/facial_hair/ipc/pink
 	name = "Pink"
 	icon_state = "ipc_pink"
@@ -179,7 +194,7 @@
 	icon_state = "ipc_confirm"
 
 /datum/sprite_accessory/facial_hair/ipc/blue_eye
-	name = "Blue mono-eye"
+	name = "Blue mono eye"
 	icon = 'mods/_fd/fd_assets/icons/ipc/ipc_screens.dmi'
 	icon_state = "ipc_eye"
 
@@ -202,6 +217,11 @@
 	name = "Rainbow"
 	icon = 'mods/_fd/fd_assets/icons/ipc/ipc_screens.dmi'
 	icon_state = "ipc_rainbow"
+
+/datum/sprite_accessory/facial_hair/ipc/rainbowdiag
+	name = "Diagonal rainbow"
+	icon = 'mods/_fd/fd_assets/icons/ipc/ipc_screens.dmi'
+	icon_state = "ipc_rainbowdiag"
 
 /datum/sprite_accessory/facial_hair/ipc/nt
 	name = "NT"
@@ -257,11 +277,13 @@
 	name = "Star"
 	icon = 'mods/_fd/fd_assets/icons/ipc/ipc_screens.dmi'
 	icon_state = "ipc_star"
+	do_coloration = TRUE
 
 /datum/sprite_accessory/facial_hair/ipc/starinverse
 	name = "Inversed star"
 	icon = 'mods/_fd/fd_assets/icons/ipc/ipc_screens.dmi'
 	icon_state = "ipc_starinverse"
+	do_coloration = TRUE
 
 /datum/sprite_accessory/facial_hair/ipc/coin
 	name = "Coin"
@@ -272,6 +294,8 @@
 	name = "Crosshair"
 	icon = 'mods/_fd/fd_assets/icons/ipc/ipc_screens.dmi'
 	icon_state = "ipc_crosshair"
+	do_coloration = TRUE
+	blend = ICON_MULTIPLY
 
 /datum/sprite_accessory/facial_hair/ipc/temple
 	name = "Temple"
@@ -297,16 +321,22 @@
 	name = "Spinning eyes"
 	icon = 'mods/_fd/fd_assets/icons/ipc/ipc_screens.dmi'
 	icon_state = "ipc_eyes"
+	do_coloration = TRUE
+	blend = ICON_MULTIPLY
 
 /datum/sprite_accessory/facial_hair/ipc/eyesnospin
 	name = "Eyes (No Spin)"
 	icon = 'mods/_fd/fd_assets/icons/ipc/ipc_screens.dmi'
 	icon_state = "ipc_eyes_noanim"
+	do_coloration = TRUE
+	blend = ICON_MULTIPLY
 
 /datum/sprite_accessory/facial_hair/ipc/buffering
 	name = "Buffering"
 	icon = 'mods/_fd/fd_assets/icons/ipc/ipc_screens.dmi'
 	icon_state = "ipc_buffering"
+	do_coloration = TRUE
+	blend = ICON_MULTIPLY
 
 /datum/sprite_accessory/facial_hair/ipc/eyesgreen
 	name = "Green eyes"
@@ -342,6 +372,8 @@
 	name = "Fortuna eyes"
 	icon = 'mods/_fd/fd_assets/icons/ipc/ipc_screens.dmi'
 	icon_state = "ipc_eyes_fortuna"
+	do_coloration = TRUE
+	blend = ICON_MULTIPLY
 
 /datum/sprite_accessory/facial_hair/ipc/nyaru
 	name = "Nyaru"
@@ -357,6 +389,8 @@
 	name = "Text drop"
 	icon = 'mods/_fd/fd_assets/icons/ipc/ipc_screens.dmi'
 	icon_state = "ipc_textdrop"
+	do_coloration = TRUE
+	blend = ICON_MULTIPLY
 
 /datum/sprite_accessory/facial_hair/ipc/loading
 	name = "Loading"
@@ -392,6 +426,8 @@
 	name = "Equalizer"
 	icon = 'mods/_fd/fd_assets/icons/ipc/ipc_screens.dmi'
 	icon_state = "ipc_equalizer"
+	do_coloration = TRUE
+	blend = ICON_MULTIPLY
 
 /datum/sprite_accessory/facial_hair/ipc/tamagotchi
 	name = "Tamagotchi"
@@ -407,6 +443,25 @@
 	name = "Human face"
 	icon = 'mods/_fd/fd_assets/icons/ipc/ipc_screens.dmi'
 	icon_state = "ipc_litso"
+
+/datum/sprite_accessory/facial_hair/ipc/redtext
+	name = "Red text"
+	icon = 'mods/_fd/fd_assets/icons/ipc/ipc_screens.dmi'
+	icon_state = "ipc_redtext"
+
+/datum/sprite_accessory/facial_hair/ipc/ring
+	name = "Ring"
+	icon = 'mods/_fd/fd_assets/icons/ipc/ipc_screens.dmi'
+	icon_state = "ipc_ring"
+	do_coloration = TRUE
+	blend = ICON_MULTIPLY
+
+/datum/sprite_accessory/facial_hair/ipc/l
+	name = "L"
+	icon = 'mods/_fd/fd_assets/icons/ipc/ipc_screens.dmi'
+	icon_state = "ipc_l"
+	do_coloration = TRUE
+	blend = ICON_MULTIPLY
 
 // IPC HAIRS
 
