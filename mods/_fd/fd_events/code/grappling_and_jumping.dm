@@ -464,6 +464,9 @@
 	pixel_y = 0
 	pixel_x = 0
 
+	density = initial(density)
+	anchored = initial(anchored)
+
 	SetTransform(null,null,null,0)
 
 	surface.jumper = null
@@ -492,6 +495,9 @@
 		fall(get_turf(src))
 
 	. = ..()
+
+	if(attached_to_surface && surface && surface.can_attach_to)
+		density = FALSE
 
 /mob/living/proc/client_jump_shift()
 	set waitfor = FALSE
@@ -634,15 +640,15 @@
 	var/mob/living/jumper
 
 /atom/Crossed(mob/living/M)
-	if(directional_booster || upwards_booster || wallrun)
+	if(isliving(M) && (directional_booster || upwards_booster || wallrun))
 		attach_jumper(M)
 	. = ..()
 
 /atom/Uncrossed(mob/living/M)
-	if(jumper && directional_booster)
+	if(isliving(M) && jumper && directional_booster)
 		perform_directional_boost()
 
-	if(jumper && wallrun)
+	if(isliving(M) && jumper && wallrun)
 		M.unattach_mob()
 	. = ..()
 
@@ -653,10 +659,8 @@
 	switch(shift_direction)
 		if(NORTH)
 			animate(jumper, pixel_y = -12, time = 3, easing = SINE_EASING | EASE_IN)
-			jumper.update_surface_overlay(src, -20)
 		if(SOUTH)
 			animate(jumper, pixel_y = 28, time = 3, easing = SINE_EASING | EASE_IN)
-			jumper.update_surface_overlay(src, 15)
 		if(WEST)
 			animate(jumper, pixel_x = 10, time = 3, easing = SINE_EASING | EASE_IN)
 		if(EAST)

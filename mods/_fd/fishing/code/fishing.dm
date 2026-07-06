@@ -118,7 +118,7 @@
 /obj/effect/fd/fishing_spot_clues/Process()
 	animate(src, pixel_x = pixel_x - pick(0,1), pixel_y = pixel_y - pick(0,1), time = 0.5, easing = EASE_IN)
 	animate(pixel_x = pixel_x + pick(0,1), pixel_y = pixel_y + pick(0,1), time = 1)
-	animate(pixel_x = pixel_x, pixel_y = pixel_y, time = 0.3, easing = EASE_OUT)
+	animate(pixel_x = initial(pixel_x), pixel_y = initial(pixel_y), time = 0.3, easing = EASE_OUT)
 
 /obj/landmark/fd/fishgen
 	name = "fishing spot"

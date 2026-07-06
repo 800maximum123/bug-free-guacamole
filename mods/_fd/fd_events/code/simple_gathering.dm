@@ -51,7 +51,7 @@
 
 			animate(src, pixel_x = pixel_x - 1, pixel_y = pixel_y, time = 0.5, easing = EASE_IN)
 			animate(pixel_x = pixel_x + 1, pixel_y = pixel_y, time = 1)
-			animate(pixel_x = pixel_x, pixel_y = pixel_y, time = 0.3, easing = EASE_OUT)
+			animate(pixel_x = initial(pixel_x), pixel_y = initial(pixel_y), time = 0.3, easing = EASE_OUT)
 
 			if(multiple_icons)
 				icon_state = "[base_icon_name]_[multiple_steps]"
@@ -77,7 +77,7 @@
 
 		animate(src, pixel_x = pixel_x - 1, pixel_y = pixel_y, time = 0.5, easing = EASE_IN)
 		animate(pixel_x = pixel_x + 1, pixel_y = pixel_y, time = 1)
-		animate(pixel_x = pixel_x, pixel_y = pixel_y, time = 0.3, easing = EASE_OUT)
+		animate(pixel_x = initial(pixel_x), pixel_y = initial(pixel_y), time = 0.3, easing = EASE_OUT)
 
 /obj/structure/flora/tree
 
@@ -98,7 +98,7 @@
 
 		animate(src, pixel_x = pixel_x - 1, pixel_y = pixel_y, time = 0.5, easing = EASE_IN)
 		animate(pixel_x = pixel_x + 1, pixel_y = pixel_y, time = 1)
-		animate(pixel_x = pixel_x, pixel_y = pixel_y, time = 0.3, easing = EASE_OUT)
+		animate(pixel_x = initial(pixel_x), pixel_y = initial(pixel_y), time = 0.3, easing = EASE_OUT)
 
 /obj/structure/flora/jungle/bush
 	react_to_movement = TRUE

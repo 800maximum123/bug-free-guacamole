@@ -377,6 +377,9 @@
 	var/obj/screen/health_face/h1
 	var/obj/screen/health_pulse/h2
 
+	var/simple_crit_screen = /obj/screen/fullscreen/almost_done
+	var/simple_damage_screen = /obj/screen/fullscreen/simple_damage
+
 	var/melee_assist = FALSE
 
 	var/stabilized = FALSE
@@ -658,7 +661,7 @@
 			if(!get_status_effect(/datum/simple_status/adrenaline))
 				regen_period = base_regen_period // Стопорим регенерацию на некоторое время
 
-			overlay_fullscreen("damage",/obj/screen/fullscreen/simple_damage)
+			overlay_fullscreen("damage",simple_damage_screen)
 
 			if(vfx_effect && source) // Нам нужны спец-эффекты при получении урона? У нас есть источник урона?
 				if(ishuman(source)) // Прок на случай, если источником является человек
@@ -724,7 +727,7 @@
 		if(simple_health <= max_simple_health / 2) // Если наше итоговое здоровье меньше 50% - накладываем на экран оверлей
 			var/obj/screen/fullscreen/screen = screens["almost_done"]
 			if(!screen)
-				overlay_fullscreen("almost_done",/obj/screen/fullscreen/almost_done)
+				overlay_fullscreen("almost_done",simple_crit_screen)
 
 		check_crit(amount) // Проверяем финальное состояние моба
 
