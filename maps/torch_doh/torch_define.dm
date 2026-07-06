@@ -1,3 +1,5 @@
+#define DEFAULT_GAME_YEAR_OFFSET 312
+
 /datum/map/torch
 	name = "\improper Torch"
 	full_name = "\improper SEV Torch"
@@ -68,3 +70,5 @@
 /datum/map/torch/New()
 	. = ..()
 	no_random_events()
+
+#undef DEFAULT_GAME_YEAR_OFFSET
