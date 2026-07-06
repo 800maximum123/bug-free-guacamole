@@ -491,3 +491,188 @@
 	icon = 'mods/_fd/fd_assets/icons/ipc/ipc_antennas.dmi'
 	icon_state = "dual_dish"
 	blend = ICON_MULTIPLY
+
+// DIONA MARKINGS
+
+/datum/sprite_accessory/marking/diona_leaves
+	name = "Diona Leaves"
+	icon = 'mods/_fd/fd_assets/icons/aurora/markings_diona.dmi'
+	icon_state = "diona_leaves"
+	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_GROIN,BP_HEAD)
+	species_allowed = list(SPECIES_DIONA)
+
+/datum/sprite_accessory/marking/diona_leaves/thorns_head
+	name = "Diona Thorns (Head)"
+	icon_state = "diona_thorns"
+	body_parts = list(BP_HEAD)
+
+/datum/sprite_accessory/marking/diona_leaves/thorns_torso
+	name = "Diona Thorns (Torso)"
+	icon_state = "diona_thorns"
+	body_parts = list(BP_HEAD, BP_CHEST, BP_GROIN)
+
+/datum/sprite_accessory/marking/diona_leaves/flowers_head
+	name = "Diona Flowers (Head)"
+	icon_state = "diona_flowers"
+	body_parts = list(BP_HEAD)
+
+/datum/sprite_accessory/marking/diona_leaves/flowers_torso
+	name = "Diona Flowers (Torso)"
+	icon_state = "diona_flowers"
+	body_parts = list(BP_HEAD, BP_CHEST, BP_GROIN)
+
+/datum/sprite_accessory/marking/diona_leaves/moss
+	name = "Diona Moss"
+	icon_state = "diona_moss"
+	body_parts = list(BP_HEAD, BP_CHEST, BP_GROIN)
+
+/datum/sprite_accessory/marking/diona_leaves/mushroom
+	name = "Diona Mushroom"
+	icon_state = "diona_mushroom"
+	body_parts = list(BP_HEAD)
+
+/datum/sprite_accessory/marking/diona_leaves/mushroom/antennae
+	name = "Diona Antennae"
+	icon_state = "diona_antennae"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes
+	name = "Bug Eyes"
+	icon_state = "bugeyes"
+	body_parts = list(BP_HEAD)
+	do_coloration = FALSE
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/human_eyes
+	name = "Human Eyes"
+	icon_state = "humaneyes"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/skrell_eyes
+	name = "Skrell Eyes"
+	icon_state = "skrelleyes"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/skrell_eyes_2
+	name = "Skrell Eyes 2"
+	icon_state = "skrelleyes2"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/small_horns
+	name = "Small Horns"
+	icon_state = "smallhorns"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/horny
+	name = "Horny"
+	icon_state = "horny"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/treebeard
+	name = "Treebeard"
+	icon_state = "treebeard"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/tinyeye
+	name = "Tiny Eye"
+	icon_state = "tinyeye"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/eyebrow
+	name = "Eyebrow"
+	icon_state = "eyebrow"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/bullhorn
+	name = "Bullhorn"
+	icon_state = "bullhorn"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/mono_eye
+	name = "Mono Eye"
+	icon_state = "monoeye"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/trioptics
+	name = "Trioptics"
+	icon_state = "trioptics"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/lopsided
+	name = "Lopsided"
+	icon_state = "lopsided"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/helmethead
+	name = "Helmethead"
+	icon_state = "helmethead"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/blinkinghelmethead
+	name = "Blinking Helmethead"
+	icon_state = "blinkinghelmethead"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/eyestalk
+	name = "Eyestalk"
+	icon_state = "eyestalk"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/periscope
+	name = "Periscope"
+	icon_state = "periscope"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/glorp
+	name = "Glorp"
+	icon_state = "glorp"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/oak
+	name = "Oak"
+	icon_state = "oak"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/thorns
+	name = "Thorns"
+	icon_state = "thorns"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/stump
+	name = "Stump"
+	icon_state = "stump"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/snout
+	name = "Snout"
+	icon_state = "snout"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/headtails
+	name = "Head tails"
+	icon_state = "headtails"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/headtails2
+	name = "Head tails 2"
+	icon_state = "headtails2"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/spanish_moss
+	name = "Spanish Moss"
+	icon_state = "spanishmoss"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/fun_guy
+	name = "Fun Guy"
+	icon_state = "funguy"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/red_cap
+	name = "Red Cap"
+	icon_state = "redcap"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/mellow_cap
+	name = "Mellow Cap"
+	icon_state = "mellowcap"
+
+/datum/sprite_accessory/marking/diona_leaves/pbody
+	name = "P-Body"
+	icon_state = "pbody"
+	body_parts = list(BP_HEAD, BP_CHEST)
+	do_coloration = FALSE
+
+/datum/sprite_accessory/marking/diona_leaves/pbody/blinking
+	name = "Blinking P-Body"
+	icon_state = "blinkingpbody"
+
+/datum/sprite_accessory/marking/diona_leaves/foot_eye
+	name = "Foot Eye"
+	icon_state = "footeye"
+	body_parts = list(BP_L_FOOT)
+	do_coloration = FALSE
+
+/datum/sprite_accessory/marking/diona_leaves/hand_eyes
+	name = "Hand Eyes"
+	icon_state = "handeye"
+	body_parts = list(BP_R_HAND, BP_L_HAND)
+	do_coloration = FALSE
+
+/datum/sprite_accessory/marking/diona_leaves/tail
+	name = "Diona Tail"
+	icon_state = "dionatail"
+	body_parts = list(BP_GROIN)
+	do_coloration = FALSE
