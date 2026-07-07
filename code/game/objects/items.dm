@@ -780,7 +780,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	zoom = 1
 
 	GLOB.destroyed_event.register(src, src, TYPE_PROC_REF(/obj/item, unzoom))
+	/* [GAIA]
 	GLOB.moved_event.register(user, src, TYPE_PROC_REF(/obj/item, unzoom))
+	*/
 	GLOB.dir_set_event.register(user, src, TYPE_PROC_REF(/obj/item, unzoom))
 	GLOB.item_unequipped_event.register(src, user, TYPE_PROC_REF(/mob/living, unzoom))
 
@@ -803,7 +805,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	zoom = 0
 
 	GLOB.destroyed_event.unregister(src, src, TYPE_PROC_REF(/obj/item, unzoom))
+	/* [GAIA]
 	GLOB.moved_event.unregister(user, src, TYPE_PROC_REF(/obj/item, unzoom))
+	*/
 	GLOB.dir_set_event.unregister(user, src, TYPE_PROC_REF(/obj/item, unzoom))
 	GLOB.item_unequipped_event.unregister(src, user, TYPE_PROC_REF(/mob/living, unzoom))
 
