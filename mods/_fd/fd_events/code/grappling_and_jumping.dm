@@ -264,8 +264,12 @@
 	if(L.falling)
 		return FALSE
 
-	if(L.get_stamina() < L.dash_stamina_use)
-		return FALSE
+	if(L.dash_bonus_points > 2)
+		if(L.get_stamina() < ((L.dash_stamina_use*L.dash_bonus_points) / 2))
+			return FALSE
+	else
+		if(L.get_stamina() < L.dash_stamina_use)
+			return FALSE
 
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
@@ -312,7 +316,7 @@
 	var/preparing_to_dash = FALSE // Для хоткеев
 	var/dash_bonus_points = 0 // Дополнительные очки от удержания пробела, максимум прописан ниже
 	var/dash_bonus_points_max = 7
-	var/dash_stamina_use = 20
+	var/dash_stamina_use = 10
 
 	var/obj/screen/dash_charging_overlay/dashing_overlay
 
@@ -345,7 +349,10 @@
 		CutOverlays(surface_overlay)
 
 /mob/living/proc/dash()
-	adjust_stamina(-dash_stamina_use)
+	if(dash_bonus_points > 2)
+		adjust_stamina(-((dash_stamina_use*dash_bonus_points) / 2))
+	else
+		adjust_stamina(-dash_stamina_use)
 
 	pass_flags |= PASS_FLAG_TABLE
 	var/direction = dir
@@ -532,9 +539,9 @@
 	// Мы соскальзываем лишь при условии того, что нам есть куда
 	var/obj/structure/fd/chasm/C = locate() in placed_on
 	if(isopenspace(placed_on))
-		adjust_stamina(-10)
+		adjust_stamina(-5)
 	else if(C)
-		adjust_stamina(-10)
+		adjust_stamina(-5)
 
 /obj/temp_visual/coyote_jump
 	duration = 1 SECONDS

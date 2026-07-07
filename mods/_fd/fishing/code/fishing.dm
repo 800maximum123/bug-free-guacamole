@@ -450,6 +450,10 @@
 	if(!iscarbon(user))
 		return FALSE
 
+	var/obj/structure/fd/makeshift_raft/raft = locate(/obj/structure/fd/makeshift_raft) in user.loc
+	if(raft && raft.ship_captain == user)
+		return FALSE
+
 	if(isturf(src)) // Проверка на размер водоёма, пока-что только для турфов
 		var/adjacent_duplicates = 0
 		for(var/new_direction in GLOB.alldirs)
@@ -865,6 +869,9 @@
 /obj/structure/fd/makeshift_raft/attack_hand(mob/living/user)
 	if(!ship_captain && ishuman(user))
 		var/mob/living/carbon/human/H = user
+		if(user.mob_fishing && user.fishing_in)
+			user.fishing_in.stop_fishing()
+
 		if(do_after(user, 5 SECONDS, user, DO_PUBLIC_UNIQUE))
 			if(H in raft_storage)
 				raft_storage -= H
@@ -888,6 +895,8 @@
 		return FALSE
 
 	if(ship_captain)
+		if(user.mob_fishing && user.fishing_in)
+			user.fishing_in.stop_fishing()
 		if(do_after(user, 5 SECONDS, user, DO_PUBLIC_UNIQUE))
 			ship_captain.raft = null
 			ship_captain.pixel_y = initial(ship_captain.pixel_y)

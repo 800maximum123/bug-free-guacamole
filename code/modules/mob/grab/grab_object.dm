@@ -176,6 +176,11 @@
 			var/obj/O = G.get_targeted_organ()
 			to_chat(assailant, SPAN_NOTICE("You already grabbed [affecting]'s [O.name]."))
 			return 0
+
+	var/obj/structure/fd/makeshift_raft/raft = locate(/obj/structure/fd/makeshift_raft) in affecting.loc // FD
+	if(raft && raft.ship_captain == affecting) // FD
+		return 0 // FD
+
 	return 1
 
 // This will run from Initialize, after can_grab and other checks have succeeded. Must call parent; returning FALSE means failure and qdels the grab.
