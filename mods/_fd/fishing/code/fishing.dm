@@ -49,6 +49,12 @@
 	var/list/revealed_fishspots = list()
 	var/list/revealed_fishermans = list()
 
+/mob/living/Move(a, b, flag)
+	if(mob_fishing && fishing_in)
+		fishing_in.stop_fishing()
+
+	. = ..()
+
 /mob/living/proc/show_fisherman(atom/A)
 	if(!client || (A in revealed_fishermans))
 		return
@@ -387,7 +393,6 @@
 	prefish = null
 	prefish_icon = null
 
-	fisherman.anchored = FALSE
 	fisherman.mob_fishing = FALSE
 	fisherman.fishing_in = null
 	fisherman = null
@@ -405,7 +410,6 @@
 	AddOverlays(fishing_overlay)
 	currently_fishing = TRUE
 
-	user.anchored = TRUE
 	user.mob_fishing = TRUE
 	user.fishing_in = src
 	fisherman = user
@@ -785,7 +789,10 @@
 									/obj/decal,
 									/obj/fd_water,
 									/obj/machinery/atmospherics/pipe,
-									/obj/structure/cable)
+									/obj/structure/cable,
+									/mob/observer,
+									/mob/observer/ghost,
+									/atom/movable/openspace/mimic)
 
 	bound_height = 128
 	bound_width = 128

@@ -469,7 +469,13 @@
 
 	SetTransform(null,null,null,0)
 
-	surface.jumper = null
+	if(surface)
+		if(surface.jumper == src)
+			surface.jumper = null
+
+		if(surface.last_boosted == src)
+			surface.last_boosted = null
+
 	surface = null
 	attached_to_surface = FALSE
 
@@ -630,6 +636,8 @@
 	var/upwards_booster = FALSE
 	var/upwards_booster_controlled = TRUE
 
+	var/mob/living/last_boosted
+
 	var/can_attach_to = FALSE
 
 	var/sudden_boost = FALSE
@@ -668,13 +676,10 @@
 
 /atom/proc/perform_directional_boost()
 	if(jumper)
-		jumper.pass_flags |= PASS_FLAG_TABLE
-		jumper.in_dash = TRUE
-		jumper.attached_to_surface = FALSE
-		jumper.surface = null
-
 		var/mob/living/controlled_mob = jumper
-		jumper = null
+		controlled_mob.pass_flags |= PASS_FLAG_TABLE
+		controlled_mob.in_dash = TRUE
+		controlled_mob.unattach_mob()
 
 		controlled_mob.jump_layer_shift()
 		if(controlled_mob.client)
@@ -695,31 +700,58 @@
 		animate(jumper, pixel_y = 128, time = 10, easing = SINE_EASING|EASE_IN)
 		sleep(5)
 
-		jumper.anchored = FALSE
-		jumper.forceMove(GetAbove(jumper))
+		if(!last_boosted)
+			last_boosted = jumper
+			jumper = null
+
+		if(jumper)
+			jumper.anchored = FALSE
+			jumper.forceMove(GetAbove(jumper))
+		if(last_boosted)
+			last_boosted.anchored = FALSE
+			last_boosted.forceMove(GetAbove(last_boosted))
 
 		sleep(5)
-
-		var/mob/living/target = jumper
-		jumper = null
-		animate(target, pixel_y = 0, time = 15, easing = SINE_EASING|EASE_IN)
-
-		target.attached_to_surface = FALSE
-		target.surface = null
+		if(jumper)
+			animate(jumper, pixel_y = 0, time = 15, easing = SINE_EASING|EASE_IN)
+		if(last_boosted)
+			animate(last_boosted, pixel_y = 0, time = 15, easing = SINE_EASING|EASE_IN)
 
 		if(!upwards_booster_controlled)
-			target.pass_flags |= PASS_FLAG_TABLE
-			target.in_dash = TRUE
+			if(jumper)
+				after_upwards_boost(jumper)
+			if(last_boosted)
+				after_upwards_boost(last_boosted)
+			return TRUE
 
-			target.jump_layer_shift()
-			if(target.client)
-				target.client_jump_shift()
+		if(last_boosted)
+			if(last_boosted.surface == src)
+				last_boosted.unattach_mob()
+			else
+				last_boosted = null
 
-			animate(target, pixel_z = 16, time = 7, easing = SINE_EASING | EASE_IN)
-			animate(pixel_z = target.default_pixel_z, time = 7, easing = SINE_EASING | EASE_OUT)
+		if(jumper)
+			if(jumper.surface == src)
+				jumper.unattach_mob()
+			else
+				jumper = null
 
-			target.throw_at(get_ranged_target_turf(get_turf(target), target.dir, 5), 5, 1, target, FALSE, new Callback(target, TYPE_PROC_REF(/mob/living, resolve_dash)))
-			addtimer(new Callback(target, TYPE_PROC_REF(/mob/living, jump_layer_shift_end)), 4.5)
+/atom/proc/after_upwards_boost(mob/living/L)
+	var/mob/living/controlled_mob = L
+
+	controlled_mob.pass_flags |= PASS_FLAG_TABLE
+	controlled_mob.in_dash = TRUE
+	controlled_mob.unattach_mob()
+
+	controlled_mob.jump_layer_shift()
+	if(controlled_mob.client)
+		controlled_mob.client_jump_shift()
+
+	animate(controlled_mob, pixel_z = 16, time = 7, easing = SINE_EASING | EASE_IN)
+	animate(pixel_z = controlled_mob.default_pixel_z, time = 7, easing = SINE_EASING | EASE_OUT)
+
+	controlled_mob.throw_at(get_ranged_target_turf(get_turf(controlled_mob), controlled_mob.dir, 5), 5, 1, controlled_mob, FALSE, new Callback(controlled_mob, TYPE_PROC_REF(/mob/living, resolve_dash)))
+	addtimer(new Callback(controlled_mob, TYPE_PROC_REF(/mob/living, jump_layer_shift_end)), 4.5)
 
 /atom/proc/make_wallrunner()
 

@@ -172,10 +172,10 @@
 			user.client.images -= revealed_mob
 			show_mob_to_monster = FALSE
 
-/datum/keybinding/living/fd/monster
+/datum/keybinding/living/fd/event/monster
 	category = CATEGORY_FD
 
-/datum/keybinding/living/fd/monster/can_use(client/user)
+/datum/keybinding/living/fd/event/monster/can_use(client/user)
 	var/mob/living/L = user.mob
 	if(!istype(L, /mob/living/simple_animal/metro_jeff))
 		return FALSE
