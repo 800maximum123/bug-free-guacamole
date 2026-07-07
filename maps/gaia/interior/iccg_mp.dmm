@@ -61,6 +61,7 @@
 "t" = (
 /obj/floor_decal/industrial/loading,
 /obj/effect/vehicle_entrance_driver,
+/obj/machinery/door/window/brigdoor/southleft,
 /turf/simulated/floor/shuttle/black,
 /area/interior)
 "x" = (
@@ -90,8 +91,17 @@
 /turf/simulated/wall/invincible,
 /area/interior)
 "B" = (
-/obj/structure/railing/mapped,
 /obj/structure/closet,
+/obj/structure/window/reinforced,
+/obj/item/clothing/under/color/orange,
+/obj/item/clothing/under/color/orange,
+/obj/item/clothing/under/color/orange,
+/obj/item/clothing/under/color/orange,
+/obj/item/clothing/shoes/orange,
+/obj/item/clothing/shoes/orange,
+/obj/item/clothing/shoes/orange,
+/obj/item/clothing/shoes/orange,
+/obj/item/storage/box/handcuffs,
 /turf/simulated/floor/shuttle/black,
 /area/interior)
 "F" = (
@@ -107,7 +117,7 @@
 	pixel_x = 32
 	},
 /obj/floor_decal/industrial/outline/grey,
-/obj/structure/railing/mapped,
+/obj/structure/window/reinforced,
 /turf/simulated/floor/shuttle/black,
 /area/interior)
 "N" = (
