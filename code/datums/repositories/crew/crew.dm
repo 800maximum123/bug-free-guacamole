@@ -34,20 +34,21 @@ var/global/datum/repository/crew/crew_repository = new()
 
 	..()
 
-/datum/repository/crew/proc/health_data(z_level)
+/datum/repository/crew/proc/health_data(z_level, faction = null)
 	var/list/crewmembers = list()
 	if(!z_level)
 		return crewmembers
 
-	var/datum/cache_entry/cache_entry = cache_data[num2text(z_level)]
+	var/cache_key = get_cache_key(z_level, faction)
+	var/datum/cache_entry/cache_entry = cache_data[cache_key]
 	if(!cache_entry)
 		cache_entry = new/datum/cache_entry
-		cache_data[num2text(z_level)] = cache_entry
+		cache_data[cache_key] = cache_entry
 
 	if(world.time < cache_entry.timestamp)
 		return cache_entry.data
 
-	cache_data_alert[num2text(z_level)] = FALSE
+	cache_data_alert[cache_key] = FALSE
 	var/tracked = scan()
 	for(var/obj/item/clothing/under/C in tracked)
 		var/turf/pos = get_turf(C)
@@ -56,27 +57,32 @@ var/global/datum/repository/crew/crew_repository = new()
 				var/mob/living/carbon/human/H = C.loc
 				if(H.w_uniform != C)
 					continue
+				if(faction && H.faction != faction)
+					continue
 
 				var/list/crewmemberData = list("sensor_type"=C.sensor_mode, "stat"=H.stat, "area"="", "x"=-1, "y"=-1, "z"=-1, "ref"="\ref[H]")
 				if(!(run_queues(H, C, pos, crewmemberData) & MOD_SUIT_SENSORS_REJECTED))
 					crewmembers[LIST_PRE_INC(crewmembers)] = crewmemberData
 					if (crewmemberData["alert"])
-						cache_data_alert[num2text(z_level)] = TRUE
-
-	crewmembers = sortByKey(crewmembers, "name")
+						cache_data_alert[cache_key] = TRUE
 	cache_entry.timestamp = world.time + 5 SECONDS
 	cache_entry.data = crewmembers
 
-	cache_data[num2text(z_level)] = cache_entry
+	cache_data[cache_key] = cache_entry
 
 	return crewmembers
 
-/datum/repository/crew/proc/has_health_alert(z_level)
+/datum/repository/crew/proc/has_health_alert(z_level, faction = null)
 	. = FALSE
 	if(!z_level)
 		return
-	health_data(z_level) // Make sure cache doesn't get stale
-	. = cache_data_alert[num2text(z_level)]
+	health_data(z_level, faction) // Make sure cache doesn't get stale
+	. = cache_data_alert[get_cache_key(z_level, faction)]
+
+/datum/repository/crew/proc/get_cache_key(z_level, faction = null)
+	if(!faction)
+		return num2text(z_level)
+	return "[z_level]:[faction]"
 
 /datum/repository/crew/proc/scan()
 	var/list/tracked = list()

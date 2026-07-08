@@ -39,9 +39,9 @@
 /datum/nano_module/crew_monitor
 	name = "Crew monitor"
 
-/datum/nano_module/crew_monitor/proc/has_alerts()
+/datum/nano_module/crew_monitor/proc/has_alerts(faction = null)
 	for(var/z_level in GLOB.using_map.map_levels)
-		if (crew_repository.has_health_alert(z_level))
+		if (crew_repository.has_health_alert(z_level, faction))
 			return TRUE
 	return FALSE
 
@@ -61,7 +61,8 @@
 
 	data["isAI"] = isAI(user)
 	var/Z = get_host_z()
-	data["crewmembers"] = crew_repository.health_data(Z)
+	var/faction = user ? user.faction : null
+	data["crewmembers"] = crew_repository.health_data(Z, faction)
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)

@@ -223,12 +223,14 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/urbanrebels)
 "aG" = (
-/obj/fluid_mapped,
 /obj/structure/window/basic{
 	dir = 4
 	},
 /obj/structure/window/basic{
 	dir = 8
+	},
+/obj/fluid_mapped{
+	fluid_amount = 1000
 	},
 /turf/simulated/floor/exoplanet/desert,
 /area/gaia/urbanrebels/inside)
@@ -2341,7 +2343,9 @@
 /turf/simulated/floor/plating,
 /area/gaia/urbanrebels)
 "gE" = (
-/obj/fluid_mapped,
+/obj/fluid_mapped{
+	fluid_amount = 1000
+	},
 /turf/simulated/floor/pool,
 /area/gaia/urbanrebels)
 "gF" = (
@@ -6649,7 +6653,6 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/gaia/urbanrebels)
 "sW" = (
-/obj/fluid_mapped,
 /obj/structure/window/basic{
 	dir = 4
 	},
@@ -6657,6 +6660,9 @@
 	dir = 8
 	},
 /mob/living/simple_animal/aquatic/fish/judge,
+/obj/fluid_mapped{
+	fluid_amount = 1000
+	},
 /turf/simulated/floor/exoplanet/desert,
 /area/gaia/urbanrebels/inside)
 "sX" = (
@@ -10759,7 +10765,6 @@
 /turf/simulated/wall/r_concrete,
 /area/gaia/urbanrebels/underground/sewers)
 "EN" = (
-/obj/fluid_mapped,
 /obj/structure/window/basic{
 	dir = 4
 	},
@@ -10767,6 +10772,9 @@
 	dir = 8
 	},
 /mob/living/simple_animal/aquatic/fish/grump,
+/obj/fluid_mapped{
+	fluid_amount = 1000
+	},
 /turf/simulated/floor/exoplanet/desert,
 /area/gaia/urbanrebels/inside)
 "EO" = (
@@ -13184,6 +13192,12 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood/maple,
 /area/gaia/urbanrebels)
+"Lz" = (
+/obj/machinery/door/unpowered/simple,
+/obj/lock_helper/unlocked/gaia_police,
+/obj/structure/hygiene/drain,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside)
 "LA" = (
 /obj/structure/closet/walllocker{
 	pixel_y = -32
@@ -13748,6 +13762,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/urbanrebels)
+"Nh" = (
+/obj/machinery/ship_map,
+/turf/simulated/wall/concrete,
 /area/gaia/urbanrebels)
 "Ni" = (
 /obj/structure/table/rack,
@@ -14463,7 +14481,6 @@
 /turf/simulated/floor/shuttle/black,
 /area/gaia/urbanrebels)
 "Pg" = (
-/obj/fluid_mapped,
 /obj/structure/window/basic{
 	dir = 4
 	},
@@ -14474,6 +14491,9 @@
 	dir = 1
 	},
 /mob/living/simple_animal/aquatic/fish,
+/obj/fluid_mapped{
+	fluid_amount = 1000
+	},
 /turf/simulated/floor/exoplanet/desert,
 /area/gaia/urbanrebels/inside)
 "Ph" = (
@@ -14775,13 +14795,15 @@
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels)
 "Qb" = (
-/obj/fluid_mapped,
 /obj/structure/window/basic,
 /obj/structure/window/basic{
 	dir = 4
 	},
 /obj/structure/window/basic{
 	dir = 8
+	},
+/obj/fluid_mapped{
+	fluid_amount = 1000
 	},
 /turf/simulated/floor/exoplanet/desert,
 /area/gaia/urbanrebels/inside)
@@ -171426,7 +171448,7 @@ PW
 fb
 lE
 lE
-Uf
+Lz
 lE
 lN
 lN
@@ -295271,8 +295293,8 @@ ic
 ub
 ZA
 ub
-ub
-yZ
+Nh
+ic
 ic
 wU
 jP
@@ -295552,8 +295574,8 @@ ic
 ub
 ZA
 ub
-ub
-yZ
+Nh
+ic
 ic
 wU
 jP

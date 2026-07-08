@@ -2,11 +2,13 @@
 	name = "\improper Gaia"
 	full_name = "\improper Planet Gaia"
 	path = "gaia"
-	flags = MAP_HAS_BRANCH | MAP_HAS_RANK
 	config_path = "config/gaia_config.txt"
+	flags = MAP_HAS_BRANCH | MAP_HAS_RANK
 
 	// 1-2 - SCG Camp, 3-4 ICCG Camp, 5 - Admin, 6 - Transit, 7-9 - Area of Operations
-	station_levels = list(1, 2, 3, 4, 7, 8, 9) // 1-2 - SCG Camp, 3-4 ICCG Camp, 7-9 - Area of Operations
+	station_levels = list(1, 2, 3, 4, 7, 8, 9)
+	// For nanoui maps, set only for Area of OP
+	map_levels = list(7, 8, 9)
 	contact_levels = list(1, 2, 3, 4, 6, 7, 8, 9)
 	player_levels = list(1, 2, 3, 4, 7, 8, 9)
 	admin_levels  = list(5)
