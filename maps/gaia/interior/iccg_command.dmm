@@ -2,12 +2,12 @@
 "a" = (
 /obj/paint/red/dark,
 /turf/simulated/wall/invincible,
-/area/space)
+/area/interior)
 "d" = (
 /obj/floor_decal/industrial/loading,
 /obj/effect/vehicle_entrance_driver,
 /turf/simulated/floor/shuttle/black,
-/area/space)
+/area/interior)
 "l" = (
 /obj/structure/vehiclewindow{
 	dir = 4;
@@ -17,35 +17,39 @@
 /obj/structure/closet/emcloset,
 /obj/floor_decal/industrial/hatch/blue,
 /turf/simulated/floor/shuttle/black,
-/area/space)
+/area/interior)
 "p" = (
 /obj/floor_decal/industrial/loading{
 	dir = 1
 	},
 /obj/effect/vehicle_entrance,
 /turf/simulated/floor/shuttle/black,
-/area/space)
+/area/interior)
 "q" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/darkred,
-/area/space)
+/area/interior)
 "t" = (
 /obj/floor_decal/spline/fancy/black,
 /turf/simulated/floor/shuttle/darkred,
-/area/space)
+/area/interior)
 "A" = (
 /obj/structure/vehiclewindow{
 	dir = 4;
 	pixel_x = -24
 	},
-/obj/machinery/computer/modular/preset/cardslot/command_sec{
+/obj/floor_decal/spline/fancy/black,
+/obj/machinery/computer/modular/preset/cardslot/command{
 	dir = 4
 	},
-/obj/floor_decal/spline/fancy/black,
 /turf/simulated/floor/shuttle/darkred,
-/area/space)
+/area/interior)
+"E" = (
+/obj/structure/vehicledoor_driver,
+/turf/simulated/floor/shuttle/black,
+/area/interior)
 "G" = (
 /obj/item/device/radio/intercom/custom{
 	dir = 8;
@@ -53,7 +57,7 @@
 	},
 /obj/structure/table/steel_reinforced,
 /turf/simulated/floor/shuttle/darkred,
-/area/space)
+/area/interior)
 "I" = (
 /obj/machinery/recharger/wallcharger{
 	dir = 8;
@@ -67,7 +71,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/black,
-/area/space)
+/area/interior)
 "J" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -78,36 +82,36 @@
 /obj/structure/table/steel_reinforced,
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/shuttle/darkred,
-/area/space)
+/area/interior)
 "L" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/computer/modular/preset/cardslot/command_eng{
-	dir = 4
-	},
 /obj/floor_decal/spline/fancy/black{
 	dir = 1
 	},
+/obj/machinery/computer/modular/preset/cardslot/command{
+	dir = 4
+	},
 /turf/simulated/floor/shuttle/darkred,
-/area/space)
+/area/interior)
 "N" = (
 /obj/structure/bed/chair/comfy/red{
 	dir = 8
 	},
 /obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/shuttle/darkred,
-/area/space)
+/area/interior)
 "O" = (
-/obj/machinery/computer/modular/preset/cardslot/command{
-	dir = 4
-	},
 /obj/item/device/radio/intercom/hailing{
 	dir = 4;
 	pixel_x = -23
 	},
+/obj/machinery/computer/modular/preset/medical{
+	dir = 4
+	},
 /turf/simulated/floor/shuttle/darkred,
-/area/space)
+/area/interior)
 "Q" = (
 /obj/structure/vehiclewindow{
 	dir = 8;
@@ -120,7 +124,7 @@
 /obj/machinery/hologram/holopad/longrange,
 /obj/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/shuttle/black,
-/area/space)
+/area/interior)
 "S" = (
 /obj/structure/vehiclewindow{
 	dir = 8;
@@ -137,16 +141,16 @@
 	pixel_x = 7
 	},
 /turf/simulated/floor/shuttle/darkred,
-/area/space)
+/area/interior)
 "U" = (
 /obj/structure/vehicledoor/airlock,
 /turf/simulated/floor/shuttle/black,
-/area/space)
+/area/interior)
 "Y" = (
 /obj/structure/closet/firecloset,
 /obj/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/shuttle/black,
-/area/space)
+/area/interior)
 
 (1,1,1) = {"
 a
@@ -167,7 +171,7 @@ l
 a
 "}
 (3,1,1) = {"
-U
+E
 d
 q
 N

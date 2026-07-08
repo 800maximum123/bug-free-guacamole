@@ -6,6 +6,7 @@
 	density = TRUE
 	layer = ABOVE_HUMAN_LAYER
 	w_class = ITEM_SIZE_GARGANTUAN
+	light_wedge = LIGHT_VERY_WIDE
 
 	var/active = FALSE
 	var/guns_disabled = FALSE
@@ -32,7 +33,7 @@
 	var/dangerous_to_people = TRUE //Hitting people hurts them
 	var/dangerous_to_obstacles = TRUE //Hitting obstacles hurts them
 	var/weaken_to_people = 5
-	var/damage_to_people = 50
+	var/damage_to_people = 30
 	var/damage_to_obstacles = 100
 
 	//Action Button Handling
@@ -67,10 +68,9 @@
 	var/has_headlights = TRUE
 	var/headlights_state = 1
 
-	var/light_brightness = 0.7
-	var/light_inrange = 3
-	var/light_outrange = 6
-	var/colored = "#f1f0cf"
+	var/l_range = 7
+	var/l_power = 2
+	var/l_color = COLOR_WHITE
 
 	var/serial_number
 	var/obj/item/key/car/inserted_key
@@ -80,6 +80,8 @@
 	set name = "Toggle Headlights"
 	set category = "Vehicle"
 	set src in view(1)
+	if(health_dead)
+		return
 	var/mob/living/user = usr
 	if(!istype(user) || !(user in get_occupants_in_position(VP_DRIVER)))
 		to_chat(user,"<span class = 'notice'>You must be the driver of [src] to toggle the headlights.</span>")
@@ -87,13 +89,24 @@
 
 	if(headlights_state == 2)
 		to_chat(user,"<span class = 'notice'>You toggle [src]'s headlights on.</span>")
-		set_light(light_brightness, light_inrange, light_outrange, l_color = colored)
 		headlights_state = 1
+		update_headlights(TRUE)
 	else
 		to_chat(user,"<span class = 'notice'>You toggle [src]'s headlights off.</span>")
 		headlights_state = 2
-		set_light(0,0,0,l_color = "#ffffff")
-		update_light()
+		update_headlights(TRUE)
+
+/obj/vehicles/proc/update_headlights(sound)
+	if(headlights_state == 1)
+		set_light(l_range, l_power, l_color, dir2angle(dir))
+		icon_state = initial(icon_state) + "_light"
+		if(sound)
+			playsound(get_turf(src), 'sound/effects/flashlight.ogg', 75, TRUE)
+	else
+		set_light(0,0,0,l_color = COLOR_WHITE)
+		icon_state = initial(icon_state)
+	update_light()
+	update_icon()
 
 /obj/vehicles/New()
 	. = ..()
@@ -220,6 +233,9 @@
 	health_dead = TRUE
 	movement_destroyed = TRUE
 	guns_disabled = TRUE
+	block_enter_exit = FALSE
+	headlights_state = 2
+	update_headlights(FALSE)
 	icon_state = "[initial(icon_state)]_destroyed"
 	fall()
 	deactivate()
@@ -368,9 +384,11 @@
 			newdir = SOUTH
 	if(anchored)
 		anchored = FALSE
+		update_headlights(FALSE)
 		. = ..()
 		anchored = TRUE
 	else
+		update_headlights(FALSE)
 		. = ..()
 
 /obj/vehicles/can_fall()
@@ -403,7 +421,7 @@
 	visible_message(SPAN_NOTICE("[src] collides with [obstacle]"))
 	play_crash_sound()
 	if(dangerous_to_obstacles)
-		comp_prof.take_component_damage(damage_to_obstacles)
+		comp_prof.take_component_damage(damage_to_obstacles/2, DAMAGE_BRUTE)
 		obstacle.damage_health(damage_to_obstacles, DAMAGE_BRUTE)
 
 /obj/vehicles/Bump(atom/obstacle)

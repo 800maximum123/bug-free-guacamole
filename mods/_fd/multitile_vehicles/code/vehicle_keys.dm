@@ -17,15 +17,17 @@
 /obj/vehicles/proc/doors_locked()
 	return block_enter_exit
 
-/obj/vehicles/proc/attack_key(obj/item/key/car/key, user)
+/obj/vehicles/proc/attack_key(obj/item/key/car/key, mob/user)
+	if(health_dead)
+		return
 	if(key.key_data != serial_number)
 		to_chat(user, SPAN_WARNING("The key doesn't fit!"))
 		return TRUE
 
-	playsound(src, 'sound/effects/buckle.ogg', 150, 1, 5)
+	playsound(user, 'sound/effects/buckle.ogg', 150, 1, 5)
 
 	block_enter_exit = !block_enter_exit
-	visible_message(SPAN_NOTICE("[user] [block_enter_exit ? "" : "un"]locks \the [src]."))
+	user.visible_message(SPAN_NOTICE("[user] [block_enter_exit ? "" : "un"]locks \the [src]."))
 
 /obj/vehicles/verb/keys()
 	set name = "Take/Insert the key"
@@ -36,6 +38,7 @@
 		to_chat(user, SPAN_NOTICE("You must be the driver of [src] to reach for the keys."))
 		return
 	if(inserted_key)
+		deactivate()
 		if(user.put_in_hands(inserted_key))
 			to_chat(user, SPAN_NOTICE("You have removed keys from the ignition."))
 			inserted_key = null

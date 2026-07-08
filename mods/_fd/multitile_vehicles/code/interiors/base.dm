@@ -54,6 +54,7 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	for(var/obj/structure/vehicledoor_driver/E in area)
 		E.id = id
 		E.interior = src
+		E.vehicle = new_vehicle
 
 	for(var/obj/effect/vehicle_entrance_driver/E in area)
 		driver_entrance = E
@@ -63,6 +64,7 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	for(var/obj/structure/vehicledoor/E in area)
 		E.id = id
 		E.interior = src
+		E.vehicle = new_vehicle
 
 	for(var/obj/structure/vehiclewindow/W in area)
 		W.vehicle = new_vehicle
@@ -137,6 +139,9 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	user.client.eye = interior.driver_entrance
 
 /obj/vehicles/large/enter_as_position(user, position, mob/puller)
+	if(!check_entering(user, position))
+		return FALSE
+
 	if(position == VP_INTERIOR)
 		if(!ismob(user))
 			return move_object_to_interior(user, puller)
@@ -167,7 +172,7 @@ GLOBAL_LIST_EMPTY(templates_cache)
 // DOORS
 /obj/structure/vehicledoor
 	name = "vehicle door"
-	desc = "A door to get in and out of the vehicle."
+	desc = "A door to get in and out of the vehicle. Use key to unlock or lock. Use crowbar to pry open."
 	icon = 'mods/_fd/multitile_vehicles/icons/walls.dmi'
 	icon_state = "ambulancedoor"
 
@@ -179,6 +184,7 @@ GLOBAL_LIST_EMPTY(templates_cache)
 
 	var/id
 	var/datum/vehicle_interior/interior = null
+	var/obj/vehicles/large/vehicle = null
 
 	atmos_canpass = CANPASS_DENSITY
 
@@ -188,18 +194,49 @@ GLOBAL_LIST_EMPTY(templates_cache)
 /obj/structure/vehicledoor/forceMove(atom/dest)
 	return
 
-/obj/structure/vehicledoor/attack_hand(mob/user)
-	if(interior.vehicle.loc == null)
-		to_chat(user, "\The [src] is locked.")
+/obj/structure/vehicledoor/LateExamine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(vehicle.block_enter_exit)
+		to_chat(user, SPAN_WARNING("\The [src] is locked."))
+	else
+		to_chat(user, SPAN_NOTICE("\The [src] is unlocked."))
+
+/obj/structure/vehicledoor/use_tool(obj/item/tool, mob/living/user, list/click_params)
+	. = ..()
+	if(istype(tool, /obj/item/key/car))
+		vehicle.attack_key(tool, user)
 		return
-	interior.vehicle.exit_vehicle(user)
+	if(istype(tool, /obj/item/crowbar))
+		if(!vehicle.block_enter_exit)
+			return
+		user.visible_message(
+			SPAN_WARNING("\The [user] wedges \the [tool] into \the [src] and starts forcing it open!"),
+			SPAN_DANGER("You start forcing \the [src] open."),
+			SPAN_WARNING("You hear metal groaning and grinding!")
+		)
+		playsound(loc, 'sound/machines/airlock_creaking.ogg', 100, TRUE)
+		if(!do_after(user, (tool.toolspeed * 3) SECONDS, src, DO_REPAIR_CONSTRUCT))
+			to_chat(user, SPAN_WARNING("You have been interrupted!"))
+			return
+		vehicle.block_enter_exit = FALSE
+		visible_message(SPAN_NOTICE("[user] pries open \the [src]."))
+
+/obj/structure/vehicledoor/attack_hand(mob/user)
+	. = ..()
+	if(vehicle.doors_locked() || vehicle.loc == null)
+		to_chat(user, SPAN_WARNING("\The [src] is locked."))
+		return FALSE
+	vehicle.exit_vehicle(user)
 
 /obj/structure/vehicledoor/MouseDrop_T(mob/target, mob/user)
 	. = ..()
+	if(vehicle.doors_locked() || vehicle.loc == null)
+		to_chat(user, SPAN_WARNING("\The [src] is locked."))
+		return FALSE
 	if(ismob(target))
-		interior.vehicle.exit_vehicle(target, ignore_incap_check = TRUE, puller = user)
+		vehicle.exit_vehicle(target, ignore_incap_check = TRUE, puller = user)
 	else
-		target.forceMove(interior.vehicle.pick_valid_exit_loc())
+		target.forceMove(vehicle.pick_valid_exit_loc())
 
 /obj/effect/vehicle_entrance
 	alpha = 0
@@ -208,7 +245,7 @@ GLOBAL_LIST_EMPTY(templates_cache)
 // DOORS TO THE DRIVER CABIN
 /obj/structure/vehicledoor_driver
 	name = "driver vehicle door"
-	desc = "A door to the driver's cabin."
+	desc = "A door to the driver's cabin. Use key to unlock or lock. Use crowbar to pry open."
 	icon = 'icons/obj/doors/station/door.dmi'
 	icon_state = "preview"
 
@@ -220,6 +257,7 @@ GLOBAL_LIST_EMPTY(templates_cache)
 
 	var/id
 	var/datum/vehicle_interior/interior = null
+	var/obj/vehicles/large/vehicle = null
 
 	atmos_canpass = CANPASS_DENSITY
 
@@ -229,16 +267,48 @@ GLOBAL_LIST_EMPTY(templates_cache)
 /obj/structure/vehicledoor_driver/forceMove(atom/dest)
 	return
 
+/obj/structure/vehicledoor_driver/LateExamine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(vehicle.block_enter_exit)
+		to_chat(user, SPAN_WARNING("\The [src] is locked."))
+	else
+		to_chat(user, SPAN_NOTICE("\The [src] is unlocked."))
+	if(length(vehicle.get_occupants_in_position(VP_DRIVER)) > 0)
+		to_chat(user, SPAN_NOTICE("There is a driver in the cabin."))
+	else
+		to_chat(user, SPAN_NOTICE("The driver's cabin is empty."))
+
+/obj/structure/vehicledoor_driver/use_tool(obj/item/tool, mob/living/user, list/click_params)
+	. = ..()
+	if(istype(tool, /obj/item/key/car))
+		vehicle.attack_key(tool, user)
+		return
+	if(istype(tool, /obj/item/crowbar))
+		if(!vehicle.block_enter_exit)
+			return
+		user.visible_message(
+			SPAN_WARNING("\The [user] wedges \the [tool] into \the [src] and starts forcing it open!"),
+			SPAN_DANGER("You start forcing \the [src] open."),
+			SPAN_WARNING("You hear metal groaning and grinding!")
+		)
+		playsound(loc, 'sound/machines/airlock_creaking.ogg', 100, TRUE)
+		if(!do_after(user, (tool.toolspeed * 3) SECONDS, src, DO_REPAIR_CONSTRUCT))
+			to_chat(user, SPAN_WARNING("You have been interrupted!"))
+			return
+		vehicle.block_enter_exit = FALSE
+		visible_message(SPAN_NOTICE("[user] pries open \the [src]."))
+
 /obj/structure/vehicledoor_driver/attack_hand(mob/user)
-	if(interior.vehicle.loc == null)
-		to_chat(user, "\The [src] is locked.")
+	. = ..()
+	if(vehicle.doors_locked() || vehicle.loc == null)
+		to_chat(user, SPAN_WARNING("\The [src] is locked."))
 		return
 
-	if(length(interior.vehicle.get_occupants_in_position(VP_DRIVER)) > 0)
-		to_chat(user, "\The driver's cabin is occupied.")
+	if(length(vehicle.get_occupants_in_position(VP_DRIVER)) > 0)
+		to_chat(user, "The driver's cabin is occupied.")
 		return
 
-	interior.vehicle.enter_as_position(user, VP_DRIVER, user)
+	vehicle.enter_as_position(user, VP_DRIVER, user)
 
 /obj/effect/vehicle_entrance_driver
 	alpha = 0
@@ -280,6 +350,11 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	user.client.perspective = EYE_PERSPECTIVE
 	user.client.eye = vehicle
 	stop_verb.Grant(user)
+	//TODO: Make this use not this timer and actually make the verb work
+	sleep(5 SECONDS)
+	to_chat(user, SPAN_INFO("You stop looking outside the window."))
+	user.reset_view()
+	stop_verb.Remove(user)
 
 /obj/structure/vehiclewindow/proc/stop_looking_outside(mob/user)
 	to_chat(user, SPAN_INFO("You stop looking outside the window."))

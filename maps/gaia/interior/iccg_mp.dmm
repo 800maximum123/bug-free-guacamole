@@ -20,6 +20,10 @@
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/interior)
+"g" = (
+/obj/structure/vehicledoor_driver,
+/turf/simulated/floor/shuttle/black,
+/area/interior)
 "o" = (
 /obj/structure/bed/chair/shuttle/red{
 	dir = 8
@@ -61,7 +65,9 @@
 "t" = (
 /obj/floor_decal/industrial/loading,
 /obj/effect/vehicle_entrance_driver,
-/obj/machinery/door/window/brigdoor/southleft,
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list("ACCESS_ICCG")
+	},
 /turf/simulated/floor/shuttle/black,
 /area/interior)
 "x" = (
@@ -91,7 +97,6 @@
 /turf/simulated/wall/invincible,
 /area/interior)
 "B" = (
-/obj/structure/closet,
 /obj/structure/window/reinforced,
 /obj/item/clothing/under/color/orange,
 /obj/item/clothing/under/color/orange,
@@ -102,6 +107,13 @@
 /obj/item/clothing/shoes/orange,
 /obj/item/clothing/shoes/orange,
 /obj/item/storage/box/handcuffs,
+/obj/structure/closet/walllocker{
+	pixel_x = -32
+	},
+/obj/floor_decal/industrial/hatch/grey,
+/obj/machinery/button/flasher{
+	pixel_y = 24
+	},
 /turf/simulated/floor/shuttle/black,
 /area/interior)
 "F" = (
@@ -141,7 +153,9 @@
 /turf/simulated/floor/shuttle/black,
 /area/interior)
 "U" = (
-/obj/machinery/flasher,
+/obj/machinery/flasher{
+	id_tag = "mp_apc"
+	},
 /obj/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/shuttle/black,
 /area/interior)
@@ -165,7 +179,7 @@ q
 A
 "}
 (3,1,1) = {"
-a
+g
 t
 b
 U

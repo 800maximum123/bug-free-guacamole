@@ -3,7 +3,7 @@
 /obj/machinery/hologram/holopad/longrange,
 /obj/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/shuttle/black,
-/area/space)
+/area/interior)
 "g" = (
 /obj/structure/bed/chair/shuttle/red{
 	dir = 8
@@ -20,7 +20,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/darkred,
-/area/space)
+/area/interior)
 "h" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 4
@@ -32,7 +32,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/shuttle/darkred,
-/area/space)
+/area/interior)
 "j" = (
 /obj/structure/bed/chair/shuttle/red{
 	dir = 4
@@ -46,7 +46,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/darkred,
-/area/space)
+/area/interior)
 "l" = (
 /obj/structure/bed/chair/shuttle/red{
 	dir = 4
@@ -59,11 +59,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/darkred,
-/area/space)
+/area/interior)
 "p" = (
 /obj/structure/vehicledoor/airlock,
 /turf/simulated/floor/shuttle/black,
-/area/space)
+/area/interior)
 "r" = (
 /obj/structure/bed/chair/shuttle/red{
 	dir = 8
@@ -76,22 +76,22 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/darkred,
-/area/space)
+/area/interior)
 "s" = (
 /obj/floor_decal/industrial/loading{
 	dir = 1
 	},
 /obj/effect/vehicle_entrance,
 /turf/simulated/floor/shuttle/black,
-/area/space)
+/area/interior)
 "y" = (
 /turf/simulated/floor/shuttle/black,
-/area/space)
+/area/interior)
 "z" = (
 /obj/floor_decal/industrial/loading,
 /obj/effect/vehicle_entrance_driver,
 /turf/simulated/floor/shuttle/black,
-/area/space)
+/area/interior)
 "C" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 8
@@ -107,11 +107,15 @@
 	pixel_x = 23
 	},
 /turf/simulated/floor/shuttle/darkred,
-/area/space)
+/area/interior)
+"J" = (
+/obj/structure/vehicledoor_driver,
+/turf/simulated/floor/shuttle/black,
+/area/interior)
 "L" = (
 /obj/paint/red/dark,
 /turf/simulated/wall/invincible,
-/area/space)
+/area/interior)
 "Q" = (
 /obj/structure/bed/chair/shuttle/red{
 	dir = 8
@@ -123,7 +127,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/darkred,
-/area/space)
+/area/interior)
 "W" = (
 /obj/structure/bed/chair/shuttle/red{
 	dir = 4
@@ -135,7 +139,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/darkred,
-/area/space)
+/area/interior)
 
 (1,1,1) = {"
 L
@@ -156,7 +160,7 @@ j
 L
 "}
 (3,1,1) = {"
-p
+J
 z
 y
 a
