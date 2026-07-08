@@ -271,6 +271,13 @@
 	/singleton/emote/audible/synth/buzz,
 	/singleton/emote/audible/synth/confirm,
 	/singleton/emote/audible/synth/deny,
+	// [FD-ADD]
+	/singleton/emote/audible/synth/whirr,
+	/singleton/emote/audible/synth/whistle,
+	/singleton/emote/audible/synth/whistle/wolf,
+	/singleton/emote/audible/synth/laugh,
+	/singleton/emote/audible/synth/scream,
+	// [/FD-ADD]
 	/singleton/emote/audible/synth/security,
 	/singleton/emote/audible/synth/security/halt
 )
