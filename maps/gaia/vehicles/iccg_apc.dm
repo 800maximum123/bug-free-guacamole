@@ -47,8 +47,10 @@
 	. = ..()
 	var/W = overlay_image(icon, initial(icon_state) + "-wheels")
 	AddOverlays(W) //TODO: Make wheels a component that is put on the vehicle
-	var/I = overlay_image(icon, initial(icon_state) + "-livery[livery]")
-	AddOverlays(I)
+	var/L = overlay_image(icon, initial(icon_state) + "-livery[livery]")
+	AddOverlays(L)
+	var/S = overlay_image(icon, initial(icon_state) + "-shutters1")
+	AddOverlays(S) //TODO: Make shutters a component that is put on the vehicle and also can be opened
 
 /obj/item/vehicle_component/health_manager/iccg_apc
 	integrity = 4000
