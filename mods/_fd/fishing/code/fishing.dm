@@ -49,6 +49,12 @@
 	var/list/revealed_fishspots = list()
 	var/list/revealed_fishermans = list()
 
+/mob/living/Move(a, b, flag)
+	if(mob_fishing && fishing_in)
+		fishing_in.stop_fishing()
+
+	. = ..()
+
 /mob/living/proc/show_fisherman(atom/A)
 	if(!client || (A in revealed_fishermans))
 		return
@@ -118,7 +124,7 @@
 /obj/effect/fd/fishing_spot_clues/Process()
 	animate(src, pixel_x = pixel_x - pick(0,1), pixel_y = pixel_y - pick(0,1), time = 0.5, easing = EASE_IN)
 	animate(pixel_x = pixel_x + pick(0,1), pixel_y = pixel_y + pick(0,1), time = 1)
-	animate(pixel_x = pixel_x, pixel_y = pixel_y, time = 0.3, easing = EASE_OUT)
+	animate(pixel_x = initial(pixel_x), pixel_y = initial(pixel_y), time = 0.3, easing = EASE_OUT)
 
 /obj/landmark/fd/fishgen
 	name = "fishing spot"
@@ -387,7 +393,6 @@
 	prefish = null
 	prefish_icon = null
 
-	fisherman.anchored = FALSE
 	fisherman.mob_fishing = FALSE
 	fisherman.fishing_in = null
 	fisherman = null
@@ -405,7 +410,6 @@
 	AddOverlays(fishing_overlay)
 	currently_fishing = TRUE
 
-	user.anchored = TRUE
 	user.mob_fishing = TRUE
 	user.fishing_in = src
 	fisherman = user
@@ -444,6 +448,10 @@
 		return FALSE
 
 	if(!iscarbon(user))
+		return FALSE
+
+	var/obj/structure/fd/makeshift_raft/raft = locate(/obj/structure/fd/makeshift_raft) in user.loc
+	if(raft && raft.ship_captain == user)
 		return FALSE
 
 	if(isturf(src)) // Проверка на размер водоёма, пока-что только для турфов
@@ -785,7 +793,10 @@
 									/obj/decal,
 									/obj/fd_water,
 									/obj/machinery/atmospherics/pipe,
-									/obj/structure/cable)
+									/obj/structure/cable,
+									/mob/observer,
+									/mob/observer/ghost,
+									/atom/movable/openspace/mimic)
 
 	bound_height = 128
 	bound_width = 128
@@ -858,6 +869,9 @@
 /obj/structure/fd/makeshift_raft/attack_hand(mob/living/user)
 	if(!ship_captain && ishuman(user))
 		var/mob/living/carbon/human/H = user
+		if(user.mob_fishing && user.fishing_in)
+			user.fishing_in.stop_fishing()
+
 		if(do_after(user, 5 SECONDS, user, DO_PUBLIC_UNIQUE))
 			if(H in raft_storage)
 				raft_storage -= H
@@ -881,6 +895,8 @@
 		return FALSE
 
 	if(ship_captain)
+		if(user.mob_fishing && user.fishing_in)
+			user.fishing_in.stop_fishing()
 		if(do_after(user, 5 SECONDS, user, DO_PUBLIC_UNIQUE))
 			ship_captain.raft = null
 			ship_captain.pixel_y = initial(ship_captain.pixel_y)

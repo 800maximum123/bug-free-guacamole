@@ -1,3 +1,5 @@
+#define DEFAULT_GAME_YEAR_OFFSET 312
+
 /datum/map/torch
 	name = "\improper Torch"
 	full_name = "\improper SEV Torch"
@@ -61,3 +63,12 @@
 	welcome_sound = 'sound/AI/welcome.ogg'
 
 	use_bluespace_interlude = TRUE
+
+/datum/map/proc/no_random_events()
+	config.allow_random_events = FALSE
+
+/datum/map/torch/New()
+	. = ..()
+	no_random_events()
+
+#undef DEFAULT_GAME_YEAR_OFFSET
