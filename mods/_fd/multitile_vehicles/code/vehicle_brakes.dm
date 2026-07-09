@@ -7,7 +7,7 @@
 	if(!istype(user))
 		return
 
-	var/list/driver_list = get_occupants_in_position("driver")
+	var/list/driver_list = get_occupants_in_position(VP_DRIVER)
 	var/is_driver = FALSE
 	for(var/mob/driver in driver_list)
 		if(user == driver)
@@ -45,7 +45,7 @@
 	if(!istype(user))
 		return
 
-	var/list/driver_list = get_occupants_in_position("driver")
+	var/list/driver_list = get_occupants_in_position(VP_DRIVER)
 	var/is_driver = FALSE
 	for(var/mob/driver in driver_list)
 		if(user == driver)

@@ -101,16 +101,21 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	else
 		visible_message(SPAN_NOTICE("[puller] puts [user] into interior of \the [src]."))
 	to_chat(user, SPAN_NOTICE("You are now in the interior of [src]."))
-	playsound(src, 'mods/_fd/multitile_vehicles/sounds/enter.ogg', 50, TRUE)
 
 	if(!interior?.entrance)
 		to_chat(user, SPAN_OCCULT("or not."))
 		return
 
+	var/turf/enter
 	if(is_driver)
-		user.forceMove(get_turf(interior.driver_entrance))
+		enter = get_turf(interior.driver_entrance)
 	else
-		user.forceMove(get_turf(interior.entrance))
+		enter = get_turf(interior.entrance)
+
+	remove_turret_gun(user)
+	playsound(enter, (pick(enter_sound)), (enter_volume), TRUE)
+	user.forceMove(enter)
+
 	occupants[user] = VP_INTERIOR
 	user.reset_view()
 
@@ -306,8 +311,7 @@ GLOBAL_LIST_EMPTY(templates_cache)
 		return
 
 	if(length(vehicle.get_occupants_in_position(VP_DRIVER)) > 0)
-		vehicle.do_seat_switch(user, VP_DRIVER)
-//		to_chat(user, "The driver's cabin is occupied.")
+		to_chat(user, "The driver's cabin is occupied.")
 		return
 
 	vehicle.enter_as_position(user, VP_DRIVER, user)
@@ -328,12 +332,13 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	density = FALSE
 	anchored = TRUE
 
+	var/mob/current_looker = null
 	var/obj/vehicles/large/vehicle = null
-	var/datum/action/vehicle_action/stop_verb = null
+	var/datum/action/vehicle_action/stop_looking_outside/stop_verb = null
 
 /obj/structure/vehiclewindow/Initialize()
 	. = ..()
-	stop_verb = list(new /datum/action/vehicle_action/stop_looking_outside(src))
+	stop_verb = new /datum/action/vehicle_action/stop_looking_outside(src)
 
 /obj/structure/vehiclewindow/attack_hand(mob/user)
 	. = ..()
@@ -346,20 +351,20 @@ GLOBAL_LIST_EMPTY(templates_cache)
 /obj/structure/vehiclewindow/proc/look_outside(mob/user)
 	if(!vehicle || !user.client || !stop_verb || !istype(user, /mob/living))
 		return
-
-	visible_message(SPAN_NOTICE("[user] looks outside the window of [src]."))
-	to_chat(user, SPAN_INFO("You look outside the window..."))
+	if(current_looker)
+		stop_looking_outside(current_looker)
+	current_looker = user
 	user.client.perspective = EYE_PERSPECTIVE
 	user.client.eye = vehicle
 	stop_verb.Grant(user)
-	//TODO: Make this use not this timer and actually make the verb work
-	sleep(5 SECONDS)
-	stop_looking_outside(user)
+	visible_message(SPAN_NOTICE("[user] looks outside the window of [src]."))
+	to_chat(user, SPAN_INFO("You look outside the window..."))
 
 /obj/structure/vehiclewindow/proc/stop_looking_outside(mob/user)
-	to_chat(user, SPAN_INFO("You stop looking outside the window."))
+	current_looker = null
 	user.reset_view()
 	stop_verb.Remove(user)
+	to_chat(user, SPAN_INFO("You stop looking outside the window."))
 
 /obj/structure/vehicledoor/airlock
 	icon = 'icons/obj/doors/station/door.dmi'

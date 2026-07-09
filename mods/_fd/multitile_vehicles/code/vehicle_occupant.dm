@@ -21,13 +21,13 @@
 /obj/vehicles/proc/add_vehicle_click_handler(mob/user)
 	if(!user)
 		return
-	user.RemoveClickHandler(/datum/click_handler/default/vehicle)
-	user.PushClickHandler(/datum/click_handler/default/vehicle)
+//	user.RemoveClickHandler(/datum/click_handler/default/vehicle)
+//	user.PushClickHandler(/datum/click_handler/default/vehicle)
 
 /obj/vehicles/proc/remove_vehicle_click_handler(mob/user)
 	if(!user)
 		return
-	user.RemoveClickHandler(/datum/click_handler/default/vehicle)
+//	user.RemoveClickHandler(/datum/click_handler/default/vehicle)
 
 /obj/vehicles/proc/exit_vehicle(mob/user, ignore_incap_check = FALSE, mob/puller = null, eject = FALSE)
 	if(!(user in get_occupants_in_position(VP_INTERIOR)) && user.loc != src)
@@ -143,6 +143,7 @@
 	else
 		visible_message(SPAN_NOTICE("[user] enters the [position_name(position, null)] of [src]."))
 	to_chat(user, SPAN_INFO("You are now [position_name(position)] of [src]."))
+	play_enter_sound()
 	user.reset_view()
 	user.dir = dir
 	if(position == VP_DRIVER)

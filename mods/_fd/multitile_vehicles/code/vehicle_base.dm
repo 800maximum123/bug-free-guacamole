@@ -116,8 +116,8 @@
 		return internal_air
 	return loc.return_air()
 
-/obj/vehicles/attack_generic( mob/living/simple_animal/attacker, damage, text)
-	visible_message(SPAN_DANGER("[attacker] [text] [src]"))
+/obj/vehicles/attack_generic(mob/user, damage, attack_verb = "hits", wallbreaker = FALSE, damtype = DAMAGE_BRUTE, armorcheck = "melee", dam_flags = EMPTY_BITFIELD)
+	. = ..()
 	var/pos_to_dam = should_damage_occ()
 	if(!isnull(pos_to_dam))
 		var/list/occ_list = get_occupants_in_position(pos_to_dam)
@@ -126,7 +126,7 @@
 		var/mob/mob_to_hit = pick(occ_list)
 		if(isnull(mob_to_hit))
 			return 1
-		attacker.UnarmedAttack(mob_to_hit)
+		user.UnarmedAttack(mob_to_hit)
 	comp_prof.take_component_damage(damage,"brute")
 
 /obj/vehicles/proc/get_display_filled_amt(amt, amt_initial)
@@ -202,6 +202,10 @@
 	comp_prof.inspect_components(user)
 
 /obj/vehicles/attack_hand(mob/user)
+	if(user in get_occupants_in_position(VP_DRIVER))
+		play_honk_sound()
+		audible_message(SPAN_WARNING("[src] honks its horn!"))
+		return
 	if(user.a_intent != "harm")
 		if(user in occupants)
 			usr = user
@@ -250,6 +254,7 @@
 	return comp_prof.get_overall_resistance(resistance_type)
 
 // VEHICLE CLICK HANDLER
+/*
 /datum/click_handler/default/vehicle
 	var/obj/vehicles/vehicle
 
@@ -275,7 +280,7 @@
 	if(!user || !vehicle || QDELETED(vehicle))
 		return
 	user.DblClickOn(A, params)
-
+*/
 /obj/vehicles/allow_click_through(atom/A, params, mob/user)
 	return TRUE
 

@@ -71,6 +71,7 @@
 	#include "../gaia/turf/walls.dm"
 	#include "../gaia/turf/mineral.dm"
 
+	#include "../../mods/_fd/multitile_vehicles/_multitile_vehicles.dme" // fucky whacky
 	#include "../gaia/vehicles/iccg_apc.dm"
 
 	#include "../gaia/job/gaia_jobs.dm"
@@ -274,7 +275,7 @@
 	#include "../../mods/_fd/landing_eye/_landing_eye.dme"
 	#include "../../mods/_fd/marines_explosion/_marines_explosion.dme"
 	#include "../../mods/_fd/mob_interactions/_mob_interactions.dme"
-	#include "../../mods/_fd/multitile_vehicles/_multitile_vehicles.dme"
+//	#include "../../mods/_fd/multitile_vehicles/_multitile_vehicles.dme" FUCKY WHAAAACKY
 	#include "../../mods/_fd/polaris_portals/_polaris_portals.dme"
 	#include "../../mods/_fd/random_rooms/_random_rooms.dme"
 	#include "../../mods/_fd/resomi_fd/_resomi.dme"

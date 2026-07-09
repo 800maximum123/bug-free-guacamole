@@ -1,3 +1,4 @@
+/*
 #undef VP_DRIVER
 #undef VP_GUNNER
 #undef VP_COMMANDER
@@ -6,3 +7,4 @@
 #undef ITEM_SIZE_VEHICLE_SMALL
 #undef ITEM_SIZE_VEHICLE
 #undef ITEM_SIZE_VEHICLE_LARGE
+*/

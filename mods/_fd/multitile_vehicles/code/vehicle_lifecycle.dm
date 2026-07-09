@@ -68,6 +68,6 @@
 /obj/vehicles/Process()
 	if(world.time % 3)
 		if(active)
-			var/list/drivers = get_occupants_in_position("driver")
+			var/list/drivers = get_occupants_in_position(VP_DRIVER)
 			if(!drivers.len || isnull(drivers) || movement_destroyed)
 				inactive_pilot_effects()

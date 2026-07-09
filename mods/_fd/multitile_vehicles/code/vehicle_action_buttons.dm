@@ -17,6 +17,9 @@
 	procname = "stop_looking_outside"
 	button_icon_state = "stoplookingoutside"
 
+/datum/action/vehicle_action/stop_looking_outside/CheckRemoval(mob/living/user)
+	return (user.client.eye == MOB_PERSPECTIVE)
+
 /datum/action/vehicle_action/look_in_interior
 	name = ACTION_LOOK_IN_INTERIOR
 	procname = "look_in_interior"

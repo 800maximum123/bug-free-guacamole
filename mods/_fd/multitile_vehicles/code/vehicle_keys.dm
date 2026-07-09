@@ -29,12 +29,28 @@
 	block_enter_exit = !block_enter_exit
 	user.visible_message(SPAN_NOTICE("[user] [block_enter_exit ? "" : "un"]locks \the [src]."))
 
+/obj/vehicles/verb/lock_doors()
+	set name = "Lock/Unlock doors"
+	set category = "Vehicle"
+	set src in view(1)
+	var/mob/living/carbon/human/user = usr
+	if(!istype(user) || !(user in get_occupants_in_position(VP_DRIVER)))
+		to_chat(user, SPAN_NOTICE("You must be the driver of [src] to [block_enter_exit ? "lock" : "unlock"] the doors."))
+		return
+	if(health_dead)
+		return
+
+	playsound(src.loc, 'sound/effects/buckle.ogg', 150, 1, 5)
+
+	block_enter_exit = !block_enter_exit
+	visible_message(SPAN_NOTICE("[user] [block_enter_exit ? "" : "un"]locks \the [src]."))
+
 /obj/vehicles/verb/keys()
 	set name = "Take/Insert the key"
 	set category = "Vehicle"
 	set src in view(1)
 	var/mob/living/carbon/human/user = usr
-	if(!istype(user) || !(user in get_occupants_in_position("driver")))
+	if(!istype(user) || !(user in get_occupants_in_position(VP_DRIVER)))
 		to_chat(user, SPAN_NOTICE("You must be the driver of [src] to reach for the keys."))
 		return
 	if(inserted_key)
@@ -64,7 +80,7 @@
 	set category = "Vehicle"
 	set src in view(1)
 	var/mob/living/user = usr
-	if(!istype(user) || !(user in get_occupants_in_position("driver")))
+	if(!istype(user) || !(user in get_occupants_in_position(VP_DRIVER)))
 		to_chat(user, SPAN_NOTICE("You must be the driver of [src] to reach for the ignition."))
 		return
 	if(health_dead)

@@ -121,7 +121,7 @@
 	if(istype(vehicle))
 		vehicle.visible_message(SPAN_DANGER("The [src] pierces through the hull of [vehicle]!"), SPAN_DANGER("You hear a loud metallic pierce!"))
 		playsound(vehicle ,'sound/weapons/rpg_pierce.ogg', 100, FALSE)
-		vehicle.ex_act(internal_explosion_power)
+		vehicle.ex_act(explosion_power)
 		vehicle.deactivate()
 		var/obj/vehicles/large/large_v = vehicle
 		var/datum/vehicle_interior/interior = large_v.interior

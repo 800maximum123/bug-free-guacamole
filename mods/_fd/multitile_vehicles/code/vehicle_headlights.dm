@@ -6,15 +6,15 @@
 		return
 	var/mob/living/user = usr
 	if(!istype(user) || !(user in get_occupants_in_position(VP_DRIVER)))
-		to_chat(user,"<span class = 'notice'>You must be the driver of [src] to toggle the headlights.</span>")
+		to_chat(user, SPAN_NOTICE("You must be the driver of [src] to toggle the headlights."))
 		return
 
 	if(headlights_state == 2)
-		to_chat(user,"<span class = 'notice'>You toggle [src]'s headlights on.</span>")
+		to_chat(user,SPAN_NOTICE("You toggle [src]'s headlights on."))
 		headlights_state = 1
 		update_headlights(TRUE)
 	else
-		to_chat(user,"<span class = 'notice'>You toggle [src]'s headlights off.</span>")
+		to_chat(user,SPAN_NOTICE("You toggle [src]'s headlights off."))
 		headlights_state = 2
 		update_headlights(TRUE)
 
