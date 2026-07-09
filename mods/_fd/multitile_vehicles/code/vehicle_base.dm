@@ -31,7 +31,7 @@
 	var/dangerous_to_people = TRUE //Hitting people hurts them
 	var/dangerous_to_obstacles = TRUE //Hitting obstacles hurts them
 	var/weaken_to_people = 5
-	var/damage_to_people = 30
+	var/damage_to_people = 15
 	var/damage_to_obstacles = 100
 
 	//Action Button Handling
