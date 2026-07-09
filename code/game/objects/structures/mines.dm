@@ -41,7 +41,7 @@
 	to_chat(O, SPAN_WARNING("You step down on \the [src]... Uh oh..."))
 	if (!activated)
 		pre_activate()
-		activate()
+		activate(O)
 
 /obj/structure/mine/bullet_act(obj/item/projectile/P, def_zone)
 	if (prob(P.original == src ? 30 : 10)) // Small target, hard to hit on purpose, even harder to hit on accident
@@ -70,7 +70,7 @@
 		activate()
 	return TRUE
 
-/obj/structure/mine/proc/activate(mob/living/victim)
+/obj/structure/mine/proc/activate(atom/O)
 	activated = TRUE
 	visible_message(
 		SPAN_DANGER("\The [src] explodes!"),
@@ -141,6 +141,13 @@
 
 	power = 1000
 	falloff = 500
+
+/obj/structure/mine/antitank/activate(atom/O)
+	var/obj/vehicles/vehicle = O
+	if(istype(vehicle))
+		vehicle.ex_act(power/2)
+		vehicle.deactivate()
+	. = ..()
 
 /obj/structure/mine/antitank/Crossed(atom/O)
 	if(!istype(O, /obj/vehicles) && !istype(O, /obj/vehicle) && !istype(O, /mob/living/exosuit))

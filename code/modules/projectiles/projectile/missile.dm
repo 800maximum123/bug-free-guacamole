@@ -121,6 +121,7 @@
 	if(istype(vehicle))
 		vehicle.visible_message(SPAN_DANGER("The [src] pierces through the hull of [vehicle]!"), SPAN_DANGER("You hear a loud metallic pierce!"))
 		playsound(vehicle ,'sound/weapons/rpg_pierce.ogg', 100, FALSE)
+		vehicle.ex_act(internal_explosion_power)
 		vehicle.deactivate()
 		var/obj/vehicles/large/large_v = vehicle
 		var/datum/vehicle_interior/interior = large_v.interior
@@ -128,7 +129,7 @@
 			return TRUE
 		// Simulating an RPG going inside the vehicle and blowing up by causing an explosion inside of it
 		// We spawn it on middle of the interior
-		var/turf/pierce = interior.middle_turf
+		var/turf/pierce = get_turfs_in_range(interior.middle_turf, 2)
 		playsound(pierce ,'sound/weapons/rpg_pierce.ogg', 100, FALSE)
 		cell_explosion(pierce, internal_explosion_power, internal_explosion_falloff)
 		pierce.visible_message(FONT_LARGE(SPAN_DANGER("[src] comes through the hell of [A], OH FUCK!")), FONT_LARGE(SPAN_DANGER("You hear a loud metallic pierce!")))

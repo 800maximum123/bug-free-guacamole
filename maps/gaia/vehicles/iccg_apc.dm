@@ -13,7 +13,7 @@
 	bound_height = 96
 	bound_width = 96
 
-	comp_prof = /datum/component_profile/iccg_apc
+	comp_prof = /datum/component_profile/iccg_apc/turret
 
 	occupants = list(1,1)
 	exposed_positions = list("driver" = 0,"passenger" = 0)
@@ -58,7 +58,11 @@
 	resistances = list("bullet" = 90,"energy" = 85,"emp" = 25,"bomb" = 85)
 
 /datum/component_profile/iccg_apc
-	vital_components = newlist(/obj/item/vehicle_component/health_manager/iccg_apc, /obj/item/vehicle_component/turret)
+	vital_components = newlist(/obj/item/vehicle_component/health_manager/iccg_apc)
+
+/datum/component_profile/iccg_apc/turret
+	vital_components = newlist(/obj/item/vehicle_component/health_manager/iccg_apc)
+	components = newlist(/obj/item/vehicle_component/turret)
 
 /obj/item/key/car/iccg_apc
 	name = "APC key"
@@ -71,6 +75,7 @@
 	name = "NZM-APC-C 2"
 	desc = "An Armored Personnel Carrier Mk2 manufactured by Novaya Zemlya Manufacturing. Used for transporting personnel in warzones. \
 			This one is designed for on-field commanding."
+	comp_prof = /datum/component_profile/iccg_apc/turret
 	interior_template = /datum/map_template/iccg_apc/command
 	livery = "COM"
 
@@ -95,6 +100,7 @@
 	name = "NZM-APC-P 2"
 	desc = "An Armored Personnel Carrier Mk2 manufactured by Novaya Zemlya Manufacturing. Used for transporting personnel in warzones. \
 			This one is designed for prison transportation."
+	comp_prof = /datum/component_profile/iccg_apc/turret
 	interior_template = /datum/map_template/iccg_apc/mp
 	livery = "MP"
 
