@@ -17,6 +17,7 @@
 
 	occupants = list(1,1)
 	exposed_positions = list("driver" = 0,"passenger" = 0)
+	turret_control_position = "driver"
 
 	vehicle_size = 9 //ITEM_SIZE_VEHICLE_LARGE
 	capacity_flag = 9 //ITEM_SIZE_VEHICLE_LARGE
@@ -57,7 +58,7 @@
 	resistances = list("bullet" = 90,"energy" = 85,"emp" = 25,"bomb" = 85)
 
 /datum/component_profile/iccg_apc
-	vital_components = newlist(/obj/item/vehicle_component/health_manager/iccg_apc)
+	vital_components = newlist(/obj/item/vehicle_component/health_manager/iccg_apc, /obj/item/vehicle_component/turret)
 
 /obj/item/key/car/iccg_apc
 	name = "APC key"

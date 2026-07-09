@@ -74,6 +74,9 @@
 	var/obj/item/key/car/inserted_key
 	var/key_type = /obj/item/key/car
 
+	var/turret_control_position = VP_GUNNER
+	var/image/turret_overlay
+
 /obj/vehicles/New()
 	. = ..()
 	comp_prof = new comp_prof(src)
@@ -92,6 +95,8 @@
 	if(!inserted_key)
 		inserted_key = new key_type(src)
 		inserted_key.key_data = serial_number
+	if(has_turret_component())
+		init_turret()
 
 /obj/vehicles/lost_in_space()
 	if(!can_space_move)
@@ -228,6 +233,9 @@
 		if(istype(I,/obj/item/stack))
 			comp_prof.repair_inspected_with_sheet(I,user)
 			return
+		if(istype(I,/obj/item/ammo_magazine))
+			comp_prof.reload_turret(I,user)
+			return
 		. = ..()
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		var/pos_to_dam = should_damage_occ()
@@ -240,3 +248,37 @@
 
 /obj/vehicles/proc/get_overall_resistance(resistance_type)
 	return comp_prof.get_overall_resistance(resistance_type)
+
+// VEHICLE CLICK HANDLER
+/datum/click_handler/default/vehicle
+	var/obj/vehicles/vehicle
+
+/datum/click_handler/default/vehicle/New(mob/user)
+	..()
+	if(!user)
+		return
+	var/atom/current_loc = user.loc
+	while(current_loc)
+		if(istype(current_loc, /obj/vehicles))
+			vehicle = current_loc
+			break
+		if(current_loc == current_loc.loc)
+			break
+		current_loc = current_loc.loc
+
+/datum/click_handler/default/vehicle/OnClick(atom/A, params)
+	if(!user || !vehicle || QDELETED(vehicle))
+		return
+	user.ClickOn(A, params)
+
+/datum/click_handler/default/vehicle/OnDblClick(atom/A, params)
+	if(!user || !vehicle || QDELETED(vehicle))
+		return
+	user.DblClickOn(A, params)
+
+/obj/vehicles/allow_click_through(atom/A, params, mob/user)
+	return TRUE
+
+/obj/vehicles/contents_nano_distance(src_object, mob/living/user)
+	. = ..()
+	return STATUS_INTERACTIVE

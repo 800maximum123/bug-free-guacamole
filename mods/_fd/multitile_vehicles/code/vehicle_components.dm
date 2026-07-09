@@ -66,7 +66,10 @@
 		tools_required += "[chosen.repair_tools_typepaths[typepath]], "
 	for(var/material in chosen.repair_materials)
 		repair_materials = "[material], "
-	to_chat(user,"[chosen] integrity: [chosen.integrity]/[initial(chosen.integrity)]\nRepair Materials: [repair_materials]\n[chosen] repair tools required: [tools_required]")
+	to_chat(user, "[chosen] integrity: [chosen.integrity]/[initial(chosen.integrity)]\nRepair Materials: [repair_materials]\n[chosen] repair tools required: [tools_required]")
+	if(istype(chosen, /obj/item/vehicle_component/turret))
+		var/obj/item/vehicle_component/turret/turret = chosen
+		to_chat(user, "[turret.current_ammo]/[turret.max_ammo] rounds left.")
 
 /datum/component_profile/proc/repair_inspected_with_sheet(obj/item/stack/I, mob/user)
 	if(isnull(component_last_inspected))
@@ -101,6 +104,24 @@
 			return
 		user.visible_message("<span class = 'notice'>[user] repairs [contained_vehicle] with [I]</span>")
 		component_last_inspected.repair_with_tool(I,user)
+
+/datum/component_profile/proc/reload_turret(obj/item/I, mob/user)
+	if(!istype(I, /obj/item/ammo_magazine))
+		return
+	var/obj/item/vehicle_component/turret/turret = contained_vehicle?.get_turret_component()
+	if(!istype(turret))
+		to_chat(user, SPAN_WARNING("[contained_vehicle] has no turret to reload."))
+		return
+	component_last_inspected = turret
+	user.visible_message(SPAN_NOTICE("[user] starts reloading [contained_vehicle]'s turret..."))
+	playsound(contained_vehicle.loc, 'sound/weapons/guns/interaction/lmg_magout.ogg', 50, 1)
+	if(!do_after(user, 5 SECONDS, contained_vehicle))
+		return
+	if(!turret.reload_from_magazine(I, user))
+		return
+	user.visible_message(SPAN_NOTICE("[user] reloads [contained_vehicle]'s turret."))
+	playsound(contained_vehicle.loc, 'sound/weapons/guns/interaction/lmg_magin.ogg', 75, 1)
+	qdel(I)
 
 /datum/component_profile/proc/get_overall_resistance(resistance_type)
 	//get the average resistance to this damage type across all components

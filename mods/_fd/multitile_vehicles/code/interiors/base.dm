@@ -88,7 +88,7 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	. = ..()
 	interior = new(interior_template, src)
 
-/obj/vehicles/large/proc/move_to_interior(atom/movable/user, puller)
+/obj/vehicles/large/proc/move_to_interior(mob/user, puller)
 	var/is_driver = FALSE
 	if(user in get_occupants_in_position(VP_DRIVER) && !interior.driver_entrance)
 		to_chat(user, SPAN_WARNING("The [src]'s cockpit doesn't have a way into interiors!"))
@@ -112,6 +112,7 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	else
 		user.forceMove(get_turf(interior.entrance))
 	occupants[user] = VP_INTERIOR
+	user.reset_view()
 
 	return TRUE
 
@@ -152,7 +153,7 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	. = ..()
 	cell_explosion(interior.middle_turf, 200, 50, shrapnel = FALSE)
 	for(var/mob/victim in get_occupants_in_position(VP_INTERIOR))
-		to_chat(victim, SPAN_DANGER("All of the interior gets engulfed in the flames as [src] breaks down!"))
+		to_chat(victim, SPAN_DANGER("All of the interior gets engulfed in the flames as \the [src] breaks down!"))
 	for(var/turf/tile in interior.area)
 		tile.IgniteTurf(20, COLOR_YELLOW)
 
@@ -305,7 +306,8 @@ GLOBAL_LIST_EMPTY(templates_cache)
 		return
 
 	if(length(vehicle.get_occupants_in_position(VP_DRIVER)) > 0)
-		to_chat(user, "The driver's cabin is occupied.")
+		vehicle.do_seat_switch(user, VP_DRIVER)
+//		to_chat(user, "The driver's cabin is occupied.")
 		return
 
 	vehicle.enter_as_position(user, VP_DRIVER, user)
@@ -352,9 +354,7 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	stop_verb.Grant(user)
 	//TODO: Make this use not this timer and actually make the verb work
 	sleep(5 SECONDS)
-	to_chat(user, SPAN_INFO("You stop looking outside the window."))
-	user.reset_view()
-	stop_verb.Remove(user)
+	stop_looking_outside(user)
 
 /obj/structure/vehiclewindow/proc/stop_looking_outside(mob/user)
 	to_chat(user, SPAN_INFO("You stop looking outside the window."))

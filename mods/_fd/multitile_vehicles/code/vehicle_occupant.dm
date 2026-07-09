@@ -1,12 +1,33 @@
 /obj/vehicles/proc/get_all_positions()
-	return list(VP_DRIVER)
+	var/list/positions = list(VP_DRIVER)
+	if(has_turret_component() && turret_control_position != VP_DRIVER)
+		positions += turret_control_position
+	return positions
 
 /obj/vehicles/proc/position_name(position, prefix = TRUE)
 	switch(position)
 		if(VP_DRIVER)
 			return "[prefix && "on"] [position] seat"
+		if(VP_GUNNER)
+			return "[prefix && "as the"] gunner"
+		if(VP_COMMANDER)
+			return "[prefix && "as the"] commander"
 		if(VP_INTERIOR)
 			return "[prefix && "in the"] interiors"
+
+/obj/vehicles/proc/should_have_vehicle_click_handler(position)
+	return (position == VP_DRIVER || position == VP_GUNNER || position == VP_COMMANDER)
+
+/obj/vehicles/proc/add_vehicle_click_handler(mob/user)
+	if(!user)
+		return
+	user.RemoveClickHandler(/datum/click_handler/default/vehicle)
+	user.PushClickHandler(/datum/click_handler/default/vehicle)
+
+/obj/vehicles/proc/remove_vehicle_click_handler(mob/user)
+	if(!user)
+		return
+	user.RemoveClickHandler(/datum/click_handler/default/vehicle)
 
 /obj/vehicles/proc/exit_vehicle(mob/user, ignore_incap_check = FALSE, mob/puller = null, eject = FALSE)
 	if(!(user in get_occupants_in_position(VP_INTERIOR)) && user.loc != src)
@@ -22,6 +43,8 @@
 	if(user in get_occupants_in_position(VP_DRIVER))
 		add_remove_vehicle_actions(user, TRUE)
 
+	remove_turret_gun(user)
+	remove_vehicle_click_handler(user)
 	occupants -= user
 	contents -= user
 	user.forceMove(loc_moveto)
@@ -66,7 +89,7 @@
 /obj/vehicles/proc/check_position_blocked(position)
 	var/list/occupants_in_pos = get_occupants_in_position(position)
 	switch(position)
-		if(VP_DRIVER)
+		if(VP_DRIVER, VP_GUNNER, VP_COMMANDER)
 			return occupants_in_pos.len >= 1
 		if(VP_INTERIOR)
 			return FALSE
@@ -106,6 +129,14 @@
 	occupants[user] = position
 	user.loc = contents
 	contents |= user
+	if(position == turret_control_position)
+		give_turret_gun(user)
+	else
+		remove_turret_gun(user)
+	if(should_have_vehicle_click_handler(position))
+		add_vehicle_click_handler(user)
+	else
+		remove_vehicle_click_handler(user)
 	update_icon()
 	if(puller)
 		visible_message(SPAN_NOTICE("[puller] put [user] [position_name(position)]."))
@@ -113,6 +144,7 @@
 		visible_message(SPAN_NOTICE("[user] enters the [position_name(position, null)] of [src]."))
 	to_chat(user, SPAN_INFO("You are now [position_name(position)] of [src]."))
 	user.reset_view()
+	user.dir = dir
 	if(position == VP_DRIVER)
 		add_remove_vehicle_actions(user, FALSE)
 
