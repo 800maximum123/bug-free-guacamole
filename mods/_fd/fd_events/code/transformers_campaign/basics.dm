@@ -23,7 +23,7 @@
 
 			var/obj/item/organ/external/limb = pick(pick_organs)
 			limb.take_general_damage(50)
-			limb.dropLimb()
+			limb.droplimb()
 
 			H.simple_health_calculation(-(H.max_simple_health / 2),0,0,0)
 			for(var/datum/simple_status/effects in H.status_effects)
@@ -51,15 +51,64 @@
 	var/tf_charge_cost = 0
 	var/mob/living/carbon/human/tf
 
+/obj/item/dropped(mob/user)
+	..()
+
+	if(tf)
+		if(tf.tf_weapon_slot == src)
+			forceMove(tf)
+			tf.tf_weapon_shown = FALSE
+		else
+			QDEL_IN(src,0)
+
 /mob/living/carbon/human
 	var/obj/item/tf_weapon_slot
+	var/tf_weapon_shown = FALSE
 
 /mob/living/carbon/human/proc/spent_transformer_charge(amount)
-	var/obj/item/organ/internal/cell/cell = tf.internal_organs_by_name[BP_CELL]
+	var/obj/item/organ/internal/cell/cell = internal_organs_by_name[BP_CELL]
 	if(cell)
 		cell.cell = clamp(cell.cell.charge - amount, 0, cell.cell.maxcharge)
 
 /mob/living/carbon/human/proc/change_transformer_cell()
-	var/obj/item/organ/internal/cell/cell = H.internal_organs_by_name[BP_CELL]
+	var/obj/item/organ/internal/cell/cell = internal_organs_by_name[BP_CELL]
 	if(cell)
 		cell.cell = new /obj/item/cell/infinite(src)
+
+/mob/living/carbon/human/proc/change_tf_weapon_status()
+	if(!tf_weapon_shown)
+		tf_weapon_shown = TRUE
+		if(!tf_weapon_slot.tf)
+			tf_weapon_slot.tf = src
+
+		put_in_any_hand_if_possible(tf_weapon_slot)
+		return TRUE
+	else
+		tf_weapon_slot.dropped(src)
+		return TRUE
+
+#define CATEGORY_FD_TF "FINAL DESTINATION: TRANSFORMERS"
+
+/datum/keybinding/living/fd/transformers
+	category = CATEGORY_FD_TF
+
+/datum/keybinding/living/fd/transformers/manage_weaponry
+	hotkey_keys = list("None")
+	name = "manage_weaponry"
+	full_name = "TF: Show/Hide In-hand"
+	description = ""
+
+/datum/keybinding/living/fd/transformers/manage_weaponry/can_use(client/user)
+	if(!ishuman(user.mob))
+		return FALSE
+
+	var/mob/living/carbon/human/H = user.mob
+	if(!H.tf_weapon_slot)
+		return FALSE
+
+	. = ..()
+
+/datum/keybinding/living/fd/transformers/manage_weaponry/down(client/user)
+	var/mob/living/carbon/human/H = user.mob
+	H.change_tf_weapon_status()
+	return TRUE
