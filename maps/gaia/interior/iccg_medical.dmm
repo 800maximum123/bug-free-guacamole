@@ -13,6 +13,7 @@
 	},
 /obj/floor_decal/industrial/outline/grey,
 /obj/structure/railing/mapped,
+/obj/structure/iv_stand,
 /turf/simulated/floor/shuttle/black,
 /area/interior)
 "c" = (
@@ -55,8 +56,8 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/optable,
 /obj/floor_decal/industrial/hatch/blue,
+/obj/machinery/bodyscanner,
 /turf/simulated/floor/shuttle/white,
 /area/interior)
 "z" = (
@@ -103,6 +104,9 @@
 /obj/item/storage/firstaid/surgery,
 /obj/item/storage/firstaid/adv,
 /obj/item/defibrillator/loaded,
+/obj/item/crowbar/emergency_forcing_tool,
+/obj/machinery/body_scanconsole,
+/obj/item/storage/box/bodybags,
 /turf/simulated/floor/shuttle/white,
 /area/interior)
 "Q" = (
@@ -110,13 +114,14 @@
 	dir = 8;
 	pixel_x = 24
 	},
-/obj/structure/bed/chair/shuttle/blue{
-	dir = 8
-	},
 /obj/structure/extinguisher_cabinet{
 	dir = 1;
 	pixel_y = -26
 	},
+/obj/structure/hygiene/shower{
+	dir = 8
+	},
+/obj/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/shuttle/black,
 /area/interior)
 "U" = (

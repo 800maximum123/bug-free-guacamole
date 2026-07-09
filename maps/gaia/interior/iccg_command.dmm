@@ -56,6 +56,7 @@
 	pixel_x = 23
 	},
 /obj/structure/table/steel_reinforced,
+/obj/machinery/photocopier/faxmachine,
 /turf/simulated/floor/shuttle/darkred,
 /area/interior)
 "I" = (
@@ -110,6 +111,10 @@
 /obj/machinery/computer/modular/preset/medical{
 	dir = 4
 	},
+/obj/item/tableflag/iccg{
+	pixel_x = -5;
+	pixel_y = 16
+	},
 /turf/simulated/floor/shuttle/darkred,
 /area/interior)
 "Q" = (
@@ -139,6 +144,9 @@
 /obj/item/pen/retractable{
 	pixel_y = 7;
 	pixel_x = 7
+	},
+/obj/item/device/radio/phone{
+	pixel_x = -6
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/interior)
