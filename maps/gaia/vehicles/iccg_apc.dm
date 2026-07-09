@@ -60,6 +60,7 @@
 	vital_components = newlist(/obj/item/vehicle_component/health_manager/iccg_apc)
 
 /obj/item/key/car/iccg_apc
+	name = "APC key"
 	icon_state = "key5"
 	key_data = "iccg_apc"
 
@@ -67,7 +68,7 @@
 // COMMAND VARIANT
 /obj/vehicles/large/iccg_apc/command
 	name = "NZM-APC-C 2"
-	desc = "An Armored Personnel Carrier Mk2 manufactured by Novaya Zemlya Manufacturing. Used for transporting personnel in warzones.\
+	desc = "An Armored Personnel Carrier Mk2 manufactured by Novaya Zemlya Manufacturing. Used for transporting personnel in warzones. \
 			This one is designed for on-field commanding."
 	interior_template = /datum/map_template/iccg_apc/command
 	livery = "COM"
@@ -79,7 +80,7 @@
 // MEDICAL VARIANT
 /obj/vehicles/large/iccg_apc/medical
 	name = "NZM-APC-M 2"
-	desc = "An Armored Personnel Carrier Mk2 manufactured by Novaya Zemlya Manufacturing. Used for transporting personnel in warzones.\
+	desc = "An Armored Personnel Carrier Mk2 manufactured by Novaya Zemlya Manufacturing. Used for transporting personnel in warzones. \
 			This one is designed as an ambulance."
 	interior_template = /datum/map_template/iccg_apc/medical
 	livery = "MED"
@@ -91,7 +92,7 @@
 // MP VARIANT
 /obj/vehicles/large/iccg_apc/mp
 	name = "NZM-APC-P 2"
-	desc = "An Armored Personnel Carrier Mk2 manufactured by Novaya Zemlya Manufacturing. Used for transporting personnel in warzones.\
+	desc = "An Armored Personnel Carrier Mk2 manufactured by Novaya Zemlya Manufacturing. Used for transporting personnel in warzones. \
 			This one is designed for prison transportation."
 	interior_template = /datum/map_template/iccg_apc/mp
 	livery = "MP"
