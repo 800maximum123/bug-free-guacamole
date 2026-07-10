@@ -1,7 +1,5 @@
 /obj/vehicles/proc/get_all_positions()
-	var/list/positions = list(VP_DRIVER)
-	if(has_turret_component() && turret_control_position != VP_DRIVER)
-		positions += turret_control_position
+	var/list/positions = available_seats
 	return positions
 
 /obj/vehicles/proc/position_name(position, prefix = TRUE)
@@ -12,11 +10,13 @@
 			return "[prefix && "as the"] gunner"
 		if(VP_COMMANDER)
 			return "[prefix && "as the"] commander"
+		if(VP_PASSENGER)
+			return "[prefix && "as the"] passenger"
 		if(VP_INTERIOR)
 			return "[prefix && "in the"] interiors"
 
 /obj/vehicles/proc/should_have_vehicle_click_handler(position)
-	return (position == VP_DRIVER || position == VP_GUNNER || position == VP_COMMANDER)
+	return (position == VP_DRIVER || position == VP_GUNNER || position == VP_COMMANDER || position == VP_PASSENGER)
 
 /obj/vehicles/proc/add_vehicle_click_handler(mob/user)
 	if(!user)
@@ -33,8 +33,11 @@
 	if(!(user in get_occupants_in_position(VP_INTERIOR)) && user.loc != src)
 		to_chat(user, SPAN_NOTICE("[puller || "You"] must be inside [src] to exit it."))
 		return
-	if(user.incapacitated() && !ignore_incap_check)
+	if((user.incapacitated() || user.restrained()) && !ignore_incap_check)
 		to_chat(user, SPAN_WARNING("[puller || "You"] cannot do that when you are incapacitated!"))
+		return
+	if(doors_locked())
+		to_chat(user, SPAN_WARNING("\The [src] is locked."))
 		return
 	var/loc_moveto = pick_valid_exit_loc()
 	if(!loc_moveto)
@@ -51,7 +54,7 @@
 	user.reset_view()
 	if(eject)
 		user.Weaken(rand(1, 5))
-		user.throw_at_random(FALSE, 3, 2)
+		user.throw_at_random(FALSE, 3, 1)
 
 	update_icon()
 

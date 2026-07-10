@@ -16,6 +16,10 @@
 	icon_state = "[initial(icon_state)]_destroyed"
 	fall()
 	deactivate()
+	if(has_alarm)
+		stop_alarm_soundloop()
+	if(wheels)
+		CutOverlays(wheels)
 
 	//get a viable list of places to eject our cargo
 	density = FALSE

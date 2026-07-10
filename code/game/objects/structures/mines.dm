@@ -28,18 +28,21 @@
 	playsound(src, 'sound/effects/bomb.ogg', 30, FALSE)
 	audible_message(SPAN_WARNING("\The [src] chimes as it gets armed!"))
 
-/obj/structure/mine/Crossed(atom/O)
+/obj/structure/mine/Crossed(atom/O, bypass = FALSE)
 	. = ..()
-	var/obj/thrown = O
-	if(istype(O, /turf))
+	if((!isliving(O) || !istype(O, /obj/vehicles)) && !bypass)
 		return
-	if(thrown)
-		if(istype(thrown, /obj/item/device/mine))
+	var/mob/living/stepper = O
+	var/obj/vehicles/vehicle = O
+	if(istype(stepper))
+		if(stepper.jumping)
 			return
-		if(istype(thrown) && thrown.w_class == ITEM_SIZE_TINY)
-			return // A pesk of dust should not activate the mine
-	to_chat(O, SPAN_WARNING("You step down on \the [src]... Uh oh..."))
-	if (!activated)
+		to_chat(stepper, SPAN_WARNING("You step down on \the [src]... Uh oh..."))
+	else if(istype(vehicle))
+		if(vehicle.can_traverse_zs || vehicle.can_space_move)
+			return
+
+	if(!activated)
 		pre_activate()
 		activate(O)
 
@@ -149,7 +152,7 @@
 		vehicle.deactivate()
 	. = ..()
 
-/obj/structure/mine/antitank/Crossed(atom/O)
+/obj/structure/mine/antitank/Crossed(atom/O, bypass = TRUE)
 	if(!istype(O, /obj/vehicles) && !istype(O, /obj/vehicle) && !istype(O, /mob/living/exosuit))
 		return
 	. = ..()

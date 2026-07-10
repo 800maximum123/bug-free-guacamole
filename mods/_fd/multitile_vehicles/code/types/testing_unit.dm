@@ -13,8 +13,7 @@
 
 	comp_prof = /datum/component_profile/warthog
 
-	occupants = list(1,1)
-	exposed_positions = list(VP_DRIVER = 0,"passenger" = 0)
+	exposed_positions = list(VP_DRIVER = 0, VP_PASSENGER = 0)
 
 	vehicle_size = ITEM_SIZE_VEHICLE
 	capacity_flag = ITEM_SIZE_VEHICLE
