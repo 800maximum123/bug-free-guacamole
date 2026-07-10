@@ -247,6 +247,10 @@
 
 /obj/structure/ladder/proc/climbLadder(mob/user, target_ladder, obj/item/I = null, is_slide)
 	var/turf/T = get_turf(target_ladder)
+	if(istype(target_ladder, /obj/structure/ladder/hatch))
+		var/obj/structure/ladder/hatch/hatch = target_ladder
+		if(hatch.closed)
+			hatch.open(user)
 	for(var/atom/A in T)
 		if(!A.CanPass(user, user.loc, 1.5, 0))
 			to_chat(user, SPAN_NOTICE("\The [A] is blocking \the [src]."))
@@ -260,7 +264,6 @@
 					M.use_tool(I, user)
 
 			return FALSE
-
 	if(is_slide)
 		playsound(src, pick(slidesounds), 50)
 		playsound(target_ladder, pick(slidesounds), 50)
@@ -297,13 +300,29 @@
 /obj/structure/ladder/hatch
 	name = "ladder hatch"
 	desc = "A hatch with ladder. You can climb it up and down, if its open of course."
-	icon_state = "hatchdown00"
+	icon_state = "hatchdown10"
 	base_icon_state = "hatchdown"
 	var/list/opensounds = list('sound/effects/stonedoor_openclose.ogg')
 	var/list/closesounds = list('sound/effects/stonedoor_openclose.ogg')
 	var/obj/item/required_tool = /obj/item/crowbar
 	var/open_time = 3 SECONDS
 	var/closed = TRUE
+
+/obj/structure/ladder/hatch/proc/open(mob/user, obj/item/tool)
+	if(user)
+		to_chat(user, SPAN_INFO("You open \the [src][tool ? " with [tool]" : ""]."))
+	playsound(src, pick(opensounds), 50)
+	flick("[base_icon_state]-open", src)
+	closed = FALSE
+	update_icon()
+
+/obj/structure/ladder/hatch/proc/close(mob/user, obj/item/tool)
+	if(user)
+		to_chat(user, SPAN_INFO("You close \the [src][tool ? " with [tool]" : ""]."))
+	playsound(src, pick(closesounds), 50)
+	flick("[base_icon_state]-close", src)
+	closed = TRUE
+	update_icon()
 
 /obj/structure/ladder/hatch/LateExamine(mob/user, distance, is_adjacent)
 	. = ..()
@@ -323,17 +342,9 @@
 			to_chat(user, SPAN_WARNING("You've been interrupted!"))
 			return FALSE
 		if(closed)
-			to_chat(user, SPAN_INFO("You open [src] with [tool]."))
-			playsound(src, pick(opensounds), 50)
-			flick("[base_icon_state]-open", src)
-			update_icon()
-			closed = FALSE
+			open(user, tool)
 		else
-			to_chat(user, SPAN_INFO("You close [src] with [tool]."))
-			playsound(src, pick(closesounds), 50)
-			flick("[base_icon_state]-close", src)
-			update_icon()
-			closed = TRUE
+			close(user, tool)
 		return TRUE
 	return ..()
 
@@ -346,7 +357,7 @@
 /obj/structure/ladder/hatch/up
 	name = "fire drop-ladder"
 	desc = "A drop-down fire ladder. You can climb it up and down, if its put down of course."
-	icon_state = "hatchup00"
+	icon_state = "hatchup10"
 	base_icon_state = "hatchup"
 	allowed_directions = UP
 	opensounds = list('sound/machines/shutters_close.ogg') // Opposite sounds fit better
