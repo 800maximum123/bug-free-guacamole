@@ -8,6 +8,8 @@
 	if(!client || (A in revealed_friendlies))
 		return
 
+	A.appearance_flags |= KEEP_TOGETHER
+
 	var/image/friendlies_spot/new_spot = new /image/friendlies_spot(A.icon, A, A.icon_state, layer = HUD_PLANE)
 	new_spot.CopyOverlays(A, TRUE)
 	new_spot.icon = null
@@ -15,14 +17,14 @@
 	new_spot.dir = SOUTH
 	new_spot.maptext_height = 16
 	new_spot.maptext_width = 96
-	new_spot.maptext_x = 4
-	new_spot.maptext_y = 2
+	new_spot.maptext_x = -10
+	new_spot.maptext_y = -10
 	new_spot.maptext = STYLE_SMALLFONTS_OUTLINE("[A.name]", 7, COLOR_WHITE, COLOR_BLACK)
 
 	new_spot.plane = HUD_PLANE
 
 	var/matrix/M = matrix()
-	M.Scale(3)
+	M.Scale(5)
 
 	new_spot.transform = M
 
@@ -44,6 +46,17 @@
 	if(operating_drone)
 		update_dead_sight()
 
+		if(client)
+			for(var/atom/A as anything in revealed_friendlies)
+				if(!(A in view(client)))
+					hide_friendlies(A)
+
+			for(var/mob/living/carbon/human/H in view(client))
+				if(H.faction != MOB_FACTION_ICCG) // if you want to, you can replace this define with simple faction var, cause currently it will show ICCGN position whatever operator faction is(SCG can take the device and see where every indie currently is)
+					continue
+				if(!(H in revealed_friendlies))
+					show_friendlies(H)
+
 /obj/structure/gaia/controlled_drone
 	mouse_opacity = FALSE
 	layer = 4.11
@@ -54,6 +67,7 @@
 /obj/item/gaia/controller
 	var/obj/structure/gaia/controlled_drone/drone
 	var/mob/living/carbon/human/drone_operator
+
 	icon = 'mods/_fd/fd_assets/icons/obj/items/device_eris.dmi'
 	icon_state = "forensic1"
 
@@ -64,7 +78,7 @@
 
 	drone = new /obj/structure/gaia/controlled_drone(src)
 
-/obj/item/gaia/controller/proc/check_for_op(mob/living/carbon/user)
+/obj/item/gaia/controller/proc/check_for_op(mob/living/carbon/human/user)
 
 	if(!drone_operator && user)
 		drone_operator = user
@@ -73,18 +87,20 @@
 		drone_operator.client.adminobs = TRUE
 		drone_operator.reset_view(drone)
 
-		drone_operator.client.view = 30
+		drone_operator.client.view = 50
 		drone_operator.overlay_fullscreen("tacmap", /obj/screen/fullscreen/fd/blackout/alt)
 
 		for(var/mob/living/carbon/human/H in view(drone_operator.client))
 			if(H.faction != MOB_FACTION_ICCG) // if you want to, you can replace this define with simple drone_operator.faction, cause currently it will show ICCGN position whatever operator faction is(SCG can take the device and see where every indie currently is)
 				continue
 			drone_operator.show_friendlies(H)
+		drone_operator.show_friendlies(drone_operator)
 		return TRUE
 
 	if(drone_operator)
-		for(var/mob/living/carbon/human/H in view(drone_operator.client))
-			drone_operator.hide_friendlies(H)
+		for(var/atom/A as anything in drone_operator.revealed_friendlies)
+			drone_operator.hide_friendlies(A)
+		drone_operator.hide_friendlies(drone_operator)
 
 		drone_operator.client.adminobs = null
 
@@ -93,6 +109,7 @@
 		drone_operator.clear_fullscreen("tacmap")
 
 		drone_operator.operating_drone = FALSE
+		drone_operator = null
 		return TRUE
 
 /obj/item/gaia/controller/dropped(mob/user)

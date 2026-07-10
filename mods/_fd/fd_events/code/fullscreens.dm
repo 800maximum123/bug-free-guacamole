@@ -6,7 +6,9 @@
 	layer = HUD_ABOVE_HUD_LAYER
 
 /obj/screen/fullscreen/fd/blackout/alt
-	layer = UNDER_HUD_LAYER
+	plane = FULLSCREEN_PLANE
+	layer = FULLSCREEN_LAYER
+	scale_to_view = TRUE
 
 /obj/screen/fullscreen/fd/fishbed
 	plane = HUD_PLANE
