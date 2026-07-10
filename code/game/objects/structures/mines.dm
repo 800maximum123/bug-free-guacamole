@@ -46,7 +46,7 @@
 /obj/structure/mine/bullet_act(obj/item/projectile/P, def_zone)
 	if (prob(P.original == src ? 30 : 10)) // Small target, hard to hit on purpose, even harder to hit on accident
 		if (!activated)
-			activate()
+			activate(P)
 		return FALSE
 	return TRUE
 
@@ -67,10 +67,10 @@
 	)
 	if (!activated)
 		pre_activate()
-		activate()
+		activate(weapon)
 	return TRUE
 
-/obj/structure/mine/proc/activate(atom/O)
+/obj/structure/mine/proc/activate()
 	activated = TRUE
 	visible_message(
 		SPAN_DANGER("\The [src] explodes!"),
@@ -187,3 +187,58 @@
 	name = "APS-2 mine"
 	icon_state = "bouncymine_item"
 	mine_type = /obj/structure/mine/bouncy
+
+// FRAG TRIPWIRE
+/obj/structure/mine/tripwire
+	name = "frag tripwire"
+	desc = "Standard frag grenade with a hastly attached thin wire attached to it under tension, crossing it would take out the grenade pin causing it to blow up."
+	icon_state = "tripwire"
+
+	power = 200
+	falloff = 50
+
+	trigger_time = 1 SECOND
+	trigger_sound = 'sound/effects/tripwire.ogg'
+	animated = TRUE
+	var/list/fragment_types = list(/obj/item/projectile/bullet/pellet/fragment = 1)
+	var/num_fragments = 72  //total number of fragments produced by the grenade
+	var/explosion_size = 200   //size of the center explosion. CHANGED IN GAIA
+
+	//The radius of the circle used to launch projectiles. Lower values mean less projectiles are used but if set too low gaps may appear in the spread pattern
+	var/spread_range = 7 //leave as is, for some reason setting this higher makes the spread pattern have gaps close to the epicenter
+
+/obj/structure/mine/tripwire/examine(mob/user)
+	. = ..()
+	to_chat(user, SPAN_NOTICE("You probably can <b>cut</b> the wire with <b>anything sharp</b>."))
+
+/obj/structure/mine/tripwire/activate(atom/O)
+	fragmentate(src.loc, num_fragments, spread_range, fragment_types)
+	. = ..()
+
+/obj/item/device/mine/tripwire
+	name = "frag tripwire"
+	icon_state = "tripwire_item"
+	mine_type = /obj/structure/mine/tripwire
+
+/obj/structure/mine/tripwire/use_weapon(obj/item/weapon, mob/user, list/click_params)
+	return
+
+/obj/structure/mine/tripwire/use_tool(obj/item/tool, mob/living/user, list/click_params)
+	. = ..()
+	if(tool.sharp == TRUE)
+		visible_message(SPAN_NOTICE("[user] starts cutting \the [src] with \the [tool]."))
+		if(!do_after(user, 3 SECONDS, src))
+			if(prob(10))
+				to_chat(user, SPAN_WARNING("Your hand slipped and triggered \the [src]!"))
+				pre_activate()
+				activate()
+			else
+				to_chat(user, SPAN_WARNING("You have been interrupted! Happily nothing happened..."))
+			return
+		visible_message(SPAN_NOTICE("[user] cuts \the [src] with \the [tool]."))
+		playsound(src, "sound/items/Wirecutter.ogg", 20)
+		var/turf/drop = get_turf(src)
+		new /obj/item/grenade/frag(drop)
+		new /obj/item/stack/cable_coil/cut(drop)
+		new /obj/item/stack/material/rods(drop)
+		qdel(src)

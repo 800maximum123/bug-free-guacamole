@@ -110,11 +110,14 @@
 		return
 	var/obj/item/vehicle_component/turret/turret = contained_vehicle?.get_turret_component()
 	if(!istype(turret))
-		to_chat(user, SPAN_WARNING("[contained_vehicle] has no turret to reload."))
+		to_chat(user, SPAN_WARNING("\The [contained_vehicle] has no turret to reload."))
+		return
+	if(turret.current_ammo >= turret.max_ammo)
+		to_chat(user, SPAN_WARNING("\The [turret] is full."))
 		return
 	component_last_inspected = turret
 	user.visible_message(SPAN_NOTICE("[user] starts reloading [contained_vehicle]'s turret..."))
-	playsound(contained_vehicle.loc, 'sound/weapons/guns/interaction/lmg_magout.ogg', 50, 1)
+	playsound(contained_vehicle.loc, 'sound/weapons/guns/interaction/lmg_magout.ogg', 75, 1)
 	if(!do_after(user, 5 SECONDS, contained_vehicle))
 		return
 	if(!turret.reload_from_magazine(I, user))

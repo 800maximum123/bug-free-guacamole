@@ -37,19 +37,6 @@
 	var/obj/item/material/large_blade/blade = locate() in work
 	. = ispath(product, /obj/item/material) && new product(get_turf(work), blade?.material?.name)
 
-// Improvised soda can bomb
-
-/singleton/crafting_stage/wiring/can_bomb
-	item_icon_state = "ied_wired"
-	progress_message = "You add a length of wire and secure it around the hollow frame."
-	item_desc = "A can that had its label ripped off, with a length of wire jutting out of it."
-	next_stages = list(/singleton/crafting_stage/can_bomb)
-
-/singleton/crafting_stage/can_bomb
-	completion_trigger_type  = /obj/item/welder_tank
-	progress_message = "You add the welding fuel tank and rig the wire to its output, sealing the bomb."
-	product = /obj/item/grenade/frag/makeshift // explosive.dm
-
 // Splints
 
 /singleton/crafting_stage/tape/makeshift_splint

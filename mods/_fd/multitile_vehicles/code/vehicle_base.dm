@@ -31,7 +31,7 @@
 	var/dangerous_to_people = TRUE //Hitting people hurts them
 	var/dangerous_to_obstacles = TRUE //Hitting obstacles hurts them
 	var/weaken_to_people = 5
-	var/damage_to_people = 15
+	var/damage_to_people = 20
 	var/damage_to_obstacles = 100
 
 	//Action Button Handling
@@ -198,6 +198,9 @@
 	var/mob/living/user = usr
 	if(!istype(user))
 		return
+	if(user.loc == src)
+		to_chat(user, SPAN_NOTICE("You cannot inspect \the [src] while being inside of it!"))
+		return
 
 	comp_prof.inspect_components(user)
 
@@ -224,6 +227,9 @@
 		to_chat(user,"<span class = 'notice'>[name] is too far away to interact with!</span>")
 		return*/
 	if(!istype(I))
+		return
+	if(user.loc == src)
+		to_chat(user, SPAN_NOTICE("You cannot interact with \the [src] while being inside of it!"))
 		return
 	if(istype(I,/obj/item/grab))
 		handle_grab_attack(I,user)
