@@ -67,8 +67,6 @@
 
 		if(dangerous_to_people)
 			hit_mob.apply_damage(damage_to_people, DAMAGE_BRUTE, UPPER_TORSO, used_weapon = "[src] ramming")
-			if((speed[1] == max_speed || speed[2] == max_speed) || (speed[1] == -max_speed || speed[2] == -max_speed))
-				hit_mob.throw_at(get_edge_target_turf(hit_mob, last_move), 2, 2, spin = TRUE)
 	else
 		next_move_input_at = world.time + min_speed
 		if(last_move == EAST || last_move == WEST)
