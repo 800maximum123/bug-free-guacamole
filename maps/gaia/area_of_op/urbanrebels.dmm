@@ -649,6 +649,10 @@
 /obj/machinery/door/blast/shutters/open,
 /turf/simulated/floor/tiled/techfloor,
 /area/gaia/urbanrebels/inside)
+"aGY" = (
+/obj/machinery/telecomms/receiver/preset_right,
+/turf/simulated/floor/bluegrid,
+/area/gaia/urbanrebels/inside)
 "aHb" = (
 /obj/floor_decal/corner/blue/diagonal,
 /obj/machinery/light{
@@ -723,9 +727,7 @@
 	dir = 1
 	},
 /mob/living/simple_animal/aquatic/fish,
-/obj/fluid_mapped{
-	fluid_amount = 1000
-	},
+/obj/fluid_mapped,
 /turf/simulated/floor/exoplanet/desert,
 /area/gaia/urbanrebels/inside)
 "aLS" = (
@@ -1277,6 +1279,18 @@
 /obj/machinery/door/unpowered/simple/plastic/open,
 /turf/simulated/floor/tiled/white/monotile,
 /area/gaia/urbanrebels/inside)
+"bjx" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/highsecurity{
+	name = "Server Room"
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/gaia/urbanrebels/inside)
 "bjC" = (
 /obj/machinery/light{
 	dir = 8
@@ -1380,6 +1394,10 @@
 	},
 /obj/landmark/scorcher,
 /turf/simulated/floor/tiled/white,
+/area/gaia/urbanrebels/inside)
+"bnW" = (
+/obj/machinery/telecomms/server/presets/medical,
+/turf/simulated/floor/bluegrid,
 /area/gaia/urbanrebels/inside)
 "bob" = (
 /obj/machinery/door/blast/shutters/open{
@@ -1670,6 +1688,17 @@
 /obj/structure/wall_frame/concrete,
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels)
+"bER" = (
+/obj/structure/table/standard{
+	name = "plastic table frame"
+	},
+/obj/item/folder/blue,
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -24
+	},
+/turf/simulated/floor/lino,
+/area/gaia/urbanrebels/inside)
 "bEZ" = (
 /obj/structure/fd/placeholder/better,
 /turf/unsimulated/mineral,
@@ -2241,6 +2270,10 @@
 	pixel_y = -3
 	},
 /turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside)
+"cib" = (
+/obj/machinery/ntnet_relay,
+/turf/simulated/floor/bluegrid,
 /area/gaia/urbanrebels/inside)
 "cjk" = (
 /obj/structure/sign/redcross{
@@ -3119,9 +3152,7 @@
 /obj/structure/window/basic{
 	dir = 8
 	},
-/obj/fluid_mapped{
-	fluid_amount = 1000
-	},
+/obj/fluid_mapped,
 /turf/simulated/floor/exoplanet/desert,
 /area/gaia/urbanrebels/inside)
 "cPH" = (
@@ -3391,6 +3422,10 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/shuttle/white,
+/area/gaia/urbanrebels/inside)
+"cYF" = (
+/obj/wallframe_spawn/reinforced,
+/turf/simulated/floor/plating,
 /area/gaia/urbanrebels/inside)
 "cZa" = (
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
@@ -3813,6 +3848,12 @@
 /obj/floor_decal/corner/lime/diagonal,
 /obj/structure/bed/chair/padded/lime,
 /turf/simulated/floor/tiled/white,
+/area/gaia/urbanrebels/inside)
+"dzF" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 8
+	},
+/turf/simulated/floor/lino,
 /area/gaia/urbanrebels/inside)
 "dzK" = (
 /obj/structure/flora/pottedplant/unusual,
@@ -4627,6 +4668,10 @@
 /obj/structure/fog,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/urbanrebels)
+"ekd" = (
+/obj/machinery/telecomms/bus/preset_one,
+/turf/simulated/floor/bluegrid,
+/area/gaia/urbanrebels/inside)
 "ekg" = (
 /obj/floor_decal/borderfloor,
 /obj/floor_decal/corner/darkblue/border,
@@ -6276,6 +6321,21 @@
 /area/gaia/urbanrebels/inside)
 "fBg" = (
 /obj/structure/closet/secure_closet/guncabinet,
+/obj/item/ammo_magazine/box/pistol,
+/obj/item/ammo_magazine/box/pistol,
+/obj/item/ammo_magazine/box/pistol,
+/obj/item/ammo_magazine/box/pistol,
+/obj/item/ammo_magazine/speedloader,
+/obj/item/ammo_magazine/speedloader,
+/obj/item/ammo_magazine/speedloader,
+/obj/item/ammo_magazine/speedloader,
+/obj/item/ammo_magazine/speedloader,
+/obj/item/ammo_magazine/speedloader,
+/obj/item/gun/projectile/revolver/medium,
+/obj/item/gun/projectile/revolver/medium,
+/obj/item/gun/projectile/revolver/medium,
+/obj/item/gun/projectile/revolver/medium,
+/obj/item/gun/projectile/revolver/medium,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/gaia/urbanrebels/inside)
 "fBn" = (
@@ -7010,6 +7070,13 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/gaia/urbanrebels/inside)
+"gpW" = (
+/obj/machinery/telecomms/processor/preset_one,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/bluegrid,
+/area/gaia/urbanrebels/inside)
 "gqs" = (
 /obj/machinery/door/unpowered/simple,
 /obj/lock_helper/unlocked/gaia_police,
@@ -7144,7 +7211,7 @@
 /area/gaia/urbanrebels)
 "gvB" = (
 /obj/shuttle_landmark/lift/iccg_stopa_shuttle/op,
-/turf/simulated/floor/armored,
+/turf/simulated/floor/reinforced,
 /area/gaia/urbanrebels)
 "gvH" = (
 /obj/structure/table/woodentable_reinforced/mahogany,
@@ -7451,6 +7518,10 @@
 	},
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels)
+"gGF" = (
+/obj/machinery/telecomms/bus/preset_four,
+/turf/simulated/floor/bluegrid,
+/area/gaia/urbanrebels/inside)
 "gHb" = (
 /obj/landmark/map_data{
 	height = 3
@@ -8555,6 +8626,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood,
+/area/gaia/urbanrebels/inside)
+"hJj" = (
+/obj/machinery/telecomms/broadcaster/preset_right,
+/turf/simulated/floor/bluegrid,
 /area/gaia/urbanrebels/inside)
 "hKr" = (
 /obj/structure/table/rack,
@@ -9699,6 +9774,10 @@
 "iFD" = (
 /turf/simulated/wall/concrete,
 /area/gaia/urbanrebels/underground)
+"iGp" = (
+/obj/machinery/telecomms/bus/preset_three,
+/turf/simulated/floor/bluegrid,
+/area/gaia/urbanrebels/inside)
 "iGR" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 4
@@ -9751,6 +9830,10 @@
 	pixel_x = -2
 	},
 /turf/simulated/floor/wood,
+/area/gaia/urbanrebels/inside)
+"iLd" = (
+/obj/machinery/telecomms/processor/preset_four,
+/turf/simulated/floor/bluegrid,
 /area/gaia/urbanrebels/inside)
 "iLe" = (
 /obj/structure/table/rack,
@@ -9844,6 +9927,10 @@
 /obj/structure/table/woodentable,
 /obj/item/stack/material/rods/ten,
 /turf/simulated/floor/wood/maple,
+/area/gaia/urbanrebels/inside)
+"iPu" = (
+/obj/machinery/r_n_d/server/robotics,
+/turf/simulated/floor/bluegrid,
 /area/gaia/urbanrebels/inside)
 "iPz" = (
 /obj/floor_decal/corner/b_green/border,
@@ -10459,6 +10546,12 @@
 /obj/floor_decal/industrial/outline/green,
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/urbanrebels/inside)
+"juI" = (
+/obj/machinery/door/airlock/glass/engineering{
+	name = "Server Room"
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/gaia/urbanrebels/inside)
 "jvd" = (
 /turf/simulated/wall/concrete,
 /area/gaia/urbanrebels/inside)
@@ -10805,6 +10898,12 @@
 /obj/floor_decal/spline/fancy/wood/corner,
 /turf/simulated/floor/wood/maple,
 /area/gaia/urbanrebels/inside)
+"jGX" = (
+/obj/structure/table/standard{
+	name = "plastic table frame"
+	},
+/turf/simulated/floor/lino,
+/area/gaia/urbanrebels/inside)
 "jHg" = (
 /obj/floor_decal/hull{
 	dir = 1
@@ -10856,6 +10955,10 @@
 /obj/landmark/scorcher,
 /turf/simulated/floor/exoplanet/barren,
 /area/gaia/urbanrebels)
+"jKj" = (
+/obj/machinery/telecomms/processor/preset_three,
+/turf/simulated/floor/bluegrid,
+/area/gaia/urbanrebels/inside)
 "jKx" = (
 /obj/structure/table/rack,
 /obj/floor_decal/industrial/outline/grey,
@@ -11335,6 +11438,15 @@
 	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/white,
+/area/gaia/urbanrebels/inside)
+"kgF" = (
+/obj/structure/table/reinforced,
+/obj/machinery/recharger/wallcharger{
+	dir = 1;
+	pixel_y = -22
+	},
+/obj/item/melee/baton/black,
+/turf/simulated/floor/tiled/techfloor,
 /area/gaia/urbanrebels/inside)
 "kif" = (
 /obj/structure/hygiene/shower{
@@ -13858,6 +13970,13 @@
 "mor" = (
 /turf/simulated/floor/reinforced/airmix,
 /area/gaia/urbanrebels)
+"moW" = (
+/obj/machinery/computer/message_monitor{
+	dir = 4
+	},
+/obj/machinery/light,
+/turf/simulated/floor/lino,
+/area/gaia/urbanrebels/inside)
 "moZ" = (
 /obj/item/material/shard/caltrop,
 /turf/simulated/floor/tiled/dark/monotile,
@@ -14363,6 +14482,13 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/gaia/urbanrebels/inside)
+"mMA" = (
+/obj/machinery/computer/telecomms/server{
+	dir = 4;
+	network = "tcommsat"
+	},
+/turf/simulated/floor/lino,
+/area/gaia/urbanrebels/inside)
 "mNt" = (
 /obj/structure/bed/chair/shuttle/blue{
 	dir = 1
@@ -14466,6 +14592,15 @@
 	},
 /obj/structure/flora/pottedplant/aquatic,
 /turf/simulated/floor/wood,
+/area/gaia/urbanrebels/inside)
+"mRZ" = (
+/obj/structure/table/rack,
+/obj/item/stock_parts/circuitboard/telecomms/broadcaster,
+/obj/item/stock_parts/circuitboard/telecomms/bus,
+/obj/item/stock_parts/circuitboard/telecomms/server,
+/obj/item/stock_parts/circuitboard/telecomms/receiver,
+/obj/item/stock_parts/circuitboard/telecomms/processor,
+/turf/simulated/floor/tiled/dark,
 /area/gaia/urbanrebels/inside)
 "mSx" = (
 /obj/structure/table/rack,
@@ -14625,6 +14760,12 @@
 	icon_state = "railing0-1"
 	},
 /turf/simulated/floor/tiled/monotile,
+/area/gaia/urbanrebels/inside)
+"nal" = (
+/obj/machinery/light_switch{
+	pixel_x = 22
+	},
+/turf/simulated/floor/lino,
 /area/gaia/urbanrebels/inside)
 "nas" = (
 /obj/structure/table/woodentable_reinforced/ebony,
@@ -15419,6 +15560,10 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/urbanrebels/inside)
+"nIC" = (
+/obj/machinery/bluespacerelay,
+/turf/simulated/floor/bluegrid,
+/area/gaia/urbanrebels/inside)
 "nIE" = (
 /obj/structure/fog/no_desert,
 /turf/simulated/floor/tiled/monotile,
@@ -15626,6 +15771,18 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/urbanrebels/inside)
+"nSJ" = (
+/obj/structure/table/rack,
+/obj/item/stock_parts/subspace/amplifier,
+/obj/item/stock_parts/subspace/amplifier,
+/obj/item/stock_parts/subspace/ansible,
+/obj/item/stock_parts/subspace/ansible,
+/obj/item/stock_parts/subspace/crystal,
+/obj/item/stock_parts/subspace/crystal,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside)
 "nSL" = (
 /obj/structure/bed/sofa/l/black,
 /obj/floor_decal/carpet/blue{
@@ -15766,7 +15923,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/gaia/urbanrebels/underground)
 "nZg" = (
-/turf/simulated/floor/armored,
+/turf/simulated/floor/reinforced,
 /area/gaia/urbanrebels)
 "nZr" = (
 /obj/structure/table/rack,
@@ -15845,6 +16002,7 @@
 	pixel_y = 24;
 	id_tag = "armory"
 	},
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled,
 /area/gaia/urbanrebels/inside)
 "ocU" = (
@@ -15861,6 +16019,10 @@
 	},
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels)
+"oda" = (
+/obj/machinery/telecomms/server/presets/service,
+/turf/simulated/floor/bluegrid,
+/area/gaia/urbanrebels/inside)
 "oee" = (
 /obj/fluid_mapped,
 /obj/structure/window/basic,
@@ -16367,6 +16529,10 @@
 /obj/structure/table/woodentable_reinforced,
 /turf/simulated/floor/wood,
 /area/gaia/urbanrebels/inside)
+"oAn" = (
+/obj/machinery/telecomms/server/presets/science,
+/turf/simulated/floor/bluegrid,
+/area/gaia/urbanrebels/inside)
 "oAz" = (
 /obj/floor_decal/corner/yellow/border{
 	dir = 8
@@ -16579,9 +16745,7 @@
 	dir = 8
 	},
 /mob/living/simple_animal/aquatic/fish/judge,
-/obj/fluid_mapped{
-	fluid_amount = 1000
-	},
+/obj/fluid_mapped,
 /turf/simulated/floor/exoplanet/desert,
 /area/gaia/urbanrebels/inside)
 "oHN" = (
@@ -16820,6 +16984,19 @@
 /obj/structure/table/glass,
 /obj/item/storage/firstaid/surgery,
 /turf/simulated/floor/tiled/monotile,
+/area/gaia/urbanrebels/inside)
+"oPJ" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside)
+"oQw" = (
+/obj/machinery/computer/telecomms/monitor{
+	dir = 4;
+	network = "tcommsat"
+	},
+/turf/simulated/floor/lino,
 /area/gaia/urbanrebels/inside)
 "oRg" = (
 /obj/item/stack/medical/ointment,
@@ -17352,6 +17529,10 @@
 	desc = "A key to the town's gas station."
 	},
 /turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside)
+"pmP" = (
+/obj/machinery/telecomms/server/presets/command,
+/turf/simulated/floor/bluegrid,
 /area/gaia/urbanrebels/inside)
 "pnI" = (
 /obj/structure/window/reinforced/windshield/right{
@@ -19082,9 +19263,7 @@
 /obj/structure/window/basic{
 	dir = 8
 	},
-/obj/fluid_mapped{
-	fluid_amount = 1000
-	},
+/obj/fluid_mapped,
 /turf/simulated/floor/exoplanet/desert,
 /area/gaia/urbanrebels/inside)
 "qEh" = (
@@ -19145,6 +19324,10 @@
 /obj/machinery/light_construct/streetlight/south,
 /turf/simulated/floor/exoplanet/gravel,
 /area/gaia/urbanrebels)
+"qGr" = (
+/obj/machinery/telecomms/server/presets/exploration,
+/turf/simulated/floor/bluegrid,
+/area/gaia/urbanrebels/inside)
 "qGy" = (
 /obj/floor_decal/corner/darkblue/border,
 /obj/structure/platform/hybrisa/metalplatform1,
@@ -20053,6 +20236,13 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/techmaint,
 /area/gaia/urbanrebels/inside)
+"rzt" = (
+/obj/machinery/telecomms/bus/preset_two,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/bluegrid,
+/area/gaia/urbanrebels/inside)
 "rzS" = (
 /obj/structure/platform_decoration/hybrisa/metalplatformdeco1{
 	dir = 8
@@ -20158,9 +20348,7 @@
 	dir = 8
 	},
 /mob/living/simple_animal/aquatic/fish/grump,
-/obj/fluid_mapped{
-	fluid_amount = 1000
-	},
+/obj/fluid_mapped,
 /turf/simulated/floor/exoplanet/desert,
 /area/gaia/urbanrebels/inside)
 "rGq" = (
@@ -20319,6 +20507,13 @@
 /obj/machinery/door/airlock/command,
 /turf/simulated/floor/tiled/dark,
 /area/gaia/urbanrebels/inside)
+"rKu" = (
+/obj/item/device/radio/intercom{
+	dir = 8;
+	pixel_x = 22
+	},
+/turf/simulated/floor/lino,
+/area/gaia/urbanrebels/inside)
 "rKN" = (
 /obj/floor_decal/industrial/warning/dust{
 	dir = 4
@@ -20345,6 +20540,10 @@
 	req_access = list("ACCESS_ARMORY")
 	},
 /turf/simulated/floor/wood/walnut,
+/area/gaia/urbanrebels/inside)
+"rLS" = (
+/obj/machinery/telecomms/processor/preset_two,
+/turf/simulated/floor/bluegrid,
 /area/gaia/urbanrebels/inside)
 "rLY" = (
 /obj/structure/bed/padded,
@@ -20686,6 +20885,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/concrete,
+/area/gaia/urbanrebels/inside)
+"rZZ" = (
+/obj/machinery/telecomms/hub/preset,
+/turf/simulated/floor/bluegrid,
 /area/gaia/urbanrebels/inside)
 "sam" = (
 /obj/machinery/ion_engine/big{
@@ -21370,6 +21573,19 @@
 	icon_state = "wood_broken2"
 	},
 /area/gaia/urbanrebels/inside)
+"sIl" = (
+/obj/structure/table/rack,
+/obj/item/stock_parts/subspace/treatment,
+/obj/item/stock_parts/subspace/treatment,
+/obj/item/stock_parts/subspace/analyzer,
+/obj/item/stock_parts/subspace/analyzer,
+/obj/item/stock_parts/subspace/transmitter,
+/obj/item/stock_parts/subspace/transmitter,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside)
 "sJB" = (
 /obj/structure/roller_bed,
 /obj/floor_decal/corner/paleblue/diagonal,
@@ -21902,6 +22118,10 @@
 	},
 /turf/simulated/wall/concrete,
 /area/gaia/urbanrebels/inside)
+"tmn" = (
+/obj/structure/hygiene/drain/bath,
+/turf/simulated/floor/pool,
+/area/gaia/urbanrebels)
 "tmF" = (
 /obj/structure/bed/chair/wood{
 	dir = 4;
@@ -21999,6 +22219,10 @@
 /obj/machinery/light,
 /obj/floor_decal/corner/paleblue/mono,
 /turf/simulated/floor/tiled/white/monotile,
+/area/gaia/urbanrebels/inside)
+"ttt" = (
+/obj/machinery/telecomms/server/presets/security,
+/turf/simulated/floor/bluegrid,
 /area/gaia/urbanrebels/inside)
 "ttx" = (
 /obj/item/caution/cone,
@@ -22288,6 +22512,12 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/gaia/urbanrebels/inside)
+"tJT" = (
+/obj/structure/hygiene/faucet{
+	dir = 4
+	},
+/turf/simulated/floor/pool,
+/area/gaia/urbanrebels)
 "tKq" = (
 /obj/structure/table/marble,
 /obj/structure/hygiene/sink/modern{
@@ -22896,6 +23126,10 @@
 /obj/item/clothing/suit/storage/toggle/brown_jacket,
 /turf/simulated/floor/wood,
 /area/gaia/urbanrebels/inside)
+"uia" = (
+/obj/machinery/telecomms/server/presets/common,
+/turf/simulated/floor/bluegrid,
+/area/gaia/urbanrebels/inside)
 "uib" = (
 /obj/structure/wall_frame/titanium,
 /obj/machinery/light/small/headlight/alt{
@@ -22994,6 +23228,10 @@
 /obj/landmark/scorcher,
 /turf/simulated/floor/plating,
 /area/gaia/urbanrebels)
+"umI" = (
+/obj/machinery/telecomms/server/presets/engineering,
+/turf/simulated/floor/bluegrid,
+/area/gaia/urbanrebels/inside)
 "umL" = (
 /obj/structure/platform/hybrisa/metalplatform2{
 	dir = 4
@@ -24345,6 +24583,12 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/urbanrebels/inside)
+"vqS" = (
+/obj/machinery/light_switch{
+	pixel_x = 22
+	},
+/turf/simulated/floor/tiled/dark,
 /area/gaia/urbanrebels/inside)
 "vra" = (
 /obj/structure/table/woodentable_reinforced/mahogany,
@@ -25968,6 +26212,10 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/urbanrebels/inside)
+"wKj" = (
+/obj/machinery/telecomms/server/presets/supply,
+/turf/simulated/floor/bluegrid,
+/area/gaia/urbanrebels/inside)
 "wKo" = (
 /obj/machinery/constructable_frame/machine_frame,
 /turf/simulated/floor/lino,
@@ -26617,6 +26865,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/gaia/urbanrebels/inside)
+"xhQ" = (
+/obj/machinery/message_server,
+/turf/simulated/floor/bluegrid,
+/area/gaia/urbanrebels/inside)
 "xhX" = (
 /obj/structure/bed/sofa/r/red{
 	dir = 4
@@ -27125,6 +27377,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/gaia/urbanrebels/underground/sewers)
+"xIM" = (
+/obj/machinery/r_n_d/server/core,
+/turf/simulated/floor/bluegrid,
+/area/gaia/urbanrebels/inside)
 "xIQ" = (
 /obj/structure/table/marble,
 /obj/structure/hygiene/sink/modern,
@@ -27478,9 +27734,6 @@
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/urbanrebels/inside)
 "xZW" = (
-/obj/fluid_mapped{
-	fluid_amount = 1000
-	},
 /turf/simulated/floor/pool,
 /area/gaia/urbanrebels)
 "yaR" = (
@@ -156973,17 +157226,17 @@ adP
 jvd
 qar
 qar
-jvd
-jvd
-jvd
-jvd
-jvd
-jvd
-jvd
-jvd
-jvd
-jvd
-jvd
+jDh
+jDh
+jDh
+jDh
+jDh
+jDh
+jDh
+jDh
+jDh
+jDh
+jDh
 qar
 aEc
 cZa
@@ -157325,17 +157578,17 @@ adP
 jvd
 qar
 qar
-jvd
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-jvd
+jDh
+nSJ
+mRZ
+hAw
+hAw
+hAw
+hAw
+hAw
+hAw
+hAw
+jDh
 qar
 aEc
 gGA
@@ -157677,17 +157930,17 @@ adP
 jvd
 qar
 qar
-jvd
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-jvd
+jDh
+sIl
+hAw
+hAw
+hAw
+hAw
+hAw
+hAw
+hAw
+hAw
+jDh
 qar
 aEc
 cZa
@@ -158029,17 +158282,17 @@ adP
 jvd
 qar
 qar
+jDh
 jvd
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-adP
 jvd
+jvd
+jvd
+hAw
+jvd
+jvd
+jvd
+jvd
+jDh
 qar
 aEc
 gGA
@@ -158381,17 +158634,17 @@ adP
 jvd
 qar
 qar
-jvd
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-jvd
+jDh
+hAw
+hAw
+hAw
+hAw
+hAw
+rzt
+rLS
+gpW
+ekd
+jDh
 qar
 aEc
 cZa
@@ -158733,17 +158986,17 @@ adP
 jvd
 qar
 qar
-jvd
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-jvd
+jDh
+pmP
+umI
+aGY
+hAw
+hAw
+hAw
+hAw
+hAw
+hAw
+jDh
 qar
 aEc
 gGA
@@ -159085,17 +159338,17 @@ adP
 jvd
 qar
 qar
-jvd
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-jvd
+jDh
+wKj
+oAn
+hJj
+hAw
+hAw
+iPu
+gGF
+hAw
+iGp
+jDh
 qar
 aEc
 cZa
@@ -159437,17 +159690,17 @@ adP
 jvd
 qar
 qar
-jvd
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-jvd
+jDh
+oPJ
+hAw
+hAw
+hAw
+hAw
+xIM
+iLd
+hAw
+jKj
+jDh
 qar
 aEc
 gGA
@@ -159789,17 +160042,17 @@ adP
 jvd
 qar
 qar
-jvd
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-jvd
+jDh
+bnW
+ttt
+nIC
+hAw
+hAw
+cYF
+cYF
+cYF
+cYF
+jDh
 qar
 aEc
 cZa
@@ -160141,17 +160394,17 @@ adP
 jvd
 qar
 qar
-jvd
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-jvd
+jDh
+oda
+qGr
+cib
+hAw
+hAw
+cYF
+oQw
+mMA
+moW
+jDh
 qar
 aEc
 gGA
@@ -160493,17 +160746,17 @@ adP
 jvd
 qar
 qar
+jDh
+oPJ
+hAw
+hAw
+hAw
+dvs
 jvd
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-jvd
+jGX
+dzF
+bER
+jDh
 qar
 cBN
 cZa
@@ -160845,17 +161098,17 @@ adP
 jvd
 qar
 qar
-jvd
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-adP
-jvd
+jDh
+uia
+rZZ
+xhQ
+hAw
+vqS
+juI
+rKu
+laY
+nal
+bjx
 qar
 aEc
 gGA
@@ -161197,17 +161450,17 @@ jvd
 jvd
 qar
 qar
-jvd
-jvd
-jvd
-jvd
-jvd
-jvd
-jvd
-jvd
-jvd
-jvd
-jvd
+jDh
+jDh
+jDh
+jDh
+jDh
+jDh
+jDh
+jDh
+jDh
+jDh
+jDh
 qar
 aEc
 cZa
@@ -171810,7 +172063,7 @@ rQJ
 jDh
 gPE
 jiO
-vUd
+kgF
 jDh
 jvd
 jvd
@@ -201671,10 +201924,10 @@ xZW
 xZW
 xZW
 xZW
-xZW
-xZW
-xZW
-xZW
+tJT
+tJT
+tJT
+tJT
 xZW
 xZW
 xZW
@@ -206600,9 +206853,9 @@ xZW
 xZW
 xZW
 xZW
+tmn
 xZW
-xZW
-xZW
+tmn
 xZW
 xZW
 xZW
@@ -207304,9 +207557,9 @@ xZW
 xZW
 xZW
 xZW
+tmn
 xZW
-xZW
-xZW
+tmn
 xZW
 xZW
 xZW
@@ -208008,9 +208261,9 @@ xZW
 xZW
 xZW
 xZW
+tmn
 xZW
-xZW
-xZW
+tmn
 xZW
 xZW
 xZW
@@ -223877,19 +224130,19 @@ qar
 rQJ
 rQJ
 rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
 qar
 qar
-rQJ
+qar
+qar
+qar
+qar
+qar
+qar
+qar
+qar
+qar
+qar
+qar
 qar
 cZa
 cZa
@@ -224229,20 +224482,20 @@ qar
 rQJ
 rQJ
 rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
 qar
-qar
-rQJ
-qar
+cZa
+cZa
+cZa
+cZa
+cZa
+cZa
+cZa
+cZa
+cZa
+cZa
+cZa
+cZa
+cZa
 cZa
 cZa
 dOa
@@ -224579,22 +224832,22 @@ rQJ
 qar
 qar
 rQJ
-rQJ
 vtc
 rQJ
-rQJ
-rQJ
-vtc
-rQJ
-rQJ
-rQJ
-vtc
-rQJ
-rQJ
 qar
-qar
-rQJ
-qar
+cZa
+cZa
+cZa
+cZa
+cZa
+cZa
+cZa
+cZa
+cZa
+cZa
+cZa
+cZa
+cZa
 cZa
 cZa
 dOa
@@ -224933,20 +225186,20 @@ qar
 rQJ
 rQJ
 rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
 qar
-qar
-rQJ
-qar
+cZa
+cZa
+cZa
+cZa
+cZa
+cZa
+cZa
+cZa
+cZa
+cZa
+cZa
+cZa
+cZa
 cZa
 cZa
 dOa
@@ -225285,19 +225538,19 @@ qar
 rQJ
 rQJ
 rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
+qar
+cZa
+cZa
+cZa
+cZa
 qar
 qar
-rQJ
+qar
+qar
+qar
+qar
+qar
+qar
 qar
 cZa
 cZa
@@ -225637,12 +225890,12 @@ qar
 rQJ
 rQJ
 rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
-rQJ
+qar
+cZa
+cZa
+cZa
+cZa
+qar
 rQJ
 rQJ
 rQJ
@@ -225990,10 +226243,10 @@ gWj
 mIK
 mIK
 mIK
-mIK
-mIK
-mIK
-mIK
+xNZ
+xNZ
+xNZ
+xNZ
 mIK
 mIK
 mIK
@@ -226342,10 +226595,10 @@ pDZ
 nHX
 jRA
 epF
-epF
-epF
-epF
-epF
+wVc
+wVc
+wVc
+wVc
 epF
 epF
 hRP
@@ -231623,7 +231876,7 @@ fAB
 nZg
 nZg
 nZg
-nZg
+gvB
 nZg
 nZg
 nZg
@@ -278819,10 +279072,10 @@ fng
 nEb
 qLo
 nEb
-nEb
-nEb
-nEb
-nEb
+xNZ
+xNZ
+xNZ
+xNZ
 nEb
 qLo
 nEb
@@ -279171,10 +279424,10 @@ ppX
 nHX
 wVc
 epF
-epF
-epF
-epF
-epF
+wVc
+wVc
+wVc
+wVc
 epF
 wVc
 hRP
