@@ -43,8 +43,8 @@
 	var/list/sprite_offsets = list("1" = list(0,0),"2" = list(0,0),"4" = list(0,0),"8" = list(0,0)) //Handled Directionally. Numbers correspond to directions
 
 	//Passenger Management
-	var/list/occupants = list(1,1) //Contains all occupants of the vehicle including the driver. First 2 values defines max passengers /gunners. Format: [MobRef] = [PositionName]
-	var/list/passengers = list()
+	var/list/occupants = list() //Contains all occupants of the vehicle including the driver.
+	var/list/available_seats = list(VP_DRIVER = 1)
 	var/list/exposed_positions = list(VP_DRIVER = 0) //Assoc. Value is the chance of hitting this position
 
 	//Cargo
@@ -77,6 +77,9 @@
 	var/turret_control_position = VP_GUNNER
 	var/image/turret_overlay
 
+	var/image/wheels = null
+	var/image/livery = "apc-liveryBASIC"
+
 /obj/vehicles/New()
 	. = ..()
 	comp_prof = new comp_prof(src)
@@ -97,6 +100,12 @@
 		inserted_key.key_data = serial_number
 	if(has_turret_component())
 		init_turret()
+	if(wheels)
+		wheels = overlay_image(icon, wheels)
+		AddOverlays(wheels) //TODO: Make wheels a component that is put on the vehicle
+	if(livery)
+		livery = overlay_image(icon, livery)
+		AddOverlays(livery)
 
 /obj/vehicles/lost_in_space()
 	if(!can_space_move)

@@ -15,7 +15,6 @@
 
 	comp_prof = /datum/component_profile/iccg_apc/turret
 
-	occupants = list(1,1)
 	exposed_positions = list(VP_DRIVER = 0)
 	turret_control_position = VP_DRIVER
 
@@ -38,8 +37,10 @@
 
 	serial_number = "iccg_apc"
 	key_type = /obj/item/key/car/iccg_apc
-	/// What livery is on the APC?
-	var/image/livery = "apc-liveryBASIC"
+
+	wheels = "apc-wheels"
+	livery = "apc-liveryBASIC"
+
 	/// Toggleable shutters
 	var/image/shutters = "apc-shutters1"
 	var/shutters_open = TRUE
@@ -53,13 +54,9 @@
 
 /obj/vehicles/large/iccg_apc/Initialize()
 	. = ..()
-	var/W = overlay_image(icon, initial(icon_state) + "-wheels")
-	AddOverlays(W) //TODO: Make wheels a component that is put on the vehicle
-
-	livery = overlay_image('maps/gaia/icons/vehicles/apc.dmi', livery)
-	AddOverlays(livery)
-	shutters = overlay_image('maps/gaia/icons/vehicles/apc.dmi', shutters)
-	AddOverlays(shutters)
+	if(shutters)
+		shutters = overlay_image(icon, shutters)
+		AddOverlays(shutters)
 
 /obj/vehicles/large/iccg_apc/verb/toggle_shutters()
 	set name = "Toggle Shutters"
