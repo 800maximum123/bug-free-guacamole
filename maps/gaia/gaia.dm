@@ -47,6 +47,7 @@
 	#include "../gaia/items/bell.dm"
 	#include "../gaia/items/cards_ids.dm"
 	#include "../gaia/items/clothes.dm"
+	#include "../gaia/items/drone_warfare.dm"
 	#include "../gaia/items/gaian_cops.dm"
 	#include "../gaia/items/pmc_gear.dm"
 	#include "../gaia/items/pcarriers.dm"
