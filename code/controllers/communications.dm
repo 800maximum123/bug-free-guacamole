@@ -109,8 +109,11 @@ var/global/const/COMM_FREQ = 1353
 var/global/const/ERT_FREQ	= 1345
 var/global/const/AI_FREQ	= 1343
 var/global/const/ENT_FREQ	= 1461 //entertainment frequency. This is not a diona exclusive frequency.
+// GAIAN FREQUENCIES
 var/global/const/ICCGN_FREQ = 1344
+var/global/const/ICCGN_CAM_FREQ = 1348
 var/global/const/SFV_FREQ = 1346
+var/global/const/SFV_CAM_FREQ = 1350
 
 //antagonist channels
 var/global/const/DTH_FREQ	= 1341
@@ -169,9 +172,11 @@ var/global/list/radiochannels = list(
 	"AI Private"	= AI_FREQ,
 	"Entertainment" = ENT_FREQ,
 	"Medical (I)"	= MED_I_FREQ,
-	"Security (I)"	= SEC_I_FREQ,
-	"ICCGN"         = ICCGN_FREQ,
-	"SCGDF"         = SFV_FREQ,
+	"Police (I)"	= SEC_I_FREQ, // [GAIA]
+	"ICCGN"			= ICCGN_FREQ, // [GAIA]
+	"ICCGN (C)"		= ICCGN_CAM_FREQ, // [GAIA]
+	"SCGDF"			= SFV_FREQ, // [GAIA]
+	"SCGDF (C)"		= SFV_CAM_FREQ, // [GAIA]
 )
 
 var/global/list/channel_color_presets = list(
@@ -247,8 +252,12 @@ var/global/list/DEPT_FREQS = list(AI_FREQ, COMM_FREQ, ENG_FREQ, MED_FREQ, SEC_FR
 		return "deptradio"
 	if (frequency == ICCGN_FREQ) // ICCGN Frequency
 		return "iccgradio"
+	if (frequency == ICCGN_CAM_FREQ) // ICCGN helmet cams Frequency
+		return "iccgiradio"
 	if (frequency == SFV_FREQ) // SCGDF Frequency
 		return "scgradio"
+	if (frequency == SFV_CAM_FREQ) // SCGDF helmet cams Frequency
+		return "scgiradio"
 
 	// Away site channels
 	for (var/channel in AWAY_FREQS_ASSIGNED)

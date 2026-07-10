@@ -2007,6 +2007,10 @@
 /obj/landmark/start{
 	name = "Commanding Officer"
 	},
+/obj/item/device/radio/intercom/gaia_scg{
+	dir = 1;
+	pixel_y = -32
+	},
 /turf/simulated/floor/steel_dirty,
 /area/gaia/scg/command)
 "nA" = (
@@ -2354,7 +2358,7 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/scg)
 "qp" = (
-/obj/item/device/radio/intercom/specops{
+/obj/item/device/radio/intercom/gaia_scg{
 	dir = 1;
 	pixel_y = -32
 	},
@@ -4482,8 +4486,8 @@
 /turf/simulated/floor/lino,
 /area/gaia/scg/barracks/ps)
 "FH" = (
-/obj/machinery/external_cooling_device,
 /obj/decal/cleanable/dirt,
+/obj/machinery/telecomms/allinone/gaia_scg/cam,
 /turf/simulated/floor/tiled/old_cargo,
 /area/gaia/scg/engineering/communications)
 "FI" = (
@@ -6278,8 +6282,8 @@
 /turf/simulated/floor/plating,
 /area/gaia/scg/armory)
 "SA" = (
-/obj/item/device/radio/intercom/hailing{
-	pixel_y = 23
+/obj/item/device/radio/intercom/gaia_scg/cam{
+	pixel_y = 24
 	},
 /turf/simulated/floor/lino,
 /area/gaia/scg/command)
@@ -6600,6 +6604,13 @@
 	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/scg)
+"US" = (
+/obj/item/device/radio/intercom/gaia_scg/cam{
+	dir = 1;
+	pixel_y = -32
+	},
+/turf/simulated/floor/lino,
+/area/gaia/scg/command)
 "UW" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/hull{
@@ -22212,7 +22223,7 @@ ZK
 By
 up
 gi
-FT
+US
 CT
 LK
 DF

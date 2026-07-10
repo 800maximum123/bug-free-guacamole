@@ -112,7 +112,6 @@
 		/obj/item/clothing/glasses/ballistic,
 		/obj/item/clothing/gloves/thick/duty,
 		/obj/item/storage/firstaid/small_combat,
-		/obj/item/device/binoculars,
 		/obj/item/device/gps/scg,
 		/obj/item/cell/device/high,
 		/obj/item/device/radio/off/gaia_scg,
@@ -209,7 +208,6 @@
 		/obj/item/clothing/accessory/storage/webbing_large,
 		/obj/item/clothing/glasses/ballistic,
 		/obj/item/storage/firstaid/small_combat,
-		/obj/item/device/binoculars,
 		/obj/item/device/gps/iccg,
 		/obj/item/cell/device/high,
 		/obj/item/device/radio/off/gaia_iccg,
@@ -238,6 +236,27 @@
 		/obj/item/crowbar/prybar,
 		/obj/item/material/knife/folding/swiss/loot,
 		/obj/item/reagent_containers/food/snacks/liquidfood,
+	)
+
+/obj/structure/closet/gaia/iccg_crewman
+	name = "'ekphipazh transporta' closet"
+	desc = "A rectangular steel crate for keeping vehicle crewman's personal belongings."
+
+/obj/structure/closet/gaia/iccg_crewman/WillContain()
+	return list(
+		/obj/item/storage/backpack/satchel/eng,
+		/obj/item/clothing/head/tank/iccg,
+		/obj/item/clothing/accessory/storage/black_vest,
+		/obj/item/clothing/glasses/tacgoggles,
+		/obj/item/clothing/glasses/welding,
+		/obj/item/clothing/gloves/thick/duty,
+		/obj/item/storage/firstaid/fire,
+		/obj/item/storage/belt/utility/full,
+		/obj/item/welder_tank/large,
+		/obj/item/stack/material/steel/ten,
+		/obj/item/device/binoculars,
+		/obj/item/cell/device/high,
+		/obj/item/crowbar/emergency_forcing_tool,
 	)
 
 // CIVVIES

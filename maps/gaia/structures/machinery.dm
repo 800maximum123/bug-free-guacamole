@@ -6,9 +6,18 @@
 	channel_name = "SCGDF"
 	circuitboard = /obj/item/stock_parts/circuitboard/telecomms/allinone/gaia_scg
 
+/obj/machinery/telecomms/allinone/gaia_scg/cam
+	listening_freqs = list(SFV_CAM_FREQ)
+	channel_color = COMMS_COLOR_SOL_C
+	channel_name = "SCGDF (C)"
+	circuitboard = /obj/item/stock_parts/circuitboard/telecomms/allinone/gaia_scg/cam
+
 // Telecomms Items
 /obj/item/stock_parts/circuitboard/telecomms/allinone/gaia_scg
 	build_path = /obj/machinery/telecomms/allinone/gaia_scg
+
+/obj/item/stock_parts/circuitboard/telecomms/allinone/gaia_scg/cam
+	build_path = /obj/machinery/telecomms/allinone/gaia_scg/cam
 
 /obj/item/device/radio/headset/gaia_scg
 	name = "SCGDF headset"
@@ -37,6 +46,17 @@
 	listening = 0
 	frequency = SFV_FREQ
 
+/obj/item/device/radio/intercom/gaia_scg
+	name = "intercom (SCGDF)"
+	frequency = SFV_FREQ
+
+/obj/item/device/radio/intercom/gaia_scg/cam
+	name = "intercom (SCGDF (C))"
+	frequency = SFV_CAM_FREQ
+	canhear_range = 5
+	broadcasting = 0
+	listening = 1
+
 // INDEPENDENT COLONIAL CONFEDERATION OF GILGAMESH
 // Telecomms
 /obj/machinery/telecomms/allinone/gaia_iccg
@@ -45,9 +65,18 @@
 	channel_name = "ICCGN"
 	circuitboard = /obj/item/stock_parts/circuitboard/telecomms/allinone/gaia_iccg
 
+/obj/machinery/telecomms/allinone/gaia_iccg/cam
+	listening_freqs = list(ICCGN_CAM_FREQ)
+	channel_color = COMMS_COLOR_ICCG_C
+	channel_name = "ICCGN (C)"
+	circuitboard = /obj/item/stock_parts/circuitboard/telecomms/allinone/gaia_iccg/cam
+
 // Telecomms Items
 /obj/item/stock_parts/circuitboard/telecomms/allinone/gaia_iccg
 	build_path = /obj/machinery/telecomms/allinone/gaia_iccg
+
+/obj/item/stock_parts/circuitboard/telecomms/allinone/gaia_iccg/cam
+	build_path = /obj/machinery/telecomms/allinone/gaia_iccg/cam
 
 /obj/item/device/radio/headset/gaia_iccg
 	name = "ICCGN headset"
@@ -74,3 +103,14 @@
 	name = "shortwave radio (ICCGN)"
 	listening = 0
 	frequency = ICCGN_FREQ
+
+/obj/item/device/radio/intercom/gaia_iccg
+	name = "intercom (ICCGN)"
+	frequency = ICCGN_FREQ
+
+/obj/item/device/radio/intercom/gaia_iccg/cam
+	name = "intercom (ICCGN (C))"
+	frequency = ICCGN_CAM_FREQ
+	canhear_range = 5
+	broadcasting = 0
+	listening = 1

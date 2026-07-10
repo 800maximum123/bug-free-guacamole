@@ -325,8 +325,11 @@
 	flags_inv = BLOCKHEADHAIR
 	color = "#5f5f5f"
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		bomb = ARMOR_BOMB_PADDED
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_RESISTANT,
 		)
 
 /obj/item/clothing/head/tank/olive

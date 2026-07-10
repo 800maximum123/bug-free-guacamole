@@ -128,7 +128,9 @@
 #define COMMS_COLOR_COLONY     "#ceaf3e"
 #define COMMS_COLOR_VERNE      "#738465"
 #define COMMS_COLOR_ICCG       "#790000"
+#define COMMS_COLOR_ICCG_C     "#733c3c"
 #define	COMMS_COLOR_SOL        "#436b8e"
+#define	COMMS_COLOR_SOL_C      "#74808a"
 
 #define WOOD_COLOR_GENERIC     "#d5a66e"
 #define WOOD_COLOR_RICH        "#792f27"

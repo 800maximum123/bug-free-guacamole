@@ -41,9 +41,21 @@
 /obj/item/clothing/head/helmet/riot/iccg
 	desc = "It's a helmet specifically designed to protect against close range attacks. It says 'Sdelano v Novya Zemlya' on the inside."
 	camera = /obj/machinery/camera/network/helmet_iccg
+	radio = /obj/item/device/radio/attachable_camera/iccg
+
+/obj/item/clothing/head/tank/iccg
+	desc = "A padded skullcup for those prone to bumping their heads against hard surfaces. It says 'Sdelano v Novya Zemlya' on the inside."
+	camera = /obj/machinery/camera/network/helmet_iccg
+	radio = /obj/item/device/radio/attachable_camera/iccg
 
 /obj/item/clothing/suit/armor/pcarrier/medium/police
 	accessories = list(/obj/item/clothing/accessory/armor_plate/medium, /obj/item/clothing/accessory/armor_tag/solgov/sec)
 
 /obj/item/clothing/head/helmet/solgov/security/police
 	name = "police helmet"
+	camera = /obj/machinery/camera/network/gaia
+	radio = /obj/item/device/radio/attachable_camera
+
+/obj/item/clothing/head/helmet/riot/police
+	camera = /obj/machinery/camera/network/gaia
+	radio = /obj/item/device/radio/attachable_camera

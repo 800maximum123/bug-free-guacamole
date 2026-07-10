@@ -42,7 +42,9 @@
 		num2text(SEC_I_FREQ) = list(access_iccg_sec),
 		num2text(HAIL_FREQ)  = list(),
 		num2text(SFV_FREQ)   = list(access_solgov_crew),
+		num2text(SFV_CAM_FREQ)   = list(access_bridge),
 		num2text(ICCGN_FREQ) = list(access_iccg),
+		num2text(ICCGN_CAM_FREQ) = list(access_iccg_com),
 		// USED BY CIVVIES
 		num2text(COMM_FREQ)  = list(access_radio_comm),
 		num2text(ENG_FREQ)   = list(access_radio_eng),

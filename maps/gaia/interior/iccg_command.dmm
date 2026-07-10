@@ -51,12 +51,12 @@
 /turf/simulated/floor/shuttle/black,
 /area/interior)
 "G" = (
-/obj/item/device/radio/intercom/custom{
-	dir = 8;
-	pixel_x = 23
-	},
 /obj/structure/table/steel_reinforced,
 /obj/machinery/photocopier/faxmachine,
+/obj/item/device/radio/intercom/gaia_iccg{
+	dir = 8;
+	pixel_x = 24
+	},
 /turf/simulated/floor/shuttle/darkred,
 /area/interior)
 "I" = (
@@ -104,16 +104,16 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/interior)
 "O" = (
-/obj/item/device/radio/intercom/hailing{
-	dir = 4;
-	pixel_x = -23
-	},
 /obj/machinery/computer/modular/preset/medical{
 	dir = 4
 	},
 /obj/item/tableflag/iccg{
 	pixel_x = -5;
 	pixel_y = 16
+	},
+/obj/item/device/radio/intercom/gaia_iccg/cam{
+	dir = 4;
+	pixel_x = -24
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/interior)

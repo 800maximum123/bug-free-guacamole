@@ -111,13 +111,13 @@
 	pixel_x = -32
 	},
 /obj/floor_decal/industrial/hatch/grey,
-/obj/machinery/button/flasher{
-	pixel_y = 24
-	},
 /obj/item/crowbar/emergency_forcing_tool,
 /obj/item/grenade/chem_grenade/teargas,
 /obj/item/clothing/mask/gas,
 /obj/item/key/car/iccg_apc,
+/obj/item/device/radio/intercom/gaia_iccg{
+	pixel_y = 24
+	},
 /turf/simulated/floor/shuttle/black,
 /area/interior)
 "F" = (
@@ -134,6 +134,11 @@
 	},
 /obj/floor_decal/industrial/outline/grey,
 /obj/structure/window/reinforced,
+/obj/machinery/button/flasher{
+	pixel_y = 24;
+	id_tag = "mp_apc";
+	pixel_x = 24
+	},
 /turf/simulated/floor/shuttle/black,
 /area/interior)
 "N" = (

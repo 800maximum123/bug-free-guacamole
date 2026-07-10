@@ -134,7 +134,7 @@
 	name = "ICCG Garrison"
 	landmark_tag = "nav_iccg_stopa_shuttle_camp"
 	base_area = /area/gaia/iccg
-	base_turf = /turf/simulated/floor/armored
+	base_turf = /turf/simulated/floor/reinforced
 
 /obj/shuttle_landmark/lift/iccg_stopa_shuttle/transit
 	name = "In transit"

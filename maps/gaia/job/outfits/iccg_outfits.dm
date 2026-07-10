@@ -1,6 +1,6 @@
 // -- ICCG --
 /singleton/hierarchy/outfit/job/gaia/iccg
-	name = OUTFIT_JOB_NAME("ICCG Gaia Default Outfit")
+	name = OUTFIT_JOB_NAME("Gaia - ICCG Default Outfit")
 	hierarchy_type = /singleton/hierarchy/outfit/job/gaia/iccg
 	l_ear = /obj/item/device/radio/headset/gaia_iccg
 	r_pocket = null
@@ -12,13 +12,13 @@
 // -- COMMAND --
 // COMMANDING OFFICER
 /singleton/hierarchy/outfit/job/gaia/iccg/command
-	name = OUTFIT_JOB_NAME("ICCG Gaia Command Outfit")
+	name = OUTFIT_JOB_NAME("Gaia - ICCG Command Outfit")
 	hierarchy_type = /singleton/hierarchy/outfit/job/gaia/iccg/command
 	l_ear = /obj/item/device/radio/headset/gaia_iccg/command
 	l_pocket = /obj/item/key/gaia/iccg
 
 /singleton/hierarchy/outfit/job/gaia/iccg/command/CO
-	name = OUTFIT_JOB_NAME("ICCG Gaia Commanding Officer")
+	name = OUTFIT_JOB_NAME("Gaia - ICCG Commanding Officer")
 	uniform = /obj/item/clothing/under/iccgn/combat/command
 	shoes = /obj/item/clothing/shoes/iccgn/utility
 	id_types = list(/obj/item/card/id/gaia/iccg/co)
@@ -30,7 +30,7 @@
 
 // PLATOON SERGEANT
 /singleton/hierarchy/outfit/job/gaia/iccg/command/XO
-	name = OUTFIT_JOB_NAME("ICCG Gaia Executive Officer")
+	name = OUTFIT_JOB_NAME("Gaia - ICCG Executive Officer")
 	uniform = /obj/item/clothing/under/iccgn/combat/command
 	shoes = /obj/item/clothing/shoes/iccgn/utility
 	id_types = list(/obj/item/card/id/gaia/iccg/xo)
@@ -43,7 +43,7 @@
 // -- SUPPORT STAFF --
 // MEDIC
 /singleton/hierarchy/outfit/job/gaia/iccg/medic
-	name = OUTFIT_JOB_NAME("ICCG Gaia Medic")
+	name = OUTFIT_JOB_NAME("Gaia - ICCG Medic")
 	uniform = /obj/item/clothing/under/iccgn/combat/medical
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/dark
 	shoes = /obj/item/clothing/shoes/iccgn/utility
@@ -51,7 +51,7 @@
 	id_types = list(/obj/item/card/id/gaia/iccg/medic)
 
 /singleton/hierarchy/outfit/job/gaia/iccg/medic/pmc
-	name = OUTFIT_JOB_NAME("ICCG PMC Gaia Medic")
+	name = OUTFIT_JOB_NAME("Gaia - ICCG Medic - PMC")
 	uniform = /obj/item/clothing/under/sestris_pmc
 	suit = /obj/item/clothing/suit/surgicalapron
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -62,14 +62,14 @@
 
 //ENGINEER
 /singleton/hierarchy/outfit/job/gaia/iccg/engineer
-	name = OUTFIT_JOB_NAME("ICCG Gaia Engineer")
+	name = OUTFIT_JOB_NAME("Gaia - ICCG Engineer")
 	uniform = /obj/item/clothing/under/iccgn/combat/engineering
 	shoes = /obj/item/clothing/shoes/iccgn/utility
 	head = /obj/item/clothing/head/hardhat/red
 	id_types = list(/obj/item/card/id/gaia/iccg/engineer)
 
 /singleton/hierarchy/outfit/job/gaia/iccg/engineer/pmc
-	name = OUTFIT_JOB_NAME("ICCG PMC Gaia Engineer")
+	name = OUTFIT_JOB_NAME("Gaia - ICCG Engineer - PMC")
 	uniform = /obj/item/clothing/under/sestris_pmc
 	shoes = /obj/item/clothing/shoes/jackboots
 
@@ -79,7 +79,7 @@
 
 // MILITARY POLICE
 /singleton/hierarchy/outfit/job/gaia/iccg/mp
-	name = OUTFIT_JOB_NAME("ICCG Gaia Military Police")
+	name = OUTFIT_JOB_NAME("Gaia - ICCG Military Police")
 	uniform = /obj/item/clothing/under/iccgn/combat/security
 	shoes = /obj/item/clothing/shoes/iccgn/utility
 	l_pocket = /obj/item/handcuffs
@@ -94,18 +94,18 @@
 // -- COMBAT (meatshields) --
 // SQUAD LEADER
 /singleton/hierarchy/outfit/job/gaia/iccg/squad_leader
-	name = OUTFIT_JOB_NAME("ICCG Gaia Squad Leader")
+	name = OUTFIT_JOB_NAME("Gaia - ICCG Squad Leader")
 	uniform = /obj/item/clothing/under/iccgn/combat/command
 	shoes = /obj/item/clothing/shoes/iccgn/utility
 	id_types = list(/obj/item/card/id/gaia/iccg/squad_leader)
 
 // TROOPER
 /singleton/hierarchy/outfit/job/gaia/iccg/trooper
-	name = OUTFIT_JOB_NAME("ICCG Gaia Trooper")
+	name = OUTFIT_JOB_NAME("Gaia - ICCG Trooper")
 	uniform = /obj/item/clothing/under/iccgn/combat
 	shoes = /obj/item/clothing/shoes/iccgn/utility
 
 /singleton/hierarchy/outfit/job/gaia/iccg/trooper/pmc
-	name = OUTFIT_JOB_NAME("ICCG PMC Gaia Trooper")
+	name = OUTFIT_JOB_NAME("Gaia - ICCG Trooper - PMC")
 	uniform = /obj/item/clothing/under/sestris_pmc
 	shoes = /obj/item/clothing/shoes/jackboots

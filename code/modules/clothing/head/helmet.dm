@@ -26,49 +26,12 @@
 	w_class = ITEM_SIZE_NORMAL
 	species_restricted = list("exclude", SPECIES_NABBER, SPECIES_ADHERENT)
 
-	var/obj/machinery/camera/camera
-
-/obj/item/clothing/head/helmet/Initialize()
-	. = ..()
-	if(camera)
-		verbs += /obj/item/clothing/head/helmet/proc/toggle_camera
-
-/obj/item/clothing/head/helmet/examine(mob/user, distance)
-	. = ..()
-	if(distance <= 1 && camera)
-		to_chat(user, "This helmet has a built-in camera. Its [!ispath(camera) && camera.status ? "" : "in"]active.")
-
-/obj/item/clothing/head/helmet/Destroy()
-	if(camera && !ispath(camera))
-		QDEL_NULL(camera)
-	. = ..()
-
 /obj/item/clothing/head/helmet/needs_vision_update()
 	for(var/obj/item/clothing/accessory/glassesmod/visor in accessories)
 		return TRUE
 	. = ..()
 
-/obj/item/clothing/head/helmet/proc/toggle_camera()
-	set name = "Toggle Helmet Camera"
-	set category = "Object"
-	set src in usr
-
-	if(ispath(camera))
-		camera = new camera(src)
-		camera.set_stat_immunity(MACHINE_STAT_NOPOWER)
-		camera.set_status(0)
-		camera.is_helmet_cam = TRUE
-
-	if(camera)
-		camera.set_status(!camera.status)
-		if(camera.status)
-			camera.c_tag = FindNameFromID(usr)
-			to_chat(usr, SPAN_NOTICE("User scanned as [camera.c_tag]. Camera activated."))
-		else
-			to_chat(usr, SPAN_NOTICE("Camera deactivated."))
-
 /obj/item/clothing/head/helmet/verb/toggle_visor()
-
 	set name = "Toggle Helmet Attachments"
 	set category = "Object"
 	set src in usr

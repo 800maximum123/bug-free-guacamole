@@ -39,9 +39,15 @@
 	/// if this item covers the feet, the footprints it should leave
 	var/move_trail = /obj/decal/cleanable/blood/tracks/footprints
 
+	/// Built-in camera
+	var/obj/machinery/camera/camera
+	/// BUilt-in radio
+	var/obj/item/device/radio/radio
 
 /obj/item/clothing/Initialize()
 	. = ..()
+	if(camera)
+		verbs += /obj/item/clothing/proc/toggle_camera
 	var/list/init_accessories = accessories
 	accessories = list()
 	for (var/path in init_accessories)
@@ -49,8 +55,11 @@
 	if(toggleable)
 		set_extension(src, /datum/extension/base_icon_state, icon_state)
 
-
 /obj/item/clothing/Destroy()
+	if(camera && !ispath(camera))
+		QDEL_NULL(camera)
+	if(radio && !ispath(radio))
+		QDEL_NULL(radio)
 	for (var/obj/item/clothing/accessory/A as anything in accessories)
 		remove_accessory(null, A)
 		qdel(A)
@@ -58,6 +67,48 @@
 	accessories = null
 	. = ..()
 
+/obj/item/clothing/proc/attach_camera(mob/user, obj/item/attachable_camera/attached)
+	if(!istype(attached))
+		return FALSE
+	if(!is_type_in_list(src, attached.allowed_clothes))
+		to_chat(user, SPAN_WARNING("\The [attached] is not compatible with \the [src]!"))
+		return FALSE
+	if(camera)
+		to_chat(user, SPAN_WARNING("There is already \the [camera] on \the [src]!"))
+		return FALSE
+	if(radio)
+		to_chat(user, SPAN_WARNING("There is already \the [radio] on \the [src]!"))
+		return FALSE
+	camera = attached.camera
+	radio = attached.radio
+	verbs += /obj/item/clothing/proc/toggle_camera
+	to_chat(user, SPAN_NOTICE("You attach \the [attached] to \the [src]."))
+	playsound(src.loc, 'sound/items/penclick.ogg', 30, TRUE, -5)
+	qdel(attached)
+	return TRUE
+
+/obj/item/clothing/proc/toggle_camera()
+	set name = "Toggle Camera"
+	set category = "Object"
+	set src in usr
+
+	if(ispath(camera))
+		camera = new camera(src)
+		camera.set_stat_immunity(MACHINE_STAT_NOPOWER)
+		camera.set_status(0)
+		camera.is_helmet_cam = TRUE
+	if(ispath(radio))
+		radio = new radio(src)
+
+	if(camera)
+		camera.set_status(!camera.status)
+		if(camera.status)
+			camera.c_tag = FindNameFromID(usr)
+			to_chat(usr, SPAN_NOTICE("User scanned as [camera.c_tag]. Camera [radio ? "and microphone " : ""]activated."))
+		else
+			to_chat(usr, SPAN_NOTICE("Camera [radio ? "and microphone " : ""]deactivated."))
+	if(radio)
+		radio.ToggleBroadcast()
 
 // Updates the icons of the mob wearing the clothing item, if any.
 /obj/item/clothing/proc/update_clothing_icon()
@@ -200,11 +251,13 @@
 	for (var/obj/item/clothing/accessory/A in accessories)
 		. |= HAS_FLAGS(A.flags_inv, CLOTHING_BULKY) ? A.body_parts_covered : 0
 
-/obj/item/clothing/examine(mob/user)
+/obj/item/clothing/examine(mob/user, distance, is_adjacent)
 	. = ..()
 	var/datum/extension/armor/ablative/armor_datum = get_extension(src, /datum/extension/armor/ablative)
 	if(istype(armor_datum) && LAZYLEN(armor_datum.get_visible_damage()))
 		to_chat(user, SPAN_WARNING("It has some <a href='byond://?src=\ref[src];list_armor_damage=1'>damage</a>."))
+	if(is_adjacent && camera)
+		to_chat(user, "This helmet has a built-in camera. Its [!ispath(camera) && camera.status ? "" : "in"]active.")
 
 /obj/item/clothing/CanUseTopic(user)
 	if(user in view(get_turf(src)))
@@ -232,6 +285,8 @@
 
 /obj/item/clothing/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	SHOULD_CALL_PARENT(TRUE)
+	if (attach_camera(user, tool))
+		return TRUE
 	if (attempt_attach_accessory(tool, user))
 		return TRUE
 	if (attempt_store_item(tool, user))

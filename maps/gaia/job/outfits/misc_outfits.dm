@@ -1,5 +1,5 @@
 /singleton/hierarchy/outfit/job/gaia
-	name = OUTFIT_JOB_NAME("Gaian Outfit")
+	name = OUTFIT_JOB_NAME("Gaia - Outfit")
 	hierarchy_type = /singleton/hierarchy/outfit/job/gaia
 	uniform = /obj/item/clothing/under/color/grey
 	r_pocket = /obj/item/device/radio
@@ -9,13 +9,13 @@
 
 // -- ADMIN --
 /singleton/hierarchy/outfit/job/gaia/scg/command/montogomery
-	name = OUTFIT_JOB_NAME("SCG Gaia Colonel Monotogomery")
+	name = OUTFIT_JOB_NAME("Gaia - SCG Colonel Monotogomery")
 	uniform = /obj/item/clothing/under/scga/service_command
 	shoes = /obj/item/clothing/shoes/scga/dress
 	id_types = list(/obj/item/card/id/gaia/scg/co)
 
 /singleton/hierarchy/outfit/job/gaia/iccg/command/alistratova
-	name = OUTFIT_JOB_NAME("ICCG Gaia Kapitan Alistratova")
+	name = OUTFIT_JOB_NAME("Gaia - ICCG Kapitan Alistratova")
 	uniform = /obj/item/clothing/under/iccgn/service_command
 	shoes = /obj/item/clothing/shoes/iccgn/service
 	id_types = list(/obj/item/card/id/gaia/iccg/co)
@@ -23,16 +23,16 @@
 // -- CIVVIES --
 // CITIZEN
 /singleton/hierarchy/outfit/job/gaia/citizen
-	name = OUTFIT_JOB_NAME("Gaian Citizen")
+	name = OUTFIT_JOB_NAME("Gaia - Citizen")
 
 /singleton/hierarchy/outfit/job/gaia/homeless
-	name = OUTFIT_JOB_NAME("Gaian Homeless")
+	name = OUTFIT_JOB_NAME("Gaia - Homeless")
 	id_types = null // No ID lol
 	pda_type = null
 
 // MAYOR
 /singleton/hierarchy/outfit/job/gaia/mayor
-	name = OUTFIT_JOB_NAME("Gaian Mayor")
+	name = OUTFIT_JOB_NAME("Gaia - Mayor")
 	uniform = /obj/item/clothing/under/suit_jacket/navy
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/monocle
@@ -43,7 +43,7 @@
 
 // POLICE
 /singleton/hierarchy/outfit/job/gaia/police
-	name = OUTFIT_JOB_NAME("Gaian Police Officer")
+	name = OUTFIT_JOB_NAME("Gaia - Police Officer")
 	uniform = /obj/item/clothing/under/gaiacop/towner
 	shoes = /obj/item/clothing/shoes/leather
 	head = /obj/item/clothing/head/gaiacop
@@ -55,7 +55,7 @@
 
 // FIREFIGHTER
 /singleton/hierarchy/outfit/job/gaia/firefighter
-	name = OUTFIT_JOB_NAME("Gaian Firefighter")
+	name = OUTFIT_JOB_NAME("Gaia - Firefighter")
 	uniform = /obj/item/clothing/under/color/red/firefighter
 	shoes = /obj/item/clothing/shoes/workboots
 	id_types = list(/obj/item/card/id/gaia/firefighter)
@@ -64,7 +64,7 @@
 
 // MEDICAL
 /singleton/hierarchy/outfit/job/gaia/paramedic
-	name = OUTFIT_JOB_NAME("Gaian Paramedic")
+	name = OUTFIT_JOB_NAME("Gaia - Paramedic")
 	uniform = /obj/item/clothing/under/rank/medical/scrubs/blue
 	shoes = /obj/item/clothing/shoes/white
 	gloves = /obj/item/clothing/gloves/latex
@@ -75,7 +75,7 @@
 	backpack_contents = list(/obj/item/device/radio = 1, /obj/item/key/gaia/medical = 1)
 
 /singleton/hierarchy/outfit/job/gaia/doctor
-	name = OUTFIT_JOB_NAME("Gaian Doctor")
+	name = OUTFIT_JOB_NAME("Gaia - Doctor")
 	uniform = /obj/item/clothing/under/rank/medical
 	shoes = /obj/item/clothing/shoes/white
 	gloves = /obj/item/clothing/gloves/latex/nitrile
@@ -87,7 +87,7 @@
 
 // WORKER
 /singleton/hierarchy/outfit/job/gaia/worker
-	name = OUTFIT_JOB_NAME("Gaian Construction Worker")
+	name = OUTFIT_JOB_NAME("Gaia - Construction Worker")
 	uniform = /obj/item/clothing/under/hazard
 	shoes = /obj/item/clothing/shoes/workboots
 	head = /obj/item/clothing/head/hardhat
@@ -97,7 +97,7 @@
 	backpack_contents = list(/obj/item/device/radio = 1, /obj/item/key/gaia/engineering = 1)
 
 /singleton/hierarchy/outfit/job/gaia/miner
-	name = OUTFIT_JOB_NAME("Gaian Shaft Miner")
+	name = OUTFIT_JOB_NAME("Gaia - Shaft Miner")
 	uniform = /obj/item/clothing/under/rank/miner
 	shoes = /obj/item/clothing/shoes/workboots
 	head = /obj/item/clothing/head/hardhat/orange
@@ -109,13 +109,13 @@
 
 // MISC
 /singleton/hierarchy/outfit/job/gaia/chaplain
-	name = OUTFIT_JOB_NAME("Gaian Chaplain")
+	name = OUTFIT_JOB_NAME("Gaia - Chaplain")
 	uniform = /obj/item/clothing/under/rank/chaplain
 	l_hand = /obj/item/storage/bible
 	l_pocket = /obj/item/key/gaia/church
 
 /singleton/hierarchy/outfit/job/gaia/prisoner
-	name = OUTFIT_JOB_NAME("Gaian Prisoner")
+	name = OUTFIT_JOB_NAME("Gaia - Prisoner")
 	uniform = /obj/item/clothing/under/color/orange
 	shoes = /obj/item/clothing/shoes/orange
 	pda_type = null

@@ -17,6 +17,7 @@
 	name = "tactical helmet"
 	desc = "Reinforced headgear. Protects the head from impacts. It says 'Sdelano v Novya Zemlya' on the inside."
 	camera = /obj/machinery/camera/network/helmet_iccg
+	radio = /obj/item/device/radio/attachable_camera/iccg
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_RIFLE,
@@ -34,6 +35,7 @@
 /obj/item/clothing/head/helmet/gaia/sol
 	desc = "Reinforced headgear. Protects the head from impacts. It says 'MADE IN SCG' on the inside."
 	camera = /obj/machinery/camera/network/helmet_scg
+	radio = /obj/item/device/radio/attachable_camera/scg
 	icon_state = "sol-helmet"
 	item_state = "sol-helmet"
 
