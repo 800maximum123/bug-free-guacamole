@@ -21,14 +21,23 @@
 
 	allowed_spawns = list("Area of Operations", "SCG Barracks", "SCG Officer Barracks", "ICCG Barracks", "ICCG Officer Barracks")
 	default_spawn = "Area of Operations"
-
+/*
 	station_name  = "\improper Boxcutters Platoon"
 	station_short = "\improper Boxcutters"
+*/
+	station_name  = "\improper Urbomanka Municipality"
+	station_short = "\improper Urbomanka"
 	dock_name     = "TBD"
+/*
 	boss_name     = "Colonel Montgomery"
 	boss_short    = "Col. Monty"
 	company_name  = "Solar Central Government"
 	company_short = "SolGov"
+*/
+	boss_name     = "Regional Governor"
+	boss_short    = "Governor"
+	company_name  = "Napoleon Mountains Region"
+	company_short = "NMR"
 	system_name   = "Galilei System"
 
 	evil_station_name  = "\improper Garnizon Morskiye Draguny"
