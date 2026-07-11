@@ -268,9 +268,15 @@
 
 	last_safety_check = world.time
 	var/shoot_time = (burst - 1)* burst_delay
-	if(!istype(user,/mob/living/simple_animal/simple_mecha))
+	if(!istype(user,/mob/living/simple_animal/simple_mecha) && !ishuman(user)) // FD
 		user.setClickCooldown(shoot_time) //no clicking on things while shooting
 		user.SetMoveCooldown(shoot_time) //no moving while shooting either
+	else // FD
+		if(ishuman(user)) // FD
+			var/mob/living/carbon/human/H = user // FD
+			if(!H.get_status_effect(/datum/simple_status/tf_character)) // FD
+				H.setClickCooldown(shoot_time) // FD
+				H.SetMoveCooldown(shoot_time) // FD
 	next_fire_time = world.time + shoot_time
 
 	var/held_twohanded = (user.can_wield_item(src) && src.is_held_twohanded(user))
