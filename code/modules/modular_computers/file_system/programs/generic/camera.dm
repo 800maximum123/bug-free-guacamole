@@ -34,7 +34,7 @@
 		if(NETWORK_GAIA)
 			return access_maint_tunnels
 
-	return access_security // Default for all other networks
+	//return access_security // Default for all other networks REMOVED FOR GAIA!
 
 /datum/computer_file/program/camera_monitor
 	filename = "cammon"
