@@ -107,10 +107,11 @@
 	icon = 'icons/obj/guns/boltaction.dmi'
 	icon_state = "boltaction"
 	item_state = "boltaction"
-	w_class = ITEM_SIZE_LARGE
+	w_class = ITEM_SIZE_HUGE
 	origin_tech = list(TECH_COMBAT = 2)
 	caliber = CALIBER_RIFLE
 	ammo_type = /obj/item/ammo_casing/rifle
+	slot_flags = SLOT_BACK
 	load_method = SINGLE_CASING|SPEEDLOADER
 	screen_shake = 0
 	max_shells = 5
