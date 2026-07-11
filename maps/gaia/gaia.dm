@@ -73,8 +73,10 @@
 	#include "../gaia/turf/mineral.dm"
 
 	#include "../../mods/_fd/multitile_vehicles/_multitile_vehicles.dme" // fucky whacky
+	#include "../gaia/vehicles/derelict.dm"
 	#include "../gaia/vehicles/iccg_apc.dm"
 	#include "../gaia/vehicles/suv.dm"
+	#include "../gaia/vehicles/van.dm"
 
 	#include "../gaia/job/gaia_jobs.dm"
 	#include "../gaia/job/iccg_jobs.dm"

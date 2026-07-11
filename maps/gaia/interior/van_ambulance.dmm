@@ -1,0 +1,187 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/paint/silver,
+/obj/paint_stripe/paleblue,
+/turf/simulated/wall/invincible,
+/area/interior)
+"i" = (
+/turf/simulated/floor/tiled/white,
+/area/interior)
+"j" = (
+/obj/structure/roller_bed/nanoblood,
+/obj/floor_decal/industrial/hatch/blue,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white/monotile,
+/area/interior)
+"p" = (
+/obj/structure/closet/walllocker{
+	pixel_y = -32
+	},
+/obj/structure/bed/chair/shuttle/blue{
+	dir = 4
+	},
+/obj/floor_decal/industrial/outline/blue,
+/obj/item/storage/toolbox/emergency,
+/obj/item/crowbar/emergency_forcing_tool,
+/obj/item/device/flashlight,
+/obj/item/device/radio/intercom/department/medbay{
+	dir = 4;
+	pixel_x = -24
+	},
+/turf/simulated/floor/tiled/white/monotile,
+/area/interior)
+"r" = (
+/obj/structure/vehiclewindow{
+	dir = 8;
+	pixel_x = 24
+	},
+/obj/structure/roller_bed/nanoblood,
+/obj/floor_decal/industrial/hatch/blue,
+/turf/simulated/floor/tiled/white/monotile,
+/area/interior)
+"y" = (
+/obj/structure/vehiclewindow{
+	dir = 4;
+	pixel_x = -24
+	},
+/obj/machinery/sleeper/survival_pod{
+	dir = 4
+	},
+/obj/floor_decal/industrial/hatch/blue,
+/turf/simulated/floor/tiled/white/monotile,
+/area/interior)
+"A" = (
+/obj/structure/vehicledoor_driver,
+/obj/paint_stripe/paleblue,
+/turf/simulated/floor/tiled/white,
+/area/interior)
+"E" = (
+/obj/structure/vehicledoor/airlock,
+/turf/simulated/floor/tiled/white,
+/area/interior)
+"G" = (
+/obj/structure/table/reinforced,
+/obj/machinery/recharger,
+/obj/item/defibrillator/loaded,
+/obj/item/defibrillator/loaded,
+/obj/item/cell/high,
+/obj/item/cell/device/high,
+/obj/random/medical/lite,
+/obj/random/medical/lite,
+/obj/item/storage/box/freezer/blood/human,
+/obj/structure/closet/secure_closet/medical_wall{
+	pixel_y = 32;
+	req_access = null
+	},
+/turf/simulated/floor/tiled/white/monotile,
+/area/interior)
+"I" = (
+/obj/machinery/sleeper/survival_pod{
+	dir = 4
+	},
+/obj/floor_decal/industrial/hatch/blue,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white/monotile,
+/area/interior)
+"P" = (
+/obj/machinery/vending/wallmed1{
+	dir = 8;
+	pixel_x = 24
+	},
+/obj/structure/closet/secure_closet/medical_wall{
+	pixel_y = 32;
+	req_access = null
+	},
+/obj/random/firstaid,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical/lite,
+/obj/random/medical/lite,
+/obj/structure/iv_stand,
+/obj/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/white/monotile,
+/area/interior)
+"R" = (
+/obj/effect/vehicle_entrance_driver,
+/obj/floor_decal/industrial/loading,
+/turf/simulated/floor/tiled/white,
+/area/interior)
+"U" = (
+/obj/effect/vehicle_entrance,
+/obj/floor_decal/industrial/loading{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/interior)
+"Y" = (
+/obj/structure/table/reinforced,
+/obj/structure/closet/walllocker{
+	pixel_y = -32
+	},
+/obj/item/tank/oxygen/full,
+/obj/item/tank/oxygen/full,
+/obj/item/tank/oxygen/full,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/gripper/auto_cpr,
+/obj/item/gripper/auto_cpr,
+/obj/item/gripper/auto_cpr,
+/obj/structure/extinguisher_cabinet{
+	dir = 8;
+	pixel_x = 24
+	},
+/turf/simulated/floor/tiled/white/monotile,
+/area/interior)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+G
+I
+y
+I
+p
+a
+"}
+(3,1,1) = {"
+A
+R
+i
+i
+i
+U
+E
+"}
+(4,1,1) = {"
+a
+P
+j
+r
+j
+Y
+a
+"}
+(5,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+"}

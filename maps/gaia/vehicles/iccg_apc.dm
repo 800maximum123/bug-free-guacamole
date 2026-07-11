@@ -19,7 +19,7 @@
 	turret_control_position = VP_DRIVER
 
 	vehicle_size = ITEM_SIZE_VEHICLE_LARGE
-	capacity_flag = ITEM_SIZE_VEHICLE_LARGE
+	capacity_flag = ITEM_SIZE_VEHICLE
 
 	vehicle_view_modifier = 1.5
 
@@ -29,7 +29,7 @@
 
 	interior_template = /datum/map_template/iccg_apc
 	size_x = 5
-	size_y = 10
+	size_y = 7
 
 	has_alarm = TRUE
 	alarm_sounds = list('maps/gaia/sounds/vehicles/iccg_apc_siren.ogg')

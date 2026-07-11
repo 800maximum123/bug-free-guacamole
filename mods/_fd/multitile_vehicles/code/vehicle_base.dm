@@ -78,7 +78,7 @@
 	var/image/turret_overlay
 
 	var/image/wheels = null
-	var/image/livery = "apc-liveryBASIC"
+	var/image/livery = null
 
 /obj/vehicles/New()
 	. = ..()
