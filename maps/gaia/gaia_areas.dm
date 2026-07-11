@@ -101,8 +101,62 @@
 			'maps/gaia/sounds/ambience/propaganda/propaganda6.ogg',
 			)
 
+/area/gaia/urbanrebels/park
+	name = "\improper Urbomanka - Park"
+
+/area/gaia/urbanrebels/river
+	name = "\improper Urbomanka - River"
+
 /area/gaia/urbanrebels/street
 	name = "\improper Urbomanka - Street"
+
+/area/gaia/urbanrebels/street/paula
+	name = "\improper Urbomanka - Paula's Broadway"
+
+/area/gaia/urbanrebels/street/brundino
+	name = "\improper Urbomanka - Brundino's Street"
+
+/area/gaia/urbanrebels/street/lusiano
+	name = "\improper Urbomanka - Lusiano's Street"
+
+/area/gaia/urbanrebels/street/quentino
+	name = "\improper Urbomanka - Quentino's Street"
+
+/area/gaia/urbanrebels/street/lizandro
+	name = "\improper Urbomanka - Lizandro's Street"
+
+/area/gaia/urbanrebels/street/talita
+	name = "\improper Urbomanka - Talita's Street"
+
+/area/gaia/urbanrebels/street/willmar
+	name = "\improper Urbomanka - Willmar's Street"
+
+/area/gaia/urbanrebels/street/manu
+	name = "\improper Urbomanka - Manu's Street"
+
+/area/gaia/urbanrebels/street/aya
+	name = "\improper Urbomanka - Aya's Street"
+
+/area/gaia/urbanrebels/street/nester
+	name = "\improper Urbomanka - Nester's Street"
+
+/area/gaia/urbanrebels/street/chester
+	name = "\improper Urbomanka - Chester's Street"
+
+/area/gaia/urbanrebels/street/dolores
+	name = "\improper Urbomanka - Dolores's Street"
+
+/area/gaia/urbanrebels/street/city
+	name = "\improper Urbomanka - City's Street"
+
+/area/gaia/urbanrebels/street/park
+	name = "\improper Urbomanka - Park's Street"
+
+/area/gaia/urbanrebels/street/celsia
+	name = "\improper Urbomanka - Celsia's Street"
+
+/area/gaia/urbanrebels/street/gaby
+	name = "\improper Urbomanka - Gaby's Road"
 
 /area/gaia/urbanrebels/inside
 	name = "\improper Urbomanka - Inside Building"
@@ -122,8 +176,47 @@
 	ambient_group_enabled = FALSE
 	area_flags = null
 
+/area/gaia/urbanrebels/inside/townhall
+	name = "\improper Urbomanka - Town Hall"
+	req_access = access_bridge
+
+/area/gaia/urbanrebels/inside/police
+	name = "\improper Urbomanka - Police Station"
+	req_access = access_security
+
+/area/gaia/urbanrebels/inside/firefighter
+	name = "\improper Urbomanka - Fire Station"
+	req_access = access_atmospherics
+
+/area/gaia/urbanrebels/inside/engineering
+	name = "\improper Urbomanka - Engineering Station"
+	req_access = access_engine
+
+/area/gaia/urbanrebels/inside/engineering/telecomms
+	name = "\improper Urbomanka - Telecomms Station"
+
+/area/gaia/urbanrebels/inside/engineering/electrical
+	name = "\improper Urbomanka - Electrical Station"
+
+/area/gaia/urbanrebels/inside/nt
+	name = "\improper Urbomanka - NanoTrasen Office"
+	req_access = access_nanotrasen
+
+/area/gaia/urbanrebels/inside/hospital
+	name = "\improper Urbomanka - Hospital"
+	req_access = access_medical
+
+/area/gaia/urbanrebels/inside/park
+	name = "\improper Urbomanka - Park Office"
+
+/area/gaia/urbanrebels/inside/church
+	name = "\improper Urbomanka - Church"
+	sound_env = LARGE_ENCLOSED
+	ambience = list('sound/ambience/ambicha1.ogg', 'sound/ambience/ambicha2.ogg', 'sound/ambience/ambicha3.ogg')
+	req_access = access_chapel_office
+
 /area/gaia/urbanrebels/inside/metro
-	name = "\improper Urbomanka - Metro Station"
+	name = "\improper Urbomanka - Northern Metro Station"
 	sound_env = SMALL_ENCLOSED
 	ambience = list(
 			'sound/ambience/ambigen1.ogg',
@@ -138,6 +231,61 @@
 			'maps/gaia/sounds/ambience/propaganda/propaganda_muffled5.ogg',
 			'maps/gaia/sounds/ambience/propaganda/propaganda_muffled6.ogg',
 			)
+	req_access = access_engine
+
+/area/gaia/urbanrebels/inside/metro/south
+	name = "\improper Urbomanka - Southern Metro Station"
+
+/area/gaia/urbanrebels/inside/street
+	name = "\improper Urbomanka - Building at Street"
+
+/area/gaia/urbanrebels/inside/street/paula
+	name = "\improper Urbomanka - Building at Paula's Broadway"
+
+/area/gaia/urbanrebels/inside/street/brundino
+	name = "\improper Urbomanka - Building at Brundino's Street"
+
+/area/gaia/urbanrebels/inside/street/lusiano
+	name = "\improper Urbomanka - Building at Lusiano's Street"
+
+/area/gaia/urbanrebels/inside/street/quentino
+	name = "\improper Urbomanka - Building at Quentino's Street"
+
+/area/gaia/urbanrebels/inside/street/lizandro
+	name = "\improper Urbomanka - Building at Lizandro's Street"
+
+/area/gaia/urbanrebels/inside/street/talita
+	name = "\improper Urbomanka - Building at Talita's Street"
+
+/area/gaia/urbanrebels/inside/street/willmar
+	name = "\improper Urbomanka - Building at Willmar's Street"
+
+/area/gaia/urbanrebels/inside/street/manu
+	name = "\improper Urbomanka - Building at Manu's Street"
+
+/area/gaia/urbanrebels/inside/street/aya
+	name = "\improper Urbomanka - Building at Aya's Street"
+
+/area/gaia/urbanrebels/inside/street/nester
+	name = "\improper Urbomanka - Building at Nester's Street"
+
+/area/gaia/urbanrebels/inside/street/chester
+	name = "\improper Urbomanka - Building at Chester's Street"
+
+/area/gaia/urbanrebels/inside/street/dolores
+	name = "\improper Urbomanka - Building at Dolores's Street"
+
+/area/gaia/urbanrebels/inside/street/city
+	name = "\improper Urbomanka - Building at City's Street"
+
+/area/gaia/urbanrebels/inside/street/park
+	name = "\improper Urbomanka - Building at Park's Street"
+
+/area/gaia/urbanrebels/inside/street/celsia
+	name = "\improper Urbomanka - Building at Celsia's Street"
+
+/area/gaia/urbanrebels/inside/street/gaby
+	name = "\improper Urbomanka - Building at Gaby's Road"
 
 /area/gaia/urbanrebels/underground
 	name = "\improper Urbomanka - Underground"
@@ -146,6 +294,22 @@
 	sound_env = TUNNEL_ENCLOSED
 	ambient_group_enabled = FALSE
 	area_flags = null
+
+/area/gaia/urbanrebels/underground/police
+	name = "\improper Urbomanka - Underground Police Station"
+	req_access = access_security
+
+/area/gaia/urbanrebels/underground/townhall
+	name = "\improper Urbomanka - Underground Town Hall"
+	req_access = access_bridge
+
+/area/gaia/urbanrebels/underground/hospital
+	name = "\improper Urbomanka - Underground Hospital"
+	req_access = access_medical
+
+/area/gaia/urbanrebels/underground/church
+	name = "\improper Urbomanka - Underground Church"
+	req_access = access_chapel_office
 
 /area/gaia/urbanrebels/underground/sewers
 	name = "\improper Urbomanka - Sewers"

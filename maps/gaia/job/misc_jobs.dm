@@ -137,12 +137,36 @@
 /datum/job/mayor/get_description_blurb()
 	return "You are the mayor of this town. Whatever your history, your ambitions or your intentions, your goals right now are clear - to stay alive and stay in power."
 
+/datum/job/mayor_secretary
+	title = "Mayor Secretary"
+	department = "Civilian"
+	department_flag = CIV
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "the Town Mayor"
+	economic_power = 7
+	selection_color = COLOR_GRAY20
+	faction = MOB_FACTION_NEUTRAL
+	min_skill = list(SKILL_BUREAUCRACY = SKILL_TRAINED)
+
+	access = list(access_maint_tunnels, access_security, access_sec_doors, access_sec_guard,
+					access_armory, access_emergency_armory, access_emergency_storage,
+					access_medical, access_medical_equip, access_mining,
+					access_engine, access_engine_equip, access_atmospherics,
+					access_bridge, access_change_ids, access_captain,
+					access_radio_comm, access_radio_eng, access_radio_med, access_radio_sec)
+	skill_points = 20
+	outfit_type = /singleton/hierarchy/outfit/job/gaia/mayor
+
+/datum/job/mayor_secretary/get_description_blurb()
+	return "Assist the mayor how you can."
+
 /datum/job/police_officer
 	title = "Police Officer"
 	department = "Civilian"
 	department_flag = CIV
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 3
+	spawn_positions = 3
 	supervisors = "the local government representatives and police force headquarters"
 	economic_power = 5
 	faction = MOB_FACTION_NEUTRAL
@@ -172,8 +196,8 @@
 
 /datum/job/paramedic
 	title = "Paramedic"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 2
+	spawn_positions = 2
 	supervisors = "the local authorities, Hippocratic oath and your judgement"
 	alt_titles = list("Doctor" = /singleton/hierarchy/outfit/job/gaia/doctor)
 	economic_power = 7
@@ -193,8 +217,8 @@
 
 /datum/job/firefighter
 	title = "Firefighter"
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 3
+	spawn_positions = 3
 	supervisors = "the local authorities and your judgement"
 	economic_power = 5
 	minimum_character_age = list(SPECIES_HUMAN = 19)
@@ -213,8 +237,8 @@
 
 /datum/job/worker
 	title = "Municipal Engineer"
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 3
+	spawn_positions = 3
 	supervisors = "the local authorities and your judgement"
 	alt_titles = list(
 				"Construction Worker",

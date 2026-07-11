@@ -89,6 +89,7 @@
 	name = "ICCGN 'Stopa' Shuttle"
 	shuttle_area = /area/turbolift/iccg_stopa_shuttle
 	warmup_time = 4
+	move_time = 60
 //	arrive_time = 4
 	current_location = "nav_iccg_stopa_shuttle_camp"
 	landmark_transition = "nav_iccg_stopa_shuttle_transit"
