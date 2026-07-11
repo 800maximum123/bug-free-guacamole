@@ -397,13 +397,6 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow,
 /area/gaia/iccg)
-"bJ" = (
-/obj/machinery/computer/shuttle_control/iccg_masha_boat{
-	dir = 4
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/turbolift/iccg_masha_boat)
 "bK" = (
 /obj/machinery/door/airlock/terran,
 /turf/simulated/floor/tiled/dark,
@@ -1172,9 +1165,7 @@
 	dir = 4
 	},
 /mob/living/simple_animal/aquatic/fish,
-/obj/fluid_mapped{
-	fluid_amount = 1000
-	},
+/obj/fluid_mapped,
 /turf/simulated/floor/beach/sand,
 /area/gaia/iccg/citadel)
 "fh" = (
@@ -3185,6 +3176,13 @@
 	},
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/iccg)
+"nZ" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/computer/shuttle_control/multi/iccg_masha_boat{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/turbolift/iccg_masha_boat)
 "oc" = (
 /obj/floor_decal/corner/paleblue/border{
 	dir = 1
@@ -3223,9 +3221,7 @@
 	},
 /mob/living/simple_animal/aquatic/fish/judge,
 /obj/structure/flora/ausbushes/stalkybush,
-/obj/fluid_mapped{
-	fluid_amount = 1000
-	},
+/obj/fluid_mapped,
 /turf/simulated/floor/beach/sand,
 /area/gaia/iccg/citadel)
 "on" = (
@@ -3381,9 +3377,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/dead_small_flower,
-/obj/fluid_mapped{
-	fluid_amount = 1000
-	},
+/obj/fluid_mapped,
 /turf/simulated/floor/beach/sand,
 /area/gaia/iccg/citadel)
 "pj" = (
@@ -4385,24 +4379,6 @@
 /obj/structure/platform_decoration/hybrisa/metalplatformdeco1,
 /turf/simulated/floor/exoplanet/water/shallow,
 /area/gaia/iccg)
-"tJ" = (
-/obj/shuttle_landmark/lift/iccg_stopa_shuttle/base,
-/obj/structure/bed/chair/shuttle/black{
-	dir = 4
-	},
-/obj/structure/closet/walllocker{
-	pixel_x = -32
-	},
-/obj/floor_decal/spline/plain/black{
-	dir = 8
-	},
-/obj/floor_decal/industrial/outline/grey,
-/obj/item/tank/oxygen_emergency_double,
-/obj/item/clothing/mask/breath,
-/obj/item/device/radio/hailing,
-/obj/item/clothing/head/helmet/solgov/pilot,
-/turf/simulated/floor/tiled/techmaint,
-/area/turbolift/iccg_stopa_shuttle)
 "tK" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -7510,9 +7486,7 @@
 	},
 /mob/living/simple_animal/aquatic/fish,
 /obj/structure/flora/ausbushes/under_grass,
-/obj/fluid_mapped{
-	fluid_amount = 1000
-	},
+/obj/fluid_mapped,
 /turf/simulated/floor/beach/sand,
 /area/gaia/iccg/citadel)
 "Hz" = (
@@ -8496,15 +8470,15 @@
 /obj/machinery/light/led/small{
 	dir = 4
 	},
-/obj/machinery/computer/shuttle_control/iccg_stopa_shuttle{
-	dir = 8
-	},
 /obj/floor_decal/techfloor{
 	dir = 8
 	},
 /obj/floor_decal/techfloor/hole/right,
 /obj/floor_decal/techfloor/hole{
 	dir = 1
+	},
+/obj/machinery/computer/shuttle_control/multi/iccg_stopa_shuttle{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/turbolift/iccg_stopa_shuttle)
@@ -8715,9 +8689,7 @@
 	},
 /mob/living/simple_animal/aquatic/fish/grump,
 /obj/structure/flora/ausbushes/under_grass,
-/obj/fluid_mapped{
-	fluid_amount = 1000
-	},
+/obj/fluid_mapped,
 /turf/simulated/floor/beach/sand,
 /area/gaia/iccg/citadel)
 "Ni" = (
@@ -9561,6 +9533,24 @@
 /obj/machinery/door/airlock/freezer,
 /turf/simulated/floor/tiled/freezer,
 /area/gaia/iccg/citadel)
+"Rl" = (
+/obj/structure/bed/chair/shuttle/black{
+	dir = 4
+	},
+/obj/structure/closet/walllocker{
+	pixel_x = -32
+	},
+/obj/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/floor_decal/industrial/outline/grey,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/clothing/mask/breath,
+/obj/item/device/radio/hailing,
+/obj/item/clothing/head/helmet/solgov/pilot,
+/obj/shuttle_landmark/iccg_stopa_shuttle/base,
+/turf/simulated/floor/tiled/techmaint,
+/area/turbolift/iccg_stopa_shuttle)
 "Ro" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/lino,
@@ -10370,9 +10360,7 @@
 	},
 /mob/living/simple_animal/aquatic/fish/grump,
 /obj/structure/flora/ausbushes/stalkybush,
-/obj/fluid_mapped{
-	fluid_amount = 1000
-	},
+/obj/fluid_mapped,
 /turf/simulated/floor/beach/sand,
 /area/gaia/iccg/citadel)
 "UI" = (
@@ -11334,7 +11322,6 @@
 /obj/structure/bed/chair/comfy/red{
 	dir = 8
 	},
-/obj/shuttle_landmark/lift/iccg_masha_boat/base,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/turbolift/iccg_masha_boat)
@@ -26761,7 +26748,7 @@ uT
 dP
 dN
 qd
-tJ
+Rl
 gj
 eF
 uT
@@ -43006,7 +42993,7 @@ UQ
 IC
 lh
 VM
-bJ
+nZ
 rd
 lh
 fv

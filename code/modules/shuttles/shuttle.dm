@@ -18,6 +18,12 @@
 
 	var/sound_takeoff = 'sound/effects/shuttle_takeoff.ogg'
 	var/sound_landing = 'sound/effects/shuttle_landing.ogg'
+	// Whether we should show a launch msg
+	var/launch_msg_toggle = FALSE
+	// Whether we've shown the initial launch message to occupants
+	var/launch_msg_shown = FALSE
+	// Dramatic musical sting when shuttle lands
+	var/sting = 'maps/gaia/sounds/ambience/stings/arrivesting.ogg'
 
 	var/knockdown = 1 //whether shuttle downs non-buckled people when it moves
 
@@ -79,6 +85,7 @@
 
 	moving_status = SHUTTLE_WARMUP
 	if(sound_takeoff)
+		show_landing_message(destination)
 		playsound(current_location, sound_takeoff, 100, 20, 0.2)
 	spawn(warmup_time*10)
 		if (moving_status == SHUTTLE_IDLE)
@@ -126,6 +133,7 @@
 			while (world.time < arrive_time)
 				if(!fwooshed && (arrive_time - world.time) < 100)
 					fwooshed = 1
+					show_landing_message(destination)
 					playsound(destination, sound_landing, 100, 0, 7)
 					if (!istype(destination.base_area, /area/space))
 						var/area/A = get_area(destination)
@@ -139,6 +147,25 @@
 				attempt_move(start_location) //try to go back to where we started. If that fails, I guess we're stuck in the interim location
 
 		moving_status = SHUTTLE_IDLE
+
+/datum/shuttle/proc/show_landing_message(obj/shuttle_landmark/destination)
+	if(!launch_msg_shown)
+		launch_msg_shown = TRUE
+		var/area_name = istype(destination, /obj/shuttle_landmark) ? "[destination]" : "Area of Operations"
+		var/time_text = stationtime2text()
+		var/date_text = GLOB.using_map.game_year ? "Galactic Year [GLOB.using_map.game_year]" : "Unknown Date"
+
+		var/obj/screen/novel_message/start_credits/big_nofade/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
+		visuals.maptext_x = -10
+		visuals.maptext_y = -70
+		for(var/area/A in src.shuttle_area)
+			for(var/mob/M in A)
+				if(M.client)
+					M.client.screen += visuals
+//					playsound(M, sting, 70, 0, -1)
+					sound_to(M, sting)
+
+		visuals.set_text("[area_name]\nTime: [time_text]\nDate: [date_text]", COLOR_WHITE, time = 30 SECONDS)
 
 /datum/shuttle/proc/fuel_check()
 	return 1 //fuel check should always pass in non-overmap shuttles (they have magic engines)

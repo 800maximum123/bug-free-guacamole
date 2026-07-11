@@ -119,6 +119,8 @@
 			'maps/gaia/sounds/ambience/propaganda/propaganda_muffled5.ogg',
 			'maps/gaia/sounds/ambience/propaganda/propaganda_muffled6.ogg',
 			)
+	ambient_group_enabled = FALSE
+	area_flags = null
 
 /area/gaia/urbanrebels/inside/metro
 	name = "\improper Urbomanka - Metro Station"
@@ -142,6 +144,8 @@
 	forced_ambience = list('sound/ambience/maintambience.ogg')
 	ambience = list('sound/ambience/spookyspace1.ogg', 'sound/ambience/spookyspace2.ogg',)
 	sound_env = TUNNEL_ENCLOSED
+	ambient_group_enabled = FALSE
+	area_flags = null
 
 /area/gaia/urbanrebels/underground/sewers
 	name = "\improper Urbomanka - Sewers"

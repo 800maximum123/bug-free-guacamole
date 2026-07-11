@@ -1163,7 +1163,7 @@
 /obj/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/obj/shuttle_landmark/lift/scg_truck/base/bravo,
+/obj/shuttle_landmark/scg_truck/base/bravo,
 /obj/item/device/radio/intercom/hailing{
 	dir = 1;
 	layer = 2.23;
@@ -2194,7 +2194,7 @@
 /turf/simulated/floor/exoplanet/concrete/reinforced,
 /area/gaia/scg)
 "oT" = (
-/obj/machinery/computer/shuttle_control/scg_truck/bravo{
+/obj/machinery/computer/shuttle_control/multi/scg_truck/bravo{
 	dir = 4;
 	pixel_x = 5
 	},
@@ -3359,7 +3359,7 @@
 /turf/simulated/wall/titanium,
 /area/turbolift/scg_truck)
 "xa" = (
-/obj/machinery/computer/shuttle_control/scg_truck{
+/obj/machinery/computer/shuttle_control/multi/scg_truck{
 	dir = 4;
 	pixel_x = 5
 	},
@@ -5118,7 +5118,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/scg/outskirts)
 "JP" = (
-/obj/machinery/computer/shuttle_control/scg_truck/bravo{
+/obj/machinery/computer/shuttle_control/multi/scg_truck/bravo{
 	dir = 4;
 	pixel_x = 5
 	},
@@ -5896,7 +5896,7 @@
 /obj/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/obj/shuttle_landmark/lift/scg_truck/base,
+/obj/shuttle_landmark/scg_truck/base,
 /obj/item/device/radio/intercom/hailing{
 	dir = 1;
 	layer = 2.23;
