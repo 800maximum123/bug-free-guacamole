@@ -19,11 +19,6 @@
 /obj/structure/barricade/spike,
 /turf/simulated/floor/exoplanet/barren,
 /area/gaia/iccg)
-"ad" = (
-/obj/structure/tent/desert/big,
-/obj/floor_decal/industrial/outline/red,
-/turf/simulated/floor/exoplanet/concrete/reinforced,
-/area/gaia/iccg)
 "ae" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
 	dir = 4
@@ -55,12 +50,11 @@
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/iccg)
 "al" = (
-/obj/paint/red/dark,
-/obj/structure/sign/warning/hot_exhaust{
-	pixel_y = -8
+/obj/item/device/radio/intercom/gaia_iccg{
+	pixel_y = 24
 	},
-/turf/simulated/wall/r_titanium,
-/area/turbolift/iccg_stopa_shuttle)
+/turf/simulated/floor/wood/walnut,
+/area/gaia/iccg/citadel)
 "an" = (
 /obj/structure/platform/hybrisa/metalplatform1{
 	dir = 4
@@ -110,11 +104,14 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/turbolift/iccg_masha_boat)
 "ay" = (
-/obj/item/device/radio/intercom/gaia_iccg{
-	pixel_y = 24
+/obj/floor_decal/industrial/warning{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
-/area/gaia/iccg/citadel)
+/obj/structure/sign/warning/airlock{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/turbolift/iccg_stopa_shuttle)
 "aA" = (
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/iccg)
@@ -175,11 +172,15 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/gaia/iccg/outskirts)
 "aX" = (
-/obj/floor_decal/industrial/warning{
-	dir = 8
+/obj/structure/filingcabinet/chestdrawer,
+/obj/item/folder/red,
+/obj/item/folder/red,
+/obj/item/device/radio/intercom/gaia_iccg{
+	dir = 4;
+	pixel_x = -24
 	},
-/turf/simulated/floor/exoplanet/concrete/reinforced,
-/area/gaia/iccg)
+/turf/simulated/floor/tiled/dark,
+/area/gaia/iccg/citadel/armory)
 "aY" = (
 /obj/structure/bed/chair/padded/red{
 	dir = 4
@@ -328,12 +329,6 @@
 /obj/machinery/door/airlock/terran,
 /turf/simulated/floor/tiled/dark,
 /area/gaia/iccg/citadel)
-"bz" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/greengrid,
-/area/gaia/iccg/citadel)
 "bB" = (
 /obj/floor_decal/industrial/outline/grey,
 /obj/machinery/floodlight,
@@ -428,6 +423,10 @@
 /obj/structure/fog,
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/iccg/outskirts)
+"bU" = (
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/iccg/citadel)
 "bV" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
@@ -479,9 +478,6 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/iccg)
-"cj" = (
-/turf/simulated/floor/reinforced,
-/area/gaia/iccg)
 "cl" = (
 /obj/machinery/door/airlock/terran,
 /turf/simulated/floor/tiled/dark/monotile,
@@ -489,10 +485,6 @@
 "cm" = (
 /obj/structure/undies_wardrobe,
 /turf/simulated/floor/carpet/red,
-/area/gaia/iccg)
-"cn" = (
-/obj/floor_decal/industrial/outline/red,
-/turf/simulated/floor/exoplanet/concrete/reinforced,
 /area/gaia/iccg)
 "cq" = (
 /obj/floor_decal/corner/blood_red/border{
@@ -623,7 +615,6 @@
 "cX" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/industrial/outline/blood_red,
-/obj/structure/closet/gaia/iccg_crewman,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/gaia/iccg/citadel)
 "cY" = (
@@ -644,12 +635,11 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/turbolift/iccg_masha_boat)
 "db" = (
-/obj/structure/shuttle/engine/propulsion/burst/left{
-	dir = 8
+/obj/floor_decal/industrial/warning{
+	dir = 4
 	},
-/obj/paint/red/dark,
-/turf/simulated/wall/r_titanium,
-/area/turbolift/iccg_stopa_shuttle)
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/iccg)
 "dc" = (
 /obj/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/steel_grid,
@@ -727,6 +717,15 @@
 	},
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/iccg)
+"dA" = (
+/obj/wallframe_spawn/reinforced/titanium,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id_tag = "stopa_windows"
+	},
+/obj/paint/red/dark,
+/turf/simulated/floor/plating,
+/area/turbolift/iccg_stopa_shuttle)
 "dB" = (
 /obj/structure/catwalk,
 /obj/structure/sign/warning/secure_area/armory{
@@ -890,7 +889,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/gaia/iccg/citadel/command)
 "ek" = (
-/obj/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/turbolift/iccg_stopa_shuttle)
 "el" = (
@@ -969,6 +968,14 @@
 	},
 /turf/simulated/wall/r_iccg,
 /area/gaia/iccg/security)
+"eF" = (
+/obj/wallframe_spawn/reinforced/titanium,
+/obj/paint/red/dark,
+/obj/machinery/door/blast/regular/open{
+	id_tag = "stopa_windows"
+	},
+/turf/simulated/floor/plating,
+/area/turbolift/iccg_stopa_shuttle)
 "eG" = (
 /obj/structure/barrier/simple{
 	dir = 1
@@ -1028,10 +1035,10 @@
 /turf/simulated/floor/exoplanet/samosbor/wood,
 /area/gaia/iccg/outskirts)
 "eQ" = (
-/obj/floor_decal/industrial/outline/red,
-/obj/structure/dispenser/oxygen,
-/turf/simulated/floor/exoplanet/concrete/reinforced,
-/area/gaia/iccg)
+/obj/machinery/door/unpowered/simple,
+/obj/lock_helper/gaia_iccg,
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/iccg/citadel)
 "eR" = (
 /obj/structure/railing/mapped,
 /turf/simulated/open,
@@ -1107,6 +1114,11 @@
 /turf/simulated/floor/wood/mahogany,
 /area/gaia/iccg)
 "fl" = (
+/obj/floor_decal/industrial/warning,
+/obj/structure/sign/warning/nosmoking_1{
+	dir = 1;
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/turbolift/iccg_stopa_shuttle)
 "fm" = (
@@ -1142,13 +1154,11 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/gaia/iccg/security)
 "fx" = (
-/obj/floor_decal/industrial/warning/fulltile,
-/obj/machinery/door/blast/regular{
-	dir = 8;
-	id_tag = "stopa_bay"
+/obj/floor_decal/step{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/turbolift/iccg_stopa_shuttle)
+/turf/simulated/floor/exoplanet/concrete,
+/area/gaia/iccg)
 "fz" = (
 /obj/structure/sign/iccg{
 	pixel_y = 32
@@ -1178,7 +1188,7 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/iccg)
 "fH" = (
-/obj/structure/shuttle/engine/propulsion/burst/right{
+/obj/structure/shuttle/engine/propulsion/burst/left{
 	dir = 8
 	},
 /obj/paint/red/dark,
@@ -1349,10 +1359,11 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/turbolift/iccg_stopa_shuttle)
 "gy" = (
-/obj/floor_decal/industrial/outline/red,
-/obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/exoplanet/concrete/reinforced,
-/area/gaia/iccg)
+/obj/floor_decal/step{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/gaia/iccg/citadel)
 "gz" = (
 /obj/decal/cleanable/dirt,
 /obj/machinery/vending/cigarette{
@@ -1516,7 +1527,7 @@
 	pixel_y = 32
 	},
 /obj/floor_decal/industrial/outline/red,
-/obj/item/device/radio/intercom/gaia_iccg{
+/obj/item/device/radio/intercom/hailing{
 	pixel_y = 16
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
@@ -1572,12 +1583,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/concrete,
-/area/gaia/iccg)
-"hs" = (
-/obj/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/iccg)
 "ht" = (
 /obj/structure/grille,
@@ -1778,14 +1783,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/gaia/iccg/citadel/command)
-"im" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/telecomms/allinone/gaia_iccg/cam,
-/turf/simulated/floor/greengrid,
-/area/gaia/iccg/citadel)
 "in" = (
 /obj/machinery/vending/lavatory,
 /obj/floor_decal/borderfloorwhite{
@@ -1811,15 +1808,6 @@
 /obj/item/device/encryptionkey/gaia_iccg,
 /turf/simulated/floor/tiled/techfloor,
 /area/gaia/iccg/citadel)
-"is" = (
-/obj/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/structure/sign/warning/airlock{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/turbolift/iccg_stopa_shuttle)
 "it" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
@@ -1908,12 +1896,11 @@
 /turf/simulated/floor/tiled/white,
 /area/gaia/iccg/citadel)
 "iN" = (
+/obj/floor_decal/industrial/warning/fulltile,
 /obj/machinery/door/blast/regular{
 	dir = 8;
 	id_tag = "stopa_bay"
 	},
-/obj/floor_decal/industrial/warning/fulltile,
-/obj/floor_decal/industrial/warning/fulltile,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/turbolift/iccg_stopa_shuttle)
 "iO" = (
@@ -1970,15 +1957,6 @@
 /obj/item/modular_computer/laptop/preset/custom_loadout/cheap,
 /turf/simulated/floor/exoplanet/samosbor/wood,
 /area/gaia/iccg/outskirts)
-"jc" = (
-/obj/wallframe_spawn/reinforced/titanium,
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id_tag = "stopa_windows"
-	},
-/obj/paint/red/dark,
-/turf/simulated/floor/plating,
-/area/turbolift/iccg_stopa_shuttle)
 "je" = (
 /obj/machinery/light{
 	dir = 1
@@ -2193,11 +2171,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/gaia/iccg/citadel)
 "jW" = (
-/obj/floor_decal/industrial/warning/corner{
-	dir = 1
+/obj/structure/platform/hybrisa/engineer{
+	dir = 8
 	},
-/turf/simulated/floor/exoplanet/concrete,
-/area/gaia/iccg)
+/obj/structure/platform/hybrisa/engineer,
+/turf/simulated/floor/plating,
+/area/gaia/iccg/citadel)
 "jX" = (
 /obj/item/device/radio/intercom/department/security{
 	dir = 8;
@@ -2506,15 +2485,12 @@
 /turf/simulated/floor/tiled,
 /area/gaia/iccg/security)
 "lv" = (
-/obj/structure/filingcabinet/chestdrawer,
-/obj/item/folder/red,
-/obj/item/folder/red,
-/obj/item/device/radio/intercom/gaia_iccg{
-	dir = 4;
-	pixel_x = -24
+/obj/structure/catwalk,
+/obj/item/modular_computer/telescreen/preset/engineering{
+	pixel_y = 32
 	},
-/turf/simulated/floor/tiled/dark,
-/area/gaia/iccg/citadel/armory)
+/turf/simulated/open,
+/area/gaia/iccg/citadel)
 "lw" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -2619,21 +2595,6 @@
 	},
 /turf/simulated/wall/r_iccg,
 /area/gaia/iccg/citadel/armory)
-"lQ" = (
-/obj/floor_decal/corner/blood_red/border{
-	dir = 4
-	},
-/obj/floor_decal/industrial/warning{
-	dir = 6
-	},
-/obj/machinery/button/blast_door{
-	pixel_y = -23;
-	name = "Bay Doors";
-	id_tag = "stopa_bay";
-	pixel_x = -23
-	},
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/turbolift/iccg_stopa_shuttle)
 "lR" = (
 /obj/floor_decal/spline/plain/paleblue{
 	dir = 1
@@ -2652,7 +2613,6 @@
 /obj/decal/cleanable/blood/oil/streak,
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/industrial/outline/blood_red,
-/obj/structure/closet/gaia/iccg_crewman,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/gaia/iccg/citadel)
 "lV" = (
@@ -2673,13 +2633,9 @@
 /turf/simulated/floor/lino,
 /area/gaia/iccg/citadel)
 "mb" = (
-/obj/wallframe_spawn/reinforced/titanium,
-/obj/paint/red/dark,
-/obj/machinery/door/blast/regular/open{
-	id_tag = "stopa_windows"
-	},
-/turf/simulated/floor/plating,
-/area/turbolift/iccg_stopa_shuttle)
+/obj/floor_decal/techfloor/orange,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/iccg/citadel)
 "mc" = (
 /obj/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/monotile,
@@ -2857,13 +2813,6 @@
 	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/iccg)
-"mX" = (
-/obj/paint/red/dark,
-/obj/structure/sign/warning/hot_exhaust{
-	dir = 1
-	},
-/turf/simulated/wall/r_titanium,
-/area/turbolift/iccg_stopa_shuttle)
 "mY" = (
 /obj/machinery/hologram/holopad,
 /obj/floor_decal/industrial/outline/grey,
@@ -2949,11 +2898,6 @@
 /obj/structure/table/rack,
 /obj/random/maintenance/clean,
 /turf/simulated/floor/tiled/dark,
-/area/gaia/iccg/citadel)
-"nz" = (
-/obj/structure/catwalk,
-/obj/structure/ladder,
-/turf/simulated/open,
 /area/gaia/iccg/citadel)
 "nD" = (
 /obj/floor_decal/industrial/warning,
@@ -3095,11 +3039,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/gaia/iccg/citadel/command/briefing)
 "ov" = (
-/obj/floor_decal/industrial/loading{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/concrete/reinforced,
-/area/gaia/iccg)
+/turf/simulated/floor/plating,
+/area/gaia/iccg/citadel)
 "ow" = (
 /obj/structure/bed/chair/padded/red{
 	dir = 8
@@ -3237,15 +3178,6 @@
 	},
 /turf/simulated/floor/beach/sand,
 /area/gaia/iccg/citadel)
-"pg" = (
-/obj/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/item/device/radio/intercom/gaia_iccg{
-	pixel_y = 24
-	},
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/turbolift/iccg_stopa_shuttle)
 "pj" = (
 /obj/structure/platform_decoration/hybrisa/metalplatformdeco1{
 	dir = 8
@@ -3338,16 +3270,19 @@
 "pL" = (
 /turf/simulated/floor/redgrid,
 /area/gaia/iccg/citadel/command)
-"pS" = (
+"pP" = (
 /obj/structure/window/reinforced{
-	dir = 4
+	dir = 8
 	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/ntnet_relay,
 /turf/simulated/floor/greengrid,
 /area/gaia/iccg/citadel)
+"pS" = (
+/obj/paint/red/dark,
+/obj/structure/sign/warning/hot_exhaust{
+	pixel_y = -8
+	},
+/turf/simulated/wall/r_titanium,
+/area/turbolift/iccg_stopa_shuttle)
 "pT" = (
 /obj/machinery/bodyscanner{
 	dir = 1
@@ -3601,9 +3536,9 @@
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/iccg/outskirts)
 "ra" = (
-/obj/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/exoplanet/concrete/reinforced,
-/area/gaia/iccg)
+/obj/structure/platform/hybrisa/engineer,
+/turf/simulated/floor/plating,
+/area/gaia/iccg/citadel)
 "rc" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -3664,12 +3599,13 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/iccg)
 "rj" = (
-/obj/structure/catwalk,
-/obj/item/modular_computer/telescreen/preset/engineering{
-	pixel_y = 32
+/obj/structure/bed/chair/shuttle/red,
+/obj/floor_decal/industrial/outline/grey,
+/obj/item/device/radio/intercom/gaia_iccg{
+	pixel_y = 24
 	},
-/turf/simulated/open,
-/area/gaia/iccg/citadel)
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/turbolift/iccg_stopa_shuttle)
 "rl" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -3701,15 +3637,6 @@
 	},
 /turf/simulated/wall/r_iccg,
 /area/gaia/iccg/outskirts)
-"ro" = (
-/obj/floor_decal/corner/blood_red/border{
-	dir = 4
-	},
-/obj/floor_decal/industrial/warning{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/turbolift/iccg_stopa_shuttle)
 "rp" = (
 /obj/structure/iccgbanner,
 /turf/simulated/floor/exoplanet/concrete,
@@ -3826,6 +3753,11 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/gaia/iccg/outskirts)
+"sb" = (
+/obj/structure/closet/gaia/iccg_crewman,
+/obj/floor_decal/industrial/outline/blood_red,
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/iccg/citadel)
 "sc" = (
 /obj/structure/sign/double/iccgflag/left{
 	pixel_y = 32
@@ -3908,12 +3840,6 @@
 /obj/floor_decal/corner/blood_red/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/gaia/iccg/citadel)
-"sr" = (
-/obj/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/concrete,
-/area/gaia/iccg)
 "ss" = (
 /obj/structure/net/net_wall,
 /obj/structure/platform/hybrisa/metalplatform1{
@@ -4013,13 +3939,16 @@
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/iccg)
 "sN" = (
-/obj/structure/catwalk,
-/obj/machinery/light{
+/obj/structure/bed/chair/shuttle/red{
 	dir = 1
 	},
-/obj/item/clothing/suit/storage/hooded/wintercoat,
-/turf/simulated/open,
-/area/gaia/iccg/citadel)
+/obj/floor_decal/industrial/outline/grey,
+/obj/item/device/radio/intercom/gaia_iccg{
+	dir = 1;
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/turbolift/iccg_stopa_shuttle)
 "sQ" = (
 /obj/item/soap/red_soap,
 /turf/simulated/floor/pool,
@@ -4125,12 +4054,17 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/turbolift/iccg_masha_boat)
 "tn" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/telecomms/allinone/gaia_iccg,
-/turf/simulated/floor/greengrid,
-/area/gaia/iccg/citadel)
+/obj/structure/table/rack/dark,
+/obj/floor_decal/industrial/outline/grey,
+/obj/item/attachable_camera/iccg,
+/obj/item/attachable_camera/iccg,
+/obj/item/attachable_camera/iccg,
+/obj/item/attachable_camera/iccg,
+/obj/item/attachable_camera/iccg,
+/obj/item/attachable_camera/iccg,
+/obj/item/attachable_camera/iccg,
+/turf/simulated/floor/reinforced,
+/area/gaia/iccg/citadel/armory/second)
 "tr" = (
 /obj/machinery/photocopier,
 /turf/simulated/floor/tiled/dark,
@@ -4298,16 +4232,9 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/iccg/citadel/armory)
 "ua" = (
-/obj/structure/bed/chair/shuttle/red{
-	dir = 1
-	},
-/obj/floor_decal/industrial/outline/grey,
-/obj/item/device/radio/intercom/gaia_iccg{
-	dir = 1;
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/turbolift/iccg_stopa_shuttle)
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/iccg/citadel)
 "ub" = (
 /obj/structure/platform/hybrisa/metalplatform5,
 /obj/machinery/photocopier/faxmachine{
@@ -4421,6 +4348,12 @@
 /obj/machinery/door/airlock/terran,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/iccg/citadel/command)
+"uF" = (
+/obj/structure/platform/hybrisa/engineer{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/gaia/iccg/citadel)
 "uI" = (
 /obj/structure/flora/tropic/rock{
 	dir = 10
@@ -4474,10 +4407,8 @@
 /turf/simulated/floor/tiled/white,
 /area/gaia/iccg/citadel)
 "uT" = (
-/obj/structure/catwalk,
-/obj/machinery/door/window/westleft,
-/turf/simulated/open,
-/area/gaia/iccg/citadel)
+/turf/simulated/floor/reinforced,
+/area/gaia/iccg)
 "uU" = (
 /obj/structure/closet/gaia/iccg_soldier,
 /obj/floor_decal/borderfloorblack/full,
@@ -4538,12 +4469,6 @@
 /obj/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/wood/walnut,
 /area/gaia/iccg)
-"vn" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/greengrid,
-/area/gaia/iccg/citadel)
 "vo" = (
 /obj/decal/cleanable/blood/oil/streak,
 /obj/floor_decal/spline/fancy/black{
@@ -4557,14 +4482,6 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/gaia/iccg/citadel)
-"vr" = (
-/obj/structure/bed/chair/shuttle/red,
-/obj/floor_decal/industrial/outline/grey,
-/obj/item/device/radio/intercom/gaia_iccg{
-	pixel_y = 24
-	},
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/turbolift/iccg_stopa_shuttle)
 "vs" = (
 /obj/structure/handrail{
 	dir = 4
@@ -4700,6 +4617,12 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/iccg/citadel)
+"vY" = (
+/obj/floor_decal/step{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/gaia/iccg)
 "wa" = (
 /obj/floor_decal/corner_steel_grid/full{
 	dir = 4
@@ -5273,12 +5196,6 @@
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled,
 /turf/simulated/floor/tiled/white/monotile,
 /area/gaia/iccg/citadel)
-"ze" = (
-/obj/floor_decal/step{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/concrete,
-/area/gaia/iccg)
 "zf" = (
 /obj/floor_decal/spline/plain/paleblue{
 	dir = 1
@@ -5669,6 +5586,14 @@
 /obj/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/turbolift/iccg_stopa_shuttle)
+"AM" = (
+/obj/structure/catwalk,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/item/clothing/suit/storage/hooded/wintercoat,
+/turf/simulated/open,
+/area/gaia/iccg/citadel)
 "AR" = (
 /obj/structure/bed/chair/padded/red{
 	dir = 1
@@ -5907,8 +5832,10 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/turbolift/iccg_masha_boat)
 "BX" = (
-/obj/structure/catwalk,
-/turf/simulated/open,
+/obj/machinery/door/blast/shutters{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/gaia/iccg/citadel)
 "Cb" = (
 /obj/machinery/computer/arcade,
@@ -5928,11 +5855,6 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/gaia/iccg/outskirts)
-"Cf" = (
-/obj/structure/catwalk,
-/obj/machinery/door/window/eastright,
-/turf/simulated/open,
-/area/gaia/iccg/citadel)
 "Cg" = (
 /turf/simulated/floor/tiled,
 /area/gaia/iccg/citadel)
@@ -6011,9 +5933,20 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/gaia/iccg)
 "CF" = (
-/obj/structure/tent/desert/big,
-/turf/simulated/floor/exoplanet/concrete/reinforced,
-/area/gaia/iccg)
+/obj/floor_decal/corner/blood_red/border{
+	dir = 4
+	},
+/obj/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/machinery/button/blast_door{
+	pixel_y = -23;
+	name = "Bay Doors";
+	id_tag = "stopa_bay";
+	pixel_x = -23
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/turbolift/iccg_stopa_shuttle)
 "CH" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -6026,6 +5959,13 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/gaia/iccg/outskirts)
+"CL" = (
+/obj/machinery/door/blast/shutters{
+	dir = 4
+	},
+/obj/structure/platform/hybrisa/engineer,
+/turf/simulated/floor/plating,
+/area/gaia/iccg/citadel)
 "CM" = (
 /obj/structure/hygiene/sink{
 	dir = 8;
@@ -6201,15 +6141,14 @@
 /turf/simulated/floor/tiled/white,
 /area/gaia/iccg)
 "DG" = (
-/obj/item/modular_computer/telescreen/preset/generic{
-	pixel_y = 32
+/obj/floor_decal/corner/blood_red/border{
+	dir = 4
 	},
-/obj/floor_decal/industrial/outline/red,
-/obj/item/device/radio/intercom/hailing{
-	pixel_y = 16
+/obj/floor_decal/industrial/warning{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
-/area/gaia/iccg/citadel/command)
+/area/turbolift/iccg_stopa_shuttle)
 "DH" = (
 /obj/structure/grille,
 /obj/structure/cable/green{
@@ -6282,11 +6221,15 @@
 /turf/simulated/open,
 /area/gaia/iccg)
 "DZ" = (
-/obj/item/device/radio/intercom/gaia_iccg{
-	pixel_y = 24
+/obj/item/modular_computer/telescreen/preset/generic{
+	pixel_y = 32
 	},
-/turf/simulated/floor/wood/walnut,
-/area/gaia/iccg/citadel)
+/obj/floor_decal/industrial/outline/red,
+/obj/item/device/radio/intercom/gaia_iccg{
+	pixel_y = 16
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/iccg/citadel/command)
 "Ea" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/exoplanet/concrete,
@@ -6489,9 +6432,8 @@
 /turf/simulated/floor/tiled/steel_ridged,
 /area/turbolift/iccg_masha_boat)
 "Fi" = (
-/obj/structure/table/rack,
-/turf/simulated/floor/exoplanet/concrete/reinforced,
-/area/gaia/iccg)
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/turbolift/iccg_stopa_shuttle)
 "Fl" = (
 /obj/structure/hygiene/toilet{
 	dir = 4
@@ -6574,9 +6516,13 @@
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/iccg)
 "FH" = (
-/obj/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/turbolift/iccg_stopa_shuttle)
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/message_server,
+/turf/simulated/floor/greengrid,
+/area/gaia/iccg/citadel)
 "FM" = (
 /obj/structure/closet{
 	name = "Evidence Closet 1"
@@ -7052,8 +6998,11 @@
 /turf/simulated/floor/tiled,
 /area/gaia/iccg/citadel)
 "HF" = (
-/obj/machinery/light,
-/turf/simulated/floor/tiled/dark/monotile,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/telecomms/allinone/gaia_iccg,
+/turf/simulated/floor/greengrid,
 /area/gaia/iccg/citadel)
 "HG" = (
 /obj/decal/cleanable/dirt,
@@ -7291,12 +7240,14 @@
 /turf/simulated/floor/plating,
 /area/gaia/iccg/citadel)
 "IR" = (
-/obj/structure/table/rack,
-/obj/item/tank/hydrogen,
-/obj/item/tank/hydrogen,
-/obj/item/tank/hydrogen,
-/turf/simulated/floor/exoplanet/concrete/reinforced,
-/area/gaia/iccg)
+/obj/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/item/device/radio/intercom/gaia_iccg{
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/turbolift/iccg_stopa_shuttle)
 "IS" = (
 /obj/structure/hygiene/shower{
 	dir = 8
@@ -7433,6 +7384,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/gaia/iccg/citadel)
+"JJ" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/telecomms/allinone/gaia_iccg/cam,
+/turf/simulated/floor/greengrid,
+/area/gaia/iccg/citadel)
 "JK" = (
 /obj/structure/table/steel,
 /obj/machinery/cell_charger,
@@ -7554,6 +7513,11 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/gaia/iccg/citadel/command)
+"Kj" = (
+/obj/structure/catwalk,
+/obj/machinery/door/window/westleft,
+/turf/simulated/open,
+/area/gaia/iccg/citadel)
 "Kk" = (
 /obj/floor_decal/industrial/warning/half,
 /obj/decal/cleanable/blood/oil/streak,
@@ -7581,14 +7545,8 @@
 /turf/simulated/floor/wood/mahogany,
 /area/gaia/iccg)
 "Kq" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/bluespacerelay,
-/turf/simulated/floor/greengrid,
+/obj/structure/catwalk,
+/turf/simulated/open,
 /area/gaia/iccg/citadel)
 "Ks" = (
 /obj/structure/fitness/punchingbag,
@@ -7989,10 +7947,15 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/iccg)
 "Mr" = (
-/obj/floor_decal/industrial/outline/red,
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/simulated/floor/exoplanet/concrete/reinforced,
-/area/gaia/iccg)
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/ntnet_relay,
+/turf/simulated/floor/greengrid,
+/area/gaia/iccg/citadel)
 "Ms" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -8190,6 +8153,12 @@
 /obj/lock_helper/gaia_iccg,
 /turf/simulated/floor/tiled/white,
 /area/gaia/iccg/citadel)
+"Nv" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/greengrid,
+/area/gaia/iccg/citadel)
 "Nw" = (
 /obj/machinery/door/unpowered/simple,
 /obj/floor_decal/corner/paleblue/mono,
@@ -8226,6 +8195,13 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/iccg)
+"NF" = (
+/obj/structure/shuttle/engine/propulsion/burst/right{
+	dir = 8
+	},
+/obj/paint/red/dark,
+/turf/simulated/wall/r_titanium,
+/area/turbolift/iccg_stopa_shuttle)
 "NG" = (
 /obj/structure/bed,
 /obj/item/bedsheet/orange,
@@ -8515,6 +8491,13 @@
 	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/iccg/outskirts)
+"Pv" = (
+/obj/paint/red/dark,
+/obj/structure/sign/warning/hot_exhaust{
+	dir = 1
+	},
+/turf/simulated/wall/r_titanium,
+/area/turbolift/iccg_stopa_shuttle)
 "Py" = (
 /obj/structure/bed/sofa/r/red{
 	dir = 8
@@ -8664,11 +8647,10 @@
 /turf/simulated/floor/wood/walnut,
 /area/gaia/iccg/citadel)
 "Qm" = (
-/obj/structure/table/rack,
-/obj/item/crowbar/red,
-/obj/item/crowbar/red,
-/turf/simulated/floor/exoplanet/concrete/reinforced,
-/area/gaia/iccg)
+/obj/structure/catwalk,
+/obj/machinery/door/window/eastright,
+/turf/simulated/open,
+/area/gaia/iccg/citadel)
 "Qn" = (
 /obj/structure/tent/desert/big,
 /turf/simulated/floor/carpet/black,
@@ -8771,16 +8753,14 @@
 /turf/simulated/open,
 /area/gaia/iccg/citadel/armory/second)
 "QT" = (
-/obj/machinery/portable_atmospherics/canister/empty/hydrogen,
-/obj/floor_decal/industrial/outline/red,
-/turf/simulated/floor/exoplanet/concrete/reinforced,
-/area/gaia/iccg)
+/obj/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/turbolift/iccg_stopa_shuttle)
 "QU" = (
-/obj/item/device/radio/intercom/gaia_iccg{
-	pixel_y = 24
-	},
-/turf/simulated/floor/tiled/steel_grid,
-/area/gaia/iccg/citadel)
+/obj/paint/red/dark,
+/obj/structure/sign/iccg,
+/turf/simulated/wall/r_titanium,
+/area/turbolift/iccg_stopa_shuttle)
 "QV" = (
 /obj/machinery/light{
 	dir = 1
@@ -8859,11 +8839,6 @@
 /obj/machinery/door/airlock/freezer,
 /turf/simulated/floor/tiled/freezer,
 /area/gaia/iccg/citadel)
-"Rn" = (
-/obj/paint/red/dark,
-/obj/structure/sign/iccg,
-/turf/simulated/wall/r_titanium,
-/area/turbolift/iccg_stopa_shuttle)
 "Ro" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/lino,
@@ -9283,24 +9258,26 @@
 /turf/simulated/floor/carpet/black,
 /area/gaia/iccg/citadel)
 "SY" = (
-/obj/floor_decal/industrial/outline/red,
-/obj/decal/cleanable/blood/oil/streak,
-/obj/machinery/portable_atmospherics/canister/empty/hydrogen,
-/turf/simulated/floor/exoplanet/concrete/reinforced,
-/area/gaia/iccg)
+/obj/item/device/radio/intercom/gaia_iccg{
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/dark,
+/area/gaia/iccg/citadel)
 "SZ" = (
 /obj/machinery/door/airlock/highsecurity,
 /obj/floor_decal/industrial/warning/fulltile,
 /turf/simulated/floor/tiled/dark,
 /area/gaia/iccg/citadel/armory)
 "Ta" = (
-/obj/floor_decal/industrial/warning,
-/obj/structure/sign/warning/nosmoking_1{
-	dir = 1;
-	pixel_y = -32
+/obj/structure/window/reinforced{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/turbolift/iccg_stopa_shuttle)
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/bluespacerelay,
+/turf/simulated/floor/greengrid,
+/area/gaia/iccg/citadel)
 "Td" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -9563,18 +9540,6 @@
 "Uy" = (
 /turf/simulated/floor/wood/mahogany,
 /area/gaia/iccg)
-"UB" = (
-/obj/structure/table/rack/dark,
-/obj/floor_decal/industrial/outline/grey,
-/obj/item/attachable_camera/iccg,
-/obj/item/attachable_camera/iccg,
-/obj/item/attachable_camera/iccg,
-/obj/item/attachable_camera/iccg,
-/obj/item/attachable_camera/iccg,
-/obj/item/attachable_camera/iccg,
-/obj/item/attachable_camera/iccg,
-/turf/simulated/floor/reinforced,
-/area/gaia/iccg/citadel/armory/second)
 "UC" = (
 /obj/wallframe_spawn/reinforced/polarized/full,
 /turf/simulated/floor/plating,
@@ -9823,11 +9788,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/gaia/iccg/citadel)
 "VK" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/message_server,
+/obj/machinery/door/window/brigdoor/southleft,
 /turf/simulated/floor/greengrid,
 /area/gaia/iccg/citadel)
 "VL" = (
@@ -10152,9 +10113,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/gaia/iccg/citadel/command/briefing)
 "XM" = (
-/obj/machinery/door/window/brigdoor/southleft,
-/turf/simulated/floor/greengrid,
-/area/gaia/iccg/citadel)
+/obj/machinery/door/blast/regular{
+	dir = 8;
+	id_tag = "stopa_bay"
+	},
+/obj/floor_decal/industrial/warning/fulltile,
+/obj/floor_decal/industrial/warning/fulltile,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/turbolift/iccg_stopa_shuttle)
 "XP" = (
 /obj/structure/table/rack/dark,
 /obj/floor_decal/industrial/outline/yellow,
@@ -10477,28 +10443,30 @@
 /turf/simulated/floor/carpet/red,
 /area/gaia/iccg)
 "Zv" = (
-/obj/decal/cleanable/blood/oil,
-/turf/simulated/floor/exoplanet/concrete/reinforced,
-/area/gaia/iccg)
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/gaia/iccg/citadel)
 "Zw" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/gaia/iccg)
+"Zx" = (
+/obj/item/device/radio/intercom/gaia_iccg{
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/gaia/iccg/citadel)
 "Zy" = (
 /obj/structure/holoplant,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/iccg)
 "Zz" = (
-/obj/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/obj/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/concrete,
-/area/gaia/iccg)
+/obj/structure/catwalk,
+/obj/structure/ladder,
+/turf/simulated/open,
+/area/gaia/iccg/citadel)
 "ZA" = (
 /obj/machinery/light/navigation/delay2,
 /obj/paint/red/dark,
@@ -19052,15 +19020,15 @@ zC
 zC
 Sc
 sh
-Mq
-Tt
-Mq
-Mq
-Mq
-Mq
-Mq
-Mq
-Mq
+sh
+sh
+sh
+sh
+sh
+sh
+sh
+sh
+sh
 Mq
 Mq
 Mq
@@ -19204,15 +19172,15 @@ kH
 zC
 Sc
 sh
-Mq
-Mq
-Mq
-Mq
-Mq
-Mq
-Mq
-Mq
-Mq
+fr
+fr
+fr
+fr
+fr
+fr
+fr
+fr
+sh
 Mq
 Mq
 Mq
@@ -19356,16 +19324,16 @@ WN
 zC
 Sc
 sh
+fr
+gE
+gE
+mb
+iH
+iH
+sb
+fr
 sh
-sh
-sh
-sh
-sh
-sh
-sh
-sh
-sh
-sh
+Mq
 Mq
 Mq
 Mq
@@ -19507,17 +19475,17 @@ IB
 WN
 zC
 Sc
-sh
+nm
 eQ
-Mr
-ad
-TU
-TU
-TU
-TU
-TU
-CF
+gE
+gE
+mb
+iH
+Zv
+sb
+fr
 sh
+Tt
 Mq
 Mq
 Tt
@@ -19648,7 +19616,7 @@ zu
 ZP
 YW
 NB
-lv
+aX
 YF
 Lq
 QG
@@ -19660,16 +19628,16 @@ WN
 zC
 Sc
 sh
+fr
 gy
-gy
-gy
-TU
-TU
-TU
-Qm
-IR
-Fi
+uF
+jW
+iH
+Zv
+iH
+fr
 sh
+Mq
 Mq
 Mq
 Mq
@@ -19812,16 +19780,16 @@ WN
 zC
 Sc
 sh
-QT
-SY
-cn
-TU
-TU
+fr
+ov
+ov
+ra
+iH
 Zv
-TU
-Zv
-TU
+bU
+fr
 sh
+Mq
 Mq
 Mq
 Mq
@@ -19963,17 +19931,17 @@ aA
 WN
 zC
 Sc
-PG
-BT
-BT
-BT
-BT
-RC
-BT
-BT
-BT
-BT
-DK
+sh
+fr
+ov
+ov
+ra
+iH
+Zv
+bU
+fr
+sh
+Mq
 Mq
 Mq
 Mq
@@ -20115,17 +20083,17 @@ aA
 WN
 zC
 Sc
-jf
-ra
-ra
+sh
+fr
+ov
 ov
 ra
-nR
-ra
-ra
-ov
-ra
-bW
+iH
+iH
+bU
+fr
+sh
+Mq
 Mq
 Mq
 yp
@@ -20267,17 +20235,17 @@ aA
 WN
 zC
 Sc
-jf
-TU
-TU
-TU
-TU
-nR
-TU
-TU
-TU
-TU
-bW
+sh
+fr
+BX
+BX
+CL
+fr
+eQ
+fr
+fr
+sh
+Mq
 Mq
 Mq
 yp
@@ -20411,7 +20379,7 @@ DR
 vg
 HA
 Lq
-QU
+Zx
 zg
 OQ
 sd
@@ -20419,17 +20387,17 @@ aA
 WN
 zC
 Sc
-jf
-TU
-TU
-TU
-TU
-nR
-TU
-TU
-TU
-TU
-bW
+sh
+sh
+sh
+sh
+sh
+sh
+fx
+sh
+sh
+sh
+Mq
 Mq
 Mq
 yp
@@ -20571,17 +20539,17 @@ aA
 WN
 zC
 Sc
-jf
-TU
-TU
-TU
-TU
-nR
-TU
-TU
-TU
-TU
-bW
+sh
+PG
+BT
+BT
+BT
+RC
+BT
+BT
+BT
+DK
+Mq
 Tt
 Mq
 yp
@@ -20723,8 +20691,8 @@ aA
 WN
 zC
 Sc
+sh
 jf
-TU
 TU
 TU
 TU
@@ -20732,8 +20700,8 @@ nR
 TU
 TU
 TU
-TU
 bW
+Mq
 Mq
 Mq
 yp
@@ -20875,8 +20843,8 @@ aA
 WN
 zC
 Sc
+sh
 jf
-TU
 TU
 TU
 TU
@@ -20884,8 +20852,8 @@ nR
 TU
 TU
 TU
-TU
 bW
+Mq
 Mq
 Mq
 yp
@@ -21027,8 +20995,8 @@ aA
 WN
 zC
 Sc
+sh
 jf
-TU
 TU
 TU
 TU
@@ -21036,8 +21004,8 @@ nR
 TU
 TU
 TU
-TU
 bW
+Mq
 Mq
 Mq
 yp
@@ -21166,7 +21134,7 @@ Oa
 te
 GN
 fr
-ay
+SY
 nF
 fr
 DU
@@ -21179,8 +21147,8 @@ YY
 WN
 zC
 Sc
+sh
 jf
-TU
 TU
 TU
 TU
@@ -21188,8 +21156,8 @@ Kk
 TU
 TU
 TU
-TU
 bW
+Mq
 Mq
 Mq
 yp
@@ -21331,17 +21299,17 @@ ts
 WN
 zC
 Sc
-sr
-aX
-aX
-aX
-aX
-Zz
-aX
-aX
-aX
-aX
-jW
+sh
+jf
+TU
+TU
+TU
+nR
+TU
+TU
+TU
+bW
+sh
 sh
 sh
 sh
@@ -21616,7 +21584,7 @@ zC
 LN
 aA
 sd
-DZ
+al
 lN
 qs
 lN
@@ -23427,10 +23395,10 @@ Wi
 wn
 wn
 wn
-ze
-ze
-ze
-ze
+vY
+vY
+vY
+vY
 wn
 wn
 wn
@@ -23579,10 +23547,10 @@ wX
 fF
 JV
 JV
-hs
-hs
-hs
-hs
+db
+db
+db
+db
 JV
 JV
 ri
@@ -23729,14 +23697,14 @@ Mq
 Mq
 wX
 PL
-cj
-cj
-cj
-cj
-cj
-cj
-cj
-cj
+uT
+uT
+uT
+uT
+uT
+uT
+uT
+uT
 se
 qr
 zV
@@ -23881,14 +23849,14 @@ oq
 Mq
 wX
 PL
-cj
-mX
+uT
+Pv
+XM
 iN
-fx
-fx
-fx
-al
-cj
+iN
+iN
+pS
+uT
 se
 qr
 zV
@@ -24033,14 +24001,14 @@ oq
 Mq
 wX
 PL
-db
-YD
-is
-fl
-fl
-Ta
-YD
 fH
+YD
+ay
+Fi
+Fi
+fl
+YD
+NF
 se
 qr
 zV
@@ -24187,10 +24155,10 @@ wX
 PL
 ZA
 YD
-pg
-FH
-FH
+IR
 ek
+ek
+QT
 YD
 ZA
 se
@@ -24339,10 +24307,10 @@ nm
 nD
 IM
 gO
-ro
+DG
 ZX
 Sg
-lQ
+CF
 gO
 IM
 Mp
@@ -24947,10 +24915,10 @@ nm
 nD
 YD
 YD
-vr
+rj
 By
 dO
-ua
+sN
 YD
 YD
 Mp
@@ -25706,12 +25674,12 @@ Mq
 nm
 nD
 Dg
-Rn
+QU
 YD
 tg
 YD
 YD
-Rn
+QU
 Dg
 Mp
 Fm
@@ -25857,14 +25825,14 @@ oq
 Mq
 wX
 PL
-cj
+uT
 dP
 dN
 qd
 tJ
 gj
-mb
-cj
+eF
+uT
 se
 qr
 zV
@@ -26009,14 +25977,14 @@ oq
 Mq
 wX
 PL
-cj
+uT
 dP
 oM
 Mi
 oM
 SM
-mb
-cj
+eF
+uT
 se
 qr
 zV
@@ -26161,14 +26129,14 @@ ac
 oq
 wX
 PL
-cj
+uT
 dP
 gQ
 gQ
 gQ
-jc
-mb
-cj
+dA
+eF
+uT
 se
 qr
 zV
@@ -26313,14 +26281,14 @@ ac
 oq
 wX
 PL
-cj
-cj
-cj
-cj
-cj
-cj
-cj
-cj
+uT
+uT
+uT
+uT
+uT
+uT
+uT
+uT
 se
 qr
 zV
@@ -42005,14 +41973,14 @@ UQ
 UQ
 UQ
 UQ
-UQ
-UQ
-UQ
-UQ
-UQ
-UQ
-UQ
-UQ
+Rp
+XB
+XB
+XB
+XB
+XB
+XB
+lx
 UQ
 UQ
 UQ
@@ -42157,14 +42125,14 @@ tu
 UQ
 UQ
 UQ
-UQ
-UQ
-UQ
-UQ
-UQ
-UQ
-UQ
-UQ
+iO
+jw
+jw
+jw
+jw
+jw
+jw
+aG
 UQ
 UQ
 UQ
@@ -42309,14 +42277,14 @@ mA
 UQ
 UQ
 UQ
-UQ
-UQ
-UQ
-UQ
-UQ
-UQ
-UQ
-UQ
+iO
+jw
+jw
+jw
+jw
+jw
+jw
+aG
 UQ
 UQ
 UQ
@@ -42461,14 +42429,14 @@ mA
 UQ
 UQ
 UQ
-UQ
-UQ
-UQ
-UQ
-UQ
-UQ
-UQ
-UQ
+iO
+jw
+jw
+jw
+jw
+jw
+jw
+aG
 UQ
 UQ
 UQ
@@ -42613,14 +42581,14 @@ mA
 UQ
 UQ
 UQ
-UQ
-UQ
-UQ
-UQ
-UQ
-UQ
-UQ
-UQ
+iO
+jw
+jw
+jw
+jw
+jw
+jw
+aG
 UQ
 UQ
 UQ
@@ -42765,14 +42733,14 @@ wU
 UQ
 UQ
 UQ
-UQ
-UQ
-UQ
-UQ
-UQ
-UQ
-UQ
-UQ
+iO
+jw
+jw
+jw
+jw
+jw
+jw
+aG
 UQ
 UQ
 UQ
@@ -42904,7 +42872,7 @@ bB
 ko
 ko
 Da
-UB
+tn
 xY
 VH
 xY
@@ -42917,14 +42885,14 @@ wU
 UQ
 UQ
 UQ
-UQ
-UQ
-UQ
-UQ
-UQ
-UQ
-UQ
-UQ
+iO
+jw
+jw
+jw
+jw
+jw
+jw
+aG
 UQ
 UQ
 UQ
@@ -43069,14 +43037,14 @@ wU
 UQ
 UQ
 UQ
-UQ
-UQ
-UQ
-UQ
-UQ
-UQ
-UQ
-UQ
+ci
+wH
+wH
+wH
+wH
+wH
+wH
+wa
 UQ
 UQ
 UQ
@@ -44273,7 +44241,7 @@ Gp
 HO
 HO
 wB
-DG
+hd
 CQ
 kU
 kU
@@ -44577,7 +44545,7 @@ Gp
 HO
 HO
 wB
-hd
+DZ
 NZ
 Fd
 Hc
@@ -45149,11 +45117,11 @@ UQ
 UQ
 Ew
 fr
-nz
-BX
-BX
-BX
-BX
+Zz
+Kq
+Kq
+Kq
+Kq
 fr
 mA
 UQ
@@ -45301,11 +45269,11 @@ UQ
 UQ
 Ew
 fr
-rj
-Kq
-vn
-VK
-Cf
+lv
+Ta
+pP
+FH
+Qm
 fr
 mA
 UQ
@@ -45453,11 +45421,11 @@ UQ
 UQ
 Ew
 fr
-sN
-tn
-gE
-XM
+AM
 HF
+gE
+VK
+ua
 fr
 mA
 UQ
@@ -45605,11 +45573,11 @@ UQ
 UQ
 Ew
 fr
-rj
-pS
-bz
-im
-uT
+lv
+Mr
+Nv
+JJ
+Kj
 fr
 mA
 UQ
@@ -45757,11 +45725,11 @@ UQ
 UQ
 Ew
 fr
-nz
-BX
-BX
-BX
-BX
+Zz
+Kq
+Kq
+Kq
+Kq
 fr
 mA
 UQ
