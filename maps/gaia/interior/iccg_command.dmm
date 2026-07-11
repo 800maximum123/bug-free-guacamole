@@ -52,7 +52,9 @@
 /area/interior)
 "G" = (
 /obj/structure/table/steel_reinforced,
-/obj/machinery/photocopier/faxmachine,
+/obj/machinery/photocopier/faxmachine{
+	department = "Morskie Draguny - APC"
+	},
 /obj/item/device/radio/intercom/gaia_iccg{
 	dir = 8;
 	pixel_x = 24
