@@ -178,19 +178,19 @@
 
 /area/gaia/urbanrebels/inside/townhall
 	name = "\improper Urbomanka - Town Hall"
-	req_access = access_bridge
+	req_access = list(access_bridge)
 
 /area/gaia/urbanrebels/inside/police
 	name = "\improper Urbomanka - Police Station"
-	req_access = access_security
+	req_access = list(access_security)
 
 /area/gaia/urbanrebels/inside/firefighter
 	name = "\improper Urbomanka - Fire Station"
-	req_access = access_atmospherics
+	req_access = list(access_atmospherics)
 
 /area/gaia/urbanrebels/inside/engineering
 	name = "\improper Urbomanka - Engineering Station"
-	req_access = access_engine
+	req_access = list(access_engine)
 
 /area/gaia/urbanrebels/inside/engineering/telecomms
 	name = "\improper Urbomanka - Telecomms Station"
@@ -200,12 +200,12 @@
 
 /area/gaia/urbanrebels/inside/nt
 	name = "\improper Urbomanka - NanoTrasen Office"
-	req_access = access_nanotrasen
+	req_access = list(access_nanotrasen)
 
 /area/gaia/urbanrebels/inside/hospital
 	name = "\improper Urbomanka - Hospital"
-	req_access = access_medical
-
+	req_access = list(access_medical
+	)
 /area/gaia/urbanrebels/inside/park
 	name = "\improper Urbomanka - Park Office"
 
@@ -213,7 +213,7 @@
 	name = "\improper Urbomanka - Church"
 	sound_env = LARGE_ENCLOSED
 	ambience = list('sound/ambience/ambicha1.ogg', 'sound/ambience/ambicha2.ogg', 'sound/ambience/ambicha3.ogg')
-	req_access = access_chapel_office
+	req_access = list(access_chapel_office)
 
 /area/gaia/urbanrebels/inside/metro
 	name = "\improper Urbomanka - Northern Metro Station"
@@ -231,7 +231,7 @@
 			'maps/gaia/sounds/ambience/propaganda/propaganda_muffled5.ogg',
 			'maps/gaia/sounds/ambience/propaganda/propaganda_muffled6.ogg',
 			)
-	req_access = access_engine
+	req_access = list(access_engine)
 
 /area/gaia/urbanrebels/inside/metro/south
 	name = "\improper Urbomanka - Southern Metro Station"
@@ -297,19 +297,19 @@
 
 /area/gaia/urbanrebels/underground/police
 	name = "\improper Urbomanka - Underground Police Station"
-	req_access = access_security
+	req_access = list(access_security)
 
 /area/gaia/urbanrebels/underground/townhall
 	name = "\improper Urbomanka - Underground Town Hall"
-	req_access = access_bridge
+	req_access = list(access_bridge)
 
 /area/gaia/urbanrebels/underground/hospital
 	name = "\improper Urbomanka - Underground Hospital"
-	req_access = access_medical
+	req_access = list(access_medical)
 
 /area/gaia/urbanrebels/underground/church
 	name = "\improper Urbomanka - Underground Church"
-	req_access = access_chapel_office
+	req_access = list(access_chapel_office)
 
 /area/gaia/urbanrebels/underground/sewers
 	name = "\improper Urbomanka - Sewers"

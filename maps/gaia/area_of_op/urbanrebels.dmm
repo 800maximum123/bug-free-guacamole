@@ -68,7 +68,7 @@
 	icon_state = "railing0-1"
 	},
 /turf/simulated/floor/tiled/dark/monotile,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "abP" = (
 /obj/floor_decal/industrial/outline/green,
 /obj/item/reagent_containers/food/condiment/flour,
@@ -142,6 +142,14 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel_grid,
 /area/gaia/urbanrebels/inside/street/paula)
+"aej" = (
+/obj/machinery/status_display{
+	pixel_x = 32;
+	pixel_y = -32
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "aex" = (
 /obj/structure/closet/crate/trashcart,
 /turf/simulated/floor/tiled/dark,
@@ -162,6 +170,14 @@
 	},
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels/street/lizandro)
+"afN" = (
+/obj/structure/sign/emergonly{
+	dir = 8;
+	pixel_x = 32
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "afR" = (
 /obj/structure/bed/chair/wood{
 	dir = 1
@@ -268,6 +284,16 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/gaia/urbanrebels/inside/street/willmar)
+"aiw" = (
+/obj/structure/bed/chair/office/blue{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside/metro/south)
 "aiG" = (
 /obj/floor_decal/spline/fancy/black/corner{
 	dir = 8
@@ -597,6 +623,15 @@
 /obj/floor_decal/spline/fancy,
 /turf/simulated/floor/wood,
 /area/gaia/urbanrebels/inside)
+"apJ" = (
+/obj/structure/window/basic{
+	dir = 4;
+	pixel_x = 4
+	},
+/obj/floor_decal/industrial/hatch/red,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/urbanrebels/inside/metro/south)
 "apS" = (
 /turf/simulated/floor/exoplanet/samosbor/stairs{
 	dir = 4;
@@ -675,6 +710,16 @@
 /obj/floor_decal/corner/paleblue/mono,
 /turf/simulated/floor/tiled/white/monotile,
 /area/gaia/urbanrebels/inside/hospital)
+"arU" = (
+/obj/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/structure/sign/warning{
+	dir = 1;
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "asJ" = (
 /obj/floor_decal/corner/red/diagonal,
 /obj/floor_decal/borderfloor{
@@ -1128,6 +1173,10 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/gaia/urbanrebels/inside/police)
+"aJw" = (
+/obj/machinery/ship_map,
+/turf/simulated/wall/concrete,
+/area/gaia/urbanrebels/inside/metro/south)
 "aJD" = (
 /obj/landmark/damager,
 /obj/decal/cleanable/dirt,
@@ -1345,7 +1394,7 @@
 "aQD" = (
 /obj/structure/girder,
 /turf/simulated/floor/plating,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "aRd" = (
 /obj/item/gun/projectile/pistol/holdout,
 /obj/structure/storage/chestdrawer,
@@ -1632,6 +1681,16 @@
 /obj/item/material/cross/wood,
 /turf/simulated/floor/wood/maple,
 /area/gaia/urbanrebels/inside/church)
+"aYk" = (
+/obj/structure/sign/warning/detailed{
+	dir = 8;
+	pixel_x = 32
+	},
+/obj/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/urbanrebels/inside/metro/south)
 "aYr" = (
 /obj/structure/hygiene/shower{
 	dir = 1
@@ -1781,6 +1840,12 @@
 	},
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels)
+"bcV" = (
+/obj/machinery/light/spot{
+	dir = 8
+	},
+/turf/simulated/open,
+/area/gaia/urbanrebels/inside/metro/south)
 "bdI" = (
 /obj/structure/platform/hybrisa/metalplatform2,
 /obj/structure/platform/hybrisa/metalplatform2{
@@ -2440,6 +2505,13 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/gaia/urbanrebels/inside)
+"bwk" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "bwo" = (
 /obj/structure/platform/hybrisa/metalplatform1{
 	dir = 4
@@ -2450,6 +2522,16 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/gaia/urbanrebels/inside/police)
+"bwp" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel_grid,
+/area/gaia/urbanrebels/inside/metro/south)
 "bwv" = (
 /obj/structure/catwalk,
 /obj/structure/railing/mapped{
@@ -2538,6 +2620,13 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/urbanrebels)
+"bzF" = (
+/obj/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "bzH" = (
 /turf/simulated/floor/plating,
 /area/gaia/urbanrebels/underground)
@@ -2587,7 +2676,7 @@
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel_grid,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "bBQ" = (
 /obj/machinery/light{
 	pixel_y = -6
@@ -2795,7 +2884,7 @@
 /obj/wallframe_spawn/reinforced/polarized/concrete,
 /obj/structure/barricade,
 /turf/simulated/floor/plating,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "bHm" = (
 /obj/decal/cleanable/dirt,
 /obj/item/storage/bible,
@@ -2809,7 +2898,7 @@
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "bHQ" = (
 /obj/structure/railing/mapped{
 	dir = 4;
@@ -2869,6 +2958,17 @@
 /obj/machinery/door/unpowered/simple,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/gaia/urbanrebels/inside)
+"bJg" = (
+/obj/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/sign/warning/detailed{
+	dir = 4;
+	pixel_x = -32
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/urbanrebels/inside/metro/south)
 "bJm" = (
 /obj/structure/platform/hybrisa/engineer,
 /obj/structure/platform/shiva{
@@ -2953,6 +3053,16 @@
 /obj/structure/grille,
 /turf/simulated/floor/exoplanet/water/shallow/sewers,
 /area/gaia/urbanrebels)
+"bLM" = (
+/obj/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/structure/sign/warning{
+	pixel_y = 24
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "bLQ" = (
 /obj/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -3239,7 +3349,7 @@
 /obj/item/stock_parts/computer/battery_module/micro,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "bSj" = (
 /obj/machinery/door/blast/shutters{
 	id_tag = "apartment_shutters1"
@@ -3275,6 +3385,11 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/gaia/urbanrebels/inside/street/willmar)
+"bTN" = (
+/obj/structure/filingcabinet,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside/metro/south)
 "bTR" = (
 /obj/floor_decal/industrial/loading{
 	dir = 1
@@ -3332,6 +3447,11 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/lino,
 /area/gaia/urbanrebels/inside/townhall)
+"bVE" = (
+/obj/machinery/computer/modular/preset/security,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside/metro/south)
 "bVF" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood/yew{
@@ -3464,7 +3584,7 @@
 /obj/item/modular_computer/laptop/preset/custom_loadout/cheap,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "bZl" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 1
@@ -3984,6 +4104,13 @@
 /obj/item/material/shard/caltrop,
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels/street/paula)
+"cnM" = (
+/obj/machinery/status_display{
+	pixel_x = -32
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "cnP" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 1
@@ -4453,10 +4580,13 @@
 	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/urbanrebels/inside/street/paula)
+"cyZ" = (
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "czi" = (
 /obj/decal/cleanable/filth,
 /turf/simulated/floor/lino,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "czj" = (
 /turf/simulated/floor/wood/yew,
 /area/gaia/urbanrebels/inside/church)
@@ -4930,6 +5060,10 @@
 /obj/landmark/scorcher,
 /turf/simulated/floor/wood,
 /area/gaia/urbanrebels/street/paula)
+"cLa" = (
+/obj/machinery/door/unpowered/simple/plastic/open,
+/turf/simulated/floor/tiled/white,
+/area/gaia/urbanrebels/inside/metro/south)
 "cLn" = (
 /obj/structure/girder/displaced,
 /obj/decal/cleanable/dirt,
@@ -5267,6 +5401,14 @@
 	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/urbanrebels/street/paula)
+"cTc" = (
+/obj/structure/sign/emergonly{
+	dir = 4;
+	pixel_x = -32
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "cTo" = (
 /obj/structure/curtain/black,
 /obj/floor_decal/corner/blood_red/mono,
@@ -5346,7 +5488,7 @@
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "cUO" = (
 /obj/structure/platform/shiva{
 	dir = 8
@@ -5372,7 +5514,7 @@
 "cVk" = (
 /obj/machinery/door/unpowered/simple/plastic,
 /turf/simulated/floor/tiled/white,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "cVn" = (
 /obj/floor_decal/industrial/hatch/yellow,
 /obj/floor_decal/spline/fancy/black,
@@ -5394,6 +5536,9 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/gaia/urbanrebels/street/paula)
+"cVM" = (
+/turf/simulated/open,
+/area/gaia/urbanrebels/inside/metro/south)
 "cWs" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood{
@@ -5471,7 +5616,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "cYr" = (
 /obj/floor_decal/techfloor{
 	dir = 8
@@ -5511,6 +5656,16 @@
 "cZa" = (
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels)
+"cZh" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/floor_decal/industrial/warning/dust{
+	dir = 5
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel_grid,
+/area/gaia/urbanrebels/inside/metro/south)
 "cZu" = (
 /obj/structure/sign/warning{
 	dir = 4;
@@ -5797,6 +5952,10 @@
 /obj/structure/rubble/gaia,
 /turf/simulated/floor/plating,
 /area/gaia/urbanrebels/street/lusiano)
+"dim" = (
+/obj/wallframe_spawn/reinforced/polarized/concrete,
+/turf/simulated/floor/plating,
+/area/gaia/urbanrebels/inside/metro/south)
 "dis" = (
 /obj/floor_decal/corner/lime/mono,
 /obj/item/material/bell,
@@ -5812,6 +5971,10 @@
 /obj/machinery/computer/modular/preset/engineering,
 /turf/simulated/floor/tiled/techfloor,
 /area/gaia/urbanrebels/underground/sewers)
+"diU" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/monotile,
+/area/gaia/urbanrebels/inside/metro/south)
 "diV" = (
 /turf/simulated/floor/tiled/steel_grid,
 /area/gaia/urbanrebels/inside/street/brundino)
@@ -5905,7 +6068,7 @@
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "dkn" = (
 /obj/floor_decal/corner/lime/mono,
 /obj/structure/bed/chair/padded/lime,
@@ -6243,6 +6406,10 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood/yew,
 /area/gaia/urbanrebels/inside)
+"dwf" = (
+/obj/item/stool/padded/red,
+/turf/simulated/floor/tiled/monotile,
+/area/gaia/urbanrebels/inside/metro/south)
 "dwN" = (
 /obj/floor_decal/industrial/hatch,
 /obj/floor_decal/spline/fancy/black{
@@ -6295,6 +6462,15 @@
 "dym" = (
 /turf/simulated/wall/wood,
 /area/gaia/urbanrebels/park)
+"dyq" = (
+/obj/structure/window/basic{
+	dir = 4;
+	pixel_x = 4
+	},
+/obj/floor_decal/industrial/outline/yellow,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside/metro/south)
 "dyE" = (
 /obj/floor_decal/borderfloor,
 /obj/floor_decal/corner/darkblue/border,
@@ -6414,6 +6590,20 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/gaia/urbanrebels/inside)
+"dCl" = (
+/obj/machinery/door/window/eastright,
+/obj/floor_decal/industrial/loading{
+	dir = 8
+	},
+/obj/floor_decal/industrial/warning/dust/corner{
+	dir = 1
+	},
+/obj/floor_decal/industrial/warning/dust/corner{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/gaia/urbanrebels/inside/metro/south)
 "dCv" = (
 /obj/structure/table/marble,
 /turf/simulated/floor/tiled,
@@ -6663,7 +6853,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "dJo" = (
 /obj/floor_decal/corner/b_green/border{
 	dir = 1
@@ -6716,6 +6906,16 @@
 /obj/structure/rubble/gaia,
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/urbanrebels)
+"dMp" = (
+/obj/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/structure/platform/strata/metal{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "dMO" = (
 /obj/structure/table/rack,
 /obj/item/reagent_containers/food/drinks/bottle/small/ale,
@@ -6927,6 +7127,9 @@
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/gaia/urbanrebels/street/paula)
+"dSD" = (
+/turf/simulated/floor/lino,
+/area/gaia/urbanrebels/inside/metro/south)
 "dSJ" = (
 /obj/structure/ladder/up,
 /turf/simulated/floor/exoplanet/water/shallow/sewers,
@@ -6937,7 +7140,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white/monotile,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "dSX" = (
 /obj/machinery/light/spot{
 	dir = 1
@@ -7029,6 +7232,11 @@
 "dVs" = (
 /turf/simulated/floor/exoplanet/barren,
 /area/gaia/urbanrebels/inside/street/willmar)
+"dVw" = (
+/obj/machinery/conveyor,
+/obj/structure/wall_frame/standard,
+/turf/simulated/floor/plating,
+/area/gaia/urbanrebels/inside/metro/south)
 "dVx" = (
 /turf/simulated/floor/carpet/purple,
 /area/gaia/urbanrebels/inside)
@@ -7318,7 +7526,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "eem" = (
 /obj/machinery/pipelayer,
 /turf/simulated/floor/tiled/techfloor,
@@ -7437,6 +7645,12 @@
 	},
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels/street/paula)
+"egl" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/gaia/urbanrebels/inside/metro/south)
 "egn" = (
 /obj/structure/table/rack,
 /obj/random/maintenance/clean,
@@ -7574,6 +7788,11 @@
 /obj/floor_decal/corner/darkblue/border,
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/urbanrebels/inside/police)
+"ekj" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/light/spot,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "ekk" = (
 /obj/floor_decal/spline/fancy/black,
 /obj/step_trigger/message_once{
@@ -7986,6 +8205,13 @@
 	},
 /turf/simulated/open,
 /area/gaia/urbanrebels/river)
+"euN" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/light/spot{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "euP" = (
 /obj/machinery/door/unpowered/simple,
 /obj/decal/cleanable/dirt,
@@ -8169,6 +8395,13 @@
 /obj/item/trash/cigbutt/cigarbutt,
 /turf/simulated/floor/wood/yew,
 /area/gaia/urbanrebels/inside/church)
+"eyy" = (
+/obj/structure/bed/chair/office/comfy/blue{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside/metro/south)
 "eyM" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 4
@@ -8299,7 +8532,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "eCt" = (
 /obj/decal/cleanable/dirt,
 /obj/landmark/damager,
@@ -8752,7 +8985,7 @@
 /obj/machinery/door/airlock/civilian,
 /obj/structure/barricade,
 /turf/simulated/floor/lino,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "eQs" = (
 /obj/floor_decal/borderfloorwhite{
 	dir = 1
@@ -8793,6 +9026,10 @@
 /obj/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/gaia/urbanrebels/inside/hospital)
+"eRe" = (
+/obj/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "eRh" = (
 /obj/item/material/shard/caltrop,
 /obj/landmark/scorcher,
@@ -8835,7 +9072,7 @@
 /obj/item/storage/toolbox/electrical,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "eSg" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
@@ -9207,6 +9444,16 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/urbanrebels/inside/street/paula)
+"fdj" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside/metro/south)
 "fdD" = (
 /obj/structure/fog,
 /turf/simulated/floor/plating,
@@ -9531,6 +9778,19 @@
 /obj/structure/barricade,
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels/street/willmar)
+"flv" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/floor_decal/step{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel_grid,
+/area/gaia/urbanrebels/inside/metro/south)
 "flQ" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/table/rack,
@@ -9838,6 +10098,9 @@
 /obj/structure/rubble/gaia,
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/urbanrebels/street/lusiano)
+"fsn" = (
+/turf/simulated/floor/tiled/monotile,
+/area/gaia/urbanrebels/inside/metro/south)
 "fsv" = (
 /obj/decal/cleanable/blood,
 /obj/machinery/optable,
@@ -10056,7 +10319,7 @@
 	},
 /obj/floor_decal/industrial/loading,
 /turf/simulated/floor/tiled,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "fww" = (
 /obj/floor_decal/corner/lime/diagonal,
 /obj/structure/closet/crate/bin,
@@ -10320,6 +10583,11 @@
 /obj/structure/closet/fridge,
 /turf/simulated/floor/tiled/dark,
 /area/gaia/urbanrebels/inside/street/willmar)
+"fDI" = (
+/obj/machinery/door/blast/shutters/open,
+/obj/wallframe_spawn/reinforced/polarized/concrete,
+/turf/simulated/floor/plating,
+/area/gaia/urbanrebels/inside/metro/south)
 "fDZ" = (
 /obj/structure/platform_decoration/hybrisa/metalplatformdeco6{
 	dir = 4;
@@ -10397,6 +10665,16 @@
 /obj/landmark/scorcher,
 /turf/simulated/floor/exoplanet/gravel,
 /area/gaia/urbanrebels/street/paula)
+"fFX" = (
+/obj/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/obj/structure/platform_decoration/strata/metal{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "fGd" = (
 /obj/structure/wall_frame/concrete,
 /obj/structure/grille/broken,
@@ -10623,6 +10901,13 @@
 /obj/item/material/shard,
 /turf/simulated/floor/plating,
 /area/gaia/urbanrebels/street/lusiano)
+"fMx" = (
+/obj/structure/stairs/south,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "fMA" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood/maple,
@@ -10909,6 +11194,11 @@
 /obj/structure/curtain/grim_red,
 /turf/simulated/floor/wood/walnut,
 /area/gaia/urbanrebels/inside)
+"fXN" = (
+/obj/machinery/cooker/grill,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/monotile,
+/area/gaia/urbanrebels/inside/metro/south)
 "fXY" = (
 /obj/structure/bed/chair/pew/left,
 /turf/simulated/floor/exoplanet/concrete,
@@ -11187,6 +11477,10 @@
 /obj/structure/window/basic,
 /turf/simulated/floor/tiled/white,
 /area/gaia/urbanrebels/inside/police)
+"gek" = (
+/obj/structure/hygiene/toilet,
+/turf/simulated/floor/tiled/white,
+/area/gaia/urbanrebels/inside/metro/south)
 "geD" = (
 /obj/machinery/door/unpowered/simple,
 /obj/landmark/scorcher,
@@ -11298,6 +11592,16 @@
 /obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/lino,
 /area/gaia/urbanrebels/inside/street/quentino)
+"gjU" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/floor_decal/industrial/warning/dust{
+	dir = 9
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel_grid,
+/area/gaia/urbanrebels/inside/metro/south)
 "gkb" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/concrete,
@@ -11346,6 +11650,13 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/gaia/urbanrebels/inside/townhall)
+"gkX" = (
+/obj/machinery/ship_map{
+	pixel_y = 32
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "gkY" = (
 /obj/structure/barrier/simple{
 	dir = 4
@@ -11458,6 +11769,12 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/urbanrebels/inside/street/paula)
+"gov" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "goQ" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 8
@@ -11590,7 +11907,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "gtK" = (
 /obj/machinery/door/unpowered/simple,
 /turf/simulated/floor/wood,
@@ -11620,6 +11937,9 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/blue,
 /area/gaia/urbanrebels/inside/street/quentino)
+"gus" = (
+/turf/simulated/wall/concrete,
+/area/gaia/urbanrebels/inside/metro/south)
 "gux" = (
 /obj/structure/rubble/gaia,
 /turf/simulated/floor/plating,
@@ -11872,6 +12192,13 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/urbanrebels/inside/street/brundino)
+"gAo" = (
+/obj/machinery/status_display{
+	pixel_x = -32;
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "gAz" = (
 /obj/structure/flora/pottedplant/largebush,
 /obj/machinery/light{
@@ -12273,7 +12600,7 @@
 /obj/floor_decal/industrial/warning/dust,
 /obj/floor_decal/industrial/loading,
 /turf/simulated/floor/tiled,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "gNt" = (
 /obj/floor_decal/industrial/warning/dust/corner{
 	dir = 1
@@ -12292,6 +12619,16 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/gaia/urbanrebels/inside)
+"gNx" = (
+/obj/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/machinery/door/blast/shutters/open,
+/obj/floor_decal/industrial/loading{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "gND" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 1
@@ -13063,6 +13400,11 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/gaia/urbanrebels/inside/police)
+"hle" = (
+/obj/machinery/door/unpowered/simple,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/monotile,
+/area/gaia/urbanrebels/inside/metro/south)
 "hlE" = (
 /obj/structure/table/steel,
 /obj/item/storage/box/freezer/blood/human,
@@ -13194,6 +13536,12 @@
 "hoQ" = (
 /turf/simulated/floor/carpet/orange,
 /area/gaia/urbanrebels/street/brundino)
+"hqd" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/open,
+/area/gaia/urbanrebels/inside/metro/south)
 "hql" = (
 /obj/structure/bookcase/manuals/research_and_development,
 /obj/decal/cleanable/dirt,
@@ -13230,11 +13578,23 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "hru" = (
 /obj/structure/table/gamblingtable,
 /turf/simulated/floor/wood/walnut,
 /area/gaia/urbanrebels/inside/street/paula)
+"hrK" = (
+/obj/floor_decal/steeldecal/steel_decals_central2{
+	dir = 8
+	},
+/obj/floor_decal/techfloor/orange{
+	dir = 8
+	},
+/obj/structure/platform/shiva{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/urbanrebels/inside/metro/south)
 "hrN" = (
 /obj/floor_decal/steeldecal/steel_decals_central2{
 	dir = 8
@@ -13365,6 +13725,10 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/gaia/urbanrebels/inside)
+"hvd" = (
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/urbanrebels/inside/metro/south)
 "hvs" = (
 /obj/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -13781,6 +14145,13 @@
 /obj/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/tiled/dark,
 /area/gaia/urbanrebels/inside/street/quentino)
+"hFQ" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/light/spot{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "hFU" = (
 /obj/floor_decal/industrial/warning{
 	dir = 4
@@ -13887,7 +14258,7 @@
 /area/gaia/urbanrebels/inside/street/lizandro)
 "hIE" = (
 /turf/simulated/floor/tiled/white,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "hIU" = (
 /obj/machinery/door/airlock/glass/civilian,
 /turf/simulated/floor/shuttle/black,
@@ -14370,6 +14741,17 @@
 /obj/structure/barricade,
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels/street/celsia)
+"hUw" = (
+/obj/machinery/door/window/westleft,
+/obj/floor_decal/industrial/loading{
+	dir = 4
+	},
+/obj/floor_decal/industrial/warning/dust/corner{
+	dir = 4
+	},
+/obj/floor_decal/industrial/warning/dust/corner,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/gaia/urbanrebels/inside/metro/south)
 "hUz" = (
 /obj/floor_decal/spline/fancy/black/corner{
 	dir = 1
@@ -14398,6 +14780,10 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/gaia/urbanrebels/inside)
+"hVU" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/urbanrebels/inside/metro/south)
 "hWa" = (
 /obj/machinery/vending/snack,
 /turf/simulated/floor/exoplanet/concrete,
@@ -14462,7 +14848,7 @@
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "hXN" = (
 /obj/structure/bed/chair/pew/left/mahogany,
 /obj/landmark{
@@ -14501,6 +14887,14 @@
 /obj/catwalk_plated/dark,
 /turf/simulated/open,
 /area/gaia/urbanrebels/street/manu)
+"hZg" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/brigdoor/northright,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside/metro/south)
 "hZx" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -14886,6 +15280,10 @@
 	},
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels/street/paula)
+"ikj" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "ikm" = (
 /obj/structure/rubble/gaia,
 /obj/landmark/scorcher,
@@ -14922,6 +15320,12 @@
 /obj/structure/table/marble,
 /turf/simulated/floor/tiled,
 /area/gaia/urbanrebels/street/celsia)
+"ikX" = (
+/obj/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "ila" = (
 /obj/machinery/door/unpowered/simple/plastic,
 /obj/decal/cleanable/dirt,
@@ -15020,7 +15424,7 @@
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel_grid,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "ioV" = (
 /obj/structure/barrier/simple{
 	dir = 4
@@ -15353,6 +15757,18 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/gaia/urbanrebels/inside)
+"izb" = (
+/obj/machinery/door/window/westleft,
+/obj/floor_decal/industrial/loading{
+	dir = 4
+	},
+/obj/floor_decal/industrial/warning/dust/corner{
+	dir = 4
+	},
+/obj/floor_decal/industrial/warning/dust/corner,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/gaia/urbanrebels/inside/metro/south)
 "ize" = (
 /obj/decal/cleanable/dirt,
 /obj/machinery/light{
@@ -15381,6 +15797,13 @@
 /obj/decal/cleanable/vomit,
 /turf/simulated/floor/tiled/white/monotile,
 /area/gaia/urbanrebels/inside/street/brundino)
+"izw" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel_grid,
+/area/gaia/urbanrebels/inside/metro/south)
 "izF" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/railing/mapped,
@@ -15445,6 +15868,18 @@
 /obj/landmark/damager,
 /turf/simulated/floor/tiled,
 /area/gaia/urbanrebels/inside)
+"iBz" = (
+/obj/floor_decal/steeldecal/steel_decals_central2{
+	dir = 8
+	},
+/obj/floor_decal/techfloor/orange{
+	dir = 8
+	},
+/obj/structure/platform_decoration/shiva{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/urbanrebels/inside/metro/south)
 "iBP" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 1
@@ -16042,7 +16477,7 @@
 "iUt" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "iUu" = (
 /obj/floor_decal/spline/fancy/black,
 /obj/structure/rubble/gaia,
@@ -16489,6 +16924,15 @@
 	},
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels/street/brundino)
+"jkO" = (
+/obj/machinery/door/window/southright,
+/obj/floor_decal/industrial/warning/fulltile,
+/obj/floor_decal/step,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/gaia/urbanrebels/inside/metro/south)
 "jli" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -16799,6 +17243,11 @@
 /obj/structure/rubble/gaia,
 /turf/simulated/floor/exoplanet/barren,
 /area/gaia/urbanrebels)
+"jvL" = (
+/obj/machinery/door/blast/shutters/open,
+/obj/floor_decal/industrial/warning/dust,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "jwd" = (
 /obj/floor_decal/industrial/hatch/yellow,
 /obj/floor_decal/spline/fancy/black{
@@ -16924,6 +17373,11 @@
 /obj/structure/barricade,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/gaia/urbanrebels/inside)
+"jzO" = (
+/obj/structure/closet/crate/freezer/meat,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/monotile,
+/area/gaia/urbanrebels/inside/metro/south)
 "jzR" = (
 /obj/floor_decal/industrial/outline/green,
 /obj/item/device/assembly/igniter,
@@ -17023,7 +17477,7 @@
 	pixel_y = 7
 	},
 /turf/simulated/floor/tiled/white/monotile,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "jCa" = (
 /obj/floor_decal/industrial/hatch/yellow,
 /obj/floor_decal/spline/fancy/black{
@@ -17318,6 +17772,12 @@
 /obj/structure/stairs/north,
 /turf/simulated/floor/tiled/techmaint,
 /area/gaia/urbanrebels/underground/townhall)
+"jHP" = (
+/obj/machinery/conveyor,
+/obj/structure/wall_frame/standard,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/gaia/urbanrebels/inside/metro/south)
 "jHY" = (
 /obj/structure/curtain/black{
 	pixel_x = 32
@@ -17446,7 +17906,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "jMF" = (
 /obj/landmark/scorcher,
 /turf/simulated/floor/exoplanet/concrete,
@@ -17562,6 +18022,16 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/urbanrebels/inside/police)
+"jOQ" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/bed/chair/office/blue{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside/metro/south)
 "jPr" = (
 /obj/floor_decal/stairs{
 	dir = 1
@@ -17783,6 +18253,13 @@
 /obj/machinery/door/unpowered/simple/glass,
 /turf/simulated/floor/tiled/white,
 /area/gaia/urbanrebels/inside/hospital)
+"jUB" = (
+/obj/machinery/door/blast/shutters/open{
+	dir = 4
+	},
+/obj/wallframe_spawn/reinforced/polarized/concrete,
+/turf/simulated/floor/plating,
+/area/gaia/urbanrebels/inside/metro/south)
 "jUP" = (
 /obj/structure/table/marble,
 /obj/structure/hygiene/sink/modern,
@@ -18154,6 +18631,12 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor,
 /area/gaia/urbanrebels/inside/firefighter)
+"khv" = (
+/obj/structure/table/marble,
+/obj/item/reagent_containers/food/snacks/meatburger,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/monotile,
+/area/gaia/urbanrebels/inside/metro/south)
 "kif" = (
 /obj/structure/hygiene/shower{
 	dir = 1
@@ -18383,6 +18866,12 @@
 	},
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels/street/lusiano)
+"koY" = (
+/obj/structure/table/steel,
+/obj/item/handcuffs,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside/metro/south)
 "kpd" = (
 /obj/machinery/door/unpowered/simple/plastic/open{
 	dir = 4
@@ -18393,6 +18882,16 @@
 /obj/structure/table/woodentable/ebony,
 /turf/simulated/floor/carpet/red,
 /area/gaia/urbanrebels/inside/street/quentino)
+"kpo" = (
+/obj/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
+"kpz" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "kpJ" = (
 /obj/landmark/scorcher,
 /turf/simulated/floor/plating,
@@ -18464,6 +18963,16 @@
 /obj/item/device/mine/bouncy,
 /turf/simulated/floor/wood,
 /area/gaia/urbanrebels/park)
+"krF" = (
+/obj/machinery/computer/dummy{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside/metro/south)
 "krJ" = (
 /obj/structure/railing/mapped,
 /obj/structure/rubble/gaia,
@@ -18849,6 +19358,9 @@
 /obj/item/ammo_magazine/speedloader/clip,
 /turf/simulated/floor/tiled/techfloor,
 /area/gaia/urbanrebels/inside)
+"kBF" = (
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/urbanrebels/inside/metro/south)
 "kCl" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -18857,6 +19369,14 @@
 /obj/floor_decal/corner/blood_red/mono,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/urbanrebels/inside/street/quentino)
+"kCn" = (
+/obj/structure/window/basic{
+	dir = 4;
+	pixel_x = 4
+	},
+/obj/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/urbanrebels/inside/metro/south)
 "kCA" = (
 /obj/structure/curtain/bed,
 /turf/simulated/floor/tiled/dark,
@@ -19051,7 +19571,7 @@
 /area/gaia/urbanrebels/inside/firefighter)
 "kHr" = (
 /turf/simulated/floor/carpet/green,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "kHs" = (
 /obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled/monotile,
@@ -19203,6 +19723,10 @@
 /obj/item/shovel,
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels/street/lizandro)
+"kLK" = (
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/monotile,
+/area/gaia/urbanrebels/inside/metro/south)
 "kLO" = (
 /obj/floor_decal/industrial/warning/dust/corner{
 	dir = 8
@@ -19449,6 +19973,17 @@
 /obj/structure/stairs/north,
 /turf/simulated/floor/tiled/techmaint,
 /area/gaia/urbanrebels/underground/police)
+"kUv" = (
+/obj/machinery/door/window/northleft,
+/obj/floor_decal/industrial/warning/fulltile,
+/obj/floor_decal/step{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/gaia/urbanrebels/inside/metro/south)
 "kUE" = (
 /obj/structure/wall_frame/concrete,
 /obj/structure/grille/broken,
@@ -19888,7 +20423,7 @@
 /obj/decal/cleanable/filth,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/green,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "lhk" = (
 /turf/simulated/wall/concrete,
 /area/gaia/urbanrebels/inside/street/lizandro)
@@ -19951,6 +20486,17 @@
 /obj/wallframe_spawn/reinforced/concrete,
 /turf/simulated/floor/plating,
 /area/gaia/urbanrebels/underground/police)
+"liX" = (
+/obj/machinery/door/window/northright,
+/obj/floor_decal/industrial/warning/fulltile,
+/obj/floor_decal/step{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/gaia/urbanrebels/inside/metro/south)
 "liZ" = (
 /obj/structure/bed/sofa/m/brown{
 	dir = 10
@@ -20336,6 +20882,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/gaia/urbanrebels/inside/street/quentino)
+"lst" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/brigdoor/southleft,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside/metro/south)
 "lsx" = (
 /obj/structure/iv_stand,
 /obj/floor_decal/corner/paleblue/diagonal,
@@ -20455,6 +21009,13 @@
 /obj/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/gaia/urbanrebels/inside)
+"lvZ" = (
+/obj/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/machinery/door/blast/shutters/open,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "lwb" = (
 /obj/floor_decal/industrial/outline/grey,
 /obj/item/storage/secure/safe{
@@ -20745,6 +21306,24 @@
 	color = "#BC4A3C"
 	},
 /area/gaia/urbanrebels)
+"lEp" = (
+/obj/machinery/status_display{
+	pixel_x = 32
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
+"lEy" = (
+/obj/floor_decal/steeldecal/steel_decals_central2{
+	dir = 8;
+	pixel_x = -23
+	},
+/obj/floor_decal/techfloor/orange{
+	dir = 4
+	},
+/obj/structure/platform_decoration/shiva,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/urbanrebels/inside/metro/south)
 "lEz" = (
 /obj/floor_decal/spline/fancy/wood,
 /obj/structure/curtain/black{
@@ -21238,7 +21817,7 @@
 "lTf" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "lTo" = (
 /obj/machinery/computer/dummy,
 /obj/structure/cable/yellow{
@@ -21325,6 +21904,11 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/monotile,
 /area/gaia/urbanrebels/street/paula)
+"lVn" = (
+/obj/machinery/door/window/brigdoor/eastleft,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel_grid,
+/area/gaia/urbanrebels/inside/metro/south)
 "lVz" = (
 /obj/decal/cleanable/dirt,
 /obj/machinery/vending/cigarette{
@@ -21373,7 +21957,7 @@
 	icon_state = "railing0-1"
 	},
 /turf/simulated/floor/tiled/dark/monotile,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "lWH" = (
 /obj/landmark/scorcher,
 /turf/simulated/wall/concrete,
@@ -21809,6 +22393,13 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/gaia/urbanrebels/inside/church)
+"mjD" = (
+/obj/structure/stairs/south,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "mjN" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/closet/crate/secure/weapon,
@@ -22093,6 +22684,11 @@
 "mpL" = (
 /turf/simulated/floor/wood,
 /area/gaia/urbanrebels/underground)
+"mpN" = (
+/obj/structure/table/rack,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/gaia/urbanrebels/inside/metro/south)
 "mpX" = (
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels/inside/street/brundino)
@@ -22130,6 +22726,13 @@
 /obj/structure/bed/padded,
 /turf/simulated/floor/wood,
 /area/gaia/urbanrebels/inside)
+"mra" = (
+/obj/structure/stairs/north,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "mre" = (
 /obj/floor_decal/corner/yellow/border{
 	dir = 4
@@ -22233,6 +22836,17 @@
 /obj/structure/ladder/up,
 /turf/simulated/floor/wood,
 /area/gaia/urbanrebels/underground)
+"mtP" = (
+/obj/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/structure/railing/mapped{
+	dir = 1;
+	icon_state = "railing0-1"
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/urbanrebels/inside/metro/south)
 "mtQ" = (
 /obj/structure/girder,
 /obj/decal/cleanable/dirt,
@@ -22433,7 +23047,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/steel_grid,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "mzf" = (
 /obj/floor_decal/industrial/hatch,
 /obj/floor_decal/spline/fancy/black{
@@ -22481,7 +23095,7 @@
 "mAH" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/carpet/green,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "mBb" = (
 /obj/floor_decal/corner/blood_red{
 	dir = 1
@@ -22545,7 +23159,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/white,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "mCY" = (
 /obj/machinery/computer/modular/preset/engineering,
 /obj/structure/disposalpipe/segment,
@@ -22910,6 +23524,12 @@
 	},
 /turf/simulated/floor/exoplanet/gravel,
 /area/gaia/urbanrebels/street/lusiano)
+"mOr" = (
+/obj/machinery/door/blast/shutters/open,
+/obj/floor_decal/industrial/warning/dust,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "mPh" = (
 /obj/structure/platform/hybrisa/metalplatform6{
 	dir = 4;
@@ -23015,6 +23635,13 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/gaia/urbanrebels/inside/street/lizandro)
+"mRN" = (
+/obj/structure/bed/chair/padded/blue{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel_grid,
+/area/gaia/urbanrebels/inside/metro/south)
 "mRS" = (
 /obj/structure/bed/sofa/r/blue,
 /obj/decal/cleanable/dirt,
@@ -23106,6 +23733,16 @@
 /obj/item/storage/box/ammo/caseless,
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/urbanrebels)
+"mVf" = (
+/obj/machinery/computer/dummy{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside/metro/south)
 "mVs" = (
 /obj/structure/rubble/gaia,
 /obj/structure/barricade,
@@ -23239,6 +23876,17 @@
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/gaia/urbanrebels/inside/street/nester)
+"mYJ" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/obj/structure/platform/strata/metal,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel_grid,
+/area/gaia/urbanrebels/inside/metro/south)
 "mZb" = (
 /obj/machinery/door/unpowered/simple,
 /obj/decal/cleanable/dirt,
@@ -24327,6 +24975,21 @@
 	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/urbanrebels/street/quentino)
+"nDK" = (
+/obj/floor_decal/industrial/outline/green,
+/obj/structure/railing/mapped{
+	dir = 8;
+	icon_state = "railing0-1"
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 1;
+	icon_state = "railing0-1"
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/urbanrebels/inside/metro/south)
 "nDM" = (
 /obj/floor_decal/spline/plain/red{
 	dir = 8
@@ -24370,7 +25033,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/white,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "nFs" = (
 /obj/structure/catwalk,
 /obj/structure/railing/mapped{
@@ -24739,6 +25402,10 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood/yew,
 /area/gaia/urbanrebels/inside)
+"nMQ" = (
+/obj/structure/window/reinforced,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "nNc" = (
 /obj/structure/table/rack{
 	opacity = 1;
@@ -24857,6 +25524,10 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/gaia/urbanrebels/inside/street/quentino)
+"nQM" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/monotile,
+/area/gaia/urbanrebels/inside/metro/south)
 "nQO" = (
 /obj/floor_decal/corner/lime/mono,
 /obj/structure/bed/chair/padded/lime{
@@ -24891,6 +25562,15 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/urbanrebels/street/paula)
+"nRK" = (
+/obj/machinery/computer/dummy{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside/metro/south)
 "nRM" = (
 /obj/structure/platform/hybrisa/engineer{
 	dir = 4
@@ -25333,6 +26013,13 @@
 /obj/machinery/telecomms/server/presets/service,
 /turf/simulated/floor/bluegrid,
 /area/gaia/urbanrebels/inside/engineering/telecomms)
+"odr" = (
+/obj/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/urbanrebels/inside/metro/south)
 "odY" = (
 /obj/machinery/door/unpowered/simple,
 /obj/decal/cleanable/dirt,
@@ -25471,6 +26158,9 @@
 /obj/structure/fog,
 /turf/simulated/wall/concrete,
 /area/gaia/urbanrebels/street/lusiano)
+"ohT" = (
+/turf/simulated/wall/r_concrete,
+/area/gaia/urbanrebels/inside/metro/south)
 "ohX" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -25500,7 +26190,7 @@
 /obj/item/stool/padded/red,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "oiY" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood/walnut,
@@ -25635,7 +26325,7 @@
 /obj/structure/closet/secure_closet/brig,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "onG" = (
 /obj/structure/table/marble,
 /obj/structure/hygiene/sink/modern,
@@ -25899,6 +26589,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/gaia/urbanrebels/inside)
+"ovd" = (
+/obj/machinery/conveyor{
+	dir = 1
+	},
+/obj/machinery/artifact_scanpad{
+	name = "broken X-Ray machine";
+	desc = "Piece of security technology to scan bags for possible contraband."
+	},
+/obj/structure/plasticflaps,
+/obj/structure/wall_frame/standard,
+/turf/simulated/floor/plating,
+/area/gaia/urbanrebels/inside/metro/south)
 "ovl" = (
 /obj/structure/wall_frame/concrete,
 /obj/structure/table/wallf,
@@ -25982,6 +26684,10 @@
 /obj/machinery/door/unpowered/simple,
 /turf/simulated/floor/tiled/dark,
 /area/gaia/urbanrebels/street/lusiano)
+"owD" = (
+/obj/machinery/door/airlock/command,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside/metro/south)
 "owL" = (
 /obj/structure/rubble/gaia,
 /obj/structure/barricade,
@@ -26005,7 +26711,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "oxd" = (
 /obj/structure/platform_decoration/hybrisa/metalplatformdeco6{
 	layer = 3.1
@@ -26838,6 +27544,13 @@
 	},
 /turf/simulated/floor/wood/maple,
 /area/gaia/urbanrebels/inside/firefighter)
+"oVe" = (
+/obj/structure/stairs/north,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "oVh" = (
 /obj/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -26936,6 +27649,19 @@
 /obj/machinery/light_construct/streetlight/stage2/south,
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels/street/quentino)
+"oXB" = (
+/obj/floor_decal/steeldecal/steel_decals_central2{
+	dir = 8;
+	pixel_x = -23
+	},
+/obj/floor_decal/techfloor/orange{
+	dir = 4
+	},
+/obj/structure/platform_decoration/shiva{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/urbanrebels/inside/metro/south)
 "oXF" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 8
@@ -27260,10 +27986,23 @@
 /obj/machinery/door/window/westleft,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "pgy" = (
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels/street/quentino)
+"pgI" = (
+/obj/floor_decal/steeldecal/steel_decals_central2{
+	dir = 8;
+	pixel_x = -23
+	},
+/obj/floor_decal/techfloor/orange{
+	dir = 4
+	},
+/obj/structure/platform/shiva{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/urbanrebels/inside/metro/south)
 "pgJ" = (
 /obj/decal/cleanable/dirt,
 /obj/machinery/door/unpowered/simple/wood,
@@ -27738,6 +28477,11 @@
 	},
 /turf/simulated/floor/carpet/red,
 /area/gaia/urbanrebels/inside/street/quentino)
+"prF" = (
+/obj/structure/window/reinforced,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "prV" = (
 /obj/machinery/floodlight,
 /turf/simulated/floor/exoplanet/concrete,
@@ -27831,7 +28575,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/monotile,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "pvd" = (
 /obj/structure/table/woodentable_reinforced/mahogany,
 /obj/structure/window/reinforced{
@@ -28140,6 +28884,18 @@
 /obj/structure/platform/hybrisa/metalplatform1,
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/urbanrebels/street/city)
+"pEp" = (
+/obj/floor_decal/steeldecal/steel_decals_central2{
+	dir = 8;
+	pixel_x = -23
+	},
+/obj/floor_decal/steeldecal/steel_decals_central4{
+	dir = 4;
+	pixel_y = 1;
+	pixel_x = -1
+	},
+/turf/simulated/floor/plating,
+/area/gaia/urbanrebels/inside/metro/south)
 "pEM" = (
 /obj/structure/grille,
 /turf/simulated/floor/plating,
@@ -28316,6 +29072,17 @@
 	},
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels/street/brundino)
+"pHV" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/closet/secure_closet/security/cargo,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside/metro/south)
 "pHX" = (
 /obj/machinery/vending/coffee{
 	dir = 1
@@ -28479,6 +29246,12 @@
 	},
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels/street/manu)
+"pMs" = (
+/obj/floor_decal/industrial/loading{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "pMu" = (
 /obj/machinery/door/unpowered/simple,
 /obj/landmark/scorcher,
@@ -28549,7 +29322,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "pNO" = (
 /obj/mist,
 /obj/structure/platform/shiva{
@@ -28757,6 +29530,10 @@
 /obj/structure/barricade,
 /turf/simulated/floor/wood,
 /area/gaia/urbanrebels/inside/street/paula)
+"pTc" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/carpet/green,
+/area/gaia/urbanrebels/inside/metro/south)
 "pTp" = (
 /obj/structure/bed/chair/wood/walnut{
 	dir = 8;
@@ -29544,6 +30321,12 @@
 	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/urbanrebels/street/dolores)
+"qns" = (
+/obj/machinery/light/spot{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/gaia/urbanrebels/inside/metro/south)
 "qnB" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 1
@@ -29701,7 +30484,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark/monotile,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "quM" = (
 /obj/machinery/smartfridge/foods,
 /obj/floor_decal/spline/fancy/wood{
@@ -30413,6 +31196,12 @@
 /obj/random/maintenance/clean,
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/urbanrebels/street/paula)
+"qNx" = (
+/obj/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/urbanrebels/inside/metro/south)
 "qNC" = (
 /turf/simulated/floor/wood,
 /area/gaia/urbanrebels/street/manu)
@@ -31100,6 +31889,18 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/gaia/urbanrebels/inside)
+"rgB" = (
+/obj/machinery/light/spot,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
+"rhe" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside/metro/south)
 "rhm" = (
 /obj/machinery/computer/modular/preset/engineering{
 	dir = 1
@@ -31576,7 +32377,17 @@
 "rwb" = (
 /obj/machinery/door/airlock/maintenance,
 /turf/simulated/floor/tiled/techmaint,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
+"rwn" = (
+/obj/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/obj/structure/sign/warning{
+	pixel_y = 24
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "rwX" = (
 /obj/structure/fd/samosbor/dark_signs2{
 	pixel_y = 32
@@ -31585,6 +32396,15 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood/ebony,
 /area/gaia/urbanrebels/inside/nt)
+"rwY" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/gaia/urbanrebels/inside/metro/south)
 "rxb" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 8
@@ -31785,7 +32605,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark/monotile,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "rDc" = (
 /obj/floor_decal/spline/fancy{
 	dir = 5
@@ -31854,6 +32674,10 @@
 /obj/structure/platform/hybrisa/metalplatform2,
 /turf/simulated/floor/exoplanet/barren,
 /area/gaia/urbanrebels)
+"rFd" = (
+/obj/machinery/door/unpowered/simple,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/urbanrebels/inside/metro/south)
 "rFW" = (
 /obj/structure/bed/chair/wood/walnut{
 	dir = 4;
@@ -32723,6 +33547,15 @@
 	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/urbanrebels/street/paula)
+"scU" = (
+/obj/machinery/door/window/southleft,
+/obj/floor_decal/industrial/warning/fulltile,
+/obj/floor_decal/step,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/gaia/urbanrebels/inside/metro/south)
 "sdm" = (
 /obj/floor_decal/industrial/warning/dust{
 	dir = 8
@@ -32889,6 +33722,11 @@
 /obj/landmark/scorcher,
 /turf/simulated/floor/wood,
 /area/gaia/urbanrebels/street/lusiano)
+"sig" = (
+/obj/floor_decal/industrial/hatch/yellow,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "sir" = (
 /obj/structure/closet/firecloset,
 /obj/landmark/scorcher,
@@ -33292,7 +34130,7 @@
 /area/gaia/urbanrebels/street/paula)
 "ssx" = (
 /turf/simulated/floor/tiled/dark,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "ssC" = (
 /obj/wallframe_spawn/reinforced/concrete,
 /turf/simulated/floor/plating,
@@ -33338,6 +34176,16 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/gaia/urbanrebels/inside/street/paula)
+"suo" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel_grid,
+/area/gaia/urbanrebels/inside/metro/south)
 "suw" = (
 /obj/floor_decal/industrial/loading{
 	dir = 1
@@ -33847,7 +34695,7 @@
 /obj/item/ammo_magazine/speedloader/clip,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/green,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "sKa" = (
 /obj/machinery/door/unpowered/simple/plastic,
 /turf/simulated/floor/tiled/white,
@@ -33922,6 +34770,10 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/gaia/urbanrebels/inside/police)
+"sNz" = (
+/obj/wallframe_spawn/concrete,
+/turf/simulated/floor/plating,
+/area/gaia/urbanrebels/inside/metro/south)
 "sNN" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/structure/railing/mapped{
@@ -34288,6 +35140,10 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/monotile,
 /area/gaia/urbanrebels/inside/metro)
+"sYV" = (
+/obj/floor_decal/industrial/loading,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "sYZ" = (
 /obj/structure/platform/mineral{
 	dir = 4
@@ -34388,6 +35244,17 @@
 /obj/floor_decal/industrial/warning/dust,
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/urbanrebels/street/paula)
+"tcO" = (
+/obj/structure/sign/warning/detailed{
+	dir = 8;
+	pixel_x = 32
+	},
+/obj/floor_decal/industrial/loading{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "tcQ" = (
 /obj/structure/curtain/black{
 	pixel_x = 32
@@ -34456,7 +35323,7 @@
 "tee" = (
 /obj/structure/closet/fridge,
 /turf/simulated/floor/tiled/white/monotile,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "tey" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -34605,6 +35472,14 @@
 /obj/floor_decal/carpet/red,
 /turf/simulated/floor/tiled/dark,
 /area/gaia/urbanrebels/inside/street/quentino)
+"tiL" = (
+/obj/structure/stairs/south,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "tiQ" = (
 /obj/structure/platform/hybrisa/metalplatform2{
 	dir = 1
@@ -34646,6 +35521,15 @@
 	},
 /turf/simulated/wall/concrete,
 /area/gaia/urbanrebels/inside/street/quentino)
+"tkJ" = (
+/obj/floor_decal/industrial/outline/yellow,
+/obj/structure/window/basic{
+	dir = 4;
+	pixel_x = 4
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside/metro/south)
 "tlg" = (
 /obj/floor_decal/industrial/hatch/yellow,
 /obj/floor_decal/spline/fancy/black{
@@ -34907,6 +35791,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/gaia/urbanrebels/inside/street/quentino)
+"tug" = (
+/obj/structure/sign/warning/detailed{
+	dir = 4;
+	pixel_x = -32
+	},
+/obj/floor_decal/industrial/loading,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "tul" = (
 /obj/floor_decal/spline/fancy/black/corner{
 	dir = 4
@@ -34997,7 +35890,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "tvI" = (
 /obj/floor_decal/industrial/warning/dust/corner,
 /turf/simulated/floor/exoplanet/concrete,
@@ -35094,6 +35987,14 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/gaia/urbanrebels/inside/police)
+"tyR" = (
+/obj/structure/window/basic{
+	dir = 4;
+	pixel_x = 4
+	},
+/obj/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside/metro/south)
 "tyU" = (
 /obj/structure/closet,
 /obj/item/shovel,
@@ -35215,6 +36116,13 @@
 /obj/item/material/shard,
 /turf/simulated/floor/tiled/steel_grid,
 /area/gaia/urbanrebels)
+"tCY" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/light/spot{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "tDs" = (
 /obj/item/clothing/suit/armor/pcarrier/gaia/sol,
 /obj/item/gun/projectile/automatic/caseless,
@@ -35273,6 +36181,16 @@
 	},
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels/street/willmar)
+"tFC" = (
+/obj/machinery/conveyor,
+/obj/machinery/artifact_scanpad{
+	name = "broken X-Ray machine";
+	desc = "Piece of security technology to scan bags for possible contraband."
+	},
+/obj/structure/plasticflaps,
+/obj/structure/wall_frame/standard,
+/turf/simulated/floor/plating,
+/area/gaia/urbanrebels/inside/metro/south)
 "tFK" = (
 /obj/structure/closet/walllocker{
 	pixel_x = 32
@@ -35669,6 +36587,12 @@
 /obj/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled/white,
 /area/gaia/urbanrebels/inside/hospital)
+"tQu" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "tQE" = (
 /obj/machinery/washing_machine,
 /turf/simulated/floor/tiled/white,
@@ -35701,6 +36625,14 @@
 /obj/random/junkfood,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/gaia/urbanrebels/inside/street/willmar)
+"tRF" = (
+/obj/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/structure/platform_decoration/strata/metal,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "tRO" = (
 /obj/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -35793,6 +36725,16 @@
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/gaia/urbanrebels/inside/street/celsia)
+"tTl" = (
+/obj/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/obj/structure/sign/warning{
+	dir = 1;
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "tTx" = (
 /obj/decal/cleanable/dirt,
 /obj/machinery/light{
@@ -36073,6 +37015,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/gaia/urbanrebels/street/paula)
+"uaS" = (
+/obj/structure/table/standard,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside/metro/south)
 "uaV" = (
 /obj/machinery/door/unpowered/simple,
 /turf/simulated/floor/plating,
@@ -36177,7 +37130,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "udl" = (
 /obj/floor_decal/industrial/outline/green,
 /obj/structure/table/rack{
@@ -36298,6 +37251,10 @@
 	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/urbanrebels/street/paula)
+"ufu" = (
+/obj/machinery/door/unpowered/simple,
+/turf/simulated/floor/tiled/monotile,
+/area/gaia/urbanrebels/inside/metro/south)
 "ufz" = (
 /obj/machinery/light{
 	dir = 8
@@ -36507,6 +37464,10 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/gaia/urbanrebels/inside)
+"ulO" = (
+/obj/structure/closet/crate/freezer,
+/turf/simulated/floor/tiled/monotile,
+/area/gaia/urbanrebels/inside/metro/south)
 "uma" = (
 /turf/simulated/floor/tiled/white,
 /area/gaia/urbanrebels/inside/church)
@@ -36558,6 +37519,14 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/gaia/urbanrebels/inside/nt)
+"uod" = (
+/obj/machinery/status_display{
+	pixel_x = -32;
+	pixel_y = -32
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "uok" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled/techmaint,
@@ -36565,7 +37534,7 @@
 "uov" = (
 /obj/machinery/door/unpowered/simple,
 /turf/simulated/floor/tiled/white,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "uox" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/techmaint,
@@ -36973,6 +37942,10 @@
 	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/gaia/urbanrebels/street/quentino)
+"uyr" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/lino,
+/area/gaia/urbanrebels/inside/metro/south)
 "uyB" = (
 /obj/structure/table/woodentable_reinforced/mahogany,
 /obj/item/material/ashtray/bronze,
@@ -37202,7 +38175,7 @@
 /obj/floor_decal/industrial/outline/yellow,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "uEP" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 8
@@ -37416,6 +38389,13 @@
 	},
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels/street/willmar)
+"uKM" = (
+/obj/machinery/conveyor{
+	dir = 1
+	},
+/obj/structure/wall_frame/standard,
+/turf/simulated/floor/plating,
+/area/gaia/urbanrebels/inside/metro/south)
 "uKW" = (
 /obj/machinery/computer/dummy{
 	dir = 8
@@ -37594,6 +38574,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/gaia/urbanrebels/inside/townhall)
+"uPS" = (
+/obj/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "uQb" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/wall/concrete,
@@ -37861,6 +38845,13 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/gaia/urbanrebels/inside)
+"uWi" = (
+/obj/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "uWw" = (
 /obj/structure/bed/padded,
 /obj/machinery/light{
@@ -38808,7 +39799,7 @@
 "vwN" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "vwS" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
@@ -38867,6 +39858,13 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/urbanrebels/inside/street/quentino)
+"vyr" = (
+/obj/floor_decal/industrial/loading{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "vyt" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 4
@@ -38937,6 +39935,11 @@
 /obj/landmark/scorcher,
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/urbanrebels)
+"vAe" = (
+/obj/floor_decal/industrial/outline/yellow,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "vAu" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
@@ -39203,6 +40206,12 @@
 /obj/structure/railing/mapped,
 /turf/simulated/open,
 /area/gaia/urbanrebels)
+"vHT" = (
+/obj/structure/wall_frame/concrete,
+/obj/structure/table/wallf,
+/obj/machinery/door/window/westleft,
+/turf/simulated/floor/plating,
+/area/gaia/urbanrebels/inside/metro/south)
 "vIa" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/floor_decal/spline/fancy/wood{
@@ -39231,6 +40240,10 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/gaia/urbanrebels/inside/street/brundino)
+"vIt" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside/metro/south)
 "vIw" = (
 /obj/structure/hygiene/toilet{
 	dir = 8
@@ -39631,6 +40644,18 @@
 /obj/floor_decal/techfloor,
 /turf/simulated/floor/tiled/techfloor,
 /area/gaia/urbanrebels/inside)
+"vVl" = (
+/obj/floor_decal/steeldecal/steel_decals_central2{
+	dir = 8
+	},
+/obj/floor_decal/techfloor/orange{
+	dir = 8
+	},
+/obj/structure/platform_decoration/shiva{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/gaia/urbanrebels/inside/metro/south)
 "vVn" = (
 /obj/structure/stairs/west,
 /obj/structure/railing/mapped,
@@ -39652,7 +40677,7 @@
 	},
 /obj/machinery/door/window/brigdoor/southleft,
 /turf/simulated/floor/tiled/dark,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "vWe" = (
 /obj/structure/girder/displaced,
 /obj/decal/cleanable/dirt,
@@ -39678,6 +40703,14 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/urbanrebels/inside/street/brundino)
+"vWU" = (
+/obj/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/machinery/door/blast/shutters/open,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "vWZ" = (
 /obj/machinery/light/small/red{
 	dir = 4
@@ -39697,6 +40730,15 @@
 /obj/machinery/power/port_gen,
 /turf/simulated/floor/plating,
 /area/gaia/urbanrebels/street/paula)
+"vYL" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/structure/table/standard,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside/metro/south)
 "vYN" = (
 /obj/floor_decal/spline/fancy/black{
 	dir = 8
@@ -39756,6 +40798,13 @@
 /obj/item/pen/blue,
 /turf/simulated/floor/carpet/blue3,
 /area/gaia/urbanrebels/inside/hospital)
+"waT" = (
+/obj/structure/railing/mapped,
+/obj/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/gaia/urbanrebels/inside/metro/south)
 "waU" = (
 /obj/structure/table/woodentable,
 /obj/item/ammo_casing/pistol,
@@ -39943,7 +40992,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/green,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "wfP" = (
 /turf/simulated/floor/plating,
 /area/gaia/urbanrebels/inside/street/paula)
@@ -40068,6 +41117,15 @@
 /obj/machinery/door/unpowered/simple,
 /turf/simulated/floor/tiled,
 /area/gaia/urbanrebels)
+"wjQ" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/gaia/urbanrebels/inside/metro/south)
 "wka" = (
 /obj/machinery/light{
 	dir = 8
@@ -41173,6 +42231,12 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/urbanrebels/inside)
+"wOY" = (
+/obj/structure/table/steel,
+/obj/machinery/photocopier/faxmachine,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside/metro/south)
 "wPs" = (
 /obj/structure/gravemarker/random,
 /turf/simulated/floor/exoplanet/grass,
@@ -41235,6 +42299,17 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/gaia/urbanrebels/inside/street/lizandro)
+"wQY" = (
+/obj/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/machinery/door/blast/shutters/open,
+/obj/floor_decal/industrial/loading{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "wRh" = (
 /obj/structure/filingcabinet,
 /obj/machinery/light{
@@ -41351,7 +42426,7 @@
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/green,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "wSU" = (
 /obj/structure/platform_decoration/mineral{
 	dir = 4
@@ -41478,6 +42553,11 @@
 /obj/structure/girder/displaced,
 /turf/simulated/floor/plating,
 /area/gaia/urbanrebels/inside)
+"wVI" = (
+/obj/structure/table/steel,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/carpet/green,
+/area/gaia/urbanrebels/inside/metro/south)
 "wVJ" = (
 /obj/landmark/damager,
 /obj/structure/rubble/gaia,
@@ -42052,7 +43132,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/gaia/urbanrebels/inside/metro)
+/area/gaia/urbanrebels/inside/metro/south)
 "xlS" = (
 /obj/structure/ladder/hatch,
 /obj/catwalk_plated/dark,
@@ -42147,6 +43227,20 @@
 /obj/floor_decal/corner/blood_red/mono,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/urbanrebels/inside/street/quentino)
+"xpo" = (
+/obj/floor_decal/steeldecal/steel_decals_central2{
+	dir = 8
+	},
+/obj/floor_decal/steeldecal/steel_decals_central4{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/gaia/urbanrebels/inside/metro/south)
 "xpr" = (
 /obj/machinery/door/unpowered/simple,
 /turf/simulated/floor/tiled,
@@ -42532,6 +43626,11 @@
 /obj/landmark/scorcher,
 /turf/simulated/floor/tiled,
 /area/gaia/urbanrebels/inside/street/paula)
+"xBr" = (
+/obj/floor_decal/industrial/loading,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "xBK" = (
 /obj/structure/morgue{
 	dir = 8
@@ -42742,6 +43841,12 @@
 /obj/landmark/scorcher,
 /turf/simulated/open,
 /area/gaia/urbanrebels/inside)
+"xHH" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/gaia/urbanrebels/inside/metro/south)
 "xIe" = (
 /obj/structure/moss{
 	icon_state = "moss_east3"
@@ -42931,6 +44036,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/gaia/urbanrebels/inside/street/celsia)
+"xNh" = (
+/obj/structure/wall_frame/concrete,
+/obj/structure/table/wallf,
+/obj/machinery/door/window/eastright,
+/turf/simulated/floor/plating,
+/area/gaia/urbanrebels/inside/metro/south)
 "xNk" = (
 /obj/structure/hygiene/shower{
 	dir = 1
@@ -43581,6 +44692,17 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood/walnut,
 /area/gaia/urbanrebels/inside)
+"ygR" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/structure/platform/strata/metal,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel_grid,
+/area/gaia/urbanrebels/inside/metro/south)
 "ygT" = (
 /obj/structure/wall_frame/wood,
 /obj/structure/flora/jungle/bush,
@@ -43682,6 +44804,10 @@
 	},
 /turf/simulated/floor/shuttle/white,
 /area/gaia/urbanrebels/inside)
+"yja" = (
+/obj/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/gaia/urbanrebels/inside/metro/south)
 "yjb" = (
 /obj/structure/sign/double/gaiaflag/right{
 	dir = 8;
@@ -207415,34 +208541,34 @@ fWS
 qwB
 ebs
 idK
-ici
-auz
-brg
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-hWs
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-auz
-auz
-ici
+gus
+fsn
+nQM
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+ikj
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+fsn
+fsn
+gus
 qar
 qar
 rQJ
@@ -207767,34 +208893,34 @@ qwB
 qwB
 ebs
 idK
-auz
-icC
-icC
-fAK
+fsn
+kpz
+kpz
+lvZ
 abO
 qut
 rDb
-mXM
-mXM
-oYL
+cyZ
+cyZ
+dyq
 jMy
-dQa
-icC
-soi
-icC
-mXM
-mXM
+cTc
+kpz
+cnM
+kpz
+cyZ
+cyZ
 xlR
-fZE
-dPl
-mXM
-tnz
+tyR
+sYV
+cyZ
+uPS
 fwn
-cCv
+eRe
 gNj
-mXM
-mXM
-auz
+cyZ
+cyZ
+fsn
 qar
 qar
 rQJ
@@ -208119,34 +209245,34 @@ fWS
 qwB
 ebs
 idK
-brg
-icC
-icC
-fAK
-tFp
-rpj
-bHX
-tFp
-icC
-fZE
-tFp
-icC
-icC
-qgz
-riQ
-bol
-icC
-icC
-oYL
-tFp
-mXM
-tnz
-dPl
-cCv
+nQM
+kpz
+kpz
+lvZ
+xBr
+vAe
+sig
+xBr
+kpz
+tyR
+xBr
+kpz
+kpz
+tQu
+tiL
+bwk
+kpz
+kpz
+dyq
+xBr
+cyZ
+uPS
+sYV
+eRe
 gNj
-icC
-icC
-brg
+kpz
+kpz
+nQM
 qar
 qar
 rQJ
@@ -208471,34 +209597,34 @@ qwB
 qwB
 ebs
 idK
-brg
-icC
-icC
-fAK
-tnj
-bjY
-tnj
-icC
-icC
-xLt
-tFp
-icC
-icC
-jqs
-nZa
-wEN
-icC
-icC
-oYL
-tFp
-icC
-tnS
-its
-lPY
-miB
-icC
-icC
-brg
+nQM
+kpz
+kpz
+lvZ
+jHP
+tFC
+jHP
+kpz
+kpz
+tkJ
+xBr
+kpz
+kpz
+xHH
+fMx
+gov
+kpz
+kpz
+dyq
+xBr
+kpz
+hZg
+aiw
+rhe
+jvL
+kpz
+kpz
+nQM
 qar
 qar
 rQJ
@@ -208823,34 +209949,34 @@ fWS
 qwB
 ebs
 idK
-brg
-icC
-icC
-wKS
-eet
-fZz
+nQM
+kpz
+kpz
+vWU
+pHV
+mVf
 cUt
-mXM
-icC
-pIW
-icC
-icC
-icC
-icC
-icC
-icC
-icC
-icC
-pIW
-icC
-mXM
-qeR
-uKW
+cyZ
+kpz
+apJ
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+apJ
+kpz
+cyZ
+uaS
+krF
 bHx
-vCM
-icC
-mXM
-auz
+mOr
+kpz
+cyZ
+fsn
 qar
 qar
 rQJ
@@ -209175,34 +210301,34 @@ qwB
 qwB
 ebs
 idK
-brg
-icC
-icC
-wKS
-cDV
-oHZ
+nQM
+kpz
+kpz
+vWU
+fdj
+jOQ
 vVU
-mXM
-bTR
-oYL
-icC
-icC
-ahM
-dow
-qgz
-mXM
-icC
-bTR
-oYL
-icC
-mXM
-xlh
-hgL
-xlh
-vCM
-icC
-icC
-auz
+cyZ
+vyr
+dyq
+kpz
+kpz
+nMQ
+mra
+tQu
+cyZ
+kpz
+vyr
+dyq
+kpz
+cyZ
+uKM
+ovd
+uKM
+mOr
+kpz
+kpz
+fsn
 qar
 qar
 rQJ
@@ -209527,34 +210653,34 @@ fWS
 qwB
 ebs
 idK
-brg
-mXM
-icC
-ueZ
-cCv
-fSh
-tnz
-icC
-bTR
-oYL
-icC
-icC
-ahM
-cJF
-jqs
-icC
-icC
-bTR
-oYL
-mXM
-fSh
-cCv
-tnz
-fSh
-vCM
-icC
-icC
-auz
+nQM
+cyZ
+kpz
+wQY
+eRe
+pMs
+uPS
+kpz
+vyr
+dyq
+kpz
+kpz
+nMQ
+oVe
+xHH
+kpz
+kpz
+vyr
+dyq
+cyZ
+pMs
+eRe
+uPS
+pMs
+mOr
+kpz
+kpz
+fsn
 qar
 qar
 jGy
@@ -209879,34 +211005,34 @@ hUh
 hUh
 rXG
 vZc
-auz
-icC
-icC
-ueZ
-bHX
-xBi
+fsn
+kpz
+kpz
+wQY
+sig
+tcO
 hrj
-icC
-fSh
-ipD
-mXM
-icC
-icC
-lHp
-jCs
-icC
+kpz
+pMs
+yja
+cyZ
+kpz
+kpz
+lEp
+euN
+kpz
 cYj
-fSh
-ipD
-mXM
+pMs
+yja
+cyZ
 ucK
-pma
-ayC
-lel
-vCM
-icC
-icC
-auz
+qNx
+aYk
+waT
+mOr
+kpz
+kpz
+fsn
 vZc
 vZc
 cYG
@@ -210231,34 +211357,34 @@ tpM
 hUh
 rXG
 pzy
-ici
-brg
-auz
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-hWs
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-auz
-auz
-ici
+gus
+nQM
+fsn
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+ikj
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+fsn
+fsn
+gus
 vZc
 vZc
 vZc
@@ -213399,34 +214525,34 @@ hUh
 hUh
 rXG
 lOE
-ici
-auz
-auz
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-hWs
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-auz
-brg
-ici
+gus
+fsn
+fsn
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+ikj
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+fsn
+nQM
+gus
 ghk
 ghk
 nol
@@ -213751,34 +214877,34 @@ fWS
 qwB
 ebs
 idK
-brg
-mXM
-icC
-wKS
-lTA
-coW
-rvl
-icC
-icC
-fZE
+nQM
+cyZ
+kpz
+vWU
+mtP
+bJg
+odr
+kpz
+kpz
+tyR
 jMy
-icC
-icC
+kpz
+kpz
 pNt
-mXM
-mXM
+cyZ
+cyZ
 oxc
-wHx
-oYL
-tFp
-icC
-rpj
-vMQ
-bHX
+tCY
+dyq
+xBr
+kpz
+vAe
+tug
+sig
 gNj
-icC
-icC
-auz
+kpz
+kpz
+fsn
 ghk
 ghk
 ghk
@@ -214103,34 +215229,34 @@ qwB
 qwB
 ebs
 idK
-brg
-mXM
-icC
-wKS
-dPl
-tnz
-bHX
-tFp
-icC
-oYL
-tFp
-icC
-icC
-qgz
-mqj
-bol
-icC
-icC
-fZE
-dPl
-mXM
-rpj
-tFp
-bHX
+nQM
+cyZ
+kpz
+vWU
+sYV
+uPS
+sig
+xBr
+kpz
+dyq
+xBr
+kpz
+kpz
+tQu
+mjD
+bwk
+kpz
+kpz
+tyR
+sYV
+cyZ
+vAe
+xBr
+sig
 gNj
-icC
-icC
-auz
+kpz
+kpz
+fsn
 ghk
 ghk
 ghk
@@ -214455,34 +215581,34 @@ fWS
 qwB
 ebs
 idK
-brg
-icC
-mXM
-wKS
-lGt
-bjY
-tnj
-icC
-icC
-xLt
-tFp
-icC
-icC
-jqs
-nZa
-bol
-mXM
-mXM
-fZE
-tFp
-icC
-tnS
-its
-lPY
-miB
-icC
-mXM
-auz
+nQM
+kpz
+cyZ
+vWU
+dVw
+tFC
+jHP
+kpz
+kpz
+tkJ
+xBr
+kpz
+kpz
+xHH
+fMx
+bwk
+cyZ
+cyZ
+tyR
+xBr
+kpz
+hZg
+aiw
+rhe
+jvL
+kpz
+cyZ
+fsn
 ghk
 ghk
 ghk
@@ -214807,34 +215933,34 @@ qwB
 qwB
 ebs
 idK
-auz
-icC
-mXM
-wKS
-eet
-wIl
-tka
-icC
-icC
-pIW
-icC
-icC
-icC
-mXM
-mXM
-mXM
-icC
-icC
-nEr
-icC
-mXM
-qeR
-uKW
+fsn
+kpz
+cyZ
+vWU
+pHV
+nRK
+vYL
+kpz
+kpz
+apJ
+kpz
+kpz
+kpz
+cyZ
+cyZ
+cyZ
+kpz
+kpz
+kCn
+kpz
+cyZ
+uaS
+krF
 bHx
-miB
-icC
-icC
-auz
+jvL
+kpz
+kpz
+fsn
 ghk
 ghk
 ghk
@@ -215159,34 +216285,34 @@ fWS
 qwB
 ebs
 idK
-auz
-icC
-icC
-fAK
-cDV
-oHZ
-pMX
-icC
-bTR
-oYL
-icC
-icC
-rXc
-dow
-qgz
-mXM
-mXM
-bTR
-oYL
-icC
-mXM
-xlh
-hgL
-xlh
-vCM
-icC
-icC
-auz
+fsn
+kpz
+kpz
+lvZ
+fdj
+jOQ
+lst
+kpz
+vyr
+dyq
+kpz
+kpz
+prF
+mra
+tQu
+cyZ
+cyZ
+vyr
+dyq
+kpz
+cyZ
+uKM
+ovd
+uKM
+mOr
+kpz
+kpz
+fsn
 ghk
 ghk
 ghk
@@ -215511,34 +216637,34 @@ qwB
 qwB
 ebs
 idK
-brg
-icC
-icC
-oLD
-bHX
-fSh
-rpj
-icC
-bTR
-oYL
-icC
-icC
-ahM
-cJF
-jqs
-icC
-icC
-fSh
-oYL
-icC
-bTR
-bHX
-rpj
-bTR
-miB
-icC
-mXM
-auz
+nQM
+kpz
+kpz
+gNx
+sig
+pMs
+vAe
+kpz
+vyr
+dyq
+kpz
+kpz
+nMQ
+oVe
+xHH
+kpz
+kpz
+pMs
+dyq
+kpz
+vyr
+sig
+vAe
+vyr
+jvL
+kpz
+cyZ
+fsn
 ghk
 ghk
 ghk
@@ -215863,34 +216989,34 @@ fWS
 qwB
 ebs
 idK
-brg
-icC
-icC
-oLD
-bHX
+nQM
+kpz
+kpz
+gNx
+sig
 dJk
-rpj
-icC
-bTR
+vAe
+kpz
+vyr
 uEL
-mXM
-hIs
-icC
-lHp
-jCs
-icC
-mXM
-fSh
-ipD
-mXM
-mXM
+cyZ
+afN
+kpz
+lEp
+euN
+kpz
+cyZ
+pMs
+yja
+cyZ
+cyZ
 puJ
-ayC
-lel
-miB
-icC
-mXM
-auz
+aYk
+waT
+jvL
+kpz
+cyZ
+fsn
 ghk
 ghk
 ghk
@@ -216215,34 +217341,34 @@ qwB
 qwB
 ebs
 idK
-ici
-auz
-auz
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-hWs
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-ici
-brg
-auz
-ici
+gus
+fsn
+fsn
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+ikj
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+gus
+nQM
+fsn
+gus
 ghk
 ghk
 ghk
@@ -313015,36 +314141,36 @@ qKH
 qKH
 qKH
 qKH
-ici
-ici
-ici
-ici
-ici
-xYT
-xYT
-xYT
-xYT
-xYT
-xYT
-xYT
-xYT
-xYT
-ici
-ici
-xYT
-xYT
-xYT
-xYT
-xYT
-xYT
-xYT
-xYT
-xYT
-ici
-ici
-ici
-ici
-ici
+gus
+gus
+gus
+gus
+gus
+sNz
+sNz
+sNz
+sNz
+sNz
+sNz
+sNz
+sNz
+sNz
+gus
+gus
+sNz
+sNz
+sNz
+sNz
+sNz
+sNz
+sNz
+sNz
+sNz
+gus
+gus
+gus
+gus
+gus
 qKH
 qKH
 qKH
@@ -313367,36 +314493,36 @@ qKH
 qKH
 qKH
 qKH
-ici
-vOq
-pMK
+gus
+gek
+cLa
 mCX
-ici
-icC
-icC
-icC
-icC
-icC
-icC
-icC
-icC
-icC
-wHx
-icC
-icC
-icC
-mXM
-mXM
-mXM
-mXM
-mXM
-mXM
-mXM
-ici
-gnc
-gnc
-gnc
-ici
+gus
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+tCY
+kpz
+kpz
+kpz
+cyZ
+cyZ
+cyZ
+cyZ
+cyZ
+cyZ
+cyZ
+gus
+mRN
+mRN
+mRN
+gus
 qKH
 qKH
 qKH
@@ -313719,36 +314845,36 @@ qKH
 qKH
 qKH
 qKH
-ici
-ici
-ici
+gus
+gus
+gus
 mCX
-ici
-icC
-icC
-ici
-gOL
-ici
-ici
-rNq
-icC
-xYT
-qzy
-qzy
-brg
-icC
-mXM
-ici
-xGy
-ici
-ici
-mXM
-icC
-ici
-hoh
-fqB
-hoh
-ici
+gus
+kpz
+kpz
+gus
+hle
+gus
+gus
+gkX
+kpz
+sNz
+hqd
+hqd
+nQM
+kpz
+cyZ
+gus
+ufu
+gus
+gus
+cyZ
+kpz
+gus
+izw
+lVn
+izw
+gus
 qKH
 qKH
 qKH
@@ -314071,36 +315197,36 @@ qKH
 qKH
 qKH
 qKH
-ici
-vOq
-pMK
+gus
+gek
+cLa
 nFd
 uov
-icC
-icC
-xYT
-uNd
+kpz
+kpz
+sNz
+diU
 jBR
-xYT
-icC
-mXM
-xYT
-rSK
-rSK
-brg
-icC
-mXM
-xYT
-auz
-pdZ
-xYT
-mXM
-icC
-ici
+sNz
+kpz
+cyZ
+sNz
+cVM
+cVM
+nQM
+kpz
+cyZ
+sNz
+fsn
+kLK
+sNz
+cyZ
+kpz
+gus
 onv
 ssx
 ssx
-ici
+gus
 qKH
 qKH
 qKH
@@ -314423,36 +315549,36 @@ qKH
 qKH
 qKH
 qKH
-ici
-ici
-ici
-ici
-ici
-icC
-icC
-xYT
-uNd
+gus
+gus
+gus
+gus
+gus
+kpz
+kpz
+sNz
+diU
 dSU
-xYT
-icC
-mXM
-xYT
-ici
-ici
-xYT
-icC
-mXM
-xYT
-auz
-pdZ
-xYT
-mXM
-icC
-jZC
-kCV
-kCV
-kCV
-ici
+sNz
+kpz
+cyZ
+sNz
+gus
+gus
+sNz
+kpz
+cyZ
+sNz
+fsn
+kLK
+sNz
+cyZ
+kpz
+owD
+vIt
+vIt
+vIt
+gus
 qKH
 qKH
 qKH
@@ -314775,36 +315901,36 @@ qKH
 qKH
 qKH
 qKH
-ici
-vOq
-pMK
+gus
+gek
+cLa
 mCX
-ici
-icC
-icC
-xYT
-uNd
+gus
+kpz
+kpz
+sNz
+diU
 tee
-xYT
-icC
-mXM
-brg
-uuc
-rSK
-xYT
-icC
-icC
-xYT
-hGm
-wJp
-xYT
-mXM
-icC
-rWf
-wZi
-kCV
-kCV
-ici
+sNz
+kpz
+cyZ
+nQM
+bcV
+cVM
+sNz
+kpz
+kpz
+sNz
+dwf
+ulO
+sNz
+cyZ
+kpz
+dim
+bTN
+vIt
+vIt
+gus
 qKH
 qKH
 qKH
@@ -315127,36 +316253,36 @@ qKH
 qKH
 qKH
 qKH
-ici
-ici
-ici
+gus
+gus
+gus
 mCX
-ici
-icC
-icC
-ici
-wqm
-xYT
-xYT
-mXM
-icC
-brg
-lDa
-lDa
-xYT
-icC
-icC
-ici
-wqm
-xYT
-xYT
-mXM
-icC
-rWf
-vGo
-lKa
-kCV
-ici
+gus
+kpz
+kpz
+gus
+xNh
+sNz
+sNz
+cyZ
+kpz
+nQM
+egl
+egl
+sNz
+kpz
+kpz
+gus
+xNh
+sNz
+sNz
+cyZ
+kpz
+dim
+bVE
+eyy
+vIt
+gus
 qKH
 qKH
 qKH
@@ -315479,36 +316605,36 @@ qKH
 qKH
 qKH
 qKH
-ici
-vOq
+gus
+gek
 cVk
 hIE
 uov
-icC
-smh
-mXM
-mXM
-mXM
-mXM
-icC
-icC
-mXM
-mXM
-mXM
-mXM
-icC
-cbS
-mXM
-mXM
-mXM
-mXM
-icC
-icC
-rWf
-uqX
-sWF
+kpz
+uod
+cyZ
+cyZ
+cyZ
+cyZ
+kpz
+kpz
+cyZ
+cyZ
+cyZ
+cyZ
+kpz
+gAo
+cyZ
+cyZ
+cyZ
+cyZ
+kpz
+kpz
+dim
+wOY
+koY
 lTf
-ici
+gus
 qKH
 qKH
 qKH
@@ -315831,36 +316957,36 @@ qKH
 qKH
 qKH
 qKH
-ici
-ici
-ici
-ici
-ici
-wPH
-icC
-icC
-icC
-icC
-icC
-icC
-icC
-icC
-icC
-icC
-icC
-icC
-icC
-icC
-icC
-icC
-icC
-icC
-eRE
-ici
-rWf
-rWf
-rWf
-ici
+gus
+gus
+gus
+gus
+gus
+hFQ
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+rgB
+gus
+dim
+dim
+dim
+gus
 qKH
 qKH
 qKH
@@ -316183,36 +317309,36 @@ qKH
 qKH
 qKH
 qKH
-kwe
-dle
-jKy
-jKy
-jKy
-jKy
-aQB
-jKy
-jKy
-jKy
-jKy
-jKy
-jKy
-qxI
-yhv
+ohT
+bLM
+uWi
+uWi
+uWi
+uWi
+kpo
+uWi
+uWi
+uWi
+uWi
+uWi
+uWi
+tRF
+dMp
 eCf
-aQB
-aQB
-jKy
-jKy
-jKy
-jKy
-jKy
-jKy
-jKy
-jKy
-jKy
-jKy
-kWb
-ici
+kpo
+kpo
+uWi
+uWi
+uWi
+uWi
+uWi
+uWi
+uWi
+uWi
+uWi
+uWi
+arU
+gus
 qKH
 qKH
 qKH
@@ -316535,36 +317661,36 @@ cXr
 cXr
 cXr
 cXr
-cmc
-kAU
-wOy
-wOy
-wOy
-rsK
-cmI
-cmI
-wOy
-wOy
-wOy
-rsK
-wOy
-aWQ
+scU
+gjU
+bwp
+bwp
+bwp
+dCl
+rwY
+rwY
+bwp
+bwp
+bwp
+dCl
+bwp
+mYJ
 lWy
 ioB
-wOy
-wOy
-rsK
-wOy
-wOy
-wOy
-wOy
-wOy
-wOy
-rsK
-wOy
-wOy
+bwp
+bwp
+dCl
+bwp
+bwp
+bwp
+bwp
+bwp
+bwp
+dCl
+bwp
+bwp
 myY
-slW
+kUv
 cXr
 cXr
 cXr
@@ -316887,36 +318013,36 @@ aqt
 aqt
 aqt
 aqt
-rWn
-uTJ
-uTJ
-uTJ
-uTJ
-uTJ
-uTJ
-uTJ
-uTJ
-uTJ
-uTJ
-uTJ
-uTJ
-uTJ
-uTJ
-uTJ
-uTJ
-uTJ
-uTJ
-uTJ
-uTJ
-uTJ
-uTJ
-uTJ
-uTJ
-uTJ
-uTJ
-uTJ
-uTJ
-lvb
+vVl
+hrK
+hrK
+hrK
+hrK
+hrK
+hrK
+hrK
+hrK
+hrK
+hrK
+hrK
+hrK
+hrK
+hrK
+hrK
+hrK
+hrK
+hrK
+hrK
+hrK
+hrK
+hrK
+hrK
+hrK
+hrK
+hrK
+hrK
+hrK
+iBz
 aqt
 aqt
 aqt
@@ -317239,36 +318365,36 @@ gxj
 gxj
 gxj
 gxj
-jqr
-jqr
-jqr
-jqr
-jqr
-jqr
-jqr
-jqr
-jqr
-jqr
-jqr
-jqr
-jqr
-jqr
-jqr
-jqr
-jqr
-jqr
-jqr
-jqr
-jqr
-jqr
-jqr
-jqr
-jqr
-jqr
-jqr
-jqr
-jqr
-jqr
+pEp
+pEp
+pEp
+pEp
+pEp
+pEp
+pEp
+pEp
+pEp
+pEp
+pEp
+pEp
+pEp
+pEp
+pEp
+pEp
+pEp
+pEp
+pEp
+pEp
+pEp
+pEp
+pEp
+pEp
+pEp
+pEp
+pEp
+pEp
+pEp
+pEp
 gxj
 gxj
 gxj
@@ -317591,36 +318717,36 @@ qfK
 qfK
 qfK
 qfK
-ewH
-ewH
-ewH
-ewH
-ewH
-ewH
-ewH
-ewH
-ewH
-ewH
-ewH
-ewH
-ewH
-ewH
-ewH
-ewH
-ewH
-ewH
-ewH
-ewH
-ewH
-ewH
-ewH
-ewH
-ewH
-ewH
-ewH
-ewH
-ewH
-ewH
+xpo
+xpo
+xpo
+xpo
+xpo
+xpo
+xpo
+xpo
+xpo
+xpo
+xpo
+xpo
+xpo
+xpo
+xpo
+xpo
+xpo
+xpo
+xpo
+xpo
+xpo
+xpo
+xpo
+xpo
+xpo
+xpo
+xpo
+xpo
+xpo
+xpo
 qfK
 qfK
 qfK
@@ -317943,36 +319069,36 @@ bPX
 bPX
 bPX
 bPX
-mJR
-nrR
-nrR
-nrR
-nrR
-nrR
-nrR
-nrR
-nrR
-nrR
-nrR
-nrR
-nrR
-nrR
-nrR
-nrR
-nrR
-nrR
-nrR
-nrR
-nrR
-nrR
-nrR
-nrR
-nrR
-nrR
-nrR
-nrR
-nrR
-bAt
+lEy
+pgI
+pgI
+pgI
+pgI
+pgI
+pgI
+pgI
+pgI
+pgI
+pgI
+pgI
+pgI
+pgI
+pgI
+pgI
+pgI
+pgI
+pgI
+pgI
+pgI
+pgI
+pgI
+pgI
+pgI
+pgI
+pgI
+pgI
+pgI
+oXB
 bPX
 bPX
 bPX
@@ -318295,36 +319421,36 @@ hMc
 hMc
 hMc
 hMc
-vYl
-qAD
-eUU
-eUU
-eUU
-mGU
-eUU
-eUU
-eUU
-eUU
-eUU
-mGU
-eUU
-uQX
-phU
-nzE
-eUU
-eUU
-ftQ
-eUU
-eUU
-eUU
-eUU
-eUU
-cqO
-ftQ
-cqO
-eUU
+jkO
+cZh
+suo
+suo
+suo
+izb
+suo
+suo
+suo
+suo
+suo
+izb
+suo
+ygR
+nDK
+flv
+suo
+suo
+hUw
+suo
+suo
+suo
+suo
+suo
+wjQ
+hUw
+wjQ
+suo
 bBm
-qdY
+liX
 hMc
 hMc
 hMc
@@ -318647,36 +319773,36 @@ qKH
 qKH
 qKH
 qKH
-ici
-wdX
-wUH
-wUH
-wUH
-wUH
-wUH
-wUH
-wUH
-wUH
-wUH
-wUH
-wUH
+gus
+rwn
+bzF
+bzF
+bzF
+bzF
+bzF
+bzF
+bzF
+bzF
+bzF
+bzF
+bzF
 hXM
 tvA
-cCt
-wUH
-wUH
-wUH
-wUH
-wUH
-wUH
-wUH
-mEb
-wUH
-wUH
-wUH
-wUH
-iNb
-ici
+fFX
+bzF
+bzF
+bzF
+bzF
+bzF
+bzF
+bzF
+ikX
+bzF
+bzF
+bzF
+bzF
+tTl
+gus
 qKH
 qKH
 qKH
@@ -318999,36 +320125,36 @@ qKH
 qKH
 qKH
 qKH
-ici
-cEK
-cEK
-cEK
-ici
+gus
+jUB
+jUB
+jUB
+gus
 edS
-icC
-icC
-icC
-icC
-icC
-icC
-icC
-mXM
-icC
-icC
-icC
-icC
-icC
-icC
-mXM
-icC
-icC
-icC
-pdj
-ici
-ici
-ici
-ici
-ici
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+cyZ
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+cyZ
+kpz
+kpz
+kpz
+ekj
+gus
+gus
+gus
+gus
+gus
 qKH
 qKH
 qKH
@@ -319356,31 +320482,31 @@ wSS
 wfM
 sJL
 bHk
-icC
-njZ
-icC
-icC
-icC
-icC
-icC
-icC
-icC
-icC
-mXM
-icC
-icC
+kpz
+aej
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+cyZ
+kpz
+kpz
 gsN
-mXM
-icC
-icC
-icC
-icC
-icC
+cyZ
+kpz
+kpz
+kpz
+kpz
+kpz
 rwb
-mlj
-mlj
-aZy
-ici
+hVU
+hVU
+mpN
+gus
 qKH
 qKH
 qKH
@@ -319705,34 +320831,34 @@ qKH
 qKH
 iUt
 lgW
-wUS
-nWb
+pTc
+wVI
 bHk
-icC
+kpz
 dkc
-ici
-wBf
-xYT
-xYT
-icC
-icC
-xYT
-qzy
-qzy
-brg
-icC
-icC
-ici
+gus
+vHT
+sNz
+sNz
+kpz
+kpz
+sNz
+hqd
+hqd
+nQM
+kpz
+kpz
+gus
 pgt
-xYT
-xYT
-icC
-mXM
-ici
-ouw
-mlj
-aZy
-ici
+sNz
+sNz
+kpz
+cyZ
+gus
+hvd
+hVU
+mpN
+gus
 qKH
 qKH
 qKH
@@ -320057,34 +321183,34 @@ qKH
 qKH
 aQD
 kHr
-wUS
+pTc
 mAH
-lsQ
-icC
-icC
-xYT
+fDI
+kpz
+kpz
+sNz
 oiM
 bYO
-xYT
-icC
-icC
-xYT
-jJr
-rSK
-brg
-icC
-icC
-xYT
-uNd
-swD
-xYT
-icC
-mXM
-ici
-ouw
-mlj
-aZy
-ici
+sNz
+kpz
+kpz
+sNz
+qns
+cVM
+nQM
+kpz
+kpz
+sNz
+diU
+khv
+sNz
+kpz
+cyZ
+gus
+hvd
+hVU
+mpN
+gus
 qKH
 qKH
 qKH
@@ -320407,36 +321533,36 @@ qKH
 qKH
 qKH
 qKH
-xYT
-iqD
+sNz
+dSD
 czi
-aMa
-lsQ
-icC
-icC
-xYT
+uyr
+fDI
+kpz
+kpz
+sNz
 vwN
 bSa
-xYT
-icC
-icC
-xYT
-ici
-ici
-xYT
-icC
-icC
-xYT
-uNd
-sYv
-xYT
-icC
-mXM
-ici
-ouw
-mlj
-aZy
-ici
+sNz
+kpz
+kpz
+sNz
+gus
+gus
+sNz
+kpz
+kpz
+sNz
+diU
+fXN
+sNz
+kpz
+cyZ
+gus
+hvd
+hVU
+mpN
+gus
 qKH
 qKH
 qKH
@@ -320759,36 +321885,36 @@ qKH
 qKH
 qKH
 qKH
-ici
+gus
 czi
 czi
-aMa
-lsQ
-icC
-icC
-xYT
+uyr
+fDI
+kpz
+kpz
+sNz
 vwN
 eRX
-xYT
-icC
-icC
-auz
-rSK
-rSK
-xYT
-icC
-icC
-xYT
-uNd
-pwB
-xYT
-icC
-mXM
-ici
-aZy
-tQK
-aZy
-ici
+sNz
+kpz
+kpz
+fsn
+cVM
+cVM
+sNz
+kpz
+kpz
+sNz
+diU
+jzO
+sNz
+kpz
+cyZ
+gus
+mpN
+kBF
+mpN
+gus
 qKH
 qKH
 qKH
@@ -321112,35 +322238,35 @@ qKH
 qKH
 qKH
 iUt
-iqD
-aMa
-aMa
-ici
-icC
-icC
-ici
-nbQ
-ici
-pwn
-icC
-icC
-auz
-lDa
-lDa
-xYT
-icC
-icC
-ici
-gOL
-ici
-ici
-icC
-mXM
-ici
-aZy
-tQK
-aZy
-ici
+dSD
+uyr
+uyr
+gus
+kpz
+kpz
+gus
+rFd
+gus
+aJw
+kpz
+kpz
+fsn
+egl
+egl
+sNz
+kpz
+kpz
+gus
+hle
+gus
+gus
+kpz
+cyZ
+gus
+mpN
+kBF
+mpN
+gus
 qKH
 qKH
 qKH
@@ -321463,36 +322589,36 @@ qKH
 qKH
 qKH
 qKH
-ici
-aMa
-aMa
-iqD
+gus
+uyr
+uyr
+dSD
 eQg
-icC
-icC
-icC
-icC
-icC
-icC
-icC
-icC
-icC
-jCs
-icC
-icC
-icC
-icC
-mXM
-icC
-icC
-icC
-icC
-mXM
-ici
-aZy
-mlj
-aZy
-ici
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+kpz
+euN
+kpz
+kpz
+kpz
+kpz
+cyZ
+kpz
+kpz
+kpz
+kpz
+cyZ
+gus
+mpN
+hVU
+mpN
+gus
 qKH
 qKH
 qKH
@@ -321815,36 +322941,36 @@ qKH
 qKH
 qKH
 qKH
-ici
-ici
-xYT
-ici
-ici
-xYT
-xYT
-xYT
-xYT
-xYT
-xYT
-xYT
-xYT
-xYT
-ici
-ici
-xYT
-xYT
-xYT
-xYT
-xYT
-xYT
-xYT
-xYT
-xYT
-ici
-ici
-ici
-ici
-ici
+gus
+gus
+sNz
+gus
+gus
+sNz
+sNz
+sNz
+sNz
+sNz
+sNz
+sNz
+sNz
+sNz
+gus
+gus
+sNz
+sNz
+sNz
+sNz
+sNz
+sNz
+sNz
+sNz
+sNz
+gus
+gus
+gus
+gus
+gus
 qKH
 qKH
 qKH
