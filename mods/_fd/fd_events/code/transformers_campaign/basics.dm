@@ -82,6 +82,7 @@
 	maptext_y = -40
 
 	show_outline = FALSE
+	var/make_spaces = 0
 
 /obj/structre/fd/tf/teletraan_ui/equipment_choice/Click(location, control, params)
 	. = ..()
@@ -110,7 +111,12 @@
 		var/des_name = STYLE_SMALLFONTS_OUTLINE("<b>[name]</b><br>", 7, COLOR_CYAN, COLOR_BLACK)
 		var/des_info = STYLE_SMALLFONTS_OUTLINE("[desc]", 7, COLOR_WHITE, COLOR_BLACK)
 
-		maptext = des_name + des_info
+		var/empty_spaces = STYLE_SMALLFONTS_OUTLINE("<br>", 7, COLOR_WHITE, COLOR_BLACK)
+
+		maptext = des_name
+		for(var/i=0,i<=make_spaces,i++)
+			maptext += empty_spaces
+		maptext += des_info
 
 /obj/structre/fd/tf/teletraan_ui/equipment_choice/MouseExited(location, control, params)
 	. = ..()
@@ -120,14 +126,15 @@
 		maptext = ""
 
 /obj/structre/fd/tf/teletraan_ui/equipment_choice/kinetic
-	name = "|РАЗОРИТЕЛЬ|"
+	name = "        |РАЗОРИТЕЛЬ|"
 	icon_state = "kinetic"
 
-	maptext_x = -76
-	maptext_y = -23
+	maptext_x = -48
+	maptext_y = 12
 
 	desc = "Тяжёлое кинетическое оружие с магазинным боепитанием."
 	item_to_equip = /obj/item/gun/projectile/automatic/tf/kinetic
+	make_spaces = 5
 
 /obj/item/gun/projectile/automatic/tf/kinetic
 	name = "RAVAGER"
