@@ -108,8 +108,8 @@ var/global/obj/screen/robot_inventory
 	mymob.bodytemp.icon = 'icons/mob/status_indicators.dmi'
 	mymob.bodytemp.icon_state = "temp0"
 	mymob.bodytemp.SetName("body temperature")
-	mymob.bodytemp.screen_loc = ui_temp
-
+	//mymob.bodytemp.screen_loc = ui_temp
+	mymob.bodytemp.screen_loc = ui_fd_temp // FD
 
 	mymob.oxygen = new /obj/screen()
 	mymob.oxygen.icon = 'icons/mob/screen1_robot.dmi'

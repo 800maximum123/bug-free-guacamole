@@ -81,7 +81,8 @@
 		using.SetName("drop")
 		using.icon = ui_style
 		using.icon_state = "act_drop"
-		using.screen_loc = ui_drop_throw
+		//using.screen_loc = ui_drop_throw
+		using.screen_loc = ui_dropbutton // FD
 		using.color = ui_color
 		using.alpha = ui_alpha
 		src.hotkeybuttons += using
@@ -94,7 +95,9 @@
 		using.icon_state = "act_equip"
 		using.screen_loc = ui_equip
 		using.color = ui_color
-		using.alpha = ui_alpha
+		//using.alpha = ui_alpha
+		using.alpha = 0 // FD
+		using.mouse_opacity = FALSE // FD
 		src.adding += using
 
 		inv_box = new /obj/screen/inventory()
@@ -130,7 +133,9 @@
 		using.icon_state = "hand1"
 		using.screen_loc = ui_swaphand1
 		using.color = ui_color
-		using.alpha = ui_alpha
+		//using.alpha = ui_alpha
+		using.alpha = 0 // FD
+		using.mouse_opacity = FALSE // FD
 		src.adding += using
 
 		using = new /obj/screen/inventory()
@@ -139,7 +144,9 @@
 		using.icon_state = "hand2"
 		using.screen_loc = ui_swaphand2
 		using.color = ui_color
-		using.alpha = ui_alpha
+		//using.alpha = ui_alpha
+		using.alpha = 0 // FD
+		using.mouse_opacity = FALSE // FD
 		src.adding += using
 
 	if(hud_data.has_resist)
@@ -147,7 +154,8 @@
 		using.SetName("resist")
 		using.icon = ui_style
 		using.icon_state = "act_resist"
-		using.screen_loc = ui_pull_resist
+		//using.screen_loc = ui_pull_resist
+		using.screen_loc = ui_resist // FD
 		using.color = ui_color
 		using.alpha = ui_alpha
 		src.hotkeybuttons += using
@@ -167,7 +175,8 @@
 		mymob.pullin.icon = ui_style
 		mymob.pullin.icon_state = "pull0"
 		mymob.pullin.SetName("pull")
-		mymob.pullin.screen_loc = ui_pull_resist
+		//mymob.pullin.screen_loc = ui_pull_resist
+		mymob.pullin.screen_loc = ui_pull // FD
 		src.hotkeybuttons += mymob.pullin
 		hud_elements |= mymob.pullin
 
@@ -191,14 +200,16 @@
 		mymob.oxygen.icon = 'icons/mob/status_indicators.dmi'
 		mymob.oxygen.icon_state = "oxy0"
 		mymob.oxygen.SetName("oxygen")
-		mymob.oxygen.screen_loc = ui_temp
+		//mymob.oxygen.screen_loc = ui_temp
+		mymob.oxygen.screen_loc = ui_fd_oxy
 		hud_elements |= mymob.oxygen
 
 		mymob.toxin = new /obj/screen/toxins()
 		mymob.toxin.icon = 'icons/mob/status_indicators.dmi'
 		mymob.toxin.icon_state = "tox0"
 		mymob.toxin.SetName("toxin")
-		mymob.toxin.screen_loc = ui_temp
+		//mymob.toxin.screen_loc = ui_temp
+		mymob.toxin.screen_loc = ui_fd_tox
 		hud_elements |= mymob.toxin
 
 		mymob.fire = new /obj/screen()
@@ -213,7 +224,8 @@
 		mymob.pressure.icon = 'icons/mob/status_indicators.dmi'
 		mymob.pressure.icon_state = "pressure0"
 		mymob.pressure.SetName("pressure")
-		mymob.pressure.screen_loc = ui_temp
+		//mymob.pressure.screen_loc = ui_temp
+		mymob.pressure.screen_loc = ui_fd_pressure // FD
 		hud_elements |= mymob.pressure
 
 	if(hud_data.has_bodytemp)
@@ -221,7 +233,8 @@
 		mymob.bodytemp.icon = 'icons/mob/status_indicators.dmi'
 		mymob.bodytemp.icon_state = "temp1"
 		mymob.bodytemp.SetName("body temperature")
-		mymob.bodytemp.screen_loc = ui_temp
+		//mymob.bodytemp.screen_loc = ui_temp
+		mymob.bodytemp.screen_loc = ui_fd_temp // FD
 		hud_elements |= mymob.bodytemp
 
 	if(target.isSynthetic())
@@ -229,7 +242,8 @@
 		target.cells.icon = 'icons/mob/screen1_robot.dmi'
 		target.cells.icon_state = "charge-empty"
 		target.cells.SetName("cell")
-		target.cells.screen_loc = ui_nutrition
+		//target.cells.screen_loc = ui_nutrition
+		target.cells.screen_loc = ui_fd_charge
 		hud_elements |= target.cells
 
 	else if(hud_data.has_nutrition)

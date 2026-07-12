@@ -99,7 +99,8 @@
 /obj/screen/melee_assistant
 	name = "Toggle Melee Assistant"
 	icon_state = "meleeassist_off"
-	screen_loc = "EAST-1:28,SOUTH+4:7"
+	//screen_loc = "EAST-1:28,SOUTH+4:7"
+	screen_loc = "EAST-1:28,SOUTH+1:7"
 
 /obj/screen/melee_assistant/Click(location, control, params)
 	if(isliving(usr))

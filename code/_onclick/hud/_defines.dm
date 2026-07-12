@@ -16,20 +16,26 @@
 #define ui_entire_screen "WEST,SOUTH to EAST,NORTH"
 
 //Lower left, persistant menu
-#define ui_inventory "WEST:6,SOUTH:5"
+#define ui_inventory "WEST:2,SOUTH:5"
 
 //Lower center, persistant menu
-#define ui_sstore1 "WEST+2:10,SOUTH:5"
-#define ui_id "WEST+3:12,SOUTH:5"
-#define ui_belt "WEST+4:14,SOUTH:5"
-#define ui_back "CENTER-2:14,SOUTH:5"
+//#define ui_sstore1 "WEST+2:10,SOUTH:5"
+#define ui_sstore1 "CENTER-1.5,CENTER-6.8" // FD
+//#define ui_id "WEST+3:12,SOUTH:5"
+#define ui_id "CENTER+1.5,CENTER-6.8" // FD
+//#define ui_belt "WEST+4:14,SOUTH:5"
+#define ui_belt "CENTER+1.5,CENTER-5.8" // FD
+//#define ui_back "CENTER-2:14,SOUTH:5"
+#define ui_back "CENTER-1.5,CENTER-5.8" // FD
 #define ui_rhand "CENTER-1:16,SOUTH:5"
 #define ui_lhand "CENTER:16,SOUTH:5"
 #define ui_equip "CENTER-1:16,SOUTH+1:5"
 #define ui_swaphand1 "CENTER-1:16,SOUTH+1:5"
 #define ui_swaphand2 "CENTER:16,SOUTH+1:5"
-#define ui_storage1 "CENTER+1:16,SOUTH:5"
-#define ui_storage2 "CENTER+2:16,SOUTH:5"
+//#define ui_storage1 "CENTER+1:16,SOUTH:5"
+#define ui_storage1 "CENTER-0.5,CENTER-5.8" // FD
+//#define ui_storage2 "CENTER+2:16,SOUTH:5"
+#define ui_storage2 "CENTER+0.5,CENTER-5.8" // FD
 
 #define ui_alien_head "CENTER-3:12,SOUTH:5"		//aliens
 #define ui_alien_oclothing "CENTER-2:14,SOUTH:5"//aliens
@@ -49,25 +55,35 @@
 #define ui_construct_pull "EAST-1:28,SOUTH+1:10" //above the zone_sel icon
 
 //Lower right, persistant menu
-#define ui_dropbutton "EAST-4:22,SOUTH:5"
-#define ui_drop_throw "EAST-1:28,SOUTH+1:7"
+//#define ui_dropbutton "EAST-4:22,SOUTH:5"
+#define ui_dropbutton "CENTER+2.5,CENTER-6.8" // FD
+//#define ui_drop_throw "EAST-1:28,SOUTH+1:7"
+#define ui_drop_throw "CENTER-2.5,CENTER-6.8" // FD
 #define ui_pull_resist "EAST-2:26,SOUTH+1:7"
+#define ui_pull "CENTER+3.3,CENTER-5.8" // FD
+#define ui_resist "CENTER+2.8,CENTER-6.8" // FD
 #define ui_acti "EAST-2:26,SOUTH:5"
-#define ui_movi "EAST-3:24,SOUTH:5"
+//#define ui_movi "EAST-3:24,SOUTH:5"
+#define ui_movi "CENTER+4.8,CENTER-5.8" // FD
 #define ui_zonesel "EAST-1:28,SOUTH:5"
 #define ui_acti_alt "EAST-1:28,SOUTH:5" //alternative intent switcher for when the interface is hidden (F12)
-#define ui_stamina "EAST-3:24,SOUTH+1:5"
+//#define ui_stamina "EAST-3:24,SOUTH+1:5"
+#define ui_stamina "CENTER+4.8,CENTER-4.8" // FD
 
 #define ui_borg_pull "EAST-3:24,SOUTH+1:7"
 #define ui_borg_module "EAST-2:26,SOUTH+1:7"
 #define ui_borg_panel "EAST-1:28,SOUTH+1:7"
 
 //Gun buttons
-#define ui_gun1 "EAST-2:26,SOUTH+2:7"
-#define ui_gun2 "EAST-1:28, SOUTH+3:7"
+//#define ui_gun1 "EAST-2:26,SOUTH+2:7"
+#define ui_gun1 "CENTER+4.8,CENTER-4.8" // FD
+//#define ui_gun2 "EAST-1:28, SOUTH+3:7"
+#define ui_gun2 "CENTER+4.8,CENTER-5.8" // FD
 #define ui_gun3 "EAST-2:26,SOUTH+3:7"
-#define ui_gun_select "EAST-1:28,SOUTH+2:7"
-#define ui_gun4 "EAST-3:24,SOUTH+2:7"
+//#define ui_gun_select "EAST-1:28,SOUTH+2:7"
+#define ui_gun_select "CENTER+4.8,CENTER-6.8" // FD
+//#define ui_gun4 "EAST-3:24,SOUTH+2:7"
+#define ui_gun4 "CENTER+4.8,CENTER-3.8" // FD
 
 //Upper-middle right (damage indicators)
 #define ui_toxin "EAST-1:28,NORTH-2:27"
@@ -80,28 +96,46 @@
 #define ui_alien_oxygen "EAST-1:28,NORTH-4:25"
 
 //Middle right (status indicators)
-#define ui_nutrition "EAST-1:28,CENTER-2:11"
-#define ui_nutrition_small "EAST-1:28,CENTER-2:24"
-#define ui_temp "EAST-1:28,CENTER-1:13"
-#define ui_health "EAST-1:28,CENTER:15"
-#define ui_internal "EAST-1:28,CENTER+1:17"
+//#define ui_nutrition "EAST-1:28,CENTER-2:11"
+#define ui_nutrition "EAST-2:29,SOUTH+1:7" // FD
+//#define ui_nutrition_small "EAST-1:28,CENTER-2:24"
+#define ui_nutrition_small "EAST-2:23,SOUTH+1:7" // FD
+#define ui_fd_oxy "CENTER-3.12,CENTER-6.9" // FD
+#define ui_fd_tox "CENTER-2.62,CENTER-7.4" // FD
+#define ui_fd_pressure "CENTER-3.15,CENTER-5.9" // FD
+#define ui_fd_temp "CENTER-2.63,CENTER-5.4" // FD
+#define ui_fd_charge "EAST-2:26,SOUTH+1:7" // FD
+//#define ui_temp "EAST-1:28,CENTER-1:13"
+//#define ui_health "EAST-1:28,CENTER:15"
+#define ui_health "CENTER-2.3,CENTER-5.8" // FD
+//#define ui_internal "EAST-1:28,CENTER+1:17"
+#define ui_internal "CENTER+2.3,CENTER-5.8" // FD
 									//borgs
 #define ui_borg_health "EAST-1:28,CENTER-1:13" //borgs have the health display where humans have the pressure damage indicator.
 #define ui_alien_health "EAST-1:28,CENTER-1:13" //aliens have the health display where humans have the pressure damage indicator.
 
 //Pop-up inventory
-#define ui_shoes "WEST+1:8,SOUTH:5"
+//#define ui_shoes "WEST+1:8,SOUTH:5"
+#define ui_shoes "CENTER-4.8,CENTER-6.8" // FD
 
-#define ui_iclothing "WEST:6,SOUTH+1:7"
-#define ui_oclothing "WEST+1:8,SOUTH+1:7"
-#define ui_gloves "WEST+2:10,SOUTH+1:7"
+//#define ui_iclothing "WEST:6,SOUTH+1:7"
+#define ui_iclothing "CENTER-4.8,CENTER-5.75" // FD
+//#define ui_oclothing "WEST+1:8,SOUTH+1:7"
+#define ui_oclothing "CENTER-4.8,CENTER-4.70" // FD
+//#define ui_gloves "WEST+2:10,SOUTH+1:7"
+#define ui_gloves "CENTER-5.85,CENTER-6.8" // FD
 
-#define ui_glasses "WEST:6,SOUTH+2:9"
-#define ui_mask "WEST+1:8,SOUTH+2:9"
-#define ui_l_ear "WEST+2:10,SOUTH+2:9"
-#define ui_r_ear "WEST+2:10,SOUTH+3:11"
+//#define ui_glasses "WEST:6,SOUTH+2:9"
+#define ui_glasses "CENTER-6.9,CENTER-4.70" // FD
+//#define ui_mask "WEST+1:8,SOUTH+2:9"
+#define ui_mask "CENTER-5.85,CENTER-4.70" // FD
+//#define ui_l_ear "WEST+2:10,SOUTH+2:9"
+#define ui_l_ear "CENTER-5.85,CENTER-5.75" // FD
+//#define ui_r_ear "WEST+2:10,SOUTH+3:11"
+#define ui_r_ear "CENTER-6.9,CENTER-5.75" // FD
 
-#define ui_head "WEST+1:8,SOUTH+3:11"
+//#define ui_head "WEST+1:8,SOUTH+3:11"
+#define ui_head "CENTER-4.8,CENTER-3.65" // FD
 
 //Intent small buttons
 #define ui_help_small "EAST-3:8,SOUTH:1"
@@ -131,4 +165,3 @@
 #define ui_pai_shell "NORTH,WEST+2:6"
 #define ui_pai_light "NORTH,WEST+3:6"
 #define ui_pai_rest "NORTH,WEST+4:6"
-
