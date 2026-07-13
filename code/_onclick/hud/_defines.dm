@@ -116,26 +116,26 @@
 
 //Pop-up inventory
 //#define ui_shoes "WEST+1:8,SOUTH:5"
-#define ui_shoes "CENTER-4.8,CENTER-6.8" // FD
+#define ui_shoes "CENTER-6.9,CENTER-5.75" // FD
 
 //#define ui_iclothing "WEST:6,SOUTH+1:7"
-#define ui_iclothing "CENTER-4.8,CENTER-5.75" // FD
+#define ui_iclothing "CENTER-5.85,CENTER-5.75" // FD
 //#define ui_oclothing "WEST+1:8,SOUTH+1:7"
-#define ui_oclothing "CENTER-4.8,CENTER-4.70" // FD
+#define ui_oclothing "CENTER-4.8,CENTER-5.75" // FD
 //#define ui_gloves "WEST+2:10,SOUTH+1:7"
 #define ui_gloves "CENTER-5.85,CENTER-6.8" // FD
 
 //#define ui_glasses "WEST:6,SOUTH+2:9"
-#define ui_glasses "CENTER-6.9,CENTER-4.70" // FD
+#define ui_glasses "CENTER-4.80,CENTER-6.80" // FD
 //#define ui_mask "WEST+1:8,SOUTH+2:9"
-#define ui_mask "CENTER-5.85,CENTER-4.70" // FD
+#define ui_mask "CENTER-3.75,CENTER-6.80" // FD
 //#define ui_l_ear "WEST+2:10,SOUTH+2:9"
-#define ui_l_ear "CENTER-5.85,CENTER-5.75" // FD
+#define ui_l_ear "CENTER+3.8,CENTER-6.8" // FD
 //#define ui_r_ear "WEST+2:10,SOUTH+3:11"
-#define ui_r_ear "CENTER-6.9,CENTER-5.75" // FD
+#define ui_r_ear "CENTER+3.8,CENTER-5.75" // FD
 
 //#define ui_head "WEST+1:8,SOUTH+3:11"
-#define ui_head "CENTER-4.8,CENTER-3.65" // FD
+#define ui_head "CENTER-3.75,CENTER-5.75" // FD
 
 //Intent small buttons
 #define ui_help_small "EAST-3:8,SOUTH:1"

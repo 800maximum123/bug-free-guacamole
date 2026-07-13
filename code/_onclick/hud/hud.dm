@@ -155,7 +155,7 @@
 	if(!mymob.client) return 0
 	var/ui_style = ui_style2icon(mymob.client.prefs.UI_style)
 	var/ui_color = mymob.client.prefs.UI_style_color
-	var/ui_alpha = mymob.client.prefs.UI_style_alpha
+	var/ui_alpha = 80 //mymob.client.prefs.UI_style_alpha
 
 
 	FinalizeInstantiation(ui_style, ui_color, ui_alpha)

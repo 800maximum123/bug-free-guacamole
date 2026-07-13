@@ -16,6 +16,23 @@
 	var/obj/master = null    //A reference to the object in the slot. Grabs or items, generally.
 	var/globalscreen = FALSE //Global screens are not qdeled when the holding mob is destroyed.
 
+	var/should_reveal_itself_on_hover = TRUE // FD
+	var/already_hovering = FALSE
+
+/obj/screen/MouseEntered(location, control, params)
+	. = ..()
+
+	if(should_reveal_itself_on_hover && alpha == 80)
+		already_hovering = TRUE
+		animate(src, transform = matrix(0, 5, MATRIX_TRANSLATE), alpha = 255, time = 5, easing = SINE_EASING|EASE_IN)
+		animate(transform = matrix(0, 0, MATRIX_TRANSLATE), time = 5, easing = SINE_EASING|EASE_IN)
+
+/obj/screen/MouseExited(location, control, params)
+	. = ..()
+	if(should_reveal_itself_on_hover && already_hovering)
+		spawn(20)
+			animate(src, alpha = 80, time = 5, easing = SINE_EASING|EASE_IN)
+
 /obj/screen/Destroy()
 	master = null
 	return ..()

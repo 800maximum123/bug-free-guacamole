@@ -58,12 +58,12 @@ var/global/all_tooltip_styles = list(
 		if(I.name in list(I_HELP, I_HURT, I_DISARM, I_GRAB)) continue
 		I.icon = ic
 		I.color = UI_style_color_new
-		I.alpha = UI_style_alpha_new
+		I.alpha = 80 //UI_style_alpha_new
 
 
 	if(alert("Like it? Save changes?",,"Yes", "No") == "Yes")
 		prefs.UI_style = UI_style_new
-		prefs.UI_style_alpha = UI_style_alpha_new
+		prefs.UI_style_alpha = 80 //UI_style_alpha_new
 		prefs.UI_style_color = UI_style_color_new
 		SScharacter_setup.queue_preferences_save(prefs)
 		to_chat(usr, "UI was saved")
