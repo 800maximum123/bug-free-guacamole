@@ -361,3 +361,30 @@
 	var/mob/living/carbon/human/H = user.mob
 	H.change_tf_weapon_status()
 	return TRUE
+
+/datum/ai_holder/simple_animal/passive/ipc
+	holder_required_type = /mob/living/carbon/human
+
+/mob/living/carbon/human/machine/tf
+	var/proto_style = "Morpheus"
+	var/list/proto_style_options = list("Unbranded", "Morpheus", "Bishop Knight", "Morpheus Nexus","Bishop Rook", "Arkmade", "Improvised",
+										"Hephaestus Titan", "Zeng-Hu Spirit", "Ward-Takahashi Econ.", "Shellguard", "Pure Improvisation")
+
+/mob/living/carbon/human/machine/tf/Initialize(mapload)
+	. = ..(mapload, SPECIES_IPC)
+
+	proto_style = pick(proto_style_options)
+	/*for(var/obj/item/organ/external/E in contents)
+		E.robotize("[proto_style]", 0, 1, 1)*/
+// this is probably isn't needed, we can simply setup the chest and it will change everything else
+
+	var/obj/item/organ/external/C = organs_by_name[BP_CHEST]
+	C.robotize("[proto_style]", 0, 1, 1)
+
+	var/obj/item/organ/external/H = organs_by_name[BP_HEAD] // for some reason - head isn't changing with the rest, maybe this would help
+	H.robotize("[proto_style]", 0, 1, 1)
+
+	ai_holder = new /datum/ai_holder/simple_animal/passive/ipc (src)
+	faction = "Positronic Union"
+
+// #include "..\transformers_campaign\teletraan_level.dmm"
