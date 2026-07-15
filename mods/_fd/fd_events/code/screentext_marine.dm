@@ -159,7 +159,7 @@
 	maptext_y = 0
 	letters_per_update = 2
 	fade_out_delay = 10 SECONDS
-	style_open = "<span class='mapchat' style=font-size:20pt;text-align:left valign='top'>"
+	style_open = "<span class='maptext' style=font-size:20pt;text-align:left valign='top'>"
 	style_close = "</span>"
 
 /atom/movable/screen/screen_text/potrait/Initialize(mapload, datum/hud/hud_owner, name, icon_to_use, image_to_play)

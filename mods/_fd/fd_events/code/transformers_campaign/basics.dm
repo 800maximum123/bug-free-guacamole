@@ -361,5 +361,3 @@
 	var/mob/living/carbon/human/H = user.mob
 	H.change_tf_weapon_status()
 	return TRUE
-
-#include "..\transformers_campaign\teletraan_level.dmm"
