@@ -24,13 +24,12 @@
 
 	if(should_reveal_itself_on_hover && alpha == 80)
 		already_hovering = TRUE
-		animate(src, transform = matrix(0, 5, MATRIX_TRANSLATE), alpha = 255, time = 5, easing = SINE_EASING|EASE_IN)
-		animate(transform = matrix(0, 0, MATRIX_TRANSLATE), time = 5, easing = SINE_EASING|EASE_IN)
+		animate(src, alpha = 255, time = 5, easing = SINE_EASING|EASE_IN)
 
 /obj/screen/MouseExited(location, control, params)
 	. = ..()
 	if(should_reveal_itself_on_hover && already_hovering)
-		spawn(20)
+		spawn(50)
 			animate(src, alpha = 80, time = 5, easing = SINE_EASING|EASE_IN)
 
 /obj/screen/Destroy()
