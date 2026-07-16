@@ -14,8 +14,8 @@
 	if(override_color)
 		text_box.color = override_color
 
-	LAZYADD(client.screen_texts, text_box)
-	if(LAZYLEN(client.screen_texts) == 1) //lets only play one at a time, for thematic effect and prevent overlap
+	LAZYADD(client?.screen_texts, text_box)
+	if(!text_box.wait_for || LAZYLEN(client.screen_texts) == 1) //lets only play one at a time, for thematic effect and prevent overlap
 		invoke_async(text_box, TYPE_PROC_REF(/atom/movable/screen/screen_text, play_to_client))
 
 
@@ -56,6 +56,8 @@
 	var/style_close = "</span>"
 	///var for the text we are going to play
 	var/text_to_play
+	///Boolean to wait for the current message to end play before playing the next message
+	var/wait_for = TRUE
 	///The client that this text is for
 	var/client/player
 

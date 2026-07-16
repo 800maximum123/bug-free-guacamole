@@ -365,26 +365,141 @@
 /datum/ai_holder/simple_animal/passive/ipc
 	holder_required_type = /mob/living/carbon/human
 
+/mob/living/simple_animal/hostile/tf/infected_ipc
+	ai_holder = /datum/ai_holder/simple_animal/melee
+
+	health = 999999
+	maxHealth = 999999
+
+	simple_combat_on = TRUE
+	simple_health = 50
+	max_simple_health = 50
+
+	simple_armor_natural = 10
+	movement_cooldown = 5
+	speed = -1
+
+	natural_weapon = /obj/item/natural_weapon/tf/hands
+	faction = "Hacked Posi" // will attack both ascents and players
+
+	bleed_colour = "#000000"
+	meat_type = null
+	meat_amount = 0
+	bone_material = null
+	bone_amount = 0
+	skin_material = null
+	skin_amount = 0
+
+	min_gas = null
+	max_gas = null
+	minbodytemp = 0
+
+	var/mob/living/carbon/human/machine/tf/stored_original
+
+/mob/living/simple_animal/hostile/tf/infected_ipc/death(gibbed, deathmessage, show_dead_message)
+	if(natural_weapon.clawed)
+		remove_status_effect(/datum/simple_status/fixation)
+		remove_status_effect(/datum/simple_status/attack_speed_buff)
+
+		natural_weapon.clawed.remove_status_effect(/datum/simple_status/fixation)
+		natural_weapon.clawed = null
+
+	if(stored_original)
+		stored_original.simple_combat_on = FALSE
+		var/obj/item/organ/internal/posibrain/P = stored_original.organs_by_name[BP_POSIBRAIN]
+		P.take_general_damage(100) // should kill our parent off for sure
+		stored_original.infected = null
+		stored_original.forceMove(get_turf(src))
+
+	. = ..()
+	qdel(src)
+
+/mob/living/simple_animal/hostile/tf/infected_ipc/simple_health_calculation(amount, armor_damage_amp, should_block, vfx_effect, atom/movable/source, datum/simple_status/add_effect, effect_apply_anyway, effect_duration)
+	. = ..()
+
+	if(natural_weapon.clawed && natural_weapon.clawed != source && amount >= 0)
+		natural_weapon.clawed_time_current = 0
+
+		remove_status_effect(/datum/simple_status/fixation)
+		remove_status_effect(/datum/simple_status/attack_speed_buff)
+
+		natural_weapon.clawed.remove_status_effect(/datum/simple_status/fixation)
+		natural_weapon.clawed = null
+
+/obj/item/natural_weapon/tf/hands
+	name = "hand"
+	attack_verb = list("punched")
+	simple_damage = 10
+	simple_armor_penetration = 5
+
+	hitsound = 'sound/weapons/smash.ogg'
+
+/obj/item/natural_weapon/tf/hands/apply_hit_effect(mob/living/target, mob/living/user, hit_zone)
+	if(target.simple_combat_on)
+
+		if(!clawed)
+			if(prob(clawed_chance))
+				user.add_status_effect(/datum/simple_status/fixation)
+				user.add_status_effect(/datum/simple_status/attack_speed_buff)
+				clawed_chance = initial(clawed_chance)
+
+				target.add_status_effect(/datum/simple_status/fixation)
+				clawed = target
+			else
+				clawed_chance += 10
+
+		if(clawed)
+			clawed_time_current += 1
+			if(clawed_time_current >= clawed_time_needed)
+				clawed_time_current = 0
+
+				user.remove_status_effect(/datum/simple_status/fixation)
+				user.remove_status_effect(/datum/simple_status/attack_speed_buff)
+
+				target.remove_status_effect(/datum/simple_status/fixation)
+				clawed = null
+
+		if(status_to_add)
+			if(status_apply_prob > 0)
+				if(prob(status_apply_prob))
+					target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user,status_to_add,status_ignore_armor,status_timer_to_add)
+					return TRUE
+				else
+					target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user)
+					return TRUE
+
+			else
+				target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user,status_to_add,status_ignore_armor,status_timer_to_add)
+				return TRUE
+
+		else
+			target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user)
+			return TRUE
+
 /mob/living/carbon/human/machine/tf
 	var/proto_style = "Morpheus"
 	var/list/proto_style_options = list("Unbranded", "Morpheus", "Bishop Knight", "Morpheus Nexus","Bishop Rook", "Arkmade", "Improvised",
 										"Hephaestus Titan", "Zeng-Hu Spirit", "Ward-Takahashi Econ.", "Shellguard", "Pure Improvisation")
 
+	simple_combat_on = TRUE
+	simple_health = 20
+	max_simple_health = 20
+
+	var/mob/living/simple_animal/hostile/tf/infected_ipc/infected
+
 /mob/living/carbon/human/machine/tf/Initialize(mapload)
 	. = ..(mapload, SPECIES_IPC)
 
 	proto_style = pick(proto_style_options)
-	/*for(var/obj/item/organ/external/E in contents)
-		E.robotize("[proto_style]", 0, 1, 1)*/
-// this is probably isn't needed, we can simply setup the chest and it will change everything else
-
-	var/obj/item/organ/external/C = organs_by_name[BP_CHEST]
-	C.robotize("[proto_style]", 0, 1, 1)
-
-	var/obj/item/organ/external/H = organs_by_name[BP_HEAD] // for some reason - head isn't changing with the rest, maybe this would help
-	H.robotize("[proto_style]", 0, 1, 1)
+	for(var/obj/item/organ/external/E in contents)
+		E.robotize("[proto_style]", 0, 0, 1)
 
 	ai_holder = new /datum/ai_holder/simple_animal/passive/ipc (src)
 	faction = "Positronic Union"
+
+	infected = new /mob/living/simple_animal/hostile/tf/infected_ipc(src) // spawn it inside for later
+	infected.ai_holder = new /datum/ai_holder/simple_animal/inert (src) // we don't want it to act YET
+	infected.CopyOverlays(src, TRUE) // it should look like us, but with additional overlay ontop of it
+	infected.icon = null
 
 // #include "..\transformers_campaign\teletraan_level.dmm"
