@@ -73,7 +73,7 @@
 	icon_state = "research"
 
 /area/map_template/icarus/driver
-	icon_state = VP_DRIVER
+	icon_state = "driver"
 
 /area/map_template/icarus/driver/west
 	name = "SEV Icarus Port Mass Driver"

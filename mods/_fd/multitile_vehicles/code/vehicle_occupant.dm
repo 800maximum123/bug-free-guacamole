@@ -43,7 +43,7 @@
 	if(!loc_moveto)
 		to_chat(user, SPAN_NOTICE("There is no valid location to exit at."))
 		return
-	if(user in get_occupants_in_position(VP_DRIVER))
+	if(user in get_occupants_in_position(dashboard_control_positions))
 		add_remove_vehicle_actions(user, TRUE)
 
 	remove_turret_gun(user)
@@ -73,11 +73,10 @@
 	for(var/mob/m in occupants)
 		exit_vehicle(m, TRUE, eject = TRUE)
 
-
 /obj/vehicles/proc/get_occupants_in_position(position)
 	var/list/to_return = list()
 	for(var/mob/occupant in occupants)
-		if(occupants[occupant] == position)
+		if((occupants[occupant] == position) || (occupants[occupant] in position))
 			to_return += occupant
 	return to_return
 
@@ -92,7 +91,7 @@
 /obj/vehicles/proc/check_position_blocked(position)
 	var/list/occupants_in_pos = get_occupants_in_position(position)
 	switch(position)
-		if(VP_DRIVER, VP_GUNNER, VP_COMMANDER)
+		if(VP_DRIVER, VP_GUNNER, VP_COMMANDER, VP_PASSENGER)
 			return occupants_in_pos.len >= 1
 		if(VP_INTERIOR)
 			return FALSE
@@ -128,7 +127,6 @@
 
 /obj/vehicles/proc/handle_entering(mob/user, position, puller)
 	occupants |= user
-	//user.client.view = "[round(VIEW_SIZE_X * vehicle_view_modifier)]x[round(VIEW_SIZE_Y * vehicle_view_modifier)]"
 	occupants[user] = position
 	user.loc = contents
 	contents |= user
@@ -148,8 +146,11 @@
 	to_chat(user, SPAN_INFO("You are now [position_name(position)] of [src]."))
 	play_enter_sound()
 	user.reset_view()
+	user.client.view = CLIENT_DEFAULT_VIEW * vehicle_view_modifier
 	user.dir = dir
-	if(position == VP_DRIVER)
+	if(position in dashboard_control_positions)
+		if(!user.skill_check(driving_skill, skill_level) && complex_controls)
+			to_chat(user, SPAN_WARNING("You are not trained to operate \the [src]..."))
 		add_remove_vehicle_actions(user, FALSE)
 
 /obj/vehicles/proc/enter_as_position(mob/user, position, mob/puller)

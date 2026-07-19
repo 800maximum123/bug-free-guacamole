@@ -12,7 +12,7 @@
 	var/block_enter_exit //Set this to block entering/exiting.
 	var/can_traverse_zs = FALSE
 
-	var/complex_controls = FALSE //If true, requires a mech skill check to move the vehicle.
+	var/complex_controls = FALSE //If true, requires a driving_skill skill check at skill_level for vehicle controls
 	var/driving_skill = SKILL_MECH //What skill is required to drive this?
 	var/skill_level = SKILL_BASIC
 
@@ -29,7 +29,7 @@
 	var/can_space_move = FALSE
 
 	var/dangerous_to_people = TRUE //Hitting people hurts them
-	var/dangerous_to_obstacles = TRUE //Hitting obstacles hurts them
+	var/dangerous_to_obstacles = TRUE //Hitting obstacles hurts them and vehicle
 	var/weaken_to_people = 5
 	var/damage_to_people = 20
 	var/damage_to_obstacles = 100
@@ -44,8 +44,10 @@
 
 	//Passenger Management
 	var/list/occupants = list() //Contains all occupants of the vehicle including the driver.
-	var/list/available_seats = list(VP_DRIVER = 1)
 	var/list/exposed_positions = list(VP_DRIVER = 0) //Assoc. Value is the chance of hitting this position
+	var/list/available_seats = list(VP_DRIVER = 1)
+	var/list/dashboard_control_positions = list(VP_DRIVER, VP_COMMANDER) // What seats are allowed to control verbs like locking doors
+	var/turret_control_position = VP_GUNNER
 
 	//Cargo
 	var/used_cargo_space = 0
@@ -66,7 +68,7 @@
 	var/has_headlights = TRUE
 	var/headlights_state = 1
 
-	var/l_range = 7
+	var/l_range = 12
 	var/l_power = 2
 	var/l_color = COLOR_WHITE
 
@@ -74,9 +76,7 @@
 	var/obj/item/key/car/inserted_key
 	var/key_type = /obj/item/key/car
 
-	var/turret_control_position = VP_GUNNER
 	var/image/turret_overlay
-
 	var/image/wheels = null
 	var/image/livery = null
 
@@ -126,7 +126,6 @@
 	return loc.return_air()
 
 /obj/vehicles/attack_generic(mob/user, damage, attack_verb = "hits", wallbreaker = FALSE, damtype = DAMAGE_BRUTE, armorcheck = "melee", dam_flags = EMPTY_BITFIELD)
-	. = ..()
 	var/pos_to_dam = should_damage_occ()
 	if(!isnull(pos_to_dam))
 		var/list/occ_list = get_occupants_in_position(pos_to_dam)
@@ -137,6 +136,7 @@
 			return 1
 		user.UnarmedAttack(mob_to_hit)
 	comp_prof.take_component_damage(damage,"brute")
+	. = ..()
 
 /obj/vehicles/proc/get_display_filled_amt(amt, amt_initial)
 	. = "is empty!"
@@ -148,6 +148,30 @@
 		. = "is about half full."
 	else if(amt > amt_initial * 0.25)
 		. = "is about a quarter full."
+
+/obj/vehicles/proc/click_enter_vehicle(mob/user)
+	var/player_pos_choice
+	var/list/positions = get_all_positions()
+	if(positions.len == 1)
+		player_pos_choice = positions[1]
+	else
+		player_pos_choice = input(user, "Enter which position?", "Vehicle Entry Position Select", "Cancel") in positions + list("Cancel")
+
+	if(player_pos_choice == "Cancel")
+		return
+
+	enter_as_position(user, player_pos_choice)
+
+/obj/vehicles/proc/click_switch_seats(mob/user)
+	var/position_switchto = input(user, "Enter which position?", "Vehicle Position Select", "Cancel") in get_all_positions() + list("Cancel")
+
+	if(position_switchto == "Cancel")
+		return
+	if(check_position_blocked(position_switchto))
+		do_seat_switch(user,position_switchto)
+		return
+	else
+		enter_as_position(user,position_switchto)
 
 /obj/vehicles/examine(mob/user)
 	. = ..()
@@ -187,17 +211,18 @@
 		var/should_continue = damage_occupant(pos_to_dam,P)
 		if(!should_continue)
 			return
-	comp_prof.take_component_damage(P.get_structure_damage())
-	visible_message("<span class = 'danger'>[P] hits [src]!</span>")
+	comp_prof.take_component_damage(P.get_structure_damage(), P.damage_type)
+	if(P.damage_type == DAMAGE_BRUTE)
+		playsound(get_turf(src), SOUNDS_BULLET_METAL, 100, 1)
+	else if(P.damage_type == DAMAGE_BURN)
+		playsound(get_turf(src), SOUNDS_LASER_METAL, 100, 1)
+	visible_message(SPAN_DANGER("[P] hits [src]!"))
 
 /obj/vehicles/ex_act(severity, direction)
 	comp_prof.take_comp_explosion_dam(severity)
-/*	for(var/position in exposed_positions)
+	for(var/position in exposed_positions)
 		for(var/mob/living/m in get_occupants_in_position(position))
-			m.ex_act(severity) */
-
-/obj/vehicles/forceMove(atom/destination)
-	. = ..()
+			m.ex_act(severity/4) // Vehicle takes majority of the blow
 
 /obj/vehicles/verb/verb_inspect_components()
 	set name = "Inspect Components"
@@ -216,18 +241,13 @@
 /obj/vehicles/attack_hand(mob/user)
 	if(user in get_occupants_in_position(VP_DRIVER))
 		play_honk_sound()
-		audible_message(SPAN_WARNING("[src] honks its horn!"))
+		audible_message(SPAN_WARNING("\The [src] honks its horn!"))
 		return
-	if(user.a_intent != "harm")
+	if(user.a_intent != I_HURT)
 		if(user in occupants)
-			usr = user
-			switch_seats()
+			click_switch_seats(user)
 			return
-
-		for(var/pos in get_all_positions())
-			if(enter_as_position(user, pos))
-				return
-		to_chat(user, "There is no space left in \The [src]")
+		click_enter_vehicle(user)
 	else
 		. = ..()
 

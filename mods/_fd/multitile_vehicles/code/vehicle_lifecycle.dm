@@ -62,7 +62,7 @@
 			l.adjustBruteLoss(dam_deal)
 	kick_occupants(TRUE)
 	cell_explosion(src.loc, 150, 50, shrapnel = FALSE)
-	var/list/fire_spread = get_turfs_in_range(src.loc, 2)
+	var/list/fire_spread = get_turfs_in_range(src.loc, bound_width / 32)
 
 	for(var/turf/around in fire_spread)
 		around.IgniteTurf(20, COLOR_YELLOW)
@@ -71,6 +71,8 @@
 
 /obj/vehicles/Process()
 	if(world.time % 3)
+		for(var/mob/m in occupants)
+			m.client.view = CLIENT_DEFAULT_VIEW * vehicle_view_modifier
 		if(active)
 			var/list/drivers = get_occupants_in_position(VP_DRIVER)
 			if(!drivers.len || isnull(drivers) || movement_destroyed)

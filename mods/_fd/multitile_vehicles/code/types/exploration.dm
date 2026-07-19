@@ -35,9 +35,6 @@
 	name = "SATV-154-EC 'Triceratops'"
 	mappaths = list("mods/_fd/multitile_vehicles/maps/exploration.dmm")
 
-/obj/vehicles/large/exploration/on_death()
-	. = ..()
-
 /obj/item/vehicle_component/health_manager/exploration
 	integrity = 2000
 	resistances = list("bullet"=85,"energy"=85,"emp"=25,"bomb"=85)

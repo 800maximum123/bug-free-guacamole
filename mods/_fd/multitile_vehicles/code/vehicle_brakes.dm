@@ -35,6 +35,7 @@
 
 	if(toggler)
 		to_chat(toggler,"<span class = 'notice'>[message]</span>")
+	playsound(src, 'mods/_fd/multitile_vehicles/sounds/handbrake.ogg', 50, TRUE)
 
 /obj/vehicles/verb/verb_toggle_brake_safeties()
 	set name = "Toggle Brake Safeties"

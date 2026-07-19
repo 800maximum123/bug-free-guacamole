@@ -18,16 +18,18 @@
 	var/alarm_sound_id //same as above
 
 	var/list/alarm_sounds = list('mods/_fd/multitile_vehicles/sounds/alarm.ogg')
-	var/alarm_volume = 50
+	var/alarm_volume = 150
 
 	// SOUND EFFECTS
 	var/list/move_sound = list('mods/_fd/multitile_vehicles/sounds/move.ogg')
+	var/list/brake_sound = list('mods/_fd/multitile_vehicles/sounds/brake.ogg')
 	var/list/crash_sound = list('mods/_fd/multitile_vehicles/sounds/crash.ogg')
 	var/list/honk_sound = list('mods/_fd/multitile_vehicles/sounds/honk.ogg')
 	var/list/enter_sound = list('mods/_fd/multitile_vehicles/sounds/enter.ogg')
-	var/move_volume = 30
-	var/crash_volume = 50
-	var/honk_volume = 50
+	var/move_volume = 50
+	var/brake_volume = 50
+	var/crash_volume = 100
+	var/honk_volume = 150
 	var/enter_volume = 50
 
 // ENGINE SOUNDS
@@ -64,8 +66,8 @@
 	if(!has_alarm)
 		to_chat(user, SPAN_WARNING("This vehicle does not have an alarm system."))
 		return
-	if(!istype(user) || !(user in get_occupants_in_position(VP_DRIVER)))
-		to_chat(user, SPAN_NOTICE("You must be the driver of [src] to toggle the alarm."))
+	if(!istype(user) || !(user in get_occupants_in_position(dashboard_control_positions)))
+		to_chat(user, SPAN_NOTICE("You must have access to dashboard of \the [src] to toggle the alarm."))
 		return
 
 	if(alarm_sound_token)
@@ -84,7 +86,7 @@
 /obj/vehicles/proc/assign_alarm_sound_token()
 	if(!alarm_sound_id)
 		alarm_sound_id = "[type]_[sequential_id(type)]"
-	alarm_sound_token = GLOB.sound_player.PlayLoopingSound(src, alarm_sound_id, pick(alarm_sounds), alarm_volume, 15, 1)
+	alarm_sound_token = GLOB.sound_player.PlayLoopingSound(src, alarm_sound_id, pick(alarm_sounds), alarm_volume, 20, 1)
 	alarm_sound_token.SetVolume(alarm_volume)
 
 /obj/vehicles/proc/stop_alarm_soundloop()
@@ -94,6 +96,9 @@
 // SOUND EFFECTS
 /obj/vehicles/proc/play_move_sound()
 	playsound(src, (pick(move_sound)), (move_volume), TRUE)
+
+/obj/vehicles/proc/play_brake_sound()
+	playsound(src, (pick(brake_sound)), (brake_volume), TRUE)
 
 /obj/vehicles/proc/play_crash_sound()
 	playsound(src, (pick(crash_sound)), (crash_volume), TRUE)

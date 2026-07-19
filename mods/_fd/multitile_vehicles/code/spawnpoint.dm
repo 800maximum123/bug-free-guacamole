@@ -3,8 +3,7 @@
 	name = "test vehicle spawnpoint"
 	var/obj/vehicles/vehicle = /obj/vehicles/large/warthog
 
-/obj/landmark/vehicle_spawnpoint/New()
-	SHOULD_CALL_PARENT(FALSE)
+/obj/landmark/vehicle_spawnpoint/LateInitialize(mapload, ...)
 	if(vehicle)
 		new vehicle(src.loc)
 

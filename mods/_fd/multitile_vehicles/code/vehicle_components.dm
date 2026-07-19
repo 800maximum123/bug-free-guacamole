@@ -228,6 +228,27 @@
 	name = "Vital components"
 	integrity = 200
 	coverage = 10000
+	var/has_death_sequence = FALSE
+	var/death_sound = 'mods/_fd/multitile_vehicles/sounds/death.ogg'
+	var/death_duration = 5 SECONDS
+	var/death_segments = 3
+
+/obj/item/vehicle_component/health_manager/proc/death_sequence(obj/vehicles/vehicle_contain)
+	if(!vehicle_contain || !istype(vehicle_contain))
+		return
+	vehicle_contain.movement_destroyed = TRUE
+	// The sequence is segmented into N sections for more of a dramatic effect
+	var/segmented_duration = death_duration / death_segments
+	var/S = emissive_appearance('icons/effects/turf_fire.dmi', "max", ABOVE_HUMAN_LAYER + 0.1) // TODO: make vehicles have unique overlays
+	vehicle_contain.shake_animation()
+	vehicle_contain.visible_message(SPAN_DANGER("\The [src] is about to explode!"), SPAN_DANGER("You hear a violent fire and air hissing!"))
+	AddOverlays(S)
+	playsound(vehicle_contain.loc, death_sound, 70, FALSE)
+	while(death_segments > 0)
+		sleep(segmented_duration)
+		vehicle_contain.shake_animation()
+		death_segments--
+	CutOverlays(S)
 
 /obj/item/vehicle_component/health_manager/full_integ_loss()
 	var/obj/vehicles/vehicle_contain = loc
@@ -235,7 +256,9 @@
 		return
 	if(vehicle_contain.movement_destroyed)
 		return
-	vehicle_contain.on_death()
+	if(has_death_sequence)
+		death_sequence(vehicle_contain)
+	vehicle_contain.on_death() // BOOM!
 
 /obj/item/vehicle_component/health_manager/finalise_repair()
 	. = ..()
@@ -243,7 +266,6 @@
 	if(!istype(loc))
 		return
 	vehicle_contain.movement_destroyed = 0
-	vehicle_contain.guns_disabled = 0
 	vehicle_contain.icon_state = initial(vehicle_contain.icon_state)
 
 #undef REPAIR_TOOLS_LIST

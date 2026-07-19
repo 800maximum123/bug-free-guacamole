@@ -61,12 +61,13 @@
 		return
 	if(istype(obstacle,/mob/living))
 		var/mob/living/hit_mob = obstacle
-		to_chat(hit_mob, SPAN_DANGER("You are hit by [src]!"))
-		playsound(hit_mob, get_sfx("swing_hit"), 100, TRUE)
 		hit_mob.Weaken(weaken_to_people)
+		to_chat(hit_mob, SPAN_DANGER("You are hit by \the [src]!"))
+		visible_message(SPAN_WARNING("\The [src] hits \the [hit_mob]!"))
+		playsound(hit_mob, get_sfx("swing_hit"), 100, TRUE)
 
 		if(dangerous_to_people)
-			hit_mob.apply_damage(damage_to_people, DAMAGE_BRUTE, UPPER_TORSO, used_weapon = "[src] ramming")
+			hit_mob.apply_damage(damage_to_people, DAMAGE_BRUTE, BP_CHEST, used_weapon = "[src] vehicle ramming")
 	else
 		next_move_input_at = world.time + min_speed
 		if(last_move == EAST || last_move == WEST)
@@ -76,15 +77,19 @@
 			speed[2] = 0
 			moving_y = 0
 		last_moved_axis = 0
-	visible_message(SPAN_NOTICE("[src] collides with [obstacle]"))
-	play_crash_sound()
+		visible_message(SPAN_NOTICE("\The [src] collides with \the [obstacle]."))
 	if(dangerous_to_obstacles)
 		comp_prof.take_component_damage(damage_to_obstacles/2, DAMAGE_BRUTE)
 		obstacle.damage_health(damage_to_obstacles, DAMAGE_BRUTE)
+		visible_message(SPAN_WARNING("\The [src] and \the [obstacle] both take damage from the hit!"))
+		playsound(obstacle, get_sfx("sparks"), 50, TRUE)
+	play_crash_sound()
 
 /obj/vehicles/Bump(atom/obstacle)
-	..()
-	. = collide_with_obstacle(obstacle)
+	. = ..()
+	if(istype(obstacle, /obj/structure/stairs))
+		return
+	return collide_with_obstacle(obstacle)
 
 /obj/vehicles/proc/drag_slowdown(index, slowdown_amount = drag)
 	if(speed[index] > 0)
@@ -134,6 +139,8 @@
 				last_moved_axis = 0
 			if(move_sound && world.time % 2 == 0)
 				play_move_sound()
+				if(braking_mode == 1)
+					play_brake_sound()
 
 /obj/vehicles/relaymove(mob/user, direction)
 	if(world.time < next_move_input_at)
@@ -149,9 +156,8 @@
 		return 0
 	next_move_input_at = world.time + max(max_speed,min_speed - (abs(speed[1]) + abs(speed[2])))
 
-	if(!user.skill_check(driving_skill, skill_level) && complex_controls)
-		to_chat(user, SPAN_NOTICE("You can't understand how to control [src]!"))
-		return
+	user.dir = direction
+
 	if(occupants[user] != VP_DRIVER)
 		return -1
 
@@ -160,6 +166,13 @@
 		if(prob(50))
 			dirturn = -45
 		direction = turn(direction,dirturn)
+
+	if(!user.skill_check(driving_skill, skill_level) && complex_controls && prob(25))
+		direction = pick(NORTH,SOUTH,EAST,WEST)
+		to_chat(user, SPAN_DANGER("You clumsily fumble with \the [src] controls."))
+
+	user.dir = direction
+
 	switch(direction)
 		if(NORTH)
 			last_moved_axis = 2

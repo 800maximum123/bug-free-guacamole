@@ -10,6 +10,8 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	var/size_y = 0
 
 	var/list/mob/living/carbon/human/occupants
+	var/list/obj/structure/vehicledoor/doors
+	var/list/obj/structure/vehicledoor_driver/driver_doors
 	var/obj/effect/vehicle_entrance/entrance
 	var/obj/effect/vehicle_entrance_driver/driver_entrance
 	var/obj/vehicles/large/vehicle
@@ -55,6 +57,7 @@ GLOBAL_LIST_EMPTY(templates_cache)
 		E.id = id
 		E.interior = src
 		E.vehicle = new_vehicle
+		driver_doors += E
 
 	for(var/obj/effect/vehicle_entrance_driver/E in area)
 		driver_entrance = E
@@ -65,6 +68,7 @@ GLOBAL_LIST_EMPTY(templates_cache)
 		E.id = id
 		E.interior = src
 		E.vehicle = new_vehicle
+		doors += E
 
 	for(var/obj/structure/vehiclewindow/W in area)
 		W.vehicle = new_vehicle
@@ -88,12 +92,27 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	. = ..()
 	interior = new(interior_template, src)
 
+/obj/vehicles/large/lock_toggle()
+	. = ..()
+	for(var/obj/structure/vehicledoor/E in interior.doors)
+		E.update_icon()
+		if(block_enter_exit)
+			playsound(E.loc, 'sound/machines/bolts_down.ogg', 70, FALSE)
+		else
+			playsound(E.loc, 'sound/machines/bolts_up.ogg', 70, FALSE)
+	for(var/obj/structure/vehicledoor_driver/E in interior.driver_doors)
+		E.update_icon()
+		if(block_enter_exit)
+			playsound(E.loc, 'sound/machines/bolts_down.ogg', 70, FALSE)
+		else
+			playsound(E.loc, 'sound/machines/bolts_up.ogg', 70, FALSE)
+
 /obj/vehicles/large/proc/move_to_interior(mob/user, puller)
 	var/is_driver = FALSE
-	if(user in get_occupants_in_position(VP_DRIVER) && !interior.driver_entrance)
+	if(user in get_occupants_in_position(available_seats) && !interior.driver_entrance)
 		to_chat(user, SPAN_WARNING("The [src]'s cockpit doesn't have a way into interiors!"))
 		return
-	else if(user in get_occupants_in_position(VP_DRIVER))
+	else if(user in get_occupants_in_position(available_seats))
 		is_driver = TRUE
 
 	if(user == puller)
@@ -162,6 +181,10 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	for(var/turf/tile in interior.area)
 		tile.IgniteTurf(20, COLOR_YELLOW)
 
+/obj/vehicles/large/init_vehicle_actions()
+	. = ..()
+	driver_actions += new /datum/action/vehicle_action/look_in_interior(src)
+
 // Fluff wall
 /obj/structure/vehiclewall
 	name = "vehicle wall"
@@ -178,11 +201,12 @@ GLOBAL_LIST_EMPTY(templates_cache)
 // DOORS
 /obj/structure/vehicledoor
 	name = "vehicle door"
-	desc = "A door to get in and out of the vehicle. Use key to unlock or lock. Use crowbar to pry open."
-	icon = 'mods/_fd/multitile_vehicles/icons/walls.dmi'
-	icon_state = "ambulancedoor"
+	desc = "A door to get in and out of the vehicle."
+	icon = 'icons/obj/doors/station/door.dmi'
+	icon_state = "preview"
 
 	layer = ABOVE_HUMAN_LAYER
+	atmos_canpass = CANPASS_DENSITY
 
 	density = TRUE
 	opacity = TRUE
@@ -192,7 +216,8 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	var/datum/vehicle_interior/interior = null
 	var/obj/vehicles/large/vehicle = null
 
-	atmos_canpass = CANPASS_DENSITY
+	var/next_clicksound = 0
+	var/image/bolts = "closed"
 
 /obj/structure/vehicledoor/Move()
 	return
@@ -200,8 +225,19 @@ GLOBAL_LIST_EMPTY(templates_cache)
 /obj/structure/vehicledoor/forceMove(atom/dest)
 	return
 
+/obj/structure/vehicledoor/Initialize()
+	. = ..()
+	bolts = emissive_appearance(icon, bolts)
+
+/obj/structure/vehicledoor/on_update_icon()
+	if(vehicle.block_enter_exit)
+		AddOverlays(bolts)
+	else
+		CutOverlays(bolts)
+
 /obj/structure/vehicledoor/LateExamine(mob/user, distance, is_adjacent)
 	. = ..()
+	to_chat(user, SPAN_WARNING("Use key to unlock or lock. Use crowbar to pry open."))
 	if(vehicle.block_enter_exit)
 		to_chat(user, SPAN_WARNING("\The [src] is locked."))
 	else
@@ -231,6 +267,9 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	. = ..()
 	if(vehicle.doors_locked() || vehicle.loc == null)
 		to_chat(user, SPAN_WARNING("\The [src] is locked."))
+		if (world.time > next_clicksound)
+			next_clicksound = world.time + CLICKSOUND_INTERVAL
+			playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, FALSE)
 		return FALSE
 	vehicle.exit_vehicle(user)
 
@@ -238,6 +277,9 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	. = ..()
 	if(vehicle.doors_locked() || vehicle.loc == null)
 		to_chat(user, SPAN_WARNING("\The [src] is locked."))
+		if (world.time > next_clicksound)
+			next_clicksound = world.time + CLICKSOUND_INTERVAL
+			playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, FALSE)
 		return FALSE
 	if(ismob(target))
 		vehicle.exit_vehicle(target, ignore_incap_check = TRUE, puller = user)
@@ -256,6 +298,7 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	icon_state = "preview"
 
 	layer = ABOVE_HUMAN_LAYER
+	atmos_canpass = CANPASS_DENSITY
 
 	density = TRUE
 	opacity = TRUE
@@ -265,7 +308,8 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	var/datum/vehicle_interior/interior = null
 	var/obj/vehicles/large/vehicle = null
 
-	atmos_canpass = CANPASS_DENSITY
+	var/next_clicksound = 0
+	var/image/bolts = "closed"
 
 /obj/structure/vehicledoor_driver/Move()
 	return
@@ -273,16 +317,29 @@ GLOBAL_LIST_EMPTY(templates_cache)
 /obj/structure/vehicledoor_driver/forceMove(atom/dest)
 	return
 
+/obj/structure/vehicledoor_driver/Initialize()
+	. = ..()
+	bolts = emissive_appearance(icon, bolts)
+
+/obj/structure/vehicledoor_driver/on_update_icon()
+	if(vehicle.block_enter_exit)
+		AddOverlays(bolts)
+	else
+		CutOverlays(bolts)
+
 /obj/structure/vehicledoor_driver/LateExamine(mob/user, distance, is_adjacent)
 	. = ..()
+	to_chat(user, SPAN_WARNING("Use key to unlock or lock. Use crowbar to pry open."))
 	if(vehicle.block_enter_exit)
 		to_chat(user, SPAN_WARNING("\The [src] is locked."))
 	else
 		to_chat(user, SPAN_NOTICE("\The [src] is unlocked."))
 	if(length(vehicle.get_occupants_in_position(VP_DRIVER)) > 0)
 		to_chat(user, SPAN_NOTICE("There is a driver in the cabin."))
-	else
-		to_chat(user, SPAN_NOTICE("The driver's cabin is empty."))
+	if(length(vehicle.get_occupants_in_position(VP_COMMANDER)) > 0)
+		to_chat(user, SPAN_NOTICE("There is a commander in the cabin."))
+	if(length(vehicle.get_occupants_in_position(VP_GUNNER)) > 0)
+		to_chat(user, SPAN_NOTICE("There is a gunner in the cabin."))
 
 /obj/structure/vehicledoor_driver/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	. = ..()
@@ -308,13 +365,19 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	. = ..()
 	if(vehicle.doors_locked() || vehicle.loc == null)
 		to_chat(user, SPAN_WARNING("\The [src] is locked."))
+		if (world.time > next_clicksound)
+			next_clicksound = world.time + CLICKSOUND_INTERVAL
+			playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, FALSE)
 		return
 
 	if(length(vehicle.get_occupants_in_position(VP_DRIVER)) > 0)
 		to_chat(user, "The driver's cabin is occupied.")
+		if (world.time > next_clicksound)
+			next_clicksound = world.time + CLICKSOUND_INTERVAL
+			playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
 		return
 
-	vehicle.enter_as_position(user, VP_DRIVER, user)
+	vehicle.click_enter_vehicle(user)
 
 /obj/effect/vehicle_entrance_driver
 	alpha = 0
@@ -365,10 +428,6 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	user.reset_view()
 	stop_verb.Remove(user)
 	to_chat(user, SPAN_INFO("You stop looking outside the window."))
-
-/obj/structure/vehicledoor/airlock
-	icon = 'icons/obj/doors/station/door.dmi'
-	icon_state = "preview"
 
 /area/interior
 	name = "vehicle interior"

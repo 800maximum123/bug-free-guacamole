@@ -13,7 +13,8 @@
 
 	comp_prof = /datum/component_profile/van
 
-	exposed_positions = list(VP_DRIVER = 0)
+	exposed_positions = list(VP_DRIVER = 0, VP_COMMANDER = 0)
+	available_seats = list(VP_DRIVER = 1, VP_COMMANDER = 1)
 
 	vehicle_size = ITEM_SIZE_VEHICLE_LARGE
 
@@ -81,6 +82,8 @@
 	name = "Blackstone firefighter van"
 	desc = "A 'Hauler' model van produced by Blackstone Foundries, this one was designed as a sturdy firefighting vehicle."
 
+	icon_state = "red"
+
 	interior_template = /datum/map_template/van/firefighter
 
 	comp_prof = /datum/component_profile/van/firefighter
@@ -95,7 +98,7 @@
 
 /datum/map_template/van/firefighter
 	name = "Blackstone firefighter van"
-	mappaths = list("maps/gaia/interior/van_ambulance.dmm")
+	mappaths = list("maps/gaia/interior/van_firefighter.dmm")
 
 /obj/item/vehicle_component/health_manager/van/firefighter
 	integrity = 1000

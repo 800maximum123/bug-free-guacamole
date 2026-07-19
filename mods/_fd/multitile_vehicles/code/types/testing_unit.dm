@@ -32,9 +32,6 @@
 	name = "Ambulance"
 	mappaths = list("mods/_fd/multitile_vehicles/maps/ambulance.dmm")
 
-/obj/vehicles/large/warthog/on_death()
-	. = ..()
-
 /obj/item/vehicle_component/health_manager/warthog
 	integrity = 500
 	resistances = list("bullet"=65,"energy"=65,"emp"=25,"bomb"=45)

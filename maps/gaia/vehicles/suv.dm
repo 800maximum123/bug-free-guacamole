@@ -13,8 +13,8 @@
 
 	comp_prof = /datum/component_profile/suv
 
-	exposed_positions = list(VP_DRIVER = 1, VP_PASSENGER = 1)
-	available_seats = list(VP_DRIVER = 1, VP_PASSENGER = 3)
+	exposed_positions = list(VP_DRIVER = 0, VP_COMMANDER = 0, VP_PASSENGER = 0)
+	available_seats = list(VP_DRIVER = 1, VP_COMMANDER = 1, VP_PASSENGER = 2)
 
 	damage_to_people = 15
 	damage_to_obstacles = 50

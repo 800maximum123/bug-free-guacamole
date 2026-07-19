@@ -15,7 +15,8 @@
 
 	comp_prof = /datum/component_profile/iccg_apc/turret
 
-	exposed_positions = list(VP_DRIVER = 0)
+	exposed_positions = list(VP_DRIVER = 0, VP_COMMANDER = 0)
+	available_seats = list(VP_DRIVER = 1, VP_COMMANDER = 1)
 	turret_control_position = VP_DRIVER
 
 	vehicle_size = ITEM_SIZE_VEHICLE_LARGE
@@ -85,6 +86,7 @@
 /obj/item/vehicle_component/health_manager/iccg_apc
 	integrity = 4000
 	resistances = list("bullet" = 90,"energy" = 85,"emp" = 25,"bomb" = 85)
+	has_death_sequence = TRUE
 
 /datum/component_profile/iccg_apc
 	vital_components = newlist(/obj/item/vehicle_component/health_manager/iccg_apc)

@@ -17,6 +17,13 @@
 /obj/vehicles/proc/doors_locked()
 	return block_enter_exit
 
+/obj/vehicles/proc/lock_toggle()
+	block_enter_exit = !block_enter_exit
+	if(block_enter_exit)
+		playsound(src.loc, 'sound/machines/bolts_down.ogg', 70, FALSE)
+	else
+		playsound(src.loc, 'sound/machines/bolts_up.ogg', 70, FALSE)
+
 /obj/vehicles/proc/attack_key(obj/item/key/car/key, mob/user)
 	if(health_dead)
 		return
@@ -24,9 +31,7 @@
 		to_chat(user, SPAN_WARNING("The key doesn't fit!"))
 		return TRUE
 
-	playsound(user, 'sound/effects/buckle.ogg', 150, 1, 5)
-
-	block_enter_exit = !block_enter_exit
+	lock_toggle()
 	user.visible_message(SPAN_NOTICE("[user] [block_enter_exit ? "" : "un"]locks \the [src]."))
 
 /obj/vehicles/verb/lock_doors()
@@ -34,15 +39,13 @@
 	set category = "Vehicle"
 	set src in view(1)
 	var/mob/living/carbon/human/user = usr
-	if(!istype(user) || !(user in get_occupants_in_position(VP_DRIVER)))
-		to_chat(user, SPAN_NOTICE("You must be the driver of [src] to [block_enter_exit ? "lock" : "unlock"] the doors."))
+	if(!istype(user) || !(user in get_occupants_in_position(dashboard_control_positions)))
+		to_chat(user, SPAN_NOTICE("You must have access to dashboard of \the [src] to [block_enter_exit ? "lock" : "unlock"] the doors."))
 		return
 	if(health_dead)
 		return
 
-	playsound(src.loc, 'sound/effects/buckle.ogg', 150, 1, 5)
-
-	block_enter_exit = !block_enter_exit
+	lock_toggle()
 	visible_message(SPAN_NOTICE("[user] [block_enter_exit ? "" : "un"]locks \the [src]."))
 
 /obj/vehicles/verb/keys()
@@ -50,8 +53,8 @@
 	set category = "Vehicle"
 	set src in view(1)
 	var/mob/living/carbon/human/user = usr
-	if(!istype(user) || !(user in get_occupants_in_position(VP_DRIVER)))
-		to_chat(user, SPAN_NOTICE("You must be the driver of [src] to reach for the keys."))
+	if(!istype(user) || !(user in get_occupants_in_position(dashboard_control_positions)))
+		to_chat(user, SPAN_NOTICE("You must have access to dashboard of \the [src] to reach for the keys."))
 		return
 	if(inserted_key)
 		deactivate()
