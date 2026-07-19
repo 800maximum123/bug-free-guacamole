@@ -99,7 +99,7 @@
 	desc = "Contains advanced medical treatments."
 	icon_state = "fak-combat"
 	item_state = "firstaid-combat"
-	storage_slots = 10
+	max_storage_space = DEFAULT_LARGEBOX_STORAGE
 	startswith = list(
 		/obj/item/storage/pill_bottle/coagulant,
 		/obj/item/storage/pill_bottle/peridaxon,
@@ -109,6 +109,8 @@
 		/obj/item/storage/pill_bottle/dylovene,
 		/obj/item/storage/pill_bottle/tramadol,
 		/obj/item/storage/pill_bottle/spaceacillin,
+		/obj/item/stack/medical/bruise_pack = 2,
+		/obj/item/stack/medical/ointment = 2,
 		/obj/item/stack/medical/splint
 	)
 

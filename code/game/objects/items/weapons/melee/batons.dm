@@ -23,10 +23,6 @@
 	var/stunforce = 0
 	var/agonyforce = 10 // Works worse then electric shock
 
-/obj/item/melee/baton/examine(mob/user, distance, is_adjacent)
-	. = ..()
-	to_chat(user, SPAN_NOTICE("Using it NON-HARMFULLY on a person will painfully but safely strike him."))
-
 /obj/item/melee/baton/use_before(mob/M as mob, mob/living/user as mob)
 	. = FALSE
 	if (!istype(M))
