@@ -907,7 +907,6 @@
 	pixel_x = -27
 	},
 /obj/structure/table/woodentable/ebony,
-/obj/item/clothing/glasses/welding/weldingrock,
 /turf/simulated/floor/wood/ebony,
 /area/bunker/rooms/room8)
 "aHZ" = (
@@ -11869,6 +11868,10 @@
 	pixel_x = -7;
 	pixel_y = 1
 	},
+/obj/item/clothing/accessory/cloak/dominia/red{
+	pixel_x = 7;
+	pixel_y = -7
+	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/rooms/room5)
 "hfi" = (
@@ -13026,9 +13029,6 @@
 /obj/item/clothing/mask/gas/half,
 /obj/item/tank/oxygen_emergency_double,
 /obj/item/tape/research,
-/obj/item/rig/zero{
-	locked = 0
-	},
 /obj/floor_decal/borderfloorwhite{
 	dir = 8
 	},
@@ -19930,6 +19930,7 @@
 	pixel_y = 13
 	},
 /obj/item/board,
+/obj/item/device/binoculars,
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/rooms/room5)
 "mvT" = (
@@ -29301,6 +29302,9 @@
 	dir = 1
 	},
 /obj/structure/table/standard,
+/obj/item/rig/zero{
+	locked = 0
+	},
 /turf/simulated/floor/tiled{
 	color = "#969CA5"
 	},
@@ -30585,6 +30589,10 @@
 /obj/floor_decal/corner/darkblue/border,
 /obj/floor_decal/corner/blue/half{
 	dir = 1
+	},
+/obj/item/reagent_containers/food/drinks/bottle/soju{
+	pixel_x = -1;
+	pixel_y = 14
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/bunker/rooms/room5)
@@ -34032,6 +34040,11 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/item/paper/bunker/rinirili,
 /turf/simulated/floor/wood/walnut,
 /area/bunker/rooms/room14)
 "uOd" = (

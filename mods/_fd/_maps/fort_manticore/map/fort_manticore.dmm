@@ -1117,16 +1117,6 @@
 	},
 /turf/simulated/wall/r_titanium,
 /area/ship/bomber/main_deck/shield)
-"dk" = (
-/obj/structure/flora/ausbushes/fullgrass,
-/mob/living/simple_animal/hostile/retaliate/bob{
-	simple_combat_on = 1;
-	simple_health = 0;
-	faction = "TRK-17";
-	health = 0
-	},
-/turf/simulated/floor/exoplanet/fd/muddirt,
-/area/fort_manticore/jungle)
 "dm" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/fake_lattice,
@@ -5174,6 +5164,11 @@
 /obj/item/book/manual/nt_regs{
 	pixel_x = -4;
 	pixel_y = 2
+	},
+/obj/item/stock_parts/computer/hard_drive/super{
+	pixel_x = 7;
+	pixel_y = 8;
+	name = "RnD console hard drive"
 	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/ship/bomber/main_deck/east_ammunition)
@@ -14202,13 +14197,9 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/fort_manticore/rooms/rifler)
 "PC" = (
-/obj/decal/cleanable/dirt{
-	pixel_y = 0
-	},
+/obj/structure/gravemarker/cross,
 /obj/item/clothing/glasses/welding/weldingrock,
-/turf/simulated/floor/exoplanet/fd/muddirt{
-	color = "#5E5643"
-	},
+/turf/simulated/floor/exoplanet/fd/muddirt,
 /area/fort_manticore/jungle)
 "PF" = (
 /obj/structure/catwalk,
@@ -17259,6 +17250,10 @@
 /obj/structure/table/standard,
 /obj/item/pen,
 /obj/item/paper_bin,
+/obj/item/paper/manticore/roku/error{
+	pixel_x = 7;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/ship/bomber/main_deck/east_ammunition)
 "Yn" = (
@@ -18759,7 +18754,7 @@ Vc
 pO
 Vc
 KV
-PC
+Yo
 Yo
 Yo
 zg
@@ -19368,7 +19363,7 @@ tC
 Vc
 PG
 zg
-dk
+wA
 HZ
 HZ
 NB
@@ -19769,7 +19764,7 @@ NB
 CJ
 zg
 zg
-zg
+PC
 zg
 zg
 QK
