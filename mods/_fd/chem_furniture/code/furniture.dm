@@ -396,41 +396,63 @@
 
 //			FLOORS			//
 
-/turf/simulated/floor/exoplanet/col
+/turf/simulated/floor/col
 	name = "floor"
 	desc = "Floor..."
 	icon = 'mods/_fd/chem_furniture/icons/roads.dmi'
 	icon_state = ""
 
-/turf/simulated/floor/exoplanet/col/asphalt
+/turf/simulated/floor/col/asphalt
 	name = "asphalt"
 	desc = "Floor..."
 	icon_state = "road1"
 
-/turf/simulated/floor/exoplanet/col/asphalt/Initialize()
+/turf/simulated/floor/col/asphalt/Initialize()
 	. = ..()
 	icon_state = "road[rand(1,4)]"
 
-/turf/simulated/floor/exoplanet/col/asphalt2
+/singleton/flooring/col_asphalt
+	name = "asphalt"
+	desc = "Its a asphalt."
+	icon = 'mods/_fd/chem_furniture/icons/roads.dmi'
+	icon_base = "road1"
+	can_engrave = FALSE
+	footstep_type = /singleton/footsteps/hull
+	floor_smooth = SMOOTH_ALL
+	wall_smooth = SMOOTH_ALL
+	space_smooth = SMOOTH_ALL
+
+/turf/simulated/floor/col/asphalt2
 	name = "asphalt"
 	desc = "Floor..."
 	icon_state = "asphalt0"
 
-/turf/simulated/floor/exoplanet/col/asphalt2/Initialize()
+/turf/simulated/floor/col/asphalt2/Initialize()
 	. = ..()
 	icon_state = "asphalt[rand(0,3)]"
 
-/turf/simulated/floor/exoplanet/col/pavement
+/singleton/flooring/col_asphalt2
+	name = "asphalt"
+	desc = "Its a asphalt."
+	icon = 'mods/_fd/chem_furniture/icons/roads.dmi'
+	icon_base = "asphalt0"
+	can_engrave = FALSE
+	footstep_type = /singleton/footsteps/hull
+	floor_smooth = SMOOTH_ALL
+	wall_smooth = SMOOTH_ALL
+	space_smooth = SMOOTH_ALL
+
+/turf/simulated/floor/col/pavement
 	name = "bricks"
 	icon_state = "brick"
 
-/turf/simulated/floor/exoplanet/col/pavement/tile
+/turf/simulated/floor/col/pavement/tile
 	icon_state = "tile"
 
-/turf/simulated/floor/exoplanet/col/pavement/mozai
+/turf/simulated/floor/col/pavement/mozai
 	icon_state = "mozai"
 
-/turf/simulated/floor/exoplanet/col/pavement/brick_stair
+/turf/simulated/floor/col/pavement/brick_stair
 	icon_state = "brick_stair"
 
 /turf/simulated/wall/concrete/reinforced
@@ -468,7 +490,7 @@
 	name = "reinforced titanium wall frame window spawner"
 	frame_path = /obj/structure/wall_frame/concrete/gunmetal
 
-/turf/simulated/floor/exoplanet/col/roof
+/turf/simulated/floor/col/roof
 	name = "roof"
 	icon = 'mods/_fd/chem_furniture/icons/roof.dmi'
 	icon_state = "asphalt"
@@ -498,7 +520,7 @@
 /obj/item/stack/tile/roof/fifty
 	amount = 50
 
-/turf/simulated/floor/exoplanet/col/roof/sheet
+/turf/simulated/floor/col/roof/sheet
 	name = "sheet roof"
 	icon = 'mods/_fd/chem_furniture/icons/roof.dmi'
 	icon_state = "sheet"
@@ -528,7 +550,7 @@
 /obj/item/stack/tile/roof/sheet/fifty
 	amount = 50
 
-/turf/simulated/floor/exoplanet/col/roof/concrete
+/turf/simulated/floor/col/roof/concrete
 	name = "concrete roof"
 	icon = 'mods/_fd/chem_furniture/icons/roof.dmi'
 	icon_state = "concrete"
@@ -563,13 +585,13 @@
 	title = "concrete roof tile"
 	result_type = /obj/item/stack/tile/roof/concrete
 
-/turf/simulated/floor/exoplanet/col/concrete
+/turf/simulated/floor/col/concrete
 	name = "concrete floor"
 	icon = 'mods/_fd/chem_furniture/icons/roads.dmi'
 	icon_state = "concrete0"
 	initial_flooring = /singleton/flooring/col_concrete
 
-/turf/simulated/floor/exoplanet/col/concrete/Initialize()
+/turf/simulated/floor/col/concrete/Initialize()
 	. = ..()
 	icon_state = "concrete[rand(0,3)]"
 
@@ -591,10 +613,10 @@
 	name = "concrete brick"
 	default_type = MATERIAL_CONCRETE
 
-/turf/simulated/floor/exoplanet/col/grass
+/turf/simulated/floor/col/grass
 	name = "grass"
 	icon = 'mods/_fd/chem_furniture/icons/auto_strata_grass.dmi'
-	icon_state = "grass"
+	icon_state = "grass0"
 	initial_flooring = /singleton/flooring/col_grass
 
 /singleton/flooring/col_grass
@@ -602,6 +624,7 @@
 	desc = "Its a grass. Touch it."
 	icon = 'mods/_fd/chem_furniture/icons/auto_strata_grass.dmi'
 	icon_base = "grass"
+	has_base_range = 3
 	build_type = /obj/item/stack/tile/col_grass
 	flags = TURF_HAS_CORNERS | TURF_HAS_EDGES | TURF_REMOVE_SHOVEL
 	can_engrave = FALSE
@@ -621,7 +644,7 @@
 /obj/item/stack/tile/col_grass/fifty
 	amount = 50
 
-/turf/simulated/floor/exoplanet/col/mud
+/turf/simulated/floor/col/mud
 	name = "mud"
 	icon = 'mods/_fd/chem_furniture/icons/auto_strata_grass.dmi'
 	icon_state = "mud"
