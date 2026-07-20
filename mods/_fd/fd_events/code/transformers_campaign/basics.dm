@@ -408,6 +408,11 @@
 		stored_original.simple_combat_on = FALSE
 		var/obj/item/organ/internal/posibrain/P = stored_original.organs_by_name[BP_POSIBRAIN]
 		P.take_general_damage(100) // should kill our parent off for sure
+
+		stored_original.apply_damage(20, DAMAGE_BRUTE, pick(BP_ALL_LIMBS), armor_pen = 50)
+		stored_original.apply_damage(20, DAMAGE_BRUTE, pick(BP_ALL_LIMBS), armor_pen = 50)
+		stored_original.apply_damage(20, DAMAGE_BRUTE, pick(BP_ALL_LIMBS), armor_pen = 50)
+
 		stored_original.infected = null
 		stored_original.forceMove(get_turf(src))
 
@@ -476,6 +481,14 @@
 			target.simple_health_calculation(simple_damage,simple_armor_penetration,1,1,user)
 			return TRUE
 
+/datum/species
+	var/forced_proto_style = "Morpheus"
+
+/datum/species/machine/post_organ_rejuvenate(obj/item/organ/org, mob/living/carbon/human/H)
+	var/obj/item/organ/external/E = org
+	if(istype(E) && !BP_IS_ROBOTIC(E))
+		E.robotize("[forced_proto_style]")
+
 /mob/living/carbon/human/machine/tf
 	var/proto_style = "Morpheus"
 	var/list/proto_style_options = list("Unbranded", "Morpheus", "Bishop Knight", "Morpheus Nexus","Bishop Rook", "Arkmade", "Improvised",
@@ -491,8 +504,17 @@
 	. = ..(mapload, SPECIES_IPC)
 
 	proto_style = pick(proto_style_options)
+	species.forced_proto_style = proto_style
+
+	species.has_organ = list(
+		BP_POSIBRAIN = /obj/item/organ/internal/posibrain/ipc/second,
+		BP_EYES = /obj/item/organ/internal/eyes/robot,
+		BP_COOLING = /obj/item/organ/internal/cooling_system,
+		BP_EXONET = /obj/item/organ/internal/ecs/second_gen,
+	)
+
 	for(var/obj/item/organ/external/E in contents)
-		E.robotize("[proto_style]", 0, 0, 1)
+		species.post_organ_rejuvenate(E, src)
 
 	ai_holder = new /datum/ai_holder/simple_animal/passive/ipc (src)
 	faction = "Positronic Union"

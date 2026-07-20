@@ -1099,18 +1099,16 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	..()
 */
-/obj/item/organ/external/robotize(company, skip_prosthetics = 0, keep_organs = 0, skip_rob_check = 0 )
+/obj/item/organ/external/robotize(company, skip_prosthetics = 0, keep_organs = 0)
 
-	if(BP_IS_ROBOTIC(src) && !skip_rob_check)
+	if(BP_IS_ROBOTIC(src))
 		return
 
 	..()
 // [/FD-EDIT] - FD-CUSTOMS: robotdolboyob.dm
 	if(company)
 		var/datum/robolimb/R = all_robolimbs[company]
-		if(!istype(R) || (species && (species.name in R.species_cannot_use)) || \
-		 (species && !(species.get_bodytype(owner) in R.allowed_bodytypes)) || \
-		 (length(R.applies_to_part) && !(organ_tag in R.applies_to_part)))
+		if(!istype(R) || (species && (species.name in R.species_cannot_use)) || (species && !(species.get_bodytype(owner) in R.allowed_bodytypes)) || (length(R.applies_to_part) && !(organ_tag in R.applies_to_part)))
 			R = basic_robolimb
 		else
 			model = company
