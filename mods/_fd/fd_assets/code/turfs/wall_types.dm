@@ -284,3 +284,13 @@
 	icon = 'mods/_fd/fd_assets/icons/turfs/wall/cm_upp_walls.dmi'
 	icon_state = "uppwall_interior"
 	floor_type = /turf/simulated/floor/exoplanet/fd/drought
+
+/turf/simulated/wall/invincible/blend/ribber
+	icon = 'mods/_fd/fd_assets/icons/turfs/wall/cm_hybrisa_engineering_wall.dmi'
+	icon_state = "strata_ribbed_outpost_"
+	floor_type = /turf/simulated/floor/exoplanet/fd/drought
+
+/turf/simulated/wall/invincible/blend/bare
+	icon = 'mods/_fd/fd_assets/icons/turfs/wall/cm_hybrisa_engineering_wall.dmi'
+	icon_state = "strata_bare_outpost_"
+	floor_type = /turf/simulated/floor/exoplanet/fd/drought
