@@ -226,3 +226,61 @@
 
 /turf/simulated/wall/invincible/blend/rock/dark
 	icon = 'mods/_fd/fd_assets/icons/turfs/wall/kutjevorockdark.dmi'
+
+
+// Напизжено Тимохой с ЦМов. Канарис хуесос.
+
+/turf/simulated/wall/invincible/blend/almayer_ai
+	icon = 'mods/_fd/fd_assets/icons/turfs/wall/cm_almayer_aicore.dmi'
+	icon_state = "aiwall"
+	floor_type = /turf/simulated/floor/exoplanet/fd/drought
+
+/turf/simulated/wall/invincible/blend/almayer_white
+	icon = 'mods/_fd/fd_assets/icons/turfs/wall/cm_almayer_white.dmi'
+	icon_state = "wwall"
+	floor_type = /turf/simulated/floor/exoplanet/fd/drought
+
+/turf/simulated/wall/invincible/blend/almayer
+	icon = 'mods/_fd/fd_assets/icons/turfs/wall/cm_almayer.dmi'
+	icon_state = "testwall"
+	floor_type = /turf/simulated/floor/exoplanet/fd/drought
+
+/turf/simulated/wall/invincible/blend/hybrisa_reinf
+	icon = 'mods/_fd/fd_assets/icons/turfs/wall/cm_hybrisa_marshalls.dmi'
+	icon_state = "rwall"
+	floor_type = /turf/simulated/floor/exoplanet/fd/drought
+
+/turf/simulated/wall/invincible/blend/hybrisa
+	icon = 'mods/_fd/fd_assets/icons/turfs/wall/cm_hybrisa_marshalls.dmi'
+	icon_state = "metal"
+	floor_type = /turf/simulated/floor/exoplanet/fd/drought
+
+/turf/simulated/wall/invincible/blend/hybrisa_spaceport_reinf
+	icon = 'mods/_fd/fd_assets/icons/turfs/wall/cm_hybrisa_spaceport_walls.dmi'
+	icon_state = "rwall"
+	floor_type = /turf/simulated/floor/exoplanet/fd/drought
+
+/turf/simulated/wall/invincible/blend/hybrisa_spaceport
+	icon = 'mods/_fd/fd_assets/icons/turfs/wall/cm_hybrisa_spaceport_walls.dmi'
+	icon_state = "metal"
+	floor_type = /turf/simulated/floor/exoplanet/fd/drought
+
+/turf/simulated/wall/invincible/blend/prison_reinf
+	icon = 'mods/_fd/fd_assets/icons/turfs/wall/cm_prison.dmi'
+	icon_state = "rwall"
+	floor_type = /turf/simulated/floor/exoplanet/fd/drought
+
+/turf/simulated/wall/invincible/blend/prison
+	icon = 'mods/_fd/fd_assets/icons/turfs/wall/cm_prison.dmi'
+	icon_state = "metal"
+	floor_type = /turf/simulated/floor/exoplanet/fd/drought
+
+/turf/simulated/wall/invincible/blend/almayer_upp
+	icon = 'mods/_fd/fd_assets/icons/turfs/wall/cm_upp_almayer_walls.dmi'
+	icon_state = "uppwall"
+	floor_type = /turf/simulated/floor/exoplanet/fd/drought
+
+/turf/simulated/wall/invincible/blend/upp
+	icon = 'mods/_fd/fd_assets/icons/turfs/wall/cm_upp_walls.dmi'
+	icon_state = "uppwall_interior"
+	floor_type = /turf/simulated/floor/exoplanet/fd/drought
