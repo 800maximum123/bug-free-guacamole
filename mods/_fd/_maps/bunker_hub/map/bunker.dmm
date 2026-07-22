@@ -550,6 +550,13 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/bunker/kpp)
+"awD" = (
+/obj/map_effect/portal/master/side_a{
+	dir = 8;
+	portal_id = "metro"
+	},
+/turf/simulated/floor/plating,
+/area/bunker/lower/monorail)
 "awJ" = (
 /obj/floor_decal/corner/paleblue/half{
 	dir = 8
@@ -9765,7 +9772,10 @@
 /turf/simulated/floor/plating,
 /area/bunker/lower/med)
 "fYj" = (
-/obj/structure/fd/placeholder/better,
+/obj/floor_decal/hull,
+/obj/map_effect/portal/line/side_a{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/monorail)
 "fYs" = (
@@ -19465,8 +19475,9 @@
 /turf/simulated/floor/exoplanet/fd/muddirt,
 /area/bunker/jungle)
 "mgU" = (
-/obj/floor_decal/hull,
-/obj/structure/fd/placeholder/better,
+/obj/map_effect/portal/line/side_a{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/monorail)
 "mhx" = (
@@ -29616,7 +29627,9 @@
 /obj/floor_decal/hull{
 	dir = 1
 	},
-/obj/structure/fd/placeholder/better,
+/obj/map_effect/portal/line/side_a{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/bunker/lower/monorail)
 "sql" = (
@@ -114864,12 +114877,12 @@ goK
 goK
 fbt
 gXw
-fYj
-mgU
-spD
-fYj
-mgU
-spD
+arg
+uMH
+nue
+arg
+uMH
+nue
 gXw
 fbt
 goK
@@ -115066,12 +115079,12 @@ goK
 goK
 fbt
 gXw
-arg
-uMH
-nue
-arg
-uMH
-nue
+awD
+fYj
+spD
+mgU
+fYj
+spD
 gXw
 fbt
 goK
