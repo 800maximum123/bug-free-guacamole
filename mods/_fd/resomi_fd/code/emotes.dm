@@ -7,8 +7,10 @@
 		/singleton/emote/audible/peep/resomi,
 		/singleton/emote/audible/rustle/resomi,
 		/singleton/emote/audible/trill/resomi,
+		/singleton/emote/audible/trill2/resomi,
 		/singleton/emote/audible/warble/resomi,
-		/singleton/emote/audible/wurble/resomi
+		/singleton/emote/audible/wurble/resomi,
+		/singleton/emote/audible/chirp/resomi
 		)
 
 /singleton/emote/audible/scream/resomi
@@ -33,10 +35,22 @@
 	emote_sound = 'mods/_fd/resomi_fd/sound/trill.ogg'
 	sounded_species = list(SPECIES_RESOMI)
 
+/singleton/emote/audible/trill2/resomi
+	key = "trill2"
+	emote_message_3p = "USER издаёт трель"
+	emote_sound = 'mods/_fd/resomi_fd/sound/trill2.ogg'
+	sounded_species = list(SPECIES_RESOMI)
+
 /singleton/emote/audible/warble/resomi
 	key = "warble"
 	emote_message_3p = "USER издаёт трель"
 	emote_sound = 'mods/_fd/resomi_fd/sound/warble.ogg'
+	sounded_species = list(SPECIES_RESOMI)
+
+/singleton/emote/audible/chirp/resomi
+	key = "chirp"
+	emote_message_3p = "USER пищит"
+	emote_sound = 'mods/_fd/resomi_fd/sound/chirp.ogg'
 	sounded_species = list(SPECIES_RESOMI)
 
 /singleton/emote/audible/wurble/resomi

@@ -3,7 +3,7 @@
 /datum/robolimb/resomi
 	company = "Small prosthetic"
 	desc = "This prosthetic is small and fit for nonhuman proportions."
-	icon = 'mods/resomi/icons/resomi_main.dmi'
+	icon = 'mods/_fd/resomi_fd/icons/resomi_main.dmi'
 	species_cannot_use = list(SPECIES_ADHERENT, SPECIES_YEOSA, SPECIES_UNATHI, SPECIES_NABBER, SPECIES_DIONA)
 	restricted_to = list(SPECIES_RESOMI)
 	allowed_bodytypes = list(SPECIES_RESOMI)
@@ -14,7 +14,7 @@
 /datum/sprite_accessory/hair/resomi
 	name = "Resomi Plumage"
 	icon_state = "resomi_default"
-	icon = 'packs/infinity/icons/mob/human_races/species/resomi/hair.dmi'
+	icon = 'mods/_fd/resomi_fd/icons/human_races/hair.dmi'
 	species_allowed = list(SPECIES_RESOMI)
 
 /datum/sprite_accessory/hair/resomi/ears
@@ -24,6 +24,10 @@
 /datum/sprite_accessory/hair/resomi/excited
 	name = "Resomi Spiky"
 	icon_state = "resomi_spiky"
+
+/datum/sprite_accessory/hair/resomi/excited2
+	name = "Resomi Spiky 2"
+	icon_state = "resomi_spiky2"
 
 /datum/sprite_accessory/hair/resomi/hedgehog
 	name = "Resomi Hedgehog"
@@ -35,7 +39,15 @@
 
 /datum/sprite_accessory/hair/resomi/sunburst
 	name = "Resomi Sunburst"
+	icon_state = "resomi_burst"
+
+/datum/sprite_accessory/hair/resomi/sunburst_short
+	name = "Resomi Short Sunburst"
 	icon_state = "resomi_burst_short"
+
+/datum/sprite_accessory/hair/resomi/sunburst_long
+	name = "Resomi Long Sunburst"
+	icon_state = "resomi_burst_long"
 
 /datum/sprite_accessory/hair/resomi/mohawk
 	name = "Resomi Mohawk"
@@ -84,6 +96,54 @@
 /datum/sprite_accessory/hair/resomi/fluffymohawk
 	name = "Resomi Fluffy Mohawk"
 	icon_state = "resomi_fluffymohawk"
+
+/datum/sprite_accessory/hair/resomi/tight
+	name = "Resomi Tight"
+	icon_state = "resomi_tight"
+
+/datum/sprite_accessory/hair/resomi/sleek
+	name = "Resomi Sleek"
+	icon_state = "resomi_sleek"
+
+/datum/sprite_accessory/hair/resomi/peel
+	name = "Resomi Peel"
+	icon_state = "resomi_peel"
+
+/datum/sprite_accessory/hair/resomi/sweep
+	name = "Resomi Sweep"
+	icon_state = "resomi_sweep"
+
+/datum/sprite_accessory/hair/resomi/aerodynamic
+	name = "Resomi Aserodynamic"
+	icon_state = "resomi_aerodynamic"
+
+/datum/sprite_accessory/hair/resomi/tallmohawk
+	name = "Resomi Tall Mohawk"
+	icon_state = "resomi_tallmohawk"
+
+/datum/sprite_accessory/hair/resomi/cowlick
+	name = "Resomi Cowlick"
+	icon_state = "resomi_cowlick"
+
+/datum/sprite_accessory/hair/resomi/soap
+	name = "Resomi Soap"
+	icon_state = "resomi_soap"
+
+/datum/sprite_accessory/hair/resomi/crowned
+	name = "Resomi Crowned"
+	icon_state = "resomi_crowned"
+
+/datum/sprite_accessory/hair/resomi/crest
+	name = "Resomi Crest"
+	icon_state = "resomi_crest"
+
+/datum/sprite_accessory/hair/resomi/ponytail
+	name = "Resomi Ponytail"
+	icon_state = "resomi_ponytail"
+
+/datum/sprite_accessory/hair/resomi/bun
+	name = "Resomi Bun"
+	icon_state = "resomi_bun"
 
 // MARKINGS
 

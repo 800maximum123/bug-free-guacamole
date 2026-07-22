@@ -189,3 +189,33 @@
 	key = "snap"
 	emote_message_3p = "USER щёлкает пальцами."
 	emote_sound = 'mods/emote_panel/sound/fingersnap.ogg'
+
+/singleton/emote/audible/groan
+	emote_sound = list(
+		MALE = list(
+			'packs/infinity/sound/voice/moan_male_1.ogg',
+			'packs/infinity/sound/voice/moan_male_2.ogg',
+			'packs/infinity/sound/voice/moan_male_3.ogg'
+		),
+		FEMALE = list(
+			'packs/infinity/sound/voice/moan_female_1.ogg',
+			'packs/infinity/sound/voice/moan_female_2.ogg',
+			'packs/infinity/sound/voice/moan_female_3.ogg'
+		)
+	)
+	sounded_species = SOUNDED_SPECIES
+
+/singleton/emote/audible/moan
+	emote_sound = list(
+		MALE = list(
+			'packs/infinity/sound/voice/moan_male_1.ogg',
+			'packs/infinity/sound/voice/moan_male_2.ogg',
+			'packs/infinity/sound/voice/moan_male_3.ogg'
+		),
+		FEMALE = list(
+			'packs/infinity/sound/voice/moan_female_1.ogg',
+			'packs/infinity/sound/voice/moan_female_2.ogg',
+			'packs/infinity/sound/voice/moan_female_3.ogg'
+		)
+	)
+	sounded_species = SOUNDED_SPECIES

@@ -254,10 +254,10 @@
 			"[WEST]" =  list("x" =  1, "y" = -6)
 		),
 		slot_belt_str = list(
-			"[NORTH]" = list("x" =  0, "y" = -6),
-			"[EAST]" =  list("x" = -1, "y" = -6),
-			"[SOUTH]" = list("x" =  0, "y" = -6),
-			"[WEST]" =  list("x" =  1, "y" = -6)
+			"[NORTH]" = list("x" =  0, "y" = -1),
+			"[EAST]" =  list("x" = -1, "y" = -1),
+			"[SOUTH]" = list("x" =  0, "y" = -1),
+			"[WEST]" =  list("x" =  1, "y" = -1)
 		)
 	)
 	. = ..()
@@ -286,8 +286,10 @@
 		/singleton/emote/audible/peep/resomi,
 		/singleton/emote/audible/rustle/resomi,
 		/singleton/emote/audible/trill/resomi,
+		/singleton/emote/audible/trill2/resomi,
 		/singleton/emote/audible/warble/resomi,
-		/singleton/emote/audible/wurble/resomi
+		/singleton/emote/audible/wurble/resomi,
+		/singleton/emote/audible/chirp/resomi
 		)
 
 #undef CULTURE_HUMAN_MARTIAN_FD

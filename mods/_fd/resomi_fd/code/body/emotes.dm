@@ -38,6 +38,12 @@
 	emote_sound = 'mods/_fd/resomi_fd/sound/trill.ogg'
 	sounded_species = null
 
+/singleton/emote/audible/trill2/resomi
+	key = "trill2"
+	emote_message_3p = "USER издаёт трель"
+	emote_sound = 'mods/_fd/resomi_fd/sound/trill2.ogg'
+	sounded_species = null
+
 /singleton/emote/audible/warble/resomi
 	key = "warble"
 	emote_message_3p = "USER издаёт трель"
@@ -48,4 +54,10 @@
 	key = "wurble"
 	emote_message_3p = "USER урчит"
 	emote_sound = 'mods/_fd/resomi_fd/sound/wurble.ogg'
+	sounded_species = null
+
+/singleton/emote/audible/chirp/resomi
+	key = "chirp"
+	emote_message_3p = "USER пищит"
+	emote_sound = 'mods/_fd/resomi_fd/sound/chirp.ogg'
 	sounded_species = null
