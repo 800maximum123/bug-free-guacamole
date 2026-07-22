@@ -114,7 +114,7 @@
 	icon_state = "resomi_sweep"
 
 /datum/sprite_accessory/hair/resomi/aerodynamic
-	name = "Resomi Aserodynamic"
+	name = "Resomi Aerodynamic"
 	icon_state = "resomi_aerodynamic"
 
 /datum/sprite_accessory/hair/resomi/tallmohawk
