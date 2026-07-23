@@ -30,9 +30,10 @@
 
 	var/dangerous_to_people = TRUE //Hitting people hurts them
 	var/dangerous_to_obstacles = TRUE //Hitting obstacles hurts them and vehicle
-	var/weaken_to_people = 5
-	var/damage_to_people = 20
-	var/damage_to_obstacles = 100
+	var/weaken_to_people = 5 //How much it weakens (stuns) people?
+	var/damage_to_people = 20 //How much it damages people?
+	var/damage_to_obstacles = 100 //How much it damages obstacles?
+	var/selfdamage_multiplier = 2 //By what damage_to_obstacles is divided to give vehicle damage?
 
 	//Action Button Handling
 	var/list/driver_actions = list()

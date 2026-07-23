@@ -70,10 +70,9 @@
 /obj/vehicles/proc/inactive_pilot_effects() //Overriden on a vehicle-by-vehicle basis.
 
 /obj/vehicles/Process()
-	if(world.time % 3)
-		for(var/mob/m in occupants)
-			m.client.view = CLIENT_DEFAULT_VIEW * vehicle_view_modifier
-		if(active)
-			var/list/drivers = get_occupants_in_position(VP_DRIVER)
-			if(!drivers.len || isnull(drivers) || movement_destroyed)
-				inactive_pilot_effects()
+	for(var/mob/m in src)
+		m.client.view = CLIENT_DEFAULT_VIEW * vehicle_view_modifier
+	if(active)
+		var/list/drivers = get_occupants_in_position(VP_DRIVER)
+		if(!drivers.len || isnull(drivers) || movement_destroyed)
+			inactive_pilot_effects()

@@ -52,6 +52,7 @@
 	contents -= user
 	user.forceMove(loc_moveto)
 	user.reset_view()
+	user.client.view = CLIENT_DEFAULT_VIEW
 	if(eject)
 		user.Weaken(rand(1, 5))
 		user.throw_at_random(FALSE, 3, 1)
@@ -146,8 +147,9 @@
 	to_chat(user, SPAN_INFO("You are now [position_name(position)] of [src]."))
 	play_enter_sound()
 	user.reset_view()
-	user.client.view = CLIENT_DEFAULT_VIEW * vehicle_view_modifier
-	user.dir = dir
+	if(position != VP_INTERIOR)
+		user.client.view = CLIENT_DEFAULT_VIEW * vehicle_view_modifier
+		user.dir = dir
 	if(position in dashboard_control_positions)
 		if(!user.skill_check(driving_skill, skill_level) && complex_controls)
 			to_chat(user, SPAN_WARNING("You are not trained to operate \the [src]..."))
