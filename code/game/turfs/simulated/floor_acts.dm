@@ -2,6 +2,9 @@
 	//set src in oview(1)
 	switch(severity)
 		if(EX_ACT_DEVASTATING to INFINITY)
+			if(HasBelow(z))
+				src.ReplaceWithLattice()
+				return
 			src.ChangeTurf(get_base_turf_by_area(src))
 		if(EX_ACT_HEAVY to EX_ACT_DEVASTATING)
 			switch(pick(40;1,40;2,3))

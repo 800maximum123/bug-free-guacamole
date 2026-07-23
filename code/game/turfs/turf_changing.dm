@@ -1,4 +1,7 @@
 /turf/proc/ReplaceWithLattice(material)
+	if(!HasBelow(z))
+		src.ChangeTurf(get_base_turf_by_area(src))
+		return
 	if(type != /turf/simulated/open)
 		src.ChangeTurf(/turf/simulated/open, keep_air = TRUE) // Почему оно воздух нахуй высасывает по дефолту? ГАЙЯ
 	if(!locate(/obj/structure/lattice) in src)

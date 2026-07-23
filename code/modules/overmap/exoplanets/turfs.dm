@@ -54,9 +54,15 @@
 /turf/simulated/floor/exoplanet/ex_act(severity)
 	switch(severity)
 		if(EX_ACT_DEVASTATING to INFINITY)
+			if(HasBelow(z))
+				src.ChangeTurf(/turf/simulated/open, keep_air = TRUE)
+				return
 			ChangeTurf(get_base_turf_by_area(src))
 		if(EX_ACT_HEAVY to EX_ACT_DEVASTATING)
-			if(prob(40))
+			if(prob(10) && HasBelow(z))
+				src.ChangeTurf(/turf/simulated/open, keep_air = TRUE)
+				return
+			else if(prob(40))
 				ChangeTurf(get_base_turf_by_area(src))
 
 /turf/simulated/floor/exoplanet/Initialize()
