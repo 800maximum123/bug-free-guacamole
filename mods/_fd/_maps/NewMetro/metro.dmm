@@ -20,11 +20,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
-"acO" = (
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe_alt"
+"abi" = (
+/obj/floor_decal/hull{
+	dir = 8
 	},
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 2
+	},
+/turf/simulated/floor/plating,
 /area/metro/main_tunel)
 "adF" = (
 /obj/structure/catwalk,
@@ -40,6 +44,12 @@
 	color = "#526833"
 	},
 /area/metro/maintain/gen3)
+"aeA" = (
+/obj/wallframe_spawn/reinforced,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security"
+	},
+/area/metro/main_tunel)
 "afm" = (
 /obj/decal/cleanable/dirt,
 /obj/item/device/flashlight/flare/glowstick{
@@ -192,6 +202,19 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp)
+"ail" = (
+/obj/machinery/light/small/readylight{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
+"aiV" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_7"
+	},
+/area/metro/main_tunel)
 "aiX" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 10
@@ -351,6 +374,13 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/east)
+"apE" = (
+/obj/floor_decal/hull/corner,
+/obj/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "apL" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/borderfloorblack{
@@ -463,6 +493,13 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/south/kpp1)
+"atC" = (
+/obj/machinery/door/airlock/highsecurity{
+	dir = 8;
+	can_use_tools = 0
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/main_tunel)
 "atK" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 5
@@ -500,11 +537,34 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south)
+"aus" = (
+/obj/floor_decal/hull/corner{
+	dir = 4
+	},
+/obj/floor_decal/hull/corner{
+	dir = 1
+	},
+/obj/floor_decal/hull{
+	dir = 1
+	},
+/obj/map_effect/portal/line/side_b{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "auH" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain)
+"auN" = (
+/obj/floor_decal/hull{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "auV" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
@@ -521,6 +581,7 @@
 	dir = 10
 	},
 /obj/decal/cleanable/dirt,
+/obj/structure/fd/bs_vines,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "avk" = (
@@ -572,15 +633,6 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/metro/maintain/gen3)
-"axp" = (
-/obj/structure/table/rack/samosbor/mod{
-	icon_state = "table_wood_b_2";
-	pixel_y = 0
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe"
-	},
-/area/metro/main_tunel)
 "axM" = (
 /obj/floor_decal/borderfloorblack,
 /obj/floor_decal/corner/orange/border,
@@ -705,13 +757,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/south/blast_door)
-"aFx" = (
-/obj/floor_decal/hull{
-	dir = 1
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "aFA" = (
 /obj/structure/platform/shiva,
 /obj/structure/platform/shiva{
@@ -751,20 +796,6 @@
 /obj/random/junkyard/powercell,
 /turf/simulated/floor/plating,
 /area/metro/maintain/gen1)
-"aHv" = (
-/obj/floor_decal/borderfloorblack{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/metro/main_tunel)
-"aHz" = (
-/obj/floor_decal/hull{
-	dir = 1
-	},
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "aHI" = (
 /obj/machinery/door/airlock/multi_tile/maintenance{
 	dir = 8
@@ -855,6 +886,15 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
+"aKy" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 6
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/bs_spikes,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "aKP" = (
 /obj/structure/table/rack/samosbor/mod{
 	icon_state = "table_steel_r_12";
@@ -867,12 +907,6 @@
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/grim_concrete_tile3,
-/area/metro/maintain/gen3)
-"aKR" = (
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/metal{
-	icon_state = "me_ti_gy"
-	},
 /area/metro/maintain/gen3)
 "aLj" = (
 /obj/structure/flora/tall/fourth,
@@ -1012,16 +1046,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/freezer,
 /area/metro/maintain/gas)
-"aPR" = (
-/obj/floor_decal/borderfloorblack{
-	dir = 8
-	},
-/obj/floor_decal/borderfloorblack{
-	dir = 8
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/metro/main_tunel)
 "aPT" = (
 /obj/structure/flora/tall{
 	icon_state = "redplant_4"
@@ -1060,6 +1084,11 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/monotile,
 /area/metro/maintain/gas)
+"aSA" = (
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "bronze_floor"
+	},
+/area/metro/main_tunel)
 "aSB" = (
 /obj/paint/black,
 /obj/structure/fd/building_stuff{
@@ -1073,6 +1102,24 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/techfloor,
 /area/metro/maintain/gas)
+"aSY" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_start"
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
+"aTd" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_wood_b_5";
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "aTj" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
@@ -1204,14 +1251,11 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
-"aVK" = (
+"aVl" = (
 /obj/floor_decal/hull{
 	dir = 4
 	},
-/obj/machinery/door/blast/regular{
-	can_use_tools = 0;
-	dir = 1
-	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/metro/main_tunel)
 "aVW" = (
@@ -1314,13 +1358,6 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/metro/maintain/east)
-"aXN" = (
-/obj/floor_decal/hull/corner{
-	dir = 1
-	},
-/obj/floor_decal/industrial/warning,
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "aXY" = (
 /obj/floor_decal/corner_techfloor_grid/full{
 	dir = 4
@@ -1385,9 +1422,6 @@
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain)
-"bcu" = (
-/turf/simulated/wall/invincible/blend/almayer_white,
-/area/metro/main_tunel)
 "bcG" = (
 /obj/structure/flora/tall{
 	icon_state = "grass_4"
@@ -1564,30 +1598,16 @@
 /obj/structure/flora/tall,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp)
-"bkg" = (
-/obj/floor_decal/techfloor{
-	dir = 4
+"bkf" = (
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_6"
 	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/fd/grim_lamp,
-/turf/simulated/floor/tiled/dark/monotile,
 /area/metro/main_tunel)
 "bkD" = (
 /obj/paint/black,
 /obj/paint_stripe/brown,
 /turf/simulated/wall/r_wall,
 /area/metro/maintain/south)
-"bmc" = (
-/obj/structure/fd/samosbor/furniture3{
-	icon_state = "sofa_g_start"
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe"
-	},
-/area/metro/main_tunel)
 "bmo" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -1661,10 +1681,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/metro/maintain/east)
-"bqD" = (
-/obj/floor_decal/hull/corner,
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "brm" = (
 /obj/floor_decal/corner/red/border,
 /obj/floor_decal/corner/red/border{
@@ -1738,6 +1754,14 @@
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/east)
+"btZ" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 5
+	},
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/bs_spikes,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "bui" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
@@ -1777,11 +1801,14 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
-"bvC" = (
-/obj/floor_decal/hull{
-	dir = 8
+"bvD" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_15"
 	},
-/obj/machinery/light/small/readylight{
+/area/metro/main_tunel)
+"bvK" = (
+/obj/map_effect/portal/line/side_a{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1810,6 +1837,14 @@
 /obj/paint/merc,
 /turf/simulated/wall/r_wall,
 /area/metro/maintain/south/kpp)
+"bwI" = (
+/obj/item/ammo_casing/rifle/used,
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "bwT" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 5
@@ -1846,10 +1881,12 @@
 /obj/item/device/modkit,
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
-"byA" = (
-/obj/map_effect/portal/line/side_b,
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
+"byH" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/gen3)
 "bzi" = (
 /obj/floor_decal/corner/paleblue{
 	dir = 10
@@ -1895,6 +1932,17 @@
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/metro/maintain/gen3)
+"bBH" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/item/ammo_casing/rifle/used,
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "bCw" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 10
@@ -1917,13 +1965,6 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/metro/maintain/east)
-"bDs" = (
-/obj/structure/catwalk,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/metal{
-	icon_state = "me_pi_3"
-	},
-/area/metro/maintain/gen3)
 "bDP" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/platform/shiva{
@@ -1936,17 +1977,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/metro/maintain/east)
-"bEt" = (
-/obj/structure/fd/building_stuff{
-	anchored = 0;
-	density = 1;
-	icon_state = "2,1";
-	pixel_x = 9;
-	pixel_y = 12;
-	name = "Barrel"
-	},
-/turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "bET" = (
 /obj/floor_decal/corner_techfloor_grid{
@@ -1983,6 +2013,13 @@
 	icon_state = "me_pi_12"
 	},
 /area/metro/maintain/east)
+"bGE" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_7"
+	},
+/area/metro/main_tunel)
 "bGJ" = (
 /obj/floor_decal/techfloor{
 	dir = 4
@@ -2024,6 +2061,16 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp)
+"bIF" = (
+/obj/structure/bed/chair/office/comfy/black{
+	dir = 8;
+	pixel_y = 0;
+	pixel_x = -9
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "bIP" = (
 /obj/item/storage/cargo_containers{
 	icon_state = "grant_lm"
@@ -2148,9 +2195,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
-"bOE" = (
-/turf/simulated/floor/tiled/dark,
-/area/metro/main_tunel)
 "bOQ" = (
 /obj/structure/showcase{
 	icon = 'mods/_fd/fd_assets/icons/structures/hybrisa/computers.dmi';
@@ -2165,6 +2209,21 @@
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_3"
 	},
+/area/metro/maintain/east)
+"bOR" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/largecrate{
+	icon_state = "woodcrate";
+	icon = 'mods/_fd/fd_assets/icons/is12/war_crates.dmi';
+	pixel_y = 6
+	},
+/obj/structure/largecrate{
+	icon_state = "woodcrate";
+	icon = 'mods/_fd/fd_assets/icons/is12/war_crates.dmi';
+	pixel_y = 20;
+	pixel_x = -16
+	},
+/turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "bOX" = (
 /obj/map_effect/portal/line/side_b{
@@ -2195,15 +2254,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/grim_tile,
 /area/metro/maintain/gen3)
-"bPC" = (
-/obj/structure/table/rack/samosbor/mod{
-	icon_state = "table_wood_b_4";
-	pixel_y = 0
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe"
-	},
-/area/metro/main_tunel)
 "bPS" = (
 /obj/floor_decal/corner/paleblue/mono,
 /obj/floor_decal/corner/paleblue/mono,
@@ -2288,13 +2338,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south/blast_door)
-"bVc" = (
-/obj/floor_decal/borderfloorblack{
-	dir = 4
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/metro/main_tunel)
 "bVd" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 9
@@ -2374,6 +2417,13 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"bYo" = (
+/obj/floor_decal/hull{
+	dir = 8
+	},
+/obj/map_effect/portal/line/side_a,
+/turf/simulated/floor/plating,
+/area/metro/maintain/east)
 "bYv" = (
 /obj/machinery/vitals_monitor,
 /obj/machinery/body_scan_display{
@@ -2414,6 +2464,15 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/east)
+"bYH" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "sofa_g_start"
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "bYI" = (
 /obj/floor_decal/step{
 	color = "grey";
@@ -2436,6 +2495,16 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp1)
+"bZf" = (
+/obj/floor_decal/techfloor{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/fd/grim_lamp,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/main_tunel)
 "bZr" = (
 /obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -2565,13 +2634,6 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain)
-"cgO" = (
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/carpet{
-	icon_state = "ca_da_re_11"
-	},
-/area/metro/main_tunel)
 "cgQ" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/flora/jungle/bush{
@@ -2596,15 +2658,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south)
-"chW" = (
-/obj/structure/table/rack/samosbor/mod{
-	icon_state = "table_steel_r_3";
-	pixel_y = 0
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe"
-	},
-/area/metro/main_tunel)
 "cic" = (
 /obj/structure/showcase{
 	bound_height = 96;
@@ -2661,13 +2714,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
-"cld" = (
-/obj/machinery/door/blast/regular{
-	can_use_tools = 0;
-	dir = 2
-	},
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "clN" = (
 /obj/structure/vines/light2,
 /obj/structure/vines/light2,
@@ -2716,13 +2762,11 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gas)
 "cmY" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 4;
-	pixel_y = 0;
-	pixel_x = 7
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "sofa_gr_end"
 	},
-/turf/simulated/floor/exoplanet/grim_concrete_tile3,
-/area/metro/maintain/gen3)
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "cnp" = (
 /obj/structure/platform/shiva{
 	dir = 8
@@ -2740,13 +2784,6 @@
 /obj/paint_stripe/brown,
 /turf/simulated/wall/r_wall,
 /area/metro/maintain/south)
-"coc" = (
-/obj/floor_decal/step{
-	color = "grey";
-	dir = 2
-	},
-/turf/simulated/floor/exoplanet/grim_concrete_tile3,
-/area/metro/maintain/gen3)
 "cod" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 10
@@ -2781,11 +2818,13 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp1)
-"crc" = (
-/obj/structure/inflatable/wall,
+"cqS" = (
+/obj/floor_decal/techfloor{
+	dir = 8
+	},
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/east)
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/main_tunel)
 "crj" = (
 /obj/structure/table/rack/samosbor/mod{
 	icon_state = "table_steel_r_4";
@@ -2837,6 +2876,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white/monotile,
+/area/metro/maintain/east)
+"ctZ" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 9
+	},
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/bs_vines,
+/turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "cuk" = (
 /obj/structure/catwalk,
@@ -2895,15 +2942,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south/blast_door)
-"cwh" = (
-/obj/decal/cleanable/dirt,
-/obj/machinery/door/blast/regular{
-	can_use_tools = 0;
-	dir = 4;
-	id_tag = porno
-	},
-/turf/simulated/floor/tiled/dark/monotile,
-/area/metro/maintain/east)
 "cwM" = (
 /obj/machinery/light,
 /turf/simulated/floor/plating,
@@ -2913,18 +2951,16 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/metro/maintain/south)
-"cxT" = (
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/metro/main_tunel)
-"cyv" = (
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 6
+"cxD" = (
+/obj/structure/railing/mapped{
+	dir = 8
 	},
-/obj/decal/cleanable/liquid_fuel,
+/obj/floor_decal/techfloor{
+	dir = 8
+	},
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/east)
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/main_tunel)
 "czL" = (
 /obj/structure/showcase{
 	icon = 'mods/_fd/fd_assets/icons/structures/hybrisa/computers.dmi';
@@ -3038,6 +3074,15 @@
 /obj/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/east)
+"cEb" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 2
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/gen3)
 "cEh" = (
 /obj/floor_decal/hull/corner{
 	dir = 4
@@ -3147,12 +3192,29 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/metro/maintain/east)
+"cGD" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 2
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "cGH" = (
 /obj/machinery/door/unpowered/simple/samosbor/metal6,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_ol"
 	},
 /area/metro/maintain/gen3)
+"cGQ" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_11"
+	},
+/area/metro/main_tunel)
 "cHC" = (
 /obj/structure/storage/cargo{
 	anchored = 1
@@ -3230,24 +3292,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
-"cJZ" = (
-/obj/structure/table/steel,
-/obj/item/device/flashlight/maglight{
-	pixel_y = 10
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "security_bi"
-	},
-/area/metro/main_tunel)
-"cKk" = (
-/obj/floor_decal/hull{
-	dir = 4
-	},
-/obj/map_effect/portal/master/side_a{
-	portal_id = "outside"
-	},
-/turf/simulated/floor/plating,
-/area/metro/maintain/east)
 "cKI" = (
 /obj/floor_decal/industrial/warning/corner{
 	dir = 1;
@@ -3324,6 +3368,15 @@
 /obj/landmark/damager,
 /turf/simulated/wall/r_wall,
 /area/metro/maintain/gas)
+"cMX" = (
+/obj/map_effect/portal/line/side_a{
+	dir = 2
+	},
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_8";
+	dir = 2
+	},
+/area/metro/main_tunel)
 "cNb" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/borderfloorblack,
@@ -3352,6 +3405,13 @@
 	},
 /turf/simulated/floor/exoplanet/gravel,
 /area/metro/maintain/gas)
+"cNB" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "cNE" = (
 /obj/floor_decal/industrial/warning/corner{
 	dir = 1;
@@ -3495,12 +3555,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
-"cVl" = (
-/obj/structure/fd/samosbor/furniture3{
-	icon_state = "sofa_gr_end"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/metro/main_tunel)
 "cVQ" = (
 /obj/floor_decal/corner/red/border{
 	dir = 1
@@ -3618,11 +3672,28 @@
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/east)
+"cYX" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_end"
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "cYZ" = (
 /obj/floor_decal/industrial/outline/orange,
 /obj/machinery/constructable_frame,
 /turf/simulated/floor/plating,
 /area/metro/maintain/gen1)
+"cZk" = (
+/obj/machinery/door/unpowered/simple/grim/metal{
+	dir = 8;
+	pixel_x = -16;
+	pixel_y = -6
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security_bi"
+	},
+/area/metro/main_tunel)
 "cZq" = (
 /obj/structure/table/standard{
 	can_hide_inside = 1;
@@ -3707,15 +3778,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
-"dcV" = (
-/obj/structure/fd/samosbor/furniture3{
-	icon_state = "bench_end";
-	dir = 1
-	},
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/metro/main_tunel)
 "ddx" = (
 /obj/floor_decal/industrial/outline/grey,
 /obj/floor_decal/industrial/outline/grey,
@@ -3729,6 +3791,13 @@
 /obj/floor_decal/industrial/outline/orange,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/east)
+"ddL" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_15"
+	},
+/area/metro/main_tunel)
 "deK" = (
 /obj/structure/flora/tree/jungle{
 	color = "#bebebe";
@@ -3763,12 +3832,6 @@
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/gas)
-"dfu" = (
-/obj/floor_decal/industrial/warning{
-	dir = 9
-	},
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "dfy" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
@@ -4046,6 +4109,12 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"dpK" = (
+/obj/floor_decal/techfloor{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/main_tunel)
 "dpN" = (
 /obj/floor_decal/corner/paleblue/full,
 /obj/structure/table/rack,
@@ -4066,6 +4135,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/metro/maintain/east)
+"dqd" = (
+/obj/structure/fd/samosbor/furniture3,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe_alt"
+	},
+/area/metro/main_tunel)
 "dqN" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 10
@@ -4073,12 +4148,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
-"drC" = (
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/carpet{
-	icon_state = "ca_da_re_6"
-	},
-/area/metro/main_tunel)
 "drL" = (
 /obj/structure/platform/kutjevo/rock{
 	dir = 4
@@ -4096,6 +4165,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/south/kpp)
+"dsm" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "dsP" = (
 /obj/decal/cleanable/liquid_fuel,
 /obj/decal/cleanable/liquid_fuel,
@@ -4103,6 +4178,14 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"dtv" = (
+/obj/floor_decal/hull{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "dtR" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 10
@@ -4221,13 +4304,6 @@
 	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/metro/maintain/east)
-"dzf" = (
-/obj/structure/fd/samosbor/furniture3{
-	icon_state = "sofa_gr_mid"
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/metro/main_tunel)
 "dzv" = (
 /obj/floor_decal/techfloor/orange{
 	dir = 8
@@ -4285,6 +4361,19 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"dBD" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/bs_crystal,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
+"dBY" = (
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 2
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/main_tunel)
 "dCj" = (
 /obj/machinery/light{
 	dir = 1;
@@ -4305,33 +4394,16 @@
 /obj/structure/curtain/grim_red,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
+"dDC" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "dDE" = (
 /obj/machinery/floor_light/mapped_on,
 /obj/machinery/alarm,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/metro/maintain/gen1)
-"dDM" = (
-/obj/machinery/door/blast/regular{
-	can_use_tools = 0;
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "security_sm"
-	},
-/area/metro/main_tunel)
-"dDR" = (
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/stairs{
-	icon_state = "stairs_1";
-	dir = 8
-	},
-/area/metro/maintain/gen3)
-"dEo" = (
-/turf/simulated/floor/exoplanet/samosbor/carpet{
-	icon_state = "ca_da_re_10"
-	},
-/area/metro/main_tunel)
 "dEr" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/techfloor/grid,
@@ -4341,14 +4413,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/east)
-"dFb" = (
-/obj/floor_decal/hull{
-	dir = 2
-	},
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "dFd" = (
 /obj/machinery/button/alternate/door/keypad/blast{
 	dir = 2;
@@ -4405,6 +4469,14 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/gas)
+"dGK" = (
+/obj/floor_decal/step{
+	color = "grey";
+	dir = 2
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
+/area/metro/maintain/gen3)
 "dGS" = (
 /obj/floor_decal/borderfloorblack{
 	dir = 6
@@ -4432,11 +4504,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
-"dKz" = (
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "dLs" = (
 /obj/structure/platform_decoration/kutjevo{
 	layer = 2.24;
@@ -4467,16 +4534,6 @@
 /obj/machinery/light/small/readylight,
 /turf/simulated/floor/plating,
 /area/metro/maintain)
-"dMk" = (
-/obj/structure/fd/samosbor/furniture3{
-	icon_state = "bench_end";
-	pixel_y = 12
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe"
-	},
-/area/metro/main_tunel)
 "dMw" = (
 /obj/floor_decal/corner_techfloor_grid,
 /turf/simulated/floor/tiled/techmaint,
@@ -4656,11 +4713,6 @@
 /obj/structure/bed/padded,
 /turf/simulated/floor/tiled/white,
 /area/metro/maintain/east)
-"dUa" = (
-/turf/simulated/floor/exoplanet/samosbor/carpet{
-	icon_state = "ca_da_re_11"
-	},
-/area/metro/main_tunel)
 "dUZ" = (
 /obj/structure/railing/mapped{
 	dir = 4;
@@ -4690,6 +4742,7 @@
 	},
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
+/obj/structure/fd/bs_vines,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "dWk" = (
@@ -4832,19 +4885,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
-"eaS" = (
-/obj/floor_decal/techfloor{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/monotile,
-/area/metro/main_tunel)
-"ebS" = (
-/obj/floor_decal/borderfloorblack{
-	dir = 10
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/metro/main_tunel)
 "ecc" = (
 /obj/fd_water/alt_ver1{
 	layer = 2.1
@@ -4854,6 +4894,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain)
+"ecp" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_ro_12";
+	pixel_y = 0
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe_alt"
+	},
+/area/metro/main_tunel)
 "ecZ" = (
 /obj/floor_decal/corner/paleblue/border{
 	dir = 8
@@ -4920,6 +4971,23 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south)
+"eeL" = (
+/obj/structure/table/steel,
+/obj/machinery/button/blast_door{
+	dir = 8;
+	pixel_y = 3;
+	pixel_x = 2
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security_bi"
+	},
+/area/metro/main_tunel)
+"eeM" = (
+/obj/machinery/light/small/readylight{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "eeO" = (
 /obj/structure/table/rack/samosbor/mod{
 	icon_state = "table_da_g_4"
@@ -5100,9 +5168,14 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
-"enc" = (
-/obj/floor_decal/hull{
-	dir = 8
+"eoc" = (
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_11"
+	},
+/area/metro/main_tunel)
+"eod" = (
+/obj/floor_decal/industrial/warning{
+	dir = 5
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -5115,6 +5188,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
+/area/metro/main_tunel)
+"eoV" = (
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_9"
+	},
 /area/metro/main_tunel)
 "eqA" = (
 /obj/structure/closet,
@@ -5139,10 +5217,20 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/metro/maintain/east)
-"eqJ" = (
-/obj/map_effect/portal/line/side_a,
+"eqF" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
+"eqT" = (
+/obj/floor_decal/hull/corner{
+	dir = 4
+	},
+/obj/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
-/area/metro/maintain/east)
+/area/metro/main_tunel)
 "erh" = (
 /obj/machinery/door/blast/regular{
 	can_use_tools = 0;
@@ -5299,6 +5387,14 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"eyr" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "sofa_r_mid"
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe_alt"
+	},
+/area/metro/main_tunel)
 "eyH" = (
 /obj/structure/bed/chair/office{
 	dir = 4
@@ -5340,6 +5436,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
+"eAb" = (
+/obj/structure/inflatable/door,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "eAh" = (
 /obj/catwalk_plated,
 /obj/decal/cleanable/dirt,
@@ -5348,6 +5449,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain)
+"eAi" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_13"
+	},
+/area/metro/main_tunel)
 "eAn" = (
 /obj/fd_water/alt_ver1{
 	layer = 2.1
@@ -5384,20 +5491,21 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"eCb" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_wood_b_3";
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "eCl" = (
 /obj/floor_decal/techfloor/orange,
 /obj/decal/cleanable/dirt,
 /obj/item/trash/beef,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/gen1)
-"eCx" = (
-/obj/structure/fd/samosbor/furniture3{
-	icon_state = "sofa_gr_end"
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe_alt"
-	},
-/area/metro/main_tunel)
 "eCD" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/borderfloorblack{
@@ -5410,6 +5518,15 @@
 	icon_state = "tile"
 	},
 /area/metro/maintain/east)
+"eCG" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/floor_decal/techfloor{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/main_tunel)
 "eCQ" = (
 /obj/floor_decal/borderfloorblack{
 	dir = 8
@@ -5425,15 +5542,6 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/south)
-"eDO" = (
-/obj/floor_decal/hull{
-	dir = 4
-	},
-/obj/machinery/light/small/readylight{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/metro/maintain/east)
 "eDT" = (
 /obj/floor_decal/hull{
 	dir = 4
@@ -5603,11 +5711,6 @@
 /obj/paint/black,
 /turf/simulated/wall/r_wall,
 /area/metro/maintain/gas)
-"eNi" = (
-/turf/simulated/floor/exoplanet/samosbor/carpet{
-	icon_state = "ca_da_re_5"
-	},
-/area/metro/main_tunel)
 "eNJ" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/corner_techfloor_grid{
@@ -5647,6 +5750,14 @@
 	color = "#526833"
 	},
 /area/metro/maintain/gen3)
+"eQB" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "sofa_gr_end"
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe_alt"
+	},
+/area/metro/main_tunel)
 "eQK" = (
 /turf/simulated/floor/exoplanet/samosbor/stairs,
 /area/metro/maintain/east)
@@ -5681,15 +5792,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/east)
-"eSD" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/floor_decal/techfloor{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/monotile,
-/area/metro/main_tunel)
 "eSH" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light{
@@ -5697,6 +5799,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/gen1)
+"eTW" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 6
+	},
+/obj/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "eUa" = (
 /obj/item/clothing/mask/gas/budget{
 	pixel_x = 4;
@@ -5924,12 +6034,6 @@
 /obj/structure/closet,
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
-"ffj" = (
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/gen3)
 "ffm" = (
 /obj/structure/table/steel_reinforced,
 /obj/item/clothing/head/welding/engie{
@@ -6012,6 +6116,12 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/metro/maintain/gen3)
+"fih" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security"
+	},
+/area/metro/main_tunel)
 "fiT" = (
 /obj/machinery/light{
 	dir = 8
@@ -6029,6 +6139,12 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/metro/maintain/east)
+"fjU" = (
+/obj/paint/black,
+/obj/paint_stripe/brown,
+/obj/decal/cleanable/dirt,
+/turf/simulated/wall/r_wall,
+/area/metro/main_tunel)
 "fla" = (
 /obj/structure/flora/tree/jungle/big{
 	icon_state = "tree6";
@@ -6091,13 +6207,10 @@
 /obj/structure/rubble,
 /turf/simulated/floor/exoplanet/gravel,
 /area/metro/maintain/gas)
-"foo" = (
+"fov" = (
 /obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe"
-	},
-/area/metro/main_tunel)
+/turf/simulated/floor/exoplanet/grim_concrete_tile4,
+/area/metro/maintain/gen3)
 "foY" = (
 /obj/structure/flora/tree/jungle/big,
 /turf/simulated/floor/exoplanet/fd/grass{
@@ -6177,13 +6290,8 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/metro/maintain/gas)
 "fuE" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 1;
-	pixel_y = 18
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/grim_concrete_tile3,
-/area/metro/maintain/gen3)
+/turf/simulated/wall/invincible/blend/almayer_white,
+/area/metro)
 "fvT" = (
 /obj/floor_decal/industrial/warning,
 /obj/structure/railing/mapped{
@@ -6198,14 +6306,6 @@
 /obj/fd_water/alt_ver1,
 /turf/simulated/floor/plating,
 /area/metro/main_tunel)
-"fwJ" = (
-/obj/structure/catwalk,
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/metal{
-	icon_state = "me_pi_3"
-	},
-/area/metro/maintain/gen3)
 "fxr" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
@@ -6223,20 +6323,21 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
-"fzS" = (
-/obj/floor_decal/hull{
-	dir = 4
-	},
-/obj/machinery/light/small/readylight{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "fzW" = (
-/obj/paint_stripe/gunmetal,
-/obj/paint/black,
-/turf/simulated/wall/r_wall,
-/area/metro/main_tunel)
+/obj/structure/fd/junk{
+	icon_state = "0,3";
+	layer = 2.21
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
+/area/metro/maintain/gen3)
+"fBx" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
+/area/metro/maintain/gen3)
 "fBK" = (
 /obj/machinery/atmospherics/unary/freezer,
 /turf/simulated/floor/plating,
@@ -6419,6 +6520,7 @@
 	dir = 1;
 	pixel_y = 18
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "fIc" = (
@@ -6426,13 +6528,6 @@
 /obj/item/device/paicard,
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
-"fIy" = (
-/obj/floor_decal/hull{
-	dir = 4
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "fIM" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 10
@@ -6498,15 +6593,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain)
-"fKx" = (
-/obj/map_effect/portal/line/side_b{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/samosbor/stairs{
-	icon_state = "stairs_8";
-	dir = 2
-	},
-/area/metro/main_tunel)
 "fKL" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
@@ -6515,6 +6601,18 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gas)
+"fLq" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/floor_decal/techfloor{
+	dir = 8
+	},
+/obj/structure/fd/grim_lamp{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/main_tunel)
 "fLF" = (
 /obj/structure/table,
 /obj/machinery/light{
@@ -6736,13 +6834,6 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/metro/maintain/gen3)
-"fSB" = (
-/obj/floor_decal/hull/corner,
-/obj/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "fTd" = (
 /obj/floor_decal/industrial/warning{
 	dir = 1
@@ -6831,6 +6922,12 @@
 /obj/fd_water/alt_ver1,
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/metro/maintain/gen3)
+"fYa" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security_bi"
+	},
+/area/metro/main_tunel)
 "fYq" = (
 /obj/structure/fd/mapping/cutscene_trigger,
 /turf/simulated/floor/exoplanet/fd/grass{
@@ -6911,18 +7008,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain)
-"gaU" = (
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "security_sm"
-	},
-/area/metro/main_tunel)
-"gaY" = (
+"gaM" = (
 /obj/floor_decal/hull{
-	dir = 8
+	dir = 4
 	},
-/obj/map_effect/portal/line/side_b,
+/obj/structure/fd/mapping/screentext_triggermarker{
+	text_to_show = "Длинный кродиор. Когда же эти линии метро закончатся?"
+	},
 /turf/simulated/floor/plating,
-/area/metro/main_tunel)
+/area/metro/maintain/east)
 "gbg" = (
 /turf/simulated/wall/invincible/blend/prison_reinf,
 /area/metro/maintain/east)
@@ -6980,16 +7074,6 @@
 	icon_state = "warningcorner"
 	},
 /turf/simulated/floor/plating,
-/area/metro/main_tunel)
-"gdY" = (
-/obj/map_effect/portal/master/side_b{
-	dir = 1;
-	portal_id = "to_casino"
-	},
-/turf/simulated/floor/exoplanet/samosbor/stairs{
-	icon_state = "stairs_8";
-	dir = 2
-	},
 /area/metro/main_tunel)
 "gex" = (
 /obj/floor_decal/techfloor,
@@ -7101,6 +7185,14 @@
 /obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/east)
+"ghL" = (
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_7"
+	},
+/area/metro/main_tunel)
+"ghT" = (
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "giO" = (
 /obj/structure/closet/crate/secure/phoron,
 /obj/item/stack/material/phoron/ten,
@@ -7142,6 +7234,15 @@
 /obj/random/junkyard/tool,
 /turf/simulated/floor/plating,
 /area/metro/maintain/gen1)
+"gkH" = (
+/obj/floor_decal/hull{
+	dir = 1
+	},
+/obj/map_effect/portal/line/side_a{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "gkY" = (
 /obj/floor_decal/industrial/warning/corner{
 	dir = 1;
@@ -7149,13 +7250,6 @@
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/metro/maintain/east)
-"glf" = (
-/obj/floor_decal/hull{
-	dir = 8
-	},
-/obj/map_effect/portal/line/side_a,
-/turf/simulated/floor/plating,
 /area/metro/maintain/east)
 "glg" = (
 /obj/floor_decal/corner_techfloor_grid{
@@ -7195,6 +7289,12 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/metro/maintain/east)
+"gnl" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/metro/maintain/gen3)
 "goB" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 9
@@ -7258,11 +7358,6 @@
 /obj/random/trash,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gas)
-"gqZ" = (
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe"
-	},
-/area/metro/main_tunel)
 "grY" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -7273,6 +7368,13 @@
 /obj/floor_decal/corner_techfloor_grid,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain)
+"gsg" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/light/small/readylight{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "gsl" = (
 /obj/floor_decal/hull{
 	dir = 4
@@ -7322,15 +7424,6 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/metro/maintain/gen3)
-"guN" = (
-/obj/floor_decal/hull{
-	dir = 4
-	},
-/obj/map_effect/portal/master/side_b{
-	portal_id = "outside"
-	},
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "guV" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 9
@@ -7452,7 +7545,6 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/gen1)
 "gzq" = (
-/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "gzS" = (
@@ -7471,6 +7563,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south/blast_door)
+"gAk" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/bs_vines,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "gAl" = (
 /obj/random/trash,
 /obj/decal/cleanable/dirt,
@@ -7553,12 +7650,6 @@
 	color = "#526833"
 	},
 /area/metro/maintain/gen3)
-"gEl" = (
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/carpet{
-	icon_state = "ca_da_re_11"
-	},
-/area/metro/main_tunel)
 "gEv" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
@@ -7770,16 +7861,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
-"gMm" = (
-/obj/structure/table/rack/samosbor/mod{
-	icon_state = "table_wood_b_2";
-	pixel_y = 0
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe"
-	},
-/area/metro/main_tunel)
 "gMn" = (
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/south/kpp1)
@@ -7835,25 +7916,36 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/metro/maintain/east)
-"gNM" = (
-/obj/structure/fd/samosbor/furniture3{
-	icon_state = "sofa_r_end"
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe_alt"
-	},
-/area/metro/main_tunel)
 "gOj" = (
 /obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/empty,
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
+"gOn" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_ro_8";
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe_alt"
+	},
+/area/metro/main_tunel)
 "gOz" = (
 /obj/structure/table,
 /obj/machinery/recharger,
 /turf/simulated/floor/lino,
 /area/metro/maintain/gas)
+"gPx" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 5
+	},
+/obj/decal/cleanable/dirt,
+/obj/machinery/light/small/readylight{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "gPI" = (
 /obj/floor_decal/techfloor/corner{
 	dir = 1
@@ -7904,15 +7996,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
-"gRz" = (
-/obj/structure/table/rack/samosbor/mod{
-	icon_state = "table_ro_8";
-	pixel_y = 0
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe_alt"
-	},
-/area/metro/main_tunel)
 "gRF" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 5
@@ -7937,6 +8020,11 @@
 /obj/structure/fd/mapping/dev_tip,
 /turf/unsimulated/mineral,
 /area/metro)
+"gSM" = (
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_5"
+	},
+/area/metro/main_tunel)
 "gSZ" = (
 /obj/structure/table/rack,
 /obj/floor_decal/borderfloorblack/corner{
@@ -7954,25 +8042,11 @@
 	icon_state = "me_pi_12"
 	},
 /area/metro/maintain/east)
-"gUK" = (
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 6
+"gUw" = (
+/obj/floor_decal/industrial/warning{
+	dir = 9
 	},
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/liquid_fuel,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/east)
-"gVS" = (
-/obj/machinery/door/blast/regular{
-	can_use_tools = 0;
-	begins_closed = 0;
-	icon_state = "pdoor0"
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "bronze_warning"
-	},
+/turf/simulated/floor/plating,
 /area/metro/main_tunel)
 "gVU" = (
 /obj/structure/fd/decorative_pipes{
@@ -8011,6 +8085,18 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gas)
+"gWj" = (
+/obj/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/structure/fd/mapping/screentext_triggermarker{
+	text_to_show = "Вы видите на полу явно недавние следы чьих-то ботинок."
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal,
+/area/metro/maintain/gen3)
 "gWn" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 5
@@ -8130,6 +8216,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/south)
+"hci" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "sofa_r_end"
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe_alt"
+	},
+/area/metro/main_tunel)
 "hcI" = (
 /obj/floor_decal/hull{
 	dir = 2
@@ -8147,6 +8241,21 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/south/kpp)
+"hdU" = (
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
+"hel" = (
+/obj/floor_decal/hull/corner{
+	dir = 1
+	},
+/obj/floor_decal/hull/corner{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "hem" = (
 /obj/structure/platform/shiva{
 	dir = 4
@@ -8208,14 +8317,9 @@
 	},
 /turf/simulated/floor/exoplanet/gravel,
 /area/metro/maintain/gas)
-"hgy" = (
-/obj/machinery/door/unpowered/simple/grim/metal{
-	dir = 8;
-	pixel_x = -16;
-	pixel_y = -6
-	},
+"hgh" = (
 /turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "security_bi"
+	icon_state = "security_sm"
 	},
 /area/metro/main_tunel)
 "hgC" = (
@@ -8225,6 +8329,15 @@
 /obj/floor_decal/corner/paleblue/border,
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/east)
+"hgF" = (
+/obj/floor_decal/techfloor{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
+/area/metro/maintain/gen3)
 "hgL" = (
 /obj/item/device/flashlight/lantern/grim{
 	pixel_y = 15;
@@ -8265,6 +8378,12 @@
 /obj/decal/cleanable/generic,
 /turf/simulated/floor/plating,
 /area/metro/maintain)
+"hhW" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "hig" = (
 /obj/decal/cleanable/blood{
 	icon_state = "mgibbl3"
@@ -8276,6 +8395,16 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/gas)
+"hjd" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 10
+	},
+/obj/decal/cleanable/dirt,
+/obj/machinery/light/small/readylight{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "hjk" = (
 /obj/item/stool{
 	pixel_y = 2
@@ -8410,17 +8539,6 @@
 /obj/floor_decal/corner/paleblue/border,
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/east)
-"hoY" = (
-/obj/machinery/door/blast/grim{
-	can_use_tools = 0;
-	begins_closed = 0;
-	icon_state = "shutter1";
-	id_tag = "metro_south_lockdown"
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "security_bi"
-	},
-/area/metro/main_tunel)
 "hpt" = (
 /obj/floor_decal/step,
 /obj/decal/cleanable/dirt,
@@ -8522,10 +8640,6 @@
 	},
 /turf/simulated/floor/exoplanet/gravel,
 /area/metro/maintain/gas)
-"htI" = (
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/grim_concrete_tile4,
-/area/metro/maintain/gen3)
 "hub" = (
 /obj/decal/cleanable/cobweb2{
 	dir = 2
@@ -8575,6 +8689,14 @@
 	icon_state = "tallgrass_2"
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
+/area/metro/maintain/gen3)
+"hxt" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_1";
+	dir = 8
+	},
 /area/metro/maintain/gen3)
 "hye" = (
 /obj/structure/vines/light2,
@@ -8659,7 +8781,6 @@
 	color = "grey";
 	dir = 2
 	},
-/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "hAC" = (
@@ -8739,17 +8860,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
-"hFv" = (
-/obj/structure/table/steel,
-/obj/machinery/button/blast_door{
-	dir = 8;
-	pixel_y = 3;
-	pixel_x = 2
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "security_bi"
-	},
-/area/metro/main_tunel)
 "hGc" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/borderfloorblack{
@@ -8813,6 +8923,13 @@
 	color = "#526833"
 	},
 /area/metro/maintain/gen3)
+"hIT" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "sofa_gr_mid"
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "hJC" = (
 /obj/floor_decal/corner/paleblue/full,
 /obj/structure/table/standard,
@@ -8865,6 +8982,12 @@
 "hMW" = (
 /turf/simulated/floor/exoplanet/grim_concrete_tile4,
 /area/metro/maintain/gen3)
+"hNo" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "hNq" = (
 /obj/fd_water/alt_ver1{
 	layer = 2.1
@@ -8901,15 +9024,6 @@
 	color = "#5F773B"
 	},
 /area/metro/maintain/gen3)
-"hND" = (
-/obj/structure/fd/samosbor/furniture3{
-	icon_state = "bench_start";
-	pixel_y = 12
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe"
-	},
-/area/metro/main_tunel)
 "hOt" = (
 /obj/paint_stripe/brown,
 /obj/structure/girder,
@@ -8942,12 +9056,6 @@
 	},
 /turf/simulated/floor/exoplanet/gravel,
 /area/metro/maintain/gas)
-"hPa" = (
-/obj/floor_decal/borderfloorblack{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/metro/main_tunel)
 "hPD" = (
 /obj/structure/railing/mapped{
 	color = "#293133"
@@ -8979,6 +9087,12 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/metro/maintain/gas)
+"hRO" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
+/area/metro/maintain/gen3)
 "hSt" = (
 /obj/floor_decal/corner_techfloor_grid/full{
 	dir = 4
@@ -8988,6 +9102,16 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gas)
+"hSO" = (
+/obj/structure/bed/chair/office/comfy/red{
+	dir = 4;
+	pixel_y = 6;
+	pixel_x = 9
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security_bi"
+	},
+/area/metro/main_tunel)
 "hTi" = (
 /obj/machinery/door/blast/regular/open{
 	id_tag = "metro1"
@@ -9029,6 +9153,13 @@
 /obj/structure/bed/chair/padded/brown,
 /turf/simulated/floor/lino,
 /area/metro/maintain/gas)
+"hUE" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/bs_vines,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "hUR" = (
 /obj/floor_decal/hull/corner{
 	dir = 8
@@ -9056,13 +9187,6 @@
 /obj/floor_decal/corner/grey/border,
 /turf/simulated/floor/tiled/freezer,
 /area/metro/maintain/gas)
-"hVq" = (
-/obj/decal/cleanable/dirt,
-/obj/machinery/light/small/readylight{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/east)
 "hXn" = (
 /obj/structure/fd/samosbor/floor_cable{
 	icon_state = "plated";
@@ -9159,18 +9283,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
-"ian" = (
-/turf/simulated/wall/invincible/blend/bare,
-/area/metro/main_tunel)
-"iau" = (
-/obj/structure/fd/samosbor/furniture3{
-	icon_state = "bench_end"
-	},
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/metro/main_tunel)
 "iaX" = (
 /obj/floor_decal/techfloor{
 	dir = 8
@@ -9197,6 +9309,18 @@
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
+/area/metro/maintain/gen3)
+"ics" = (
+/obj/structure/railing/mapped{
+	color = "#293133"
+	},
+/obj/structure/railing/mapped{
+	color = "#78858B"
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
 /area/metro/maintain/gen3)
 "icS" = (
 /obj/floor_decal/corner_techfloor_grid/full{
@@ -9244,20 +9368,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
-"ifn" = (
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/metal{
-	icon_state = "me_ve_bi"
-	},
-/area/metro/maintain/gen3)
-"ifw" = (
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/metal{
-	icon_state = "me_ti_gy"
-	},
-/area/metro/maintain/gen3)
 "ifO" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
@@ -9324,6 +9434,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/main_tunel)
+"ijK" = (
+/obj/structure/catwalk,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_pi_3"
+	},
+/area/metro/maintain/gen3)
 "ijM" = (
 /obj/structure/fd/decorative_pipes{
 	icon_state = "large_pipe_straight";
@@ -9361,10 +9478,12 @@
 /obj/decal/cleanable/blood/splatter,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south)
-"ilI" = (
-/obj/decal/cleanable/dirt,
-/obj/machinery/light/small/readylight{
-	dir = 2
+"ill" = (
+/obj/structure/fd/building_stuff,
+/obj/structure/largecrate{
+	icon_state = "woodcrate";
+	icon = 'mods/_fd/fd_assets/icons/is12/war_crates.dmi';
+	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
@@ -9439,6 +9558,14 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"ipN" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "iqm" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 10
@@ -9611,6 +9738,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
+"ixD" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "sofa_gr_start"
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe_alt"
+	},
+/area/metro/main_tunel)
 "iyG" = (
 /obj/structure/platform/shiva,
 /obj/structure/platform/shiva{
@@ -9638,6 +9773,12 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/metro)
+"izL" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe_alt"
+	},
+/area/metro/main_tunel)
 "iAL" = (
 /obj/floor_decal/techfloor{
 	dir = 4
@@ -9657,6 +9798,12 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south)
+"iEA" = (
+/obj/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "iEU" = (
 /obj/structure/plasticflaps/rocks,
 /obj/decal/cleanable/dirt,
@@ -9680,13 +9827,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/blast_door)
-"iFo" = (
-/obj/floor_decal/techfloor{
-	dir = 4
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/metro/main_tunel)
 "iFx" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -9700,6 +9840,14 @@
 /obj/structure/grille/broken,
 /turf/simulated/floor/plating,
 /area/metro/maintain/south)
+"iGl" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "sofa_gr_mid"
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe_alt"
+	},
+/area/metro/main_tunel)
 "iGu" = (
 /obj/floor_decal/corner/lightgrey/border{
 	dir = 1
@@ -9712,14 +9860,6 @@
 /obj/random/junkyard/toolbox,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gas)
-"iHj" = (
-/obj/structure/closet/grim/metal{
-	pixel_y = 14
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "security"
-	},
-/area/metro/main_tunel)
 "iHo" = (
 /obj/structure/table/reinforced,
 /obj/random/drinkbottle,
@@ -9739,12 +9879,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/wall/r_wall,
 /area/metro/maintain/east)
-"iHy" = (
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "security"
-	},
-/area/metro/main_tunel)
 "iHA" = (
 /obj/machinery/door/unpowered/simple/grim/wood{
 	dir = 8;
@@ -9769,6 +9903,12 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/metro/maintain)
+"iId" = (
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_8";
+	dir = 2
+	},
+/area/metro/main_tunel)
 "iIF" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 10
@@ -9801,12 +9941,12 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
-"iJF" = (
-/obj/structure/fd/samosbor/furniture3{
-	icon_state = "sofa_gr_start"
-	},
+"iIX" = (
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_10"
+	},
 /area/metro/main_tunel)
 "iJI" = (
 /obj/structure/platform/shiva{
@@ -9832,24 +9972,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/south)
-"iKt" = (
-/obj/structure/fd/samosbor/furniture3{
-	icon_state = "bench_end"
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/metro/main_tunel)
 "iKG" = (
 /obj/decal/cleanable/blood{
 	icon_state = "mgibbl4"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
-"iKJ" = (
-/turf/simulated/floor/exoplanet/samosbor/carpet{
-	icon_state = "ca_da_re_9"
-	},
-/area/metro/main_tunel)
 "iKO" = (
 /obj/structure/table/rack/samosbor/mod{
 	icon_state = "table_da_g_4";
@@ -9988,12 +10116,6 @@
 /obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
-"iTB" = (
-/obj/floor_decal/borderfloorblack{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/metro/main_tunel)
 "iTC" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/borderfloorblack{
@@ -10006,11 +10128,6 @@
 	icon_state = "tile"
 	},
 /area/metro/maintain/east)
-"iTS" = (
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "security"
-	},
-/area/metro/main_tunel)
 "iTT" = (
 /obj/machinery/button/crematorium{
 	pixel_y = -7;
@@ -10018,6 +10135,12 @@
 	},
 /turf/simulated/wall/invincible/blend/prison,
 /area/metro/maintain/gen3)
+"iUw" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "iUM" = (
 /obj/floor_decal/techfloor/orange,
 /obj/decal/cleanable/dirt,
@@ -10036,6 +10159,12 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor,
 /area/metro/maintain/gas)
+"iVp" = (
+/obj/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "iWc" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 10
@@ -10159,6 +10288,14 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/south)
+"jbA" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_end";
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "jch" = (
 /obj/machinery/camera{
 	pixel_x = 21
@@ -10176,16 +10313,6 @@
 	icon_state = "me_pa_12"
 	},
 /area/metro/maintain/gen3)
-"jck" = (
-/obj/floor_decal/hull{
-	dir = 4
-	},
-/obj/machinery/door/blast/regular{
-	can_use_tools = 0;
-	dir = 2
-	},
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "jcu" = (
 /obj/item/ammo_casing/rifle/used{
 	pixel_x = 7;
@@ -10286,16 +10413,6 @@
 	color = "#526833"
 	},
 /area/metro/maintain/gen3)
-"jhO" = (
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 10
-	},
-/obj/decal/cleanable/dirt,
-/obj/machinery/light/small/readylight{
-	dir = 2
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/east)
 "jhX" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 5
@@ -10338,11 +10455,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south)
-"jkG" = (
-/turf/simulated/floor/exoplanet/samosbor/carpet{
-	icon_state = "ca_da_re_14"
-	},
-/area/metro/main_tunel)
 "jmS" = (
 /obj/structure/fd/decorative_pipes{
 	icon_state = "large_pipe_straight";
@@ -10677,6 +10789,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south/blast_door)
+"jAP" = (
+/obj/floor_decal/hull/corner,
+/obj/floor_decal/hull/corner{
+	dir = 8
+	},
+/obj/floor_decal/hull{
+	dir = 2
+	},
+/obj/map_effect/portal/line/side_b{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "jAR" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 9
@@ -10984,13 +11109,6 @@
 	icon_state = "me_pa_13"
 	},
 /area/metro/maintain/gen3)
-"jNG" = (
-/obj/floor_decal/borderfloorblack{
-	dir = 6
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/metro/main_tunel)
 "jOW" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 5
@@ -11035,6 +11153,17 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white/monotile,
+/area/metro/maintain/east)
+"jRG" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 10
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/machinery/light/small/readylight{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "jRU" = (
 /obj/paint/merc,
@@ -11096,17 +11225,6 @@
 /obj/structure/barricade,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/gen3)
-"jVi" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 1;
-	pixel_y = 18
-	},
-/obj/structure/bed/chair/comfy/black{
-	dir = 1;
-	pixel_y = 18
-	},
-/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "jVF" = (
 /obj/decal/cleanable/dirt,
@@ -11244,13 +11362,6 @@
 	icon_state = "ca_da_re_6"
 	},
 /area/metro/maintain/gen3)
-"kav" = (
-/obj/structure/fd/samosbor/furniture3,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe_alt"
-	},
-/area/metro/main_tunel)
 "kaU" = (
 /obj/structure/table,
 /obj/machinery/constructable_frame/machine_frame{
@@ -11297,6 +11408,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain)
+"kdI" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_mid";
+	dir = 2;
+	pixel_y = 12
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "kdQ" = (
 /obj/structure/vines/light2,
 /obj/structure/fd/cave_decor{
@@ -11336,15 +11458,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp1)
-"keP" = (
-/obj/structure/table/rack/samosbor/mod{
-	icon_state = "table_steel_r_2";
-	pixel_y = 0
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe"
-	},
-/area/metro/main_tunel)
 "kfc" = (
 /obj/paint/merc,
 /obj/paint/merc,
@@ -11357,6 +11470,15 @@
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
+/area/metro/maintain/east)
+"kgU" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 6
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/bs_vines,
+/turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "khb" = (
 /obj/floor_decal/industrial/hatch/orange,
@@ -11699,12 +11821,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
-"kyP" = (
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/carpet{
-	icon_state = "ca_da_re_15"
-	},
-/area/metro/main_tunel)
 "kzl" = (
 /obj/structure/door_assembly{
 	anchored = 1;
@@ -11712,16 +11828,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
-"kzn" = (
-/obj/floor_decal/hull{
-	dir = 8
-	},
-/obj/machinery/door/blast/regular{
-	can_use_tools = 0;
-	dir = 2
-	},
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "kAb" = (
 /obj/structure/table/reinforced,
 /turf/simulated/floor/plating,
@@ -11742,20 +11848,20 @@
 	color = "#6E8C44"
 	},
 /area/metro/maintain/gen3)
-"kAQ" = (
-/obj/floor_decal/hull{
-	dir = 4
-	},
-/obj/machinery/light/small/readylight{
-	dir = 8
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "kBh" = (
 /obj/paint/black,
 /turf/simulated/wall/invincible,
 /area/metro/maintain/south)
+"kBI" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "kBR" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fake_lattice{
@@ -11867,16 +11973,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp)
-"kGA" = (
-/obj/floor_decal/techfloor{
-	dir = 4
-	},
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/metal{
-	icon_state = "me_ve_bi"
-	},
-/area/metro/maintain/gen3)
 "kHg" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -11985,6 +12081,11 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/gen1)
+"kLv" = (
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_10"
+	},
+/area/metro/main_tunel)
 "kMd" = (
 /obj/structure/flora/trk17_regrowing/sugar,
 /turf/simulated/floor/exoplanet/fd/grass,
@@ -12115,15 +12216,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
-"kQT" = (
-/obj/floor_decal/hull{
-	dir = 1
-	},
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "kRv" = (
 /obj/decal/cleanable/dirt,
 /obj/machinery/door/blast/regular{
@@ -12209,6 +12301,13 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/metro/maintain/east)
+"kVe" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_9"
+	},
+/area/metro/main_tunel)
 "kVz" = (
 /obj/structure/flora/trk17_regrowing/sugar,
 /turf/simulated/floor/exoplanet/fd/grass{
@@ -12293,6 +12392,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south/blast_door)
+"laP" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "lbl" = (
 /obj/item/stock_parts/circuitboard/pacman/super/module{
 	pixel_x = 4;
@@ -12528,6 +12635,9 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/metro/maintain/east)
+"lns" = (
+/turf/simulated/wall/invincible/blend/almayer_white,
+/area/metro/main_tunel)
 "lnu" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/cobweb2{
@@ -12556,22 +12666,6 @@
 /obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gas)
-"loD" = (
-/obj/structure/table/rack/samosbor/mod{
-	icon_state = "table_wood_b_8";
-	pixel_y = 0
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe"
-	},
-/area/metro/main_tunel)
-"loZ" = (
-/obj/machinery/light/small/readylight{
-	dir = 1
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "lpO" = (
 /obj/floor_decal/corner_techfloor_grid/full,
 /obj/structure/closet/crate,
@@ -12586,6 +12680,14 @@
 	icon_state = "bronze_floor"
 	},
 /area/metro/maintain/gen3)
+"lqe" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_end"
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "lqP" = (
 /obj/floor_decal/corner_techfloor_grid/full{
 	dir = 1
@@ -12670,6 +12772,13 @@
 /obj/paint/merc,
 /turf/simulated/wall/invincible,
 /area/metro/maintain/south/blast_door)
+"lwc" = (
+/obj/structure/catwalk,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_pi_12"
+	},
+/area/metro/maintain/gen3)
 "lxs" = (
 /obj/floor_decal/corner_techfloor_grid/full{
 	dir = 1
@@ -12714,6 +12823,17 @@
 /obj/machinery/organ_printer/flesh/mapped,
 /turf/simulated/floor/tiled/white,
 /area/metro/maintain/east)
+"lyB" = (
+/obj/structure/fd/building_stuff{
+	icon_state = "1,1";
+	pixel_y = 15;
+	pixel_x = 8;
+	name = "Barrel";
+	desc = "Just an iron barrel.";
+	layer = 2.234
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "lyN" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 10
@@ -12735,11 +12855,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
-"lAe" = (
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "bronze_warning"
-	},
-/area/metro/main_tunel)
 "lBa" = (
 /obj/structure/table/rack,
 /turf/simulated/floor/plating,
@@ -12765,17 +12880,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
-"lCZ" = (
-/obj/floor_decal/hull{
-	dir = 4
-	},
-/obj/item/ammo_casing/rifle/used,
-/obj/machinery/door/blast/regular{
-	can_use_tools = 0;
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "lDv" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 5
@@ -12878,14 +12982,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain)
-"lFP" = (
-/obj/structure/fd/samosbor/furniture3{
-	icon_state = "bench_end";
-	dir = 1
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/metro/main_tunel)
 "lGr" = (
 /obj/floor_decal/corner_techfloor_grid/full{
 	dir = 8
@@ -12934,6 +13030,7 @@
 /area/metro/maintain/gen3)
 "lHM" = (
 /obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ve_bi"
 	},
@@ -12968,7 +13065,6 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gas)
 "lIK" = (
-/obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
@@ -13005,16 +13101,6 @@
 	icon_state = "me_ti_gy"
 	},
 /area/metro/maintain/gen3)
-"lKE" = (
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 6
-	},
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/liquid_fuel,
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/east)
 "lKT" = (
 /obj/floor_decal/borderfloorwhite{
 	dir = 1
@@ -13047,6 +13133,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
+"lLN" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_steel_r_3";
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "lMc" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 9
@@ -13181,6 +13276,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
+"lOu" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 10
+	},
+/obj/machinery/light/small/readylight{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "lOI" = (
 /turf/unsimulated/mineral,
 /area/metro/maintain/gen2)
@@ -13227,12 +13331,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
-"lPv" = (
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 10
-	},
-/turf/simulated/floor/plating,
-/area/metro/maintain/gen3)
 "lPL" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 9
@@ -13490,14 +13588,10 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
 "lWV" = (
-/turf/simulated/wall/r_wall,
-/area/metro)
-"lXA" = (
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/carpet{
-	icon_state = "ca_da_re_10"
+/obj/floor_decal/hull/corner{
+	dir = 8
 	},
+/turf/simulated/floor/plating,
 /area/metro/main_tunel)
 "lYj" = (
 /obj/machinery/door/unpowered/simple/samosbor/wood,
@@ -13529,15 +13623,6 @@
 	icon_state = "me_ti_gy_t5"
 	},
 /area/metro/maintain/gen3)
-"lZT" = (
-/obj/floor_decal/hull{
-	dir = 4
-	},
-/obj/structure/fd/mapping/screentext_triggermarker{
-	text_to_show = "Длинный кродиор. Когда же эти линии метро закончатся?"
-	},
-/turf/simulated/floor/plating,
-/area/metro/maintain/east)
 "maa" = (
 /turf/simulated/wall/invincible/blend/almayer_white{
 	icon_state = "almayer_deco_wall2"
@@ -13622,13 +13707,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south)
-"mdG" = (
-/obj/machinery/door/airlock/highsecurity{
-	dir = 8;
-	can_use_tools = 0
-	},
-/turf/simulated/floor/tiled/dark/monotile,
-/area/metro/main_tunel)
 "mdN" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 5
@@ -13643,33 +13721,6 @@
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/south/kpp)
-"men" = (
-/obj/floor_decal/techfloor{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/fd/grim_lamp,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/metro/main_tunel)
-"mfc" = (
-/obj/floor_decal/techfloor{
-	dir = 8
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/metro/main_tunel)
-"mgf" = (
-/obj/map_effect/portal/master/side_a{
-	portal_id = "to_casino"
-	},
-/turf/simulated/floor/exoplanet/samosbor/stairs{
-	icon_state = "stairs_8";
-	dir = 2
-	},
-/area/metro/main_tunel)
 "mgj" = (
 /obj/structure/fd/decorative_pipes{
 	dir = 4;
@@ -13760,15 +13811,6 @@
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/metro/maintain/gen3)
-"mok" = (
-/obj/structure/table/rack/samosbor/mod{
-	icon_state = "table_wood_b_3";
-	pixel_y = 0
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe"
-	},
-/area/metro/main_tunel)
 "moF" = (
 /obj/machinery/conveyor{
 	dir = 4
@@ -13836,6 +13878,13 @@
 "mvg" = (
 /turf/simulated/floor/exoplanet/gravel,
 /area/metro/maintain/gas)
+"mvm" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 10
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "mvS" = (
 /obj/structure/table/rack,
 /obj/floor_decal/borderfloorblack{
@@ -13992,7 +14041,6 @@
 	dir = 1;
 	pixel_y = 18
 	},
-/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "mBH" = (
@@ -14005,15 +14053,6 @@
 /obj/structure/grille/broken,
 /turf/simulated/floor/plating,
 /area/metro/maintain/south)
-"mBY" = (
-/obj/structure/fd/samosbor/furniture3{
-	icon_state = "sofa_g_end"
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe"
-	},
-/area/metro/main_tunel)
 "mCI" = (
 /obj/fd_water/deep,
 /obj/fd_water/alt_ver1,
@@ -14042,6 +14081,13 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"mEH" = (
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 2
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "mEP" = (
 /obj/structure/flora/ausbushes/purple_bush,
 /turf/simulated/floor/exoplanet/fd/grass{
@@ -14199,6 +14245,16 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/gravel,
 /area/metro/maintain/gas)
+"mJf" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 6
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "mJO" = (
 /obj/structure/bed/grim/big{
 	pixel_y = -10
@@ -14351,13 +14407,6 @@
 	color = "#5F773B"
 	},
 /area/metro/maintain/gen3)
-"mQs" = (
-/obj/floor_decal/hull{
-	dir = 4
-	},
-/obj/map_effect/portal/line/side_b,
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "mQS" = (
 /obj/machinery/light,
 /obj/decal/cleanable/dirt,
@@ -14406,12 +14455,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/metro/maintain/gen1)
-"mTu" = (
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "mTv" = (
 /obj/fd_water/alt_ver1{
 	layer = 2.1
@@ -14447,6 +14490,11 @@
 	icon_state = "me_ti_ol"
 	},
 /area/metro/maintain/gen3)
+"mVH" = (
+/obj/paint/black,
+/obj/paint_stripe/yellow,
+/turf/simulated/wall/r_wall,
+/area/metro)
 "mVU" = (
 /obj/item/storage/cargo_containers{
 	icon_state = "kelland_r"
@@ -14492,16 +14540,13 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
-"mXn" = (
-/obj/machinery/light/small/readylight{
-	dir = 1
-	},
-/obj/map_effect/portal/master/side_a{
-	dir = 4;
-	portal_id = "toend"
-	},
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
+"mXm" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/bs_spikes,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "mXr" = (
 /obj/paint/merc,
 /turf/simulated/wall/r_wall,
@@ -14560,6 +14605,22 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"mZO" = (
+/obj/map_effect/portal/master/side_b{
+	portal_id = "toend";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
+"mZV" = (
+/obj/floor_decal/hull{
+	dir = 2
+	},
+/obj/map_effect/portal/line/side_a{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "mZW" = (
 /obj/fd_water/alt_ver1{
 	layer = 2.1
@@ -14647,15 +14708,13 @@
 /obj/structure/flora/tall,
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/metro/maintain/gen3)
-"nbN" = (
-/obj/structure/table/rack/samosbor/mod{
-	icon_state = "table_wood_b_12";
-	pixel_y = 0
+"nbO" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 1;
+	pixel_y = 18
 	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe"
-	},
-/area/metro/main_tunel)
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
+/area/metro/maintain/gen3)
 "ncl" = (
 /obj/structure/fake_zlvl{
 	density = 0
@@ -14670,6 +14729,20 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/metro/maintain/gas)
+"ncJ" = (
+/obj/floor_decal/hull/corner{
+	dir = 8
+	},
+/obj/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
+"ndl" = (
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_14"
+	},
+/area/metro/main_tunel)
 "ndu" = (
 /obj/structure/platform/shiva{
 	dir = 1
@@ -14732,12 +14805,29 @@
 /obj/machinery/button/blast_door,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/metro/maintain/gen2)
+"nfT" = (
+/obj/structure/closet/grim/metal{
+	pixel_y = 14
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security"
+	},
+/area/metro/main_tunel)
 "ngm" = (
 /obj/machinery/door/airlock/lift{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/south/blast_door)
+"ngY" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_wood_b_9";
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "nhw" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
@@ -14773,24 +14863,12 @@
 	icon_state = "me_pi_8"
 	},
 /area/metro/maintain/gen3)
-"nhS" = (
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "security_bi"
-	},
-/area/metro/main_tunel)
 "niu" = (
 /obj/structure/platform/shiva{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/gravel,
 /area/metro/maintain/gas)
-"niw" = (
-/obj/structure/table/steel,
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "security"
-	},
-/area/metro/main_tunel)
 "njP" = (
 /obj/fd_water/alt_ver1{
 	layer = 2.1
@@ -14855,13 +14933,6 @@
 	icon_state = "cafe_alt"
 	},
 /area/metro/maintain/gen3)
-"nkL" = (
-/obj/map_effect/portal/master/side_b{
-	portal_id = "toend";
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "nlu" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 1
@@ -14875,6 +14946,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain)
+"nlx" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/bs_spikes,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "nlF" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 9
@@ -15016,12 +15093,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/main_tunel)
-"ntV" = (
-/obj/machinery/light/small/readylight{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/east)
 "nvd" = (
 /obj/machinery/door/blast/regular{
 	id_tag = "kpp1_1";
@@ -15097,13 +15168,6 @@
 /obj/item/paper/memo/command/recall,
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/gen3)
-"nyi" = (
-/obj/floor_decal/hull{
-	dir = 2
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "nyj" = (
 /obj/structure/fd/samosbor/floor_cable{
 	icon_state = "plated";
@@ -15118,6 +15182,15 @@
 	icon_state = "me_ti_gy"
 	},
 /area/metro/maintain/gen3)
+"nyk" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_steel_r_2";
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "nyp" = (
 /obj/floor_decal/techfloor/corner{
 	dir = 4
@@ -15226,14 +15299,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
-"nCA" = (
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 9
-	},
-/obj/decal/cleanable/liquid_fuel,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/east)
 "nCK" = (
 /obj/fd_water/alt_ver1{
 	layer = 2.1;
@@ -15269,13 +15334,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/fd/muddirt,
 /area/metro/maintain/gen3)
-"nEm" = (
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/carpet{
-	icon_state = "ca_da_re_15"
-	},
-/area/metro/main_tunel)
 "nEY" = (
 /obj/floor_decal/hull{
 	dir = 1
@@ -15328,12 +15386,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/east)
-"nHy" = (
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/carpet{
-	icon_state = "ca_da_re_13"
-	},
-/area/metro/main_tunel)
 "nHE" = (
 /obj/structure/grille,
 /turf/simulated/floor/plating,
@@ -15345,6 +15397,15 @@
 /obj/structure/grille/broken,
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
+"nIO" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_wood_b_4";
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "nJt" = (
 /obj/floor_decal/industrial/outline/green,
 /obj/item/trash/beans{
@@ -15442,15 +15503,6 @@
 /obj/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
-"nOo" = (
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 2
-	},
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/gen3)
 "nOv" = (
 /turf/simulated/floor/tiled/dark/monotile,
 /area/metro/maintain/south)
@@ -15547,6 +15599,7 @@
 	dir = 5
 	},
 /obj/decal/cleanable/dirt,
+/obj/structure/fd/bs_vines,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "nRW" = (
@@ -15714,6 +15767,14 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/south)
+"nXk" = (
+/obj/floor_decal/hull/corner{
+	dir = 8
+	},
+/obj/floor_decal/hull/corner,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "nXF" = (
 /obj/floor_decal/step{
 	color = "grey";
@@ -15749,6 +15810,15 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/metro/maintain/east)
+"nZZ" = (
+/obj/map_effect/portal/master/side_a{
+	portal_id = "to_casino"
+	},
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_8";
+	dir = 2
+	},
+/area/metro/main_tunel)
 "oab" = (
 /obj/structure/closet,
 /obj/machinery/light{
@@ -15885,12 +15955,6 @@
 /obj/random/junk,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south)
-"ogc" = (
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 5
-	},
-/turf/simulated/floor/plating,
-/area/metro/maintain/gen3)
 "ogo" = (
 /obj/structure/fake_lattice{
 	layer = 4.01;
@@ -15960,11 +16024,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gas)
-"okh" = (
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "bronze_floor"
-	},
-/area/metro/main_tunel)
 "okk" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 2
@@ -16018,6 +16077,13 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
+"omH" = (
+/obj/floor_decal/hull{
+	dir = 2
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "omQ" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
@@ -16088,6 +16154,15 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"oqh" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/machinery/light/small/readylight{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/metro/maintain/east)
 "oqQ" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 10
@@ -16100,12 +16175,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
-"orG" = (
-/obj/floor_decal/hull/corner{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "osr" = (
 /obj/structure/fd/junk{
 	icon_state = "2,4";
@@ -16451,6 +16520,11 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"oIs" = (
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security_sm"
+	},
+/area/metro)
 "oIy" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
@@ -16537,10 +16611,6 @@
 /obj/random/biggun,
 /turf/simulated/floor/tiled/monotile,
 /area/metro/maintain/east)
-"oJN" = (
-/obj/paint_stripe/gunmetal,
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "oJP" = (
 /obj/floor_decal/corner/grey/border{
 	dir = 1
@@ -16548,12 +16618,6 @@
 /obj/floor_decal/corner/grey/border,
 /turf/simulated/floor/tiled/white,
 /area/metro/maintain/gas)
-"oKN" = (
-/obj/floor_decal/techfloor{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/monotile,
-/area/metro/main_tunel)
 "oLw" = (
 /obj/machinery/constructable_frame/machine_frame,
 /obj/item/material/shard/shrapnel/steel{
@@ -16602,27 +16666,9 @@
 	color = "#6E8C44"
 	},
 /area/metro/maintain/gen3)
-"oMw" = (
-/obj/structure/bed/chair/office/comfy/black{
-	dir = 8;
-	pixel_y = 0;
-	pixel_x = -9
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe"
-	},
-/area/metro/main_tunel)
 "oMz" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp)
-"oMC" = (
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 5
-	},
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/east)
 "oNf" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -16661,6 +16707,17 @@
 	dir = 8
 	},
 /area/metro/maintain/gen3)
+"oOT" = (
+/obj/floor_decal/techfloor{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/fd/grim_lamp,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/main_tunel)
 "oPa" = (
 /obj/structure/storage/chest{
 	pixel_y = 8;
@@ -16735,10 +16792,12 @@
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/east)
 "oTV" = (
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "security_sm"
-	},
-/area/metro)
+/turf/simulated/wall/invincible/blend/bare,
+/area/metro/main_tunel)
+"oUw" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "oVs" = (
 /obj/structure/platform/shiva{
 	dir = 1
@@ -16833,14 +16892,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/gravel,
 /area/metro/maintain/gas)
-"pan" = (
-/obj/floor_decal/hull/corner{
-	dir = 8
-	},
-/obj/floor_decal/hull/corner,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "pas" = (
 /obj/structure/fd/chasm{
 	teleport_to = /area/metro/maintain/south/chasm1
@@ -16895,14 +16946,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/metro/maintain/east)
-"pcE" = (
-/obj/structure/fd/samosbor/furniture3{
-	icon_state = "sofa_gr_mid"
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe_alt"
-	},
-/area/metro/main_tunel)
 "pdd" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 5
@@ -16989,6 +17032,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
+"phv" = (
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "bronze_warning"
+	},
+/area/metro/main_tunel)
 "phP" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
@@ -17004,6 +17052,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain)
+"pit" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_start"
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "piE" = (
 /turf/simulated/floor/carpet/black,
 /area/metro/maintain/gen3)
@@ -17014,11 +17069,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
-"piZ" = (
-/turf/simulated/floor/exoplanet/samosbor/carpet{
-	icon_state = "ca_da_re_6"
-	},
-/area/metro/main_tunel)
 "pje" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/blood{
@@ -17041,6 +17091,13 @@
 /obj/machinery/alarm,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/metro/maintain/gen3)
+"pjL" = (
+/obj/floor_decal/techfloor{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/main_tunel)
 "pkv" = (
 /obj/structure/table,
 /obj/floor_decal/corner/grey/mono,
@@ -17070,12 +17127,14 @@
 /obj/wallframe_spawn/reinforced,
 /turf/simulated/wall/r_wall,
 /area/metro/maintain/south/kpp1)
-"plh" = (
-/obj/floor_decal/industrial/warning{
-	dir = 5
+"plo" = (
+/obj/floor_decal/techfloor{
+	dir = 4
 	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/monotile,
 /area/metro/main_tunel)
 "pmi" = (
 /obj/floor_decal/asteroid,
@@ -17207,14 +17266,16 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/metro)
+"pqD" = (
+/obj/structure/fd/samosbor/furniture3,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe_alt"
+	},
+/area/metro/main_tunel)
 "pqP" = (
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain)
-"pqW" = (
-/turf/simulated/floor/exoplanet/samosbor/carpet{
-	icon_state = "ca_da_re_7"
-	},
-/area/metro/main_tunel)
 "prM" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/borderfloorblack,
@@ -17237,6 +17298,16 @@
 /obj/floor_decal/industrial/warning{
 	dir = 8
 	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
+"psJ" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 6
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "pti" = (
@@ -17299,6 +17370,16 @@
 /obj/structure/bookcase/manuals/medical,
 /turf/simulated/floor/tiled/white,
 /area/metro/maintain/east)
+"pvT" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_end";
+	pixel_y = 12
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "pwa" = (
 /obj/structure/closet/crate,
 /turf/simulated/floor/plating,
@@ -17454,14 +17535,13 @@
 /turf/simulated/wall/invincible/blend/cave/brown,
 /area/metro/maintain/gen3)
 "pEs" = (
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 10
+/obj/structure/bed/chair/comfy/black{
+	dir = 4;
+	pixel_y = 0;
+	pixel_x = 7
 	},
-/obj/machinery/light/small/readylight{
-	dir = 2
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/east)
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
+/area/metro/maintain/gen3)
 "pFG" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -17498,11 +17578,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
-"pGZ" = (
-/obj/paint/black,
-/obj/paint_stripe/brown,
-/obj/decal/cleanable/dirt,
-/turf/simulated/wall/r_wall,
+"pHe" = (
+/obj/floor_decal/hull{
+	dir = 8
+	},
+/obj/machinery/light/small/readylight{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/metro/main_tunel)
 "pHh" = (
 /obj/floor_decal/corner_techfloor_grid{
@@ -17638,7 +17721,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "pKA" = (
-/turf/simulated/wall/invincible/blend/almayer_white,
+/turf/simulated/wall/r_wall,
 /area/metro)
 "pKY" = (
 /obj/floor_decal/techfloor/orange/corner,
@@ -17857,6 +17940,16 @@
 	color = "#526833"
 	},
 /area/metro/maintain/gen3)
+"pRI" = (
+/obj/floor_decal/techfloor{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ve_bi"
+	},
+/area/metro/maintain/gen3)
 "pRS" = (
 /obj/paint/merc,
 /obj/structure/fd/building_stuff{
@@ -17951,6 +18044,16 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/metro/maintain)
+"pVY" = (
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	begins_closed = 0;
+	icon_state = "pdoor0"
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "bronze_warning"
+	},
+/area/metro/main_tunel)
 "pWm" = (
 /obj/floor_decal/corner/paleblue{
 	dir = 8
@@ -18040,6 +18143,17 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
+"pZw" = (
+/obj/machinery/door/blast/grim{
+	can_use_tools = 0;
+	begins_closed = 0;
+	icon_state = "shutter1";
+	id_tag = "metro_south_lockdown"
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security_bi"
+	},
+/area/metro/main_tunel)
 "qaa" = (
 /obj/item/storage/cargo_containers{
 	icon_state = "grant_r"
@@ -18185,6 +18299,15 @@
 	icon_state = "ca_da_re_11"
 	},
 /area/metro/maintain/gen3)
+"qew" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_steel_r_1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "qfe" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 5
@@ -18272,6 +18395,15 @@
 /obj/structure/table/rack/ascent,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp1)
+"qli" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/interactive/rift{
+	icon_state = "ripped_space"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "qlE" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 10
@@ -18316,6 +18448,14 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/grim_metal2,
 /area/metro/maintain/gen3)
+"qnP" = (
+/obj/floor_decal/hull{
+	dir = 2
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "qod" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/blood/splatter,
@@ -18377,6 +18517,10 @@
 /obj/fd_water/alt_ver1,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp1)
+"qpZ" = (
+/obj/map_effect/portal/line/side_b,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "qqa" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/borderfloorblack{
@@ -18389,12 +18533,6 @@
 	icon_state = "tile"
 	},
 /area/metro/maintain/east)
-"qqm" = (
-/obj/structure/fd/samosbor/furniture3,
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe_alt"
-	},
-/area/metro/main_tunel)
 "qqv" = (
 /obj/floor_decal/corner/paleblue{
 	dir = 9
@@ -18416,6 +18554,16 @@
 	},
 /obj/fd_water/alt_ver1,
 /turf/simulated/floor/plating,
+/area/metro/main_tunel)
+"qrl" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_wood_b_2";
+	pixel_y = 0
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
 /area/metro/main_tunel)
 "qru" = (
 /obj/structure/flora/jungle/bush{
@@ -18468,29 +18616,6 @@
 /obj/random/junkyard/advdevice,
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south/blast_door)
-"qrW" = (
-/obj/structure/railing/mapped{
-	color = "#293133"
-	},
-/obj/structure/railing/mapped{
-	color = "#78858B"
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/metal{
-	icon_state = "me_ti_gy"
-	},
-/area/metro/maintain/gen3)
-"qsa" = (
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 10
-	},
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/obj/machinery/light/small/readylight{
-	dir = 2
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/east)
 "qsi" = (
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/east)
@@ -18516,19 +18641,24 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/monotile,
 /area/metro/maintain/gas)
+"qsG" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "sofa_g_mid"
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "qsJ" = (
 /obj/structure/vines/light2,
 /turf/simulated/wall/invincible/blend/cave/brown,
 /area/metro/maintain/gen3)
-"qtz" = (
-/obj/floor_decal/techfloor{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
+"qtd" = (
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_6"
+	},
 /area/metro/main_tunel)
 "qtA" = (
 /obj/machinery/door/airlock/multi_tile/maintenance,
@@ -18567,15 +18697,11 @@
 	},
 /turf/simulated/floor/lino,
 /area/metro/maintain/gas)
-"qun" = (
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 6
+"quq" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/light/small/readylight{
+	dir = 1
 	},
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/liquid_fuel,
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "quM" = (
@@ -18698,6 +18824,18 @@
 	icon_state = "cafe_alt"
 	},
 /area/metro/maintain/gen3)
+"qAf" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 1;
+	pixel_y = 18
+	},
+/obj/structure/bed/chair/comfy/black{
+	dir = 1;
+	pixel_y = 18
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
+/area/metro/maintain/gen3)
 "qAw" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -18719,6 +18857,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
+"qBK" = (
+/obj/map_effect/portal/master/side_b{
+	dir = 1;
+	portal_id = "to_casino"
+	},
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_8";
+	dir = 2
+	},
+/area/metro/main_tunel)
 "qBO" = (
 /obj/structure/fd/samosbor/light{
 	icon_state = "floor_corner_y_light";
@@ -18753,16 +18901,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
-"qDN" = (
-/obj/floor_decal/hull/corner{
-	dir = 8
-	},
-/obj/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "qEq" = (
 /turf/simulated/floor/exoplanet/grim_asphalt1,
 /area/metro/maintain/east)
@@ -18807,6 +18945,15 @@
 "qFU" = (
 /obj/fd_water/alt_ver1,
 /turf/simulated/floor/plating,
+/area/metro/main_tunel)
+"qGc" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_wood_b_8";
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
 /area/metro/main_tunel)
 "qGw" = (
 /obj/floor_decal/corner/red/bordercorner{
@@ -18937,6 +19084,8 @@
 /turf/simulated/floor/plating,
 /area/metro/maintain)
 "qLE" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "qMI" = (
@@ -19123,22 +19272,32 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/grim_wood_log,
 /area/metro/maintain/gen3)
+"qSc" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/machinery/light/small/readylight{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "qSD" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#526833"
 	},
 /area/metro/maintain/gen3)
-"qSV" = (
-/obj/floor_decal/hull{
-	dir = 8
+"qSI" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 10
 	},
-/obj/machinery/door/blast/regular{
-	can_use_tools = 0;
-	dir = 1
+/obj/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/dirt,
+/obj/machinery/light/small/readylight{
+	dir = 2
 	},
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "qTH" = (
 /obj/structure/fd/junk{
 	icon_state = "0,2"
@@ -19157,6 +19316,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
+"qTX" = (
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security_sm"
+	},
+/area/metro/main_tunel)
 "qUA" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/borderfloorblack{
@@ -19177,11 +19345,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
-"qUL" = (
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe_alt"
-	},
-/area/metro/main_tunel)
 "qUM" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/platform/shiva{
@@ -19300,24 +19463,6 @@
 /obj/structure/grille,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
-"qYr" = (
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 5
-	},
-/obj/machinery/light/small/readylight{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/east)
-"qYy" = (
-/obj/floor_decal/techfloor{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/monotile,
-/area/metro/main_tunel)
 "qYI" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 5
@@ -19346,6 +19491,15 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gas)
+"qZz" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_wood_b_2";
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "qZA" = (
 /obj/fd_water/alt_ver1{
 	layer = 2.1
@@ -19438,15 +19592,6 @@
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/gen3)
-"rfe" = (
-/obj/floor_decal/techfloor{
-	dir = 1
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/metal{
-	icon_state = "me_ti_gy"
-	},
 /area/metro/maintain/gen3)
 "rfV" = (
 /obj/floor_decal/corner_techfloor_grid{
@@ -19587,13 +19732,16 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/fd/muddirt,
 /area/metro/maintain/gen3)
-"rmP" = (
-/obj/structure/table/rack/samosbor/mod{
-	icon_state = "table_steel_r_1";
-	pixel_y = 0
+"rmG" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 5
 	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe"
+/turf/simulated/floor/plating,
+/area/metro/maintain/gen3)
+"rna" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_11"
 	},
 /area/metro/main_tunel)
 "rnr" = (
@@ -19719,6 +19867,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
+"rsu" = (
+/obj/floor_decal/hull{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "rsA" = (
 /obj/paint/merc,
 /turf/simulated/wall/r_wall,
@@ -19748,6 +19903,11 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south)
+"rth" = (
+/obj/structure/inflatable/wall,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "rtu" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 8
@@ -19755,6 +19915,10 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
+"rtS" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "ruj" = (
 /obj/paint/black,
 /turf/simulated/wall/r_wall,
@@ -19902,28 +20066,10 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
-"rAG" = (
-/obj/structure/table/rack/samosbor/mod{
-	icon_state = "table_wood_b_5";
-	pixel_y = 0
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe"
-	},
-/area/metro/main_tunel)
 "rBd" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/metro/maintain)
-"rBe" = (
-/obj/structure/table/rack/samosbor/mod{
-	icon_state = "table_wood_b_9";
-	pixel_y = 0
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe"
-	},
-/area/metro/main_tunel)
 "rBy" = (
 /turf/simulated/wall/walnut,
 /area/metro/maintain/gen3)
@@ -19959,12 +20105,6 @@
 	icon_state = "tile"
 	},
 /area/metro/maintain/east)
-"rDW" = (
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/carpet{
-	icon_state = "ca_da_re_5"
-	},
-/area/metro/main_tunel)
 "rEa" = (
 /obj/structure/railing/mapped{
 	dir = 8;
@@ -20013,13 +20153,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain)
-"rGA" = (
-/obj/structure/catwalk,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/metal{
-	icon_state = "me_pi_12"
-	},
-/area/metro/maintain/gen3)
 "rGC" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/cave_decor{
@@ -20230,27 +20363,21 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/blast_door)
-"rOa" = (
-/obj/floor_decal/hull/corner{
-	dir = 4
-	},
-/obj/floor_decal/hull/corner{
-	dir = 1
-	},
+"rPf" = (
 /obj/floor_decal/hull{
-	dir = 1
-	},
-/obj/map_effect/portal/line/side_b{
 	dir = 4
+	},
+/obj/map_effect/portal/master/side_b{
+	portal_id = "outside"
 	},
 /turf/simulated/floor/plating,
 /area/metro/main_tunel)
-"rOI" = (
-/obj/machinery/door/blast/regular{
-	can_use_tools = 0;
-	dir = 2
+"rPu" = (
+/obj/floor_decal/hull{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/monotile,
+/obj/map_effect/portal/line/side_b,
+/turf/simulated/floor/plating,
 /area/metro/main_tunel)
 "rPG" = (
 /obj/structure/vines/heavy6,
@@ -20304,12 +20431,29 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
+"rRk" = (
+/obj/floor_decal/hull{
+	dir = 1
+	},
+/obj/machinery/light/small/readylight,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "rRn" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
+"rRE" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 6
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "rSy" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 5
@@ -20356,6 +20500,16 @@
 	icon_state = "me_ti_gy"
 	},
 /area/metro/maintain/gen3)
+"rTY" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/machinery/light/small/readylight{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "rUi" = (
 /obj/structure/fd/cave_flora/glowing,
 /turf/simulated/floor/exoplanet/fd/drought,
@@ -20441,20 +20595,9 @@
 	},
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
+/obj/structure/fd/bs_spikes,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
-"rWf" = (
-/obj/floor_decal/spline/plain/black{
-	dir = 4
-	},
-/obj/floor_decal/spline/plain/black{
-	dir = 8
-	},
-/obj/structure/fd/mapping/screentext_triggermarker{
-	text_to_show = "Вы видите на полу явно недавние следы чьих-то ботинок."
-	},
-/turf/simulated/floor/exoplanet/samosbor/metal,
-/area/metro/maintain/gen3)
 "rWh" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
@@ -20589,13 +20732,6 @@
 /obj/random/single/lighter,
 /turf/simulated/floor/tiled/white,
 /area/metro/maintain/gas)
-"sfn" = (
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "sfs" = (
 /obj/floor_decal/industrial/warning{
 	dir = 5
@@ -20608,11 +20744,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/main_tunel)
-"sft" = (
+"sfF" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/carpet{
-	icon_state = "ca_da_re_9"
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security"
 	},
 /area/metro/main_tunel)
 "sgr" = (
@@ -20692,6 +20828,14 @@
 	unbreathable = 1;
 	adventure_mode = 0
 	})
+"siT" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_start";
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "sja" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
@@ -20730,13 +20874,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gas)
-"skV" = (
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "security"
-	},
-/area/metro/main_tunel)
 "sli" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
@@ -20764,17 +20901,14 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/metro/maintain/gen3)
-"smu" = (
-/obj/structure/table/rack/samosbor/mod{
-	icon_state = "table_ro_12";
-	pixel_y = 0
+"smo" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 5
 	},
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe_alt"
-	},
-/area/metro/main_tunel)
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "smJ" = (
 /obj/floor_decal/corner/red/border{
 	dir = 2
@@ -20884,6 +21018,12 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp1)
+"srI" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security"
+	},
+/area/metro/main_tunel)
 "ssf" = (
 /obj/machinery/light{
 	dir = 8;
@@ -20932,15 +21072,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain)
-"stF" = (
-/obj/structure/fd/samosbor/furniture3{
-	icon_state = "bench_start"
-	},
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/metro/main_tunel)
 "stX" = (
 /obj/floor_decal/corner/paleblue/full,
 /obj/machinery/bodyscanner{
@@ -20997,6 +21128,17 @@
 /obj/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/carpet/black,
 /area/metro/maintain/gen3)
+"svS" = (
+/obj/structure/bed/chair/office/comfy/black{
+	dir = 8;
+	pixel_y = 0;
+	pixel_x = -9
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "swx" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/mineral,
@@ -21147,6 +21289,11 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south)
+"sDQ" = (
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security"
+	},
+/area/metro/main_tunel)
 "sEG" = (
 /obj/floor_decal/industrial/outline/dark_red,
 /obj/decal/cleanable/dirt,
@@ -21339,16 +21486,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/main_tunel)
-"sPu" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/floor_decal/techfloor{
-	dir = 8
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/metro/main_tunel)
 "sPQ" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 10
@@ -21397,6 +21534,13 @@
 /obj/structure/rubble,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"sRu" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "sRC" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
@@ -21594,6 +21738,13 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain)
+"tcr" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/map_effect/portal/line/side_a,
+/turf/simulated/floor/plating,
+/area/metro/maintain/east)
 "tcF" = (
 /obj/structure/table/rack/samosbor{
 	icon_state = "table_fancy"
@@ -21734,15 +21885,6 @@
 "tjA" = (
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/east)
-"tjC" = (
-/obj/map_effect/portal/line/side_a{
-	dir = 2
-	},
-/turf/simulated/floor/exoplanet/samosbor/stairs{
-	icon_state = "stairs_8";
-	dir = 2
-	},
-/area/metro/main_tunel)
 "tjV" = (
 /obj/structure/table/standard,
 /obj/floor_decal/corner/red/half{
@@ -21762,11 +21904,14 @@
 /obj/fd_water/alt_ver1,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp1)
-"tlk" = (
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe"
+"tle" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_end";
+	dir = 1
 	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
 /area/metro/main_tunel)
 "tlP" = (
 /obj/floor_decal/corner_techfloor_grid{
@@ -21796,6 +21941,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/metro/maintain/east)
+"tnf" = (
+/obj/paint_stripe/gunmetal,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "tng" = (
 /obj/floor_decal/industrial/warning{
 	dir = 4
@@ -21892,14 +22041,27 @@
 /obj/structure/bed/chair/office,
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/east)
-"tsd" = (
-/obj/floor_decal/hull{
-	dir = 1
-	},
-/obj/machinery/light/small/readylight,
+"tru" = (
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
+/obj/structure/fd/building_stuff,
+/obj/structure/fd/building_stuff{
+	desc = "Just an pile of bricks.";
+	icon_state = "0,1";
+	name = "bricks";
+	pixel_y = 2;
+	pixel_x = -1;
+	density = 1
+	},
+/obj/structure/fd/building_stuff{
+	anchored = 0;
+	density = 1;
+	icon_state = "1,1";
+	pixel_y = 18;
+	pixel_x = -2;
+	name = "Barrel"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "tsE" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/wall/walnut,
@@ -21908,17 +22070,6 @@
 /obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/metro/maintain/south/kpp)
-"tsN" = (
-/obj/structure/bed/chair/office/comfy/black{
-	dir = 8;
-	pixel_y = 0;
-	pixel_x = -9
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe"
-	},
-/area/metro/main_tunel)
 "ttw" = (
 /obj/decal/cleanable/dirt,
 /obj/random/trash,
@@ -21974,27 +22125,11 @@
 	},
 /turf/simulated/floor/exoplanet/grim_asphalt1,
 /area/metro/maintain/east)
-"tyd" = (
-/obj/decal/cleanable/dirt,
-/obj/structure/fd/building_stuff,
-/obj/structure/fd/building_stuff{
-	desc = "Just an pile of bricks.";
-	icon_state = "0,1";
-	name = "bricks";
-	pixel_y = 2;
-	pixel_x = -1;
-	density = 1
-	},
-/obj/structure/fd/building_stuff{
-	anchored = 0;
-	density = 1;
-	icon_state = "1,1";
-	pixel_y = 18;
-	pixel_x = -2;
-	name = "Barrel"
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/east)
+"tyt" = (
+/obj/paint_stripe/gunmetal,
+/obj/paint/black,
+/turf/simulated/wall/r_wall,
+/area/metro/main_tunel)
 "tzr" = (
 /obj/structure/platform/kutjevo/rock{
 	dir = 1
@@ -22121,6 +22256,19 @@
 	dir = 8
 	},
 /obj/machinery/door/blast/regular/open,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
+"tEp" = (
+/obj/floor_decal/hull{
+	dir = 1
+	},
+/obj/decal/cleanable/blood{
+	icon_state = "u_guilty_l"
+	},
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/metro/main_tunel)
 "tEv" = (
@@ -22317,12 +22465,6 @@
 /obj/structure/vines/heavy1,
 /turf/unsimulated/mineral,
 /area/metro/maintain/south/kpp)
-"tOo" = (
-/turf/simulated/floor/exoplanet/samosbor/stairs{
-	icon_state = "stairs_8";
-	dir = 2
-	},
-/area/metro/main_tunel)
 "tOp" = (
 /obj/structure/fd/samosbor/floor_cable{
 	icon_state = "plated";
@@ -22339,17 +22481,6 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/metro/maintain/gas)
-"tPs" = (
-/obj/structure/fd/building_stuff{
-	icon_state = "1,1";
-	pixel_y = 15;
-	pixel_x = 8;
-	name = "Barrel";
-	desc = "Just an iron barrel.";
-	layer = 2.234
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/east)
 "tPD" = (
 /turf/simulated/floor/tiled/dark/monotile,
 /area/metro/main_tunel)
@@ -22442,17 +22573,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
-"tTw" = (
-/obj/structure/fd/samosbor/furniture3{
-	icon_state = "bench_mid";
-	dir = 2;
-	pixel_y = 12
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe"
-	},
-/area/metro/main_tunel)
 "tTx" = (
 /obj/machinery/light{
 	dir = 2
@@ -22513,23 +22633,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp)
-"tUZ" = (
-/obj/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/metro/main_tunel)
-"tVd" = (
-/obj/structure/table/rack/samosbor/mod{
-	icon_state = "table_ro_4";
-	pixel_y = 0
-	},
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe_alt"
-	},
-/area/metro/main_tunel)
 "tVD" = (
 /obj/floor_decal/borderfloorblack{
 	dir = 1
@@ -22570,14 +22673,6 @@
 	},
 /turf/simulated/floor/exoplanet/samosbor/env,
 /area/metro/maintain/gen3)
-"tXi" = (
-/obj/floor_decal/hull{
-	dir = 4
-	},
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "tXk" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/borderfloorblack{
@@ -22625,6 +22720,15 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
+"tYn" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 4;
+	id_tag = porno
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/maintain/east)
 "tYt" = (
 /obj/paint/merc,
 /obj/landmark/damager,
@@ -22683,6 +22787,25 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white/monotile,
+/area/metro/maintain/east)
+"ucu" = (
+/obj/structure/catwalk,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_pi_3"
+	},
+/area/metro/maintain/gen3)
+"udb" = (
+/obj/structure/fd/building_stuff{
+	anchored = 0;
+	density = 1;
+	icon_state = "2,1";
+	pixel_x = 9;
+	pixel_y = 12;
+	name = "Barrel"
+	},
+/turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "udl" = (
 /obj/decal/cleanable/dirt,
@@ -22747,10 +22870,34 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
+"ueH" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
+"ueY" = (
+/obj/floor_decal/hull{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "ufl" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain)
+"ufN" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 5
+	},
+/obj/machinery/light/small/readylight{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "ufT" = (
 /obj/structure/vines/heavy3,
 /turf/simulated/wall/invincible/blend/jungle,
@@ -22781,6 +22928,12 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp)
+"uhs" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "ujC" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/platform/shiva,
@@ -22905,6 +23058,15 @@
 	icon_state = "bronze_floor"
 	},
 /area/metro/maintain/gen3)
+"upN" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "sofa_g_end"
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "uqH" = (
 /obj/floor_decal/borderfloorblack,
 /obj/floor_decal/corner/orange/border{
@@ -23037,6 +23199,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain)
+"uvi" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_5"
+	},
+/area/metro/main_tunel)
 "uvU" = (
 /obj/floor_decal/corner_techfloor_grid/full{
 	dir = 2
@@ -23204,16 +23372,6 @@
 	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/metro/maintain/east)
-"uBp" = (
-/obj/structure/bed/chair/office/comfy/red{
-	dir = 4;
-	pixel_y = 6;
-	pixel_x = 9
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "security_bi"
-	},
-/area/metro/main_tunel)
 "uCI" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/plasticflaps/rocks{
@@ -23225,6 +23383,12 @@
 /obj/decal/cleanable/blood/splatter,
 /turf/simulated/floor/exoplanet/gravel,
 /area/metro/maintain/gas)
+"uCT" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ve_bi"
+	},
+/area/metro/maintain/gen3)
 "uCV" = (
 /obj/structure/closet/secure_closet/personal/empty,
 /obj/structure/window/reinforced{
@@ -23346,13 +23510,14 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gas)
-"uIC" = (
-/obj/item/ammo_casing/rifle/used,
-/obj/machinery/door/blast/regular{
-	can_use_tools = 0;
-	dir = 1
+"uIv" = (
+/obj/structure/table/steel,
+/obj/item/device/flashlight/maglight{
+	pixel_y = 10
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security_bi"
+	},
 /area/metro/main_tunel)
 "uJf" = (
 /obj/decal/cleanable/liquid_fuel,
@@ -23481,11 +23646,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/east)
-"uLY" = (
-/obj/structure/inflatable/door,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/east)
 "uMf" = (
 /obj/fd_water/alt_ver1{
 	layer = 2.1
@@ -23527,12 +23687,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
-"uMW" = (
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/carpet{
-	icon_state = "ca_da_re_7"
-	},
-/area/metro/main_tunel)
 "uNh" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
@@ -23585,13 +23739,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
-"uPH" = (
-/obj/floor_decal/hull/corner{
-	dir = 4
-	},
-/obj/floor_decal/industrial/warning,
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "uPN" = (
 /obj/machinery/button/switch{
 	pixel_x = -11;
@@ -23601,13 +23748,12 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/metro/maintain/gen1)
 "uQn" = (
-/obj/structure/fd/junk{
-	icon_state = "0,3";
-	layer = 2.21
+/obj/floor_decal/hull{
+	dir = 8
 	},
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/grim_concrete_tile3,
-/area/metro/maintain/gen3)
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "uQq" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4
@@ -23757,14 +23903,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
-"uZM" = (
-/obj/structure/fd/samosbor/furniture3{
-	icon_state = "bench_end"
-	},
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/metro/main_tunel)
 "vac" = (
 /obj/structure/fd/grim_walls/metal{
 	icon_state = "rusty_wall-9"
@@ -23781,17 +23919,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south)
-"vax" = (
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 10
-	},
-/obj/decal/cleanable/liquid_fuel,
-/obj/decal/cleanable/dirt,
-/obj/machinery/light/small/readylight{
-	dir = 2
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/east)
 "vaY" = (
 /obj/structure/showcase{
 	bound_height = 96;
@@ -23872,6 +23999,17 @@
 /obj/structure/inflatable/wall,
 /turf/simulated/floor/exoplanet/gravel,
 /area/metro/maintain/gas)
+"veK" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 6
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "vfd" = (
 /obj/structure/table/rack/samosbor/mod{
 	icon_state = "table_steel_r_12";
@@ -23893,11 +24031,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen1)
-"vgb" = (
-/obj/floor_decal/industrial/warning,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/metro/main_tunel)
 "vgf" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -24108,13 +24241,6 @@
 "vrZ" = (
 /turf/simulated/wall/invincible/blend/hybrisa_spaceport,
 /area/metro/maintain/east)
-"vsc" = (
-/obj/floor_decal/borderfloorblack{
-	dir = 8
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/metro/main_tunel)
 "vsp" = (
 /obj/floor_decal/messygrass{
 	dir = 4
@@ -24162,16 +24288,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/gravel,
 /area/metro/maintain/gas)
-"vvo" = (
-/obj/floor_decal/hull/corner{
-	dir = 1
-	},
-/obj/floor_decal/hull/corner{
-	dir = 4
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "vvy" = (
 /obj/floor_decal/step{
 	color = "grey"
@@ -24298,14 +24414,6 @@
 /obj/structure/ore_box,
 /turf/simulated/floor/plating,
 /area/metro/maintain)
-"vGo" = (
-/obj/structure/fd/samosbor/furniture3{
-	icon_state = "sofa_r_mid"
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe_alt"
-	},
-/area/metro/main_tunel)
 "vGq" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 9
@@ -24353,15 +24461,6 @@
 	icon_state = "me_ti_gy"
 	},
 /area/metro/maintain/gen3)
-"vHq" = (
-/obj/structure/fd/building_stuff,
-/obj/structure/largecrate{
-	icon_state = "woodcrate";
-	icon = 'mods/_fd/fd_assets/icons/is12/war_crates.dmi';
-	pixel_y = 6
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/east)
 "vJc" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 10
@@ -24393,21 +24492,6 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/metro/maintain/east)
-"vJZ" = (
-/obj/structure/fd/samosbor/furniture3{
-	icon_state = "sofa_g_mid"
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe"
-	},
-/area/metro/main_tunel)
-"vKN" = (
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/metro/main_tunel)
 "vLx" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 2
@@ -24485,21 +24569,6 @@
 	color = "#5F773B"
 	},
 /area/metro/maintain/gen3)
-"vPj" = (
-/obj/decal/cleanable/dirt,
-/obj/structure/largecrate{
-	icon_state = "woodcrate";
-	icon = 'mods/_fd/fd_assets/icons/is12/war_crates.dmi';
-	pixel_y = 6
-	},
-/obj/structure/largecrate{
-	icon_state = "woodcrate";
-	icon = 'mods/_fd/fd_assets/icons/is12/war_crates.dmi';
-	pixel_y = 20;
-	pixel_x = -16
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/east)
 "vPt" = (
 /obj/floor_decal/corner/paleblue/border{
 	dir = 8
@@ -24671,6 +24740,13 @@
 	icon_state = "me_ti_gy"
 	},
 /area/metro/maintain/gen3)
+"vWZ" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "sofa_gr_start"
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "vXa" = (
 /obj/floor_decal/industrial/warning/corner{
 	dir = 8;
@@ -24752,6 +24828,16 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/grim_metal2,
 /area/metro/maintain/east)
+"wbR" = (
+/obj/floor_decal/hull/corner{
+	dir = 8
+	},
+/obj/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "wcl" = (
 /obj/floor_decal/borderfloorblack,
 /obj/floor_decal/corner/orange/border{
@@ -24920,12 +25006,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
-"wld" = (
-/obj/decal/cleanable/liquid_fuel,
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/east)
 "wna" = (
 /obj/floor_decal/corner_techfloor_grid,
 /turf/simulated/floor/tiled/techmaint,
@@ -24995,13 +25075,6 @@
 /obj/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
-"wqf" = (
-/obj/structure/fd/samosbor/furniture3{
-	icon_state = "bench_start"
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/metro/main_tunel)
 "wqg" = (
 /obj/structure/catwalk,
 /obj/decal/cleanable/dirt,
@@ -25010,6 +25083,22 @@
 	icon_state = "me_pi_3"
 	},
 /area/metro/maintain/east)
+"wqm" = (
+/obj/machinery/light/small/readylight{
+	dir = 1
+	},
+/obj/map_effect/portal/master/side_a{
+	dir = 4;
+	portal_id = "toend"
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
+"wqF" = (
+/obj/structure/bed/chair/office/comfy/black,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "wrm" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 2
@@ -25017,15 +25106,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
-"wrz" = (
-/obj/floor_decal/hull/corner{
-	dir = 8
-	},
-/obj/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "wrP" = (
 /obj/floor_decal/techfloor,
 /obj/structure/fd/samosbor/machinery3{
@@ -25068,11 +25148,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
-"wsA" = (
-/obj/paint/black,
-/obj/paint_stripe/yellow,
-/turf/simulated/wall/r_wall,
-/area/metro)
 "wsH" = (
 /obj/floor_decal/hull{
 	dir = 8
@@ -25092,11 +25167,6 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
-"wsU" = (
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/metro/main_tunel)
 "wtD" = (
 /obj/floor_decal/borderfloorblack,
 /obj/floor_decal/corner{
@@ -25149,6 +25219,15 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/metro/maintain/east)
+"wuU" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_end"
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "wvq" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 9
@@ -25187,6 +25266,15 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gas)
+"wxw" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_wood_b_12";
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "wyz" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -25334,18 +25422,13 @@
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/east)
-"wHj" = (
-/obj/floor_decal/hull{
-	dir = 1
-	},
-/obj/map_effect/portal/line/side_a{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "wIk" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/ore_box,
+/turf/simulated/floor/plating,
+/area/metro/maintain/east)
+"wIT" = (
+/obj/map_effect/portal/line/side_a,
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
 "wJp" = (
@@ -25458,6 +25541,17 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/metro/maintain)
+"wMf" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 6
+	},
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 10
+	},
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/bs_vines,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "wMI" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 10
@@ -25469,19 +25563,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
-"wNL" = (
-/obj/floor_decal/hull/corner,
-/obj/floor_decal/hull/corner{
-	dir = 8
-	},
-/obj/floor_decal/hull{
-	dir = 2
-	},
-/obj/map_effect/portal/line/side_b{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "wOj" = (
 /obj/structure/table,
 /obj/random/single/cola,
@@ -25592,6 +25673,11 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
+"wQN" = (
+/obj/floor_decal/industrial/warning,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "wQV" = (
 /obj/structure/fd/decorative_pipes{
 	dir = 4;
@@ -25702,6 +25788,12 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp)
+"wSx" = (
+/obj/machinery/light/small/readylight{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "wSC" = (
 /obj/floor_decal/techfloor/orange{
 	dir = 1
@@ -25772,14 +25864,6 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/gas)
-"wWX" = (
-/obj/floor_decal/hull{
-	dir = 8
-	},
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "wYl" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -25831,19 +25915,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
-"wZX" = (
-/obj/floor_decal/hull{
-	dir = 1
-	},
-/obj/decal/cleanable/blood{
-	icon_state = "u_guilty_l"
-	},
-/obj/machinery/door/blast/regular{
-	can_use_tools = 0;
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "wZZ" = (
 /obj/structure/table/rack/samosbor/mod{
 	icon_state = "table_da_12"
@@ -25887,13 +25958,6 @@
 "xbk" = (
 /turf/simulated/wall/invincible/blend/almayer_white,
 /area/metro/maintain/east)
-"xbw" = (
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/samosbor/carpet{
-	icon_state = "ca_da_re_7"
-	},
-/area/metro/main_tunel)
 "xbA" = (
 /obj/structure/table/rack/samosbor/mod{
 	icon_state = "table_da_10"
@@ -25928,12 +25992,6 @@
 /obj/decal/cleanable/dirt,
 /obj/machinery/light,
 /turf/simulated/floor/plating,
-/area/metro/maintain/east)
-"xcI" = (
-/obj/machinery/light/small/readylight{
-	dir = 2
-	},
-/turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "xdx" = (
 /obj/floor_decal/corner_techfloor_grid{
@@ -26042,9 +26100,13 @@
 	},
 /area/metro/maintain/gen3)
 "xhZ" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 9
+	},
+/obj/decal/cleanable/liquid_fuel,
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "xiC" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
@@ -26077,6 +26139,10 @@
 	unbreathable = 1;
 	adventure_mode = 0
 	})
+"xjG" = (
+/obj/floor_decal/hull/corner,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "xjO" = (
 /obj/structure/fd/fuse_box{
 	dir = 8
@@ -26144,15 +26210,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south)
-"xmH" = (
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 6
-	},
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/liquid_fuel,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/east)
 "xmQ" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 9
@@ -26290,6 +26347,13 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp1)
+"xsL" = (
+/obj/floor_decal/hull/corner{
+	dir = 1
+	},
+/obj/floor_decal/industrial/warning,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "xsY" = (
 /obj/structure/catwalk,
 /obj/decal/cleanable/dirt,
@@ -26341,6 +26405,12 @@
 /obj/item/crowbar,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
+"xvq" = (
+/obj/floor_decal/techfloor{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/main_tunel)
 "xvQ" = (
 /turf/simulated/wall/invincible/blend/almayer_white{
 	icon_state = "almayer_deco_wall3"
@@ -26443,22 +26513,19 @@
 /obj/decal/cleanable/generic,
 /turf/simulated/floor/plating,
 /area/metro/maintain/south/kpp)
-"xyK" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/floor_decal/techfloor{
-	dir = 8
-	},
-/obj/structure/fd/grim_lamp{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/monotile,
-/area/metro/main_tunel)
 "xyM" = (
 /obj/structure/flora/tall/fourth,
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/metro/maintain/gen3)
+"xAo" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/map_effect/portal/master/side_a{
+	portal_id = "outside"
+	},
+/turf/simulated/floor/plating,
+/area/metro/maintain/east)
 "xAp" = (
 /obj/structure/catwalk,
 /turf/simulated/floor/exoplanet/samosbor/metal{
@@ -26519,14 +26586,6 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/metro/maintain/gen3)
-"xCm" = (
-/obj/structure/fd/samosbor/furniture3{
-	icon_state = "sofa_gr_start"
-	},
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe_alt"
-	},
-/area/metro/main_tunel)
 "xCD" = (
 /obj/machinery/light{
 	dir = 1
@@ -26696,13 +26755,21 @@
 /obj/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/metro/maintain/south)
-"xKy" = (
-/obj/structure/fd/samosbor/furniture3{
-	icon_state = "bench_start";
+"xKx" = (
+/obj/map_effect/portal/line/side_b{
 	dir = 1
 	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_8";
+	dir = 2
+	},
+/area/metro/main_tunel)
+"xKy" = (
+/obj/floor_decal/hull{
+	dir = 8
+	},
+/obj/map_effect/portal/line/side_b,
+/turf/simulated/floor/plating,
 /area/metro/main_tunel)
 "xLp" = (
 /obj/floor_decal/corner_techfloor_grid{
@@ -26733,26 +26800,11 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
-"xMR" = (
-/obj/floor_decal/borderfloorblack{
-	dir = 8
-	},
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/metro/main_tunel)
 "xNr" = (
 /obj/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/metro/maintain/east)
-"xOp" = (
-/obj/floor_decal/hull{
-	dir = 4
-	},
-/obj/map_effect/portal/line/side_a,
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
 "xOy" = (
@@ -26823,6 +26875,16 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south)
+"xQT" = (
+/obj/floor_decal/techfloor{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/main_tunel)
 "xRu" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 10
@@ -26885,6 +26947,11 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
+"xTe" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "xTI" = (
 /obj/machinery/atmospherics/unary/tank/air,
 /obj/floor_decal/industrial/outline/blue,
@@ -26912,16 +26979,11 @@
 /obj/paint/red,
 /turf/simulated/wall/r_wall,
 /area/metro)
-"xVB" = (
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 5
+"xVN" = (
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe_alt"
 	},
-/obj/decal/cleanable/dirt,
-/obj/machinery/light/small/readylight{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/east)
+/area/metro/main_tunel)
 "xVP" = (
 /obj/structure/fd/junk{
 	icon_state = "5,0"
@@ -26943,6 +27005,27 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/east)
+"xWH" = (
+/obj/floor_decal/hull{
+	dir = 8
+	},
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
+"xXm" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_ro_4";
+	pixel_y = 0
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe_alt"
+	},
+/area/metro/main_tunel)
 "xXy" = (
 /obj/item/storage/cargo_containers{
 	icon_state = "grant_rm"
@@ -27007,25 +27090,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/gen1)
-"xZB" = (
-/obj/map_effect/portal/line/side_a{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "xZC" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/stairs,
 /area/metro/maintain/east)
-"xZW" = (
-/obj/floor_decal/hull{
-	dir = 2
-	},
-/obj/map_effect/portal/line/side_a{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/metro/main_tunel)
 "yaC" = (
 /obj/floor_decal/hull/corner,
 /obj/floor_decal/industrial/warning{
@@ -27033,6 +27101,19 @@
 	},
 /obj/fd_water/alt_ver1,
 /turf/simulated/floor/plating,
+/area/metro/main_tunel)
+"yaT" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
+"yaW" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 6
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
 /area/metro/main_tunel)
 "yba" = (
 /obj/floor_decal/industrial/warning{
@@ -27100,6 +27181,13 @@
 	},
 /turf/simulated/floor/exoplanet/gravel,
 /area/metro/maintain/gas)
+"ydH" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "ydM" = (
 /obj/floor_decal/corner_techfloor_grid/full{
 	dir = 4
@@ -27107,6 +27195,15 @@
 /obj/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp)
+"yec" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_start";
+	pixel_y = 12
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "yek" = (
 /obj/structure/fd/mapping/placeholder,
 /turf/unsimulated/mineral,
@@ -27155,12 +27252,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/blast_door)
-"yeN" = (
-/obj/wallframe_spawn/reinforced,
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "security"
-	},
-/area/metro/main_tunel)
 "yeW" = (
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
 /obj/decal/cleanable/dirt,
@@ -27180,6 +27271,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/metro/maintain/east)
+"yfs" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 8
+	},
+/obj/floor_decal/borderfloorblack{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "yfy" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 10
@@ -27233,12 +27334,6 @@
 /obj/structure/inflatable/door,
 /turf/simulated/floor/exoplanet/gravel,
 /area/metro/maintain/gas)
-"ygV" = (
-/obj/structure/bed/chair/office/comfy/black,
-/turf/simulated/floor/exoplanet/samosbor/theme{
-	icon_state = "cafe"
-	},
-/area/metro/main_tunel)
 "ygX" = (
 /turf/simulated/floor/plating,
 /area/metro/maintain)
@@ -27320,12 +27415,6 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/metro/maintain)
-"ylF" = (
-/obj/floor_decal/borderfloorblack{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/metro/main_tunel)
 "ylW" = (
 /obj/floor_decal/industrial/loading{
 	dir = 4
@@ -28185,14 +28274,14 @@ kUv
 kUv
 kUv
 kUv
-pKA
-pKA
-pKA
-pKA
-pKA
-pKA
-pKA
-pKA
+fuE
+fuE
+fuE
+fuE
+fuE
+fuE
+fuE
+fuE
 kUv
 kUv
 kUv
@@ -28387,14 +28476,14 @@ kUv
 kUv
 kUv
 kUv
-pKA
+fuE
 kUv
 kUv
 kUv
 kUv
 kUv
 kUv
-pKA
+fuE
 kUv
 kUv
 kUv
@@ -28589,14 +28678,14 @@ kUv
 kUv
 kUv
 kUv
-pKA
+fuE
 kUv
 kUv
 kUv
 kUv
 kUv
 kUv
-pKA
+fuE
 kUv
 kUv
 kUv
@@ -28791,17 +28880,17 @@ kUv
 kUv
 kUv
 kUv
-pKA
+fuE
 kUv
 kUv
 kUv
 kUv
 kUv
 kUv
-pKA
-pKA
-pKA
-pKA
+fuE
+fuE
+fuE
+fuE
 kUv
 kUv
 kUv
@@ -28993,17 +29082,17 @@ kUv
 kUv
 kUv
 kUv
-bcu
-bcu
-bcu
-bcu
-bcu
-bcu
-bcu
-bcu
+lns
+lns
+lns
+lns
+lns
+lns
+lns
+lns
 kUv
 kUv
-pKA
+fuE
 kUv
 kUv
 kUv
@@ -29195,17 +29284,17 @@ kUv
 kUv
 kUv
 kUv
-bcu
-gaU
-okh
-okh
-okh
-okh
-gaU
-bcu
+lns
+hgh
+aSA
+aSA
+aSA
+aSA
+hgh
+lns
 kUv
 kUv
-pKA
+fuE
 kUv
 kUv
 kUv
@@ -29393,27 +29482,27 @@ kUv
 kUv
 kUv
 kUv
-pKA
-pKA
-pKA
-pKA
-bcu
-lAe
-okh
-okh
-okh
-okh
-lAe
-bcu
-bcu
-bcu
-bcu
-ian
-ian
-ian
-ian
-ian
-ian
+fuE
+fuE
+fuE
+fuE
+lns
+phv
+aSA
+aSA
+aSA
+aSA
+phv
+lns
+lns
+lns
+lns
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
 kUv
 kUv
 kUv
@@ -29595,27 +29684,27 @@ kUv
 kUv
 kUv
 kUv
+oIs
+oIs
+oIs
+oIs
+qTX
+phv
+bkf
+ghL
+ghL
+ghL
+ghL
+ghL
+ghL
+gSM
+pVY
+iId
+iId
+iId
+iId
+qBK
 oTV
-oTV
-oTV
-oTV
-dDM
-lAe
-piZ
-pqW
-pqW
-pqW
-pqW
-pqW
-pqW
-eNi
-gVS
-tOo
-tOo
-tOo
-tOo
-gdY
-ian
 kUv
 kUv
 kUv
@@ -29797,27 +29886,27 @@ kUv
 kUv
 kUv
 kUv
+oIs
+oIs
+oIs
+oIs
+qTX
+phv
+kLv
+eoc
+eoc
+eoc
+eoc
+eoc
+eoc
+eoV
+pVY
+iId
+iId
+iId
+iId
+xKx
 oTV
-oTV
-oTV
-oTV
-dDM
-lAe
-dEo
-dUa
-dUa
-dUa
-dUa
-dUa
-dUa
-iKJ
-gVS
-tOo
-tOo
-tOo
-tOo
-fKx
-ian
 kUv
 kUv
 kUv
@@ -29999,27 +30088,27 @@ kUv
 kUv
 kUv
 kUv
-pKA
-pKA
-pKA
-pKA
-bcu
-lAe
-okh
-okh
-okh
-okh
-lAe
-bcu
-bcu
-bcu
-bcu
-ian
-ian
-ian
-ian
-ian
-ian
+fuE
+fuE
+fuE
+fuE
+lns
+phv
+aSA
+aSA
+aSA
+aSA
+phv
+lns
+lns
+lns
+lns
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
 kUv
 kUv
 kUv
@@ -30205,17 +30294,17 @@ kUv
 kUv
 kUv
 kUv
-bcu
-gaU
-okh
-okh
-okh
-okh
-gaU
-bcu
+lns
+hgh
+aSA
+aSA
+aSA
+aSA
+hgh
+lns
 kUv
 kUv
-pKA
+fuE
 kUv
 kUv
 kUv
@@ -30407,17 +30496,17 @@ kUv
 kUv
 kUv
 kUv
-bcu
-bcu
-bcu
-bcu
-bcu
-bcu
-bcu
-bcu
+lns
+lns
+lns
+lns
+lns
+lns
+lns
+lns
 kUv
 kUv
-pKA
+fuE
 kUv
 kUv
 kUv
@@ -30609,17 +30698,17 @@ kUv
 kUv
 kUv
 kUv
-pKA
+fuE
 kUv
 kUv
 kUv
 kUv
 kUv
 kUv
-pKA
-pKA
-pKA
-pKA
+fuE
+fuE
+fuE
+fuE
 kUv
 kUv
 kUv
@@ -30811,14 +30900,14 @@ kUv
 kUv
 kUv
 kUv
-pKA
+fuE
 kUv
 kUv
 kUv
 kUv
 kUv
 kUv
-pKA
+fuE
 kUv
 kUv
 kUv
@@ -31013,14 +31102,14 @@ kUv
 kUv
 kUv
 kUv
-pKA
+fuE
 kUv
 kUv
 kUv
 kUv
 kUv
 kUv
-pKA
+fuE
 kUv
 kUv
 kUv
@@ -31215,14 +31304,14 @@ kUv
 kUv
 kUv
 kUv
-pKA
-pKA
-pKA
-pKA
-pKA
-pKA
-pKA
-pKA
+fuE
+fuE
+fuE
+fuE
+fuE
+fuE
+fuE
+fuE
 kUv
 kUv
 kUv
@@ -41398,7 +41487,7 @@ jJn
 kXy
 hcI
 tQd
-xhZ
+oUw
 hcI
 tQd
 jJn
@@ -41597,12 +41686,12 @@ kUv
 kUv
 kUv
 jJn
-nkL
-wNL
-rOa
+mZO
+jAP
+aus
 bOX
-wNL
-rOa
+jAP
+aus
 jJn
 kUv
 kUv
@@ -42003,7 +42092,7 @@ kUv
 jJn
 kXy
 hcI
-aFx
+rsu
 kXy
 hcI
 tQd
@@ -42205,7 +42294,7 @@ kUv
 jJn
 kXy
 hcI
-aFx
+rsu
 kXy
 hcI
 tQd
@@ -42610,7 +42699,7 @@ jJn
 kXy
 hcI
 tQd
-xhZ
+oUw
 hcI
 tQd
 jJn
@@ -42811,8 +42900,8 @@ kUv
 jJn
 kXy
 hcI
-aFx
-dKz
+rsu
+dDC
 hcI
 tQd
 jJn
@@ -43013,8 +43102,8 @@ kUv
 jJn
 kXy
 hcI
-aHz
-xhZ
+auN
+oUw
 hcI
 nEY
 jJn
@@ -43213,10 +43302,10 @@ kUv
 kUv
 kUv
 jJn
-xhZ
-dFb
-aHz
-xhZ
+oUw
+qnP
+auN
+oUw
 hcI
 tQd
 jJn
@@ -43415,11 +43504,11 @@ kUv
 kUv
 kUv
 jJn
-xhZ
-dFb
-kQT
-dKz
-nyi
+oUw
+qnP
+ueY
+dDC
+omH
 tQd
 jJn
 kUv
@@ -43617,10 +43706,10 @@ kUv
 kUv
 kUv
 jJn
-loZ
-nyi
-aFx
-dKz
+ail
+omH
+rsu
+dDC
 hcI
 tQd
 jJn
@@ -43808,7 +43897,7 @@ kUv
 jJn
 cFU
 iQI
-wZX
+tEp
 cFU
 iQI
 aol
@@ -43819,11 +43908,11 @@ kUv
 kUv
 kUv
 jJn
-xhZ
-nyi
-aHz
-mTu
-nyi
+oUw
+omH
+auN
+uhs
+omH
 tQd
 jJn
 kUv
@@ -44021,11 +44110,11 @@ kUv
 kUv
 kUv
 jJn
-xhZ
-nyi
-aHz
-sfn
-dFb
+oUw
+omH
+auN
+sRu
+qnP
 tQd
 jJn
 kUv
@@ -44223,11 +44312,11 @@ kUv
 kUv
 kUv
 jJn
-xhZ
-nyi
-aHz
-dKz
-nyi
+oUw
+omH
+auN
+dDC
+omH
 nEY
 jJn
 kUv
@@ -44403,7 +44492,7 @@ uDJ
 uDJ
 uDJ
 uDJ
-pGZ
+fjU
 uDJ
 uDJ
 uDJ
@@ -44427,9 +44516,9 @@ kUv
 jJn
 kXy
 hcI
-aFx
-mTu
-dFb
+rsu
+uhs
+qnP
 tQd
 jJn
 kUv
@@ -44596,19 +44685,19 @@ vTz
 kUv
 kUv
 kUv
-fIy
-guN
-fzS
+aVl
+rPf
+qSc
 tJB
-fIy
+aVl
 tJB
-fIy
+aVl
 tJB
-kAQ
+rTY
 tJB
 imF
 tJB
-fzS
+qSc
 tJB
 arf
 tJB
@@ -44621,17 +44710,17 @@ kXy
 hcI
 tQd
 sRI
-bqD
+xjG
 tJB
-jck
+cGD
 tJB
 kUv
 jJn
 kXy
 hcI
-aFx
-xhZ
-nyi
+rsu
+oUw
+omH
 tQd
 jJn
 kUv
@@ -44799,10 +44888,10 @@ kUv
 kUv
 kUv
 pft
-gaY
+xKy
 pft
 pft
-enc
+uQn
 pft
 pft
 pft
@@ -44823,17 +44912,17 @@ kXy
 hcI
 tQd
 kXy
-wrz
+ncJ
 pft
-jck
+cGD
 pft
 kUv
 jJn
 avu
 hcI
-aHz
-dKz
-dFb
+auN
+dDC
+qnP
 tQd
 jJn
 kUv
@@ -45000,14 +45089,14 @@ kUv
 kUv
 kUv
 kUv
-xhZ
-byA
+oUw
+qpZ
 kXy
 kXy
-xhZ
-xhZ
-xhZ
-xhZ
+oUw
+oUw
+oUw
+oUw
 kXy
 kXy
 gmO
@@ -45027,15 +45116,15 @@ tQd
 kXy
 pBp
 kXy
-jck
+cGD
 kXy
 kUv
 jJn
 kXy
 hcI
-aFx
-xhZ
-nyi
+rsu
+oUw
+omH
 tQd
 jJn
 kUv
@@ -45203,9 +45292,9 @@ kUv
 kUv
 kUv
 tJB
-mQs
+rPu
 tJB
-fIy
+aVl
 tJB
 tJB
 tJB
@@ -45227,17 +45316,17 @@ kXy
 hcI
 tQd
 kXy
-fSB
+apE
 tJB
-jck
+cGD
 tJB
 kUv
 jJn
 kXy
 hcI
-aFx
-xhZ
-nyi
+rsu
+oUw
+omH
 tQd
 jJn
 kUv
@@ -45405,18 +45494,18 @@ kUv
 kUv
 kUv
 pft
-gaY
-bvC
+xKy
+pHe
 pft
 pft
 pft
 pft
 pft
-bvC
+pHe
 pft
 tEd
 pft
-bvC
+pHe
 pft
 wsH
 pft
@@ -45428,18 +45517,18 @@ tQd
 kXy
 hcI
 tQd
-dfu
-orG
+gUw
+lWV
 pft
-jck
+cGD
 pft
 kUv
 jJn
 kXy
 hcI
-aFx
-xhZ
-nyi
+rsu
+oUw
+omH
 nEY
 jJn
 kUv
@@ -45627,7 +45716,7 @@ kXy
 xRM
 aOa
 tQd
-xhZ
+oUw
 hcI
 tQd
 pBp
@@ -45828,7 +45917,7 @@ ayj
 kXy
 vXa
 sYr
-vvo
+hel
 kXy
 hUR
 qHz
@@ -45841,7 +45930,7 @@ kUv
 jJn
 kXy
 hcI
-aFx
+rsu
 kXy
 hcI
 tQd
@@ -46245,9 +46334,9 @@ kUv
 jJn
 kXy
 hcI
-aFx
-xhZ
-nyi
+rsu
+oUw
+omH
 tQd
 jJn
 kUv
@@ -46434,7 +46523,7 @@ kUv
 jJn
 kXy
 hcI
-aFx
+rsu
 kXy
 hcI
 tQd
@@ -46448,8 +46537,8 @@ jJn
 kXy
 hcI
 tQd
-xhZ
-nyi
+oUw
+omH
 tQd
 jJn
 kUv
@@ -46636,9 +46725,9 @@ kUv
 jJn
 kXy
 hcI
-aFx
+rsu
 kXy
-nyi
+omH
 tQd
 jJn
 kUv
@@ -46649,8 +46738,8 @@ kUv
 jJn
 kXy
 hcI
-aFx
-xhZ
+rsu
+oUw
 hcI
 nEY
 jJn
@@ -46838,8 +46927,8 @@ kUv
 jJn
 avu
 hcI
-aFx
-xhZ
+rsu
+oUw
 hcI
 tQd
 jJn
@@ -46851,7 +46940,7 @@ kUv
 jJn
 kXy
 hcI
-aFx
+rsu
 kXy
 hcI
 tQd
@@ -47039,9 +47128,9 @@ kUv
 kUv
 jJn
 kXy
-nyi
+omH
 tQd
-xhZ
+oUw
 hcI
 tQd
 jJn
@@ -47053,7 +47142,7 @@ kUv
 jJn
 kXy
 hcI
-aFx
+rsu
 kXy
 hcI
 tQd
@@ -47242,7 +47331,7 @@ kUv
 jJn
 kXy
 hcI
-aFx
+rsu
 kXy
 hcI
 tQd
@@ -47255,7 +47344,7 @@ kUv
 jJn
 avu
 hcI
-aFx
+rsu
 kXy
 hcI
 tQd
@@ -47456,7 +47545,7 @@ kUv
 kUv
 jJn
 kXy
-nyi
+omH
 tQd
 kXy
 hcI
@@ -47645,11 +47734,11 @@ kUv
 kUv
 jJn
 kXy
-nyi
+omH
 tQd
 kXy
-nyi
-aFx
+omH
+rsu
 jJn
 kUv
 kUv
@@ -47847,11 +47936,11 @@ kUv
 kUv
 jJn
 kXy
-nyi
-aFx
+omH
+rsu
 kXy
-nyi
-aFx
+omH
+rsu
 jJn
 kUv
 kUv
@@ -47901,11 +47990,11 @@ kUv
 kUv
 kUv
 kUv
-ian
-ian
-mdG
-ian
-ian
+oTV
+oTV
+atC
+oTV
+oTV
 kUv
 kUv
 kUv
@@ -48049,9 +48138,9 @@ kUv
 kUv
 jJn
 avu
-nyi
-aFx
-xhZ
+omH
+rsu
+oUw
 hcI
 tQd
 jJn
@@ -48092,33 +48181,33 @@ kUv
 kUv
 kUv
 kUv
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-iHj
-uBp
-iTS
-ian
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+nfT
+hSO
+sDQ
+oTV
 kUv
 kUv
 kUv
 kUv
-ian
-ian
-ian
-ian
-ian
-ian
-ian
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
 kUv
 kUv
 kUv
@@ -48251,9 +48340,9 @@ kUv
 kUv
 jJn
 kXy
-nyi
-aFx
-sfn
+omH
+rsu
+sRu
 hcI
 tQd
 jJn
@@ -48294,33 +48383,33 @@ kUv
 kUv
 kUv
 kUv
-ian
-qqm
-nhS
-drC
-uMW
-uMW
-uMW
-uMW
-rDW
-qUL
-qUL
-ian
-cJZ
-niw
-hFv
-ian
-ian
-ian
-ian
-ian
-ian
-axp
-mok
-mok
-mok
-rAG
-ian
+oTV
+dqd
+fYa
+qtd
+aiV
+aiV
+aiV
+aiV
+uvi
+xVN
+xVN
+oTV
+uIv
+srI
+eeL
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+qZz
+eCb
+eCb
+eCb
+aTd
+oTV
 kUv
 kUv
 kUv
@@ -48453,9 +48542,9 @@ kUv
 kUv
 jJn
 kXy
-nyi
+omH
 tQd
-dKz
+dDC
 hcI
 tQd
 jJn
@@ -48496,33 +48585,33 @@ kUv
 kUv
 kUv
 kUv
-ian
-vGo
-nhS
-lXA
-cgO
-dUa
-gEl
-gEl
-sft
-acO
-acO
-ian
-yeN
-yeN
-yeN
-ian
-piZ
-uMW
-uMW
-xbw
-rDW
-tsN
-oMw
-tsN
-tlk
-nbN
-ian
+oTV
+eyr
+fYa
+iIX
+cGQ
+eoc
+rna
+rna
+kVe
+izL
+izL
+oTV
+aeA
+aeA
+aeA
+oTV
+bkf
+aiV
+aiV
+bGE
+uvi
+svS
+bIF
+svS
+ueH
+wxw
+oTV
 kUv
 kUv
 kUv
@@ -48654,11 +48743,11 @@ kUv
 kUv
 kUv
 jJn
-xhZ
-nyi
-aHz
-xhZ
-nyi
+oUw
+omH
+auN
+oUw
+omH
 nEY
 jJn
 kUv
@@ -48698,33 +48787,33 @@ kUv
 kUv
 kUv
 kUv
-ian
-vGo
-iHy
-skV
-tVd
-ian
-xCm
-qUL
-iHy
-iHy
-iHy
-hoY
-gaU
-gaU
-gaU
-hoY
-jkG
-kyP
-kyP
-nEm
-nHy
-foo
-foo
-tlk
-ygV
-nbN
-ian
+oTV
+eyr
+fih
+sfF
+xXm
+oTV
+ixD
+xVN
+fih
+fih
+fih
+pZw
+hgh
+hgh
+hgh
+pZw
+ndl
+bvD
+bvD
+ddL
+eAi
+eqF
+eqF
+ueH
+wqF
+wxw
+oTV
 kUv
 kUv
 kUv
@@ -48858,8 +48947,8 @@ kUv
 jJn
 kXy
 hcI
-aFx
-dKz
+rsu
+dDC
 hcI
 tQd
 jJn
@@ -48872,7 +48961,7 @@ jJn
 kXy
 hcI
 tQd
-xhZ
+oUw
 hcI
 nEY
 jJn
@@ -48900,33 +48989,33 @@ kUv
 kUv
 kUv
 kUv
-ian
-vGo
-iHy
-skV
-smu
-ian
-pcE
-qUL
-kav
-acO
-acO
-ian
-gqZ
-gqZ
-gqZ
-ian
-dEo
-gEl
-gEl
-cgO
-iKJ
-gqZ
-foo
-tlk
-gMm
-rBe
-ian
+oTV
+eyr
+fih
+sfF
+ecp
+oTV
+iGl
+xVN
+pqD
+izL
+izL
+oTV
+hdU
+hdU
+hdU
+oTV
+kLv
+rna
+rna
+cGQ
+eoV
+hdU
+eqF
+ueH
+qrl
+ngY
+oTV
 kUv
 kUv
 kUv
@@ -49061,8 +49150,8 @@ jJn
 kXy
 hcI
 tQd
-xhZ
-dFb
+oUw
+qnP
 tQd
 jJn
 kUv
@@ -49074,8 +49163,8 @@ jJn
 kXy
 hcI
 tQd
-xhZ
-nyi
+oUw
+omH
 tQd
 jJn
 kUv
@@ -49102,33 +49191,33 @@ kUv
 kUv
 kUv
 kUv
-ian
-gNM
-iTS
-iTS
-gRz
-ian
-eCx
-qUL
-gNM
-qUL
-qUL
-ian
-keP
-chW
-rmP
-ian
-ian
-ian
-ian
-ian
-ian
-hND
-tlk
-foo
-tlk
-gqZ
-ian
+oTV
+hci
+sDQ
+sDQ
+gOn
+oTV
+eQB
+xVN
+hci
+xVN
+xVN
+oTV
+nyk
+lLN
+qew
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+yec
+ueH
+eqF
+ueH
+hdU
+oTV
 kUv
 kUv
 kUv
@@ -49262,9 +49351,9 @@ kUv
 jJn
 avu
 hcI
-aFx
-xhZ
-nyi
+rsu
+oUw
+omH
 tQd
 jJn
 kUv
@@ -49277,7 +49366,7 @@ kXy
 hcI
 tQd
 kXy
-nyi
+omH
 tQd
 jJn
 kUv
@@ -49304,33 +49393,33 @@ kUv
 kUv
 kUv
 kUv
-ian
-ian
-hgy
-hgy
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
+oTV
+oTV
+cZk
+cZk
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
 kUv
 kUv
 kUv
 kUv
-ian
-tTw
-tlk
-foo
-foo
-gqZ
-ian
+oTV
+kdI
+ueH
+eqF
+eqF
+hdU
+oTV
 kUv
 kUv
 kUv
@@ -49464,9 +49553,9 @@ kUv
 jJn
 kXy
 hcI
-aHz
-xhZ
-nyi
+auN
+oUw
+omH
 tQd
 jJn
 kUv
@@ -49506,33 +49595,33 @@ kUv
 kUv
 kUv
 kUv
-ian
-wsU
-wsU
-vKN
-cxT
-ian
-iJF
-cxT
-wsU
-wsU
-wsU
-vKN
-stF
-wsU
-lFP
-ian
-ian
-ian
-ian
-ian
-ian
-dMk
-tlk
-bmc
-gqZ
-bPC
-ian
+oTV
+xTe
+xTe
+dsm
+rtS
+oTV
+vWZ
+rtS
+xTe
+xTe
+xTe
+dsm
+aSY
+xTe
+jbA
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+pvT
+ueH
+bYH
+hdU
+nIO
+oTV
 kUv
 kUv
 kUv
@@ -49666,22 +49755,22 @@ kUv
 jJn
 kXy
 hcI
-aHz
-xhZ
+auN
+oUw
 hcI
-aFx
+rsu
 jJn
 kUv
 kUv
 kUv
 kUv
-wsA
+mVH
 jJn
 kXy
 hUR
 dYB
 kXy
-pan
+nXk
 dYB
 jJn
 ayj
@@ -49708,33 +49797,33 @@ kUv
 kUv
 kUv
 kUv
-ian
-wsU
-wsU
-vKN
-cxT
-ian
-dzf
-cxT
-wsU
-wsU
-wsU
-vKN
-iau
-wsU
-xKy
-ian
-mgf
-tOo
-tOo
-tOo
-tOo
-gqZ
-tlk
-vJZ
-tlk
-nbN
-ian
+oTV
+xTe
+xTe
+dsm
+rtS
+oTV
+hIT
+rtS
+xTe
+xTe
+xTe
+dsm
+wuU
+xTe
+siT
+oTV
+nZZ
+iId
+iId
+iId
+iId
+hdU
+ueH
+qsG
+ueH
+wxw
+oTV
 kUv
 kUv
 kUv
@@ -49867,11 +49956,11 @@ kUv
 kUv
 jJn
 kXy
-nyi
-aHz
-xhZ
+omH
+auN
+oUw
 hcI
-tsd
+rRk
 jJn
 kUv
 kUv
@@ -49910,33 +49999,33 @@ kUv
 kUv
 kUv
 kUv
-ian
-bOE
-bOE
-cxT
-bOE
-ian
-cVl
-bOE
-cxT
-cxT
-cxT
-wsU
-wsU
-wsU
-cxT
-ian
-tjC
-tOo
-tOo
-tOo
-tOo
-gqZ
-tlk
-mBY
-gqZ
-loD
-ian
+oTV
+ghT
+ghT
+rtS
+ghT
+oTV
+cmY
+ghT
+rtS
+rtS
+rtS
+xTe
+xTe
+xTe
+rtS
+oTV
+cMX
+iId
+iId
+iId
+iId
+hdU
+ueH
+upN
+hdU
+qGc
+oTV
 kUv
 kUv
 kUv
@@ -50069,10 +50158,10 @@ kUv
 kUv
 jJn
 kXy
-nyi
-kQT
-xhZ
-nyi
+omH
+ueY
+oUw
+omH
 tQd
 jJn
 kUv
@@ -50085,60 +50174,60 @@ xRM
 aOa
 tQd
 kXy
-nyi
+omH
 tQd
 pBp
 kXy
 uDJ
 uDJ
 uDJ
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-bkg
-oKN
-oKN
-qYy
-qYy
-qYy
-oKN
-oKN
-qYy
-oKN
-iFo
-qtz
-qtz
-men
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+bZf
+xvq
+xvq
+plo
+plo
+plo
+xvq
+xvq
+plo
+xvq
+pjL
+xQT
+xQT
+oOT
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
 kUv
 kUv
 kUv
@@ -50271,26 +50360,26 @@ kUv
 kUv
 jJn
 kXy
-nyi
+omH
 tQd
-dKz
-nyi
+dDC
+omH
 tQd
 jJn
 kUv
 kUv
 kUv
-aVK
+kBI
 tJB
 cEh
 eJi
 hcI
 tQd
 kXy
-nyi
+omH
 tQd
-plh
-bqD
+eod
+xjG
 tJB
 tJB
 tJB
@@ -50320,15 +50409,15 @@ tJB
 tJB
 tJB
 tJB
-fIy
-fIy
-fIy
-fIy
-fIy
-tXi
-tXi
-tXi
-tXi
+aVl
+aVl
+aVl
+aVl
+aVl
+laP
+laP
+laP
+laP
 tJB
 tJB
 tJB
@@ -50336,7 +50425,7 @@ tJB
 tJB
 tJB
 tJB
-jck
+cGD
 tJB
 tJB
 tJB
@@ -50473,28 +50562,28 @@ kUv
 kUv
 jJn
 avu
-nyi
+omH
 tQd
-xhZ
-nyi
-aFx
+oUw
+omH
+rsu
 jJn
 kUv
 kUv
 kUv
-qSV
+xWH
 pft
-aXN
+xsL
 kXy
 hcI
 tQd
 kXy
 hcI
 tQd
-xhZ
-qDN
-wWX
-enc
+oUw
+wbR
+dtv
+uQn
 pft
 pft
 pft
@@ -50522,15 +50611,15 @@ pft
 pft
 pft
 pft
-enc
-enc
-enc
-wWX
-wWX
-wWX
-enc
-enc
-enc
+uQn
+uQn
+uQn
+dtv
+dtv
+dtv
+uQn
+uQn
+uQn
 pft
 pft
 pft
@@ -50538,7 +50627,7 @@ pft
 pft
 pft
 pft
-kzn
+abi
 pft
 pft
 pft
@@ -50675,16 +50764,16 @@ kUv
 kUv
 jJn
 kXy
-nyi
+omH
 tQd
-xhZ
+oUw
 hcI
 tQd
 jJn
 kUv
 kUv
 kUv
-uIC
+bwI
 kXy
 xRM
 kXy
@@ -50693,10 +50782,10 @@ tQd
 kXy
 hcI
 tQd
-xhZ
+oUw
 pBp
-xhZ
-xhZ
+oUw
+oUw
 kXy
 kXy
 kXy
@@ -50724,15 +50813,15 @@ kXy
 kXy
 kXy
 kXy
-xhZ
-xhZ
-xhZ
-dKz
-dKz
-dKz
-xhZ
-xhZ
-xhZ
+oUw
+oUw
+oUw
+dDC
+dDC
+dDC
+oUw
+oUw
+oUw
 kXy
 kXy
 kXy
@@ -50740,7 +50829,7 @@ kXy
 kXy
 kXy
 kXy
-cld
+mEH
 kXy
 kXy
 kXy
@@ -50878,17 +50967,17 @@ kUv
 jJn
 kXy
 hcI
-aFx
-oJN
+rsu
+tnf
 hcI
-aFx
+rsu
 jJn
 kUv
 kUv
 kUv
-lCZ
+bBH
 tJB
-uPH
+eqT
 kXy
 hcI
 tQd
@@ -50896,7 +50985,7 @@ kXy
 hcI
 tQd
 kXy
-fSB
+apE
 tJB
 tJB
 tJB
@@ -50926,15 +51015,15 @@ tJB
 tJB
 tJB
 tJB
-fIy
-fIy
-fIy
-tXi
-tXi
-tXi
-fIy
-fIy
-fIy
+aVl
+aVl
+aVl
+laP
+laP
+laP
+aVl
+aVl
+aVl
 tJB
 tJB
 tJB
@@ -50942,7 +51031,7 @@ tJB
 tJB
 tJB
 tJB
-jck
+cGD
 tJB
 tJB
 tJB
@@ -51079,26 +51168,26 @@ kUv
 kUv
 jJn
 kXy
-nyi
+omH
 tQd
 kXy
 hcI
-tsd
+rRk
 jJn
 kUv
 kUv
 kUv
-qSV
+xWH
 pft
 lJr
 ijl
 hcI
 tQd
 kXy
-nyi
+omH
 tQd
-dfu
-orG
+gUw
+lWV
 pft
 pft
 pft
@@ -51128,15 +51217,15 @@ pft
 pft
 pft
 pft
-enc
-enc
-enc
-wWX
-wWX
-wWX
-enc
-enc
-enc
+uQn
+uQn
+uQn
+dtv
+dtv
+dtv
+uQn
+uQn
+uQn
 pft
 pft
 pft
@@ -51144,7 +51233,7 @@ pft
 pft
 pft
 pft
-kzn
+abi
 pft
 pft
 pft
@@ -51283,8 +51372,8 @@ jJn
 kXy
 hcI
 tQd
-xhZ
-nyi
+oUw
+omH
 tQd
 jJn
 kUv
@@ -51304,49 +51393,49 @@ kXy
 uDJ
 uDJ
 uDJ
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-xyK
-eaS
-eaS
-eSD
-eSD
-eSD
-eaS
-eaS
-sPu
-mfc
-mfc
-eSD
-eSD
-xyK
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+fLq
+dpK
+dpK
+eCG
+eCG
+eCG
+dpK
+dpK
+cxD
+cqS
+cqS
+eCG
+eCG
+fLq
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
 kUv
 kUv
 kUv
@@ -51526,22 +51615,22 @@ kUv
 kUv
 kUv
 kUv
-ian
-iTB
-ylF
-vsc
-vsc
-vsc
-xMR
-xMR
-vsc
-vsc
-vsc
-vsc
-vsc
-aPR
-ebS
-ian
+oTV
+hhW
+iUw
+cNB
+cNB
+cNB
+ipN
+ipN
+cNB
+cNB
+cNB
+cNB
+cNB
+yfs
+mvm
+oTV
 kUv
 kUv
 kUv
@@ -51684,13 +51773,13 @@ kUv
 kUv
 kUv
 jJn
-mXn
-xZW
-wHj
-xZB
-xZW
-wHj
-fzW
+wqm
+mZV
+gkH
+bvK
+mZV
+gkH
+tyt
 kUv
 kUv
 kUv
@@ -51728,22 +51817,22 @@ kUv
 kUv
 kUv
 kUv
-rOI
-tUZ
-bOE
-lFP
-cxT
-wqf
-wsU
-dcV
-cxT
-wqf
-cxT
-lFP
-cxT
-cxT
-vgb
-rOI
+dBY
+iEA
+ghT
+jbA
+rtS
+pit
+xTe
+tle
+rtS
+pit
+rtS
+jbA
+rtS
+rtS
+wQN
+dBY
 kUv
 kUv
 kUv
@@ -51930,22 +52019,22 @@ kUv
 kUv
 kUv
 kUv
-rOI
-tUZ
-cxT
-xKy
-cxT
-iKt
-cxT
-xKy
-cxT
-uZM
-cxT
-xKy
-cxT
-cxT
-vgb
-rOI
+dBY
+iEA
+rtS
+siT
+rtS
+cYX
+rtS
+siT
+rtS
+lqe
+rtS
+siT
+rtS
+rtS
+wQN
+dBY
 kUv
 kUv
 kUv
@@ -52132,22 +52221,22 @@ kUv
 kUv
 kUv
 kUv
-ian
-hPa
-aHv
-aHv
-aHv
-aHv
-aHv
-aHv
-aHv
-bVc
-bVc
-bVc
-bVc
-bVc
-jNG
-ian
+oTV
+yaT
+hNo
+hNo
+hNo
+hNo
+hNo
+hNo
+hNo
+ydH
+ydH
+ydH
+ydH
+ydH
+yaW
+oTV
 kUv
 kUv
 kUv
@@ -52334,22 +52423,22 @@ kUv
 kUv
 kUv
 kUv
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
-ian
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
+oTV
 kUv
 kUv
 kUv
@@ -56110,9 +56199,9 @@ kUv
 mRN
 cih
 dLF
-tPs
+lyB
 dLF
-vHq
+ill
 mRN
 kUv
 kUv
@@ -56298,9 +56387,9 @@ kUv
 kUv
 kUv
 mRN
-qYr
+ufN
 dLF
-pEs
+lOu
 mRN
 mRN
 mRN
@@ -56310,11 +56399,11 @@ mRN
 mRN
 mRN
 mRN
-hVq
+quq
 kfc
 mRN
 kfc
-vPj
+bOR
 mRN
 kUv
 kUv
@@ -56702,9 +56791,9 @@ kUv
 kUv
 kUv
 mRN
-qYr
+ufN
 cih
-jhO
+hjd
 mRN
 mRN
 mRN
@@ -56714,11 +56803,11 @@ mRN
 mRN
 mRN
 mRN
-ntV
+wSx
 kfc
 mRN
 kfc
-tyd
+tru
 mRN
 kUv
 kUv
@@ -56920,7 +57009,7 @@ dLF
 cih
 cih
 dLF
-bEt
+udb
 mRN
 kUv
 kUv
@@ -57523,9 +57612,9 @@ kUv
 kUv
 kUv
 mRN
-qYr
+ufN
 cih
-pEs
+lOu
 mRN
 kUv
 kUv
@@ -57680,8 +57769,8 @@ kUv
 kUv
 kUv
 mRN
-cwh
-cwh
+tYn
+tYn
 mRN
 mRN
 mRN
@@ -58117,7 +58206,7 @@ kUv
 kUv
 mRN
 vQL
-wld
+iVp
 yfy
 mRN
 kUv
@@ -58168,7 +58257,7 @@ hMb
 dWz
 hMb
 hMb
-rWf
+gWj
 hMb
 cGH
 xOy
@@ -58320,7 +58409,7 @@ kUv
 mRN
 dfU
 lSd
-vax
+qSI
 mRN
 kUv
 kUv
@@ -58533,7 +58622,7 @@ kUv
 kUv
 kUv
 mRN
-oMC
+smo
 pMY
 pyx
 mRN
@@ -58735,7 +58824,7 @@ kUv
 kUv
 kUv
 mRN
-oMC
+smo
 pMY
 pyx
 mRN
@@ -58937,9 +59026,9 @@ kUv
 kUv
 kUv
 mRN
-xVB
+gPx
 cih
-jhO
+hjd
 mRN
 kUv
 kUv
@@ -59090,9 +59179,9 @@ vrZ
 ukz
 ukz
 esS
-lWV
-lWV
-lWV
+pKA
+pKA
+pKA
 mRN
 nTX
 qaa
@@ -59512,7 +59601,7 @@ nSZ
 nSZ
 dnT
 rQA
-nCA
+xhZ
 dou
 dou
 nTj
@@ -59520,8 +59609,8 @@ nSZ
 mZm
 mZm
 mZm
-nCA
-nCA
+xhZ
+xhZ
 mZm
 mZm
 yif
@@ -59545,7 +59634,7 @@ dLF
 dLF
 gsP
 cih
-uLY
+eAb
 cih
 cih
 mRN
@@ -59714,13 +59803,13 @@ kQM
 kQM
 kQM
 kQM
-cyv
-xmH
-qun
-lKE
-xmH
-gUK
-xmH
+eTW
+rRE
+veK
+mJf
+rRE
+psJ
+rRE
 eUN
 sRj
 sRj
@@ -59743,13 +59832,13 @@ kUv
 kUv
 kUv
 mRN
-ntV
+wSx
 dLF
-crc
+rth
 cih
-crc
+rth
 cih
-ilI
+gsg
 mRN
 kUv
 kUv
@@ -60100,9 +60189,9 @@ vrZ
 mwY
 wcl
 esS
-lWV
-lWV
-lWV
+pKA
+pKA
+pKA
 mRN
 mRN
 mRN
@@ -60306,7 +60395,7 @@ kUv
 kUv
 kUv
 kUv
-lWV
+pKA
 aTm
 mhR
 cWF
@@ -60314,7 +60403,7 @@ cWF
 cWF
 mhR
 mjn
-lWV
+pKA
 kUv
 kUv
 kUv
@@ -60508,15 +60597,15 @@ kUv
 kUv
 kUv
 kUv
-lWV
+pKA
 hUa
 auX
 rVW
 nSZ
-nSZ
+ctZ
 bXg
 hUa
-lWV
+pKA
 kUv
 kUv
 kUv
@@ -60551,13 +60640,13 @@ kUv
 kUv
 kUv
 mRN
-hVq
+quq
 cih
 wEm
 cih
 wEm
 dLF
-xcI
+eeM
 mRN
 kUv
 kUv
@@ -60710,15 +60799,15 @@ kUv
 kUv
 kUv
 kUv
-lWV
+pKA
 hUa
 dVN
-iZT
-pMY
-cih
-vQL
+hUE
+dBD
+gAk
+btZ
 hUa
-lWV
+pKA
 kUv
 kUv
 kUv
@@ -60912,15 +61001,15 @@ kUv
 kUv
 kUv
 kUv
-lWV
+pKA
 hUa
 exa
-iZT
-iZT
-pMY
+mXm
+qli
+nlx
 vQL
 hUa
-lWV
+pKA
 kUv
 kUv
 kUv
@@ -61114,15 +61203,15 @@ kUv
 kUv
 kUv
 kUv
-lWV
+pKA
 hUa
-fQe
-dkd
-dkd
-dkd
+wMf
+kgU
+aKy
+kgU
 nRJ
 hUa
-lWV
+pKA
 kUv
 kUv
 kUv
@@ -61316,7 +61405,7 @@ kUv
 kUv
 kUv
 kUv
-lWV
+pKA
 vYJ
 oTv
 oTv
@@ -61324,7 +61413,7 @@ mhR
 mhR
 mhR
 vac
-lWV
+pKA
 kUv
 kUv
 kUv
@@ -61348,9 +61437,9 @@ kUv
 kUv
 kUv
 mRN
-qYr
+ufN
 cih
-qsa
+jRG
 mRN
 mRN
 mRN
@@ -61518,15 +61607,15 @@ kUv
 kUv
 kUv
 kUv
-lWV
-lWV
-lWV
-lWV
-lWV
-lWV
-lWV
-lWV
-lWV
+pKA
+pKA
+pKA
+pKA
+pKA
+pKA
+pKA
+pKA
+pKA
 kUv
 kUv
 kUv
@@ -61954,9 +62043,9 @@ kUv
 kUv
 kUv
 mRN
-xVB
+gPx
 pMY
-jhO
+hjd
 mRN
 mRN
 mRN
@@ -62252,7 +62341,7 @@ ifO
 muj
 kmd
 qXm
-nOo
+cEb
 muj
 qee
 viu
@@ -63045,12 +63134,12 @@ aGL
 wwg
 bYI
 lZM
-qLE
-qLE
+gzq
+gzq
 pMV
-qLE
+gzq
 vVq
-qLE
+gzq
 tBz
 viu
 kUv
@@ -63243,16 +63332,16 @@ fPW
 gex
 rMU
 lEA
-rfe
-aKR
+hgF
+hRO
 mVp
 gZW
-cmY
-cmY
-cmY
-cmY
+pEs
+pEs
+pEs
+pEs
+lIK
 gzq
-qLE
 xhW
 viu
 kUv
@@ -63446,15 +63535,15 @@ gex
 rMU
 rMU
 taW
-aKR
-qrW
+hRO
+ics
 oVs
 nAo
 wJq
 xQG
 mUm
 use
-fuE
+fHL
 xhW
 viu
 kUv
@@ -63647,17 +63736,17 @@ viu
 wrP
 nya
 rMU
-rfe
-aKR
-qrW
+hgF
+hRO
+ics
 oVs
 vVq
+qLE
+fzW
 lIK
-uQn
-gzq
 ePk
-fuE
-rGA
+fHL
+lwc
 viu
 viu
 qzG
@@ -63850,19 +63939,19 @@ jag
 iaX
 iaX
 gPI
-ifn
+lHM
 pLr
 lUe
-fwJ
-fwJ
-bDs
+ucu
+ucu
+ijK
 xAp
 fSf
 gpK
 eXj
-uQn
+fzW
 mcm
-htI
+fov
 dlV
 afP
 rbV
@@ -64050,21 +64139,21 @@ kUv
 viu
 rTk
 kiV
-ifw
-ifw
-aKR
-qrW
+fBx
+fBx
+hRO
+ics
 jiX
-qLE
-qLE
+gzq
+gzq
 pRX
-lIK
+qLE
 aKP
-jVi
-gzq
-gzq
-hAx
-htI
+mAU
+lIK
+lIK
+dGK
+fov
 qzG
 xfO
 byn
@@ -64252,20 +64341,20 @@ kUv
 viu
 pIe
 tCt
-kGA
+pRI
 jXW
-lHM
+uCT
 nUr
 lUe
-bDs
+ijK
 rcB
 xAp
 xAp
 nBS
 dPs
 xsY
-qLE
-coc
+gzq
+hAx
 hMW
 tCL
 afP
@@ -64455,16 +64544,16 @@ viu
 jGV
 nLG
 lLb
-rfe
-ifw
+hgF
+fBx
 hPD
 oVs
-uQn
-qLE
+fzW
 gzq
+lIK
 vVq
 vfd
-mAU
+qAf
 xhW
 viu
 viu
@@ -64659,14 +64748,14 @@ nLG
 icp
 taW
 kiV
-qrW
+ics
 oVs
 dTo
 rRc
 pTj
 xpL
 hkd
-fHL
+nbO
 xhW
 viu
 kUv
@@ -64867,8 +64956,8 @@ ejK
 gag
 vOh
 gag
-qLE
-qLE
+gzq
+gzq
 xhW
 viu
 kUv
@@ -65065,12 +65154,12 @@ uJO
 wwg
 bYI
 lZM
-uQn
-gzq
+fzW
+lIK
 tBc
+lIK
+lIK
 gzq
-gzq
-qLE
 nhC
 viu
 kUv
@@ -65401,16 +65490,16 @@ ceB
 ceB
 ceB
 ceB
-eDO
+oqh
 ceB
 ceB
 ceB
-eDO
-lZT
+oqh
+gaM
 ceB
 ceB
 ceB
-cKk
+xAo
 lKn
 kUv
 xTT
@@ -65612,7 +65701,7 @@ wVq
 fpf
 fpf
 fpf
-glf
+bYo
 lKn
 kUv
 xTT
@@ -65670,8 +65759,8 @@ kUv
 kUv
 kUv
 kUv
-ogc
-lPv
+rmG
+gnl
 viu
 kUv
 kUv
@@ -65814,7 +65903,7 @@ ano
 lKn
 lKn
 lKn
-eqJ
+wIT
 lKn
 kUv
 xTT
@@ -66016,7 +66105,7 @@ bsn
 ceB
 ceB
 ceB
-xOp
+tcr
 lKn
 kUv
 xTT
@@ -66089,7 +66178,7 @@ szl
 muj
 sxY
 sxY
-ffj
+byH
 qXU
 viu
 kUv
@@ -66218,7 +66307,7 @@ wVq
 fpf
 fpf
 fpf
-glf
+bYo
 lKn
 kUv
 xTT
@@ -66493,7 +66582,7 @@ kUv
 kUv
 kUv
 viu
-dDR
+hxt
 owO
 viu
 kUv
@@ -66695,7 +66784,7 @@ kUv
 kUv
 kUv
 viu
-dDR
+hxt
 owO
 viu
 kUv
