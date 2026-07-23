@@ -20,4 +20,4 @@
 	var/gaia_daycycle = 10 HOURS
 	var/sun_process_interval = 1.5 MINUTES //How often we update planetary sunlight
 	var/sun_last_process = null // world.time
-	var/do_update_gaia = TRUE // Whether to update Gaia's sun or not
+	var/do_update_gaia = FALSE // Whether to update Gaia's sun or not
