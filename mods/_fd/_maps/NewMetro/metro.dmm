@@ -20,6 +20,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
+"acO" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe_alt"
+	},
+/area/metro/main_tunel)
 "adF" = (
 /obj/structure/catwalk,
 /obj/decal/cleanable/dirt,
@@ -566,6 +572,15 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/metro/maintain/gen3)
+"axp" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_wood_b_2";
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "axM" = (
 /obj/floor_decal/borderfloorblack,
 /obj/floor_decal/corner/orange/border,
@@ -690,6 +705,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/south/blast_door)
+"aFx" = (
+/obj/floor_decal/hull{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "aFA" = (
 /obj/structure/platform/shiva,
 /obj/structure/platform/shiva{
@@ -729,6 +751,20 @@
 /obj/random/junkyard/powercell,
 /turf/simulated/floor/plating,
 /area/metro/maintain/gen1)
+"aHv" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
+"aHz" = (
+/obj/floor_decal/hull{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "aHI" = (
 /obj/machinery/door/airlock/multi_tile/maintenance{
 	dir = 8
@@ -829,8 +865,13 @@
 	pixel_y = 20;
 	layer = 4.09
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w"
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
+/area/metro/maintain/gen3)
+"aKR" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
 	},
 /area/metro/maintain/gen3)
 "aLj" = (
@@ -971,6 +1012,16 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/freezer,
 /area/metro/maintain/gas)
+"aPR" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 8
+	},
+/obj/floor_decal/borderfloorblack{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "aPT" = (
 /obj/structure/flora/tall{
 	icon_state = "redplant_4"
@@ -1153,6 +1204,16 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
+"aVK" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "aVW" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/wall/invincible/blend/hybrisa,
@@ -1253,6 +1314,13 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/metro/maintain/east)
+"aXN" = (
+/obj/floor_decal/hull/corner{
+	dir = 1
+	},
+/obj/floor_decal/industrial/warning,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "aXY" = (
 /obj/floor_decal/corner_techfloor_grid/full{
 	dir = 4
@@ -1317,6 +1385,9 @@
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain)
+"bcu" = (
+/turf/simulated/wall/invincible/blend/almayer_white,
+/area/metro/main_tunel)
 "bcG" = (
 /obj/structure/flora/tall{
 	icon_state = "grass_4"
@@ -1493,11 +1564,30 @@
 /obj/structure/flora/tall,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp)
+"bkg" = (
+/obj/floor_decal/techfloor{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/fd/grim_lamp,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/main_tunel)
 "bkD" = (
 /obj/paint/black,
 /obj/paint_stripe/brown,
 /turf/simulated/wall/r_wall,
 /area/metro/maintain/south)
+"bmc" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "sofa_g_start"
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "bmo" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -1571,6 +1661,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/metro/maintain/east)
+"bqD" = (
+/obj/floor_decal/hull/corner,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "brm" = (
 /obj/floor_decal/corner/red/border,
 /obj/floor_decal/corner/red/border{
@@ -1683,6 +1777,15 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
+"bvC" = (
+/obj/floor_decal/hull{
+	dir = 8
+	},
+/obj/machinery/light/small/readylight{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "bwa" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 5
@@ -1743,6 +1846,10 @@
 /obj/item/device/modkit,
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
+"byA" = (
+/obj/map_effect/portal/line/side_b,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "bzi" = (
 /obj/floor_decal/corner/paleblue{
 	dir = 10
@@ -1810,6 +1917,13 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/metro/maintain/east)
+"bDs" = (
+/obj/structure/catwalk,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_pi_3"
+	},
+/area/metro/maintain/gen3)
 "bDP" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/platform/shiva{
@@ -1822,6 +1936,17 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
+/area/metro/maintain/east)
+"bEt" = (
+/obj/structure/fd/building_stuff{
+	anchored = 0;
+	density = 1;
+	icon_state = "2,1";
+	pixel_x = 9;
+	pixel_y = 12;
+	name = "Barrel"
+	},
+/turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "bET" = (
 /obj/floor_decal/corner_techfloor_grid{
@@ -2023,6 +2148,9 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"bOE" = (
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "bOQ" = (
 /obj/structure/showcase{
 	icon = 'mods/_fd/fd_assets/icons/structures/hybrisa/computers.dmi';
@@ -2067,6 +2195,15 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/grim_tile,
 /area/metro/maintain/gen3)
+"bPC" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_wood_b_4";
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "bPS" = (
 /obj/floor_decal/corner/paleblue/mono,
 /obj/floor_decal/corner/paleblue/mono,
@@ -2151,6 +2288,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south/blast_door)
+"bVc" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "bVd" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 9
@@ -2421,6 +2565,13 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain)
+"cgO" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_11"
+	},
+/area/metro/main_tunel)
 "cgQ" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/flora/jungle/bush{
@@ -2445,6 +2596,15 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south)
+"chW" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_steel_r_3";
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "cic" = (
 /obj/structure/showcase{
 	bound_height = 96;
@@ -2501,6 +2661,13 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
+"cld" = (
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 2
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "clN" = (
 /obj/structure/vines/light2,
 /obj/structure/vines/light2,
@@ -2554,9 +2721,7 @@
 	pixel_y = 0;
 	pixel_x = 7
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w_3"
-	},
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "cnp" = (
 /obj/structure/platform/shiva{
@@ -2575,6 +2740,13 @@
 /obj/paint_stripe/brown,
 /turf/simulated/wall/r_wall,
 /area/metro/maintain/south)
+"coc" = (
+/obj/floor_decal/step{
+	color = "grey";
+	dir = 2
+	},
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
+/area/metro/maintain/gen3)
 "cod" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 10
@@ -2609,6 +2781,11 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp1)
+"crc" = (
+/obj/structure/inflatable/wall,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "crj" = (
 /obj/structure/table/rack/samosbor/mod{
 	icon_state = "table_steel_r_4";
@@ -2718,6 +2895,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south/blast_door)
+"cwh" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 4;
+	id_tag = porno
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/maintain/east)
 "cwM" = (
 /obj/machinery/light,
 /turf/simulated/floor/plating,
@@ -2727,6 +2913,18 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/metro/maintain/south)
+"cxT" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
+"cyv" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 6
+	},
+/obj/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "czL" = (
 /obj/structure/showcase{
 	icon = 'mods/_fd/fd_assets/icons/structures/hybrisa/computers.dmi';
@@ -3032,6 +3230,24 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"cJZ" = (
+/obj/structure/table/steel,
+/obj/item/device/flashlight/maglight{
+	pixel_y = 10
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security_bi"
+	},
+/area/metro/main_tunel)
+"cKk" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/map_effect/portal/master/side_a{
+	portal_id = "outside"
+	},
+/turf/simulated/floor/plating,
+/area/metro/maintain/east)
 "cKI" = (
 /obj/floor_decal/industrial/warning/corner{
 	dir = 1;
@@ -3279,6 +3495,12 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
+"cVl" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "sofa_gr_end"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "cVQ" = (
 /obj/floor_decal/corner/red/border{
 	dir = 1
@@ -3363,6 +3585,7 @@
 /obj/floor_decal/techfloor{
 	dir = 8
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_gy_t6"
 	},
@@ -3442,6 +3665,7 @@
 /obj/structure/platform_decoration/shiva{
 	dir = 4
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_gy_t5"
 	},
@@ -3483,6 +3707,15 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"dcV" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_end";
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "ddx" = (
 /obj/floor_decal/industrial/outline/grey,
 /obj/floor_decal/industrial/outline/grey,
@@ -3530,6 +3763,12 @@
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/gas)
+"dfu" = (
+/obj/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "dfy" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
@@ -3554,6 +3793,9 @@
 	dir = 5
 	},
 /obj/decal/cleanable/liquid_fuel,
+/obj/machinery/light/small/readylight{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "dgc" = (
@@ -3831,6 +4073,12 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
+"drC" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_6"
+	},
+/area/metro/main_tunel)
 "drL" = (
 /obj/structure/platform/kutjevo/rock{
 	dir = 4
@@ -3973,6 +4221,13 @@
 	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/metro/maintain/east)
+"dzf" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "sofa_gr_mid"
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "dzv" = (
 /obj/floor_decal/techfloor/orange{
 	dir = 8
@@ -4055,6 +4310,28 @@
 /obj/machinery/alarm,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/metro/maintain/gen1)
+"dDM" = (
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security_sm"
+	},
+/area/metro/main_tunel)
+"dDR" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_1";
+	dir = 8
+	},
+/area/metro/maintain/gen3)
+"dEo" = (
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_10"
+	},
+/area/metro/main_tunel)
 "dEr" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/techfloor/grid,
@@ -4064,6 +4341,14 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/east)
+"dFb" = (
+/obj/floor_decal/hull{
+	dir = 2
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "dFd" = (
 /obj/machinery/button/alternate/door/keypad/blast{
 	dir = 2;
@@ -4147,6 +4432,11 @@
 /obj/machinery/light,
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
+"dKz" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "dLs" = (
 /obj/structure/platform_decoration/kutjevo{
 	layer = 2.24;
@@ -4177,6 +4467,16 @@
 /obj/machinery/light/small/readylight,
 /turf/simulated/floor/plating,
 /area/metro/maintain)
+"dMk" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_end";
+	pixel_y = 12
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "dMw" = (
 /obj/floor_decal/corner_techfloor_grid,
 /turf/simulated/floor/tiled/techmaint,
@@ -4250,6 +4550,8 @@
 	dir = 1;
 	pixel_y = 18
 	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_3"
 	},
@@ -4325,9 +4627,7 @@
 	icon_state = "table_steel_r_2";
 	pixel_y = 0
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w"
-	},
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "dTp" = (
 /obj/structure/filingcabinet{
@@ -4356,6 +4656,11 @@
 /obj/structure/bed/padded,
 /turf/simulated/floor/tiled/white,
 /area/metro/maintain/east)
+"dUa" = (
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_11"
+	},
+/area/metro/main_tunel)
 "dUZ" = (
 /obj/structure/railing/mapped{
 	dir = 4;
@@ -4527,6 +4832,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
+"eaS" = (
+/obj/floor_decal/techfloor{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/main_tunel)
+"ebS" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 10
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "ecc" = (
 /obj/fd_water/alt_ver1{
 	layer = 2.1
@@ -4694,9 +5012,7 @@
 	pixel_y = 0;
 	pixel_x = -7
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w_1"
-	},
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "ejV" = (
 /obj/floor_decal/corner_techfloor_grid{
@@ -4784,6 +5100,13 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"enc" = (
+/obj/floor_decal/hull{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "eop" = (
 /obj/floor_decal/hull{
 	dir = 1
@@ -4815,6 +5138,10 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
+/area/metro/maintain/east)
+"eqJ" = (
+/obj/map_effect/portal/line/side_a,
+/turf/simulated/floor/plating,
 /area/metro/maintain/east)
 "erh" = (
 /obj/machinery/door/blast/regular{
@@ -5063,6 +5390,14 @@
 /obj/item/trash/beef,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/gen1)
+"eCx" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "sofa_gr_end"
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe_alt"
+	},
+/area/metro/main_tunel)
 "eCD" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/borderfloorblack{
@@ -5090,6 +5425,15 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/south)
+"eDO" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/machinery/light/small/readylight{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/metro/maintain/east)
 "eDT" = (
 /obj/floor_decal/hull{
 	dir = 4
@@ -5259,6 +5603,11 @@
 /obj/paint/black,
 /turf/simulated/wall/r_wall,
 /area/metro/maintain/gas)
+"eNi" = (
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_5"
+	},
+/area/metro/main_tunel)
 "eNJ" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/corner_techfloor_grid{
@@ -5286,9 +5635,9 @@
 	icon_state = "table_steel_r_12";
 	pixel_y = 7
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w"
-	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "ePD" = (
 /obj/structure/flora/tall{
@@ -5332,6 +5681,15 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/east)
+"eSD" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/floor_decal/techfloor{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/main_tunel)
 "eSH" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light{
@@ -5405,6 +5763,8 @@
 /area/metro/maintain/south/kpp1)
 "eXj" = (
 /obj/structure/catwalk,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_9"
 	},
@@ -5564,6 +5924,12 @@
 /obj/structure/closet,
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
+"ffj" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/gen3)
 "ffm" = (
 /obj/structure/table/steel_reinforced,
 /obj/item/clothing/head/welding/engie{
@@ -5725,6 +6091,13 @@
 /obj/structure/rubble,
 /turf/simulated/floor/exoplanet/gravel,
 /area/metro/maintain/gas)
+"foo" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "foY" = (
 /obj/structure/flora/tree/jungle/big,
 /turf/simulated/floor/exoplanet/fd/grass{
@@ -5808,9 +6181,8 @@
 	dir = 1;
 	pixel_y = 18
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w_4"
-	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "fvT" = (
 /obj/floor_decal/industrial/warning,
@@ -5826,6 +6198,14 @@
 /obj/fd_water/alt_ver1,
 /turf/simulated/floor/plating,
 /area/metro/main_tunel)
+"fwJ" = (
+/obj/structure/catwalk,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_pi_3"
+	},
+/area/metro/maintain/gen3)
 "fxr" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
@@ -5843,15 +6223,20 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
+"fzS" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/machinery/light/small/readylight{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "fzW" = (
-/obj/structure/fd/junk{
-	icon_state = "0,3";
-	layer = 2.21
-	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w_1"
-	},
-/area/metro/maintain/gen3)
+/obj/paint_stripe/gunmetal,
+/obj/paint/black,
+/turf/simulated/wall/r_wall,
+/area/metro/main_tunel)
 "fBK" = (
 /obj/machinery/atmospherics/unary/freezer,
 /turf/simulated/floor/plating,
@@ -6034,15 +6419,20 @@
 	dir = 1;
 	pixel_y = 18
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w"
-	},
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "fIc" = (
 /obj/structure/table/reinforced,
 /obj/item/device/paicard,
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
+"fIy" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "fIM" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 10
@@ -6108,6 +6498,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain)
+"fKx" = (
+/obj/map_effect/portal/line/side_b{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_8";
+	dir = 2
+	},
+/area/metro/main_tunel)
 "fKL" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
@@ -6319,6 +6718,8 @@
 	pixel_x = 16;
 	pixel_y = 7
 	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_3"
 	},
@@ -6335,6 +6736,13 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/metro/maintain/gen3)
+"fSB" = (
+/obj/floor_decal/hull/corner,
+/obj/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "fTd" = (
 /obj/floor_decal/industrial/warning{
 	dir = 1
@@ -6486,9 +6894,8 @@
 	pixel_y = 0;
 	pixel_x = -7
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w_3"
-	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "gaE" = (
 /obj/floor_decal/borderfloorwhite{
@@ -6504,6 +6911,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain)
+"gaU" = (
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security_sm"
+	},
+/area/metro/main_tunel)
+"gaY" = (
+/obj/floor_decal/hull{
+	dir = 8
+	},
+/obj/map_effect/portal/line/side_b,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "gbg" = (
 /turf/simulated/wall/invincible/blend/prison_reinf,
 /area/metro/maintain/east)
@@ -6562,8 +6981,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/main_tunel)
+"gdY" = (
+/obj/map_effect/portal/master/side_b{
+	dir = 1;
+	portal_id = "to_casino"
+	},
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_8";
+	dir = 2
+	},
+/area/metro/main_tunel)
 "gex" = (
 /obj/floor_decal/techfloor,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_gy_t6"
 	},
@@ -6720,6 +7150,13 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/east)
+"glf" = (
+/obj/floor_decal/hull{
+	dir = 8
+	},
+/obj/map_effect/portal/line/side_a,
+/turf/simulated/floor/plating,
+/area/metro/maintain/east)
 "glg" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 9
@@ -6801,6 +7238,8 @@
 	dir = 1;
 	pixel_y = 18
 	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_3"
 	},
@@ -6819,6 +7258,11 @@
 /obj/random/trash,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gas)
+"gqZ" = (
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "grY" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -6840,7 +7284,7 @@
 /turf/simulated/floor/plating,
 /area/metro/maintain)
 "gsP" = (
-/obj/structure/inflatable/wall,
+/obj/decal/cleanable/dirt,
 /obj/structure/inflatable/door,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
@@ -6878,6 +7322,15 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/metro/maintain/gen3)
+"guN" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/map_effect/portal/master/side_b{
+	portal_id = "outside"
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "guV" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 9
@@ -6999,9 +7452,8 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/gen1)
 "gzq" = (
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w_3"
-	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "gzS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -7101,6 +7553,12 @@
 	color = "#526833"
 	},
 /area/metro/maintain/gen3)
+"gEl" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_11"
+	},
+/area/metro/main_tunel)
 "gEv" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
@@ -7312,6 +7770,16 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
+"gMm" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_wood_b_2";
+	pixel_y = 0
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "gMn" = (
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/south/kpp1)
@@ -7367,6 +7835,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/metro/maintain/east)
+"gNM" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "sofa_r_end"
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe_alt"
+	},
+/area/metro/main_tunel)
 "gOj" = (
 /obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/empty,
@@ -7382,6 +7858,8 @@
 /obj/floor_decal/techfloor/corner{
 	dir = 1
 	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ve_bi"
 	},
@@ -7426,6 +7904,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
+"gRz" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_ro_8";
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe_alt"
+	},
+/area/metro/main_tunel)
 "gRF" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 5
@@ -7467,6 +7954,26 @@
 	icon_state = "me_pi_12"
 	},
 /area/metro/maintain/east)
+"gUK" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 6
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
+"gVS" = (
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	begins_closed = 0;
+	icon_state = "pdoor0"
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "bronze_warning"
+	},
+/area/metro/main_tunel)
 "gVU" = (
 /obj/structure/fd/decorative_pipes{
 	icon_state = "large_pipe_straight";
@@ -7666,7 +8173,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/east)
 "hez" = (
-/obj/structure/fd/mapping/screentext_triggermarker,
+/obj/structure/fd/mapping/screentext_triggermarker{
+	text_to_show = "И вновь вас встречает тишина глубинного метро."
+	},
 /turf/simulated/floor/plating,
 /area/metro/main_tunel)
 "hfe" = (
@@ -7699,6 +8208,16 @@
 	},
 /turf/simulated/floor/exoplanet/gravel,
 /area/metro/maintain/gas)
+"hgy" = (
+/obj/machinery/door/unpowered/simple/grim/metal{
+	dir = 8;
+	pixel_x = -16;
+	pixel_y = -6
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security_bi"
+	},
+/area/metro/main_tunel)
 "hgC" = (
 /obj/floor_decal/corner/paleblue/border{
 	dir = 8
@@ -7779,9 +8298,8 @@
 	icon_state = "table_steel_r_9";
 	pixel_y = 7
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w_1"
-	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "hkk" = (
 /obj/structure/fd/grim_walls/metal{
@@ -7892,6 +8410,17 @@
 /obj/floor_decal/corner/paleblue/border,
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/east)
+"hoY" = (
+/obj/machinery/door/blast/grim{
+	can_use_tools = 0;
+	begins_closed = 0;
+	icon_state = "shutter1";
+	id_tag = "metro_south_lockdown"
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security_bi"
+	},
+/area/metro/main_tunel)
 "hpt" = (
 /obj/floor_decal/step,
 /obj/decal/cleanable/dirt,
@@ -7993,6 +8522,10 @@
 	},
 /turf/simulated/floor/exoplanet/gravel,
 /area/metro/maintain/gas)
+"htI" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grim_concrete_tile4,
+/area/metro/maintain/gen3)
 "hub" = (
 /obj/decal/cleanable/cobweb2{
 	dir = 2
@@ -8126,9 +8659,8 @@
 	color = "grey";
 	dir = 2
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w_4"
-	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "hAC" = (
 /obj/floor_decal/corner_techfloor_grid{
@@ -8207,6 +8739,17 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
+"hFv" = (
+/obj/structure/table/steel,
+/obj/machinery/button/blast_door{
+	dir = 8;
+	pixel_y = 3;
+	pixel_x = 2
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security_bi"
+	},
+/area/metro/main_tunel)
 "hGc" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/borderfloorblack{
@@ -8223,6 +8766,7 @@
 /obj/machinery/door/blast/regular/open{
 	dir = 8
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "hGj" = (
@@ -8357,6 +8901,15 @@
 	color = "#5F773B"
 	},
 /area/metro/maintain/gen3)
+"hND" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_start";
+	pixel_y = 12
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "hOt" = (
 /obj/paint_stripe/brown,
 /obj/structure/girder,
@@ -8389,6 +8942,12 @@
 	},
 /turf/simulated/floor/exoplanet/gravel,
 /area/metro/maintain/gas)
+"hPa" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "hPD" = (
 /obj/structure/railing/mapped{
 	color = "#293133"
@@ -8497,6 +9056,13 @@
 /obj/floor_decal/corner/grey/border,
 /turf/simulated/floor/tiled/freezer,
 /area/metro/maintain/gas)
+"hVq" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/light/small/readylight{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "hXn" = (
 /obj/structure/fd/samosbor/floor_cable{
 	icon_state = "plated";
@@ -8593,6 +9159,18 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
+"ian" = (
+/turf/simulated/wall/invincible/blend/bare,
+/area/metro/main_tunel)
+"iau" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_end"
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "iaX" = (
 /obj/floor_decal/techfloor{
 	dir = 8
@@ -8617,6 +9195,7 @@
 /obj/structure/fd/interactive/note{
 	pixel_y = 20
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/gen3)
 "icS" = (
@@ -8665,6 +9244,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
+"ifn" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ve_bi"
+	},
+/area/metro/maintain/gen3)
+"ifw" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
+/area/metro/maintain/gen3)
 "ifO" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
@@ -8768,6 +9361,13 @@
 /obj/decal/cleanable/blood/splatter,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south)
+"ilI" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/light/small/readylight{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "imd" = (
 /obj/structure/platform/shiva{
 	dir = 4
@@ -9080,6 +9680,13 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/blast_door)
+"iFo" = (
+/obj/floor_decal/techfloor{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/main_tunel)
 "iFx" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -9105,6 +9712,14 @@
 /obj/random/junkyard/toolbox,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gas)
+"iHj" = (
+/obj/structure/closet/grim/metal{
+	pixel_y = 14
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security"
+	},
+/area/metro/main_tunel)
 "iHo" = (
 /obj/structure/table/reinforced,
 /obj/random/drinkbottle,
@@ -9124,6 +9739,12 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/wall/r_wall,
 /area/metro/maintain/east)
+"iHy" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security"
+	},
+/area/metro/main_tunel)
 "iHA" = (
 /obj/machinery/door/unpowered/simple/grim/wood{
 	dir = 8;
@@ -9180,6 +9801,13 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
+"iJF" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "sofa_gr_start"
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "iJI" = (
 /obj/structure/platform/shiva{
 	layer = 2.24
@@ -9204,12 +9832,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/south)
+"iKt" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_end"
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "iKG" = (
 /obj/decal/cleanable/blood{
 	icon_state = "mgibbl4"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
+"iKJ" = (
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_9"
+	},
+/area/metro/main_tunel)
 "iKO" = (
 /obj/structure/table/rack/samosbor/mod{
 	icon_state = "table_da_g_4";
@@ -9348,6 +9988,12 @@
 /obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
+"iTB" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "iTC" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/borderfloorblack{
@@ -9360,6 +10006,11 @@
 	icon_state = "tile"
 	},
 /area/metro/maintain/east)
+"iTS" = (
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security"
+	},
+/area/metro/main_tunel)
 "iTT" = (
 /obj/machinery/button/crematorium{
 	pixel_y = -7;
@@ -9479,6 +10130,7 @@
 	pixel_x = 4;
 	pixel_y = 15
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ve_bi"
 	},
@@ -9524,6 +10176,16 @@
 	icon_state = "me_pa_12"
 	},
 /area/metro/maintain/gen3)
+"jck" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 2
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "jcu" = (
 /obj/item/ammo_casing/rifle/used{
 	pixel_x = 7;
@@ -9624,6 +10286,16 @@
 	color = "#526833"
 	},
 /area/metro/maintain/gen3)
+"jhO" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 10
+	},
+/obj/decal/cleanable/dirt,
+/obj/machinery/light/small/readylight{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "jhX" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 5
@@ -9643,9 +10315,7 @@
 /obj/structure/platform/shiva{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w"
-	},
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "jje" = (
 /obj/decal/cleanable/dirt,
@@ -9668,6 +10338,11 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south)
+"jkG" = (
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_14"
+	},
+/area/metro/main_tunel)
 "jmS" = (
 /obj/structure/fd/decorative_pipes{
 	icon_state = "large_pipe_straight";
@@ -9684,7 +10359,9 @@
 /obj/floor_decal/hull{
 	dir = 1
 	},
-/obj/structure/fd/mapping/screentext_triggermarker,
+/obj/structure/fd/mapping/screentext_triggermarker{
+	text_to_show = "И вновь вас встречает тишина глубинного метро."
+	},
 /turf/simulated/floor/plating,
 /area/metro/main_tunel)
 "jne" = (
@@ -9973,6 +10650,10 @@
 "jzv" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
+/obj/machinery/button/blast_door{
+	pixel_y = 8;
+	id_tag = porno
+	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/east)
 "jAv" = (
@@ -10303,6 +10984,13 @@
 	icon_state = "me_pa_13"
 	},
 /area/metro/maintain/gen3)
+"jNG" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 6
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "jOW" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 5
@@ -10409,6 +11097,17 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
+"jVi" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 1;
+	pixel_y = 18
+	},
+/obj/structure/bed/chair/comfy/black{
+	dir = 1;
+	pixel_y = 18
+	},
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
+/area/metro/maintain/gen3)
 "jVF" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/junk{
@@ -10461,6 +11160,7 @@
 /obj/floor_decal/techfloor/corner{
 	dir = 4
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ve_bi"
 	},
@@ -10544,6 +11244,13 @@
 	icon_state = "ca_da_re_6"
 	},
 /area/metro/maintain/gen3)
+"kav" = (
+/obj/structure/fd/samosbor/furniture3,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe_alt"
+	},
+/area/metro/main_tunel)
 "kaU" = (
 /obj/structure/table,
 /obj/machinery/constructable_frame/machine_frame{
@@ -10629,6 +11336,15 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp1)
+"keP" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_steel_r_2";
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "kfc" = (
 /obj/paint/merc,
 /obj/paint/merc,
@@ -10749,6 +11465,7 @@
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
 	},
+/obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
@@ -10982,6 +11699,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
+"kyP" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_15"
+	},
+/area/metro/main_tunel)
 "kzl" = (
 /obj/structure/door_assembly{
 	anchored = 1;
@@ -10989,6 +11712,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
+"kzn" = (
+/obj/floor_decal/hull{
+	dir = 8
+	},
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 2
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "kAb" = (
 /obj/structure/table/reinforced,
 /turf/simulated/floor/plating,
@@ -11009,6 +11742,16 @@
 	color = "#6E8C44"
 	},
 /area/metro/maintain/gen3)
+"kAQ" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/machinery/light/small/readylight{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "kBh" = (
 /obj/paint/black,
 /turf/simulated/wall/invincible,
@@ -11124,6 +11867,16 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp)
+"kGA" = (
+/obj/floor_decal/techfloor{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ve_bi"
+	},
+/area/metro/maintain/gen3)
 "kHg" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -11171,7 +11924,9 @@
 /obj/floor_decal/hull{
 	dir = 2
 	},
-/obj/structure/fd/mapping/screentext_triggermarker,
+/obj/structure/fd/mapping/screentext_triggermarker{
+	text_to_show = "И вновь вас встречает тишина глубинного метро."
+	},
 /turf/simulated/floor/plating,
 /area/metro/main_tunel)
 "kJq" = (
@@ -11360,6 +12115,15 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"kQT" = (
+/obj/floor_decal/hull{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "kRv" = (
 /obj/decal/cleanable/dirt,
 /obj/machinery/door/blast/regular{
@@ -11631,6 +12395,7 @@
 	dir = 1;
 	range_of = 7
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
 "lfo" = (
@@ -11658,6 +12423,7 @@
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/liquid_fuel,
 /obj/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "lgQ" = (
@@ -11790,6 +12556,22 @@
 /obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gas)
+"loD" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_wood_b_8";
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
+"loZ" = (
+/obj/machinery/light/small/readylight{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "lpO" = (
 /obj/floor_decal/corner_techfloor_grid/full,
 /obj/structure/closet/crate,
@@ -11953,6 +12735,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
+"lAe" = (
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "bronze_warning"
+	},
+/area/metro/main_tunel)
 "lBa" = (
 /obj/structure/table/rack,
 /turf/simulated/floor/plating,
@@ -11978,6 +12765,17 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
+"lCZ" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/item/ammo_casing/rifle/used,
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "lDv" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 5
@@ -12080,6 +12878,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain)
+"lFP" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_end";
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "lGr" = (
 /obj/floor_decal/corner_techfloor_grid/full{
 	dir = 8
@@ -12127,6 +12933,7 @@
 	},
 /area/metro/maintain/gen3)
 "lHM" = (
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ve_bi"
 	},
@@ -12161,9 +12968,9 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gas)
 "lIK" = (
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w"
-	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "lIX" = (
 /obj/machinery/light{
@@ -12198,6 +13005,16 @@
 	icon_state = "me_ti_gy"
 	},
 /area/metro/maintain/gen3)
+"lKE" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 6
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "lKT" = (
 /obj/floor_decal/borderfloorwhite{
 	dir = 1
@@ -12410,6 +13227,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
+"lPv" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/metro/maintain/gen3)
 "lPL" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 9
@@ -12667,10 +13490,15 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
 "lWV" = (
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w_1"
+/turf/simulated/wall/r_wall,
+/area/metro)
+"lXA" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_10"
 	},
-/area/metro/maintain/gen3)
+/area/metro/main_tunel)
 "lYj" = (
 /obj/machinery/door/unpowered/simple/samosbor/wood,
 /turf/simulated/floor/exoplanet/fd/grass{
@@ -12701,6 +13529,15 @@
 	icon_state = "me_ti_gy_t5"
 	},
 /area/metro/maintain/gen3)
+"lZT" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/structure/fd/mapping/screentext_triggermarker{
+	text_to_show = "Длинный кродиор. Когда же эти линии метро закончатся?"
+	},
+/turf/simulated/floor/plating,
+/area/metro/maintain/east)
 "maa" = (
 /turf/simulated/wall/invincible/blend/almayer_white{
 	icon_state = "almayer_deco_wall2"
@@ -12757,9 +13594,8 @@
 	color = "grey";
 	dir = 2
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w_4"
-	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "mcQ" = (
 /obj/machinery/door/unpowered/simple/grim/wood{
@@ -12786,6 +13622,13 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south)
+"mdG" = (
+/obj/machinery/door/airlock/highsecurity{
+	dir = 8;
+	can_use_tools = 0
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/main_tunel)
 "mdN" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 5
@@ -12800,6 +13643,33 @@
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/south/kpp)
+"men" = (
+/obj/floor_decal/techfloor{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/fd/grim_lamp,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/main_tunel)
+"mfc" = (
+/obj/floor_decal/techfloor{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/main_tunel)
+"mgf" = (
+/obj/map_effect/portal/master/side_a{
+	portal_id = "to_casino"
+	},
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_8";
+	dir = 2
+	},
+/area/metro/main_tunel)
 "mgj" = (
 /obj/structure/fd/decorative_pipes{
 	dir = 4;
@@ -12890,6 +13760,15 @@
 	},
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/metro/maintain/gen3)
+"mok" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_wood_b_3";
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "moF" = (
 /obj/machinery/conveyor{
 	dir = 4
@@ -13113,9 +13992,8 @@
 	dir = 1;
 	pixel_y = 18
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w"
-	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "mBH" = (
 /obj/floor_decal/step,
@@ -13127,6 +14005,15 @@
 /obj/structure/grille/broken,
 /turf/simulated/floor/plating,
 /area/metro/maintain/south)
+"mBY" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "sofa_g_end"
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "mCI" = (
 /obj/fd_water/deep,
 /obj/fd_water/alt_ver1,
@@ -13446,6 +14333,8 @@
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/liquid_fuel,
 /obj/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "mQb" = (
@@ -13462,6 +14351,13 @@
 	color = "#5F773B"
 	},
 /area/metro/maintain/gen3)
+"mQs" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/map_effect/portal/line/side_b,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "mQS" = (
 /obj/machinery/light,
 /obj/decal/cleanable/dirt,
@@ -13510,6 +14406,12 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/metro/maintain/gen1)
+"mTu" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "mTv" = (
 /obj/fd_water/alt_ver1{
 	layer = 2.1
@@ -13529,9 +14431,8 @@
 	pixel_y = 7
 	},
 /obj/structure/fd/samosbor/table_decor6,
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w"
-	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "mVp" = (
 /obj/floor_decal/step{
@@ -13541,6 +14442,7 @@
 /obj/structure/platform/shiva{
 	dir = 4
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_ol"
 	},
@@ -13590,6 +14492,16 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
+"mXn" = (
+/obj/machinery/light/small/readylight{
+	dir = 1
+	},
+/obj/map_effect/portal/master/side_a{
+	dir = 4;
+	portal_id = "toend"
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "mXr" = (
 /obj/paint/merc,
 /turf/simulated/wall/r_wall,
@@ -13645,6 +14557,7 @@
 	},
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "mZW" = (
@@ -13734,6 +14647,15 @@
 /obj/structure/flora/tall,
 /turf/simulated/floor/exoplanet/fd/grass,
 /area/metro/maintain/gen3)
+"nbN" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_wood_b_12";
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "ncl" = (
 /obj/structure/fake_zlvl{
 	density = 0
@@ -13851,12 +14773,24 @@
 	icon_state = "me_pi_8"
 	},
 /area/metro/maintain/gen3)
+"nhS" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security_bi"
+	},
+/area/metro/main_tunel)
 "niu" = (
 /obj/structure/platform/shiva{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/gravel,
 /area/metro/maintain/gas)
+"niw" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security"
+	},
+/area/metro/main_tunel)
 "njP" = (
 /obj/fd_water/alt_ver1{
 	layer = 2.1
@@ -13921,6 +14855,13 @@
 	icon_state = "cafe_alt"
 	},
 /area/metro/maintain/gen3)
+"nkL" = (
+/obj/map_effect/portal/master/side_b{
+	portal_id = "toend";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "nlu" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 1
@@ -14075,6 +15016,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/main_tunel)
+"ntV" = (
+/obj/machinery/light/small/readylight{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "nvd" = (
 /obj/machinery/door/blast/regular{
 	id_tag = "kpp1_1";
@@ -14150,6 +15097,13 @@
 /obj/item/paper/memo/command/recall,
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/gen3)
+"nyi" = (
+/obj/floor_decal/hull{
+	dir = 2
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "nyj" = (
 /obj/structure/fd/samosbor/floor_cable{
 	icon_state = "plated";
@@ -14238,9 +15192,7 @@
 /obj/item/newspaper{
 	pixel_x = -6
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w"
-	},
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "nBa" = (
 /obj/structure/grille,
@@ -14256,6 +15208,8 @@
 	icon_state = "typewriter";
 	pixel_y = 7
 	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_3"
 	},
@@ -14269,6 +15223,14 @@
 	dir = 8
 	},
 /obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
+"nCA" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 9
+	},
+/obj/decal/cleanable/liquid_fuel,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
@@ -14307,6 +15269,13 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/fd/muddirt,
 /area/metro/maintain/gen3)
+"nEm" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_15"
+	},
+/area/metro/main_tunel)
 "nEY" = (
 /obj/floor_decal/hull{
 	dir = 1
@@ -14359,6 +15328,12 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/east)
+"nHy" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_13"
+	},
+/area/metro/main_tunel)
 "nHE" = (
 /obj/structure/grille,
 /turf/simulated/floor/plating,
@@ -14467,6 +15442,15 @@
 /obj/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"nOo" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 2
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/gen3)
 "nOv" = (
 /turf/simulated/floor/tiled/dark/monotile,
 /area/metro/maintain/south)
@@ -14901,6 +15885,12 @@
 /obj/random/junk,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south)
+"ogc" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/metro/maintain/gen3)
 "ogo" = (
 /obj/structure/fake_lattice{
 	layer = 4.01;
@@ -14970,6 +15960,11 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gas)
+"okh" = (
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "bronze_floor"
+	},
+/area/metro/main_tunel)
 "okk" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 2
@@ -15105,6 +16100,12 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
+"orG" = (
+/obj/floor_decal/hull/corner{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "osr" = (
 /obj/structure/fd/junk{
 	icon_state = "2,4";
@@ -15406,6 +16407,7 @@
 /obj/machinery/door/blast/regular/open{
 	dir = 8
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "oFy" = (
@@ -15535,6 +16537,10 @@
 /obj/random/biggun,
 /turf/simulated/floor/tiled/monotile,
 /area/metro/maintain/east)
+"oJN" = (
+/obj/paint_stripe/gunmetal,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "oJP" = (
 /obj/floor_decal/corner/grey/border{
 	dir = 1
@@ -15542,6 +16548,12 @@
 /obj/floor_decal/corner/grey/border,
 /turf/simulated/floor/tiled/white,
 /area/metro/maintain/gas)
+"oKN" = (
+/obj/floor_decal/techfloor{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/main_tunel)
 "oLw" = (
 /obj/machinery/constructable_frame/machine_frame,
 /obj/item/material/shard/shrapnel/steel{
@@ -15590,9 +16602,27 @@
 	color = "#6E8C44"
 	},
 /area/metro/maintain/gen3)
+"oMw" = (
+/obj/structure/bed/chair/office/comfy/black{
+	dir = 8;
+	pixel_y = 0;
+	pixel_x = -9
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "oMz" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp)
+"oMC" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 5
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "oNf" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -15705,8 +16735,10 @@
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/east)
 "oTV" = (
-/turf/simulated/wall/r_wall,
-/area/metro/maintain/east)
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security_sm"
+	},
+/area/metro)
 "oVs" = (
 /obj/structure/platform/shiva{
 	dir = 1
@@ -15801,6 +16833,14 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/gravel,
 /area/metro/maintain/gas)
+"pan" = (
+/obj/floor_decal/hull/corner{
+	dir = 8
+	},
+/obj/floor_decal/hull/corner,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "pas" = (
 /obj/structure/fd/chasm{
 	teleport_to = /area/metro/maintain/south/chasm1
@@ -15855,6 +16895,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/metro/maintain/east)
+"pcE" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "sofa_gr_mid"
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe_alt"
+	},
+/area/metro/main_tunel)
 "pdd" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 5
@@ -15966,6 +17014,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
+"piZ" = (
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_6"
+	},
+/area/metro/main_tunel)
 "pje" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/blood{
@@ -16017,6 +17070,13 @@
 /obj/wallframe_spawn/reinforced,
 /turf/simulated/wall/r_wall,
 /area/metro/maintain/south/kpp1)
+"plh" = (
+/obj/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "pmi" = (
 /obj/floor_decal/asteroid,
 /turf/simulated/floor/plating,
@@ -16150,6 +17210,11 @@
 "pqP" = (
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain)
+"pqW" = (
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_7"
+	},
+/area/metro/main_tunel)
 "prM" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/borderfloorblack,
@@ -16389,15 +17454,14 @@
 /turf/simulated/wall/invincible/blend/cave/brown,
 /area/metro/maintain/gen3)
 "pEs" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 4;
-	pixel_y = 0;
-	pixel_x = 7
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 10
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w"
+/obj/machinery/light/small/readylight{
+	dir = 2
 	},
-/area/metro/maintain/gen3)
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "pFG" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -16434,6 +17498,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
+"pGZ" = (
+/obj/paint/black,
+/obj/paint_stripe/brown,
+/obj/decal/cleanable/dirt,
+/turf/simulated/wall/r_wall,
+/area/metro/main_tunel)
 "pHh" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 9
@@ -16568,8 +17638,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "pKA" = (
-/obj/structure/vines/light2,
-/turf/simulated/wall/invincible/blend/cave/brown,
+/turf/simulated/wall/invincible/blend/almayer_white,
 /area/metro)
 "pKY" = (
 /obj/floor_decal/techfloor/orange/corner,
@@ -16607,6 +17676,7 @@
 /obj/structure/railing/mapped{
 	color = "#78858B"
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ve_bi"
 	},
@@ -16651,9 +17721,7 @@
 	color_of = "#e2a41f";
 	range_of = 7
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w_4"
-	},
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "pMY" = (
 /obj/decal/cleanable/dirt,
@@ -16804,9 +17872,7 @@
 	icon_state = "wartable_off";
 	pixel_x = -16
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w_4"
-	},
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "pRY" = (
 /obj/floor_decal/step{
@@ -16839,9 +17905,8 @@
 	icon_state = "table_steel_r_3";
 	pixel_y = 7
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w_4"
-	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "pTD" = (
 /obj/floor_decal/corner_techfloor_grid{
@@ -17324,6 +18389,12 @@
 	icon_state = "tile"
 	},
 /area/metro/maintain/east)
+"qqm" = (
+/obj/structure/fd/samosbor/furniture3,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe_alt"
+	},
+/area/metro/main_tunel)
 "qqv" = (
 /obj/floor_decal/corner/paleblue{
 	dir = 9
@@ -17397,6 +18468,29 @@
 /obj/random/junkyard/advdevice,
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south/blast_door)
+"qrW" = (
+/obj/structure/railing/mapped{
+	color = "#293133"
+	},
+/obj/structure/railing/mapped{
+	color = "#78858B"
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
+/area/metro/maintain/gen3)
+"qsa" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 10
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/machinery/light/small/readylight{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "qsi" = (
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/east)
@@ -17426,6 +18520,16 @@
 /obj/structure/vines/light2,
 /turf/simulated/wall/invincible/blend/cave/brown,
 /area/metro/maintain/gen3)
+"qtz" = (
+/obj/floor_decal/techfloor{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/main_tunel)
 "qtA" = (
 /obj/machinery/door/airlock/multi_tile/maintenance,
 /obj/floor_decal/corner_techfloor_grid{
@@ -17463,6 +18567,17 @@
 	},
 /turf/simulated/floor/lino,
 /area/metro/maintain/gas)
+"qun" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 6
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "quM" = (
 /obj/structure/platform/shiva,
 /obj/structure/platform/shiva{
@@ -17638,6 +18753,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
+"qDN" = (
+/obj/floor_decal/hull/corner{
+	dir = 8
+	},
+/obj/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "qEq" = (
 /turf/simulated/floor/exoplanet/grim_asphalt1,
 /area/metro/maintain/east)
@@ -17812,9 +18937,7 @@
 /turf/simulated/floor/plating,
 /area/metro/maintain)
 "qLE" = (
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w_4"
-	},
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "qMI" = (
 /obj/floor_decal/techfloor{
@@ -18006,6 +19129,16 @@
 	color = "#526833"
 	},
 /area/metro/maintain/gen3)
+"qSV" = (
+/obj/floor_decal/hull{
+	dir = 8
+	},
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "qTH" = (
 /obj/structure/fd/junk{
 	icon_state = "0,2"
@@ -18044,6 +19177,11 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"qUL" = (
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe_alt"
+	},
+/area/metro/main_tunel)
 "qUM" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/platform/shiva{
@@ -18118,6 +19256,7 @@
 	},
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
 "qXo" = (
@@ -18161,6 +19300,24 @@
 /obj/structure/grille,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"qYr" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 5
+	},
+/obj/machinery/light/small/readylight{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
+"qYy" = (
+/obj/floor_decal/techfloor{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/main_tunel)
 "qYI" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 5
@@ -18247,6 +19404,7 @@
 	pixel_x = 17;
 	pixel_y = -18
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_3"
 	},
@@ -18280,6 +19438,15 @@
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/gen3)
+"rfe" = (
+/obj/floor_decal/techfloor{
+	dir = 1
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_ti_gy"
+	},
 /area/metro/maintain/gen3)
 "rfV" = (
 /obj/floor_decal/corner_techfloor_grid{
@@ -18420,6 +19587,15 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/fd/muddirt,
 /area/metro/maintain/gen3)
+"rmP" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_steel_r_1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "rnr" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 10
@@ -18726,10 +19902,28 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
+"rAG" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_wood_b_5";
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "rBd" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/metro/maintain)
+"rBe" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_wood_b_9";
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "rBy" = (
 /turf/simulated/wall/walnut,
 /area/metro/maintain/gen3)
@@ -18765,6 +19959,12 @@
 	icon_state = "tile"
 	},
 /area/metro/maintain/east)
+"rDW" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_5"
+	},
+/area/metro/main_tunel)
 "rEa" = (
 /obj/structure/railing/mapped{
 	dir = 8;
@@ -18813,6 +20013,13 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain)
+"rGA" = (
+/obj/structure/catwalk,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/metal{
+	icon_state = "me_pi_12"
+	},
+/area/metro/maintain/gen3)
 "rGC" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/cave_decor{
@@ -19023,6 +20230,28 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/blast_door)
+"rOa" = (
+/obj/floor_decal/hull/corner{
+	dir = 4
+	},
+/obj/floor_decal/hull/corner{
+	dir = 1
+	},
+/obj/floor_decal/hull{
+	dir = 1
+	},
+/obj/map_effect/portal/line/side_b{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
+"rOI" = (
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 2
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/main_tunel)
 "rPG" = (
 /obj/structure/vines/heavy6,
 /turf/simulated/wall/walnut,
@@ -19052,6 +20281,8 @@
 	pixel_y = -2;
 	pixel_x = -3
 	},
+/obj/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "rQD" = (
@@ -19070,9 +20301,8 @@
 	pixel_x = -2;
 	pixel_y = -8
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w_4"
-	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "rRn" = (
 /obj/floor_decal/corner_techfloor_grid{
@@ -19121,6 +20351,7 @@
 	pixel_y = 20;
 	layer = 4.10
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_gy"
 	},
@@ -19212,6 +20443,18 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"rWf" = (
+/obj/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/structure/fd/mapping/screentext_triggermarker{
+	text_to_show = "Вы видите на полу явно недавние следы чьих-то ботинок."
+	},
+/turf/simulated/floor/exoplanet/samosbor/metal,
+/area/metro/maintain/gen3)
 "rWh" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
@@ -19346,6 +20589,13 @@
 /obj/random/single/lighter,
 /turf/simulated/floor/tiled/white,
 /area/metro/maintain/gas)
+"sfn" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "sfs" = (
 /obj/floor_decal/industrial/warning{
 	dir = 5
@@ -19357,6 +20607,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
+/area/metro/main_tunel)
+"sft" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_9"
+	},
 /area/metro/main_tunel)
 "sgr" = (
 /obj/machinery/light,
@@ -19473,6 +20730,13 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gas)
+"skV" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security"
+	},
+/area/metro/main_tunel)
 "sli" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
@@ -19500,6 +20764,17 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/metro/maintain/gen3)
+"smu" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_ro_12";
+	pixel_y = 0
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe_alt"
+	},
+/area/metro/main_tunel)
 "smJ" = (
 /obj/floor_decal/corner/red/border{
 	dir = 2
@@ -19657,6 +20932,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain)
+"stF" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_start"
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "stX" = (
 /obj/floor_decal/corner/paleblue/full,
 /obj/machinery/bodyscanner{
@@ -20055,6 +21339,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/main_tunel)
+"sPu" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/floor_decal/techfloor{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/main_tunel)
 "sPQ" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 10
@@ -20277,6 +21571,7 @@
 /obj/floor_decal/techfloor{
 	dir = 1
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_gy"
 	},
@@ -20439,6 +21734,15 @@
 "tjA" = (
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/east)
+"tjC" = (
+/obj/map_effect/portal/line/side_a{
+	dir = 2
+	},
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_8";
+	dir = 2
+	},
+/area/metro/main_tunel)
 "tjV" = (
 /obj/structure/table/standard,
 /obj/floor_decal/corner/red/half{
@@ -20458,6 +21762,12 @@
 /obj/fd_water/alt_ver1,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp1)
+"tlk" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "tlP" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 5
@@ -20582,6 +21892,14 @@
 /obj/structure/bed/chair/office,
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/east)
+"tsd" = (
+/obj/floor_decal/hull{
+	dir = 1
+	},
+/obj/machinery/light/small/readylight,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "tsE" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/wall/walnut,
@@ -20590,6 +21908,17 @@
 /obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/metro/maintain/south/kpp)
+"tsN" = (
+/obj/structure/bed/chair/office/comfy/black{
+	dir = 8;
+	pixel_y = 0;
+	pixel_x = -9
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "ttw" = (
 /obj/decal/cleanable/dirt,
 /obj/random/trash,
@@ -20644,6 +21973,27 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/grim_asphalt1,
+/area/metro/maintain/east)
+"tyd" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/fd/building_stuff,
+/obj/structure/fd/building_stuff{
+	desc = "Just an pile of bricks.";
+	icon_state = "0,1";
+	name = "bricks";
+	pixel_y = 2;
+	pixel_x = -1;
+	density = 1
+	},
+/obj/structure/fd/building_stuff{
+	anchored = 0;
+	density = 1;
+	icon_state = "1,1";
+	pixel_y = 18;
+	pixel_x = -2;
+	name = "Barrel"
+	},
+/turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "tzr" = (
 /obj/structure/platform/kutjevo/rock{
@@ -20706,9 +22056,8 @@
 	pixel_x = 8;
 	range_of = s
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w_1"
-	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "tBz" = (
 /obj/structure/catwalk,
@@ -20744,6 +22093,7 @@
 	pixel_x = -16;
 	pixel_y = -8
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
 "tCU" = (
@@ -20967,13 +22317,18 @@
 /obj/structure/vines/heavy1,
 /turf/unsimulated/mineral,
 /area/metro/maintain/south/kpp)
+"tOo" = (
+/turf/simulated/floor/exoplanet/samosbor/stairs{
+	icon_state = "stairs_8";
+	dir = 2
+	},
+/area/metro/main_tunel)
 "tOp" = (
 /obj/structure/fd/samosbor/floor_cable{
 	icon_state = "plated";
 	pixel_y = 3;
 	pixel_x = 12
 	},
-/obj/structure/fd/mapping/screentext_triggermarker,
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#6E8C44"
 	},
@@ -20984,6 +22339,17 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/metro/maintain/gas)
+"tPs" = (
+/obj/structure/fd/building_stuff{
+	icon_state = "1,1";
+	pixel_y = 15;
+	pixel_x = 8;
+	name = "Barrel";
+	desc = "Just an iron barrel.";
+	layer = 2.234
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "tPD" = (
 /turf/simulated/floor/tiled/dark/monotile,
 /area/metro/main_tunel)
@@ -21076,6 +22442,17 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
+"tTw" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_mid";
+	dir = 2;
+	pixel_y = 12
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "tTx" = (
 /obj/machinery/light{
 	dir = 2
@@ -21136,6 +22513,23 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp)
+"tUZ" = (
+/obj/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
+"tVd" = (
+/obj/structure/table/rack/samosbor/mod{
+	icon_state = "table_ro_4";
+	pixel_y = 0
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe_alt"
+	},
+/area/metro/main_tunel)
 "tVD" = (
 /obj/floor_decal/borderfloorblack{
 	dir = 1
@@ -21176,6 +22570,14 @@
 	},
 /turf/simulated/floor/exoplanet/samosbor/env,
 /area/metro/maintain/gen3)
+"tXi" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "tXk" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/borderfloorblack{
@@ -21563,9 +22965,9 @@
 	icon_state = "table_steel_r_5";
 	pixel_y = 7
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w"
-	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "uss" = (
 /obj/floor_decal/corner_techfloor_grid{
@@ -21802,6 +23204,16 @@
 	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/metro/maintain/east)
+"uBp" = (
+/obj/structure/bed/chair/office/comfy/red{
+	dir = 4;
+	pixel_y = 6;
+	pixel_x = 9
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security_bi"
+	},
+/area/metro/main_tunel)
 "uCI" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/plasticflaps/rocks{
@@ -21934,6 +23346,14 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gas)
+"uIC" = (
+/obj/item/ammo_casing/rifle/used,
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "uJf" = (
 /obj/decal/cleanable/liquid_fuel,
 /obj/decal/cleanable/liquid_fuel,
@@ -21971,6 +23391,7 @@
 	pixel_x = 8;
 	range_of = s
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_gy_t6"
 	},
@@ -22060,6 +23481,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/east)
+"uLY" = (
+/obj/structure/inflatable/door,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "uMf" = (
 /obj/fd_water/alt_ver1{
 	layer = 2.1
@@ -22101,6 +23527,12 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"uMW" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_7"
+	},
+/area/metro/main_tunel)
 "uNh" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
@@ -22153,6 +23585,13 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"uPH" = (
+/obj/floor_decal/hull/corner{
+	dir = 4
+	},
+/obj/floor_decal/industrial/warning,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "uPN" = (
 /obj/machinery/button/switch{
 	pixel_x = -11;
@@ -22166,9 +23605,8 @@
 	icon_state = "0,3";
 	layer = 2.21
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w_4"
-	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "uQq" = (
 /obj/machinery/door/airlock/hatch{
@@ -22319,6 +23757,14 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
+"uZM" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_end"
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "vac" = (
 /obj/structure/fd/grim_walls/metal{
 	icon_state = "rusty_wall-9"
@@ -22335,6 +23781,17 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south)
+"vax" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 10
+	},
+/obj/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/dirt,
+/obj/machinery/light/small/readylight{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "vaY" = (
 /obj/structure/showcase{
 	bound_height = 96;
@@ -22420,9 +23877,8 @@
 	icon_state = "table_steel_r_12";
 	pixel_y = 7
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w_1"
-	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "vfR" = (
 /obj/structure/flora/jungle/bush{
@@ -22437,6 +23893,11 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen1)
+"vgb" = (
+/obj/floor_decal/industrial/warning,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "vgf" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -22647,6 +24108,13 @@
 "vrZ" = (
 /turf/simulated/wall/invincible/blend/hybrisa_spaceport,
 /area/metro/maintain/east)
+"vsc" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "vsp" = (
 /obj/floor_decal/messygrass{
 	dir = 4
@@ -22694,6 +24162,16 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/gravel,
 /area/metro/maintain/gas)
+"vvo" = (
+/obj/floor_decal/hull/corner{
+	dir = 1
+	},
+/obj/floor_decal/hull/corner{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "vvy" = (
 /obj/floor_decal/step{
 	color = "grey"
@@ -22820,6 +24298,14 @@
 /obj/structure/ore_box,
 /turf/simulated/floor/plating,
 /area/metro/maintain)
+"vGo" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "sofa_r_mid"
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe_alt"
+	},
+/area/metro/main_tunel)
 "vGq" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 9
@@ -22867,6 +24353,15 @@
 	icon_state = "me_ti_gy"
 	},
 /area/metro/maintain/gen3)
+"vHq" = (
+/obj/structure/fd/building_stuff,
+/obj/structure/largecrate{
+	icon_state = "woodcrate";
+	icon = 'mods/_fd/fd_assets/icons/is12/war_crates.dmi';
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "vJc" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 10
@@ -22898,6 +24393,21 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/metro/maintain/east)
+"vJZ" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "sofa_g_mid"
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
+"vKN" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "vLx" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 2
@@ -22945,9 +24455,7 @@
 	pixel_y = 0;
 	pixel_x = -7
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w_1"
-	},
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "vOB" = (
 /obj/floor_decal/corner_techfloor_grid{
@@ -22977,6 +24485,21 @@
 	color = "#5F773B"
 	},
 /area/metro/maintain/gen3)
+"vPj" = (
+/obj/decal/cleanable/dirt,
+/obj/structure/largecrate{
+	icon_state = "woodcrate";
+	icon = 'mods/_fd/fd_assets/icons/is12/war_crates.dmi';
+	pixel_y = 6
+	},
+/obj/structure/largecrate{
+	icon_state = "woodcrate";
+	icon = 'mods/_fd/fd_assets/icons/is12/war_crates.dmi';
+	pixel_y = 20;
+	pixel_x = -16
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "vPt" = (
 /obj/floor_decal/corner/paleblue/border{
 	dir = 8
@@ -23114,9 +24637,7 @@
 	icon_state = "0,3";
 	layer = 2.21
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w_3"
-	},
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "vVM" = (
 /obj/structure/railing/mapped{
@@ -23399,6 +24920,12 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
+"wld" = (
+/obj/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "wna" = (
 /obj/floor_decal/corner_techfloor_grid,
 /turf/simulated/floor/tiled/techmaint,
@@ -23468,6 +24995,13 @@
 /obj/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"wqf" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_start"
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "wqg" = (
 /obj/structure/catwalk,
 /obj/decal/cleanable/dirt,
@@ -23483,6 +25017,15 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
+"wrz" = (
+/obj/floor_decal/hull/corner{
+	dir = 8
+	},
+/obj/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "wrP" = (
 /obj/floor_decal/techfloor,
 /obj/structure/fd/samosbor/machinery3{
@@ -23490,6 +25033,7 @@
 	pixel_y = 20;
 	layer = 4.10
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_gy_t6"
 	},
@@ -23524,6 +25068,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
+"wsA" = (
+/obj/paint/black,
+/obj/paint_stripe/yellow,
+/turf/simulated/wall/r_wall,
+/area/metro)
 "wsH" = (
 /obj/floor_decal/hull{
 	dir = 8
@@ -23543,6 +25092,11 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"wsU" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "wtD" = (
 /obj/floor_decal/borderfloorblack,
 /obj/floor_decal/corner{
@@ -23780,6 +25334,15 @@
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/east)
+"wHj" = (
+/obj/floor_decal/hull{
+	dir = 1
+	},
+/obj/map_effect/portal/line/side_a{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "wIk" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/ore_box,
@@ -23802,9 +25365,7 @@
 	pixel_x = -2;
 	pixel_y = -7
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w"
-	},
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "wJx" = (
 /obj/structure/table/rack/samosbor/mod{
@@ -23908,6 +25469,19 @@
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
+"wNL" = (
+/obj/floor_decal/hull/corner,
+/obj/floor_decal/hull/corner{
+	dir = 8
+	},
+/obj/floor_decal/hull{
+	dir = 2
+	},
+/obj/map_effect/portal/line/side_b{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "wOj" = (
 /obj/structure/table,
 /obj/random/single/cola,
@@ -24198,6 +25772,14 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/metro/maintain/gas)
+"wWX" = (
+/obj/floor_decal/hull{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "wYl" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -24249,6 +25831,19 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"wZX" = (
+/obj/floor_decal/hull{
+	dir = 1
+	},
+/obj/decal/cleanable/blood{
+	icon_state = "u_guilty_l"
+	},
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "wZZ" = (
 /obj/structure/table/rack/samosbor/mod{
 	icon_state = "table_da_12"
@@ -24292,6 +25887,13 @@
 "xbk" = (
 /turf/simulated/wall/invincible/blend/almayer_white,
 /area/metro/maintain/east)
+"xbw" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_7"
+	},
+/area/metro/main_tunel)
 "xbA" = (
 /obj/structure/table/rack/samosbor/mod{
 	icon_state = "table_da_10"
@@ -24326,6 +25928,12 @@
 /obj/decal/cleanable/dirt,
 /obj/machinery/light,
 /turf/simulated/floor/plating,
+/area/metro/maintain/east)
+"xcI" = (
+/obj/machinery/light/small/readylight{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "xdx" = (
 /obj/floor_decal/corner_techfloor_grid{
@@ -24434,15 +26042,9 @@
 	},
 /area/metro/maintain/gen3)
 "xhZ" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 4;
-	pixel_y = 0;
-	pixel_x = 7
-	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w_4"
-	},
-/area/metro/maintain/gen3)
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "xiC" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
@@ -24542,6 +26144,15 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south)
+"xmH" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 6
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "xmQ" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 9
@@ -24649,9 +26260,7 @@
 	pixel_y = 10;
 	pixel_x = -7
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w_1"
-	},
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "xrb" = (
 /obj/structure/railing/mapped{
@@ -24683,6 +26292,8 @@
 /area/metro/maintain/south/kpp1)
 "xsY" = (
 /obj/structure/catwalk,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_pi_5"
 	},
@@ -24727,6 +26338,7 @@
 	dir = 5
 	},
 /obj/decal/cleanable/dirt,
+/obj/item/crowbar,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
 "xvQ" = (
@@ -24831,6 +26443,18 @@
 /obj/decal/cleanable/generic,
 /turf/simulated/floor/plating,
 /area/metro/maintain/south/kpp)
+"xyK" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/floor_decal/techfloor{
+	dir = 8
+	},
+/obj/structure/fd/grim_lamp{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/metro/main_tunel)
 "xyM" = (
 /obj/structure/flora/tall/fourth,
 /turf/simulated/floor/exoplanet/fd/grass,
@@ -24895,6 +26519,14 @@
 	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/metro/maintain/gen3)
+"xCm" = (
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "sofa_gr_start"
+	},
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe_alt"
+	},
+/area/metro/main_tunel)
 "xCD" = (
 /obj/machinery/light{
 	dir = 1
@@ -25065,14 +26697,13 @@
 /turf/simulated/floor/plating,
 /area/metro/maintain/south)
 "xKy" = (
-/obj/structure/fd/junk{
-	icon_state = "0,3";
-	layer = 2.21
+/obj/structure/fd/samosbor/furniture3{
+	icon_state = "bench_start";
+	dir = 1
 	},
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w"
-	},
-/area/metro/maintain/gen3)
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "xLp" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 9
@@ -25102,11 +26733,26 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"xMR" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 8
+	},
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "xNr" = (
 /obj/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/maintain/east)
+"xOp" = (
+/obj/floor_decal/hull{
+	dir = 4
+	},
+/obj/map_effect/portal/line/side_a,
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
 "xOy" = (
@@ -25167,9 +26813,8 @@
 	pixel_x = 7
 	},
 /obj/structure/fd/samosbor/table_decor7,
-/turf/simulated/floor/exoplanet/grim_metal{
-	icon_state = "concrete_tile_w"
-	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grim_concrete_tile3,
 /area/metro/maintain/gen3)
 "xQM" = (
 /obj/floor_decal/corner_techfloor_grid{
@@ -25267,6 +26912,16 @@
 /obj/paint/red,
 /turf/simulated/wall/r_wall,
 /area/metro)
+"xVB" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 5
+	},
+/obj/decal/cleanable/dirt,
+/obj/machinery/light/small/readylight{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "xVP" = (
 /obj/structure/fd/junk{
 	icon_state = "5,0"
@@ -25352,10 +27007,25 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/gen1)
+"xZB" = (
+/obj/map_effect/portal/line/side_a{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "xZC" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/stairs,
 /area/metro/maintain/east)
+"xZW" = (
+/obj/floor_decal/hull{
+	dir = 2
+	},
+/obj/map_effect/portal/line/side_a{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "yaC" = (
 /obj/floor_decal/hull/corner,
 /obj/floor_decal/industrial/warning{
@@ -25485,6 +27155,12 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/blast_door)
+"yeN" = (
+/obj/wallframe_spawn/reinforced,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "security"
+	},
+/area/metro/main_tunel)
 "yeW" = (
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
 /obj/decal/cleanable/dirt,
@@ -25557,6 +27233,12 @@
 /obj/structure/inflatable/door,
 /turf/simulated/floor/exoplanet/gravel,
 /area/metro/maintain/gas)
+"ygV" = (
+/obj/structure/bed/chair/office/comfy/black,
+/turf/simulated/floor/exoplanet/samosbor/theme{
+	icon_state = "cafe"
+	},
+/area/metro/main_tunel)
 "ygX" = (
 /turf/simulated/floor/plating,
 /area/metro/maintain)
@@ -25575,6 +27257,7 @@
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "yiL" = (
@@ -25637,6 +27320,12 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/metro/maintain)
+"ylF" = (
+/obj/floor_decal/borderfloorblack{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/metro/main_tunel)
 "ylW" = (
 /obj/floor_decal/industrial/loading{
 	dir = 4
@@ -26496,14 +28185,14 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+pKA
+pKA
+pKA
+pKA
+pKA
+pKA
+pKA
+pKA
 kUv
 kUv
 kUv
@@ -26698,14 +28387,14 @@ kUv
 kUv
 kUv
 kUv
+pKA
 kUv
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
+pKA
 kUv
 kUv
 kUv
@@ -26900,14 +28589,14 @@ kUv
 kUv
 kUv
 kUv
+pKA
 kUv
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
+pKA
 kUv
 kUv
 kUv
@@ -27102,17 +28791,17 @@ kUv
 kUv
 kUv
 kUv
+pKA
 kUv
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+pKA
+pKA
+pKA
+pKA
 kUv
 kUv
 kUv
@@ -27304,17 +28993,17 @@ kUv
 kUv
 kUv
 kUv
+bcu
+bcu
+bcu
+bcu
+bcu
+bcu
+bcu
+bcu
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+pKA
 kUv
 kUv
 kUv
@@ -27506,17 +29195,17 @@ kUv
 kUv
 kUv
 kUv
+bcu
+gaU
+okh
+okh
+okh
+okh
+gaU
+bcu
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+pKA
 kUv
 kUv
 kUv
@@ -27704,27 +29393,27 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+pKA
+pKA
+pKA
+pKA
+bcu
+lAe
+okh
+okh
+okh
+okh
+lAe
+bcu
+bcu
+bcu
+bcu
+ian
+ian
+ian
+ian
+ian
+ian
 kUv
 kUv
 kUv
@@ -27906,27 +29595,27 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+oTV
+oTV
+oTV
+oTV
+dDM
+lAe
+piZ
+pqW
+pqW
+pqW
+pqW
+pqW
+pqW
+eNi
+gVS
+tOo
+tOo
+tOo
+tOo
+gdY
+ian
 kUv
 kUv
 kUv
@@ -28108,27 +29797,27 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+oTV
+oTV
+oTV
+oTV
+dDM
+lAe
+dEo
+dUa
+dUa
+dUa
+dUa
+dUa
+dUa
+iKJ
+gVS
+tOo
+tOo
+tOo
+tOo
+fKx
+ian
 kUv
 kUv
 kUv
@@ -28310,27 +29999,27 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+pKA
+pKA
+pKA
+pKA
+bcu
+lAe
+okh
+okh
+okh
+okh
+lAe
+bcu
+bcu
+bcu
+bcu
+ian
+ian
+ian
+ian
+ian
+ian
 kUv
 kUv
 kUv
@@ -28516,17 +30205,17 @@ kUv
 kUv
 kUv
 kUv
+bcu
+gaU
+okh
+okh
+okh
+okh
+gaU
+bcu
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+pKA
 kUv
 kUv
 kUv
@@ -28718,17 +30407,17 @@ kUv
 kUv
 kUv
 kUv
+bcu
+bcu
+bcu
+bcu
+bcu
+bcu
+bcu
+bcu
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+pKA
 kUv
 kUv
 kUv
@@ -28920,17 +30609,17 @@ kUv
 kUv
 kUv
 kUv
+pKA
 kUv
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+pKA
+pKA
+pKA
+pKA
 kUv
 kUv
 kUv
@@ -29122,14 +30811,14 @@ kUv
 kUv
 kUv
 kUv
+pKA
 kUv
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
+pKA
 kUv
 kUv
 kUv
@@ -29324,14 +31013,14 @@ kUv
 kUv
 kUv
 kUv
+pKA
 kUv
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
+pKA
 kUv
 kUv
 kUv
@@ -29526,14 +31215,14 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+pKA
+pKA
+pKA
+pKA
+pKA
+pKA
+pKA
+pKA
 kUv
 kUv
 kUv
@@ -39705,14 +41394,14 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+hcI
+tQd
+xhZ
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -39894,27 +41583,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+tQd
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+nkL
+wNL
+rOa
+bOX
+wNL
+rOa
+jJn
 kUv
 kUv
 kUv
@@ -40096,27 +41785,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+tQd
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+hcI
+tQd
+kXy
+hcI
+nEY
+jJn
 kUv
 kUv
 kUv
@@ -40298,27 +41987,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+avu
+hcI
+tQd
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+hcI
+aFx
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -40500,27 +42189,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+tQd
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+hcI
+aFx
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -40702,27 +42391,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+tQd
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+avu
+hcI
+tQd
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -40904,27 +42593,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+tQd
+kXy
+hcI
+nEY
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+hcI
+tQd
+xhZ
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -41106,27 +42795,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+tQd
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+hcI
+aFx
+dKz
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -41308,27 +42997,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+tQd
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+hcI
+aHz
+xhZ
+hcI
+nEY
+jJn
 kUv
 kUv
 kUv
@@ -41510,27 +43199,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+avu
+hcI
+tQd
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+xhZ
+dFb
+aHz
+xhZ
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -41712,27 +43401,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+tQd
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+xhZ
+dFb
+kQT
+dKz
+nyi
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -41914,27 +43603,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+tQd
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+loZ
+nyi
+aFx
+dKz
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -42116,27 +43805,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+cFU
+iQI
+wZX
+cFU
+iQI
+aol
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+xhZ
+nyi
+aHz
+mTu
+nyi
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -42317,28 +44006,28 @@ kUv
 kUv
 kUv
 kUv
+ayj
+jJn
+kXy
+hUR
+dYB
+kXy
+hUR
+dYB
+jJn
+ayj
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+xhZ
+nyi
+aHz
+sfn
+dFb
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -42518,29 +44207,29 @@ kUv
 kUv
 kUv
 kUv
+uDJ
+ayj
+kXy
+jYa
+uOv
+kbr
+uqP
+sPb
+sfs
+tAO
+ayj
+uDJ
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+xhZ
+nyi
+aHz
+dKz
+nyi
+nEY
+jJn
 kUv
 kUv
 kUv
@@ -42705,44 +44394,44 @@ vTz
 kUv
 kUv
 kUv
+uDJ
+uDJ
+uDJ
+uDJ
+uDJ
+uDJ
+uDJ
+uDJ
+uDJ
+pGZ
+uDJ
+uDJ
+uDJ
+uDJ
+uDJ
+uDJ
+kXy
+kXy
+xRM
+aOa
+tQd
+kXy
+hcI
+tQd
+pBp
+kXy
+uDJ
+uDJ
+uDJ
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+hcI
+aFx
+mTu
+dFb
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -42907,44 +44596,44 @@ vTz
 kUv
 kUv
 kUv
+fIy
+guN
+fzS
+tJB
+fIy
+tJB
+fIy
+tJB
+kAQ
+tJB
+imF
+tJB
+fzS
+tJB
+arf
+tJB
+tJB
+cEh
+eJi
+hcI
+tQd
+kXy
+hcI
+tQd
+sRI
+bqD
+tJB
+jck
+tJB
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+hcI
+aFx
+xhZ
+nyi
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -43109,44 +44798,44 @@ vTz
 kUv
 kUv
 kUv
+pft
+gaY
+pft
+pft
+enc
+pft
+pft
+pft
+pft
+pft
+tEd
+pft
+pft
+pft
+wsH
+pft
+pft
+jnC
+kXy
+hcI
+tQd
+kXy
+hcI
+tQd
+kXy
+wrz
+pft
+jck
+pft
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+avu
+hcI
+aHz
+dKz
+dFb
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -43311,44 +45000,44 @@ kUv
 kUv
 kUv
 kUv
+xhZ
+byA
+kXy
+kXy
+xhZ
+xhZ
+xhZ
+xhZ
+kXy
+kXy
+gmO
+kXy
+kXy
+kXy
+hTi
+fFU
+fFU
+hfe
+kXy
+hcI
+tQd
+kXy
+hcI
+tQd
+kXy
+pBp
+kXy
+jck
+kXy
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+hcI
+aFx
+xhZ
+nyi
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -43513,44 +45202,44 @@ kUv
 kUv
 kUv
 kUv
+tJB
+mQs
+tJB
+fIy
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+imF
+tJB
+tJB
+tJB
+arf
+ggg
+tJB
+chy
+kXy
+hcI
+tQd
+kXy
+hcI
+tQd
+kXy
+fSB
+tJB
+jck
+tJB
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+hcI
+aFx
+xhZ
+nyi
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -43715,44 +45404,44 @@ kUv
 kUv
 kUv
 kUv
+pft
+gaY
+bvC
+pft
+pft
+pft
+pft
+pft
+bvC
+pft
+tEd
+pft
+bvC
+pft
+wsH
+pft
+pft
+lJr
+ijl
+hcI
+tQd
+kXy
+hcI
+tQd
+dfu
+orG
+pft
+jck
+pft
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+hcI
+aFx
+xhZ
+nyi
+nEY
+jJn
 kUv
 kUv
 kUv
@@ -43917,44 +45606,44 @@ kUv
 kUv
 kUv
 kUv
+uDJ
+uDJ
+uDJ
+uDJ
+uDJ
+uDJ
+uDJ
+uDJ
+uDJ
+uDJ
+uDJ
+uDJ
+uDJ
+uDJ
+uDJ
+uDJ
+kXy
+kXy
+xRM
+aOa
+tQd
+xhZ
+hcI
+tQd
+pBp
+kXy
+uDJ
+uDJ
+uDJ
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+hcI
+tQd
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -44134,29 +45823,29 @@ kUv
 kUv
 kUv
 kUv
+uDJ
+ayj
+kXy
+vXa
+sYr
+vvo
+kXy
+hUR
+qHz
+gdK
+ayj
+uDJ
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+hcI
+aFx
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -44337,28 +46026,28 @@ kUv
 kUv
 kUv
 kUv
+ayj
+jJn
+kXy
+nWi
+kbr
+uqP
+sPb
+oNK
+jJn
+ayj
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+avu
+hcI
+tQd
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -44540,27 +46229,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+tQd
+kXy
+hcI
+nEY
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+hcI
+aFx
+xhZ
+nyi
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -44742,27 +46431,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+aFx
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+hcI
+tQd
+xhZ
+nyi
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -44944,27 +46633,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+aFx
+kXy
+nyi
+tQd
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+hcI
+aFx
+xhZ
+hcI
+nEY
+jJn
 kUv
 kUv
 kUv
@@ -45146,27 +46835,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+avu
+hcI
+aFx
+xhZ
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+hcI
+aFx
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -45348,27 +47037,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+nyi
+tQd
+xhZ
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+hcI
+aFx
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -45550,27 +47239,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+aFx
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+avu
+hcI
+aFx
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -45752,27 +47441,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+tQd
+kXy
+hcI
+nEY
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+nyi
+tQd
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -45954,27 +47643,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+nyi
+tQd
+kXy
+nyi
+aFx
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+hcI
+tQd
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -46156,6 +47845,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+nyi
+aFx
+kXy
+nyi
+aFx
+jJn
+kUv
+kUv
+kUv
+kUv
+kUv
+jJn
+kXy
+hcI
+tQd
+kXy
+hcI
+nEY
+jJn
 kUv
 kUv
 kUv
@@ -46191,32 +47901,11 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+ian
+ian
+mdG
+ian
+ian
 kUv
 kUv
 kUv
@@ -46358,11 +48047,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+avu
+nyi
+aFx
+xhZ
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+tQd
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -46387,49 +48092,33 @@ kUv
 kUv
 kUv
 kUv
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+iHj
+uBp
+iTS
+ian
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+ian
+ian
+ian
+ian
+ian
+ian
+ian
 kUv
 kUv
 kUv
@@ -46560,11 +48249,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+nyi
+aFx
+sfn
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
+jJn
+avu
+hcI
+tQd
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -46589,49 +48294,33 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+ian
+qqm
+nhS
+drC
+uMW
+uMW
+uMW
+uMW
+rDW
+qUL
+qUL
+ian
+cJZ
+niw
+hFv
+ian
+ian
+ian
+ian
+ian
+ian
+axp
+mok
+mok
+mok
+rAG
+ian
 kUv
 kUv
 kUv
@@ -46762,11 +48451,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+nyi
+tQd
+dKz
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+tQd
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -46791,49 +48496,33 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+ian
+vGo
+nhS
+lXA
+cgO
+dUa
+gEl
+gEl
+sft
+acO
+acO
+ian
+yeN
+yeN
+yeN
+ian
+piZ
+uMW
+uMW
+xbw
+rDW
+tsN
+oMw
+tsN
+tlk
+nbN
+ian
 kUv
 kUv
 kUv
@@ -46964,11 +48653,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+xhZ
+nyi
+aHz
+xhZ
+nyi
+nEY
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+tQd
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -46993,49 +48698,33 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+ian
+vGo
+iHy
+skV
+tVd
+ian
+xCm
+qUL
+iHy
+iHy
+iHy
+hoY
+gaU
+gaU
+gaU
+hoY
+jkG
+kyP
+kyP
+nEm
+nHy
+foo
+foo
+tlk
+ygV
+nbN
+ian
 kUv
 kUv
 kUv
@@ -47166,11 +48855,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+aFx
+dKz
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+tQd
+xhZ
+hcI
+nEY
+jJn
 kUv
 kUv
 kUv
@@ -47195,49 +48900,33 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+ian
+vGo
+iHy
+skV
+smu
+ian
+pcE
+qUL
+kav
+acO
+acO
+ian
+gqZ
+gqZ
+gqZ
+ian
+dEo
+gEl
+gEl
+cgO
+iKJ
+gqZ
+foo
+tlk
+gMm
+rBe
+ian
 kUv
 kUv
 kUv
@@ -47368,11 +49057,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+tQd
+xhZ
+dFb
+tQd
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+tQd
+xhZ
+nyi
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -47397,49 +49102,33 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+ian
+gNM
+iTS
+iTS
+gRz
+ian
+eCx
+qUL
+gNM
+qUL
+qUL
+ian
+keP
+chW
+rmP
+ian
+ian
+ian
+ian
+ian
+ian
+hND
+tlk
+foo
+tlk
+gqZ
+ian
 kUv
 kUv
 kUv
@@ -47570,11 +49259,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+avu
+hcI
+aFx
+xhZ
+nyi
+tQd
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+tQd
+kXy
+nyi
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -47599,49 +49304,33 @@ kUv
 kUv
 kUv
 kUv
+ian
+ian
+hgy
+hgy
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
 kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+ian
+tTw
+tlk
+foo
+foo
+gqZ
+ian
 kUv
 kUv
 kUv
@@ -47772,11 +49461,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+aHz
+xhZ
+nyi
+tQd
+jJn
 kUv
 kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+tQd
+kXy
+hcI
+tQd
+jJn
 kUv
 kUv
 kUv
@@ -47801,49 +49506,33 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+ian
+wsU
+wsU
+vKN
+cxT
+ian
+iJF
+cxT
+wsU
+wsU
+wsU
+vKN
+stF
+wsU
+lFP
+ian
+ian
+ian
+ian
+ian
+ian
+dMk
+tlk
+bmc
+gqZ
+bPC
+ian
 kUv
 kUv
 kUv
@@ -47974,10 +49663,28 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+aHz
+xhZ
+hcI
+aFx
+jJn
 kUv
 kUv
 kUv
 kUv
+wsA
+jJn
+kXy
+hUR
+dYB
+kXy
+pan
+dYB
+jJn
+ayj
 kUv
 kUv
 kUv
@@ -48001,51 +49708,33 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+ian
+wsU
+wsU
+vKN
+cxT
+ian
+dzf
+cxT
+wsU
+wsU
+wsU
+vKN
+iau
+wsU
+xKy
+ian
+mgf
+tOo
+tOo
+tOo
+tOo
+gqZ
+tlk
+vJZ
+tlk
+nbN
+ian
 kUv
 kUv
 kUv
@@ -48176,9 +49865,29 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+nyi
+aHz
+xhZ
+hcI
+tsd
+jJn
 kUv
 kUv
 kUv
+uDJ
+ayj
+kXy
+jYa
+uOv
+kbr
+uqP
+sPb
+sfs
+tAO
+ayj
+uDJ
 kUv
 kUv
 kUv
@@ -48201,53 +49910,33 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+ian
+bOE
+bOE
+cxT
+bOE
+ian
+cVl
+bOE
+cxT
+cxT
+cxT
+wsU
+wsU
+wsU
+cxT
+ian
+tjC
+tOo
+tOo
+tOo
+tOo
+gqZ
+tlk
+mBY
+gqZ
+loD
+ian
 kUv
 kUv
 kUv
@@ -48378,78 +50067,78 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+nyi
+kQT
+xhZ
+nyi
+tQd
+jJn
+kUv
+kUv
+kUv
+uDJ
+kXy
+kXy
+xRM
+aOa
+tQd
+kXy
+nyi
+tQd
+pBp
+kXy
+uDJ
+uDJ
+uDJ
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+bkg
+oKN
+oKN
+qYy
+qYy
+qYy
+oKN
+oKN
+qYy
+oKN
+iFo
+qtz
+qtz
+men
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
 kUv
 kUv
 kUv
@@ -48580,77 +50269,77 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+nyi
+tQd
+dKz
+nyi
+tQd
+jJn
+kUv
+kUv
+kUv
+aVK
+tJB
+cEh
+eJi
+hcI
+tQd
+kXy
+nyi
+tQd
+plh
+bqD
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+fIy
+fIy
+fIy
+fIy
+fIy
+tXi
+tXi
+tXi
+tXi
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+jck
+tJB
+tJB
+tJB
 kUv
 kUv
 kUv
@@ -48782,77 +50471,77 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+avu
+nyi
+tQd
+xhZ
+nyi
+aFx
+jJn
+kUv
+kUv
+kUv
+qSV
+pft
+aXN
+kXy
+hcI
+tQd
+kXy
+hcI
+tQd
+xhZ
+qDN
+wWX
+enc
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+enc
+enc
+enc
+wWX
+wWX
+wWX
+enc
+enc
+enc
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+kzn
+pft
+pft
+pft
 kUv
 kUv
 kUv
@@ -48984,77 +50673,77 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+nyi
+tQd
+xhZ
+hcI
+tQd
+jJn
+kUv
+kUv
+kUv
+uIC
+kXy
+xRM
+kXy
+hcI
+tQd
+kXy
+hcI
+tQd
+xhZ
+pBp
+xhZ
+xhZ
+kXy
+kXy
+kXy
+kXy
+kXy
+kXy
+kXy
+kXy
+kXy
+kXy
+kXy
+kXy
+kXy
+kXy
+kXy
+kXy
+kXy
+kXy
+kXy
+kXy
+kXy
+kXy
+kXy
+kXy
+kXy
+kXy
+kXy
+xhZ
+xhZ
+xhZ
+dKz
+dKz
+dKz
+xhZ
+xhZ
+xhZ
+kXy
+kXy
+kXy
+kXy
+kXy
+kXy
+kXy
+cld
+kXy
+kXy
+kXy
 kUv
 kUv
 kUv
@@ -49186,77 +50875,77 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+hcI
+aFx
+oJN
+hcI
+aFx
+jJn
+kUv
+kUv
+kUv
+lCZ
+tJB
+uPH
+kXy
+hcI
+tQd
+kXy
+hcI
+tQd
+kXy
+fSB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+fIy
+fIy
+fIy
+tXi
+tXi
+tXi
+fIy
+fIy
+fIy
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+tJB
+jck
+tJB
+tJB
+tJB
 kUv
 kUv
 kUv
@@ -49388,77 +51077,77 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+nyi
+tQd
+kXy
+hcI
+tsd
+jJn
+kUv
+kUv
+kUv
+qSV
+pft
+lJr
+ijl
+hcI
+tQd
+kXy
+nyi
+tQd
+dfu
+orG
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+enc
+enc
+enc
+wWX
+wWX
+wWX
+enc
+enc
+enc
+pft
+pft
+pft
+pft
+pft
+pft
+pft
+kzn
+pft
+pft
+pft
 kUv
 kUv
 kUv
@@ -49590,74 +51279,74 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+jJn
+kXy
+hcI
+tQd
+xhZ
+nyi
+tQd
+jJn
+kUv
+kUv
+kUv
+uDJ
+kXy
+kXy
+xRM
+aOa
+tQd
+kXy
+hcI
+tQd
+pBp
+kXy
+uDJ
+uDJ
+uDJ
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+xyK
+eaS
+eaS
+eSD
+eSD
+eSD
+eaS
+eaS
+sPu
+mfc
+mfc
+eSD
+eSD
+xyK
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
 kUv
 kUv
 kUv
@@ -49792,6 +51481,29 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+tQd
+kXy
+hcI
+tQd
+jJn
+kUv
+kUv
+kUv
+uDJ
+ayj
+kXy
+vXa
+sYr
+dYB
+kXy
+hUR
+qHz
+gdK
+ayj
+uDJ
 kUv
 kUv
 kUv
@@ -49814,45 +51526,22 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+ian
+iTB
+ylF
+vsc
+vsc
+vsc
+xMR
+xMR
+vsc
+vsc
+vsc
+vsc
+vsc
+aPR
+ebS
+ian
 kUv
 kUv
 kUv
@@ -49994,6 +51683,28 @@ kUv
 kUv
 kUv
 kUv
+jJn
+mXn
+xZW
+wHj
+xZB
+xZW
+wHj
+fzW
+kUv
+kUv
+kUv
+kUv
+ayj
+jJn
+kXy
+nWi
+kbr
+uqP
+sPb
+oNK
+jJn
+ayj
 kUv
 kUv
 kUv
@@ -50017,44 +51728,22 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+rOI
+tUZ
+bOE
+lFP
+cxT
+wqf
+wsU
+dcV
+cxT
+wqf
+cxT
+lFP
+cxT
+cxT
+vgb
+rOI
 kUv
 kUv
 kUv
@@ -50196,6 +51885,27 @@ kUv
 kUv
 kUv
 kUv
+jJn
+kXy
+hcI
+tQd
+kXy
+hcI
+tQd
+jJn
+kUv
+kUv
+kUv
+kUv
+kUv
+jJn
+cFU
+iQI
+aol
+cFU
+iQI
+aol
+jJn
 kUv
 kUv
 kUv
@@ -50220,43 +51930,22 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+rOI
+tUZ
+cxT
+xKy
+cxT
+iKt
+cxT
+xKy
+cxT
+uZM
+cxT
+xKy
+cxT
+cxT
+vgb
+rOI
 kUv
 kUv
 kUv
@@ -50443,22 +52132,22 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+ian
+hPa
+aHv
+aHv
+aHv
+aHv
+aHv
+aHv
+aHv
+bVc
+bVc
+bVc
+bVc
+bVc
+jNG
+ian
 kUv
 kUv
 kUv
@@ -50645,22 +52334,22 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
+ian
 kUv
 kUv
 kUv
@@ -52188,7 +53877,7 @@ fbW
 lKn
 lKn
 fbW
-oTV
+mRN
 kUv
 kUv
 kUv
@@ -52386,7 +54075,7 @@ kUv
 kUv
 kUv
 kUv
-oTV
+mRN
 lKn
 fbW
 fbW
@@ -52682,9 +54371,9 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
+asW
+asW
+asW
 kUv
 nIc
 rQc
@@ -52883,7 +54572,7 @@ kUv
 kUv
 kUv
 kUv
-kUv
+asW
 asW
 qsJ
 asW
@@ -52992,7 +54681,7 @@ kUv
 kUv
 kUv
 kUv
-oTV
+mRN
 fbW
 fbW
 lKn
@@ -53084,7 +54773,7 @@ kUv
 kUv
 kUv
 kUv
-kUv
+asW
 asW
 qsJ
 snf
@@ -53286,7 +54975,7 @@ kUv
 kUv
 kUv
 kUv
-kUv
+asW
 asW
 qsJ
 snf
@@ -53892,7 +55581,7 @@ kUv
 kUv
 kUv
 kUv
-nIc
+asW
 asW
 pEg
 fgS
@@ -54288,8 +55977,8 @@ eLg
 eLg
 whz
 whz
-kUv
-kUv
+azV
+azV
 azV
 azV
 azV
@@ -54419,11 +56108,11 @@ kUv
 kUv
 kUv
 mRN
+cih
 dLF
+tPs
 dLF
-dLF
-dLF
-dLF
+vHq
 mRN
 kUv
 kUv
@@ -54490,21 +56179,21 @@ eLg
 whz
 whz
 whz
-kUv
 azV
 azV
 azV
 azV
 azV
 azV
-asW
+azV
+azV
 azV
 rZL
 xyM
 rZL
 xyM
-pKA
-pKA
+qsJ
+qsJ
 kUv
 kUv
 kUv
@@ -54609,9 +56298,9 @@ kUv
 kUv
 kUv
 mRN
-bwa
+qYr
 dLF
-vPG
+pEs
 mRN
 mRN
 mRN
@@ -54621,11 +56310,11 @@ mRN
 mRN
 mRN
 mRN
-dLF
+hVq
 kfc
 mRN
 kfc
-dLF
+vPj
 mRN
 kUv
 kUv
@@ -54812,8 +56501,8 @@ kUv
 kUv
 mRN
 bwa
-dLF
-dLF
+cih
+cih
 nap
 mwe
 mwe
@@ -54823,11 +56512,11 @@ mwe
 mwe
 mwe
 cXg
-dLF
+cih
 mRN
 fbW
 mRN
-dLF
+cih
 mRN
 kUv
 kUv
@@ -55013,9 +56702,9 @@ kUv
 kUv
 kUv
 mRN
-bwa
-dLF
-vPG
+qYr
+cih
+jhO
 mRN
 mRN
 mRN
@@ -55025,11 +56714,11 @@ mRN
 mRN
 mRN
 mRN
-dLF
+ntV
 kfc
 mRN
 kfc
-dLF
+tyd
 mRN
 kUv
 kUv
@@ -55109,7 +56798,7 @@ xSs
 mFT
 azV
 azV
-kUv
+azV
 kUv
 kUv
 kUv
@@ -55216,8 +56905,8 @@ kUv
 kUv
 mRN
 bwa
-dLF
-vPG
+cih
+pyx
 mRN
 kUv
 kUv
@@ -55228,10 +56917,10 @@ kUv
 kUv
 mRN
 dLF
+cih
+cih
 dLF
-dLF
-dLF
-dLF
+bEt
 mRN
 kUv
 kUv
@@ -55418,8 +57107,8 @@ kUv
 kUv
 mRN
 bwa
-dLF
-vPG
+cih
+pyx
 mRN
 kUv
 kUv
@@ -55821,8 +57510,8 @@ kUv
 kUv
 kUv
 mRN
-bwa
-dLF
+vQL
+cih
 fmt
 mRN
 kUv
@@ -55834,9 +57523,9 @@ kUv
 kUv
 kUv
 mRN
-bwa
-dLF
-vPG
+qYr
+cih
+pEs
 mRN
 kUv
 kUv
@@ -55991,8 +57680,8 @@ kUv
 kUv
 kUv
 mRN
-kRv
-kRv
+cwh
+cwh
 mRN
 mRN
 mRN
@@ -56023,8 +57712,8 @@ kUv
 kUv
 kUv
 mRN
-bwa
-cih
+vQL
+pMY
 fmt
 mRN
 kUv
@@ -56037,7 +57726,7 @@ kUv
 kUv
 mRN
 bwa
-dLF
+cih
 vPG
 mRN
 kUv
@@ -56225,8 +57914,8 @@ kUv
 kUv
 kUv
 mRN
-bwa
-cih
+vQL
+pMY
 vPG
 mRN
 kUv
@@ -56239,7 +57928,7 @@ kUv
 kUv
 mRN
 bwa
-dLF
+cih
 vPG
 mRN
 kUv
@@ -56427,8 +58116,8 @@ kUv
 kUv
 kUv
 mRN
-bwa
-ouU
+vQL
+wld
 yfy
 mRN
 kUv
@@ -56440,8 +58129,8 @@ kUv
 kUv
 kUv
 mRN
-bwa
-dLF
+vQL
+pMY
 vPG
 mRN
 kUv
@@ -56479,7 +58168,7 @@ hMb
 dWz
 hMb
 hMb
-hMb
+rWf
 hMb
 cGH
 xOy
@@ -56631,7 +58320,7 @@ kUv
 mRN
 dfU
 lSd
-yfy
+vax
 mRN
 kUv
 kUv
@@ -56642,8 +58331,8 @@ kUv
 kUv
 kUv
 mRN
-bwa
-dLF
+vQL
+cih
 vPG
 mRN
 kUv
@@ -56844,9 +58533,9 @@ kUv
 kUv
 kUv
 mRN
-bwa
-dLF
-vPG
+oMC
+pMY
+pyx
 mRN
 kUv
 kUv
@@ -57046,9 +58735,9 @@ kUv
 kUv
 kUv
 mRN
-bwa
-dLF
-vPG
+oMC
+pMY
+pyx
 mRN
 kUv
 kUv
@@ -57248,9 +58937,9 @@ kUv
 kUv
 kUv
 mRN
-bwa
-dLF
-vPG
+xVB
+cih
+jhO
 mRN
 kUv
 kUv
@@ -57401,9 +59090,9 @@ vrZ
 ukz
 ukz
 esS
-kUv
-kUv
-kUv
+lWV
+lWV
+lWV
 mRN
 nTX
 qaa
@@ -57450,9 +59139,9 @@ kUv
 kUv
 kUv
 mRN
-bwa
-dLF
-vPG
+vQL
+cih
+pyx
 mRN
 kUv
 kUv
@@ -57652,9 +59341,9 @@ kUv
 mRN
 mRN
 mRN
-mRN
-dLF
-mRN
+wkN
+cih
+wkN
 mRN
 mRN
 mRN
@@ -57819,21 +59508,21 @@ mHk
 iZT
 eup
 coy
-dnT
-dnT
+nSZ
+nSZ
 dnT
 rQA
-dnT
+nCA
 dou
 dou
 nTj
-dnT
 nSZ
-nSZ
-nSZ
-dnT
-dnT
-nSZ
+mZm
+mZm
+mZm
+nCA
+nCA
+mZm
 mZm
 yif
 lEe
@@ -57855,10 +59544,10 @@ mRN
 dLF
 dLF
 gsP
-dLF
-hjp
-dLF
-dLF
+cih
+uLY
+cih
+cih
 mRN
 kUv
 kUv
@@ -58021,17 +59710,17 @@ yld
 pMY
 vLx
 clO
-xCP
-xCP
-xCP
-xCP
-xCP
-kQM
-dkd
 kQM
 kQM
-dkd
 kQM
+kQM
+cyv
+xmH
+qun
+lKE
+xmH
+gUK
+xmH
 eUN
 sRj
 sRj
@@ -58054,13 +59743,13 @@ kUv
 kUv
 kUv
 mRN
+ntV
 dLF
-dLF
-wEm
-dLF
-wEm
-dLF
-dLF
+crc
+cih
+crc
+cih
+ilI
 mRN
 kUv
 kUv
@@ -58256,13 +59945,13 @@ kUv
 kUv
 kUv
 mRN
-dLF
+cih
 dLF
 kfc
 mRN
 kfc
-dLF
-dLF
+cih
+cih
 mRN
 kUv
 kUv
@@ -58411,9 +60100,9 @@ vrZ
 mwY
 wcl
 esS
-kUv
-kUv
-kUv
+lWV
+lWV
+lWV
 mRN
 mRN
 mRN
@@ -58458,13 +60147,13 @@ kUv
 kUv
 kUv
 mRN
-dLF
-dLF
+pMY
+cih
 mRN
 fbW
 mRN
-dLF
-dLF
+cih
+cih
 mRN
 kUv
 kUv
@@ -58617,7 +60306,7 @@ kUv
 kUv
 kUv
 kUv
-kUv
+lWV
 aTm
 mhR
 cWF
@@ -58625,7 +60314,7 @@ cWF
 cWF
 mhR
 mjn
-kUv
+lWV
 kUv
 kUv
 kUv
@@ -58660,13 +60349,13 @@ kUv
 kUv
 kUv
 mRN
-dLF
-dLF
+pMY
+cih
 kfc
 mRN
 kfc
-dLF
-dLF
+cih
+cih
 mRN
 kUv
 kUv
@@ -58792,7 +60481,7 @@ bzi
 lYG
 jYE
 vBm
-qfP
+xbk
 dpN
 dpN
 tmM
@@ -58819,7 +60508,7 @@ kUv
 kUv
 kUv
 kUv
-kUv
+lWV
 hUa
 auX
 rVW
@@ -58827,7 +60516,7 @@ nSZ
 nSZ
 bXg
 hUa
-kUv
+lWV
 kUv
 kUv
 kUv
@@ -58862,13 +60551,13 @@ kUv
 kUv
 kUv
 mRN
-dLF
-dLF
+hVq
+cih
+wEm
+cih
 wEm
 dLF
-wEm
-dLF
-dLF
+xcI
 mRN
 kUv
 kUv
@@ -58994,7 +60683,7 @@ bzi
 haX
 jYE
 glQ
-qfP
+xbk
 qIr
 dPA
 dPA
@@ -59021,7 +60710,7 @@ kUv
 kUv
 kUv
 kUv
-kUv
+lWV
 hUa
 dVN
 iZT
@@ -59029,7 +60718,7 @@ pMY
 cih
 vQL
 hUa
-kUv
+lWV
 kUv
 kUv
 kUv
@@ -59064,13 +60753,13 @@ kUv
 kUv
 kUv
 mRN
-dLF
-dLF
-gsP
-dLF
+cih
+cih
 hjp
-dLF
-dLF
+cih
+hjp
+cih
+cih
 mRN
 kUv
 kUv
@@ -59223,7 +60912,7 @@ kUv
 kUv
 kUv
 kUv
-kUv
+lWV
 hUa
 exa
 iZT
@@ -59231,7 +60920,7 @@ iZT
 pMY
 vQL
 hUa
-kUv
+lWV
 kUv
 kUv
 kUv
@@ -59257,7 +60946,7 @@ kUv
 mRN
 bwa
 dLF
-vPG
+pyx
 mRN
 kUv
 kUv
@@ -59425,7 +61114,7 @@ kUv
 kUv
 kUv
 kUv
-kUv
+lWV
 hUa
 fQe
 dkd
@@ -59433,7 +61122,7 @@ dkd
 dkd
 nRJ
 hUa
-kUv
+lWV
 kUv
 kUv
 kUv
@@ -59459,7 +61148,7 @@ kUv
 mRN
 vVm
 dLF
-vPG
+pyx
 mRN
 kUv
 kUv
@@ -59471,8 +61160,8 @@ kUv
 kUv
 mRN
 bwa
-dLF
-vPG
+cih
+pyx
 mRN
 kUv
 kUv
@@ -59600,7 +61289,7 @@ bzi
 haX
 jYE
 jKU
-qfP
+xbk
 iut
 mPh
 mPh
@@ -59627,7 +61316,7 @@ kUv
 kUv
 kUv
 kUv
-kUv
+lWV
 vYJ
 oTv
 oTv
@@ -59635,6 +61324,7 @@ mhR
 mhR
 mhR
 vac
+lWV
 kUv
 kUv
 kUv
@@ -59657,24 +61347,23 @@ kUv
 kUv
 kUv
 kUv
-kUv
+mRN
+qYr
+cih
+qsa
+mRN
+mRN
+mRN
+mRN
+mRN
+mRN
+mRN
+mRN
+mRN
 mRN
 bwa
-dLF
-vPG
-mRN
-mRN
-mRN
-mRN
-mRN
-mRN
-mRN
-mRN
-mRN
-mRN
-bwa
-dLF
-vPG
+cih
+pyx
 mRN
 kUv
 kUv
@@ -59802,7 +61491,7 @@ bzi
 haX
 jYE
 eLK
-qfP
+xbk
 pvQ
 tgc
 nes
@@ -59829,15 +61518,15 @@ kUv
 kUv
 kUv
 kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
-kUv
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
+lWV
 kUv
 kUv
 kUv
@@ -59862,21 +61551,21 @@ kUv
 kUv
 mRN
 bwa
-dLF
-dLF
+cih
+cih
 wQy
-dnT
-dnT
-dnT
-dnT
-dnT
-dnT
+nSZ
+nSZ
+nSZ
+nSZ
+nSZ
+nSZ
 dnT
 dnT
 dnT
 dLF
-dLF
-vPG
+cih
+pyx
 mRN
 kUv
 kUv
@@ -60063,22 +61752,22 @@ kUv
 kUv
 kUv
 mRN
-bwa
-dLF
-dLF
+vQL
+pMY
+cih
 qkS
 xCP
 xCP
 xCP
 xCP
 xCP
-xCP
-xCP
-xCP
-xCP
-xCP
-xCP
-jwT
+kQM
+kQM
+kQM
+kQM
+kQM
+dkd
+fQe
 mRN
 kUv
 kUv
@@ -60265,9 +61954,9 @@ kUv
 kUv
 kUv
 mRN
-bwa
-dLF
-vPG
+xVB
+pMY
+jhO
 mRN
 mRN
 mRN
@@ -60358,12 +62047,12 @@ ukJ
 jVc
 gbG
 gbG
+uvW
+uvW
 juV
-juV
-juV
-goB
 gbG
-gbG
+juV
+juV
 viu
 kUv
 kUv
@@ -60467,9 +62156,9 @@ kUv
 kUv
 kUv
 mRN
-bwa
-dLF
-vPG
+vQL
+pMY
+pyx
 mRN
 kUv
 kUv
@@ -60563,7 +62252,7 @@ ifO
 muj
 kmd
 qXm
-wrm
+nOo
 muj
 qee
 viu
@@ -60669,8 +62358,8 @@ kUv
 kUv
 kUv
 mRN
-bwa
-dLF
+vQL
+cih
 vPG
 mRN
 kUv
@@ -60871,8 +62560,8 @@ kUv
 kUv
 kUv
 mRN
-bwa
-dLF
+vQL
+cih
 vPG
 mRN
 kUv
@@ -61356,12 +63045,12 @@ aGL
 wwg
 bYI
 lZM
-lIK
+qLE
 qLE
 pMV
-lIK
+qLE
 vVq
-gzq
+qLE
 tBz
 viu
 kUv
@@ -61554,16 +63243,16 @@ fPW
 gex
 rMU
 lEA
-vNm
-kiV
+rfe
+aKR
 mVp
 gZW
-pEs
 cmY
 cmY
-xhZ
+cmY
+cmY
 gzq
-gzq
+qLE
 xhW
 viu
 kUv
@@ -61757,8 +63446,8 @@ gex
 rMU
 rMU
 taW
-kiV
-hPD
+aKR
+qrW
 oVs
 nAo
 wJq
@@ -61958,26 +63647,26 @@ viu
 wrP
 nya
 rMU
-vNm
-kiV
-hPD
+rfe
+aKR
+qrW
 oVs
-xKy
-qLE
-xKy
-qLE
+vVq
+lIK
+uQn
+gzq
 ePk
-fHL
-xhW
+fuE
+rGA
 viu
 viu
-viu
-viu
+qzG
+qzG
 okE
 ulm
-ulm
+pny
 rbq
-jJo
+qXU
 ulm
 ulm
 ulm
@@ -62161,25 +63850,25 @@ jag
 iaX
 iaX
 gPI
-lHM
+ifn
 pLr
 lUe
-xAp
-xAp
-xAp
+fwJ
+fwJ
+bDs
 xAp
 fSf
 gpK
 eXj
 uQn
 mcm
-hMW
+htI
 dlV
 afP
 rbV
 rbV
-ofu
-jJo
+uNk
+qXU
 rKf
 hDj
 hDj
@@ -62361,27 +64050,27 @@ kUv
 viu
 rTk
 kiV
-kiV
-kiV
-kiV
-hPD
+ifw
+ifw
+aKR
+qrW
 jiX
 qLE
 qLE
 pRX
 lIK
 aKP
-mAU
-lIK
-lIK
+jVi
+gzq
+gzq
 hAx
-hMW
-viu
+htI
+qzG
 xfO
 byn
 byn
-rbq
-leT
+ofu
+jJo
 yfR
 yfR
 yfR
@@ -62563,12 +64252,12 @@ kUv
 viu
 pIe
 tCt
-tCt
+kGA
 jXW
 lHM
 nUr
 lUe
-xAp
+bDs
 rcB
 xAp
 xAp
@@ -62576,14 +64265,14 @@ nBS
 dPs
 xsY
 qLE
-hAx
+coc
 hMW
 tCL
 afP
 rbV
 rbV
-ofu
-jJo
+uNk
+qXU
 rKf
 hDj
 hDj
@@ -62764,16 +64453,16 @@ kUv
 kUv
 viu
 jGV
-rMU
+nLG
 lLb
-vNm
-kiV
+rfe
+ifw
 hPD
 oVs
-xKy
+uQn
 qLE
-qLE
-fzW
+gzq
+vVq
 vfd
 mAU
 xhW
@@ -62784,8 +64473,8 @@ viu
 okE
 pny
 pny
-ofu
-jJo
+uNk
+qXU
 ulm
 ulm
 ulm
@@ -62966,11 +64655,11 @@ kUv
 kUv
 sng
 gex
-rMU
+nLG
 icp
 taW
 kiV
-hPD
+qrW
 oVs
 dTo
 rRc
@@ -62987,7 +64676,7 @@ pLm
 ycW
 ycW
 ofu
-jJo
+qXU
 pLm
 pLm
 pLm
@@ -63175,11 +64864,11 @@ kiV
 bNi
 dbn
 ejK
-vOh
+gag
 vOh
 gag
-lWV
-lWV
+qLE
+qLE
 xhW
 viu
 kUv
@@ -63188,8 +64877,8 @@ viu
 viu
 viu
 viu
-sNG
-leT
+wtE
+jJo
 viu
 viu
 viu
@@ -63376,12 +65065,12 @@ uJO
 wwg
 bYI
 lZM
-fzW
-lWV
+uQn
+gzq
 tBc
 gzq
-lWV
-lWV
+gzq
+qLE
 nhC
 viu
 kUv
@@ -63520,7 +65209,7 @@ ybt
 ybt
 ybt
 ybt
-kUv
+ybt
 kUv
 xTT
 kUv
@@ -63712,17 +65401,17 @@ ceB
 ceB
 ceB
 ceB
+eDO
 ceB
 ceB
 ceB
-ceB
-ceB
-bsn
-ceB
+eDO
+lZT
 ceB
 ceB
 ceB
-kUv
+cKk
+lKn
 kUv
 xTT
 kUv
@@ -63923,8 +65612,8 @@ wVq
 fpf
 fpf
 fpf
-fpf
-kUv
+glf
+lKn
 kUv
 xTT
 kUv
@@ -63981,8 +65670,8 @@ kUv
 kUv
 kUv
 kUv
-rbq
-leT
+ogc
+lPv
 viu
 kUv
 kUv
@@ -64125,8 +65814,8 @@ ano
 lKn
 lKn
 lKn
+eqJ
 lKn
-kUv
 kUv
 xTT
 kUv
@@ -64184,7 +65873,7 @@ kUv
 kUv
 kUv
 kUv
-afP
+szl
 viu
 kUv
 kUv
@@ -64198,7 +65887,7 @@ szl
 gbG
 gbG
 gbG
-rbV
+gyf
 qXU
 viu
 kUv
@@ -64327,8 +66016,8 @@ bsn
 ceB
 ceB
 ceB
-ceB
-kUv
+xOp
+lKn
 kUv
 xTT
 kUv
@@ -64386,7 +66075,7 @@ kUv
 kUv
 kUv
 kUv
-afP
+szl
 viu
 kUv
 kUv
@@ -64400,7 +66089,7 @@ szl
 muj
 sxY
 sxY
-gyf
+ffj
 qXU
 viu
 kUv
@@ -64520,17 +66209,17 @@ fpf
 fpf
 fpf
 fpf
+eaC
 fpf
 fpf
 fpf
-fpf
-fpf
+eaC
 wVq
 fpf
 fpf
 fpf
-fpf
-kUv
+glf
+lKn
 kUv
 xTT
 kUv
@@ -64732,7 +66421,7 @@ ybt
 ybt
 ybt
 ybt
-kUv
+ybt
 kUv
 xTT
 kUv
@@ -64804,7 +66493,7 @@ kUv
 kUv
 kUv
 viu
-owO
+dDR
 owO
 viu
 kUv
@@ -65006,7 +66695,7 @@ kUv
 kUv
 kUv
 viu
-owO
+dDR
 owO
 viu
 kUv
