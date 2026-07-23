@@ -273,7 +273,12 @@
 
 			var/obj/item/organ/external/limb = pick(pick_organs)
 			limb.take_general_damage(50)
-			limb.droplimb()
+			limb.removed(H)
+			limb.forceMove(get_turf(H))
+
+			H.update_body()
+			H.updatehealth()
+			H.UpdateDamageIcon()
 
 			H.simple_health_calculation(-(H.max_simple_health / 2),0,0,0)
 			for(var/datum/simple_status/effects in H.status_effects)
@@ -407,7 +412,7 @@
 	if(stored_original)
 		stored_original.simple_combat_on = FALSE
 		var/obj/item/organ/internal/posibrain/P = stored_original.organs_by_name[BP_POSIBRAIN]
-		P.take_general_damage(100) // should kill our parent off for sure
+		P.take_general_damage(200) // should kill our parent off for sure
 
 		stored_original.apply_damage(20, DAMAGE_BRUTE, pick(BP_ALL_LIMBS), armor_pen = 50)
 		stored_original.apply_damage(20, DAMAGE_BRUTE, pick(BP_ALL_LIMBS), armor_pen = 50)
@@ -520,8 +525,33 @@
 	faction = "Positronic Union"
 
 	infected = new /mob/living/simple_animal/hostile/tf/infected_ipc(src) // spawn it inside for later
-	infected.ai_holder = new /datum/ai_holder/simple_animal/inert (src) // we don't want it to act YET
+	infected.ai_holder = new /datum/ai_holder/simple_animal/inert (infected) // we don't want it to act YET
 	infected.CopyOverlays(src, TRUE) // it should look like us, but with additional overlay ontop of it
 	infected.icon = null
+
+/mob/living/carbon/human/machine/tf/proc/replace_with_zombie()
+	faction = "Hacked Posi"
+	ai_holder = null
+
+	infected.forceMove(get_turf(src))
+
+	forceMove(infected)
+	infected.stored_original = src
+	infected.ai_holder = new /datum/ai_holder/simple_animal/humanoid/angry (infected)
+
+/mob/living/carbon/human/machine/tf/use_tool(obj/item/tool, mob/user, list/click_params, atom/newloc)
+	if(isCrowbar(tool) && stat != CONSCIOUS)
+		var/obj/item/organ/external/E = get_organ(user.zone_sel.selecting)
+		if(do_after(user, 1 SECONDS, user, DO_PUBLIC_UNIQUE))
+			E.removed(src)
+			E.forceMove(get_turf(src))
+
+			update_body()
+			updatehealth()
+			UpdateDamageIcon()
+			return TRUE
+
+	. = ..()
+
 
 // #include "..\transformers_campaign\teletraan_level.dmm"

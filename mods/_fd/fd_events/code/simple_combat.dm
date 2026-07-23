@@ -689,6 +689,13 @@
 					L.bloodyness += 5
 					L.setup_bloodyness_overlay_other(src)
 
+			if(ai_holder && source)
+				if(istype(source,/obj/item/projectile))
+					var/obj/item/projectile/P = source
+					ai_holder.react_to_attack(P.firer)
+				else
+					ai_holder.react_to_attack(source)
+
 			sleep(6)
 
 			if(add_effect) // Если то чем нас атаковали имеет какие-то эффекты - добавляем их
@@ -719,6 +726,13 @@
 
 			if(add_effect && effect_apply_anyway) // Если эффект накладывается даже без необходимости пробития
 				add_status_effect(add_effect, effect_duration)
+
+			if(ai_holder && source)
+				if(istype(source,/obj/item/projectile))
+					var/obj/item/projectile/P = source
+					ai_holder.react_to_attack(P.firer)
+				else
+					ai_holder.react_to_attack(source)
 
 		if(simple_health > max_simple_health / 2) // Если наше итоговое здоровье больше 50%, а на экране всё ещё есть оверлей - убираем его
 			var/obj/screen/fullscreen/screen = screens["almost_done"]
