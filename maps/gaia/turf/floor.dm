@@ -49,6 +49,8 @@
 		return
 	if(!ishuman(H) || isghost(H))
 		return
+	if(H.jumping)
+		return
 
 	visible_message(SPAN_WARNING("[H.name] falls into a chasm with a panicked scream!"), SPAN_WARNING("You hear a fading scream as if someone fallen down a chasm!"))
 	H.show_message(SPAN_DANGER("FUCK! YOU FELL DOWN A CHASM AND HIT THE GROUND!"))
