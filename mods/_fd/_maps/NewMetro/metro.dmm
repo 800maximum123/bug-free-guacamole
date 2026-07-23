@@ -314,14 +314,15 @@
 	},
 /area/metro/maintain/gen3)
 "aol" = (
-/obj/machinery/door/airlock/lift{
-	dir = 4
+/obj/floor_decal/hull{
+	dir = 1
 	},
-/obj/machinery/door/airlock/lift{
-	dir = 4
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 8
 	},
-/turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/east)
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "aor" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/monotile,
@@ -387,6 +388,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/main_tunel)
+"arH" = (
+/turf/simulated/floor/tiled/techmaint,
+/area/metro)
 "arN" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/wall/invincible/blend/jungle,
@@ -2356,6 +2360,17 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"cev" = (
+/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/fd/mapping/light_marker{
+	light_color = "#f1d57f";
+	color = "#f1d57f";
+	marker_range = 2
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#526833"
+	},
+/area/metro/maintain/gen3)
 "ceB" = (
 /obj/floor_decal/hull{
 	dir = 4
@@ -2496,7 +2511,9 @@
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
 	},
-/obj/structure/fd/mapping/screentext_triggermarker,
+/obj/structure/fd/mapping/screentext_triggermarker{
+	text_to_show = "Зайдя в проход вы ощущаете резкий запах топлива."
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "clS" = (
@@ -2576,7 +2593,9 @@
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 9
 	},
-/obj/structure/fd/mapping/screentext_triggermarker,
+/obj/structure/fd/mapping/screentext_triggermarker{
+	text_to_show = "Зайдя в проход вы ощущаете резкий запах топлива."
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "cpv" = (
@@ -2892,15 +2911,12 @@
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
 "cFU" = (
-/obj/floor_decal/hull{
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
 	dir = 8
 	},
-/obj/structure/fd/mapping/screentext_triggermarker{
-	text_to_show = "Ужасная вонь. Неужели это того стоило?";
-	trigger_id = "water"
-	},
 /turf/simulated/floor/plating,
-/area/metro/maintain)
+/area/metro/main_tunel)
 "cGa" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 5
@@ -2940,13 +2956,10 @@
 	},
 /area/metro/maintain/gen3)
 "cHC" = (
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 9
-	},
 /obj/structure/storage/cargo{
 	anchored = 1
 	},
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/plating,
 /area/metro/maintain/gen3)
 "cHE" = (
 /obj/floor_decal/corner_techfloor_grid{
@@ -3010,11 +3023,12 @@
 	},
 /area/metro/maintain/gen3)
 "cJu" = (
-/obj/machinery/door/blast/regular{
-	dir = 1
-	},
 /obj/floor_decal/industrial/warning{
 	dir = 8
+	},
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 1
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
@@ -3097,7 +3111,16 @@
 "cNb" = (
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/borderfloorblack,
-/turf/simulated/floor/tiled/dark,
+/obj/floor_decal/corner/orange/border{
+	dir = 2
+	},
+/obj/structure/fd/samosbor/light{
+	icon_state = "floor_corner_y_light";
+	color_of = "#e2a41f";
+	pixel_y = -8;
+	range_of = 7
+	},
+/turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "cNk" = (
 /turf/unsimulated/mineral,
@@ -3293,7 +3316,9 @@
 	})
 "cWF" = (
 /obj/machinery/door/airlock/lift{
-	dir = 4
+	dir = 4;
+	can_use_tools = 0;
+	locked = 1
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
@@ -3821,7 +3846,7 @@
 	icon_state = "support_wall";
 	pixel_y = 25
 	},
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/plating,
 /area/metro/maintain/south/kpp)
 "dsP" = (
 /obj/decal/cleanable/liquid_fuel,
@@ -3891,6 +3916,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/east)
+"dvb" = (
+/obj/item/device/flashlight/lantern/grim{
+	pixel_y = 19;
+	pixel_x = 10;
+	anchored = 1;
+	on = 1;
+	flashlight_range = 6
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#526833"
+	},
+/area/metro/maintain/gen3)
 "dvj" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/dead_bodies_goon{
@@ -4027,6 +4064,17 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/east)
+"dFd" = (
+/obj/machinery/button/alternate/door/keypad/blast{
+	dir = 2;
+	pixel_y = 25;
+	correctcode = "2349";
+	id_tag = boss2
+	},
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_14"
+	},
+/area/metro/maintain/gen3)
 "dFo" = (
 /obj/paint/merc,
 /obj/structure/vines/light2,
@@ -4770,6 +4818,7 @@
 /area/metro/maintain/east)
 "erh" = (
 /obj/machinery/door/blast/regular{
+	can_use_tools = 0;
 	dir = 1
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -5379,6 +5428,11 @@
 "eYP" = (
 /obj/structure/fd/samosbor/furniture1{
 	icon_state = "pillar_1"
+	},
+/obj/structure/fd/mapping/light_marker{
+	light_color = "#f1d57f";
+	color = "#f1d57f";
+	marker_range = 2
 	},
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#526833"
@@ -6712,9 +6766,7 @@
 /area/metro/maintain/gen3)
 "goS" = (
 /obj/machinery/door/airlock/lift{
-	dir = 4;
-	can_use_tools = 0;
-	locked = 1
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/south/blast_door)
@@ -7201,12 +7253,13 @@
 /area/metro/maintain)
 "gJa" = (
 /obj/floor_decal/corner_techfloor_grid{
-	dir = 10
+	dir = 6
 	},
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 9
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 1;
+	id_tag = boss2
 	},
-/obj/structure/fd/mapping/screentext_triggermarker,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
 "gKq" = (
@@ -7477,6 +7530,12 @@
 /obj/item/storage/bible{
 	pixel_y = 6
 	},
+/obj/item/paper{
+	pixel_x = -12;
+	pixel_y = 25;
+	info = "Эй, Боб, какого черта мы вообще каждую неделю меняем у этого утырка пароль? Это вообще имеет смысл? Ладно. Если тебя будет вызывать начальник к себе, то нынешний пароль 1984, он почему-то решил, что это очень остроумно.";
+	icon_state = "paper_words_taped"
+	},
 /turf/simulated/floor/tiled/monotile,
 /area/metro/maintain/east)
 "gWV" = (
@@ -7606,6 +7665,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/east)
+"hez" = (
+/obj/structure/fd/mapping/screentext_triggermarker,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "hfe" = (
 /obj/floor_decal/industrial/warning,
 /obj/item/ammo_casing/rifle/used,
@@ -7644,14 +7707,14 @@
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/east)
 "hgL" = (
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 6
+/obj/item/device/flashlight/lantern/grim{
+	pixel_y = 15;
+	pixel_x = 6;
+	anchored = 1;
+	on = 1;
+	flashlight_range = 6
 	},
-/obj/decal/cleanable/dirt,
-/obj/structure/fd/interactive/morgue_body{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/exoplanet/fd/muddirt,
 /area/metro/maintain/gen3)
 "hgS" = (
 /obj/machinery/light{
@@ -7867,6 +7930,11 @@
 /obj/structure/fd/samosbor/furniture1{
 	icon_state = "pillar_3"
 	},
+/obj/structure/fd/mapping/light_marker{
+	light_color = "#f1d57f";
+	color = "#f1d57f";
+	marker_range = 2
+	},
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#5F773B"
 	},
@@ -7955,6 +8023,13 @@
 /obj/structure/fd/cave_flora{
 	icon_state = "underwatergrass"
 	},
+/obj/item/device/flashlight/lantern/grim{
+	pixel_y = 17;
+	pixel_x = -6;
+	anchored = 1;
+	on = 1;
+	flashlight_range = 6
+	},
 /turf/simulated/floor/exoplanet/fd/drought,
 /area/metro/maintain/gen3)
 "hvK" = (
@@ -8007,7 +8082,7 @@
 	dir = 1;
 	layer = 2.24
 	},
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/plating,
 /area/metro/maintain/gen3)
 "hzY" = (
 /obj/decal/cleanable/dirt,
@@ -8749,12 +8824,21 @@
 /turf/simulated/floor/pool,
 /area/metro/maintain/gen3)
 "ips" = (
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 9
+/obj/floor_decal/borderfloorblack{
+	dir = 1
 	},
-/obj/structure/vines/heavy3,
-/turf/space,
-/area/metro/maintain/gen3)
+/obj/floor_decal/corner/orange/border{
+	dir = 1
+	},
+/obj/structure/fd/samosbor/light{
+	icon_state = "floor_corner_y_light";
+	color_of = "#e2a41f";
+	pixel_y = 8;
+	dir = 1;
+	range_of = 7
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "iqm" = (
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 10
@@ -8814,12 +8898,10 @@
 /turf/simulated/floor/plating,
 /area/metro/maintain/gen1)
 "isM" = (
-/obj/machinery/door/airlock/lift{
-	dir = 4;
-	can_use_tools = 0;
-	locked = 1
-	},
 /obj/decal/cleanable/dirt,
+/obj/machinery/door/airlock/lift{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/south/blast_door)
 "itd" = (
@@ -9189,6 +9271,16 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp)
+"iPu" = (
+/obj/item/device/flashlight/lantern/grim{
+	pixel_y = 17;
+	pixel_x = -6;
+	anchored = 1;
+	on = 1;
+	flashlight_range = 6
+	},
+/turf/simulated/floor/exoplanet/grim_wood_scorched,
+/area/metro/maintain/gen3)
 "iPx" = (
 /turf/simulated/wall/invincible/blend/jungle,
 /area/metro)
@@ -9217,12 +9309,15 @@
 	},
 /area/metro/maintain/gen3)
 "iQI" = (
-/obj/structure/fd/mapping/screentext_triggermarker{
-	text_to_show = "Ужасная вонь. Неужели это того стоило?";
-	trigger_id = "water"
+/obj/floor_decal/hull{
+	dir = 2
+	},
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/metro/maintain)
+/area/metro/main_tunel)
 "iRk" = (
 /obj/structure/hygiene/faucet{
 	pixel_y = 4
@@ -9247,7 +9342,7 @@
 /area/metro/maintain/south/kpp)
 "iSt" = (
 /obj/structure/vines/heavy3,
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/plating,
 /area/metro/maintain/gen3)
 "iTA" = (
 /obj/machinery/door/airlock/hatch,
@@ -9586,9 +9681,12 @@
 /turf/simulated/floor/exoplanet/grim_metal2,
 /area/metro/maintain/east)
 "jmZ" = (
-/obj/paint/black,
-/turf/unsimulated/mineral,
-/area/metro/maintain/south)
+/obj/floor_decal/hull{
+	dir = 1
+	},
+/obj/structure/fd/mapping/screentext_triggermarker,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "jne" = (
 /obj/floor_decal/step{
 	color = "grey";
@@ -10788,6 +10886,11 @@
 /obj/structure/fd/samosbor/furniture1{
 	icon_state = "pillar"
 	},
+/obj/structure/fd/mapping/light_marker{
+	light_color = "#f1d57f";
+	color = "#f1d57f";
+	marker_range = 2
+	},
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#5F773B"
 	},
@@ -10924,6 +11027,13 @@
 /obj/floor_decal/corner/orange/border{
 	dir = 1
 	},
+/obj/structure/fd/samosbor/light{
+	icon_state = "floor_corner_y_light";
+	color_of = "#e2a41f";
+	pixel_y = 8;
+	dir = 1;
+	range_of = 7
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "kCA" = (
@@ -11058,11 +11168,12 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
 "kJm" = (
-/obj/machinery/door/blast/regular{
-	dir = 4
+/obj/floor_decal/hull{
+	dir = 2
 	},
-/turf/simulated/floor/tiled/techmaint,
-/area/metro/maintain/east)
+/obj/structure/fd/mapping/screentext_triggermarker,
+/turf/simulated/floor/plating,
+/area/metro/main_tunel)
 "kJq" = (
 /obj/structure/platform/shiva{
 	layer = 2.24
@@ -11460,6 +11571,24 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gas)
+"lde" = (
+/obj/decal/cleanable/dirt,
+/obj/floor_decal/borderfloorblack{
+	dir = 6
+	},
+/obj/floor_decal/corner/orange/border{
+	dir = 6
+	},
+/obj/structure/fd/samosbor/light{
+	icon_state = "floor_corner_y_light";
+	color_of = "#e2a41f";
+	pixel_y = -8;
+	range_of = 7
+	},
+/turf/simulated/floor/exoplanet/grim_concrete_tile4{
+	icon_state = "tile"
+	},
+/area/metro/maintain/east)
 "ldD" = (
 /obj/structure/table/rack,
 /obj/item/device/searcher,
@@ -11553,6 +11682,12 @@
 	pixel_y = 16;
 	pixel_x = 6
 	},
+/obj/machinery/button/blast_door{
+	dir = 8;
+	id_tag = "boss1";
+	pixel_y = 12;
+	pixel_x = -5
+	},
 /turf/simulated/floor/exoplanet/samosbor/carpet{
 	icon_state = "ca_da_9"
 	},
@@ -11582,7 +11717,7 @@
 	pixel_x = -6
 	},
 /obj/structure/vines/light2,
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/plating,
 /area/metro/maintain/south/kpp)
 "lkb" = (
 /obj/structure/platform_decoration/kutjevo/rock{
@@ -12395,14 +12530,15 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gas)
 "lSH" = (
+/obj/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/floor_decal/industrial/warning{
+	dir = 4
+	},
 /obj/machinery/door/blast/regular{
+	can_use_tools = 0;
 	dir = 1
-	},
-/obj/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/floor_decal/industrial/warning{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
@@ -13247,15 +13383,22 @@
 /turf/simulated/floor/tiled/dark,
 /area/metro/maintain/south)
 "mMR" = (
-/obj/floor_decal/hull{
-	dir = 4
+/obj/decal/cleanable/dirt,
+/obj/floor_decal/borderfloorblack{
+	dir = 1
 	},
-/obj/structure/fd/mapping/screentext_triggermarker{
-	text_to_show = "Ужасная вонь. Неужели это того стоило?";
-	trigger_id = "water"
+/obj/floor_decal/corner/orange/border{
+	dir = 1
 	},
-/turf/simulated/floor/plating,
-/area/metro/maintain)
+/obj/structure/fd/samosbor/light{
+	icon_state = "floor_corner_y_light";
+	color_of = "#e2a41f";
+	pixel_y = 8;
+	dir = 1;
+	range_of = 7
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "mNs" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/fd/grass,
@@ -13791,6 +13934,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain)
+"nlF" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 9
+	},
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 1;
+	id_tag = boss2
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/gen3)
 "nms" = (
 /obj/structure/table/steel_reinforced,
 /obj/item/book/manual/engineering_guide,
@@ -14006,7 +14160,6 @@
 	dir = 8;
 	pixel_y = -11
 	},
-/obj/structure/fd/mapping/screentext_triggermarker,
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_gy"
 	},
@@ -14748,6 +14901,28 @@
 /obj/random/junk,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south)
+"ogo" = (
+/obj/structure/fake_lattice{
+	layer = 4.01;
+	alpha = 170;
+	icon_state = "lattice3";
+	mouse_opacity = 0
+	},
+/obj/floor_decal/borderfloorblack{
+	dir = 1
+	},
+/obj/floor_decal/corner/orange/border{
+	dir = 1
+	},
+/obj/structure/fd/samosbor/light{
+	icon_state = "floor_corner_y_light";
+	color_of = "#e2a41f";
+	pixel_y = 8;
+	dir = 1;
+	range_of = 7
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "ogq" = (
 /obj/structure/plasticflaps/rocks,
 /obj/decal/cleanable/dirt,
@@ -14813,6 +14988,17 @@
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/grim_tile,
+/area/metro/maintain/gen3)
+"okB" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/fd/mapping/light_marker{
+	light_color = "#f1d57f";
+	color = "#f1d57f";
+	marker_range = 2
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#6E8C44"
+	},
 /area/metro/maintain/gen3)
 "okE" = (
 /obj/structure/closet/secure_closet/personal/empty{
@@ -15183,6 +15369,26 @@
 	name = "Barrel";
 	desc = "Just an iron barrel."
 	},
+/obj/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/structure/fd/building_stuff,
+/obj/structure/fd/building_stuff{
+	desc = "Just an pile of bricks.";
+	icon_state = "0,1";
+	name = "bricks";
+	pixel_y = 2;
+	density = 1;
+	pixel_x = 2
+	},
+/obj/item/stack/material/sandstone{
+	pixel_x = -7;
+	pixel_y = 12
+	},
+/obj/item/stack/material/sandstone{
+	pixel_x = 6;
+	pixel_y = 13
+	},
 /obj/structure/fd/samosbor/light{
 	icon_state = "floor_corner_y_light";
 	dir = 6;
@@ -15190,9 +15396,6 @@
 	range_of = s;
 	pixel_y = -5;
 	pixel_x = 8
-	},
-/obj/floor_decal/industrial/warning{
-	dir = 5
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/gen3)
@@ -16235,7 +16438,11 @@
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 9
 	},
-/obj/machinery/door/blast/regular,
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 1;
+	id_tag = boss1
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
 "pHo" = (
@@ -16561,7 +16768,7 @@
 /obj/item/paper{
 	pixel_x = -12;
 	pixel_y = 25;
-	info = "Lift is not working, please use NORTH tunnel. Password is 8801";
+	info = "Lift is not working, please use NORTH tunnel. Password is 0451";
 	icon_state = "paper_words_taped"
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -16776,6 +16983,18 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
+"qal" = (
+/obj/item/device/flashlight/lantern/grim{
+	pixel_y = 17;
+	pixel_x = -6;
+	anchored = 1;
+	on = 1;
+	flashlight_range = 6
+	},
+/turf/simulated/floor/exoplanet/fd/grass{
+	color = "#526833"
+	},
+/area/metro/maintain/gen3)
 "qaD" = (
 /obj/floor_decal/corner/paleblue{
 	dir = 10
@@ -17054,7 +17273,7 @@
 	dir = 9
 	},
 /obj/structure/vines/heavy3,
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/plating,
 /area/metro/maintain/gen3)
 "qpG" = (
 /obj/floor_decal/corner_techfloor_grid{
@@ -17185,10 +17404,14 @@
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
 	},
-/obj/structure/fd/interactive/morgue_body{
-	dir = 4
-	},
 /obj/decal/cleanable/dirt,
+/obj/structure/showcase{
+	desc = "A corpse. A perfectly ordinary corpse.";
+	pixel_y = 0;
+	icon = 'mods/_fd/_maps/collective_nightmare/icons/rollerbed.dmi';
+	icon_state = "bigrollerbodyalt_down";
+	name = "Body"
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
 "qsz" = (
@@ -17811,6 +18034,13 @@
 	},
 /obj/structure/fd/junk{
 	icon_state = "0,2"
+	},
+/obj/structure/fd/samosbor/light{
+	icon_state = "floor_corner_y_light";
+	color_of = "#e2a41f";
+	pixel_y = 8;
+	dir = 1;
+	range_of = 7
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
@@ -18731,7 +18961,7 @@
 /obj/structure/platform_decoration/kutjevo/rock{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/plating,
 /area/metro/maintain/gen3)
 "rLG" = (
 /obj/item/storage/cargo_containers{
@@ -18798,10 +19028,11 @@
 /turf/simulated/wall/walnut,
 /area/metro/maintain/gen3)
 "rQc" = (
-/obj/structure/fd/grim_walls/metal{
-	icon_state = "rusty_wall-12"
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 9
 	},
-/turf/simulated/wall/walnut,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
 /area/metro/maintain/gen3)
 "rQA" = (
 /obj/floor_decal/corner_techfloor_grid{
@@ -18921,8 +19152,12 @@
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
 	},
-/obj/structure/fd/interactive/morgue_body{
-	dir = 4
+/obj/structure/showcase{
+	desc = "A corpse. A perfectly ordinary corpse.";
+	pixel_y = 0;
+	icon = 'mods/_fd/_maps/collective_nightmare/icons/rollerbed.dmi';
+	icon_state = "bigrollerbodyalt_down";
+	name = "Body"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
@@ -19533,13 +19768,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
 "szl" = (
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 6
-	},
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/plating,
 /area/metro/maintain/gen3)
 "szJ" = (
 /obj/floor_decal/step{
@@ -20366,6 +20595,19 @@
 /obj/random/trash,
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
+"tuj" = (
+/obj/floor_decal/borderfloorblack,
+/obj/floor_decal/corner/orange/border{
+	dir = 2
+	},
+/obj/structure/fd/samosbor/light{
+	icon_state = "floor_corner_y_light";
+	color_of = "#e2a41f";
+	pixel_y = -8;
+	range_of = 7
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/metro/maintain/east)
 "tvh" = (
 /obj/machinery/computer/atmoscontrol,
 /obj/structure/window/reinforced{
@@ -20398,9 +20640,10 @@
 /area/metro/maintain/south/kpp)
 "txM" = (
 /obj/machinery/door/blast/regular{
+	can_use_tools = 0;
 	dir = 1
 	},
-/turf/unsimulated/mineral,
+/turf/simulated/floor/exoplanet/grim_asphalt1,
 /area/metro/maintain/east)
 "tzr" = (
 /obj/structure/platform/kutjevo/rock{
@@ -20548,7 +20791,11 @@
 /obj/floor_decal/corner_techfloor_grid{
 	dir = 6
 	},
-/obj/machinery/door/blast/regular,
+/obj/machinery/door/blast/regular{
+	can_use_tools = 0;
+	dir = 1;
+	id_tag = boss1
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
 "tEI" = (
@@ -20726,6 +20973,7 @@
 	pixel_y = 3;
 	pixel_x = 12
 	},
+/obj/structure/fd/mapping/screentext_triggermarker,
 /turf/simulated/floor/exoplanet/fd/grass{
 	color = "#6E8C44"
 	},
@@ -20799,6 +21047,15 @@
 /obj/structure/fd/building_stuff,
 /turf/simulated/floor/plating,
 /area/metro/maintain)
+"tRO" = (
+/obj/item/paper{
+	pixel_x = -12;
+	pixel_y = 25;
+	info = "Выход к площадке метро только после осмотра главного врача";
+	icon_state = "paper_words_taped"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/metro/maintain/east)
 "tRQ" = (
 /obj/structure/flora/tall{
 	icon_state = "tallgrass_3"
@@ -20944,7 +21201,7 @@
 	icon_state = "support_wall";
 	pixel_y = 25
 	},
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/plating,
 /area/metro/maintain/gen3)
 "tXI" = (
 /obj/floor_decal/corner_techfloor_grid{
@@ -21228,7 +21485,7 @@
 /obj/machinery/button/alternate/door/keypad/blast{
 	pixel_x = 0;
 	pixel_y = 25;
-	correctcode = "8801";
+	correctcode = "0451";
 	id_tag = "new_way"
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -21395,25 +21652,21 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
 "uwn" = (
-/obj/structure/fd/building_stuff,
 /obj/structure/fd/building_stuff{
-	desc = "Just an pile of bricks.";
-	icon_state = "0,1";
-	name = "bricks";
-	pixel_y = 2;
-	density = 1;
-	pixel_x = 2
+	icon_state = "1,1";
+	pixel_y = 1;
+	pixel_x = 9;
+	name = "Barrel";
+	desc = "Just an iron barrel."
 	},
 /obj/floor_decal/industrial/warning{
-	dir = 8
+	dir = 9
 	},
-/obj/item/stack/material/sandstone{
-	pixel_x = 6;
-	pixel_y = 13
-	},
-/obj/item/stack/material/sandstone{
-	pixel_x = -7;
-	pixel_y = 12
+/obj/machinery/button/alternate/door/keypad/blast{
+	dir = 1;
+	pixel_y = -25;
+	id_tag = boss1;
+	correctcode = "1984"
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/gen3)
@@ -21735,6 +21988,13 @@
 /obj/floor_decal/corner/orange/border{
 	dir = 5
 	},
+/obj/structure/fd/samosbor/light{
+	icon_state = "floor_corner_y_light";
+	dir = 5;
+	color_of = "#e2a41f";
+	range_of = s;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "uKn" = (
@@ -21915,7 +22175,7 @@
 	dir = 4
 	},
 /obj/decal/cleanable/dirt,
-/turf/space,
+/turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "uQT" = (
 /obj/floor_decal/corner_techfloor_grid{
@@ -22460,7 +22720,11 @@
 /turf/simulated/floor/plating,
 /area/metro/maintain/south/blast_door)
 "vyR" = (
-/obj/machinery/door/airlock/lift,
+/obj/machinery/door/airlock/lift{
+	dir = 2;
+	can_use_tools = 0;
+	locked = 1
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "vzz" = (
@@ -22500,6 +22764,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/metro/maintain/east)
+"vBR" = (
+/obj/floor_decal/corner_techfloor_grid{
+	dir = 9
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/metro/maintain/south/kpp)
 "vCx" = (
 /obj/structure/catwalk,
 /turf/simulated/floor/exoplanet/samosbor/plating,
@@ -24583,6 +24854,12 @@
 	dir = 9
 	},
 /obj/structure/curtain/grim_red,
+/obj/machinery/button/alternate/door/keypad/blast{
+	dir = 4;
+	pixel_y = 0;
+	pixel_x = -25;
+	correctcode = "2349"
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
 "xBp" = (
@@ -30132,8 +30409,8 @@ kUv
 aLt
 aLt
 aLt
-jmZ
-jmZ
+eHI
+eHI
 eHI
 qId
 bkD
@@ -30536,8 +30813,8 @@ kUv
 aLt
 mqE
 aLt
-jmZ
-jmZ
+eHI
+eHI
 eHI
 mcT
 hOt
@@ -35654,12 +35931,12 @@ kUv
 kUv
 kUv
 jJn
-kXy
-hcI
-tQd
-kXy
-hcI
-tQd
+hez
+kJm
+jmZ
+hez
+kJm
+jmZ
 jJn
 kUv
 kUv
@@ -38724,8 +39001,8 @@ kUv
 kUv
 kUv
 byk
-pUv
-pUv
+vBR
+vBR
 txE
 cHE
 cHE
@@ -44131,7 +44408,7 @@ nlv
 qjx
 nlv
 imF
-mMR
+nlv
 qjx
 nlv
 arf
@@ -44333,7 +44610,7 @@ pib
 pib
 pib
 tEd
-cFU
+pib
 pib
 pib
 wsH
@@ -44535,7 +44812,7 @@ ygX
 ygX
 ygX
 gmO
-iQI
+ygX
 ygX
 ygX
 hTi
@@ -44737,7 +45014,7 @@ nlv
 nlv
 nlv
 imF
-mMR
+nlv
 nlv
 nlv
 arf
@@ -44939,7 +45216,7 @@ pib
 nhy
 pib
 tEd
-cFU
+pib
 nhy
 pib
 wsH
@@ -51264,7 +51541,7 @@ kUv
 kUv
 kUv
 kUv
-uAw
+xbD
 esS
 fbW
 kUv
@@ -51465,8 +51742,8 @@ kUv
 kUv
 kUv
 esS
-uAw
-cNb
+xbD
+xbD
 esS
 fbW
 kUv
@@ -51506,7 +51783,7 @@ kUv
 fbW
 fbW
 fbW
-dLF
+lKn
 mRN
 kUv
 kUv
@@ -51667,7 +51944,7 @@ kUv
 kUv
 kUv
 esS
-tXk
+xbD
 xph
 esS
 kUv
@@ -51707,8 +51984,8 @@ kUv
 kUv
 fbW
 fbW
-dLF
-dLF
+lKn
+lKn
 mRN
 kUv
 kUv
@@ -51908,8 +52185,8 @@ kUv
 kUv
 kUv
 fbW
-dLF
-dLF
+lKn
+lKn
 fbW
 oTV
 kUv
@@ -52110,7 +52387,7 @@ kUv
 kUv
 kUv
 oTV
-dLF
+lKn
 fbW
 fbW
 fbW
@@ -52312,9 +52589,9 @@ kUv
 kUv
 kUv
 mRN
-dLF
+lKn
 fbW
-vPG
+lKn
 fbW
 kUv
 kUv
@@ -52410,11 +52687,11 @@ kUv
 kUv
 kUv
 nIc
-gbG
-gbG
+rQc
+rQc
 goB
 qpx
-ips
+qpx
 nIc
 kUv
 xTT
@@ -52514,9 +52791,9 @@ kUv
 kUv
 kUv
 mRN
-dLF
-dLF
-vPG
+lKn
+lKn
+lKn
 fbW
 kUv
 kUv
@@ -52718,7 +52995,7 @@ kUv
 oTV
 fbW
 fbW
-vPG
+lKn
 fbW
 kUv
 kUv
@@ -52919,8 +53196,8 @@ kUv
 kUv
 fbW
 fbW
-dLF
-vPG
+lKn
+lKn
 mRN
 kUv
 kUv
@@ -53063,7 +53340,7 @@ tnh
 esS
 qsi
 esS
-cbE
+mMR
 dBs
 esS
 kUv
@@ -53120,8 +53397,8 @@ kUv
 kUv
 kUv
 mRN
-bwa
-dLF
+lKn
+lKn
 vPG
 mRN
 kUv
@@ -53526,7 +53803,7 @@ kUv
 mRN
 bwa
 dLF
-vPG
+lKn
 fbW
 kUv
 kUv
@@ -54091,8 +54368,8 @@ vrZ
 yfL
 uyt
 vrZ
-cbE
-ccV
+mMR
+cNb
 esS
 kUv
 kUv
@@ -54483,8 +54760,8 @@ lcx
 dAi
 dgc
 gbg
-cbE
-ccV
+mMR
+cNb
 omg
 fNQ
 wVQ
@@ -55215,7 +55492,7 @@ whz
 kMd
 whz
 whz
-rZL
+whz
 rZL
 rZL
 whz
@@ -55383,7 +55660,7 @@ whz
 whz
 gDE
 lFo
-alk
+okB
 vde
 lFo
 bVs
@@ -55418,7 +55695,7 @@ rZL
 whz
 whz
 whz
-rZL
+whz
 whz
 whz
 whz
@@ -55512,7 +55789,7 @@ kUv
 kUv
 kUv
 mRN
-kqs
+tRO
 uAw
 oag
 mPf
@@ -55897,8 +56174,8 @@ gbg
 gbg
 gbg
 gbg
-mwY
-wcl
+ips
+tuj
 snp
 snp
 vrZ
@@ -55909,8 +56186,8 @@ vrZ
 vrZ
 snp
 snp
-cbE
-ccV
+mMR
+cNb
 esS
 kUv
 kUv
@@ -56003,7 +56280,7 @@ thD
 thD
 hAm
 cAZ
-gDE
+qal
 sBs
 cfc
 whz
@@ -56223,7 +56500,7 @@ rBy
 rBy
 sGt
 rBy
-gDE
+dvb
 aUb
 snf
 snf
@@ -56407,14 +56684,14 @@ lBk
 bLi
 udG
 cAZ
-sBs
+hgL
 dtX
 nIc
 rBy
 rBy
 sGt
-rPG
-sGt
+rBy
+iPu
 gDE
 lFo
 snf
@@ -56503,8 +56780,8 @@ esS
 esS
 esS
 esS
-mwY
-ccV
+ips
+cNb
 vrZ
 snp
 snp
@@ -56515,8 +56792,8 @@ vrZ
 vrZ
 snp
 snp
-mwY
-ccV
+ips
+cNb
 esS
 kUv
 kUv
@@ -56591,7 +56868,7 @@ bKB
 whz
 whz
 whz
-qSD
+cev
 frg
 bFA
 gDE
@@ -56609,7 +56886,7 @@ vCx
 crj
 aUg
 iwS
-dtX
+tHL
 whz
 nIc
 rBy
@@ -57417,7 +57694,7 @@ cAZ
 whz
 whz
 whz
-lFo
+whz
 whz
 kUv
 rBy
@@ -57428,9 +57705,9 @@ rBy
 whz
 whz
 rZL
-rZL
 whz
-rBy
+whz
+sGt
 rBy
 tsE
 rBy
@@ -57609,7 +57886,7 @@ tOp
 fEv
 nyj
 uGo
-rQc
+cAZ
 lKB
 kiV
 kiV
@@ -57619,7 +57896,7 @@ cAZ
 whz
 whz
 lFo
-lFo
+whz
 whz
 kUv
 rBy
@@ -57821,7 +58098,7 @@ iwS
 whz
 lFo
 lFo
-lFo
+whz
 whz
 kUv
 kUv
@@ -57901,7 +58178,7 @@ esS
 esS
 esS
 esS
-itd
+ogo
 odw
 esS
 esS
@@ -57917,7 +58194,7 @@ esS
 esS
 esS
 esS
-cbE
+mMR
 sJu
 vrZ
 sGN
@@ -58321,7 +58598,7 @@ xbk
 xbk
 xbk
 xbk
-mwY
+ips
 sJu
 vrZ
 eaq
@@ -58344,7 +58621,7 @@ kUv
 aTm
 mhR
 cWF
-aol
+cWF
 cWF
 mhR
 mjn
@@ -58368,7 +58645,7 @@ kUv
 kUv
 kUv
 kUv
-kUv
+arH
 mRN
 qYI
 cWc
@@ -58574,9 +58851,9 @@ kUv
 kfc
 mRN
 mRN
-kJm
-kJm
-kJm
+rzJ
+rzJ
+rzJ
 mRN
 mRN
 mRN
@@ -58940,7 +59217,7 @@ rEP
 rEP
 rEP
 qIK
-xal
+lde
 esS
 kUv
 kUv
@@ -59136,7 +59413,7 @@ vrZ
 vrZ
 vrZ
 vrZ
-mwY
+ips
 ccV
 esS
 esS
@@ -60064,7 +60341,7 @@ gbG
 kOP
 kOP
 aUR
-gJa
+jvl
 viu
 qBO
 vSl
@@ -60146,7 +60423,7 @@ dXq
 apt
 kqs
 xbk
-cbE
+mMR
 wcl
 esS
 kUv
@@ -60666,8 +60943,8 @@ viu
 ihZ
 muj
 rVv
-hgL
-hgL
+qst
+qst
 rVv
 qst
 qst
@@ -60729,7 +61006,7 @@ kUv
 kUv
 kUv
 esS
-mwY
+ips
 ccV
 xbk
 tLA
@@ -60856,7 +61133,7 @@ juV
 juV
 pHh
 xBg
-pHh
+nlF
 kap
 lJw
 xbT
@@ -61058,7 +61335,7 @@ sxY
 sxY
 tEx
 dDA
-tEx
+gJa
 sRh
 eHH
 xbT
@@ -61261,7 +61538,7 @@ uwn
 xbT
 xbT
 xbT
-sRh
+dFd
 eHH
 xbT
 xbT
@@ -61458,7 +61735,7 @@ jpU
 rbV
 uNk
 jJo
-lTr
+afP
 oEB
 xbT
 iuN
@@ -61843,8 +62120,8 @@ kUv
 kUv
 kUv
 kUv
-iPx
-iPx
+kUv
+kUv
 asW
 asW
 fgO
@@ -62045,8 +62322,8 @@ kUv
 kUv
 kUv
 kUv
-iPx
-iPx
+kUv
+kUv
 kUv
 asW
 kdQ
@@ -62166,7 +62443,7 @@ tjA
 tpR
 anA
 xbk
-mwY
+ips
 wcl
 esS
 kUv
@@ -62247,8 +62524,8 @@ kUv
 kUv
 kUv
 kUv
-iPx
-iPx
+kUv
+kUv
 kUv
 asW
 asW
@@ -62449,8 +62726,8 @@ kUv
 kUv
 kUv
 kUv
-iPx
-iPx
+kUv
+kUv
 kUv
 asW
 asW
@@ -62651,8 +62928,8 @@ kUv
 kUv
 kUv
 kUv
-iPx
-iPx
+kUv
+kUv
 kUv
 kUv
 asW
@@ -62853,8 +63130,8 @@ kUv
 kUv
 kUv
 kUv
-iPx
-iPx
+kUv
+kUv
 kUv
 kUv
 xbT
@@ -63055,8 +63332,8 @@ kUv
 kUv
 kUv
 kUv
-iPx
-iPx
+kUv
+kUv
 kUv
 kUv
 xbT
@@ -63358,7 +63635,7 @@ esS
 esS
 esS
 esS
-cbE
+mMR
 prM
 xbk
 xbk
@@ -63374,7 +63651,7 @@ xbk
 xbk
 xbk
 xbk
-cbE
+mMR
 poE
 rEP
 aiZ
@@ -63896,12 +64173,12 @@ pKq
 bpw
 goB
 cHC
-goB
-goB
-afP
+szl
+szl
+szl
 kUv
-goB
-afP
+szl
+szl
 kUv
 kUv
 kUv
@@ -63917,7 +64194,7 @@ kUv
 kUv
 kUv
 kUv
-goB
+szl
 gbG
 gbG
 gbG
@@ -64097,14 +64374,14 @@ hzj
 uYk
 ygb
 oJj
-ifO
+szl
 kUv
 kUv
-ifO
-ifO
-ifO
-afP
-afP
+szl
+szl
+szl
+szl
+szl
 kUv
 kUv
 kUv
@@ -64117,9 +64394,9 @@ kUv
 kUv
 kUv
 kUv
-ifO
 szl
-ifO
+szl
+szl
 muj
 sxY
 sxY
@@ -65348,12 +65625,12 @@ kUv
 xTT
 kUv
 jJn
-kXy
-hcI
-tQd
-kXy
-hcI
-tQd
+cFU
+iQI
+aol
+cFU
+iQI
+aol
 jJn
 kUv
 kUv
