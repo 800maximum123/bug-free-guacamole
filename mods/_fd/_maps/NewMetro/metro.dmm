@@ -425,8 +425,11 @@
 /turf/simulated/floor/plating,
 /area/metro/main_tunel)
 "arH" = (
-/turf/simulated/floor/tiled/techmaint,
-/area/metro)
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_9"
+	},
+/area/metro/main_tunel)
 "arN" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/wall/invincible/blend/jungle,
@@ -10180,6 +10183,14 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south)
+"iXK" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_6"
+	},
+/area/metro/main_tunel)
 "iYh" = (
 /obj/structure/platform/shiva{
 	dir = 1
@@ -11543,6 +11554,14 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gas)
+"kkF" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_11"
+	},
+/area/metro/main_tunel)
 "kkI" = (
 /obj/decal/cleanable/dirt,
 /obj/machinery/light,
@@ -12303,9 +12322,8 @@
 /area/metro/maintain/east)
 "kVe" = (
 /obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/carpet{
-	icon_state = "ca_da_re_9"
+	icon_state = "ca_da_re_10"
 	},
 /area/metro/main_tunel)
 "kVz" = (
@@ -14739,6 +14757,7 @@
 /turf/simulated/floor/plating,
 /area/metro/main_tunel)
 "ndl" = (
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/carpet{
 	icon_state = "ca_da_re_14"
 	},
@@ -19143,18 +19162,18 @@
 /area/metro/maintain/south)
 "qOn" = (
 /obj/structure/catwalk,
-/obj/structure/fd/samosbor/machinery3{
-	icon_state = "commb";
-	pixel_y = 5;
-	layer = 4.10;
-	pixel_x = 2
-	},
 /obj/structure/fd/samosbor/floor_cable{
 	icon_state = "plated_down";
 	dir = 8;
 	pixel_x = 28;
 	pixel_y = -1;
 	layer = 2.27
+	},
+/obj/structure/fd/samosbor/machinery3{
+	icon_state = "teleb";
+	pixel_y = 4;
+	layer = 4.23;
+	pixel_x = 2
 	},
 /turf/simulated/floor/exoplanet/samosbor/plating,
 /area/metro/maintain/gen3)
@@ -20490,12 +20509,11 @@
 	icon_state = "table_steel_r_12";
 	pixel_y = 7
 	},
-/obj/structure/fd/samosbor/machinery3{
-	icon_state = "commb";
-	pixel_y = 20;
-	layer = 4.10
-	},
 /obj/decal/cleanable/dirt,
+/obj/structure/fd/samosbor/machinery3{
+	icon_state = "teleb";
+	pixel_y = 20
+	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_gy"
 	},
@@ -25372,6 +25390,14 @@
 /obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
+"wEz" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/samosbor/carpet{
+	icon_state = "ca_da_re_7"
+	},
+/area/metro/main_tunel)
 "wER" = (
 /turf/simulated/floor/plating,
 /area/metro/maintain/south/blast_door)
@@ -44904,7 +44930,7 @@ pft
 wsH
 pft
 pft
-jnC
+xsL
 kXy
 hcI
 tQd
@@ -45104,9 +45130,9 @@ kXy
 kXy
 kXy
 hTi
-fFU
-fFU
-hfe
+kXy
+kXy
+xRM
 kXy
 hcI
 tQd
@@ -45306,9 +45332,9 @@ tJB
 tJB
 tJB
 arf
-ggg
 tJB
-chy
+tJB
+eqT
 kXy
 hcI
 tQd
@@ -48386,14 +48412,14 @@ kUv
 oTV
 dqd
 fYa
-qtd
+iXK
+wEz
 aiV
 aiV
 aiV
-aiV
+bGE
+bGE
 uvi
-xVN
-xVN
 oTV
 uIv
 srI
@@ -48590,18 +48616,18 @@ eyr
 fYa
 iIX
 cGQ
-eoc
+cGQ
+cGQ
 rna
-rna
-kVe
-izL
-izL
+cGQ
+kkF
+arH
 oTV
 aeA
 aeA
 aeA
 oTV
-bkf
+qtd
 aiV
 aiV
 bGE
@@ -49005,7 +49031,7 @@ hdU
 hdU
 hdU
 oTV
-kLv
+kVe
 rna
 rna
 cGQ
@@ -60423,7 +60449,7 @@ kUv
 kUv
 kUv
 kUv
-arH
+kUv
 mRN
 qYI
 cWc
