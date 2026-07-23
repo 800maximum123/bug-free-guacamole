@@ -63,7 +63,7 @@
 	if (!istype(T))
 		return
 	var/area/A = T.loc
-	if (!(istype(A) && A.area_flags & AREA_FLAG_EXTERNAL))
+	if (!(istype(A) && ((A.area_flags & AREA_FLAG_EXTERNAL) || (A.area_flags & AREA_FLAG_OUTSIDE))))
 		to_chat(user, SPAN_WARNING("You should probably try to use this outside."))
 		return
 	if (validate_target(target, user))

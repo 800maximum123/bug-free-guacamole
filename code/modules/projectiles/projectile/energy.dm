@@ -66,11 +66,13 @@
 
 	var/turf/TO = get_turf(src)
 	var/area/AO = TO.loc
-	if(AO && (AO.area_flags & AREA_FLAG_EXTERNAL))
+	if(!AO)
+		return
+	if((AO.area_flags & AREA_FLAG_EXTERNAL) || (AO.area_flags & AREA_FLAG_OUTSIDE))
 		//Everyone saw that!
 		for(var/mob/living/mob in GLOB.alive_mobs)
 			var/turf/T = get_turf(mob)
-			if(T && (T != TO) && (TO.z == T.z) && !mob.blinded)
+			if(T && (T != TO) && ((TO.z == T.z) || (TO.z in GetConnectedZlevels(T.z))) && !mob.blinded)
 				to_chat(mob, SPAN_DANGER("You see a bright light to \the [dir2text(get_dir(T,TO))]!"))
 			CHECK_TICK
 

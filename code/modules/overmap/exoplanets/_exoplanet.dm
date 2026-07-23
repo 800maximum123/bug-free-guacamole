@@ -378,5 +378,5 @@ GLOBAL_VAR(planet_repopulation_disabled)
 		'sound/effects/wind/wind_5_1.ogg'
 	)
 	always_unpowered = TRUE
-	area_flags = AREA_FLAG_EXTERNAL
+	area_flags = AREA_FLAG_OUTSIDE
 	planetary_surface = TRUE

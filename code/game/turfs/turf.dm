@@ -461,5 +461,7 @@ var/global/const/enterloopsanity = 100
 	var/area/A = get_area(src)
 	if(A.area_flags & AREA_FLAG_EXTERNAL)
 		return TRUE
+	else if(A.area_flags & AREA_FLAG_OUTSIDE)
+		return TRUE
 
 	//TODO: CitRP has some concept of outside based on turfs above. We don't really have any use cases right now, revisit this function if this changes
