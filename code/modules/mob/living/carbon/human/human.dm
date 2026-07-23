@@ -125,7 +125,7 @@
 			if (prob(70))
 				Paralyse(10)
 
-		if(EX_ACT_LIGHT)
+		if(EX_ACT_VERY_LIGHT to EX_ACT_HEAVY)
 			b_loss = 30
 			if (get_sound_volume_multiplier() >= 0.2)
 				ear_damage += 15

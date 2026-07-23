@@ -206,7 +206,7 @@
 			f_loss += 60
 
 
-		if(EX_ACT_LIGHT)
+		if(EX_ACT_VERY_LIGHT to EX_ACT_HEAVY)
 			b_loss += 30
 
 	adjustBruteLoss(b_loss)

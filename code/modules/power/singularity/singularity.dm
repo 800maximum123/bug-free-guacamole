@@ -56,14 +56,14 @@
 	if(current_size == STAGE_SUPER)//IT'S UNSTOPPABLE
 		return
 	switch(severity)
-		if(EX_ACT_DEVASTATING)
+		if(EX_ACT_DEVASTATING to INFINITY)
 			if(prob(25))
 				investigate_log("has been destroyed by an explosion.", I_SINGULO)
 				qdel(src)
 				return
 			else
 				energy += 50
-		if(EX_ACT_HEAVY to EX_ACT_LIGHT)
+		if(EX_ACT_LIGHT to EX_ACT_HEAVY)
 			energy += round((rand(20,60)/2),1)
 			return
 

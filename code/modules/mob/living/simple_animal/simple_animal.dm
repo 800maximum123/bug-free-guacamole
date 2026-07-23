@@ -207,7 +207,7 @@
 		if (EX_ACT_HEAVY)
 			damage = 120
 
-		if(EX_ACT_LIGHT)
+		if(EX_ACT_VERY_LIGHT to EX_ACT_HEAVY)
 			damage = 30
 
 	apply_damage(damage, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_EXPLODE)

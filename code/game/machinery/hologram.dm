@@ -445,12 +445,12 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 //Destruction procs.
 /obj/machinery/hologram/ex_act(severity)
 	switch(severity)
-		if(EX_ACT_DEVASTATING)
+		if(EX_ACT_DEVASTATING to INFINITY)
 			qdel(src)
-		if(EX_ACT_HEAVY)
+		if(EX_ACT_HEAVY to EX_ACT_DEVASTATING)
 			if (prob(50))
 				qdel(src)
-		if(EX_ACT_LIGHT)
+		if(EX_ACT_VERY_LIGHT to EX_ACT_HEAVY)
 			if (prob(5))
 				qdel(src)
 	return

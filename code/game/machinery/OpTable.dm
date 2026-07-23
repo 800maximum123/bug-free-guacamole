@@ -43,16 +43,16 @@
 /obj/machinery/optable/ex_act(severity)
 
 	switch(severity)
-		if(EX_ACT_DEVASTATING)
+		if(EX_ACT_DEVASTATING to INFINITY)
 			//SN src = null
 			qdel(src)
 			return
-		if(EX_ACT_HEAVY)
+		if(EX_ACT_HEAVY to EX_ACT_DEVASTATING)
 			if (prob(50))
 				//SN src = null
 				qdel(src)
 				return
-		if(EX_ACT_LIGHT)
+		if(EX_ACT_VERY_LIGHT to EX_ACT_HEAVY)
 			if (prob(25))
 				src.set_density(0)
 

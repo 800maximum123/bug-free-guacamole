@@ -2,8 +2,17 @@
 #define EXPLOSION_RATIO_HEAVY 2
 #define EXPLOSION_RATIO_LIGHT 4
 
+///////////////////////////////////////////////////////////////////////////////////////////
+// Basically putting a massive bandaid on any explosion() procs that are not changed yet //
+///////////////////////////////////////////////////////////////////////////////////////////
 
+// TODO: Really just make this proc not used ANYWHERE, replace it all with proper (debatebly) cell_explosion()
 /proc/explosion(turf/epicenter, range, max_power = EX_ACT_DEVASTATING, adminlog = 1, z_transfer = UP|DOWN, shaped, turf_breaker)
+	if(range) // Turning range into a pseudo-calculation of falloff
+		range = 300 / range
+
+	cell_explosion(epicenter = epicenter, power = max_power, falloff = range, z_transfer = z_transfer)
+/* eh good enough
 	set waitfor = FALSE
 
 	var/multi_z_scalar = 0.35
@@ -95,8 +104,7 @@
 	sleep(8)
 
 	return 1
-
-
+*/
 
 /proc/secondaryexplosion(turf/epicenter, range)
 	for(var/turf/tile in range(range, epicenter))

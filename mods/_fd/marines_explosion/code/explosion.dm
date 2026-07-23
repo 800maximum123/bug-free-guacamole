@@ -424,7 +424,6 @@ as having entered the turf.
 	var/fragments_per_projectile = round(fragment_number / length(target_turfs))
 
 	for(var/turf/O in target_turfs)
-		sleep(0)
 		var/fragment_type = pickweight(fragtypes)
 		var/obj/item/projectile/bullet/pellet/fragment/P = new fragment_type(T)
 		P.pellets = fragments_per_projectile

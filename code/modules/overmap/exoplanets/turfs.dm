@@ -53,9 +53,9 @@
 
 /turf/simulated/floor/exoplanet/ex_act(severity)
 	switch(severity)
-		if(EX_ACT_DEVASTATING)
+		if(EX_ACT_DEVASTATING to INFINITY)
 			ChangeTurf(get_base_turf_by_area(src))
-		if(EX_ACT_HEAVY)
+		if(EX_ACT_HEAVY to EX_ACT_DEVASTATING)
 			if(prob(40))
 				ChangeTurf(get_base_turf_by_area(src))
 

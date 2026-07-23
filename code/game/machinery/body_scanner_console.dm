@@ -34,9 +34,9 @@
 /obj/machinery/body_scanconsole/ex_act(severity)
 
 	switch(severity)
-		if(EX_ACT_DEVASTATING)
+		if(EX_ACT_DEVASTATING to INFINITY)
 			qdel(src)
-		if(EX_ACT_HEAVY)
+		if(EX_ACT_HEAVY to EX_ACT_DEVASTATING)
 			if (prob(50))
 				qdel(src)
 

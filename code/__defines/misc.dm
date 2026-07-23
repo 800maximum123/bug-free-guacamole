@@ -305,9 +305,11 @@
 
 
 // Severities for ex_act()
-#define EX_ACT_DEVASTATING 1 // Within devastation range - Destructive/deadly, unlikely to survive.
-#define EX_ACT_HEAVY 2 // Within heavy range - Heavy damage, very dangerous
-#define EX_ACT_LIGHT 3 // Within light range - Minor damage.
+// BANDAIDS FOR OVERRIDING INTO cell_explosion()
+#define EX_ACT_DEVASTATING 800 // Within devastation range - Destructive/deadly, unlikely to survive.
+#define EX_ACT_HEAVY 450 // Within heavy range - Heavy damage, very dangerous
+#define EX_ACT_LIGHT 200 // Within light range - Minor damage.
+#define EX_ACT_VERY_LIGHT 50 // Within very light range - Threshold for any damage to take place
 
 #define EX_ACT_TO_STRING(X) (X == EX_ACT_DEVASTATING ? "Devastating" : X == EX_ACT_HEAVY ? "Heavy" : "Light")
 

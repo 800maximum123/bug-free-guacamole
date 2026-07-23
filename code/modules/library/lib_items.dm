@@ -88,18 +88,18 @@
 
 /obj/structure/bookcase/ex_act(severity)
 	switch(severity)
-		if(EX_ACT_DEVASTATING)
+		if(EX_ACT_DEVASTATING to INFINITY)
 			for(var/obj/item/book/b in contents)
 				qdel(b)
 			qdel(src)
 			return
-		if(EX_ACT_HEAVY)
+		if(EX_ACT_HEAVY to EX_ACT_DEVASTATING)
 			for(var/obj/item/book/b in contents)
 				if (prob(50)) b.dropInto(loc)
 				else qdel(b)
 			qdel(src)
 			return
-		if(EX_ACT_LIGHT)
+		if(EX_ACT_VERY_LIGHT to EX_ACT_HEAVY)
 			if (prob(50))
 				for(var/obj/item/book/b in contents)
 					b.dropInto(loc)

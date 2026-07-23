@@ -21,7 +21,7 @@
 			ear_damage += 30
 			ear_deaf += 120
 
-		if(EX_ACT_LIGHT)
+		if(EX_ACT_VERY_LIGHT to EX_ACT_HEAVY)
 			b_loss += 30
 			if (prob(50))
 				Paralyse(1)

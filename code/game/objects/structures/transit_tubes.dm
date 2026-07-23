@@ -58,14 +58,14 @@
 // When destroyed by explosions, properly handle contents.
 /obj/structure/transit_tube_pod/ex_act(severity)
 	switch(severity)
-		if(EX_ACT_DEVASTATING)
+		if(EX_ACT_DEVASTATING to INFINITY)
 			for(var/atom/movable/AM in contents)
 				AM.dropInto(loc)
 				AM.ex_act(severity++)
 
 			qdel(src)
 			return
-		if(EX_ACT_HEAVY)
+		if(EX_ACT_HEAVY to EX_ACT_DEVASTATING)
 			if(prob(50))
 				for(var/atom/movable/AM in contents)
 					AM.dropInto(loc)
@@ -73,7 +73,7 @@
 
 				qdel(src)
 				return
-		if(EX_ACT_LIGHT)
+		if(EX_ACT_VERY_LIGHT to EX_ACT_HEAVY)
 			return
 
 
