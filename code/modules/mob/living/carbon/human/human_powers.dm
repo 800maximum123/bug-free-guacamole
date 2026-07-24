@@ -51,13 +51,18 @@
 	set desc = "Surrender to your fate and give in to death."
 	set category = "IC"
 
-	if(stat != UNCONSCIOUS && health >= maxHealth/2)
+	if(stat != UNCONSCIOUS && health < maxHealth/2)
 		to_chat(src, SPAN_WARNING("You can't give in right now!"))
 		return
 
-	var/last_words = sanitize(input("Any last words?", "Give In") as text|null)
+	var/warning = alert(src, "Are you sure you wanna give in? You will immediately die and won't be able to get revived!", "Give In", "No", "Yes")
+	if(warning == "No")
+		to_chat(src, SPAN_GOOD("Maybe there is something to live for..."))
+		return
 
-	death(FALSE, last_words = last_words)
+	var/last_words = sanitize(input("Any last words?", "Give In") as text|null, MAX_LASTWORDS_LEN)
+
+	death(FALSE, deathmessage = "seizes up and falls limp sadly...", show_dead_message = "You have given in and died.", last_words = last_words)
 	return
 
 /datum/action/give_in
@@ -69,7 +74,7 @@
 	procname = "give_in"
 
 /datum/action/give_in/CheckRemoval(mob/living/user)
-	return !user || user.stat != UNCONSCIOUS
+	return user.stat != UNCONSCIOUS && user.health < user.maxHealth/2
 
 /***********
  diona verbs

@@ -7,6 +7,7 @@
 	var/pulse = PULSE_NORM
 	var/heartbeat = 0
 	var/beat_sound = 'sound/effects/singlebeat.ogg'
+	var/stop_sound = 'sound/effects/heartstop.ogg'
 	var/next_blood_squirt = 0
 	damage_reduction = 0.7
 	relative_size = 5
@@ -77,7 +78,8 @@
 		should_stop = should_stop || prob(max(0, owner.getBrainLoss() - owner.maxHealth * 0.75)) //brain failing to work heart properly
 		should_stop = should_stop || (prob(5) && pulse == PULSE_THREADY) //erratic heart patterns, usually caused by oxyloss
 		if(should_stop) // The heart has stopped due to going into traumatic or cardiovascular shock.
-			to_chat(owner, SPAN_DANGER("Your heart has stopped!"))
+			to_chat(owner, FONT_GIANT(SPAN_DANGER("Your heart has stopped!")))
+			sound_to(owner, sound(stop_sound,0,0,0,50))
 			pulse = PULSE_NONE
 			return
 

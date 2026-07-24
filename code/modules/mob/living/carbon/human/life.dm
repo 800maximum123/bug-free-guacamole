@@ -738,8 +738,26 @@
 					if(40 to 45)		severity = 6
 					if(45 to INFINITY)	severity = 7
 				overlay_fullscreen("oxy", /obj/screen/fullscreen/oxy, severity)
+				var/sev_volume = 10 * severity
+				var/oxy_sound
+				if(severity >= 7)
+					oxy_sound = 'sound/effects/oxygen3.ogg'
+				else if(severity >= 4)
+					oxy_sound = 'sound/effects/oxygen2.ogg'
+				else
+					oxy_sound = 'sound/effects/oxygen1.ogg'
+				if(!crit_sound_token || severity != crit_sound_severity)
+					if(crit_sound_token)
+						sound_to(src, sound(null, channel = GLOB.crit_sound_channel))
+					sound_to(src, sound(oxy_sound, repeat = 1, wait = 0, volume = sev_volume, channel = GLOB.crit_sound_channel))
+					crit_sound_token = TRUE
+					crit_sound_severity = severity
 			else
 				clear_fullscreen("oxy")
+				if(crit_sound_token)
+					sound_to(src, sound(null, channel = GLOB.crit_sound_channel))
+					crit_sound_token = FALSE
+					crit_sound_severity = 0
 
 		//Fire and Brute damage overlay (BSSR)
 		var/hurtdamage = src.getBruteLoss() + src.getFireLoss() + damageoverlaytemp

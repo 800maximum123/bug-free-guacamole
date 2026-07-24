@@ -28,8 +28,10 @@
 	if(stat == DEAD) return
 
 	if(last_words)
+		var/datum/pronouns/pronouns = choose_from_pronouns()
+		mind.last_words = last_words
 		last_words = stutter(last_words)
-		audible_message(SPAN_ITALIC("<b>[src]</b> whispers on his last breath: \"[last_words]\")"), deaf_message = SPAN_ITALIC("<b>[src]</b> weakly whispers something..."), hearing_distance = 2, runemessage = last_words)
+		audible_message("<b>[src]</b> whispers on [pronouns.his] last breath, \"<i>[last_words]</i>\"", deaf_message = "<b>[src]</b> weakly whispers something...", hearing_distance = 2, runemessage = last_words)
 
 	SET_BIT(hud_updateflag, HEALTH_HUD)
 	SET_BIT(hud_updateflag, STATUS_HUD)
