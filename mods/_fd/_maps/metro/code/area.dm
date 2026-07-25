@@ -85,3 +85,8 @@
 
 /area/metro/maintain/gen3/falling
 	name = "Shaft"
+
+
+#ifndef EXAMPLEMAP
+	#include "..\map\metro.dmm"
+#endif

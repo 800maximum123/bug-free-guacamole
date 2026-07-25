@@ -321,7 +321,9 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/south/kpp)
 "ano" = (
-/obj/structure/fd/mapping/screentext_triggermarker,
+/obj/structure/fd/mapping/screentext_triggermarker{
+	text_to_show = "Длинный коридор. Когда же эти линии метро закончатся?"
+	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
 "anA" = (
@@ -1711,7 +1713,9 @@
 /obj/floor_decal/hull{
 	dir = 4
 	},
-/obj/structure/fd/mapping/screentext_triggermarker,
+/obj/structure/fd/mapping/screentext_triggermarker{
+	text_to_show = "Длинный коридор. Когда же эти линии метро закончатся?"
+	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
 "bsp" = (
@@ -1812,7 +1816,7 @@
 /area/metro/main_tunel)
 "bvK" = (
 /obj/map_effect/portal/line/side_a{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/metro/main_tunel)
@@ -2424,7 +2428,9 @@
 /obj/floor_decal/hull{
 	dir = 8
 	},
-/obj/map_effect/portal/line/side_a,
+/obj/map_effect/portal/line/side_a{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
 "bYv" = (
@@ -7011,15 +7017,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain)
-"gaM" = (
-/obj/floor_decal/hull{
-	dir = 4
-	},
-/obj/structure/fd/mapping/screentext_triggermarker{
-	text_to_show = "Длинный кродиор. Когда же эти линии метро закончатся?"
-	},
-/turf/simulated/floor/plating,
-/area/metro/maintain/east)
 "gbg" = (
 /turf/simulated/wall/invincible/blend/prison_reinf,
 /area/metro/maintain/east)
@@ -7162,12 +7159,6 @@
 /obj/paint/merc,
 /turf/simulated/wall/r_wall,
 /area/metro/maintain/south/blast_door)
-"ghb" = (
-/obj/structure/closet/crate/secure/phoron,
-/obj/item/stack/material/phoron/ten,
-/obj/item/stack/material/phoron/ten,
-/turf/simulated/floor/plating,
-/area/metro/maintain/east)
 "gho" = (
 /obj/floor_decal/borderfloorblack{
 	dir = 8
@@ -7242,7 +7233,7 @@
 	dir = 1
 	},
 /obj/map_effect/portal/line/side_a{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/metro/main_tunel)
@@ -14635,7 +14626,7 @@
 	dir = 2
 	},
 /obj/map_effect/portal/line/side_a{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/metro/main_tunel)
@@ -21760,7 +21751,9 @@
 /obj/floor_decal/hull{
 	dir = 4
 	},
-/obj/map_effect/portal/line/side_a,
+/obj/map_effect/portal/line/side_a{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
 "tcF" = (
@@ -23009,8 +23002,8 @@
 /turf/simulated/floor/exoplanet/samosbor/metal,
 /area/metro/maintain/gen3)
 "ulA" = (
-/obj/machinery/power/port_gen/pacman,
 /obj/floor_decal/industrial/outline/orange,
+/obj/machinery/recharge_station,
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
 "ulP" = (
@@ -25106,7 +25099,7 @@
 	dir = 1
 	},
 /obj/map_effect/portal/master/side_a{
-	dir = 4;
+	dir = 8;
 	portal_id = "toend"
 	},
 /turf/simulated/floor/plating,
@@ -25454,7 +25447,9 @@
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
 "wIT" = (
-/obj/map_effect/portal/line/side_a,
+/obj/map_effect/portal/line/side_a{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
 "wJp" = (
@@ -25871,7 +25866,9 @@
 /obj/floor_decal/hull{
 	dir = 8
 	},
-/obj/structure/fd/mapping/screentext_triggermarker,
+/obj/structure/fd/mapping/screentext_triggermarker{
+	text_to_show = "Длинный коридор. Когда же эти линии метро закончатся?"
+	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
 "wVQ" = (
@@ -26548,7 +26545,8 @@
 	dir = 4
 	},
 /obj/map_effect/portal/master/side_a{
-	portal_id = "outside"
+	portal_id = "outside";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/east)
@@ -63277,7 +63275,7 @@ kUv
 ybt
 hEY
 imx
-pwa
+lKn
 ulA
 ybt
 fbD
@@ -63480,7 +63478,7 @@ ybt
 pwa
 xbD
 lKn
-ghb
+lKn
 ybt
 hqU
 nTX
@@ -65521,7 +65519,7 @@ ceB
 ceB
 ceB
 oqh
-gaM
+bsn
 ceB
 ceB
 ceB
