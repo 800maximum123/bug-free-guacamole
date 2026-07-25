@@ -369,6 +369,8 @@
 
 	#include "cutscenes/s2ep8/cutscene.dm"
 
+	#include "cutscenes/s2ep9/cutscene.dm"
+
 	#include "music_videos/s2opening1.dm"
 
 		// ~EXOPLANET RUINS~ //
