@@ -579,15 +579,10 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
 "auX" = (
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 9
+/obj/structure/fd/grim_walls/metal{
+	icon_state = "rusty_wall-3"
 	},
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 10
-	},
-/obj/decal/cleanable/dirt,
-/obj/structure/fd/bs_vines,
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/wall/r_wall,
 /area/metro/maintain/east)
 "avk" = (
 /obj/structure/flora/tall/fourth,
@@ -1034,7 +1029,9 @@
 	dir = 2;
 	anchored = 1;
 	pixel_x = -1;
-	pixel_y = 13
+	pixel_y = 13;
+	desc = "Труба";
+	desc_special = "Нет, резоми сюда не влезет."
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
@@ -1286,7 +1283,6 @@
 	icon_state = "floor_corner_y_light";
 	dir = 9;
 	color_of = "#e2a41f";
-	range_of = s;
 	pixel_y = 12;
 	pixel_x = -8
 	},
@@ -2840,7 +2836,8 @@
 	pixel_y = 0
 	},
 /obj/structure/fd/interactive/note/from_future{
-	pixel_y = 8
+	pixel_y = 8;
+	attached_text = list(/datum/interactive_note/radiocomp_first,/datum/interactive_note/radiocomp_second)
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
 	icon_state = "me_ti_gy"
@@ -4746,13 +4743,10 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/metro/maintain)
 "dVN" = (
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 10
+/obj/structure/fd/grim_walls/metal{
+	icon_state = "rusty_wall-9"
 	},
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/dirt,
-/obj/structure/fd/bs_vines,
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/wall/r_wall,
 /area/metro/maintain/east)
 "dWk" = (
 /obj/floor_decal/step{
@@ -5387,14 +5381,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/east)
 "exa" = (
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 10
-	},
-/obj/structure/lift/panel{
-	pixel_y = 32
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/wall/r_wall,
 /area/metro/maintain/east)
 "eyr" = (
 /obj/structure/fd/samosbor/furniture3{
@@ -5575,7 +5562,8 @@
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
 /obj/structure/fd/interactive/note{
-	pixel_y = 6
+	pixel_y = 6;
+	attached_text = list(/datum/interactive_note/nummy)
 	},
 /turf/simulated/floor/exoplanet/grim_metal2,
 /area/metro/maintain/gen3)
@@ -6390,7 +6378,8 @@
 /area/metro/maintain/gas)
 "fCD" = (
 /obj/structure/fd/interactive/note{
-	pixel_y = 13
+	pixel_y = 13;
+	attached_text = list(/datum/interactive_note/shef)
 	},
 /turf/simulated/floor/exoplanet/samosbor/theme{
 	icon_state = "bronze_floor"
@@ -9299,7 +9288,8 @@
 /area/metro/maintain/gas)
 "icp" = (
 /obj/structure/fd/interactive/note{
-	pixel_y = 20
+	pixel_y = 20;
+	attached_text = list(/datum/interactive_note/centroom)
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -16780,7 +16770,7 @@
 	icon_state = "rusty_wall-3"
 	},
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/wall/r_wall,
 /area/metro/maintain/east)
 "oTE" = (
 /obj/fd_water/alt_ver1{
@@ -21639,7 +21629,8 @@
 	icon_state = "0,4"
 	},
 /obj/structure/fd/interactive/note{
-	pixel_y = 6
+	pixel_y = 6;
+	attached_text = list(/datum/interactive_note/house_in_forest)
 	},
 /turf/simulated/floor/exoplanet/grim_wood_log,
 /area/metro/maintain/gen3)
@@ -22106,6 +22097,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
+"twC" = (
+/obj/structure/fd/grim_walls/metal{
+	icon_state = "rusty_wall-5"
+	},
+/turf/simulated/wall/r_wall,
+/area/metro/maintain/east)
 "twG" = (
 /obj/structure/bed/chair/office{
 	dir = 4
@@ -22408,7 +22405,8 @@
 	},
 /obj/structure/fd/interactive/note{
 	pixel_y = 17;
-	pixel_x = -3
+	pixel_x = -3;
+	attached_text = list(/datum/interactive_note/kanarys_dead)
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/east)
@@ -23270,6 +23268,12 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/techfloor,
+/area/metro/maintain/east)
+"uyx" = (
+/obj/structure/fd/grim_walls/metal{
+	icon_state = "rusty_wall-6"
+	},
+/turf/simulated/wall/r_wall,
 /area/metro/maintain/east)
 "uyF" = (
 /obj/floor_decal/borderfloorwhite{
@@ -25563,15 +25567,10 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/metro/maintain)
 "wMf" = (
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 6
+/obj/structure/fd/grim_walls/metal{
+	icon_state = "rusty_wall-12"
 	},
-/obj/floor_decal/corner_techfloor_grid{
-	dir = 10
-	},
-/obj/decal/cleanable/dirt,
-/obj/structure/fd/bs_vines,
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/wall/r_wall,
 /area/metro/maintain/east)
 "wMI" = (
 /obj/floor_decal/corner_techfloor_grid{
@@ -25664,7 +25663,8 @@
 	},
 /obj/structure/fd/interactive/note{
 	pixel_y = -1;
-	pixel_x = -9
+	pixel_x = -9;
+	attached_text = list(/datum/interactive_note/manytermins)
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/east)
@@ -26702,6 +26702,12 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/metro/maintain/gen1)
+"xGQ" = (
+/obj/structure/fd/grim_walls/metal{
+	icon_state = "rusty_wall-10"
+	},
+/turf/simulated/wall/r_wall,
+/area/metro/maintain/east)
 "xGX" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
@@ -60220,7 +60226,7 @@ mRN
 mRN
 mRN
 mRN
-cWF
+mRN
 cWF
 cWF
 mRN
@@ -60419,14 +60425,14 @@ kUv
 kUv
 kUv
 kUv
-pKA
-aTm
-mhR
+kUv
+exa
+uyx
+auX
 cWF
 cWF
-cWF
-mhR
-mjn
+auX
+twC
 pKA
 kUv
 kUv
@@ -60621,14 +60627,14 @@ kUv
 kUv
 kUv
 kUv
-pKA
-hUa
-auX
+kUv
+exa
+wMf
 rVW
 nSZ
 ctZ
 bXg
-hUa
+wMf
 pKA
 kUv
 kUv
@@ -60823,14 +60829,14 @@ kUv
 kUv
 kUv
 kUv
-pKA
-hUa
-dVN
+kUv
+exa
+wMf
 hUE
 dBD
 gAk
 btZ
-hUa
+wMf
 pKA
 kUv
 kUv
@@ -61025,14 +61031,14 @@ kUv
 kUv
 kUv
 kUv
-pKA
-hUa
+kUv
 exa
+wMf
 mXm
 qli
 nlx
 vQL
-hUa
+wMf
 pKA
 kUv
 kUv
@@ -61227,14 +61233,14 @@ kUv
 kUv
 kUv
 kUv
-pKA
-hUa
+kUv
+exa
 wMf
 kgU
 aKy
 kgU
 nRJ
-hUa
+wMf
 pKA
 kUv
 kUv
@@ -61429,14 +61435,14 @@ kUv
 kUv
 kUv
 kUv
-pKA
-vYJ
+kUv
+exa
+xGQ
 oTv
-oTv
-mhR
-mhR
-mhR
-vac
+auX
+auX
+auX
+dVN
 pKA
 kUv
 kUv
@@ -61631,7 +61637,7 @@ kUv
 kUv
 kUv
 kUv
-pKA
+kUv
 pKA
 pKA
 pKA

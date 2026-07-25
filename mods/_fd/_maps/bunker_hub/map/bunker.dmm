@@ -3332,6 +3332,14 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/lower/kpp1)
+"cbP" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/obj/catwalk_plated/dark,
+/obj/submap_landmark/spawnpoint/manticore/xrim,
+/turf/simulated/floor/plating,
+/area/bunker/command)
 "ccx" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/table/standard,
@@ -3956,6 +3964,14 @@
 /obj/overlay/diona/floor,
 /turf/simulated/floor/plating,
 /area/bunker/lower/eng/reactor)
+"cpO" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/obj/catwalk_plated/dark,
+/obj/submap_landmark/spawnpoint/manticore/luke,
+/turf/simulated/floor/plating,
+/area/bunker/command)
 "cpS" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -4414,6 +4430,13 @@
 	icon_state = "0-8"
 	},
 /obj/structure/table/woodentable/walnut,
+/obj/item/material/sword/katana/muramasa{
+	pixel_y = 7
+	},
+/obj/item/clothing/accessory/storage/holster/katana{
+	pixel_y = 5;
+	pixel_x = 6
+	},
 /turf/simulated/floor/carpet/black,
 /area/bunker/rooms/room4)
 "cBy" = (
@@ -6615,7 +6638,6 @@
 	dir = 9
 	},
 /obj/floor_decal/techfloor,
-/obj/submap_landmark/spawnpoint/bunker/joseph,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "dWL" = (
@@ -9190,6 +9212,7 @@
 	light_color = "#a1d2d6";
 	pixel_x = 15
 	},
+/obj/submap_landmark/spawnpoint/manticore/krieger,
 /turf/simulated/floor/plating,
 /area/bunker/command)
 "fGJ" = (
@@ -11329,6 +11352,7 @@
 /area/bunker/lower/eng)
 "gSS" = (
 /obj/floor_decal/industrial/loading,
+/obj/submap_landmark/spawnpoint/manticore/rifler,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "gTf" = (
@@ -12140,6 +12164,7 @@
 /area/bunker/lower/lab/virology)
 "hqe" = (
 /obj/structure/bed/chair/padded/blue,
+/obj/submap_landmark/spawnpoint/manticore/ace,
 /turf/simulated/floor/tiled/dark,
 /area/bunker/command)
 "hqo" = (
@@ -12499,6 +12524,7 @@
 /obj/floor_decal/corner/black/half{
 	dir = 1
 	},
+/obj/submap_landmark/spawnpoint/manticore/kai,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "hyW" = (
@@ -12597,14 +12623,12 @@
 /turf/simulated/floor/plating,
 /area/bunker/lower/corridos)
 "hAI" = (
-/obj/floor_decal/borderfloor{
-	dir = 1
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
 	},
-/obj/floor_decal/corner/darkblue/border{
-	dir = 1
-	},
-/obj/submap_landmark/spawnpoint/bunker/tau,
-/turf/simulated/floor/tiled/dark/monotile,
+/obj/catwalk_plated/dark,
+/obj/submap_landmark/spawnpoint/manticore/adriano,
+/turf/simulated/floor/plating,
 /area/bunker/command)
 "hBG" = (
 /obj/floor_decal/corner/darkblue/mono,
@@ -21684,6 +21708,14 @@
 /obj/structure/fd/bs_vines,
 /turf/simulated/floor/exoplanet/fd/waste,
 /area/bunker/lower/lab/bslab)
+"nCz" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/obj/catwalk_plated/dark,
+/obj/submap_landmark/spawnpoint/manticore/cf355,
+/turf/simulated/floor/plating,
+/area/bunker/command)
 "nCE" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/cable/green{
@@ -23981,6 +24013,14 @@
 	},
 /turf/simulated/floor/tiled/old_cargo,
 /area/bunker/barracks/preporation)
+"pab" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/obj/catwalk_plated/dark,
+/obj/submap_landmark/spawnpoint/manticore/cubic,
+/turf/simulated/floor/plating,
+/area/bunker/command)
 "pat" = (
 /obj/structure/fd/wall_decor2{
 	icon_state = "dead";
@@ -25190,6 +25230,14 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/bunker/lower/med/surgery)
+"pOp" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/obj/catwalk_plated/dark,
+/obj/submap_landmark/spawnpoint/manticore/lukash,
+/turf/simulated/floor/plating,
+/area/bunker/command)
 "pOL" = (
 /obj/machinery/light{
 	color = "#a1d2d6";
@@ -25830,6 +25878,14 @@
 	color = "#bebebe"
 	},
 /area/bunker/jungle)
+"qjk" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/obj/catwalk_plated/dark,
+/obj/submap_landmark/spawnpoint/manticore/roku,
+/turf/simulated/floor/plating,
+/area/bunker/command)
 "qjy" = (
 /obj/structure/closet/secure_closet/personal/empty,
 /obj/floor_decal/industrial/hatch/yellow,
@@ -34875,6 +34931,7 @@
 /obj/structure/bed/chair/padded/blue{
 	dir = 4
 	},
+/obj/submap_landmark/spawnpoint/manticore/victor,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bunker/command)
 "vpu" = (
@@ -38888,8 +38945,11 @@
 /turf/simulated/wall,
 /area/bunker/jungle)
 "xMN" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
 /obj/catwalk_plated/dark,
-/obj/submap_landmark/spawnpoint/manticore/krieger,
+/obj/submap_landmark/spawnpoint/manticore/rain,
 /turf/simulated/floor/plating,
 /area/bunker/command)
 "xNc" = (
@@ -154899,8 +154959,8 @@ stz
 aVN
 vxo
 smC
-vGV
-vGV
+hAI
+pab
 vGV
 dfw
 goK
@@ -155098,11 +155158,11 @@ kXP
 bCL
 epz
 gOw
-xMN
+aVN
 ciL
 smC
-vGV
-vGV
+xMN
+nCz
 fFW
 dfw
 goK
@@ -155505,9 +155565,9 @@ stz
 aVN
 vxo
 smC
+qjk
 vGV
-vGV
-vGV
+pOp
 dfw
 goK
 goK
@@ -155703,13 +155763,13 @@ dyq
 mdx
 anE
 anE
-hAI
+stz
 bXI
 vxo
 pSF
 hyQ
-vGV
-vGV
+cpO
+cbP
 dfw
 goK
 goK

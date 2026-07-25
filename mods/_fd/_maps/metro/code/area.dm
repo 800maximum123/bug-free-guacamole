@@ -42,6 +42,7 @@
 // Восточное крыло
 /area/metro/maintain/east
 	name = "East Wing"
+	requires_power = 0
 
 /area/metro/maintain/east/security
 	name = "East Security Point"
@@ -68,7 +69,7 @@
 /area/metro/maintain/gas
 	name = "Techinal Area"
 	icon_state = "green"
-	unbreathable = TRUE
+//	unbreathable = TRUE
 
 //Первый генератор
 /area/metro/maintain/gen1
@@ -77,7 +78,7 @@
 //Второй генератор
 /area/metro/maintain/gen2
 	name = "Second Reserve Generators"
-	unbreathable = TRUE
+//	unbreathable = TRUE
 
 //Третий генератор
 /area/metro/maintain/gen3
@@ -85,7 +86,7 @@
 
 /area/metro/maintain/gen3/falling
 	name = "Shaft"
-
+	requires_power = 0
 
 #ifndef EXAMPLEMAP
 	#include "..\map\metro.dmm"
