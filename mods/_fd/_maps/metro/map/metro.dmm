@@ -4424,7 +4424,7 @@
 	dir = 2;
 	pixel_y = 25;
 	correctcode = "2349";
-	id_tag = boss2
+	id_tag = "boss2"
 	},
 /turf/simulated/floor/exoplanet/samosbor/carpet{
 	icon_state = "ca_da_re_14"
@@ -6505,7 +6505,7 @@
 	icon_state = "floor_corner_y_light";
 	dir = 5;
 	color_of = "#e2a41f";
-	range_of = s;
+
 	pixel_y = 12;
 	pixel_x = 8
 	},
@@ -7790,7 +7790,7 @@
 /obj/machinery/door/blast/regular{
 	can_use_tools = 0;
 	dir = 1;
-	id_tag = boss2
+	id_tag = "boss2"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
@@ -10756,7 +10756,7 @@
 /obj/item/device/flashlight/lamp,
 /obj/machinery/button/blast_door{
 	pixel_y = 8;
-	id_tag = porno
+	id_tag = "porno"
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/metro/maintain/east)
@@ -10820,7 +10820,7 @@
 	icon_state = "floor_corner_y_light";
 	dir = 5;
 	color_of = "#e2a41f";
-	range_of = s;
+
 	pixel_y = 12;
 	pixel_x = 8
 	},
@@ -11570,7 +11570,7 @@
 	dir = 4;
 	color_of = "#e2a41f";
 	pixel_x = 8;
-	range_of = s
+
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
@@ -13170,7 +13170,7 @@
 	dir = 4;
 	color_of = "#e2a41f";
 	pixel_x = 8;
-	range_of = s
+
 	},
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/dirt,
@@ -13561,7 +13561,7 @@
 	dir = 10;
 	color_of = "#e2a41f";
 	pixel_x = -8;
-	range_of = s;
+
 	pixel_y = -5
 	},
 /obj/structure/storage/cargo,
@@ -14855,7 +14855,7 @@
 	icon_state = "floor_corner_y_light";
 	dir = 6;
 	color_of = "#e2a41f";
-	range_of = s;
+
 	pixel_y = -5;
 	pixel_x = 8
 	},
@@ -14959,7 +14959,7 @@
 /obj/machinery/door/blast/regular{
 	can_use_tools = 0;
 	dir = 1;
-	id_tag = boss2
+	id_tag = "boss2"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
@@ -16463,7 +16463,6 @@
 	icon_state = "floor_corner_y_light";
 	dir = 6;
 	color_of = "#e2a41f";
-	range_of = s;
 	pixel_y = -5;
 	pixel_x = 8
 	},
@@ -17345,7 +17344,7 @@
 	dir = 4;
 	color_of = "#e2a41f";
 	pixel_x = 8;
-	range_of = s
+
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
@@ -17594,7 +17593,7 @@
 /obj/machinery/door/blast/regular{
 	can_use_tools = 0;
 	dir = 1;
-	id_tag = boss1
+	id_tag = "boss1"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
@@ -18266,7 +18265,7 @@
 	icon_state = "floor_corner_y_light";
 	dir = 6;
 	color_of = "#e2a41f";
-	range_of = s;
+
 	pixel_y = -5;
 	pixel_x = 8
 	},
@@ -18491,7 +18490,7 @@
 	dir = 4;
 	color_of = "#e2a41f";
 	pixel_x = 8;
-	range_of = s
+
 	},
 /obj/structure/barrier{
 	dir = 1
@@ -19357,7 +19356,7 @@
 /area/metro/maintain/gas)
 "qUR" = (
 /obj/structure/girder{
-	canbegrappled = 1
+
 	},
 /turf/simulated/floor/plating,
 /area/metro/maintain/gas)
@@ -21806,7 +21805,7 @@
 	dir = 4;
 	color_of = "#e2a41f";
 	pixel_x = 8;
-	range_of = s
+
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
@@ -21975,7 +21974,7 @@
 /area/metro/maintain/east)
 "tnx" = (
 /obj/structure/girder{
-	canbegrappled = 1
+
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -22197,7 +22196,7 @@
 	dir = 4;
 	color_of = "#e2a41f";
 	pixel_x = 8;
-	range_of = s
+
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/grim_concrete_tile3,
@@ -22209,7 +22208,7 @@
 	dir = 10;
 	color_of = "#e2a41f";
 	pixel_x = -8;
-	range_of = s;
+
 	pixel_y = -5
 	},
 /turf/simulated/floor/exoplanet/samosbor/metal{
@@ -22300,7 +22299,7 @@
 /obj/machinery/door/blast/regular{
 	can_use_tools = 0;
 	dir = 1;
-	id_tag = boss1
+	id_tag = "boss1"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
@@ -22734,7 +22733,7 @@
 /obj/machinery/door/blast/regular{
 	can_use_tools = 0;
 	dir = 4;
-	id_tag = porno
+	id_tag = "porno"
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/metro/maintain/east)
@@ -23244,7 +23243,7 @@
 /obj/machinery/button/alternate/door/keypad/blast{
 	dir = 1;
 	pixel_y = -25;
-	id_tag = boss1;
+	id_tag = "boss1";
 	correctcode = "1984"
 	},
 /turf/simulated/floor/plating,
@@ -23569,7 +23568,7 @@
 	dir = 4;
 	color_of = "#e2a41f";
 	pixel_x = 8;
-	range_of = s
+
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/samosbor/metal{
@@ -23593,7 +23592,7 @@
 	icon_state = "floor_corner_y_light";
 	dir = 5;
 	color_of = "#e2a41f";
-	range_of = s;
+
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -24495,7 +24494,7 @@
 /area/metro/maintain/gen3)
 "vJd" = (
 /turf/simulated/floor/exoplanet/fd/drought{
-	base_color = s
+
 	},
 /area/metro/maintain/gen3)
 "vJw" = (
@@ -25840,7 +25839,7 @@
 	dir = 4;
 	color_of = "#e2a41f";
 	pixel_x = 8;
-	range_of = s
+
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/metro/maintain/gen3)
