@@ -81,6 +81,7 @@ var/global/list/admin_verbs_admin = list(
 	/client/proc/cmd_admin_camera_focus,
 	/client/proc/cmd_admin_combat_on,
 	/datum/admins/proc/simplecombat_changer,
+	/client/proc/add_client_color,
 	// [/FD-ADD]
 	/client/proc/toggleghostwriters,
 	/client/proc/toggledrones,
