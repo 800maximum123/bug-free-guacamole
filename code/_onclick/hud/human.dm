@@ -89,6 +89,7 @@
 
 	if(hud_data.has_hands)
 
+/*
 		using = new /obj/screen()
 		using.SetName("equip")
 		using.icon = ui_style
@@ -99,6 +100,7 @@
 		using.alpha = 0 // FD
 		using.mouse_opacity = FALSE // FD
 		src.adding += using
+*/
 
 		inv_box = new /obj/screen/inventory()
 		inv_box.SetName("r_hand")
@@ -127,6 +129,7 @@
 		src.l_hand_hud_object = inv_box
 		src.adding += inv_box
 
+/*
 		using = new /obj/screen/inventory()
 		using.SetName("hand")
 		using.icon = ui_style
@@ -148,6 +151,7 @@
 		using.alpha = 0 // FD
 		using.mouse_opacity = FALSE // FD
 		src.adding += using
+*/
 
 	if(hud_data.has_resist)
 		using = new /obj/screen()

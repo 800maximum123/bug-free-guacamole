@@ -3,16 +3,16 @@
 var/global/all_ui_styles = list(
 	"Midnight"     = 'icons/mob/screen/midnight.dmi',
 	"Orange"       = 'icons/mob/screen/orange.dmi',
-	"old"          = 'icons/mob/screen/old.dmi',
+	//"old"          = 'icons/mob/screen/old.dmi',
 	"White"        = 'icons/mob/screen/white.dmi',
-	"old-noborder" = 'icons/mob/screen/old-noborder.dmi',
+	//"old-noborder" = 'icons/mob/screen/old-noborder.dmi',
 	"minimalist"   = 'icons/mob/screen/minimalist.dmi'
 	)
 
 var/global/all_tooltip_styles = list(
 	"Midnight", //Default for everyone is the first one,
 	"Plasmafire",
-	"Retro",
+	//"Retro",
 	"Slimecore",
 	"Operative",
 	"Clockwork"
@@ -36,9 +36,9 @@ var/global/all_tooltip_styles = list(
 	var/UI_style_new = input(usr, "Select a style. White is recommended for customization") as null|anything in all_ui_styles
 	if(!UI_style_new) return
 
-	var/UI_style_alpha_new = input(usr, "Select a new alpha (transparency) parameter for your UI, between 50 and 255") as null|num
+/*	var/UI_style_alpha_new = input(usr, "Select a new alpha (transparency) parameter for your UI, between 50 and 255") as null|num
 	if (!UI_style_alpha_new || !UI_style_alpha_new >= 255 || UI_style_alpha_new <= 50)
-		return
+		return*/
 
 	var/UI_style_color_new = input(usr, "Choose your UI color. Dark colors are not recommended!") as color|null
 	if(!UI_style_color_new) return
@@ -58,12 +58,12 @@ var/global/all_tooltip_styles = list(
 		if(I.name in list(I_HELP, I_HURT, I_DISARM, I_GRAB)) continue
 		I.icon = ic
 		I.color = UI_style_color_new
-		I.alpha = 80 //UI_style_alpha_new
+//		I.alpha = 80 //UI_style_alpha_new
 
 
 	if(alert("Like it? Save changes?",,"Yes", "No") == "Yes")
 		prefs.UI_style = UI_style_new
-		prefs.UI_style_alpha = 80 //UI_style_alpha_new
+//		prefs.UI_style_alpha = 80 //UI_style_alpha_new
 		prefs.UI_style_color = UI_style_color_new
 		SScharacter_setup.queue_preferences_save(prefs)
 		to_chat(usr, "UI was saved")
