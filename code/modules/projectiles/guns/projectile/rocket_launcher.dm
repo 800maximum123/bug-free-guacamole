@@ -113,7 +113,7 @@
 	update_icon()
 	. = ..()
 
-/obj/item/gun/projectile/rocket_launcher/single/unload_ammo(mob/user, allow_dump=1)
+/obj/item/gun/projectile/rocket_launcher/single/unload_ammo(mob/user)
 	to_chat(user, SPAN_WARNING("\The [src] is single-use!"))
 	return
 

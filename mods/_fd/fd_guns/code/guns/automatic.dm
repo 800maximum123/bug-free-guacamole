@@ -251,7 +251,7 @@
 	allowed_magazines = /obj/item/ammo_magazine/rifle/bolter
 	accuracy = 0
 	one_hand_penalty = 10
-	screen_shake = 3
+	screen_shake = 0
 	bulk = GUN_BULK_RIFLE + 2
 	wielded_item_state = "gsmg3"
 	firemodes = list(

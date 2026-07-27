@@ -1,6 +1,6 @@
 #define CALIBER_RIFLE_RUSSIA 	"12.7x55mm"
 
-/obj/item/gun/projectile/revolver/rsh21
+/obj/item/gun/projectile/revolving/rsh21
 	name = "RSH-21"
 	icon_state = "rsh12"
 	icon = 'mods/_fd/fd_guns/icons/rsh21.dmi'

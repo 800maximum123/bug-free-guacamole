@@ -71,7 +71,10 @@
 	var/burst_delay = 2
 	var/move_delay = 1
 	/// Sound this gun makes when firing. Overridden by projectiles with their own sounds.
-	var/fire_sound = 'sound/weapons/gunshot/gunshot.ogg'
+	var/fire_sound = 'sound/weapons/gunshot/general/mountedgun.ogg'
+	var/far_fire_sound = 'sound/weapons/gunshot/general/mountedgun_far.ogg'
+	var/silenced_fire_sound = 'sound/weapons/gunshot/general/heavy_shot_suppressed.ogg'
+	var/dry_fire_sound = 'sound/weapons/gunshot/general/dry_fire.ogg'
 	var/fire_sound_text = "gunshot"
 	var/fire_sound_vary = TRUE
 	var/fire_anim = null
@@ -132,6 +135,9 @@
 	/// Overlay to apply to gun based on safety state, if any.
 	var/safety_icon
 
+	/// Crosshair icon
+	var/crosshair_icon = 'icons/crosshairs/crosshair.dmi'
+
 	/// What skill governs safe handling of this gun. Basic skill level and higher will also show the safety overlay to the player.
 	var/gun_skill = SKILL_WEAPONS
 	/// What skill level is needed in the gun's skill to completely negate the chance of an accident.
@@ -158,6 +164,10 @@
 	if (foldable)
 		verbs += /obj/item/gun/proc/stock
 
+/obj/item/gun/update_twohanding()
+	if(one_hand_penalty)
+		update_icon() // In case item_state is set somewhere else.
+	..()
 
 /obj/item/gun/on_update_icon()
 	var/mob/living/M = loc
@@ -192,11 +202,13 @@
 		return FALSE
 	if(!user.IsAdvancedToolUser())
 		return FALSE
+/* Return this if we will port changelings
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
 		if(istype(H.wear_suit,/obj/item/clothing/suit/space/changeling/armored) && !istype(src,/obj/item/gun/projectile/changeling))
 			to_chat(user,SPAN_WARNING("This form is too bulky to make use of the trigger guard!"))
 			return FALSE
+*/
 	var/mob/living/M = user
 	if(!safety() && world.time > last_safety_check + 5 MINUTES && !user.skill_check(SKILL_WEAPONS, SKILL_BASIC))
 		if (prob(30))
@@ -275,7 +287,12 @@
 /obj/item/gun/dropped(mob/living/user)
 	check_accidents(user)
 	update_icon()
+	update_mouse_pointer(user, FALSE)
 	return ..()
+
+///Turns the mouse cursor into a crosshair if new_cursor is set to TRUE. If set to FALSE, returns the cursor to its initial icon.
+/obj/item/gun/proc/update_mouse_pointer(mob/user, new_cursor)
+	user.client?.mouse_pointer_icon = new_cursor ? crosshair_icon : initial(user.client?.mouse_pointer_icon)
 
 /obj/item/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 	if(!user || !target) return
@@ -351,10 +368,12 @@
 //called if there was no projectile to shoot
 /obj/item/gun/proc/handle_click_empty(mob/user)
 	if (user)
-		user.visible_message("*click click*", SPAN_DANGER("*click*"))
+		user.visible_message(SPAN_WARNING("*click click*"), SPAN_DANGER("*click*"))
+		user.balloon_alert(user, "*click*")
 	else
-		src.visible_message("*click click*")
-	playsound(src.loc, 'sound/weapons/empty.ogg', 100, 1)
+		src.visible_message(SPAN_WARNING("*click click*"))
+		src.balloon_alert_to_viewers("*click*")
+	playsound(src.loc, dry_fire_sound, 100, 1)
 
 /obj/item/gun/proc/handle_click_safety(mob/user)
 	user.visible_message(SPAN_WARNING("[user] squeezes the trigger of \the [src] but it doesn't move!"), SPAN_WARNING("You squeeze the trigger but it doesn't move!"), range = 3)
@@ -515,13 +534,20 @@
 
 /obj/item/gun/proc/play_fire_sound(mob/user, obj/item/projectile/projectile)
 	var/sound = fire_sound
+	var/sound_far = far_fire_sound
 	if (istype(projectile) && projectile.fire_sound)
 		sound = projectile.fire_sound
+	if (istype(projectile) && projectile.far_fire_sound)
+		sound_far = projectile.far_fire_sound
 	if (islist(sound))
 		sound = pick(sound)
 	var/volume = 50
 	if (silenced)
 		volume = 10
+		sound = silenced_fire_sound
+	else
+		playsound(src, sound_far, volume - 10, fire_sound_vary, 50) // Gaia, creates that WARFARE ambience
+
 	playsound(src, sound, volume, fire_sound_vary)
 
 

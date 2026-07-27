@@ -60,6 +60,7 @@
 	if (!user?.skill_check(SKILL_WEAPONS, SKILL_MASTER))
 		return
 	to_chat(user, SPAN_NOTICE("You work the bolt open with a reflexive motion, ejecting [chambered]!"))
+	playsound(loc, 'sound/weapons/guns/interaction/rifle_boltback.ogg', 50, TRUE)
 	open_bolt(TRUE)
 
 
@@ -131,7 +132,7 @@
 	return ..()
 
 
-/obj/item/gun/projectile/boltloader/unload_ammo(mob/user, allow_dump = TRUE)
+/obj/item/gun/projectile/boltloader/unload_ammo(mob/user)
 	if (!bolt_open)
 		USE_FEEDBACK_FAILURE("\The [src]'s bolt needs to be open before you can unload it.")
 		return
@@ -154,7 +155,8 @@
 	item_state = "boltaction"
 	wielded_item_state = "boltaction-wielded"
 
-	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
+	fire_sound = 'sound/weapons/gunshot/rifle/shot_heavy.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/rifle/shot_heavy_far.ogg'
 
 	w_class = ITEM_SIZE_LARGE
 	origin_tech = list(TECH_COMBAT = 2)
@@ -167,7 +169,6 @@
 	scope_zoom = 0
 	scoped_accuracy = 0
 
-
 /obj/item/gun/projectile/boltloader/garand
 	name = "garand rifle"
 	desc = "The rugged garand is a old semi-automatic weapon popular on the frontier worlds. PING!"
@@ -179,7 +180,8 @@
 
 	mag_insert_sound = 'sound/weapons/guns/interaction/ltrifle_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/garand_magout.ogg'
-	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
+	fire_sound = 'sound/weapons/gunshot/rifle/shot.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/rifle/shot_far.ogg'
 	auto_eject_sound = 'sound/weapons/guns/interaction/garand_magout.ogg'
 
 	origin_tech = list(TECH_COMBAT = 2)
@@ -221,7 +223,8 @@
 	item_state = "semistrip"
 	wielded_item_state = "semistrip-wielded"
 
-	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
+	fire_sound = 'sound/weapons/gunshot/rifle/shot.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/rifle/shot_far.ogg'
 
 	origin_tech = list(TECH_COMBAT = 2)
 	caliber = CALIBER_PISTOL_MAGNUM

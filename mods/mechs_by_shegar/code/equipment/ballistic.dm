@@ -62,7 +62,7 @@
 		list(mode_name="semi auto", burst=4, fire_delay=null, move_delay=null, one_hand_penalty=8, burst_accuracy=null, dispersion=null),
 		)
 
-/obj/item/gun/projectile/automatic/assault_rifle/mounted/unload_ammo(mob/user,allow_dump = 1)
+/obj/item/gun/projectile/automatic/assault_rifle/mounted/unload_ammo(mob/user)
 	return
 
 /obj/item/ammo_magazine/rifle/mech_machinegun
@@ -105,7 +105,7 @@
 		list(mode_name="semi auto",burst=3, fire_delay=null,move_delay=null, one_hand_penalty=0, burst_accuracy=null, dispersion=null),
 		)
 
-/obj/item/gun/projectile/automatic/mounted/smg/unload_ammo(mob/user,allow_dump = 1)
+/obj/item/gun/projectile/automatic/mounted/smg/unload_ammo(mob/user)
 	return
 
 /obj/item/ammo_magazine/proto_smg/mech
@@ -152,7 +152,7 @@
 	allowed_magazines = /obj/item/ammo_magazine/shotgunmag/mech
 	has_safety = FALSE
 
-/obj/item/gun/projectile/automatic/mounted/shotgun/unload_ammo(mob/user,allow_dump = 1)
+/obj/item/gun/projectile/automatic/mounted/shotgun/unload_ammo(mob/user)
 	return
 
 /obj/item/ammo_magazine/shotgunmag/mech

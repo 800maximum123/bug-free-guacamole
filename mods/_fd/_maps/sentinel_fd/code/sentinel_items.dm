@@ -109,7 +109,7 @@
 /obj/item/storage/belt/holster/general/away_solpatrol/New()
 	..()
 	new /obj/item/modular_computer/tablet/preset/custom_loadout/advanced(src)
-	new /obj/item/gun/projectile/revolver/medium(src)
+	new /obj/item/gun/projectile/revolving/medium(src)
 
 /obj/item/clothing/accessory/armband/bluegold/away_solpatrol
 	name = "SCG armband"

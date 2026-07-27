@@ -255,8 +255,8 @@
 				/obj/item/gun/projectile/automatic/machine_pistol,
 				/obj/item/gun/projectile/pistol/military,
 				/obj/item/gun/projectile/pistol/holdout,
-				/obj/item/gun/projectile/revolver,
-				/obj/item/gun/projectile/revolver/medium,
+				/obj/item/gun/projectile/revolving/heavy,
+				/obj/item/gun/projectile/revolving/medium,
 				/obj/item/gun/energy/retro,
 				/obj/item/gun/projectile/pistol/throwback,
 				/obj/item/gun/energy/ionrifle/small
@@ -336,7 +336,7 @@
 				/obj/item/gun/projectile/pistol/holdout = 2,
 				/obj/item/gun/energy/retro = 1,
 				/obj/item/gun/projectile/pistol/throwback = 1,
-				/obj/item/gun/projectile/pistol/broomstick = 1)
+				/obj/item/gun/projectile/boltloader/broomstick = 1)
 
 /obj/random/junkyard/obstruction //Large objects to block things off in maintenance
 	name = "random obstruction"

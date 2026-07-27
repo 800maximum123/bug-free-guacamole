@@ -33,7 +33,7 @@
 	shot_delay = 45
 
 /obj/machinery/porta_turret/ballistic/railgun
-	installation = /obj/item/gun/magnetic/railgun/automatic/mmi
+	installation = /obj/item/gun/magnetic/railgun/automatic/halberd
 
 /obj/machinery/porta_turret/ballistic/weapon_setup(guntype)
 	switch(guntype)
@@ -57,7 +57,7 @@
 			eprojectile = /obj/item/ammo_casing/rocket
 			shot_sound = 'sound/weapons/gunshot/general/rocket_launch.ogg'
 
-		if(/obj/item/gun/magnetic/railgun/automatic/mmi)
+		if(/obj/item/gun/magnetic/railgun/automatic/halberd)
 			projectile = /obj/item/projectile/bullet/magnetic/slug
 			eprojectile = /obj/item/projectile/bullet/magnetic/slug
 			shot_sound = 'sound/weapons/gunshot/hmg/shot.ogg'

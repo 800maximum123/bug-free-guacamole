@@ -181,7 +181,7 @@
 		/obj/item/flame/lighter/zippo/gunmetal,
 		/obj/item/clothing/head/beret/solgov/fleet/command,
 		/obj/item/clothing/under/solgov/utility/fleet/polopants/command,
-		/obj/item/gun/projectile/revolver/medium,
+		/obj/item/gun/projectile/revolving/medium,
 		/obj/item/clothing/gloves/wristwatch/gold,
 		/obj/item/clothing/head/solgov/dress/fleet,
 		/obj/item/clothing/accessory/solgov/department/command/fleet,

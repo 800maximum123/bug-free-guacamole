@@ -1,4 +1,4 @@
-/obj/item/gun/projectile/revolver/medium/captain
+/obj/item/gun/projectile/revolving/medium/captain
 	name = "\improper Final Argument"
 	icon = 'maps/sierra/icons/obj/uniques.dmi' // SIERRA TODO: Заменить на спрайт Вольфора, дорисовав анимацию.
 	icon_state = "mosley"

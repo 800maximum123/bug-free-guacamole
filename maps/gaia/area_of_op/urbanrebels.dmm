@@ -1608,7 +1608,7 @@
 /obj/machinery/door/window/brigdoor/eastright{
 	req_access = list("ACCESS_ARMORY")
 	},
-/obj/item/gun/projectile/revolver/medium/captain{
+/obj/item/gun/projectile/revolving/medium/captain{
 	desc = "A shiny al-Maliki & Mosley Autococker automatic revolver, with black accents. Marketed as the 'Revolver for the Modern Era'.";
 	name = "shiny revolver"
 	},
@@ -8164,7 +8164,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/item/gun/projectile/heavysniper/boltaction{
+/obj/item/gun/projectile/boltloader/boltaction{
 	starts_loaded = 0
 	},
 /obj/machinery/light{
@@ -10509,11 +10509,11 @@
 /obj/item/ammo_magazine/speedloader,
 /obj/item/ammo_magazine/speedloader,
 /obj/item/ammo_magazine/speedloader,
-/obj/item/gun/projectile/revolver/medium,
-/obj/item/gun/projectile/revolver/medium,
-/obj/item/gun/projectile/revolver/medium,
-/obj/item/gun/projectile/revolver/medium,
-/obj/item/gun/projectile/revolver/medium,
+/obj/item/gun/projectile/revolving/medium,
+/obj/item/gun/projectile/revolving/medium,
+/obj/item/gun/projectile/revolving/medium,
+/obj/item/gun/projectile/revolving/medium,
+/obj/item/gun/projectile/revolving/medium,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/gaia/urbanrebels/inside/police)
@@ -11263,7 +11263,7 @@
 /area/gaia/urbanrebels/inside)
 "fYR" = (
 /obj/structure/table/woodentable,
-/obj/item/gun/projectile/revolver/medium,
+/obj/item/gun/projectile/revolving/medium,
 /obj/item/spacecash/bundle/c2500{
 	pixel_x = 1;
 	pixel_y = 13
@@ -16845,7 +16845,7 @@
 /area/gaia/urbanrebels/park)
 "jiA" = (
 /obj/structure/table/woodentable_reinforced/mahogany,
-/obj/item/gun/projectile/revolver,
+/obj/item/gun/projectile/revolving,
 /obj/item/ammo_magazine/speedloader/magnum,
 /obj/item/ammo_magazine/speedloader/magnum,
 /obj/item/ammo_magazine/speedloader/magnum,
@@ -20660,7 +20660,7 @@
 /area/gaia/urbanrebels/underground/police)
 "lmi" = (
 /obj/structure/table/gamblingtable,
-/obj/item/gun/projectile/revolver/medium,
+/obj/item/gun/projectile/revolving/medium,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood/mahogany,
 /area/gaia/urbanrebels/inside)
@@ -20952,7 +20952,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/item/gun/projectile/heavysniper/ant{
+/obj/item/gun/projectile/boltloader/heavysniper{
 	starts_loaded = 0
 	},
 /obj/machinery/door/window/brigdoor/eastright{
@@ -22260,7 +22260,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/gun/projectile/revolver{
+/obj/item/gun/projectile/revolving{
 	starts_loaded = 0
 	},
 /obj/decal/cleanable/dirt,
@@ -28693,7 +28693,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/item/gun/projectile/revolver/holdout{
+/obj/item/gun/projectile/revolving/holdout{
 	starts_loaded = 0
 	},
 /obj/machinery/door/window/brigdoor/eastright{
@@ -28773,7 +28773,7 @@
 /area/gaia/urbanrebels/street/celsia)
 "pAI" = (
 /obj/structure/filingcabinet/chestdrawer,
-/obj/item/gun/projectile/revolver/holdout,
+/obj/item/gun/projectile/revolving/holdout,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/gaia/urbanrebels/inside)
@@ -38746,7 +38746,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/item/gun/projectile/revolver/medium{
+/obj/item/gun/projectile/revolving/medium{
 	starts_loaded = 0
 	},
 /obj/machinery/door/window/brigdoor/eastright{
@@ -38909,7 +38909,7 @@
 	pixel_y = 4;
 	dir = 1
 	},
-/obj/item/gun/projectile/revolver/medium,
+/obj/item/gun/projectile/revolving/medium,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/gaia/urbanrebels/inside/nt)
@@ -40313,7 +40313,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/gun/projectile/heavysniper/boltaction{
+/obj/item/gun/projectile/boltloader/boltaction{
 	starts_loaded = 0
 	},
 /obj/machinery/door/window/brigdoor/eastright{
@@ -41354,12 +41354,12 @@
 "wqu" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/gun/projectile/shotgun/doublebarrel/pellet,
-/obj/item/gun/projectile/revolver/holdout{
+/obj/item/gun/projectile/revolving/holdout{
 	starts_loaded = 0;
 	pixel_y = 8;
 	pixel_x = -6
 	},
-/obj/item/gun/projectile/revolver/holdout{
+/obj/item/gun/projectile/revolving/holdout{
 	starts_loaded = 0;
 	pixel_y = 8;
 	pixel_x = 4
@@ -43782,10 +43782,10 @@
 /obj/item/gun/projectile/pistol/sol_compact{
 	pixel_y = -8
 	},
-/obj/item/gun/projectile/heavysniper/boltaction{
+/obj/item/gun/projectile/boltloader/boltaction{
 	pixel_y = 8
 	},
-/obj/item/gun/projectile/heavysniper/boltaction/scope{
+/obj/item/gun/projectile/boltloader/boltaction/scope{
 	pixel_y = 14
 	},
 /obj/machinery/light{

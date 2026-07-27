@@ -173,7 +173,7 @@
 
 /obj/random/facility/gun/uncommon/spawn_choices()
 	return list(/obj/item/gun/projectile/shotgun/pump = 3,
-				/obj/item/gun/projectile/revolver = 2,
+				/obj/item/gun/projectile/revolving/heavy = 2,
 				/obj/item/gun/projectile/shotgun/doublebarrel = 3,
 				/obj/item/gun/projectile/sniper/garand = 3,
 				/obj/item/gun/projectile/pistol/magnum_pistol = 2)
@@ -185,7 +185,7 @@
 
 /obj/random/facility/gun/rare/spawn_choices()
 	return list(/obj/item/gun/projectile/shotgun/pump/combat = 3,
-				/obj/item/gun/projectile/revolver/rsh21 = 3,
+				/obj/item/gun/projectile/revolving/rsh21 = 3,
 				/obj/item/gun/projectile/automatic/sec_smg = 3,
 				/obj/item/gun/energy/laser = 3,
 				/obj/item/gun/magnetic/railgun = 3,

@@ -5,7 +5,9 @@
 
 	mag_insert_sound = 'sound/weapons/guns/interaction/rev_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/rev_magout.ogg'
-	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	fire_sound = 'sound/weapons/gunshot/revolver/shot.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/revolver/shot_far.ogg'
+	dry_fire_sound = 'sound/weapons/gunshot/revolver/dry_fire.ogg'
 
 	var/misaligned = FALSE
 	var/misaligned_penalty = 2
@@ -73,7 +75,8 @@
 	icon_state = "revolver"
 	item_state = "revolver"
 
-	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
+	fire_sound = 'sound/weapons/gunshot/revolver/shot_alt.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/revolver/shot_alt_far.ogg'
 
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	caliber = CALIBER_PISTOL_MAGNUM
@@ -125,7 +128,9 @@
 	icon = 'icons/obj/guns/revolvers.dmi'
 	icon_state = "revolver-toy"
 
-	fire_sound = 'sound/weapons/gunshot/gunshot.ogg'
+	fire_sound = 'sound/weapons/gunshot/revolver/shot.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/revolver/shot_far.ogg'
+	dry_fire_sound = 'sound/weapons/gunshot/revolver/dry_fire.ogg'
 
 	var/snipped = FALSE
 
@@ -262,7 +267,7 @@
 	return ..()
 
 
-/obj/item/gun/projectile/automatic/minigun/mounted/unload_ammo(mob/user, allow_dump = FALSE)
+/obj/item/gun/projectile/automatic/minigun/mounted/unload_ammo(mob/user)
 	var/obj/item/rig/rig = get_rig()
 	if (!istype(rig))
 		USE_FEEDBACK_FAILURE("ERROR: Could not find a rig to unload \the [src]. This is a bug. Report it.")

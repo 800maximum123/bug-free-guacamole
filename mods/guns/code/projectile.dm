@@ -1,4 +1,4 @@
-/obj/item/gun/projectile/revolver/foundation
+/obj/item/gun/projectile/revolving/foundation
 	icon = 'mods/guns/icons/obj/foundation.dmi'
 
 /obj/item/gun/projectile/automatic

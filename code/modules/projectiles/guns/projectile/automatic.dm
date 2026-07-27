@@ -29,7 +29,8 @@
 
 	mag_insert_sound = 'sound/weapons/guns/interaction/ltrifle_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/ltrifle_magout.ogg'
-	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
+	fire_sound = 'sound/weapons/gunshot/rifle/shot.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/rifle/shot_far.ogg'
 
 	caliber = CALIBER_RIFLE
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ESOTERIC = 5)
@@ -74,7 +75,8 @@
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	mag_insert_sound = 'sound/weapons/guns/interaction/batrifle_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/batrifle_magout.ogg'
-	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
+	fire_sound = 'sound/weapons/gunshot/rifle/shot.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/rifle/shot_far.ogg'
 
 	caliber = CALIBER_RIFLE_MILITARY
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3)
@@ -194,7 +196,8 @@
 
 	mag_insert_sound = 'sound/weapons/guns/interaction/lmg_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/lmg_magout.ogg'
-	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
+	fire_sound = 'sound/weapons/gunshot/l6/shot.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/l6/shot_far.ogg'
 
 	var/cover_open = FALSE
 
@@ -289,7 +292,7 @@
 	return ..()
 
 
-/obj/item/gun/projectile/automatic/l6_saw/unload_ammo(mob/user, allow_dump = TRUE)
+/obj/item/gun/projectile/automatic/l6_saw/unload_ammo(mob/user)
 	if (!cover_open)
 		USE_FEEDBACK_FAILURE("\The [src]'s cover needs to be open before you can unload it.")
 		return
@@ -309,7 +312,8 @@
 
 	mag_insert_sound = 'sound/weapons/guns/interaction/ltrifle_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/ltrifle_magout.ogg'
-	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
+	fire_sound = 'sound/weapons/gunshot/rifle/shot_heavy.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/rifle/shot_heavy_far.ogg'
 
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 1, TECH_ESOTERIC = 5)
 	bulk = GUN_BULK_HEAVY_RIFLE
@@ -355,7 +359,9 @@
 
 	mag_insert_sound = 'sound/weapons/guns/interaction/smg_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/smg_magout.ogg'
-	fire_sound = 'sound/weapons/gunshot/gunshot_smg.ogg'
+	fire_sound = 'sound/weapons/gunshot/smg/shot.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/smg/shot_far.ogg'
+	silenced_fire_sound = 'sound/weapons/gunshot/smg/shot_suppressed.ogg'
 	racksound = 'sound/weapons/guns/interaction/pistol_rack.ogg'
 
 	w_class = ITEM_SIZE_NORMAL
@@ -374,7 +380,9 @@
 	icon_state = "prototype"
 	item_state = "saber"
 
-	fire_sound = 'sound/weapons/gunshot/gunshot_4mm.ogg'
+	fire_sound = 'sound/weapons/gunshot/smg/shot.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/smg/shot_far.ogg'
+	silenced_fire_sound = 'sound/weapons/gunshot/smg/shot_suppressed.ogg'
 
 	caliber = CALIBER_PISTOL_FLECHETTE
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 3)
@@ -400,7 +408,10 @@
 	item_state = "mpistolen"
 	safety_icon = "safety"
 
-	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	fire_sound = 'sound/weapons/gunshot/pistol/shot.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/pistol/shot_far.ogg'
+	silenced_fire_sound = 'sound/weapons/gunshot/pistol/shot_suppressed.ogg'
+	dry_fire_sound = 'sound/weapons/gunshot/pistol/dry_fire.ogg'
 
 	caliber = CALIBER_PISTOL
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ESOTERIC = 3)

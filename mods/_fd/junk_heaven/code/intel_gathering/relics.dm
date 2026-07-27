@@ -148,7 +148,7 @@
 	if(istype(I, /obj/item/material/knife) && !ripped)
 		if(do_after(user, 80))
 			if(prob(50))
-				var/loot = pick(/obj/item/spacecash/bundle/c1000,/obj/item/storage/pill_bottle/three_eye,/obj/item/gun/projectile/revolver/holdout,/obj/item/seeds/ambrosiadeusseed,/obj/item/fd/data/weapons/lvl3/secret)
+				var/loot = pick(/obj/item/spacecash/bundle/c1000,/obj/item/storage/pill_bottle/three_eye,/obj/item/gun/projectile/revolving/holdout,/obj/item/seeds/ambrosiadeusseed,/obj/item/fd/data/weapons/lvl3/secret)
 				new loot(src.loc)
 				ripped = TRUE
 			else

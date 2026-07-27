@@ -3,7 +3,8 @@
 	name = "master shotgun object"
 	desc = "You should not see this."
 
-	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
+	fire_sound = 'sound/weapons/gunshot/shotgun/shot.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/shotgun/shot_far.ogg'
 	racksound = 'sound/weapons/guns/interaction/shotgunpump.ogg'
 	load_sound = 'sound/weapons/guns/interaction/shotgun_insert.ogg'
 
@@ -304,9 +305,9 @@
 	icon_state = "flaregun"
 	item_state = "flaregun"
 
-	fire_sound = 'sound/weapons/empty.ogg'
+	fire_sound = 'sound/weapons/gunshot/general/grenade_launch.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/general/grenade_launch_far.ogg'
 	load_sound = 'sound/weapons/guns/interaction/shotgun_insert.ogg'
-	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
 	fire_sound_text = "a satisfying 'thump'"
 
 	matter = list(MATERIAL_STEEL = 1500, MATERIAL_PLASTIC = 2000)

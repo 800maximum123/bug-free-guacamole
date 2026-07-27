@@ -4,7 +4,10 @@
 	name = "master pistol object"
 	desc = "You should not see this."
 
-	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	fire_sound = 'sound/weapons/gunshot/pistol/shot.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/pistol/shot_far.ogg'
+	silenced_fire_sound = 'sound/weapons/gunshot/pistol/shot_suppressed.ogg'
+	dry_fire_sound = 'sound/weapons/gunshot/pistol/dry_fire.ogg'
 	racksound = 'sound/weapons/guns/interaction/pistol_rack.ogg'
 
 	/// If it should change icon when empty.
@@ -102,7 +105,8 @@
 
 	mag_insert_sound = 'sound/weapons/guns/interaction/hpistol_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/hpistol_magout.ogg'
-	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
+	fire_sound = 'sound/weapons/gunshot/revolver/shot_alt.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/revolver/shot_alt_far.ogg'
 
 	caliber = CALIBER_PISTOL_MAGNUM
 	ammo_indicator = TRUE
@@ -112,7 +116,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/magnum)
 	force = 9
 	fire_delay = 12
-	screen_shake = 2
+	screen_shake = 0
 	accuracy = 2
 	one_hand_penalty = 2
 
@@ -239,7 +243,10 @@
 	icon = 'icons/obj/guns/broomstick.dmi'
 	icon_state = "broomstick"
 
-	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	fire_sound = 'sound/weapons/gunshot/pistol/shot_alt.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/pistol/shot_alt_far.ogg'
+	silenced_fire_sound = 'sound/weapons/gunshot/pistol/shot_suppressed.ogg'
+	dry_fire_sound = 'sound/weapons/gunshot/pistol/dry_fire.ogg'
 	load_sound = 'sound/weapons/guns/interaction/bullet_insert.ogg'
 
 	origin_tech = list(TECH_COMBAT = 2,TECH_MATERIAL = 2)

@@ -60,7 +60,7 @@
 	desc = "A white coffee cup with the CIS logo stencilled onto it."
 	base_name = "\improper Institute cup"
 
-/obj/item/gun/projectile/revolver/foundation
+/obj/item/gun/projectile/revolving/foundation
 	name = "\improper Institute revolver"
 	desc = "The CF 'Troubleshooter', a compact plastic-composite weapon designed for concealed carry by Cuchulain Institute field agents. Smells faintly of copper."
 

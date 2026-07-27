@@ -18,7 +18,7 @@
 		/obj/item/clothing/accessory/black,
 		/obj/item/clothing/accessory/storage/holster/armpit,
 		/obj/item/device/radio/headset/specops,
-		/obj/item/gun/projectile/revolver,
+		/obj/item/gun/projectile/revolving/heavy,
 	)
 
 /obj/structure/closet/secure_closet/gaia/iccg_alistratova

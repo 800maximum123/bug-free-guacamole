@@ -52,7 +52,8 @@
 
 	mag_insert_sound = 'sound/weapons/guns/interaction/ltrifle_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/ltrifle_magout.ogg'
-	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
+	fire_sound = 'sound/weapons/gunshot/rifle/shot_heavy.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/rifle/shot_heavy_far.ogg'
 	racksound = 'sound/weapons/guns/interaction/rifle_rack.ogg'
 
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 4, TECH_ESOTERIC = 5)
@@ -139,7 +140,8 @@
 	safety_icon = "magshot-safety"
 
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
-	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
+	fire_sound = 'sound/weapons/gunshot/shotgun/shot_alt.ogg'
+	far_fire_sound = 'sound/weapons/gunshot/shotgun/shot_alt_far.ogg'
 	racksound = 'sound/weapons/guns/interaction/rifle_rack.ogg'
 
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)

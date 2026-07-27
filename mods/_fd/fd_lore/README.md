@@ -45,7 +45,7 @@ ID мода: FD_LORE
 - `/datum/codex_entry/cuchulain_foundation`: `var/display_name`, `var/associated_strings`, `var/lore_text`, `var/antag_text`
 - `/datum/codex_entry/psionics`: `var/lore_text`
 - `/obj/item/reagent_containers/food/drinks/glass2/coffeecup/foundation`: `var/name`, `var/desc`, `var/base_name`
-- `/obj/item/gun/projectile/revolver/foundation`: `var/name`, `var/desc`
+- `/obj/item/gun/projectile/revolving/foundation`: `var/name`, `var/desc`
 - `/obj/item/storage/briefcase/foundation`: `var/name`
 - `/obj/item/book/manual/psionics`: `var/dat`
 <!--
