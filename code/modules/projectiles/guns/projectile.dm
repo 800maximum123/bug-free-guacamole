@@ -61,6 +61,11 @@
 	var/selectorsound = 'sound/weapons/flipblade.ogg'
 	/// Whether a gun with multiple chambers can dump all its rounds at once (e.g a revolver)
 	var/allow_dump = FALSE
+
+	client_recoil_animation_information = list(
+		"strength" = 0.35,
+		"duration" = 2,
+	)
 	//TODO generalize ammo icon states for guns
 	//var/magazine_states = 0
 	//var/list/icon_keys = list()		//keys

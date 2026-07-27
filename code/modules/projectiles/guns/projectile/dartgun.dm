@@ -79,6 +79,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/chemdart)
 	screen_shake = 0
 
+	client_recoil_animation_information = null
 
 /obj/item/gun/projectile/dartgun/Initialize()
 	if(starting_chems)

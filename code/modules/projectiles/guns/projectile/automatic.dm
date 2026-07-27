@@ -14,6 +14,11 @@
 	burst_delay = 2
 	max_shells = 1
 
+	client_recoil_animation_information = list(
+		"strength" = 0.7,
+		"duration" = 2,
+	)
+
 
 /obj/item/gun/projectile/automatic/assault_rifle
 	name = "assault rifle"
