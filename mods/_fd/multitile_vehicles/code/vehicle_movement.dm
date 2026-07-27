@@ -61,8 +61,6 @@
 		return
 	else if((last_move == EAST || last_move == WEST) && abs(speed[2] <= 1)) // soft bump
 		return
-	if(isopenturf(obstacle))
-		return
 	if(istype(obstacle, /mob/living))
 		var/mob/living/hit_mob = obstacle
 		if(weaken_to_people)
@@ -102,11 +100,12 @@
 			moving_y = 0
 		last_moved_axis = 0
 		visible_message(SPAN_NOTICE("\The [src] collides with \the [obstacle]."))
-	if(dangerous_to_obstacles)
-		comp_prof.take_component_damage(damage_to_obstacles / selfdamage_multiplier, DAMAGE_BRUTE)
-		obstacle.damage_health(damage_to_obstacles, DAMAGE_BRUTE)
-		visible_message(SPAN_WARNING("\The [src] and \the [obstacle] both take damage from the hit!"))
-		playsound(obstacle, get_sfx("sparks"), 50, TRUE)
+
+		if(dangerous_to_obstacles)
+			comp_prof.take_component_damage(damage_to_obstacles / selfdamage_multiplier, DAMAGE_BRUTE)
+			obstacle.damage_health(damage_to_obstacles, DAMAGE_BRUTE)
+			visible_message(SPAN_WARNING("\The [src] and \the [obstacle] both take damage from the hit!"))
+			playsound(obstacle, get_sfx("sparks"), 50, TRUE)
 	play_crash_sound()
 
 /obj/vehicles/Bump(atom/obstacle)
