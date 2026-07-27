@@ -823,9 +823,7 @@
 	update_icon()
 	if(!user)
 		return
-	if(crosshair_icon && user.skill_check(gun_skill,SKILL_BASIC))
-		if(src != user.get_active_hand())
-			return
+	if(crosshair_icon && user.skill_check(gun_skill,SKILL_BASIC) && src == user.get_active_hand())
 		update_mouse_pointer(user, !safety_state)
 
 	user.visible_message(
@@ -858,11 +856,11 @@
 	return has_safety && safety_state
 
 
-/obj/item/gun/equipped()
+/obj/item/gun/equipped(mob/living/user, slot)
 	..()
 	update_icon()
 	last_handled = world.time
-
+	update_mouse_pointer(user, FALSE)
 
 /obj/item/gun/on_active_hand(mob/M)
 	last_handled = world.time

@@ -180,7 +180,10 @@
 			hud_used.r_hand_hud_object.icon_state = "r_hand_active"
 	var/obj/item/I = get_active_hand()
 	if(istype(I))
+		src.client?.mouse_pointer_icon = initial(src.client?.mouse_pointer_icon)
 		I.on_active_hand(src)
+	else
+		src.client?.mouse_pointer_icon = initial(src.client?.mouse_pointer_icon)
 
 /mob/living/carbon/proc/activate_hand(selhand) //0 or "r" or "right" for right hand; 1 or "l" or "left" for left hand.
 
