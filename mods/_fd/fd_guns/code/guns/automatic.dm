@@ -19,7 +19,7 @@
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/rifle/fleet
-	allowed_magazines = /obj/item/ammo_magazine/rifle/fleet
+	allowed_magazines = list(/obj/item/ammo_magazine/rifle/fleet)
 	one_hand_penalty = 6
 	accuracy = 1
 	bulk = GUN_BULK_LIGHT_RIFLE-1
@@ -56,7 +56,7 @@
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/rifle/army
-	allowed_magazines = /obj/item/ammo_magazine/rifle/army
+	allowed_magazines = list(/obj/item/ammo_magazine/rifle/army)
 	one_hand_penalty = 6
 	accuracy = 1
 	accuracy_power = 10
@@ -96,7 +96,7 @@
 	wielded_item_state = "smg5"
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/smg/scg
-	allowed_magazines = /obj/item/ammo_magazine/smg/scg
+	allowed_magazines = list(/obj/item/ammo_magazine/smg/scg)
 	accuracy = 1
 	one_hand_penalty = 3
 	bulk = 3
@@ -131,7 +131,7 @@
 	caliber = CALIBER_PISTOL
 	slot_flags = SLOT_BELT|SLOT_BACK
 	magazine_type = /obj/item/ammo_magazine/smg/special/scg
-	allowed_magazines = /obj/item/ammo_magazine/smg/special/scg
+	allowed_magazines = list(/obj/item/ammo_magazine/smg/special/scg)
 	fire_sound = 'sound/weapons/gunshot/smg/shot.ogg'
 	far_fire_sound = 'sound/weapons/gunshot/smg/shot_far.ogg'
 	auto_eject = 1
@@ -175,7 +175,7 @@
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/rifle/iccgn
-	allowed_magazines = /obj/item/ammo_magazine/rifle/iccgn
+	allowed_magazines = list(/obj/item/ammo_magazine/rifle/iccgn)
 	accuracy = 1
 	one_hand_penalty = 4
 	caliber = CALIBER_RIFLE
@@ -208,7 +208,7 @@
 	load_method = MAGAZINE
 	caliber = CALIBER_RIFLE_MILITARY
 	magazine_type = /obj/item/ammo_magazine/rifle/precise
-	allowed_magazines = /obj/item/ammo_magazine/rifle/precise
+	allowed_magazines = list(/obj/item/ammo_magazine/rifle/precise)
 	accuracy = 3
 	one_hand_penalty = 7
 	bulk = GUN_BULK_RIFLE
@@ -248,7 +248,7 @@
 	w_class = ITEM_SIZE_HUGE
 	caliber = CALIBER_BOLTER
 	magazine_type = /obj/item/ammo_magazine/rifle/bolter
-	allowed_magazines = /obj/item/ammo_magazine/rifle/bolter
+	allowed_magazines = list(/obj/item/ammo_magazine/rifle/bolter)
 	accuracy = 0
 	one_hand_penalty = 10
 	screen_shake = 0
@@ -301,7 +301,7 @@
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/smg/iccgn
-	allowed_magazines = /obj/item/ammo_magazine/smg/iccgn
+	allowed_magazines = list(/obj/item/ammo_magazine/smg/iccgn)
 	one_hand_penalty = 4
 	accuracy = 1
 	wielded_item_state = "gsmg4"

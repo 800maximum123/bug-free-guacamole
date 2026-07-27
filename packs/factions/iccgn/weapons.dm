@@ -151,6 +151,7 @@
 	auto_eject = TRUE
 	hold_open = FALSE
 	bulk = GUN_BULK_RIFLE
+	handle_casings = EJECT_CASINGS
 
 	magazine_type = /obj/item/ammo_magazine/shotgunmag
 	allowed_magazines = list(/obj/item/ammo_magazine/shotgunmag)

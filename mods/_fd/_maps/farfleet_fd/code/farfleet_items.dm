@@ -92,7 +92,7 @@
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/rifle
-	allowed_magazines = /obj/item/ammo_magazine/rifle
+	allowed_magazines = list(/obj/item/ammo_magazine/rifle)
 	bulk = GUN_BULK_RIFLE
 	mag_insert_sound = 'sound/weapons/guns/interaction/ltrifle_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/ltrifle_magout.ogg'
@@ -131,7 +131,7 @@
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/rifle
-	allowed_magazines = /obj/item/ammo_magazine/rifle
+	allowed_magazines = list(/obj/item/ammo_magazine/rifle)
 	bulk = GUN_BULK_RIFLE + 1
 	mag_insert_sound = 'sound/weapons/guns/interaction/ltrifle_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/ltrifle_magout.ogg'

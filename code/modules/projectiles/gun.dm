@@ -191,11 +191,6 @@
 	if (foldable)
 		verbs += /obj/item/gun/proc/stock
 
-/obj/item/gun/update_twohanding()
-	if(one_hand_penalty)
-		update_icon() // In case item_state is set somewhere else.
-	..()
-
 /obj/item/gun/on_update_icon()
 	var/mob/living/M = loc
 	ClearOverlays()
@@ -332,7 +327,7 @@
 
 	if(safety())
 		if (user.a_intent == I_HURT && user.skill_check(SKILL_WEAPONS, SKILL_EXPERIENCED) && user.client?.get_preference_value(/datum/client_preference/safety_toggle_on_intent) == GLOB.PREF_YES)
-			switch_firemodes(user)
+			toggle_safety(user)
 		else
 			handle_click_safety(user)
 			return
@@ -828,6 +823,10 @@
 	update_icon()
 	if(!user)
 		return
+	if(crosshair_icon && user.skill_check(gun_skill,SKILL_BASIC))
+		if(src != user.get_active_hand())
+			return
+		update_mouse_pointer(user, !safety_state)
 
 	user.visible_message(
 		SPAN_WARNING("[user] switches the safety of \the [src] [safety_state ? "on" : "off"]."),
@@ -843,13 +842,17 @@
 		return TRUE
 	return ..()
 
-
 /obj/item/gun/MiddleClick(mob/user)
 	if (loc == user)
 		toggle_safety(user)
 		return TRUE
 	return ..()
 
+/obj/item/gun/AltClick(mob/user)
+	if (loc == user)
+		scope()
+		return TRUE
+	return ..()
 
 /obj/item/gun/proc/safety()
 	return has_safety && safety_state
@@ -861,9 +864,13 @@
 	last_handled = world.time
 
 
-/obj/item/gun/on_active_hand()
+/obj/item/gun/on_active_hand(mob/M)
 	last_handled = world.time
-
+	if(crosshair_icon)
+		var/show_crosshair = TRUE
+		if(M.skill_check(gun_skill,SKILL_BASIC) && has_safety)
+			show_crosshair = !safety_state
+		update_mouse_pointer(M, show_crosshair)
 
 /obj/item/gun/on_disarm_attempt(mob/target, mob/attacker)
 	var/list/turfs = list()

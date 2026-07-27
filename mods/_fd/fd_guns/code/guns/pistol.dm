@@ -11,7 +11,7 @@
 		slot_r_hand_str = 'mods/_fd/fd_guns/icons/onmob/weapon_cpss_character.dmi'
 		)
 	magazine_type = /obj/item/ammo_magazine/pistol/scg
-	allowed_magazines = /obj/item/ammo_magazine/pistol/scg
+	allowed_magazines = list(/obj/item/ammo_magazine/pistol/scg)
 	caliber = CALIBER_PISTOL_MAGNUM
 	force = 9
 	fire_delay = 12
@@ -43,7 +43,7 @@
 		slot_r_hand_str = 'mods/_fd/fd_guns/icons/onmob/weapon_cpss_character.dmi'
 		)
 	magazine_type = /obj/item/ammo_magazine/pistol/assasin
-	allowed_magazines = /obj/item/ammo_magazine/pistol/assasin
+	allowed_magazines = list(/obj/item/ammo_magazine/pistol/assasin)
 	caliber = CALIBER_PISTOL_FLECHETTE
 	force = 9
 	silenced = 1
@@ -70,7 +70,7 @@
 		slot_r_hand_str = 'mods/_fd/fd_guns/icons/onmob/weapon_gkk_character.dmi'
 		)
 	magazine_type = /obj/item/ammo_magazine/pistol/iccgn
-	allowed_magazines = /obj/item/ammo_magazine/pistol/iccgn
+	allowed_magazines = list(/obj/item/ammo_magazine/pistol/iccgn)
 	caliber = CALIBER_PISTOL_MAGNUM
 	force = 10
 	accuracy = 1
@@ -103,7 +103,7 @@
 		slot_r_hand_str = 'mods/_fd/fd_guns/icons/onmob/weapon_gkk_character.dmi'
 		)
 	magazine_type = /obj/item/ammo_magazine/pistol/automatic
-	allowed_magazines = /obj/item/ammo_magazine/pistol/automatic
+	allowed_magazines = list(/obj/item/ammo_magazine/pistol/automatic)
 	caliber = CALIBER_PISTOL
 	force = 7
 	accuracy = 0

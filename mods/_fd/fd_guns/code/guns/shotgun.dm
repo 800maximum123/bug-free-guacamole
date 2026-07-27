@@ -31,7 +31,7 @@
 		)
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/shotgun/scg
-	allowed_magazines = /obj/item/ammo_magazine/shotgun/scg
+	allowed_magazines = list(/obj/item/ammo_magazine/shotgun/scg)
 	bulk = GUN_BULK_RIFLE
 	accuracy = -1
 	dispersion = list(1.5, 2.0, 2.5)
@@ -61,7 +61,7 @@
 		)
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/shotgun/iccgn
-	allowed_magazines = /obj/item/ammo_magazine/shotgun/iccgn
+	allowed_magazines = list(/obj/item/ammo_magazine/shotgun/iccgn)
 	bulk = GUN_BULK_RIFLE
 	accuracy = 0
 	one_hand_penalty=5

@@ -170,16 +170,20 @@
 /obj/item/gun/projectile/proc/open_bolt(manual)
 	var/obj/item/ammo_casing/ejected = null
 	var/total_chance = jam_chance + penalty_check()
-	if (chambered && !bolt_open && !is_jammed)
-		if (!prob(total_chance/2)) //"double feed" aka failure to extract malfunction
-			chambered.dropInto(get_turf(loc))
-			if (!manual)
-				chambered.throw_at(get_ranged_target_turf(get_turf(src),turn(loc.dir,270),1), rand(0,1), 5)
-			if (length(chambered.fall_sounds))
-				playsound(loc, pick(chambered.fall_sounds), 50, 1)
-			ejected = chambered
+	if(chambered && !bolt_open && !is_jammed)
+		if (handle_casings == CLEAR_CASINGS)
 			chambered = null
 			check_autoeject()
+		else
+			if (!prob(total_chance/2)) //"double feed" aka failure to extract malfunction
+				chambered.dropInto(get_turf(loc))
+				if (!manual)
+					chambered.throw_at(get_ranged_target_turf(get_turf(src),turn(loc.dir,270),1), rand(0,1), 5)
+				if (length(chambered.fall_sounds))
+					playsound(loc, pick(chambered.fall_sounds), 50, 1)
+				ejected = chambered
+				chambered = null
+				check_autoeject()
 	bolt_open = TRUE
 	update_icon()
 	return ejected

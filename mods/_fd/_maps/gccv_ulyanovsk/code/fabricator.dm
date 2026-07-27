@@ -60,7 +60,7 @@
 
 /datum/fabricator_recipe/atool/flaregun
 	name = "flare gun"
-	path = /obj/item/gun/projectile/flare
+	path = /obj/item/gun/projectile/shotgun/flare
 
 /datum/fabricator_recipe/atool/tacknife
 	path = /obj/item/material/knife/combat

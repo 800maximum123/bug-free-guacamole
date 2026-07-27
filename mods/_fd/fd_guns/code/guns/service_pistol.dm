@@ -2,7 +2,7 @@
 	name = "service pistol"
 	desc = "A Ward-Takahashi 302, 114mm barrel model, SCGF standard-issue service pistol. Cheap and easy to maintain, though known for accidental discharges when dropped. Comes with a sleek light-laser combo."
 	magazine_type = /obj/item/ammo_magazine/pistol/double
-	allowed_magazines = /obj/item/ammo_magazine/pistol/double
+	allowed_magazines = list(/obj/item/ammo_magazine/pistol/double)
 	icon = 'mods/_fd/fd_guns/icons/service_pistol.dmi'
 	icon_state = "wt302"
 	item_state = "secgundark"
@@ -148,7 +148,7 @@
 	name = "compact pistol"
 	desc = "A Hephaestus Industries P19K, also known as M19C in SCGDF service. Light and short with superior handling. While often called compact, it is, in fact, subcompact and can fit in a pocket."
 	magazine_type = /obj/item/ammo_magazine/pistol
-	allowed_magazines = /obj/item/ammo_magazine/pistol
+	allowed_magazines = list(/obj/item/ammo_magazine/pistol)
 	banned_magazines = list(
 		/obj/item/ammo_magazine/pistol/double,
 		/obj/item/ammo_magazine/pistol/small

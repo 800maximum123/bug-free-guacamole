@@ -56,7 +56,7 @@
 	load_method = SINGLE_CASING|SPEEDLOADER
 	max_shells = 200
 	ammo_type = /obj/item/ammo_casing/rifle
-	allowed_magazines = /obj/item/ammo_magazine/rifle/mech_machinegun
+	allowed_magazines = list(/obj/item/ammo_magazine/rifle/mech_machinegun)
 	has_safety = FALSE
 	firemodes = list(
 		list(mode_name="semi auto", burst=4, fire_delay=null, move_delay=null, one_hand_penalty=8, burst_accuracy=null, dispersion=null),
@@ -98,7 +98,7 @@
 	max_shells = 100
 	ammo_type = /obj/item/ammo_casing/flechette/mech
 	magazine_type = /obj/item/ammo_magazine/proto_smg/mech
-	allowed_magazines = /obj/item/ammo_magazine/proto_smg/mech
+	allowed_magazines = list(/obj/item/ammo_magazine/proto_smg/mech)
 	has_safety = FALSE
 	dispersion = null
 	firemodes = list(
@@ -149,7 +149,7 @@
 	load_method = SINGLE_CASING|SPEEDLOADER
 	max_shells = 50
 	ammo_type = /obj/item/ammo_casing/shotgun/mech
-	allowed_magazines = /obj/item/ammo_magazine/shotgunmag/mech
+	allowed_magazines = list(/obj/item/ammo_magazine/shotgunmag/mech)
 	has_safety = FALSE
 
 /obj/item/gun/projectile/automatic/mounted/shotgun/unload_ammo(mob/user)

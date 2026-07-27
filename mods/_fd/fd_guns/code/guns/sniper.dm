@@ -48,7 +48,7 @@
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/sniper/scg
-	allowed_magazines = /obj/item/ammo_magazine/sniper/scg
+	allowed_magazines = list(/obj/item/ammo_magazine/sniper/scg)
 	accuracy = -1
 	fire_delay = 6
 	one_hand_penalty = 8
@@ -84,7 +84,7 @@
 	handle_casings = EJECT_CASINGS
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/sniper/iccgn
-	allowed_magazines = /obj/item/ammo_magazine/sniper/iccgn
+	allowed_magazines = list(/obj/item/ammo_magazine/sniper/iccgn)
 	one_hand_penalty = 6
 	accuracy = -2
 	bulk = 10
@@ -121,7 +121,7 @@
 	load_method = SINGLE_CASING|SPEEDLOADER
 	handle_casings = EJECT_CASINGS
 	magazine_type = /obj/item/ammo_magazine/speedloader/dmr
-	allowed_magazines = /obj/item/ammo_magazine/speedloader/dmr
+	allowed_magazines = list(/obj/item/ammo_magazine/speedloader/dmr)
 	accuracy = -1
 	fire_delay = 6
 	max_shells = 16

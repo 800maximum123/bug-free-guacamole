@@ -14,9 +14,8 @@
 	caliber = CALIBER_RIFLE_CASELESS
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 1, TECH_ESOTERIC = 5)
 	slot_flags = SLOT_BACK
-	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/caseless_rifle
-	allowed_magazines = /obj/item/ammo_magazine/caseless_rifle
+	allowed_magazines = list(/obj/item/ammo_magazine/caseless_rifle)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	handle_casings = CLEAR_CASINGS // obviously
@@ -263,9 +262,8 @@
 	caliber = CALIBER_RIFLE_CASELESS
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 1, TECH_ESOTERIC = 5)
 	slot_flags = SLOT_BACK
-	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/caseless_rifle
-	allowed_magazines = /obj/item/ammo_magazine/caseless_rifle
+	allowed_magazines = list(/obj/item/ammo_magazine/caseless_rifle)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	handle_casings = CLEAR_CASINGS
@@ -390,7 +388,7 @@
 	icon = 'icons/obj/guns/contempt.dmi'
 	icon_state = "contempt"
 	magazine_type = /obj/item/ammo_magazine/piercing_smg
-	allowed_magazines = /obj/item/ammo_magazine/piercing_smg
+	allowed_magazines = list(/obj/item/ammo_magazine/piercing_smg)
 	bulk = -1
 	caliber = CALIBER_PISTOL_FLECHETTE
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 3)
@@ -461,7 +459,7 @@
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/rifle
-	allowed_magazines = /obj/item/ammo_magazine/rifle
+	allowed_magazines = list(/obj/item/ammo_magazine/rifle)
 	one_hand_penalty = 8
 	scoped_accuracy = 8
 	scope_zoom = 1
@@ -495,7 +493,7 @@
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/caseless_rifle
-	allowed_magazines = /obj/item/ammo_magazine/caseless_rifle
+	allowed_magazines = list(/obj/item/ammo_magazine/caseless_rifle)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	handle_casings = CLEAR_CASINGS // obviously
