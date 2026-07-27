@@ -2,7 +2,7 @@
 	var/static/atom/movable/clickable_stat/statLine
 
 	/// server name (for world name / status)
-	var/static/server_name = "Space Station 13"
+	var/static/server_name = "Gaian War"
 
 	/// generate numeric suffix based on server port
 	var/static/server_suffix = FALSE
@@ -227,14 +227,14 @@
 
 	var/static/health_threshold_dead = -100
 
-	var/static/organ_health_multiplier = 0.9
+	var/static/organ_health_multiplier = 1.5
 
 	var/static/organ_regeneration_multiplier = 0.25
 
 	var/static/organs_decay
 
 	/// Modifier for shock stage contribution from organ damage amount
-	var/static/organ_damage_spillover_multiplier = 0.5
+	var/static/organ_damage_spillover_multiplier = 0.3
 
 	var/static/bones_can_break = TRUE
 
@@ -242,7 +242,7 @@
 
 	var/static/revival_brain_life = -1
 
-	var/static/use_loyalty_implants = FALSE
+	var/static/use_loyalty_implants = TRUE
 
 	var/static/welder_vision = TRUE
 
@@ -251,25 +251,25 @@
 	var/static/no_click_cooldown = FALSE
 
 	/// Modifier for ticks between moves while running
-	var/static/run_delay = 2
+	var/static/run_delay = 3
 
 	/// Modifier for ticks between moves while walking
 	var/static/walk_delay = 4
 
 	/// Modifier for ticks between moves while creeping
-	var/static/creep_delay = 6
+	var/static/creep_delay = 5
 
 	/// Modifier for base stamina cost while sprinting
-	var/static/minimum_sprint_cost = 0.8
+	var/static/minimum_sprint_cost = 1.2
 
 	/// Modifier for amount hauling skill can reduce stamina cost
-	var/static/skill_sprint_cost_range = 0.8
+	var/static/skill_sprint_cost_range = 0.6
 
 	/// Modifier for minimum rate mobs can regain stamina
-	var/static/minimum_stamina_recovery = 1
+	var/static/minimum_stamina_recovery = 3
 
 	/// Modifier for maximum rate mobs can regain stamina
-	var/static/maximum_stamina_recovery = 3
+	var/static/maximum_stamina_recovery = 5
 
 	/// After this amount alive, mushrooms will not boom boom
 	var/static/maximum_mushrooms = 15

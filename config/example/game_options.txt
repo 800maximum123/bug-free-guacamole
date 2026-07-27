@@ -18,7 +18,7 @@ LIMBS_CAN_BREAK 1
 
 ## multiplier which enables organs to take more damage before bones breaking or limbs being destroyed
 ## 100 means normal, 50 means half
-ORGAN_HEALTH_MULTIPLIER 90
+ORGAN_HEALTH_MULTIPLIER 150
 
 ## multiplier which influences how fast organs regenerate naturally
 ## 100 means normal, 50 means half
@@ -39,12 +39,12 @@ REVIVAL_BRAIN_LIFE -1
 
 
 ## These modify the run/walk speed of all mobs before the mob-specific modifiers are applied. 
-RUN_DELAY 2
+RUN_DELAY 3
 WALK_DELAY 4
-CREEP_DELAY 6
-MINIMUM_SPRINT_COST 0.8
-SKILL_SPRINT_COST_RANGE 0.8
-MINIMUM_STAMINA_RECOVERY 5
+CREEP_DELAY 5
+MINIMUM_SPRINT_COST 1.2
+SKILL_SPRINT_COST_RANGE 0.6
+MINIMUM_STAMINA_RECOVERY 3
 MAXIMUM_STAMINA_RECOVERY 5
 
 ### Miscellaneous ###
@@ -52,4 +52,4 @@ MAXIMUM_STAMINA_RECOVERY 5
 ## Config options which, of course, don't fit into previous categories.
 
 ## Remove the # in front of this config option to have loyalty implants spawn by default on your server.
-#USE_LOYALTY_IMPLANTS
+USE_LOYALTY_IMPLANTS
