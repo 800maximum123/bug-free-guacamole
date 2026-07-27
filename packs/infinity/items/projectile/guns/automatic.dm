@@ -60,22 +60,3 @@
 		)
 	)
 */ //	[/FD-REMOVE]
-
-/obj/item/gun/projectile/sniper/garand
-	firemodes = list(
-		list(
-			mode_name="semi auto", burst=1, fire_delay=6,
-			one_hand_penalty=8, burst_accuracy=null,
-			dispersion=null
-		)
-	)
-
-
-/obj/item/gun/projectile/sniper/semistrip
-	firemodes = list(
-		list(
-			mode_name="semi auto", burst=1, fire_delay=2,
-			one_hand_penalty=8, burst_accuracy=null,
-			dispersion=null
-		)
-	)

@@ -30,7 +30,7 @@
 	load_sound = 'sound/weapons/guns/interaction/rifle_load.ogg'
 	fire_delay = 12
 
-/obj/item/gun/projectile/sniper/scg/marksman
+/obj/item/gun/projectile/boltloader/scg/marksman
 	name = "designated marksman rifle"
 	desc = "This rifle favors mid- to long-ranged combat, offering impressive stopping power over a long distance."
 	icon = 'mods/_fd/fd_guns/icons/weapon_cpss_icon.dmi'
@@ -58,14 +58,14 @@
 	wielded_item_state = "sniperrifle2"
 	mag_insert_sound = 'sound/weapons/guns/interaction/ltrifle_magin.ogg'
 
-/obj/item/gun/projectile/sniper/marksman/on_update_icon()
+/obj/item/gun/projectile/boltloader/marksman/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "sniperrifle2"
 	else
 		icon_state = "sniperrifle2-empty"
 
-/obj/item/gun/projectile/sniper/iccgn
+/obj/item/gun/projectile/boltloader/iccgn
 	name = "heavy sniper rifle"
 	desc = "Vordan Sniper Rifle (VSR-34), designed to defeat exoskeletons and light armoured vehicles by a sniper team. Can use Sol Gov sniper rifle ammunition"
 	icon = 'mods/_fd/fd_guns/icons/weapon_gkk_icon.dmi'
@@ -94,7 +94,7 @@
 	mag_insert_sound = 'sound/weapons/guns/interaction/ltrifle_magin.ogg'
 	fire_delay = 12
 
-/obj/item/gun/projectile/sniper/iccgn/on_update_icon()
+/obj/item/gun/projectile/boltloader/iccgn/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "gsniperrifle4"
@@ -102,7 +102,7 @@
 		icon_state = "gsniperrifle4-empty"
 
 
-/obj/item/gun/projectile/sniper/iccgn/dmr
+/obj/item/gun/projectile/boltloader/iccgn/dmr
 	name = "designated marksman rifle"
 	desc = "Designated Marksman Rifle-41 (DMR-41) The Marksman rifle was made to give more versatility and strength to fire groups. The multi-tasking nature of such a rifle allows for a variety of missions up to and including breaching airlocks and blast doors"
 	icon = 'mods/_fd/fd_guns/icons/weapon_gkk_icon.dmi'

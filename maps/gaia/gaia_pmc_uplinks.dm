@@ -122,7 +122,7 @@
 	desc = "An H3 Ocelot caseless rifle, either captured as trophy or bought on black market. This one is a semi-auto only marksman version with a scope."
 	antag_roles = list(MODE_MISC_PMC)
 	item_cost = 50
-	path = /obj/item/gun/projectile/sniper/caseless
+	path = /obj/item/gun/projectile/automatic/caseless
 
 /datum/uplink_item/item/visible_weapons/combat_shotgun
 	item_cost = 40

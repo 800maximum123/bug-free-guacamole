@@ -12,7 +12,6 @@
 	matter = list(MATERIAL_STEEL = 2000)
 	screen_shake = 1
 	space_recoil = 0 // Learn physics son
-	accuracy = -2
 	bulk = GUN_BULK_ANTI_TANK
 	one_hand_penalty = 6
 	starts_loaded = FALSE
@@ -28,6 +27,8 @@
 	far_fire_sound = 'sound/weapons/gunshot/general/rocket_launch_far.ogg'
 	load_sound = 'sound/weapons/guns/interaction/rpg_insert.ogg'
 	fire_delay = 12
+
+	client_recoil_animation_information = null
 
 	var/backblast_power = 300
 	var/backblast_falloff = 50

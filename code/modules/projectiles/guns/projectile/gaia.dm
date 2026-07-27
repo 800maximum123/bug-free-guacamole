@@ -444,7 +444,7 @@
 	playsound(get_turf(src), 'sound/weapons/flipblade.ogg', 25, 1)
 */
 /*
-/obj/item/gun/projectile/sniper/panther //semi-automatic only
+/obj/item/gun/projectile/boltloader/panther //semi-automatic only
 	name = "marksman rifle"
 	desc = "An SD-Panther. It is a simple and durable rifle made of stamped steel manufactured by Novaya Zemlya Arms for the Confederation Navy. \
 	While it lacks the burst fire of other military rifles, it's exceptionally accurate and has a powerful optic."
@@ -472,14 +472,14 @@
 	fire_sound = 'sound/weapons/gunshot/rifle/shot_heavy.ogg'
 	far_fire_sound = 'sound/weapons/gunshot/rifle/shot_heavy_far.ogg'
 
-/obj/item/gun/projectile/sniper/panther/on_update_icon()
+/obj/item/gun/projectile/boltloader/panther/on_update_icon()
 	if(ammo_magazine)
 		icon_state = "dmr"
 	else
 		icon_state = "dmr-empty"
 	..()
 */
-/obj/item/gun/projectile/sniper/caseless
+/obj/item/gun/projectile/automatic/caseless
 	name = "caseless marksman rifle"
 	desc = "An H3/M 'Ocelot' marksman rifle. A mainstay of SCGDF, H3 and its configurations are made to shine in situations \
 	where Z8 lacks versatility. Courtesy of Hephaestus Industries. This one comes with a better stock and optics, but only has a semi-auto firemode."
@@ -509,7 +509,7 @@
 	fire_sound = 'sound/weapons/gunshot/rifle/shot_heavy.ogg'
 	far_fire_sound = 'sound/weapons/gunshot/rifle/shot_heavy_far.ogg'
 
-/obj/item/gun/projectile/sniper/caseless/on_update_icon()
+/obj/item/gun/projectile/automatic/caseless/on_update_icon()
 	..()
 	if(ammo_magazine)
 		if(length(ammo_magazine.stored_ammo))

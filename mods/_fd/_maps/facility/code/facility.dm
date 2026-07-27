@@ -175,7 +175,7 @@
 	return list(/obj/item/gun/projectile/shotgun/pump = 3,
 				/obj/item/gun/projectile/revolving/heavy = 2,
 				/obj/item/gun/projectile/shotgun/doublebarrel = 3,
-				/obj/item/gun/projectile/sniper/garand = 3,
+				/obj/item/gun/projectile/boltloader/garand = 3,
 				/obj/item/gun/projectile/pistol/magnum_pistol = 2)
 
 /obj/random/facility/gun/rare
