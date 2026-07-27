@@ -12,7 +12,6 @@
 	use_sound = 'sound/effects/storage/briefcase.ogg'
 	allow_slow_dump = TRUE
 
-
 /obj/item/storage/firstaid/empty
 	name = "empty first-aid kit"
 	desc = "It's an emergency medical kit for people who like wish soup."
@@ -96,7 +95,7 @@
 // GAIA
 /obj/item/storage/firstaid/combat
 	name = "combat medical kit"
-	desc = "Contains advanced medical treatments."
+	desc = "Contains advanced medical treatments. Bigger in size but compartments make it impossible to put anything non-medical inside."
 	icon_state = "fak-combat"
 	item_state = "firstaid-combat"
 	max_storage_space = DEFAULT_LARGEBOX_STORAGE
@@ -109,11 +108,43 @@
 		/obj/item/storage/pill_bottle/dylovene,
 		/obj/item/storage/pill_bottle/tramadol,
 		/obj/item/storage/pill_bottle/spaceacillin,
-		/obj/item/stack/medical/bruise_pack = 2,
-		/obj/item/stack/medical/ointment = 2,
-		/obj/item/stack/medical/splint
+		/obj/item/stack/medical/advanced/bruise_pack,
+		/obj/item/stack/medical/splint,
+		/obj/item/reagent_containers/hypospray/autoinjector/antirad,
 	)
-
+	// GAIA
+	// This is to prevent abuse
+	contents_allowed = list(
+		/obj/item/device/scanner/health,
+		/obj/item/reagent_containers/dropper,
+		/obj/item/reagent_containers/glass/beaker,
+		/obj/item/reagent_containers/glass/bottle,
+		/obj/item/reagent_containers/pill,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/reagent_containers/ivbag,
+		/obj/item/flame/lighter/zippo,
+		/obj/item/storage/fancy/smokable,
+		/obj/item/storage/pill_bottle,
+		/obj/item/stack/medical,
+		/obj/item/device/flashlight/pen,
+		/obj/item/clothing/mask/surgical,
+		/obj/item/clothing/head/surgery,
+		/obj/item/clothing/gloves/latex,
+		/obj/item/reagent_containers/hypospray,
+		/obj/item/clothing/glasses/hud/health,
+		/obj/item/crowbar,
+		/obj/item/device/flashlight,
+		/obj/item/taperoll,
+		/obj/item/extinguisher/mini,
+		/obj/item/storage/med_pouch,
+		/obj/item/bodybag,
+		/obj/item/taperoll/medical,
+		/obj/item/clothing/gloves,
+		/obj/item/clothing/head/beret,
+		/obj/item/material/knife/folding,
+		/obj/item/modular_computer/tablet,
+		/obj/item/modular_computer/pda
+		)
 
 /obj/item/storage/firstaid/stab
 	name = "stabilisation first aid"
