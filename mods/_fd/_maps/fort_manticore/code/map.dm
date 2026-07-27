@@ -730,10 +730,15 @@
 /singleton/hierarchy/outfit/fort_manticore/adriano
 	name = "Adriano Martiesa"
 
+	uniform = /obj/item/clothing/under/solgov/utility/fleet/combat/engineering
+	suit = /obj/item/clothing/suit/solgov/fleet_sweater/officer
+	gloves = /obj/item/clothing/gloves/thick/duty/solgov/fleet
 	r_hand = /obj/item/gun/projectile/pistol/m22f
+	belt = /obj/item/storage/belt/holster/security/tactical
+
 
 	back = /obj/item/storage/backpack/satchel/pocketbook
-	backpack_contents = list(/obj/item/storage/bible/bible = 1, /obj/item/nullrod/holycross = 1)
+	backpack_contents = list(/obj/item/storage/bible/bible = 1, /obj/item/nullrod/holycross = 1,  /obj/item/clothing/under/solgov/utility/fleet/engineering, /obj/item/clothing/accessory/solgov/rank/fleet/officer/o3)
 
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
