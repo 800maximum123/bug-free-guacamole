@@ -58,7 +58,7 @@
 	/// Delay for click-racking. Scales with level. Generally used for shotguns/boltloaders.
 	var/autorackdelay = 1
 	var/racksound = 'sound/weapons/flipblade.ogg'
-	var/selectorsound = 'sound/weapons/flipblade.ogg'
+	var/selectorsound = 'sound/weapons/empty.ogg'
 	/// Whether a gun with multiple chambers can dump all its rounds at once (e.g a revolver)
 	var/allow_dump = FALSE
 

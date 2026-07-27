@@ -91,6 +91,7 @@
 	var/max_darts = 1
 	var/obj/item/syringe_cartridge/next
 
+	client_recoil_animation_information = null
 
 /obj/item/gun/launcher/syringe/examine(mob/user, distance)
 	. = ..()

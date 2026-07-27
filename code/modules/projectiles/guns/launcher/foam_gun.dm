@@ -17,6 +17,8 @@
 	fire_sound_text = "a pleasing 'pomp'"
 	matter = list(MATERIAL_PLASTIC = 200)
 
+	client_recoil_animation_information = null
+
 	var/max_darts = 1
 	var/list/darts = list()
 

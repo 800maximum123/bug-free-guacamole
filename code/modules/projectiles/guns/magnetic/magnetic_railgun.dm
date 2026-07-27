@@ -10,6 +10,10 @@
 	slot_flags = SLOT_BACK
 	bulk = GUN_BULK_RIFLE + 3
 
+	client_recoil_animation_information = list(
+		"strength" = 1,
+		"duration" = 2,
+	)
 
 /obj/item/gun/magnetic/railgun/Initialize()
 	slowdown_per_slot[slot_l_hand] =  slowdown_held

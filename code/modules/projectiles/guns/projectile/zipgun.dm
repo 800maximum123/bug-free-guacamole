@@ -29,6 +29,10 @@
 		/obj/item/ammo_casing/rifle
 		)
 
+	client_recoil_animation_information = list(
+		"strength" = 0.7,
+		"duration" = 2,
+	)
 
 /obj/item/gun/projectile/pirate/toggle_safety(mob/user)
 	to_chat(user, SPAN_WARNING("There's no safety on \the [src]!"))

@@ -33,7 +33,7 @@
 	hold_open = FALSE
 
 	ammo_type = /obj/item/ammo_casing/shell
-	screen_shake = 2 //extra kickback
+	screen_shake = 1 //extra kickback
 	max_shells = 1
 	one_hand_penalty = 6
 	accuracy = -2
@@ -42,6 +42,10 @@
 	fire_delay = 12
 	rackdelay = 15
 
+	client_recoil_animation_information = list(
+		"strength" = 1,
+		"duration" = 2,
+	)
 
 /obj/item/gun/projectile/boltloader/on_update_icon()
 	..()
@@ -169,6 +173,11 @@
 	scope_zoom = 0
 	scoped_accuracy = 0
 
+	client_recoil_animation_information = list(
+		"strength" = 0.7,
+		"duration" = 2,
+	)
+
 /obj/item/gun/projectile/boltloader/garand
 	name = "garand rifle"
 	desc = "The rugged garand is a old semi-automatic weapon popular on the frontier worlds. PING!"
@@ -195,6 +204,11 @@
 	one_hand_penalty = 9
 	accuracy_power = 5
 	accuracy = 2
+
+	client_recoil_animation_information = list(
+		"strength" = 0.7,
+		"duration" = 2,
+	)
 
 
 /obj/item/gun/projectile/boltloader/garand/load_ammo(obj/item/A, mob/user)

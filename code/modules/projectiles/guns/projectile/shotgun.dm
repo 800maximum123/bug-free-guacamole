@@ -148,6 +148,10 @@
 	one_hand_penalty = 4
 	accuracy = -1
 
+	client_recoil_animation_information = list(
+		"strength" = 0.7,
+		"duration" = 2,
+	)
 
 /obj/item/gun/projectile/shotgun/pump/combat
 	name = "combat shotgun"
@@ -292,6 +296,10 @@
 	one_hand_penalty = 4
 	accuracy = -1
 
+	client_recoil_animation_information = list(
+		"strength" = 0.7,
+		"duration" = 2,
+	)
 
 /obj/item/gun/projectile/shotgun/doublebarrel/sawn/empty
 	starts_loaded = FALSE

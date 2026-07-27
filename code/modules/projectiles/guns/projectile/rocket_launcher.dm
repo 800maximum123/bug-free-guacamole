@@ -21,6 +21,7 @@
 	caliber = CALIBER_ROCKET
 	handle_casings = CLEAR_CASINGS
 	load_method = SINGLE_CASING
+	fire_closed_bolt = FALSE
 	max_shells = 1
 	ammo_type = /obj/item/ammo_casing/rocket
 	fire_sound = 'sound/weapons/gunshot/general/rocket_launch.ogg'

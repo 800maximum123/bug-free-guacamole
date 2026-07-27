@@ -88,6 +88,10 @@
 	accuracy_power = 8
 	one_hand_penalty = 2
 
+	client_recoil_animation_information = list( // Ouch my wrist
+		"strength" = 1,
+		"duration" = 2,
+	)
 
 /obj/item/gun/projectile/revolving/medium
 	name = "revolver"
@@ -139,6 +143,7 @@
 
 	ammo_type = /obj/item/ammo_casing/cap
 
+	client_recoil_animation_information = null
 
 /obj/item/gun/projectile/revolving/capgun/on_update_icon()
 	if (snipped)

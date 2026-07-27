@@ -15,7 +15,7 @@
 	force = 10
 	slot_flags = SLOT_BACK
 	caliber = CALIBER_ANTIMATERIAL
-	screen_shake = 2 //extra kickback
+	screen_shake = 1 //extra kickback
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING
 	max_shells = 2
@@ -80,7 +80,7 @@
 	force = 10
 	slot_flags = SLOT_BACK
 	caliber = CALIBER_ANTIMATERIAL
-	screen_shake = 2 //extra kickback
+	screen_shake = 1 //extra kickback
 	handle_casings = EJECT_CASINGS
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/sniper/iccgn

@@ -120,6 +120,10 @@
 	accuracy = 2
 	one_hand_penalty = 2
 
+	client_recoil_animation_information = list( // Ouch my wrist
+		"strength" = 1,
+		"duration" = 2,
+	)
 
 /obj/item/gun/projectile/pistol/gyropistol
 	name = "gyrojet pistol"

@@ -1,3 +1,4 @@
+/*
 /obj/item/gun/launcher/rocket
 	name = "rocket launcher"
 	desc = "MAGGOT."
@@ -57,3 +58,4 @@
 /obj/item/gun/launcher/rocket/handle_post_fire(mob/user, atom/target)
 	log_and_message_admins("fired a rocket from a rocket launcher ([src.name]) at [target].", user)
 	..()
+*/

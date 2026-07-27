@@ -14,6 +14,11 @@
 	release_force = 5
 	combustion = TRUE
 
+	client_recoil_animation_information = list(
+		"strength" = 0.7,
+		"duration" = 2,
+	)
+
 	var/obj/item/grenade/chambered
 	var/list/grenades = list()
 	var/max_grenades = 5 //holds this + one in the chamber

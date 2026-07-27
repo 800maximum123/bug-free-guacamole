@@ -13,6 +13,11 @@
 	var/throw_distance = 20
 	fire_sound_text = "a launcher firing"
 
+	client_recoil_animation_information = list(
+		"strength" = 0.35,
+		"duration" = 2,
+	)
+
 //This normally uses a proc on projectiles and our ammo is not strictly speaking a projectile.
 /obj/item/gun/launcher/can_hit(mob/living/target as mob, mob/living/user as mob)
 	return 1
