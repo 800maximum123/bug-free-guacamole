@@ -18,6 +18,9 @@
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	bulk = GUN_BULK_HEAVY_RIFLE
 
+	crosshair1_icon = 'icons/crosshairs/circle/accuracy1.dmi'
+	crosshair2_icon = 'icons/crosshairs/circle/accuracy2.dmi'
+	crosshair3_icon = 'icons/crosshairs/circle/accuracy3.dmi'
 
 /obj/item/gun/projectile/shotgun/pump
 	name = "shotgun"

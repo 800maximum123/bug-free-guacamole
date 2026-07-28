@@ -28,6 +28,9 @@
 	far_fire_sound = 'sound/weapons/gunshot/general/rocket_launch_far.ogg'
 	load_sound = 'sound/weapons/guns/interaction/rpg_insert.ogg'
 
+	crosshair1_icon = 'icons/crosshairs/square/accuracy1.dmi'
+	crosshair2_icon = 'icons/crosshairs/square/accuracy2.dmi'
+	crosshair3_icon = 'icons/crosshairs/square/accuracy3.dmi'
 	steadying_sound = 'sound/weapons/guns/steadying/steadying_big.ogg'
 	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_big.ogg'
 

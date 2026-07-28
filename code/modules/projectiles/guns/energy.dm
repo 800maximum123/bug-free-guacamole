@@ -8,6 +8,10 @@
 	fire_sound_text = "laser blast"
 	accuracy = 1
 
+	crosshair1_icon = 'icons/crosshairs/cross/accuracy1.dmi'
+	crosshair2_icon = 'icons/crosshairs/cross/accuracy2.dmi'
+	crosshair3_icon = 'icons/crosshairs/cross/accuracy3.dmi'
+
 	client_recoil_animation_information = null
 
 	var/obj/item/cell/power_supply //What type of power cell this uses

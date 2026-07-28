@@ -10,6 +10,9 @@
 	slot_flags = SLOT_BACK
 	bulk = GUN_BULK_ANTI_TANK
 
+	crosshair1_icon = 'icons/crosshairs/cross/accuracy1.dmi'
+	crosshair2_icon = 'icons/crosshairs/cross/accuracy2.dmi'
+	crosshair3_icon = 'icons/crosshairs/cross/accuracy3.dmi'
 	steadying_sound = 'sound/weapons/guns/steadying/steadying_big.ogg'
 	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_big.ogg'
 

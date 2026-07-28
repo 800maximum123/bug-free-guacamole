@@ -16,6 +16,9 @@
 	self_recharge = 1
 	charge_meter = 0
 
+	crosshair1_icon = 'icons/crosshairs/circle/accuracy1.dmi'
+	crosshair2_icon = 'icons/crosshairs/circle/accuracy2.dmi'
+	crosshair3_icon = 'icons/crosshairs/circle/accuracy3.dmi'
 	steadying_sound = 'sound/effects/psi/power_unlock.ogg'
 	unsteadying_sound = 'sound/effects/psi/power_used.ogg'
 

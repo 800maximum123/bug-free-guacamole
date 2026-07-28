@@ -11,6 +11,10 @@
 	bulk = GUN_BULK_RIFLE
 	combustion = TRUE
 
+	crosshair1_icon = 'icons/crosshairs/cross/accuracy1.dmi'
+	crosshair2_icon = 'icons/crosshairs/cross/accuracy2.dmi'
+	crosshair3_icon = 'icons/crosshairs/cross/accuracy3.dmi'
+
 	client_recoil_animation_information = list(
 		"strength" = 0.35,
 		"duration" = 2,
