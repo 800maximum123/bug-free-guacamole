@@ -738,7 +738,7 @@
 
 
 	back = /obj/item/storage/backpack/satchel/pocketbook
-	backpack_contents = list(/obj/item/storage/bible/bible = 1, /obj/item/nullrod/holycross = 1,  /obj/item/clothing/under/solgov/utility/fleet/engineering, /obj/item/clothing/accessory/solgov/rank/fleet/officer/o3)
+	backpack_contents = list(/obj/item/storage/bible/bible = 1, /obj/item/nullrod/holycross = 1,  /obj/item/clothing/under/solgov/utility/fleet/engineering = 1, /obj/item/clothing/accessory/solgov/rank/fleet/officer/o3 = 2)
 
 	id_types = list(/obj/item/card/id/campaign)
 	id_slot = slot_wear_id
