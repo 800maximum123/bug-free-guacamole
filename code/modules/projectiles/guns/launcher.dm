@@ -13,6 +13,9 @@
 	var/throw_distance = 20
 	fire_sound_text = "a launcher firing"
 
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_big.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_big.ogg'
+
 	client_recoil_animation_information = list(
 		"strength" = 0.35,
 		"duration" = 2,

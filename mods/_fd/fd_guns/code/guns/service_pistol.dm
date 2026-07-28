@@ -81,7 +81,7 @@
 			can_autofire=1
 			burst=1
 			fire_delay=1
-			one_hand_penalty=2
+			one_hand_penalty = GUN_OHP_HEAVY_PISTOL
 			burst_accuracy=list(0,-1,-2,-2,-3)
 			dispersion=list(0.6, 0.8, 1.0, 1.3, 1.8)
 			user.visible_message("[user] fiddles with [A] a little and installs it into [src].", SPAN_WARNING("You install [A] into [src]. Careful with this thing now!"))

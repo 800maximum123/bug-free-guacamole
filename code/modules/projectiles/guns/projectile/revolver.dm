@@ -9,6 +9,9 @@
 	far_fire_sound = 'sound/weapons/gunshot/revolver/shot_far.ogg'
 	dry_fire_sound = 'sound/weapons/gunshot/revolver/dry_fire.ogg'
 
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_small.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_small.ogg'
+
 	var/misaligned = FALSE
 	var/misaligned_penalty = 2
 
@@ -80,13 +83,13 @@
 
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	caliber = CALIBER_PISTOL_MAGNUM
-	bulk = GUN_BULK_LIGHT_RIFLE - 1
+	bulk = GUN_BULK_HEAVY_PISTOL
 
 	ammo_type = /obj/item/ammo_casing/pistol/magnum
 	max_shells = 6
 	accuracy = 2
 	accuracy_power = 8
-	one_hand_penalty = 2
+	one_hand_penalty = GUN_OHP_HEAVY_PISTOL
 
 	client_recoil_animation_information = list( // Ouch my wrist
 		"strength" = 1,
@@ -121,7 +124,8 @@
 
 	ammo_type = /obj/item/ammo_casing/pistol/small
 	accuracy = 1
-	one_hand_penalty = 0
+	bulk = GUN_BULK_LIGHT_PISTOL
+	one_hand_penalty = GUN_OHP_PISTOL
 	fire_delay = 7
 
 
@@ -205,7 +209,7 @@
 	magazine_type = /obj/item/ammo_magazine/box/minigun
 	allowed_magazines = list(/obj/item/ammo_magazine/box/minigun)
 	accuracy = 1
-	one_hand_penalty = 20
+	one_hand_penalty = GUN_OHP_MINIGUN
 	force = 15
 
 	firemodes = list(
@@ -242,7 +246,7 @@
 	auto_eject = TRUE
 
 	accuracy = 0 // Less accurate than a full-sized minigun and only fires in bursts, but has no one-hand penalty.
-	one_hand_penalty = 0
+	one_hand_penalty = GUN_OHP_MOUNTED
 
 	firemodes = list(
 		list(mode_name="long bursts",			can_autofire=0, burst=5, fire_delay=0.2, burst_accuracy = list(0,-1,-2,-3,-4,-4,-4,-4,-4), dispersion = list(1.0, 1.0, 2.0, 2.0, 2.5), burst_delay = 1),
@@ -250,7 +254,7 @@
 		)
 
 
-/obj/item/gun/projectile/automatic/minigun/mounted/load_ammo(obj/item/ammo, mob/user)
+/obj/item/gun/projectile/revolving/minigun/mounted/load_ammo(obj/item/ammo, mob/user)
 	var/obj/item/rig/rig = get_rig()
 	if (!istype(rig))
 		USE_FEEDBACK_FAILURE("ERROR: Could not find a rig to reload \the [src]. This is a bug. Report it.")
@@ -272,7 +276,7 @@
 	return ..()
 
 
-/obj/item/gun/projectile/automatic/minigun/mounted/unload_ammo(mob/user)
+/obj/item/gun/projectile/revolving/minigun/mounted/unload_ammo(mob/user)
 	var/obj/item/rig/rig = get_rig()
 	if (!istype(rig))
 		USE_FEEDBACK_FAILURE("ERROR: Could not find a rig to unload \the [src]. This is a bug. Report it.")

@@ -1,3 +1,4 @@
+/* GAIA FUCK YOU
 #define GUN_BULK_PISTOL       1
 #define GUN_BULK_REVOLVER     2
 #define GUN_BULK_SMG          3
@@ -16,3 +17,4 @@
 #define CALIBER_PISTOL_BIG          "11.4mmP"
 #define CALIBER_PISTOL_BIG_MAGNUM   "11.1mmR"
 //#define CALIBER_PISTOL_ANTIQUE    "~10mm"
+*/

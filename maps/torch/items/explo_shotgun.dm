@@ -50,7 +50,7 @@
 			return TRUE
 		reinforced = tool
 		explosion_chance = 10
-		bulk += 4
+		bulk = GUN_BULK_MACHINE_GUN
 		update_icon()
 		playsound(src, 'sound/effects/tape.ogg', 50, TRUE)
 		user.visible_message(

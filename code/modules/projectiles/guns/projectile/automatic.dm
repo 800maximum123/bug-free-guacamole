@@ -43,7 +43,7 @@
 
 	magazine_type = /obj/item/ammo_magazine/rifle
 	allowed_magazines = list(/obj/item/ammo_magazine/rifle)
-	one_hand_penalty = 8
+	one_hand_penalty = GUN_OHP_HEAVY_RIFLE
 	accuracy_power = 7
 	accuracy = 2
 
@@ -92,7 +92,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/mil_rifle) //Interchangable but poor performance
 	accuracy = 2
 	accuracy_power = 7
-	one_hand_penalty = 8
+	one_hand_penalty = GUN_OHP_HEAVY_RIFLE
 	burst_delay = 4
 
 	firemodes = list(
@@ -180,7 +180,7 @@
 	has_launcher = FALSE
 
 	magazine_type = /obj/item/ammo_magazine/mil_rifle/light
-	one_hand_penalty = 6 // Slightly lighter than the Z8. Still don't try it.
+	one_hand_penalty = GUN_OHP_RIFLE
 
 	//Two round bursts. More accurate than the Z8 due to less maximum dispersion. More delay between shots, however, so slower.
 	firemodes = list(
@@ -204,11 +204,14 @@
 	fire_sound = 'sound/weapons/gunshot/l6/shot.ogg'
 	far_fire_sound = 'sound/weapons/gunshot/l6/shot_far.ogg'
 
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_big.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_big.ogg'
+
 	var/cover_open = FALSE
 
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ESOTERIC = 2)
 	caliber = CALIBER_RIFLE
-	bulk = GUN_BULK_HEAVY_RIFLE + 4
+	bulk = GUN_BULK_MACHINE_GUN
 	can_special_reload = FALSE
 	fire_closed_bolt = FALSE
 	hold_open = FALSE
@@ -221,7 +224,7 @@
 	ammo_type = /obj/item/ammo_casing/rifle
 	max_shells = 50
 	slot_flags = 0 //need sprites for SLOT_BACK
-	one_hand_penalty = 10
+	one_hand_penalty = GUN_OHP_MACHINE_GUN
 
 	//LMG, better sustained fire accuracy than assault rifles (comparable to SMG), higer move delay and one-handing penalty
 	//No single-shot or 3-round-burst modes since using this weapon should come at a cost to flexibility.
@@ -328,7 +331,7 @@
 	magazine_type = /obj/item/ammo_magazine/mil_rifle/heavy
 	allowed_magazines = list(/obj/item/ammo_magazine/mil_rifle)
 	force = 12
-	one_hand_penalty = 10
+	one_hand_penalty = GUN_OHP_HEAVY_RIFLE
 	accuracy_power = 9
 	accuracy = 1
 
@@ -369,8 +372,11 @@
 	silenced_fire_sound = 'sound/weapons/gunshot/smg/shot_suppressed.ogg'
 	racksound = 'sound/weapons/guns/interaction/pistol_rack.ogg'
 
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_small.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_small.ogg'
+
 	w_class = ITEM_SIZE_NORMAL
-	bulk = GUN_BULK_LIGHT_RIFLE - 5
+	bulk = GUN_BULK_LIGHT_PISTOL
 	slot_flags = SLOT_BELT
 
 	burst_delay = 2
@@ -426,7 +432,7 @@
 	ammo_type = /obj/item/ammo_casing/pistol
 	magazine_type = /obj/item/ammo_magazine/machine_pistol
 	allowed_magazines = list(/obj/item/ammo_magazine/machine_pistol) //more damage compared to the wt550, smaller mag size
-	one_hand_penalty = 2
+	one_hand_penalty = GUN_OHP_HEAVY_PISTOL
 
 	firemodes = list(
 		list(mode_name="semi auto",       burst=1, fire_delay=null,    move_delay=null, one_hand_penalty=0, burst_accuracy=null, dispersion=null),
@@ -468,7 +474,7 @@
 	magazine_type = /obj/item/ammo_magazine/smg_top
 	allowed_magazines = list(/obj/item/ammo_magazine/smg_top)
 	accuracy_power = 7
-	one_hand_penalty = 3
+	one_hand_penalty = GUN_OHP_LIGHT_RIFLE
 
 	//machine pistol, like SMG but easier to one-hand with
 	firemodes = list(
@@ -512,7 +518,7 @@
 
 	magazine_type = /obj/item/ammo_magazine/smg
 	allowed_magazines = list(/obj/item/ammo_magazine/smg)
-	one_hand_penalty = 4
+	one_hand_penalty = GUN_OHP_LIGHT_RIFLE
 
 	firemodes = list(
 		list(mode_name="semi auto",       burst=1, fire_delay=null,    move_delay=null, one_hand_penalty=4, burst_accuracy=null, dispersion=null),

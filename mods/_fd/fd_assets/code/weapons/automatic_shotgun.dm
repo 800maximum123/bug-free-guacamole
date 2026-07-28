@@ -14,8 +14,8 @@
 	load_method = SINGLE_CASING
 	ammo_type = /obj/item/ammo_casing/shotgun
 	handle_casings = EJECT_CASINGS
-	one_hand_penalty = 8
-	bulk = GUN_BULK_RIFLE + 2
+	one_hand_penalty = GUN_OHP_HEAVY_RIFLE
+	bulk = GUN_BULK_HEAVY_RIFLE
 	load_sound = 'sound/weapons/guns/interaction/shotgun_instert.ogg'
 
 	firemodes = list(

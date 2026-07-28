@@ -11,6 +11,9 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	modifystate = "energystun"
 
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_small.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_small.ogg'
+
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="energystun"),
 		list(mode_name="shock", projectile_type=/obj/item/projectile/beam/stun/shock, modifystate="energyshock"),
@@ -26,7 +29,7 @@
 	icon_state = "skrell_pistol_stun100"
 	max_shots = 10
 	fire_delay = 6
-	one_hand_penalty = 1
+	one_hand_penalty = GUN_OHP_PISTOL
 	self_recharge = 1
 
 	projectile_type = /obj/item/projectile/beam/stun
@@ -73,7 +76,10 @@
 	force = 8 //looks heavier than a pistol
 	self_recharge = 1
 	modifystate = null
-	one_hand_penalty = 1 //bulkier than an e-gun, but not quite the size of a carbine
+	one_hand_penalty = GUN_OHP_HEAVY_PISTOL
+
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_medium.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_medium.ogg'
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun),

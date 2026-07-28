@@ -10,6 +10,9 @@
 	dry_fire_sound = 'sound/weapons/gunshot/pistol/dry_fire.ogg'
 	racksound = 'sound/weapons/guns/interaction/pistol_rack.ogg'
 
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_small.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_small.ogg'
+
 	/// If it should change icon when empty.
 	var/empty_icon = TRUE
 	var/ammo_indicator = FALSE
@@ -76,7 +79,7 @@
 
 	magazine_type = /obj/item/ammo_magazine/pistol/throwback
 	accuracy_power = 5
-	one_hand_penalty = 2
+	one_hand_penalty = GUN_OHP_HEAVY_PISTOL
 	fire_delay = 7
 
 
@@ -110,7 +113,7 @@
 
 	caliber = CALIBER_PISTOL_MAGNUM
 	ammo_indicator = TRUE
-	bulk = GUN_BULK_LIGHT_RIFLE - 1
+	bulk = GUN_BULK_HEAVY_PISTOL
 
 	magazine_type = /obj/item/ammo_magazine/magnum
 	allowed_magazines = list(/obj/item/ammo_magazine/magnum)
@@ -118,7 +121,7 @@
 	fire_delay = 12
 	screen_shake = 0
 	accuracy = 2
-	one_hand_penalty = 2
+	one_hand_penalty = GUN_OHP_HEAVY_PISTOL
 
 	client_recoil_animation_information = list( // Ouch my wrist
 		"strength" = 1,
@@ -169,6 +172,8 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ESOTERIC = 2)
 	w_class = ITEM_SIZE_SMALL
 	caliber = CALIBER_PISTOL_SMALL
+
+	bulk = GUN_BULK_LIGHT_PISTOL
 
 	magazine_type = /obj/item/ammo_magazine/pistol/small
 	allowed_magazines = list(/obj/item/ammo_magazine/pistol/small)
@@ -253,6 +258,9 @@
 	dry_fire_sound = 'sound/weapons/gunshot/pistol/dry_fire.ogg'
 	load_sound = 'sound/weapons/guns/interaction/bullet_insert.ogg'
 
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_small.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_small.ogg'
+
 	origin_tech = list(TECH_COMBAT = 2,TECH_MATERIAL = 2)
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	load_method = SINGLE_CASING|SPEEDLOADER
@@ -260,7 +268,7 @@
 
 	max_shells = 10
 	accuracy_power = 6
-	one_hand_penalty = 3
+	one_hand_penalty = GUN_OHP_HEAVY_PISTOL
 	fire_delay = 5
 
 	firemodes = list(

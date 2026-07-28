@@ -92,7 +92,7 @@
 		)
 	item_state = "right_doble"
 	slot_flags = SLOT_BACK
-	one_hand_penalty = 6 //large and heavy
+	one_hand_penalty = GUN_OHP_RIFLE
 	w_class = ITEM_SIZE_HUGE
 	projectile_type = /obj/item/projectile/beam/pulse/bfg
 	cell_type = /obj/item/cell/super

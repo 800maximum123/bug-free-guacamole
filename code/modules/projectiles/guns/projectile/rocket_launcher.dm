@@ -13,7 +13,7 @@
 	screen_shake = 1
 	space_recoil = 0 // Learn physics son
 	bulk = GUN_BULK_ANTI_TANK
-	one_hand_penalty = 6
+	one_hand_penalty = GUN_OHP_ANTI_TANK
 	starts_loaded = FALSE
 
 	// single heavy rocket
@@ -22,11 +22,14 @@
 	load_method = SINGLE_CASING
 	fire_closed_bolt = FALSE
 	max_shells = 1
+	fire_delay = 12
 	ammo_type = /obj/item/ammo_casing/rocket
 	fire_sound = 'sound/weapons/gunshot/general/rocket_launch.ogg'
 	far_fire_sound = 'sound/weapons/gunshot/general/rocket_launch_far.ogg'
 	load_sound = 'sound/weapons/guns/interaction/rpg_insert.ogg'
-	fire_delay = 12
+
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_big.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_big.ogg'
 
 	client_recoil_animation_information = null
 

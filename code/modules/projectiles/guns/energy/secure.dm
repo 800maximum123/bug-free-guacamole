@@ -65,7 +65,7 @@
 	desc = "A robot-mounted equivalent of the LAEP90-S, which is always registered to its owner."
 	self_recharge = 1
 	use_external_power = 1
-	one_hand_penalty = 0
+	one_hand_penalty = GUN_OHP_MOUNTED
 	has_safety = FALSE
 	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON
 

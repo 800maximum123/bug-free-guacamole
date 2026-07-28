@@ -19,7 +19,7 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	handle_casings = CLEAR_CASINGS // obviously
-	one_hand_penalty = 10
+	one_hand_penalty = GUN_OHP_HEAVY_RIFLE
 	accuracy_power = 9
 	accuracy = 1
 	wielded_item_state = "caselessrifle-wielded"
@@ -53,7 +53,7 @@
 	w_class = ITEM_SIZE_LARGE
 	force = 8
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 1, TECH_ESOTERIC = 4)
-	one_hand_penalty = 12 // unwieldy
+	one_hand_penalty = GUN_OHP_RIFLE
 	accuracy_power = 8
 	accuracy = 1
 	firemodes = list(
@@ -80,7 +80,7 @@
 	where Z8 lacks versatility. Courtesy of Hephaestus Industries. This one's equipped with an underbarrel grenade launcher and combat optics."
 	icon_state = "grenadier"
 	force = 14 // heavier than the standard version
-	one_hand_penalty = 12
+	one_hand_penalty = GUN_OHP_HEAVY_RIFLE
 	bulk = GUN_BULK_HEAVY_RIFLE
 	firemodes = list(
 		list(mode_name="semi auto",       burst=1,    fire_delay=null,    move_delay=null, use_launcher=null, one_hand_penalty=10, burst_accuracy=null, dispersion=null),
@@ -157,7 +157,7 @@
 	item_state = "l6closedmag"
 	wielded_item_state = "l6closed-wielded"
 	w_class = ITEM_SIZE_HUGE
-	bulk = 10
+	bulk = GUN_BULK_MACHINE_GUN
 	force = 10
 	slot_flags = 0
 	max_shells = 80
@@ -169,7 +169,7 @@
 	magazine_type = /obj/item/ammo_magazine/caseless_box
 	allowed_magazines = list(/obj/item/ammo_magazine/caseless_box, /obj/item/ammo_magazine/caseless_rifle)
 	handle_casings = CLEAR_CASINGS
-	one_hand_penalty = 10
+	one_hand_penalty = GUN_OHP_MACHINE_GUN
 	mag_insert_sound = 'sound/weapons/guns/interaction/lmg_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/lmg_magout.ogg'
 	fire_sound = 'sound/weapons/gunshot/l6/shot.ogg'
@@ -267,7 +267,7 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	handle_casings = CLEAR_CASINGS
-	one_hand_penalty = 10
+	one_hand_penalty = GUN_OHP_HEAVY_RIFLE
 	accuracy_power = 8
 	accuracy = 2
 	bulk = GUN_BULK_HEAVY_RIFLE
@@ -294,7 +294,7 @@
 	desc = "A 'MOLOT' GL rifle. Produced by Novaya Zemlya Arms, it only recently became standard-issue for ICCGN forces. It easily \
 	balances between accuracy and reliability at the cost of its large size. This one comes with an underbarrel grenade launcher."
 	icon_state = "grenadier"
-	one_hand_penalty = 12
+	one_hand_penalty = GUN_OHP_HEAVY_RIFLE
 	firemodes = list(
 		list(mode_name="semi auto",       burst=1,    fire_delay=null,    move_delay=null, use_launcher=null, one_hand_penalty=10, burst_accuracy=null, dispersion=null),
 		list(mode_name="2-round bursts", burst=2,    fire_delay=null, move_delay=4,    use_launcher=null, one_hand_penalty=10, burst_accuracy=list(0,0), dispersion=list(0.0, 0.2)),
@@ -389,14 +389,14 @@
 	icon_state = "contempt"
 	magazine_type = /obj/item/ammo_magazine/piercing_smg
 	allowed_magazines = list(/obj/item/ammo_magazine/piercing_smg)
-	bulk = -1
+	bulk = GUN_BULK_LIGHT_PISTOL
 	caliber = CALIBER_PISTOL_FLECHETTE
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 3)
 	slot_flags = SLOT_BELT
 	accuracy_power = 7
 	multi_aim = 1
 	burst_delay = 2
-	one_hand_penalty = 4
+	one_hand_penalty = GUN_OHP_LIGHT_RIFLE
 //	var/unfolded = FALSE
 	firemodes = list(
 		list(mode_name="semi auto",       burst=1, fire_delay=null,    move_delay=null, one_hand_penalty=4, burst_accuracy=null, dispersion=null),
@@ -430,15 +430,15 @@
 		accuracy = 1
 		accuracy_power = 9
 		multi_aim = 1
-		one_hand_penalty = 10
+		one_hand_penalty = GUN_OHP_HEAVY_RIFLE
 		user.visible_message(SPAN_NOTICE("[user] extends \the [src]'s stock."), SPAN_NOTICE("You extend \the [src]'s stock outwards and lock it in place."), range = 3)
 	else
 		w_class = ITEM_SIZE_NORMAL
-		bulk = -1
+		bulk = GUN_BULK_LIGHT_PISTOL
 		accuracy = 0
 		accuracy_power = 7
 		multi_aim = 1
-		one_hand_penalty = 4
+		one_hand_penalty = GUN_OHP_LIGHT_RIFLE
 		user.visible_message(SPAN_NOTICE("[user] retracts \the [src]'s stock."), SPAN_NOTICE("You unlock \the [src]'s stock and retract it back into the gun."), range = 3)
 	update_icon()
 	playsound(get_turf(src), 'sound/weapons/flipblade.ogg', 25, 1)
@@ -460,7 +460,7 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/rifle
 	allowed_magazines = list(/obj/item/ammo_magazine/rifle)
-	one_hand_penalty = 8
+	one_hand_penalty = GUN_OHP_HEAVY_RIFLE
 	scoped_accuracy = 8
 	scope_zoom = 1
 	accuracy_power = 8
@@ -497,7 +497,7 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	handle_casings = CLEAR_CASINGS // obviously
-	one_hand_penalty = 8
+	one_hand_penalty = GUN_OHP_HEAVY_RIFLE
 	scoped_accuracy = 8
 	scope_zoom = 1
 	accuracy_power = 8

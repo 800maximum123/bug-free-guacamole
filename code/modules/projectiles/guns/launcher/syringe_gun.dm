@@ -87,6 +87,9 @@
 	release_force = 10
 	throw_distance = 10
 
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_medium.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_medium.ogg'
+
 	var/list/darts = list()
 	var/max_darts = 1
 	var/obj/item/syringe_cartridge/next
@@ -184,6 +187,9 @@
 	force = 3
 	throw_distance = 7
 	release_force = 10
+
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_small.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_small.ogg'
 
 /obj/item/gun/launcher/syringe/disguised/examine(mob/user, distance)
 	. = ..()

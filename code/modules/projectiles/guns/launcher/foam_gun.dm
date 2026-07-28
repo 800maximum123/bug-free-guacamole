@@ -11,7 +11,7 @@
 	release_force = 1.5
 	throw_distance = 6
 	accuracy = 1
-	one_hand_penalty = 0
+	one_hand_penalty = GUN_OHP_PISTOL
 	fire_sound = 'sound/weapons/foamblaster.ogg'
 	far_fire_sound = 'sound/misc/null.ogg'
 	fire_sound_text = "a pleasing 'pomp'"
@@ -68,7 +68,7 @@
 	w_class = ITEM_SIZE_NORMAL
 	burst = 2
 	fire_delay = 12
-	one_hand_penalty = 1
+	one_hand_penalty = GUN_OHP_HEAVY_PISTOL
 	max_darts = 4
 
 /obj/item/gun/launcher/foam/revolver
@@ -77,7 +77,7 @@
 	icon_state = "revolver"
 	w_class = ITEM_SIZE_NORMAL
 	fire_delay = 4
-	one_hand_penalty = 1
+	one_hand_penalty = GUN_OHP_HEAVY_PISTOL
 	max_darts = 6
 
 /obj/item/gun/launcher/foam/revolving/tampered

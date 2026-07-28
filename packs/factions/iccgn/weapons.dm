@@ -65,7 +65,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/rifle)
 
 	fire_delay = 8
-	one_hand_penalty = 8
+	one_hand_penalty = GUN_OHP_HEAVY_RIFLE
 	scoped_accuracy = 8
 	scope_zoom = 1
 	accuracy_power = 8
@@ -101,7 +101,7 @@
 
 	magazine_type = /obj/item/ammo_magazine/machine_pistol
 	allowed_magazines = list(/obj/item/ammo_magazine/machine_pistol) // More damage compared to the wt550, smaller mag size.
-	one_hand_penalty = 2
+	one_hand_penalty = GUN_OHP_HEAVY_PISTOL
 	burst_delay = 1
 
 	firemodes = list(
@@ -155,7 +155,7 @@
 
 	magazine_type = /obj/item/ammo_magazine/shotgunmag
 	allowed_magazines = list(/obj/item/ammo_magazine/shotgunmag)
-	one_hand_penalty = 8
+	one_hand_penalty = GUN_OHP_HEAVY_RIFLE
 	burst_delay = 2
 	accuracy = -1
 	jam_chance = 0.2

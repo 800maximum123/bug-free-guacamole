@@ -27,13 +27,16 @@
 	item_state = "darkcannon"
 	w_class = ITEM_SIZE_LARGE
 	projectile_type = /obj/item/projectile/beam/stun/darkmatter
-	one_hand_penalty = 2 //a little bulky
+	one_hand_penalty = GUN_OHP_HEAVY_PISTOL
 	self_recharge = 1
 	firemodes = list(
 		list(mode_name="stunning", burst=1, fire_delay=null, move_delay=null, burst_accuracy=list(30), dispersion=null, projectile_type=/obj/item/projectile/beam/stun/darkmatter, charge_cost = 50),
 		list(mode_name="focused", burst=1, fire_delay=null, move_delay=null, burst_accuracy=list(30), dispersion=null, projectile_type=/obj/item/projectile/beam/darkmatter, charge_cost = 75),
 		list(mode_name="scatter burst", burst=8, fire_delay=null, move_delay=4, burst_accuracy=list(0, 0, 0, 0, 0, 0, 0, 0), dispersion=list(0, 1, 2, 2, 3, 3, 3, 3, 3), projectile_type=/obj/item/projectile/energy/darkmatter, charge_cost = 10),
 		)
+
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_big.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_big.ogg'
 
 /obj/item/gun/energy/darkmatter/Initialize()
 	. = ..()
@@ -49,7 +52,7 @@
 	icon_state = "noise"
 	item_state = "noise"
 	w_class = ITEM_SIZE_LARGE
-	one_hand_penalty = 1
+	one_hand_penalty = GUN_OHP_PISTOL
 	self_recharge = 1
 	recharge_time = 10
 	fire_delay = 15
@@ -58,6 +61,9 @@
 		list(mode_name="normal", projectile_type=/obj/item/projectile/energy/plasmastun/sonic/weak, charge_cost = 50),
 		list(mode_name="overcharge", projectile_type=/obj/item/projectile/energy/plasmastun/sonic/strong, charge_cost = 200),
 		)
+
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_big.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_big.ogg'
 
 /obj/item/gun/energy/sonic/Initialize()
 	. = ..()

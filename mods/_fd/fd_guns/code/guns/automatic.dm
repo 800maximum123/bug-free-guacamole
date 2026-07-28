@@ -20,9 +20,9 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/rifle/fleet
 	allowed_magazines = list(/obj/item/ammo_magazine/rifle/fleet)
-	one_hand_penalty = 6
+	one_hand_penalty = GUN_OHP_RIFLE
 	accuracy = 1
-	bulk = GUN_BULK_LIGHT_RIFLE-1
+	bulk = GUN_BULK_HEAVY_PISTOL
 	wielded_item_state = "automat4"
 	mag_insert_sound = 'sound/weapons/guns/interaction/ltrifle_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/ltrifle_magout.ogg'
@@ -57,7 +57,7 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/rifle/army
 	allowed_magazines = list(/obj/item/ammo_magazine/rifle/army)
-	one_hand_penalty = 6
+	one_hand_penalty = GUN_OHP_RIFLE
 	accuracy = 1
 	accuracy_power = 10
 	bulk = GUN_BULK_RIFLE
@@ -98,8 +98,8 @@
 	magazine_type = /obj/item/ammo_magazine/smg/scg
 	allowed_magazines = list(/obj/item/ammo_magazine/smg/scg)
 	accuracy = 1
-	one_hand_penalty = 3
-	bulk = 3
+	one_hand_penalty = GUN_OHP_LIGHT_RIFLE
+	bulk = GUN_BULK_HEAVY_PISTOL
 
 	firemodes = list(
 		list(mode_name="fuller auto",       burst=1, can_autofire=1, fire_delay=1,    move_delay=null, one_hand_penalty=5, burst_accuracy=list(1,0,0,-1,-1,-1,-3,-3), dispersion=list(0, 0.5, 1.0, 1.5, 2, 3)),
@@ -136,9 +136,9 @@
 	far_fire_sound = 'sound/weapons/gunshot/smg/shot_far.ogg'
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
-	bulk = 0
+	bulk = GUN_BULK_PISTOL
 	accuracy = 2
-	one_hand_penalty = 4
+	one_hand_penalty = GUN_OHP_LIGHT_RIFLE
 	firemodes = list(
 		list(mode_name = "semiauto", burst=1, fire_delay=0, move_delay=null, dispersion=(0.5), burst_accuracy=2),
 		list(mode_name = "3-round bursts", burst=3, fire_delay=null, move_delay=2, burst_accuracy=list(1,1, 0, 0), dispersion=list(0.4, 0.6, 0.8)),
@@ -177,9 +177,9 @@
 	magazine_type = /obj/item/ammo_magazine/rifle/iccgn
 	allowed_magazines = list(/obj/item/ammo_magazine/rifle/iccgn)
 	accuracy = 1
-	one_hand_penalty = 4
+	one_hand_penalty = GUN_OHP_LIGHT_RIFLE
 	caliber = CALIBER_RIFLE
-	bulk = GUN_BULK_RIFLE-1
+	bulk = GUN_BULK_LIGHT_RIFLE
 	wielded_item_state = "gautomatic2"
 	firemodes = list(
 		list(mode_name = "semiauto", burst=1, fire_delay=0, move_delay=null, dispersion=list(0.6, 0.8, 1.0)),
@@ -210,7 +210,7 @@
 	magazine_type = /obj/item/ammo_magazine/rifle/precise
 	allowed_magazines = list(/obj/item/ammo_magazine/rifle/precise)
 	accuracy = 3
-	one_hand_penalty = 7
+	one_hand_penalty = GUN_OHP_HEAVY_RIFLE
 	bulk = GUN_BULK_RIFLE
 	wielded_item_state = "gautomatic1"
 	firemodes = list(
@@ -250,9 +250,9 @@
 	magazine_type = /obj/item/ammo_magazine/rifle/bolter
 	allowed_magazines = list(/obj/item/ammo_magazine/rifle/bolter)
 	accuracy = 0
-	one_hand_penalty = 10
+	one_hand_penalty = GUN_OHP_MACHINE_GUN
 	screen_shake = 0
-	bulk = GUN_BULK_RIFLE + 2
+	bulk = GUN_BULK_HEAVY_RIFLE
 	wielded_item_state = "gsmg3"
 	firemodes = list(
 			list(mode_name="3-round bursts", burst=3, fire_delay=4, move_delay=6, accuracy=-3, dispersion=list(3.0, 4.0, 5.0)),
@@ -302,10 +302,10 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/smg/iccgn
 	allowed_magazines = list(/obj/item/ammo_magazine/smg/iccgn)
-	one_hand_penalty = 4
+	one_hand_penalty = GUN_OHP_LIGHT_RIFLE
 	accuracy = 1
 	wielded_item_state = "gsmg4"
-	bulk = 3
+	bulk = GUN_BULK_HEAVY_PISTOL
 	firemodes = list(
 		list(mode_name = "semiauto", burst=1, fire_delay=0, move_delay=null, dispersion=(1.0)),
 		list(mode_name = "3-round bursts", burst=3, fire_delay=null, move_delay=2, burst_accuracy=list(1,1, 0, 0), dispersion=list(1.4, 1.6, 1.8)),

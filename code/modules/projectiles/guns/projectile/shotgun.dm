@@ -34,7 +34,7 @@
 	hold_open = FALSE
 
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
-	one_hand_penalty = 8
+	one_hand_penalty = GUN_OHP_HEAVY_RIFLE
 	max_shells = 4
 
 
@@ -145,7 +145,7 @@
 
 	force = 5
 	max_shells = 4
-	one_hand_penalty = 4
+	one_hand_penalty = GUN_OHP_LIGHT_RIFLE
 	accuracy = -1
 
 	client_recoil_animation_information = list(
@@ -164,7 +164,7 @@
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 
 	ammo_type = /obj/item/ammo_casing/shotgun
-	one_hand_penalty = 8
+	one_hand_penalty = GUN_OHP_HEAVY_RIFLE
 	max_shells = 7 // Match the ammo box capacity, also it can hold a round in the chamber anyways, for a total of 8.
 	rackdelay = 5 // Faster to cycle.
 
@@ -201,7 +201,7 @@
 	allow_dump = TRUE
 
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
-	one_hand_penalty = 8
+	one_hand_penalty = GUN_OHP_HEAVY_RIFLE
 	max_shells = 2
 	burst_delay = 0
 
@@ -289,11 +289,11 @@
 
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	w_class = ITEM_SIZE_NORMAL
-	bulk = GUN_BULK_LIGHT_RIFLE - 2
+	bulk = GUN_BULK_HEAVY_PISTOL
 
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 	force = 5
-	one_hand_penalty = 4
+	one_hand_penalty = GUN_OHP_LIGHT_RIFLE
 	accuracy = -1
 
 	client_recoil_animation_information = list(

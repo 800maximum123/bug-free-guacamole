@@ -11,6 +11,10 @@
 	fire_delay = 1
 	fire_sound = 'sound/weapons/gunshot/money_launcher.ogg'
 	far_fire_sound = 'sound/weapons/gunshot/money_launcher_far.ogg'
+
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_small.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_small.ogg'
+
 	var/emagged = FALSE
 	var/max_capacity = 2000
 

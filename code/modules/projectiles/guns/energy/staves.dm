@@ -15,6 +15,10 @@
 	origin_tech = null
 	self_recharge = 1
 	charge_meter = 0
+
+	steadying_sound = 'sound/effects/psi/power_unlock.ogg'
+	unsteadying_sound = 'sound/effects/psi/power_used.ogg'
+
 	var/required_antag_type = MODE_WIZARD
 
 /obj/item/gun/energy/staff/special_check(mob/user)

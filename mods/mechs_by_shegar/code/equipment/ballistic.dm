@@ -52,7 +52,7 @@
 	bulk = GUN_BULK_RIFLE
 	caliber = CALIBER_RIFLE
 	w_class = ITEM_SIZE_HUGE
-	one_hand_penalty= 0
+	one_hand_penalty = GUN_OHP_MOUNTED
 	load_method = SINGLE_CASING|SPEEDLOADER
 	max_shells = 200
 	ammo_type = /obj/item/ammo_casing/rifle
@@ -93,7 +93,7 @@
 	bulk = GUN_BULK_RIFLE
 	w_class = ITEM_SIZE_HUGE
 	caliber = CALIBER_PISTOL_FLECHETTE
-	one_hand_penalty= 0
+	one_hand_penalty = GUN_OHP_MOUNTED
 	load_method = SINGLE_CASING|SPEEDLOADER
 	max_shells = 100
 	ammo_type = /obj/item/ammo_casing/flechette/mech
@@ -144,7 +144,7 @@
 	accuracy = -1
 	bulk = GUN_BULK_RIFLE
 	w_class = ITEM_SIZE_HUGE
-	one_hand_penalty= 0
+	one_hand_penalty = GUN_OHP_MOUNTED
 	caliber = CALIBER_SHOTGUN
 	load_method = SINGLE_CASING|SPEEDLOADER
 	max_shells = 50

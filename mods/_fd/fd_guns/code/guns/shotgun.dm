@@ -15,7 +15,7 @@
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	max_shells = 11
 	ammo_type = /obj/item/ammo_casing/shotgun
-	one_hand_penalty = 8
+	one_hand_penalty = GUN_OHP_HEAVY_RIFLE
 
 /obj/item/gun/projectile/automatic/shotgun/scg
 	name = "assault shotgun"
@@ -64,7 +64,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/shotgun/iccgn)
 	bulk = GUN_BULK_RIFLE
 	accuracy = 0
-	one_hand_penalty=5
+	one_hand_penalty = GUN_OHP_RIFLE
 	dispersion = list(1.0, 1.3, 1.6)
 	firemodes = list(
 			list(mode_name = "semiauto", burst=1, fire_delay=0, move_delay=null),

@@ -132,7 +132,7 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/rifle
 	allowed_magazines = list(/obj/item/ammo_magazine/rifle)
-	bulk = GUN_BULK_RIFLE + 1
+	bulk = GUN_BULK_HEAVY_RIFLE
 	mag_insert_sound = 'sound/weapons/guns/interaction/ltrifle_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/ltrifle_magout.ogg'
 
@@ -167,7 +167,7 @@
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = ITEM_SIZE_LARGE
 	force = 10
-	one_hand_penalty = 2
+	one_hand_penalty = GUN_OHP_LIGHT_RIFLE
 	fire_delay = 6
 	burst_delay = 2
 	max_shots = 30
@@ -221,7 +221,7 @@
 		slot_l_hand_str = 'mods/_maps/farfleet/icons/mob/lefthand.dmi',
 		)
 	fire_delay = 40
-	one_hand_penalty = 0
+	one_hand_penalty = GUN_OHP_PISTOL
 	charge_cost = 40
 	max_shots = 5
 

@@ -8,7 +8,10 @@
 
 	w_class = ITEM_SIZE_HUGE
 	slot_flags = SLOT_BACK
-	bulk = GUN_BULK_RIFLE + 3
+	bulk = GUN_BULK_ANTI_TANK
+
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_big.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_big.ogg'
 
 	client_recoil_animation_information = list(
 		"strength" = 1,
@@ -70,7 +73,7 @@
 	projectile_type = /obj/item/projectile/bullet/magnetic/slug
 	load_type = /obj/item/rcd_ammo
 	loaded = /obj/item/rcd_ammo/large // ~30 shots
-	one_hand_penalty = 6
+	one_hand_penalty = GUN_OHP_RIFLE
 	power_cost = 300
 	fire_delay = 35
 	gun_unreliable = 0
@@ -144,7 +147,7 @@
 	load_type = /obj/item/magnetic_ammo
 	projectile_type = /obj/item/projectile/bullet/magnetic/flechette
 	loaded = /obj/item/magnetic_ammo
-	one_hand_penalty = 2
+	one_hand_penalty = GUN_OHP_LIGHT_RIFLE
 	fire_delay = 8
 	power_cost = 100
 
@@ -175,7 +178,7 @@
 	load_type = /obj/item/magnetic_ammo/skrell
 	loaded = /obj/item/magnetic_ammo/skrell/slug
 	projectile_type = /obj/item/projectile/bullet/magnetic/slug
-	one_hand_penalty = 3
+	one_hand_penalty = GUN_OHP_LIGHT_RIFLE
 	fire_delay = 10
 	slowdown_held = 1
 	power_cost = 100

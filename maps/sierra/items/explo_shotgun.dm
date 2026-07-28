@@ -44,7 +44,7 @@
 		to_chat(user, SPAN_WARNING("You reinforce \the [src] with \the [reinforced]."))
 		playsound(src, 'sound/effects/tape.ogg',25)
 		explosion_chance = 10
-		bulk = bulk + 4
+		bulk = GUN_BULK_MACHINEGUN
 		update_icon()
 		return TRUE
 	if(reinforced && isWirecutter(tool))

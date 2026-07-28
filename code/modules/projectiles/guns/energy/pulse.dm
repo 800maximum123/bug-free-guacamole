@@ -9,7 +9,7 @@
 	projectile_type = /obj/item/projectile/beam/pulse/heavy
 	max_shots = 36
 	w_class = ITEM_SIZE_HUGE
-	one_hand_penalty= 6
+	one_hand_penalty = GUN_OHP_RIFLE
 	multi_aim = TRUE
 	burst_delay = 3
 	burst = 3
@@ -17,6 +17,9 @@
 	accuracy = 1
 	wielded_item_state = "gun_wielded"
 	bulk = GUN_BULK_RIFLE
+
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_big.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_big.ogg'
 
 /obj/item/gun/energy/pulse_rifle/carbine
 	name = "pulse carbine"
@@ -28,11 +31,14 @@
 	projectile_type = /obj/item/projectile/beam/pulse/mid
 	max_shots = 24
 	w_class = ITEM_SIZE_LARGE
-	one_hand_penalty= 3
+	one_hand_penalty = GUN_OHP_LIGHT_RIFLE
 	burst_delay = 2
 	move_delay = 2
-	bulk = GUN_BULK_RIFLE - 3
+	bulk = GUN_BULK_LIGHT_RIFLE
 	accuracy = 0
+
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_medium.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_medium.ogg'
 
 /obj/item/gun/energy/pulse_rifle/pistol
 	name = "pulse pistol"
@@ -44,12 +50,15 @@
 	projectile_type = /obj/item/projectile/beam/pulse
 	max_shots = 21
 	w_class = ITEM_SIZE_NORMAL
-	one_hand_penalty=1 //a bit heavy
+	one_hand_penalty = GUN_OHP_PISTOL
 	burst_delay = 1
 	move_delay = 1
 	wielded_item_state = null
-	bulk = 0
+	bulk = GUN_BULK_PISTOL
 	accuracy = 0
+
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_small.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_small.ogg'
 
 /obj/item/gun/energy/pulse_rifle/mounted
 	self_recharge = 1
@@ -79,7 +88,7 @@
 	move_delay = 2
 	projectile_type=/obj/item/projectile/beam/pulse/skrell/single
 	charge_cost=120
-	one_hand_penalty = 3
+	one_hand_penalty = GUN_OHP_LIGHT_RIFLE
 	burst=1
 	burst_delay=null
 	wielded_item_state = "skrell_carbine-wielded"

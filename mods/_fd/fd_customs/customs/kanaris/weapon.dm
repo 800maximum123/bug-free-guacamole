@@ -15,7 +15,7 @@
 	accuracy = 0
 	force = 15
 	screen_shake = 0
-	one_hand_penalty = 4
+	one_hand_penalty = GUN_OHP_LIGHT_RIFLE
 	battery_changable = TRUE
 	cell_type = /obj/item/cell/guncell/lasgun
 	charge_cost = 200

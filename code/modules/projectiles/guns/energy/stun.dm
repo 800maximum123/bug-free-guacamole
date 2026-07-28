@@ -13,6 +13,9 @@
 		list(mode_name="shock", projectile_type=/obj/item/projectile/beam/stun/shock),
 		)
 
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_small.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_small.ogg'
+
 /obj/item/gun/energy/taser/carbine
 	name = "electrolaser carbine"
 	desc = "The NT Mk44 NL is a high capacity gun used for non-lethal takedowns. It can switch between high and low intensity stun shots."
@@ -20,7 +23,7 @@
 	icon_state = "tasercarbine"
 	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BELT|SLOT_BACK
-	one_hand_penalty = 3
+	one_hand_penalty = GUN_OHP_LIGHT_RIFLE
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
 	force = 8
 	max_shots = 12
@@ -32,6 +35,9 @@
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun/heavy),
 		list(mode_name="shock", projectile_type=/obj/item/projectile/beam/stun/shock/heavy),
 		)
+
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_medium.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_medium.ogg'
 
 /obj/item/gun/energy/taser/mounted
 	name = "mounted electrolaser"
@@ -56,6 +62,9 @@
 	max_shots = 6
 	combustion = FALSE
 
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_small.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_small.ogg'
+
 /obj/item/gun/energy/stunrevolver/rifle
 	name = "stun rifle"
 	desc = "An A&M X10 Thor. A vastly oversized variant of the A&M X6 Zeus. Fires overcharged electrodes to obliterate pain receptors without harming them too much."
@@ -64,13 +73,16 @@
 	item_state = "stunrifle"
 	w_class = ITEM_SIZE_HUGE
 	slot_flags = SLOT_BACK
-	one_hand_penalty = 6
+	one_hand_penalty = GUN_OHP_RIFLE
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
 	force = 10
 	max_shots = 10
 	accuracy = 1
 	projectile_type = /obj/item/projectile/energy/electrode/stunshot
 	wielded_item_state = "stunrifle-wielded"
+
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_medium.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_medium.ogg'
 
 /obj/item/gun/energy/crossbow
 	name = "mini energy crossbow"
@@ -90,6 +102,9 @@
 	charge_meter = 0
 	combustion = FALSE
 
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_small.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_small.ogg'
+
 /obj/item/gun/energy/crossbow/ninja
 	name = "energy dart thrower"
 	projectile_type = /obj/item/projectile/energy/dart
@@ -104,9 +119,12 @@
 	desc = "A weapon favored by mercenary infiltration teams."
 	w_class = ITEM_SIZE_LARGE
 	force = 10
-	one_hand_penalty = 1
+	one_hand_penalty = GUN_OHP_HEAVY_PISTOL
 	matter = list(MATERIAL_STEEL = 200000)
 	projectile_type = /obj/item/projectile/energy/bolt/large
+
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_medium.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_medium.ogg'
 
 /obj/item/gun/energy/plasmastun
 	name = "plasma pulse projector"
@@ -131,3 +149,6 @@
 	max_shots = 4
 	projectile_type = /obj/item/projectile/beam/confuseray
 	combustion = FALSE
+
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_small.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_small.ogg'

@@ -8,7 +8,7 @@
 	self_recharge = TRUE
 	use_external_power = TRUE
 	has_safety = FALSE
-	one_hand_penalty= 0
+	one_hand_penalty = GUN_OHP_MOUNTED
 
 /obj/item/gun/energy/machingegun/mounted/mech
 	name = "mech machingegun"
@@ -27,7 +27,7 @@
 	accuracy = -1
 	bulk = GUN_BULK_RIFLE
 	w_class = ITEM_SIZE_HUGE
-	one_hand_penalty = 0
+	one_hand_penalty = GUN_OHP_MOUNTED
 
 	charge_cost = 7.5
 	self_recharge = TRUE

@@ -15,8 +15,8 @@
 	load_method = SINGLE_CASING
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 	handle_casings = EJECT_CASINGS
-	one_hand_penalty = 8
-	bulk = 6
+	one_hand_penalty = GUN_OHP_HEAVY_RIFLE
+	bulk = GUN_BULK_HEAVY_RIFLE
 	var/semiauto = TRUE
 	var/low_power_casings = list(/obj/item/ammo_casing/shotgun/beanbag, /obj/item/ammo_casing/shotgun/blank, /obj/item/ammo_casing/shotgun/stunshell, /obj/item/ammo_casing/shotgun/flash)
 	var/mode_icon = "rammer-mode"

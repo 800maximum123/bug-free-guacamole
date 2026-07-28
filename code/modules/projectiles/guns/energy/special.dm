@@ -9,7 +9,7 @@
 	force = 10
 	obj_flags =  OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BACK
-	one_hand_penalty = 4
+	one_hand_penalty = GUN_OHP_LIGHT_RIFLE
 	charge_cost = 60
 	max_shots = 5
 	fire_delay = 60
@@ -27,17 +27,20 @@
 	w_class = ITEM_SIZE_NORMAL
 	force = 5
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	one_hand_penalty = 0
+	one_hand_penalty = GUN_OHP_PISTOL
 	charge_cost = 40
 	max_shots = 3
 	fire_delay = 30
 	projectile_type = /obj/item/projectile/ion/small
 
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_small.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_small.ogg'
+
 /obj/item/gun/energy/ionrifle/mounted
 	name = "mounted ion gun"
 	desc = "You should not see this. Call a developer."
 	fire_delay = 30
-	one_hand_penalty = 0
+	one_hand_penalty = GUN_OHP_MOUNTED
 	self_recharge = TRUE
 	use_external_power = TRUE
 	has_safety = FALSE
@@ -53,6 +56,9 @@
 	projectile_type = /obj/item/projectile/energy/declone
 	combustion = FALSE
 
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_small.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_small.ogg'
+
 /obj/item/gun/energy/floragun
 	name = "floral somatoray"
 	desc = "A tool that discharges controlled radiation which induces mutation in plant cells."
@@ -67,6 +73,9 @@
 	self_recharge = 1
 	var/singleton/plantgene/gene = null
 	combustion = FALSE
+
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_small.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_small.ogg'
 
 	firemodes = list(
 		list(mode_name="induce mutations", projectile_type=/obj/item/projectile/energy/floramut, modifystate="floramut"),
@@ -145,6 +154,9 @@
 	origin_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
 	projectile_type = /obj/item/projectile/energy/phoron
 
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_small.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_small.ogg'
+
 /obj/item/gun/energy/plasmacutter
 	name = "plasma cutter"
 	desc = "An industrial tool that expels focused plasma bursts for deconstruction and mining."
@@ -163,6 +175,9 @@
 	max_shots = 10
 	self_recharge = 1
 	var/datum/effect/spark_spread/spark_system
+
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_small.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_small.ogg'
 
 	// As an industrial tool the plasma cutter's safety training falls under construction.
 	gun_skill = SKILL_CONSTRUCTION

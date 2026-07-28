@@ -7,7 +7,7 @@
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = ITEM_SIZE_LARGE
 	force = 10
-	one_hand_penalty = 2
+	one_hand_penalty = GUN_OHP_LIGHT_RIFLE
 	bulk = GUN_BULK_RIFLE
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(MATERIAL_STEEL = 2000)
@@ -17,7 +17,7 @@
 /obj/item/gun/energy/laser/mounted
 	self_recharge = 1
 	use_external_power = 1
-	one_hand_penalty = 0 //just in case
+	one_hand_penalty = GUN_OHP_MOUNTED
 	has_safety = FALSE
 
 /obj/item/gun/energy/laser/practice
@@ -60,6 +60,9 @@
 	projectile_type = /obj/item/projectile/beam
 	fire_delay = 15 //old technology, and a pistol
 
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_small.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_small.ogg'
+
 /obj/item/gun/energy/captain
 	name = "antique laser gun"
 	icon = 'icons/obj/guns/caplaser.dmi'
@@ -72,8 +75,11 @@
 	projectile_type = /obj/item/projectile/beam
 	origin_tech = null
 	max_shots = 5 //to compensate a bit for self-recharging
-	one_hand_penalty = 1 //a little bulky
+	one_hand_penalty = GUN_OHP_HEAVY_PISTOL
 	self_recharge = 1
+
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_small.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_small.ogg'
 
 /obj/item/gun/energy/lasercannon
 	name = "laser cannon"
@@ -83,7 +89,7 @@
 	item_state = null
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
 	slot_flags = SLOT_BELT|SLOT_BACK
-	one_hand_penalty = 6 //large and heavy
+	one_hand_penalty = GUN_OHP_RIFLE
 	w_class = ITEM_SIZE_HUGE
 	projectile_type = /obj/item/projectile/beam/heavylaser
 	charge_cost = 40
@@ -92,13 +98,16 @@
 	fire_delay = 20
 	wielded_item_state = "gun_wielded"
 
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_big.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_big.ogg'
+
 /obj/item/gun/energy/lasercannon/mounted
 	name = "mounted laser cannon"
 	self_recharge = 1
 	use_external_power = 1
 	recharge_time = 10
 	accuracy = 0 //mounted laser cannons don't need any help, thanks
-	one_hand_penalty = 0
+	one_hand_penalty = GUN_OHP_MOUNTED
 	has_safety = FALSE
 
 /obj/item/gun/energy/xray
@@ -110,7 +119,7 @@
 	slot_flags = SLOT_BELT|SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ESOTERIC = 2)
 	projectile_type = /obj/item/projectile/beam/xray/midlaser
-	one_hand_penalty = 2
+	one_hand_penalty = GUN_OHP_LIGHT_RIFLE
 	w_class = ITEM_SIZE_LARGE
 	charge_cost = 15
 	max_shots = 10
@@ -125,9 +134,12 @@
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ESOTERIC = 2)
 	projectile_type = /obj/item/projectile/beam/xray
-	one_hand_penalty = 1
+	one_hand_penalty = GUN_OHP_HEAVY_PISTOL
 	w_class = ITEM_SIZE_NORMAL
 	fire_delay = 10
+
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_small.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_small.ogg'
 
 /obj/item/gun/energy/sniperrifle
 	name = "marksman energy rifle"
@@ -137,7 +149,7 @@
 	item_state = "laser"
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 5, TECH_POWER = 4)
 	projectile_type = /obj/item/projectile/beam/sniper
-	one_hand_penalty = 5 // The weapon itself is heavy, and the long barrel makes it hard to hold steady with just one hand.
+	one_hand_penalty = GUN_OHP_RIFLE
 	slot_flags = SLOT_BACK
 	charge_cost = 40
 	max_shots = 8

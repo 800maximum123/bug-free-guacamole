@@ -58,7 +58,6 @@
 	/// Delay for click-racking. Scales with level. Generally used for shotguns/boltloaders.
 	var/autorackdelay = 1
 	var/racksound = 'sound/weapons/flipblade.ogg'
-	var/selectorsound = 'sound/weapons/empty.ogg'
 	/// Whether a gun with multiple chambers can dump all its rounds at once (e.g a revolver)
 	var/allow_dump = FALSE
 
@@ -567,7 +566,7 @@
 /obj/item/gun/projectile/use_before(atom/target, mob/living/user, click_parameters)
 	if (istype(target, /obj/item/ammo_magazine) && target.loc == user)
 		if (user.skill_check(SKILL_WEAPONS, SKILL_MASTER))
-			if (one_hand_penalty < 3)
+			if (one_hand_penalty < GUN_OHP_LIGHT_RIFLE)
 				return load_ammo(target, user)
 	return ..()
 

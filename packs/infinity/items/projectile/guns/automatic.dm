@@ -25,9 +25,9 @@
 		list(mode_name="short bursts",   burst=4, fire_delay=null,      one_hand_penalty=4, burst_accuracy=list(0,-1,-1.5,-2), dispersion=list(0.6, 0.8, 1.0, 1.4)),
 	)
 
-	bulk = GUN_BULK_CARABINE
+	bulk = GUN_BULK_LIGHT_PISTOL
 	w_class = ITEM_SIZE_NORMAL
-	one_hand_penalty = 2
+	one_hand_penalty = GUN_OHP_HEAVY_PISTOL
 
 /obj/item/gun/projectile/automatic/nt41/on_update_icon()
 	..()

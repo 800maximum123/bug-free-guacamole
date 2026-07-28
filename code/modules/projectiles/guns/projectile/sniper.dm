@@ -26,16 +26,18 @@
 	wielded_item_state = "heavysniper-wielded" //sort of placeholder
 
 	load_sound = 'sound/weapons/guns/interaction/rifle_load.ogg'
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_big.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_big.ogg'
 
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 2, TECH_ESOTERIC = 8)
 	caliber = CALIBER_ANTIMATERIAL
-	bulk = GUN_BULK_HEAVY_RIFLE + 2
+	bulk = GUN_BULK_ANTI_TANK
 	hold_open = FALSE
 
 	ammo_type = /obj/item/ammo_casing/shell
 	screen_shake = 1 //extra kickback
 	max_shells = 1
-	one_hand_penalty = 6
+	one_hand_penalty = GUN_OHP_ANTI_TANK
 	accuracy = -2
 	scoped_accuracy = 8 //increased accuracy over the LWAP because only one shot
 	scope_zoom = 2
@@ -201,7 +203,7 @@
 
 	magazine_type = /obj/item/ammo_magazine/iclipr
 	allowed_magazines = list(/obj/item/ammo_magazine/iclipr)
-	one_hand_penalty = 9
+	one_hand_penalty = GUN_OHP_HEAVY_RIFLE
 	accuracy_power = 5
 	accuracy = 2
 
@@ -247,6 +249,6 @@
 
 	ammo_type = /obj/item/ammo_casing/pistol/magnum
 	fire_delay = 2
-	one_hand_penalty = 8
+	one_hand_penalty = GUN_OHP_HEAVY_RIFLE
 	max_shells = 10
 	accuracy = 1

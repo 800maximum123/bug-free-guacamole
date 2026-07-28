@@ -15,9 +15,9 @@
 	caliber = CALIBER_PISTOL_MAGNUM
 	force = 9
 	fire_delay = 12
-	bulk = 4
+	bulk = GUN_BULK_HEAVY_PISTOL
 	accuracy = 1
-	one_hand_penalty = 4
+	one_hand_penalty = GUN_OHP_HEAVY_PISTOL
 
 /obj/item/gun/projectile/pistol/scg/on_update_icon()
 	..()
@@ -49,7 +49,7 @@
 	silenced = 1
 	fire_delay = 4
 	accuracy = 2
-	one_hand_penalty = 3
+	one_hand_penalty = GUN_OHP_HEAVY_PISTOL
 
 /obj/item/gun/projectile/pistol/scg/assasin/on_update_icon()
 	..()
@@ -76,7 +76,7 @@
 	accuracy = 1
 	fire_delay = 6
 	move_delay = 2
-	one_hand_penalty = 4
+	one_hand_penalty = GUN_OHP_HEAVY_PISTOL
 	ammo_indicator = TRUE
 
 /obj/item/gun/projectile/pistol/iccgn/on_update_icon()
@@ -109,7 +109,7 @@
 	accuracy = 0
 	can_autofire=1
 	fire_delay=2
-	one_hand_penalty=4
+	one_hand_penalty = GUN_OHP_HEAVY_PISTOL
 	firemodes = list(
 		list(mode_name = "full auto", can_autofire=1, fire_delay=2, one_hand_penalty=4, dispersion=list(1.0, 1.4, 1.8))
 	)

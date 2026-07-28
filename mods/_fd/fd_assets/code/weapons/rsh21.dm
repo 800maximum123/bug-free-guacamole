@@ -9,7 +9,7 @@
 	desc = "A modern assault revolver that has been adapted for firing at medium and long distances. The RS12 is its direct predecessor, but in comparison with it it has a lower recoil, a larger drum for 6 rounds, and a built-in gyro stabilizer. It has two mounting straps on the bottom and top."
 	accuracy = 1
 	fire_delay = 3
-	one_hand_penalty = 4
+	one_hand_penalty = GUN_OHP_HEAVY_PISTOL
 	max_shells = 6 //original rsh12 have only 5
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3)
 

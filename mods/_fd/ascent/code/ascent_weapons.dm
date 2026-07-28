@@ -32,9 +32,9 @@
 	)
 	var/charge_state = "pr"
 
-	bulk = GUN_BULK_RIFLE //inf
+	bulk = GUN_BULK_ANTI_TANK //inf
 	w_class = ITEM_SIZE_HUGE
-	one_hand_penalty = 6
+	one_hand_penalty = GUN_OHP_RIFLE
 
 /obj/item/gun/energy/particle/special_check(mob/living/carbon/human/user)
 	. = ..()
@@ -111,7 +111,7 @@
 /obj/item/gun/energy/particle/flechette
 	name = "crystal flechette rifle"
 	desc = "A viscious looking rifle decorated with a growth of sharp purple crystals."
-	one_hand_penalty = 6
+	one_hand_penalty = GUN_OHP_RIFLE
 	burst = 1
 	projectile_type = /obj/item/projectile/bullet/magnetic/flechette
 	firemodes = list(list(projectile_type=/obj/item/projectile/bullet/magnetic/flechette))

@@ -20,7 +20,7 @@
 	load_method = SINGLE_CASING
 	max_shells = 2
 	ammo_type = /obj/item/ammo_casing/scg/shell
-	one_hand_penalty = 6
+	one_hand_penalty = GUN_OHP_RIFLE
 	accuracy = -2
 	bulk = GUN_BULK_ANTI_TANK
 	scoped_accuracy = 8
@@ -51,10 +51,10 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/sniper/scg)
 	accuracy = -1
 	fire_delay = 6
-	one_hand_penalty = 8
+	one_hand_penalty = GUN_OHP_HEAVY_RIFLE
 	scoped_accuracy = 4
 	scope_zoom = 1.5
-	bulk = GUN_BULK_RIFLE + 1
+	bulk = GUN_BULK_HEAVY_RIFLE
 	wielded_item_state = "sniperrifle2"
 	mag_insert_sound = 'sound/weapons/guns/interaction/ltrifle_magin.ogg'
 
@@ -85,9 +85,9 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/sniper/iccgn
 	allowed_magazines = list(/obj/item/ammo_magazine/sniper/iccgn)
-	one_hand_penalty = 6
+	one_hand_penalty = GUN_OHP_RIFLE
 	accuracy = -2
-	bulk = 10
+	bulk = GUN_BULK_ANTI_TANK
 	scoped_accuracy = 8
 	scope_zoom = 2.5
 	wielded_item_state = "gsniperrifle4"
@@ -125,9 +125,9 @@
 	accuracy = -1
 	fire_delay = 6
 	max_shells = 16
-	one_hand_penalty = 8
+	one_hand_penalty = GUN_OHP_HEAVY_RIFLE
 	scoped_accuracy = 4
 	scope_zoom = 1.5
-	bulk = GUN_BULK_RIFLE + 1
+	bulk = GUN_BULK_HEAVY_RIFLE
 	wielded_item_state = "gsniperrifle3"
 	mag_insert_sound = 'sound/weapons/guns/interaction/ltrifle_magin.ogg'

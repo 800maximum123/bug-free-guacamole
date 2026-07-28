@@ -20,7 +20,7 @@
 	caliber = CALIBER_SHOTGUN
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
-	one_hand_penalty = 16
+	one_hand_penalty = GUN_OHP_ANTI_TANK
 	wielded_item_state = "Shotham"
 
 	burst_delay = 0

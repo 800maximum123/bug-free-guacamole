@@ -106,7 +106,7 @@
 	/// Increase of to-hit chance per 1 point of accuracy.
 	var/accuracy_power = 5
 	/// How unwieldy this weapon for its size, affects accuracy when fired without aiming.
-	var/bulk = 0
+	var/bulk = GUN_BULK_PISTOL
 	/// Time when hand gun's in became active, for purposes of aiming bonuses.
 	var/last_handled
 	/// Accuracy used when zoomed in a scope. Not additive.
@@ -116,7 +116,7 @@
 	/// Allows for different accuracies for each shot in a burst. Applied on top of accuracy.
 	var/list/burst_accuracy = list(0)
 	var/list/dispersion = list(0)
-	var/one_hand_penalty = 0
+	var/one_hand_penalty = GUN_OHP_PISTOL
 	var/wielded_item_state
 	/// Whether it creates hotspot when fired.
 	var/combustion
@@ -153,8 +153,18 @@
 	/// Overlay to apply to gun based on safety state, if any.
 	var/safety_icon
 
-	/// Crosshair icon
-	var/crosshair_icon = 'icons/crosshairs/crosshair.dmi'
+	/// What state our accuracy is in right now? Used for telegraphing
+	var/accuracy_state
+	/// Path to the crosshair icon for accuracy_state 1
+	var/crosshair1_icon = 'icons/crosshairs/basic/accuracy1.dmi'
+	/// Path to the crosshair icon for accuracy_state 2
+	var/crosshair2_icon = 'icons/crosshairs/basic/accuracy2.dmi'
+	/// Path to the crosshair icon for accuracy_state 3
+	var/crosshair3_icon = 'icons/crosshairs/basic/accuracy3.dmi'
+	/// Sound of steadying aim
+	var/steadying_sound = 'sound/weapons/guns/steadying/steadying_medium.ogg'
+	/// Sound of unsteadying aim
+	var/unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_medium.ogg'
 
 	/// What skill governs safe handling of this gun. Basic skill level and higher will also show the safety overlay to the player.
 	var/gun_skill = SKILL_WEAPONS
@@ -191,6 +201,10 @@
 	if (foldable)
 		verbs += /obj/item/gun/proc/stock
 
+/obj/item/gun/Destroy()
+	STOP_PROCESSING(SSobj, src)
+	. = ..()
+
 /obj/item/gun/on_update_icon()
 	var/mob/living/M = loc
 	ClearOverlays()
@@ -215,6 +229,53 @@
 	else
 		icon_state = "[initial(icon_state)]"
 
+// Proccess starts when weapon is put in an active hand and stops when dropped
+// It calculates currentaccuracy of the user and telegraphs it to them
+// TODO: Make different interactions depending on the weapons skill level
+/obj/item/gun/Process()
+	var/mob/living/carbon/human/user = loc
+	if(!user || !istype(user))
+		return
+	if(safety())
+		return
+	if(src != user.get_active_hand())
+		return
+	// Calculates current acc_mod as in process_accuracy check
+	var/acc_mod = burst_accuracy[min(burst, length(burst_accuracy))]
+	var/stood_still = last_handled
+	stood_still = max(user.l_move_time, last_handled)
+	stood_still = max(0,round((world.time - stood_still)/10) - 1)
+	if(stood_still)
+		acc_mod += min(max(3, accuracy), stood_still)
+	else
+		acc_mod -= w_class - ITEM_SIZE_NORMAL
+		acc_mod -= bulk
+	// Uses thats acc_mod to display a certain telegraph to user
+	var/max_bonus = max(3, accuracy)
+	var/new_state
+	if(acc_mod >= max_bonus)
+		new_state = 3        // Maximum accuracy
+	else if(acc_mod > 0)
+		new_state = 2        // Medium accuracy
+	else
+		new_state = 1        // Low accuracy
+	if(new_state != accuracy_state)
+		accuracy_state = new_state
+		switch(new_state)
+			if(1)
+				to_chat(user, SPAN_INFO("Your aim is unsteady."))
+				update_mouse_pointer(user, TRUE)
+				sound_to(user, sound(unsteadying_sound, volume = 100))
+			if(2)
+				to_chat(user, SPAN_INFO("Your aim is becoming steadier."))
+				update_mouse_pointer(user, TRUE)
+			if(3)
+				to_chat(user, SPAN_NOTICE("You have fully steadied your aim."))
+				update_mouse_pointer(user, TRUE)
+				sound_to(user, sound(steadying_sound, volume = 100))
+		if(user.skill_check(gun_skill, SKILL_MASTER))
+			to_chat(user, SPAN_NOTICE("Your aim is [acc_mod] accurate."))
+			balloon_alert(user, "[acc_mod]")
 
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.
@@ -232,7 +293,7 @@
 			return FALSE
 */
 	var/mob/living/M = user
-	if(!safety() && world.time > last_safety_check + 5 MINUTES && !user.skill_check(SKILL_WEAPONS, SKILL_BASIC))
+	if(!safety() && world.time > last_safety_check + 5 MINUTES && !user.skill_check(gun_skill, SKILL_BASIC))
 		if (prob(30))
 			toggle_safety(user)
 			return TRUE
@@ -307,6 +368,7 @@
 
 
 /obj/item/gun/dropped(mob/living/user)
+	STOP_PROCESSING(SSobj, src)
 	check_accidents(user)
 	update_icon()
 	update_mouse_pointer(user, FALSE)
@@ -314,7 +376,18 @@
 
 ///Turns the mouse cursor into a crosshair if new_cursor is set to TRUE. If set to FALSE, returns the cursor to its initial icon.
 /obj/item/gun/proc/update_mouse_pointer(mob/user, new_cursor)
-	user.client?.mouse_pointer_icon = new_cursor ? crosshair_icon : initial(user.client?.mouse_pointer_icon)
+	if(new_cursor)
+		var/crosshair_icon = crosshair3_icon
+		switch(accuracy_state)
+			if(1)
+				crosshair_icon = crosshair1_icon
+			if(2)
+				crosshair_icon = crosshair2_icon
+			if(3)
+				crosshair_icon = crosshair3_icon
+		user.client?.mouse_pointer_icon = crosshair_icon
+	else
+		user.client?.mouse_pointer_icon = initial(user.client?.mouse_pointer_icon)
 
 /obj/item/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 	if(!user || !target) return
@@ -823,7 +896,7 @@
 	update_icon()
 	if(!user)
 		return
-	if(crosshair_icon && user.skill_check(gun_skill,SKILL_BASIC) && src == user.get_active_hand())
+	if(user.skill_check(gun_skill,SKILL_BASIC) && src == user.get_active_hand())
 		update_mouse_pointer(user, !safety_state)
 
 	user.visible_message(
@@ -864,11 +937,11 @@
 
 /obj/item/gun/on_active_hand(mob/M)
 	last_handled = world.time
-	if(crosshair_icon)
-		var/show_crosshair = TRUE
-		if(M.skill_check(gun_skill,SKILL_BASIC) && has_safety)
-			show_crosshair = !safety_state
-		update_mouse_pointer(M, show_crosshair)
+	START_PROCESSING(SSobj, src)
+	var/show_crosshair = TRUE
+	if(M.skill_check(gun_skill,SKILL_BASIC) && has_safety)
+		show_crosshair = !safety_state
+	update_mouse_pointer(M, show_crosshair)
 
 /obj/item/gun/on_disarm_attempt(mob/target, mob/attacker)
 	var/list/turfs = list()
