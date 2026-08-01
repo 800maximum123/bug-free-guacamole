@@ -184,11 +184,11 @@
 			G.adjust_position(force = 1)
 
 		// Funny slip and fall chance
-		// Base 50% chance, modified by hauling skill and whether the slide is safe or not. Having halo (pain) damage increases the chance of falling as well.
+		// Base 50% chance, modified by hauling skill and whether the slide is safe or not.
 		var/mob/living/L = M
 		if(!L)
 			return
-		var/slip_chance = 50 + (M.get_skill_value(SKILL_HAULING)*10) + (is_safe ? 30 : 0) - (L.getHalLoss())
+		var/slip_chance = max(0, (50 - (M.get_skill_value(SKILL_HAULING)*10) - (is_safe ? 50 : 0)))
 		if(prob(slip_chance) || (MUTATION_CLUMSY in L.mutations))
 			L.visible_message(SPAN_WARNING("You lose your grip and fall off \the [src]!"))
 			L.Weaken(1)
