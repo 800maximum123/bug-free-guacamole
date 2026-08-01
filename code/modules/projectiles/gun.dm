@@ -254,28 +254,23 @@
 	var/max_bonus = max(3, accuracy)
 	var/new_state
 	if(acc_mod >= max_bonus)
-		new_state = 3        // Maximum accuracy
+		new_state = 3 // Maximum accuracy
 	else if(acc_mod > 0)
-		new_state = 2        // Medium accuracy
+		new_state = 2 // Medium accuracy
 	else
-		new_state = 1        // Low accuracy
+		new_state = 1 // Low accuracy
 	if(new_state != accuracy_state)
 		accuracy_state = new_state
 		switch(new_state)
 			if(1)
-				to_chat(user, SPAN_INFO("Your aim is unsteady."))
 				update_mouse_pointer(user, TRUE)
 				sound_to(user, sound(unsteadying_sound, volume = 100))
 			if(2)
-				to_chat(user, SPAN_INFO("Your aim is becoming steadier."))
 				update_mouse_pointer(user, TRUE)
 			if(3)
-				to_chat(user, SPAN_NOTICE("You have fully steadied your aim."))
+				balloon_alert(user, "🎯+")
 				update_mouse_pointer(user, TRUE)
 				sound_to(user, sound(steadying_sound, volume = 100))
-		if(user.skill_check(gun_skill, SKILL_MASTER))
-			to_chat(user, SPAN_NOTICE("Your aim is [acc_mod] accurate."))
-			balloon_alert(user, "[acc_mod]")
 
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.
@@ -585,7 +580,7 @@
 	var/stood_still = last_handled
 	stood_still = max(user.l_move_time, last_handled)
 
-	stood_still = max(0,round((world.time - stood_still)/10) - 1)
+	stood_still = max(0,round((world.time - stood_still)/10) + 1)
 	if(stood_still)
 		acc_mod += min(max(3, accuracy), stood_still)
 	else

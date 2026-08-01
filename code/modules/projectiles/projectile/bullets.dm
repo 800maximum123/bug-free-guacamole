@@ -20,11 +20,12 @@
 	var/is_pellet = FALSE
 
 	muzzle_type = /obj/projectile/bullet
-	/* ABSOLUTE BULLSHIT
+	/*
 	muzzle_type = /obj/projectile/bullet/muzzle
 	tracer_type = /obj/projectile/bullet/tracer
-	impact_type = /obj/projectile/bullet/impact
 	*/
+	impact_type = /obj/projectile/bullet/impact
+
 	miss_sounds = list('sound/weapons/guns/miss1.ogg','sound/weapons/guns/miss2.ogg','sound/weapons/guns/miss3.ogg','sound/weapons/guns/miss4.ogg')
 	ricochet_sounds = list('sound/weapons/guns/ricochet1.ogg', 'sound/weapons/guns/ricochet2.ogg',
 							'sound/weapons/guns/ricochet3.ogg', 'sound/weapons/guns/ricochet4.ogg')

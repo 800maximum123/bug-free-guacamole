@@ -321,6 +321,12 @@
 	load_sound = 'sound/weapons/guns/interaction/shotgun_insert.ogg'
 	fire_sound_text = "a satisfying 'thump'"
 
+	crosshair1_icon = 'icons/crosshairs/basic/accuracy1.dmi'
+	crosshair2_icon = 'icons/crosshairs/basic/accuracy2.dmi'
+	crosshair3_icon = 'icons/crosshairs/basic/accuracy3.dmi'
+	steadying_sound = 'sound/weapons/guns/steadying/steadying_small.ogg'
+	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_small.ogg'
+
 	matter = list(MATERIAL_STEEL = 1500, MATERIAL_PLASTIC = 2000)
 	handle_casings = CYCLE_CASINGS
 	load_method = SINGLE_CASING|SPEEDLOADER

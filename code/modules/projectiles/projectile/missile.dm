@@ -132,7 +132,7 @@
 		var/turf/pierce = get_turfs_in_range(interior.middle_turf, 2)
 		playsound(pierce ,'sound/weapons/rpg_pierce.ogg', 100, FALSE)
 		cell_explosion(pierce, internal_explosion_power, internal_explosion_falloff)
-		pierce.visible_message(FONT_LARGE(SPAN_DANGER("[src] comes through the hell of [A], OH FUCK!")), FONT_LARGE(SPAN_DANGER("You hear a loud metallic pierce!")))
+		pierce.visible_message(FONT_LARGE(SPAN_DANGER("[src] comes through the hull of [A], OH FUCK!")), FONT_LARGE(SPAN_DANGER("You hear a VERY loud metallic pierce!")))
 
 // TANDEM (APHE) MISSILE
 // Same as APHE but circumvents any ERA armor

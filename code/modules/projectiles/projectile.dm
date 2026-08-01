@@ -110,7 +110,11 @@
 
 //called when the projectile stops flying because it collided with something
 /obj/item/projectile/proc/on_impact(atom/A)
-	impact_effect()		// generate impact effect
+	if(istype(src, /obj/item/projectile/bullet))
+		if(!ismob(A))
+			impact_effect() // generate impact effect
+	else
+		impact_effect()
 	if (damage && damage_type == DAMAGE_BURN)
 		var/turf/T = get_turf(A)
 		if(T)
