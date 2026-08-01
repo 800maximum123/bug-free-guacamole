@@ -551,7 +551,7 @@ var/global/list/slot_flags_enumeration = list(
 		if(default_parry_check(user, attacker, damage_source) && prob(parry_chance))
 			user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
 			admin_attack_log(attacker, user, "Attempted to attack with \a [damage_source] but was parried", "Was targeted with \a [damage_source] but parried the attack", "attmpted to use \a [damage_source] to attack but was parried by")
-			playsound(user.loc, 'sound/weapons/punchmiss.ogg', 50, 1)
+			playsound(user, 'sound/weapons/cqc/block.ogg', 100, 1, -1)
 			on_parry(damage_source)
 			return 1
 	return 0
@@ -578,7 +578,10 @@ var/global/list/slot_flags_enumeration = list(
 	var/datum/pronouns/pronouns = attacker.choose_from_pronouns()
 	attacker.visible_message(SPAN_DANGER("[attacker] hurts [pronouns.his] hand on \the [src]!"))
 	admin_attack_log(attacker, target, "Attempted to disarm but was blocked", "Was targeted with a disarm but blocked the attack", "attmpted to disarm but was blocked by")
-	playsound(target, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+	if(attacker.skill_check(SKILL_COMBAT, SKILL_MASTER))
+		playsound(target, 'sound/weapons/cqc/hit.ogg', 100, 1, -1)
+	else
+		playsound(target, 'sound/weapons/cqc/shove.ogg', 100, 1, -1)
 	playsound(target, hitsound, 50, 1, -1)
 	return 1
 

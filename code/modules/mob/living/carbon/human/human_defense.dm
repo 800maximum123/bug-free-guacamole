@@ -174,6 +174,9 @@ meteor_act
 		to_chat(user, SPAN_DANGER("They are missing that limb!"))
 		return
 
+	if(user.skill_check(SKILL_COMBAT, SKILL_MASTER) && prob(50))
+		damage = damage * 2
+		playsound(src, 'sound/weapons/cqc/hit.ogg', 100, 1, -1)
 	return hit_zone
 
 /mob/living/carbon/human/resolve_item_attack(obj/item/I, mob/living/user, target_zone)
@@ -204,6 +207,9 @@ meteor_act
 		to_chat(user, SPAN_DANGER("They are missing that limb!"))
 		return
 
+	if(user.skill_check(SKILL_COMBAT, SKILL_MASTER) && prob(50))
+		accuracy_penalty -= 2
+		playsound(src, 'sound/weapons/cqc/hit.ogg', 100, 1, -1)
 	return hit_zone
 
 /mob/living/carbon/human/hit_with_weapon(obj/item/I, mob/living/user, effective_force, hit_zone)

@@ -47,6 +47,7 @@
 			G.action_used()
 			affecting.Weaken(2)
 			affecting.visible_message(SPAN_NOTICE("\The [assailant] pins \the [affecting] to the ground!"))
+			playsound(assailant.loc, 'sound/weapons/cqc/shove.ogg', 100, 1, -1)
 
 			return TRUE
 		else
@@ -83,7 +84,7 @@
 		G.action_used()
 		O.jointlock(assailant)
 		assailant.visible_message(SPAN_DANGER("\The [affecting]'s [O.name] is twisted!"))
-		playsound(assailant.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+		playsound(assailant.loc, 'sound/weapons/cqc/jointlock.ogg', 100, 1, -1)
 		return TRUE
 
 	else
@@ -121,7 +122,7 @@
 			G.action_used()
 			O.dislocate(1)
 			assailant.visible_message(SPAN_CLASS("danger", "[affecting]'s [O.joint] [pick("gives way","caves in","crumbles","collapses")]!"))
-			playsound(assailant.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+			playsound(assailant.loc, 'sound/weapons/cqc/dislocate.ogg', 100, 1, -1)
 			return TRUE
 
 		else
