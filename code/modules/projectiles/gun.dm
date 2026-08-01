@@ -580,7 +580,7 @@
 	var/stood_still = last_handled
 	stood_still = max(user.l_move_time, last_handled)
 
-	stood_still = max(0,round((world.time - stood_still)/10) + 1)
+	stood_still = max(0,round((world.time - stood_still)/10) - 1)
 	if(stood_still)
 		acc_mod += min(max(3, accuracy), stood_still)
 	else
