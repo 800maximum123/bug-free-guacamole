@@ -51,46 +51,46 @@
 		update_headlights(FALSE)
 		. = ..()
 
-/obj/vehicles/can_fall()
+/obj/vehicles/can_fall(anchor_bypass, turf/location_override)
 	if(can_traverse_zs && !movement_destroyed && active)
-		return 0
+		return FALSE
 	. = ..()
 
 /obj/vehicles/proc/collide_with_obstacle(atom/obstacle)
-	if((last_move == NORTH || last_move == SOUTH) && abs(speed[1] <= 1)) // soft bump
-		return
-	else if((last_move == EAST || last_move == WEST) && abs(speed[2] <= 1)) // soft bump
-		return
-	if(istype(obstacle, /mob/living))
+	if((last_move == EAST || last_move == WEST) && abs(speed[1]) <= 2 ) // soft bump check
+		return FALSE
+	else if((last_move == NORTH || last_move == SOUTH) && abs(speed[2]) <= 2)
+		return FALSE
+	if(isliving(obstacle))
 		var/mob/living/hit_mob = obstacle
 		if(weaken_to_people)
 			var/calculated_weaken = weaken_to_people
-			if(last_move == NORTH || last_move == SOUTH)
-				calculated_weaken = weaken_to_people / abs(min_speed / speed[1])
-			else if(last_move == EAST || last_move == WEST)
-				calculated_weaken = weaken_to_people / abs(min_speed / speed[2])
+			if(last_move == EAST || last_move == WEST)
+				calculated_weaken = weaken_to_people / (abs(min_speed) / speed[1])
+			else if(last_move == NORTH || last_move == SOUTH)
+				calculated_weaken = weaken_to_people / (abs(min_speed) / speed[2])
 			hit_mob.Weaken(calculated_weaken)
 
 		if(dangerous_to_people)
 			var/send_flying = FALSE
 			var/calculated_damage = damage_to_people
-			if(last_move == NORTH || last_move == SOUTH)
-				calculated_damage = damage_to_people / abs(min_speed / speed[1])
+			if(last_move == EAST || last_move == WEST)
+				calculated_damage = damage_to_people / (abs(min_speed) / speed[1])
 				if(abs(speed[1]) == max_speed)
 					send_flying = TRUE
-			else if(last_move == EAST || last_move == WEST)
-				calculated_damage = damage_to_people / abs(min_speed / speed[2])
+			else if(last_move == NORTH || last_move == SOUTH)
+				calculated_damage = damage_to_people / (abs(min_speed) / speed[2])
 				if(abs(speed[2]) == max_speed)
 					send_flying = TRUE
 
 			if(send_flying)
-				hit_mob.throw_at(get_edge_target_turf(hit_mob, dir), rand(max_speed, min_speed), 1)
+				hit_mob.throw_at(get_edge_target_turf(hit_mob, dir), rand(max_speed/2, min_speed/2), 1)
 			hit_mob.apply_damage(calculated_damage, DAMAGE_BRUTE, BP_CHEST, used_weapon = "[src] vehicle ramming")
 
 		to_chat(hit_mob, SPAN_DANGER("You are hit by \the [src]!"))
 		visible_message(SPAN_WARNING("\The [src] hits \the [hit_mob]!"))
 		playsound(hit_mob, get_sfx("swing_hit"), 100, TRUE)
-	else
+	else if(!isopenturf(obstacle))
 		next_move_input_at = world.time + min_speed
 		if(last_move == EAST || last_move == WEST)
 			moving_x = 0
@@ -104,14 +104,16 @@
 		if(dangerous_to_obstacles)
 			comp_prof.take_component_damage(damage_to_obstacles / selfdamage_multiplier, DAMAGE_BRUTE)
 			obstacle.damage_health(damage_to_obstacles, DAMAGE_BRUTE)
-			visible_message(SPAN_WARNING("\The [src] and \the [obstacle] both take damage from the hit!"))
-			playsound(obstacle, get_sfx("sparks"), 50, TRUE)
+			playsound(obstacle, get_sfx("sparks"), 100, TRUE)
 	play_crash_sound()
+	return TRUE
 
 /obj/vehicles/Bump(atom/obstacle)
 	. = ..()
 	if(istype(obstacle, /obj/structure/stairs))
-		return
+		return obstacle.Bumped(src)
+	if(isopenturf(obstacle))
+		return FALSE
 	return collide_with_obstacle(obstacle)
 
 /obj/vehicles/proc/drag_slowdown(index, slowdown_amount = drag)

@@ -225,9 +225,9 @@
 		integrity = new_integ
 
 /obj/item/vehicle_component/health_manager //Essentially a way for vehicles to just use basic "health" instead of the component system.
-	name = "Vital components"
+	name = "engine"
 	integrity = 200
-	coverage = 10000
+	coverage = 100
 	var/has_death_sequence = FALSE
 	var/death_sound = 'mods/_fd/multitile_vehicles/sounds/death.ogg'
 	var/death_duration = 5 SECONDS

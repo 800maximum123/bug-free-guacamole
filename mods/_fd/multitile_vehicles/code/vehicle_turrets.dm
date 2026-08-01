@@ -41,11 +41,11 @@
 	return !!get_turret_component()
 
 /obj/vehicles/proc/init_turret()
-	if(guns_disabled)
-		return
 	var/obj/item/vehicle_component/turret/turret = get_turret_component()
 	if(turret)
+		turret.vehicle = src
 		turret.set_turret_state_for_dir(SOUTH)
+		update_turret_overlay()
 		return
 	turret = new /obj/item/vehicle_component/turret(src)
 	turret.vehicle = src
@@ -54,11 +54,14 @@
 		comp_prof.components += turret
 	if(!(turret in contents))
 		contents += turret
+	update_turret_overlay()
 
 /obj/vehicles/proc/update_turret_overlay()
 	var/obj/item/vehicle_component/turret/turret = get_turret_component()
 	if(!turret)
 		return
+	if(!turret.vehicle)
+		turret.vehicle = src
 	turret_overlay = overlay_image(icon = turret.icon, icon_state = turret.icon_state, layer = ABOVE_HUMAN_LAYER)
 	SetOverlays(turret_overlay, ATOM_ICON_CACHE_PROTECTED)
 
@@ -114,7 +117,7 @@
 	var/fire_delay = 1 SECOND
 	var/projectile_type = /obj/item/projectile/bullet/rifle/caseless
 	var/aim_dir = SOUTH
-	var/dispersion = 1
+	var/dispersion = 0.2
 	var/max_ammo = 50
 	var/current_ammo = 50
 	var/list/allowed_magazine_types = list(/obj/item/ammo_magazine/vehicle_mg)
@@ -184,13 +187,16 @@
 			icon_state = "[initial(icon_state)]"
 
 	aim_dir = dir_to_use
-	if(vehicle)
-		vehicle.update_turret_overlay()
+	var/obj/vehicles/parent_vehicle = vehicle
+	if(!parent_vehicle && loc && istype(loc, /obj/vehicles))
+		parent_vehicle = loc
+	if(parent_vehicle)
+		parent_vehicle.update_turret_overlay()
 
 /obj/item/vehicle_component/turret/full_integ_loss()
 	if(vehicle.guns_disabled)
 		return
-	vehicle.guns_disabled = FALSE
+	vehicle.guns_disabled = TRUE
 	vehicle.visible_message(SPAN_WARNING("\The [src] on \the [vehicle] is destroyed!"), SPAN_WARNING("You hear a turret shutting off."))
 	playsound(vehicle.loc, 'sound/effects/bang.ogg', 30, TRUE)
 	//TODO: make it change the icon of the turret as well
@@ -199,7 +205,7 @@
 	. = ..()
 	if(!vehicle.guns_disabled)
 		return
-	vehicle.guns_disabled = TRUE
+	vehicle.guns_disabled = FALSE
 	vehicle.visible_message(SPAN_NOTICE("\The [src] on \the [vehicle] springs back to life."), SPAN_NOTICE("You hear a turret activating."))
 	playsound(vehicle.loc, 'sound/mecha/mechmove03.ogg', 40, TRUE)
 	//TODO: make it change the icon of the turret as well
@@ -217,14 +223,19 @@
 	fire_delay = 6
 	move_delay = 0
 	scope_zoom = 2
+	gun_skill = SKILL_MECH
+
+	crosshair1_icon = 'icons/crosshairs/square/accuracy1.dmi'
+	crosshair2_icon = 'icons/crosshairs/square/accuracy2.dmi'
+	crosshair3_icon = 'icons/crosshairs/square/accuracy3.dmi'
 
 	var/obj/vehicles/vehicle
 	var/obj/item/vehicle_component/turret/linked_turret
 	var/obj/item/projectile/projectile_type = /obj/item/projectile/bullet/rifle/caseless
 
 	var/aimed = SOUTH
-	var/x_offset = 48
-	var/y_offset = 48
+	var/x_offset = 0
+	var/y_offset = 0
 	var/turn_time = 2
 	var/rotating = FALSE
 
@@ -249,12 +260,10 @@
 	var/aimed_dir = linked_turret.aim_dir
 	if(calculated_turn_time && aiming_dir && aimed_dir)
 		var/calculation = dir2angle(aimed_dir) - dir2angle(aiming_dir)
-		calculated_turn_time = turn_time * (calculation / 90)
+		calculated_turn_time = turn_time * max(1, (calculation / 90))
 	if(!user.skill_check(vehicle.driving_skill, vehicle.skill_level) && vehicle.complex_controls)
 		calculated_turn_time = calculated_turn_time * 2
-		to_chat(user, SPAN_DANGER("Clumsily rotating the turret to [dir2text(aiming_dir)]..."))
-	else
-		to_chat(user, SPAN_NOTICE("Rotating the turret to [dir2text(aiming_dir)]..."))
+	balloon_alert(user, "to [dir2text(aiming_dir)]...")
 	if(!do_after(user, calculated_turn_time, vehicle, (DO_BOTH_CAN_MOVE | DO_DEFAULT | DO_BOTH_UNIQUE_ACT)))
 		rotating = FALSE
 		to_chat(user, SPAN_WARNING("You're interrupted!"))
@@ -265,7 +274,6 @@
 	rotating = FALSE
 	user.dir = aiming_dir
 	aim_at(aiming_at)
-	to_chat(user, SPAN_NOTICE("Turret rotated to [dir2text(aiming_dir)]."))
 	playsound(vehicle.loc, 'sound/mecha/mechmove03.ogg', 40, TRUE)
 	return TRUE
 
@@ -280,14 +288,14 @@
 		pew.shot_from = src
 		play_fire_sound(user, pew)
 		if(linked_turret.current_ammo == 0)
-			to_chat(user, SPAN_DANGER("[linked_turret.current_ammo]/[linked_turret.max_ammo] rounds left."))
+			balloon_alert(user, "[linked_turret.current_ammo]/[linked_turret.max_ammo]")
 			playsound(vehicle.loc, dry_fire_sound, 20, TRUE)
+			playsound(user, 'sound/weapons/smg_empty_alarm.ogg', 40, TRUE)
 		else if(linked_turret.current_ammo < 10)
-			to_chat(user, SPAN_WARNING("[linked_turret.current_ammo]/[linked_turret.max_ammo] rounds left."))
+			balloon_alert(user, "[linked_turret.current_ammo]/[linked_turret.max_ammo]")
 			playsound(vehicle.loc, dry_fire_sound, 10, TRUE)
 		else if((linked_turret.current_ammo == round(linked_turret.current_ammo, 5)))
-			to_chat(user, SPAN_NOTICE("[linked_turret.current_ammo]/[linked_turret.max_ammo] rounds left."))
-			playsound(user, 'sound/weapons/smg_empty_alarm.ogg', 40, TRUE)
+			balloon_alert(user, "[linked_turret.current_ammo]/[linked_turret.max_ammo]")
 	else
 		handle_click_empty(user)
 

@@ -4,12 +4,12 @@
 	var/working_sound_id //same as above
 
 	var/list/working_sounds = list('mods/_fd/multitile_vehicles/sounds/working.ogg')
-	var/working_volume = 50
+	var/working_volume = 100
 
 	var/startup_sound = 'mods/_fd/multitile_vehicles/sounds/startup.ogg'
 	var/shutdown_sound = 'mods/_fd/multitile_vehicles/sounds/shutdown.ogg'
-	var/startup_volume = 50
-	var/shutdown_volume = 50
+	var/startup_volume = 100
+	var/shutdown_volume = 100
 	var/startup_length = 4 SECONDS
 
 	// ALARM SOUNDS
@@ -26,8 +26,8 @@
 	var/list/crash_sound = list('mods/_fd/multitile_vehicles/sounds/crash.ogg')
 	var/list/honk_sound = list('mods/_fd/multitile_vehicles/sounds/honk.ogg')
 	var/list/enter_sound = list('mods/_fd/multitile_vehicles/sounds/enter.ogg')
-	var/move_volume = 50
-	var/brake_volume = 50
+	var/move_volume = 100
+	var/brake_volume = 100
 	var/crash_volume = 100
 	var/honk_volume = 150
 	var/enter_volume = 50
@@ -46,7 +46,7 @@
 /obj/vehicles/proc/assign_working_sound_token()
 	if(!working_sound_id)
 		working_sound_id = "[type]_[sequential_id(type)]"
-	working_sound_token = GLOB.sound_player.PlayLoopingSound(src, working_sound_id, pick(working_sounds), working_volume, 10, 1)
+	working_sound_token = GLOB.sound_player.PlayLoopingSound(src, working_sound_id, pick(working_sounds), working_volume, 28, 1)
 	working_sound_token.SetVolume(working_volume)
 
 /obj/vehicles/proc/stop_working_soundloop()
@@ -86,7 +86,7 @@
 /obj/vehicles/proc/assign_alarm_sound_token()
 	if(!alarm_sound_id)
 		alarm_sound_id = "[type]_[sequential_id(type)]"
-	alarm_sound_token = GLOB.sound_player.PlayLoopingSound(src, alarm_sound_id, pick(alarm_sounds), alarm_volume, 20, 1)
+	alarm_sound_token = GLOB.sound_player.PlayLoopingSound(src, alarm_sound_id, pick(alarm_sounds), alarm_volume, 56, 1)
 	alarm_sound_token.SetVolume(alarm_volume)
 
 /obj/vehicles/proc/stop_alarm_soundloop()

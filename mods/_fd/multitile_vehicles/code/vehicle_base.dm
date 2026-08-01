@@ -77,7 +77,7 @@
 	var/obj/item/key/car/inserted_key
 	var/key_type = /obj/item/key/car
 
-	var/image/turret_overlay
+	var/image/turret_overlay = null
 	var/image/wheels = null
 	var/image/livery = null
 
