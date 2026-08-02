@@ -96,6 +96,9 @@
 				qdel(random_worm)
 				update_can_sprite()
 
+	if(!length(worms) && icon_state != "bait_can_empty")
+		update_can_sprite()
+
 /obj/item/fd/fishing/worm_can/MouseEntered(location, control, params)
 	. = ..()
 

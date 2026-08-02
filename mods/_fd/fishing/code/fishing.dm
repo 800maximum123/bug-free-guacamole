@@ -807,6 +807,8 @@
 	do_water_overlay = FALSE
 	glide_size = 0.9
 
+	var/raft_health = 100
+
 /obj/structure/fd/makeshift_raft/Initialize()
 	. = ..()
 	SetTransform(4)
@@ -865,6 +867,47 @@
 		if("ИЗМЕНИТЬ ПОЛОЖЕНИЕ")
 			user.client.raft_moving_atom = selected
 			return TRUE
+
+/obj/structure/fd/makeshift_raft/proc/check_integrity()
+	if(raft_health <= 0)
+
+		if(ship_captain)
+			if(ship_captain.mob_fishing && ship_captain.fishing_in)
+				ship_captain.fishing_in.stop_fishing()
+
+			ship_captain.raft = null
+			ship_captain.pixel_y = initial(ship_captain.pixel_y)
+
+			if(ship_captain in loc)
+				ship_captain.layer += 0.01
+				ship_captain.glide_size = glide_size
+
+				raft_storage += ship_captain
+			else
+				ship_captain.do_water_overlay = TRUE
+				ship_captain.can_sunk = initial(ship_captain.can_sunk)
+				ship_captain.pass_flags = initial(pass_flags)
+
+			ship_captain = null
+
+		for(var/atom/movable/A in raft_storage)
+			A.pixel_y = initial(A.pixel_y)
+			A.pixel_x = initial(A.pixel_x)
+
+			A.do_water_overlay = TRUE
+			A.can_sunk = initial(A.can_sunk)
+			A.glide_size = initial(A.glide_size)
+			A.layer = initial(A.layer)
+
+			A.pass_flags = initial(pass_flags)
+
+			A.density = initial(A.density)
+			A.anchored = FALSE
+
+			raft_storage -= A
+
+		qdel(src)
+
 
 /obj/structure/fd/makeshift_raft/attack_hand(mob/living/user)
 	if(!ship_captain && ishuman(user))
