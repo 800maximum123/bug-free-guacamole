@@ -683,7 +683,7 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 	if(!(check_no_slip(target)) && randn <= push_threshold)
 		var/armor_check = 100 * target.get_blocked_ratio(affecting, DAMAGE_BRUTE, damage = 20)
 		target.apply_effect(2, EFFECT_WEAKEN, armor_check)
-		playsound(target.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+		playsound(target.loc, 'sound/weapons/cqc/shove.ogg', 50, 1, -1)
 		if(armor_check < 100)
 			target.visible_message(SPAN_DANGER("[attacker] has pushed [target]!"))
 		else
@@ -700,7 +700,10 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 		for(var/obj/item/I in holding)
 			if(I && target.unEquip(I))
 				target.visible_message(SPAN_DANGER("[attacker] has disarmed [target]!"))
-				playsound(target.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+				if(attacker.skill_check(SKILL_COMBAT, SKILL_MASTER))
+					playsound(target.loc, 'sound/weapons/cqc/hit.ogg', 100, 1, -1)
+				else
+					playsound(target.loc, 'sound/weapons/cqc/shove.ogg', 50, 1, -1)
 				return
 
 	playsound(target.loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
