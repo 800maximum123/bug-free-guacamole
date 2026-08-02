@@ -578,7 +578,7 @@ var/global/list/slot_flags_enumeration = list(
 	var/datum/pronouns/pronouns = attacker.choose_from_pronouns()
 	attacker.visible_message(SPAN_DANGER("[attacker] hurts [pronouns.his] hand on \the [src]!"))
 	admin_attack_log(attacker, target, "Attempted to disarm but was blocked", "Was targeted with a disarm but blocked the attack", "attmpted to disarm but was blocked by")
-	if(attacker.skill_check(SKILL_COMBAT, SKILL_MASTER))
+	if(target.skill_check(SKILL_COMBAT, SKILL_MASTER))
 		playsound(target, 'sound/weapons/cqc/hit.ogg', 100, 1, -1)
 	else
 		playsound(target, 'sound/weapons/cqc/shove.ogg', 100, 1, -1)

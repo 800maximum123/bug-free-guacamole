@@ -316,7 +316,8 @@
 
 
 /obj/item/gun/afterattack(atom/A, mob/living/user, adjacent, params)
-	if(adjacent) return //A is adjacent, is the user, or is on the user's person
+	if(adjacent) //A is adjacent, is the user, or is on the user's person
+		return
 
 	if(!user.aiming)
 		user.aiming = new(user)
@@ -355,12 +356,9 @@
 		return TRUE
 
 	// Point blank shooting
-	if (user.a_intent == I_HURT && !user.isEquipped(target))
+	if (user.a_intent != I_HURT && !user.isEquipped(target))
 		Fire(target, user, pointblank = TRUE)
 		return TRUE
-
-	return ..()
-
 
 /obj/item/gun/dropped(mob/living/user)
 	STOP_PROCESSING(SSobj, src)
@@ -394,7 +392,7 @@
 		return
 
 	if(safety())
-		if (user.a_intent == I_HURT && user.skill_check(SKILL_WEAPONS, SKILL_EXPERIENCED) && user.client?.get_preference_value(/datum/client_preference/safety_toggle_on_intent) == GLOB.PREF_YES)
+		if (user.a_intent == I_HURT && user.skill_check(gun_skill, SKILL_EXPERIENCED) && user.client?.get_preference_value(/datum/client_preference/safety_toggle_on_intent) == GLOB.PREF_YES)
 			toggle_safety(user)
 		else
 			handle_click_safety(user)
@@ -516,7 +514,7 @@
 				shake_camera(user, screen_shake+1, screen_shake)
 
 		if(LAZYLEN(client_recoil_animation_information))
-			var/skill_modifier = user.get_skill_value(SKILL_WEAPONS) * 0.1
+			var/skill_modifier = user.get_skill_value(gun_skill) * 0.1
 			var/duration = client_recoil_animation_information["duration"]
 			if (isnull(duration))
 				duration = 1
@@ -591,7 +589,7 @@
 		acc_mod -= one_hand_penalty/2
 		disp_mod += one_hand_penalty*0.5 //dispersion per point of two-handedness
 
-	if(burst > 1 && !user.skill_check(SKILL_WEAPONS, SKILL_TRAINED))
+	if(burst > 1 && !user.skill_check(gun_skill, SKILL_TRAINED))
 		acc_mod -= 1
 		disp_mod += 0.5
 
@@ -757,7 +755,7 @@
 	zoom(user, zoom_offset, view_size)
 	if(zoom)
 		accuracy = scoped_accuracy
-		if(user.skill_check(SKILL_WEAPONS, SKILL_MASTER))
+		if(user.skill_check(gun_skill, SKILL_MASTER))
 			accuracy += 2
 		if(screen_shake)
 			screen_shake = round(screen_shake*zoom_amount+1) // Screen shake is worse when looking through a scope.
@@ -770,7 +768,7 @@
 
 /obj/item/gun/examine(mob/user)
 	. = ..()
-	if(user.skill_check(SKILL_WEAPONS, SKILL_BASIC))
+	if(user.skill_check(gun_skill, SKILL_BASIC))
 		if(length(firemodes) > 1)
 			var/datum/firemode/current_mode = firemodes[sel_mode]
 			if (current_mode && current_mode.name)
