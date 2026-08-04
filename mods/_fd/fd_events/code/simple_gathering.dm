@@ -203,17 +203,7 @@
 
 //// rubble
 
-/obj/structure/rubble/chaos/Crossed(obj/O)
-	. = ..()
-
-	if(istype(O,/obj/structure/fd/makeshift_raft))
-		var/obj/structure/fd/makeshift_raft/R = O
-		animation_flash_color(R, COLOR_RED)
-		R.raft_health = clamp(R.raft_health - 10, 0, 100)
-		R.check_integrity()
-
 /obj/structure/rubble/chaos
-
 	loot = list(
 //REAGENT CONTAINERS,
 					/obj/item/reagent_containers/hypospray/autoinjector/pain,
@@ -705,4 +695,8 @@
 					/obj/item/rig_module/fabricator/energy_net,
 					/obj/item/rig_module/fabricator,
 	)
-	emptyprob = 40
+	emptyprob = 10
+
+/obj/structure/rubble/chaos/New()
+	lootleft = rand(5,15)
+	. = ..()

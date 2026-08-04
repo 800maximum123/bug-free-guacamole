@@ -760,12 +760,46 @@
 		if(src in R.raft_storage)
 			. += 3
 
-/mob/living/carbon/human/SelfMove(direction)
+/mob/living/carbon/human/proc/raft_movement_check(turf/our_turf)
+	var/list/turfs_to_check = list()
+	switch(dir)
+		if(NORTH)
+			turfs_to_check = block(locate(our_turf.x, our_turf.y + raft.raft_y_positive, our_turf.z), locate((our_turf.x + raft.raft_x_positive) - 1, our_turf.y + raft.raft_y_positive, our_turf.z))
+		if(SOUTH)
+			turfs_to_check = block(locate(our_turf.x, our_turf.y - raft.raft_y_negative, our_turf.z), locate((our_turf.x + raft.raft_x_positive) - 1, our_turf.y - raft.raft_y_negative, our_turf.z))
+		if(EAST)
+			turfs_to_check = block(locate(our_turf.x + raft.raft_x_positive, our_turf.y, our_turf.z), locate(our_turf.x + raft.raft_x_positive, (our_turf.y + raft.raft_y_positive) - 1, our_turf.z))
+		if(WEST)
+			turfs_to_check = block(locate(our_turf.x - raft.raft_x_negative, our_turf.y, our_turf.z), locate(our_turf.x - raft.raft_x_negative, (our_turf.y + raft.raft_y_positive) - 1, our_turf.z))
+
+	var/list/possible_blockers = list()
+	var/list/roadblockers = list()
+	for(var/turf/T in turfs_to_check)
+		for(var/atom/blockers in T)
+			possible_blockers += blockers
+		if(T.density)
+			possible_blockers += T
+
+	for(var/atom/A in possible_blockers)
+		if(A.density && (!(A in raft.raft_storage) && !istype(A,/obj/structure/platform) && !ismob(A)))
+			roadblockers += A
+
+	if(length(roadblockers))
+		animation_flash_color(raft, COLOR_RED)
+		raft.raft_health = clamp(raft.raft_health - 10, 0, 100)
+		raft.check_integrity()
+		return FALSE
+
+	return TRUE
+
+/mob/living/carbon/human/Move(a, b, flag)
 	var/turf/old_location = get_turf(src)
 	var/list/atom/connected_elements = list()
 	if(raft)
-		connected_elements += raft.raft_storage
+		if(!raft.flying && !raft_movement_check(old_location))
+			return FALSE
 
+		connected_elements += raft.raft_storage
 	. = ..()
 
 	if(raft)
@@ -800,6 +834,13 @@
 
 	bound_height = 128
 	bound_width = 128
+
+	var/raft_x_positive = 4
+	var/raft_y_positive = 4
+	var/raft_x_negative = 1
+	var/raft_y_negative = 1
+
+	var/flying = FALSE
 
 	pixel_x = 48
 	pixel_y = 48
