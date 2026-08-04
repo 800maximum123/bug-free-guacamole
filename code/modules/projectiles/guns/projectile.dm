@@ -55,6 +55,8 @@
 	/// Prevents spamming.
 	var/recentrack = 0
 	var/rackdelay = 5
+	/// Do you auto rack with this weapon?
+	var/do_auto_rack = TRUE
 	/// Delay for click-racking. Scales with level. Generally used for shotguns/boltloaders.
 	var/autorackdelay = 1
 	var/racksound = 'sound/weapons/flipblade.ogg'
@@ -144,14 +146,15 @@
 		process_chambered(FALSE)
 		return ..()
 
-	if (!user.skill_check(SKILL_WEAPONS, SKILL_TRAINED))
+	if (!user.skill_check(gun_skill, SKILL_TRAINED))
 		return ..()
 
 	if (handle_casings == HOLD_CASINGS)
-		autorackdelay = 6 - user.skillset.get_value(SKILL_WEAPONS)
+		autorackdelay = 6 - user.skillset.get_value(gun_skill)
 
-	if (is_held_twohanded(user) || user.skill_check(SKILL_WEAPONS, SKILL_MASTER) || (bolt_open && hold_open)) //don't risk automatically dropping the gun on the floor
-		attack_self(user) //tap, rack, bang
+	if (is_held_twohanded(user) || user.skill_check(gun_skill, SKILL_MASTER) || (bolt_open && hold_open)) //don't risk automatically dropping the gun on the floor
+		if(do_auto_rack)
+			attack_self(user) //tap, rack, bang
 
 	..()
 
@@ -162,7 +165,7 @@
 	var/mismatched = !istype(ammo_magazine, magazine_type)
 	if (ishuman(loc))
 		var/mob/living/carbon/human/user = loc
-		unskilled = user.get_skill_value(SKILL_WEAPONS) == SKILL_UNSKILLED
+		unskilled = user.get_skill_value(gun_skill) == SKILL_UNSKILLED
 	return underwater*20 + unskilled*5 + mismatched*3
 
 
@@ -264,8 +267,8 @@
 						autorackdelay = 1 // Reset auto-rack delay.
 						return
 					if (!is_held_twohanded(user))
-						var/fail_chance = user.skill_fail_chance(SKILL_WEAPONS, 90, SKILL_EXPERIENCED, 0.25)
-						var/drop_chance = user.skill_fail_chance(SKILL_WEAPONS, 50, SKILL_EXPERIENCED, 0.5)
+						var/fail_chance = user.skill_fail_chance(gun_skill, 90, SKILL_EXPERIENCED, 0.25)
+						var/drop_chance = user.skill_fail_chance(gun_skill, 50, SKILL_EXPERIENCED, 0.5)
 
 						if (!fail_chance)
 							user.visible_message(
@@ -363,7 +366,7 @@
 
 				// Tactical/speed reload checks.
 				if (ammo_magazine)
-					if ((user.a_intent in list(I_HELP, I_DISARM)) || !user.skill_check(SKILL_WEAPONS, SKILL_EXPERIENCED))
+					if ((user.a_intent in list(I_HELP, I_DISARM)) || !user.skill_check(gun_skill, SKILL_EXPERIENCED))
 						USE_FEEDBACK_FAILURE("\The [src] already has \a [ammo_magazine] loaded.")
 						return TRUE
 					if (!can_special_reload)
@@ -386,10 +389,10 @@
 							exp_reload_time = EXP_SPD_RELOAD
 							drop_magazine = TRUE
 
-					var/do_after_time = user.get_skill_value(SKILL_WEAPONS) == SKILL_MASTER ? prof_reload_time : exp_reload_time
+					var/do_after_time = user.get_skill_value(gun_skill) == SKILL_MASTER ? prof_reload_time : exp_reload_time
 					if (!do_after(user, do_after_time, src, DO_DEFAULT | DO_BOTH_UNIQUE_ACT))
 						return TRUE
-					var/master_check = user.get_skill_value(SKILL_WEAPONS) == SKILL_MASTER
+					var/master_check = user.get_skill_value(gun_skill) == SKILL_MASTER
 					if (!user.use_sanity_check(src, ammo, (master_check & SANITY_CHECK_TOOL_IN_HAND) | SANITY_CHECK_BOTH_ADJACENT))
 						return TRUE
 					if (ammo_magazine != prior_magazine)
@@ -505,7 +508,7 @@
 			SPAN_NOTICE("\The [user] struggles to unload [src]."),
 			SPAN_NOTICE("You struggle to unload [src]")
 		)
-		if(!do_after(user, round((50/(user.get_skill_value(SKILL_WEAPONS))), 1), src, DO_DEFAULT | DO_BOTH_UNIQUE_ACT | DO_SHOW_PROGRESS))
+		if(!do_after(user, round((50/(user.get_skill_value(gun_skill))), 1), src, DO_DEFAULT | DO_BOTH_UNIQUE_ACT | DO_SHOW_PROGRESS))
 			return
 		is_jammed = FALSE
 
@@ -565,7 +568,7 @@
 
 /obj/item/gun/projectile/use_before(atom/target, mob/living/user, click_parameters)
 	if (istype(target, /obj/item/ammo_magazine) && target.loc == user)
-		if (user.skill_check(SKILL_WEAPONS, SKILL_MASTER))
+		if (user.skill_check(gun_skill, SKILL_MASTER))
 			if (one_hand_penalty < GUN_OHP_LIGHT_RIFLE)
 				return load_ammo(target, user)
 	return ..()
@@ -596,9 +599,9 @@
 
 /obj/item/gun/projectile/examine(mob/user)
 	. = ..()
-	if (is_jammed && user.skill_check(SKILL_WEAPONS, SKILL_BASIC))
+	if (is_jammed && user.skill_check(gun_skill, SKILL_BASIC))
 		to_chat(user, SPAN_WARNING("It looks jammed."))
-		if (user.skill_check(SKILL_WEAPONS, SKILL_EXPERIENCED))
+		if (user.skill_check(gun_skill, SKILL_EXPERIENCED))
 			if (load_method & MAGAZINE)
 				if (fire_closed_bolt)
 					to_chat(user, SPAN_NOTICE("To unjam it, you'd have to pull out the magazine and eject the cartridge in the chamber by racking \the [src] a few times."))
@@ -612,10 +615,10 @@
 
 	if (ammo_magazine)
 		to_chat(user, "It has \a [ammo_magazine] loaded.")
-	if (user.skill_check(SKILL_WEAPONS, SKILL_TRAINED))
+	if (user.skill_check(gun_skill, SKILL_TRAINED))
 		to_chat(user, "Has [getAmmo()] round\s remaining.")
-	if (user.skill_check(SKILL_WEAPONS, SKILL_BASIC) && handle_casings != CYCLE_CASINGS) //Most guns that cycle casings don't have bolts. Please don't add one that does.
-		if (user.skill_check(SKILL_WEAPONS, SKILL_EXPERIENCED))
+	if (user.skill_check(gun_skill, SKILL_BASIC) && handle_casings != CYCLE_CASINGS) //Most guns that cycle casings don't have bolts. Please don't add one that does.
+		if (user.skill_check(gun_skill, SKILL_EXPERIENCED))
 			if (fire_closed_bolt)
 				to_chat(user, "The bolt needs to be closed for this weapon to fire.")
 			else
@@ -625,7 +628,7 @@
 		else
 			to_chat(user, "The bolt is closed.")
 	if(loc == user)
-		if (user.skill_check(SKILL_WEAPONS, SKILL_BASIC))
+		if (user.skill_check(gun_skill, SKILL_BASIC))
 			to_chat(user, "[src.DrawChamber()]")
 		else
 			user.visible_message(

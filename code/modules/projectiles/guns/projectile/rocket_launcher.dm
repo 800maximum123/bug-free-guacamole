@@ -18,9 +18,11 @@
 
 	// single heavy rocket
 	caliber = CALIBER_ROCKET
-	handle_casings = CLEAR_CASINGS
 	load_method = SINGLE_CASING
-	fire_closed_bolt = FALSE
+	handle_casings = CYCLE_CASINGS
+	allow_dump = TRUE
+	hold_open = FALSE
+
 	max_shells = 1
 	fire_delay = 12
 	ammo_type = /obj/item/ammo_casing/rocket
@@ -33,6 +35,8 @@
 	crosshair3_icon = 'icons/crosshairs/square/accuracy3.dmi'
 	steadying_sound = 'sound/weapons/guns/steadying/steadying_big.ogg'
 	unsteadying_sound = 'sound/weapons/guns/steadying/unsteadying_big.ogg'
+
+	do_auto_rack = FALSE
 
 	client_recoil_animation_information = null
 
@@ -75,7 +79,6 @@
 	matter = list(MATERIAL_STEEL = 1000, MATERIAL_ALUMINIUM = 1000)
 	starts_loaded = TRUE
 
-	handle_casings = HOLD_CASINGS
 	/// Was it used already?
 	var/used = FALSE
 	/// Is it unfolded or not?
