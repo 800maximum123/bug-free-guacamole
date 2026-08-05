@@ -643,12 +643,12 @@
 		sound_far = projectile.far_fire_sound
 	if (islist(sound))
 		sound = pick(sound)
-	var/volume = 50
+	var/volume = 60
 	if (silenced)
 		volume = 10
 		sound = silenced_fire_sound
 	else
-		playsound(src, sound_far, volume - 10, fire_sound_vary, 50) // Gaia, creates that WARFARE ambience
+		playsound(src, sound_far, volume - 5, fire_sound_vary, 50) // Gaia, creates that WARFARE ambience
 
 	playsound(src, sound, volume, fire_sound_vary)
 
