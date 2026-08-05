@@ -12,6 +12,9 @@
 	bound_width = 96
 
 	comp_prof = /datum/component_profile/exploration
+	frontal_hit_prob = 10
+	rear_hit_prob = 90
+	side_hit_prob = 50
 
 	exposed_positions = list(VP_DRIVER = 0, VP_PASSENGER = 0)
 

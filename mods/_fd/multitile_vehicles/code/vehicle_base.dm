@@ -6,16 +6,19 @@
 	w_class = ITEM_SIZE_GARGANTUAN
 	light_wedge = LIGHT_VERY_WIDE
 
+	// Main vars
 	var/active = FALSE
 	var/guns_disabled = FALSE
 	var/movement_destroyed = FALSE
 	var/block_enter_exit //Set this to block entering/exiting.
 	var/can_traverse_zs = FALSE
 
+	// Controls
 	var/complex_controls = FALSE //If true, requires a driving_skill skill check at skill_level for vehicle controls
 	var/driving_skill = SKILL_MECH //What skill is required to drive this?
 	var/skill_level = SKILL_BASIC
 
+	// Movement
 	var/next_move_input_at = 0 //When can we send our next movement input?
 	var/moving_x = 0
 	var/moving_y = 0
@@ -28,6 +31,7 @@
 	var/braking_mode = 0 //1 = brakes active, -1 = purposefully reducing drag to slide.
 	var/can_space_move = FALSE
 
+	// Damage
 	var/dangerous_to_people = TRUE //Hitting people hurts them
 	var/dangerous_to_obstacles = TRUE //Hitting obstacles hurts them and vehicle
 	var/weaken_to_people = 5 //How much it weakens (stuns) people?
@@ -35,48 +39,57 @@
 	var/damage_to_obstacles = 100 //How much it damages obstacles?
 	var/selfdamage_multiplier = 2 //By what damage_to_obstacles is divided to give vehicle damage?
 
+	// Advanced Damage Handling
+	var/datum/component_profile/comp_prof = /datum/component_profile
+	// Chances of various APHE rounds penetrating armor
+	var/frontal_hit_prob = 90
+	var/rear_hit_prob = 90
+	var/side_hit_prob = 90
+
 	//Action Button Handling
 	var/list/driver_actions = list()
 
-	//Advanced Damage Handling
-	var/datum/component_profile/comp_prof = /datum/component_profile
-
+	// Sprites
 	var/list/sprite_offsets = list("1" = list(0,0),"2" = list(0,0),"4" = list(0,0),"8" = list(0,0)) //Handled Directionally. Numbers correspond to directions
 
-	//Passenger Management
+	// Passenger Management
 	var/list/occupants = list() //Contains all occupants of the vehicle including the driver.
 	var/list/exposed_positions = list(VP_DRIVER = 0) //Assoc. Value is the chance of hitting this position
 	var/list/available_seats = list(VP_DRIVER = 1)
 	var/list/dashboard_control_positions = list(VP_DRIVER, VP_COMMANDER) // What seats are allowed to control verbs like locking doors
 	var/turret_control_position = VP_GUNNER
 
-	//Cargo
+	// Cargo
 	var/used_cargo_space = 0
 	var/cargo_capacity = 0
 	var/capacity_flag = ITEM_SIZE_SMALL
 	var/list/cargo_contents = list()
 
-	//Vehicle ferrying//
+	// Vehicle ferrying
 	var/vehicle_size = ITEM_SIZE_VEHICLE//The size of the vehicle, used by vehicle cargo ferrying to determine allowed amount and allowed size.
 	var/vehicle_carry_size = 0			//the max size of a carried vehicle
 	var/obj/vehicles/carried_vehicle
 
+	// View
 	var/vehicle_view_modifier = 1 //The view-size modifier to apply to the occupants of the vehicle.
 
+	// Air
 	var/datum/gas_mixture/internal_air = null//If this is new()'d, the vehicle provides air to the occupants.
 	//I would make it require refilling, but that's likely to just be boring tedium for players.
 
+	// Headlights
 	var/has_headlights = TRUE
 	var/headlights_state = 1
-
 	var/l_range = 12
 	var/l_power = 2
 	var/l_color = COLOR_WHITE
 
+	// Key
 	var/serial_number
 	var/obj/item/key/car/inserted_key
 	var/key_type = /obj/item/key/car
 
+	// Overlays
 	var/image/turret_overlay = null
 	var/image/wheels = null
 	var/image/livery = null
@@ -223,7 +236,7 @@
 	comp_prof.take_comp_explosion_dam(severity)
 	for(var/position in exposed_positions)
 		for(var/mob/living/m in get_occupants_in_position(position))
-			m.ex_act(severity/4) // Vehicle takes majority of the blow
+			m.ex_act(severity/4, direction) // Vehicle takes majority of the blow
 
 /obj/vehicles/verb/verb_inspect_components()
 	set name = "Inspect Components"

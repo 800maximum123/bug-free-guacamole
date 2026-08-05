@@ -14,10 +14,13 @@
 	bound_width = 96
 
 	comp_prof = /datum/component_profile/iccg_apc/turret
+	frontal_hit_prob = 10
+	rear_hit_prob = 80
+	side_hit_prob = 50
 
 	exposed_positions = list(VP_DRIVER = 0, VP_COMMANDER = 0)
 	available_seats = list(VP_DRIVER = 1, VP_COMMANDER = 1)
-	turret_control_position = VP_DRIVER
+	turret_control_position = VP_COMMANDER
 
 	vehicle_size = ITEM_SIZE_VEHICLE_LARGE
 	capacity_flag = ITEM_SIZE_VEHICLE

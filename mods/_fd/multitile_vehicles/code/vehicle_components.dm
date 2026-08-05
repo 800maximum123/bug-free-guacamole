@@ -241,12 +241,13 @@
 	var/segmented_duration = death_duration / death_segments
 	var/S = emissive_appearance('icons/effects/turf_fire.dmi', "max", ABOVE_HUMAN_LAYER + 0.1) // TODO: make vehicles have unique overlays
 	vehicle_contain.shake_animation()
-	vehicle_contain.visible_message(SPAN_DANGER("\The [src] is about to explode!"), SPAN_DANGER("You hear a violent fire and air hissing!"))
+	vehicle_contain.visible_message(SPAN_DANGER("\The [vehicle_contain] is about to explode!"), SPAN_DANGER("You hear a violent fire and air hissing!"))
 	AddOverlays(S)
 	playsound(vehicle_contain.loc, death_sound, 70, FALSE)
 	while(death_segments > 0)
 		sleep(segmented_duration)
 		vehicle_contain.shake_animation()
+		new /obj/sparks(get_turf(vehicle_contain))
 		death_segments--
 	CutOverlays(S)
 

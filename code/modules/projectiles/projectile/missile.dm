@@ -107,39 +107,89 @@
 	explosion_falloff = 500
 	shrapnel = FALSE
 
+	var/additional_pen = 0
 	var/internal_explosion_power = 500
 	var/internal_explosion_falloff = 50
+
+/obj/item/projectile/missile/aphe/proc/mech_action(mob/living/exosuit/mech, attack_dir)
+	mech.visible_message(SPAN_DANGER("The [src] pierces through the armor of [mech]!"), SPAN_DANGER("You hear a loud metallic pierce!"))
+	mech.gib()
+	playsound(mech, 'sound/weapons/rpg_pierce.ogg', 150, TRUE)
+
+/obj/item/projectile/missile/aphe/proc/vehicle_action(obj/vehicles/vehicle, attack_dir)
+	var/front = vehicle.frontal_hit_prob
+	var/rear = vehicle.rear_hit_prob
+	var/side = vehicle.side_hit_prob
+	var/vehicle_dir = vehicle.dir
+	// Normalize diagonal attack dirs to nearest cardinal for simplicity
+	switch(attack_dir)
+		if(NORTHWEST|NORTHEAST)
+			attack_dir = NORTH
+		if(SOUTHWEST|SOUTHEAST)
+			attack_dir = SOUTH
+	// Calculate angles and smallest angular difference
+	var/vehicle_angle = dir2angle(vehicle_dir)
+	var/attack_angle = dir2angle(attack_dir)
+	var/angle_diff = abs(vehicle_angle - attack_angle)
+	if(angle_diff > 180)
+		angle_diff = 360 - angle_diff
+
+	// Decide which side was hit: frontal, rear, or side
+	if(angle_diff <= 45)			// Rear hit
+		if(prob(rear + hitchance_mod + additional_pen))
+			pierce_vehicle(vehicle, 4, "rear")
+		else
+			deflect_vehicle(vehicle, "rear")
+		vehicle.balloon_alert_to_viewers("rear hit")
+	else if(angle_diff >= 135)		// Frontal hit
+		if(prob(front + hitchance_mod + additional_pen))
+			pierce_vehicle(vehicle, 1, "frontal")
+		else
+			deflect_vehicle(vehicle, "frontal")
+		vehicle.balloon_alert_to_viewers("frontal hit")
+	else 							// Side hit
+		if(prob(side + hitchance_mod + additional_pen))
+			pierce_vehicle(vehicle, 2, "side")
+		else
+			deflect_vehicle(vehicle, "side")
+		vehicle.balloon_alert_to_viewers("side hit")
+
+/obj/item/projectile/missile/aphe/proc/pierce_vehicle(obj/vehicles/vehicle, multiplier, side)
+	vehicle.visible_message(SPAN_DANGER("The [src] pierces through the [side] hull of [vehicle]!"), SPAN_DANGER("You hear a loud metallic pierce!"))
+	vehicle.ex_act(explosion_power * multiplier) // Basically doubles the damage
+	vehicle.deactivate()
+	playsound(vehicle, 'sound/weapons/rpg_pierce.ogg', 150, TRUE)
+	var/obj/vehicles/large/large_v = vehicle
+	var/datum/vehicle_interior/interior = large_v.interior
+	if(large_v && interior)
+		// Simulating an RPG going inside the vehicle and blowing up by causing an explosion inside of it
+		// We spawn it around middle of the interior
+		var/turf/pierce = get_turfs_in_range(interior.middle_turf, 2)
+		pierce.visible_message(FONT_LARGE(SPAN_DANGER("[src] comes through the [side] hull of [vehicle], OH FUCK!")), FONT_LARGE(SPAN_DANGER("You hear a VERY loud metallic pierce!")))
+		playsound(pierce ,'sound/weapons/rpg_pierce.ogg', 150, TRUE)
+		cell_explosion(pierce, internal_explosion_power * multiplier, internal_explosion_falloff)
+
+/obj/item/projectile/missile/aphe/proc/deflect_vehicle(obj/vehicles/vehicle, side)
+	vehicle.visible_message(SPAN_DANGER("The [src] deflects off the [side] hull of [vehicle]!"), SPAN_DANGER("You hear metal deflecting against metal!"))
+	//vehicle.balloon_alert_to_viewers("deflected!")
+	vehicle.shake_animation(4)
+	new /obj/sparks(get_turf(src))
+	playsound(vehicle, pick(ricochet_sounds), 150, FALSE)
 
 /obj/item/projectile/missile/aphe/special_action(atom/A, turf/T) // TODO: Make damaging vehicles actually harsh
 	// Heavily damages any exosuits or vehicles
 	var/obj/vehicles/vehicle = A
 	var/mob/living/exosuit/mech = A
+	var/attack_dir = get_dir(src, A)
 	if(istype(mech))
-		mech.visible_message(SPAN_DANGER("The [src] pierces through the armor of [mech]!"), SPAN_DANGER("You hear a loud metallic pierce!"))
-		mech.gib()
-		playsound(mech ,'sound/weapons/rpg_pierce.ogg', 100, FALSE)
+		mech_action(mech, attack_dir)
 	if(istype(vehicle))
-		vehicle.visible_message(SPAN_DANGER("The [src] pierces through the hull of [vehicle]!"), SPAN_DANGER("You hear a loud metallic pierce!"))
-		playsound(vehicle ,'sound/weapons/rpg_pierce.ogg', 100, FALSE)
-		vehicle.ex_act(explosion_power)
-		vehicle.deactivate()
-		var/obj/vehicles/large/large_v = vehicle
-		var/datum/vehicle_interior/interior = large_v.interior
-		if(!large_v || !interior)
-			return TRUE
-		// Simulating an RPG going inside the vehicle and blowing up by causing an explosion inside of it
-		// We spawn it on middle of the interior
-		var/turf/pierce = get_turfs_in_range(interior.middle_turf, 2)
-		playsound(pierce ,'sound/weapons/rpg_pierce.ogg', 100, FALSE)
-		cell_explosion(pierce, internal_explosion_power, internal_explosion_falloff)
-		pierce.visible_message(FONT_LARGE(SPAN_DANGER("[src] comes through the hull of [A], OH FUCK!")), FONT_LARGE(SPAN_DANGER("You hear a VERY loud metallic pierce!")))
+		vehicle_action(vehicle, attack_dir)
 
 // TANDEM (APHE) MISSILE
-// Same as APHE but circumvents any ERA armor
-/obj/item/projectile/missile/aphe/tandem // TODO: Actually make tandem be different from APHE
+// Same as APHE but much more penetrative
+/obj/item/projectile/missile/aphe/tandem
 	name = "tandem APHE rocket"
 	icon_state = "rocket_tandem"
 	shrapnel_type = /obj/item/grenade/frag/dud_missile/tandem
-
-/obj/item/projectile/missile/tandem/special_action(atom/A, turf/T) // TODO: Make damaging vehicles actually harsh
-	. = ..()
+	additional_pen = 50
