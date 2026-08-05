@@ -3,6 +3,7 @@
 	icon = 'maps/torch/icons/obj/solbanner.dmi'
 	icon_state = "wood"
 	desc = "A wooden pole bearing a banner of Sol Central Government. Ave."
+	health_max = 100
 	anchored = TRUE
 	obj_flags = OBJ_FLAG_ANCHORABLE
 	layer = ABOVE_HUMAN_LAYER
@@ -11,6 +12,7 @@
 	name = "exoplanet SCG banner"
 	desc = "A rugged metal frame with a banner of Sol Central Government on it. Resistant to radiation bleaching."
 	icon_state = "steel"
+	health_max = 200
 	obj_flags = 0
 	var/plantedby
 

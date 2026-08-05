@@ -22,7 +22,8 @@
 	name = "\improper Gaia banner"
 	icon = 'maps/gaia/icons/structures/gaiabanner.dmi'
 	icon_state = "wood_gaia"
-	desc = "A wooden pole bearing a banner of Republic Gaia. Liberty!"
+	desc = "A wooden pole bearing a banner of Republic Gaia. A symbol of freedom to some, and memory of past for other."
+	health_max = 100
 	anchored = TRUE
 	obj_flags = OBJ_FLAG_ANCHORABLE
 	layer = ABOVE_HUMAN_LAYER
@@ -32,6 +33,7 @@
 	icon = 'maps/gaia/icons/structures/gaiabanner.dmi'
 	icon_state = "wood_iccg"
 	desc = "A wooden pole bearing a banner of Independent Colonial Confederation of Gilgamesh. A symbol of Motherland to many proud people."
+	health_max = 100
 	anchored = TRUE
 	obj_flags = OBJ_FLAG_ANCHORABLE
 	layer = ABOVE_HUMAN_LAYER
