@@ -205,6 +205,15 @@
 
 /obj/structure/rubble/chaos
 	loot = list(
+					/obj/item/material/twohanded/spear,
+					/obj/item/fd/fishing/worm_can,
+					/obj/item/fd/fishing/worm/eldritch,
+					/obj/item/fd/fishing/lure/buzz,
+					/obj/item/fd/fishing/lure/algae,
+					/obj/item/fd/fishing/lure/lucky,
+					/obj/item/fd/fishing/lure/led,
+					/obj/item/fd/fishing/reel,
+					/obj/item/fishing_rod,
 //REAGENT CONTAINERS,
 					/obj/item/reagent_containers/hypospray/autoinjector/pain,
 					/obj/item/reagent_containers/hypospray/autoinjector/antirad,

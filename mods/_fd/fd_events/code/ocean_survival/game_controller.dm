@@ -182,4 +182,211 @@
 		L.wave_timer = connected_timer
 
 /obj/structre/fd/ocean_gamemode_controller/proc/end_the_game()
-	return
+	var/list/escaped_people = list()
+
+	for(var/obj/structre/fd/ocean_gamemode_pod/P in world)
+		if(P.engine && P.wing && P.system && P.basic_repair_done)
+			escaped_people += P.mobs_inside
+
+			P.flyoff()
+
+	for(var/mob/living/L in GLOB.player_list)
+		L.anchored = TRUE
+
+		L.overlay_fullscreen("background",/obj/screen/fullscreen/fd/blackout)
+		var/message = {""}
+		if(L in escaped_people)
+			message = {"Вы <span style="color: green;">спаслись</span>"}
+		else
+			message = {"<span style="color: red;">Океан поглотил вас</span>"}
+
+		var/obj/screen/player_message/maintext = new /obj/screen/player_message()
+		maintext.plane = HUD_PLANE
+		maintext.layer = HUD_ABOVE_HUD_LAYER
+		maintext.maptext_x = 0
+		maintext.maptext_y = -210
+
+		L.client.screen += maintext
+		maintext.set_text(message, COLOR_WHITE)
+
+	sleep(10 SECONDS)
+
+	cutscene_cinema_end()
+
+/obj/structre/fd/ocean_gamemode_pod_parts
+	density = TRUE
+
+	name = "parts"
+	desc = "We can use it. Totally."
+
+	icon = 'mods/_fd/fd_assets/icons/goons/ship.dmi'
+	icon_state = "parts"
+
+/obj/structre/fd/ocean_gamemode_pod_parts/Initialize()
+	. = ..()
+	SetTransform(2)
+	pixel_x = -16
+
+	add_filter("part", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_GREEN))
+
+/obj/structre/fd/ocean_gamemode_pod_parts/engine
+	name = "engine"
+	icon_state = "engine-3"
+
+/obj/structre/fd/ocean_gamemode_pod_parts/wings
+	name = "wings"
+	icon_state = "frame"
+
+/obj/structre/fd/ocean_gamemode_pod_parts/system
+	name = "system mainframe"
+	icon_state = "ship_gps"
+
+/obj/structre/fd/ocean_gamemode_pod
+	var/engine = null
+	var/wing = null
+	var/system = null
+
+	var/basic_repair_done = FALSE
+
+	name = "broken shuttle"
+	desc = "We can use it. Totally."
+
+	icon = 'mods/_fd/fd_assets/icons/goons/64x64.dmi'
+	icon_state = "syndsat-crashed"
+
+	density = TRUE
+	anchored = TRUE
+	pixel_y = -16
+	pixel_x = -16
+
+	maptext_y = 32
+	maptext_x = 10
+
+	maptext_width = 96
+	maptext_height = 64
+
+	var/list/mobs_inside = list()
+	var/seats = 10
+
+/obj/structre/fd/ocean_gamemode_pod/proc/flyoff()
+	animate(src, pixel_y = -32, time = 1 SECONDS, easing = SINE_EASING | EASE_OUT)
+	animate(transform = matrix(40, MATRIX_ROTATE), alpha = 0, pixel_y = -192, pixel_x = 192, time = 5 SECONDS, easing = CUBIC_EASING | EASE_IN)
+
+/obj/structre/fd/ocean_gamemode_pod/Process()
+	if(engine)
+		maptext = STYLE_SMALLFONTS_OUTLINE("ENGINE:", 7, COLOR_WHITE, COLOR_BLACK)
+		maptext += STYLE_SMALLFONTS_OUTLINE(" OP", 7, COLOR_GREEN, COLOR_BLACK)
+	if(!engine)
+		maptext = STYLE_SMALLFONTS_OUTLINE("ENGINE:", 7, COLOR_WHITE, COLOR_BLACK)
+		maptext += STYLE_SMALLFONTS_OUTLINE(" N", 7, COLOR_RED, COLOR_BLACK)
+///////////////////////////////////
+	if(wing)
+		maptext += STYLE_SMALLFONTS_OUTLINE(" | WINGS:", 7, COLOR_WHITE, COLOR_BLACK)
+		maptext += STYLE_SMALLFONTS_OUTLINE(" OP", 7, COLOR_GREEN, COLOR_BLACK)
+	if(!wing)
+		maptext += STYLE_SMALLFONTS_OUTLINE(" | WINGS:", 7, COLOR_WHITE, COLOR_BLACK)
+		maptext += STYLE_SMALLFONTS_OUTLINE(" N", 7, COLOR_RED, COLOR_BLACK)
+///////////////////////////////////
+	if(system)
+		maptext += STYLE_SMALLFONTS_OUTLINE(" | SYSTEM:", 7, COLOR_WHITE, COLOR_BLACK)
+		maptext += STYLE_SMALLFONTS_OUTLINE(" OP<br>", 7, COLOR_GREEN, COLOR_BLACK)
+	if(!system)
+		maptext += STYLE_SMALLFONTS_OUTLINE(" | SYSTEM:", 7, COLOR_WHITE, COLOR_BLACK)
+		maptext += STYLE_SMALLFONTS_OUTLINE(" N<br>", 7, COLOR_RED, COLOR_BLACK)
+///////////////////////////////////
+	maptext += STYLE_SMALLFONTS_OUTLINE("        [length(mobs_inside)]/[seats]", 7, COLOR_WHITE, COLOR_BLACK)
+
+/obj/structre/fd/ocean_gamemode_pod/attack_hand(mob/living/user)
+	. = ..()
+
+	if(length(mobs_inside) < seats && !(user in mobs_inside) && do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
+		if(length(mobs_inside) < seats)
+			user.forceMove(src)
+			mobs_inside += user
+		else
+			balloon_alert_to_viewers("|ALL SEATS TAKEN|", null, COLOR_RED)
+		return TRUE
+
+	if(user in mobs_inside)
+		user.forceMove(get_turf(src))
+		mobs_inside -= user
+		return TRUE
+
+	else
+		balloon_alert_to_viewers("|ALL SEATS TAKEN|", null, COLOR_RED)
+		return FALSE
+
+/obj/structre/fd/ocean_gamemode_pod/use_tool(obj/item/tool, mob/living/user, list/click_params)
+	. = ..()
+
+	if(isWelder(tool) && !basic_repair_done)
+		var/obj/item/weldingtool/WT = tool
+		if(!WT.can_use(10, user))
+			return TRUE
+
+		playsound(loc, pick('sound/items/Welder.ogg', 'sound/items/Welder2.ogg'), 50, 1)
+		if(do_after(user, (WT.toolspeed * 10) SECONDS, src, DO_REPAIR_CONSTRUCT))
+			if(!src || !WT.remove_fuel(5, user)) return
+			balloon_alert_to_viewers("|BASIC FUNCTIONALITY RESTORED|", null, COLOR_GREEN)
+			icon_state = "syndsat"
+			basic_repair_done = TRUE
+			START_PROCESSING(SSobj,src)
+		return TRUE
+
+/obj/structre/fd/ocean_gamemode_pod/MouseDrop_T(atom/dropped, mob/living/user)
+	. = ..()
+
+	if(!engine && istype(dropped,/obj/structre/fd/ocean_gamemode_pod_parts/engine))
+		engine = dropped
+		balloon_alert_to_viewers("|NEW ENGINE INSTALLED|", null, COLOR_GREEN)
+		return TRUE
+
+	if(!wing && istype(dropped,/obj/structre/fd/ocean_gamemode_pod_parts/wings))
+		wing = dropped
+		balloon_alert_to_viewers("|NEW WINGS ATTACHED|", null, COLOR_GREEN)
+		return TRUE
+
+	if(!system && istype(dropped,/obj/structre/fd/ocean_gamemode_pod_parts/system))
+		system = dropped
+		balloon_alert_to_viewers("|SYSTEM MAINFRAME ACTIVE|", null, COLOR_GREEN)
+		return TRUE
+
+/obj/structre/fd/bird
+	icon = 'icons/mob/simple_animal/crow.dmi'
+	icon_state = "crow"
+
+	name = "bird"
+	density = FALSE
+	anchored = TRUE
+
+/obj/structre/fd/bird/Initialize()
+	. = ..()
+	START_PROCESSING(SSobj,src)
+
+/obj/structre/fd/bird/Process()
+	var/list/spookers = list()
+	for(var/mob/living/L in range(3,src))
+		spookers += L
+
+	if(length(spookers) && alpha == 255)
+		fly_away()
+		STOP_PROCESSING(SSobj,src)
+
+/obj/structre/fd/bird/proc/fly_away()
+	mouse_opacity = 2
+
+	var/direction = pick(1, -1)
+	var/horizontal_dist = rand(7, 5 * world.icon_size)
+	var/horizontal_time = round(Frand(1 SECOND, 5 SECONDS), 0.1)
+
+	layer = ABOVE_HUMAN_LAYER //conveniently named
+
+	dir = direction ? EAST : WEST
+
+	var/vertical_ease = pick(EASE_IN|BACK_EASING, QUAD_EASING|EASE_OUT)
+	var/vertical_dist = 20 * world.icon_size
+	var/vertical_time = round(Frand(1.5 SECONDS, 4 SECONDS), 0.1)
+
+	animate(src, pixel_x = horizontal_dist * direction, time = horizontal_time, easing = EASE_OUT|QUAD_EASING)
+	animate(src, pixel_y = vertical_dist, time = vertical_time, easing = vertical_ease, flags = ANIMATION_PARALLEL)
+	animate(src, delay = vertical_time - (1 SECOND), alpha = 0, time = round(Frand(1 SECOND, 3 SECONDS)), flags = ANIMATION_PARALLEL)
