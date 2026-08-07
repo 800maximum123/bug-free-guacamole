@@ -1,5 +1,5 @@
 /obj/screen/wave_timer
-	var/obj/structre/fd/ocean_gamemode_controller/controller
+	var/obj/structure/fd/ocean_gamemode_controller/controller
 	maptext_width = 280
 	maptext_height = 280
 	screen_loc = "CENTER,CENTER+5"
@@ -26,7 +26,7 @@
 
 	. = ..()
 
-/obj/structre/fd/ocean_gamemode_controller
+/obj/structure/fd/ocean_gamemode_controller
 	var/obj/screen/wave_timer/connected_timer
 	var/wave_timeframe = 3 HOURS
 	var/wave_timeframe_current = 3 HOURS
@@ -35,12 +35,12 @@
 	icon_state = "round_events"
 	invisibility = 101
 
-/obj/structre/fd/ocean_gamemode_controller/Initialize()
+/obj/structure/fd/ocean_gamemode_controller/Initialize()
 	. = ..()
 	connected_timer = new /obj/screen/wave_timer()
 	connected_timer.controller = src
 
-/obj/structre/fd/ocean_gamemode_controller/Process()
+/obj/structure/fd/ocean_gamemode_controller/Process()
 	if(wave_timeframe_current > 0)
 		wave_timeframe_current -= 1
 		if(wave_timeframe_current > (wave_timeframe / 2))
@@ -142,7 +142,7 @@
 				client.screen -= messages
 				qdel(messages)
 
-/obj/structre/fd/ocean_gamemode_controller/proc/start_the_game()
+/obj/structure/fd/ocean_gamemode_controller/proc/start_the_game()
 	for(var/mob/living/L in GLOB.player_list)
 		L.ocean_gamemode_lore()
 
@@ -181,10 +181,10 @@
 		L.client.screen += connected_timer
 		L.wave_timer = connected_timer
 
-/obj/structre/fd/ocean_gamemode_controller/proc/end_the_game()
+/obj/structure/fd/ocean_gamemode_controller/proc/end_the_game()
 	var/list/escaped_people = list()
 
-	for(var/obj/structre/fd/ocean_gamemode_pod/P in world)
+	for(var/obj/structure/fd/ocean_gamemode_pod/P in world)
 		if(P.engine && P.wing && P.system && P.basic_repair_done)
 			escaped_people += P.mobs_inside
 
@@ -213,7 +213,7 @@
 
 	cutscene_cinema_end()
 
-/obj/structre/fd/ocean_gamemode_pod_parts
+/obj/structure/fd/ocean_gamemode_pod_parts
 	density = TRUE
 
 	name = "parts"
@@ -222,26 +222,26 @@
 	icon = 'mods/_fd/fd_assets/icons/goons/ship.dmi'
 	icon_state = "parts"
 
-/obj/structre/fd/ocean_gamemode_pod_parts/Initialize()
+/obj/structure/fd/ocean_gamemode_pod_parts/Initialize()
 	. = ..()
 	SetTransform(2)
 	pixel_x = -16
 
 	add_filter("part", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_GREEN))
 
-/obj/structre/fd/ocean_gamemode_pod_parts/engine
+/obj/structure/fd/ocean_gamemode_pod_parts/engine
 	name = "engine"
 	icon_state = "engine-3"
 
-/obj/structre/fd/ocean_gamemode_pod_parts/wings
+/obj/structure/fd/ocean_gamemode_pod_parts/wings
 	name = "wings"
 	icon_state = "frame"
 
-/obj/structre/fd/ocean_gamemode_pod_parts/system
+/obj/structure/fd/ocean_gamemode_pod_parts/system
 	name = "system mainframe"
 	icon_state = "ship_gps"
 
-/obj/structre/fd/ocean_gamemode_pod
+/obj/structure/fd/ocean_gamemode_pod
 	var/engine = null
 	var/wing = null
 	var/system = null
@@ -268,11 +268,11 @@
 	var/list/mobs_inside = list()
 	var/seats = 10
 
-/obj/structre/fd/ocean_gamemode_pod/proc/flyoff()
+/obj/structure/fd/ocean_gamemode_pod/proc/flyoff()
 	animate(src, pixel_y = -32, time = 1 SECONDS, easing = SINE_EASING | EASE_OUT)
 	animate(transform = matrix(40, MATRIX_ROTATE), alpha = 0, pixel_y = -192, pixel_x = 192, time = 5 SECONDS, easing = CUBIC_EASING | EASE_IN)
 
-/obj/structre/fd/ocean_gamemode_pod/Process()
+/obj/structure/fd/ocean_gamemode_pod/Process()
 	if(engine)
 		maptext = STYLE_SMALLFONTS_OUTLINE("ENGINE:", 7, COLOR_WHITE, COLOR_BLACK)
 		maptext += STYLE_SMALLFONTS_OUTLINE(" OP", 7, COLOR_GREEN, COLOR_BLACK)
@@ -296,7 +296,7 @@
 ///////////////////////////////////
 	maptext += STYLE_SMALLFONTS_OUTLINE("        [length(mobs_inside)]/[seats]", 7, COLOR_WHITE, COLOR_BLACK)
 
-/obj/structre/fd/ocean_gamemode_pod/attack_hand(mob/living/user)
+/obj/structure/fd/ocean_gamemode_pod/attack_hand(mob/living/user)
 	. = ..()
 
 	if(length(mobs_inside) < seats && !(user in mobs_inside) && do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
@@ -316,7 +316,7 @@
 		balloon_alert_to_viewers("|ALL SEATS TAKEN|", null, COLOR_RED)
 		return FALSE
 
-/obj/structre/fd/ocean_gamemode_pod/use_tool(obj/item/tool, mob/living/user, list/click_params)
+/obj/structure/fd/ocean_gamemode_pod/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	. = ..()
 
 	if(isWelder(tool) && !basic_repair_done)
@@ -333,25 +333,25 @@
 			START_PROCESSING(SSobj,src)
 		return TRUE
 
-/obj/structre/fd/ocean_gamemode_pod/MouseDrop_T(atom/dropped, mob/living/user)
+/obj/structure/fd/ocean_gamemode_pod/MouseDrop_T(atom/dropped, mob/living/user)
 	. = ..()
 
-	if(!engine && istype(dropped,/obj/structre/fd/ocean_gamemode_pod_parts/engine))
+	if(!engine && istype(dropped,/obj/structure/fd/ocean_gamemode_pod_parts/engine))
 		engine = dropped
 		balloon_alert_to_viewers("|NEW ENGINE INSTALLED|", null, COLOR_GREEN)
 		return TRUE
 
-	if(!wing && istype(dropped,/obj/structre/fd/ocean_gamemode_pod_parts/wings))
+	if(!wing && istype(dropped,/obj/structure/fd/ocean_gamemode_pod_parts/wings))
 		wing = dropped
 		balloon_alert_to_viewers("|NEW WINGS ATTACHED|", null, COLOR_GREEN)
 		return TRUE
 
-	if(!system && istype(dropped,/obj/structre/fd/ocean_gamemode_pod_parts/system))
+	if(!system && istype(dropped,/obj/structure/fd/ocean_gamemode_pod_parts/system))
 		system = dropped
 		balloon_alert_to_viewers("|SYSTEM MAINFRAME ACTIVE|", null, COLOR_GREEN)
 		return TRUE
 
-/obj/structre/fd/bird
+/obj/structure/fd/bird
 	icon = 'icons/mob/simple_animal/crow.dmi'
 	icon_state = "crow"
 
@@ -359,11 +359,11 @@
 	density = FALSE
 	anchored = TRUE
 
-/obj/structre/fd/bird/Initialize()
+/obj/structure/fd/bird/Initialize()
 	. = ..()
 	START_PROCESSING(SSobj,src)
 
-/obj/structre/fd/bird/Process()
+/obj/structure/fd/bird/Process()
 	var/list/spookers = list()
 	for(var/mob/living/L in range(3,src))
 		spookers += L
@@ -372,7 +372,7 @@
 		fly_away()
 		STOP_PROCESSING(SSobj,src)
 
-/obj/structre/fd/bird/proc/fly_away()
+/obj/structure/fd/bird/proc/fly_away()
 	mouse_opacity = 2
 
 	var/direction = pick(1, -1)
