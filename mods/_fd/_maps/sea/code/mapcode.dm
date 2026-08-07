@@ -1,3 +1,82 @@
+/obj/overmap/visitable/sector/seaplanet
+	name = "Sea"
+	desc = "Blue ocean world"
+	sector_flags = OVERMAP_SECTOR_KNOWN
+	icon_state = "globe"
+	color = "#63c2c2"
+	initial_generic_waypoints = list()
+	var/list/lightmain
+
+/obj/overmap/visitable/sector/seaplanet/Initialize()
+	..()
+
+	lightmain = block(locate(world.maxx, world.maxy, max(map_z)), locate(1, 1, min(map_z)))
+	for(var/atom/A as anything in lightmain)
+		if(istype(A.loc, /area/sea/underwater) || !istype(A, /turf/) || A.density)
+			lightmain -= A
+	update_daynight()
+
+/obj/overmap/visitable/sector/seaplanet/proc/update_daynight(light = 2, light_color_m = "#d8ffff")
+	for(var/turf/T as anything in lightmain)
+		T.set_light(1, light, l_color = light_color_m)
+
+/singleton/submap_archetype/sea
+	descriptor = "Sea"
+	map = "Sea"
+	crew_jobs = list(/datum/job/submap/sea)
+
+/obj/submap_landmark/joinable_submap/sea
+	name = "Sea"
+	archetype = /singleton/submap_archetype/sea
+
+/datum/job/submap/sea
+	title = "Survivor"
+	total_positions = -1
+	outfit_type = /singleton/hierarchy/outfit/sea
+	create_record = TRUE
+	skill_points = 72
+	no_skill_buffs = TRUE
+	max_skill = list(
+		SKILL_BUREAUCRACY = SKILL_MAX,
+		SKILL_FINANCE = SKILL_MAX,
+		SKILL_EVA = SKILL_MAX,
+		SKILL_MECH = SKILL_MAX,
+		SKILL_PILOT = SKILL_MAX,
+		SKILL_HAULING = SKILL_MAX,
+		SKILL_COMPUTER = SKILL_MAX,
+		SKILL_BOTANY = SKILL_MAX,
+		SKILL_COOKING = SKILL_MAX,
+		SKILL_COMBAT = SKILL_MAX,
+		SKILL_WEAPONS = SKILL_MAX,
+		SKILL_FORENSICS = SKILL_MAX,
+		SKILL_CONSTRUCTION = SKILL_MAX,
+		SKILL_ELECTRICAL = SKILL_MAX,
+		SKILL_ATMOS = SKILL_MAX,
+		SKILL_ENGINES = SKILL_MAX,
+		SKILL_DEVICES = SKILL_MAX,
+		SKILL_SCIENCE = SKILL_MAX,
+		SKILL_MEDICAL = SKILL_MAX,
+		SKILL_ANATOMY = SKILL_MAX,
+		SKILL_CHEMISTRY = SKILL_MAX
+	)
+
+/datum/job/submap/sea/post_equip_rank(mob/living/person, alt_title)
+	. = ..()
+	person.simple_combat_on = TRUE
+	person.generate_binds()
+	person.anchored = TRUE
+
+/singleton/hierarchy/outfit/sea
+	name = "Survivor Appearance"
+
+	uniform = /obj/item/clothing/under/fa/vacsuit
+	back = /obj/item/storage/backpack/satchel
+
+	backpack_contents = list(/obj/item/storage/box/survival = 1)
+
+/obj/submap_landmark/spawnpoint/sea
+	name = "Survivor"
+
 /obj/screen/wave_timer
 	var/obj/structure/fd/ocean_gamemode_controller/controller
 	maptext_width = 280
@@ -51,7 +130,7 @@
 			connected_timer.show_screentext({"До наводнения: <b><span style="color: red;">[wave_timeframe_current]</span></b>"})
 			connected_timer.maptext_x = -24
 			connected_timer.maptext_y = 0
-	if(wave_timeframe_current < 0)
+	if(wave_timeframe_current <= 0)
 		end_the_game()
 
 /obj/structure/fd/placeholder/ocean_gamemode_blockers
@@ -146,25 +225,31 @@
 	for(var/mob/living/L in GLOB.player_list)
 		L.ocean_gamemode_lore()
 
-	sleep(50)
+	sleep(50 SECONDS)
 
 	shitcoded_screenalert(name = "Атлас", title = "ЭКСТРЕННАЯ ТРАНСЛЯЦИЯ", text = "Внимание, сохраняйте ваше спокойствие. Голос, который вы слышите прямо сейчас - предзаписанное сообщение на случай чрезвычайной ситуации.", icon_choice = 'mods/_fd/fd_events/icons/screen_alert_images.dmi', icon_choice_state = "robot_blue")
-	sleep(10 SECONDS)
+	sleep(15 SECONDS)
 
-	shitcoded_screenalert(name = "Атлас", title = "ЭКСТРЕННАЯ ТРАНСЛЯЦИЯ", text = "Тщательно осмотрите себя. При наличии открытого кровотечения, ушибов, или визуального искривления ваших конечностей - осмотрите спасательную капсулу на наличие комплекта первой помощи и немедленно подайте сигнал другим возможным выжившим через терминал.", icon_choice = 'mods/_fd/fd_events/icons/screen_alert_images.dmi', icon_choice_state = "robot_blue")
+	shitcoded_screenalert(name = "Атлас", title = "ЭКСТРЕННАЯ ТРАНСЛЯЦИЯ", text = "Тщательно осмотрите себя. При наличии открытого кровотечения, ушибов, или визуального искривления ваших конечностей - обыщите спасательную капсулу на наличие комплекта первой помощи и немедленно подайте сигнал другим возможным выжившим через терминал.", icon_choice = 'mods/_fd/fd_events/icons/screen_alert_images.dmi', icon_choice_state = "robot_blue")
 	sleep(15 SECONDS)
 
 	shitcoded_screenalert(name = "Атлас", title = "ЭКСТРЕННАЯ ТРАНСЛЯЦИЯ", text = "В случае активного затопления внутреннего отсека спасательной капсулы постарайтесь найти и устранить брешь, или, при отсутствии иной возможности - покиньте её как можно быстрее.", icon_choice = 'mods/_fd/fd_events/icons/screen_alert_images.dmi', icon_choice_state = "robot_blue")
-	sleep(10 SECONDS)
-
-	shitcoded_screenalert(name = "Атлас", title = "ЭКСТРЕННАЯ ТРАНСЛЯЦИЯ", text = "Не забывайте сохранять спокойствие. Факт того, что вы совершили успешную посадку - уже переводит вас из КАТЕГОРИЯ СМЕРТНОСТИ 3 в КАТЕГОРИЯ СМЕРТНОСТИ 2. По статистике, 43% пострадавших, оказавшихся в КС2 успешно возвращаются домой с минимальными физическими и серьёзными психическими последствиями.", icon_choice = 'mods/_fd/fd_events/icons/screen_alert_images.dmi', icon_choice_state = "robot_blue")
 	sleep(15 SECONDS)
 
-	shitcoded_screenalert(name = "Атлас", title = "ЭКСТРЕННАЯ ТРАНСЛЯЦИЯ", text = "Если локация вашей посадки предполагает безопасное нахождение вне спасательной капсулы - специалисты рекомендуют использовать всё, что может потенциально увеличить вашу видимость для спасательной команды и увеличить продовольственные запасы, необходимые для вашего функционирования до их прибытия. Все эти вещи могут повысить ваши шансы и перевести вас в КАТЕГОРИЯ СМЕРТНОСТИ 3, наиболее маловероятных жертв катастрофы.", icon_choice = 'mods/_fd/fd_events/icons/screen_alert_images.dmi', icon_choice_state = "robot_blue")
+	shitcoded_screenalert(name = "Атлас", title = "ЭКСТРЕННАЯ ТРАНСЛЯЦИЯ", text = "Не забывайте сохранять спокойствие. Факт того, что вы совершили успешную посадку - уже переводит вас из КАТЕГОРИЯ СМЕРТНОСТИ 3 в КАТЕГОРИЯ СМЕРТНОСТИ 2.", icon_choice = 'mods/_fd/fd_events/icons/screen_alert_images.dmi', icon_choice_state = "robot_blue")
+	sleep(15 SECONDS)
+
+	shitcoded_screenalert(name = "Атлас", title = "ЭКСТРЕННАЯ ТРАНСЛЯЦИЯ", text = "По статистике, 43% пострадавших, оказавшихся в КС2 успешно возвращаются домой с минимальными физическими и серьёзными психическими последствиями.", icon_choice = 'mods/_fd/fd_events/icons/screen_alert_images.dmi', icon_choice_state = "robot_blue")
+	sleep(15 SECONDS)
+
+	shitcoded_screenalert(name = "Атлас", title = "ЭКСТРЕННАЯ ТРАНСЛЯЦИЯ", text = "Если локация вашей посадки предполагает безопасное нахождение вне спасательной капсулы - специалисты рекомендуют использовать всё, что может потенциально увеличить вашу видимость для спасательной команды и...", icon_choice = 'mods/_fd/fd_events/icons/screen_alert_images.dmi', icon_choice_state = "robot_blue")
+	sleep(15 SECONDS)
+
+	shitcoded_screenalert(name = "Атлас", title = "ЭКСТРЕННАЯ ТРАНСЛЯЦИЯ", text = "...увеличить продовольственные запасы, необходимые для вашего функционирования до их прибытия. Все эти вещи могут повысить ваши шансы и перевести вас в КАТЕГОРИЯ СМЕРТНОСТИ 3, наиболее маловероятных жертв катастрофы.", icon_choice = 'mods/_fd/fd_events/icons/screen_alert_images.dmi', icon_choice_state = "robot_blue")
 	sleep(15 SECONDS)
 
 	shitcoded_screenalert(name = "Атлас", title = "ЭКСТРЕННАЯ ТРАНСЛЯЦИЯ", text = "Ориентировочное время прибытия помощи: 899 Земных дней.", icon_choice = 'mods/_fd/fd_events/icons/screen_alert_images.dmi', icon_choice_state = "robot_blue")
-	sleep(10 SECONDS)
+	sleep(20 SECONDS)
 
 	for(var/obj/structure/fd/placeholder/ocean_gamemode_blockers/B in world)
 		qdel(B)
@@ -221,13 +306,9 @@
 
 	icon = 'mods/_fd/fd_assets/icons/goons/ship.dmi'
 	icon_state = "parts"
-
-/obj/structure/fd/ocean_gamemode_pod_parts/Initialize()
-	. = ..()
-	SetTransform(2)
-	pixel_x = -16
-
-	add_filter("part", 1, list("type" = "outline", , "size" = 1, "color" = COLOR_GREEN))
+	interactive = TRUE
+	desc_special_show = TRUE
+	desc_special = {"Сменная запчасть для челнока. Может пригодиться."}
 
 /obj/structure/fd/ocean_gamemode_pod_parts/engine
 	name = "engine"
@@ -259,11 +340,11 @@
 	pixel_y = -16
 	pixel_x = -16
 
-	maptext_y = 32
-	maptext_x = 10
+	maptext_y = 48
+	maptext_x = -10
 
-	maptext_width = 96
-	maptext_height = 64
+	maptext_width = 128
+	maptext_height = 96
 
 	var/list/mobs_inside = list()
 	var/seats = 10
@@ -294,27 +375,28 @@
 		maptext += STYLE_SMALLFONTS_OUTLINE(" | SYSTEM:", 7, COLOR_WHITE, COLOR_BLACK)
 		maptext += STYLE_SMALLFONTS_OUTLINE(" N<br>", 7, COLOR_RED, COLOR_BLACK)
 ///////////////////////////////////
-	maptext += STYLE_SMALLFONTS_OUTLINE("        [length(mobs_inside)]/[seats]", 7, COLOR_WHITE, COLOR_BLACK)
+	maptext += STYLE_SMALLFONTS_OUTLINE("           [length(mobs_inside)]/[seats]", 7, COLOR_WHITE, COLOR_BLACK)
 
 /obj/structure/fd/ocean_gamemode_pod/attack_hand(mob/living/user)
 	. = ..()
 
-	if(length(mobs_inside) < seats && !(user in mobs_inside) && do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
-		if(length(mobs_inside) < seats)
-			user.forceMove(src)
-			mobs_inside += user
+	if(basic_repair_done)
+		if(length(mobs_inside) < seats && !(user in mobs_inside) && do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
+			if(length(mobs_inside) < seats)
+				user.forceMove(src)
+				mobs_inside += user
+			else
+				balloon_alert_to_viewers("|ALL SEATS TAKEN|", null, COLOR_RED)
+			return TRUE
+
+		if(user in mobs_inside)
+			user.forceMove(get_turf(src))
+			mobs_inside -= user
+			return TRUE
+
 		else
 			balloon_alert_to_viewers("|ALL SEATS TAKEN|", null, COLOR_RED)
-		return TRUE
-
-	if(user in mobs_inside)
-		user.forceMove(get_turf(src))
-		mobs_inside -= user
-		return TRUE
-
-	else
-		balloon_alert_to_viewers("|ALL SEATS TAKEN|", null, COLOR_RED)
-		return FALSE
+			return FALSE
 
 /obj/structure/fd/ocean_gamemode_pod/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	. = ..()
@@ -333,21 +415,24 @@
 			START_PROCESSING(SSobj,src)
 		return TRUE
 
-/obj/structure/fd/ocean_gamemode_pod/MouseDrop_T(atom/dropped, mob/living/user)
+/obj/structure/fd/ocean_gamemode_pod/MouseDrop_T(atom/movable/dropped, mob/living/user)
 	. = ..()
 
 	if(!engine && istype(dropped,/obj/structure/fd/ocean_gamemode_pod_parts/engine))
 		engine = dropped
+		dropped.forceMove(src)
 		balloon_alert_to_viewers("|NEW ENGINE INSTALLED|", null, COLOR_GREEN)
 		return TRUE
 
 	if(!wing && istype(dropped,/obj/structure/fd/ocean_gamemode_pod_parts/wings))
 		wing = dropped
+		dropped.forceMove(src)
 		balloon_alert_to_viewers("|NEW WINGS ATTACHED|", null, COLOR_GREEN)
 		return TRUE
 
 	if(!system && istype(dropped,/obj/structure/fd/ocean_gamemode_pod_parts/system))
 		system = dropped
+		dropped.forceMove(src)
 		balloon_alert_to_viewers("|SYSTEM MAINFRAME ACTIVE|", null, COLOR_GREEN)
 		return TRUE
 

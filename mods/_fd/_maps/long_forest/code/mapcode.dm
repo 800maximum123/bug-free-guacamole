@@ -9,6 +9,6 @@
 	requires_power = 0
 	adventure_mode = 1
 
-#ifndef EXAMPLEMAP
+/*#ifndef EXAMPLEMAP
 	#include "..\map\long_forest.dmm"
-#endif
+#endif*/

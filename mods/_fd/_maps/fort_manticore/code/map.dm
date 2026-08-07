@@ -762,6 +762,6 @@
 /obj/submap_landmark/spawnpoint/manticore/lin
 	name = "Lin Mei"
 
-#ifndef EXAMPLEMAP
+/*#ifndef EXAMPLEMAP
 	#include "..\map\fort_manticore.dmm"
-#endif
+#endif*/

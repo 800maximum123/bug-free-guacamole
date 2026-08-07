@@ -1,7 +1,10 @@
 /area/sea
 	name = "Volturnian Sea"
 
-/area/sea/dark_area
+/area/sea/underwater
+	name = "Volturnian Sea - Underwater"
+
+/area/sea/underwater/dark_area
 	name = "Volturnian Sea - Dark World"
 
 /area/sea/escape_pod
@@ -32,3 +35,7 @@
 
 /area/sea/escape_pod/eight
 		name = "Escape Pod 8"
+
+#ifndef EXAMPLEMAP
+	#include "..\maps\sea.dmm"
+#endif

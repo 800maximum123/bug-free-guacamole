@@ -88,6 +88,6 @@
 	name = "Shaft"
 	requires_power = 0
 
-#ifndef EXAMPLEMAP
+/*#ifndef EXAMPLEMAP
 	#include "..\map\metro.dmm"
-#endif
+#endif*/

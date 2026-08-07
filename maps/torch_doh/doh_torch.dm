@@ -395,6 +395,7 @@
 	#include "../../mods/_fd/_maps/collective_nightmare/_collective_nightmare.dme"
 	#include "../../mods/_fd/_maps/aaaa_facility/_aaaa_facility.dme"
 	#include "../../mods/_fd/_maps/parkour_course/_parkour_course.dme"
+	#include "../../mods/_fd/_maps/sea/_map_sea.dme"
 
 	#define using_map_DATUM /datum/map/torch
 
