@@ -268,7 +268,7 @@
 			if(2)
 				update_mouse_pointer(user, TRUE)
 			if(3)
-				balloon_alert(user, "🎯+")
+				balloon_alert(user, "🎯")
 				update_mouse_pointer(user, TRUE)
 				sound_to(user, sound(steadying_sound, volume = 100))
 

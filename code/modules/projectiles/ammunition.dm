@@ -171,6 +171,9 @@
 	if(!length(stored_ammo))
 		to_chat(user, SPAN_NOTICE("[src] is already empty!"))
 		return
+	if(length(stored_ammo) >= 10) // Stops some very dumb moments of dumping 2000 billion rounds out of a autocannon box
+		if(alert(user, "Are you sure you wanna dump all of the ammo on the ground? There is [length(stored_ammo)] inside of \the [src].", "[src]", "No", "Yes") == "No")
+			return
 	to_chat(user, SPAN_NOTICE("You empty [src]."))
 	for(var/obj/item/ammo_casing/C in stored_ammo)
 		C.forceMove(user.loc)

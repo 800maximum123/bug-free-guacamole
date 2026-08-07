@@ -121,12 +121,7 @@
 	var/rear = vehicle.rear_hit_prob
 	var/side = vehicle.side_hit_prob
 	var/vehicle_dir = vehicle.dir
-	// Normalize diagonal attack dirs to nearest cardinal for simplicity
-	switch(attack_dir)
-		if(NORTHWEST|NORTHEAST)
-			attack_dir = NORTH
-		if(SOUTHWEST|SOUTHEAST)
-			attack_dir = SOUTH
+	dir2cardinal(attack_dir)
 	// Calculate angles and smallest angular difference
 	var/vehicle_angle = dir2angle(vehicle_dir)
 	var/attack_angle = dir2angle(attack_dir)
