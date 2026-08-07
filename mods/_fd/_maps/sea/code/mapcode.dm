@@ -100,8 +100,8 @@
 	var/obj/screen/wave_timer/wave_timer
 
 /mob/living/Life()
-	if(gate_timer && !(gate_timer in client.screen))
-		client.screen += gate_timer
+	if(wave_timer && !(wave_timer in client.screen))
+		client.screen += wave_timer
 
 	. = ..()
 
@@ -275,6 +275,8 @@
 
 			P.flyoff()
 
+	sleep(5 SECONDS)
+
 	for(var/mob/living/L in GLOB.player_list)
 		L.anchored = TRUE
 
@@ -340,16 +342,18 @@
 	pixel_y = -16
 	pixel_x = -16
 
-	maptext_y = 48
-	maptext_x = -10
+	maptext_y = 52
+	maptext_x = -42
 
-	maptext_width = 128
+	maptext_width = 192
 	maptext_height = 96
 
 	var/list/mobs_inside = list()
 	var/seats = 10
 
 /obj/structure/fd/ocean_gamemode_pod/proc/flyoff()
+	maptext = ""
+	playsound(get_turf(src), 'sound/effects/shuttle_takeoff.ogg', 100, 1)
 	animate(src, pixel_y = -32, time = 1 SECONDS, easing = SINE_EASING | EASE_OUT)
 	animate(transform = matrix(40, MATRIX_ROTATE), alpha = 0, pixel_y = -192, pixel_x = 192, time = 5 SECONDS, easing = CUBIC_EASING | EASE_IN)
 
@@ -375,7 +379,7 @@
 		maptext += STYLE_SMALLFONTS_OUTLINE(" | SYSTEM:", 7, COLOR_WHITE, COLOR_BLACK)
 		maptext += STYLE_SMALLFONTS_OUTLINE(" N<br>", 7, COLOR_RED, COLOR_BLACK)
 ///////////////////////////////////
-	maptext += STYLE_SMALLFONTS_OUTLINE("           [length(mobs_inside)]/[seats]", 7, COLOR_WHITE, COLOR_BLACK)
+	maptext += STYLE_SMALLFONTS_OUTLINE("                              [length(mobs_inside)]/[seats]", 7, COLOR_WHITE, COLOR_BLACK)
 
 /obj/structure/fd/ocean_gamemode_pod/attack_hand(mob/living/user)
 	. = ..()

@@ -1,5 +1,6 @@
 /area/sea
 	name = "Volturnian Sea"
+	requires_power = 0
 
 /area/sea/underwater
 	name = "Volturnian Sea - Underwater"
@@ -9,7 +10,6 @@
 
 /area/sea/escape_pod
 	name = "Escape Pod"
-	requires_power = 0
 
 
 /area/sea/escape_pod/one
