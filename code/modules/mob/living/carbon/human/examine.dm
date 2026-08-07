@@ -170,7 +170,7 @@
 			msg += "The message \"[robohead.display_text]\" is displayed on its screen.\n"
 
 	//splints
-	for(var/organ in list(BP_L_LEG, BP_R_LEG, BP_L_ARM, BP_R_ARM))
+	for(var/organ in list(BP_BY_DEPTH))
 		var/obj/item/organ/external/o = get_organ(organ)
 		if(o && o.splinted && o.splinted.loc == o)
 			msg += "[SPAN_WARNING("[P.He] [P.has] \a [o.splinted] on [P.his] [o.name]!")]\n"

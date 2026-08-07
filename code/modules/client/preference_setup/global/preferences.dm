@@ -147,6 +147,7 @@ var/global/list/_client_preferences_by_type
 	description = "Play announcement sound effects"
 	key = "SOUND_ANNOUNCEMENT"
 	options = list(GLOB.PREF_YES, GLOB.PREF_NO)
+
 /datum/client_preference/ghost_ears
 	description = "Ghost ears"
 	key = "CHAT_GHOSTEARS"
