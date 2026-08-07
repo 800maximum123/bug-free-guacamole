@@ -353,6 +353,10 @@ var/global/message_delay = 0 // To make sure restarting the recentmessages list 
 		if(data == 3 && isghost(R) && R.get_preference_value(/datum/client_preference/ghost_radio) == GLOB.PREF_ALL_CHATTER)
 			continue
 
+		// Ghosts hearing all radio chat don't want to hear helmet cam radios, there is a SHITTON of these
+		if(freq == (ICCGN_CAM_FREQ|SFV_CAM_FREQ) && isghost(R) && R.get_preference_value(/datum/client_preference/ghost_radio) == GLOB.PREF_ALL_CHATTER)
+			continue
+
 		// --- Check for compression ---
 		if(compression > 0)
 			heard_gibberish += R
