@@ -136,7 +136,7 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	user.forceMove(enter)
 
 	occupants[user] = VP_INTERIOR
-	user.reset_view()
+	user.reset_view(null)
 
 	return TRUE
 
@@ -150,13 +150,14 @@ GLOBAL_LIST_EMPTY(templates_cache)
 
 	return TRUE
 
-/obj/vehicles/large/proc/look_in_interior(mob/user)
-	if(!interior || !user.client || !interior.driver_entrance)
-		to_chat(user, SPAN_INFO("You can't look inside the interior of [src]."))
+/obj/vehicles/large/proc/look_in_interior(mob/user = usr)
+	if(!interior || !user || !user.client || !interior.driver_entrance)
+		if(user)
+			to_chat(user, SPAN_INFO("You can't look inside the interior of [src]."))
 		return
 
 	if(user.client.eye == interior.driver_entrance)
-		user.reset_view()
+		user.reset_view(null)
 		to_chat(user, SPAN_INFO("You stop looking inside the interior."))
 		return
 	to_chat(user, SPAN_INFO("You look inside the interior..."))
@@ -403,16 +404,16 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	. = ..()
 	stop_verb = new /datum/action/vehicle_action/stop_looking_outside(src)
 
-/obj/structure/vehiclewindow/attack_hand(mob/user)
+/obj/structure/vehiclewindow/attack_hand(mob/living/user)
 	. = ..()
 	look_outside(user)
 
-/obj/structure/vehiclewindow/examine(mob/user)
+/obj/structure/vehiclewindow/examine(mob/living/user)
 	. = ..()
 	look_outside(user)
 
-/obj/structure/vehiclewindow/proc/look_outside(mob/user)
-	if(!vehicle || !user.client || !stop_verb || !istype(user, /mob/living))
+/obj/structure/vehiclewindow/proc/look_outside(mob/living/user)
+	if(!vehicle || !user || !user.client || !stop_verb)
 		return
 	if(current_looker)
 		stop_looking_outside(current_looker)
@@ -423,9 +424,11 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	visible_message(SPAN_NOTICE("[user] looks outside the window of [src]."))
 	to_chat(user, SPAN_INFO("You look outside the window..."))
 
-/obj/structure/vehiclewindow/proc/stop_looking_outside(mob/user)
+/obj/structure/vehiclewindow/proc/stop_looking_outside(mob/living/user = usr)
+	if(!user || !user.client)
+		return
 	current_looker = null
-	user.reset_view()
+	user.reset_view(null)
 	stop_verb.Remove(user)
 	to_chat(user, SPAN_INFO("You stop looking outside the window."))
 
@@ -433,7 +436,9 @@ GLOBAL_LIST_EMPTY(templates_cache)
 	name = "vehicle interior"
 	dynamic_lighting = 1
 	requires_power = 0
+	/* When you leave the vehicle it can keep playing the ambience, jarring
 	forced_ambience = list('mods/_fd/multitile_vehicles/sounds/working.ogg')
+	*/
 	ambience = null
 	sound_env = SMALL_ENCLOSED
 	base_turf = /turf/simulated/floor/plating

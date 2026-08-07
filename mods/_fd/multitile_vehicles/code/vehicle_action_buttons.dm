@@ -98,9 +98,21 @@
 		driver_actions += new /datum/action/vehicle_action/vehicle_headlights(src)
 	if(has_alarm)
 		driver_actions += new /datum/action/vehicle_action/vehicle_alarm(src)
+	if(VP_COMMANDER in dashboard_control_positions)
+		commander_actions += driver_actions
+	if(VP_GUNNER in dashboard_control_positions)
+		gunner_actions += driver_actions
 
-/obj/vehicles/proc/add_remove_vehicle_actions(mob/m, remove = 0)
-	for(var/datum/action/a in driver_actions)
+/obj/vehicles/proc/add_remove_vehicle_actions(mob/m, remove = 0, position)
+	var/actions
+	switch(position)
+		if(VP_DRIVER)
+			actions = driver_actions
+		if(VP_COMMANDER)
+			actions = commander_actions
+		if(VP_GUNNER)
+			actions = gunner_actions
+	for(var/datum/action/a in actions)
 		if(remove)
 			a.Remove(m)
 		else

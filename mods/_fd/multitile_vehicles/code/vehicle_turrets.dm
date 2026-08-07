@@ -165,26 +165,16 @@
 /obj/item/vehicle_component/turret/proc/set_turret_state_for_dir(dir_to_use)
 	if(!dir_to_use)
 		dir_to_use = SOUTH
-
+	dir2cardinal(dir_to_use)
 	switch(dir_to_use)
 		if(NORTH)
 			icon_state = "[initial(icon_state)]N"
-		if(NORTHEAST)
-			icon_state = "[initial(icon_state)]N"
-		if(NORTHWEST)
-			icon_state = "[initial(icon_state)]N"
 		if(SOUTH)
-			icon_state = "[initial(icon_state)]S"
-		if(SOUTHEAST)
-			icon_state = "[initial(icon_state)]S"
-		if(SOUTHWEST)
 			icon_state = "[initial(icon_state)]S"
 		if(EAST)
 			icon_state = "[initial(icon_state)]E"
 		if(WEST)
 			icon_state = "[initial(icon_state)]W"
-		else
-			icon_state = "[initial(icon_state)]"
 
 	aim_dir = dir_to_use
 	var/obj/vehicles/parent_vehicle = vehicle
@@ -198,7 +188,7 @@
 		return
 	vehicle.guns_disabled = TRUE
 	vehicle.visible_message(SPAN_WARNING("\The [src] on \the [vehicle] is destroyed!"), SPAN_WARNING("You hear a turret shutting off."))
-	playsound(vehicle.loc, 'sound/effects/bang.ogg', 30, TRUE)
+	playsound(vehicle.loc, 'sound/effects/bang.ogg', 100, TRUE)
 	//TODO: make it change the icon of the turret as well
 
 /obj/item/vehicle_component/turret/finalise_repair()
@@ -256,7 +246,7 @@
 	rotating = TRUE
 	var/atom/aiming_at = target
 	var/calculated_turn_time = turn_time
-	var/aiming_dir = get_dir(vehicle, aiming_at)
+	var/aiming_dir = dir2cardinal(get_dir(vehicle, aiming_at))
 	var/aimed_dir = linked_turret.aim_dir
 	if(calculated_turn_time && aiming_dir && aimed_dir)
 		var/calculation = dir2angle(aimed_dir) - dir2angle(aiming_dir)
@@ -289,7 +279,6 @@
 		play_fire_sound(user, pew)
 		if(linked_turret.current_ammo == 0)
 			balloon_alert(user, "[linked_turret.current_ammo]/[linked_turret.max_ammo]")
-			playsound(vehicle.loc, dry_fire_sound, 20, TRUE)
 			playsound(user, 'sound/weapons/smg_empty_alarm.ogg', 40, TRUE)
 		else if(linked_turret.current_ammo < 10)
 			balloon_alert(user, "[linked_turret.current_ammo]/[linked_turret.max_ammo]")
@@ -324,7 +313,7 @@
 		return
 	if(!vehicle.can_control_turret(user) || vehicle.guns_disabled)
 		return
-	var/isnt_dir = get_dir(vehicle, A) != linked_turret.aim_dir
+	var/isnt_dir = dir2cardinal(get_dir(vehicle, A)) != linked_turret.aim_dir
 	if(isnt_dir && !rotating)
 		rotate_turret(A, user)
 		return
@@ -345,4 +334,5 @@
 	caliber = CALIBER_RIFLE_CASELESS
 	matter = list(MATERIAL_STEEL = 6000)
 	ammo_type = /obj/item/ammo_casing/rifle/caseless
+	multiple_sprites = 1
 	max_ammo = 50

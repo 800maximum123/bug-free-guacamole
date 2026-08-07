@@ -11,7 +11,7 @@
 		if(VP_COMMANDER)
 			return "[prefix && "as the"] commander"
 		if(VP_PASSENGER)
-			return "[prefix && "as the"] passenger"
+			return "[prefix && "as a"] passenger"
 		if(VP_INTERIOR)
 			return "[prefix && "in the"] interiors"
 
@@ -43,15 +43,19 @@
 	if(!loc_moveto)
 		to_chat(user, SPAN_NOTICE("There is no valid location to exit at."))
 		return
-	if(user in get_occupants_in_position(dashboard_control_positions))
-		add_remove_vehicle_actions(user, TRUE)
+	if(user in get_occupants_in_position(VP_DRIVER))
+		add_remove_vehicle_actions(user, TRUE, VP_DRIVER)
+	else if(user in get_occupants_in_position(VP_COMMANDER))
+		add_remove_vehicle_actions(user, TRUE, VP_COMMANDER)
+	else if(user in get_occupants_in_position(VP_GUNNER))
+		add_remove_vehicle_actions(user, TRUE, VP_GUNNER)
 
 	remove_turret_gun(user)
 	remove_vehicle_click_handler(user)
 	occupants -= user
 	contents -= user
 	user.forceMove(loc_moveto)
-	user.reset_view()
+	user.reset_view(null)
 	user.client.view = CLIENT_DEFAULT_VIEW
 	if(eject)
 		user.Weaken(rand(1, 5))
@@ -146,14 +150,14 @@
 		visible_message(SPAN_NOTICE("[user] enters the [position_name(position, null)] of [src]."))
 	to_chat(user, SPAN_INFO("You are now [position_name(position)] of [src]."))
 	play_enter_sound()
-	user.reset_view()
+	user.reset_view(null)
 	if(position != VP_INTERIOR)
 		user.client.view = CLIENT_DEFAULT_VIEW * vehicle_view_modifier
 		user.dir = dir
-	if(position in dashboard_control_positions)
+	if(position == (VP_DRIVER|VP_COMMANDER|VP_GUNNER))
 		if(!user.skill_check(driving_skill, skill_level) && complex_controls)
 			to_chat(user, SPAN_WARNING("You are not trained to operate \the [src]..."))
-		add_remove_vehicle_actions(user, FALSE)
+	add_remove_vehicle_actions(user, FALSE, position)
 
 /obj/vehicles/proc/enter_as_position(mob/user, position, mob/puller)
 	if(!check_entering(user, position))

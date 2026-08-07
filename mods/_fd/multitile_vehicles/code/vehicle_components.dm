@@ -227,10 +227,10 @@
 /obj/item/vehicle_component/health_manager //Essentially a way for vehicles to just use basic "health" instead of the component system.
 	name = "engine"
 	integrity = 200
-	coverage = 100
+	coverage = 50
 	var/has_death_sequence = FALSE
 	var/death_sound = 'mods/_fd/multitile_vehicles/sounds/death.ogg'
-	var/death_duration = 5 SECONDS
+	var/death_duration = 4 SECONDS
 	var/death_segments = 3
 
 /obj/item/vehicle_component/health_manager/proc/death_sequence(obj/vehicles/vehicle_contain)

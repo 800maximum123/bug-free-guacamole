@@ -69,7 +69,7 @@
 	if(health_dead)
 		return
 	var/mob/living/user = usr
-	if(!istype(user) || !(user in get_occupants_in_position(VP_DRIVER)))
+	if(!istype(user) || !(user in get_occupants_in_position(dashboard_control_positions)))
 		to_chat(user, SPAN_NOTICE("You must be the driver of [src] to toggle the shutters."))
 		return
 
@@ -87,8 +87,8 @@
 	AddOverlays(shutters)
 
 /obj/item/vehicle_component/health_manager/iccg_apc
-	integrity = 4000
-	resistances = list("bullet" = 90,"energy" = 85,"emp" = 25,"bomb" = 85)
+	integrity = 3000
+	resistances = list("bullet" = 90,"energy" = 80,"emp" = 25,"bomb" = 70)
 	has_death_sequence = TRUE
 
 /datum/component_profile/iccg_apc

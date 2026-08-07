@@ -81,6 +81,14 @@
 		if (NORTHWEST) return 315
 		if (SOUTHWEST) return 225
 
+// Turns dir into 4 main cardinal dirs
+/proc/dir2cardinal(D)
+	switch(D)
+		if(NORTHWEST|NORTHEAST)
+			return NORTH
+		if(SOUTHWEST|SOUTHEAST)
+			return SOUTH
+
 // Returns the angle in english
 /proc/angle2text(degree)
 	return dir2text(angle2dir(degree))

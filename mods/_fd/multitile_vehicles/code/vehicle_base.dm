@@ -48,6 +48,8 @@
 
 	//Action Button Handling
 	var/list/driver_actions = list()
+	var/list/commander_actions = list()
+	var/list/gunner_actions = list()
 
 	// Sprites
 	var/list/sprite_offsets = list("1" = list(0,0),"2" = list(0,0),"4" = list(0,0),"8" = list(0,0)) //Handled Directionally. Numbers correspond to directions
