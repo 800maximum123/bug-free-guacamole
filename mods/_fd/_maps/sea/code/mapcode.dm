@@ -288,7 +288,7 @@
 			spawn(4 SECONDS)
 				P.flyoff()
 
-	spawn(8 SECONDS)
+	spawn(10 SECONDS)
 		for(var/mob/living/L in GLOB.player_list)
 			L.anchored = TRUE
 
@@ -314,7 +314,7 @@
 			L.client.screen += maintext
 			maintext.set_text(message, COLOR_WHITE)
 
-	spawn(12 SECONDS)
+	spawn(14 SECONDS)
 		if(yellow_ending)
 			for(var/mob/living/L in GLOB.player_list)
 				L.overlay_fullscreen("eyesopen",/obj/screen/fullscreen/fd/awakening)
@@ -329,7 +329,7 @@
 				for(var/mob/living/L in GLOB.player_list)
 					L.clear_fullscreen("eyesopen")
 
-	spawn(20 SECONDS)
+	spawn(22 SECONDS)
 		cutscene_cinema_end()
 
 /obj/structure/fd/ocean_gamemode_pod_parts
@@ -404,7 +404,7 @@
 	maptext = ""
 	animate(src, pixel_y = -32, time = 2 SECONDS, easing = SINE_EASING | EASE_OUT)
 	sleep(2 SECONDS)
-	animate(transform = matrix(40, MATRIX_ROTATE), alpha = 0, pixel_y = -192, pixel_x = 192, time = 10 SECONDS, easing = CUBIC_EASING | EASE_IN)
+	animate(src, transform = matrix(40, MATRIX_ROTATE), alpha = 0, pixel_y = -192, pixel_x = 192, time = 10 SECONDS, easing = CUBIC_EASING | EASE_IN)
 
 /obj/structure/fd/ocean_gamemode_pod/Process()
 	if(engine)
