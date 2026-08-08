@@ -240,22 +240,38 @@
 		return
 	if(src != user.get_active_hand())
 		return
+	// Having higher gun skill makes you steady faster
+	var/skill_bonus = user.get_skill_value(gun_skill)
+	switch(skill_bonus)
+		if(SKILL_UNSKILLED)
+			skill_bonus = 0
+		if(SKILL_BASIC)
+			skill_bonus = 1
+		if(SKILL_TRAINED)
+			skill_bonus = 2
+		if(SKILL_EXPERIENCED)
+			skill_bonus = 2
+		if(SKILL_MASTER)
+			skill_bonus = 2
 	// Calculates current acc_mod as in process_accuracy check
 	var/acc_mod = burst_accuracy[min(burst, length(burst_accuracy))]
 	var/stood_still = last_handled
-	stood_still = max(user.l_move_time, last_handled)
-	stood_still = max(0,round((world.time - stood_still)/10) - 1)
+	// Creeping doesn't throw off bonus for l_move_time
+	if(!istype(user.move_intent, /singleton/move_intent/creep))
+		stood_still = max(user.l_move_time, last_handled)
+	stood_still = max(0,round((world.time - stood_still)/10) - 1 + skill_bonus)
 	if(stood_still)
 		acc_mod += min(max(3, accuracy), stood_still)
 	else
 		acc_mod -= w_class - ITEM_SIZE_NORMAL
 		acc_mod -= bulk
+
 	// Uses thats acc_mod to display a certain telegraph to user
 	var/max_bonus = max(3, accuracy)
 	var/new_state
 	if(acc_mod >= max_bonus)
 		new_state = 3 // Maximum accuracy
-	else if(acc_mod > 0)
+	else if(acc_mod > trunc(max_bonus/2))
 		new_state = 2 // Medium accuracy
 	else
 		new_state = 1 // Low accuracy
@@ -268,7 +284,7 @@
 			if(2)
 				update_mouse_pointer(user, TRUE)
 			if(3)
-				balloon_alert(user, "🎯")
+				balloon_alert(user, "steady")
 				update_mouse_pointer(user, TRUE)
 				sound_to(user, sound(steadying_sound, volume = 100))
 
@@ -582,12 +598,27 @@
 	if(!istype(P))
 		return //default behaviour only applies to true projectiles
 
+	// Having higher gun skill makes you steady faster
+	var/skill_bonus = user.get_skill_value(gun_skill)
+	switch(skill_bonus)
+		if(SKILL_UNSKILLED)
+			skill_bonus = 0
+		if(SKILL_BASIC)
+			skill_bonus = 1
+		if(SKILL_TRAINED)
+			skill_bonus = 2
+		if(SKILL_EXPERIENCED)
+			skill_bonus = 2
+		if(SKILL_MASTER)
+			skill_bonus = 2
+	// Calculates current acc_mod as in process_accuracy check
 	var/acc_mod = burst_accuracy[min(burst, length(burst_accuracy))]
 	var/disp_mod = dispersion[min(burst, length(dispersion))]
 	var/stood_still = last_handled
-	stood_still = max(user.l_move_time, last_handled)
-
-	stood_still = max(0,round((world.time - stood_still)/10) - 1)
+	// Creeping doesn't throw off bonus for l_move_time
+	if(!istype(user.move_intent, /singleton/move_intent/creep))
+		stood_still = max(user.l_move_time, last_handled)
+	stood_still = max(0,round((world.time - stood_still)/10) - 1 + skill_bonus)
 	if(stood_still)
 		acc_mod += min(max(3, accuracy), stood_still)
 	else
