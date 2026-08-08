@@ -9,10 +9,10 @@
 /area/interior)
 "j" = (
 /obj/structure/roller_bed/nanoblood,
-/obj/floor_decal/industrial/hatch/blue,
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled/white/monotile,
 /area/interior)
 "p" = (
@@ -38,7 +38,10 @@
 	pixel_x = 24
 	},
 /obj/structure/roller_bed/nanoblood,
-/obj/floor_decal/industrial/hatch/blue,
+/obj/machinery/body_scanconsole{
+	dir = 1
+	},
+/obj/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled/white/monotile,
 /area/interior)
 "y" = (
@@ -46,16 +49,26 @@
 	dir = 4;
 	pixel_x = -24
 	},
-/obj/machinery/sleeper/survival_pod{
+/obj/floor_decal/industrial/hatch/blue,
+/obj/machinery/sleeper{
 	dir = 4
 	},
-/obj/floor_decal/industrial/hatch/blue,
 /turf/simulated/floor/tiled/white/monotile,
 /area/interior)
 "A" = (
 /obj/structure/vehicledoor_driver,
 /obj/paint_stripe/paleblue,
 /turf/simulated/floor/tiled/white,
+/area/interior)
+"D" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/bodyscanner{
+	dir = 1
+	},
+/obj/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/white/monotile,
 /area/interior)
 "E" = (
 /obj/structure/vehicledoor,
@@ -78,12 +91,12 @@
 /turf/simulated/floor/tiled/white/monotile,
 /area/interior)
 "I" = (
-/obj/machinery/sleeper/survival_pod{
-	dir = 4
-	},
 /obj/floor_decal/industrial/hatch/blue,
 /obj/machinery/light/small{
 	dir = 8
+	},
+/obj/machinery/sleeper{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/interior)
@@ -172,7 +185,7 @@ E
 (4,1,1) = {"
 a
 P
-j
+D
 r
 j
 Y
