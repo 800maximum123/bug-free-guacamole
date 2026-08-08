@@ -18,7 +18,7 @@
 	fishing_timing = 2 SECONDS
 
 /turf/simulated/floor/exoplanet/fd/muddirt/use_tool(obj/item/C, mob/living/user, list/click_params)
-	if(istype(C,/obj/item/shovel/spade))
+	if(istype(C,/obj/item/shovel/spade) || istype(C,/obj/item/shovel/etool))
 
 		for(var/i=1,i<=5,i++)
 			if(!do_after(user, 1 SECONDS, user, DO_PUBLIC_UNIQUE))
@@ -39,7 +39,7 @@
 	. = ..()
 
 /turf/simulated/floor/exoplanet/fd/desertsand/use_tool(obj/item/C, mob/living/user, list/click_params)
-	if(istype(C,/obj/item/shovel/spade))
+	if(istype(C,/obj/item/shovel/spade) || istype(C,/obj/item/shovel/etool))
 
 		for(var/i=1,i<=5,i++)
 			if(!do_after(user, 1 SECONDS, user, DO_PUBLIC_UNIQUE))

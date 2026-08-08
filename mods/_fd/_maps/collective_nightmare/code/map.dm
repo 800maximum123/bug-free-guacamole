@@ -467,7 +467,7 @@
 				Откройте архив собранных записей нажатием <b><span style="color: yellow;">[user.retrieve_bind("open_archive")]</span></b><br /> \
 				Узнайте своё здоровье зажав <b><span style="color: yellow;">[user.retrieve_bind("healthshow")]</span></b><br /> \
 				Управляйте режимом автодоводки в ближнем бою при помощи кнопки на экране или нажатия <b><span style="color: yellow;">[user.retrieve_bind("melee_assist")]</span></b><br /> \
-				Прыгайте нажатием <b><span style="color: yellow;">[user.retrieve_bind("dash")]</span></b>"}
+				Прыгайте нажатием <b><span style="color: yellow;">[user.retrieve_bind("dash")]</span></b> и регулируйте дальность прыжка при помощи <b><span style="color: yellow;">[user.retrieve_bind("dash_down")]</span></b> и <b><span style="color: yellow;">[user.retrieve_bind("dash_up")]</span></b>"}
 
 	. = ..()
 
@@ -478,7 +478,6 @@
 				В некоторых случаях, внутри интеракции может быть спрятан <b><span style="color: yellow;">секрет</span></b>. Чтобы его обнаружить - попробуйте поводить мышкой по экрану, пока не увидите новый значок.<br /> \
 				Вы можете узнать состояние другого <b><span style="color: yellow;">живого</span></b> существа осмотрев его. Там вам напишет не только его примерное здоровье, но и активные <b><span style="color: yellow;">статусы</span></b>. Ровно так же вы можете осмотреть и себя.<br /> \
 				Включённый режим автодоводки позволяет вашему персонажу атаковать <b><span style="color: yellow;">живых</span></b> существ без необходимости <b><span style="color: yellow;">чёткого нажатия</span></b> по ним.<br /> \
-				Вы можете прыгать дальше одного тайла, если будете <b><span style="color: yellow;">зажимать</span></b> кнопку прыжка некоторое время.<br /> \
 				Вы автоматически присасываетесь к объектам, за которые можно <b><span style="color: yellow;">зацепиться</span></b>, если они находятся рядом. Такими объектами могут быть любые казалось бы неочевидные столбы или трубы на маршруте вашего прыжка. Иногда - даже стены."}
 
 /datum/interactive_note/nightmare/tutorial_ooc2/reveal_note_to_player(mob/living/user)

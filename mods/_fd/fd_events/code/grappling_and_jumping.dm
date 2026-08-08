@@ -600,16 +600,19 @@
 	icon = 'mods/_fd/fd_assets/icons/goons/ship.dmi'
 	icon_state = "chute0x"
 
+	var/icon_state_up = "chute1"
+	var/icon_state_down = "chute0"
+
 	density = FALSE
 	anchored = TRUE
 
 /obj/structure/fd/parkour/jumping_platform/Crossed(mob/living/M)
-	icon_state = "chute1"
+	icon_state = icon_state_up
 
 	. = ..()
 
 /obj/structure/fd/parkour/jumping_platform/Uncrossed(mob/living/M)
-	icon_state = "chute0"
+	icon_state = icon_state_down
 	. = ..()
 
 /obj/structure/fd/parkour/grabbing_triangle
