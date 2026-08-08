@@ -20,7 +20,7 @@
 		B.damage_health(damage, DAMAGE_SHOCK)
 
 	new/obj/sparks(src.loc)
-	new/obj/effect/smoke/illumination(src.loc, 5, range=30, power=1, color="#ffffff")
+	new/obj/effect/smoke/illumination(src.loc, 5, range=30, power=5, color="#ffffff")
 	qdel(src)
 
 /obj/item/grenade/flashbang/proc/bang(turf/T , mob/living/carbon/M)					// Added a new proc called 'bang' that takes a location and a person to be banged.
