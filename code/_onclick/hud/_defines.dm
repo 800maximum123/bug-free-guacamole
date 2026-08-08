@@ -70,6 +70,7 @@
 #define ui_gun4 "EAST-3:24,SOUTH+2:7"
 
 //Upper-middle right (damage indicators)
+#define ui_look_up "EAST-1:28,NORTH-1:7"
 #define ui_toxin "EAST-1:28,NORTH-2:27"
 #define ui_fire "EAST-1:28,NORTH-3:25"
 #define ui_oxygen "EAST-1:28,NORTH-4:23"
@@ -131,4 +132,3 @@
 #define ui_pai_shell "NORTH,WEST+2:6"
 #define ui_pai_light "NORTH,WEST+3:6"
 #define ui_pai_rest "NORTH,WEST+4:6"
-

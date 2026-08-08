@@ -259,6 +259,16 @@
 	mymob.zone_sel.AddOverlays(image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]"))
 	hud_elements |= mymob.zone_sel
 
+	mymob.above_icon = new /obj/screen()
+	mymob.above_icon.icon = ui_style
+	mymob.above_icon.icon_state = "above0"
+	mymob.above_icon.SetName("look up")
+	mymob.above_icon.screen_loc = ui_look_up
+	mymob.above_icon.color = ui_color
+	mymob.above_icon.alpha = ui_alpha
+	src.adding += mymob.above_icon
+	hud_elements |= mymob.above_icon
+
 	//Handle the gun settings buttons
 	mymob.gun_setting_icon = new /obj/screen/gun/mode(null)
 	mymob.gun_setting_icon.icon = ui_style

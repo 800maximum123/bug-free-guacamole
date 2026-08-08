@@ -209,6 +209,12 @@
 				var/mob/living/L = usr
 				L.resist()
 
+		if("look up")
+			if(istype(usr, /mob/living))
+				var/mob/living/L = usr
+				if(L.above_icon == src)
+					L.lookup()
+
 		if("Reset Machine")
 			usr.unset_machine()
 		if("internal")

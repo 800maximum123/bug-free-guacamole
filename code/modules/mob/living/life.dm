@@ -218,6 +218,23 @@
 	set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 
 /mob/living/proc/handle_hud_icons()
+	if(istype(src, /mob/living) && src.above_icon)
+		var/turf/above = GetAbove(src)
+		var/above_icon_active = 0
+		if(above)
+			if(above.is_open() || TURF_IS_MIMICING(above))
+				above_icon_active = 1
+			else
+				var/turf/near_above = get_step(above, src.dir)
+				if(near_above && TURF_IS_MIMICING(near_above))
+					above_icon_active = 1
+				else
+					for(var/turf/around in view(1, above))
+						if(TURF_IS_MIMICING(around))
+							above_icon_active = 1
+							break
+		src.above_icon.icon_state = above_icon_active ? "above1" : "above0"
+
 	handle_hud_icons_health()
 	handle_hud_glasses()
 
