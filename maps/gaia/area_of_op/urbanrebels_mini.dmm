@@ -528,8 +528,8 @@
 /obj/item/material/ashtray/glass{
 	pixel_y = -4
 	},
-/obj/item/device/binoculars/blue{
-	pixel_y = 5
+/obj/item/device/binoculars/x2{
+	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/urbanrebels)
@@ -1345,10 +1345,6 @@
 	},
 /obj/machinery/door/window/brigdoor/eastright{
 	req_access = list("ACCESS_ARMORY")
-	},
-/medium/captain{
-	desc = "A shiny al-Maliki & Mosley Autococker automatic revolver, with black accents. Marketed as the 'Revolver for the Modern Era'.";
-	name = "shiny revolver"
 	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood/walnut,
@@ -2595,31 +2591,11 @@
 /turf/simulated/floor/exoplanet/concrete/reinforced/road,
 /area/gaia/urbanrebels/street/paula)
 "bMZ" = (
-/obj/structure/filingcabinet,
-/obj/item/key/gaia{
-	key_data = "GUNSTORE_LOCK";
-	name = "gun store key";
-	desc = "A key to the Conquistador Armoury gun store near the fire station."
+/obj/machinery/light/spot{
+	dir = 4
 	},
-/obj/item/key/gaia{
-	key_data = "CLOTHSTORE_LOCK";
-	name = "clothing store key";
-	desc = "A key to the hipster clothing store near the fire station."
-	},
-/obj/item/key/gaia{
-	key_data = "NORTH_BAR_LOCK";
-	name = "northern bar key";
-	desc = "A key to the bar on the northern side.";
-	pixel_y = -2
-	},
-/obj/item/key/gaia{
-	key_data = "PHARMACY_LOCK";
-	name = "pharmacy key";
-	desc = "A key to the pharmacy near the bar."
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/techfloor,
-/area/gaia/urbanrebels/inside/townhall)
+/turf/simulated/floor/exoplanet/concrete,
+/area/gaia/urbanrebels/street/city)
 "bNd" = (
 /obj/machinery/vending/coffee{
 	dir = 4;
@@ -3649,9 +3625,22 @@
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/urbanrebels/inside)
 "csw" = (
-/obj/structure/filingcabinet,
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/obj/structure/closet{
+	name = "key closet"
+	},
+/obj/item/key/gaia{
+	key_data = "FASTFOOD_LOCK";
+	name = "burger joint key";
+	desc = "A master key to the fast food restaurant at the north."
+	},
+/obj/item/key/gaia{
+	key_data = "CLOTHSTORE_LOCK";
+	name = "clothing store key";
+	desc = "A key to the hipster clothing store near the fire station."
 	},
 /obj/item/key/gaia{
 	key_data = "GASSTATION_LOCK";
@@ -3659,16 +3648,36 @@
 	desc = "A key to the town's gas station."
 	},
 /obj/item/key/gaia{
+	key_data = "GUNSTORE_LOCK";
+	name = "gun store key";
+	desc = "A key to the Conquistador Armoury gun store near the fire station."
+	},
+/obj/item/key/gaia{
+	key_data = "LIQUORSTORE_LOCK";
+	name = "liquor store key";
+	desc = "A key to the liquor store at the south, near the garage complex."
+	},
+/obj/item/key/gaia{
+	key_data = "NORTH_BAR_LOCK";
+	name = "northern bar key";
+	desc = "A key to the bar on the northern side.";
+	pixel_y = -2
+	},
+/obj/item/key/gaia{
+	key_data = "PHARMACY_LOCK";
+	name = "pharmacy key";
+	desc = "A key to the pharmacy near the bar."
+	},
+/obj/item/key/gaia{
+	key_data = "SOUTHCAFE_LOCK";
+	name = "south cafe key";
+	desc = "A key to the cafe at the south."
+	},
+/obj/item/key/gaia{
 	name = "supermarket key";
 	key_data = "SUPERMART_LOCK";
 	desc = "A key to the back doors of the Getmore supermarket up north."
 	},
-/obj/item/key/gaia{
-	key_data = "FASTFOOD_LOCK";
-	name = "burger joint key";
-	desc = "A master key to the fast food restaurant at the north."
-	},
-/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor,
 /area/gaia/urbanrebels/inside/townhall)
 "csE" = (
@@ -8891,11 +8900,6 @@
 /obj/item/ammo_magazine/speedloader,
 /obj/item/ammo_magazine/speedloader,
 /obj/item/ammo_magazine/speedloader,
-/medium,
-/medium,
-/medium,
-/medium,
-/medium,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/gaia/urbanrebels/inside/police)
@@ -9538,7 +9542,6 @@
 /area/gaia/urbanrebels/inside)
 "fYR" = (
 /obj/structure/table/woodentable,
-/medium,
 /obj/item/spacecash/bundle/c2500{
 	pixel_x = 1;
 	pixel_y = 13
@@ -17383,7 +17386,6 @@
 /area/gaia/urbanrebels/underground/police)
 "lmi" = (
 /obj/structure/table/gamblingtable,
-/medium,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood/mahogany,
 /area/gaia/urbanrebels/inside)
@@ -17647,22 +17649,6 @@
 /obj/landmark/scorcher,
 /obj/structure/barricade,
 /turf/simulated/floor/tiled/dark,
-/area/gaia/urbanrebels/inside)
-"ltN" = (
-/obj/structure/table/woodentable_reinforced/mahogany,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/item/gun/projectile/heavysniper/ant{
-	starts_loaded = 0
-	},
-/obj/machinery/door/window/brigdoor/eastright{
-	req_access = list("ACCESS_ARMORY")
-	},
-/turf/simulated/floor/wood/walnut,
 /area/gaia/urbanrebels/inside)
 "luk" = (
 /obj/structure/hygiene/sink{
@@ -24009,9 +23995,6 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/holdout{
-	starts_loaded = 0
-	},
 /obj/machinery/door/window/brigdoor/eastright{
 	req_access = list("ACCESS_ARMORY")
 	},
@@ -24077,7 +24060,6 @@
 /area/gaia/urbanrebels/street/brundino)
 "pAI" = (
 /obj/structure/filingcabinet/chestdrawer,
-/holdout,
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/gaia/urbanrebels/inside)
@@ -31878,16 +31860,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/key/gaia{
-	key_data = "SOUTHCAFE_LOCK";
-	name = "south cafe key";
-	desc = "A key to the cafe at the south."
-	},
-/obj/item/key/gaia{
-	key_data = "LIQUORSTORE_LOCK";
-	name = "liquor store key";
-	desc = "A key to the liquor store at the south, near the garage complex."
-	},
 /turf/simulated/floor/tiled/techfloor,
 /area/gaia/urbanrebels/inside/townhall)
 "uDE" = (
@@ -32405,22 +32377,6 @@
 /obj/machinery/door/unpowered/simple,
 /turf/simulated/floor/tiled,
 /area/gaia/urbanrebels/inside/police)
-"uTL" = (
-/obj/structure/table/woodentable_reinforced/mahogany,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/medium{
-	starts_loaded = 0
-	},
-/obj/machinery/door/window/brigdoor/eastright{
-	req_access = list("ACCESS_ARMORY")
-	},
-/turf/simulated/floor/wood/walnut,
-/area/gaia/urbanrebels/inside)
 "uTW" = (
 /obj/floor_decal/industrial/outline/yellow,
 /obj/decal/cleanable/dirt,
@@ -32552,20 +32508,9 @@
 /turf/simulated/floor/tiled/monotile,
 /area/gaia/urbanrebels)
 "uYG" = (
-/obj/structure/table/standard,
-/obj/structure/fd/samosbor/machinery2{
-	pixel_x = 9;
-	pixel_y = 6
-	},
-/obj/machinery/light/small{
-	pixel_x = 7;
-	pixel_y = 4;
-	dir = 1
-	},
-/medium,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/gaia/urbanrebels/inside/nt)
+/obj/item/remains/human,
+/turf/simulated/floor/plating,
+/area/gaia/urbanrebels/inside/townhall)
 "uYL" = (
 /obj/structure/wall_frame/concrete,
 /obj/structure/grille/broken,
@@ -34479,16 +34424,6 @@
 "wqu" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/gun/projectile/shotgun/doublebarrel/pellet,
-/holdout{
-	starts_loaded = 0;
-	pixel_y = 8;
-	pixel_x = -6
-	},
-/holdout{
-	starts_loaded = 0;
-	pixel_y = 8;
-	pixel_x = 4
-	},
 /turf/simulated/floor/wood/mahogany,
 /area/gaia/urbanrebels/inside)
 "wqx" = (
@@ -159853,7 +159788,7 @@ cQN
 shP
 atm
 vKE
-ltN
+pxZ
 fjU
 euf
 vra
@@ -160550,7 +160485,7 @@ xCT
 pvd
 mfm
 pxZ
-uTL
+pxZ
 aWs
 shP
 mgR
@@ -166552,20 +166487,20 @@ qPx
 kAq
 uqG
 uqG
-uqG
-uqG
-uqG
-igP
+bMZ
 uqG
 uqG
 igP
 uqG
 uqG
+igP
 uqG
+uqG
+bMZ
 uqG
 uqG
 kAq
-rdr
+uYG
 kAq
 cxL
 evp
@@ -171892,7 +171827,7 @@ dDa
 vgN
 dWN
 csw
-bMZ
+jLT
 bYh
 jLT
 uDx
@@ -197712,7 +197647,7 @@ qKH
 qKH
 qKH
 smS
-uYG
+xhK
 nTA
 smS
 jZN
