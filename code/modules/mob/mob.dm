@@ -752,8 +752,10 @@
 
 	if(lying)
 		set_density(0)
+/*
 		for (var/obj/item/item as anything in GetAllHeld())
 			unEquip(item)
+*/
 	else
 		set_density(initial(density))
 	reset_layer()
