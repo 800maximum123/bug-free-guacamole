@@ -383,8 +383,14 @@
 		user.client?.mouse_pointer_icon = initial(user.client?.mouse_pointer_icon)
 
 /obj/item/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
-	if(!user || !target) return
-	if(target.z != user.z) return
+	if(!user || !target)
+		return
+	var/multi_z = FALSE
+	if(target.z != user.z)
+		if(!user.z_eye)
+			return // if shooting across multi-z but without looking up or down
+		else
+			multi_z = TRUE
 
 	add_fingerprint(user)
 
@@ -416,7 +422,7 @@
 	for(var/i in 1 to burst)
 		var/obj/projectile = consume_next_projectile(user)
 		if(!projectile)
-			handle_click_empty(user)
+			handle_click_empty(user, multi_z)
 			break
 
 		process_accuracy(projectile, user, target, i, held_twohanded)
@@ -424,7 +430,7 @@
 		if(pointblank)
 			process_point_blank(projectile, user, target)
 
-		if(process_projectile(projectile, user, target, user.zone_sel?.selecting, clickparams))
+		if(process_projectile(projectile, user, target, user.zone_sel?.selecting, clickparams, multi_z))
 			handle_post_fire(user, target, pointblank, reflex, projectile)
 			update_icon()
 
@@ -454,13 +460,16 @@
 	return check_trajectory(target, user) == target
 
 //called if there was no projectile to shoot
-/obj/item/gun/proc/handle_click_empty(mob/user)
+/obj/item/gun/proc/handle_click_empty(mob/user, multi_z)
 	if (user)
 		user.visible_message(SPAN_WARNING("*click click*"), SPAN_DANGER("*click*"))
 		user.balloon_alert(user, "*click*")
 	else
 		src.visible_message(SPAN_WARNING("*click click*"))
 		src.balloon_alert_to_viewers("*click*")
+	if(multi_z && isliving(user))
+		var/mob/living/living_user = user
+		playsound(living_user.z_eye.loc, dry_fire_sound, 100, 1)
 	playsound(src.loc, dry_fire_sound, 100, 1)
 
 /obj/item/gun/proc/handle_click_safety(mob/user)
@@ -606,7 +615,7 @@
 	P.dispersion = disp_mod
 
 //does the actual launching of the projectile
-/obj/item/gun/proc/process_projectile(obj/projectile, mob/user, atom/target, target_zone, params=null)
+/obj/item/gun/proc/process_projectile(obj/projectile, mob/user, atom/target, target_zone, params=null, multi_z)
 	var/obj/item/projectile/P = projectile
 	if(!istype(P))
 		return 0 //default behaviour only applies to true projectiles
@@ -626,15 +635,18 @@
 			y_offset = rand(-1,1)
 			x_offset = rand(-1,1)
 
-	var/launched = !P.launch_from_gun(target, user, src, target_zone, x_offset, y_offset)
+	var/launched = !P.launch_from_gun(target, user, src, target_zone, x_offset, y_offset, multi_z)
 
-	if(launched)
+	if(launched && multi_z && isliving(user))
+		var/mob/living/living_user = user
+		play_fire_sound(user, P, living_user.z_eye.loc)
+	else if(launched)
 		play_fire_sound(user,P)
 
 	return launched
 
 
-/obj/item/gun/proc/play_fire_sound(mob/user, obj/item/projectile/projectile)
+/obj/item/gun/proc/play_fire_sound(mob/user, obj/item/projectile/projectile, multi_z)
 	var/sound = fire_sound
 	var/sound_far = far_fire_sound
 	if (istype(projectile) && projectile.fire_sound)
@@ -648,8 +660,12 @@
 		volume = 10
 		sound = silenced_fire_sound
 	else
+		if(multi_z)
+			playsound(multi_z, sound_far, volume - 5, fire_sound_vary, 50)
 		playsound(src, sound_far, volume - 5, fire_sound_vary, 50) // Gaia, creates that WARFARE ambience
 
+	if(multi_z)
+		playsound(multi_z, sound, volume, fire_sound_vary)
 	playsound(src, sound, volume, fire_sound_vary)
 
 

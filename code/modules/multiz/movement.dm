@@ -379,7 +379,8 @@
 
 /atom/movable/z_observer/Initialize(mapload, mob/living/user)
 	. = ..()
-	owner = user
+	if(!owner)
+		owner = user
 	follow()
 	GLOB.moved_event.register(owner, src, TYPE_PROC_REF(/atom/movable/z_observer, follow))
 
@@ -389,6 +390,17 @@
 	forceMove(get_step(owner, UP))
 	if(isturf(src.loc))
 		var/turf/T = src.loc
+		if(!(T.z_flags & ZM_MIMIC_BELOW))
+			var/turf/near_t = get_step(T,dir) // Look for the turf infront of the mob if above is not lookable
+			if(near_t && (near_t.z_flags & ZM_MIMIC_BELOW))
+				T = near_t
+				forceMove(T)
+			else
+				for(var/turf/around in view(1, T)) // Look for turfs around if turf is not lookable
+					if(around.z_flags & ZM_MIMIC_BELOW)
+						T = around
+						forceMove(T)
+						break
 		if(T.z_flags & ZM_MIMIC_BELOW)
 			return
 	owner.reset_view(null)
@@ -398,6 +410,17 @@
 /atom/movable/z_observer/z_down/follow()
 	forceMove(get_step(owner, DOWN))
 	var/turf/T = get_turf(owner)
+	if(!(T.z_flags & ZM_MIMIC_BELOW))
+		var/turf/near_t = get_step(T,dir) // Look for the turf infront of the mob if below is not lookable
+		if(near_t && (near_t.z_flags & ZM_MIMIC_BELOW))
+			T = near_t
+			forceMove(get_step(T, DOWN))
+		else
+			for(var/turf/around in view(1, T)) // Look for turfs around if turf is not lookable
+				if(around.z_flags & ZM_MIMIC_BELOW)
+					T = around
+					forceMove(get_step(T, DOWN))
+					break
 	if(T && (T.z_flags & ZM_MIMIC_BELOW))
 		return
 	owner.reset_view(null)

@@ -201,14 +201,26 @@
 		QDEL_NULL_LIST(segments)
 
 //called to launch a projectile from a gun
-/obj/item/projectile/proc/launch_from_gun(atom/target, mob/user, obj/item/gun/launcher, target_zone, x_offset=0, y_offset=0)
+/obj/item/projectile/proc/launch_from_gun(atom/target, mob/user, obj/item/gun/launcher, target_zone, x_offset=0, y_offset=0, multi_z)
 	if(user == target) //Shooting yourself
 		user.bullet_act(src, target_zone)
 		on_impact(user)
 		qdel(src)
 		return 0
 
-	dropInto(user.loc) //move the projectile out into the world
+	var/mob/living/living_user = user
+	if(multi_z && isliving(living_user) && living_user.z_eye)
+		var/atom/movable/z_observer/z_eye = living_user.z_eye
+		var/turf/eye_loc = get_turf(z_eye)
+		var/from = "other dimension"
+		if(istype(z_eye, /atom/movable/z_observer/z_up))
+			from = "above"
+		else
+			from = "below"
+		eye_loc.visible_message(SPAN_DANGER("\The [src] comes down from the [from] of \the [get_turf(src)]!"), SPAN_DANGER("You hear [launcher.fire_sound_text] coming from [from]!"))
+		dropInto(eye_loc) // If shooting across Z-levels then send it to the eye loc
+	else
+		dropInto(user.loc) // Move the projectile out into the world
 
 	firer = user
 	shot_from = launcher.name

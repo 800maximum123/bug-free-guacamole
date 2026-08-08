@@ -44,3 +44,27 @@
 	//L.drop_item()
 	user.drop_item()
 	return TRUE
+
+
+/datum/keybinding/living/look_up
+	hotkey_keys = list(",")
+	name = "look_up"
+	full_name = "Look Up"
+	description = "Makes you look up"
+
+
+/datum/keybinding/living/look_up/down(client/user)
+	var/mob/living/L = user.mob
+	L.lookup()
+
+
+/datum/keybinding/living/look_down
+	hotkey_keys = list(".")
+	name = "look_down"
+	full_name = "Look Down"
+	description = "Makes you look down"
+
+
+/datum/keybinding/living/look_down/down(client/user)
+	var/mob/living/L = user.mob
+	L.lookdown()

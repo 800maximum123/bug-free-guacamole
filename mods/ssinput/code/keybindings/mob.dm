@@ -147,7 +147,7 @@
 
 
 /datum/keybinding/mob/move_up
-	hotkey_keys = list(",", "=")
+	hotkey_keys = list("=")
 	name = "move_up"
 	full_name = "Move Up"
 	description = "Makes you go up"
@@ -159,7 +159,7 @@
 
 
 /datum/keybinding/mob/move_down
-	hotkey_keys = list(".", "-")
+	hotkey_keys = list("-")
 	name = "move_down"
 	full_name = "Move Down"
 	description = "Makes you go down"
@@ -179,3 +179,68 @@
 /datum/keybinding/mob/toggle_gun_mode/down(client/user)
 	var/mob/M = user.mob
 	M.toggle_gun_mode()
+
+
+/datum/keybinding/mob/face_direction
+	hotkey_keys = list("`")
+	name = "face_direction"
+	full_name = "Face Direction"
+
+
+/datum/keybinding/mob/face_direction/down(client/user)
+	var/mob/M = user.mob
+	M.face_direction()
+
+
+/datum/keybinding/mob/north_face_perm
+	hotkey_keys = list("AltNorth", "AltW")
+	name = "north_face_perm"
+	full_name = "Face North"
+
+
+/datum/keybinding/mob/north_face_perm/down(client/user)
+	var/mob/M = user.mob
+	user.movement_locked = TRUE
+	M.northfaceperm()
+	user.movement_locked = FALSE
+	return TRUE
+
+/datum/keybinding/mob/south_face_perm
+	hotkey_keys = list("AltSouth", "AltS")
+	name = "south_face_perm"
+	full_name = "Face South"
+
+
+/datum/keybinding/mob/south_face_perm/down(client/user)
+	var/mob/M = user.mob
+	user.movement_locked = TRUE
+	M.southfaceperm()
+	user.movement_locked = FALSE
+	return TRUE
+
+/datum/keybinding/mob/east_face_perm
+	hotkey_keys = list("AltEast", "AltD")
+	name = "east_face_perm"
+	full_name = "Face East"
+
+
+/datum/keybinding/mob/east_face_perm/down(client/user)
+	var/mob/M = user.mob
+	user.movement_locked = TRUE
+	M.eastfaceperm()
+	user.movement_locked = FALSE
+	return TRUE
+
+
+/datum/keybinding/mob/west_face_perm
+	hotkey_keys = list("AltWest", "AltA")
+	name = "west_face_perm"
+	full_name = "Face West"
+
+
+/datum/keybinding/mob/west_face_perm/down(client/user)
+	var/mob/M = user.mob
+	user.movement_locked = TRUE
+	M.westfaceperm()
+	user.movement_locked = FALSE
+	return TRUE
