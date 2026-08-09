@@ -246,8 +246,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 
 /obj/effect/smoke/illumination/flare
 	name = "illumination"
-	opacity = 1
-	mouse_opacity = 1
+	opacity = 0
 	anchored = TRUE
 	icon = null
 	icon_state = null
