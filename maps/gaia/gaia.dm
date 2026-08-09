@@ -96,10 +96,11 @@
 	///////////  AREAS OF OPERATION  ///////////
 	//  CHANGE THIS DEPENDING ON THE MISSION  //
 	////////////////////////////////////////////
-	#include "../gaia/area_of_op/urbanrebels.dmm"
-	//#include "../gaia/area_of_op/shaftmines.dmm"
 	//#include "../gaia/area_of_op/city.dmm"
 	//#include "../gaia/area_of_op/outskirts.dmm"
+	//#include "../gaia/area_of_op/shaftmines.dmm"
+	//#include "../gaia/area_of_op/urbanrebels.dmm"
+	#include "../gaia/area_of_op/urbanrebels_mini.dmm"
 
 	// --- TORCH --- //
 	// --- MAP MAINTENANCE --- //
