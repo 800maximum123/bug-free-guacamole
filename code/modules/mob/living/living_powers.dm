@@ -30,7 +30,7 @@
 		var/turf/above = GetAbove(src)
 
 		if(!TURF_IS_MIMICING(above))
-			var/turf/near_above = get_step(above,dir) // Look for the turf infront of the mob if above is not lookable
+			var/turf/near_above = get_step(above, dir) // Look for the turf infront of the mob if above is not lookable
 			if(near_above && TURF_IS_MIMICING(near_above))
 				above = near_above
 			else
@@ -94,7 +94,7 @@
 			return
 		var/turf/T = get_turf(src)
 		if(!TURF_IS_MIMICING(T) || !HasBelow(T.z))
-			var/turf/near_below = get_step(src,dir) // Look for the turf below of the mob if above is not lookable
+			var/turf/near_below = get_step(src, dir) // Look for the turf infront of the mob if below is not lookable
 			if(near_below && (TURF_IS_MIMICING(near_below) || HasBelow(near_below.z)))
 				T = near_below
 			else

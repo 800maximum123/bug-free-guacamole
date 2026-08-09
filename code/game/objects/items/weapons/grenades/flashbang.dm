@@ -21,7 +21,7 @@
 		B.damage_health(damage, DAMAGE_SHOCK)
 
 	new/obj/sparks(src.loc)
-	new/obj/effect/smoke/illumination(src.loc, 5, range=30, power=15, color="#ffffff") // MY EYES!
+	new/obj/effect/smoke/illumination(src.loc, 5, range = 30, power = 15, color = COLOR_WHITE) // MY EYES!
 	qdel(src)
 
 /obj/item/grenade/flashbang/proc/bang(turf/T , mob/living/carbon/M)

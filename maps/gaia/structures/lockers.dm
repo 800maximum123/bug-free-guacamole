@@ -161,7 +161,7 @@
 		/obj/item/clothing/accessory/badge/dog_tags,
 		/obj/item/clothing/accessory/storage/webbing_large,
 		/obj/item/storage/firstaid/small_combat,
-		/obj/item/device/radio/off/gaia_scg,
+		/obj/item/device/radio/off/gaia_iccg,
 		/obj/item/device/flashlight/maglight,
 		/obj/item/device/megaphone,
 		/obj/item/device/binoculars/x4,

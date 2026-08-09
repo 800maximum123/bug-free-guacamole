@@ -44,6 +44,7 @@
 	#include "../gaia/language/human/iberian.dm"
 	#include "../gaia/language/human/russian.dm"
 
+	#include "../gaia/items/airstrike.dm"
 	#include "../gaia/items/bell.dm"
 	#include "../gaia/items/cards_ids.dm"
 	#include "../gaia/items/clothes.dm"

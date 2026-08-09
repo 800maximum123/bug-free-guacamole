@@ -391,7 +391,7 @@
 	if(isturf(src.loc))
 		var/turf/T = src.loc
 		if(!(T.z_flags & ZM_MIMIC_BELOW))
-			var/turf/near_t = get_step(T,dir) // Look for the turf infront of the mob if above is not lookable
+			var/turf/near_t = get_step(T, owner.dir) // Look for the turf infront of the mob if above is not lookable
 			if(near_t && (near_t.z_flags & ZM_MIMIC_BELOW))
 				T = near_t
 				forceMove(T)
@@ -411,7 +411,7 @@
 	forceMove(get_step(owner, DOWN))
 	var/turf/T = get_turf(owner)
 	if(!(T.z_flags & ZM_MIMIC_BELOW))
-		var/turf/near_t = get_step(T,dir) // Look for the turf infront of the mob if below is not lookable
+		var/turf/near_t = get_step(T, owner.dir) // Look for the turf infront of the mob if below is not lookable
 		if(near_t && (near_t.z_flags & ZM_MIMIC_BELOW))
 			T = near_t
 			forceMove(get_step(T, DOWN))

@@ -1,0 +1,72 @@
+<!--
+Title: Airstrike Request UI
+Used In File(s): /maps/gaia/items/airstrike.dm
+-->
+
+<div class='item'>
+  <h2>Request Airstrike from {{:data.striker_name}}</h2>
+</div>
+
+{{if data.locked}}
+  <div class='item'>
+    <div class='itemLabel'>
+      <b>Status</b>:
+    </div>
+    <div class='itemContent'>
+      <span class='alert'>{{:data.striker_name}} is out of ammo.</span>
+    </div>
+  </div>
+{{else}}
+  <form name='airstrike' action='?src={{:data.src}}' method='get'>
+    <input type='hidden' name='src' value='{{:data.src}}'>
+    <input type='hidden' name='choice' value='do_strike'>
+
+    <div class='item'>
+      <b>Ammo Left:</b> {{:data.uses}}
+    </div>
+
+    <div class='item'>
+      <div class='itemLabel'>
+        <b>X Coordinate</b>:
+      </div>
+      <div class='itemContent'>
+        <input type='text' id='x' name='x' value='{{:data.x}}'>
+      </div>
+    </div>
+
+    <div class='item'>
+      <div class='itemLabel'>
+        <b>Y Coordinate</b>:
+      </div>
+      <div class='itemContent'>
+        <input type='text' id='y' name='y' value='{{:data.y}}'>
+      </div>
+    </div>
+
+    <div class='item'>
+      <div class='itemLabel'>
+        <b>Z Coordinate</b>:
+      </div>
+      <div class='itemContent'>
+        <input type='text' id='z' name='z' value='{{:data.z}}'>
+      </div>
+    </div>
+
+    <div class='item'>
+      <div class='itemLabel'>
+        <b>Strike Type</b>:
+      </div>
+      <div class='itemContent'>
+        <select name='ammo_type' id='ammo_type'>
+          {{for data.allowed_types}}
+            <option value='{{:value.type}}' {{if data.ammo_type == value.type}}selected{{/if}}>{{:value.label}}</option>
+          {{/for}}
+        </select>
+      </div>
+    </div>
+
+    <div class='item'>
+      <input type='submit' value='Request Strike'>
+    </div>
+  </form>
+{{/if}}
