@@ -19,7 +19,6 @@ Used In File(s): /maps/gaia/items/airstrike.dm
 {{else}}
   <form name='airstrike' action='?src={{:data.src}}' method='get'>
     <input type='hidden' name='src' value='{{:data.src}}'>
-    <input type='hidden' name='choice' value='do_strike'>
 
     <div class='item'>
       <b>Ammo Left:</b> {{:data.uses}}
@@ -66,7 +65,10 @@ Used In File(s): /maps/gaia/items/airstrike.dm
     </div>
 
     <div class='item'>
-      <input type='submit' value='Request Strike'>
+      <button type='submit' name='choice' value='my_loc'>My Location</button>
+    </div>
+    <div class='item'>
+      <button type='submit' name='choice' value='do_strike'>Request Strike</button>
     </div>
   </form>
 {{/if}}
