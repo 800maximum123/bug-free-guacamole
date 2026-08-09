@@ -956,7 +956,7 @@
 
 /obj/item/gun/MiddleClick(mob/user)
 	if (loc == user)
-		toggle_safety(user)
+		set_safety(user)
 		return TRUE
 	return ..()
 
