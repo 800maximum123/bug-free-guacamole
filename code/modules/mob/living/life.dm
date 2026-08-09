@@ -233,7 +233,7 @@
 						if(TURF_IS_MIMICING(around))
 							above_icon_active = 1
 							break
-		src.above_icon.icon_state = above_icon_active ? "above1" : "above0"
+		src.above_icon.icon_state = above_icon_active ? "uphint1" : "uphint0"
 
 	handle_hud_icons_health()
 	handle_hud_glasses()

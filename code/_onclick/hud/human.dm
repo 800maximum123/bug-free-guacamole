@@ -261,7 +261,7 @@
 
 	mymob.above_icon = new /obj/screen()
 	mymob.above_icon.icon = ui_style
-	mymob.above_icon.icon_state = "above0"
+	mymob.above_icon.icon_state = "uphint0"
 	mymob.above_icon.SetName("look up")
 	mymob.above_icon.screen_loc = ui_look_up
 	mymob.above_icon.color = ui_color

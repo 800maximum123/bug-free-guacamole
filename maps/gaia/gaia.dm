@@ -290,6 +290,7 @@
 	#include "../../mods/_fd/tajaran_stuff/_tajaran_stuff.dme"
 	#include "../../mods/_fd/tartakans/_tartakans.dme"
 	#include "../../mods/_fd/v_posters/_v_posters.dme"
+	#include "../../mods/_fd/zooming/_zoom.dme"
 
 	#include "../../mods/_fd/_maps/a_destroyer/_a_destroyer.dme"
 	#include "../../mods/_fd/_maps/airfield/_airfield.dme"
