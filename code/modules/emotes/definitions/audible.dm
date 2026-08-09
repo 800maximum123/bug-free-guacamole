@@ -216,6 +216,7 @@
 	if(!mob_user)
 		return
 
+	var/vary = FALSE
 	var/user_language = mob_user.default_language.name
 	var/list/warcry_sounds = null
 
@@ -242,8 +243,9 @@
 			warcry_sounds = GLOB.female_generic_warcries
 		else
 			warcry_sounds = GLOB.male_generic_warcries
+		vary = TRUE
 
 	if(!warcry_sounds || !warcry_sounds.len)
 		return
 
-	playsound(mob_user.loc, pick(warcry_sounds), 50, FALSE)
+	playsound(mob_user.loc, pick(warcry_sounds), 50, vary)
