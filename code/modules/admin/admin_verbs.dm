@@ -146,6 +146,7 @@ var/global/list/admin_verbs_fun = list(
 	/client/proc/rename_shuttle,
 	// [GAIA]
 	/client/proc/commander_message,
+	/client/proc/call_airstrike,
 	/client/proc/set_ambient_group_color,
 	/datum/admins/proc/toggle_gaia_sun_updates,
 	)

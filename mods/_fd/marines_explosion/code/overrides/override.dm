@@ -24,6 +24,9 @@
 	if(!istype(src.loc, /turf))
 		return
 
+	if(istype(src, /obj/effect))
+		return
+
 	if(!direction)
 		direction = pick(GLOB.alldirs)
 	var/range = min(round(severity * 0.2, 1), 14)

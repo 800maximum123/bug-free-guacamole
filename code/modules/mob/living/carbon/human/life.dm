@@ -722,10 +722,6 @@
 				crit_sound_severity = severity
 		else
 			clear_fullscreen("crit")
-			if(crit_sound_token)
-				sound_to(src, sound(null, channel = GLOB.crit_sound_channel))
-				crit_sound_token = FALSE
-				crit_sound_severity = 0
 			//Oxygen damage overlay
 			if(getOxyLoss())
 				var/severity = 0

@@ -20,10 +20,14 @@ var/global/list/z_levels = list()// Each bit re... haha just kidding this is a l
 /proc/HasAbove(z)
 	if(z >= world.maxz || z < 1 || z > length(z_levels))
 		return 0
+	if(z in GLOB.upper_zs)
+		return 0
 	return z_levels[z]
 
 /proc/HasBelow(z)
 	if(z > world.maxz || z < 2 || (z-1) > length(z_levels))
+		return 0
+	if(z in GLOB.bottom_zs)
 		return 0
 	return z_levels[z-1]
 

@@ -71,14 +71,14 @@
 	explosion_falloff = 50
 	shrapnel = FALSE
 
-	var/gas_amount = 20
+	var/gas_amount = 25
 
 // THERMOBARIC MISSILE
 /obj/item/projectile/missile/thermobaric/special_action(atom/A, turf/T)
 	if(T)
 		var/datum/effect/smoke_spread/thermobaric/smoke = new
 		smoke.set_up(gas_amount, loca = T)
-		smoke.start(TRUE)
+		smoke.start()
 		visible_message(SPAN_DANGER("Fine mist shoots from [src]!"), SPAN_DANGER("You hear a massive puff of air!"))
 
 // HE MISSILE

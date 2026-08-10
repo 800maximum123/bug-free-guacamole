@@ -34,6 +34,15 @@
 
 	z_flags = ZM_MIMIC_DEFAULTS | ZM_MIMIC_OVERWRITE | ZM_MIMIC_NO_AO | ZM_ALLOW_ATMOS
 
+/turf/simulated/open/LateInitialize(mapload)
+	. = ..()
+	// If there is no Z-level below the open space then close it up ASAP
+	if(!HasBelow(src) && !mapload)
+		if(GLOB.using_map.base_floor_area)
+			var/area/new_area = locate(GLOB.using_map.base_floor_area) || new GLOB.using_map.base_floor_area
+			ChangeArea(src, new_area)
+		ChangeTurf(GLOB.using_map.base_floor_type)
+
 /turf/simulated/open/update_dirt()
 	return 0
 

@@ -258,14 +258,18 @@ would spawn and follow the beaker, even if it is carried or thrown.
 
 
 /////////////////////////////////////////////
-// Bad smoke
+// Bad smoke / White Phosphorus
 /////////////////////////////////////////////
 
 /obj/effect/smoke/bad
-	time_to_live = 2 MINUTES
+	time_to_live = 1 MINUTE
 
 /obj/effect/smoke/bad/affect(mob/living/carbon/M)
-	M.adjustOxyLoss(1)
+	M.adjust_fire_stacks(2)
+	M.adjustOxyLoss(2)
+	if (prob(5))
+		new /obj/sparks(M.loc)
+		M.IgniteMob()
 	if (M.coughedtime != 1)
 		M.coughedtime = 1
 		M.emote("cough")
@@ -301,12 +305,12 @@ would spawn and follow the beaker, even if it is carried or thrown.
 
 /obj/effect/smoke/mustard/Initialize()
 	. = ..()
-	set_extension(src, /datum/extension/scent/custom, "mustard", /singleton/scent_intensity/strong, SCENT_DESC_SMELL, 7)
+	set_extension(src, /datum/extension/scent/custom, "mustard", /singleton/scent_intensity/strong, SCENT_DESC_SMELL, world.view)
 
 /obj/effect/smoke/mustard/affect(mob/living/carbon/human/R)
 	R.contaminate()
 	R.pl_effects()
-	R.adjustOxyLoss(rand(5, 10))
+	R.adjustOxyLoss(rand(10, 15))
 	if (R.coughedtime != 1)
 		R.coughedtime = 1
 		R.emote("gasp")
@@ -330,22 +334,14 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	var/suffocation = 5
 	var/fire_stacks = 15
 	var/detonation_time = 1 SECONDS
+	var/auto_detonate = TRUE
 	var/blown_up = FALSE
 
 /obj/effect/smoke/thermobaric/Initialize()
 	. = ..()
-	addtimer(new Callback(src, PROC_REF(blow_up)), detonation_time)
+	if(auto_detonate)
+		addtimer(new Callback(src, PROC_REF(blow_up)), detonation_time)
 
-/*
-/obj/effect/smoke/thermobaric/can_affect(mob/living/carbon/M)
-	. = ..()
-	if (!.)
-		return
-	if (ishuman(M))
-		var/mob/living/carbon/human/H = M
-		if (H.wear_suit)
-			return FALSE
-*/
 /obj/effect/smoke/thermobaric/affect(mob/living/carbon/human/R)
 	R.adjustOxyLoss(suffocation)
 	R.adjust_fire_stacks(fire_stacks)
@@ -362,7 +358,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	if(location && !blown_up)
 		blown_up = TRUE // Just in case
 		location.hotspot_expose(1000,500,1)
-		cell_explosion(location, 150, 50, shrapnel = FALSE, thermobaric = TRUE)
+		cell_explosion(location, 300, 50, shrapnel = FALSE, thermobaric = TRUE)
 		for(var/mob/living/carbon/human/victim in location)
 			victim.rupture_lung()
 		qdel(src)
@@ -383,8 +379,8 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	var/smokeVolume
 
 /datum/effect/smoke_spread/set_up(n = 5, c = 0, loca, direct)
-	if(n > 20)
-		n = 20
+	if(n > 50)
+		n = 50
 	number = n
 	cardinals = c
 	smokeVolume = n
@@ -414,7 +410,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	smokeFlow()
 	density = max(1, length(targetTurfs) / 4)
 
-/datum/effect/smoke_spread/start(sound)
+/datum/effect/smoke_spread/start(sound = TRUE, deploy_time = 5)
 	if(!location)
 		return
 	if(sound)
@@ -422,7 +418,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 
 	var/smoke_duration = max(5, smokeVolume * 1.5 SECONDS)
 	for(var/turf/T in targetTurfs)
-		spawn(0)
+		spawn(deploy_time)
 			spawnSmoke(T, smoke_duration, range)
 
 /datum/effect/smoke_spread/proc/spawnSmoke(turf/T, smoke_duration, dist = 1)
@@ -441,7 +437,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 			for(var/D in GLOB.cardinal)
 				var/turf/target = get_step(current, D)
 				if(wallList)
-					if(istype(target, /turf/simulated/wall))
+					if(istype(target, /turf/simulated/wall) && target != location)
 						if(!(target in wallList))
 							wallList += target
 						continue
@@ -452,9 +448,9 @@ would spawn and follow the beaker, even if it is carried or thrown.
 					continue
 				if(!(target in targetTurfs))
 					continue
-				if(current.c_airblock(target))
+				if(current.c_airblock(target) && target != location)
 					continue
-				if(target.c_airblock(current))
+				if(target.c_airblock(current) && target != location)
 					continue
 				pending += target
 

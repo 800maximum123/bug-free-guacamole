@@ -20,3 +20,14 @@
 #define SMOOTH_BLACKLIST 3 //Smooth with all but a blacklist of subtypes
 
 #define RANGE_TURFS(CENTER, RADIUS) block(locate(max(CENTER.x-(RADIUS), 1), max(CENTER.y-(RADIUS),1), CENTER.z), locate(min(CENTER.x+(RADIUS), world.maxx), min(CENTER.y+(RADIUS), world.maxy), CENTER.z))
+
+// This is a really fucky way to make sure no one blows holes into floors
+// basically a list of all bottom Z-levels set in gaia_define.dm
+// 1-2 - SCG Camp, 3-4 - ICCG Camp, 5 - Admin, 6 - Transit, 7-9 - Area of Operations
+GLOBAL_LIST_INIT(bottom_zs, list(
+	1, 3, 5, 6, 7
+	))
+// And this is so you don't stare into the void
+GLOBAL_LIST_INIT(upper_zs, list(
+	2, 4, 5, 6, 9
+	))

@@ -19,6 +19,11 @@
 
 	appearance = SSskybox.space_appearance_cache[(((x + y) ^ ~(x * y) + z) % 25) + 1]
 
+	// Any space turfs in Gaia areas must immediatly become normal turfs
+	var/area/gaia/gaia = src.loc
+	if(gaia && istype(gaia))
+		return INITIALIZE_HINT_LATELOAD
+
 	if(!HasBelow(z))
 		return
 	var/turf/below = GetBelow(src)

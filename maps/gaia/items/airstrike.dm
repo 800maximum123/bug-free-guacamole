@@ -19,18 +19,24 @@
 	var/initial_icon_state = "walkietalkie_gcc"
 	/// The name of who is striking everyone down
 	var/striker_name = "SFV 'Boomstick"
+	/// To what mob faction this radio belongs?
+	var/faction = MOB_FACTION_SCG
 	/// Last time airstrike was called
 	var/last_use
 	/// How long to wait before calling in airstrikes
 	var/cooldown = 1 MINUTES
 	/// Margin of error in tiles of how much the target can be off
-	var/margin = 1
+	var/margin = 0
 	/// How much uses left
 	var/uses = 3
 	/// If it has no uses left and is now unusuable
 	var/locked = FALSE
+	/// Time it was recently denied to use radio
+	var/recently_denied
 	/// If you can airstrike homebases of ICCG and SCG
 	var/allow_base_strikes = FALSE
+	/// If you can airstrike admin and transit Z-levels
+	var/allow_admin_strikes = FALSE
 	/// What kind of airstrikes are allowed
 	var/list/allowed_types = ALL_AIRSTRIKES
 
@@ -59,22 +65,56 @@
 	flick(icon, initial_icon_state + "-off")
 	to_chat(user, SPAN_NOTICE("\The [src] flicks as it locks down"))
 
+/obj/item/device/airstrike/proc/deny(mob/user, balloon, message)
+	if(world.time <= recently_denied)
+		return
+	recently_denied = world.time + 2 SECONDS
+	var/list/iccg_no = list('maps/gaia/sounds/voice/airstrike/iccg/iccg_no1.ogg', 'maps/gaia/sounds/voice/airstrike/iccg/iccg_no2.ogg')
+	var/list/scg_no = list('maps/gaia/sounds/voice/airstrike/scg/scg_no1.ogg', 'maps/gaia/sounds/voice/airstrike/scg/scg_no2.ogg')
+	if(faction == MOB_FACTION_ICCG)
+		playsound(src.loc, pick(iccg_no), 40, 0, -1)
+	else
+		playsound(src.loc, pick(scg_no), 40, 0, -1)
+	audible_message("[SPAN_BOLD(striker_name)] states, \"[SPAN_WARNING(message)]\"")
+	playsound(src.loc, 'sound/effects/walkietalkie.ogg', 20, 0, -1)
+	balloon_alert(user, balloon)
+
 /obj/item/device/airstrike/proc/strike(href, href_list, mob/user)
 	// Prevent reuse when locked
 	if(locked)
 		return TRUE
 	if(world.time <= last_use)
-		balloon_alert(user, "cooldown")
+		deny(user, "cooldown", "We are reloading right now.")
 		return TRUE
+	if(user.faction != faction)
+		deny(user, "denied", "Your IFF tag is not recognized by us.")
+		return
 
 	var/strx = text2num(href_list["x"])
 	var/stry = text2num(href_list["y"])
 	var/strz = text2num(href_list["z"])
 	var/strammo_type = href_list["ammo_type"]
+
+	// Doesn't allow to strike on the homebases of SCG (1-2) and ICCG (3-4)
+	if((strz == 1 || strz == 2 || strz == 3 || strz == 4) && !allow_base_strikes)
+		deny(user, "prohibited", "We cannot bomb our own bases.")
+		return
+	// Doesn't allow to strike on the admin (5) and transit (6) Z-levels
+	if((strz == 5 || strz == 6) && !allow_admin_strikes)
+		deny(user, "prohibited", "Those targets are off our limits.")
+		return
 /*
 	// Z is selected automatically: prefer the device's current z
 	var/z = src.loc ? src.loc.z : 0
 */
+
+	// Lock the device after use
+	uses--
+	if(uses <= 0 && !locked)
+		lock_on(user)
+	last_use = world.time + cooldown
+	SSnano.update_uis(src)
+
 	// Create the strike datum
 	var/datum/airstrike/A = new()
 	A.x = strx + rand(-margin, margin)
@@ -82,6 +122,7 @@
 	A.z = strz
 	A.ammo_type = strammo_type
 	A.striker_name = striker_name
+	A.faction = faction
 	A.requester = user
 	A.device = src
 	A.launch()
@@ -91,24 +132,23 @@
 	selected_z = strz
 	selected_ammo_type = strammo_type
 
-	// Lock the device after use
-	uses--
-	if(uses <= 0 && !locked)
-		lock_on(user)
-
-	last_use = world.time + cooldown
-	SSnano.update_uis(src)
+	var/list/iccg_yes = list('maps/gaia/sounds/voice/airstrike/iccg/iccg_yes1.ogg', 'maps/gaia/sounds/voice/airstrike/iccg/iccg_yes2.ogg')
+	var/list/scg_yes = list('maps/gaia/sounds/voice/airstrike/scg/scg_yes1.ogg', 'maps/gaia/sounds/voice/airstrike/scg/scg_yes2.ogg')
 
 	// Feedback to the user
-	playsound(src.loc, 'sound/effects/walkietalkie.ogg', 20, 0)
+	playsound(src.loc, 'sound/effects/walkietalkie.ogg', 20, 0, -1)
+	if(faction == MOB_FACTION_ICCG)
+		playsound(src.loc, pick(iccg_yes), 40, 0, -1)
+	else
+		playsound(src.loc, pick(scg_yes), 40, 0, -1)
 	balloon_alert(user, "called")
-	audible_message("[SPAN_BOLD(striker_name)] states, \"[SPAN_NOTICE("Airstrike requested at [strx], [stry], [strz] ([strammo_type]).")]\"")
+	audible_message("[SPAN_BOLD(striker_name)] states, \"[SPAN_NOTICE("Affirmative, [strammo_type] airstrike requested at [strx], [stry], [strz].")]\"")
 	return TRUE
 
 /obj/item/device/airstrike/attack_self(mob/user as mob)
 	user.set_machine(src)
 	if(!locked)
-		playsound(src.loc, 'sound/effects/walkieon.ogg', 40, 0)
+		playsound(src.loc, 'sound/effects/walkieon.ogg', 40, 0, -1)
 	if(uses >= 1 && locked)
 		lock_off(user)
 	ui_interact(user)
@@ -173,16 +213,12 @@
 /obj/item/device/airstrike/pepel
 	name = "airstrike radio (GCNV 'Pepel')"
 	striker_name = "GCNV 'Pepel'"
-	allowed_types = list(
-		AIRSTRIKE_HE, AIRSTRIKE_CLUSTER, AIRSTRIKE_NAPALM, AIRSTRIKE_SMOKE, AIRSTRIKE_GAS
-	)
+	faction = MOB_FACTION_ICCG
 
 /obj/item/device/airstrike/zarya
 	name = "airstrike radio (GCNV 'Zarya')"
 	striker_name = "GCNV 'Zarya'"
-	allowed_types = list(
-		AIRSTRIKE_HE, AIRSTRIKE_CLUSTER, AIRSTRIKE_NAPALM, AIRSTRIKE_SMOKE, AIRSTRIKE_GAS
-	)
+	faction = MOB_FACTION_ICCG
 
 
 // Datum representing an airstrike request
@@ -198,7 +234,9 @@
 	/// What kind of strike is this
 	var/ammo_type = AIRSTRIKE_HE
 	/// The name of who is striking everyone down
-	var/striker_name = "SFV 'Boomstick"
+	var/striker_name = "SFV 'Boomstick'"
+	/// What mob faction is this airstrike for
+	var/faction = MOB_FACTION_SCG
 	/// Who requested this strike
 	var/mob/requester = null
 	/// From what was this strike requested
@@ -217,17 +255,21 @@
 	//LAZYINITLIST(GLOB.airstrikes)
 	//GLOB.airstrikes += src
 
-	// Notify requester/device that the strike was queued
-	if(device)
-		device.audible_message("[SPAN_BOLD(striker_name)] states, \"[SPAN_WARNING("Your airstrike request has been queued.")]\"")
-
+	sleep(1.5 SECOND)
 	// Resolve target turf
 	target = locate(x, y, z)
 	if(!target)
 		if(requester && device)
-			playsound(device.loc, 'sound/effects/walkietalkie.ogg', 20, 0)
-			device.audible_message("[SPAN_BOLD(striker_name)] states, \"[SPAN_WARNING("Bad target. Airstrike waved off.")]\"")
+			var/list/iccg_no = list('maps/gaia/sounds/voice/airstrike/iccg/iccg_no1.ogg', 'maps/gaia/sounds/voice/airstrike/iccg/iccg_no2.ogg')
+			var/list/scg_no = list('maps/gaia/sounds/voice/airstrike/scg/scg_no1.ogg', 'maps/gaia/sounds/voice/airstrike/scg/scg_no2.ogg')
+			if(faction == MOB_FACTION_ICCG)
+				playsound(device.loc, pick(iccg_no), 40, 0, -1)
+			else
+				playsound(device.loc, pick(scg_no), 40, 0, -1)
+			playsound(device.loc, 'sound/effects/walkietalkie.ogg', 20, 0, -1)
+			device.audible_message("[SPAN_BOLD(striker_name)] states, \"[SPAN_WARNING("Bad target! Airstrike waved off.")]\"")
 			device.balloon_alert(requester, "cancelled")
+			device.uses++ // refuns the use
 			return
 
 	log_and_message_admins("[ammo_type] orbital airstrike requested by [requester] with [device] to [x], [y], [z].", requester, target)
@@ -239,21 +281,37 @@
 	// Broadcast an immediate alarm to the entire Z-level
 	for(var/mob/living/mob in GLOB.alive_mobs)
 		if((mob.z == z) || (mob.z in GetConnectedZlevels(z)))
-			to_chat(mob, FONT_GIANT(SPAN_DANGER("Warning: Orbital airstrike inbound!")))
+			if(mob.faction == faction)
+				to_chat(mob, FONT_GIANT(SPAN_DANGER("WARNING: [ammo_type] orbital airstrike from [striker_name] inbound at [x], [y], [z]!")))
+			else
+				to_chat(mob, FONT_GIANT(SPAN_DANGER("WARNING: Orbital airstrike inbound!")))
 			sound_to(mob, sound(alarm_sound))
 
 	// Schedule approach sounds / countdown messages and final effect
 	// Mid warning at ~5s
 	spawn(trunc(duration/2))
+		var/list/thunder = list('maps/gaia/sounds/effects/thunder1.ogg', 'maps/gaia/sounds/effects/thunder2.ogg')
+		if(target)
+			playsound(target, pick(thunder), 250, 0, 30, 0.3)
+			new /obj/effect/smoke/illumination(target, duration/2, range = 30, power = 0.5, color = COLOR_SEDONA)
 		for(var/atom/mob in range(world.view*2, target))
 			if(ismob(mob))
 				to_chat(mob, FONT_HUGE(SPAN_WARNING("You hear sky roar from [dir2text(get_dir(mob, target))]!")))
 
 	// Near warning at ~8s
 	spawn(trunc(duration/1.2))
+		if(device)
+			var/list/iccg_imminent = list('maps/gaia/sounds/voice/airstrike/iccg/iccg_imminent1.ogg', 'maps/gaia/sounds/voice/airstrike/iccg/iccg_imminent2.ogg')
+			var/list/scg_imminent = list('maps/gaia/sounds/voice/airstrike/scg/scg_imminent1.ogg', 'maps/gaia/sounds/voice/airstrike/scg/scg_imminent2.ogg')
+			if(faction == MOB_FACTION_ICCG)
+				playsound(device.loc, pick(iccg_imminent), 40, 0, -1)
+			else
+				playsound(device.loc, pick(scg_imminent), 40, 0, -1)
+			playsound(device.loc, 'sound/effects/walkietalkie.ogg', 20, 0, -1)
+			device.audible_message("[SPAN_BOLD(striker_name)] states, \"[SPAN_NOTICE("Get cover! Airstrike is imminent at [x], [y], [z].")]\"")
 		if(target)
-			playsound(target, aiming_sound, 150, 0, 12)
-			new /obj/effect/smoke/illumination(target, 2 SECONDS, range = 10, power = 5, color = COLOR_SEDONA)
+			playsound(target, aiming_sound, 150, 0, 20)
+			new /obj/effect/smoke/illumination(target, duration, range = 20, power = 5, color = COLOR_SEDONA)
 		for(var/atom/mob in range(world.view*2, target))
 			if(ismob(mob))
 				to_chat(mob, FONT_GIANT(SPAN_WARNING("Sky bursts in flames at [dir2text(get_dir(mob, target))]!")))
@@ -261,13 +319,11 @@
 	// Near warning at ~9s
 	spawn(trunc(duration/1.1))
 		if(target)
-			playsound(target, incoming_sound, 100, TRUE, 12)
+			playsound(target, incoming_sound, 100, TRUE, 20)
 
 	// Execute the strike at ~10s
 	spawn(duration)
 		// Final visible/sound feedback to requester/device
-		if(device)
-			device.audible_message("[SPAN_BOLD(striker_name)] states, \"[SPAN_NOTICE("Airstrike is incoming at [x], [y], [z].")]\"")
 		for(var/atom/mob in range(world.view*2, target))
 			if(ismob(mob))
 				to_chat(mob, FONT_GIANT(SPAN_DANGER("You see a [ammo_type] shell incoming at [dir2text(get_dir(mob, target))]!")))
@@ -276,10 +332,16 @@
 		bomb_act()
 
 		// Announce completion to admins/requester
-		if(requester)
+		if(requester && device)
 			log_and_message_admins("[ammo_type] orbital airstrike done by [requester] with [device] to [target].", requester, target)
-			playsound(device.loc, 'sound/effects/walkietalkie.ogg', 20, 0)
-			device.audible_message("[SPAN_BOLD(striker_name)] states, \"[SPAN_GOOD("Airstrike fully executed.")]\"")
+			var/list/iccg_done = list('maps/gaia/sounds/voice/airstrike/iccg/iccg_done1.ogg', 'maps/gaia/sounds/voice/airstrike/iccg/iccg_done2.ogg', 'maps/gaia/sounds/voice/airstrike/iccg/iccg_done3.ogg')
+			var/list/scg_done = list('maps/gaia/sounds/voice/airstrike/scg/scg_done1.ogg', 'maps/gaia/sounds/voice/airstrike/scg/scg_done2.ogg', 'maps/gaia/sounds/voice/airstrike/scg/scg_done3.ogg')
+			if(faction == MOB_FACTION_ICCG)
+				playsound(device.loc, pick(iccg_done), 40, 0, -1)
+			else
+				playsound(device.loc, pick(scg_done), 40, 0, -1)
+			playsound(device.loc, 'sound/effects/walkietalkie.ogg', 20, 0, -1)
+			device.audible_message("[SPAN_BOLD(striker_name)] states, \"[SPAN_GOOD("All clear. Airstrike fully executed.")]\"")
 
 /// Creates a visible reticle on the strike position
 /datum/airstrike/proc/reticle(r_duration, turf/r_target, notify = TRUE)
@@ -328,39 +390,45 @@
 			if(target)
 				// spawns mulitple small explosions around the target turf
 				var/pause = 1 SECOND
-				var/amount = 10
+				var/amount = 15
 				while(amount > 0)
 					var/turf/bomblet = get_random_turf_in_range(target, 10)
 					reticle(pause, bomblet, FALSE)
-					playsound(target, 'maps/gaia/sounds/effects/incoming.ogg', 100, TRUE, 12)
-					cell_explosion(bomblet, 300, 100, shrapnel = TRUE)
+					if(amount != initial(amount)) // Stops double sound spam
+						playsound(target, 'maps/gaia/sounds/effects/incoming.ogg', 100, TRUE, 12)
+						sleep(pause)
+					cell_explosion(bomblet, 500, 150, shrapnel = TRUE)
 					amount--
-					sleep(pause)
 		if(AIRSTRIKE_NAPALM)
 			if(target)
 				cell_explosion(target, 500, 100, shrapnel = FALSE)
 				// create a turf fire around the target turf with high power
-				var/list/fire_spread = get_turfs_in_range(target, 8)
+				var/list/fire_spread = get_turfs_in_range(target, 10)
 				for(var/turf/around in fire_spread)
-					around.IgniteTurf(50, COLOR_WHITE)
+					around.IgniteTurf(50, COLOR_ORANGE)
+					around.hotspot_expose(1000,500)
+				for(var/mob/living/mob in fire_spread)
+					mob.burn_skin(30)
+					mob.adjust_fire_stacks(25)
+					mob.IgniteMob()
 		if(AIRSTRIKE_SMOKE)
 			if(target)
 				// spawn a concentrated smoke cloud around the target turf
 				var/pause = 1 SECOND
-				var/amount = 5
+				var/amount = 7
 				while(amount > 0)
 					var/datum/effect/smoke_spread/bad/smoke = new()
-					var/turf/bomblet = get_random_turf_in_range(target, 7)
+					var/turf/bomblet = get_random_turf_in_range(target, 10)
 					if(!isopenturf(bomblet)) // Walls are not really good for smoke spread
 						bomblet = get_random_turf_in_range(target, 7)
 					reticle(pause, bomblet, FALSE)
 					if(amount != initial(amount)) // Stops double sound spam
-						playsound(bomblet, 'maps/gaia/sounds/effects/incoming.ogg', 100, TRUE, 12)
-					smoke.set_up(20, 0, bomblet)
+						playsound(bomblet, 'maps/gaia/sounds/effects/incoming.ogg', 100, TRUE, 20)
+						sleep(pause)
+					smoke.set_up(25, 0, bomblet)
 					smoke.start()
 					playsound(bomblet, 'sound/effects/bamf.ogg', 100, TRUE, 4)
 					amount--
-					sleep(pause)
 		if(AIRSTRIKE_GAS)
 			if(target)
 				// spawn a concentrated gas cloud around the target turf
@@ -368,35 +436,31 @@
 				var/amount = 5
 				while(amount > 0)
 					var/datum/effect/smoke_spread/mustard/smoke = new()
-					var/turf/bomblet = get_random_turf_in_range(target, 7, 1)
+					var/turf/bomblet = get_random_turf_in_range(target, 7)
 					if(!isopenturf(bomblet)) // Walls are not really good for gas spread
 						bomblet = get_random_turf_in_range(target, 7)
 					reticle(pause, bomblet, FALSE)
 					if(amount != initial(amount)) // Stops double sound spam
-						playsound(bomblet, 'maps/gaia/sounds/effects/incoming.ogg', 100, 0, 12)
-					smoke.set_up(20, 0, bomblet)
+						playsound(bomblet, 'maps/gaia/sounds/effects/incoming.ogg', 100, 0, 20)
+					sleep(pause)
+					smoke.set_up(25, 0, bomblet)
 					smoke.start()
 					playsound(bomblet, 'sound/effects/bamf.ogg', 100, TRUE, 4)
 					amount--
-					sleep(pause)
 		if(AIRSTRIKE_THERMOBARIC)
 			if(target)
 				// spawn a concentrated gas cloud around the target turf
-				var/pause = 1 SECOND
-				var/amount = 5
+				cell_explosion(target, 500, 100, shrapnel = FALSE)
+				var/amount = 3
 				while(amount > 0)
 					var/datum/effect/smoke_spread/thermobaric/smoke = new()
-					var/turf/bomblet = get_random_turf_in_range(target, 7, 1)
+					var/turf/bomblet = get_random_turf_in_range(target, 10)
 					if(!isopenturf(bomblet)) // Walls are not really good for gas spread
 						bomblet = get_random_turf_in_range(target, 7)
-					reticle(pause, bomblet, FALSE)
-					if(amount != initial(amount)) // Stops double sound spam
-						playsound(bomblet, 'maps/gaia/sounds/effects/incoming.ogg', 100, 0, 12)
-					smoke.set_up(20, 0, bomblet)
+					smoke.set_up(50, 0, bomblet)
 					smoke.start()
 					playsound(bomblet, 'sound/effects/bamf.ogg', 100, TRUE, 4)
 					amount--
-					sleep(pause)
 
 
 /// Calls in airstrike datum from airstrike.dm
@@ -422,9 +486,10 @@
 		strz = mob.z
 
 	var/strammo_type = input("What ammotype to fire?", "Call Airstrike", AIRSTRIKE_HE) as null|anything in ALL_AIRSTRIKES
+	var/duration = input("How long till strike happens?", "Call Airstrike", 10 SECONDS) as num|null
 	var/margin = input("What margin of error in tiles from the coordinates?", "Call Airstrike", 0) as num|null
 
-	if(!strx || !stry || !strz || !strammo_type)
+	if(!strx || !stry || !strz || !strammo_type || !duration)
 		return
 
 	// Create the strike datum
