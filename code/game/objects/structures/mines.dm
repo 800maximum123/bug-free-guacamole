@@ -158,7 +158,7 @@
 	. = ..()
 
 /obj/item/device/mine/antitank
-	name = "undeployed AP-1 mine"
+	name = "undeployed AT-1 mine"
 	icon_state = "tankmine_item"
 	w_class = ITEM_SIZE_NORMAL
 	mine_type = /obj/structure/mine/antitank
