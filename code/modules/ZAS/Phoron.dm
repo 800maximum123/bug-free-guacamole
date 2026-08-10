@@ -1,7 +1,7 @@
 var/global/image/contamination_overlay = image('icons/effects/contamination.dmi')
 
 /pl_control
-	var/PHORON_DMG = 3
+	var/PHORON_DMG = 5
 	var/PHORON_DMG_NAME = "Phoron Damage Amount"
 	var/PHORON_DMG_DESC = "Self Descriptive"
 
@@ -13,11 +13,11 @@ var/global/image/contamination_overlay = image('icons/effects/contamination.dmi'
 	var/PHORONGUARD_ONLY_NAME = "\"PhoronGuard Only\""
 	var/PHORONGUARD_ONLY_DESC = "If this is on, only biosuits and spacesuits protect against contamination and ill effects."
 
-	var/GENETIC_CORRUPTION = 0
+	var/GENETIC_CORRUPTION = 1
 	var/GENETIC_CORRUPTION_NAME = "Genetic Corruption Chance"
 	var/GENETIC_CORRUPTION_DESC = "Chance of genetic corruption as well as toxic damage, X in 10,000."
 
-	var/SKIN_BURNS = 0
+	var/SKIN_BURNS = 1
 	var/SKIN_BURNS_DESC = "Phoron has an effect similar to mustard gas on the un-suited."
 	var/SKIN_BURNS_NAME = "Skin Burns"
 
@@ -25,7 +25,7 @@ var/global/image/contamination_overlay = image('icons/effects/contamination.dmi'
 	var/EYE_BURNS_NAME = "Eye Burns"
 	var/EYE_BURNS_DESC = "Phoron burns the eyes of anyone not wearing eye protection."
 
-	var/CONTAMINATION_LOSS = 0.02
+	var/CONTAMINATION_LOSS = 0.05
 	var/CONTAMINATION_LOSS_NAME = "Contamination Loss"
 	var/CONTAMINATION_LOSS_DESC = "How much toxin damage is dealt from contaminated clothing" //Per tick?  ASK ARYN
 
@@ -87,7 +87,7 @@ var/global/image/contamination_overlay = image('icons/effects/contamination.dmi'
 	//Burn skin if exposed.
 	if(vsc.plc.SKIN_BURNS)
 		if(!pl_head_protected() || !pl_suit_protected())
-			burn_skin(0.75)
+			burn_skin(5)
 			if(prob(20)) to_chat(src, SPAN_DANGER("Your skin burns!"))
 			updatehealth()
 
@@ -119,7 +119,7 @@ var/global/image/contamination_overlay = image('icons/effects/contamination.dmi'
 	var/obj/item/organ/internal/eyes/E = internal_organs_by_name[BP_EYES]
 	if(E && !E.phoron_guard)
 		if(prob(20)) to_chat(src, SPAN_DANGER("Your eyes burn!"))
-		E.damage += 2.5
+		E.damage += 1
 		eye_blurry = min(eye_blurry+1.5,50)
 		if (prob(max(0,E.damage - 15) + 1) &&!eye_blind)
 			to_chat(src, SPAN_DANGER("You are blinded!"))

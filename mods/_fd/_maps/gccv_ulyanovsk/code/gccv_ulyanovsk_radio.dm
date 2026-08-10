@@ -94,7 +94,7 @@ global/list/radiochannels["UL PUBLIC"] = UL_PUB_FREQ
 /obj/item/device/radio/map_preset/ulyanovsk
 	name = "GCCV Ulyanovsk shortwave radio"
 	icon = 'mods/_fd/_maps/gccv_ulyanovsk/icons/ulyanovsk.dmi'
-	icon_state = "walkietalkie_gcc"
+	icon_state = "walkietalkie_gcc-1"
 	matter = list(MATERIAL_GLASS = 25, MATERIAL_ALUMINIUM = 75, MATERIAL_SILVER = 50)
 	frequency = UL_PUB_FREQ
 	channels = list("UL PUBLIC" = 1)

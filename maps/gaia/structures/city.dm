@@ -1,4 +1,4 @@
-// Various structures used primarily at urbanrebels.dmm
+// Various structures used primarily at urbanrebels.dmm and urbanrebels_mini.dmm
 //////////////////
 // STREETLIGHTS //
 //////////////////

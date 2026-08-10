@@ -80,6 +80,8 @@
 	vendor_account = department_accounts["Vendor"]
 
 // ADMIN PROCS
+/// Makes one of the side commanders make a team-side message
+/// TODO: Make this an item for commanders also
 /client/proc/commander_message()
 	set category = "Fun"
 	set name = "Commander Message"

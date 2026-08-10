@@ -11,22 +11,22 @@
 	var/list/victims = list()
 	var/list/objs = list()
 	var/turf/T = get_turf(src)
+	playsound(src.loc, 'sound/weapons/flashbang.ogg', 100, 1, 30)
 	get_mobs_and_objs_in_view_fast(T, 7, victims, objs)
 	for(var/mob/living/carbon/M in victims)
 		bang(T, M)
 
-	for(var/obj/blob/B in objs)       		//Blob damage here
+	for(var/obj/blob/B in objs) // Blob damage here
 		var/damage = round(30/(get_dist(B,T)+1))
 		B.damage_health(damage, DAMAGE_SHOCK)
 
 	new/obj/sparks(src.loc)
-	new/obj/effect/smoke/illumination(src.loc, 5, range=30, power=5, color="#ffffff")
+	new/obj/effect/smoke/illumination(src.loc, 5, range = 30, power = 15, color = COLOR_WHITE) // MY EYES!
 	qdel(src)
 
-/obj/item/grenade/flashbang/proc/bang(turf/T , mob/living/carbon/M)					// Added a new proc called 'bang' that takes a location and a person to be banged.
-	to_chat(M, SPAN_DANGER("BANG"))// Called during the loop that bangs people in lockers/containers and when banging
-	playsound(src.loc, 'sound/effects/bang.ogg', 50, 1, 30)		// people in normal view.  Could theroetically be called during other explosions.
-																// -- Polymorph
+/obj/item/grenade/flashbang/proc/bang(turf/T , mob/living/carbon/M)
+	var/scream_prob = 0
+	to_chat(M, FONT_GIANT(SPAN_DANGER("BANG!")))
 
 	//Checking for protections
 	var/eye_safety = 0
@@ -45,38 +45,48 @@
 	if(eye_safety < FLASH_PROTECTION_MODERATE)
 		M.Stun(2)
 		M.mod_confused(5)
+		M.eye_blind += rand(1, 3)
+		M.eye_blurry += rand(3, 5)
+		scream_prob += 10
 
 	//Now applying sound
 	if(ear_safety)
 		if(ear_safety < 2 && get_dist(M, T) <= 2)
 			M.Stun(1)
 			M.mod_confused(3)
+			scream_prob += 10
 
 	else if(get_dist(M, T) <= 2)
 		M.Stun(3)
 		M.mod_confused(8)
 		M.ear_damage += rand(0, 5)
 		M.ear_deaf = max(M.ear_deaf,15)
+		scream_prob += 50
 
 	else if(get_dist(M, T) <= 5)
 		M.Stun(2)
 		M.mod_confused(5)
 		M.ear_damage += rand(0, 3)
 		M.ear_deaf = max(M.ear_deaf,10)
+		scream_prob += 30
 
 	else
 		M.Stun(1)
 		M.mod_confused(3)
 		M.ear_damage += rand(0, 1)
 		M.ear_deaf = max(M.ear_deaf,5)
+		scream_prob += 20
 
 	//This really should be in mob not every check
 	if (M.ear_damage >= 15)
 		to_chat(M, SPAN_DANGER("Your ears start to ring badly!"))
+		sound_to(M, sound('mods/_fd/marines_explosion/ringing_ears.ogg', volume = 100))
 	else
 		if (M.ear_damage >= 5)
 			to_chat(M, SPAN_DANGER("Your ears start to ring!"))
-
+			sound_to(M, sound('mods/_fd/marines_explosion/ringing_ears.ogg', volume = 50))
+	if(prob(scream_prob))
+		M.emote("scream")
 
 /obj/item/grenade/flashbang/instant/Initialize()
 	. = ..()

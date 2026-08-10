@@ -211,20 +211,20 @@ would spawn and follow the beaker, even if it is carried or thrown.
 
 /obj/effect/smoke/proc/can_affect(mob/living/carbon/M)
 	if (!istype(M))
-		return 0
+		return FALSE
 	if (M.isSynthetic())
-		return 0
+		return FALSE
 	if (HAS_FLAGS(M.wear_mask?.item_flags, ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT))
 		return FALSE
 	if (M.internal != null)
 		if(M.wear_mask && (M.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
-			return 0
+			return FALSE
 		if(istype(M,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = M
 			if(H.head && (H.head.item_flags & ITEM_FLAG_AIRTIGHT))
-				return 0
-		return 0
-	return 1
+				return FALSE
+		return FALSE
+	return TRUE
 
 /obj/effect/smoke/proc/affect(mob/living/carbon/M)
 	return
@@ -246,8 +246,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 
 /obj/effect/smoke/illumination/flare
 	name = "illumination"
-	opacity = 1
-	mouse_opacity = 1
+	opacity = 0
 	anchored = TRUE
 	icon = null
 	icon_state = null
@@ -263,7 +262,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 /////////////////////////////////////////////
 
 /obj/effect/smoke/bad
-	time_to_live = 200
+	time_to_live = 2 MINUTES
 
 /obj/effect/smoke/bad/affect(mob/living/carbon/M)
 	M.adjustOxyLoss(1)
@@ -297,22 +296,21 @@ would spawn and follow the beaker, even if it is carried or thrown.
 
 /obj/effect/smoke/mustard
 	name = "mustard gas"
-	icon_state = "mustard"
+	color = COLOR_YELLOW_GRAY
+	time_to_live = 3 MINUTES
 
-/obj/effect/smoke/mustard/can_affect(mob/living/carbon/M)
+/obj/effect/smoke/mustard/Initialize()
 	. = ..()
-	if (!.)
-		return
-	if (ishuman(M))
-		var/mob/living/carbon/human/H = M
-		if (H.wear_suit)
-			return FALSE
+	set_extension(src, /datum/extension/scent/custom, "mustard", /singleton/scent_intensity/strong, SCENT_DESC_SMELL, 7)
 
 /obj/effect/smoke/mustard/affect(mob/living/carbon/human/R)
-	R.burn_skin(0.75)
+	R.contaminate()
+	R.pl_effects()
+	R.adjustOxyLoss(rand(5, 10))
 	if (R.coughedtime != 1)
 		R.coughedtime = 1
 		R.emote("gasp")
+		to_chat(R, SPAN_DANGER("Your lungs burn!"))
 		addtimer(new Callback(R, TYPE_PROC_REF(/mob/living/carbon, clear_coughedtime)), 2 SECONDS)
 	R.updatehealth()
 	return
@@ -420,7 +418,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	if(!location)
 		return
 	if(sound)
-		playsound(src.location, 'sound/effects/smoke.ogg', 50, 1, -3)
+		playsound(src.location, 'sound/effects/smoke_emit.ogg', 50, 1)
 
 	var/smoke_duration = max(5, smokeVolume * 1.5 SECONDS)
 	for(var/turf/T in targetTurfs)
