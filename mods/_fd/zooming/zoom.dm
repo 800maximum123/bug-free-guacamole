@@ -52,3 +52,25 @@
 			animate(client, pixel_x = 0, pixel_y = 0, time = 3, easing = SINE_EASING)
 			set_face_dir(FALSE)//Reset us back to normal.
 		zoomed = FALSE
+
+
+/atom/AltClick(mob/user)
+	..()
+	zoomintodistance(src, user)
+
+/proc/zoomintodistance(atom/turf, mob/user)
+	if(!istype(user))
+		return
+	if(user.lying)
+		return
+
+	visible_message("<span class='notice'>[user] peers into the distance.</span>")
+
+	// Calculate the direction to the clicked tile.
+	var/dx = turf.x - user.x
+	var/dy = turf.y - user.y
+	var/max_dist = max(abs(dx), abs(dy))
+	dx = dx / max_dist
+	dy = dy / max_dist
+
+	user.do_zoom(dx, dy)
