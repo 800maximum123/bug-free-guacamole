@@ -64,7 +64,7 @@
 	if(user.lying)
 		return
 
-	visible_message("<span class='notice'>[user] peers into the distance.</span>")
+	user.visible_message("<span class='notice'>[user] peers into the distance.</span>")
 
 	// Calculate the direction to the clicked tile.
 	var/dx = turf.x - user.x
