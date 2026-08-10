@@ -396,7 +396,7 @@
 					reticle(pause, bomblet, FALSE)
 					if(amount != initial(amount)) // Stops double sound spam
 						playsound(target, 'maps/gaia/sounds/effects/incoming.ogg', 100, TRUE, 12)
-						sleep(pause)
+					sleep(pause)
 					cell_explosion(bomblet, 500, 150, shrapnel = TRUE)
 					amount--
 		if(AIRSTRIKE_NAPALM)
@@ -424,7 +424,7 @@
 					reticle(pause, bomblet, FALSE)
 					if(amount != initial(amount)) // Stops double sound spam
 						playsound(bomblet, 'maps/gaia/sounds/effects/incoming.ogg', 100, TRUE, 20)
-						sleep(pause)
+					sleep(pause)
 					smoke.set_up(25, 0, bomblet)
 					smoke.start()
 					playsound(bomblet, 'sound/effects/bamf.ogg', 100, TRUE, 4)
@@ -450,7 +450,6 @@
 		if(AIRSTRIKE_THERMOBARIC)
 			if(target)
 				// spawn a concentrated gas cloud around the target turf
-				cell_explosion(target, 500, 100, shrapnel = FALSE)
 				var/amount = 3
 				while(amount > 0)
 					var/datum/effect/smoke_spread/thermobaric/smoke = new()

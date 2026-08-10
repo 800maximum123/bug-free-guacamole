@@ -176,8 +176,9 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	opacity = 1
 	anchored = FALSE
 	mouse_opacity = 0
+	color = COLOR_GRAY
 	var/amount = 6.0
-	var/time_to_live = 100
+	var/time_to_live = 1 MINUTE
 
 	//Remove this bit to use the old smoke
 	icon = 'icons/effects/96x96.dmi'
@@ -190,14 +191,18 @@ would spawn and follow the beaker, even if it is carried or thrown.
 
 /obj/effect/smoke/Crossed(mob/living/carbon/M as mob )
 	..()
-	if(can_affect(M))
-		affect(M)
+	if (can_air_affect(M))
+		air_affect(M)
+	if (can_skin_affect(M))
+		skin_affect(M)
 
 /obj/effect/smoke/Move()
 	..()
 	for(var/mob/living/carbon/M in get_turf(src))
-		if (can_affect(M))
-			affect(M)
+		if (can_air_affect(M))
+			air_affect(M)
+		if (can_skin_affect(M))
+			skin_affect(M)
 
 /// Fades out the smoke smoothly using it's alpha variable.
 /obj/effect/smoke/proc/fade_out(frames = 16)
@@ -209,7 +214,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 		sleep(world.tick_lag)
 	qdel(src)
 
-/obj/effect/smoke/proc/can_affect(mob/living/carbon/M)
+/obj/effect/smoke/proc/can_air_affect(mob/living/carbon/M)
 	if (!istype(M))
 		return FALSE
 	if (M.isSynthetic())
@@ -226,8 +231,29 @@ would spawn and follow the beaker, even if it is carried or thrown.
 		return FALSE
 	return TRUE
 
-/obj/effect/smoke/proc/affect(mob/living/carbon/M)
+/obj/effect/smoke/proc/can_skin_affect(mob/living/carbon/M)
+	if (!istype(M))
+		return FALSE
+	// Are they protected by hazmat clothing?
+	var/vuln = 1 - M.get_blocked_ratio(null, DAMAGE_TOXIN, damage_flags = DAMAGE_FLAG_BIO)
+	if (vuln < 0.10)
+		return FALSE
+	return TRUE
+
+/obj/effect/smoke/proc/air_affect(mob/living/carbon/M)
 	return
+
+/obj/effect/smoke/proc/skin_affect(mob/living/carbon/M)
+	return
+
+/obj/effect/smoke/yellow
+	color = COLOR_YELLOW_GRAY
+
+/obj/effect/smoke/blue
+	color = COLOR_BLUE_GRAY
+
+/obj/effect/smoke/red
+	color = COLOR_RED_GRAY
 
 /////////////////////////////////////////////
 // Illumination
@@ -262,18 +288,26 @@ would spawn and follow the beaker, even if it is carried or thrown.
 /////////////////////////////////////////////
 
 /obj/effect/smoke/bad
-	time_to_live = 1 MINUTE
+	color = COLOR_WHITE
+	time_to_live = 2 MINUTES
 
-/obj/effect/smoke/bad/affect(mob/living/carbon/M)
-	M.adjust_fire_stacks(2)
-	M.adjustOxyLoss(2)
-	if (prob(5))
-		new /obj/sparks(M.loc)
-		M.IgniteMob()
-	if (M.coughedtime != 1)
-		M.coughedtime = 1
-		M.emote("cough")
-		addtimer(new Callback(M, TYPE_PROC_REF(/mob/living/carbon, clear_coughedtime)), 2 SECONDS)
+/obj/effect/smoke/bad/air_affect(mob/living/carbon/human/R)
+	R.adjustOxyLoss(3)
+	if (R.coughedtime != 1)
+		R.coughedtime = 1
+		R.emote("cough")
+		addtimer(new Callback(R, TYPE_PROC_REF(/mob/living/carbon, clear_coughedtime)), 2 SECONDS)
+	R.updatehealth()
+	return
+
+/obj/effect/smoke/bad/skin_affect(mob/living/carbon/human/R)
+	R.adjust_fire_stacks(1)
+	if (prob(30))
+		new /obj/sparks(R.loc)
+		R.IgniteMob()
+		R.visible_message(SPAN_WARNING("[R] catches fire from the smoke!"), SPAN_DANGER("You catch fire from the smoke!"))
+	R.updatehealth()
+	return
 
 /obj/effect/smoke/bad/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0)) return 1
@@ -281,13 +315,14 @@ would spawn and follow the beaker, even if it is carried or thrown.
 		var/obj/item/projectile/beam/B = mover
 		B.damage = (B.damage/2)
 	return 1
+
 /////////////////////////////////////////////
 // Sleep smoke
 /////////////////////////////////////////////
 
 /obj/effect/smoke/sleepy
 
-/obj/effect/smoke/sleepy/affect(mob/living/carbon/M as mob )
+/obj/effect/smoke/sleepy/air_affect(mob/living/carbon/M as mob )
 	M:sleeping += 1
 	if (M.coughedtime != 1)
 		M.coughedtime = 1
@@ -307,15 +342,19 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	. = ..()
 	set_extension(src, /datum/extension/scent/custom, "mustard", /singleton/scent_intensity/strong, SCENT_DESC_SMELL, world.view)
 
-/obj/effect/smoke/mustard/affect(mob/living/carbon/human/R)
-	R.contaminate()
-	R.pl_effects()
+/obj/effect/smoke/mustard/air_affect(mob/living/carbon/human/R)
 	R.adjustOxyLoss(rand(10, 15))
 	if (R.coughedtime != 1)
 		R.coughedtime = 1
 		R.emote("gasp")
 		to_chat(R, SPAN_DANGER("Your lungs burn!"))
 		addtimer(new Callback(R, TYPE_PROC_REF(/mob/living/carbon, clear_coughedtime)), 2 SECONDS)
+	R.updatehealth()
+	return
+
+/obj/effect/smoke/mustard/skin_affect(mob/living/carbon/human/R)
+	R.contaminate()
+	R.pl_effects()
 	R.updatehealth()
 	return
 
@@ -342,14 +381,18 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	if(auto_detonate)
 		addtimer(new Callback(src, PROC_REF(blow_up)), detonation_time)
 
-/obj/effect/smoke/thermobaric/affect(mob/living/carbon/human/R)
+/obj/effect/smoke/thermobaric/air_affect(mob/living/carbon/human/R)
 	R.adjustOxyLoss(suffocation)
-	R.adjust_fire_stacks(fire_stacks)
 	if (R.coughedtime != 1)
 		R.coughedtime = 1
 		R.emote("gasp")
 		to_chat(R, SPAN_DANGER("You smell harsh fuel!"))
 		addtimer(new Callback(R, TYPE_PROC_REF(/mob/living/carbon, clear_coughedtime)), 2 SECONDS)
+	R.updatehealth()
+	return
+
+/obj/effect/smoke/thermobaric/skin_affect(mob/living/carbon/human/R)
+	R.adjust_fire_stacks(fire_stacks)
 	R.updatehealth()
 	return
 
@@ -410,7 +453,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	smokeFlow()
 	density = max(1, length(targetTurfs) / 4)
 
-/datum/effect/smoke_spread/start(sound = TRUE, deploy_time = 5)
+/datum/effect/smoke_spread/start(sound = TRUE)
 	if(!location)
 		return
 	if(sound)
@@ -418,7 +461,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 
 	var/smoke_duration = max(5, smokeVolume * 1.5 SECONDS)
 	for(var/turf/T in targetTurfs)
-		spawn(deploy_time)
+		spawn(0)
 			spawnSmoke(T, smoke_duration, range)
 
 /datum/effect/smoke_spread/proc/spawnSmoke(turf/T, smoke_duration, dist = 1)
@@ -463,6 +506,15 @@ would spawn and follow the beaker, even if it is carried or thrown.
 
 /datum/effect/smoke_spread/bad
 	smoke_type = /obj/effect/smoke/bad
+
+/datum/effect/smoke_spread/yellow
+	smoke_type = /obj/effect/smoke/yellow
+
+/datum/effect/smoke_spread/blue
+	smoke_type = /obj/effect/smoke/blue
+
+/datum/effect/smoke_spread/red
+	smoke_type = /obj/effect/smoke/red
 
 /datum/effect/smoke_spread/sleepy
 	smoke_type = /obj/effect/smoke/sleepy
