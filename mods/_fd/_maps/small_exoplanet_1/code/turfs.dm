@@ -2,14 +2,6 @@
 	icon = 'mods/_fd/_maps/small_exoplanet_1/icons/water.dmi'
 	icon_state = "water_medium"
 
-/turf/simulated/floor/exoplanet/water/shallow/grim/Entered(atom/movable/A)
-	. = ..()
-	A.toggle_water_overlay(src)
-
-/turf/simulated/floor/exoplanet/water/shallow/grim/Exited(atom/movable/A)
-	. = ..()
-	A.toggle_water_overlay(FALSE)
-
 /turf/simulated/open/water
 	name = "deep water"
 	desc = "It's so dark there that you can't even see the bottom."

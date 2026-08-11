@@ -97,6 +97,14 @@
 	// The depth of water
 	var/water_depth = FLUID_MAX_DEPTH
 
+/turf/simulated/floor/exoplanet/water/Entered(atom/movable/A)
+	. = ..()
+	A.toggle_water_overlay(src)
+
+/turf/simulated/floor/exoplanet/water/Exited(atom/movable/A)
+	. = ..()
+	A.toggle_water_overlay(FALSE)
+
 /turf/simulated/floor/exoplanet/water/on_update_icon()
 	return
 
@@ -132,6 +140,7 @@
 	icon_state = "seadeep"
 	movement_delay = 2.5
 	water_depth = FLUID_DEEP
+	water_overlay_height = 23
 
 //Ice
 /turf/simulated/floor/exoplanet/ice
