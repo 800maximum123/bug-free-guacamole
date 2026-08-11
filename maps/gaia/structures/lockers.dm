@@ -210,7 +210,7 @@
 /obj/structure/closet/gaia/iccg_soldier/WillContain()
 	return list(
 		/obj/item/storage/belt/security/tactical,
-		/obj/item/storage/backpack/rucksack,
+		new/datum/atom_creator/weighted(list(/obj/item/storage/backpack/rucksack, /obj/item/storage/backpack/satchel/leather/black)),
 		/obj/item/clothing/accessory/badge/dog_tags,
 		/obj/item/clothing/accessory/storage/webbing_large,
 		/obj/item/clothing/glasses/ballistic,
@@ -230,7 +230,7 @@
 /obj/structure/closet/gaia/iccg_officer/WillContain()
 	return list(
 		/obj/item/storage/belt/holster/security/tactical,
-		/obj/item/storage/backpack/satchel/pocketbook/gray,
+		new/datum/atom_creator/weighted(list(/obj/item/storage/backpack/rucksack, /obj/item/storage/backpack/satchel/leather/black)),
 		/obj/item/clothing/accessory/badge/dog_tags,
 		/obj/item/clothing/accessory/storage/webbing_large,
 		/obj/item/clothing/glasses/ballistic,
@@ -252,7 +252,7 @@
 
 /obj/structure/closet/gaia/iccg_crewman/WillContain()
 	return list(
-		/obj/item/storage/backpack/satchel/eng,
+		new/datum/atom_creator/weighted(list(/obj/item/storage/backpack/industrial, /obj/item/storage/backpack/satchel/eng)),
 		/obj/item/clothing/head/tank/iccg,
 		/obj/item/clothing/accessory/storage/black_vest,
 		/obj/item/clothing/glasses/tacgoggles,
@@ -265,6 +265,34 @@
 		/obj/item/device/binoculars,
 		/obj/item/cell/device/high,
 		/obj/item/crowbar/emergency_forcing_tool,
+	)
+
+/obj/structure/closet/secure_closet/gaia/iccg_mp
+	name = "military police's locker"
+	req_access = list(access_iccg_sec)
+	closet_appearance = /singleton/closet_appearance/secure_closet/security
+
+/obj/structure/closet/secure_closet/iccg_mp/WillContain()
+	return list(
+		new/datum/atom_creator/weighted(list(/obj/item/storage/backpack/security, /obj/item/storage/backpack/satchel/sec)),
+		new/datum/atom_creator/simple(/obj/item/storage/backpack/dufflebag/sec, 50),
+		/obj/item/clothing/suit/armor/pcarrier/gaia/mp,
+		/obj/item/clothing/head/beret/sec/mp,
+		/obj/item/clothing/accessory/armband/solgov/mp,
+		/obj/item/storage/belt/holster/security/tactical,
+		/obj/item/clothing/accessory/glassesmod/hud/security,
+		/obj/item/clothing/glasses/hud/security/prot/aviators,
+		/obj/item/clothing/accessory/storage/black_vest,
+		/obj/item/device/holowarrant/evil,
+		/obj/item/device/megaphone,
+		/obj/item/device/binoculars,
+		/obj/item/device/flash,
+		/obj/item/reagent_containers/spray/pepper,
+		/obj/item/grenade/chem_grenade/teargas,
+		/obj/item/melee/baton/stun/loaded,
+		/obj/item/taperoll/police,
+		/obj/item/device/hailer,
+		/obj/item/gun/energy/taser,
 	)
 
 // CIVVIES

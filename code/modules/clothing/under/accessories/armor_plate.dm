@@ -53,7 +53,7 @@
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	slowdown = 0.5
+	slowdown = 1
 
 
 /obj/item/clothing/accessory/armor_plate/sneaky

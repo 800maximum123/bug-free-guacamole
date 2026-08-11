@@ -35,8 +35,10 @@
 	access = list(
 		access_iccg, access_iccg_com, access_iccg_com_cap,
 		access_iccg_engi, access_iccg_med, access_iccg_sec,
-		access_iccg_com_xo, access_network, access_network_admin, access_ai_upload,
-		access_armory,
+		access_iccg_com_xo, access_network, access_network_admin, access_ai_upload, access_bridge,
+		access_armory, access_security, access_sec_doors, access_brig,
+		access_medical, access_medical_equip,
+		access_engine, access_engine_equip,
 	)
 
 	skill_points = 30
@@ -81,8 +83,10 @@
 	access = list(
 		access_iccg, access_iccg_com, access_iccg_engi,
 		access_iccg_med, access_iccg_sec, access_iccg_com_xo,
-		access_network, access_network_admin, access_ai_upload,
-		access_armory,
+		access_network, access_network_admin, access_ai_upload, access_bridge,
+		access_armory, access_security, access_sec_doors, access_brig,
+		access_medical, access_medical_equip,
+		access_engine, access_engine_equip,
 	)
 
 	skill_points = 30
@@ -130,6 +134,7 @@
 
 	access = list(
 		access_iccg, access_iccg_med,
+		access_medical, access_medical_equip,
 	)
 
 	skill_points = 25
@@ -175,7 +180,8 @@
 	                    SKILL_WEAPONS      = SKILL_TRAINED)
 
 	access = list(
-		access_iccg, access_iccg_engi, access_network, access_network_admin
+		access_iccg, access_iccg_engi, access_network, access_network_admin,
+		access_engine, access_engine_equip,
 	)
 
 	skill_points = 20
@@ -214,7 +220,9 @@
 		access_iccg, access_iccg_com, access_iccg_engi,
 		access_iccg_med, access_iccg_sec,
 		access_network, access_network_admin,
-		access_armory,
+		access_armory, access_security, access_sec_doors, access_brig,
+		access_medical, access_medical_equip,
+		access_engine, access_engine_equip,
 	)
 
 	skill_points = 25
@@ -256,6 +264,8 @@
 	access = list(
 		access_iccg, access_iccg_com,
 		access_iccg_engi, access_iccg_med,
+		access_medical, access_medical_equip,
+		access_engine, access_engine_equip,
 	)
 
 	skill_points = 20

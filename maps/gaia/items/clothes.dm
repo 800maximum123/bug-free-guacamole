@@ -31,6 +31,10 @@
 	badge_access = access_iccg_sec
 
 // MISC CLOTHING
+/obj/item/clothing/head/beret/sec/mp
+	name = "military police beret"
+	desc = "A beret with the MP insignia emblazoned on it. For policemen that are more inclined towards style than safety."
+
 /obj/item/clothing/under/color/red/firefighter
 	name = "firefighter's jumpsuit"
 	desc = "It's a jumpsuit worn by firefighters."

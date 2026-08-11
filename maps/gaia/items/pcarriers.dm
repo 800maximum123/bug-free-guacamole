@@ -5,12 +5,15 @@
 	icon_state = "gcc-armor"
 	item_state = "gcc-armor"
 	item_icons = list(slot_wear_suit_str = 'maps/gaia/icons/items/clothing/armor-gaia-onmob.dmi')
-	accessories = list(/obj/item/clothing/accessory/armor_plate/tactical, /obj/item/clothing/accessory/arm_guards/gaia, /obj/item/clothing/accessory/leg_guards/gaia, /obj/item/clothing/accessory/storage/pouches)
+	accessories = list(/obj/item/clothing/accessory/armor_plate/tactical, /obj/item/clothing/accessory/arm_guards/gaia, /obj/item/clothing/accessory/leg_guards/gaia, /obj/item/clothing/accessory/storage/pouches, /obj/item/clothing/accessory/armor_tag/iccg)
+
+/obj/item/clothing/suit/armor/pcarrier/gaia/mp
+	accessories = list(/obj/item/clothing/accessory/armor_plate/medium, /obj/item/clothing/accessory/arm_guards/gaia, /obj/item/clothing/accessory/leg_guards/gaia, /obj/item/clothing/accessory/storage/pouches, /obj/item/clothing/accessory/armor_tag/iccg, /obj/item/clothing/accessory/armor_tag/solgov/sec)
 
 /obj/item/clothing/suit/armor/pcarrier/gaia/sol
 	icon_state = "sol-armor"
 	item_state = "sol-armor"
-	accessories = list(/obj/item/clothing/accessory/armor_plate/tactical, /obj/item/clothing/accessory/arm_guards/gaia/sol, /obj/item/clothing/accessory/leg_guards/gaia/sol, /obj/item/clothing/accessory/storage/pouches)
+	accessories = list(/obj/item/clothing/accessory/armor_plate/tactical, /obj/item/clothing/accessory/arm_guards/gaia/sol, /obj/item/clothing/accessory/leg_guards/gaia/sol, /obj/item/clothing/accessory/storage/pouches, /obj/item/clothing/accessory/armor_tag/solgov)
 
 // HELMETS
 /obj/item/clothing/head/helmet/gaia
