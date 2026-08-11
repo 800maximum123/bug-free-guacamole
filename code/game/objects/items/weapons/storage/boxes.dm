@@ -123,6 +123,19 @@
 					/obj/item/reagent_containers/food/snacks/proteinbar = 1,
 					/obj/item/device/oxycandle = 1)
 
+/obj/item/storage/box/military
+	name = "military survival kit"
+	desc = "A box decorated in warning colors that contains a limited supply of survival tools. The panel and green stripe indicate this one as the military variant."
+	icon_state = "survivalmil"
+	startswith = list(/obj/item/clothing/mask/gas/half = 1,
+					/obj/item/tank/oxygen_emergency_extended = 1,
+					/obj/item/storage/med_pouch/trauma = 1,
+					/obj/item/storage/med_pouch/burn = 1,
+					/obj/item/reagent_containers/hypospray/autoinjector/pain = 1,
+					/obj/item/stack/medical/splint = 1,
+					/obj/item/device/flashlight/flare = 1,
+					/obj/item/reagent_containers/food/snacks/liquidfood = 1,
+					)
 
 /obj/item/storage/box/latexgloves
 	name = "box of sterile latex gloves"

@@ -179,23 +179,30 @@
 
 // GAIA
 /obj/item/storage/firstaid/small_combat
-	name = "combat stabilisation kit"
-	desc = "A sleek individual combat medical kit."
+	name = "combat IFAK"
+	desc = "A sleek individual first aid kit (IFAK) build for quick combat applications."
+	use_sound = 'sound/effects/storage/pillbottle.ogg'
 	icon_state = "fak-combat-small"
 	item_state = "firstaid-advanced"
+	matter = list(MATERIAL_PLASTIC = 700)
 	w_class = ITEM_SIZE_SMALL
-	storage_slots = 8
+	storage_slots = 9
 	startswith = list(
+		/obj/item/clothing/gloves/latex,
 		/obj/item/reagent_containers/hypospray/autoinjector/coagulant,
 		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
 		/obj/item/reagent_containers/hypospray/autoinjector/combatpain,
 		/obj/item/reagent_containers/hypospray/autoinjector/combatstim,
-		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline,
 		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
 		/obj/item/reagent_containers/hypospray/autoinjector/dexalin_plus,
 		/obj/item/reagent_containers/hypospray/autoinjector/detox,
 	)
-
+	contents_allowed = list(
+		/obj/item/clothing/gloves/latex,
+		/obj/item/reagent_containers/hypospray/autoinjector,
+		/obj/item/stack/medical/bruise_pack
+	)
 
 /obj/item/storage/firstaid/light
 	name = "light first-aid kit"

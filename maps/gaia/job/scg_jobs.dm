@@ -111,8 +111,8 @@
 // -- SUPPORT STAFF --
 /datum/job/scg_medic
 	title = "Field Medic"
-	total_positions = 3
-	spawn_positions = 3
+	total_positions = 4
+	spawn_positions = 4
 	supervisors = "your Squad Leader"
 	department = "Solar Central Government"
 	department_flag = SPT
@@ -168,8 +168,8 @@
 
 /datum/job/scg_engineer
 	title = "Field Engineer"
-	total_positions = 3
-	spawn_positions = 3
+	total_positions = 4
+	spawn_positions = 4
 	supervisors = "your Squad Leader"
 	department = "Solar Central Government"
 	department_flag = SPT
@@ -224,8 +224,8 @@
 // -- COMBAT (meatshields) --
 /datum/job/scg_squad_leader
 	title = "Squad Leader"
-	total_positions = 3
-	spawn_positions = 3
+	total_positions = 4
+	spawn_positions = 4
 	supervisors = "the Platoon Sergeant and Commanding Officer"
 	department = "Solar Central Government"
 	department_flag = SPT
@@ -268,8 +268,8 @@
 
 /datum/job/scg_trooper
 	title = "Trooper"
-	total_positions = 12
-	spawn_positions = 12
+	total_positions = 16
+	spawn_positions = 16
 	supervisors = "your Squad Leader"
 	department = "Solar Central Government"
 	department_flag = SPT

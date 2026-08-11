@@ -80,6 +80,7 @@
 	matter = list(MATERIAL_STEEL = 2000)
 	slot_flags = SLOT_BELT
 
+	gun_skill = SKILL_MEDICAL
 	fire_sound = 'sound/weapons/gunshot/general/grenade_launch.ogg'
 	far_fire_sound = 'sound/weapons/gunshot/general/grenade_launch.ogg'
 	fire_sound_text = "a metallic thunk"

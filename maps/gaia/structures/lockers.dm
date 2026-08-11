@@ -54,6 +54,7 @@
 	return list(
 		new/datum/atom_creator/weighted(list(/obj/item/storage/backpack/command, /obj/item/storage/backpack/satchel/com)),
 		new/datum/atom_creator/simple(/obj/item/storage/backpack/dufflebag/com, 50),
+		/obj/item/storage/belt/holster/security/tactical,
 		/obj/item/clothing/accessory/badge/solgov/tags,
 		/obj/item/clothing/accessory/storage/webbing_large,
 		/obj/item/clothing/glasses/sunglasses,
@@ -79,6 +80,7 @@
 	return list(
 		new/datum/atom_creator/weighted(list(/obj/item/storage/backpack/command, /obj/item/storage/backpack/satchel/com)),
 		new/datum/atom_creator/simple(/obj/item/storage/backpack/dufflebag/com, 50),
+		/obj/item/storage/belt/holster/security/tactical,
 		/obj/item/clothing/accessory/badge/solgov/tags,
 		/obj/item/clothing/accessory/storage/webbing_large,
 		/obj/item/clothing/glasses/aviators_black,
@@ -107,6 +109,7 @@
 		new/datum/atom_creator/simple(/obj/item/reagent_containers/spray/cleaner/deodorant, 30),
 		new/datum/atom_creator/simple(/obj/random/smokes, 30),
 		new/datum/atom_creator/simple(/obj/item/reagent_containers/food/snacks/donut/jelly, 1), // "WHAT THE FUCK IS THAT?"
+		new/datum/atom_creator/weighted(list(/obj/item/storage/belt/holster/security/tactical, /obj/item/storage/belt/security/tactical)),
 		/obj/item/clothing/accessory/badge/solgov/tags,
 		/obj/item/clothing/accessory/storage/webbing_large,
 		/obj/item/clothing/glasses/ballistic,
@@ -133,6 +136,7 @@
 		new/datum/atom_creator/simple(/obj/random/cash, 70),
 		new/datum/atom_creator/simple(/obj/item/reagent_containers/spray/cleaner/deodorant, 50),
 		new/datum/atom_creator/simple(/obj/random/smokes, 50),
+		/obj/item/storage/belt/holster/security/tactical,
 		/obj/item/clothing/accessory/badge/solgov/tags,
 		/obj/item/clothing/accessory/storage/webbing_large,
 		/obj/item/clothing/glasses/ballistic,
@@ -158,6 +162,7 @@
 	return list(
 		new/datum/atom_creator/weighted(list(/obj/item/storage/backpack/command, /obj/item/storage/backpack/satchel/com)),
 		new/datum/atom_creator/simple(/obj/item/storage/backpack/dufflebag/com, 50),
+		/obj/item/storage/belt/holster/security/tactical,
 		/obj/item/clothing/accessory/badge/dog_tags,
 		/obj/item/clothing/accessory/storage/webbing_large,
 		/obj/item/storage/firstaid/small_combat,
@@ -182,6 +187,7 @@
 	return list(
 		new/datum/atom_creator/weighted(list(/obj/item/storage/backpack/command, /obj/item/storage/backpack/satchel/com)),
 		new/datum/atom_creator/simple(/obj/item/storage/backpack/dufflebag/com, 50),
+		/obj/item/storage/belt/holster/security/tactical,
 		/obj/item/clothing/accessory/badge/dog_tags,
 		/obj/item/clothing/accessory/storage/webbing_large,
 		/obj/item/clothing/glasses/aviators_black,
@@ -203,6 +209,7 @@
 
 /obj/structure/closet/gaia/iccg_soldier/WillContain()
 	return list(
+		/obj/item/storage/belt/security/tactical,
 		/obj/item/storage/backpack/rucksack,
 		/obj/item/clothing/accessory/badge/dog_tags,
 		/obj/item/clothing/accessory/storage/webbing_large,
@@ -222,6 +229,7 @@
 
 /obj/structure/closet/gaia/iccg_officer/WillContain()
 	return list(
+		/obj/item/storage/belt/holster/security/tactical,
 		/obj/item/storage/backpack/satchel/pocketbook/gray,
 		/obj/item/clothing/accessory/badge/dog_tags,
 		/obj/item/clothing/accessory/storage/webbing_large,

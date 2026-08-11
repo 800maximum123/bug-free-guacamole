@@ -128,14 +128,14 @@ var/global/message_delay = 0 // To make sure restarting the recentmessages list 
 	construct_state = /singleton/machine_construction/tcomms/panel_closed/cannot_print
 	machine_name = "telecommunications mainframe"
 	machine_desc = "An awkward, clunky machine that serves as an all-in-one telecommunications hub. Provides peer-to-peer communication, and not much else."
-	var/listening_freqs
+	var/list/listening_freqs
 	var/channel_color
 	var/channel_name
 	var/intercept = 0 // if nonzero, broadcasts all messages to syndicate channel
 
 /obj/machinery/telecomms/allinone/Initialize()
 	if(!listening_freqs)
-		listening_freqs = ANTAG_FREQS	//Covers any updates to ANTAG_FREQS
+		listening_freqs = list(ANTAG_FREQS)	//Covers any updates to ANTAG_FREQS
 	return ..()
 
 /obj/machinery/telecomms/allinone/receive_signal(datum/signal/signal)

@@ -24,13 +24,13 @@
 			return access_eva
 		// GAIA
 		if(NETWORK_HELMETS_SCG)
-			return access_heads
+			return access_solgov_crew
 		if(NETWORK_HELMETS_ICCG)
-			return access_iccg_com
+			return access_iccg
 		if(NETWORK_SCG)
-			return access_heads
+			return access_solgov_crew
 		if(NETWORK_ICCG)
-			return access_iccg_com
+			return access_iccg
 		if(NETWORK_GAIA)
 			return access_maint_tunnels
 

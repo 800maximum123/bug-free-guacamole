@@ -100,7 +100,7 @@
 	body_parts_covered = FACE|EYES
 	armor = list(
 		melee = ARMOR_MELEE_MINOR,
-		bio = ARMOR_BIO_SMALL
+		bio = ARMOR_BIO_RESISTANT
 		)
 
 /obj/item/clothing/mask/gas/swat

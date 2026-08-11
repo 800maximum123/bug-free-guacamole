@@ -70,6 +70,7 @@
 	var/container_type = /obj/item/reagent_containers/glass/beaker
 	var/list/starting_chems = null
 
+	gun_skill = SKILL_MEDICAL
 	caliber = CALIBER_DART
 	silenced = TRUE
 	load_method = MAGAZINE
@@ -159,7 +160,7 @@
 			B.reagents.trans_to_obj(dart, mix_amount)
 
 
-/obj/item/gun/projectile/dartgun/attack_self(mob/user)
+/obj/item/gun/projectile/dartgun/AltClick(mob/user)
 	Interact(user)
 
 

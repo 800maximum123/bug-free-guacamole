@@ -35,7 +35,8 @@
 	access = list(
 		access_iccg, access_iccg_com, access_iccg_com_cap,
 		access_iccg_engi, access_iccg_med, access_iccg_sec,
-		access_iccg_com_xo, access_network, access_network_admin, access_ai_upload
+		access_iccg_com_xo, access_network, access_network_admin, access_ai_upload,
+		access_armory,
 	)
 
 	skill_points = 30
@@ -80,7 +81,8 @@
 	access = list(
 		access_iccg, access_iccg_com, access_iccg_engi,
 		access_iccg_med, access_iccg_sec, access_iccg_com_xo,
-		access_network, access_network_admin, access_ai_upload
+		access_network, access_network_admin, access_ai_upload,
+		access_armory,
 	)
 
 	skill_points = 30
@@ -91,8 +93,8 @@
 // -- SUPPORT STAFF --
 /datum/job/iccg_medic
 	title = "Voyennyy Vrach"
-	total_positions = 3
-	spawn_positions = 3
+	total_positions = 4
+	spawn_positions = 4
 	supervisors = "tvoi Komandir Otdeleniya"
 	department = "Gilgamesh Colonial Confederation"
 	department_flag = SEC
@@ -134,8 +136,8 @@
 
 /datum/job/iccg_engineer
 	title = "Voyennyy Inzhener"
-	total_positions = 3
-	spawn_positions = 3
+	total_positions = 4
+	spawn_positions = 4
 	supervisors = "tvoi Komandir Otdeleniya"
 	department = "Gilgamesh Colonial Confederation"
 	department_flag = SEC
@@ -212,6 +214,7 @@
 		access_iccg, access_iccg_com, access_iccg_engi,
 		access_iccg_med, access_iccg_sec,
 		access_network, access_network_admin,
+		access_armory,
 	)
 
 	skill_points = 25
@@ -222,8 +225,8 @@
 // -- COMBAT (meatshields) --
 /datum/job/iccg_squad_leader
 	title = "Komandir Otdeleniya"
-	total_positions = 3
-	spawn_positions = 3
+	total_positions = 4
+	spawn_positions = 4
 	supervisors = "Nachalniku Shtaba i Komandiru Vzvoda"
 	department = "Gilgamesh Colonial Confederation"
 	department_flag = SEC
@@ -262,8 +265,8 @@
 
 /datum/job/iccg_trooper
 	title = "Pekhotinets"
-	total_positions = 9
-	spawn_positions = 9
+	total_positions = 16
+	spawn_positions = 16
 	supervisors = "tvoi Komandir Otdeleniya"
 	department = "Gilgamesh Colonial Confederation"
 	department_flag = SEC

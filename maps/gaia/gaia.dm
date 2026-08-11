@@ -54,6 +54,7 @@
 	#include "../gaia/items/pcarriers.dm"
 	#include "../gaia/items/key.dm"
 	#include "../gaia/items/shooting_range.dm"
+	#include "../gaia/items/squads.dm"
 
 	#include "../gaia/structures/barrier.dm"
 	#include "../gaia/structures/city.dm"

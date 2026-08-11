@@ -461,6 +461,9 @@
 	icon_state = "iccg_outskirts"
 	ambience = list('maps/gaia/sounds/ambience/ambioccupation_outskirts.ogg')
 
+/area/gaia/iccg/roof
+	name = "\improper ICCG Camp - Roofs"
+
 // Main Citadel
 /area/gaia/iccg/citadel
 	name = "\improper ICCG Camp - Citadel"
@@ -468,6 +471,9 @@
 	sound_env = STANDARD_STATION
 	ambient_group_enabled = FALSE
 	area_flags = null
+
+/area/gaia/iccg/citadel/second
+	name = "\improper ICCG Camp - Citadel 2nd Floor"
 
 /area/gaia/iccg/citadel/armory
 	name = "\improper ICCG Camp - Armory"
@@ -478,6 +484,11 @@
 /area/gaia/iccg/citadel/armory/second
 	name = "\improper ICCG Camp - 2nd Floor Armory"
 	sound_env = LARGE_ENCLOSED
+
+/area/gaia/iccg/citadel/reception
+	name = "\improper ICCG Camp - Reception"
+	req_access = list(access_iccg_com)
+	sound_env = SMALL_ENCLOSED
 
 // Command
 /area/gaia/iccg/citadel/command
@@ -491,10 +502,212 @@
 	req_access = list(access_iccg)
 	sound_env = LARGE_SOFTFLOOR
 
+/area/gaia/iccg/citadel/command/co
+	name = "\improper ICCG Camp - CO Office"
+	req_access = list(access_iccg_com_cap)
+	sound_env = LARGE_SOFTFLOOR
+
+/area/gaia/iccg/citadel/command/co/quarters
+	name = "\improper ICCG Camp - CO Quarters"
+	sound_env = SMALL_SOFTFLOOR
+
+/area/gaia/iccg/citadel/command/xo
+	name = "\improper ICCG Camp - XO Office"
+	req_access = list(access_iccg_com_xo)
+	sound_env = LARGE_SOFTFLOOR
+
 // Security
 /area/gaia/iccg/security
-	name = "\improper ICCG Camp - Police Station"
+	name = "\improper ICCG Camp - MP Station"
 	icon_state = "iccg_police"
+	req_access = list(access_iccg_sec)
 	sound_env = STANDARD_STATION
 	ambient_group_enabled = FALSE
 	area_flags = null
+
+/area/gaia/iccg/security/reception
+	name = "\improper ICCG Camp - MP Station 2nd Floor"
+
+/area/gaia/iccg/security/reception
+	name = "\improper ICCG Camp - MP Reception"
+	sound_env = SMALL_ENCLOSED
+
+/area/gaia/iccg/security/armory
+	name = "\improper ICCG Camp - MP Armory"
+	sound_env = SMALL_ENCLOSED
+
+/area/gaia/iccg/security/holding
+	name = "\improper ICCG Camp - MP Holding Cells"
+	sound_env = LARGE_SOFTFLOOR
+
+/area/gaia/iccg/security/interrogation
+	name = "\improper ICCG Camp - MP Interrogation Room"
+	sound_env = SMALL_ENCLOSED
+
+/area/gaia/iccg/security/forensics
+	name = "\improper ICCG Camp - MP Forensics Office"
+	sound_env = SMALL_SOFTFLOOR
+
+/area/gaia/iccg/security/office
+	name = "\improper ICCG Camp - MP Office"
+	sound_env = LARGE_SOFTFLOOR
+
+/area/gaia/iccg/security/locker
+	name = "\improper ICCG Camp - MP Locker Room"
+	sound_env = SMALL_SOFTFLOOR
+
+// Barracks
+/area/gaia/iccg/barracks
+	name = "\improper ICCG Camp - Enlisted Barracks"
+	sound_env = STANDARD_STATION
+	ambient_group_enabled = FALSE
+	area_flags = null
+
+/area/gaia/iccg/barracks/second
+	name = "\improper ICCG Camp - Enlisted Barracks 2nd Floor"
+
+/area/gaia/iccg/barracks/lavatory
+	name = "\improper ICCG Camp - Enlisted Lavatory"
+	sound_env = SMALL_ENCLOSED
+
+/area/gaia/iccg/barracks/hallway
+	name = "\improper ICCG Camp - Enlisted Barracks Hallway"
+	sound_env = SMALL_SOFTFLOOR
+
+/area/gaia/iccg/barracks/common
+	name = "\improper ICCG Camp - Enlisted Common Room"
+	sound_env = SMALL_SOFTFLOOR
+
+// Officer Barracks
+/area/gaia/iccg/barracks/officer
+	name = "\improper ICCG Camp - Officer Barracks"
+	sound_env = SMALL_SOFTFLOOR
+
+/area/gaia/iccg/barracks/officer/hallway
+	name = "\improper ICCG Camp - Officer Barracks Hallway"
+	sound_env = STANDARD_STATION
+
+/area/gaia/iccg/barracks/officer/lavatory
+	name = "\improper ICCG Camp - Officer Lavatory"
+	sound_env = SMALL_ENCLOSED
+
+/area/gaia/iccg/barracks/officer/common
+	name = "\improper ICCG Camp - Officer Common Room"
+	sound_env = LARGE_SOFTFLOOR
+
+// Canteen
+/area/gaia/iccg/canteen
+	name = "\improper ICCG Camp - Enlisted Canteen"
+	sound_env = LARGE_ENCLOSED
+	ambient_group_enabled = FALSE
+	area_flags = null
+
+/area/gaia/iccg/canteen/second
+	name = "\improper ICCG Camp - Enlisted Canteen 2nd Floor"
+
+/area/gaia/iccg/canteen/officer
+	name = "\improper ICCG Camp - Officer Canteen"
+	sound_env = LARGE_SOFTFLOOR
+
+/area/gaia/iccg/canteen/kitchen
+	name = "\improper ICCG Camp - Kitchen"
+	sound_env = STANDARD_STATION
+	req_access = list(access_iccg_com)
+
+/area/gaia/iccg/canteen/kitchen/freezer
+	name = "\improper ICCG Camp - Freezer"
+	sound_env = SMALL_ENCLOSED
+
+// Infirmary
+/area/gaia/iccg/infirmary
+	name = "\improper ICCG Camp - Infirmary"
+	sound_env = STANDARD_STATION
+	req_access = list(access_iccg_med)
+	ambient_group_enabled = FALSE
+	area_flags = null
+
+/area/gaia/iccg/infirmary/reception
+	name = "\improper ICCG Camp - Infirmary Reception"
+	sound_env = SMALL_SOFTFLOOR
+
+/area/gaia/iccg/infirmary/treatment
+	name = "\improper ICCG Camp - Infirmary Treatment Area"
+	sound_env = LARGE_ENCLOSED
+
+/area/gaia/iccg/infirmary/surgery
+	name = "\improper ICCG Camp - Infirmary Surgical Theater"
+	sound_env = SMALL_ENCLOSED
+
+/area/gaia/iccg/infirmary/morgue
+	name = "\improper ICCG Camp - Infirmary Morgue"
+	sound_env = SMALL_ENCLOSED
+
+/area/gaia/iccg/infirmary/storage
+	name = "\improper ICCG Camp - Infirmary Storage"
+	sound_env = SMALL_ENCLOSED
+
+// Engineering
+/area/gaia/iccg/engineering
+	name = "\improper ICCG Camp - Engineering Tower"
+	sound_env = SMALL_ENCLOSED
+	req_access = list(access_iccg_engi)
+	ambient_group_enabled = FALSE
+	area_flags = null
+
+/area/gaia/iccg/engineering/second
+	name = "\improper ICCG Camp - Engineering Tower 2nd Floor"
+
+/area/gaia/iccg/engineering/electrical
+	name = "\improper ICCG Camp - Electrical Room"
+	sound_env = SMALL_SOFTFLOOR
+
+/area/gaia/iccg/engineering/water
+	name = "\improper ICCG Camp - Water Cistern"
+	sound_env = LARGE_ENCLOSED
+
+/area/gaia/iccg/engineering/drone
+	name = "\improper ICCG Camp - Drone Storage"
+	sound_env = STANDARD_STATION
+
+/area/gaia/iccg/engineering/garage
+	name = "\improper ICCG Camp - APC Garage"
+	sound_env = STANDARD_STATION
+
+/area/gaia/iccg/engineering/garage/mech
+	name = "\improper ICCG Camp - 1st Mech Garage"
+
+/area/gaia/iccg/engineering/garage/mech/two
+	name = "\improper ICCG Camp - 2nd Mech Garage"
+
+// Misc
+/area/gaia/iccg/wall
+	name = "\improper ICCG Camp - Perimeter Wall"
+
+/area/gaia/iccg/wall/tower
+	name = "\improper ICCG Camp - Watch Tower"
+	sound_env = LARGE_ENCLOSED
+	ambient_group_enabled = FALSE
+	area_flags = null
+
+/area/gaia/iccg/wall/tower/nw
+	name = "\improper ICCG Camp - NW Watch Tower"
+
+/area/gaia/iccg/wall/tower/ne
+	name = "\improper ICCG Camp - NE Watch Tower"
+
+/area/gaia/iccg/wall/tower/sw
+	name = "\improper ICCG Camp - SW Watch Tower"
+
+/area/gaia/iccg/wall/tower/se
+	name = "\improper ICCG Camp - SE Watch Tower"
+
+/area/gaia/iccg/worship
+	name = "\improper ICCG Camp - Worship Tent"
+	sound_env = SMALL_SOFTFLOOR
+	ambience = list('sound/ambience/ambicha1.ogg', 'sound/ambience/ambicha2.ogg', 'sound/ambience/ambicha3.ogg')
+
+/area/gaia/iccg/firing
+	name = "\improper ICCG Camp - Firing Range"
+
+/area/gaia/iccg/outskirts/enterance
+	name = "\improper ICCG Camp - Enterance"

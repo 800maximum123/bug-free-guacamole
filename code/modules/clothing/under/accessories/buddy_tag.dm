@@ -63,7 +63,8 @@
 			has_friend = TRUE
 			break
 	if (!has_friend)
-		playsound(src, 'sound/machines/chime.ogg', 10)
-		var/turf/T = get_turf(src)
-		if (T)
-			T.visible_message(SPAN_WARNING("[src] beeps anxiously."), range = 3)
+		playsound(src, 'sound/machines/chime.ogg', 10, FALSE, -1)
+		audible_message(SPAN_WARNING("[src] beeps anxiously."), SPAN_WARNING("[src] lights up red anxiously."), hearing_distance = 3)
+		if(isliving(parent.loc))
+			var/mob/living/L = parent.loc
+			balloon_alert(L, "too away!")
