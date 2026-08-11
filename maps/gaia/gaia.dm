@@ -255,7 +255,6 @@
 	#include "../../mods/_fd/fd_customs/_fd_customs.dme"
 	#include "../../mods/_fd/fd_guns/_fd_guns.dme"
 	#include "../../mods/_fd/fd_lore/_fd_lore.dme"
-	#include "../../mods/_fd/fd_species/_fd_species.dme"
 	#include "../../mods/_fd/old_space_cannons/_old_space_cannons.dme"
 	#include "../../mods/_fd/runechat/_runechat.dme"
 
