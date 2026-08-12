@@ -106,19 +106,19 @@
 
 	var/list/commanders = list()
 	if(scg_commander)
-		commanders += "SCG Commander ([scg_commander.name])"
+		commanders += "SCG Commander ([scg_commander])"
 	if(iccg_commander)
-		commanders += "ICCG Commander ([iccg_commander.name])"
+		commanders += "ICCG Commander ([iccg_commander])"
 	var/mob/living/carbon/human/choice = input("Which commander do you want to speak as? (NOTE: The message will be automatically said on the radio)", "Commander Message") as null|anything in commanders
 	if(!choice)
 		return
 
-	if(choice == "SCG Commander ([scg_commander.name])")
+	if(choice == "SCG Commander ([scg_commander])")
 		choice = scg_commander
-	else if(choice == "ICCG Commander ([iccg_commander.name])")
+	else if(choice == "ICCG Commander ([iccg_commander])")
 		choice = iccg_commander
 
-	var/msg = input("Enter the message for [choice.name]:", "Commander Message") as null|text
+	var/msg = sanitize_text(input("Enter the message for [choice]:", "Commander Message") as null|text)
 	if(!msg)
 		return
 
@@ -131,33 +131,50 @@
 	if(!will_display||will_display == "No")
 		return
 
-	var/colored = COLOR_WHITE
-	var/sound = 'sound/misc/null.ogg'
-	if(choice == scg_commander)
-		colored = COLOR_CYAN_BLUE
-		sound = 'maps/gaia/sounds/voice/radio/scg_commander_msg.ogg'
-	else if(choice == iccg_commander)
-		colored = COLOR_RED
-		sound = 'maps/gaia/sounds/voice/radio/iccg_commander_msg.ogg'
-
-	var/obj/screen/novel_message/start_credits/nofade_simple/visuals = new /obj/screen/novel_message/start_credits/nofade_simple()
-	visuals.maptext_x = -10
-	visuals.maptext_y = -40
-
-	// Finds all players of the same faction as the commander and shows them the message on their screen
-	var/list/listeners = list()
-
 	var/commander_faction = MOB_FACTION_NEUTRAL
 	if(choice == scg_commander)
 		commander_faction = MOB_FACTION_SCG
 	else if(choice == iccg_commander)
 		commander_faction = MOB_FACTION_ICCG
 
+	do_faction_message(commander_faction, msg, choice, 20 SECONDS, FALSE)
+
+// Displays a text message for people of the same faction
+/proc/do_faction_message(faction = MOB_FACTION_NEUTRAL, message = "Test", sender = "John Doe", length = 20 SECONDS, public = FALSE)
+	var/msg = sanitize_text(message)
+	var/colored = COLOR_WHITE
+	var/sound = 'sound/misc/null.ogg'
+	switch(faction)
+		if(MOB_FACTION_SCG)
+			colored = COLOR_CYAN_BLUE
+			sound = 'maps/gaia/sounds/voice/radio/scg_commander_msg.ogg'
+		if(MOB_FACTION_ICCG)
+			colored = COLOR_RED
+			sound = 'maps/gaia/sounds/voice/radio/iccg_commander_msg.ogg'
+		if(MOB_FACTION_NEUTRAL)
+			colored = COLOR_WHITE
+			sound = 'sound/items/megaphone.ogg'
+
+	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
+	visuals.maptext_x = -20
+	visuals.maptext_y = -40
+
+	// Finds all players of the same faction as the commander and shows them the message on their screen
+	var/list/listeners = list()
+
 	for(var/mob/living/PrePlayer in GLOB.living_players)
-		if(PrePlayer.mind && PrePlayer.faction == commander_faction)
-			listeners += PrePlayer
+		if(PrePlayer.mind)
+			if(PrePlayer.faction == faction || public)
+				listeners += PrePlayer
 
 	for(var/mob/living/Player in listeners)
 		Player.client.screen += visuals
 		sound_to(Player, sound(sound, volume = 30))
-	visuals.set_text("[choice]: [msg]", colored, time = 20 SECONDS)
+/*
+	for(var/i in 1 to length_char(text) + 1)
+		if(QDELETED(spawn_text) || QDELETED(src))
+			return
+		spawn_text.maptext = MAPTEXT_PIXELLARI(copytext_char(text, 1, i))
+		sleep(1)
+*/
+	visuals.set_text("[sender]:\n[msg]", colored, time = length)

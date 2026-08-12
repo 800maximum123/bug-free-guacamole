@@ -231,11 +231,12 @@
 /turf/simulated/floor/reinforced,
 /area/gaia/iccg/citadel/armory/second)
 "aX" = (
-/obj/item/device/radio/intercom/gaia_iccg{
-	dir = 4;
-	pixel_x = -24
-	},
 /obj/structure/table/standard,
+/obj/item/paper/squad,
+/obj/structure/noticeboard{
+	dir = 4;
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/gaia/iccg/citadel/armory)
 "aY" = (
@@ -396,6 +397,7 @@
 /area/gaia/iccg/barracks/officer)
 "bD" = (
 /obj/structure/table/woodentable_reinforced/mahogany,
+/obj/item/modular_computer/laptop/preset/custom_loadout/advanced,
 /obj/item/paper/squad,
 /turf/simulated/floor/carpet/red,
 /area/gaia/iccg/citadel/command/co)
@@ -3551,6 +3553,10 @@
 /area/gaia/iccg/citadel/command/briefing)
 "nF" = (
 /obj/machinery/photocopier,
+/obj/structure/noticeboard{
+	dir = 4;
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/iccg/citadel/reception)
 "nH" = (
@@ -5463,6 +5469,10 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/item/device/radio/intercom/gaia_iccg{
+	dir = 8;
+	pixel_x = 24
+	},
 /turf/simulated/floor/tiled/dark,
 /area/gaia/iccg/citadel/armory)
 "vh" = (
@@ -5815,6 +5825,10 @@
 /area/gaia/iccg/citadel/armory/second)
 "ww" = (
 /obj/machinery/papershredder,
+/obj/item/device/radio/intercom/gaia_iccg{
+	dir = 8;
+	pixel_x = 24
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/iccg/citadel/reception)
 "wz" = (
@@ -7948,6 +7962,7 @@
 /area/gaia/iccg/canteen/kitchen/freezer)
 "El" = (
 /obj/machinery/papershredder,
+/obj/machinery/light,
 /turf/simulated/floor/wood/mahogany,
 /area/gaia/iccg/citadel/command/co)
 "En" = (
@@ -9353,6 +9368,7 @@
 "JE" = (
 /obj/structure/table/woodentable_reinforced/walnut,
 /obj/item/modular_computer/laptop/preset/custom_loadout/advanced,
+/obj/item/paper/squad,
 /turf/simulated/floor/carpet/blue2,
 /area/gaia/iccg/citadel/command/xo)
 "JI" = (
@@ -11617,6 +11633,9 @@
 "Sp" = (
 /obj/machinery/suit_storage_unit/iccg/command,
 /obj/floor_decal/industrial/outline/blue,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/wood/mahogany,
 /area/gaia/iccg/citadel/command/co)
 "Sr" = (

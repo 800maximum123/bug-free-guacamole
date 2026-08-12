@@ -88,8 +88,8 @@
 /datum/shuttle/autodock/multi/iccg_stopa_shuttle
 	name = "ICCGN 'Stopa' Shuttle"
 	shuttle_area = /area/turbolift/iccg_stopa_shuttle
-	warmup_time = 4
-	move_time = 60
+	warmup_time = 6
+	move_time = 80
 //	arrive_time = 4
 	current_location = "nav_iccg_stopa_shuttle_camp"
 	landmark_transition = "nav_iccg_stopa_shuttle_transit"

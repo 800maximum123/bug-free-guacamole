@@ -66,6 +66,7 @@
 
 // ERIS_ANNOUNCER - Start
 ///Announcer audio keys
+/* - DISABLED FOR GAIA
 #define ANNOUNCER_ALIENS 'mods/eris_announcer/sound/announcements/life_signatures.ogg'
 #define ANNOUNCER_METEORS 'mods/eris_announcer/sound/announcements/meteors_1.ogg'
 #define ANNOUNCER_OUTBREAK5 'mods/eris_announcer/sound/announcements/biohazard_level_5.ogg'
@@ -82,4 +83,5 @@
 #define ANNOUNCER_BLUESPACEJUMP_INIT 'mods/eris_announcer/sound/announcements/bluespacejump_initialization.ogg'
 #define ANNOUNCER_BLUESPACEJUMP_PREP 'mods/eris_announcer/sound/announcements/bluespacejump_prepare.ogg'
 #define ANNOUNCER_BLUESPACEJUMP_START 'mods/eris_announcer/sound/announcements/bluespacejump_start.ogg'
+*/
 // ERIS_ANNOUNCER - End

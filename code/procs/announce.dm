@@ -29,7 +29,7 @@ var/global/datum/announcement/minor/minor_announcement = new(new_sound = 'sound/
 	title = "[GLOB.using_map.boss_name] Update"
 	announcement_type = "[GLOB.using_map.boss_name] Update"
 
-/datum/announcement/proc/Announce(message as text, new_title = "", new_sound = null, do_newscast = newscast, msg_sanitized = 0, zlevels = GLOB.using_map.contact_levels)
+/datum/announcement/proc/Announce(message as text, new_title = "", new_sound = null, do_newscast = newscast, msg_sanitized = 0, zlevels = GLOB.using_map.contact_levels, faction)
 	if(!message)
 		return
 	var/message_title = new_title ? new_title : title
@@ -39,15 +39,16 @@ var/global/datum/announcement/minor/minor_announcement = new(new_sound = 'sound/
 		message = sanitize(message, extra = 0)
 	message_title = sanitizeSafe(message_title)
 
-	// [SIERRA-EDIT] - ERIS_ANNOUNCER
-	// var/msg = FormMessage(message, message_title) // SIERRA-EDIT - ORIGINAL
-	var/msg = FormRadioMessage(message, message_title, length(zlevels) ? pick(zlevels) : 1)
+	// [SIERRA-EDIT] - ERIS_ANNOUNCER - DISABLED FOR GAIA
+	var/msg = FormMessage(message, message_title) // SIERRA-EDIT - ORIGINAL
+	//var/msg = FormRadioMessage(message, message_title, length(zlevels) ? pick(zlevels) : 1, channel)
 	// [/SIERRA-EDIT]
 	for(var/mob/M in GLOB.player_list)
-		if(M.client && (get_z(M) in (zlevels | GLOB.using_map.admin_levels)) && !istype(M,/mob/new_player) && !isdeaf(M))
-			to_chat(M, msg)
-			if(message_sound && M.client.get_preference_value(/datum/client_preference/play_announcement_sfx) == GLOB.PREF_YES)
-				sound_to(M, message_sound)
+		if(M.client && !istype(M,/mob/new_player) && !isdeaf(M))
+			if(!faction || M.faction == faction)
+				to_chat(M, msg)
+				if(message_sound && M.client.get_preference_value(/datum/client_preference/play_announcement_sfx) == GLOB.PREF_YES)
+					sound_to(M, message_sound)
 
 	if(do_newscast)
 		NewsCast(message, zlevels)

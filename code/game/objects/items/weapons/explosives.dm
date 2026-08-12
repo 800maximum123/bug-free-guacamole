@@ -15,7 +15,7 @@
 	var/image_overlay = null
 
 	var/power = 300
-	var/falloff = 50
+	var/falloff = 200
 	var/shaped = FALSE
 
 /obj/item/plastique/New()
@@ -128,5 +128,5 @@
 	gender = NEUTER
 	icon_state = "plasticx4"
 
-	power = 400
+	falloff = 100
 	shaped = TRUE

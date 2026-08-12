@@ -69,15 +69,20 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 	icon = 'maps/torch_doh/cutscenes/icons/fullscreen.dmi'
 	icon_state = "cinematic_borders"
 	allstate = 1
+	alpha = 0
 	plane = HUD_PLANE
 	layer = HUD_ABOVE_HUD_LAYER
 
 	scale_to_view = TRUE
 
-/*/obj/screen/fullscreen/fd/cinema_borders/Initialize()
-	. = ..()
-	animate(src, 3 SECOND, alpha = 255)*/
+/obj/screen/fullscreen/fd/cinema_borders/proc/set_up(time = 5 SECONDS)
+	var/countdown = time + 6 SECONDS
+	animate(src, 3 SECOND, alpha = 255)
 
+	spawn(time)
+		animate(src, 3 SECOND, alpha = 0)
+
+	QDEL_IN(src, countdown)
 
 /obj/screen/novel_message/start_credits
 	layer = 5.2
@@ -86,7 +91,8 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 	var/countdown = time + 6 SECONDS
 
 	animate(src, 3 SECOND, alpha = 255)
-	maptext = STYLE_FDFONT_OUTLINE("[text]", 7, text_color, COLOR_WHITE)
+	//maptext = STYLE_FDFONT_OUTLINE("[text]", 7, text_color, COLOR_BLACK)
+	maptext = "<span class='maptext' style='text-align: center; font-size: 300%; color: [text_color]'>[text]</span>"
 
 	spawn(time)
 		animate(src, 3 SECOND, alpha = 0)
@@ -95,8 +101,10 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 
 /obj/screen/novel_message/start_credits/nofade
 	alpha = 255
+
 /obj/screen/novel_message/start_credits/nofade/set_text(text, text_color, time = 5 SECONDS)
-	maptext = STYLE_FDFONT_OUTLINE("[text]", 7, text_color, COLOR_WHITE)
+	//maptext = STYLE_FDFONT_OUTLINE("[text]", 7, text_color, COLOR_BLACK)
+	maptext = "<span class='maptext' style='text-align: center; font-size: 300%; color: [text_color]'>[text]</span>"
 
 	spawn(time)
 		alpha = 0
@@ -116,7 +124,7 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 	var/countdown = time + 6 SECONDS
 
 	animate(src, 3 SECOND, alpha = 255)
-	maptext = STYLE_FDFONT_OUTLINE("[text]", 7, text_color, COLOR_WHITE)
+	maptext = STYLE_FDFONT_OUTLINE("[text]", 7, text_color, COLOR_BLACK)
 
 	spawn(time)
 		animate(src, 3 SECOND, alpha = 0)
@@ -129,7 +137,7 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 /obj/screen/novel_message/start_credits/big_nofade/set_text(text, text_color, time = 5 SECONDS)
 	SetTransform(2)
 
-	maptext = STYLE_FDFONT_OUTLINE("[text]", 7, text_color, COLOR_WHITE)
+	maptext = STYLE_FDFONT_OUTLINE("[text]", 7, text_color, COLOR_BLACK)
 
 	spawn(time)
 		alpha = 0
@@ -143,7 +151,7 @@ GLOBAL_VAR_INIT(stop_the_siren, FALSE)
 	SetTransform(3)
 
 	animate(src, 0.2 SECOND, alpha = 255)
-	maptext = STYLE_SMALLFONTS_OUTLINE("<center>[text]</center>", 7, text_color, COLOR_WHITE)
+	maptext = STYLE_SMALLFONTS_OUTLINE("<center>[text]</center>", 7, text_color, COLOR_BLACK)
 	spawn(0.2 SECOND)
 		animate(src, 0.2 SECOND, alpha = 0)
 	spawn(0.4 SECOND)

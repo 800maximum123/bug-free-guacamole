@@ -142,12 +142,19 @@
 					to_chat(usr, "Please allow at least one minute to pass between announcements")
 					return
 				var/input = sanitize(input(usr, "Please write a message to announce to the [station_name()].", "Priority Announcement") as null|message, extra = FALSE)
+				var/faction_msg = alert(usr, "To who display the message?", "Priority Announcement", "Everyone", "My Faction")
 				if(!input || !can_still_topic())
 					return
+				var/faction = user.faction
 				var/affected_zlevels = GetConnectedZlevels(get_host_z())
-				crew_announcement.Announce(input, msg_sanitized = TRUE, zlevels = affected_zlevels)
+				if(faction_msg == "My Faction")
+					do_faction_message(faction, input, user, public = FALSE)
+					crew_announcement.Announce(input, msg_sanitized = TRUE, zlevels = affected_zlevels, faction = faction)
+				else if(faction_msg == "Everyone")
+					do_faction_message(faction, input, user, public = TRUE)
+					crew_announcement.Announce(input, msg_sanitized = TRUE, zlevels = affected_zlevels)
 				announcment_cooldown = 1
-				spawn(600)//One minute cooldown
+				spawn(1 MINUTE)//One minute cooldown
 					announcment_cooldown = 0
 		if("message")
 			. = TOPIC_HANDLED
