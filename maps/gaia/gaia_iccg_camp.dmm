@@ -3472,6 +3472,10 @@
 /area/gaia/iccg/security)
 "nl" = (
 /obj/structure/closet/secure_closet/gaia/iccg_xo,
+/obj/structure/noticeboard{
+	dir = 4;
+	pixel_x = -32
+	},
 /turf/simulated/floor/wood/walnut,
 /area/gaia/iccg/citadel/command/xo)
 "nm" = (
@@ -9743,6 +9747,10 @@
 /area/gaia/iccg/citadel/command/co/quarters)
 "Lj" = (
 /obj/machinery/photocopier,
+/obj/structure/noticeboard{
+	dir = 4;
+	pixel_x = -32
+	},
 /turf/simulated/floor/wood/mahogany,
 /area/gaia/iccg/citadel/command/co)
 "Lk" = (
@@ -9912,6 +9920,16 @@
 /obj/machinery/door/blast/shutters/open,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/gaia/iccg/outskirts/enterance)
+"LR" = (
+/obj/floor_decal/step{
+	dir = 1
+	},
+/obj/structure/noticeboard{
+	dir = 4;
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/gaia/iccg/citadel/command)
 "LS" = (
 /obj/structure/platform/kutjevo{
 	dir = 4
@@ -46540,7 +46558,7 @@ UD
 Ko
 wB
 TJ
-gk
+LR
 pJ
 MM
 MI

@@ -23,3 +23,12 @@
 /datum/codex_entry/cultblade
 	associated_paths = list(/obj/item/melee/cultblade)
 	antag_text = "This sword is a powerful weapon, capable of severing limbs easily, if they are targeted. Nonbelivers are unable to use this weapon."
+
+/datum/codex_entry/mine
+	associated_paths = list(/obj/structure/mine, /obj/item/device/mine)
+	lore_text = "Landmines are still very prelevant around space. Cheap and dangerous they are used to deteer people and vehicles from certain areas. There is no current regulations around the use of mines by humans."
+	mechanics_text = "Mines are extremely deadly and explode when you cross them.<br/>\
+	You can avoid a mine by walking around or jumping over it.<br/>\
+	Projectiles, EMP, and other explosions can also trigger the mines.<br/>\
+	You can defuse the mine with a Screwdriver.<br/>\
+	The chances of succseful defuse depends on the mine type, Complex Devices skill, and whenever you're proned."

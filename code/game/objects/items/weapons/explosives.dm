@@ -69,7 +69,7 @@
 	user.do_attack_animation(clicked)
 	playsound(clicked, 'sound/machines/lockenable.ogg', 20, FALSE)
 
-	if(do_after(user, plant_time, clicked, DO_DEFAULT | DO_USER_UNIQUE_ACT | DO_PUBLIC_PROGRESS) && in_range(user, clicked))
+	if(do_after(user, plant_time, clicked, DO_PUBLIC_UNIQUE) && in_range(user, clicked))
 		if(!user.unequip_item())
 			FEEDBACK_UNEQUIP_FAILURE(user, src)
 			return TRUE
