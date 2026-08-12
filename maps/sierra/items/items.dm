@@ -64,7 +64,8 @@ sierra specific items
 
 /obj/item/storage/backpack/dufflebag/syndie_kit/plastique
 	startswith = list(
-		/obj/item/plastique = 6
+		/obj/item/plastique = 6,
+		/obj/item/plastique/breaching = 2,
 		)
 
 /***********

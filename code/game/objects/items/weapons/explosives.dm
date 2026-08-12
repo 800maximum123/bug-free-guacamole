@@ -12,7 +12,6 @@
 	var/timer = 10
 	var/atom/target = null
 	var/open_panel = 0
-	var/image_overlay = null
 
 	var/power = 300
 	var/falloff = 200
@@ -20,13 +19,16 @@
 
 /obj/item/plastique/New()
 	wires = new(src)
-	image_overlay = image('icons/obj/weapons/grenade.dmi', "[icon_state]2")
-	..()
+	return ..()
 
 /obj/item/plastique/Destroy()
 	qdel(wires)
 	wires = null
 	return ..()
+
+/obj/item/plastique/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	to_chat(user, SPAN_INFO("Its timer is set to [timer]"))
 
 /obj/item/plastique/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if(isScrewdriver(I))
@@ -50,7 +52,7 @@
 		timer = newtime
 		to_chat(user, "Timer set for [timer] seconds.")
 
-/obj/item/plastique/use_after(atom/clicked, mob/living/user, click_parameters)
+/obj/item/plastique/use_before(atom/clicked, mob/living/user, click_parameters)
 	if(user.a_intent != I_HURT)
 		return
 	if(clicked in user)
@@ -65,14 +67,16 @@
 
 	user.balloon_alert_to_viewers("planting...")
 	user.do_attack_animation(clicked)
-	playsound(clicked, 'sound/machines/lockenable.ogg', 60, FALSE)
+	playsound(clicked, 'sound/machines/lockenable.ogg', 20, FALSE)
 
 	if(do_after(user, plant_time, clicked, DO_DEFAULT | DO_USER_UNIQUE_ACT | DO_PUBLIC_PROGRESS) && in_range(user, clicked))
 		if(!user.unequip_item())
 			FEEDBACK_UNEQUIP_FAILURE(user, src)
 			return TRUE
 		target = clicked
-		forceMove(null)
+		anchored = TRUE
+		layer = ABOVE_HUMAN_LAYER
+		forceMove(get_turf(clicked))
 
 		if (ismob(target))
 			admin_attack_log(user, target, "Planted \a [src] with a [timer] second fuse.", "Had \a [src] with a [timer] second fuse planted on them.", "planted \a [src] with a [timer] second fuse on")
@@ -82,7 +86,7 @@
 			log_and_message_admins("planted \a [src] with a [timer] second fuse on \the [target].")
 
 		dir = get_dir(user, target)
-		target.AddOverlays(image_overlay)
+		set_icon_state("[icon_state]2")
 		to_chat(user, "Bomb has been planted. Timer counting down from [timer].")
 		playsound(target.loc, 'sound/effects/bomb.ogg', 30, FALSE)
 		run_timer()
@@ -93,8 +97,6 @@
 		target = get_atom_on_turf(src)
 	if(!target)
 		target = src
-	if(target)
-		target.CutOverlays(image_overlay)
 	if(target)
 		if(istype(target, /turf/simulated/wall))
 			var/turf/simulated/wall/W = target
@@ -128,5 +130,5 @@
 	gender = NEUTER
 	icon_state = "plasticx4"
 
-	falloff = 100
+	falloff = 50
 	shaped = TRUE
