@@ -8,7 +8,7 @@
 */
 
 // TAJARA - Start
-#define SPECIES_TAJARA			"Tajara"
+#define SPECIES_TAJARA			"Assashite"
 #define LANGUAGE_SIIK_MAAS		"Siik'maas"
 #define LANGUAGE_SIIK_TAJR		"Siik'tajr"
 // TAJARA - End
