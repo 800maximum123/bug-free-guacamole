@@ -480,10 +480,11 @@
 	if(ispath(impact_type))
 		var/obj/projectile/P = new impact_type(location ? location.loc : get_turf(src))
 
-		if(istype(P) && location)
-			P.SetTransform(others = effect_transform)
-			P.pixel_x = round(location.pixel_x, 1)
-			P.pixel_y = round(location.pixel_y, 1)
+		if(istype(P))
+			if(location)
+				P.SetTransform(others = effect_transform)
+				P.pixel_x = round(location.pixel_x, 1)
+				P.pixel_y = round(location.pixel_y, 1)
 			if(!hitscan)
 				QDEL_IN(P,1)
 			else
