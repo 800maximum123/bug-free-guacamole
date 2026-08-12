@@ -156,7 +156,7 @@
 			sound = 'sound/items/megaphone.ogg'
 
 	var/obj/screen/novel_message/start_credits/visuals = new /obj/screen/novel_message/start_credits()
-	visuals.maptext_x = -20
+	visuals.maptext_x = -15
 	visuals.maptext_y = -40
 
 	// Finds all players of the same faction as the commander and shows them the message on their screen
