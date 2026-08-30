@@ -1,7 +1,7 @@
 <div align="center">
 
 # SierraBay12
- [![CodeQL](https://github.com/SierraBay/SierraBay12/workflows/CodeQL/badge.svg)](https://github.com/SierraBay/SierraBay12/actions/workflows/codeql-analysis.yml) [![CI Status](https://github.com/SierraBay/SierraBay12/workflows/Run%20Tests/badge.svg)](https://github.com/SierraBay/SierraBay12/actions/workflows/test.yml) [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3.0-blue.svg)](https://opensource.org/licenses/AGPL-3.0)
+ [![CodeQL](https://github.com/800maximum123/bug-free-guacamole/workflows/CodeQL/badge.svg)](https://github.com/SierraBay/SierraBay12/actions/workflows/codeql-analysis.yml) [![CI Status](https://github.com/800maximum123/bug-free-guacamole/workflows/Run%20Tests/badge.svg)](https://github.com/SierraBay/SierraBay12/actions/workflows/test.yml) [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3.0-blue.svg)](https://opensource.org/licenses/AGPL-3.0)
 
 </div>
 
